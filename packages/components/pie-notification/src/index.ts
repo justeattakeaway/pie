@@ -6,9 +6,20 @@ import {
     type PropertyValues,
 } from 'lit';
 import { type StaticValue, html, unsafeStatic } from 'lit/static-html.js';
-import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { defineCustomElement, validPropertyValues, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
 import { property, queryAssignedElements, state } from 'lit/decorators.js';
-import { type NotificationProps, variants, headingLevels } from './defs';
+import {
+    type NotificationProps,
+    type ActionProps,
+    variants,
+    headingLevels,
+    componentSelector,
+    componentClass,
+    ON_NOTIFICATION_CLOSE_EVENT,
+    ON_NOTIFICATION_OPEN_EVENT,
+    ON_NOTIFICATION_LEADING_ACTION_CLICK_EVENT,
+    ON_NOTIFICATION_SUPPORTING_ACTION_CLICK_EVENT,
+} from './defs';
 import styles from './notification.scss?inline';
 
 import '@justeattakeaway/pie-icon-button';
@@ -17,15 +28,17 @@ import '@justeattakeaway/pie-icons-webc/IconInfoCircle';
 import '@justeattakeaway/pie-icons-webc/IconAlertCircle';
 import '@justeattakeaway/pie-icons-webc/IconAlertTriangle';
 import '@justeattakeaway/pie-icons-webc/IconCheckCircle';
+import '@justeattakeaway/pie-button';
 
 // Valid values available to consumers
 export * from './defs';
 
-const componentSelector = 'pie-notification';
-const componentClass = 'c-notification';
-
 /**
  * @tagname pie-notification
+ * @event {CustomEvent} pie-notification-leading-action-click -  When the notification leading action is clicked.
+ * @event {CustomEvent} pie-notification-supporting-action-click - When the notification supporting action is clicked.
+ * @event {CustomEvent} pie-notification-close - When the notification is closed.
+ * @event {CustomEvent} pie-notification-open - When the notification is opened.
  */
 export class PieNotification extends LitElement implements NotificationProps {
     @property({ type: Boolean })
@@ -34,6 +47,9 @@ export class PieNotification extends LitElement implements NotificationProps {
     @property()
     @validPropertyValues(componentSelector, variants, 'neutral')
     public variant: NonNullable<NotificationProps['variant']> = 'neutral';
+
+    @property({ type: Boolean })
+    public isDismissible = true;
 
     @property({ type: Boolean })
     public isCompact = false;
@@ -51,6 +67,15 @@ export class PieNotification extends LitElement implements NotificationProps {
     @property({ type: Boolean })
     public hideCloseIcon = false;
 
+    @property({ type: Object })
+    public leadingAction!: NotificationProps['leadingAction'];
+
+    @property({ type: Object })
+    public supportingAction!: NotificationProps['supportingAction'];
+
+    @property({ type: Boolean })
+    public hasStackedActions = false;
+
     @queryAssignedElements({ slot: 'icon' }) _iconSlot!: Array<HTMLElement>;
 
     @state()
@@ -58,6 +83,9 @@ export class PieNotification extends LitElement implements NotificationProps {
 
     @state()
     protected _hasIconClass = false;
+
+    @state()
+    protected _hasContentGutter = false;
 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
@@ -80,6 +108,21 @@ export class PieNotification extends LitElement implements NotificationProps {
     }
 
     /**
+     * Lifecycle method executed when component is updated.
+     * It dispatches an event if notification is opened.
+     * It applies a gutter if there's no heading content in order to avoid the close button overlap the content.
+     */
+    protected updated (_changedProperties: PropertyValues<this>): void {
+        if (_changedProperties.has('isOpen') && this.isOpen) {
+            dispatchCustomEvent(this, ON_NOTIFICATION_OPEN_EVENT, { targetNotification: this });
+        }
+
+        if (_changedProperties.has('heading') || _changedProperties.has('isDismissible') || _changedProperties.has('isCompact')) {
+            this._hasContentGutter = (this.heading === '' || this.heading === undefined) && (this.isDismissible && !this.isCompact);
+        }
+    }
+
+    /**
      * Method responsible to check if an external icon has been provided.
      * It reads from icon slot if there is an external icon as well check if variant has default icon.
      *
@@ -96,9 +139,12 @@ export class PieNotification extends LitElement implements NotificationProps {
      *
      * @private
      */
-    private renderFooter () {
+    private renderFooter (leadingAction: ActionProps, supportingAction?: ActionProps) {
         return html`
-            <footer class="${componentClass}-footer"></footer>
+            <footer class="${componentClass}-footer" data-test-id="${componentSelector}-footer" ?isCompact="${this.isCompact}" ?isStacked="${this.hasStackedActions && !this.isCompact}">
+                ${supportingAction ? this.renderActionButton(supportingAction, 'supporting') : nothing}
+                ${leadingAction ? this.renderActionButton(leadingAction, 'leading') : nothing}
+            </footer>
         `;
     }
 
@@ -202,9 +248,76 @@ export class PieNotification extends LitElement implements NotificationProps {
                 size="small"
                 class="${componentClass}-icon-close"
                 data-test-id="${componentSelector}-icon-close"
+                @click="${this.handleCloseButton}"
                 >
                 <icon-close></icon-close>
             </pie-icon-button>`;
+    }
+
+    /**
+     * It handles the action when user clicks in the close button.
+     * Also triggers an event when is executed.
+     *
+     * @private
+     */
+    private handleCloseButton () {
+        this.closeNotificationComponent();
+        dispatchCustomEvent(this, ON_NOTIFICATION_CLOSE_EVENT, { targetNotification: this });
+    }
+
+    /**
+     * Util method responsible to close the component.
+     *
+     * @private
+     */
+    private closeNotificationComponent () {
+        this.isOpen = false;
+    }
+
+    /**
+     * It handle the action button action.
+     * Also triggers an event according to its `actionType`.
+     *
+     * @param {'leading' | 'supporting'} actionType
+     *
+     * @private
+     */
+    private handleActionClick (actionType: 'leading' | 'supporting') {
+        const EVENT = actionType === 'leading' ? ON_NOTIFICATION_LEADING_ACTION_CLICK_EVENT : ON_NOTIFICATION_SUPPORTING_ACTION_CLICK_EVENT;
+
+        dispatchCustomEvent(this, EVENT, { targetNotification: this });
+    }
+
+    /**
+     * Render the action button depending on action type and its action.
+     *
+     * @param {ActionProps} action - The action properties.
+     * @param {'leading' | 'supporting'} actionType - The type of the action.
+     *
+     * @returns {TemplateResult | typeof nothing} - The rendered action button or nothing if the action text is not defined.
+     * @private
+     */
+    private renderActionButton (action: ActionProps, actionType: 'leading' | 'supporting') : TemplateResult | typeof nothing {
+        const { text, ariaLabel } = action;
+
+        if (!text) {
+            return nothing;
+        }
+
+        const buttonVariant = actionType === 'leading' ? 'primary' : 'ghost';
+
+        return html`
+            <pie-button
+                variant="${buttonVariant}"
+                size="small-productive"
+                aria-label="${ariaLabel || nothing}"
+                @click="${() => this.handleActionClick(actionType)}"
+                data-test-id="${componentSelector}-${actionType}-action"
+                ?isFullWidth="${this.hasStackedActions}"
+                type="button">
+                ${text}
+            </pie-button>
+        `;
     }
 
     render () {
@@ -212,25 +325,34 @@ export class PieNotification extends LitElement implements NotificationProps {
             variant,
             heading,
             headingLevel,
+            isDismissible,
             isCompact,
             _hasExternalIcon,
             hideIcon,
             _hasIconClass,
+            leadingAction,
+            supportingAction,
+            isOpen,
+            _hasContentGutter,
         } = this;
 
+        if (!isOpen) {
+            return nothing;
+        }
+
         return html`
-            <div data-test-id="${componentSelector}" class="${componentClass}" variant="${variant}" is-compact="${isCompact}">
-                ${!isCompact ? this.renderCloseButton() : nothing}
+            <div data-test-id="${componentSelector}" class="${componentClass}" variant="${variant}" ?isCompact="${isCompact}">
+                ${isDismissible && !isCompact ? this.renderCloseButton() : nothing}
 
                 <section class="${componentClass}-content-section">
                     ${!hideIcon ? this.renderIcon(variant, _hasExternalIcon, _hasIconClass) : nothing}    
-                    <article>
+                    <article ?hasGutter="${_hasContentGutter}">
                         ${heading ? this.renderNotificationHeading(heading, unsafeStatic(headingLevel)) : nothing}
                         <slot></slot>
                     </article>
                 </section>
                 
-                ${this.renderFooter()}
+                ${leadingAction ? this.renderFooter(leadingAction, supportingAction) : nothing}
             </div>`;
     }
 }

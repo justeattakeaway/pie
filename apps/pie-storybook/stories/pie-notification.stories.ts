@@ -1,7 +1,7 @@
 import { html } from 'lit';
-
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-notification';
+import { action } from '@storybook/addon-actions';
 import { NotificationProps as NotificationBaseProps, variants, headingLevels } from '@justeattakeaway/pie-notification';
 /* eslint-enable import/no-duplicates */
 
@@ -16,11 +16,21 @@ type NotificationStoryMeta = StoryMeta<NotificationProps>;
 const defaultArgs: NotificationProps = {
     isOpen: true,
     variant: 'neutral',
+    isDismissible: true,
     isCompact: false,
-    slot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna. Cras fringilla sed ipsum nec dignissim. Aliquam sit amet ullamcorper ligula.',
+    slot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna.',
     heading: 'Title',
     headingLevel: 'h2',
     hideIcon: false,
+    leadingAction: {
+        text: 'Confirm',
+        ariaLabel: 'Descriptive confirmation text',
+    },
+    supportingAction: {
+        text: 'Cancel',
+        ariaLabel: 'Descriptive cancellation text',
+    },
+    hasStackedActions: false,
 };
 
 const notificationStoryMeta: NotificationStoryMeta = {
@@ -42,8 +52,15 @@ const notificationStoryMeta: NotificationStoryMeta = {
                 summary: 'neutral',
             },
         },
+        isDismissible: {
+            description: 'Allows dismissing the notification by clicking on the close button.',
+            control: 'boolean',
+            defaultValue: {
+                summary: true,
+            },
+        },
         isCompact: {
-            description: 'When true, the footer aligns to the header and icons which makes the component compact.',
+            description: 'When true, the footer aligns to the header and icons which makes the component compact and the Close button is not shown.',
             control: 'boolean',
             defaultValue: {
                 summary: false,
@@ -68,6 +85,21 @@ const notificationStoryMeta: NotificationStoryMeta = {
                 summary: false,
             },
         },
+        leadingAction: {
+            description: 'The leading action configuration for the notification.',
+            control: 'object',
+        },
+        supportingAction: {
+            description: 'The supporting action configuration for the notification. Appears only if `leadingAction` is provided.',
+            control: 'object',
+        },
+        hasStackedActions: {
+            description: 'When true, the notification will stack the action buttons on narrow screens.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
         slot: {
             description: 'Content to place within the notification.',
             control: 'text',
@@ -84,22 +116,39 @@ const notificationStoryMeta: NotificationStoryMeta = {
 
 export default notificationStoryMeta;
 
+const pieNotificationLeadingActionClick = action('pie-notification-leading-action-click');
+const pieNotificationSupportingActionClick = action('pie-notification-supporting-action-click');
+const pieNotificationClose = action('pie-notification-close');
+const pieNotificationOpen = action('pie-notification-open');
+
 const Template : TemplateFunction<NotificationProps> = ({
     isOpen,
+    isDismissible,
     isCompact,
     variant,
     heading,
     headingLevel,
     hideIcon,
+    leadingAction,
+    supportingAction,
+    hasStackedActions,
     slot,
 }) => html`
     <pie-notification
         ?isOpen="${isOpen}"
         variant="${variant}"
         ?isCompact="${isCompact}"
+        ?isDismissible="${isDismissible}"
         heading="${heading}"
         headingLevel="${headingLevel}"
         ?hideIcon="${hideIcon}"
+        .leadingAction="${leadingAction}"
+        .supportingAction="${supportingAction}"
+        ?hasStackedActions="${hasStackedActions}"
+        @pie-notification-leading-action-click="${pieNotificationLeadingActionClick}"
+        @pie-notification-supporting-action-click="${pieNotificationSupportingActionClick}"
+        @pie-notification-close="${pieNotificationClose}"
+        @pie-notification-open="${pieNotificationOpen}"
         >
         <icon-alert-circle-filled slot="icon" size="s"></icon-alert-circle-filled>
         ${slot}
