@@ -5,66 +5,119 @@ import {
 } from './selectors.ts';
 
 export class PieModalPage extends BasePage {
-    readonly page: Page;
-    readonly componentLocator: Locator;
-    readonly backButtonLocator: Locator;
-    readonly closeButtonLocator: Locator;
-    readonly headerLocator: Locator;
-    readonly contentLocator: Locator;
-    readonly descriptionLocator: Locator;
+    private readonly componentLocator: Locator;
+    private readonly backButtonLocator: Locator;
+    private readonly closeButtonLocator: Locator;
+    private readonly headerLocator: Locator;
+    private readonly descriptionLocator: Locator;
 
     constructor (page: Page) {
         super(page);
-        this.page = page;
         this.componentLocator = page.getByTestId(modal.selectors.container.dataTestId);
         this.backButtonLocator = page.getByTestId(modal.selectors.backButton.dataTestId);
         this.closeButtonLocator = page.getByTestId(modal.selectors.closeButton.dataTestId);
         this.headerLocator = page.getByTestId(modal.selectors.header.dataTestId);
-        this.contentLocator = page.getByTestId(modal.selectors.content.dataTestId);
         this.descriptionLocator = page.getByTestId(modal.selectors.description.dataTestId);
     }
 
-    async isModalVisible () {
+    /**
+     * Checks whether the modal is currently visible.
+     *
+     * @returns {Promise<boolean>} A Promise that resolves to `true` if the modal is visible, and `false` otherwise.
+     */
+    async isModalVisible (): Promise<boolean> {
         return this.componentLocator.isVisible();
     }
 
-    async getModalAriaLabel () {
+    /**
+     * Retrieves the ARIA label of the modal.
+     *
+     * @returns {Promise<string | null>} A Promise that resolves to the ARIA label of the modal, or `null` if the ARIA label attribute is not found.
+     */
+    async getModalAriaLabel (): Promise<string | null> {
         return this.componentLocator.getAttribute('aria-label');
     }
 
-    async getModalAriaBusy () {
+    /**
+     * Retrieves the value of the ARIA busy attribute of the modal.
+     *
+     * @returns {Promise<string | null>} A Promise that resolves to the value of the ARIA busy attribute of the modal,
+     *                                   or `null` if the attribute is not found.
+     */
+    async getModalAriaBusy (): Promise<string | null> {
         return this.componentLocator.getAttribute('aria-busy');
     }
 
-    async clickCloseModal () {
+    /**
+     * Clicks the close button of the modal.
+     *
+     * @returns {Promise<void>} A Promise that resolves once the close button of the modal has been successfully clicked.
+     */
+    async clickCloseModal (): Promise<void> {
         await this.closeButtonLocator.click();
     }
 
-    async isCloseButtonVisible () {
+    /**
+     * Checks whether the close button of the modal is currently visible.
+     *
+     * @returns {Promise<boolean>} A Promise that resolves to `true` if the close button of the modal is visible, and `false` otherwise.
+     */
+    async isCloseButtonVisible (): Promise<boolean> {
         return this.closeButtonLocator.isVisible();
     }
 
-    async getCloseButtonAriaLabel () {
+    /**
+     * Retrieves the ARIA label of the close button of the modal.
+     *
+     * @returns {Promise<string | null>} A Promise that resolves to the ARIA label of the close button of the modal, or `null` if the ARIA label attribute is not found.
+     */
+    async getCloseButtonAriaLabel (): Promise<string | null> {
         return this.closeButtonLocator.getAttribute('aria-label');
     }
 
-    async clickBackModal () {
+    /**
+     * Clicks the back button of the modal.
+     *
+     * @returns {Promise<void>} A Promise that resolves once the back button of the modal has been successfully clicked.
+     */
+    async clickBackModal (): Promise<void> {
         await this.backButtonLocator.click();
     }
 
-    async isBackButtonVisible () {
+    /**
+     * Checks whether the back button of the modal is currently visible.
+     *
+     * @returns {Promise<boolean>} A Promise that resolves to `true` if the back button of the modal is visible, and `false` otherwise.
+     */
+    async isBackButtonVisible (): Promise<boolean> {
         return this.backButtonLocator.isVisible();
     }
 
-    async getBackButtonAriaLabel () {
+    /**
+     * Retrieves the ARIA label of the back button of the modal.
+     *
+     * @returns {Promise<string | null>} A Promise that resolves to the ARIA label of the back button of the modal, or `null` if the ARIA label attribute is not found.
+     */
+    async getBackButtonAriaLabel (): Promise<string | null> {
         return this.backButtonLocator.getAttribute('aria-label');
     }
 
-    async headingByTagExists (expectedHeadingType: string) {
+    /**
+     * Checks if a heading with the specified tag exists.
+     *
+     * @param {string} expectedHeadingType The HTML tag of the heading to check for (e.g., 'h1', 'h2', etc.).
+     * @returns {Promise<boolean>} A Promise that resolves to `true` if a heading with the specified tag exists, and `false` otherwise.
+     */
+    async headingByTagExists (expectedHeadingType: string): Promise<boolean> {
         return this.headerLocator.locator(expectedHeadingType).isVisible();
     }
 
-    async clickBackdrop () {
+    /**
+     * Clicks on the backdrop of the modal.
+     *
+     * @returns {Promise<void>} A Promise that resolves once the backdrop of the modal has been successfully clicked.
+     */
+    async clickBackdrop (): Promise<void> {
         await this.componentLocator.click({ position: { x: -10, y: -10 } });
     }
 

@@ -35,7 +35,7 @@ test.describe('modal', () => {
         const modal = await modalPage.isModalVisible();
 
         // Assert
-        expect(modal).toBeTruthy();
+        expect(modal).toBe(true);
     });
 
     headingLevels.forEach((headingLevel) => test(`should render the correct heading tag based on the value of headingLevel: ${headingLevel}`, async ({ mount }) => {
@@ -54,7 +54,7 @@ test.describe('modal', () => {
         const headingExists = await modalPage.headingByTagExists(headingLevel);
 
         // Assert
-        expect(headingExists).toBeTruthy();
+        expect(headingExists).toBe(true);
     }));
 
     ['span', 'section'].forEach((headingLevel) => test(`should render the fallback heading level 'h2' if invalid headingLevel: ${headingLevel} is passed`, async ({ mount }) => {
@@ -75,7 +75,7 @@ test.describe('modal', () => {
         const fallBackHeadingExists = await modalPage.headingByTagExists('h2');
 
         // Assert
-        expect(fallBackHeadingExists).toBeTruthy();
+        expect(fallBackHeadingExists).toBe(true);
     }));
 
     test.describe('When modal is closed', () => {
@@ -117,7 +117,7 @@ test.describe('modal', () => {
                 await modalPage.clickCloseModal();
 
                 // Assert
-                expect(await modalPage.isModalVisible()).toBeFalsy();
+                expect(await modalPage.isModalVisible()).toBe(false);
             });
         });
 
@@ -180,7 +180,7 @@ test.describe('modal', () => {
                 await modalPage.clickBackdrop();
 
                 // Assert
-                expect(await modalPage.isModalVisible()).toBeFalsy();
+                expect(await modalPage.isModalVisible()).toBe(false);
             });
         });
 
@@ -320,7 +320,7 @@ test.describe('modal', () => {
                 );
 
                 // Assert
-                expect(await modalPage.isCloseButtonVisible()).toBeTruthy();
+                expect(await modalPage.isCloseButtonVisible()).toBe(true);
             });
 
             test('should close the modal when the close button is clicked', async ({ mount }) => {
@@ -339,7 +339,7 @@ test.describe('modal', () => {
                 await modalPage.clickCloseModal();
 
                 // Assert
-                expect(await modalPage.isModalVisible()).toBeFalsy();
+                expect(await modalPage.isModalVisible()).toBe(false);
             });
 
             test('should close the modal when the backdrop is clicked', async ({ mount }) => {
@@ -358,7 +358,7 @@ test.describe('modal', () => {
                 await modalPage.clickBackdrop();
 
                 // Assert
-                expect(await modalPage.isModalVisible()).toBeFalsy();
+                expect(await modalPage.isModalVisible()).toBe(false);
             });
 
             test('should close the modal when the Escape key is pressed', async ({ mount, page }) => {
@@ -376,7 +376,7 @@ test.describe('modal', () => {
                 await page.keyboard.press('Escape');
 
                 // Assert
-                expect(await modalPage.isModalVisible()).toBeFalsy();
+                expect(await modalPage.isModalVisible()).toBe(false);
             });
         });
 
@@ -391,7 +391,7 @@ test.describe('modal', () => {
                 });
 
                 // Assert
-                expect(await modalPage.isCloseButtonVisible()).toBeFalsy();
+                expect(await modalPage.isCloseButtonVisible()).toBe(false);
             });
 
             test('should NOT close the modal when the backdrop is clicked', async ({ mount }) => {
@@ -410,7 +410,7 @@ test.describe('modal', () => {
                 await modalPage.clickBackdrop();
 
                 // Assert
-                expect(await modalPage.isModalVisible()).toBeTruthy();
+                expect(await modalPage.isModalVisible()).toBe(true);
             });
 
             test('should NOT close the modal when the Escape key is pressed', async ({ mount, page }) => {
@@ -426,7 +426,7 @@ test.describe('modal', () => {
                 await page.keyboard.press('Escape');
 
                 // Assert
-                expect(await modalPage.isModalVisible()).toBeTruthy();
+                expect(await modalPage.isModalVisible()).toBe(true);
             });
         });
     });
@@ -441,7 +441,7 @@ test.describe('modal', () => {
             });
 
             // Assert
-            expect(await modalPage.isModalVisible()).toBeFalsy();
+            expect(await modalPage.isModalVisible()).toBe(false);
         });
 
         test('should render open when isOpen = true', async ({ mount }) => {
@@ -453,7 +453,7 @@ test.describe('modal', () => {
             });
 
             // Assert
-            expect(await modalPage.isModalVisible()).toBeTruthy();
+            expect(await modalPage.isModalVisible()).toBe(true);
         });
     });
 
@@ -536,7 +536,7 @@ test.describe('modal', () => {
                 await modalPage.isModalVisible();
 
                 // Act & Assert
-                expect(await modalPage.isBackButtonVisible()).toBeTruthy();
+                expect(await modalPage.isBackButtonVisible()).toBe(true);
             });
 
             test('should close the modal when the back button is clicked', async ({ mount }) => {
@@ -555,7 +555,7 @@ test.describe('modal', () => {
                 await modalPage.clickBackModal();
 
                 // Assert
-                expect(await modalPage.isModalVisible()).toBeFalsy();
+                expect(await modalPage.isModalVisible()).toBe(false);
             });
         });
 
@@ -573,7 +573,7 @@ test.describe('modal', () => {
                 );
 
                 // Act & Assert
-                expect(await modalPage.isBackButtonVisible()).toBeFalsy();
+                expect(await modalPage.isBackButtonVisible()).toBe(false);
             });
         });
     });
@@ -606,7 +606,7 @@ test.describe('modal', () => {
                     await modalPage.clickButtonWithText(action.buttonText);
 
                     // Assert
-                    expect(await modalPage.isModalVisible()).toBeFalsy();
+                    expect(await modalPage.isModalVisible()).toBe(false);
                 });
 
                 test('should submit the correct return value', async ({ mount }) => {
