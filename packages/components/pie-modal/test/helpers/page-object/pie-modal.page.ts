@@ -11,6 +11,7 @@ export class PieModalPage extends BasePage {
     readonly closeButtonLocator: Locator;
     readonly headerLocator: Locator;
     readonly contentLocator: Locator;
+    readonly descriptionLocator: Locator;
 
     constructor (page: Page) {
         super(page);
@@ -20,6 +21,7 @@ export class PieModalPage extends BasePage {
         this.closeButtonLocator = page.getByTestId(modal.selectors.closeButton.dataTestId);
         this.headerLocator = page.getByTestId(modal.selectors.header.dataTestId);
         this.contentLocator = page.getByTestId(modal.selectors.content.dataTestId);
+        this.descriptionLocator = page.getByTestId(modal.selectors.description.dataTestId);
     }
 
     async isModalVisible () {
@@ -64,5 +66,10 @@ export class PieModalPage extends BasePage {
 
     async clickBackdrop () {
         await this.componentLocator.click({ position: { x: -10, y: -10 } });
+    }
+
+    async getDescriptionTextContent () {
+        const descriptionText = await this.descriptionLocator.textContent();
+        return descriptionText?.trim();
     }
 }
