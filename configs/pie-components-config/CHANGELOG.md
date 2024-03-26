@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-components-config
 
+## 0.14.0
+
+### Minor Changes
+
+- [Changed] - Updated TSConfig file with es2021 target ([#1341](https://github.com/justeattakeaway/pie/pull/1341)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.13.0
 
 ### Minor Changes

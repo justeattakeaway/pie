@@ -1,5 +1,22 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.19.0
+
+### Minor Changes
+
+- [Changed] - Update tsconfig target to es2021 ([#1341](https://github.com/justeattakeaway/pie/pull/1341)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`130f1aaa3`](https://github.com/justeattakeaway/pie/commit/130f1aaa32ccd464b213febf75dd147e6b8aecc3)]:
+  - @justeattakeaway/pie-button@0.47.0
+  - @justeattakeaway/pie-divider@0.13.0
+  - @justeattakeaway/pie-icon-button@0.28.0
+  - @justeattakeaway/pie-link@0.17.0
+  - @justeattakeaway/pie-modal@0.42.0
+  - @justeattakeaway/pie-switch@0.28.0
+  - @justeattakeaway/pie-webc-core@0.20.0
+
 ## 0.18.0
 
 ### Minor Changes

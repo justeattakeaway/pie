@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-input
 
+## 0.15.0
+
+### Minor Changes
+
+- [Added] - `size` property to input component ([#1354](https://github.com/justeattakeaway/pie/pull/1354)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Update tsconfig target to es2021 ([#1341](https://github.com/justeattakeaway/pie/pull/1341)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`130f1aaa3`](https://github.com/justeattakeaway/pie/commit/130f1aaa32ccd464b213febf75dd147e6b8aecc3)]:
+  - @justeattakeaway/pie-assistive-text@0.3.0
+  - @justeattakeaway/pie-webc-core@0.20.0
+
 ## 0.14.0
 
 ### Minor Changes
