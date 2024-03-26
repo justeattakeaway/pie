@@ -79,6 +79,8 @@
     "engineers/getting-started/structure",
     "engineers/guidelines/browser-support",
     "engineers/guidelines/overview",
+    "engineers/web/event-driven-architecture",
+    "engineers/web/overview",
     "foundations/colour/overview",
     "foundations/colour/tokens/alias/dark",
     "foundations/colour/tokens/alias/light",
