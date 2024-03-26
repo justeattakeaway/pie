@@ -92,6 +92,7 @@ import { PieInput } from '@justeattakeaway/pie-input/dist/react';
 | `step` | `number` | - | An optional amount that value should be incremented or decremented by when using the up and down arrows in the input. Only applies when type is `number`. |
 | `min` | `number` | - | The minimum value of the input. Only applies when type is `number`. If the value provided is lower, the input is invalid. |
 | `max` | `number` | - | The maximum value of the input. Only applies when type is `number`. If the value provided is higher, the input is invalid. |
+| `size` | `'small'`, `'medium'`, `'large'` | `medium` | The size of the input field. Can be `small`, `medium`, or `large`. Defaults to `medium`. |
 
 
 In your markup or JSX, you can then use these to set the properties for the `pie-input` component:
