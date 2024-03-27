@@ -37,6 +37,13 @@ export default function App() {
 }
 ```
 
+You can also import icons individually from the dist folder. Consider doing this if you are having issues with tree-shaking or the size of the icons in your bundle.
+
+```js
+import IconAlertTriangleLarge from '@justeattakeaway/pie-icons-react/dist/IconAlertTriangleLarge';
+import IconCalendar from '@justeattakeaway/pie-icons-react/dist/IconCalendar';
+```
+
 #### Props
 
 Icons accept any standard attribute, except for `width` and `height` since those are set implicitly by using the `size` prop.
