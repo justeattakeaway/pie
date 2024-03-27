@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-notification
 
+## 0.5.0
+
+### Minor Changes
+
+- [Added] - isDismissible, leadingAction, supportingAction, hasStackedActions ([#1290](https://github.com/justeattakeaway/pie/pull/1290)) by [@thejfreitas](https://github.com/thejfreitas)
+
 ## 0.4.0
 
 ### Minor Changes

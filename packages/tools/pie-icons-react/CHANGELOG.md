@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.16.0
+
+### Minor Changes
+
+- [Added] - Individual entry points ([#1347](https://github.com/justeattakeaway/pie/pull/1347)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 4.15.1
 
 ### Patch Changes
