@@ -1,11 +1,9 @@
-╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
-║ Please click the `Preview` tab and select a different PR template if your change isn't for an    ║
-║ existing web component.                                                                          ║
-║                                                                                                  ║
-║                                                                                                  ║
-║ [PIE Docs Template](?expand=1&template=docs_template.md)                                         ║
-║ [New Web Component Template](?expand=1&template=new_component_template.md)                       ║    
-╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
+Please click the `Preview` tab and select a different PR template if your change isn't for an                                            existing web component.
+
+[PIE Docs Template](?expand=1&template=docs_template.md)
+[New Web Component Template](?expand=1&template=new_component_template.md)
+
+═══════════════════════════════════════════════════════════
 
 ## Describe your changes (can list changeset entries if preferable)
 
