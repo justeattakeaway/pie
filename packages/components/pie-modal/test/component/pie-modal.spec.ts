@@ -3,7 +3,7 @@ import { type Page } from '@playwright/test';
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
-import { PieModalPage } from 'test/helpers/page-object/pie-modal.page.ts';
+import { PieModalComponent } from 'test/helpers/page-object/pie-modal.page.ts';
 import { createScrollablePageHTML, renderTestPieModal } from '../helpers/index.ts';
 
 import { PieModal } from '../../src/index.ts';
@@ -15,11 +15,11 @@ import {
     headingLevels,
 } from '../../src/defs.ts';
 
-let modalPage: PieModalPage;
+let modalPage: PieModalComponent;
 
 test.describe('modal', () => {
     test.beforeEach(async ({ page }) => {
-        modalPage = new PieModalPage(page);
+        modalPage = new PieModalComponent(page);
     });
 
     test('should be visible when opened', async ({ mount }) => {
@@ -188,8 +188,6 @@ test.describe('modal', () => {
             test.describe('when given', () => {
                 test('should return focus to specified element', async ({ mount, page }) => {
                     // Arrange
-                    const modalPage = new PieModalPage(page);
-
                     const component = renderTestPieModal({
                         returnFocusAfterCloseSelector: '#focus-me',
                     });
@@ -220,8 +218,6 @@ test.describe('modal', () => {
 
                 test('should return focus to first matching element', async ({ page, mount }) => {
                     // Arrange
-                    const modalPage = new PieModalPage(page);
-
                     const component = renderTestPieModal({
                         returnFocusAfterCloseSelector: '[data-test-id="focus-me"]',
                     });
@@ -255,7 +251,7 @@ test.describe('modal', () => {
                 [{
                     mechanism: 'close button',
                     modalCloseFunction: async (page : Page) => {
-                        const modalPage = new PieModalPage(page);
+                        const modalPage = new PieModalComponent(page);
                         await modalPage.clickCloseModal();
                     },
                 }, {
