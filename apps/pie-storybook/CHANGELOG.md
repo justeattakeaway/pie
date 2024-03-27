@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.70.0
+
+### Minor Changes
+
+- [Added] - the following actions to the pie-notification story: isDismissible, leadingAction, supportingAction, hasStackedActions ([#1290](https://github.com/justeattakeaway/pie/pull/1290)) by [@thejfreitas](https://github.com/thejfreitas)
+
+### Patch Changes
+
+- Updated dependencies [[`c9a17ddce`](https://github.com/justeattakeaway/pie/commit/c9a17ddce7bf239be2fff9a453a3cc696d420b07), [`782cd239d`](https://github.com/justeattakeaway/pie/commit/782cd239d205023b9f14bc77ac52277a95f939f8)]:
+  - @justeattakeaway/pie-notification@0.5.0
+  - @justeattakeaway/pie-chip@0.5.0
+
 ## 0.69.0
 
 ### Minor Changes
