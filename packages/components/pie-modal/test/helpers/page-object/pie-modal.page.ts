@@ -4,7 +4,7 @@ import {
     modal,
 } from './selectors.ts';
 
-export class PieModalComponent extends BasePage {
+export class ModalComponent extends BasePage {
     private readonly componentLocator: Locator;
     private readonly backButtonLocator: Locator;
     private readonly closeButtonLocator: Locator;

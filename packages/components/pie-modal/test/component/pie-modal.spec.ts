@@ -3,7 +3,7 @@ import { type Page } from '@playwright/test';
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
-import { PieModalComponent } from 'test/helpers/page-object/pie-modal.page.ts';
+import { ModalComponent } from 'test/helpers/page-object/pie-modal.page.ts';
 import { createScrollablePageHTML, renderTestPieModal } from '../helpers/index.ts';
 
 import { PieModal } from '../../src/index.ts';
@@ -15,11 +15,11 @@ import {
     headingLevels,
 } from '../../src/defs.ts';
 
-let modalPage: PieModalComponent;
+let modalPage: ModalComponent;
 
 test.describe('modal', () => {
     test.beforeEach(async ({ page }) => {
-        modalPage = new PieModalComponent(page);
+        modalPage = new ModalComponent(page);
     });
 
     test('should be visible when opened', async ({ mount }) => {
@@ -251,7 +251,7 @@ test.describe('modal', () => {
                 [{
                     mechanism: 'close button',
                     modalCloseFunction: async (page : Page) => {
-                        const modalPage = new PieModalComponent(page);
+                        const modalPage = new ModalComponent(page);
                         await modalPage.clickCloseModal();
                     },
                 }, {

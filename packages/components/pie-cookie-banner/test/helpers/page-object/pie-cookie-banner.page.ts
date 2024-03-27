@@ -11,7 +11,7 @@ const getPreferenceItemSelector = (id: PreferenceIds) => `#${id} [data-test-id="
 
 export type Level = 'action' | 'body';
 
-export class PieCookieBannerComponent extends BasePage {
+export class CookieBannerComponent extends BasePage {
     private readonly componentLocator: Locator;
     private readonly descriptionLocator: Locator;
     private readonly acceptAllButtonLocator: Locator;
