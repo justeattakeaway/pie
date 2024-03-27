@@ -12,6 +12,9 @@ export const ComponentStatus = (story: () => TemplateResult, storybookContext: S
     const tagVariant = tagVariantToStatusMap[componentStatus];
     const position = storybookContext.parameters.componentStatusPosition || 'bottom';
 
+    // 'docs' view mode is used for documentation pages such as variants.mdx.
+    // Story decorators will not wrap an entire page, so we do not want to use the decorator in this case.
+    // For those pages, we will use the component status DocBlock instead.
     if (storybookContext.viewMode === 'docs' || !componentStatus || !tagVariant) {
         return story();
     }
