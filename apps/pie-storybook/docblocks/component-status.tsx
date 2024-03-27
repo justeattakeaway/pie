@@ -1,0 +1,20 @@
+import React from 'react';
+import '@justeattakeaway/pie-tag';
+import componentStatusesJson from '../component-statuses.json';
+import { ComponentStatuses } from '../interfaces/component-statuses';
+import { tagVariantToStatusMap } from '../data/tag-variants-to-statuses-map';
+
+const componentStatuses: ComponentStatuses = componentStatusesJson;
+
+export const ComponentStatus = ({ component }) => {
+    const componentStatus: string = componentStatuses[component];
+    const tagVariant = tagVariantToStatusMap[componentStatus];
+
+    return (
+        <div className="pie-sb-status-wrapper">
+            <pie-tag variant={tagVariant} class="c-componentStatus">
+                Status: {componentStatus}
+            </pie-tag>
+        </div>
+    );
+};

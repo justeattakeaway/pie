@@ -1,5 +1,8 @@
 import * as ButtonStories from '../pie-button.stories.ts'
 import { Meta, Canvas } from '@storybook/blocks';
+import { ComponentStatus } from '../../docblocks/component-status.tsx';
+
+<ComponentStatus component="pie-button" />
 
 <Meta of={ButtonStories} />
 
@@ -40,7 +43,7 @@ Destructive buttons are used for high impact deletions that can result in perman
 
 ### Destructive Ghost
 
-Destructive ghost buttons are employed for lower impact destructive actions, with no direct consequences and require confirmation. 
+Destructive ghost buttons are employed for lower impact destructive actions, with no direct consequences and require confirmation.
 
 <Canvas of={ButtonStories.DestructiveGhost} />
 

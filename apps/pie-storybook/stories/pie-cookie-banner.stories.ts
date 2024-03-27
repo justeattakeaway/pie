@@ -50,6 +50,7 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
             type: 'figma',
             url: '',
         },
+        componentStatusPosition: 'top',
     },
 };
 

@@ -1,12 +1,13 @@
 import '@justeattakeaway/pie-css';
 import './styles/docs.scss';
+import './styles/component-status.scss';
 
-import { WritingDirection } from '../decorators';
+import { WritingDirection, ComponentStatus } from '../decorators';
 import { type StoryBackgrounds } from '../types/StoryOptions';
 import CUSTOM_VIEWPORTS from './viewports';
 
 export default {
-    decorators: [WritingDirection],
+    decorators: [ComponentStatus, WritingDirection],
     globalTypes: {
         writingDirection: {
             description: 'Which direction should content be written in',
