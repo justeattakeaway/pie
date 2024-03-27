@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.56.5
+
+### Patch Changes
+
+- [Added] - Force resolution of `tar@6.2.1` to fix the Synk vulnerability raised in #1355 ([#1357](https://github.com/justeattakeaway/pie/pull/1357)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.56.4
 
 ### Patch Changes

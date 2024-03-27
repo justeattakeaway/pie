@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-chip
 
+## 0.5.0
+
+### Minor Changes
+
+- [Fixed] - active and hover styles are applied with the component is disabled ([#1348](https://github.com/justeattakeaway/pie/pull/1348)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.4.0
 
 ### Minor Changes
