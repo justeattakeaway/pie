@@ -34,7 +34,7 @@ Promise.all(statuses).then((resolvedStatuses) => {
 
     fs.writeFile('./component-statuses.json', JSON.stringify(filteredStatuses, null, 2), (err) => {
         if (err) {
-            console.error('Error writing component-status.json', err);
+            console.error('Error writing component-statuses.json', err);
         } else {
             console.info('Successfully wrote component statuses to ./component-statuses.json');
         }
