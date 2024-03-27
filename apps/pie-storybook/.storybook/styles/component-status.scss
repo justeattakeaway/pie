@@ -1,0 +1,13 @@
+.c-componentStatus {
+    position: fixed;
+    right: var(--dt-spacing-c);
+    z-index: 9999;
+}
+
+.c-componentStatus:not(.c-componentStatus--top) {
+    bottom: var(--dt-spacing-c);
+}
+
+.c-componentStatus--top {
+    top: var(--dt-spacing-c);
+}

@@ -4,10 +4,24 @@
     "//"
   ],
   "pipeline": {
+    "create:component-statuses": {
+      "cache": true,
+      "outputs": [
+        "**/component-statuses.json"
+      ]
+    },
     "dev": {
       "cache": false,
       "dependsOn": [
-        "^build"
+        "^build",
+        "create:component-statuses"
+      ]
+    },
+    "build": {
+      "cache": true,
+      "dependsOn": [
+        "^build",
+        "create:component-statuses"
       ]
     }
   }

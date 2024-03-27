@@ -12,6 +12,9 @@
     "dist",
     "**/*.d.ts"
   ],
+  "pieMetadata": {
+    "componentStatus": "alpha"
+  },
   "scripts": {
     "build": "npx build-react-wrapper && run -T vite build",
     "create:manifest": "yarn cem analyze --litelement",

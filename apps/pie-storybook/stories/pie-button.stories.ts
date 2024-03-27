@@ -8,8 +8,12 @@ import {
 /* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/IconPlusCircle';
 
+import * as packageJson from '@justeattakeaway/pie-button/package.json';
+
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 import { StoryMeta, SlottedComponentProps } from '../types';
+
+const { componentStatus } = packageJson.pieMetadata;
 
 type ButtonProps = SlottedComponentProps<ButtonPropsBase>;
 type ButtonStoryMeta = StoryMeta<ButtonProps>;
@@ -208,6 +212,7 @@ const Template: TemplateFunction<ButtonProps> = ({
     ?formnovalidate="${formnovalidate}">
     ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
     ${sanitizeAndRenderHTML(slot)}
+    ${componentStatus}
 </pie-button>`;
 
 const FormTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => html`
