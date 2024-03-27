@@ -8,6 +8,11 @@
     ".": {
       "import": "./esm/index.js",
       "require": "./dist/index.js"
+    },
+    "./dist/*": {
+      "import": "./esm/*.js",
+      "require": "./dist/*.js",
+      "types": "./esm/icons/*.d.ts"
     }
   },
   "files": [

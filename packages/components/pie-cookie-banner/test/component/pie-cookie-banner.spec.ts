@@ -1,8 +1,8 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { readFile } from 'fs/promises';
-import { PieCookieBannerComponent, Level } from 'test/helpers/page-object/pie-cookie-banner.page.ts';
-import { PieModalPage } from '@justeattakeaway/pie-modal/test/helpers/page-object/pie-modal.page.ts';
+import { CookieBannerComponent, Level } from 'test/helpers/page-object/pie-cookie-banner.page.ts';
+import { ModalComponent } from '@justeattakeaway/pie-modal/test/helpers/page-object/pie-modal.page.ts';
 import {
     ON_COOKIE_BANNER_ACCEPT_ALL, ON_COOKIE_BANNER_NECESSARY_ONLY,
     ON_COOKIE_BANNER_MANAGE_PREFS, ON_COOKIE_BANNER_PREFS_SAVED,
@@ -19,13 +19,13 @@ function stripTags (str: string) {
     return str.replace(/<\/?[^>]+(>|$)/g, '');
 }
 
-let pieCookieBannerComponent: PieCookieBannerComponent;
-let pieModalComponent: PieModalPage;
+let pieCookieBannerComponent: CookieBannerComponent;
+let pieModalComponent: ModalComponent;
 
 test.describe('PieCookieBanner - Component tests', () => {
     test.beforeEach(async ({ page }) => {
-        pieCookieBannerComponent = new PieCookieBannerComponent(page);
-        pieModalComponent = new PieModalPage(page);
+        pieCookieBannerComponent = new CookieBannerComponent(page);
+        pieModalComponent = new ModalComponent(page);
     });
 
     test('should render successfully', async ({ mount }) => {
