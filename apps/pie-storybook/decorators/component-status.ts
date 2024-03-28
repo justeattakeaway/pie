@@ -1,5 +1,6 @@
 import { TemplateResult, html } from 'lit';
 import '@justeattakeaway/pie-tag';
+import '@justeattakeaway/pie-icons-webc/IconHelpCircle';
 import { StorybookContext } from '../interfaces/storybook-context';
 import componentStatusesJson from '../component-statuses.json';
 import { ComponentStatuses } from '../interfaces/component-statuses';
@@ -25,9 +26,24 @@ export const ComponentStatus = (story: () => TemplateResult, storybookContext: S
         <div class="pie-sb-status-wrapper">
             ${story()}
 
-            <pie-tag variant="${tagVariant}" class="${`c-componentStatus ${positionClass}`}">
-                Status: ${componentStatus}
-            </pie-tag>
+            <div class="${`c-componentStatus ${positionClass}`}">
+                <pie-tag variant="${tagVariant}">
+                    Status: ${componentStatus}
+                </pie-tag>
+
+                <pie-tag>
+                    <a
+                        href="https://pie.design/components/component-status/#status-descriptions"
+                        target="_blank"
+                        slot="icon"
+                        aria-labelledby="status-docs-link">
+                        <icon-help-circle></icon-help-circle>
+                    </a>
+                </pie-tag>
+                <p id="status-docs-link" hidden>
+                    Component status documentation link
+                </p>
+            </div>
         </div>
     `;
 };
