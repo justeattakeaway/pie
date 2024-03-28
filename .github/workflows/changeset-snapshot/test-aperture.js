@@ -24,7 +24,7 @@ module.exports = async ({ github, context }, execa) => {
             body += `\`\`\`sh\nyarn up ${newTags[0]}\n\`\`\``;
         }
 
-        // Dispatch event to PIE Aperture using node-fetch
+        // Dispatch event to PIE Aperture using github script
         await github.rest.actions.createWorkflowDispatch({
             owner: 'justeattakeaway',
             repo: 'pie-aperture',
