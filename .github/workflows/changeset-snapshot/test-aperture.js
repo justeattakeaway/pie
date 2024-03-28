@@ -24,17 +24,27 @@ module.exports = async ({ github, context }, execa) => {
             body += `\`\`\`sh\nyarn up ${newTags[0]}\n\`\`\``;
         }
 
-        // Dispatch event to PIE Aperture using github script
-        await github.rest.actions.createWorkflowDispatch({
-            owner: 'justeattakeaway',
-            repo: 'pie-aperture',
-            event_type: 'pie-trigger',
-            ref: 'main',
-            inputs: {
-              'pie-branch': '${{ github.ref_name }}',
-              'snapshots': newTags
-            }
-          })
+        try {
+            // Attempt to dispatch event to PIE Aperture
+            await github.rest.actions.createWorkflowDispatch({
+                owner: 'justeattakeaway',
+                repo: 'pie-aperture',
+                event_type: 'pie-trigger',
+                ref: 'main',
+                inputs: {
+                  'pie-branch': '${{ github.ref_name }}',
+                  'snapshots': JSON.stringify(newTags)
+                }
+              })
+        } catch (error) {
+            console.error(`Failed to dispatch workflow: ${error.message}`);
+            await github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `Failed to trigger PIE Aperture workflow: ${error.message}`,
+            });
+        }
 
     } else {
         body = `No changed packages found! Please make sure you have added a changeset entry for the packages you would like to snapshot.`;
