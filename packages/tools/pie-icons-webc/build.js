@@ -61,8 +61,8 @@ export class ${name} extends LitElement implements IconProps {
         super.connectedCallback();
         if (this._svg?.getAttribute('width') === null) {
             const svgSize = getSvgProps('${svgClasses}', '', null, '${name}');
-            this.style.width = svgSize.width + 'px';
-            this.style.height = svgSize.height + 'px';
+            this.style.width = \`\${\`var(--icon-size-override,\${svgSize.width}\`}px)\`;
+            this.style.height = \`\${\`var(--icon-size-override,\${svgSize.height}\`}px)\`;
             this._svg?.setAttribute('width', svgSize.width);
             this._svg?.setAttribute('height', svgSize.height);
         }
@@ -74,8 +74,8 @@ export class ${name} extends LitElement implements IconProps {
         if (changedProperties.has('size')) {
             svgSize = getSvgProps('${svgClasses}', '', this.size, '${name}');
 
-            this.style.width = svgSize.width + 'px';
-            this.style.height = svgSize.height + 'px';
+            this.style.width = \`\${\`var(--icon-size-override,\${svgSize.width}\`}px)\`;
+            this.style.height = \`\${\`var(--icon-size-override,\${svgSize.height}\`}px)\`;
             this._svg?.setAttribute('width', svgSize.width);
             this._svg?.setAttribute('height', svgSize.height);
         }
