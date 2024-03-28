@@ -10,8 +10,7 @@ Please click the `Preview` tab and select a different PR template if your change
 
 ## Author Checklist (complete before requesting a review)
 - [ ] I have performed a self-review of my code
-- [ ] I have added Playwright component tests or ensured they exist for affected code.
-- [ ] I have added Playwright Viual tests or ensured they exist for affected code.
+- [ ] I have added thorough tests (unit / component / visual where applicable).
 - [ ] I have reviewed the Storybook preview
 - [ ] I have reviewed visual test updates properly before approving
 - [ ] If changes will affect consumers of the package, I have created a changeset entry.
@@ -19,7 +18,9 @@ Please click the `Preview` tab and select a different PR template if your change
 
 ## Reviewer checklists (complete before approving)
 ### Reviewer 1
+- [ ] I have reviewed the Storybook preview
 - [ ] If there are visual test updates, I have reviewed them
 
 ### Reviewer 2
+- [ ] I have reviewed the Storybook preview
 - [ ] If there are visual test updates, I have reviewed them

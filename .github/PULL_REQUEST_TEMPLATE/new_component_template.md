@@ -3,15 +3,18 @@
 
 ## Author Checklist (complete before requesting a review)
 - [ ] I have performed a self-review of my code
-- [ ] I have added Playwright component tests
-- [ ] I have added Playwright Viual tests and created a project in Percy
+- [ ] I have added thorough tests (unit / component / visual where applicable).
+- [ ] If visual tests are required for the component, I have created a project in Percy
 - [ ] I have reviewed the Storybook preview
 - [ ] I have reviewed visual test updates properly before approving
-- [ ] I have created a changeset entry.
+- [ ] If changes will affect consumers of the package, I have created a changeset entry.
+- [ ] If a changeset file has been created, I have used the `/snapit` functionality to test my changes in a consuming application.
 
 ## Reviewer checklists (complete before approving)
 ### Reviewer 1
+- [ ] I have reviewed the Storybook preview
 - [ ] If there are visual test updates, I have reviewed them
 
 ### Reviewer 2
+- [ ] I have reviewed the Storybook preview
 - [ ] If there are visual test updates, I have reviewed them
