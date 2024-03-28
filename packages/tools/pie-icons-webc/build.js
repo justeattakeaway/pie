@@ -38,6 +38,9 @@ const componentSelector = '${kebabCase(name)}';
 export class ${name} extends LitElement implements IconProps {
     // The following styles make sure that the icon will be sized correctly
     static styles = css\`
+        :host {
+            display: inline-block;
+        }
         :host svg {
             display: var(--icon-display-override);
             width: var(--icon-size-override);
@@ -58,6 +61,8 @@ export class ${name} extends LitElement implements IconProps {
         super.connectedCallback();
         if (this._svg?.getAttribute('width') === null) {
             const svgSize = getSvgProps('${svgClasses}', '', null, '${name}');
+            this.style.width = svgSize.width + 'px';
+            this.style.height = svgSize.height + 'px';
             this._svg?.setAttribute('width', svgSize.width);
             this._svg?.setAttribute('height', svgSize.height);
         }
@@ -69,6 +74,8 @@ export class ${name} extends LitElement implements IconProps {
         if (changedProperties.has('size')) {
             svgSize = getSvgProps('${svgClasses}', '', this.size, '${name}');
 
+            this.style.width = svgSize.width + 'px';
+            this.style.height = svgSize.height + 'px';
             this._svg?.setAttribute('width', svgSize.width);
             this._svg?.setAttribute('height', svgSize.height);
         }
