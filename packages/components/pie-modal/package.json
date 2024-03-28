@@ -12,6 +12,9 @@
     "dist",
     "**/*.d.ts"
   ],
+  "pieMetadata": {
+    "componentStatus": "alpha"
+  },
   "scripts": {
     "build": "run -T vite build",
     "build:react-wrapper": "npx build-react-wrapper",
