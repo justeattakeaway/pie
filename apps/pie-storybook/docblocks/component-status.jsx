@@ -1,7 +1,6 @@
 import React from 'react';
 import '@justeattakeaway/pie-tag';
 import componentStatusesJson from '../component-statuses.json';
-// import { ComponentStatuses } from '../interfaces/component-statuses';
 import { tagVariantToStatusMap } from '../data/tag-variants-to-statuses-map';
 
 const componentStatuses = componentStatusesJson;
