@@ -29,9 +29,6 @@ export const ComponentStatus = (story: () => TemplateResult, storybookContext: S
             <div class="${`c-componentStatus ${positionClass}`}">
                 <pie-tag variant="${tagVariant}">
                     Status: ${componentStatus}
-                </pie-tag>
-
-                <pie-tag>
                     <a
                         href="https://pie.design/components/component-status/#status-descriptions"
                         target="_blank"
@@ -40,6 +37,7 @@ export const ComponentStatus = (story: () => TemplateResult, storybookContext: S
                         <icon-help-circle></icon-help-circle>
                     </a>
                 </pie-tag>
+
                 <p id="status-docs-link" hidden>
                     Component status documentation link
                 </p>
