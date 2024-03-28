@@ -1,13 +1,13 @@
 import React from 'react';
 import '@justeattakeaway/pie-tag';
 import componentStatusesJson from '../component-statuses.json';
-import { ComponentStatuses } from '../interfaces/component-statuses';
+// import { ComponentStatuses } from '../interfaces/component-statuses';
 import { tagVariantToStatusMap } from '../data/tag-variants-to-statuses-map';
 
-const componentStatuses: ComponentStatuses = componentStatusesJson;
+const componentStatuses = componentStatusesJson;
 
 export const ComponentStatus = ({ component }) => {
-    const componentStatus: string = componentStatuses[component];
+    const componentStatus = componentStatuses[component];
     const tagVariant = tagVariantToStatusMap[componentStatus];
 
     return (
