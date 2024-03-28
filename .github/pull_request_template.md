@@ -10,7 +10,7 @@ Please click the `Preview` tab and select a different PR template if your change
 
 ## Author Checklist (complete before requesting a review)
 - [ ] I have performed a self-review of my code
-- [ ] I have added thorough tests (unit / component / visual where applicable).
+- [ ] I have added thorough tests where applicable (unit / component / visual).
 - [ ] I have reviewed the Storybook preview
 - [ ] I have reviewed visual test updates properly before approving
 - [ ] If changes will affect consumers of the package, I have created a changeset entry.

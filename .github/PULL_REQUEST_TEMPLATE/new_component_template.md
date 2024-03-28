@@ -3,7 +3,7 @@
 
 ## Author Checklist (complete before requesting a review)
 - [ ] I have performed a self-review of my code
-- [ ] I have added thorough tests (unit / component / visual where applicable).
+- [ ] I have added thorough tests where applicable (unit / component / visual).
 - [ ] If visual tests are required for the component, I have created a project in Percy
 - [ ] I have reviewed the Storybook preview
 - [ ] I have reviewed visual test updates properly before approving
