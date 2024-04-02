@@ -81,7 +81,7 @@ export default {
                     value: 'aquamarine',
                 },
             ]
-        } as StoryBackgrounds,
+        } satisfies StoryBackgrounds,
         controls: {
             expanded: true,
             sort: 'alpha',
