@@ -26,13 +26,13 @@ module.exports = async ({ github, context }, execa) => {
 
         try {
             // Attempt to dispatch event to PIE Aperture
-            await github.rest.actions.createWorkflowDispatch({
+            await github.rest.repos.createDispatchEvent({
                 owner: 'justeattakeaway',
                 repo: 'pie-aperture',
                 event_type: 'pie-trigger',
-                ref: 'main',
-                inputs: {
+                client_payload: {
                   'pie-branch': '${{ github.ref_name }}',
+                  'pie-pr-number': '${{ github.event.number }}',
                   'snapshots': JSON.stringify(newTags)
                 }
               })
