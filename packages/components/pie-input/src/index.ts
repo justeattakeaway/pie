@@ -90,7 +90,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     public size?: InputProps['size'] = InputDefaultPropertyValues.size;
 
     @property({ type: Boolean })
-    public required?: InputProps['required'];
+    public required?: InputProps['required'] = false;
 
     @query('input')
     private input?: HTMLInputElement;
@@ -124,15 +124,21 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
         this.value = this.defaultValue ?? InputDefaultPropertyValues.value;
     }
 
+    private updateFormValidation () :void {
+        if (this.validity.valueMissing && this.required) {
+            // This ensures that the form can focus the invalid input, without display native browser validation messages
+            this._internals.setValidity(this.validity, ' ', this.input);
+        } else {
+            // Although the input may still be invalid, we only want to trigger native form validation for required fields
+            // As this triggers the autofocus behaviour
+            this._internals.setValidity({});
+        }
+    }
+
     protected firstUpdated (_changedProperties: PropertyValues<this>): void {
         super.firstUpdated(_changedProperties);
         this._internals.setFormValue(this.value);
-        if (this.validity.valid) {
-            this._internals.setValidity({});
-        } else {
-            // This ensures that the form can focus the invalid input, without display native browser validation messages
-            this._internals.setValidity(this.validity, ' ', this.input);
-        }
+        this.updateFormValidation();
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {
@@ -140,12 +146,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
         if (_changedProperties.has('value')) {
             this._internals.setFormValue(this.value);
-            if (this.validity.valid) {
-                this._internals.setValidity({});
-            } else {
-                // This ensures that the form can focus the invalid input, without display native browser validation messages
-                this._internals.setValidity(this.validity, ' ', this.input);
-            }
+            this.updateFormValidation();
         }
     }
 
@@ -156,12 +157,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     private handleInput = (event: InputEvent) => {
         this.value = (event.target as HTMLInputElement).value;
         this._internals.setFormValue(this.value);
-        if (this.validity.valid) {
-            this._internals.setValidity({});
-        } else {
-            // This ensures that the form can focus the invalid input, without display native browser validation messages
-            this._internals.setValidity(this.validity, ' ', this.input);
-        }
+        this.updateFormValidation();
     };
 
     /**
