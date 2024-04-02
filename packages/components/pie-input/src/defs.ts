@@ -106,6 +106,7 @@ export interface InputProps {
 
     /**
      * If true, the input is required to have a value before submitting the form. The form will autofocus a required field if it is missing a value.
+     * Will have no effect if the input is placed inside a form.
      */
     required?: boolean;
 }

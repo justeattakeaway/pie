@@ -125,7 +125,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     }
 
     private updateFormValidation () :void {
-        if (this.validity.valueMissing && this.required) {
+        if (this.required && this.validity.valueMissing && !this.disabled) {
             // This ensures that the form can focus the invalid input, without display native browser validation messages
             this._internals.setValidity({ valueMissing: true }, ' ', this.input);
         } else {
