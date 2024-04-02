@@ -30,8 +30,7 @@ module.exports = async ({ github, context }, execa) => {
                 owner: 'justeattakeaway',
                 repo: 'pie-aperture',
                 event_type: 'pie-trigger',
-                ref: 'main',
-                inputs: {
+                client_payload: {
                   'pie-branch': '${{ github.ref_name }}',
                   'pie-pr-number': '${{ github.event.number }}',
                   'snapshots': JSON.stringify(newTags)
