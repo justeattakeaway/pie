@@ -1,13 +1,15 @@
 ---
 eleventyNavigation:
-    key: engineers-browser-support
+    key: web-browsers
     title: Browser support
-    parent: engineers-guidelines
+    parent: web
     order: 2
 eleventyComputed:
     desktopTableData: "{% include './browser-support-desktop.json' %}"
     mobileTableData: "{% include './browser-support-mobile.json' %}"
     deviceTableData: "{% include './devices.json' %}"
+title: Browser Support
+description: Here you'll find information about our browser and device support guidelines for web.
 ---
 
 ## Browser support
