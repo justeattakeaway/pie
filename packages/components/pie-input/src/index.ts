@@ -127,6 +127,12 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     protected firstUpdated (_changedProperties: PropertyValues<this>): void {
         super.firstUpdated(_changedProperties);
         this._internals.setFormValue(this.value);
+        if (this.validity.valid) {
+            this._internals.setValidity({});
+        } else {
+            // This ensures that the form can focus the invalid input, without display native browser validation messages
+            this._internals.setValidity(this.validity, ' ', this.input);
+        }
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {
@@ -134,6 +140,12 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
         if (_changedProperties.has('value')) {
             this._internals.setFormValue(this.value);
+            if (this.validity.valid) {
+                this._internals.setValidity({});
+            } else {
+                // This ensures that the form can focus the invalid input, without display native browser validation messages
+                this._internals.setValidity(this.validity, ' ', this.input);
+            }
         }
     }
 
@@ -144,6 +156,12 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     private handleInput = (event: InputEvent) => {
         this.value = (event.target as HTMLInputElement).value;
         this._internals.setFormValue(this.value);
+        if (this.validity.valid) {
+            this._internals.setValidity({});
+        } else {
+            // This ensures that the form can focus the invalid input, without display native browser validation messages
+            this._internals.setValidity(this.validity, ' ', this.input);
+        }
     };
 
     /**
@@ -159,70 +177,6 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
         const customChangeEvent = wrapNativeEvent(event);
         this.dispatchEvent(customChangeEvent);
     };
-
-    // TODO: Handle multiple forms on the page
-    // TODO: We shouldn't remove event listener on disconnected callback if a different input still exists
-
-    // Once we have more input components (such as radios and checkboxes), we should look into
-    // extending this to query for all required pie form control components
-    // We must ensure that they all expose the same ValidityState interface to be correctly queried
-    private handleFormSubmit (event: SubmitEvent): void {
-        if (this.form) {
-            console.log('Form submit detected for form:', window.pieFormData.get(this.form));
-            // Get all pie-input elements inside this.form
-            const pieInputs = this.form?.querySelectorAll('pie-input[required]') as NodeListOf<PieInput>;
-
-            // Find the first pie-input with validity as invalid
-            const invalidInput = Array.from(pieInputs || []).find((input) => input.validity.valueMissing);
-
-            // Focus on the first invalid input
-            if (invalidInput) {
-                // Prevent the form from being submitted
-                event.preventDefault();
-                invalidInput.focus();
-            }
-        }
-    }
-
-    connectedCallback (): void {
-        super.connectedCallback();
-
-        if (this.required && this.form) {
-            // Instantiate the form data weakmap if it doesnt exist
-            if (!window.pieFormData) {
-                console.log('Creating new weakmap for form data');
-                window.pieFormData = new WeakMap();
-            }
-
-            if (!window.pieFormData.has(this.form)) {
-                console.log('Adding weakmap entry for form');
-                window.pieFormData.set(this.form, { listenerAttached: false });
-            }
-
-            if (this.required && !window.pieFormData.get(this.form)?.listenerAttached) {
-                console.log('Attaching submit listener to form');
-                this.form?.addEventListener('submit', this.handleFormSubmit.bind(this));
-                window.pieFormData.set(this.form, { listenerAttached: true });
-            }
-        }
-    }
-
-    disconnectedCallback (): void {
-        super.disconnectedCallback();
-        if (this.form) {
-            // Get all required pie-input elements inside this.form
-            const requiredPieInputs = this.form.querySelectorAll('pie-input[required]');
-
-            // Only remove the event listener if there are no other required pie-inputs
-            if (requiredPieInputs.length === 0) {
-                if (window.pieFormData.has(this.form) && window.pieFormData.get(this.form)?.listenerAttached) {
-                    console.log('Removing submit listener from form');
-                    this.form.removeEventListener('submit', this.handleFormSubmit.bind(this));
-                    window.pieFormData.set(this.form, { listenerAttached: false });
-                }
-            }
-        }
-    }
 
     render () {
         const {
