@@ -264,6 +264,7 @@ const Template = ({
             name="${ifDefined(name)}"
             id="${ifDefined(name)}"
             ?disabled="${disabled}"
+            required
             pattern="${ifDefined(pattern)}"
             minlength="${ifDefined(minlength)}"
             maxlength="${ifDefined(maxlength)}"
@@ -309,7 +310,7 @@ const FormTemplate: TemplateFunction<InputProps> = (props: InputProps) => {
         <form id="testForm" @submit="${onSubmit}">
             <section>
                 <h2>Contact information</h2>
-                <p>
+                <p id="input-p">
                     ${props.name ? html`<pie-form-label for="${props.name}">${props.name}</pie-form-label>` : nothing}
                     ${Template({ ...props, type: 'text' })}
                 </p>
@@ -319,6 +320,16 @@ const FormTemplate: TemplateFunction<InputProps> = (props: InputProps) => {
                 <pie-button type="submit" variant="primary">Submit</pie-button>
             </section>
         </form>
+
+        <button id="kill">Delete input</button>
+        <script>
+            const el = document.querySelector('#input-p');
+            const btn = document.querySelector('#kill');
+            btn.addEventListener('click', () => {
+                el.innerHTML = '';
+            });
+
+        </script>
     `;
 };
 

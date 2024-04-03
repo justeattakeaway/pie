@@ -1,5 +1,6 @@
 import type { LitElement } from 'lit';
 import type { GenericConstructor } from '../types/GenericConstructor';
+import { PieFormManager } from '../../forms/PieFormManager';
 
 /**
  * Interface for FormControl behavior.
@@ -47,10 +48,47 @@ export const FormControlMixin =
                 return this._internals.form;
             }
 
+            // Storing this reference as this.form is not available in disconnectedCallback
+            private _managedForm?: HTMLFormElement;
+
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             constructor (...args: any[]) {
                 super(...args);
                 this._internals = this.attachInternals();
+            }
+
+            connectedCallback (): void {
+                super.connectedCallback();
+                console.log('form', this.form);
+                if (this.form) {
+                    if (!window.pieFormManager) {
+                        window.pieFormManager = new PieFormManager();
+                    }
+
+                    if (window.pieFormManager) {
+                        window.pieFormManager.addForm(this.form);
+                        this._managedForm = window.pieFormManager.getForm(this.form)?.form;
+                    }
+                }
+            }
+
+            disconnectedCallback (): void {
+                super.disconnectedCallback();
+                console.log('disconnectedCallback in mixin');
+                console.log('internals', this._internals);
+                console.log('this.form', this.form);
+                console.log('window.pieFormManager', window.pieFormManager);
+                if (this._managedForm && window.pieFormManager) {
+                    console.log('removing form from manager');
+                    const requiredPieInputs = this._managedForm.querySelectorAll('pie-input[required]');
+                    console.log('requiredPieInputs', requiredPieInputs);
+                    // This particular component instance is not queryable in the DOM during disconnectedCallback
+                    // so if it was the last require field then the length would be 0
+                    if (requiredPieInputs.length === 0) {
+                        console.log('deleting form');
+                        window.pieFormManager.deleteForm(this._managedForm);
+                    }
+                }
             }
         }
 

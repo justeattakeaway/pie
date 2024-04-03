@@ -124,21 +124,9 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
         this.value = this.defaultValue ?? InputDefaultPropertyValues.value;
     }
 
-    private updateFormValidation () :void {
-        if (this.required && this.validity.valueMissing && !this.disabled) {
-            // This ensures that the form can focus the invalid input, without display native browser validation messages
-            this._internals.setValidity({ valueMissing: true }, ' ', this.input);
-        } else {
-            // Although the input may still be invalid, we only want to trigger native form validation for required fields
-            // As this triggers the autofocus behaviour
-            this._internals.setValidity({});
-        }
-    }
-
     protected firstUpdated (_changedProperties: PropertyValues<this>): void {
         super.firstUpdated(_changedProperties);
         this._internals.setFormValue(this.value);
-        this.updateFormValidation();
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {
@@ -146,8 +134,16 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
         if (_changedProperties.has('value')) {
             this._internals.setFormValue(this.value);
-            this.updateFormValidation();
         }
+    }
+
+    connectedCallback (): void {
+        super.connectedCallback();
+    }
+
+    disconnectedCallback (): void {
+        super.disconnectedCallback();
+        console.log('disconnectedCallback in component');
     }
 
     /**
@@ -157,8 +153,15 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     private handleInput = (event: InputEvent) => {
         this.value = (event.target as HTMLInputElement).value;
         this._internals.setFormValue(this.value);
-        this.updateFormValidation();
     };
+
+    private handleInvalid (event: Event) {
+        console.log('invalid');
+    }
+
+    public focus (): void {
+        this.focusTarget.focus();
+    }
 
     /**
      * Captures the native change event and wraps it in a custom event.
@@ -219,6 +222,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     ?required=${required}
                     @input=${this.handleInput}
                     @change=${this.handleChange}
+                    @invalid=${this.handleInvalid}
                     data-test-id="pie-input">
                 <slot name="trailing"></slot>
                 ${assistiveText ? html`<pie-assistive-text variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}
@@ -236,9 +240,9 @@ declare global {
         [componentSelector]: PieInput;
     }
 
-    // This allows Typescript to understand that Window has a property called pieFormSubmitListenerExists
-    interface Window {
-        pieFormSubmitListenerExists: boolean | undefined;
-        pieFormData: WeakMap<HTMLFormElement, { listenerAttached: boolean }>;
-    }
+    // // This allows Typescript to understand that Window has a property called pieFormSubmitListenerExists
+    // interface Window {
+    //     pieFormSubmitListenerExists: boolean | undefined;
+    //     pieFormData: WeakMap<HTMLFormElement, { listenerAttached: boolean }>;
+    // }
 }
