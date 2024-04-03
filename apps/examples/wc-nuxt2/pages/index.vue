@@ -11,23 +11,40 @@
             <pie-button variant="ghost">Ghost button</pie-button>
             <pie-button disabled>Disabled button</pie-button>
             <pie-button @click="increment">Click me!</pie-button>
+            <pie-button @click="openModal">Open modal</pie-button>
         </div>
 
         <span>Counter: {{ counter }}</span>
+
+        <pie-modal
+            heading="Test heading"
+            isDismissible
+            :isOpen="isModalOpen"
+            @pie-modal-close="updateModalCloseState">
+        </pie-modal>
     </div>
 </template>
 
 <script>
 export default {
     data: () => ({
-        counter: 0
+        counter: 0,
+        isModalOpen: false,
     }),
 
     methods: {
         increment () {
             console.log('Click event in Nuxt page triggered');
             this.counter++;
-        }
+        },
+
+        openModal () {
+            this.isModalOpen = true;
+        },
+
+        updateModalCloseState () {
+            this.isModalOpen = false;
+        },
     }
 };
 </script>
