@@ -78,11 +78,12 @@ export const FormControlMixin =
                 super.disconnectedCallback();
 
                 if (this._managedForm && window.pieFormManager) {
-                    const requiredPieInputs = this._managedForm.querySelectorAll('pie-input[required]');
+                    // We can extend this to include more form control components as we create them.
+                    const pieInputsInForm = this._managedForm.querySelectorAll('pie-input');
 
                     // This particular component instance is not queryable in the DOM during disconnectedCallback
                     // so if it was the last require field then the length would be 0
-                    if (requiredPieInputs.length === 0) {
+                    if (pieInputsInForm.length === 0) {
                         window.pieFormManager.deleteForm(this._managedForm);
                     }
                 }
