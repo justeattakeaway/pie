@@ -7,9 +7,7 @@ import { PIEInputElement } from '../interfaces';
 function focusFirstInvalidInput (form: HTMLFormElement): void {
     // We can extend this to include more form control components as we create them.
     const allPieInputs = form.querySelectorAll('pie-input');
-    const firstInvalidInput = Array
-        .from(allPieInputs)
-        .find((input) => !(input as ElementWithValidityState).validity.valid && (input as ElementWithValidityState).autoFocusInvalid) as PIEInputElement | undefined;
+    const firstInvalidInput = Array.from(allPieInputs).find((input) => !(input as ElementWithValidityState).validity.valid) as PIEInputElement | undefined;
 
     firstInvalidInput?.focus();
 }
@@ -26,6 +24,7 @@ export class PieFormManager {
      * Performs any necessary operations when a form is submitted.
      */
     private handleSubmit (event: Event) : void {
+        console.log('Form submitted');
         const submittedForm = event.target as HTMLFormElement;
         focusFirstInvalidInput(submittedForm);
     }
