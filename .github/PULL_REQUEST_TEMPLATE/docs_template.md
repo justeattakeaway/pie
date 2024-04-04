@@ -3,7 +3,7 @@
 
 ## Author Checklist (complete before requesting a review)
 - [ ] I have performed a self-review of my code
-- [ ] I have added thorough tests where applicable (unit / component / visual).
+- [ ] I have added thorough tests where applicable (unit / component / visual)
 - [ ] I have reviewed the Docs site preview
 - [ ] If there are visual test updates, I have reviewed them properly before approving
 
