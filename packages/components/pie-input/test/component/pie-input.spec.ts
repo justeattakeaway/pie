@@ -1,7 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import type { Page } from '@playwright/test';
-import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/IconPlaceholder';
+import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
 import { PieInput, InputProps } from '../../src/index.ts';
 import { statusTypes } from '../../src/defs.ts';

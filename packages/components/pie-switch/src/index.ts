@@ -10,7 +10,7 @@ import {
     SwitchProps, AriaProps, labelPlacements,
 } from './defs';
 import 'element-internals-polyfill';
-import '@justeattakeaway/pie-icons-webc/IconCheck';
+import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
 // Valid values available to consumers
 export * from './defs';

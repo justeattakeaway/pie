@@ -6,7 +6,7 @@ import {
     TagProps as TagBaseProps, variants, sizes,
 } from '@justeattakeaway/pie-tag';
 /* eslint-enable import/no-duplicates */
-import '@justeattakeaway/pie-icons-webc/IconHeartFilled';
+import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
 import type { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';

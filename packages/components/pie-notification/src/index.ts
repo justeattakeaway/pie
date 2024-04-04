@@ -23,11 +23,11 @@ import {
 import styles from './notification.scss?inline';
 
 import '@justeattakeaway/pie-icon-button';
-import '@justeattakeaway/pie-icons-webc/IconClose';
-import '@justeattakeaway/pie-icons-webc/IconInfoCircle';
-import '@justeattakeaway/pie-icons-webc/IconAlertCircle';
-import '@justeattakeaway/pie-icons-webc/IconAlertTriangle';
-import '@justeattakeaway/pie-icons-webc/IconCheckCircle';
+import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconInfoCircle.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconAlertCircle.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconAlertTriangle.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconCheckCircle.js';
 import '@justeattakeaway/pie-button';
 
 // Valid values available to consumers
@@ -345,13 +345,13 @@ export class PieNotification extends LitElement implements NotificationProps {
                 ${isDismissible && !isCompact ? this.renderCloseButton() : nothing}
 
                 <section class="${componentClass}-content-section">
-                    ${!hideIcon ? this.renderIcon(variant, _hasExternalIcon, _hasIconClass) : nothing}    
+                    ${!hideIcon ? this.renderIcon(variant, _hasExternalIcon, _hasIconClass) : nothing}
                     <article ?hasGutter="${_hasContentGutter}">
                         ${heading ? this.renderNotificationHeading(heading, unsafeStatic(headingLevel)) : nothing}
                         <slot></slot>
                     </article>
                 </section>
-                
+
                 ${leadingAction ? this.renderFooter(leadingAction, supportingAction) : nothing}
             </div>`;
     }
