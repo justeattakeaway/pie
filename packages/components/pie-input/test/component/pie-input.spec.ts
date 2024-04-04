@@ -826,15 +826,13 @@ test.describe('PieInput - Component tests', () => {
 
             test('should be invalid state `valueMissing` if the input is empty and required', async ({ mount, page }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                await mount(PieInput, {
                     props: {
                         required: true,
                     } as InputProps,
                 });
 
                 // Act
-                await component.type('');
-
                 const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valueMissing);
 
                 // Assert
@@ -852,6 +850,22 @@ test.describe('PieInput - Component tests', () => {
                 // Act
                 await component.type('test');
 
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
+            });
+
+            test('should be valid state if the input is empty and required but disabled', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieInput, {
+                    props: {
+                        required: true,
+                        disabled: true,
+                    } as InputProps,
+                });
+
+                // Act
                 const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
 
                 // Assert
