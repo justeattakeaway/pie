@@ -4,12 +4,15 @@ import { PIEInputElement } from '../interfaces';
  * Focuses the first invalid input of a form. The validity state of each input in the form is read and the first with `ValidityState.valid === false` is focused.
  * @param form - The form element to focus the first invalid input of.
  */
-function focusFirstInvalidInput (form: HTMLFormElement): void {
+function focusFirstInvalidInput (form: HTMLFormElement, event: Event): void {
     // We can extend this to include more form control components as we create them.
     const allPieInputs = form.querySelectorAll('pie-input');
     const firstInvalidInput = Array.from(allPieInputs).find((input) => !(input as ElementWithValidityState).validity.valid) as PIEInputElement | undefined;
 
-    firstInvalidInput?.focus();
+    if (firstInvalidInput) {
+        event.preventDefault();
+        firstInvalidInput.focus();
+    }
 }
 
 /**
@@ -26,7 +29,7 @@ export class PieFormManager {
     private handleSubmit (event: Event) : void {
         console.log('Form submitted');
         const submittedForm = event.target as HTMLFormElement;
-        focusFirstInvalidInput(submittedForm);
+        focusFirstInvalidInput(submittedForm, event);
     }
 
     /**

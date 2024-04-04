@@ -796,6 +796,68 @@ test.describe('PieInput - Component tests', () => {
                 expect(inputShell).toHaveAttribute('size', 'large');
             });
         });
+
+        test.describe('required', () => {
+            test('should not render a required attribute on the input element if no required provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('required'))).toBe(null);
+            });
+
+            test('should apply the required prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        required: true,
+                    } as InputProps,
+                });
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('required'))).toBe('');
+            });
+
+            test('should be invalid state `valueMissing` if the input is empty and required', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        required: true,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('');
+
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valueMissing);
+
+                // Assert
+                expect(isInvalid).toBe(true);
+            });
+
+            test('should be valid state if the input is not empty and required', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        required: true,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('test');
+
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
+            });
+        });
     });
 
     test.describe('Events', () => {
@@ -1112,6 +1174,24 @@ test.describe('PieInput - Component tests', () => {
             expect(formDataObj).toStrictEqual({
                 email: 'included@test.com',
             });
+        });
+
+        test('should be focused when invalid and the form is submitted', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                <form id="testForm" action="/foo" method="POST">
+                    <pie-input data-test-id="testInput" type="text" name="username" required></pie-input>
+                    <button type="submit">Submit</button>
+                </form>
+            `);
+
+            const inputLocator = page.locator('pie-input');
+
+            // Act
+            await page.click('button[type="submit"]');
+
+            // Assert
+            await expect(inputLocator).toBeFocused();
         });
     });
 });
