@@ -22,13 +22,13 @@ import {
 } from './defs';
 import styles from './notification.scss?inline';
 
+import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-icon-button';
-import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
-import '@justeattakeaway/pie-icons-webc/dist/IconInfoCircle.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconAlertCircle.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconAlertTriangle.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheckCircle.js';
-import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconInfoCircle.js';
 
 // Valid values available to consumers
 export * from './defs';
