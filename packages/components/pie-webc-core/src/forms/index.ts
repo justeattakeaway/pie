@@ -1,1 +1,1 @@
-export * from './PieFormManager';
+export * from './pie-form-manager';

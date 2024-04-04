@@ -1,6 +1,6 @@
 import type { LitElement } from 'lit';
 import type { GenericConstructor } from '../types/GenericConstructor';
-import { PieFormManager } from '../../forms/PieFormManager';
+import { PieFormManager } from '../../forms/pie-form-manager';
 
 /**
  * Interface for FormControl behavior.
