@@ -137,15 +137,6 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
         }
     }
 
-    connectedCallback (): void {
-        super.connectedCallback();
-    }
-
-    disconnectedCallback (): void {
-        super.disconnectedCallback();
-        console.log('disconnectedCallback in component');
-    }
-
     /**
      * Handles data processing in response to the input event. The native input event is left to bubble up.
      * @param event - The input event.
@@ -154,14 +145,6 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
         this.value = (event.target as HTMLInputElement).value;
         this._internals.setFormValue(this.value);
     };
-
-    private handleInvalid (event: Event) {
-        console.log('invalid');
-    }
-
-    public focus (): void {
-        this.focusTarget.focus();
-    }
 
     /**
      * Captures the native change event and wraps it in a custom event.
@@ -222,7 +205,6 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     ?required=${required}
                     @input=${this.handleInput}
                     @change=${this.handleChange}
-                    @invalid=${this.handleInvalid}
                     data-test-id="pie-input">
                 <slot name="trailing"></slot>
                 ${assistiveText ? html`<pie-assistive-text variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}
@@ -239,10 +221,4 @@ declare global {
     interface HTMLElementTagNameMap {
         [componentSelector]: PieInput;
     }
-
-    // // This allows Typescript to understand that Window has a property called pieFormSubmitListenerExists
-    // interface Window {
-    //     pieFormSubmitListenerExists: boolean | undefined;
-    //     pieFormData: WeakMap<HTMLFormElement, { listenerAttached: boolean }>;
-    // }
 }

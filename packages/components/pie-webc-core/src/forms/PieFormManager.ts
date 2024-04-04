@@ -1,12 +1,14 @@
-export class PieFormManager {
-    constructor () {
-        console.log('I exist!');
-    }
+import { PIEInputElement } from '../interfaces';
 
+export class PieFormManager {
     private forms: WeakMap<HTMLFormElement, PieFormData> = new WeakMap();
 
-    private handleSubmit (event: Event) {
-        console.log('form submit', event);
+    private handleSubmit (event: Event) : void {
+        const submittedForm = event.target as HTMLFormElement;
+        const allPieInputs = submittedForm.querySelectorAll('pie-input');
+        const firstInvalidInput = Array.from(allPieInputs).find((input) => !(input as ValidityElement).validity.valid) as PIEInputElement | undefined;
+
+        firstInvalidInput?.focus();
     }
 
     public addForm (form: HTMLFormElement): void {
@@ -28,9 +30,8 @@ export class PieFormManager {
 
     public deleteForm (form: HTMLFormElement): void {
         const data = this.forms.get(form);
-        console.log('data', data);
+
         if (data?.listener) {
-            console.log('removing listener');
             form.removeEventListener('submit', this.handleSubmit);
         }
 
@@ -41,6 +42,8 @@ export class PieFormManager {
         return this.forms.get(form);
     }
 }
+
+type ValidityElement = Element & PIEInputElement;
 
 type PieFormData = {
     listener?: EventListener,
