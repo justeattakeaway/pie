@@ -10,8 +10,10 @@
 ## Reviewer checklists (complete before approving)
 ### Reviewer 1
 - [ ] I have reviewed the Docs site preview
+- [ ] If new links have been added, I have tested them in the preview
 - [ ] If there are visual test updates, I have reviewed them
 
 ### Reviewer 2
 - [ ] I have reviewed the Docs site preview
+- [ ] If new links have been added, I have tested them in the preview
 - [ ] If there are visual test updates, I have reviewed them
