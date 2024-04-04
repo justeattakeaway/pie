@@ -27,7 +27,6 @@ export class PieFormManager {
      * Performs any necessary operations when a form is submitted.
      */
     private handleSubmit (event: Event) : void {
-        console.log('Form submitted');
         const submittedForm = event.target as HTMLFormElement;
         focusFirstInvalidInput(submittedForm, event);
     }
