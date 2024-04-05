@@ -11,7 +11,9 @@ function focusFirstInvalidInput (form: HTMLFormElement, event: Event): void {
 
     if (firstInvalidInput) {
         event.preventDefault();
-        firstInvalidInput.focus();
+        setTimeout(() => {
+            firstInvalidInput.focus();
+        }, 0);
     }
 }
 
