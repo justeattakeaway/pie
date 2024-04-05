@@ -3,7 +3,7 @@
 
 Shared PIE Icon Components built using [Lit Web Components](https://lit.dev/docs/).
 
-This package provides the PIE iconset as importable Web Components, to ensure icons are used in accordance with PIE guidelines for sizing.
+This package provides the PIE icon set as importable web components, to make sure that icons are used in accordance with PIE sizing guidelines.
 
 This package takes the icon SVGs from the [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package and compiles them into Lit web components which can be imported into any web application.
 
