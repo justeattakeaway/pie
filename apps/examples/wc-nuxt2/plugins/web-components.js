@@ -1,2 +1,1 @@
-import '@justeattakeaway/pie-button';
-import '@justeattakeaway/pie-modal';
+import { PieButton } from '@justeattakeaway/pie-button';

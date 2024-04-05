@@ -30,30 +30,16 @@
                 WC Button in Vue!
             </pie-button>
         </div>
-        <div>
-            <pie-button @click="openModal">
-                Open modal
-            </pie-button>
-        </div>
     </div>
-
-    <pie-modal
-        :isOpen="isModalOpen"
-        isDismissible
-        @pie-modal-close="updateModalCloseState"
-        heading="Test heading">
-    </pie-modal>
 </template>
 
 <script>
 import { sizes, variants } from '@justeattakeaway/pie-button';
-import '@justeattakeaway/pie-modal';
 
 export default {
     data () {
         return {
             count: 0,
-            isModalOpen: false,
             variants,
             sizes,
         };
@@ -64,12 +50,6 @@ export default {
         },
         increment () {
             this.count++;
-        },
-        openModal () {
-            this.isModalOpen = true;
-        },
-        updateModalCloseState () {
-            this.isModalOpen = false;
         },
     },
 };
@@ -87,3 +67,4 @@ export default {
     padding: 1rem;
 }
 </style>
+
