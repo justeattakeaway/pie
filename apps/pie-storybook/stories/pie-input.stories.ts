@@ -194,6 +194,13 @@ const inputStoryMeta: InputStoryMeta = {
             control: 'select',
             options: sizes,
         },
+        required: {
+            description: 'If true, the input is required to have a value before submitting the form. The form will autofocus a required field if it is missing a value. Will have no effect if the input is placed inside a form.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -226,6 +233,7 @@ const Template = ({
     status,
     step,
     size,
+    required,
 }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -264,7 +272,6 @@ const Template = ({
             name="${ifDefined(name)}"
             id="${ifDefined(name)}"
             ?disabled="${disabled}"
-            required
             pattern="${ifDefined(pattern)}"
             minlength="${ifDefined(minlength)}"
             maxlength="${ifDefined(maxlength)}"
@@ -280,6 +287,7 @@ const Template = ({
             assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}
             size="${ifDefined(size)}"
+            ?required="${required}"
             @input="${onInput}"
             @change="${onChange}">
             ${renderLeadingOrTrailingSlot('leading', leadingSlot)}
@@ -320,16 +328,6 @@ const FormTemplate: TemplateFunction<InputProps> = (props: InputProps) => {
                 <pie-button type="submit" variant="primary">Submit</pie-button>
             </section>
         </form>
-
-        <button id="kill">Delete input</button>
-        <script>
-            const el = document.querySelector('#input-p');
-            const btn = document.querySelector('#kill');
-            btn.addEventListener('click', () => {
-                el.innerHTML = '';
-            });
-
-        </script>
     `;
 };
 
