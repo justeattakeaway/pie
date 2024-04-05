@@ -5,15 +5,12 @@ import { PIEInputElement } from '../interfaces';
  * @param form - The form element to focus the first invalid input of.
  */
 function focusFirstInvalidInput (form: HTMLFormElement, event: Event): void {
-    // We can extend this to include more form control components as we create them.
     const allPieInputs = form.querySelectorAll('pie-input');
     const firstInvalidInput = Array.from(allPieInputs).find((input) => !(input as ElementWithValidityState).validity.valid) as PIEInputElement | undefined;
 
     if (firstInvalidInput) {
         event.preventDefault();
-        setTimeout(() => {
-            firstInvalidInput.focus();
-        }, 0);
+        firstInvalidInput.focusTarget?.focus();
     }
 }
 
