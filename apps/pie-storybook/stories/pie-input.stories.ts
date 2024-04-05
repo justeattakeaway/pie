@@ -318,7 +318,7 @@ const FormTemplate: TemplateFunction<InputProps> = (props: InputProps) => {
         <form id="testForm" @submit="${onSubmit}">
             <section>
                 <h2>Contact information</h2>
-                <p id="input-p">
+                <p>
                     ${props.name ? html`<pie-form-label for="${props.name}">${props.name}</pie-form-label>` : nothing}
                     ${Template({ ...props, type: 'text' })}
                 </p>
