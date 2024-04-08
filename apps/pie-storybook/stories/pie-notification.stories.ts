@@ -150,7 +150,6 @@ const Template : TemplateFunction<NotificationProps> = ({
         @pie-notification-close="${pieNotificationClose}"
         @pie-notification-open="${pieNotificationOpen}"
         >
-        <icon-alert-circle-filled slot="icon" size="s"></icon-alert-circle-filled>
         ${slot}
     </pie-notification>`;
 
