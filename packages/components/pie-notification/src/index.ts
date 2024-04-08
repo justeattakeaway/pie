@@ -12,6 +12,7 @@ import {
     type NotificationProps,
     type ActionProps,
     variants,
+    positions,
     headingLevels,
     componentSelector,
     componentClass,
@@ -47,6 +48,10 @@ export class PieNotification extends LitElement implements NotificationProps {
     @property()
     @validPropertyValues(componentSelector, variants, 'neutral')
     public variant: NonNullable<NotificationProps['variant']> = 'neutral';
+
+    @property()
+    @validPropertyValues(componentSelector, positions, 'inline-content')
+    public position: NonNullable<NotificationProps['position']> = 'inline-content';
 
     @property({ type: Boolean })
     public isDismissible = true;
@@ -323,6 +328,7 @@ export class PieNotification extends LitElement implements NotificationProps {
     render () {
         const {
             variant,
+            position,
             heading,
             headingLevel,
             isDismissible,
@@ -341,7 +347,7 @@ export class PieNotification extends LitElement implements NotificationProps {
         }
 
         return html`
-            <div data-test-id="${componentSelector}" class="${componentClass}" variant="${variant}" ?isCompact="${isCompact}">
+            <div data-test-id="${componentSelector}" class="${componentClass}" variant="${variant}" position="${position}" ?isCompact="${isCompact}">
                 ${isDismissible && !isCompact ? this.renderCloseButton() : nothing}
 
                 <section class="${componentClass}-content-section">

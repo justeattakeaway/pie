@@ -2,7 +2,7 @@ import { html } from 'lit';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-notification';
 import { action } from '@storybook/addon-actions';
-import { NotificationProps as NotificationBaseProps, variants, headingLevels } from '@justeattakeaway/pie-notification';
+import { NotificationProps as NotificationBaseProps, variants, headingLevels, positions } from '@justeattakeaway/pie-notification';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta, SlottedComponentProps } from '../types';
@@ -16,6 +16,7 @@ type NotificationStoryMeta = StoryMeta<NotificationProps>;
 const defaultArgs: NotificationProps = {
     isOpen: true,
     variant: 'neutral',
+    position: 'inline-content',
     isDismissible: true,
     isCompact: false,
     slot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna.',
@@ -50,6 +51,14 @@ const notificationStoryMeta: NotificationStoryMeta = {
             options: variants,
             defaultValue: {
                 summary: 'neutral',
+            },
+        },
+        position: {
+            description: 'Notifications can appear anywhere inline within the content or full width which should appear at the top of the interface, under the header',
+            control: 'select',
+            options: positions,
+            defaultValue: {
+                summary: 'inline-content',
             },
         },
         isDismissible: {
@@ -126,6 +135,7 @@ const Template : TemplateFunction<NotificationProps> = ({
     isDismissible,
     isCompact,
     variant,
+    position,
     heading,
     headingLevel,
     hideIcon,
@@ -137,6 +147,7 @@ const Template : TemplateFunction<NotificationProps> = ({
     <pie-notification
         ?isOpen="${isOpen}"
         variant="${variant}"
+        position="${position}"
         ?isCompact="${isCompact}"
         ?isDismissible="${isDismissible}"
         heading="${heading}"

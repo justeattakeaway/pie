@@ -38,6 +38,10 @@
         --notification-direction: row;
     }
 
+    &[position='full-width'] {
+        --notification-border-radius: var(--dt-radius-00);
+    }
+
     &[variant='neutral-alternative'] {
         --notification-background-color: var(--dt-color-container-default);
     }
