@@ -16,6 +16,7 @@ import { IconHeartFilled } from '@justeattakeaway/pie-icons-webc';
 import {
     variants,
     headingLevels,
+    positions,
 } from '../../src/defs.ts';
 import { PieNotification, type NotificationProps } from '../../src/index.ts';
 
@@ -262,6 +263,22 @@ test.describe('Props', () => {
                 });
 
                 await percySnapshot(page, 'PieNotification - hasStackedActions = false, isCompact = true - should not stack buttons');
+            });
+        });
+    });
+
+    test.describe('PieNotification positions', () => {
+        positions.forEach((positionValue) => {
+            test(`should render correctly the ${positionValue} position`, async ({ page, mount }) => {
+                await mount(PieNotification, {
+                    props: {
+                        ...initialValues,
+                        position: positionValue,
+                    } as NotificationProps,
+                    slots: { default: slotContent },
+                });
+
+                await percySnapshot(page, `PieNotification - position = ${positionValue} border-radius`);
             });
         });
     });
