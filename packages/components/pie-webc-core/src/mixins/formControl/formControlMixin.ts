@@ -57,7 +57,7 @@ export const FormControlMixin =
                 this._internals = this.attachInternals();
             }
 
-            connectedCallback (): void {
+            override connectedCallback (): void {
                 super.connectedCallback();
 
                 if (this.form) {
@@ -74,7 +74,7 @@ export const FormControlMixin =
                 }
             }
 
-            disconnectedCallback (): void {
+            override disconnectedCallback (): void {
                 super.disconnectedCallback();
 
                 if (this._managedForm && window.pieFormManager) {
