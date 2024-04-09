@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.19.1
+
+### Patch Changes
+
+- [Added] - pieMetadata object to component package.json files with a componentStatus property to query when needing the current component status ([#1361](https://github.com/justeattakeaway/pie/pull/1361)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`a7495cba5`](https://github.com/justeattakeaway/pie/commit/a7495cba55203b5dea71e9c51d50cb04fe4bb759)]:
+  - @justeattakeaway/pie-icon-button@0.28.1
+  - @justeattakeaway/pie-divider@0.13.1
+  - @justeattakeaway/pie-button@0.47.1
+  - @justeattakeaway/pie-switch@0.28.1
+  - @justeattakeaway/pie-modal@0.42.1
+  - @justeattakeaway/pie-link@0.17.1
+
 ## 0.19.0
 
 ### Minor Changes
