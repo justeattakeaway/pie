@@ -52,6 +52,7 @@ describe('PieFormManager', () => {
 
             // Assert
             expect(result?.form).toStrictEqual(testForm);
+            expect(result?.listener).toBeInstanceOf(Function);
         });
 
         it('returns undefined when a form is not in the manager', () => {
