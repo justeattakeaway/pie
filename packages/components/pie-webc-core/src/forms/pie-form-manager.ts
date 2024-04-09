@@ -34,7 +34,7 @@ export class PieFormManager {
      * Adds a form to the form manager and attaches a submit event listener to it.
      */
     public addForm (form: HTMLFormElement): void {
-        const existingEntry = this._forms.get(form);
+        const existingEntry = this.getForm(form);
 
         if (existingEntry) {
             return;
@@ -55,7 +55,7 @@ export class PieFormManager {
      * @param form - The form to remove from the form manager.
      */
     public deleteForm (form: HTMLFormElement): void {
-        const data = this._forms.get(form);
+        const data = this.getForm(form);
 
         if (data?.listener) {
             form.removeEventListener('submit', data.listener);
