@@ -66,11 +66,9 @@ export const FormControlMixin =
                         window.pieFormManager = new PieFormManager();
                     }
 
-                    if (window.pieFormManager) {
-                        window.pieFormManager.addForm(this.form);
-                        // Storing a reference to the form to be used in disconnectedCallback when this.form will be unavailable.
-                        this._managedForm = window.pieFormManager.getForm(this.form)?.form;
-                    }
+                    window.pieFormManager.addForm(this.form);
+                    // Storing a reference to the form to be used in disconnectedCallback when this.form will be unavailable.
+                    this._managedForm = window.pieFormManager.getForm(this.form)?.form;
                 }
             }
 
