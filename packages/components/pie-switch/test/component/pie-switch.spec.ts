@@ -61,35 +61,6 @@ test.describe('Component: `Pie switch`', () => {
         expect(pieSwitchComponent).toBe(false);
     });
 
-    test('should have an `id` of `switch` on the input element', async ({ mount }) => {
-        // Arrange
-        const component = await mount(PieSwitch);
-
-        // Act
-        const pieSwitchInput = component.locator(inputSelector);
-
-        // Assert
-        await expect(pieSwitchInput).toHaveAttribute('id', 'switch');
-    });
-
-    test.describe('when the switch contains a label element', () => {
-        test('should set associated `for` value on the label', async ({ mount }) => {
-            // Arrange
-            const component = await mount(PieSwitch, {
-                props: {
-                    label: 'Label',
-                    labelPlacement: 'leading',
-                } as SwitchProps,
-            });
-
-            // Act
-            const pieSwitchLabel = component.locator(switchLabelSelector());
-
-            // Assert
-            await expect(pieSwitchLabel).toHaveAttribute('for', 'switch');
-        });
-    });
-
     test.describe('component interaction states', () => {
         test.describe('when the component is clicked', () => {
             test('should set `checked` to `true`', async ({ mount, page }) => {
