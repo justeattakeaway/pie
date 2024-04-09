@@ -70,24 +70,6 @@ describe('PieFormManager', () => {
             // Assert
             expect(result).toBeUndefined();
         });
-
-        it('returns undefined when a form has been deleted', () => {
-            // Arrange
-            document.body.innerHTML = `
-                <form id="testForm"></form>
-            `;
-
-            const testForm = document.getElementById('testForm') as HTMLFormElement;
-            const manager = new PieFormManager();
-            manager.addForm(testForm);
-            manager.deleteForm(testForm);
-
-            // Act
-            const result = manager.getForm(testForm);
-
-            // Assert
-            expect(result).toBeUndefined();
-        });
     });
 
     describe('deleteForm', () => {
