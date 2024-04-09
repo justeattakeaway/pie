@@ -158,11 +158,9 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
 
         if (label) {
             return html`
-                <label
-                    for="switch"
-                    data-test-id="switch-label-${labelPlacement}">
+                <span data-test-id="switch-label-${labelPlacement}">
                     ${label}
-                </label>`;
+                </span>`;
         }
 
         return html``;
@@ -181,17 +179,16 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
         const switchId = 'switch-description';
 
         return html`
-            <div
+            <label
                 class="c-switch-wrapper"
                 ?isRTL=${isRTL}
                 ?disabled=${disabled}>
                 ${labelPlacement === 'leading' ? this.renderSwitchLabel() : nothing}
-                <label
+                <div
                     data-test-id="switch-component"
                     class="c-switch"
                     ?checked=${checked}>
                     <input
-                        id="switch"
                         data-test-id="switch-input"
                         role="switch"
                         type="checkbox"
@@ -205,10 +202,10 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
                     <div class="c-switch-control">
                         ${checked ? html`<icon-check></icon-check>` : nothing}
                     </div>
-                </label>
-                ${aria?.describedBy ? html`<div id="${switchId}" data-test-id="${switchId}" class="c-switch-description">${aria?.describedBy}</div>` : nothing}
+                </div>
                 ${labelPlacement === 'trailing' ? this.renderSwitchLabel() : nothing}
-            </div>
+                ${aria?.describedBy ? html`<div id="${switchId}" data-test-id="${switchId}" class="c-switch-description">${aria?.describedBy}</div>` : nothing}
+            </label>
         `;
     }
 }
