@@ -1,4 +1,4 @@
-import { PIEInputElement } from '../interfaces';
+import type { PIEInputElement } from '../interfaces';
 
 /**
  * Focuses the first invalid input of a form. The validity state of each input in the form is read and the first with `ValidityState.valid === false` is focused.
