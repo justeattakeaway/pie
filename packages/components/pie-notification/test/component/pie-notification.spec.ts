@@ -473,6 +473,53 @@ test.describe('PieNotification - Component tests', () => {
                 });
             });
         });
+        test.describe('position', () => {
+            test('should render by default the position prop as inline-content and the border radius must be 12px', async ({mount, page}) => {
+                // Arrange
+                await mount(PieNotification, {
+                    props: {},
+                });
+
+                // Act
+                const notification = page.locator(componentSelector);
+
+                // Assert
+                expect(notification).toBeVisible();
+                expect(notification).toHaveCSS('border-radius', '12px');
+            });
+
+            test('should render the border radius as 12px when the position prop is inline-content', async ({mount, page}) => {
+                // Arrange
+                await mount(PieNotification, {
+                    props: {
+                        position: 'inline-content',
+                    },
+                });
+
+                // Act
+                const notification = page.locator(componentSelector);
+
+                // Assert
+                expect(notification).toBeVisible();
+                expect(notification).toHaveCSS('border-radius', '12px');
+            });
+
+            test('should render the border radius as 0px when the position prop is full-width', async ({mount, page}) => {
+                // Arrange
+                await mount(PieNotification, {
+                    props: {
+                        position: 'full-width',
+                    },
+                });
+
+                // Act
+                const notification = page.locator(componentSelector);
+
+                // Assert
+                expect(notification).toBeVisible();
+                expect(notification).toHaveCSS('border-radius', '0px');
+            });
+        });
     });
 
     test.describe('Slots', () => {
