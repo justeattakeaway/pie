@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-assistive-text
 
+## 0.3.1
+
+### Patch Changes
+
+- [Added] - pieMetadata object to component package.json files with a componentStatus property to query when needing the current component status ([#1361](https://github.com/justeattakeaway/pie/pull/1361)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.3.0
 
 ### Minor Changes
