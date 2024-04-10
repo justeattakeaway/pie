@@ -25,6 +25,9 @@
 
 This component can be easily integrated into various frontend frameworks and customized through a set of properties.
 
+## Cookies
+`pie-cookie-banner` purely handles the UI and user interactions for cookie consent. It does not handle the setting or management of cookies or the storage of user preferences. It is the responsibility of the consuming application to handle these aspects.
+
 
 ## Installation
 
