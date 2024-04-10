@@ -3,7 +3,7 @@ import '@justeattakeaway/pie-tag';
 import '@justeattakeaway/pie-icons-webc/IconHelpCircle';
 import { StorybookContext } from '../interfaces/storybook-context';
 import componentStatusesJson from '../component-statuses.json';
-import { ComponentStatuses } from '../interfaces/component-statuses';
+import { ComponentStatuses } from '../interfaces/component-status';
 import { tagVariantToStatusMap } from '../data/tag-variants-to-statuses-map';
 
 const componentStatuses: ComponentStatuses = componentStatusesJson;
