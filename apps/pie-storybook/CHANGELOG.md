@@ -1,5 +1,38 @@
 # Changelog
 
+## 0.71.1
+
+### Patch Changes
+
+- Updated dependencies [[`9bfffe6a5`](https://github.com/justeattakeaway/pie/commit/9bfffe6a5ccb0c03190e6086712941275df60e8b)]:
+  - @justeattakeaway/pie-switch@0.29.0
+  - @justeattakeaway/pie-cookie-banner@0.19.2
+
+## 0.71.0
+
+### Minor Changes
+
+- [Added] - Display component statuses in story and story doc pages ([#1361](https://github.com/justeattakeaway/pie/pull/1361)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`a7495cba5`](https://github.com/justeattakeaway/pie/commit/a7495cba55203b5dea71e9c51d50cb04fe4bb759)]:
+  - @justeattakeaway/pie-assistive-text@0.3.1
+  - @justeattakeaway/pie-cookie-banner@0.19.1
+  - @justeattakeaway/pie-notification@0.5.1
+  - @justeattakeaway/pie-icon-button@0.28.1
+  - @justeattakeaway/pie-form-label@0.13.1
+  - @justeattakeaway/pie-divider@0.13.1
+  - @justeattakeaway/pie-spinner@0.6.1
+  - @justeattakeaway/pie-button@0.47.1
+  - @justeattakeaway/pie-switch@0.28.1
+  - @justeattakeaway/pie-input@0.15.1
+  - @justeattakeaway/pie-modal@0.42.1
+  - @justeattakeaway/pie-card@0.19.1
+  - @justeattakeaway/pie-chip@0.5.1
+  - @justeattakeaway/pie-link@0.17.1
+  - @justeattakeaway/pie-tag@0.9.1
+
 ## 0.70.0
 
 ### Minor Changes

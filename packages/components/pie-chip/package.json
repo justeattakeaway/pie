@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-chip",
   "description": "PIE Design System Chip built using Web Components",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -16,7 +16,8 @@
     "componentStatus": "alpha"
   },
   "scripts": {
-    "build": "npx build-react-wrapper && run -T vite build",
+    "build": "run -T vite build",
+    "build:react-wrapper": "npx build-react-wrapper",
     "create:manifest": "yarn cem analyze --litelement",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
@@ -40,7 +41,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-icons-webc": "0.20.0",
-    "@justeattakeaway/pie-spinner": "0.6.0",
+    "@justeattakeaway/pie-spinner": "0.6.1",
     "@justeattakeaway/pie-webc-core": "0.20.0"
   },
   "volta": {
