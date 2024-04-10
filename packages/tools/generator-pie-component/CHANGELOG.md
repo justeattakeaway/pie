@@ -1,5 +1,13 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.20.2
+
+### Patch Changes
+
+- [Fixed] - Bug where generated components didn't align with refactored Turborepo build pipeline ([#1377](https://github.com/justeattakeaway/pie/pull/1377)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - pieMetadata object to component package.json files with a componentStatus property to query when needing the current component status ([#1361](https://github.com/justeattakeaway/pie/pull/1361)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.20.1
 
 ### Patch Changes

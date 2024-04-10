@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-switch
 
+## 0.29.0
+
+### Minor Changes
+
+- [Changed] - markup to remove the Input element's id ([#1383](https://github.com/justeattakeaway/pie/pull/1383)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Removed] - redundant browser tests that relied on the element's id
+
+## 0.28.1
+
+### Patch Changes
+
+- [Added] - pieMetadata object to component package.json files with a componentStatus property to query when needing the current component status ([#1361](https://github.com/justeattakeaway/pie/pull/1361)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.28.0
 
 ### Minor Changes
