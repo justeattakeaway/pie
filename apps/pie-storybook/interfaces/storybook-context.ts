@@ -1,10 +1,12 @@
-import type { Parameters, StoryContext } from '@storybook/types';
+import type { Globals, Parameters, StoryContext } from '@storybook/types';
 
 export interface StorybookContext extends StoryContext {
-    globals: {
+    component: string;
+
+    globals: Globals & {
         writingDirection: 'ltr' | 'rtl' | 'auto';
     };
-    component: string;
+
     parameters: Parameters & {
         componentStatusPosition: 'top' | 'bottom';
     }
