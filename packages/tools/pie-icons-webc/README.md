@@ -200,3 +200,6 @@ Run `yarn build --filter=pie-icons-webc` from the project level or `yarn turbo r
 ## Icon list
 
 You can check the list of all the icons on our [documentation site](https://pie.design/foundations/iconography/library/).
+
+## Bundling
+When we build the icons, we run a plugin for Rollup named `rollup-plugin-visualizer`. This generates a file named `stats.html` in the root of the package. This file can be viewed in the browser to visualise the bundled Javascript and better understand what contributes to the size of the final build output.
