@@ -36,13 +36,17 @@ const componentSelector = '${kebabCase(name)}';
  * @tagname ${kebabCase(name)}
  */
 export class ${name} extends LitElement implements IconProps {
-    // The following styles make sure that the icon will be sized correctly
+    // The following styles make sure that the icon will be sized correctly.
+    // "--icon-size-override" css var can be used in parent components to make sure the icon
+    // stays the correct size for cases where the icon is added by consumers via a slot,
+    // for example in Button, IconButton, Chip and Tag.
+    // Might be changed later to assigning a size prop to an icon slot
+    // (POC: https://github.com/justeattakeaway/pie/pull/1128)
     static styles = css\`
         :host {
             display: inline-block;
         }
         :host svg {
-            display: var(--icon-display-override);
             width: var(--icon-size-override);
             height: var(--icon-size-override);
         }

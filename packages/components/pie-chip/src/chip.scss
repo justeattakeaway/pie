@@ -47,7 +47,7 @@
     --chip-dismissible-offset: calc(var(--chip-gap) / -2); // ensures the spacing between the text and close icon is 4px
 
     // Pie Webc Icon var that is used to ensure the correctly sized icon passed in a slot
-    --icon-display-override: block;
+    --icon-size-override: 16px;
 
     position: relative;
     display: flex;
