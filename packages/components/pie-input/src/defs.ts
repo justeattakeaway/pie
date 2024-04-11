@@ -103,6 +103,12 @@ export interface InputProps {
      * The size of the input field. Can be `small`, `medium`, or `large`. Defaults to `medium`.
      */
     size?: typeof sizes[number];
+
+    /**
+     * If true, the input is required to have a value before submitting the form. The form will autofocus a required field if it is missing a value.
+     * Will have no effect if the input is not placed inside a form.
+     */
+    required?: boolean;
 }
 
 // TODO - There is a ticket to add default prop values to our existing components. This might be replaced by the code added in that ticket.
