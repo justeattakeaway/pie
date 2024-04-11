@@ -195,7 +195,7 @@ const inputStoryMeta: InputStoryMeta = {
             options: sizes,
         },
         required: {
-            description: 'If true, the input is required to have a value before submitting the form. The form will autofocus a required field if it is missing a value. Will have no effect if the input is not placed inside a form.',
+            description: 'If true, the input is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid.',
             control: 'boolean',
             defaultValue: {
                 summary: false,
