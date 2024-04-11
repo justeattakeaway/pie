@@ -93,7 +93,7 @@ import { PieInput } from '@justeattakeaway/pie-input/dist/react';
 | `min` | `number` | - | The minimum value of the input. Only applies when type is `number`. If the value provided is lower, the input is invalid. |
 | `max` | `number` | - | The maximum value of the input. Only applies when type is `number`. If the value provided is higher, the input is invalid. |
 | `size` | `'small'`, `'medium'`, `'large'` | `medium` | The size of the input field. Can be `small`, `medium`, or `large`. Defaults to `medium`. |
-
+| `required` | `boolean` | `false` | If true, the input is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid. |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-input` component:
 
