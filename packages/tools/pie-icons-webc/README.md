@@ -190,7 +190,7 @@ Before starting, please read our [contributing guide](https://pie.design/enginee
 
 Icons should be added as SVGs to the main pie-icons package and published, before simply incrementing the dependency of `pie-icons` in the `pie-icons-webc` package, to generate the new set of Web Components.
 
-The PIE icon set is managed by our PIE Design System team. New icon requests should go through them to ensure that they are meet our standards and follow our guidelines. Please reach out on the (internal) `#help-designsystem` Slack channel.
+The PIE icon set is managed by our PIE Design System team. New icon requests should go through them to ensure that they meet our standards and follow our guidelines. Please reach out on the (internal) `#help-designsystem` Slack channel.
 
 ### Building the module
 
