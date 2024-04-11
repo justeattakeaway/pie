@@ -1,6 +1,6 @@
 import { TemplateResult, html } from 'lit';
 import '@justeattakeaway/pie-tag';
-import '@justeattakeaway/pie-icons-webc/IconHelpCircle';
+import '@justeattakeaway/pie-icons-webc/dist/IconHelpCircle.js';
 import { StorybookContext } from '../interfaces/storybook-context';
 import componentStatusesJson from '../component-statuses.json';
 import { ComponentStatuses } from '../interfaces/component-status';
