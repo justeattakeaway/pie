@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import path from 'path';
 import fs from 'fs';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 /**
  * Recursively get all Icon TS files from the icons folder and its subfolders
@@ -65,4 +66,10 @@ export default defineConfig({
             '**/node_modules/**/*'
         ],
     },
+    plugins: [
+        visualizer({
+            gzipSize: true,
+            brotliSize: true,
+        })
+    ],
 });

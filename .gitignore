@@ -173,3 +173,4 @@ build/**
 dist/
 custom-elements.json
 **/src/react.ts
+**/stats.html
