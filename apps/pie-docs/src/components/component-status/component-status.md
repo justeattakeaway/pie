@@ -37,7 +37,7 @@ eleventyNavigation:
         },
         {
             term: statusTypes.ALPHA,
-            description: 'Preliminary use-age, expect changes.'
+            description: 'Preliminary usage; expect changes.'
         },
         {
             term: statusTypes.BETA,
