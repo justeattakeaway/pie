@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-webc-core",
-  "version": "0.20.0",
+  "version": "0.21.0",
   "description": "PIE design system base classes, mixins and utilities for web components",
   "type": "module",
   "main": "dist/index.js",
@@ -21,7 +21,7 @@
     "lit": "3.1.2"
   },
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.14.0"
+    "@justeattakeaway/pie-components-config": "0.15.0"
   },
   "volta": {
     "extends": "../../../package.json"
