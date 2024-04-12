@@ -8,8 +8,6 @@ import { NotificationProps as NotificationBaseProps, variants, headingLevels } f
 import { type StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
-import '@justeattakeaway/pie-icons-webc/IconAlertCircleFilled';
-
 type NotificationProps = SlottedComponentProps<NotificationBaseProps>;
 type NotificationStoryMeta = StoryMeta<NotificationProps>;
 
