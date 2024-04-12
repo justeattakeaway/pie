@@ -75,27 +75,9 @@ import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
 Whilst it *is* possible to import all of the icons at once, this is **not recommended** as it will bloat and slow down your application.
 
-```js
-// Not recommended
-import * as icons from '@justeattakeaway/pie-icons-webc';
+Similarly, it is also **not recommended** to import individual icons from the package's main entrypoint, because it is likely that all icons will still be registered as custom elements in the browser.
 
-function renderIcon() {
-    const iconHeart = new icons.IconHeart();
-    const iconHeartFilled = new icons.IconHeartFilled()
-    document.body.appendChild(iconHeart);
-    document.body.appendChild(iconHeartFilled);
-}
-```
-
-> [!WARNING]
-> Similarly, it is also **not recommended** to import individual icons from the package's main entrypoint
-> because it is likely that all icons will still be registered as custom elements in the browser.
-> You may also encounter issues with tree-shaking if you don't directly use the imported object.
-
-```js
-// Not recommended
-import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc';
-```
+You may also encounter issues with tree-shaking if you import an object but don't use it.
 
 ### Lit components
 
@@ -134,8 +116,6 @@ export default function App() {
 ```
 
 ### Vue
-
-Your application needs to be using Node 18 or higher to use the icon web components. If you are using a lower version of Node, please use our native Vue component package, [`pie-icons-vue`](https://www.npmjs.com/package/@justeattakeaway/pie-icons-vue).
 
 Note that you don't need to register the icons as Vue components, because they aren't!
 
