@@ -54,7 +54,7 @@
         }
 
         ::slotted([slot="trailing"]) {
-            margin-inline-end: 0;
+            margin-inline-start: 0;
         }
     }
 }
@@ -65,7 +65,8 @@ input {
     height: 24px;
     padding: 0;
     color: var(--input-text-clr);
-    background: none;
+    flex-grow: 1;
+    flex-shrink: 0;
     font-size: inherit;
     font-family: inherit;
 }
