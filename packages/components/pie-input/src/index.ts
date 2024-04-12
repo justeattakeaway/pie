@@ -210,7 +210,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     @input=${this.handleInput}
                     @change=${this.handleChange}
                     data-test-id="pie-input">
-                <slot name="trailing"></slot>
+                <slot class="test" name="trailing"></slot>
             </div>
             ${assistiveText ? html`<pie-assistive-text variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}`;
     }

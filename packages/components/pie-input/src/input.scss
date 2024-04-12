@@ -36,7 +36,6 @@
     font-size: var(--input-font-size);
     display: flex;
     flex-wrap: nowrap;
-    gap: var(--input-gap);
     align-items: center;
     color: var(--input-text-clr-leading-trailing-content);
 
@@ -47,9 +46,28 @@
     &[data-pie-size="small"] {
         --input-padding-block: var(--dt-spacing-b);
     }
+
+    ::slotted([slot="leading"]) {
+        margin-inline-end: var(--input-gap);
+    }
+
+    ::slotted([slot="trailing"]) {
+        margin-inline-start: var(--input-gap);
+    }
+
+    @supports (gap: var(--input-gap)) {
+        gap: var(--input-gap);
+
+        ::slotted([slot="leading"]) {
+            margin-inline-end: 0;
+        }
+
+        ::slotted([slot="trailing"]) {
+            margin-inline-end: 0;
+        }
+    }
 }
 
-// remove default input styles
 input {
     border: 0;
     outline: 0;
