@@ -89,6 +89,9 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     @property({ type: String })
     public size?: InputProps['size'] = InputDefaultPropertyValues.size;
 
+    @property({ type: Boolean })
+    public required?: InputProps['required'] = false;
+
     @query('input')
     private input?: HTMLInputElement;
 
@@ -177,6 +180,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
             type,
             value,
             size,
+            required,
         } = this;
 
         return html`
@@ -198,6 +202,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     inputmode=${ifDefined(inputmode)}
                     placeholder=${ifDefined(placeholder)}
                     ?readonly=${readonly}
+                    ?required=${required}
                     @input=${this.handleInput}
                     @change=${this.handleChange}
                     data-test-id="pie-input">
