@@ -1,7 +1,13 @@
-export interface StorybookContext {
-    globals: {
+import type { Globals, Parameters, StoryContext } from '@storybook/types';
+
+export interface StorybookContext extends StoryContext {
+    component: string;
+
+    globals: Globals & {
         writingDirection: 'ltr' | 'rtl' | 'auto';
     };
-    component: string;
-    viewMode: string;
+
+    parameters: Parameters & {
+        componentStatusPosition: 'top' | 'bottom';
+    }
 }

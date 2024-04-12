@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig({
     build: {
@@ -22,4 +23,10 @@ export default defineConfig({
             '**/node_modules/**/*'
         ],
     },
+    plugins: [
+        visualizer({
+            gzipSize: true,
+            brotliSize: true,
+        })
+    ],
 });
