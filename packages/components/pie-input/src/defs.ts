@@ -103,6 +103,11 @@ export interface InputProps {
      * The size of the input field. Can be `small`, `medium`, or `large`. Defaults to `medium`.
      */
     size?: typeof sizes[number];
+
+    /**
+     * If true, the input is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid.
+     */
+    required?: boolean;
 }
 
 // TODO - There is a ticket to add default prop values to our existing components. This might be replaced by the code added in that ticket.

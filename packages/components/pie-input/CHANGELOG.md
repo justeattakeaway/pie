@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-input
 
+## 0.16.0
+
+### Minor Changes
+
+- [Added] - `required` property to pie-input component ([#1392](https://github.com/justeattakeaway/pie/pull/1392)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`1086464e8`](https://github.com/justeattakeaway/pie/commit/1086464e86fbce635f4a30783b0c145b7f5854e3)]:
+  - @justeattakeaway/pie-webc-core@0.21.0
+  - @justeattakeaway/pie-assistive-text@0.3.2
+
 ## 0.15.1
 
 ### Patch Changes

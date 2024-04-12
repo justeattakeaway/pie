@@ -194,6 +194,13 @@ const inputStoryMeta: InputStoryMeta = {
             control: 'select',
             options: sizes,
         },
+        required: {
+            description: 'If true, the input is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -226,6 +233,7 @@ const Template = ({
     status,
     step,
     size,
+    required,
 }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -279,6 +287,7 @@ const Template = ({
             assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}
             size="${ifDefined(size)}"
+            ?required="${required}"
             @input="${onInput}"
             @change="${onChange}">
             ${renderLeadingOrTrailingSlot('leading', leadingSlot)}

@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-webc",
   "description": "Component bundle containing all PIE web components",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -23,12 +23,12 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.14.0"
+    "@justeattakeaway/pie-components-config": "0.15.0"
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "0.47.1",
-    "@justeattakeaway/pie-modal": "0.42.1",
-    "@justeattakeaway/pie-webc-core": "0.20.0"
+    "@justeattakeaway/pie-button": "0.47.2",
+    "@justeattakeaway/pie-modal": "0.42.2",
+    "@justeattakeaway/pie-webc-core": "0.21.0"
   },
   "volta": {
     "extends": "../../../package.json"

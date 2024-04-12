@@ -796,6 +796,98 @@ test.describe('PieInput - Component tests', () => {
                 expect(inputShell).toHaveAttribute('size', 'large');
             });
         });
+
+        test.describe('required', () => {
+            test('should not render a required attribute on the input element if no required provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('required'))).toBe(null);
+            });
+
+            test('should apply the required prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        required: true,
+                    } as InputProps,
+                });
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('required'))).toBe('');
+            });
+
+            test('should be invalid state `valueMissing` if the input is empty and required', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieInput, {
+                    props: {
+                        required: true,
+                    } as InputProps,
+                });
+
+                // Act
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valueMissing);
+
+                // Assert
+                expect(isInvalid).toBe(true);
+            });
+
+            test('should be valid state if the input is not empty and required', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        required: true,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('test');
+
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
+            });
+
+            test('should be valid state if the input has a value prop and required', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieInput, {
+                    props: {
+                        required: true,
+                        value: 'test',
+                    } as InputProps,
+                });
+
+                // Act
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
+            });
+
+            test('should be valid state if the input is empty and required but disabled', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieInput, {
+                    props: {
+                        required: true,
+                        disabled: true,
+                    } as InputProps,
+                });
+
+                // Act
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
+            });
+        });
     });
 
     test.describe('Events', () => {

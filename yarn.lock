@@ -29185,6 +29185,7 @@ __metadata:
     postcss: 8.4.32
     postcss-cli: 10.1.0
     rimraf: 5.0.5
+    rollup-plugin-visualizer: 5.12.0
     sass: 1.60.0
     stylelint: 16.2.1
     stylelint-config-standard-scss: 13.0.0
@@ -33072,7 +33073,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-visualizer@npm:^5.12.0, rollup-plugin-visualizer@npm:^5.9.0":
+"rollup-plugin-visualizer@npm:5.12.0, rollup-plugin-visualizer@npm:^5.12.0, rollup-plugin-visualizer@npm:^5.9.0":
   version: 5.12.0
   resolution: "rollup-plugin-visualizer@npm:5.12.0"
   dependencies:

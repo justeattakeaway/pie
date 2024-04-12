@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 import { deepmerge } from 'deepmerge-ts';
 
@@ -42,6 +43,10 @@ const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
         insertTypesEntry: true,
         outputDir: 'dist',
         rollupTypes: true,
+    }),
+    visualizer({
+        gzipSize: true,
+        brotliSize: true,
     })], plugins),
 
     ...rest,

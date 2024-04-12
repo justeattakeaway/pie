@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-components-config
 
+## 0.15.0
+
+### Minor Changes
+
+- [Added] - Bundle visualiser that runs during build for webc icons, webc core and our components ([#1391](https://github.com/justeattakeaway/pie/pull/1391)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.14.0
 
 ### Minor Changes

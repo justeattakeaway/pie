@@ -16,6 +16,7 @@
 4. [Dependencies](#dependencies)
 5. [Contributing](#contributing)
 6. [Testing](#testing)
+7. [Bundling](#bundling)
 
 ## Introduction
 
@@ -72,3 +73,6 @@ We write browser tests for functionality that requires a browser environment to 
 
 ### Naming and running tests
 Currently, for writing unit tests we simply name the file `**/*.spec.ts`. To write browser tests, we name the file `**/*.browser.spec.ts`. This allows us to run all unit tests using `yarn test --filter=pie-webc-core` and all browser tests using `yarn test:browsers --filter=pie-webc-core`.
+
+## Bundling
+When we build the package, we run a plugin for Rollup named `rollup-plugin-visualizer`. This generates a file named `stats.html` in the root of the package. This file can be viewed in the browser to visualise the bundled Javascript and better understand what contributes to the size of the final build output.
