@@ -184,7 +184,11 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
         } = this;
 
         return html`
-            <div data-test-id="pie-input-shell" size=${ifDefined(size)}>
+            <div
+                class="c-input"
+                data-test-id="pie-input-shell"
+                data-pie-size=${ifDefined(size)}
+                data-pie-status=${ifDefined(status)}>
                 <slot name="leading"></slot>
                 <input
                     type=${ifDefined(type)}
@@ -207,8 +211,8 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     @change=${this.handleChange}
                     data-test-id="pie-input">
                 <slot name="trailing"></slot>
-                ${assistiveText ? html`<pie-assistive-text variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}
-            </div>`;
+            </div>
+            ${assistiveText ? html`<pie-assistive-text variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

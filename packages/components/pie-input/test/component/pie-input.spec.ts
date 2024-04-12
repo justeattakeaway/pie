@@ -778,7 +778,7 @@ test.describe('PieInput - Component tests', () => {
                 const inputShell = component.locator(componentShellSelector);
 
                 // Assert
-                expect(inputShell).toHaveAttribute('size', 'medium');
+                expect(inputShell).toHaveAttribute('data-pie-size', 'medium');
             });
 
             test('should apply the size prop to the HTML input rendered', async ({ mount }) => {
@@ -793,7 +793,7 @@ test.describe('PieInput - Component tests', () => {
                 const inputShell = component.locator(componentShellSelector);
 
                 // Assert
-                expect(inputShell).toHaveAttribute('size', 'large');
+                expect(inputShell).toHaveAttribute('data-pie-size', 'large');
             });
         });
 
