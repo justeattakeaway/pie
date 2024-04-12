@@ -19,6 +19,7 @@ const componentSelector = 'pie-button';
 /**
  * @tagname pie-button
  * @slot icon - The icon slot
+ * @slot test - Testing the attribute reassignment
  * @slot - Default slot
  */
 export class PieButton extends FormControlMixin(LitElement) implements ButtonProps {
@@ -55,6 +56,13 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
             if (this.size === 'medium' || this.size === 'large') {
                 iconElement.setAttribute('size', 'm');
             }
+        }
+
+        // Testing setting attributes to a default slot while icon component doesn't work in ssr
+        const [testElement] = this._testSlotElement;
+
+        if (testElement) {
+            testElement.setAttribute('size', 'small');
         }
 
         if (changedProperties.has('type')) {
@@ -121,6 +129,9 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
 
     @queryAssignedElements({ slot: 'icon' })
         _iconSlotElement!: Array<HTMLElement>;
+
+    @queryAssignedElements({ slot: 'test' })
+        _testSlotElement!: Array<HTMLElement>;
 
     /**
      * This method creates an invisible button of the same type as pie-button. It is then clicked, and immediately removed from the DOM.
@@ -259,6 +270,7 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
                 ?isLoading=${isLoading}>
                     ${isLoading ? this.renderSpinner() : nothing}
                     ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
+                    <slot name="test"></slot>
                     <slot></slot>
                     ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
             </button>`;
