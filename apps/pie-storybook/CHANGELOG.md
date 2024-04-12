@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.72.0
+
+### Minor Changes
+
+- [Added] - Help icon with docs site link to component status ([#1365](https://github.com/justeattakeaway/pie/pull/1365)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - `required` property to pie-input component ([#1392](https://github.com/justeattakeaway/pie/pull/1392)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`1086464e8`](https://github.com/justeattakeaway/pie/commit/1086464e86fbce635f4a30783b0c145b7f5854e3), [`6aba71ef8`](https://github.com/justeattakeaway/pie/commit/6aba71ef84765a0cf6285ceeccbabec7851d3a90)]:
+  - @justeattakeaway/pie-icons-webc@0.21.0
+  - @justeattakeaway/pie-input@0.16.0
+  - @justeattakeaway/pie-assistive-text@0.3.2
+  - @justeattakeaway/pie-button@0.47.2
+  - @justeattakeaway/pie-card@0.19.2
+  - @justeattakeaway/pie-chip@0.5.2
+  - @justeattakeaway/pie-cookie-banner@0.19.3
+  - @justeattakeaway/pie-divider@0.13.2
+  - @justeattakeaway/pie-form-label@0.13.2
+  - @justeattakeaway/pie-icon-button@0.28.2
+  - @justeattakeaway/pie-link@0.17.2
+  - @justeattakeaway/pie-modal@0.42.2
+  - @justeattakeaway/pie-notification@0.5.2
+  - @justeattakeaway/pie-spinner@0.6.2
+  - @justeattakeaway/pie-switch@0.29.1
+  - @justeattakeaway/pie-tag@0.9.2
+
 ## 0.71.1
 
 ### Patch Changes

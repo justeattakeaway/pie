@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.33.1
+
+### Patch Changes
+
+- [Changed] - Fix spelling mistake ([#1365](https://github.com/justeattakeaway/pie/pull/1365)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 3.33.0
 
 ### Minor Changes
