@@ -15,6 +15,7 @@
     --icon-display-override: block;
     --icon-size-override: 24px;
 
+    height: 48px;
     border: 1px solid var(--input-border-clr);
     border-radius: var(--input-radius);
     padding-inline-start: var(--input-padding-inline);
@@ -30,10 +31,12 @@
 
     &[data-pie-size="large"] {
         --input-padding-block: var(--dt-spacing-d);
+        height: 56px;
     }
 
     &[data-pie-size="small"] {
         --input-padding-block: var(--dt-spacing-b);
+        height: 40px;
     }
 
     ::slotted([slot="leading"]) {
