@@ -5,27 +5,21 @@
     --input-padding-inline: var(--dt-spacing-d);
     --input-margin-block-end: var(--dt-spacing-a);
     --input-gap: var(--dt-spacing-d);
-
     --input-text-clr: var(--dt-color-content-subdued);
     --input-text-clr-placeholder: var(--dt-color-content-subdued);
     --input-text-clr-leading-trailing-content: var(--dt-color-content-default);
     --input-text-clr-leading-trailing-content-disabled: var(--dt-color-content-disabled);
-
     --input-clr-leading-trailing-content: var(--dt-color-content-subdued);
     --input-clr-leading-trailing-content-disabled: var(--dt-color-content-subdued);
-
     --input-clr-container: var(--dt-color-container-default);
     --input-clr-container-hover: var(--dt-color-hover-01);
     --input-clr-container-readonly: var(--dt-color-disabled-01);
     --input-clr-container-disabled: var(--dt-color-disabled-01);
     --input-clr-container-error: var(--dt-color-container-default);
-
     --input-border-clr: var(--dt-color-interactive-form);
     --input-border-clr-readonly: var(--dt-color-interactive-form);
     --input-border-clr-error: var(--dt-color-support-error);
-
     --input-radius: var(--dt-radius-rounded-c);
-
     --input-font-size: var(--dt-font-body-l-size);
 
     // Ensures icons added to trailing and leading content are displayed at the allowed size
@@ -34,8 +28,10 @@
 
     border: 1px solid var(--input-border-clr);
     border-radius: var(--input-radius);
-    padding-inline: var(--input-padding-inline);
-    padding-block: var(--input-padding-block);
+    padding-inline-start: var(--input-padding-inline);
+    padding-inline-end: var(--input-padding-inline);
+    padding-block-start: var(--input-padding-block);
+    padding-block-end: var(--input-padding-block);
     line-height: 24px;
     font-size: var(--input-font-size);
     display: flex;
