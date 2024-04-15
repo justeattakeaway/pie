@@ -3,20 +3,15 @@
   "description": "Component bundle containing all PIE web components",
   "version": "0.2.8",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "**/*.d.ts"
+    "*.js",
+    "react/*.js"
   ],
   "scripts": {
-    "build": "run -T vite build",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "echo \"Error: no scss / css to lint\" && exit 0",
     "lint:style:fix": "yarn lint:style --fix",
-    "watch": "run -T vite build --watch",
     "test": "echo \"Error: no test specified\" && exit 0",
     "test:ci": "yarn test"
   },
@@ -34,6 +29,7 @@
     "extends": "../../../package.json"
   },
   "sideEffects": [
-    "dist/*.js"
+    "*.js",
+    "react/*.js"
   ]
 }
