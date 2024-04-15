@@ -9,7 +9,7 @@ import {
 } from '@justeattakeaway/pie-webc-core';
 import styles from './chip.scss?inline';
 import { ChipProps, variants, ON_CHIP_CLOSE_EVENT } from './defs';
-import '@justeattakeaway/pie-icons-webc/IconCloseCircleFilled';
+import '@justeattakeaway/pie-icons-webc/dist/IconCloseCircleFilled.js';
 import '@justeattakeaway/pie-spinner';
 
 // Valid values available to consumers

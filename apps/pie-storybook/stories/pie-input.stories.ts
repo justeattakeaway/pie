@@ -14,7 +14,7 @@ import { type StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-form-label';
-import '@justeattakeaway/pie-icons-webc/IconPlaceholder';
+import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
 // Extending the props type definition to include storybook specific properties for controls
 type InputProps = InputPropsBase & {
