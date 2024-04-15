@@ -8,8 +8,6 @@ import { NotificationProps as NotificationBaseProps, variants, headingLevels } f
 import { type StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
-import '@justeattakeaway/pie-icons-webc/dist/IconAlertCircleFilled.js';
-
 type NotificationProps = SlottedComponentProps<NotificationBaseProps>;
 type NotificationStoryMeta = StoryMeta<NotificationProps>;
 
@@ -150,7 +148,6 @@ const Template : TemplateFunction<NotificationProps> = ({
         @pie-notification-close="${pieNotificationClose}"
         @pie-notification-open="${pieNotificationOpen}"
         >
-        <icon-alert-circle-filled slot="icon" size="s"></icon-alert-circle-filled>
         ${slot}
     </pie-notification>`;
 
