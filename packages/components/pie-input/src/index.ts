@@ -188,7 +188,9 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                 class="c-input"
                 data-test-id="pie-input-shell"
                 data-pie-size=${ifDefined(size)}
-                data-pie-status=${ifDefined(status)}>
+                data-pie-status=${ifDefined(status)}
+                ?data-pie-disabled=${live(disabled)}
+                ?data-pie-readonly=${readonly}>
                 <slot name="leading"></slot>
                 <input
                     type=${ifDefined(type)}
