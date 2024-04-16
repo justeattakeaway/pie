@@ -52,9 +52,8 @@ const notificationStoryMeta: NotificationStoryMeta = {
             },
         },
         position: {
-            description: 'Notifications can appear anywhere inline within the content or full width which should appear at the top of the interface, under the header',
+            description: 'Specifies whether the notification should be displayed inline, within the content, or full width (recommended at the top of the interface, under the header)',
             control: 'select',
-            options: positions,
             defaultValue: {
                 summary: 'inline-content',
             },
