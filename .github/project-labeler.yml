@@ -10,6 +10,13 @@ pie-docs:
 pie-storybook:
 - 'apps/pie-storybook/**/*'
 
+# Config projects
+configs:
+- 'configs/**/*'
+
+pie-components-config:
+- 'configs/pie-components-config/**/*'
+
 # Tools projects
 tools:
 - 'packages/tools/**/*'

@@ -1,5 +1,20 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.19.4
+
+### Patch Changes
+
+- [Removed] - Unneeded `bundledJetDeps` array (patch versions are required because pie-components-config is a dev dependency) ([#1378](https://github.com/justeattakeaway/pie/pull/1378)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9), [`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9), [`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9)]:
+  - @justeattakeaway/pie-icon-button@0.28.3
+  - @justeattakeaway/pie-button@0.47.3
+  - @justeattakeaway/pie-divider@0.13.3
+  - @justeattakeaway/pie-link@0.17.3
+  - @justeattakeaway/pie-modal@0.42.3
+  - @justeattakeaway/pie-switch@0.29.2
+  - @justeattakeaway/pie-webc-core@0.21.1
+
 ## 0.19.3
 
 ### Patch Changes
