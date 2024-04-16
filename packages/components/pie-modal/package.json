@@ -12,6 +12,18 @@
     "dist",
     "**/*.d.ts"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types:": "./dist/index.d.ts"
+    },
+    "./dist/react": {
+      "import": "./dist/react.js",
+      "require": "./dist/react.js",
+      "types:": "./dist/react.d.ts"
+    }
+  },
   "pieMetadata": {
     "componentStatus": "alpha"
   },
