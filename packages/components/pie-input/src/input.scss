@@ -31,7 +31,7 @@
     flex-wrap: nowrap;
     align-items: center;
     background-color: var(--input-container-clr);
-    color: var(--input-text-clr-leading-trailing-content);
+    color: var(--input-text-clr-leading-trailing-content); // Applies to the leading/trailing slot text
     cursor: text;
 
     &[data-pie-size="large"] {
@@ -88,6 +88,7 @@
         --input-border-clr: var(--dt-color-disabled-01);
         --input-text-clr: var(--dt-color-content-disabled);
         --input-text-clr-placeholder: var(--dt-color-content-disabled);
+        --input-text-clr-leading-trailing-content: var(--dt-color-content-disabled);
     }
 
     &:focus-within {
