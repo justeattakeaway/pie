@@ -70,18 +70,20 @@ To import an icon using `pie-icons-webc`, you should import the icon that you wo
 
 ```js
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
-import '@justeattakeaway/pie-icons-webc/IconClose';
+import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 ```
 
 Then, in your markup, you would implement the component like this:
 
 ```html
-<pie-icon-button><icon-close></icon-close></pie-icon-button>
+<pie-icon-button>
+  <icon-close></icon-close>
+</pie-icon-button>
 ```
 
 {% notification {
   type: "warning",
-  message: "Icons imported from `pie-icons-webc` can be resized by specifying the size prop, such as `<icon-close size=\"xl\"></icon-close>`. The size prop will have no effect when used alongside the `pie-icon-button` component, as the icon is resized with respect to the component size."
+  message: "Icons imported from `pie-icons-webc` can be resized by specifying the size prop, such as `<icon-close size=\"xl\"></icon-close>`. The size prop will have no effect when used inside the `pie-icon-button` component, as the icon is sized by the component."
 } %}
 
 ## Props
@@ -105,27 +107,33 @@ import '@justeattakeaway/pie-icon-button';
 
 ```html
 <!-- pass js file into <script> tag -->
-<pie-icon-button onclick="e => console.log(e)"><icon-close></icon-close></pie-icon-button>
+<pie-icon-button onclick="e => console.log(e)">
+  <icon-close></icon-close>
+</pie-icon-button>
 <script type="module" src="/main.js"></script>
 ```
 
-For Native JS Applications, Vue, Angular, Svelte etc.: 
+For Native JS Applications, Vue, Angular, Svelte, etc.:
 
 ```js
 // Vue templates (using Nuxt 3)
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 
-<pie-icon-button @click="handleClick"><icon-close></icon-close></pie-icon-button>
+<pie-icon-button @click="handleClick">
+  <icon-close></icon-close>
+</pie-icon-button>
 ```
 
-For React Applications: 
+For React Applications:
 
-```js
+```jsx
 // React templates (using Next 13)
-import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react';
+import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react.js';
+import { IconClose } from '@justeattakeaway/pie-icons-webc/dist/react/IconClose.js';
 
-<PieIconButton onClick={handleClick}><icon-close></icon-close></PieIconButton>
-
+<PieIconButton onClick={handleClick}>
+  <IconClose></IconClose>
+</PieIconButton>
 ```
 
 {% notification {

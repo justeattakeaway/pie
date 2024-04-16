@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.72.1
+
+### Patch Changes
+
+- [Removed] - Hardcoded named slot icon out of pie-notification component ([#1384](https://github.com/justeattakeaway/pie/pull/1384)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- Updated dependencies [[`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9), [`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9), [`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9), [`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9)]:
+  - @justeattakeaway/pie-icons-webc@0.22.0
+  - @justeattakeaway/pie-icon-button@0.28.3
+  - @justeattakeaway/pie-assistive-text@0.3.3
+  - @justeattakeaway/pie-button@0.47.3
+  - @justeattakeaway/pie-card@0.19.3
+  - @justeattakeaway/pie-chip@0.5.3
+  - @justeattakeaway/pie-cookie-banner@0.19.4
+  - @justeattakeaway/pie-divider@0.13.3
+  - @justeattakeaway/pie-form-label@0.13.3
+  - @justeattakeaway/pie-input@0.16.1
+  - @justeattakeaway/pie-link@0.17.3
+  - @justeattakeaway/pie-modal@0.42.3
+  - @justeattakeaway/pie-notification@0.5.3
+  - @justeattakeaway/pie-spinner@0.6.3
+  - @justeattakeaway/pie-switch@0.29.2
+  - @justeattakeaway/pie-tag@0.9.3
+
 ## 0.72.0
 
 ### Minor Changes

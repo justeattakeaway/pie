@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.33.2
+
+### Patch Changes
+
+- [Changed] - Update import paths for webc icons ([#1378](https://github.com/justeattakeaway/pie/pull/1378)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 3.33.1
 
 ### Patch Changes

@@ -2,7 +2,7 @@ import React from 'react';
 import '@justeattakeaway/pie-tag';
 import componentStatusesJson from '../component-statuses.json';
 import { tagVariantToStatusMap } from '../data/tag-variants-to-statuses-map';
-import '@justeattakeaway/pie-icons-webc/IconHelpCircle';
+import '@justeattakeaway/pie-icons-webc/dist/IconHelpCircle.js';
 
 export const ComponentStatus = ({ component }) => {
     const componentStatus = componentStatusesJson[component];

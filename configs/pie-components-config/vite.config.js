@@ -4,12 +4,6 @@ import { visualizer } from 'rollup-plugin-visualizer';
 
 import { deepmerge } from 'deepmerge-ts';
 
-const bundledJetDeps = [
-    '@justeattakeaway/pie-components-config',
-    '@justeattakeaway/pie-css',
-    '@justeattakeaway/pie-webc-testing',
-];
-
 // https://vitejs.dev/config/
 const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
     build: deepmerge({
@@ -26,7 +20,7 @@ const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
                     return true;
                 }
 
-                if (id.startsWith('@justeattakeaway/pie-') && !bundledJetDeps.includes(id)) {
+                if (id.startsWith('@justeattakeaway/pie-')) {
                     console.info(`Excluding ${id} from the bundle`);
                     return true;
                 }

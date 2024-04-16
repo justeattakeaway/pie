@@ -47,7 +47,7 @@ export class PieIconButton extends LitElement implements IconButtonProps {
         return html`
                 <pie-spinner
                     size="${spinnerSize}"
-                    variant="${spinnerVariant}"
+                    variant="${spinnerVariant}">
                 </pie-spinner>`;
     }
 

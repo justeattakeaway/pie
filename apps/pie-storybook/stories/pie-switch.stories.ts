@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import '@justeattakeaway/pie-switch';
 import { SwitchProps, labelPlacements } from '@justeattakeaway/pie-switch';
 /* eslint-enable import/no-duplicates */
-import '@justeattakeaway/pie-icons-webc/IconCheck';
+import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
 import { StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';

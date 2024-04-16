@@ -7,7 +7,7 @@ import {
     iconPlacements, tags, buttonTypes, underlineTypes,
 } from '@justeattakeaway/pie-link';
 /* eslint-enable import/no-duplicates */
-import '@justeattakeaway/pie-icons-webc/IconPlusCircle';
+import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 
 import type { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';

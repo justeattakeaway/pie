@@ -1,7 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import type { Page } from '@playwright/test';
-import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/IconPlaceholder';
+import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
 import { PieInput, InputProps } from '../../src/index.ts';
 import { statusTypes } from '../../src/defs.ts';
@@ -778,7 +778,7 @@ test.describe('PieInput - Component tests', () => {
                 const inputShell = component.locator(componentShellSelector);
 
                 // Assert
-                expect(inputShell).toHaveAttribute('size', 'medium');
+                expect(inputShell).toHaveAttribute('data-pie-size', 'medium');
             });
 
             test('should apply the size prop to the HTML input rendered', async ({ mount }) => {
@@ -793,7 +793,7 @@ test.describe('PieInput - Component tests', () => {
                 const inputShell = component.locator(componentShellSelector);
 
                 // Assert
-                expect(inputShell).toHaveAttribute('size', 'large');
+                expect(inputShell).toHaveAttribute('data-pie-size', 'large');
             });
         });
 
