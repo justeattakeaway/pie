@@ -3,6 +3,7 @@
   "description": "Component bundle containing all PIE web components",
   "version": "0.2.9",
   "type": "module",
+  "types": "./types",
   "files": [
     "*.js",
     "react/*.js"
