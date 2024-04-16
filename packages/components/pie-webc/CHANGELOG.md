@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-webc
 
+## 0.2.9
+
+### Patch Changes
+
+- [Removed] - Unneeded `bundledJetDeps` array (patch versions are required because pie-components-config is a dev dependency) ([#1378](https://github.com/justeattakeaway/pie/pull/1378)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9), [`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9)]:
+  - @justeattakeaway/pie-button@0.47.3
+  - @justeattakeaway/pie-modal@0.42.3
+  - @justeattakeaway/pie-webc-core@0.21.1
+
 ## 0.2.8
 
 ### Patch Changes
