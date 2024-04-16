@@ -5,8 +5,8 @@
   "type": "module",
   "types": "./types",
   "files": [
-    "*.js",
-    "react/*.js"
+    "components/**/*.js",
+    "types/**/*.d.ts"
   ],
   "scripts": {
     "lint:scripts": "run -T eslint .",
