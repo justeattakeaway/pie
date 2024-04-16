@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.57.1
+
+### Patch Changes
+
+- [Added] - github labels for configs projects ([#1378](https://github.com/justeattakeaway/pie/pull/1378)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 2.57.0
 
 ### Minor Changes

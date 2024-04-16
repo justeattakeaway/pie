@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-components-config
 
+## 0.16.0
+
+### Minor Changes
+
+- [Removed] - Unneeded `bundledJetDeps` array (patch versions are required because pie-components-config is a dev dependency) ([#1378](https://github.com/justeattakeaway/pie/pull/1378)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.15.0
 
 ### Minor Changes
