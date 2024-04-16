@@ -88,6 +88,14 @@
         --input-text-clr: var(--dt-color-content-disabled);
         --input-text-clr-placeholder: var(--dt-color-content-disabled);
     }
+
+    --input-outline-width: 2px;
+
+    &:focus-within {
+        outline: var(--input-outline-width) solid var(--dt-color-focus-outer);
+        outline-offset: var(--input-outline-width);
+        box-shadow: 0 0 0 var(--input-outline-width) var(--dt-color-focus-inner);
+    }
 }
 
 input {
