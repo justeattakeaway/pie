@@ -12,6 +12,7 @@
     --input-radius: var(--dt-radius-rounded-c);
     --input-font-size: var(--dt-font-body-l-size);
     --input-height: 48px;
+    --input-outline-width: 2px;
 
     // Ensures icons added to trailing and leading content are displayed at the allowed size
     --icon-display-override: block;
@@ -88,8 +89,6 @@
         --input-text-clr: var(--dt-color-content-disabled);
         --input-text-clr-placeholder: var(--dt-color-content-disabled);
     }
-
-    --input-outline-width: 2px;
 
     &:focus-within {
         outline: var(--input-outline-width) solid var(--dt-color-focus-outer);
