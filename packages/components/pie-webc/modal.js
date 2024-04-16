@@ -1,3 +1,1 @@
-import { PieModal } from '@justeattakeaway/pie-modal';
-
-export { PieModal };
+export * from '@justeattakeaway/pie-modal';

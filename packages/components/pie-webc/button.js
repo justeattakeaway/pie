@@ -1,3 +1,1 @@
-import { PieButton } from '@justeattakeaway/pie-button';
-
-export { PieButton };
+export * from '@justeattakeaway/pie-button';
