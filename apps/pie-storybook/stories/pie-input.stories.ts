@@ -378,8 +378,8 @@ const createStoryWithLabel = (props: InputProps) => createStory<InputProps>(With
 
 export const Default = createStory<InputProps>(Template, defaultArgs)();
 export const Labelled = createStoryWithLabel(defaultArgs)();
-export const Numeric = createStoryWithLabel({ ...defaultArgs, type: 'number' })();
-export const Password = createStoryWithLabel({ ...defaultArgs, type: 'password' })();
+export const Numeric = createStoryWithLabel({ ...defaultArgs, type: 'number', value: '12345' })();
+export const Password = createStoryWithLabel({ ...defaultArgs, type: 'password', value: 'password' })();
 export const AssistiveText = createStoryWithLabel({ ...defaultArgs, assistiveText: 'This is an assistive text' })();
 export const ErrorText = createStoryWithLabel({ ...defaultArgs, status: 'error', assistiveText: 'This is an error message' })();
 export const SuccessText = createStoryWithLabel({ ...defaultArgs, status: 'success', assistiveText: 'This is a success message' })();
@@ -391,4 +391,5 @@ export const Small = createStoryWithLabel({ ...defaultArgs, size: 'small' })();
 export const Medium = createStoryWithLabel({ ...defaultArgs, size: 'medium' })();
 export const Large = createStoryWithLabel({ ...defaultArgs, size: 'large' })();
 export const ExampleForm = createStory<InputProps>(ExampleFormTemplate, defaultArgs)();
+
 export default inputStoryMeta;
