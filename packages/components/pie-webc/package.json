@@ -17,6 +17,16 @@
       "import": "./react/button.js",
       "require": "./react/button.js",
       "types": "./react/button.d.ts"
+    },
+    "./components/modal": {
+      "import": "./components/modal.js",
+      "require": "./components/modal.js",
+      "types": "./components/modal.d.ts"
+    },
+    "./react/modal": {
+      "import": "./react/modal.js",
+      "require": "./react/modal.js",
+      "types": "./react/modal.d.ts"
     }
   },
   "scripts": {
