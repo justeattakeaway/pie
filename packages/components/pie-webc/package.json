@@ -51,7 +51,6 @@
     "extends": "../../../package.json"
   },
   "sideEffects": [
-    "*.js",
-    "react/*.js"
+    "**/*.js"
   ]
 }
