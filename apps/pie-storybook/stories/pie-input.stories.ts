@@ -15,6 +15,12 @@ import { createStory, type TemplateFunction } from '../utilities';
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-form-label';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconEmail.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconLaptop.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconPhone.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconUser.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconNumberSymbol.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconKey.js';
 
 // Extending the props type definition to include storybook specific properties for controls
 type InputProps = InputPropsBase & {
@@ -203,6 +209,7 @@ const inputStoryMeta: InputStoryMeta = {
     },
     args: defaultArgs,
     parameters: {
+        layout: 'centered',
         design: {
             type: 'figma',
             url: '',
@@ -300,6 +307,73 @@ const WithLabelTemplate: TemplateFunction<InputProps> = (props: InputProps) => h
         ${Template(props)}
     `;
 
+const ExampleFormTemplate: TemplateFunction<InputProps> = () => html`
+    <style>
+        .form {
+            display: flex;
+            flex-direction: column;
+            padding: var(--dt-spacing-d);
+        }
+
+        .form-field {
+            display: block;
+            margin-bottom: var(--dt-spacing-d);
+            width: 60ch;
+        }
+
+        .form-field[type="number"],
+        .form-field[type="tel"] {
+            width: 25ch;
+        }
+
+        .form-btns {
+            margin-top: var(--dt-spacing-c);
+            display: flex;
+            gap: var(--dt-spacing-a)
+        }
+
+        .form-btns>.form-btn:first-of-type {
+            margin-left: auto;
+        }
+    </style>
+    <form class="form">
+        <pie-form-label for="username">Username:</pie-form-label>
+        <pie-input class="form-field" id="username" name="username" type="text">
+            <icon-user slot="leading"></icon-user>
+        </pie-input>
+
+        <pie-form-label for="email">Email:</pie-form-label>
+        <pie-input class="form-field" id="email" name="email" type="email">
+            <icon-email slot="leading"></icon-email>
+        </pie-input>
+
+        <pie-form-label for="url">Website:</pie-form-label>
+        <pie-input class="form-field" id="url" name="url" type="url">
+            <icon-laptop slot="leading"></icon-laptop>
+        </pie-input>
+
+        <pie-form-label for="password">Password:</pie-form-label>
+        <pie-input class="form-field" id="password" name="password" type="password">
+            <icon-key slot="leading"></icon-key>
+        </pie-input>
+
+        <pie-form-label for="favouriteNumber">Favourite Number:</pie-form-label>
+        <pie-input class="form-field" id="favouriteNumber" name="favouriteNumber" type="number" min="-5" max="200" assistive-text="" state="">
+            <icon-number-symbol slot="leading"></icon-number-symbol>
+        </pie-input>
+
+        <pie-form-label for="tel">Telephone:</pie-form-label>
+        <pie-input class="form-field" id="tel" name="tel" type="tel">
+            <icon-phone slot="leading"></icon-phone>
+        </pie-input>
+
+        <div class="form-btns">
+            <pie-button class="form-btn" variant="secondary" type="reset">Reset</pie-button>
+            <pie-button class="form-btn" type="submit">Submit</pie-button>
+        </div>
+    </form>
+`;
+
 const createStoryWithLabel = (props: InputProps) => createStory<InputProps>(WithLabelTemplate, props);
 
 export const Default = createStory<InputProps>(Template, defaultArgs)();
@@ -316,5 +390,5 @@ export const TrailingText = createStoryWithLabel({ ...defaultArgs, trailingSlot:
 export const Small = createStoryWithLabel({ ...defaultArgs, size: 'small' })();
 export const Medium = createStoryWithLabel({ ...defaultArgs, size: 'medium' })();
 export const Large = createStoryWithLabel({ ...defaultArgs, size: 'large' })();
-
+export const ExampleForm = createStory<InputProps>(ExampleFormTemplate, defaultArgs)();
 export default inputStoryMeta;
