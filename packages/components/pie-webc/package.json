@@ -8,22 +8,22 @@
     "**/*.d.ts"
   ],
   "exports": {
-    "./components/button": {
+    "./components/button.js": {
       "import": "./components/button.js",
       "require": "./components/button.js",
       "types": "./components/button.d.ts"
     },
-    "./react/button": {
+    "./react/button.js": {
       "import": "./react/button.js",
       "require": "./react/button.js",
       "types": "./react/button.d.ts"
     },
-    "./components/modal": {
+    "./components/modal.js": {
       "import": "./components/modal.js",
       "require": "./components/modal.js",
       "types": "./components/modal.d.ts"
     },
-    "./react/modal": {
+    "./react/modal.js": {
       "import": "./react/modal.js",
       "require": "./react/modal.js",
       "types": "./react/modal.d.ts"
