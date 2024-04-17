@@ -33,7 +33,6 @@ const defaultArgs: InputProps = {
     autoFocus: false,
     leadingSlot: 'None',
     trailingSlot: 'None',
-    assistiveText: '',
     size: 'medium',
 };
 
@@ -296,44 +295,24 @@ const Template = ({
     `;
 };
 
-const FormTemplate: TemplateFunction<InputProps> = (props: InputProps) => {
-    function onSubmit (event: SubmitEvent) {
-        event.preventDefault();
-
-        const form = event.target as HTMLFormElement;
-        const formData = new FormData(form);
-
-        const data: { [key: string]: string } = {};
-        formData.forEach((value, key) => {
-            data[key] = value.toString();
-        });
-
-        action('submit')({
-            ...data,
-        });
-    }
-
-    return html`
-        <h2>Fake form</h2>
-        <form id="testForm" @submit="${onSubmit}">
-            <section>
-                <h2>Contact information</h2>
-                <p>
-                    ${props.name ? html`<pie-form-label for="${props.name}">${props.name}</pie-form-label>` : nothing}
-                    ${Template({ ...props, type: 'text' })}
-                </p>
-            </section>
-            <section style="display: flex; gap: var(--dt-spacing-a); justify-content: flex-end; flex-wrap: wrap; margin-top: var(--dt-spacing-b);">
-                <pie-button type="reset" variant="secondary">Reset</pie-button>
-                <pie-button type="submit" variant="primary">Submit</pie-button>
-            </section>
-        </form>
+const WithLabelTemplate: TemplateFunction<InputProps> = (props: InputProps) => html`
+        <pie-form-label for="${props.name}">Label</pie-form-label>
+        ${Template(props)}
     `;
-};
 
-const createInputStoryWithForm = createStory<InputProps>(FormTemplate, defaultArgs);
+const createStoryWithLabel = (props: InputProps) => createStory<InputProps>(WithLabelTemplate, props);
 
 export const Default = createStory<InputProps>(Template, defaultArgs)();
-export const FormIntegration = createInputStoryWithForm();
+export const Labelled = createStoryWithLabel(defaultArgs)();
+export const AssistiveText = createStoryWithLabel({ ...defaultArgs, assistiveText: 'This is an assistive text' })();
+export const ErrorText = createStoryWithLabel({ ...defaultArgs, status: 'error', assistiveText: 'This is an error message' })();
+export const SuccessText = createStoryWithLabel({ ...defaultArgs, status: 'success', assistiveText: 'This is a success message' })();
+export const LeadingIcon = createStoryWithLabel({ ...defaultArgs, leadingSlot: 'Icon (Placeholder)' })();
+export const TrailingIcon = createStoryWithLabel({ ...defaultArgs, trailingSlot: 'Icon (Placeholder)' })();
+export const LeadingText = createStoryWithLabel({ ...defaultArgs, leadingSlot: 'Short text (#)' })();
+export const TrailingText = createStoryWithLabel({ ...defaultArgs, trailingSlot: 'Short text (#)' })();
+export const Small = createStoryWithLabel({ ...defaultArgs, size: 'small' })();
+export const Medium = createStoryWithLabel({ ...defaultArgs, size: 'medium' })();
+export const Large = createStoryWithLabel({ ...defaultArgs, size: 'large' })();
 
 export default inputStoryMeta;
