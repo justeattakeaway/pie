@@ -9,14 +9,14 @@
   ],
   "exports": {
     "./components/button": {
-      "import": "./components/button/index.js",
-      "require": "./components/button/index.js",
-      "types": "./components/button/index.d.ts"
+      "import": "./components/button.js",
+      "require": "./components/button.js",
+      "types": "./components/button.d.ts"
     },
     "./react/button": {
-      "import": "./react/button/index.js",
-      "require": "./react/button/index.js",
-      "types": "./react/button/index.d.ts"
+      "import": "./react/button.js",
+      "require": "./react/button.js",
+      "types": "./react/button.d.ts"
     }
   },
   "scripts": {
