@@ -3,11 +3,22 @@
   "description": "Component bundle containing all PIE web components",
   "version": "0.2.9",
   "type": "module",
-  "types": "./types",
   "files": [
-    "components/**/*.js",
-    "types/**/*.d.ts"
+    "**/*.js",
+    "**/*.d.ts"
   ],
+  "exports": {
+    "./components/button": {
+      "import": "./components/button/index.js",
+      "require": "./components/button/index.js",
+      "types": "./components/button/index.d.ts"
+    },
+    "./react/button": {
+      "import": "./react/button/index.js",
+      "require": "./react/button/index.js",
+      "types": "./react/button/index.d.ts"
+    }
+  },
   "scripts": {
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
