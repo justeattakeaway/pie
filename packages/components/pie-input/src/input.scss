@@ -1,5 +1,76 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+.c-input {
+    --input-padding-block: var(--dt-spacing-c);
+    --input-padding-inline: var(--dt-spacing-d);
+    --input-gap: var(--dt-spacing-d);
+    --input-text-clr: var(--dt-color-content-subdued);
+    --input-text-clr-leading-trailing-content: var(--dt-color-content-default);
+    --input-border-clr: var(--dt-color-interactive-form);
+    --input-radius: var(--dt-radius-rounded-c);
+    --input-font-size: var(--dt-font-body-l-size);
+
+    // Ensures icons added to trailing and leading content are displayed at the allowed size
+    --icon-display-override: block;
+    --icon-size-override: 24px;
+
+    height: 48px;
+    border: 1px solid var(--input-border-clr);
+    border-radius: var(--input-radius);
+    padding-inline-start: var(--input-padding-inline);
+    padding-inline-end: var(--input-padding-inline);
+    padding-block-start: var(--input-padding-block);
+    padding-block-end: var(--input-padding-block);
+    line-height: 24px;
+    font-size: var(--input-font-size);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    color: var(--input-text-clr-leading-trailing-content);
+
+    &[data-pie-size="large"] {
+        --input-padding-block: var(--dt-spacing-d);
+        height: 56px;
+    }
+
+    &[data-pie-size="small"] {
+        --input-padding-block: var(--dt-spacing-b);
+        height: 40px;
+    }
+
+    ::slotted([slot="leading"]) {
+        margin-inline-end: var(--input-gap);
+    }
+
+    ::slotted([slot="trailing"]) {
+        margin-inline-start: var(--input-gap);
+    }
+
+    @supports (gap: var(--input-gap)) {
+        gap: var(--input-gap);
+
+        ::slotted([slot="leading"]) {
+            margin-inline-end: 0;
+        }
+
+        ::slotted([slot="trailing"]) {
+            margin-inline-start: 0;
+        }
+    }
+}
+
+input {
+    border: 0;
+    outline: 0;
+    height: 24px;
+    padding: 0;
+    color: var(--input-text-clr);
+    flex-grow: 1;
+    flex-shrink: 0;
+    font-size: inherit;
+    font-family: inherit;
+}
+
 // TODO: replace these styles in DSW-1599
 input[type="number"]:not([step])::-webkit-inner-spin-button,
 input[type="number"]:not([step])::-webkit-outer-spin-button {
