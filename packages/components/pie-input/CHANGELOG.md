@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-input
 
+## 0.17.0
+
+### Minor Changes
+
+- [Added] - box styles to pie-input ([#1393](https://github.com/justeattakeaway/pie/pull/1393)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.16.1
 
 ### Patch Changes
