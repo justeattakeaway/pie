@@ -1,1 +1,1 @@
-export * from '@justeattakeaway/pie-modal/dist/react';
+export * from '@justeattakeaway/pie-modal/dist/react.js';

@@ -1,1 +1,1 @@
-export * from '@justeattakeaway/pie-button/dist/react';
+export * from '@justeattakeaway/pie-button/dist/react.js';
