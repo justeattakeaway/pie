@@ -48,10 +48,6 @@
         --input-border-clr: var(--dt-color-support-error);
     }
 
-    &[data-pie-status="success"] {
-        --input-border-clr: var(--dt-color-support-positive);
-    }
-
     ::slotted([slot="leading"]) {
         margin-inline-end: var(--input-gap);
     }
