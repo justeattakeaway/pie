@@ -116,7 +116,10 @@ input {
     }
 
     &:disabled {
+        -webkit-text-fill-color: var(--input-text-clr); // Remove the greyed out text in Safari
         color: var(--input-text-clr);
+        -webkit-opacity:1;
+        opacity: 1;
     }
 }
 
