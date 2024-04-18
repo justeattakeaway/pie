@@ -2,4 +2,5 @@
 "@justeattakeaway/pie-webc": minor
 ---
 
-[Changed] - Package exports
+[Added] - Passthrough of type definitions from component packages
+[Changed] - Package exports to allow properly importing individual components
