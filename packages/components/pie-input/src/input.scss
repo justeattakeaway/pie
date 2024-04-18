@@ -110,7 +110,6 @@ input {
     }
 }
 
-// TODO: replace these styles in DSW-1599
 input[type="number"]:not([step])::-webkit-inner-spin-button,
 input[type="number"]:not([step])::-webkit-outer-spin-button {
     -webkit-appearance: none;
