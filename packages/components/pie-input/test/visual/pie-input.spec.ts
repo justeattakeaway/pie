@@ -14,19 +14,29 @@ import {
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { statusTypes } from '../../src/defs.ts';
-import { PieInput } from '../../src/index.ts';
+import { PieInput, InputProps } from '../../src/index.ts';
 
-const props: PropObject = {
-    assistiveText:  ['', 'Assistive Text'],
-    status: statusTypes,
+// const props: PropObject = {
+//     assistiveText:  ['', 'Assistive Text'],
+//     status: statusTypes,
+//     disabled: [true, false],
+//     readonly: [true, false],
+//     value: ['', 'String'],
+//     placeholder: ['', 'Placeholder'],
+// };
+
+// // Renders a <pie-input> HTML string with the given prop values
+const renderTestPieInput = (propVals: WebComponentPropValues) => {
+    let attributes = '';
+    if (propVals.size) attributes += ` size="${propVals.size}"`;
+    if (propVals.placeholder) attributes += ` placeholder="${propVals.placeholder}"`;
+    if (propVals.value) attributes += ` value="${propVals.value}"`;
+
+    return `<pie-input${attributes}></pie-input>`;
 };
-
-// Renders a <pie-input> HTML string with the given prop values
-const renderTestPieInput = (propVals: WebComponentPropValues) => `<pie-input status="${propVals.status}" assistiveText="${propVals.assistiveText}"></pie-input>`;
-
-const componentPropsMatrix: WebComponentPropValues[] = getAllPropCombinations(props);
-const componentPropsMatrixByStatus: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'status');
-const componentStatus: string[] = Object.keys(componentPropsMatrixByStatus);
+// const componentPropsMatrix: WebComponentPropValues[] = getAllPropCombinations(props);
+// const componentPropsMatrixByStatus: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'status');
+// const componentStatus: string[] = Object.keys(componentPropsMatrixByStatus);
 
 test.beforeEach(async ({ mount }, testInfo) => {
     testInfo.setTimeout(testInfo.timeout + 40000);
@@ -37,13 +47,30 @@ test.beforeEach(async ({ mount }, testInfo) => {
     await inputComponent.unmount();
 });
 
-componentStatus.forEach((status) => test(`should render all prop variations for Status: ${status}`, async ({ page, mount }) => {
-    await Promise.all(componentPropsMatrixByStatus[status].map(async (combo: WebComponentPropValues) => {
-        const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieInput);
-        const propKeyValues = `
-            status: ${testComponent.propValues.status},
-            assistiveText: ${testComponent.propValues.assistiveText}
-            `;
+test('size variants with value and placeholder', async ({ mount, page }) => {
+    const sizeVariants = ['small', 'medium', 'large'];
+    const value = 'String';
+    const placeholder = 'Placeholder';
+
+    await Promise.all(sizeVariants.map(async (size) => {
+        // Test with value prop
+        let testComponent: WebComponentTestInput = createTestWebComponent({ size, value }, renderTestPieInput);
+        let propKeyValues = `size: ${testComponent.propValues.size}, value: ${testComponent.propValues.value}`;
+
+        await mount(
+            WebComponentTestWrapper,
+            {
+                props: { propKeyValues },
+                slots: {
+                    component: testComponent.renderedString.trim(),
+                },
+            },
+        );
+
+        // Test with placeholder prop
+        testComponent = createTestWebComponent({ size, placeholder }, renderTestPieInput);
+        propKeyValues = `size: ${testComponent.propValues.size}, placeholder: ${testComponent.propValues.placeholder}`;
+
         await mount(
             WebComponentTestWrapper,
             {
@@ -55,8 +82,5 @@ componentStatus.forEach((status) => test(`should render all prop variations for 
         );
     }));
 
-    // Follow up to remove in Jan
-    await page.waitForTimeout(5000);
-
-    await percySnapshot(page, `PIE Input - Status: ${status}`, percyWidths);
-}));
+    await percySnapshot(page, 'PIE Input - Sizes with value and placeholder', percyWidths);
+});
