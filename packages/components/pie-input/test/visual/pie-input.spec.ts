@@ -194,7 +194,7 @@ await Promise.all(readingDirections.map(async (dir) => {
         );
 
         // Leading icon
-        testComponent = createTestWebComponent({ value: 'String' }, renderTestPieInput);
+        testComponent = createTestWebComponent({ value: 'String #string#String' }, renderTestPieInput);
         componentStringWithSlots = addSlotsToComponent(testComponent.renderedString, { leadingIcon: true });
 
         propKeyValues = `slots: Leading Icon, value: ${testComponent.propValues.value}`;
