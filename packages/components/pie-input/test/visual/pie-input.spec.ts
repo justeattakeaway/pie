@@ -45,8 +45,8 @@ const addSlotsToComponent = (component: string, slotOptions: InputSlotOptions) =
 
     if (slotOptions.leadingIcon) slots += '<icon-placeholder slot="leading"></icon-placeholder>';
     if (slotOptions.trailingIcon) slots += '<icon-placeholder slot="trailing"></icon-placeholder>';
-    if (slotOptions.leadingCharacter) slots += '<pie-assistive-text slot="leading">#</pie-assistive-text>';
-    if (slotOptions.trailingCharacter) slots += '<pie-assistive-text slot="trailing">#</pie-assistive-text>';
+    if (slotOptions.leadingCharacter) slots += '<span slot="leading">#</span>';
+    if (slotOptions.trailingCharacter) slots += '<span slot="trailing">#</span>';
 
     // add slots between > and </pie-input>
     return component.replace('></pie-input>', `>${slots}</pie-input>`);
@@ -194,7 +194,7 @@ await Promise.all(readingDirections.map(async (dir) => {
         );
 
         // Leading icon
-        testComponent = createTestWebComponent({ value: 'String #string#String' }, renderTestPieInput);
+        testComponent = createTestWebComponent({ value: 'String' }, renderTestPieInput);
         componentStringWithSlots = addSlotsToComponent(testComponent.renderedString, { leadingIcon: true });
 
         propKeyValues = `slots: Leading Icon, value: ${testComponent.propValues.value}`;

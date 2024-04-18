@@ -316,7 +316,6 @@ const ExampleFormTemplate: TemplateFunction<InputProps> = () => html`
         .form-field {
             display: block;
             margin-bottom: var(--dt-spacing-d);
-            width: 60ch;
         }
 
         .form-field[type="number"],
