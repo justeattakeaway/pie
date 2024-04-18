@@ -68,8 +68,10 @@
         }
     }
 
-    &:hover {
-        --input-container-clr: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
+    @media (hover: hover) {
+        &:hover {
+            --input-container-clr: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
+        }
     }
 
     &[data-pie-readonly] {
