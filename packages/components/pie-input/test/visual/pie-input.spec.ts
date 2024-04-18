@@ -26,13 +26,14 @@ type InputSlotOptions = {
 const renderTestPieInput = (propVals: WebComponentPropValues) => {
     let attributes = '';
 
+    if (propVals.type) attributes += ` type="${propVals.type}"`;
     if (propVals.size) attributes += ` size="${propVals.size}"`;
     if (propVals.placeholder) attributes += ` placeholder="${propVals.placeholder}"`;
     if (propVals.value) attributes += ` value="${propVals.value}"`;
     if (propVals.status) attributes += ` status="${propVals.status}"`;
     if (propVals.assistiveText) attributes += ` assistiveText="${propVals.assistiveText}"`;
-    // if (propVals.disabled) attributes += ' disabled';
-    // if (propVals.readonly) attributes += ' readonly';
+    if (propVals.disabled) attributes += ' disabled';
+    if (propVals.readonly) attributes += ' readonly';
 
     return `<pie-input${attributes}></pie-input>`;
 };
@@ -163,10 +164,10 @@ test('assistive text and status', async ({ mount, page }) => {
 
 test('Content', async ({ mount, page }) => {
     // Trailing + leading icon
-    let testComponent: WebComponentTestInput = createTestWebComponent({ assistiveText: 'Assistive text', value: 'String' }, renderTestPieInput);
+    let testComponent: WebComponentTestInput = createTestWebComponent({ value: 'String' }, renderTestPieInput);
     let componentStringWithSlots = addSlotsToComponent(testComponent.renderedString, { leadingIcon: true, trailingIcon: true });
 
-    let propKeyValues = `assistiveText: ${testComponent.propValues.value}, value: ${testComponent.propValues.value}`;
+    let propKeyValues = `slots: Trailing + Leading Icon, value: ${testComponent.propValues.value}`;
 
     await mount(
         WebComponentTestWrapper,
@@ -179,10 +180,10 @@ test('Content', async ({ mount, page }) => {
     );
 
     // Leading icon
-    testComponent = createTestWebComponent({ assistiveText: 'Assistive text', value: 'String' }, renderTestPieInput);
+    testComponent = createTestWebComponent({ value: 'String' }, renderTestPieInput);
     componentStringWithSlots = addSlotsToComponent(testComponent.renderedString, { leadingIcon: true });
 
-    propKeyValues = `assistiveText: ${testComponent.propValues.value}, value: ${testComponent.propValues.value}`;
+    propKeyValues = `slots: Leading Icon, value: ${testComponent.propValues.value}`;
 
     await mount(
         WebComponentTestWrapper,
@@ -195,10 +196,10 @@ test('Content', async ({ mount, page }) => {
     );
 
     // Trailing icon
-    testComponent = createTestWebComponent({ assistiveText: 'Assistive text', value: 'String' }, renderTestPieInput);
+    testComponent = createTestWebComponent({ value: 'String' }, renderTestPieInput);
     componentStringWithSlots = addSlotsToComponent(testComponent.renderedString, { trailingIcon: true });
 
-    propKeyValues = `assistiveText: ${testComponent.propValues.value}, value: ${testComponent.propValues.value}`;
+    propKeyValues = `slots: Trailing Icon, value: ${testComponent.propValues.value}`;
 
     await mount(
         WebComponentTestWrapper,
@@ -211,10 +212,10 @@ test('Content', async ({ mount, page }) => {
     );
 
     // Leading + Trailing text
-    testComponent = createTestWebComponent({ assistiveText: 'Assistive text', value: 'String' }, renderTestPieInput);
+    testComponent = createTestWebComponent({ value: 'String' }, renderTestPieInput);
     componentStringWithSlots = addSlotsToComponent(testComponent.renderedString, { leadingCharacter: true, trailingCharacter: true });
 
-    propKeyValues = `assistiveText: ${testComponent.propValues.value}, value: ${testComponent.propValues.value}`;
+    propKeyValues = `slots: Leading + Trailing Text, value: ${testComponent.propValues.value}`;
 
     await mount(
         WebComponentTestWrapper,
@@ -227,10 +228,10 @@ test('Content', async ({ mount, page }) => {
     );
 
     // Leading text
-    testComponent = createTestWebComponent({ assistiveText: 'Assistive text', value: 'String' }, renderTestPieInput);
+    testComponent = createTestWebComponent({ value: 'String' }, renderTestPieInput);
     componentStringWithSlots = addSlotsToComponent(testComponent.renderedString, { leadingCharacter: true });
 
-    propKeyValues = `assistiveText: ${testComponent.propValues.value}, value: ${testComponent.propValues.value}`;
+    propKeyValues = `slots: Leading Text, value: ${testComponent.propValues.value}`;
 
     await mount(
         WebComponentTestWrapper,
@@ -243,10 +244,10 @@ test('Content', async ({ mount, page }) => {
     );
 
     // Trailing text
-    testComponent = createTestWebComponent({ assistiveText: 'Assistive text', value: 'String' }, renderTestPieInput);
+    testComponent = createTestWebComponent({ value: 'String' }, renderTestPieInput);
     componentStringWithSlots = addSlotsToComponent(testComponent.renderedString, { trailingCharacter: true });
 
-    propKeyValues = `assistiveText: ${testComponent.propValues.value}, value: ${testComponent.propValues.value}`;
+    propKeyValues = `slots: Trailing Text, value: ${testComponent.propValues.value}`;
 
     await mount(
         WebComponentTestWrapper,
@@ -258,5 +259,169 @@ test('Content', async ({ mount, page }) => {
         },
     );
 
-    await percySnapshot(page, 'PIE Input - Statuses and assistive text', percyWidths);
+    // Leading Icon + Trailing text
+    testComponent = createTestWebComponent({ value: 'String' }, renderTestPieInput);
+    componentStringWithSlots = addSlotsToComponent(testComponent.renderedString, { leadingIcon: true, trailingCharacter: true });
+
+    propKeyValues = `slots: Leading Icon + Trailing Text, value: ${testComponent.propValues.value}`;
+
+    await mount(
+        WebComponentTestWrapper,
+        {
+            props: { propKeyValues },
+            slots: {
+                component: componentStringWithSlots.trim(),
+            },
+        },
+    );
+
+    // Leading text + Trailing icon
+    testComponent = createTestWebComponent({ value: 'String' }, renderTestPieInput);
+    componentStringWithSlots = addSlotsToComponent(testComponent.renderedString, { leadingCharacter: true, trailingIcon: true });
+
+    propKeyValues = `slots: Leading Text + Trailing Icon, value: ${testComponent.propValues.value}`;
+
+    await mount(
+        WebComponentTestWrapper,
+        {
+            props: { propKeyValues },
+            slots: {
+                component: componentStringWithSlots.trim(),
+            },
+        },
+    );
+
+    // Disabled + Leading Icon + Trailing text
+    testComponent = createTestWebComponent({
+        value: 'String',
+        disabled: true,
+    }, renderTestPieInput);
+
+    componentStringWithSlots = addSlotsToComponent(testComponent.renderedString, { leadingIcon: true, trailingCharacter: true });
+
+    propKeyValues = `slots: Leading Icon + Trailing Text, disabled: ${testComponent.propValues.disabled}, value: ${testComponent.propValues.value}`;
+
+    await mount(
+        WebComponentTestWrapper,
+        {
+            props: { propKeyValues },
+            slots: {
+                component: componentStringWithSlots.trim(),
+            },
+        },
+    );
+
+    // Disabled placeholder
+    testComponent = createTestWebComponent({
+        disabled: true,
+        placeholder: 'Placeholder',
+    }, renderTestPieInput);
+
+    propKeyValues = `disabled: ${testComponent.propValues.disabled}, placeholder: ${testComponent.propValues.placeholder}`;
+
+    await mount(
+        WebComponentTestWrapper,
+        {
+            props: { propKeyValues },
+            slots: {
+                component: testComponent.renderedString.trim(),
+            },
+        },
+    );
+
+    // Readonly + Leading Icon + Trailing text
+    testComponent = createTestWebComponent({
+        value: 'String',
+        readonly: true,
+    }, renderTestPieInput);
+
+    componentStringWithSlots = addSlotsToComponent(testComponent.renderedString, { leadingIcon: true, trailingCharacter: true });
+
+    propKeyValues = `slots: Leading Icon + Trailing Text, readonly: ${testComponent.propValues.readonly}, value: ${testComponent.propValues.value}`;
+
+    await mount(
+        WebComponentTestWrapper,
+        {
+            props: { propKeyValues },
+            slots: {
+                component: componentStringWithSlots.trim(),
+            },
+        },
+    );
+
+    // Readonly placeholder
+    testComponent = createTestWebComponent({
+        readonly: true,
+        placeholder: 'Placeholder',
+    }, renderTestPieInput);
+
+    propKeyValues = `readonly: ${testComponent.propValues.readonly}, placeholder: ${testComponent.propValues.placeholder}`;
+
+    await mount(
+        WebComponentTestWrapper,
+        {
+            props: { propKeyValues },
+            slots: {
+                component: testComponent.renderedString.trim(),
+            },
+        },
+    );
+
+    // Disabled and readonly + value
+    testComponent = createTestWebComponent({
+        disabled: true,
+        readonly: true,
+        value: 'String',
+    }, renderTestPieInput);
+
+    propKeyValues = `disabled: ${testComponent.propValues.disabled}, readonly: ${testComponent.propValues.readonly}, value: ${testComponent.propValues.value}`;
+
+    await mount(
+        WebComponentTestWrapper,
+        {
+            props: { propKeyValues },
+            slots: {
+                component: testComponent.renderedString.trim(),
+            },
+        },
+    );
+
+    // Disabled and readonly + placeholder
+    testComponent = createTestWebComponent({
+        disabled: true,
+        readonly: true,
+        placeholder: 'Placeholder',
+    }, renderTestPieInput);
+
+    propKeyValues = `disabled: ${testComponent.propValues.disabled}, readonly: ${testComponent.propValues.readonly}, placeholder: ${testComponent.propValues.placeholder}`;
+
+    await mount(
+        WebComponentTestWrapper,
+        {
+            props: { propKeyValues },
+            slots: {
+                component: testComponent.renderedString.trim(),
+            },
+        },
+    );
+
+    // Password
+    testComponent = createTestWebComponent({
+        type: 'password',
+        value: 'password',
+    }, renderTestPieInput);
+
+    propKeyValues = `type: ${testComponent.propValues.type}, value: ${testComponent.propValues.value}`;
+
+    await mount(
+        WebComponentTestWrapper,
+        {
+            props: { propKeyValues },
+            slots: {
+                component: testComponent.renderedString.trim(),
+            },
+        },
+    );
+
+    await percySnapshot(page, 'PIE Input - Content and Slots', percyWidths);
 });
