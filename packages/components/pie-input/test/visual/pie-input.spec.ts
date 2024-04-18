@@ -31,6 +31,8 @@ const renderTestPieInput = (propVals: WebComponentPropValues) => {
     if (propVals.size) attributes += ` size="${propVals.size}"`;
     if (propVals.placeholder) attributes += ` placeholder="${propVals.placeholder}"`;
     if (propVals.value) attributes += ` value="${propVals.value}"`;
+    if (propVals.status) attributes += ` status="${propVals.status}"`;
+    if (propVals.assistiveText) attributes += ` assistiveText="${propVals.assistiveText}"`;
 
     return `<pie-input${attributes}></pie-input>`;
 };
@@ -53,7 +55,6 @@ test('size variants with value and placeholder', async ({ mount, page }) => {
     const placeholder = 'Placeholder';
 
     await Promise.all(sizeVariants.map(async (size) => {
-        // Test with value prop
         let testComponent: WebComponentTestInput = createTestWebComponent({ size, value }, renderTestPieInput);
         let propKeyValues = `size: ${testComponent.propValues.size}, value: ${testComponent.propValues.value}`;
 
@@ -67,7 +68,6 @@ test('size variants with value and placeholder', async ({ mount, page }) => {
             },
         );
 
-        // Test with placeholder prop
         testComponent = createTestWebComponent({ size, placeholder }, renderTestPieInput);
         propKeyValues = `size: ${testComponent.propValues.size}, placeholder: ${testComponent.propValues.placeholder}`;
 
@@ -83,4 +83,64 @@ test('size variants with value and placeholder', async ({ mount, page }) => {
     }));
 
     await percySnapshot(page, 'PIE Input - Sizes with value and placeholder', percyWidths);
+});
+
+test('assistive text and status', async ({ mount, page }) => {
+    // Test with value prop
+    let testComponent: WebComponentTestInput = createTestWebComponent({ assistiveText: 'Assistive text', value: 'String' }, renderTestPieInput);
+    let propKeyValues = `assistiveText: ${testComponent.propValues.value}, value: ${testComponent.propValues.value}`;
+
+    await mount(
+        WebComponentTestWrapper,
+        {
+            props: { propKeyValues },
+            slots: {
+                component: testComponent.renderedString.trim(),
+            },
+        },
+    );
+
+    // Error + assistive text
+    testComponent = createTestWebComponent({ assistiveText: 'Error text', value: 'String', status: 'error' }, renderTestPieInput);
+    propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, value: ${testComponent.propValues.value}, status: ${testComponent.propValues.status}`;
+
+    await mount(
+        WebComponentTestWrapper,
+        {
+            props: { propKeyValues },
+            slots: {
+                component: testComponent.renderedString.trim(),
+            },
+        },
+    );
+
+    // Error and no assistive text
+    testComponent = createTestWebComponent({ value: 'String', status: 'error' }, renderTestPieInput);
+    propKeyValues = `value: ${testComponent.propValues.value}, status: ${testComponent.propValues.status}`;
+
+    await mount(
+        WebComponentTestWrapper,
+        {
+            props: { propKeyValues },
+            slots: {
+                component: testComponent.renderedString.trim(),
+            },
+        },
+    );
+
+    // Success + assistive text
+    testComponent = createTestWebComponent({ assistiveText: 'Success text', value: 'String', status: 'success' }, renderTestPieInput);
+    propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, value: ${testComponent.propValues.value}, status: ${testComponent.propValues.status}`;
+
+    await mount(
+        WebComponentTestWrapper,
+        {
+            props: { propKeyValues },
+            slots: {
+                component: testComponent.renderedString.trim(),
+            },
+        },
+    );
+
+    await percySnapshot(page, 'PIE Input - Statuses and assistive text', percyWidths);
 });
