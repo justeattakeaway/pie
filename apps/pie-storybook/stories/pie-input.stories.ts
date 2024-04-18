@@ -303,6 +303,7 @@ const Template = ({
 };
 
 const WithLabelTemplate: TemplateFunction<InputProps> = (props: InputProps) => html`
+        <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-field</pie-link>.</p>
         <pie-form-label for="${props.name}">Label</pie-form-label>
         ${Template(props)}
     `;
@@ -378,16 +379,13 @@ const createStoryWithLabel = (props: InputProps) => createStory<InputProps>(With
 
 export const Default = createStory<InputProps>(Template, defaultArgs)();
 export const Labelled = createStoryWithLabel(defaultArgs)();
-export const Numeric = createStoryWithLabel({ ...defaultArgs, type: 'number', value: '12345' })();
-export const Password = createStoryWithLabel({ ...defaultArgs, type: 'password', value: 'password' })();
-export const AssistiveText = createStoryWithLabel({ ...defaultArgs, assistiveText: 'This is an assistive text' })();
-export const ErrorText = createStoryWithLabel({ ...defaultArgs, status: 'error', assistiveText: 'This is an error message' })();
-export const SuccessText = createStoryWithLabel({ ...defaultArgs, status: 'success', assistiveText: 'This is a success message' })();
-export const LeadingIcon = createStoryWithLabel({ ...defaultArgs, leadingSlot: 'Icon (Placeholder)' })();
-export const LeadingText = createStoryWithLabel({ ...defaultArgs, leadingSlot: 'Short text (#)' })();
-export const Small = createStoryWithLabel({ ...defaultArgs, size: 'small' })();
-export const Medium = createStoryWithLabel({ ...defaultArgs, size: 'medium' })();
-export const Large = createStoryWithLabel({ ...defaultArgs, size: 'large' })();
+export const Numeric = createStory<InputProps>(Template, { ...defaultArgs, type: 'number', value: '12345' })();
+export const Password = createStory<InputProps>(Template, { ...defaultArgs, type: 'password', value: 'password' })();
+export const ErrorText = createStory<InputProps>(Template, { ...defaultArgs, status: 'error', assistiveText: 'This is an error message' })();
+export const LeadingIcon = createStory<InputProps>(Template, { ...defaultArgs, leadingSlot: 'Icon (Placeholder)' })();
+export const Small = createStory<InputProps>(Template, { ...defaultArgs, size: 'small' })();
+export const Medium = createStory<InputProps>(Template, { ...defaultArgs, size: 'medium' })();
+export const Large = createStory<InputProps>(Template, { ...defaultArgs, size: 'large' })();
 export const ExampleForm = createStory<InputProps>(ExampleFormTemplate, defaultArgs)();
 
 export default inputStoryMeta;
