@@ -88,9 +88,6 @@
         --input-text-clr: var(--dt-color-content-disabled);
         --input-text-clr-placeholder: var(--dt-color-content-disabled);
         --input-text-clr-leading-trailing-content: var(--dt-color-content-disabled);
-    }
-
-    &[data-pie-disabled] {
         --input-cursor: auto;
     }
 
