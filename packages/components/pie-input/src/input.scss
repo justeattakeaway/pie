@@ -4,11 +4,11 @@
     --input-padding-block: var(--dt-spacing-c);
     --input-padding-inline: var(--dt-spacing-d);
     --input-gap: var(--dt-spacing-d);
-    --input-text-clr: var(--dt-color-content-default);
-    --input-text-clr-leading-trailing-content: var(--dt-color-content-default);
-    --input-text-clr-placeholder: var(--dt-color-content-subdued);
-    --input-border-clr: var(--dt-color-interactive-form);
-    --input-container-clr: var(--dt-color-container-default);
+    --input-text-color: var(--dt-color-content-default);
+    --input-text-color-leading-trailing-content: var(--dt-color-content-default);
+    --input-text-color-placeholder: var(--dt-color-content-subdued);
+    --input-border-color: var(--dt-color-interactive-form);
+    --input-container-color: var(--dt-color-container-default);
     --input-radius: var(--dt-radius-rounded-c);
     --input-font-size: var(--dt-font-body-l-size);
     --input-height: 48px;
@@ -20,7 +20,7 @@
 
 
     height: var(--input-height);
-    border: 1px solid var(--input-border-clr);
+    border: 1px solid var(--input-border-color);
     border-radius: var(--input-radius);
     padding-inline-start: var(--input-padding-inline);
     padding-inline-end: var(--input-padding-inline);
@@ -31,8 +31,8 @@
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    background-color: var(--input-container-clr);
-    color: var(--input-text-clr-leading-trailing-content); // Applies to the leading/trailing slot text
+    background-color: var(--input-container-color);
+    color: var(--input-text-color-leading-trailing-content); // Applies to the leading/trailing slot text
     cursor: var(--input-cursor);
 
     &[data-pie-size="large"] {
@@ -46,7 +46,7 @@
     }
 
     &[data-pie-status="error"] {
-        --input-border-clr: var(--dt-color-support-error);
+        --input-border-color: var(--dt-color-support-error);
     }
 
     ::slotted([slot="leading"]) {
@@ -71,23 +71,23 @@
 
     @media (hover: hover) {
         &:hover {
-            --input-container-clr: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
+            --input-container-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
         }
     }
 
     &[data-pie-readonly] {
-        --input-container-clr: var(--dt-color-disabled-01);
-        --input-border-clr: var(--dt-color-border-inverse);
+        --input-container-color: var(--dt-color-disabled-01);
+        --input-border-color: var(--dt-color-border-inverse);
     }
 
     // Ensure that if an input is readonly and disabled, the disabled styles take precedence
     &[data-pie-disabled][data-pie-readonly],
     &[data-pie-disabled]{
-        --input-container-clr: var(--dt-color-disabled-01);
-        --input-border-clr: var(--dt-color-disabled-01);
-        --input-text-clr: var(--dt-color-content-disabled);
-        --input-text-clr-placeholder: var(--dt-color-content-disabled);
-        --input-text-clr-leading-trailing-content: var(--dt-color-content-disabled);
+        --input-container-color: var(--dt-color-disabled-01);
+        --input-border-color: var(--dt-color-disabled-01);
+        --input-text-color: var(--dt-color-content-disabled);
+        --input-text-color-placeholder: var(--dt-color-content-disabled);
+        --input-text-color-leading-trailing-content: var(--dt-color-content-disabled);
         --input-cursor: auto;
     }
 
@@ -101,7 +101,7 @@ input {
     outline: 0;
     height: 24px;
     padding: 0;
-    color: var(--input-text-clr);
+    color: var(--input-text-color);
     width: 100%;
     font-size: var(--input-font-size);
     font-family: inherit;
@@ -112,12 +112,12 @@ input {
 	appearance: none;
 
     &::placeholder {
-        color: var(--input-text-clr-placeholder);
+        color: var(--input-text-color-placeholder);
     }
 
     &:disabled {
-        -webkit-text-fill-color: var(--input-text-clr); // Remove the greyed out text in Safari
-        color: var(--input-text-clr);
+        -webkit-text-fill-color: var(--input-text-color); // Remove the greyed out text in Safari
+        color: var(--input-text-color);
         -webkit-opacity:1;
         opacity: 1;
     }
