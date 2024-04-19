@@ -67,7 +67,7 @@ test.beforeEach(async ({ mount }, testInfo) => {
     await assistiveTextComponent.unmount();
 });
 
-test('size variants with value and placeholder', async ({ mount, page }) => {
+test('Size variants with value and placeholder', async ({ mount, page }) => {
     const sizeVariants = ['small', 'medium', 'large'];
     const value = 'String';
     const placeholder = 'Placeholder';
@@ -106,7 +106,7 @@ test('size variants with value and placeholder', async ({ mount, page }) => {
 const readingDirections = ['LTR', 'RTL'];
 
 await Promise.all(readingDirections.map(async (dir) => {
-    test(`assistive text and status - ${dir}`, async ({ mount, page }) => {
+    test(`Assistive text and statuses - ${dir}`, async ({ mount, page }) => {
         if (dir === 'RTL') {
             setRTL(page);
         }
@@ -172,7 +172,7 @@ await Promise.all(readingDirections.map(async (dir) => {
 }));
 
 await Promise.all(readingDirections.map(async (dir) => {
-    test(`Content - ${dir}`, async ({ mount, page }) => {
+    test(`Content and slots - ${dir}`, async ({ mount, page }) => {
         if (dir === 'RTL') {
             setRTL(page);
         }
