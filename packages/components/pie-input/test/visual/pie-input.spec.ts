@@ -437,6 +437,23 @@ await Promise.all(readingDirections.map(async (dir) => {
             },
         );
 
+        // Long content
+        testComponent = createTestWebComponent({
+            value: 'this is a wonderfully long string that should definitely be longer than the width of the input. If not, here is some extra text to really push it over the edge. This is a test to see how the input handles long strings.',
+        }, renderTestPieInput);
+
+        propKeyValues = 'value: SUPER LONG STRING';
+
+        await mount(
+            WebComponentTestWrapper,
+            {
+                props: { propKeyValues },
+                slots: {
+                    component: testComponent.renderedString.trim(),
+                },
+            },
+        );
+
         await percySnapshot(page, `PIE Input - Content and Slots - ${dir}`, percyWidths);
     });
 }));
