@@ -118,7 +118,7 @@ input {
     &:disabled {
         -webkit-text-fill-color: var(--input-text-color); // Remove the greyed out text in Safari
         color: var(--input-text-color);
-        -webkit-opacity:1;
+        -webkit-opacity: 1;
         opacity: 1;
     }
 }
