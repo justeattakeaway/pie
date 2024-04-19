@@ -15,6 +15,12 @@ import { createStory, type TemplateFunction } from '../utilities';
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-form-label';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconEmail.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconLaptop.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconPhone.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconUser.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconNumberSymbol.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconKey.js';
 
 // Extending the props type definition to include storybook specific properties for controls
 type InputProps = InputPropsBase & {
@@ -28,12 +34,8 @@ const defaultArgs: InputProps = {
     type: 'text',
     value: '',
     name: 'testName',
-    disabled: false,
-    autocomplete: 'off',
-    autoFocus: false,
     leadingSlot: 'None',
     trailingSlot: 'None',
-    assistiveText: '',
     size: 'medium',
 };
 
@@ -204,6 +206,7 @@ const inputStoryMeta: InputStoryMeta = {
     },
     args: defaultArgs,
     parameters: {
+        layout: 'centered',
         design: {
             type: 'figma',
             url: '',
@@ -296,44 +299,89 @@ const Template = ({
     `;
 };
 
-const FormTemplate: TemplateFunction<InputProps> = (props: InputProps) => {
-    function onSubmit (event: SubmitEvent) {
-        event.preventDefault();
-
-        const form = event.target as HTMLFormElement;
-        const formData = new FormData(form);
-
-        const data: { [key: string]: string } = {};
-        formData.forEach((value, key) => {
-            data[key] = value.toString();
-        });
-
-        action('submit')({
-            ...data,
-        });
-    }
-
-    return html`
-        <h2>Fake form</h2>
-        <form id="testForm" @submit="${onSubmit}">
-            <section>
-                <h2>Contact information</h2>
-                <p>
-                    ${props.name ? html`<pie-form-label for="${props.name}">${props.name}</pie-form-label>` : nothing}
-                    ${Template({ ...props, type: 'text' })}
-                </p>
-            </section>
-            <section style="display: flex; gap: var(--dt-spacing-a); justify-content: flex-end; flex-wrap: wrap; margin-top: var(--dt-spacing-b);">
-                <pie-button type="reset" variant="secondary">Reset</pie-button>
-                <pie-button type="submit" variant="primary">Submit</pie-button>
-            </section>
-        </form>
+const WithLabelTemplate: TemplateFunction<InputProps> = (props: InputProps) => html`
+        <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-field</pie-link>.</p>
+        <pie-form-label for="${props.name}">Label</pie-form-label>
+        ${Template(props)}
     `;
-};
 
-const createInputStoryWithForm = createStory<InputProps>(FormTemplate, defaultArgs);
+const ExampleFormTemplate: TemplateFunction<InputProps> = () => html`
+    <style>
+        .form {
+            display: flex;
+            flex-direction: column;
+            padding: var(--dt-spacing-d);
+        }
+
+        .form-field {
+            display: block;
+            margin-bottom: var(--dt-spacing-d);
+        }
+
+        .form-field[type="number"],
+        .form-field[type="tel"] {
+            width: 25ch;
+        }
+
+        .form-btns {
+            margin-top: var(--dt-spacing-c);
+            display: flex;
+            gap: var(--dt-spacing-a)
+        }
+
+        .form-btns > .form-btn:first-of-type {
+            margin-left: auto;
+        }
+    </style>
+    <form class="form">
+        <pie-form-label for="username">Username:</pie-form-label>
+        <pie-input class="form-field" id="username" name="username" type="text">
+            <icon-user slot="leading"></icon-user>
+        </pie-input>
+
+        <pie-form-label for="email">Email:</pie-form-label>
+        <pie-input class="form-field" id="email" name="email" type="email">
+            <icon-email slot="leading"></icon-email>
+        </pie-input>
+
+        <pie-form-label for="url">Website:</pie-form-label>
+        <pie-input class="form-field" id="url" name="url" type="url">
+            <icon-laptop slot="leading"></icon-laptop>
+        </pie-input>
+
+        <pie-form-label for="password">Password:</pie-form-label>
+        <pie-input class="form-field" id="password" name="password" type="password">
+            <icon-key slot="leading"></icon-key>
+        </pie-input>
+
+        <pie-form-label for="favouriteNumber">Favourite Number:</pie-form-label>
+        <pie-input class="form-field" id="favouriteNumber" name="favouriteNumber" type="number" min="-5" max="200" assistive-text="" state="">
+            <icon-number-symbol slot="leading"></icon-number-symbol>
+        </pie-input>
+
+        <pie-form-label for="tel">Telephone:</pie-form-label>
+        <pie-input class="form-field" id="tel" name="tel" type="tel">
+            <icon-phone slot="leading"></icon-phone>
+        </pie-input>
+
+        <div class="form-btns">
+            <pie-button class="form-btn" variant="secondary" type="reset">Reset</pie-button>
+            <pie-button class="form-btn" type="submit">Submit</pie-button>
+        </div>
+    </form>
+`;
+
+const createStoryWithLabel = (props: InputProps) => createStory<InputProps>(WithLabelTemplate, props);
 
 export const Default = createStory<InputProps>(Template, defaultArgs)();
-export const FormIntegration = createInputStoryWithForm();
+export const Labelled = createStoryWithLabel(defaultArgs)();
+export const Numeric = createStory<InputProps>(Template, { ...defaultArgs, type: 'number', value: '12345' })();
+export const Password = createStory<InputProps>(Template, { ...defaultArgs, type: 'password', value: 'password' })();
+export const ErrorText = createStory<InputProps>(Template, { ...defaultArgs, status: 'error', assistiveText: 'This is an error message' })();
+export const LeadingIcon = createStory<InputProps>(Template, { ...defaultArgs, leadingSlot: 'Icon (Placeholder)' })();
+export const Small = createStory<InputProps>(Template, { ...defaultArgs, size: 'small' })();
+export const Medium = createStory<InputProps>(Template, { ...defaultArgs, size: 'medium' })();
+export const Large = createStory<InputProps>(Template, { ...defaultArgs, size: 'large' })();
+export const ExampleForm = createStory<InputProps>(ExampleFormTemplate, defaultArgs)();
 
 export default inputStoryMeta;

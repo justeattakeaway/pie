@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.73.0
+
+### Minor Changes
+
+- [Added] - All stories for pie-input ([#1399](https://github.com/justeattakeaway/pie/pull/1399)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`c7ba1d856`](https://github.com/justeattakeaway/pie/commit/c7ba1d856cf147fbdedfe37463a712a4c4177002), [`c7ba1d856`](https://github.com/justeattakeaway/pie/commit/c7ba1d856cf147fbdedfe37463a712a4c4177002)]:
+  - @justeattakeaway/pie-input@0.18.0
+  - @justeattakeaway/pie-assistive-text@0.3.4
+
 ## 0.72.2
 
 ### Patch Changes
