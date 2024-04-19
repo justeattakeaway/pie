@@ -324,7 +324,7 @@ Here are some examples of tags in left-to-right context:
 {% endcontentLayout %}
 
 {% contentPageImage {
-    src:"../../../assets/img/components/tag/example-ltr-restaurant-listing.svg",
+    src:"../../../assets/img/components/tag/ltr-example-restaurant-listing.svg",
     alt: "A left-to-right example of a tag used on a restaurant listing card.",
     width: "827px"
 } %}
