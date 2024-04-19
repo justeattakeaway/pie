@@ -1,0 +1,27 @@
+import * as InputStories from '../pie-input.stories.ts'
+import { Meta, Canvas } from '@storybook/blocks';
+import { ComponentStatus } from '../../docblocks/component-status.jsx';
+
+<ComponentStatus component="pie-button" />
+
+<Meta of={InputStories} />
+
+### Small
+
+Use when there isn’t enough vertical space for the default text input size.
+
+<Canvas of={InputStories.Small} />
+
+
+### Medium
+
+Default size and should be used whenever possible.
+
+<Canvas of={InputStories.Medium} />
+
+
+### Large
+
+Choose this size when there is a lot of space to work with. This size is typically used in simple forms or when a Text Input is placed by itself on a page.
+
+<Canvas of={InputStories.Large} />

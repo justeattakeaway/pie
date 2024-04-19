@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-assistive-text
 
+## 0.3.4
+
+### Patch Changes
+
+- [Added] - `overflow-wrap: anywhere` to ensure that words are broken if they are a continuous long word ([#1399](https://github.com/justeattakeaway/pie/pull/1399)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.3.3
 
 ### Patch Changes
