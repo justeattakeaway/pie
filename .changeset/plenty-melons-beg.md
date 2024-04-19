@@ -2,4 +2,4 @@
 "pie-docs": patch
 ---
 
-Fix image not showing for Tag component
+[Fixed] - Fixed typo for image not showing in Tag component
