@@ -329,7 +329,7 @@ const ExampleFormTemplate: TemplateFunction<InputProps> = () => html`
             gap: var(--dt-spacing-a)
         }
 
-        .form-btns>.form-btn:first-of-type {
+        .form-btns > .form-btn:first-of-type {
             margin-left: auto;
         }
     </style>
