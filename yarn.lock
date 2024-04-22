@@ -842,7 +842,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.1.0, @babel/core@npm:^7.11.1, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.16.0, @babel/core@npm:^7.19.6, @babel/core@npm:^7.20.12, @babel/core@npm:^7.22.5, @babel/core@npm:^7.23.0, @babel/core@npm:^7.23.2, @babel/core@npm:^7.23.3, @babel/core@npm:^7.23.7, @babel/core@npm:^7.7.2, @babel/core@npm:^7.8.0":
+"@babel/core@npm:^7.1.0, @babel/core@npm:^7.11.1, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.16.0, @babel/core@npm:^7.19.6, @babel/core@npm:^7.22.5, @babel/core@npm:^7.23.0, @babel/core@npm:^7.23.2, @babel/core@npm:^7.23.3, @babel/core@npm:^7.23.7, @babel/core@npm:^7.7.2, @babel/core@npm:^7.8.0":
   version: 7.24.3
   resolution: "@babel/core@npm:7.24.3"
   dependencies:
@@ -862,6 +862,29 @@ __metadata:
     json5: ^2.2.3
     semver: ^6.3.1
   checksum: 1a33460794f4122cf255b656f4d6586913f41078a1afdf1bcf0365ddbd99c1ddb68f904062f9079445ab26b507c36bc297055192bc26e5c8e6e3def42195f9ab
+  languageName: node
+  linkType: hard
+
+"@babel/core@npm:^7.23.5":
+  version: 7.24.4
+  resolution: "@babel/core@npm:7.24.4"
+  dependencies:
+    "@ampproject/remapping": ^2.2.0
+    "@babel/code-frame": ^7.24.2
+    "@babel/generator": ^7.24.4
+    "@babel/helper-compilation-targets": ^7.23.6
+    "@babel/helper-module-transforms": ^7.23.3
+    "@babel/helpers": ^7.24.4
+    "@babel/parser": ^7.24.4
+    "@babel/template": ^7.24.0
+    "@babel/traverse": ^7.24.1
+    "@babel/types": ^7.24.0
+    convert-source-map: ^2.0.0
+    debug: ^4.1.0
+    gensync: ^1.0.0-beta.2
+    json5: ^2.2.3
+    semver: ^6.3.1
+  checksum: 15ecad7581f3329995956ba461961b1af7bed48901f14fe962ccd3217edca60049e9e6ad4ce48134618397e6c90230168c842e2c28e47ef1f16c97dbbf663c61
   languageName: node
   linkType: hard
 
@@ -913,6 +936,18 @@ __metadata:
     "@jridgewell/trace-mapping": ^0.3.25
     jsesc: ^2.5.1
   checksum: 98c6ce5ec7a1cba2bdf35cdf607273b90cf7cf82bbe75cd0227363fb84d7e1bd8efa74f40247d5900c8c009123f10132ad209a05283757698de918278c3c6700
+  languageName: node
+  linkType: hard
+
+"@babel/generator@npm:^7.24.4":
+  version: 7.24.4
+  resolution: "@babel/generator@npm:7.24.4"
+  dependencies:
+    "@babel/types": ^7.24.0
+    "@jridgewell/gen-mapping": ^0.3.5
+    "@jridgewell/trace-mapping": ^0.3.25
+    jsesc: ^2.5.1
+  checksum: 1b6146c31386c9df3eb594a2c36b5c98da4f67f7c06edb3d68a442b92516b21bb5ba3ad7dbe0058fe76625ed24d66923e15c95b0df75ef1907d4068921a699b8
   languageName: node
   linkType: hard
 
@@ -1208,6 +1243,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/helpers@npm:^7.24.4":
+  version: 7.24.4
+  resolution: "@babel/helpers@npm:7.24.4"
+  dependencies:
+    "@babel/template": ^7.24.0
+    "@babel/traverse": ^7.24.1
+    "@babel/types": ^7.24.0
+  checksum: ecd2dc0b3b32e24b97fa3bcda432dd3235b77c2be1e16eafc35b8ef8f6c461faa99796a8bc2431a408c98b4aabfd572c160e2b67ecea4c5c9dd3a8314a97994a
+  languageName: node
+  linkType: hard
+
 "@babel/highlight@npm:^7.10.4, @babel/highlight@npm:^7.24.2":
   version: 7.24.2
   resolution: "@babel/highlight@npm:7.24.2"
@@ -1244,6 +1290,15 @@ __metadata:
   bin:
     parser: ./bin/babel-parser.js
   checksum: a1068941dddf82ffdf572565b8b7b2cddb963ff9ddf97e6e28f50e843d820b4285e6def8f59170104a94e2a91ae2e3b326489886d77a57ea29d468f6a5e79bf9
+  languageName: node
+  linkType: hard
+
+"@babel/parser@npm:^7.24.4":
+  version: 7.24.4
+  resolution: "@babel/parser@npm:7.24.4"
+  bin:
+    parser: ./bin/babel-parser.js
+  checksum: 94c9e3e592894cd6fc57c519f4e06b65463df9be5f01739bb0d0bfce7ffcf99b3c2fdadd44dc59cc858ba2739ce6e469813a941c2f2dfacf333a3b2c9c5c8465
   languageName: node
   linkType: hard
 
@@ -2296,7 +2351,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-react-jsx-self@npm:^7.18.6":
+"@babel/plugin-transform-react-jsx-self@npm:^7.23.3":
   version: 7.24.1
   resolution: "@babel/plugin-transform-react-jsx-self@npm:7.24.1"
   dependencies:
@@ -2307,7 +2362,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-react-jsx-source@npm:^7.19.6":
+"@babel/plugin-transform-react-jsx-source@npm:^7.23.3":
   version: 7.24.1
   resolution: "@babel/plugin-transform-react-jsx-source@npm:7.24.1"
   dependencies:
@@ -7566,32 +7621,39 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/experimental-ct-react@npm:1.32.3":
-  version: 1.32.3
-  resolution: "@playwright/experimental-ct-react@npm:1.32.3"
+"@playwright/experimental-ct-core@npm:1.41.0":
+  version: 1.41.0
+  resolution: "@playwright/experimental-ct-core@npm:1.41.0"
   dependencies:
-    "@playwright/test": 1.32.3
-    "@vitejs/plugin-react": ^3.1.0
-    vite: ^4.1.1
+    playwright: 1.41.0
+    playwright-core: 1.41.0
+    vite: ^4.4.12
   bin:
     playwright: cli.js
-  checksum: 94d5e12873ec7615b16a8ebadb0e6a97d6eb0e0493edd8062bf42be75a8b28a467686070dfed7045033cbec7988e93c1384de99891f8845b6f01b01f0063dfc7
+  checksum: fe602b6e590a18f56b16e3b82b4958e2ff65469f8b1fb461315b19f3cd65d54740506ac7fcea24481c10560f2d1162c762fa8fcef4d6e24eabba8a3247b94cc2
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.32.3":
-  version: 1.32.3
-  resolution: "@playwright/test@npm:1.32.3"
+"@playwright/experimental-ct-react@npm:1.41.0":
+  version: 1.41.0
+  resolution: "@playwright/experimental-ct-react@npm:1.41.0"
   dependencies:
-    "@types/node": "*"
-    fsevents: 2.3.2
-    playwright-core: 1.32.3
-  dependenciesMeta:
-    fsevents:
-      optional: true
+    "@playwright/experimental-ct-core": 1.41.0
+    "@vitejs/plugin-react": ^4.0.0
   bin:
     playwright: cli.js
-  checksum: f248e5851d04183954ec6f3a5f2c8e3b0ea0085a83e0e695068c5c2eb6acd4dddb16829a429829a4eb9fe0a4518f6a5594890cf9bf4259255c9e07a5964be625
+  checksum: 81177e0fc6810f75f1eaa6209817ae14d6cdc5d651127f2f2db10473f9e5ea508bccc9c115862d07225609c5561540c0bb6a13b42635ec24ff26aeb4506775e8
+  languageName: node
+  linkType: hard
+
+"@playwright/test@npm:1.41.0":
+  version: 1.41.0
+  resolution: "@playwright/test@npm:1.41.0"
+  dependencies:
+    playwright: 1.41.0
+  bin:
+    playwright: cli.js
+  checksum: 3a7039f8cd14dd242154255417c100a99c3254a3c1fd26df2a11be24c10b06ef77d2736336d7743dedc5e1a6a52748e58ced730b6048f8bd75d8867ce81661e0
   languageName: node
   linkType: hard
 
@@ -8655,14 +8717,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sand4rt/experimental-ct-web@npm:1.0.8":
-  version: 1.0.8
-  resolution: "@sand4rt/experimental-ct-web@npm:1.0.8"
+"@sand4rt/experimental-ct-web@npm:1.41.0":
+  version: 1.41.0
+  resolution: "@sand4rt/experimental-ct-web@npm:1.41.0"
+  dependencies:
+    "@playwright/experimental-ct-core": ^1.41.0
+    vite: ^4.4.7
   peerDependencies:
-    "@playwright/test": ">=1.31.0"
+    "@playwright/test": ">=1.41.0"
   bin:
     playwright: cli.js
-  checksum: ee83c5a4367b157db07ce489a7e328aab9c05674ac3db3b3463096201ff451704100c5ad78acd1b37e16e68ea7e1e230075d899e4be6807bdb5f34ac373fe821
+  checksum: f486c0bdd23f31ef1129b239e221d0bd0806be919d1c1a8d45963b51c157be68c8b80f323bc429e2aaea47c03fd3af34bd8367e2c0f787730f3e9eb7210ca8df
   languageName: node
   linkType: hard
 
@@ -9914,7 +9979,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.14":
+"@types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.14, @types/babel__core@npm:^7.20.5":
   version: 7.20.5
   resolution: "@types/babel__core@npm:7.20.5"
   dependencies:
@@ -11242,18 +11307,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-react@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "@vitejs/plugin-react@npm:3.1.0"
+"@vitejs/plugin-react@npm:^4.0.0":
+  version: 4.2.1
+  resolution: "@vitejs/plugin-react@npm:4.2.1"
   dependencies:
-    "@babel/core": ^7.20.12
-    "@babel/plugin-transform-react-jsx-self": ^7.18.6
-    "@babel/plugin-transform-react-jsx-source": ^7.19.6
-    magic-string: ^0.27.0
+    "@babel/core": ^7.23.5
+    "@babel/plugin-transform-react-jsx-self": ^7.23.3
+    "@babel/plugin-transform-react-jsx-source": ^7.23.3
+    "@types/babel__core": ^7.20.5
     react-refresh: ^0.14.0
   peerDependencies:
-    vite: ^4.1.0-beta.0
-  checksum: 450fac79e67cba9e1581c860f78e687b44108ab4117663ef20db279316e03cd8e87f94fef376e27cc5e200bd52813dcc09b70ea570c7c7cc291fcd47eb260fbc
+    vite: ^4.2.0 || ^5.0.0
+  checksum: 08d227d27ff2304e395e746bd2d4b5fee40587f69d7e2fcd6beb7d91163c1f1dc26d843bc48e2ffb8f38c6b8a1b9445fb07840e3dcc841f97b56bbb8205346aa
   languageName: node
   linkType: hard
 
@@ -29166,10 +29231,10 @@ __metadata:
     "@justeattakeaway/stylelint-config-pie": 0.7.0
     "@percy/cli": 1.28.3
     "@percy/playwright": 1.0.4
-    "@playwright/experimental-ct-react": 1.32.3
-    "@playwright/test": 1.32.3
+    "@playwright/experimental-ct-react": 1.41.0
+    "@playwright/test": 1.41.0
     "@rollup/plugin-node-resolve": 15.1.0
-    "@sand4rt/experimental-ct-web": 1.0.8
+    "@sand4rt/experimental-ct-web": 1.41.0
     "@types/node": 20.4.8
     "@types/react": 18.2.75
     "@typescript-eslint/eslint-plugin": 5.62.0
@@ -29377,12 +29442,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.32.3":
-  version: 1.32.3
-  resolution: "playwright-core@npm:1.32.3"
+"playwright-core@npm:1.41.0":
+  version: 1.41.0
+  resolution: "playwright-core@npm:1.41.0"
+  bin:
+    playwright-core: cli.js
+  checksum: 14671265916a1fd0c71d94640de19c48bcce3f7dec35530f10e349e97030ea44ffa8ee518cbf811501e3ab2b74874aecf917e46bf40fea0570db1d4bea1fe7ac
+  languageName: node
+  linkType: hard
+
+"playwright@npm:1.41.0":
+  version: 1.41.0
+  resolution: "playwright@npm:1.41.0"
+  dependencies:
+    fsevents: 2.3.2
+    playwright-core: 1.41.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
   bin:
     playwright: cli.js
-  checksum: 7ea091c41a7d1bb97b445bc541a85b123ffcf167bcc00fb7e13e9079f06c92f59fd27caf9d1c1d7e0054f2b5765d1a16d198833c2be7266cebb9dbb916cd90f4
+  checksum: e7c32136911c58e06b964fe7d33f8b3d8f6a067ae5218662a0811dd6c90e007db1774eb7e161f4aa748d760f404f4c066b7b7303c2b617f7448b6ee4b86c9999
   languageName: node
   linkType: hard
 
@@ -37689,7 +37769,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:4.5.3, vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.1.1":
+"vite@npm:4.5.3, vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.4.12, vite@npm:^4.4.7":
   version: 4.5.3
   resolution: "vite@npm:4.5.3"
   dependencies:
