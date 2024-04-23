@@ -1,38 +1,12 @@
 {
   "name": "@justeattakeaway/pie-icons-webc",
-  "version": "0.21.0",
+  "version": "0.22.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./*": {
-      "import": "./dist/*.js",
-      "types": "./dist/*.d.ts"
-    },
-    "./react": {
-      "import": "./dist/react/index.js",
-      "types": "./dist/react/index.d.ts"
-    },
-    "./react/*": {
-      "import": "./dist/react/*.js",
-      "types": "./dist/react/*.d.ts"
-    },
-    "./dist/react": {
-      "import": "./dist/react/index.js",
-      "types": "./dist/react/index.d.ts"
-    },
-    "./dist/react/*": {
-      "import": "./dist/react/*.js",
-      "types": "./dist/react/*.d.ts"
-    }
-  },
   "publishConfig": {
     "access": "public"
   },
@@ -74,12 +48,12 @@
     "extends @justeattakeaway/browserslist-config-pie"
   ],
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "0.21.0"
+    "@justeattakeaway/pie-webc-core": "0.21.1"
   },
   "devDependencies": {
     "@babel/core": "7.23.9",
     "@babel/node": "7.20.7",
-    "@justeattakeaway/pie-components-config": "0.15.0",
+    "@justeattakeaway/pie-components-config": "0.16.0",
     "@justeattakeaway/pie-icons": "4.14.0",
     "@justeattakeaway/pie-icons-configs": "4.5.1",
     "@rollup/plugin-typescript": "11.1.6",

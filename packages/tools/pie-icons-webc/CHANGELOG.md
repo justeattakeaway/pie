@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.22.0
+
+### Minor Changes
+
+- [Removed] - exports section in package.json to make consumer experience more consistent ([#1378](https://github.com/justeattakeaway/pie/pull/1378)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Updated dependencies [[`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9)]:
+  - @justeattakeaway/pie-webc-core@0.21.1
+
 ## 0.21.0
 
 ### Minor Changes

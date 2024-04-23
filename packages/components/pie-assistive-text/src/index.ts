@@ -5,8 +5,8 @@ import {
 import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import '@justeattakeaway/pie-icons-webc/IconAlertCircle';
-import '@justeattakeaway/pie-icons-webc/IconCheckCircle';
+import '@justeattakeaway/pie-icons-webc/dist/IconAlertCircle.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconCheckCircle.js';
 
 import styles from './assistive-text.scss?inline';
 import { AssistiveTextProps, variants } from './defs';
@@ -42,7 +42,7 @@ export class PieAssistiveText extends LitElement implements AssistiveTextProps {
         } = this;
 
         return html`
-        <p 
+        <p
             class="c-assistiveText"
             data-test-id="pie-assistive-text"
             variant=${ifDefined(variant)}>

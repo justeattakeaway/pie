@@ -4,7 +4,7 @@ import { html } from 'lit';
 import '@justeattakeaway/pie-icon-button';
 import { IconButtonProps, sizes, variants } from '@justeattakeaway/pie-icon-button';
 /* eslint-enable import/no-duplicates */
-import '@justeattakeaway/pie-icons-webc/IconClose';
+import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 
 import { StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';

@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import '@justeattakeaway/pie-chip';
 import { ChipProps as ChipPropsBase, variants } from '@justeattakeaway/pie-chip';
 /* eslint-enable import/no-duplicates */
-import '@justeattakeaway/pie-icons-webc/IconHeartFilled';
+import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
 import type { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';

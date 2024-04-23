@@ -1,6 +1,128 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-// TODO: replace these styles in DSW-1599
+.c-input {
+    --input-padding-block: var(--dt-spacing-c);
+    --input-padding-inline: var(--dt-spacing-d);
+    --input-gap: var(--dt-spacing-d);
+    --input-text-color: var(--dt-color-content-default);
+    --input-text-color-leading-trailing-content: var(--dt-color-content-default);
+    --input-text-color-placeholder: var(--dt-color-content-subdued);
+    --input-border-color: var(--dt-color-interactive-form);
+    --input-container-color: var(--dt-color-container-default);
+    --input-radius: var(--dt-radius-rounded-c);
+    --input-font-size: var(--dt-font-body-l-size);
+    --input-height: 48px;
+    --input-cursor: text;
+
+    // Ensures icons added to trailing and leading content are displayed at the allowed size
+    --icon-display-override: block;
+    --icon-size-override: 24px;
+
+
+    height: var(--input-height);
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--input-radius);
+    padding-inline-start: var(--input-padding-inline);
+    padding-inline-end: var(--input-padding-inline);
+    padding-block-start: var(--input-padding-block);
+    padding-block-end: var(--input-padding-block);
+    line-height: 24px;
+    font-size: var(--input-font-size);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    background-color: var(--input-container-color);
+    color: var(--input-text-color-leading-trailing-content); // Applies to the leading/trailing slot text
+    cursor: var(--input-cursor);
+
+    &[data-pie-size="large"] {
+        --input-padding-block: var(--dt-spacing-d);
+        --input-height: 56px;
+    }
+
+    &[data-pie-size="small"] {
+        --input-padding-block: var(--dt-spacing-b);
+        --input-height: 40px;
+    }
+
+    &[data-pie-status="error"] {
+        --input-border-color: var(--dt-color-support-error);
+    }
+
+    ::slotted([slot="leading"]) {
+        margin-inline-end: var(--input-gap);
+    }
+
+    ::slotted([slot="trailing"]) {
+        margin-inline-start: var(--input-gap);
+    }
+
+    @supports (gap: var(--input-gap)) {
+        gap: var(--input-gap);
+
+        ::slotted([slot="leading"]) {
+            margin-inline-end: 0;
+        }
+
+        ::slotted([slot="trailing"]) {
+            margin-inline-start: 0;
+        }
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            --input-container-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
+        }
+    }
+
+    &[data-pie-readonly] {
+        --input-container-color: var(--dt-color-disabled-01);
+        --input-border-color: var(--dt-color-border-inverse);
+    }
+
+    // Ensure that if an input is readonly and disabled, the disabled styles take precedence
+    &[data-pie-disabled][data-pie-readonly],
+    &[data-pie-disabled]{
+        --input-container-color: var(--dt-color-disabled-01);
+        --input-border-color: var(--dt-color-disabled-01);
+        --input-text-color: var(--dt-color-content-disabled);
+        --input-text-color-placeholder: var(--dt-color-content-disabled);
+        --input-text-color-leading-trailing-content: var(--dt-color-content-disabled);
+        --input-cursor: auto;
+    }
+
+    &:focus-within {
+        @include p.focus;
+    }
+}
+
+input {
+    border: 0;
+    outline: 0;
+    height: 24px;
+    padding: 0;
+    color: var(--input-text-color);
+    width: 100%;
+    font-size: var(--input-font-size);
+    font-family: inherit;
+    background: none;
+    cursor: inherit;
+    -webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+    &::placeholder {
+        color: var(--input-text-color-placeholder);
+    }
+
+    &:disabled {
+        -webkit-text-fill-color: var(--input-text-color); // Remove the greyed out text in Safari
+        color: var(--input-text-color);
+        -webkit-opacity: 1;
+        opacity: 1;
+    }
+}
+
 input[type="number"]:not([step])::-webkit-inner-spin-button,
 input[type="number"]:not([step])::-webkit-outer-spin-button {
     -webkit-appearance: none;

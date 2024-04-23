@@ -122,6 +122,14 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
      */
     public formResetCallback (): void {
         this.value = this.defaultValue ?? InputDefaultPropertyValues.value;
+
+        // This ensures the input value is updated when the form is reset.
+        // Otherwise there is a bug where values like 'e1212' for number inputs do not correctly reset.
+        if (this.input) {
+            this.input.value = this.value;
+        }
+
+        this._internals.setFormValue(this.value);
     }
 
     protected firstUpdated (_changedProperties: PropertyValues<this>): void {
@@ -184,7 +192,13 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
         } = this;
 
         return html`
-            <div data-test-id="pie-input-shell" size=${ifDefined(size)}>
+            <div
+                class="c-input"
+                data-test-id="pie-input-shell"
+                data-pie-size=${ifDefined(size)}
+                data-pie-status=${ifDefined(status)}
+                ?data-pie-disabled=${live(disabled)}
+                ?data-pie-readonly=${readonly}>
                 <slot name="leading"></slot>
                 <input
                     type=${ifDefined(type)}
@@ -207,8 +221,8 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     @change=${this.handleChange}
                     data-test-id="pie-input">
                 <slot name="trailing"></slot>
-                ${assistiveText ? html`<pie-assistive-text variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}
-            </div>`;
+            </div>
+            ${assistiveText ? html`<pie-assistive-text variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
