@@ -3,20 +3,37 @@
   "description": "Component bundle containing all PIE web components",
   "version": "0.2.9",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
   "files": [
-    "dist",
+    "**/*.js",
     "**/*.d.ts"
   ],
+  "exports": {
+    "./components/button.js": {
+      "import": "./components/button.js",
+      "require": "./components/button.js",
+      "types": "./components/button.d.ts"
+    },
+    "./react/button.js": {
+      "import": "./react/button.js",
+      "require": "./react/button.js",
+      "types": "./react/button.d.ts"
+    },
+    "./components/modal.js": {
+      "import": "./components/modal.js",
+      "require": "./components/modal.js",
+      "types": "./components/modal.d.ts"
+    },
+    "./react/modal.js": {
+      "import": "./react/modal.js",
+      "require": "./react/modal.js",
+      "types": "./react/modal.d.ts"
+    }
+  },
   "scripts": {
-    "build": "run -T vite build",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "echo \"Error: no scss / css to lint\" && exit 0",
     "lint:style:fix": "yarn lint:style --fix",
-    "watch": "run -T vite build --watch",
     "test": "echo \"Error: no test specified\" && exit 0",
     "test:ci": "yarn test"
   },
@@ -27,13 +44,12 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-button": "0.47.3",
-    "@justeattakeaway/pie-modal": "0.42.3",
-    "@justeattakeaway/pie-webc-core": "0.21.1"
+    "@justeattakeaway/pie-modal": "0.42.3"
   },
   "volta": {
     "extends": "../../../package.json"
   },
   "sideEffects": [
-    "dist/*.js"
+    "**/*.js"
   ]
 }
