@@ -21,6 +21,7 @@ const componentTemplate = (name, svg) => {
     // Add width and height placeholders to the SVG tag
     // eslint-disable-next-line no-template-curly-in-string
     const svgWithWidthAndHeight = svg.replace('<svg', '<svg width="${this.svgWidth}" height="${this.svgHeight}"');
+    const kebabCaseName = kebabCase(name);
 
     return `import {
         html, LitElement, TemplateResult, css, PropertyValues,
@@ -34,10 +35,10 @@ const componentTemplate = (name, svg) => {
         class: string;
     }
 
-    const componentSelector = '${kebabCase(name)}';
+    const componentSelector = '${kebabCaseName}';
 
     /**
-     * @tagname ${kebabCase(name)}
+     * @tagname ${kebabCaseName}
      */
     export class ${name} extends LitElement implements IconProps {
         static styles = css\`
@@ -52,26 +53,20 @@ const componentTemplate = (name, svg) => {
         @property({ type: String, reflect: true })
         public class = '${svgClasses}';
 
-        private svgWidth: string;
-        private svgHeight: string;
+        private svgWidth = '16px'; // Default width;
+        private svgHeight = '16px'; // Default height
 
-        constructor() {
-            super();
-            this.svgWidth = '16px'; // Default width
-            this.svgHeight = '16px'; // Default height
-        }
-
-        firstUpdated(_: PropertyValues<this>): void {
+        firstUpdated (): void {
             this.updateIconSize();
         }
 
-        updated(changedProperties: PropertyValues<this>): void {
+        updated (changedProperties: PropertyValues<this>): void {
             if (changedProperties.has('size')) {
                 this.updateIconSize();
             }
         }
 
-        updateIconSize(): void {
+        updateIconSize (): void {
             const svgSize = getSvgProps(this.class, '', this.size, '${name}');
             this.svgWidth = svgSize.width + 'px';
             this.svgHeight = svgSize.height + 'px';
@@ -96,6 +91,10 @@ const ICONS_DIR = `${process.cwd()}/icons`;
 const indexPath = path.join(ICONS_DIR, '/index.ts');
 const reactIndexPath = path.join(ICONS_DIR, '/react/index.ts');
 
+/**
+ * Checks that a directory exists at a specified path, if not it creates it.
+ * @param {string} directoryPath
+ */
 function ensureDirExists (directoryPath) {
     try {
         if (!fs.existsSync(directoryPath)) {
@@ -110,24 +109,33 @@ function ensureDirExists (directoryPath) {
 }
 
 function build () {
+    // check if /icons directory exists, if not create it
     ensureDirExists(ICONS_DIR);
+
+    // check if /icons/react directory exists, if not create it
     ensureDirExists(`${ICONS_DIR}/react`);
 
     let indexFileString = '';
 
+    // loop through the icons in pie-icons, generate each component and add it to the index.ts
     Object.keys(icons).forEach((iconKey) => {
         const icon = icons[iconKey];
+        const { pathPrefix } = icon;
+        const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
         const pascalCasedName = pascalCase(normalizeIconName(iconKey));
-        const componentName = `Icon${pascalCasedName}`;
+
+        const componentName = `Icon${capitalisedPathPrefix + pascalCasedName}`;
+
         const svg = icon.toSvg();
 
         let component = componentTemplate(componentName, svg);
-        component = component.replace(/xlink:href/g, 'xlinkHref'); // Replace to parse correctly by JSX
+        component = component.replace(/xlink:href/g, 'xlinkHref'); // replace so it gets parsed by JSX correctly
 
         indexFileString += `export { ${componentName} } from './${componentName}';\n`;
 
         fs.writeFileSync(`./icons/${componentName}.ts`, component, 'utf8');
 
+        // create a {ComponentName}ReactExport.ts file for each component
         const reactExportTemplate = `import * as React from 'react';
 import { createComponent } from '@lit/react';
 import { ${componentName} as ${componentName}React } from '../${componentName}';
