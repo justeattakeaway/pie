@@ -53,8 +53,8 @@ const componentTemplate = (name, svg) => {
         @property({ type: String, reflect: true })
         public class = '${svgClasses}';
 
-        private svgWidth = '16px'; // Default width;
-        private svgHeight = '16px'; // Default height
+        private svgWidth = '16'; // Default width;
+        private svgHeight = '16'; // Default height
 
         firstUpdated (): void {
             this.updateIconSize();
@@ -68,8 +68,8 @@ const componentTemplate = (name, svg) => {
 
         updateIconSize (): void {
             const svgSize = getSvgProps(this.class, '', this.size, '${name}');
-            this.svgWidth = svgSize.width + 'px';
-            this.svgHeight = svgSize.height + 'px';
+            this.svgWidth = svgSize.width;
+            this.svgHeight = svgSize.height;
         }
 
         render(): TemplateResult {
