@@ -18,6 +18,10 @@ const componentTemplate = (name, svg) => {
     const sizeType = isLargeIcon ? 'LargeIconSize' : 'RegularIconSize';
     const defaultSize = isLargeIcon ? largeIconSizeDefault : `'${regularIconSizeDefault}'`;
 
+    // Add width and height placeholders to the SVG tag
+    // eslint-disable-next-line no-template-curly-in-string
+    const svgWithWidthAndHeight = svg.replace('<svg', '<svg width="${this.svgWidth}" height="${this.svgHeight}"');
+
     return `import {
         html, LitElement, TemplateResult, css, PropertyValues,
     } from 'lit';
@@ -38,9 +42,7 @@ const componentTemplate = (name, svg) => {
     export class ${name} extends LitElement implements IconProps {
         static styles = css\`
             :host svg {
-                display: var(--icon-display-override);
-                width: var(--icon-size-width, 16px); /* Default to size for 'xs' if not overridden */
-                height: var(--icon-size-height, 16px);
+                display: var(--icon-display-override, block);
             }
         \`;
 
@@ -50,7 +52,16 @@ const componentTemplate = (name, svg) => {
         @property({ type: String, reflect: true })
         public class = '${svgClasses}';
 
-        firstUpdated(): void {
+        private svgWidth: string;
+        private svgHeight: string;
+
+        constructor() {
+            super();
+            this.svgWidth = '16px'; // Default width
+            this.svgHeight = '16px'; // Default height
+        }
+
+        firstUpdated(_: PropertyValues<this>): void {
             this.updateIconSize();
         }
 
@@ -62,12 +73,12 @@ const componentTemplate = (name, svg) => {
 
         updateIconSize(): void {
             const svgSize = getSvgProps(this.class, '', this.size, '${name}');
-            this.style.setProperty('--icon-size-width', svgSize.width);
-            this.style.setProperty('--icon-size-height', svgSize.height);
+            this.svgWidth = svgSize.width + 'px';
+            this.svgHeight = svgSize.height + 'px';
         }
 
         render(): TemplateResult {
-            return html\`${svg}\`;
+            return html\`${svgWithWidthAndHeight}\`;
         }
     }
 
