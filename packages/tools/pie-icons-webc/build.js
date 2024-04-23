@@ -14,78 +14,70 @@ const { icons } = pieIcons.default;
 
 const componentTemplate = (name, svg) => {
     const svgClasses = svg.match(/class="(.+?)"/)?.[1];
-
     const isLargeIcon = name.endsWith('Large');
     const sizeType = isLargeIcon ? 'LargeIconSize' : 'RegularIconSize';
+    const defaultSize = isLargeIcon ? largeIconSizeDefault : `'${regularIconSizeDefault}'`;
 
     return `import {
-    html, LitElement, TemplateResult, css, PropertyValues,
-} from 'lit';
-import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
-import { property, query } from 'lit/decorators.js';
-import { getSvgProps, ${sizeType} } from '@justeattakeaway/pie-icons-configs';
+        html, LitElement, TemplateResult, css, PropertyValues,
+    } from 'lit';
+    import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
+    import { property } from 'lit/decorators.js';
+    import { getSvgProps, ${sizeType} } from '@justeattakeaway/pie-icons-configs';
 
-interface IconProps {
-    size: ${sizeType};
-    class: string;
-}
-
-const componentSelector = '${kebabCase(name)}';
-
-/**
- * @tagname ${kebabCase(name)}
- */
-export class ${name} extends LitElement implements IconProps {
-    // The following styles make sure that the icon will be sized correctly
-    static styles = css\`
-        :host svg {
-            display: var(--icon-display-override);
-            width: var(--icon-size-override);
-            height: var(--icon-size-override);
-        }
-    \`;
-
-    @property({ type: String, reflect: true })
-    public size : ${sizeType} = ${isLargeIcon ? largeIconSizeDefault : `'${regularIconSizeDefault}'`};
-
-    @property({ type: String, reflect: true })
-    public class = '${svgClasses}';
-
-    @query('svg')
-    private _svg? : SVGElement;
-
-    connectedCallback () : void {
-        super.connectedCallback();
-        if (this._svg?.getAttribute('width') === null) {
-            const svgSize = getSvgProps('${svgClasses}', '', null, '${name}');
-            this._svg?.setAttribute('width', svgSize.width);
-            this._svg?.setAttribute('height', svgSize.height);
-        }
+    interface IconProps {
+        size: ${sizeType};
+        class: string;
     }
 
-    updated (changedProperties: PropertyValues<this>) : void {
-        let svgSize : { width: string, height: string, class: string };
+    const componentSelector = '${kebabCase(name)}';
 
-        if (changedProperties.has('size')) {
-            svgSize = getSvgProps('${svgClasses}', '', this.size, '${name}');
+    /**
+     * @tagname ${kebabCase(name)}
+     */
+    export class ${name} extends LitElement implements IconProps {
+        static styles = css\`
+            :host svg {
+                display: var(--icon-display-override);
+                width: var(--icon-size-width, 16px); /* Default to size for 'xs' if not overridden */
+                height: var(--icon-size-height, 16px);
+            }
+        \`;
 
-            this._svg?.setAttribute('width', svgSize.width);
-            this._svg?.setAttribute('height', svgSize.height);
+        @property({ type: String, reflect: true })
+        public size: ${sizeType} = ${defaultSize};
+
+        @property({ type: String, reflect: true })
+        public class = '${svgClasses}';
+
+        firstUpdated(): void {
+            this.updateIconSize();
+        }
+
+        updated(changedProperties: PropertyValues<this>): void {
+            if (changedProperties.has('size')) {
+                this.updateIconSize();
+            }
+        }
+
+        updateIconSize(): void {
+            const svgSize = getSvgProps(this.class, '', this.size, '${name}');
+            this.style.setProperty('--icon-size-width', svgSize.width);
+            this.style.setProperty('--icon-size-height', svgSize.height);
+        }
+
+        render(): TemplateResult {
+            return html\`${svg}\`;
         }
     }
 
-    render () : TemplateResult {
-        return html\`${svg}\`;
-    }
-}
+    defineCustomElement(componentSelector, ${name});
 
-defineCustomElement(componentSelector, ${name});
-
-declare global {
-    interface HTMLElementTagNameMap {
-        [componentSelector]: ${name};
+    declare global {
+        interface HTMLElementTagNameMap {
+            [componentSelector]: ${name};
+        }
     }
-}
 `;
 };
 
@@ -93,10 +85,6 @@ const ICONS_DIR = `${process.cwd()}/icons`;
 const indexPath = path.join(ICONS_DIR, '/index.ts');
 const reactIndexPath = path.join(ICONS_DIR, '/react/index.ts');
 
-/**
- * Checks that a directory exists at a specified path, if not it creates it.
- * @param {string} directoryPath
- */
 function ensureDirExists (directoryPath) {
     try {
         if (!fs.existsSync(directoryPath)) {
@@ -111,33 +99,24 @@ function ensureDirExists (directoryPath) {
 }
 
 function build () {
-    // check if /icons directory exists, if not create it
     ensureDirExists(ICONS_DIR);
-
-    // check if /icons/react directory exists, if not create it
     ensureDirExists(`${ICONS_DIR}/react`);
 
     let indexFileString = '';
 
-    // loop through the icons in pie-icons, generate each component and add it to the index.ts
     Object.keys(icons).forEach((iconKey) => {
         const icon = icons[iconKey];
-        const { pathPrefix } = icon;
-        const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
         const pascalCasedName = pascalCase(normalizeIconName(iconKey));
-
-        const componentName = `Icon${capitalisedPathPrefix + pascalCasedName}`;
-
+        const componentName = `Icon${pascalCasedName}`;
         const svg = icon.toSvg();
 
         let component = componentTemplate(componentName, svg);
-        component = component.replace(/xlink:href/g, 'xlinkHref'); // replace so it gets parsed by JSX correctly
+        component = component.replace(/xlink:href/g, 'xlinkHref'); // Replace to parse correctly by JSX
 
         indexFileString += `export { ${componentName} } from './${componentName}';\n`;
 
         fs.writeFileSync(`./icons/${componentName}.ts`, component, 'utf8');
 
-        // create a {ComponentName}ReactExport.ts file for each component
         const reactExportTemplate = `import * as React from 'react';
 import { createComponent } from '@lit/react';
 import { ${componentName} as ${componentName}React } from '../${componentName}';
