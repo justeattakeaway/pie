@@ -1,5 +1,5 @@
 import {
-    LitElement, css, PropertyValues,
+    LitElement, css, PropertyValues, type TemplateResult,
 } from 'lit';
 import { property, state } from 'lit/decorators.js';
 
@@ -56,4 +56,6 @@ export abstract class PieIconComponent extends LitElement {
         this.style.height = `var(--icon-size-override, ${svgSize.height}px)`;
         this.style.width = `var(--icon-size-override, ${svgSize.width}px)`;
     }
+
+    abstract render(): TemplateResult;
 }
