@@ -33,7 +33,7 @@
     "PIE"
   ],
   "scripts": {
-    "build": "vite build && tsc",
+    "build": "cp ./PieIconComponent.ts ./icons && vite build && tsc",
     "build:icons": "node ./build.js",
     "clean": "run -T rimraf -rf ./dist/ ./icons/",
     "lint:scripts": "run -T eslint .",

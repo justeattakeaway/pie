@@ -2,10 +2,10 @@
     "extends": "@justeattakeaway/pie-components-config/tsconfig.json",
     "compilerOptions": {
       "baseUrl": ".",
-      "rootDir": ".",
+      "rootDir": "./icons",
       "outDir": "./dist",
       "noEmit": false,
       "emitDeclarationOnly": true
     },
-    "include": ["icons/**/*.ts", "./PieIconComponent.ts"],
+    "include": ["icons/**/*.ts"],
 }
