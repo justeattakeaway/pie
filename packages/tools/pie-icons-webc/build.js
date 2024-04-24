@@ -21,14 +21,14 @@ const componentTemplate = (name, svg) => {
 
     // Add width and height placeholders to the SVG tag
     // eslint-disable-next-line no-template-curly-in-string
-    const svgWithWidthAndHeight = svg.replace('<svg', '<svg width="${this.svgWidth}" height="${this.svgHeight}"');
+    const svgWithWidthAndHeight = svg.replace('<svg', '<svg width="${this._svgWidth}" height="${this._svgHeight}"');
     const kebabCaseName = kebabCase(name);
 
     return `import {
         html, LitElement, TemplateResult, css, PropertyValues,
     } from 'lit';
     import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
-    import { property } from 'lit/decorators.js';
+    import { property, state } from 'lit/decorators.js';
     import { getSvgProps, ${sizeType} } from '@justeattakeaway/pie-icons-configs';
 
     interface IconProps {
@@ -54,14 +54,17 @@ const componentTemplate = (name, svg) => {
         @property({ type: String, reflect: true })
         public class = '${svgClasses}';
 
-        private svgWidth : string | number = ${isLargeIcon ? '32' : '16'}; // Default width;
-        private svgHeight : string | number = ${isLargeIcon ? '32' : '16'}; // Default height
+        @state()
+        private _svgWidth : string | number = ${isLargeIcon ? '32' : '16'}; // Default width;
+
+        @state()
+        private _svgHeight : string | number = ${isLargeIcon ? '32' : '16'}; // Default height
 
         firstUpdated (): void {
             this.updateIconSize();
         }
 
-        updated (changedProperties: PropertyValues<this>): void {
+        willUpdate (changedProperties: PropertyValues<this>): void {
             if (changedProperties.has('size')) {
                 this.updateIconSize();
             }
@@ -69,8 +72,8 @@ const componentTemplate = (name, svg) => {
 
         updateIconSize (): void {
             const svgSize = getSvgProps(this.class, '', this.size, '${name}');
-            this.svgWidth = svgSize.width;
-            this.svgHeight = svgSize.height;
+            this._svgWidth = svgSize.width;
+            this._svgHeight = svgSize.height;
         }
 
         render(): TemplateResult {
