@@ -5,12 +5,15 @@ import { createStory, type TemplateFunction } from '../utilities';
 
 const iconsStoryMeta: DividerStoryMeta = {
     title: 'Icons',
+    parameters: {
+        layout: 'fullscreen',
+    },
 };
 
 export default iconsStoryMeta;
 
 const iconGalleryTemplate: TemplateFunction = () => html`
-<div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: var(--dt-spacing-c);">
+<div style="padding: var(--dt-spacing-b); display: grid; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); gap: var(--dt-spacing-c); justify-items: center; align-items: center;">
     ${Object.keys(icons).map((iconName) => {
     const tag = unsafeStatic(kebabCase(iconName));
     return html`
