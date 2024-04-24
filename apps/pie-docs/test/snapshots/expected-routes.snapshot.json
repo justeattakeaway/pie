@@ -104,6 +104,7 @@
     "foundations/typography/tokens/alias/narrow",
     "foundations/typography/tokens/alias/wide",
     "foundations/typography/tokens/global",
+    "patterns/cookie-banner/code",
     "support/contact-us",
     "support/faq"
 ]
