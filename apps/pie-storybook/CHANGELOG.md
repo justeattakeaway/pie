@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.73.1
+
+### Patch Changes
+
+- [Changed] - Use pie-input for component status on docs page. Accidentally used pie-button before. ([#1405](https://github.com/justeattakeaway/pie/pull/1405)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`d7798b2b4`](https://github.com/justeattakeaway/pie/commit/d7798b2b406e22618ffc2ae4e372c2fb5c41f187), [`d7798b2b4`](https://github.com/justeattakeaway/pie/commit/d7798b2b406e22618ffc2ae4e372c2fb5c41f187)]:
+  - @justeattakeaway/pie-tag@0.9.4
+  - @justeattakeaway/pie-chip@0.6.0
+
 ## 0.73.0
 
 ### Minor Changes

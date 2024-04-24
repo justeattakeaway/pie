@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-webc
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - Passthrough of type definitions from component packages ([#1397](https://github.com/justeattakeaway/pie/pull/1397)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Package exports to allow properly importing individual components
+
 ## 0.2.9
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-chip
 
+## 0.6.0
+
+### Minor Changes
+
+- [Fixed] - loading state is not centred correctly ([#1404](https://github.com/justeattakeaway/pie/pull/1404)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - updated the component status to beta
+
 ## 0.5.3
 
 ### Patch Changes
