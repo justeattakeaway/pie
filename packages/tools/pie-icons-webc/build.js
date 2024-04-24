@@ -16,6 +16,7 @@ const componentTemplate = (name, svg) => {
     const svgClasses = svg.match(/class="(.+?)"/)?.[1];
     const isLargeIcon = name.endsWith('Large');
     const sizeType = isLargeIcon ? 'LargeIconSize' : 'RegularIconSize';
+    // 32 or 'xs'
     const defaultSize = isLargeIcon ? largeIconSizeDefault : `'${regularIconSizeDefault}'`;
 
     // Add width and height placeholders to the SVG tag
@@ -53,8 +54,8 @@ const componentTemplate = (name, svg) => {
         @property({ type: String, reflect: true })
         public class = '${svgClasses}';
 
-        private svgWidth = '16'; // Default width;
-        private svgHeight = '16'; // Default height
+        private svgWidth : string | number = ${isLargeIcon ? '32' : '16'}; // Default width;
+        private svgHeight : string | number = ${isLargeIcon ? '32' : '16'}; // Default height
 
         firstUpdated (): void {
             this.updateIconSize();
