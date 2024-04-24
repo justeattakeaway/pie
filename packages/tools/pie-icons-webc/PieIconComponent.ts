@@ -15,9 +15,12 @@ export abstract class PieIconComponent extends LitElement {
     static styles = css`
         :host {
             display: inline-block;
+            /* Inline SVGs can cause an additional ~4px height in their containers (such as this host).*/
+            line-height: 0;
         }
 
         :host svg {
+            /* When the --icon-size-override CSS variable does not exist, the height and width in the HTML attributes will be used. */
             width: var(--icon-size-override);
             height: var(--icon-size-override);
         }
@@ -53,8 +56,6 @@ export abstract class PieIconComponent extends LitElement {
         const svgSize = getSvgProps(this.class, '', this.size, this.name);
         this._svgWidth = svgSize.width;
         this._svgHeight = svgSize.height;
-        this.style.height = `var(--icon-size-override, ${svgSize.height}px)`;
-        this.style.width = `var(--icon-size-override, ${svgSize.width}px)`;
     }
 
     abstract render(): TemplateResult;

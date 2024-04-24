@@ -10,7 +10,7 @@ const iconsStoryMeta: DividerStoryMeta = {
 export default iconsStoryMeta;
 
 const iconGalleryTemplate: TemplateFunction = () => html`
-<div style="display: flex; flex-wrap: wrap; margin-top: var(--dt-spacing-c);">
+<div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: var(--dt-spacing-c);">
     ${Object.keys(icons).map((iconName) => {
     const tag = unsafeStatic(kebabCase(iconName));
     return html`
