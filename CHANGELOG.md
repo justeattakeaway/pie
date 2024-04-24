@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.58.0
+
+### Minor Changes
+
+- [Added] - Automatic changeset generation for Snyk PRs ([#1410](https://github.com/justeattakeaway/pie/pull/1410)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Fixed] - loading state is not centred correctly ([#1404](https://github.com/justeattakeaway/pie/pull/1404)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - updated the component status to beta
+
 ## 2.57.1
 
 ### Patch Changes

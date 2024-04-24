@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-tag
 
+## 0.9.4
+
+### Patch Changes
+
+- [Changed] - updated the component status to beta ([#1404](https://github.com/justeattakeaway/pie/pull/1404)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.9.3
 
 ### Patch Changes
