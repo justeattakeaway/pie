@@ -25,23 +25,19 @@ const componentTemplate = (name, svg) => {
     const kebabCaseName = kebabCase(name);
 
     return `import {
-        html, LitElement, TemplateResult, css, PropertyValues,
+        html, TemplateResult, css,
     } from 'lit';
     import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
-    import { property, state } from 'lit/decorators.js';
-    import { getSvgProps, ${sizeType} } from '@justeattakeaway/pie-icons-configs';
-
-    interface IconProps {
-        size: ${sizeType};
-        class: string;
-    }
+    import { property } from 'lit/decorators.js';
+    import { ${sizeType} } from '@justeattakeaway/pie-icons-configs';
+    import { PieIconComponent } from '../PieIconComponent.ts';
 
     const componentSelector = '${kebabCaseName}';
 
     /**
      * @tagname ${kebabCaseName}
      */
-    export class ${name} extends LitElement implements IconProps {
+    export class ${name} extends PieIconComponent  {
         static styles = css\`
             :host svg {
                 display: var(--icon-display-override, block);
@@ -54,27 +50,9 @@ const componentTemplate = (name, svg) => {
         @property({ type: String, reflect: true })
         public class = '${svgClasses}';
 
-        @state()
-        private _svgWidth : string | number = ${isLargeIcon ? '32' : '16'}; // Default width;
+        protected isLarge = ${isLargeIcon};
 
-        @state()
-        private _svgHeight : string | number = ${isLargeIcon ? '32' : '16'}; // Default height
-
-        firstUpdated (): void {
-            this.updateIconSize();
-        }
-
-        willUpdate (changedProperties: PropertyValues<this>): void {
-            if (changedProperties.has('size')) {
-                this.updateIconSize();
-            }
-        }
-
-        updateIconSize (): void {
-            const svgSize = getSvgProps(this.class, '', this.size, '${name}');
-            this._svgWidth = svgSize.width;
-            this._svgHeight = svgSize.height;
-        }
+        protected name = '${name}';
 
         render(): TemplateResult {
             return html\`${svgWithWidthAndHeight}\`;
