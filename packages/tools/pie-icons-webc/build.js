@@ -25,7 +25,7 @@ const componentTemplate = (name, svg) => {
     const kebabCaseName = kebabCase(name);
 
     return `import {
-        html, TemplateResult, css,
+        html, TemplateResult
     } from 'lit';
     import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
     import { property } from 'lit/decorators.js';
@@ -38,15 +38,10 @@ const componentTemplate = (name, svg) => {
      * @tagname ${kebabCaseName}
      */
     export class ${name} extends PieIconComponent  {
-        static styles = css\`
-            :host svg {
-                display: var(--icon-display-override, block);
-            }
-        \`;
-
         @property({ type: String, reflect: true })
         public size: ${sizeType} = ${defaultSize};
 
+        // These classes also exist on the internal SVG element. However they are not used for anything on the SVG.
         @property({ type: String, reflect: true })
         public class = '${svgClasses}';
 
