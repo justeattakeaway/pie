@@ -3,7 +3,9 @@ import {
 } from 'lit';
 import { property, state } from 'lit/decorators.js';
 
-import { getSvgProps, RegularIconSize, LargeIconSize } from '@justeattakeaway/pie-icons-configs';
+import {
+    getSvgProps, RegularIconSize, LargeIconSize, regularIconSizeDefault, largeIconSizeDefault, sizeToValueMap,
+} from '@justeattakeaway/pie-icons-configs';
 
 export abstract class PieIconComponent extends LitElement {
     // The following styles make sure that the icon will be sized correctly.
@@ -40,9 +42,9 @@ export abstract class PieIconComponent extends LitElement {
     public abstract class: string;
 
     firstUpdated (): void {
-        this.size = this.isLarge ? 32 : 'xs';
-        this._svgWidth = this.isLarge ? 32 : 16;
-        this._svgHeight = this.isLarge ? 32 : 16;
+        this.size = this.isLarge ? largeIconSizeDefault : regularIconSizeDefault;
+        this._svgWidth = this.isLarge ? largeIconSizeDefault : sizeToValueMap[regularIconSizeDefault];
+        this._svgHeight = this.isLarge ? largeIconSizeDefault : sizeToValueMap[regularIconSizeDefault];
         this.updateIconSize();
     }
 
