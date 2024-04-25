@@ -54,11 +54,12 @@ const largeIconTemplate: TemplateFunction<LargeIconProps> = ({ size }) => html`
 `;
 
 export const Default = createStory(iconGalleryTemplate, {})();
+
 export const RegularIcon = createStory(regularIconTemplate, defaultRegularIconProps)({}, {
     layout: 'centered',
     argTypes: {
         size: {
-            description: 'Set the size of the regular icon.',
+            description: 'Use our predefined size aliases for regular sized icons: `xs`, `s`, `m`, `l`, `xl`, `xxl`',
             control: 'select',
             options: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
             defaultValue: {
@@ -72,7 +73,7 @@ export const LargeIcon = createStory(largeIconTemplate, defaultLargeIconProps)({
     layout: 'centered',
     argTypes: {
         size: {
-            description: 'Must be greater than or equal to 32, and a multiple of 8.',
+            description: 'For large icons, size must be a number greater than or equal to `32`, and a multiple of `8`.',
             control: { type: 'number', min: 32, step: 8 },
             defaultValue: {
                 summary: 32,
