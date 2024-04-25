@@ -99,6 +99,9 @@ jobs:
         with:
           ref: ${{ steps.comment-branch.outputs.head_ref }} 
 
+      - run: git rev-parse --abbrev-ref HEAD
+      - run: git rev-parse --verify HEAD
+
       # issue_comment requires us to checkout the branch
       # https://github.com/actions/checkout/issues/331#issuecomment-1120113003
       - name: Checkout pull request branch
