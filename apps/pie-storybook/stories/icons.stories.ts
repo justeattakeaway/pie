@@ -73,9 +73,9 @@ export const LargeIcon = createStory(largeIconTemplate, defaultLargeIconProps)({
     argTypes: {
         size: {
             description: 'Must be greater than or equal to 32, and a multiple of 8.',
-            control: 'text',
+            control: { type: 'number', min: 32, step: 8 },
             defaultValue: {
-                summary: 80,
+                summary: 32,
             },
         },
     },
