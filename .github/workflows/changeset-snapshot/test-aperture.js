@@ -38,7 +38,8 @@ module.exports = async ({ github, context }, execa) => {
                 repo: 'pie-aperture',
                 event_type: 'pie-trigger',
                 client_payload: {
-                  'pie-branch': process.env.GITHUB_REF_NAME,
+                  'pie-branch': process.env.PIE_BRANCH,
+                  'pie-pr-number': process.env.PIE_PR_NUMBER,
                   'snapshot-version': snapshotVersion,
                   'snapshot-packages': packageNames.join(' ')
                 }

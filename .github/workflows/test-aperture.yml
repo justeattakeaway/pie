@@ -4,6 +4,10 @@ on:
   issue_comment:
     types:
       - created
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -136,6 +140,8 @@ jobs:
         uses: actions/github-script@v6
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
+          PIE_BRANCH: ${{ steps.comment-branch.outputs.head_ref }}
+          PIE_PR_NUMBER: ${{ github.event.issue.number }}
         with:
           github-token: ${{ secrets.CHANGESETS_TOKEN }}
           script: |
