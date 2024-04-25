@@ -36,7 +36,7 @@ type LargeIconProps = {
 }
 
 const defaultLargeIconProps: LargeIconProps = {
-    size: 80,
+    size: 32,
 };
 
 const regularIconTemplate: TemplateFunction<RegularIconProps> = ({ size }) => html`
