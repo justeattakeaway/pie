@@ -23,4 +23,60 @@ const iconGalleryTemplate: TemplateFunction<null> = () => html`
 </div>
 `;
 
+type RegularIconProps = {
+    size: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl',
+}
+
+const defaultRegularIconProps: RegularIconProps = {
+    size: 'xs',
+};
+
+type LargeIconProps = {
+    size: number
+}
+
+const defaultLargeIconProps: LargeIconProps = {
+    size: 80,
+};
+
+const regularIconTemplate: TemplateFunction<RegularIconProps> = ({ size }) => html`
+    <div style="display: grid; place-items: center;">
+        <icon-chat-conversation size=${size}></icon-chat-conversation>
+        <pre>&lt;icon-chat-conversation&gt;&lt;/icon-chat-conversation&gt;</pre>
+    </div>
+`;
+
+const largeIconTemplate: TemplateFunction<LargeIconProps> = ({ size }) => html`
+    <div style="display: grid; place-items: center;">
+        <icon-chat-conversation-large size=${size}></icon-chat-conversation-large>
+        <pre>&lt;icon-chat-conversation-large&gt;&lt;/icon-chat-conversation-large&gt;</pre>
+    </div>
+`;
+
 export const Default = createStory(iconGalleryTemplate, {})();
+export const RegularIcon = createStory(regularIconTemplate, defaultRegularIconProps)({}, {
+    layout: 'centered',
+    argTypes: {
+        size: {
+            description: 'Set the size of the regular icon.',
+            control: 'select',
+            options: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
+            defaultValue: {
+                summary: 'xs',
+            },
+        },
+    },
+});
+
+export const LargeIcon = createStory(largeIconTemplate, defaultLargeIconProps)({}, {
+    layout: 'centered',
+    argTypes: {
+        size: {
+            description: 'Must be greater than or equal to 32, and a multiple of 8.',
+            control: 'text',
+            defaultValue: {
+                summary: 80,
+            },
+        },
+    },
+});
