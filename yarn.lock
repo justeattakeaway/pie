@@ -5899,7 +5899,6 @@ __metadata:
     "@justeattakeaway/pie-button": 0.47.3
     "@justeattakeaway/pie-components-config": 0.16.0
     "@justeattakeaway/pie-modal": 0.42.3
-    "@justeattakeaway/pie-webc-core": 0.21.1
   languageName: unknown
   linkType: soft
 
@@ -18084,10 +18083,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:3.0.8":
-  version: 3.0.8
-  resolution: "dompurify@npm:3.0.8"
-  checksum: cac660ccae15a9603f06a85344da868a4c3732d8b57f7998de0f421eb4b9e67d916be52e9bb2a57b2f95b49e994cc50bcd06bb87f2cb2849cf058bdf15266237
+"dompurify@npm:3.0.11":
+  version: 3.0.11
+  resolution: "dompurify@npm:3.0.11"
+  checksum: aefb86fbaa2cc6acda1a75ea918f69043689cb726f2932e5c1c3c85904255fd145230d66f0a9493ed27d64d035e990f3a767d99d73b1ae7c0b297782be230658
   languageName: node
   linkType: hard
 
@@ -29221,7 +29220,7 @@ __metadata:
     "@storybook/web-components": 7.6.17
     "@storybook/web-components-vite": 7.6.17
     "@types/dompurify": 3.0.5
-    dompurify: 3.0.8
+    dompurify: 3.0.11
     react: 18.2.0
     react-dom: 18.2.0
     serve: 14.2.0

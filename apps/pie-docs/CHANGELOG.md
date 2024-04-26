@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.33.3
+
+### Patch Changes
+
+- [Fixed] - Fixed typo for image not showing in Tag component ([#1401](https://github.com/justeattakeaway/pie/pull/1401)) by [@maledr5](https://github.com/maledr5)
+
+- [Changed] - update the Chip and Tag component status to beta ([#1404](https://github.com/justeattakeaway/pie/pull/1404)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 3.33.2
 
 ### Patch Changes
