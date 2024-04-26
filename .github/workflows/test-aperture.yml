@@ -90,6 +90,8 @@ jobs:
        # https://github.com/actions/checkout/issues/331#issuecomment-1242708547
       - uses: xt0rted/pull-request-comment-branch@v2
         id: comment-branch
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout default branch
         uses: actions/checkout@v3
