@@ -498,7 +498,7 @@ test.describe('modal', () => {
             await expect(page.getByText('Bottom of page copy')).not.toBeInViewport();
         });
 
-        test('Should scroll to the bottom when Pie Modal is closedA', async ({ mount, page }) => {
+        test('Should scroll to the bottom when Pie Modal is closed', async ({ mount, page }) => {
             // Arrange
             const component = renderTestPieModal();
 
