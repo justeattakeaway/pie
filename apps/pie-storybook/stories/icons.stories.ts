@@ -16,7 +16,7 @@ const iconsStoryMeta = {
 export default iconsStoryMeta;
 
 const iconGalleryTemplate: TemplateFunction<null> = () => html`
-<div style="padding: var(--dt-spacing-b); display: grid; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); gap: var(--dt-spacing-c); justify-items: center; align-items: center;">
+<div class="c-iconGallery">
     ${Object.keys(icons).map((iconName) => {
     const tag = unsafeStatic(kebabCase(iconName));
     return html`
@@ -43,14 +43,14 @@ const defaultLargeIconProps: LargeIconProps = {
 };
 
 const regularIconTemplate: TemplateFunction<RegularIconProps> = ({ size }) => html`
-    <div style="display: grid; place-items: center;">
+    <div class="c-iconGrid">
         <icon-chat-conversation size=${size}></icon-chat-conversation>
         <pre>&lt;icon-chat-conversation&gt;&lt;/icon-chat-conversation&gt;</pre>
     </div>
 `;
 
 const largeIconTemplate: TemplateFunction<LargeIconProps> = ({ size }) => html`
-    <div style="display: grid; place-items: center;">
+    <div class="c-iconGrid">
         <icon-chat-conversation-large size=${size}></icon-chat-conversation-large>
         <pre>&lt;icon-chat-conversation-large&gt;&lt;/icon-chat-conversation-large&gt;</pre>
     </div>
