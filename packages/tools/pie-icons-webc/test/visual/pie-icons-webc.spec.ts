@@ -34,6 +34,6 @@ test.describe('PIE Icons Webc - Visual tests`', () => {
             },
         });
 
-        await percySnapshot(page, 'PIE Icons Webc - Regular and Large icons render', percyWidths);
+        await percySnapshot(page, 'Regular and Large icons resize based on size prop', percyWidths);
     });
 });
