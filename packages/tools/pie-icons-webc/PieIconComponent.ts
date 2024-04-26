@@ -37,7 +37,6 @@ export abstract class PieIconComponent extends LitElement {
     @state()
     protected _svgHeight!: string | number;
 
-    protected abstract isLarge: boolean;
     protected abstract name: string;
     public abstract class: string;
 

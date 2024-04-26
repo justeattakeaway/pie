@@ -45,8 +45,6 @@ const componentTemplate = (name, svg) => {
         @property({ type: String, reflect: true })
         public class = '${svgClasses}';
 
-        protected isLarge = ${isLargeIcon};
-
         protected name = '${name}';
 
         render(): TemplateResult {
