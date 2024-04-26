@@ -1,10 +1,10 @@
 import {
-    LitElement, css, PropertyValues, type TemplateResult,
+    LitElement, css, type PropertyValues, type TemplateResult,
 } from 'lit';
 import { property, state } from 'lit/decorators.js';
 
 import {
-    getSvgProps, RegularIconSize, LargeIconSize,
+    getSvgProps, type RegularIconSize, type LargeIconSize,
 } from '@justeattakeaway/pie-icons-configs';
 
 export abstract class PieIconComponent extends LitElement {
