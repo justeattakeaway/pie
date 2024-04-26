@@ -91,7 +91,7 @@ jobs:
       - uses: xt0rted/pull-request-comment-branch@v2
         id: comment-branch
         with:
-          repo_token: ${{ env.GITHUB_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout default branch
         uses: actions/checkout@v3
