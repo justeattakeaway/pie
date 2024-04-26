@@ -36,4 +36,15 @@ test.describe('PIE Icons Webc - Visual tests`', () => {
 
         await percySnapshot(page, 'Regular and Large icons resize based on size prop', percyWidths);
     });
+
+    test('Regular and Large icons can be sized with the override CSS variable', async ({ page }) => {
+        await page.setContent(`
+            <div style="--icon-size-override: 200px;">
+                <icon-chat-conversation size="m"></icon-chat-conversation>
+                <icon-chat-conversation-large size="80"></icon-chat-conversation-large>
+            </div>
+        `);
+
+        await percySnapshot(page, 'Regular and Large icons can be sized with the override CSS variable', percyWidths);
+    });
 });
