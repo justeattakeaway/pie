@@ -12,10 +12,6 @@
 - dashboard-filled
 - dashboard-filled-large
 
-### Restaurant
-- grouped-order 
-- grouped-order-large 
-
 ### Pay
 - instant-bank-filled
 - instant-bank-filled-large
@@ -34,7 +30,6 @@
 - bimpli
 - braintree-paypal
 - up
-
 
 [Updated] - Icons 
 
