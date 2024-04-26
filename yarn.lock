@@ -5549,7 +5549,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-assistive-text@0.3.3, @justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text":
+"@justeattakeaway/pie-assistive-text@0.3.4, @justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text"
   dependencies:
@@ -5587,7 +5587,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-chip@0.5.3, @justeattakeaway/pie-chip@workspace:packages/components/pie-chip":
+"@justeattakeaway/pie-chip@0.6.0, @justeattakeaway/pie-chip@workspace:packages/components/pie-chip":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-chip@workspace:packages/components/pie-chip"
   dependencies:
@@ -5660,7 +5660,7 @@ __metadata:
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
     "@justeattakeaway/pie-components-config": 0.16.0
-    "@justeattakeaway/pie-input": ^0.16.1
+    "@justeattakeaway/pie-input": ^0.18.0
     "@justeattakeaway/pie-switch": ^0.29.2
     "@justeattakeaway/pie-webc-core": 0.21.1
     "@justeattakeaway/pie-wrapper-react": 0.14.0
@@ -5774,12 +5774,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-input@0.16.1, @justeattakeaway/pie-input@^0.16.1, @justeattakeaway/pie-input@workspace:packages/components/pie-input":
+"@justeattakeaway/pie-input@0.18.0, @justeattakeaway/pie-input@^0.18.0, @justeattakeaway/pie-input@workspace:packages/components/pie-input":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-input@workspace:packages/components/pie-input"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeattakeaway/pie-assistive-text": 0.3.3
+    "@justeattakeaway/pie-assistive-text": 0.3.4
     "@justeattakeaway/pie-components-config": 0.16.0
     "@justeattakeaway/pie-icons-webc": 0.22.0
     "@justeattakeaway/pie-webc-core": 0.21.1
@@ -5861,7 +5861,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-tag@0.9.3, @justeattakeaway/pie-tag@workspace:packages/components/pie-tag":
+"@justeattakeaway/pie-tag@0.9.4, @justeattakeaway/pie-tag@workspace:packages/components/pie-tag":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-tag@workspace:packages/components/pie-tag"
   dependencies:
@@ -5899,7 +5899,6 @@ __metadata:
     "@justeattakeaway/pie-button": 0.47.3
     "@justeattakeaway/pie-components-config": 0.16.0
     "@justeattakeaway/pie-modal": 0.42.3
-    "@justeattakeaway/pie-webc-core": 0.21.1
   languageName: unknown
   linkType: soft
 
@@ -13778,25 +13777,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:10.4.17":
-  version: 10.4.17
-  resolution: "autoprefixer@npm:10.4.17"
-  dependencies:
-    browserslist: ^4.22.2
-    caniuse-lite: ^1.0.30001578
-    fraction.js: ^4.3.7
-    normalize-range: ^0.1.2
-    picocolors: ^1.0.0
-    postcss-value-parser: ^4.2.0
-  peerDependencies:
-    postcss: ^8.1.0
-  bin:
-    autoprefixer: bin/autoprefixer
-  checksum: 1b4cf4097507f9dc48cef3194f18a05901311c881380cc634b308fce54a6554cf2dcd20aec8384b44e994d4665ab12c63dc89492523f8d74ff5d4d5eb1469f8c
-  languageName: node
-  linkType: hard
-
-"autoprefixer@npm:^10.4.13, autoprefixer@npm:^10.4.14":
+"autoprefixer@npm:10.4.19, autoprefixer@npm:^10.4.13, autoprefixer@npm:^10.4.14":
   version: 10.4.19
   resolution: "autoprefixer@npm:10.4.19"
   dependencies:
@@ -15069,7 +15050,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001202, caniuse-lite@npm:^1.0.30001219, caniuse-lite@npm:^1.0.30001228, caniuse-lite@npm:^1.0.30001406, caniuse-lite@npm:^1.0.30001426, caniuse-lite@npm:^1.0.30001449, caniuse-lite@npm:^1.0.30001497, caniuse-lite@npm:^1.0.30001578, caniuse-lite@npm:^1.0.30001587, caniuse-lite@npm:^1.0.30001599":
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001202, caniuse-lite@npm:^1.0.30001219, caniuse-lite@npm:^1.0.30001228, caniuse-lite@npm:^1.0.30001406, caniuse-lite@npm:^1.0.30001426, caniuse-lite@npm:^1.0.30001449, caniuse-lite@npm:^1.0.30001497, caniuse-lite@npm:^1.0.30001587, caniuse-lite@npm:^1.0.30001599":
   version: 1.0.30001605
   resolution: "caniuse-lite@npm:1.0.30001605"
   checksum: 8af1ae364c4f4c0796e7fd1aa195dfae2d9c3011c61f0907030201e4fc31a12e81407a13cca621a3b7f6a1eb0217ee9c681fb15670074c204a54edfab798d5c9
@@ -18102,10 +18083,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:3.0.8":
-  version: 3.0.8
-  resolution: "dompurify@npm:3.0.8"
-  checksum: cac660ccae15a9603f06a85344da868a4c3732d8b57f7998de0f421eb4b9e67d916be52e9bb2a57b2f95b49e994cc50bcd06bb87f2cb2849cf058bdf15266237
+"dompurify@npm:3.0.11":
+  version: 3.0.11
+  resolution: "dompurify@npm:3.0.11"
+  checksum: aefb86fbaa2cc6acda1a75ea918f69043689cb726f2932e5c1c3c85904255fd145230d66f0a9493ed27d64d035e990f3a767d99d73b1ae7c0b297782be230658
   languageName: node
   linkType: hard
 
@@ -29166,7 +29147,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": 5.62.0
     "@typescript-eslint/parser": 5.62.0
     "@vitest/coverage-c8": 0.29.8
-    autoprefixer: 10.4.17
+    autoprefixer: 10.4.19
     babel-loader: 8.3.0
     commitizen: 4.3.0
     cross-env: 7.0.3
@@ -29208,23 +29189,23 @@ __metadata:
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
     "@justeat/pie-design-tokens": 6.0.0
-    "@justeattakeaway/pie-assistive-text": 0.3.3
+    "@justeattakeaway/pie-assistive-text": 0.3.4
     "@justeattakeaway/pie-button": 0.47.3
     "@justeattakeaway/pie-card": 0.19.3
-    "@justeattakeaway/pie-chip": 0.5.3
+    "@justeattakeaway/pie-chip": 0.6.0
     "@justeattakeaway/pie-cookie-banner": 0.19.4
     "@justeattakeaway/pie-css": 0.11.0
     "@justeattakeaway/pie-divider": 0.13.3
     "@justeattakeaway/pie-form-label": 0.13.3
     "@justeattakeaway/pie-icon-button": 0.28.3
     "@justeattakeaway/pie-icons-webc": 0.22.0
-    "@justeattakeaway/pie-input": 0.16.1
+    "@justeattakeaway/pie-input": 0.18.0
     "@justeattakeaway/pie-link": 0.17.3
     "@justeattakeaway/pie-modal": 0.42.3
     "@justeattakeaway/pie-notification": 0.5.3
     "@justeattakeaway/pie-spinner": 0.6.3
     "@justeattakeaway/pie-switch": 0.29.2
-    "@justeattakeaway/pie-tag": 0.9.3
+    "@justeattakeaway/pie-tag": 0.9.4
     "@storybook/addon-a11y": 7.6.17
     "@storybook/addon-designs": 7.0.9
     "@storybook/addon-essentials": 7.6.17
@@ -29239,7 +29220,7 @@ __metadata:
     "@storybook/web-components": 7.6.17
     "@storybook/web-components-vite": 7.6.17
     "@types/dompurify": 3.0.5
-    dompurify: 3.0.8
+    dompurify: 3.0.11
     react: 18.2.0
     react-dom: 18.2.0
     serve: 14.2.0

@@ -516,7 +516,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/chip--default',
-            status: statusTypes.ALPHA,
+            status: statusTypes.BETA,
         },
         {
             resource: resourceTypes.VUE,
@@ -1989,7 +1989,8 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            link: 'https://webc.pie.design/?path=/story/tag--neutral',
+            status: statusTypes.BETA,
         },
         {
             resource: resourceTypes.VUE,
