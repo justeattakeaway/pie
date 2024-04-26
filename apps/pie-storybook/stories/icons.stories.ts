@@ -1,6 +1,9 @@
 import { html, unsafeStatic } from 'lit/static-html.js';
 import kebabCase from 'just-kebab-case';
 import * as icons from '@justeattakeaway/pie-icons-webc';
+import {
+    regularIconSizes, largeIconSizeDefault, regularIconSizeDefault, largeIconSizeModule, type LargeIconSize, type RegularIconSize,
+} from '@justeattakeaway/pie-icons-configs';
 import { createStory, type TemplateFunction } from '../utilities';
 
 const iconsStoryMeta = {
@@ -24,19 +27,19 @@ const iconGalleryTemplate: TemplateFunction<null> = () => html`
 `;
 
 type RegularIconProps = {
-    size: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl',
+    size: RegularIconSize
 }
 
 const defaultRegularIconProps: RegularIconProps = {
-    size: 'xs',
+    size: regularIconSizeDefault,
 };
 
 type LargeIconProps = {
-    size: number
+    size: LargeIconSize
 }
 
 const defaultLargeIconProps: LargeIconProps = {
-    size: 32,
+    size: largeIconSizeDefault,
 };
 
 const regularIconTemplate: TemplateFunction<RegularIconProps> = ({ size }) => html`
@@ -59,11 +62,11 @@ export const RegularIcon = createStory(regularIconTemplate, defaultRegularIconPr
     layout: 'centered',
     argTypes: {
         size: {
-            description: 'Use our predefined size aliases for regular sized icons: `xs`, `s`, `m`, `l`, `xl`, `xxl`',
+            description: 'Use our predefined size aliases for regular sized icons',
             control: 'select',
-            options: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
+            options: regularIconSizes,
             defaultValue: {
-                summary: 'xs',
+                summary: regularIconSizeDefault,
             },
         },
     },
@@ -73,10 +76,10 @@ export const LargeIcon = createStory(largeIconTemplate, defaultLargeIconProps)({
     layout: 'centered',
     argTypes: {
         size: {
-            description: 'For large icons, size must be a number greater than or equal to `32`, and a multiple of `8`.',
-            control: { type: 'number', min: 32, step: 8 },
+            description: `For large icons, size must be a number greater than or equal to \`${largeIconSizeDefault}\`, and a multiple of \`${largeIconSizeModule}\`.`,
+            control: { type: 'number', min: largeIconSizeDefault, step: largeIconSizeModule },
             defaultValue: {
-                summary: 32,
+                summary: largeIconSizeDefault,
             },
         },
     },
