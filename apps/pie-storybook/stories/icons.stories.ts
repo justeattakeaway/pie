@@ -53,7 +53,7 @@ const largeIconTemplate: TemplateFunction<LargeIconProps> = ({ size }) => html`
     </div>
 `;
 
-export const Default = createStory(iconGalleryTemplate, {})();
+export const AllIcons = createStory(iconGalleryTemplate, {})();
 
 export const RegularIcon = createStory(regularIconTemplate, defaultRegularIconProps)({}, {
     layout: 'centered',
