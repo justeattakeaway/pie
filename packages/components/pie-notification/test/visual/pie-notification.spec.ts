@@ -12,6 +12,7 @@ import {
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-direction.ts';
 import { IconHeartFilled } from '@justeattakeaway/pie-icons-webc';
 import {
     variants,
@@ -25,6 +26,10 @@ export const screenWidths = {
 };
 
 const slotContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna. Cras fringilla sed ipsum nec dignissim. Aliquam sit amet ullamcorper ligula.';
+const slotContentRTL = 'هذه الفقرة باللغة العربية ، لذا يجب الانتقال من اليمين إلى اليسار.';
+const titleRTL = 'عنوان';
+const confirmRTL = 'يتأكد';
+const denyRTL = 'ينكر';
 
 const props: PropObject = {
     variant: variants,
@@ -281,5 +286,30 @@ test.describe('Props', () => {
                 await percySnapshot(page, `PieNotification - position = ${positionValue} border-radius`);
             });
         });
+    });
+});
+
+test.describe('Reading direction - RTL - Right to Left', () => {
+    test('should slots icons and buttons when the reading direction is RTL', async ({ mount, page }) => {
+        setRTL(page);
+
+        const mainAction = {
+            text: confirmRTL,
+        };
+        const secondaryAction = {
+            text: denyRTL,
+        };
+
+        await mount(PieNotification, {
+            props: {
+                ...initialValues,
+                heading: titleRTL,
+                leadingAction: mainAction,
+                supportingAction: secondaryAction,
+            } as NotificationProps,
+            slots: { default: slotContentRTL },
+        });
+
+        await percySnapshot(page, 'PieNotification - Reading direction - RTL - Right to Left');
     });
 });
