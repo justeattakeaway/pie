@@ -24,12 +24,6 @@
 
 ### Installation
 
-Install `yeoman` globally:
-
-```sh
-$ npm install --global yo
-```
-
 Build the generator package locally (it is recommended you force the build)
 
 ```sh
@@ -41,7 +35,7 @@ $ yarn build --filter=generator-pie-component --force
 To run the generator, use this command from the root directory within the monorepo:
 
 ```sh
-$ yo @justeattakeaway/pie-component
+$ npx yo @justeattakeaway/pie-component
 ```
 
 An interactive prompt should now be displayed asking for a component name.
