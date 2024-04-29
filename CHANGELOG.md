@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.58.1
+
+### Patch Changes
+
+- [Fixed] - Issue where comment-branch action was failing when GITHUB_TOKEN was provided ([#1416](https://github.com/justeattakeaway/pie/pull/1416)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.58.0
 
 ### Minor Changes
