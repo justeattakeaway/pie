@@ -29,7 +29,8 @@
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
     "test:visual": "echo \"Error: A new Percy project needs to be created before visual tests can be run. steps: https://vue.pie.design/?path=/story/documentation-standards-testing-visual-regression--page \" && exit 1",
-    "test:visual:ci": "yarn test:visual"
+    "test:visual:ci": "yarn test:visual",
+    "test:browsers-setup": "npx playwright-lit-setup"
   },
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
