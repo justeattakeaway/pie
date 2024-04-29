@@ -42,7 +42,7 @@ An interactive prompt should now be displayed asking for a component name.
 
 Once you have completed all the prompts, your scaffolded component will be generated! 🎉
 
-The newly-generated `package.json` file will most likely contain references to packages using a workspace version, e.g.:
+The newly generated `package.json` file will most likely contain references to packages using a workspace version, e.g.:
 
 ```json
   "@justeattakeaway/pie-webc-core": "workspace:*"
@@ -50,7 +50,7 @@ The newly-generated `package.json` file will most likely contain references to p
 
 Please replace any workspace versions with the latest published version for each package.
 
-_Note: If this step fails, ensure you have installed the repository dependencies with `yarn`. Otherwise this (and any other commands) will fail._
+_Note: If this step fails, ensure you have installed the repository dependencies with `yarn`. Otherwise, this (and any other commands) will fail._
 
 ### Setting up Storybook:
 
@@ -64,7 +64,7 @@ _Note: If this step fails, ensure you have installed the repository dependencies
 ### Setting up Visual Regression Testing:
 
 - Create a Percy project for the component on the Percy website.
-- Update the test:visual command in package.json to the following:
+- Update the `test:visual` command in package.json to the following:
 
 ```sh
 "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_COMPONENT_NAME} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
@@ -76,7 +76,7 @@ _Note: If this step fails, ensure you have installed the repository dependencies
   PERCY_TOKEN_PIE_COMPONENT_NAME: ${{ secrets.PERCY_TOKEN_PIE_COMPONENT_NAME }}
 ```
 
-- Now you need to add this token as a repository secret in github. It must be named `PERCY_TOKEN_PIE_COMPONENT_NAME` and the value should be the Percy token for the component. Visual tests will not work/run if this is not set up correctly.
+- Now you need to add this token as a repository secret in Github. It must be named `PERCY_TOKEN_PIE_COMPONENT_NAME` and the value should be the Percy token for the component. Visual tests will not work/run if this is not set up correctly.
 
 ### Setting up the project label for Github:
 
