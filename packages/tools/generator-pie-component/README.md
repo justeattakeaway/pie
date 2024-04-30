@@ -58,7 +58,6 @@ _Note: If this step fails, ensure you have installed the repository dependencies
 
 ```json
 "@justeattakeaway/pie-{{COMPONENT_NAME}}": "0.0.0",
-
 ```
 
 ### Setting up Visual Regression Testing:
