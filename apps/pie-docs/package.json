@@ -17,6 +17,7 @@
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
     "test": "run -T vitest run --config ../../vite.config.js",
+    "test:update": "run -T vitest -u run --config ../../vite.config.js",
     "test:ci": "yarn test",
     "test:generate-routes": "node test/helpers/generate-routes.js",
     "test:browsers": "npx playwright test -c ../../playwright-browsers.config.ts",
