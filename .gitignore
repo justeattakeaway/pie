@@ -164,6 +164,7 @@ visual-report/
 lit-visual-report/
 react-browsers-report/
 packages/components/**/playwright/
+packages/tools/**/playwright/
 
 # TypeScript
 compiled/
