@@ -22,7 +22,7 @@ eleventyComputed:
 This component can be easily integrated into various frontend frameworks and customized through a set of properties.
 
 ## Cookies
-`pie-cookie-banner` purely handles the UI and user interactions for cookie consent. It does not handle the setting or management of cookies or the storage of user preferences. It is the responsibility of the consuming application to handle these aspects. See [Events](http://localhost:8080/patterns/cookie-banner/code/#events) for more information.
+`pie-cookie-banner` purely handles the UI and user interactions for cookie consent. It does not handle the setting or management of cookies or the storage of user preferences. It is the responsibility of the consuming application to handle these aspects. See [Events](#events) for more information.
 
 
 ## Installation
@@ -42,7 +42,7 @@ $ yarn add @justeattakeaway/pie-cookie-banner
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide.](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
+  message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
 } %}
 
 ## Playground
@@ -50,7 +50,7 @@ $ yarn add @justeattakeaway/pie-cookie-banner
  <iframe
   src="https://webc.pie.design/?path=/story/cookie-banner--default&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
-  height="600px"
+  height="900px"
   style="border: none; margin-top: 32px;"
 ></iframe>
 
@@ -63,7 +63,7 @@ $ yarn add @justeattakeaway/pie-cookie-banner
 
 ## Events
 
-The pie cookie banner does not directly establish cookies within the application or component. Instead, it offers events that application developers (consumers of this component) can subscribe to. This, in turn, enables applications to manage the process of setting their own cookies. The table below provides a list of events you can listen to:
+The PIE cookie banner does not directly manage cookies within the application or component. Instead, it has several events that application developers (consumers of this component) can listen for, letting applications manage their own cookies. The table below provides a list of events you can listen for:
 
 {% componentDetailsTable {
 tableData: events
@@ -71,7 +71,7 @@ tableData: events
 
 ## Localisation
 
-By default, the component displays its content in English language. To display the content in another language, you need to import the locale data for that language and pass it in the `locale` prop. For example, to display the content in Dutch, you need to import the Dutch locale data:
+By default, the component displays its content in English. To display the content in another language, you need to import the locale data for that language and pass it in the `locale` prop. For example, to display the content in Dutch, you need to import the Dutch locale data:
 
 ```js
 import locale from '@justeattakeaway/pie-cookie-banner/locales/nl-nl.json';
@@ -92,12 +92,12 @@ For HTML:
 
 ```js
 // import as module into a js file e.g. main.js
-import '@justeattakeaway/pie-cookie-banner'
+import '@justeattakeaway/pie-cookie-banner';
 ```
 
 ```html
 <!-- pass js file into <script> tag -->
-<pie-button type="reset" isFullWidth="true" onclick="e => console.log(e)">Click me!</pie-button>
+<pie-cookie-banner></pie-cookie-banner>
 <script type="module" src="/main.js"></script>
 ```
 
