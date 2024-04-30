@@ -32,6 +32,7 @@ env:
   PERCY_TOKEN_PIE_FORM_LABEL: ${{ secrets.PERCY_TOKEN_PIE_FORM_LABEL }}
   PERCY_TOKEN_PIE_DIVIDER: ${{ secrets.PERCY_TOKEN_PIE_DIVIDER }}
   PERCY_TOKEN_PIE_ICON_BUTTON: ${{ secrets.PERCY_TOKEN_PIE_ICON_BUTTON }}
+  PERCY_TOKEN_PIE_ICONS_WEBC: ${{ secrets.PERCY_TOKEN_PIE_ICONS_WEBC }}
   PERCY_TOKEN_PIE_INPUT: ${{ secrets.PERCY_TOKEN_PIE_INPUT }}
   PERCY_TOKEN_PIE_LINK: ${{ secrets.PERCY_TOKEN_PIE_LINK }}
   PERCY_TOKEN_PIE_MODAL: ${{ secrets.PERCY_TOKEN_PIE_MODAL }}
@@ -76,7 +77,7 @@ jobs:
       - name: Verify if web components have changes
         id: component-check
         run: |
-          COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}[origin/main]' --dry=json | jq '.packages | length > 0')
+          COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}...[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $COMPONENT_CHANGE"
           echo "web-components-change=$COMPONENT_CHANGE" >> $GITHUB_OUTPUT
       - name: Verify if storybook has changes
@@ -211,7 +212,7 @@ jobs:
         uses: ./.github/actions/run-script
         if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='{./packages/components/*}[origin/main]'"
+          script-name: "test:visual:ci --filter='{./packages/components/*}...[origin/main]'"
           concurrency: 1
       - uses: actions/upload-artifact@v3
         if: always()
