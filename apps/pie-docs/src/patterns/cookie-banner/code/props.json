@@ -17,7 +17,7 @@
             "locale",
             "Any locale from [this list](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-cookie-banner/locales)",
             "Assigns the localisation data for the component strings.",
-            "[English language locale](https://github.com/justeattakeaway/pie/blob/d7798b2b406e22618ffc2ae4e372c2fb5c41f187/packages/components/pie-cookie-banner/src/index.ts#L33)"
+            "English language locale"
         ],
         [
             "cookieStatementLink",
@@ -25,7 +25,7 @@
                 "type": "code",
                 "item": []
             },
-            "Allows a url to be passed for the cookie statement link.",
+            "The URL of the cookie statement page the banner should link to.",
             {
                 "type": "code",
                 "item": ["\"\""]
@@ -37,7 +37,7 @@
             "type": "code",
             "item": []
           },
-          "Allows a url to be passed for the cookie technology link.",
+          "The URL for the cookie technology link.",
           {
             "type": "code",
             "item": ["\"\""]

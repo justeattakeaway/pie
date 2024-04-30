@@ -54,12 +54,12 @@ export interface CookieBannerProps {
     locale: CookieBannerLocale;
 
     /**
-     * Allows a url to be passed for the cookie statement link.
+     * The URL of the cookie statement page the banner should link to.
      */
     cookieStatementLink: string;
 
     /**
-     * Allows a url to be passed for the cookie technology link.
+     * The URL for the cookie technology link.
      */
     cookieTechnologiesLink: string;
 

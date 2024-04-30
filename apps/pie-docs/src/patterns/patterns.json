@@ -1,4 +1,5 @@
 {
-  "ogImage": "landing_accessibility.png",
-  "metaTitlePrefix": "Patterns — "
+  "ogImage": "landing_components.png",
+  "metaTitlePrefix": "Patterns — ",
+  "draft": true
 }
