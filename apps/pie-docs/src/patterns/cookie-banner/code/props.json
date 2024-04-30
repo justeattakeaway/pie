@@ -10,7 +10,7 @@
             "When true, sets the variant to \"primary\" for the button which accepts necessary cookies only.",
             {
                 "type": "code",
-                "item": ["\"false\""]
+                "item": ["false"]
             }
         ],
         [
