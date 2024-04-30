@@ -545,6 +545,48 @@ const rows = [
         }
     ],
     [
+        { componentName: 'Cookie Banner' },
+        {
+            resource: resourceTypes.PATTERN,
+            link: 'https://www.figma.com/file/Rqz8KHogVsGCS4j0nDueNo/[Core]-Patterns-%E2%9A%AA%EF%B8%8F-[PIE-2.0]?type=design&node-id=1561-40525&mode=design&t=HJ22gf8IP2EvdHXD-0',
+            status: statusTypes.AVAILABLE,
+        },
+        {
+            resource: resourceTypes.DOCUMENTATION,
+            link: 'https://www.figma.com/file/rGXMWESVHRmNhXA27myoaW/Patterns-%E2%80%93%E2%80%A8-PIE-Documentation-Site?type=design&node-id=811-56679&mode=design&t=7yIcfrGR3GPL2Z8R-0',
+            status: statusTypes.AVAILABLE,
+        },
+        {
+            resource: resourceTypes.WEB_COMPONENTS,
+            link: 'https://webc.pie.design/?path=/story/cookie-banner--default',
+            status: statusTypes.ALPHA,
+        },
+        {
+            resource: resourceTypes.VUE,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.REACT,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.IOS_JUST_UI,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.IOS_PIE,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.ANDROID_XML,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.ANDROID_JETPACK,
+            status: statusTypes.NOT_APPLICABLE,
+        }
+    ],
+    [
         { componentName: 'Data Table' },
         {
             resource: resourceTypes.COMPONENT,
