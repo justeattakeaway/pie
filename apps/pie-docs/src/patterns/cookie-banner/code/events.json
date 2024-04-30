@@ -8,22 +8,22 @@
     [
       "`pie-cookie-banner-accept-all`",
       "`CustomEvent`",
-      "Triggered when `accept all` is clicked."
+      "Triggered when the user chooses to accept all cookies."
     ],
     [
       "`pie-cookie-banner-necessary-only`",
       "`CustomEvent`",
-      "Triggered when `necessary` is clicked."
+      "Triggered when the user chooses to accept necessary cookies only."
     ],
     [
       "`pie-cookie-banner-manage-prefs`",
       "`CustomEvent`",
-      "Triggered when `manage prefs` is clicked."
+      "Triggered when the user chooses to manage their cookie preferences."
     ],
     [
       "`pie-cookie-banner-prefs-saved`",
       "`CustomEvent`",
-      "Triggered when `manage prefs` saved is clicked."
+      "Triggered when the user saves their cookie preferences."
     ]
   ]
 }
