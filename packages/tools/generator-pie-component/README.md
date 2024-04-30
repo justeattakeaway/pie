@@ -42,13 +42,12 @@ An interactive prompt should now be displayed asking for a component name.
 
 Once you have completed all the prompts, your scaffolded component will be generated! 🎉
 
-The newly generated `package.json` file will most likely contain references to packages using a workspace version, e.g.:
+The newly generated `package.json` file will most likely contain references to the local monorepo packages. Please replace its versions with the latest published version:
 
-```json
-  "@justeattakeaway/pie-webc-core": "workspace:*"
+```sh
+cd packages/components/pie-{{COMPONENT_NAME}}
+npx npm-check-updates "@justeattakeaway/*" -u
 ```
-
-Please replace any workspace versions with the latest published version for each package.
 
 _Note: If this step fails, ensure you have installed the repository dependencies with `yarn`. Otherwise, this (and any other commands) will fail._
 
