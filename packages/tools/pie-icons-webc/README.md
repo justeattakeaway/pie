@@ -136,9 +136,6 @@ import '@justeattakeaway/pie-icons-webc/dist/IconCalendar.js';
 
 ## Props
 
-Icons accept any standard attribute, except for `width` and `height` since those are set implicitly by using the `size` prop.
-
-
 ### `size`
 
 Icons are made available in different size variants:
