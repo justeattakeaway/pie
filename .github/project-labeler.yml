@@ -102,3 +102,6 @@ pie-webc-core:
 
 pie-webc-testing:
 - 'packages/components/pie-webc-testing/**/*'
+
+pie-checkbox:
+- 'packages/components/pie-checkbox/**/*'

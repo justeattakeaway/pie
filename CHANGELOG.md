@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.59.0
+
+### Minor Changes
+
+- [Changed] - Updated CI so that package changes will trigger builds and tests of its dependents (such as a change in pie-icons-webc triggering visual tests for pie-icon-button ([#1409](https://github.com/justeattakeaway/pie/pull/1409)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.58.1
 
 ### Patch Changes
