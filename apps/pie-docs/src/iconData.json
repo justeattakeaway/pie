@@ -1751,10 +1751,6 @@
                     "displayName": "Food Ready"
                 },
                 {
-                    "name": "grouped-order",
-                    "displayName": "Grouped Order"
-                },
-                {
                     "name": "management",
                     "displayName": "Management"
                 },
