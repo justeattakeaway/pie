@@ -83,4 +83,4 @@ fs.readdirSync(componentsSourceDir).forEach((folder) => {
 
 // Write updates back to the package.json
 fs.writeFileSync(pieWebcPackageJsonPath, `${JSON.stringify(pieWebcPackageJson, null, 2)}\n`);
-console.log('All components added to pie-webc');
+console.info('All components added to pie-webc');
