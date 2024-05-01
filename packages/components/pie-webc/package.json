@@ -30,6 +30,7 @@
     }
   },
   "scripts": {
+    "build": "node ./add-components.js",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "echo \"Error: no scss / css to lint\" && exit 0",
