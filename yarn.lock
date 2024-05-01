@@ -5909,6 +5909,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-button": 0.47.3
     "@justeattakeaway/pie-components-config": 0.16.0
+    "@justeattakeaway/pie-input": 0.18.1
     "@justeattakeaway/pie-modal": 0.42.4
   languageName: unknown
   linkType: soft
