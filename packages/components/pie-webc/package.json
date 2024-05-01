@@ -8,26 +8,6 @@
     "**/*.d.ts"
   ],
   "exports": {
-    "./components/button.js": {
-      "import": "./components/button.js",
-      "require": "./components/button.js",
-      "types": "./components/button.d.ts"
-    },
-    "./react/button.js": {
-      "import": "./react/button.js",
-      "require": "./react/button.js",
-      "types": "./react/button.d.ts"
-    },
-    "./components/modal.js": {
-      "import": "./components/modal.js",
-      "require": "./components/modal.js",
-      "types": "./components/modal.d.ts"
-    },
-    "./react/modal.js": {
-      "import": "./react/modal.js",
-      "require": "./react/modal.js",
-      "types": "./react/modal.d.ts"
-    },
     "./components/assistive-text.js": {
       "import": "./components/assistive-text.js",
       "require": "./components/assistive-text.js",
@@ -37,6 +17,16 @@
       "import": "./react/assistive-text.js",
       "require": "./react/assistive-text.js",
       "types": "./react/assistive-text.d.ts"
+    },
+    "./components/button.js": {
+      "import": "./components/button.js",
+      "require": "./components/button.js",
+      "types": "./components/button.d.ts"
+    },
+    "./react/button.js": {
+      "import": "./react/button.js",
+      "require": "./react/button.js",
+      "types": "./react/button.d.ts"
     },
     "./components/card.js": {
       "import": "./components/card.js",
@@ -128,6 +118,16 @@
       "require": "./react/link.js",
       "types": "./react/link.d.ts"
     },
+    "./components/modal.js": {
+      "import": "./components/modal.js",
+      "require": "./components/modal.js",
+      "types": "./components/modal.d.ts"
+    },
+    "./react/modal.js": {
+      "import": "./react/modal.js",
+      "require": "./react/modal.js",
+      "types": "./react/modal.d.ts"
+    },
     "./components/notification.js": {
       "import": "./components/notification.js",
       "require": "./components/notification.js",
@@ -169,8 +169,10 @@
       "types": "./react/tag.d.ts"
     }
   },
+  "bin": {
+    "add-components": "./add-components.js"
+  },
   "scripts": {
-    "build": "node ./add-components.js",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "echo \"Error: no scss / css to lint\" && exit 0",
@@ -184,10 +186,8 @@
     "@justeattakeaway/pie-components-config": "0.16.0"
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "0.47.3",
-    "@justeattakeaway/pie-input": "0.18.1",
-    "@justeattakeaway/pie-modal": "0.42.4",
     "@justeattakeaway/pie-assistive-text": "0.3.5",
+    "@justeattakeaway/pie-button": "0.47.3",
     "@justeattakeaway/pie-card": "0.19.3",
     "@justeattakeaway/pie-checkbox": "0.0.0",
     "@justeattakeaway/pie-chip": "0.6.1",
@@ -195,7 +195,9 @@
     "@justeattakeaway/pie-divider": "0.13.3",
     "@justeattakeaway/pie-form-label": "0.13.3",
     "@justeattakeaway/pie-icon-button": "0.28.4",
+    "@justeattakeaway/pie-input": "0.18.1",
     "@justeattakeaway/pie-link": "0.17.3",
+    "@justeattakeaway/pie-modal": "0.42.4",
     "@justeattakeaway/pie-notification": "0.5.4",
     "@justeattakeaway/pie-spinner": "0.6.3",
     "@justeattakeaway/pie-switch": "0.29.3",

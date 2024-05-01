@@ -48,6 +48,8 @@ export default class extends Generator {
     }
 
     async end () {
+        this.log(chalk`Adding the new component to pie-webc`);
+        this.spawnCommandSync('npx', ['add-components']);
         this.log(chalk`Your component has been created at ${this.props.componentPath}`);
     }
 }
