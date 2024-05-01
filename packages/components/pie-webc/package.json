@@ -27,6 +27,146 @@
       "import": "./react/modal.js",
       "require": "./react/modal.js",
       "types": "./react/modal.d.ts"
+    },
+    "./components/assistive-text.js": {
+      "import": "./components/assistive-text.js",
+      "require": "./components/assistive-text.js",
+      "types": "./components/assistive-text.d.ts"
+    },
+    "./react/assistive-text.js": {
+      "import": "./react/assistive-text.js",
+      "require": "./react/assistive-text.js",
+      "types": "./react/assistive-text.d.ts"
+    },
+    "./components/card.js": {
+      "import": "./components/card.js",
+      "require": "./components/card.js",
+      "types": "./components/card.d.ts"
+    },
+    "./react/card.js": {
+      "import": "./react/card.js",
+      "require": "./react/card.js",
+      "types": "./react/card.d.ts"
+    },
+    "./components/checkbox.js": {
+      "import": "./components/checkbox.js",
+      "require": "./components/checkbox.js",
+      "types": "./components/checkbox.d.ts"
+    },
+    "./react/checkbox.js": {
+      "import": "./react/checkbox.js",
+      "require": "./react/checkbox.js",
+      "types": "./react/checkbox.d.ts"
+    },
+    "./components/chip.js": {
+      "import": "./components/chip.js",
+      "require": "./components/chip.js",
+      "types": "./components/chip.d.ts"
+    },
+    "./react/chip.js": {
+      "import": "./react/chip.js",
+      "require": "./react/chip.js",
+      "types": "./react/chip.d.ts"
+    },
+    "./components/cookie-banner.js": {
+      "import": "./components/cookie-banner.js",
+      "require": "./components/cookie-banner.js",
+      "types": "./components/cookie-banner.d.ts"
+    },
+    "./react/cookie-banner.js": {
+      "import": "./react/cookie-banner.js",
+      "require": "./react/cookie-banner.js",
+      "types": "./react/cookie-banner.d.ts"
+    },
+    "./components/divider.js": {
+      "import": "./components/divider.js",
+      "require": "./components/divider.js",
+      "types": "./components/divider.d.ts"
+    },
+    "./react/divider.js": {
+      "import": "./react/divider.js",
+      "require": "./react/divider.js",
+      "types": "./react/divider.d.ts"
+    },
+    "./components/form-label.js": {
+      "import": "./components/form-label.js",
+      "require": "./components/form-label.js",
+      "types": "./components/form-label.d.ts"
+    },
+    "./react/form-label.js": {
+      "import": "./react/form-label.js",
+      "require": "./react/form-label.js",
+      "types": "./react/form-label.d.ts"
+    },
+    "./components/icon-button.js": {
+      "import": "./components/icon-button.js",
+      "require": "./components/icon-button.js",
+      "types": "./components/icon-button.d.ts"
+    },
+    "./react/icon-button.js": {
+      "import": "./react/icon-button.js",
+      "require": "./react/icon-button.js",
+      "types": "./react/icon-button.d.ts"
+    },
+    "./components/input.js": {
+      "import": "./components/input.js",
+      "require": "./components/input.js",
+      "types": "./components/input.d.ts"
+    },
+    "./react/input.js": {
+      "import": "./react/input.js",
+      "require": "./react/input.js",
+      "types": "./react/input.d.ts"
+    },
+    "./components/link.js": {
+      "import": "./components/link.js",
+      "require": "./components/link.js",
+      "types": "./components/link.d.ts"
+    },
+    "./react/link.js": {
+      "import": "./react/link.js",
+      "require": "./react/link.js",
+      "types": "./react/link.d.ts"
+    },
+    "./components/notification.js": {
+      "import": "./components/notification.js",
+      "require": "./components/notification.js",
+      "types": "./components/notification.d.ts"
+    },
+    "./react/notification.js": {
+      "import": "./react/notification.js",
+      "require": "./react/notification.js",
+      "types": "./react/notification.d.ts"
+    },
+    "./components/spinner.js": {
+      "import": "./components/spinner.js",
+      "require": "./components/spinner.js",
+      "types": "./components/spinner.d.ts"
+    },
+    "./react/spinner.js": {
+      "import": "./react/spinner.js",
+      "require": "./react/spinner.js",
+      "types": "./react/spinner.d.ts"
+    },
+    "./components/switch.js": {
+      "import": "./components/switch.js",
+      "require": "./components/switch.js",
+      "types": "./components/switch.d.ts"
+    },
+    "./react/switch.js": {
+      "import": "./react/switch.js",
+      "require": "./react/switch.js",
+      "types": "./react/switch.d.ts"
+    },
+    "./components/tag.js": {
+      "import": "./components/tag.js",
+      "require": "./components/tag.js",
+      "types": "./components/tag.d.ts"
+    },
+    "./react/tag.js": {
+      "import": "./react/tag.js",
+      "require": "./react/tag.js",
+      "types": "./react/tag.d.ts"
     }
   },
   "scripts": {
@@ -46,7 +186,20 @@
   "dependencies": {
     "@justeattakeaway/pie-button": "0.47.3",
     "@justeattakeaway/pie-input": "0.18.1",
-    "@justeattakeaway/pie-modal": "0.42.4"
+    "@justeattakeaway/pie-modal": "0.42.4",
+    "@justeattakeaway/pie-assistive-text": "0.3.5",
+    "@justeattakeaway/pie-card": "0.19.3",
+    "@justeattakeaway/pie-checkbox": "0.0.0",
+    "@justeattakeaway/pie-chip": "0.6.1",
+    "@justeattakeaway/pie-cookie-banner": "0.19.5",
+    "@justeattakeaway/pie-divider": "0.13.3",
+    "@justeattakeaway/pie-form-label": "0.13.3",
+    "@justeattakeaway/pie-icon-button": "0.28.4",
+    "@justeattakeaway/pie-link": "0.17.3",
+    "@justeattakeaway/pie-notification": "0.5.4",
+    "@justeattakeaway/pie-spinner": "0.6.3",
+    "@justeattakeaway/pie-switch": "0.29.3",
+    "@justeattakeaway/pie-tag": "0.9.4"
   },
   "volta": {
     "extends": "../../../package.json"
