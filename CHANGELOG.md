@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.59.1
+
+### Patch Changes
+
+- [Changed] - github project-labeler ([#1418](https://github.com/justeattakeaway/pie/pull/1418)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 2.59.0
 
 ### Minor Changes
