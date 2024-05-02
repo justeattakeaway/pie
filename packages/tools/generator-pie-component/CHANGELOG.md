@@ -1,5 +1,15 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.20.3
+
+### Patch Changes
+
+- - [Changed] - `README.md` simplifying setup instructions ([#1419](https://github.com/justeattakeaway/pie/pull/1419)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  - [Added] - Volta settings
+  - [Added] - `test:browsers-setup` script
+  - [Changed] - template so it can use `npm-check-updates` to update dependencies
+
 ## 0.20.2
 
 ### Patch Changes

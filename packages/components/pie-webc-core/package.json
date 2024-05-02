@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-webc-core",
-  "version": "0.21.1",
+  "version": "0.22.0",
   "description": "PIE design system base classes, mixins and utilities for web components",
   "type": "module",
   "main": "dist/index.js",
@@ -18,7 +18,7 @@
     "test:watch": "run -T vitest"
   },
   "dependencies": {
-    "lit": "3.1.2"
+    "lit": "3.1.3"
   },
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.16.0"
