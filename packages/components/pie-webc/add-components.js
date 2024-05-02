@@ -71,6 +71,10 @@ fs.readdirSync(componentsSourceDir).forEach((folder) => {
             fs.writeFileSync(jsFilePath, fileContent);
             fs.writeFileSync(tsFilePath, fileContent);
 
+            if (!pieWebcPackageJson.exports) {
+                pieWebcPackageJson.exports = {};
+            }
+
             // Update exports in the pie-webc package.json to include the component
             pieWebcPackageJson.exports[`./${target.type}/${componentName}.js`] = {
                 import: `./${target.type}/${componentName}.js`,
