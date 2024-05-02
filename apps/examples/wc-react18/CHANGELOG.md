@@ -1,5 +1,12 @@
 # wc-react18
 
+## 0.5.36
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.47.4
+
 ## 0.5.35
 
 ### Patch Changes
