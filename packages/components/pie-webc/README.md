@@ -54,3 +54,13 @@ For full information on using PIE components as part of an application, check ou
 ## Contributing
 
 Check out our [contributing guide](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide) for more information on [local development](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#local-development) and how to run specific [component tests](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#testing).
+
+## How it works
+There is a command that can be run to add all pie components to this package. The command is:
+
+```npx add-components```
+
+When run, a script will find each pie component and create `js` and `d.ts` files them in both `components` and `react` directories. The script will also update the `exports` field in the `package.json` file to include the new components and add the latest version of each component to the `dependencies` field.
+
+Generally, there should be no need to run this script. The only time it should be run is when we generated a new component using the component generator. The generator will take care of running this script automatically, so it should be a rare occurrence that it needs to be run manually.
+
