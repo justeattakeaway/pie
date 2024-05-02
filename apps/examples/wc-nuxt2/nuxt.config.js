@@ -49,6 +49,9 @@ export default {
                 test: /\.js$/,
                 include: ['@lit', 'lit-element', 'lit-html'].map((p) => path.resolve(__dirname, `../../../node_modules/${p}`)),
                 loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env'],
+                },
             });
         },
     },

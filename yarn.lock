@@ -1951,7 +1951,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-logical-assignment-operators@npm:7.24.1, @babel/plugin-transform-logical-assignment-operators@npm:^7.24.1":
+"@babel/plugin-transform-logical-assignment-operators@npm:^7.24.1":
   version: 7.24.1
   resolution: "@babel/plugin-transform-logical-assignment-operators@npm:7.24.1"
   dependencies:
@@ -2048,7 +2048,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-nullish-coalescing-operator@npm:7.24.1, @babel/plugin-transform-nullish-coalescing-operator@npm:^7.22.11, @babel/plugin-transform-nullish-coalescing-operator@npm:^7.24.1":
+"@babel/plugin-transform-nullish-coalescing-operator@npm:^7.22.11, @babel/plugin-transform-nullish-coalescing-operator@npm:^7.24.1":
   version: 7.24.1
   resolution: "@babel/plugin-transform-nullish-coalescing-operator@npm:7.24.1"
   dependencies:
@@ -2110,7 +2110,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-optional-chaining@npm:7.24.5, @babel/plugin-transform-optional-chaining@npm:^7.23.0, @babel/plugin-transform-optional-chaining@npm:^7.24.1, @babel/plugin-transform-optional-chaining@npm:^7.24.5":
+"@babel/plugin-transform-optional-chaining@npm:^7.23.0, @babel/plugin-transform-optional-chaining@npm:^7.24.1, @babel/plugin-transform-optional-chaining@npm:^7.24.5":
   version: 7.24.5
   resolution: "@babel/plugin-transform-optional-chaining@npm:7.24.5"
   dependencies:
@@ -38172,9 +38172,6 @@ __metadata:
   resolution: "wc-next10@workspace:apps/examples/wc-next10"
   dependencies:
     "@babel/core": 7.24.5
-    "@babel/plugin-transform-logical-assignment-operators": 7.24.1
-    "@babel/plugin-transform-nullish-coalescing-operator": 7.24.1
-    "@babel/plugin-transform-optional-chaining": 7.24.5
     "@babel/plugin-transform-runtime": 7.24.3
     "@babel/preset-env": 7.24.5
     "@babel/preset-react": 7.24.1
@@ -38215,9 +38212,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-nuxt2@workspace:apps/examples/wc-nuxt2"
   dependencies:
-    "@babel/plugin-transform-logical-assignment-operators": 7.24.1
-    "@babel/plugin-transform-nullish-coalescing-operator": 7.24.1
-    "@babel/plugin-transform-optional-chaining": 7.24.5
+    "@babel/preset-env": 7.24.5
     "@justeattakeaway/pie-button": 0.47.4
     "@justeattakeaway/pie-css": 0.11.0
     babel-loader: 8

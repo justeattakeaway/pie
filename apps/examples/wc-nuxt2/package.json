@@ -19,6 +19,7 @@
     "vue-template-compiler": "2.7.16"
   },
   "devDependencies": {
+    "@babel/preset-env": "7.24.5",
     "babel-loader": "8"
   },
   "engines": {
