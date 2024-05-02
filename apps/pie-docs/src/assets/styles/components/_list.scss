@@ -82,6 +82,20 @@
     }
 }
 
+.c-list--highlight {
+    .c-list-item {
+        display: flex;
+        gap: var(--dt-spacing-c);
+
+        .c-list--highlight-indicator {
+            min-width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            opacity: 0.5;
+        }
+    }
+}
+
 .c-list--icon {
     & .c-list-item {
         display: flex;
@@ -96,4 +110,8 @@
             margin-block-start: var(--dt-spacing-e);
         }
     }
+}
+
+.c-list--highlight .c-list-item + .c-list-item {
+    margin-block-start: var(--dt-spacing-b);
 }

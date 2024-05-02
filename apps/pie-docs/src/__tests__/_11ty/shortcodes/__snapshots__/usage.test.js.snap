@@ -47,8 +47,10 @@ exports[`usage.js > should return the expected HTML for the text type of the usa
           <ul class=\\"c-list c-list--bullet\\"  >
         <li class=\\"c-list-item\\">
         
+        
         <span>Hello World</span>
         </li><li class=\\"c-list-item\\">
+        
         
         <span>Lorem ipsum dolor</span>
         </li>
@@ -66,8 +68,10 @@ exports[`usage.js > should return the expected HTML for the text type of the usa
           <ul class=\\"c-list c-list--bullet\\"  >
         <li class=\\"c-list-item\\">
         
+        
         <span>Hello World</span>
         </li><li class=\\"c-list-item\\">
+        
         
         <span>Lorem ipsum dolor</span>
         </li>

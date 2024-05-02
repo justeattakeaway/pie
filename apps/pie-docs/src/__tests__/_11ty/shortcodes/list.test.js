@@ -35,4 +35,14 @@ describe('list.js', () => {
             list({ type: invalidType, items });
         }).toThrow(invalidTypeError);
     });
+
+    it('should return the expected HTML for an highlight list', () => {
+        // act
+        const result = list({
+            type: 'highlight', highlightColour: ['support-brand-01', 'support-brand-02', 'support-brand-03', 'support-brand-04'], items,
+        });
+
+        // assert
+        expect(result).toMatchSnapshot();
+    });
 });

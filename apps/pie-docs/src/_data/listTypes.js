@@ -8,4 +8,5 @@ module.exports = {
     pill: 'pill',
     icon: 'icon',
     bullet: 'bullet',
+    highlight: 'highlight',
 };
