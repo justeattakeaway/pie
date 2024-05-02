@@ -20,9 +20,10 @@ const getIconSvg = (iconName, iconFill) => {
 };
 
 const getHighlightIndicator = (highlightColour, index) => {
-    const highlightColourHexcode = highlightColour && highlightColour[index]
+    const highlightColourHexcode = highlightColour?.[index]
         ? getTokenByName(highlightColour[index])
         : getTokenByName('support-brand-03');
+
     return `<span class="c-list--highlight-indicator" style="background-color: ${highlightColourHexcode};"></span>`;
 };
 
