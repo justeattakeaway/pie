@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.34.0
+
+### Minor Changes
+
+- [Added] - new icons description ([#1423](https://github.com/justeattakeaway/pie/pull/1423)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 3.33.4
 
 ### Patch Changes
