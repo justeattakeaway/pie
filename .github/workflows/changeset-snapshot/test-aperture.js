@@ -9,7 +9,7 @@ module.exports = async ({ github, context }, execa) => {
     const newTags = Array
         .from(stdout.matchAll(/New tag:\s+([^\s\n]+)/g))
         .map(([_, tag]) => tag)
-        .filter((tag) => !/^wc-.+$|pie-(monorepo|docs|storybook)/.test(tag));
+        .filter((tag) => !/^wc-.+$|pie-(monorepo|docs|storybook|git-hooks-scripts|webc-core|webc-testing|icons-configs|wrapper-react)|generator-pie-component/.test(tag));
 
 
         // Extract the snapshot version from one of the tags
@@ -38,7 +38,8 @@ module.exports = async ({ github, context }, execa) => {
                 repo: 'pie-aperture',
                 event_type: 'pie-trigger',
                 client_payload: {
-                  'pie-branch': process.env.GITHUB_REF_NAME,
+                  'pie-branch': process.env.PIE_BRANCH,
+                  'pie-pr-number': process.env.PIE_PR_NUMBER,
                   'snapshot-version': snapshotVersion,
                   'snapshot-packages': packageNames.join(' ')
                 }
