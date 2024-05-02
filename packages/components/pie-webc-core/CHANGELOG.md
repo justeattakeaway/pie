@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.22.0
+
+### Minor Changes
+
+- [Changed] - Updated Lit from 3.1.2 to 3.1.3 ([#1427](https://github.com/justeattakeaway/pie/pull/1427)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.21.1
 
 ### Patch Changes
