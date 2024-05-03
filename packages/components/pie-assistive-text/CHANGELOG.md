@@ -1,5 +1,46 @@
 # @justeattakeaway/pie-assistive-text
 
+## 0.3.6
+
+### Patch Changes
+
+- Updated dependencies [[`ab5cad99b`](https://github.com/justeattakeaway/pie/commit/ab5cad99bd66e4bd37804b6173bedc37217592d8)]:
+  - @justeattakeaway/pie-webc-core@0.22.0
+  - @justeattakeaway/pie-icons-webc@0.23.1
+
+## 0.3.5
+
+### Patch Changes
+
+- Updated dependencies [[`9eb62f192`](https://github.com/justeattakeaway/pie/commit/9eb62f19282a96a6abaa7400ebf4188febda97b2), [`d325ed167`](https://github.com/justeattakeaway/pie/commit/d325ed167056d6d3e14f8b4535c9d3b2e8c16b90)]:
+  - @justeattakeaway/pie-icons-webc@0.23.0
+
+## 0.3.4
+
+### Patch Changes
+
+- [Added] - `overflow-wrap: anywhere` to ensure that words are broken if they are a continuous long word ([#1399](https://github.com/justeattakeaway/pie/pull/1399)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.3.3
+
+### Patch Changes
+
+- [Removed] - Unneeded `bundledJetDeps` array (patch versions are required because pie-components-config is a dev dependency) ([#1378](https://github.com/justeattakeaway/pie/pull/1378)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - update pie-icons-webc imports ([#1378](https://github.com/justeattakeaway/pie/pull/1378)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9), [`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9)]:
+  - @justeattakeaway/pie-icons-webc@0.22.0
+  - @justeattakeaway/pie-webc-core@0.21.1
+
+## 0.3.2
+
+### Patch Changes
+
+- Updated dependencies [[`1086464e8`](https://github.com/justeattakeaway/pie/commit/1086464e86fbce635f4a30783b0c145b7f5854e3)]:
+  - @justeattakeaway/pie-webc-core@0.21.0
+  - @justeattakeaway/pie-icons-webc@0.21.0
+
 ## 0.3.1
 
 ### Patch Changes

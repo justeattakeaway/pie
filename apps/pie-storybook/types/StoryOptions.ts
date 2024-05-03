@@ -18,9 +18,11 @@ export type StoryBackgrounds = {
 
 type StorybookControls = {
     exclude?: string[],
-    include?: string[]
+    include?: string[],
 }
 export interface StoryOptions {
     bgColor?: BackgroundColor;
     controls?: StorybookControls
+    layout?: 'centered' | 'fullscreen' | 'padded';
+    argTypes?: Record<string, unknown>;
 }

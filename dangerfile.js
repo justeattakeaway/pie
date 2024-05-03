@@ -1,5 +1,4 @@
-/* global danger, fail, message */
-import { message, danger } from 'danger';
+import { danger, fail } from 'danger';
 
 const { pr } = danger.github;
 const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
@@ -15,11 +14,13 @@ danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') &
             const changesetCategories = diffString.match(changesetCategoryRegex);
             const numberOfCategories = changesetCategories ? changesetCategories.length : 0;
 
-            // Check if at least one of the valid changeset categories is present
-            if (numberOfCategories === 0) {
-                fail(`:memo: Your changeset doesn't include a category. Please add one of: \`${validChangesetCategories.join(', ')}\`. Filepath: \`${filepath}`);
-            } else if (!validChangesetCategories.some((cat) => changesetCategories.includes(cat))) {
-                fail(`:memo: Your changeset includes an invalid category. Please use one of: \`${validChangesetCategories.join(', ')}\`. Filepath: \`${filepath}`);
+            if (pr.user.login !== 'renovate[bot]') {
+                // Check if at least one of the valid changeset categories is present
+                if (numberOfCategories === 0) {
+                    fail(`:memo: Your changeset doesn't include a category. Please add one of: \`${validChangesetCategories.join(', ')}\`. Filepath: \`${filepath}`);
+                } else if (!validChangesetCategories.some((cat) => changesetCategories.includes(cat))) {
+                    fail(`:memo: Your changeset includes an invalid category. Please use one of: \`${validChangesetCategories.join(', ')}\`. Filepath: \`${filepath}`);
+                }
             }
 
             // Check that categories are followed are in the following format `[Category] - {Description}`
@@ -30,7 +31,7 @@ danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') &
                 fail(`:memo: Your changeset entries should be in the format: \`[Category] - {Description}\`. One or more of your entries does not follow this format. Filepath: \`${filepath}`);
             }
         }, (err) => {
-            console.log(err);
+            console.error(err);
         });
     });
 

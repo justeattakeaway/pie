@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.22.0
+
+### Minor Changes
+
+- [Changed] - Updated Lit from 3.1.2 to 3.1.3 ([#1427](https://github.com/justeattakeaway/pie/pull/1427)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.21.1
+
+### Patch Changes
+
+- [Removed] - Unneeded `bundledJetDeps` array (patch versions are required because pie-components-config is a dev dependency) ([#1378](https://github.com/justeattakeaway/pie/pull/1378)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.21.0
+
+### Minor Changes
+
+- [Added] - Bundle visualiser that runs during build for webc icons, webc core and our components ([#1391](https://github.com/justeattakeaway/pie/pull/1391)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.20.0
 
 ### Minor Changes

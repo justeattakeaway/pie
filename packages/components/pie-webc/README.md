@@ -32,6 +32,23 @@ $ npm i @justeattakeaway/pie-webc
 $ yarn add @justeattakeaway/pie-webc
 ```
 
+## Importing components
+
+Simply import each one individually using its specific entrypoint.
+
+```js
+import '@justeattakeaway/pie-webc/components/button.js';
+import '@justeattakeaway/pie-webc/components/modal.js';
+```
+
+And for React applications:
+
+```jsx
+import { PieButton } from '@justeattakeaway/pie-webc/react/button.js';
+import { PieModal } from '@justeattakeaway/pie-webc/react/modal.js';
+```
+
+
 For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
 
 ## Contributing

@@ -14,78 +14,51 @@ const { icons } = pieIcons.default;
 
 const componentTemplate = (name, svg) => {
     const svgClasses = svg.match(/class="(.+?)"/)?.[1];
-
     const isLargeIcon = name.endsWith('Large');
     const sizeType = isLargeIcon ? 'LargeIconSize' : 'RegularIconSize';
+    // 32 or 'xs'
+    const defaultSize = isLargeIcon ? largeIconSizeDefault : `'${regularIconSizeDefault}'`;
+
+    // Add width and height placeholders to the SVG tag
+    // eslint-disable-next-line no-template-curly-in-string
+    const svgWithWidthAndHeight = svg.replace('<svg', '<svg width="${this._svgWidth}" height="${this._svgHeight}"');
+    const kebabCaseName = kebabCase(name);
 
     return `import {
-    html, LitElement, TemplateResult, css, PropertyValues,
-} from 'lit';
-import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
-import { property, query } from 'lit/decorators.js';
-import { getSvgProps, ${sizeType} } from '@justeattakeaway/pie-icons-configs';
+        html, TemplateResult
+    } from 'lit';
+    import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
+    import { property } from 'lit/decorators.js';
+    import { ${sizeType} } from '@justeattakeaway/pie-icons-configs';
+    import { PieIconComponent } from './PieIconComponent.ts';
 
-interface IconProps {
-    size: ${sizeType};
-    class: string;
-}
+    const componentSelector = '${kebabCaseName}';
 
-const componentSelector = '${kebabCase(name)}';
+    /**
+     * @tagname ${kebabCaseName}
+     */
+    export class ${name} extends PieIconComponent  {
+        @property({ type: String, reflect: true })
+        public size: ${sizeType} = ${defaultSize};
 
-/**
- * @tagname ${kebabCase(name)}
- */
-export class ${name} extends LitElement implements IconProps {
-    // The following styles make sure that the icon will be sized correctly
-    static styles = css\`
-        :host svg {
-            display: var(--icon-display-override);
-            width: var(--icon-size-override);
-            height: var(--icon-size-override);
-        }
-    \`;
+        // These classes also exist on the internal SVG element. However they are not used for anything on the SVG.
+        @property({ type: String, reflect: true })
+        public class = '${svgClasses}';
 
-    @property({ type: String, reflect: true })
-    public size : ${sizeType} = ${isLargeIcon ? largeIconSizeDefault : `'${regularIconSizeDefault}'`};
+        protected name = '${name}';
 
-    @property({ type: String, reflect: true })
-    public class = '${svgClasses}';
-
-    @query('svg')
-    private _svg? : SVGElement;
-
-    connectedCallback () : void {
-        super.connectedCallback();
-        if (this._svg?.getAttribute('width') === null) {
-            const svgSize = getSvgProps('${svgClasses}', '', null, '${name}');
-            this._svg?.setAttribute('width', svgSize.width);
-            this._svg?.setAttribute('height', svgSize.height);
+        render(): TemplateResult {
+            return html\`${svgWithWidthAndHeight}\`;
         }
     }
 
-    updated (changedProperties: PropertyValues<this>) : void {
-        let svgSize : { width: string, height: string, class: string };
+    defineCustomElement(componentSelector, ${name});
 
-        if (changedProperties.has('size')) {
-            svgSize = getSvgProps('${svgClasses}', '', this.size, '${name}');
-
-            this._svg?.setAttribute('width', svgSize.width);
-            this._svg?.setAttribute('height', svgSize.height);
+    declare global {
+        interface HTMLElementTagNameMap {
+            [componentSelector]: ${name};
         }
     }
-
-    render () : TemplateResult {
-        return html\`${svg}\`;
-    }
-}
-
-defineCustomElement(componentSelector, ${name});
-
-declare global {
-    interface HTMLElementTagNameMap {
-        [componentSelector]: ${name};
-    }
-}
 `;
 };
 

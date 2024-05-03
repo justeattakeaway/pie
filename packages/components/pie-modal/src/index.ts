@@ -14,9 +14,9 @@ import {
     defineCustomElement,
     dispatchCustomEvent,
 } from '@justeattakeaway/pie-webc-core';
-import '@justeattakeaway/pie-icons-webc/IconClose';
-import '@justeattakeaway/pie-icons-webc/IconChevronLeft';
-import '@justeattakeaway/pie-icons-webc/IconChevronRight';
+import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconChevronLeft.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconChevronRight.js';
 import '@justeattakeaway/pie-spinner';
 
 import styles from './modal.scss?inline';

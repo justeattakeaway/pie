@@ -1,5 +1,44 @@
 # wc-vanilla
 
+## 0.4.69
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.47.4
+  - @justeattakeaway/pie-icon-button@0.28.5
+  - @justeattakeaway/pie-modal@0.42.5
+  - @justeattakeaway/pie-icons-webc@0.23.1
+
+## 0.4.68
+
+### Patch Changes
+
+- Updated dependencies [[`9eb62f192`](https://github.com/justeattakeaway/pie/commit/9eb62f19282a96a6abaa7400ebf4188febda97b2), [`d325ed167`](https://github.com/justeattakeaway/pie/commit/d325ed167056d6d3e14f8b4535c9d3b2e8c16b90)]:
+  - @justeattakeaway/pie-icons-webc@0.23.0
+  - @justeattakeaway/pie-icon-button@0.28.4
+  - @justeattakeaway/pie-modal@0.42.4
+
+## 0.4.67
+
+### Patch Changes
+
+- Updated dependencies [[`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9), [`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9), [`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9), [`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9)]:
+  - @justeattakeaway/pie-icons-webc@0.22.0
+  - @justeattakeaway/pie-icon-button@0.28.3
+  - @justeattakeaway/pie-button@0.47.3
+  - @justeattakeaway/pie-modal@0.42.3
+
+## 0.4.66
+
+### Patch Changes
+
+- Updated dependencies [[`1086464e8`](https://github.com/justeattakeaway/pie/commit/1086464e86fbce635f4a30783b0c145b7f5854e3)]:
+  - @justeattakeaway/pie-icons-webc@0.21.0
+  - @justeattakeaway/pie-button@0.47.2
+  - @justeattakeaway/pie-icon-button@0.28.2
+  - @justeattakeaway/pie-modal@0.42.2
+
 ## 0.4.65
 
 ### Patch Changes

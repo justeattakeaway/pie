@@ -1,6 +1,7 @@
 import '@justeattakeaway/pie-css';
 import './styles/docs.scss';
 import './styles/component-status.scss';
+import './styles/icons.scss';
 
 import { WritingDirection, ComponentStatus } from '../decorators';
 import { type StoryBackgrounds } from '../types/StoryOptions';

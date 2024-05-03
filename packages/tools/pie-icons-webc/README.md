@@ -3,82 +3,88 @@
 
 Shared PIE Icon Components built using [Lit Web Components](https://lit.dev/docs/).
 
-This package provides the PIE iconset as importable Web Components, to ensure icons are used to PIE guidelines for sizing.
+This package provides the PIE icon set as importable web components, to make sure that icons are used in accordance with PIE sizing guidelines.
 
-The base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package is used to provide the SVGs that are compiled into Lit web components that can be imported into any application.
+This package takes the icon SVGs from the [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package and compiles them into Lit web components which can be imported into any web application.
 
 ---
 
 [![npm version](https://img.shields.io/npm/v/@justeattakeaway/pie-icons-webc.svg)](https://img.shields.io/npm/v/@justeattakeaway/pie-icons-webc.svg)
 
 ---
-## Usage
 
-### Installation
+## Installation
 
-Add the module to your project
+To add the module to your project:
 
 ```bash
 yarn add @justeattakeaway/pie-icons-webc
 ```
 
 
-### Usage
+## Usage
 
-#### Vanilla Javascript
+### Vanilla JavaScript
 
-1. Import a specific icon from its entry point (recommended)
+#### Importing a single icon
+
+The recommended approach for registering a single icon is to import it from its individual entry point.
+
 ```js
-// Importing a specific icon directly from its entry point (recommended for tree-shaking benefits)
-import { IconCalendarFilledLarge } from '@justeattakeaway/pie-icons-webc/IconCalendarFilledLarge';
+// Recommended
+import '@justeattakeaway/pie-icons-webc/dist/IconCalendarFilledLarge.js';
+```
+
+The rest of the code does not directly reference an `IconCalendarFilledLarge` object, but the custom element has still been registered in the browser.
+It can now be used inside your HTML template (as long as your JavaScript file is being loaded!).
+
+```html
+<div>
+  <icon-calendar-filled-large></icon-calendar-filled-large>
+<div>
+```
+
+Alternatively, you can import the class, which extends `HTMLElement` (via `LitElement`).
+
+```js
+// Also recommended, if you need to use the imported object.
+import { IconCalendarFilledLarge } from '@justeattakeaway/pie-icons-webc/dist/IconCalendarFilledLarge.js';
 
 function renderIcon() {
-    // Using the imported icon
+    // Using the imported class to create a new element
     const iconElement = new IconCalendarFilledLarge();
     document.body.appendChild(iconElement);
 }
 ```
 
-2. Import a specific icon from its entry point without a reference (recommended)
+#### Importing multiple icons
+
+The recommended approach for importing multiple icons is to import them one-by-one to keep your application lightweight and performant.
+
 ```js
-// Importing a specific icon without keeping a reference from its entry point
-import '@justeattakeaway/pie-icons-webc/IconCalendarFilledLarge';
-
-// Rest of code does not directly reference IconCalendarFilledLarge however the web component has been registered in the browser
-
-// In some HTML:
-// <div>
-//   <icon-calendar-filled-large></icon-calendar-filled-large>
-// <div>
+import '@justeattakeaway/pie-icons-webc/dist/IconHeart.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 ```
 
-3. Importing all icons at once (not recommended)
-```js
-// Importing all icons from the library (not recommended)
-import * as icons from '@justeattakeaway/pie-icons-webc';
-
-function renderIcon() {
-    // Using a specific icon
-    const iconElement = new icons.IconCalendarFilledLarge();
-    document.body.appendChild(iconElement);
-}
+```html
+<div>
+  <icon-heart></icon-heart>
+  <icon-heart-filled></icon-heart-filled>
+</div>
 ```
 
+Whilst it *is* possible to import all of the icons at once, this is **not recommended** as it will bloat and slow down your application.
 
-> [!WARNING]
-> While it is also possible to import individual components from the overall bundle, we don't recommend this because
-> it is likely that the import will be tree-shaken unless you are referencing the imported object in your code.
+Similarly, it is also **not recommended** to import individual icons from the package's main entrypoint, because it is likely that all icons will still be registered as custom elements in the browser.
+
+You may also encounter issues with tree-shaking if you import an object but don't use it.
+
+### Lit components
+
+Importing and using an icon inside a Lit web component is very straightforward.
 
 ```js
-// Not recommended -  Webpack v4+ or Rollup should treeshake but be careful
-import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc';
-// Not recommended
-import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc';
-```
-
-#### Lit Components
-```js
-import '@justeattakeaway/pie-icons-webc/IconAppRestaurant';
+import '@justeattakeaway/pie-icons-webc/dist/IconAppRestaurant.js';
 
 export class MyAmazingComponent extends LitElement {
   render () {
@@ -91,78 +97,54 @@ export class MyAmazingComponent extends LitElement {
 }
 ```
 
-#### React
+### React
 
-To import from the package root:
+Each icon has a separate entrypoint for use in React applications. This uses our [`pie-wrapper-react`](https://github.com/justeattakeaway/pie/blob/main/packages/tools/pie-wrapper-react) package.
 
 ```tsx
-// Please note we include /dist/ in the path only for React exports. This is due to how we have setup React exports to work with frameworks such as NextJS.
-import { IconAlertTriangleLarge, IconCalendar } from "@justeattakeaway/pie-icons-webc/dist/react";
-
-// If your app can support the exports set in the package.json, you can also import like so (exclude 'dist'):
-import { IconAlertTriangleLarge, IconCalendar } from "@justeattakeaway/pie-icons-webc/react";
+import { IconAlertTriangleLarge } from "@justeattakeaway/pie-icons-webc/dist/react/IconAlertTriangleLarge.js";
+import { IconCalendar } from "@justeattakeaway/pie-icons-webc/dist/react/IconCalendar.js";
 
 export default function App() {
   return (
     <div className="App">
-      <IconCalendar />
       <IconAlertTriangleLarge fill={PIE_ALIAS_COLOR_TOKEN} />
-    </div>
-  );
-}
-```
-To import a single icon:
-
-```tsx
-// Please note we include /dist/ in the path only for React exports. This is due to how we have setup React exports to work with frameworks such as NextJS
-import { IconCalendar } from "@justeattakeaway/pie-icons-webc/dist/react/IconCalendar";
-
-// If your app can support the exports set in the package.json, you can also import like so (exclude 'dist'):
-import { IconCalendar } from "@justeattakeaway/pie-icons-webc/react/IconCalendar";
-
-export default function App() {
-  return (
-    <div className="App">
       <IconCalendar />
     </div>
   );
 }
 ```
 
-#### Vue
+### Vue
 
-This package requires Node 18+, therefore, if you are using a lower version of Node please use our native Vue component package – [pie-icons-vue](https://www.npmjs.com/package/@justeattakeaway/pie-icons-vue).
+Note that you don't need to register the icons as Vue components, because they aren't!
 
-To import from the package root:
+```vue
+<template>
+  <div>
+    <icon-alert-triangle-large></icon-alert-triangle-large>
+    <icon-calendar></icon-calendar>
+  </div>
+</template>
 
-```tsx
-import { IconAlertTriangleLarge, IconCalendar } from "@justeattakeaway/pie-icons-webc";
-
-export default function App() {
-  return (
-    <div className="App">
-      <icon-calendar></icon-calendar>
-      <icon-alert-triangle-large></icon-alert-triangle-large>
-    </div>
-  );
-}
+<script>
+import '@justeattakeaway/pie-icons-webc/dist/IconAlertTriangleLarge.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconCalendar.js';
+</script>
 ```
 
 
-### Props
+## Props
 
-Icons accept any standard attribute, except for `width` and `height` since those are set implicitly by using the `size` prop.
-
-
-##### `size`
+### `size`
 
 Icons are made available in different size variants:
 - regular
 - large, when its name has the `Large` suffix
 
-Regular icons default size is `xs` and can use one of the following pre-determined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about regular icon sizes [here](https://www.pie.design/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Small%20icon%20set).
+A regular icon's default size is `xs` and can use one of the following pre-defined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about regular icon sizes [here](https://www.pie.design/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Small%20icon%20set).
 
-Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise will be automatically rounded. You can learn more about large icon sizes [here](https://www.pie.design/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Large%20icon%20set).
+A large icon's default (and minimum) `size` is `32`. Values larger than the minimum **must** be multiples of `8`, otherwise the default size will be used. You can learn more about large icon sizes [here](https://www.pie.design/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Large%20icon%20set).
 
 Example:
 
@@ -171,35 +153,29 @@ Example:
 <icon-alert-triangle-large size="80"></icon-alert-triangle-large>
 ```
 
-### Tree shaking
 
-By using ES imports like `import { IconCalendar } from '@justeattakeaway/pie-icons-webc'` with Webpack v4+ or Rollup, unused exports in this module will be automatically eliminated.
-
-If you can't use a tree-shaking compatible build tool, then you can use the per-file icons from the [`/icons`](https://unpkg.com/@justeattakeaway/pie-icons-vue/) directory, e.g. `import IconCalendar from '@justeattakeaway/pie-icons-webc/IconCalendar'`.
-
-
-### Browser Support
+## Browser support
 
 The component extends [@justeattakeaway/browserslist-config-pie](https://github.com/justeattakeaway/pie/tree/main/packages/tools/browserslist-config-pie) package for the list of browsers to support.
 
 
 ## Contributing
 
-Before starting please read our [contributing guide](https://pie.design/engineers/contributing/)
+Before starting, please read our [contributing guide](https://pie.design/engineers/contributing/).
 
 ### Adding new icons
 
 Icons should be added as SVGs to the main pie-icons package and published, before simply incrementing the dependency of `pie-icons` in the `pie-icons-webc` package, to generate the new set of Web Components.
 
-The PIE iconset is managed by our PIE design team and new icon requests should go through them to ensure that they are designed in-line with our standards and guildelines. Please reach out to PIE design system team using #help-designsystem slack channel.
+The PIE icon set is managed by our PIE Design System team. New icon requests should go through them to ensure that they meet our standards and follow our guidelines. Please reach out on the (internal) `#help-designsystem` Slack channel.
 
-### Building the Module
+### Building the module
 
-Run `yarn build --filter=pie-icons-webc` from the project level or `yarn turbo run build --filter=pie-icons-webc` from the root level to compile the module.
+Run `yarn build --filter=pie-icons-webc` from the root of the monorepo.
 
-## Icon list
+## Icon library
 
-You can check the list of all the icons on our [documentation site](https://pie.design/foundations/iconography/library/).
+You can view the full icon library on our [documentation site](https://pie.design/foundations/iconography/library/).
 
 ## Bundling
 When we build the icons, we run a plugin for Rollup named `rollup-plugin-visualizer`. This generates a file named `stats.html` in the root of the package. This file can be viewed in the browser to visualise the bundled Javascript and better understand what contributes to the size of the final build output.

@@ -1,5 +1,48 @@
 # @justeattakeaway/pie-webc
 
+## 0.3.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.47.4
+  - @justeattakeaway/pie-modal@0.42.5
+
+## 0.3.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-modal@0.42.4
+
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - Passthrough of type definitions from component packages ([#1397](https://github.com/justeattakeaway/pie/pull/1397)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Package exports to allow properly importing individual components
+
+## 0.2.9
+
+### Patch Changes
+
+- [Removed] - Unneeded `bundledJetDeps` array (patch versions are required because pie-components-config is a dev dependency) ([#1378](https://github.com/justeattakeaway/pie/pull/1378)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9), [`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9)]:
+  - @justeattakeaway/pie-button@0.47.3
+  - @justeattakeaway/pie-modal@0.42.3
+  - @justeattakeaway/pie-webc-core@0.21.1
+
+## 0.2.8
+
+### Patch Changes
+
+- Updated dependencies [[`1086464e8`](https://github.com/justeattakeaway/pie/commit/1086464e86fbce635f4a30783b0c145b7f5854e3)]:
+  - @justeattakeaway/pie-webc-core@0.21.0
+  - @justeattakeaway/pie-button@0.47.2
+  - @justeattakeaway/pie-modal@0.42.2
+
 ## 0.2.7
 
 ### Patch Changes
