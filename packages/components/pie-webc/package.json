@@ -177,7 +177,7 @@
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "echo \"Error: no scss / css to lint\" && exit 0",
     "lint:style:fix": "yarn lint:style --fix",
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "run -T vitest run --config ./vite.config.js",
     "test:ci": "yarn test"
   },
   "author": "Just Eat Takeaway.com - Design System Team",
