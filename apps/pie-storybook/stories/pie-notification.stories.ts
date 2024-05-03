@@ -18,7 +18,7 @@ const defaultArgs: NotificationProps = {
     isDismissible: true,
     isCompact: false,
     slot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna.',
-    heading: 'Title',
+    heading: 'Heading',
     headingLevel: 'h2',
     hideIcon: false,
     leadingAction: {
@@ -161,4 +161,12 @@ const Template : TemplateFunction<NotificationProps> = ({
         ${slot}
     </pie-notification>`;
 
-export const Default = createStory<NotificationProps>(Template, defaultArgs)();
+const createNotificationStory = createStory<NotificationProps>(Template, defaultArgs);
+
+export const Neutral = createNotificationStory();
+export const NeutralAlternative = createNotificationStory({ variant: 'neutral-alternative' }, { bgColor: 'dark (container-dark)' });
+export const Info = createNotificationStory({ variant: 'info' });
+export const Success = createNotificationStory({ variant: 'success' });
+export const Error = createNotificationStory({ variant: 'error' });
+export const Warning = createNotificationStory({ variant: 'warning' });
+
