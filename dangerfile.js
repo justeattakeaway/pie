@@ -31,7 +31,7 @@ danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') &
                 fail(`:memo: Your changeset entries should be in the format: \`[Category] - {Description}\`. One or more of your entries does not follow this format. Filepath: \`${filepath}`);
             }
         }, (err) => {
-            console.log(err); // eslint-disable-line no-console
+            console.error(err);
         });
     });
 
