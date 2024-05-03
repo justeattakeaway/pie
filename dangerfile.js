@@ -21,14 +21,14 @@ danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') &
                 } else if (!validChangesetCategories.some((cat) => changesetCategories.includes(cat))) {
                     fail(`:memo: Your changeset includes an invalid category. Please use one of: \`${validChangesetCategories.join(', ')}\`. Filepath: \`${filepath}`);
                 }
-            }
 
-            // Check that categories are followed are in the following format `[Category] - {Description}`
-            const changesetLineFormatRegex = /\[\w+\] - [\S].+/g;
-            const validChangesetEntries = diffString.match(changesetLineFormatRegex);
-            const numberOfValidChangesetEntries = (validChangesetEntries === null ? 0 : validChangesetEntries.length);
-            if (numberOfCategories !== numberOfValidChangesetEntries) {
-                fail(`:memo: Your changeset entries should be in the format: \`[Category] - {Description}\`. One or more of your entries does not follow this format. Filepath: \`${filepath}`);
+                // Check that categories are followed are in the following format `[Category] - {Description}`
+                const changesetLineFormatRegex = /\[\w+\] - [\S].+/g;
+                const validChangesetEntries = diffString.match(changesetLineFormatRegex);
+                const numberOfValidChangesetEntries = (validChangesetEntries === null ? 0 : validChangesetEntries.length);
+                if (numberOfCategories !== numberOfValidChangesetEntries) {
+                    fail(`:memo: Your changeset entries should be in the format: \`[Category] - {Description}\`. One or more of your entries does not follow this format. Filepath: \`${filepath}`);
+                }
             }
         }, (err) => {
             console.error(err);
