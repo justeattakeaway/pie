@@ -69,6 +69,7 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
     },
     args: defaultArgs,
     parameters: {
+        layout: 'centered',
         design: {
             type: 'figma',
             url: 'https://www.figma.com/file/pPSC73rPin4csb8DiK1CRr/branch/aD4m0j97Ruw8Q4S5lED2Bl/%E2%9C%A8-[Core]-Web-Components-[PIE-3]?type=design&node-id=1998-6410&mode=design&t=udPtXte1WeCeFc1D-0',
