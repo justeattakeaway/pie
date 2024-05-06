@@ -66,7 +66,7 @@ ___
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/cookie-banner/modifier-default.svg",
-alt: "Default cookie banner, with Accept All as a primary action only.",
+alt: "Default cookie banner, with Accept All as primary action only.",
 width: 120
 } %}
 
@@ -76,7 +76,7 @@ This version is used when legal compliance in the country requires you to do so.
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/cookie-banner/modifier-primary-actions.svg",
-alt: "Cookie banner, with Accept All and Necesary Only as a primary actions.",
+alt: "Cookie banner, with Accept All and Necessary Only as primary actions.",
 width: 120
 } %}
 
@@ -100,11 +100,11 @@ width: 120
     type: listTypes.highlight,
     highlightColour: ["support-brand-03", "support-brand-04", "support-brand-07", "support-brand-05", "support-brand-06"],
     items: [
-        "**Redirect:**  It will redirect the user to the page  they have selected in a new tab, the cookie banner would appear until the user makes a selection.",
-        "**Confirm selection:**  It saves the user's selection and closes the cookie banner/modal.",
-        "**Opens a “Manage preferences” modal:**  A modal will open and allow user to manage their preferences. ",
+        "**Redirect:**  IRedirects the user to the page they have selected in a new tab, the cookie banner will continue to show until the user makes a selection.",
+        "**Confirm selection:**  Saves the user's selection and closes the modal and cookie banner.",
+        "**Opens a “Manage preferences” modal:**  A modal will open to allow the user to manage their preferences.",
         "**Toggle on/off:**  Allows the user to toggle selections on or off.",
-        "**Back button:**  It closes the modal and resurfaces the cookie banner."
+        "**Back button:**  Closes the modal and shows the cookie banner again."
     ]
 } %}
 
@@ -161,7 +161,7 @@ width: 120
 
 ### Banner
 
-The cookie banner is always positioned at the bottom of the screen with default external bottom, left and right padding of 16px.
+The cookie banner is always positioned at the bottom of the screen with default bottom, left and right padding of 16px from the container of the banner.
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/cookie-banner/positioning-banner.svg",
