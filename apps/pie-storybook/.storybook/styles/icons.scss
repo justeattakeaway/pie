@@ -1,0 +1,13 @@
+.c-iconGallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: var(--dt-spacing-c);
+    padding: var(--dt-spacing-b);
+    justify-items: center;
+    align-items: center;
+}
+
+.c-iconGrid {
+    display: grid;
+    place-items: center;
+}

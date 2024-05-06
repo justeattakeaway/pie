@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.59.1
+
+### Patch Changes
+
+- [Changed] - github project-labeler ([#1418](https://github.com/justeattakeaway/pie/pull/1418)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 2.59.0
+
+### Minor Changes
+
+- [Changed] - Updated CI so that package changes will trigger builds and tests of its dependents (such as a change in pie-icons-webc triggering visual tests for pie-icon-button ([#1409](https://github.com/justeattakeaway/pie/pull/1409)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 2.58.1
+
+### Patch Changes
+
+- [Fixed] - Issue where comment-branch action was failing when GITHUB_TOKEN was provided ([#1416](https://github.com/justeattakeaway/pie/pull/1416)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.58.0
 
 ### Minor Changes

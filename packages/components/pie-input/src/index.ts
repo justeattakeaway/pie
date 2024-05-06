@@ -14,6 +14,7 @@ import styles from './input.scss?inline';
 import {
     types, statusTypes, InputProps, InputDefaultPropertyValues,
 } from './defs';
+import 'element-internals-polyfill';
 
 // Valid values available to consumers
 export * from './defs';

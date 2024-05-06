@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.34.0
+
+### Minor Changes
+
+- [Added] - new icons description ([#1423](https://github.com/justeattakeaway/pie/pull/1423)) by [@raoufswe](https://github.com/raoufswe)
+
+## 3.33.4
+
+### Patch Changes
+
+- Updated dependencies [[`9eb62f192`](https://github.com/justeattakeaway/pie/commit/9eb62f19282a96a6abaa7400ebf4188febda97b2)]:
+  - @justeattakeaway/pie-icons@4.17.0
+
 ## 3.33.3
 
 ### Patch Changes
