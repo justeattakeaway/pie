@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.74.2
+
+### Patch Changes
+
+- Updated dependencies [[`0c061b6cf`](https://github.com/justeattakeaway/pie/commit/0c061b6cf3ef8a3c5372ce1cc2aef45bf806e4b8)]:
+  - @justeattakeaway/pie-input@0.19.0
+
 ## 0.74.1
 
 ### Patch Changes

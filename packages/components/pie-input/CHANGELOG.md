@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-input
 
+## 0.19.0
+
+### Minor Changes
+
+- [Added] - Use the element internals polyfill in pie-input component ([#1428](https://github.com/justeattakeaway/pie/pull/1428)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.18.2
 
 ### Patch Changes
