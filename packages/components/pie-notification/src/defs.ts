@@ -1,5 +1,6 @@
 export const variants = ['neutral', 'neutral-alternative', 'info', 'success', 'warning', 'error'] as const;
 export const headingLevels = ['h2', 'h3', 'h4', 'h5', 'h6'] as const;
+export const positions = ['inline-content', 'full-width'] as const;
 
 export type ActionProps = {
   /**
@@ -18,6 +19,11 @@ export interface NotificationProps {
    * Set the variant of the notification.
    */
   variant?: typeof variants[number];
+
+  /**
+   * The position of the notification defining proper styles if the component appear within the content or at the top of the interface.
+   */
+  position?: typeof positions[number];
 
   /**
    * When true, allows dismissing the notification by clicking on the close button.

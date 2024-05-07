@@ -51,8 +51,6 @@
     "@justeattakeaway/pie-webc-core": "0.22.0"
   },
   "devDependencies": {
-    "@babel/core": "7.23.9",
-    "@babel/node": "7.20.7",
     "@justeattakeaway/pie-components-config": "0.16.0",
     "@justeattakeaway/pie-icons": "4.17.0",
     "@justeattakeaway/pie-icons-configs": "4.5.1",

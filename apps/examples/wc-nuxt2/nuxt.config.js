@@ -50,11 +50,7 @@ export default {
                 include: ['@lit', 'lit-element', 'lit-html'].map((p) => path.resolve(__dirname, `../../../node_modules/${p}`)),
                 loader: 'babel-loader',
                 options: {
-                    plugins: [
-                        '@babel/plugin-transform-optional-chaining',
-                        '@babel/plugin-transform-nullish-coalescing-operator',
-                        '@babel/plugin-transform-logical-assignment-operators'
-                    ],
+                    presets: ['@babel/preset-env'],
                 },
             });
         },
