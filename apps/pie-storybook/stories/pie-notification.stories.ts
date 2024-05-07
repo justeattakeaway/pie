@@ -2,7 +2,9 @@ import { html } from 'lit';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-notification';
 import { action } from '@storybook/addon-actions';
-import { NotificationProps as NotificationBaseProps, variants, headingLevels, positions } from '@justeattakeaway/pie-notification';
+import {
+    NotificationProps as NotificationBaseProps, variants, headingLevels, positions,
+} from '@justeattakeaway/pie-notification';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta, SlottedComponentProps } from '../types';
@@ -54,6 +56,7 @@ const notificationStoryMeta: NotificationStoryMeta = {
         position: {
             description: 'Specifies whether the notification should be displayed inline, within the content, or full width (recommended at the top of the interface, under the header)',
             control: 'select',
+            options: positions,
             defaultValue: {
                 summary: 'inline-content',
             },

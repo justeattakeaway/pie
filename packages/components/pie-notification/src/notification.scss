@@ -28,7 +28,7 @@
     }
 
     &[position='full-width'] {
-        --notification-border-radius: var(--dt-radius-00);
+        --notification-border-radius: var(--dt-radius-rounded-none);
     }
 
     &[variant='neutral-alternative'] {
