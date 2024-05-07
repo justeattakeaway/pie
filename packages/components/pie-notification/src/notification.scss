@@ -12,6 +12,7 @@
     --notification-line-height: #{p.line-height(--dt-font-body-l-line-height)};
     --notification-icon-fill: var(--dt-color-content-default);
     --notification-close-icon-offset: var(--dt-spacing-b);
+    --notification-heading-icon-offset: 2px;
 
     padding: var(--dt-spacing-d);
     border-radius: var(--notification-border-radius);
@@ -81,7 +82,7 @@
     }
 
     &-heading-icon {
-        padding-block-start: 2px;
+        padding-block-start: var(--notification-heading-icon-offset);
         color: var(--notification-icon-fill);
     }
 
