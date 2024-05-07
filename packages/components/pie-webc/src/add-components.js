@@ -1,9 +1,5 @@
-#!/usr/bin/env node
-import fs from 'fs';
-import path from 'path';
-
 // Dependency Injection for fs and path modules
-function main (fs, path) {
+export const main = (fs, path) => {
     const workingDir = process.cwd();
     verifyRootDirectory(workingDir, 'pie-monorepo', fs, path);
 
@@ -13,16 +9,16 @@ function main (fs, path) {
     const reactTargetDir = path.join(pieWebcDir, 'react');
     const pieWebcPackageJsonPath = path.join(pieWebcDir, 'package.json');
 
-    const pieWebcPackageJson = ensureDirectoriesAndReadPackageJson(pieWebcPackageJsonPath, componentsTargetDir, reactTargetDir, fs, path);
+    const pieWebcPackageJson = ensureDirectoriesAndReadPackageJson(pieWebcPackageJsonPath, componentsTargetDir, reactTargetDir, fs);
     const excludedFolders = ['pie-webc', 'pie-webc-core', 'pie-webc-testing'];
 
     processComponents(componentsSourceDir, excludedFolders, pieWebcPackageJson, componentsTargetDir, reactTargetDir, fs, path);
 
     fs.writeFileSync(pieWebcPackageJsonPath, `${JSON.stringify(pieWebcPackageJson, null, 2)}\n`);
     console.info('All components added to pie-webc');
-}
+};
 
-export function verifyRootDirectory (workingDir, expectedPackageName, fs, path) {
+export const verifyRootDirectory = (workingDir, expectedPackageName, fs, path) => {
     const packageJsonPath = path.join(workingDir, 'package.json');
 
     if (!fs.existsSync(packageJsonPath)) {
@@ -34,9 +30,9 @@ export function verifyRootDirectory (workingDir, expectedPackageName, fs, path) 
     if (packageJson.name !== expectedPackageName) {
         throw new Error('Incorrect package: Please run this script from the root of the monorepo.');
     }
-}
+};
 
-export function ensureDirectoriesAndReadPackageJson (packageJsonPath, componentsTargetDir, reactTargetDir, fs, path) {
+export const ensureDirectoriesAndReadPackageJson = (packageJsonPath, componentsTargetDir, reactTargetDir, fs) => {
     if (!fs.existsSync(componentsTargetDir)) {
         fs.mkdirSync(componentsTargetDir, { recursive: true });
     }
@@ -51,17 +47,17 @@ export function ensureDirectoriesAndReadPackageJson (packageJsonPath, components
     packageJson.dependencies = packageJson.dependencies || {};
 
     return packageJson;
-}
+};
 
-export function processComponents (sourceDir, excludedFolders, packageJson, componentsTargetDir, reactTargetDir, fs, path) {
+export const processComponents = (sourceDir, excludedFolders, packageJson, componentsTargetDir, reactTargetDir, fs, path) => {
     fs.readdirSync(sourceDir).forEach((folder) => {
         if (folder.startsWith('pie-') && !excludedFolders.includes(folder)) {
             addComponentToPackage(folder, sourceDir, packageJson, componentsTargetDir, reactTargetDir, fs, path);
         }
     });
-}
+};
 
-export function addComponentToPackage (folder, sourceDir, packageJson, componentsTargetDir, reactTargetDir, fs, path) {
+export const addComponentToPackage = (folder, sourceDir, packageJson, componentsTargetDir, reactTargetDir, fs, path) => {
     const fullFolderPath = path.join(sourceDir, folder);
     const componentName = folder.replace('pie-', '');
     const packageName = `@justeattakeaway/${folder}`;
@@ -79,9 +75,9 @@ export function addComponentToPackage (folder, sourceDir, packageJson, component
     targets.forEach((target) => {
         createFilesForComponent(componentName, target, fs, path, packageJson);
     });
-}
+};
 
-export function createFilesForComponent (componentName, target, fs, path, packageJson) {
+export const createFilesForComponent = (componentName, target, fs, path, packageJson) => {
     const jsFilePath = path.join(target.dir, `${componentName}.js`);
     const tsFilePath = path.join(target.dir, `${componentName}.d.ts`);
 
@@ -94,6 +90,4 @@ export function createFilesForComponent (componentName, target, fs, path, packag
         require: `./${target.type}/${componentName}.js`,
         types: `./${target.type}/${componentName}.d.ts`,
     };
-}
-
-main(fs, path);
+};

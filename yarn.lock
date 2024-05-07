@@ -5710,7 +5710,7 @@ __metadata:
     "@justeattakeaway/pie-switch": 0.29.4
     "@justeattakeaway/pie-tag": 0.9.5
   bin:
-    add-components: ./add-components.js
+    add-components: ./src/index.js
   languageName: unknown
   linkType: soft
 

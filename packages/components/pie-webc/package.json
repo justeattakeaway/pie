@@ -170,7 +170,7 @@
     }
   },
   "bin": {
-    "add-components": "./add-components.js"
+    "add-components": "./src/index.js"
   },
   "scripts": {
     "lint:scripts": "run -T eslint .",
@@ -195,7 +195,7 @@
     "@justeattakeaway/pie-divider": "0.13.4",
     "@justeattakeaway/pie-form-label": "0.13.4",
     "@justeattakeaway/pie-icon-button": "0.28.5",
-    "@justeattakeaway/pie-input": "0.18.2",
+    "@justeattakeaway/pie-input": "0.19.0",
     "@justeattakeaway/pie-link": "0.17.4",
     "@justeattakeaway/pie-modal": "0.42.5",
     "@justeattakeaway/pie-notification": "0.5.5",
