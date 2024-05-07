@@ -7,6 +7,19 @@ shouldShowContents: true
 ---
 
 
+## Overview
+
+The purpose of the cookie banner is to inform users about the use of cookies, obtain their consent, and customise their preferences. 
+
+It aids websites in complying with privacy regulations by offering transparency regarding data collection practices and empowering users to control their privacy settings.
+
+{% contentPageImage {
+src:"../../../assets/img/patterns/cookie-banner/overview.svg",
+alt: "A group of tags."
+} %}
+
+---
+
 ## Anatomy
 
 {% contentPageImage {
@@ -202,6 +215,12 @@ src:"../../../assets/img/patterns/cookie-banner/responsive-banner.svg",
 alt: "Responsive modal as it looks on mobile views showcasing a scroll bar for the options and content.",
 width: 120
 } %}
+
+---
+
+## Motion
+
+All motion details for the cookie banner can be found [here](https://www.figma.com/file/mJiLMfnMfnEYWJh2Njutdq/[Core]-Motion-[PIE-3]?type=design&node-id=804-3774&mode=design&t=6kQbKnf5Vr8ZyoIC-0), it also defines how the motion between the banner and modal overlap.
 
 ---
 

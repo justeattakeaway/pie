@@ -548,12 +548,12 @@ const rows = [
         { componentName: 'Cookie Banner' },
         {
             resource: resourceTypes.PATTERN,
-            link: 'https://www.figma.com/file/Rqz8KHogVsGCS4j0nDueNo/[Core]-Patterns-%E2%9A%AA%EF%B8%8F-[PIE-2.0]?type=design&node-id=1561-40525&mode=design&t=HJ22gf8IP2EvdHXD-0',
+            link: 'https://www.figma.com/file/Rqz8KHogVsGCS4j0nDueNo/[Core]-Patterns-%E2%9A%AA%EF%B8%8F-[PIE-2.0]?type=design&node-id=1599-41380&mode=design&t=8G38n2fCOYB5Bd2d-0',
             status: statusTypes.AVAILABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/rGXMWESVHRmNhXA27myoaW/Patterns-%E2%80%93%E2%80%A8-PIE-Documentation-Site?type=design&node-id=811-56679&mode=design&t=7yIcfrGR3GPL2Z8R-0',
+            link: 'https://www.figma.com/file/Rqz8KHogVsGCS4j0nDueNo/[Core]-Patterns-%E2%9A%AA%EF%B8%8F-[PIE-2.0]?type=design&node-id=2755-20043&mode=design&t=8G38n2fCOYB5Bd2d-0',
             status: statusTypes.AVAILABLE,
         },
         {
