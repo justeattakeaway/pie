@@ -30,12 +30,15 @@ test.describe('PieCheckbox - Component tests', () => {
             test('should default to "on" string if no value prop provided', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieCheckbox, {});
+                // expected const is a default value for the html <input type="checkbox" /> value attribute.
+                // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#value
+                const expected = 'on';
 
                 // Act
                 const checkbox = component.locator(componentSelector);
 
                 // Assert
-                expect((await checkbox.inputValue())).toBe('on');
+                expect((await checkbox.inputValue())).toBe(expected);
             });
 
             test('should apply the value attr to the checkbox', async ({ mount }) => {
@@ -124,7 +127,7 @@ test.describe('PieCheckbox - Component tests', () => {
                     expect(checkbox).not.toBeDisabled();
                 });
 
-                test('should still be able to focus the component', async ({ page }) => {
+                test('should be able to focus the component', async ({ page }) => {
                     // Arrange
                     await page.setContent('<pie-checkbox></pie-checkbox>');
 
@@ -139,7 +142,7 @@ test.describe('PieCheckbox - Component tests', () => {
         });
 
         test.describe('required', () => {
-            test('should not render a required attribute if no required provided', async ({ mount }) => {
+            test('should not render a required attribute if the required prop isn’t provided', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieCheckbox, {});
 
@@ -165,7 +168,7 @@ test.describe('PieCheckbox - Component tests', () => {
                 expect((await checkbox.getAttribute('required'))).toBe('');
             });
 
-            test('should be in invalid state if checkbox is unchecked and required', async ({ mount, page }) => {
+            test('should be in an invalid state if checkbox is unchecked and required', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieCheckbox, {
                     props: {
@@ -180,7 +183,7 @@ test.describe('PieCheckbox - Component tests', () => {
                 expect(isValid).toBe(false);
             });
 
-            test('should be valid state if checkbox is checked and required', async ({ mount, page }) => {
+            test('should be in a valid state if checkbox is checked and required', async ({ mount, page }) => {
                 // Arrange
                 const component = await mount(PieCheckbox, {
                     props: {
@@ -197,7 +200,7 @@ test.describe('PieCheckbox - Component tests', () => {
                 expect(isValid).toBe(true);
             });
 
-            test('should be valid state if the input has a checked prop and required', async ({ mount, page }) => {
+            test('should be in a valid state if the input has a checked prop and required', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieCheckbox, {
                     props: {
