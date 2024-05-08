@@ -113,7 +113,7 @@ width: 120
     type: listTypes.highlight,
     highlightColour: ["support-brand-03", "support-brand-04", "support-brand-07", "support-brand-05", "support-brand-06"],
     items: [
-        "**Redirect:**  IRedirects the user to the page they have selected in a new tab, the cookie banner will continue to show until the user makes a selection.",
+        "**Redirect:**  Redirects the user to the page they have selected in a new tab, the cookie banner will continue to show until the user makes a selection.",
         "**Confirm selection:**  Saves the user's selection and closes the modal and cookie banner.",
         "**Opens a “Manage preferences” modal:**  A modal will open to allow the user to manage their preferences.",
         "**Toggle on/off:**  Allows the user to toggle selections on or off.",
@@ -224,21 +224,21 @@ All motion details for the cookie banner can be found [here](https://www.figma.c
 
 ---
 
-## Right to left languages
+## Right-to-left languages
 
-For languages that read right to left, the layout and alignment of the content is reorganised so the readability of the component makes logical sense.
+For languages that read right-to-left, the layout and alignment of the content is reorganised so the readability of the component makes logical sense.
 
 ### Wide
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/cookie-banner/rtl-banner.svg",
-alt: "Banner displaying right to left content.",
+alt: "Banner displaying right-to-left content.",
 width: 120
 } %}
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/cookie-banner/rtl-modal.svg",
-alt: "Modal displaying right to left content.",
+alt: "Modal displaying right-to-left content.",
 width: 120
 } %}
 
@@ -246,13 +246,13 @@ width: 120
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/cookie-banner/rtl-narrow-banner.svg",
-alt: "Responsive banner displaying right to left content.",
+alt: "Responsive banner displaying right-to-left content.",
 width: 120
 } %}
 
 {% contentPageImage {
 src:"../../../assets/img/patterns/cookie-banner/rtl-narrow-modal.svg",
-alt: "Responsive modal displaying right to left content.",
+alt: "Responsive modal displaying right-to-left content.",
 width: 120
 } %}
 
