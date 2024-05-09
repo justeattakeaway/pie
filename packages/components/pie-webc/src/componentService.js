@@ -2,11 +2,11 @@ export class ComponentService {
     constructor (fs, path) {
         this.fs = fs;
         this.path = path;
-        this.cwd = process.cwd();
     }
 
     getPathShortcuts () {
-        const componentsSourceDir = this.path.resolve(this.cwd, 'packages/components');
+        const workingDir = process.cwd();
+        const componentsSourceDir = this.path.resolve(workingDir, 'packages/components');
         const pieWebcDir = this.path.join(componentsSourceDir, 'pie-webc');
         const componentsTargetDir = this.path.join(pieWebcDir, 'components');
         const reactTargetDir = this.path.join(pieWebcDir, 'react');
@@ -87,7 +87,8 @@ export class ComponentService {
     }
 
     verifyRootDirectory (expectedPackageName) {
-        const packageJsonPath = this.path.join(this.cwd, 'package.json');
+        const workingDir = process.cwd();
+        const packageJsonPath = this.path.join(workingDir, 'package.json');
 
         if (!this.fs.existsSync(packageJsonPath)) {
             console.error('Please run this script from the root of the monorepo.');
