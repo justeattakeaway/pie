@@ -23,13 +23,15 @@ export class ComponentService {
         const packageJsonPath = this.path.join(workingDir, 'package.json');
 
         if (!this.fs.existsSync(packageJsonPath)) {
-            throw new Error('Please run this script from the root of the monorepo.');
+            console.error('Please run this script from the root of the monorepo.');
+            process.exit(1);
         }
 
         const packageJson = JSON.parse(this.fs.readFileSync(packageJsonPath, 'utf8'));
 
         if (packageJson.name !== expectedPackageName) {
-            throw new Error('Incorrect package: Please run this script from the root of the monorepo.');
+            console.error('Incorrect package: Please run this script from the root of the monorepo.');
+            process.exit(1);
         }
     }
 

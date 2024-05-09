@@ -19,47 +19,54 @@ export const main = (fs, path) => {
     const pieWebcPackageJson = componentService.readAndPreparePackageJson(pieWebcPackageJsonPath);
     const excludedFolders = ['pie-webc', 'pie-webc-core', 'pie-webc-testing'];
 
-    processComponents(componentsSourceDir, excludedFolders, pieWebcPackageJson, componentsTargetDir, reactTargetDir, fs, path, componentService);
+    const updatedPackageJson = processComponents(componentsSourceDir, excludedFolders, pieWebcPackageJson, componentsTargetDir, reactTargetDir, fs, path, componentService);
 
-    fs.writeFileSync(pieWebcPackageJsonPath, `${JSON.stringify(pieWebcPackageJson, null, 2)}\n`);
-    console.info('All components added to pie-webc');
+    fs.writeFileSync(pieWebcPackageJsonPath, `${JSON.stringify(updatedPackageJson, null, 2)}\n`);
+    console.info('All components added to pie-webc!');
 };
 
 export const processComponents = (sourceDir, excludedFolders, packageJson, componentsTargetDir, reactTargetDir, fs, path, componentService) => {
     fs.readdirSync(sourceDir).forEach((folder) => {
-        if (folder.startsWith('pie-') && !excludedFolders.includes(folder)) {
-            addComponentToPackage(folder, sourceDir, packageJson, componentsTargetDir, reactTargetDir, fs, path, componentService);
+        if (!folder.startsWith('pie-')) {
+            console.info(`Skipping non-component folder: ${folder}`);
+            return;
         }
-    });
-};
-
-export const addComponentToPackage = (folder, sourceDir, packageJson, componentsTargetDir, reactTargetDir, fs, path, componentService) => {
-    const fullFolderPath = path.join(sourceDir, folder);
-    const componentName = folder.replace('pie-', '');
-    const packageName = `@justeattakeaway/${folder}`;
-    const componentPackageJsonPath = path.join(fullFolderPath, 'package.json');
-    const componentPackageJsonData = fs.readFileSync(componentPackageJsonPath, 'utf-8');
-    const componentPackageJson = JSON.parse(componentPackageJsonData);
-
-    packageJson.dependencies[packageName] = componentPackageJson.version;
-
-    const targets = [
-        {
-            dir: componentsTargetDir,
-            exportPath: packageName,
-        },
-        {
-            dir: reactTargetDir,
-            exportPath: `${packageName}/dist/react.js`,
+        if (excludedFolders.includes(folder)) {
+            console.info(`Skipping excluded folder: ${folder}`);
+            return;
         }
-    ];
 
-    targets.forEach((target) => {
-        componentService.writeFilesForComponent(componentName, target);
+        const fullFolderPath = path.join(sourceDir, folder);
+        const componentName = folder.replace('pie-', '');
+        const packageName = `@justeattakeaway/${folder}`;
+        const componentPackageJsonPath = path.join(fullFolderPath, 'package.json');
+        const componentPackageJsonData = fs.readFileSync(componentPackageJsonPath, 'utf-8');
+        const componentPackageJson = JSON.parse(componentPackageJsonData);
+
+        packageJson.dependencies[packageName] = componentPackageJson.version;
+
+        const targets = [
+            {
+                dir: componentsTargetDir,
+                exportPath: packageName,
+            },
+            {
+                dir: reactTargetDir,
+                exportPath: `${packageName}/dist/react.js`,
+            }
+        ];
+
+        console.info(`Adding component: ${folder}`);
+
+        targets.forEach((target) => {
+            componentService.writeFilesForComponent(componentName, target);
+        });
+
+        packageJson.exports = {
+            ...packageJson.exports,
+            ...componentService.createPackageJsonExports(componentName),
+        };
     });
 
-    packageJson.exports = {
-        ...packageJson.exports,
-        ...componentService.createPackageJsonExports(componentName),
-    };
+    return packageJson;
 };
