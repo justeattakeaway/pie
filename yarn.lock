@@ -5574,16 +5574,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-input@npm:0.18.2":
-  version: 0.18.2
-  resolution: "@justeattakeaway/pie-input@npm:0.18.2"
-  dependencies:
-    "@justeattakeaway/pie-assistive-text": 0.3.6
-    "@justeattakeaway/pie-webc-core": 0.22.0
-  checksum: 29c1fcb52c532e07d89938e642fce534fe111f9529561f369d7f52c370393500fa077c32438ed8c97e551e845dbe8c15c7bf724b5819ce45adcd1b828905de0f
-  languageName: node
-  linkType: hard
-
 "@justeattakeaway/pie-link@0.17.4, @justeattakeaway/pie-link@workspace:packages/components/pie-link":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-link@workspace:packages/components/pie-link"
@@ -5702,7 +5692,7 @@ __metadata:
     "@justeattakeaway/pie-divider": 0.13.4
     "@justeattakeaway/pie-form-label": 0.13.4
     "@justeattakeaway/pie-icon-button": 0.28.5
-    "@justeattakeaway/pie-input": 0.18.2
+    "@justeattakeaway/pie-input": 0.19.0
     "@justeattakeaway/pie-link": 0.17.4
     "@justeattakeaway/pie-modal": 0.42.5
     "@justeattakeaway/pie-notification": 0.5.5
