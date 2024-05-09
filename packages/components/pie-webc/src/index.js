@@ -3,5 +3,8 @@ import fs from 'fs';
 import path from 'path';
 
 import { main } from './add-components.js';
+import { ComponentService } from './componentService.js';
 
-main(fs, path);
+const componentService = new ComponentService(fs, path);
+
+main(componentService);
