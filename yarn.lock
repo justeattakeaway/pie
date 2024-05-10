@@ -5621,17 +5621,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-notification@npm:0.5.5":
-  version: 0.5.5
-  resolution: "@justeattakeaway/pie-notification@npm:0.5.5"
-  dependencies:
-    "@justeattakeaway/pie-icon-button": 0.28.5
-    "@justeattakeaway/pie-icons-webc": 0.23.1
-    "@justeattakeaway/pie-webc-core": 0.22.0
-  checksum: 9ba38dcabdec642bd8da605120cbb93625da98628c482667eca6c7989c856ea0f2f1b8c7e3a43c78fd9696dcc6181288319d4769a7d9d21b05e9f5fa26a82334
-  languageName: node
-  linkType: hard
-
 "@justeattakeaway/pie-spinner@0.6.4, @justeattakeaway/pie-spinner@workspace:packages/components/pie-spinner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-spinner@workspace:packages/components/pie-spinner"
@@ -5706,7 +5695,7 @@ __metadata:
     "@justeattakeaway/pie-input": 0.19.0
     "@justeattakeaway/pie-link": 0.17.4
     "@justeattakeaway/pie-modal": 0.42.5
-    "@justeattakeaway/pie-notification": 0.5.5
+    "@justeattakeaway/pie-notification": 0.6.0
     "@justeattakeaway/pie-spinner": 0.6.4
     "@justeattakeaway/pie-switch": 0.29.4
     "@justeattakeaway/pie-tag": 0.9.5
