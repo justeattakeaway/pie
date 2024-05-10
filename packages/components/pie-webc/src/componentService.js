@@ -88,11 +88,10 @@ export class ComponentService {
 
         this.fs.readdirSync(componentsSourceDir).forEach((folder) => {
             if (!folder.startsWith('pie-')) {
-                console.info(chalk.yellow(`Skipping non-component folder: ${folder}`));
                 return;
             }
             if (excludedFolders.includes(folder)) {
-                console.info(chalk.yellow(`Skipping excluded folder: ${folder}`));
+                console.info(chalk.yellow(`Excluding: ${chalk.white(folder)}`));
                 return;
             }
 
@@ -116,7 +115,7 @@ export class ComponentService {
                 }
             ];
 
-            console.info(`Adding component: ${folder}`);
+            console.info(chalk.gray(`Adding:    ${chalk.white(folder)}`));
 
             targets.forEach((target) => {
                 this.writeFilesForComponent(componentName, target);
