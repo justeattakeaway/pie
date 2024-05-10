@@ -19,6 +19,9 @@ describe('ComponentService', () => {
             resolve: vi.fn(),
         };
 
+        pathMock.join.mockImplementation((...args) => args.join('/'));
+        pathMock.resolve.mockImplementation((...args) => args.join('/'));
+
         // Suppress console output
         vi.spyOn(console, 'info').mockImplementation(() => {}); // eslint-disable-line @typescript-eslint/no-empty-function
     });
@@ -142,7 +145,6 @@ describe('ComponentService', () => {
     describe('writeFilesForComponent', () => {
         it('should write the component files to the target directory', () => {
             // Arrange
-            pathMock.join.mockImplementation((...args) => args.join('/'));
             componentService = new ComponentService(fsMock, pathMock);
             const target = {
                 dir: 'componentsTargetDir',
@@ -179,9 +181,6 @@ describe('ComponentService', () => {
         beforeEach(() => {
             excludedFolders = [];
             workingDir = 'workingDir';
-
-            pathMock.join.mockImplementation((...args) => args.join('/'));
-            pathMock.resolve.mockImplementation((...args) => args.join('/'));
 
             fsMock.readFileSync.mockReturnValue('{"version": "1.1.1"}'); // Component package.json
             fsMock.readdirSync.mockReturnValue(['pie-component-name']); // Default, overridden by some tests

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'fs';
 import path from 'path';
+import chalk from 'chalk';
 
 import { ComponentService } from './componentService.js';
 
@@ -20,7 +21,7 @@ const main = (fs, path) => {
     const updatedPackageJson = componentService.processComponents(workingDir, excludedFolders, pieWebcPackageJson);
 
     componentService.writePackageJson(pieWebcPackageJsonPath, updatedPackageJson);
-    console.info('All components added to pie-webc!');
+    console.info(chalk.green('\nAll components added to pie-webc!'));
 };
 
 main(fs, path);

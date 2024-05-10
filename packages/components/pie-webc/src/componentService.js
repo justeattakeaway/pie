@@ -1,3 +1,5 @@
+import chalk from 'chalk';
+
 export class ComponentService {
     constructor (fs, path) {
         this.fs = fs;
@@ -38,13 +40,13 @@ export class ComponentService {
         const packageJsonPath = this.path.join(workingDir, 'package.json');
 
         if (!this.fs.existsSync(packageJsonPath)) {
-            throw new Error('Please run this script from the root of the monorepo.');
+            throw new Error(chalk.redBright('Please run this script from the root of the monorepo.'));
         }
 
         const packageJson = JSON.parse(this.fs.readFileSync(packageJsonPath, 'utf8'));
 
         if (packageJson.name !== expectedPackageName) {
-            throw new Error('Incorrect package: Please run this script from the root of the monorepo.');
+            throw new Error(chalk.redBright('Incorrect package: Please run this script from the root of the monorepo.'));
         }
     }
 
@@ -86,11 +88,11 @@ export class ComponentService {
 
         this.fs.readdirSync(componentsSourceDir).forEach((folder) => {
             if (!folder.startsWith('pie-')) {
-                console.info(`Skipping non-component folder: ${folder}`);
+                console.info(chalk.yellow(`Skipping non-component folder: ${folder}`));
                 return;
             }
             if (excludedFolders.includes(folder)) {
-                console.info(`Skipping excluded folder: ${folder}`);
+                console.info(chalk.yellow(`Skipping excluded folder: ${folder}`));
                 return;
             }
 

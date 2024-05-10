@@ -9,7 +9,7 @@ export default class extends Generator {
     props: Props;
 
     async initializing () {
-        this.log(chalk`A Yeoman generator for Pie Web Components`);
+        this.log(chalk.hex('#f36805')('Starting PIE web component generator...'));
     }
 
     async prompting () {
@@ -48,8 +48,8 @@ export default class extends Generator {
     }
 
     async end () {
-        this.log(chalk`Adding the new component to pie-webc`);
+        this.log(chalk('Updating pie-webc...'));
         this.spawnCommandSync('npx', ['add-components']);
-        this.log(chalk`Your component has been created at ${this.props.componentPath}`);
+        this.log(chalk.greenBright('Your new component has been created!'));
     }
 }

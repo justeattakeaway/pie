@@ -5699,6 +5699,7 @@ __metadata:
     "@justeattakeaway/pie-spinner": 0.6.4
     "@justeattakeaway/pie-switch": 0.29.4
     "@justeattakeaway/pie-tag": 0.9.5
+    chalk: 5.3.0
   bin:
     add-components: ./src/index.js
   languageName: unknown
