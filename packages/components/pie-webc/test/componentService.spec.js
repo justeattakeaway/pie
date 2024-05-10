@@ -8,14 +8,19 @@ describe('ComponentService', () => {
     beforeEach(() => {
         fsMock = {
             existsSync: vi.fn(),
-            readFileSync: vi.fn(),
             mkdirSync: vi.fn(),
+            readdirSync: vi.fn(),
+            readFileSync: vi.fn(),
             writeFileSync: vi.fn(),
         };
 
         pathMock = {
             join: vi.fn(),
+            resolve: vi.fn(),
         };
+
+        // Suppress console output
+        vi.spyOn(console, 'info').mockImplementation(() => {}); // eslint-disable-line @typescript-eslint/no-empty-function
     });
 
     describe('ensureDirectoryExists', () => {
@@ -116,19 +121,19 @@ describe('ComponentService', () => {
             componentService = new ComponentService(fsMock, pathMock);
 
             // Act
-            const result = componentService.createPackageJsonExports('pie-component');
+            const result = componentService.createPackageJsonExports('component-name');
 
             // Assert
             expect(result).toEqual({
-                './components/pie-component.js': {
-                    import: './components/pie-component.js',
-                    require: './components/pie-component.js',
-                    types: './components/pie-component.d.ts',
+                './components/component-name.js': {
+                    import: './components/component-name.js',
+                    require: './components/component-name.js',
+                    types: './components/component-name.d.ts',
                 },
-                './react/pie-component.js': {
-                    import: './react/pie-component.js',
-                    require: './react/pie-component.js',
-                    types: './react/pie-component.d.ts',
+                './react/component-name.js': {
+                    import: './react/component-name.js',
+                    require: './react/component-name.js',
+                    types: './react/component-name.d.ts',
                 },
             });
         });
@@ -137,8 +142,7 @@ describe('ComponentService', () => {
     describe('writeFilesForComponent', () => {
         it('should write the component files to the target directory', () => {
             // Arrange
-            pathMock.join.mockReturnValueOnce('path/to/file.js');
-            pathMock.join.mockReturnValueOnce('path/to/file.d.ts');
+            pathMock.join.mockImplementation((...args) => args.join('/'));
             componentService = new ComponentService(fsMock, pathMock);
             const target = {
                 dir: 'componentsTargetDir',
@@ -149,8 +153,158 @@ describe('ComponentService', () => {
             componentService.writeFilesForComponent('component-name', target);
 
             // Assert
-            expect(fsMock.writeFileSync).toHaveBeenCalledWith('path/to/file.js', "export * from 'packageName';\n");
-            expect(fsMock.writeFileSync).toHaveBeenCalledWith('path/to/file.d.ts', "export * from 'packageName';\n");
+            expect(fsMock.writeFileSync).toHaveBeenCalledWith('componentsTargetDir/component-name.js', "export * from 'packageName';\n");
+            expect(fsMock.writeFileSync).toHaveBeenCalledWith('componentsTargetDir/component-name.d.ts', "export * from 'packageName';\n");
+        });
+    });
+
+    describe('writePackageJson', () => {
+        it('should write the stringified content to the specified path', () => {
+            // Arrange
+            componentService = new ComponentService(fsMock, pathMock);
+            const packageJson = { name: 'package-name', version: '1.0.0' };
+
+            // Act
+            componentService.writePackageJson('path/to/package.json', packageJson);
+
+            // Assert
+            expect(fsMock.writeFileSync).toHaveBeenCalledWith('path/to/package.json', '{\n  "name": "package-name",\n  "version": "1.0.0"\n}\n');
+        });
+    });
+
+    describe('processComponents', () => {
+        let excludedFolders;
+        let workingDir;
+
+        beforeEach(() => {
+            excludedFolders = [];
+            workingDir = 'workingDir';
+
+            pathMock.join.mockImplementation((...args) => args.join('/'));
+            pathMock.resolve.mockImplementation((...args) => args.join('/'));
+
+            fsMock.readFileSync.mockReturnValue('{"version": "1.1.1"}'); // Component package.json
+            fsMock.readdirSync.mockReturnValue(['pie-component-name']); // Default, overridden by some tests
+        });
+
+        it('should ignore non-component folders', () => {
+            // Arrange
+            fsMock.readdirSync.mockReturnValue(['not-a-component']);
+            componentService = new ComponentService(fsMock, pathMock);
+
+            // Act
+            componentService.processComponents(workingDir, excludedFolders, {});
+
+            // Assert
+            expect(fsMock.writeFileSync).not.toHaveBeenCalled();
+        });
+
+        it('should ignore excluded folders', () => {
+            // Arrange
+            fsMock.readdirSync.mockReturnValue(['pie-excluded']);
+            componentService = new ComponentService(fsMock, pathMock);
+
+            excludedFolders = ['pie-excluded'];
+
+            // Act
+            componentService.processComponents(workingDir, excludedFolders, {});
+
+            // Assert
+            expect(fsMock.writeFileSync).not.toHaveBeenCalled();
+        });
+
+        it('should add components as dependencies to the package.json', () => {
+            // Arrange
+            componentService = new ComponentService(fsMock, pathMock);
+            const spy = vi.spyOn(componentService, 'writeFilesForComponent');
+
+            // Act
+            componentService.processComponents(workingDir, excludedFolders, { dependencies: {} });
+
+            // Assert
+            expect(spy).toHaveBeenCalledWith('component-name', {
+                dir: 'workingDir/packages/components/pie-webc/components',
+                exportPath: '@justeattakeaway/pie-component-name',
+            });
+
+            expect(spy).toHaveBeenCalledWith('component-name', {
+                dir: 'workingDir/packages/components/pie-webc/react',
+                exportPath: '@justeattakeaway/pie-component-name/dist/react.js',
+            });
+        });
+
+        it('should add exports for each component to the package.json', () => {
+            // Arrange
+            componentService = new ComponentService(fsMock, pathMock);
+            const rootPackageJson = { dependencies: {} };
+
+            // Act
+            const { exports } = componentService.processComponents(workingDir, excludedFolders, rootPackageJson);
+
+            // Assert
+            expect(Object.keys(exports)).toHaveLength(2);
+            expect(Object.keys(exports)).toContain('./components/component-name.js');
+            expect(Object.keys(exports)).toContain('./react/component-name.js');
+            // Content of the exports object is tested in createPackageJsonExports
+        });
+
+        it('should preserve existing exports in the package.json', () => {
+            // Arrange
+            componentService = new ComponentService(fsMock, pathMock);
+            const rootPackageJson = {
+                dependencies: {},
+                exports: {
+                    './components/existing-component.js': {},
+                    './react/existing-component.js': {},
+                },
+            };
+
+            // Act
+            const { exports } = componentService.processComponents(workingDir, excludedFolders, rootPackageJson);
+
+            // Assert
+            expect(Object.keys(exports)).toContain('./components/existing-component.js');
+            expect(Object.keys(exports)).toContain('./react/existing-component.js');
+            expect(Object.keys(exports)).toHaveLength(4);
+        });
+
+        it('should override existing exports in the package.json', () => {
+            // Arrange
+            componentService = new ComponentService(fsMock, pathMock);
+            const rootPackageJson = {
+                dependencies: {},
+                exports: {
+                    './components/component-name.js': {},
+                    './react/component-name.js': {},
+                },
+            };
+
+            // Act
+            const { exports } = componentService.processComponents(workingDir, excludedFolders, rootPackageJson);
+
+            // Assert
+            expect(Object.keys(exports)).toContain('./components/component-name.js');
+            expect(Object.keys(exports)).toContain('./react/component-name.js');
+            expect(Object.keys(exports)).toHaveLength(2);
+        });
+
+        it('should preserve existing dependencies in the package.json', () => {
+            // Arrange
+            fsMock.readdirSync.mockReturnValue(['pie-new-component']);
+
+            componentService = new ComponentService(fsMock, pathMock);
+            const rootPackageJson = {
+                dependencies: { '@justeattakeaway/pie-existing-component': '1.0.0' },
+            };
+
+            // Act
+            const { dependencies } = componentService.processComponents(workingDir, excludedFolders, rootPackageJson);
+
+            // Assert
+            expect(dependencies).toEqual({
+                '@justeattakeaway/pie-existing-component': '1.0.0',
+                '@justeattakeaway/pie-new-component': '1.1.1',
+            });
         });
     });
 });

@@ -9,9 +9,7 @@ const main = (fs, path) => {
     const componentService = new ComponentService(fs, path);
     componentService.verifyRootDirectory(workingDir, 'pie-monorepo');
 
-    const {
-        componentsTargetDir, reactTargetDir, pieWebcPackageJsonPath,
-    } = componentService.getPathShortcuts(workingDir);
+    const { componentsTargetDir, reactTargetDir, pieWebcPackageJsonPath } = componentService.getPathShortcuts(workingDir);
 
     componentService.ensureDirectoryExists(componentsTargetDir);
     componentService.ensureDirectoryExists(reactTargetDir);
