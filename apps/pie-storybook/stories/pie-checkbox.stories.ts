@@ -18,6 +18,11 @@ const defaultArgs: CheckboxProps = {
     disabled: false,
     checked: false,
     indeterminate: false,
+    aria: {
+        label: '',
+        labelledby: '',
+        describedby: '',
+    },
 };
 
 const checkboxStoryMeta: CheckboxStoryMeta = {
@@ -66,6 +71,11 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
                 summary: false,
             },
         },
+
+        aria: {
+            description: 'ARIA object to pass label/labelledby/describedby aria attributes',
+            control: 'object',
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -85,6 +95,7 @@ const Template = ({
     checked,
     disabled,
     indeterminate,
+    aria,
 }: CheckboxProps) => {
     function onChange (event: CustomEvent) {
         action('change')({
@@ -100,6 +111,7 @@ const Template = ({
             ?checked="${checked}"
             ?disabled="${disabled}"
             ?indeterminate="${indeterminate}"
+            .aria="${aria}"
             @change="${onChange}">
         </pie-checkbox>
     `;
