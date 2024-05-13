@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.59.2
+
+### Patch Changes
+
+- [Changed] - update babel dependencies ([#1432](https://github.com/justeattakeaway/pie/pull/1432)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 2.59.1
 
 ### Patch Changes
