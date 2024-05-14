@@ -1,5 +1,13 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.21.0
+
+### Minor Changes
+
+- [Changed] - Invoke the new `add-components` command after generating new components to ensure they are correctly added to pie-webc ([#1426](https://github.com/justeattakeaway/pie/pull/1426)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Changed] - Improve logging and message formatting
+
 ## 0.20.3
 
 ### Patch Changes
