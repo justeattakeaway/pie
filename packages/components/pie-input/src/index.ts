@@ -225,7 +225,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     data-test-id="pie-input">
                 <slot name="trailing"></slot>
             </div>
-            ${assistiveText ? html`<span id="assistive-text" variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</span>` : nothing}`;
+            ${assistiveText ? html`<assistive-text id="assistive-text" variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</assistive-text>` : nothing}`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
