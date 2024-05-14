@@ -147,7 +147,12 @@ export class PieNotification extends LitElement implements NotificationProps {
      * @private
      */
     private renderNotificationHeading (heading: NotificationProps['heading'], headingTag: StaticValue): TemplateResult {
-        return html`<${headingTag} class="${componentClass}-heading" data-test-id="${componentSelector}-heading">${heading}</${headingTag}>`;
+        return html`<${headingTag}
+                        id="${componentSelector}-heading"
+                        class="${componentClass}-heading"
+                        data-test-id="${componentSelector}-heading">
+                            ${heading}
+                    </${headingTag}>`;
     }
 
     /**
@@ -333,7 +338,10 @@ export class PieNotification extends LitElement implements NotificationProps {
                 class="${componentClass}"
                 variant="${variant}"
                 position="${position}"
-                ?isCompact="${isCompact}">
+                ?isCompact="${isCompact}"
+                role="${['success', 'warning', 'error'].includes(variant) ? 'alert' : 'region'}"
+                aria-labelledby="${heading ? `${componentSelector}-heading` : nothing}"
+                aria-live="${variant === 'error' ? 'assertive' : 'polite'}">
                 ${showCloseButton ? this.renderCloseButton() : nothing}
 
                 <section class="${componentClass}-content-section" ?isDismissible="${showCloseButton}">
