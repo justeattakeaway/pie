@@ -5364,7 +5364,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-checkbox@0.1.0, @justeattakeaway/pie-checkbox@workspace:packages/components/pie-checkbox":
+"@justeattakeaway/pie-checkbox@0.2.0, @justeattakeaway/pie-checkbox@workspace:packages/components/pie-checkbox":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-checkbox@workspace:packages/components/pie-checkbox"
   dependencies:
@@ -5685,7 +5685,7 @@ __metadata:
     "@justeattakeaway/pie-assistive-text": 0.3.6
     "@justeattakeaway/pie-button": 0.47.4
     "@justeattakeaway/pie-card": 0.19.4
-    "@justeattakeaway/pie-checkbox": 0.1.0
+    "@justeattakeaway/pie-checkbox": 0.2.0
     "@justeattakeaway/pie-chip": 0.6.2
     "@justeattakeaway/pie-components-config": 0.16.0
     "@justeattakeaway/pie-cookie-banner": 0.19.6
@@ -29140,7 +29140,7 @@ __metadata:
     "@justeattakeaway/pie-assistive-text": 0.3.6
     "@justeattakeaway/pie-button": 0.47.4
     "@justeattakeaway/pie-card": 0.19.4
-    "@justeattakeaway/pie-checkbox": 0.1.0
+    "@justeattakeaway/pie-checkbox": 0.2.0
     "@justeattakeaway/pie-chip": 0.6.2
     "@justeattakeaway/pie-cookie-banner": 0.19.6
     "@justeattakeaway/pie-css": 0.11.0
