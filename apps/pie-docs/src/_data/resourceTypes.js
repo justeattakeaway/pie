@@ -5,6 +5,7 @@
  */
 module.exports = {
     COMPONENT: 'Component',
+    PATTERN: 'Pattern',
     DOCUMENTATION: 'Documentation',
     WEB_COMPONENTS: 'Web Components',
     VUE: 'Vue [Fozzie]',

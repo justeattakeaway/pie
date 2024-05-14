@@ -1,0 +1,29 @@
+{
+  "headings": [
+    "Event",
+    "Type",
+    "Description"
+  ],
+  "rows": [
+    [
+      "`pie-cookie-banner-accept-all`",
+      "`CustomEvent`",
+      "Triggered when the user chooses to accept all cookies."
+    ],
+    [
+      "`pie-cookie-banner-necessary-only`",
+      "`CustomEvent`",
+      "Triggered when the user chooses to accept necessary cookies only."
+    ],
+    [
+      "`pie-cookie-banner-manage-prefs`",
+      "`CustomEvent`",
+      "Triggered when the user chooses to manage their cookie preferences."
+    ],
+    [
+      "`pie-cookie-banner-prefs-saved`",
+      "`CustomEvent`",
+      "Triggered when the user saves their cookie preferences."
+    ]
+  ]
+}

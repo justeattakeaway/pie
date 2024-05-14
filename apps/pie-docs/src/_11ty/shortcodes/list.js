@@ -3,6 +3,8 @@ const listTypes = require('../../_data/listTypes');
 const pieIconsSvg = require('../filters/pieIconsSvg');
 const pieDesignTokenColours = require('../filters/pieDesignTokenColours');
 
+const getTokenByName = (tokenName) => pieDesignTokenColours({ tokenName, tokenPath: ['alias', 'default'] });
+
 const getIconSvg = (iconName, iconFill) => {
     if (!iconName) throw new Error(`List item for 'type = ${listTypes.icon}' must have iconName`);
     return pieIconsSvg({
@@ -17,6 +19,14 @@ const getIconSvg = (iconName, iconFill) => {
     });
 };
 
+const getHighlightIndicator = (highlightColour, index) => {
+    const highlightColourHexcode = highlightColour?.[index]
+        ? getTokenByName(highlightColour[index])
+        : getTokenByName('support-brand-03');
+
+    return `<span class="c-list--highlight-indicator" style="background-color: ${highlightColourHexcode};"></span>`;
+};
+
 /**
  * A List HTML component – takes an array of list items and turns them into a marked-up list
  * @param {string} type - Type of list: ordered, pill, icon
@@ -27,18 +37,22 @@ const getIconSvg = (iconName, iconFill) => {
  */
 // eslint-disable-next-line func-names
 module.exports = function ({
-    type, items, iconName, iconFill,
+    type, items, iconName, iconFill, highlightColour,
 }) {
     if (!type || !listTypes[type]) {
         throw new Error(`List 'type = ${type}' not recognised. Try ${Object.values(listTypes).join(', ')}`);
     }
 
     const isIconType = type === listTypes.icon;
-    const iconFillHexcode = iconFill ? pieDesignTokenColours({ tokenName: iconFill, tokenPath: ['alias', 'default'] }) : null;
-    const listItems = items.map((item) => `<li class="c-list-item">
+    const iconFillHexcode = iconFill ? getTokenByName(iconFill) : null;
+    const isHighlightType = type === listTypes.highlight;
+
+    const listItems = items.map((item, index) => `<li class="c-list-item">
         ${isIconType ? getIconSvg(iconName, iconFill) : ''}
+        ${isHighlightType ? getHighlightIndicator(highlightColour, index) : ''}
         ${markdownFilter(item, true)}
         </li>`).join('');
+
     const listTag = type === listTypes.ordered ? 'ol' : 'ul';
     const listClasses = [
         'c-list',

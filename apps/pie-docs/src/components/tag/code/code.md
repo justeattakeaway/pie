@@ -44,7 +44,7 @@ $ yarn add @justeattakeaway/pie-tag
 ## Playground
 
  <iframe
-  src="https://webc.pie.design/?path=/story/tag--default&viewMode=story&shortcuts=true&singleStory=true"
+  src="https://webc.pie.design/?path=/story/tag--neutral&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="600px"
   style="border: none; margin-top: 32px;"
