@@ -15,6 +15,7 @@ import {
     types, statusTypes, InputProps, InputDefaultPropertyValues,
 } from './defs';
 import 'element-internals-polyfill';
+import { AriaProps } from '@justeattakeaway/pie-switch/src';
 
 // Valid values available to consumers
 export * from './defs';
@@ -30,6 +31,9 @@ const componentSelector = 'pie-input';
  */
 export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements InputProps, PIEInputElement {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
+
+    @property({ type: Object })
+    public aria!: AriaProps;
 
     @property({ type: String, reflect: true })
     @validPropertyValues(componentSelector, types, 'text')
@@ -218,12 +222,15 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     placeholder=${ifDefined(placeholder)}
                     ?readonly=${readonly}
                     ?required=${required}
+                    aria-labelledby=${ifDefined(assistiveText ? 'assistive-text' : undefined)}
+                    aria-invalid=${status === 'error' ? 'true' : 'false'}
+                    aria-errormessage="${ifDefined(status === 'error' ? 'assistive-text' : undefined)}"
                     @input=${this.handleInput}
                     @change=${this.handleChange}
                     data-test-id="pie-input">
                 <slot name="trailing"></slot>
             </div>
-            ${assistiveText ? html`<pie-assistive-text variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}`;
+            ${assistiveText ? html`<span id="assistive-text" variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</span>` : nothing}`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

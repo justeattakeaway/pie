@@ -5,6 +5,7 @@ import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/IconPlaceh
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
 import { PieInput, InputProps } from '../../src/index.ts';
 import { statusTypes } from '../../src/defs.ts';
+import {CardProps, PieCard} from "@justeattakeaway/pie-card/src";
 
 const componentSelector = '[data-test-id="pie-input"]';
 const assistiveTextSelector = '[data-test-id="pie-input-assistive-text"]';
@@ -605,6 +606,23 @@ test.describe('PieInput - Component tests', () => {
                     });
                 });
             });
+
+            test.describe('Assistive test ID attribute', () => {
+               test('should contain an ID associated the input element for a11y', async ({ mount, page }) => {
+                   // Arrange
+                   await mount(PieInput, {
+                       props: {
+                           assistiveText: 'Assistive text',
+                       } as InputProps,
+                   });
+
+                   // Act
+                   const assistiveText = page.locator(assistiveTextSelector);
+
+                   // Assert
+                   await expect(assistiveText).toHaveAttribute('id', 'assistive-text');
+               });
+            });
         });
 
         test.describe('step', () => {
@@ -1203,6 +1221,123 @@ test.describe('PieInput - Component tests', () => {
             // Assert
             expect(formDataObj).toStrictEqual({
                 email: 'included@test.com',
+            });
+        });
+    });
+
+    test.describe('Attributes:', () => {
+        test.describe('aria-describedby', () => {
+            test.describe('when `assistiveText` is not defined', () => {
+                test('should not render the attribute', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieInput, {
+                        props: {} as InputProps,
+                    });
+
+                    // Act
+                    const input = component.locator('input');
+
+                    const componentAttribute = await input.getAttribute('aria-describedby');
+
+                    // Assert
+                    expect(componentAttribute).toBeNull();
+                });
+            });
+            test.describe('when `assistiveText` is defined', () => {
+                test('should render the attribute correctly with the correct value', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieInput, {
+                        props: {
+                            assistiveText: 'Some useful message',
+                        } as InputProps,
+                    });
+
+                    // Act
+                    const input = component.locator('input');
+
+                    const componentAttribute = await input.getAttribute('aria-describedby');
+
+                    // Assert
+                    expect(componentAttribute).toBeDefined();
+                });
+            });
+        });
+
+        test.describe('aria-invalid', () => {
+            test.describe('when the component status is set to `Error`', () => {
+                test('should render the `aria-invalid` attribute', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieInput, {
+                        props: {
+                            status: 'error',
+                        } as InputProps,
+                    });
+
+                    // Act
+                    const input = component.locator('input');
+
+                    const componentAttribute = await input.getAttribute('aria-invalid');
+
+                    // Assert
+                    expect(componentAttribute).toBeDefined();
+                });
+            });
+            test.describe('when the component `status` is set to anything but `Error`', () => {
+                test('should not render the should render the `aria-invalid` attribute', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieInput, {
+                        props: {
+                            status: 'success',
+                        } as InputProps,
+                    });
+
+                    // Act
+                    const input = component.locator('input');
+
+                    const componentAttribute = await input.getAttribute('aria-describedby');
+
+                    // Assert
+                    expect(componentAttribute).toBeNull();
+                });
+            });
+        });
+
+        test.describe('aria-errormessage', () => {
+            test.describe('when the component status is set to `Error`', () => {
+                test('should render the `aria-errormessage` attribute', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieInput, {
+                        props: {
+                            status: 'error',
+                        } as InputProps,
+                    });
+
+                    // Act
+                    const input = component.locator('input');
+
+                    const componentAttribute = await input.getAttribute('aria-errormessage');
+
+                    // Assert
+                    expect(componentAttribute).toBeDefined();
+                });
+            });
+            test.describe('when the component `status` is set to anything but `Error`', () => {
+                test('should not render the should render the `aria-invalid` attribute', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieInput, {
+                        props: {
+                            status: 'success',
+                        } as InputProps,
+                    });
+
+                    // Act
+                    const input = component.locator('input');
+
+                    const componentAttribute = await input.getAttribute('aria-errormessage');
+
+                    // Assert
+                    expect(componentAttribute).toBeNull();
+                });
             });
         });
     });
