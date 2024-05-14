@@ -6,6 +6,11 @@ export class ComponentService {
         this.path = path;
     }
 
+    /**
+     * Helper function to get some frequently-used paths for the script.
+     * @param {string} workingDir - The current working directory.
+     * @returns {Object} - An object containing useful paths for the script.
+     */
     getPathShortcuts (workingDir) {
         const componentsSourceDir = this.path.resolve(workingDir, 'packages/components');
         const pieWebcDir = this.path.join(componentsSourceDir, 'pie-webc');
@@ -21,12 +26,22 @@ export class ComponentService {
         };
     }
 
+    /**
+     * Checks if a directory exists and creates it if it doesn't.
+     * @param {string} dir - The directory to create if it doesn't exist.
+     */
     ensureDirectoryExists (dir) {
         if (!this.fs.existsSync(dir)) {
             this.fs.mkdirSync(dir, { recursive: true });
         }
     }
 
+    /**
+     * Reads and returns the package.json file at the given path,
+     * making sure that the `exports` and `dependencies` fields are present.
+     * @param {string} packageJsonPath - Path to the package.json file, including the file name.
+     * @returns - The prepared package.json object.
+     */
     readAndPreparePackageJson (packageJsonPath) {
         const packageJsonData = this.fs.readFileSync(packageJsonPath, 'utf-8');
         const packageJson = JSON.parse(packageJsonData);
@@ -36,6 +51,12 @@ export class ComponentService {
         return packageJson;
     }
 
+    /**
+     * Verifies that the script is run from the root of the monorepo
+     * and that the package name matches the expected package name.
+     * @param {string} workingDir - The working directory from which the script is being run.
+     * @param {*} expectedPackageName - The expected package name for the directory the script should be run from.
+     */
     verifyRootDirectory (workingDir, expectedPackageName) {
         const packageJsonPath = this.path.join(workingDir, 'package.json');
 
@@ -50,6 +71,11 @@ export class ComponentService {
         }
     }
 
+    /**
+     * Creates the exports for a component to be added to the pie-webc package.json.
+     * @param {string} componentName - The name of the component to create exports for, omitting the `'pie-'` prefix.
+     * @returns {Object} - An object containing the exports for the component.
+     */
     createPackageJsonExports (componentName) {
         const exports = {
             [`./components/${componentName}.js`]: {
@@ -67,6 +93,16 @@ export class ComponentService {
         return exports;
     }
 
+    /**
+     * Writes a `.js` and `.d.ts` file for the given component to the target directory.
+     * @param {*} componentName - The name of the component to write files for, omitting the `'pie-'` prefix.
+     * @param {*} target - An object containing the target directory and the export path.
+     * @param {*} target.dir - The target directory to write the files to.
+     * Either `'components'` or `'react'`.
+     * @param {*} target.exportPath - The export path for the component.
+     * For react components, this should be the path to the react.js file including the package name, e.g., `'@justeattakeaway/pie-button/dist/react.js'`.
+     * Otherwise, this should be the package name, e.g., `'@justeattakeaway/pie-button'`.
+     */
     writeFilesForComponent (componentName, target) {
         const jsFilePath = this.path.join(target.dir, `${componentName}.js`);
         const tsFilePath = this.path.join(target.dir, `${componentName}.d.ts`);
@@ -76,10 +112,23 @@ export class ComponentService {
         this.fs.writeFileSync(tsFilePath, fileContent);
     }
 
+    /**
+     * Writes the package.json file to the given path.
+     * @param {string} path - The path to write the package.json file to.
+     * @param {Object} content - The content to write to the package.json file.
+     */
     writePackageJson (path, content) {
         this.fs.writeFileSync(path, `${JSON.stringify(content, null, 2)}\n`);
     }
 
+    /**
+     * Processes all components in the components directory, adding them to the pie-webc package.
+     * @param {*} workingDir - The working directory from which the script is run.
+     * @param {*} excludedFolders - An array of folder names to exclude from the processing.
+     * By default, any folder starting with 'pie-' will be processed, unless excluded.
+     * @param {*} packageJson - The package.json object to update with the new dependencies and exports.
+     * @returns - The updated package.json object.
+     */
     processComponents (workingDir, excludedFolders, packageJson) {
         const newPackageJson = { ...packageJson };
         const {
@@ -102,6 +151,7 @@ export class ComponentService {
             const componentPackageJsonData = this.fs.readFileSync(componentPackageJsonPath, 'utf-8');
             const componentPackageJson = JSON.parse(componentPackageJsonData);
 
+            // Add the component to dependencies
             newPackageJson.dependencies[packageName] = componentPackageJson.version;
 
             const targets = [

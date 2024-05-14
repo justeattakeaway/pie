@@ -5,7 +5,12 @@ import chalk from 'chalk';
 
 import { ComponentService } from './componentService.js';
 
-const main = (fs, path) => {
+/**
+ * The main entry point of the script which adds all components to the pie-webc package.
+ * @param {*} fs - Node.js file system module
+ * @param {*} path - Node.js path module
+ */
+const addComponents = (fs, path) => {
     const workingDir = process.cwd();
     const componentService = new ComponentService(fs, path);
     componentService.verifyRootDirectory(workingDir, 'pie-monorepo');
@@ -24,4 +29,5 @@ const main = (fs, path) => {
     console.info(chalk.green('\nAll components added to pie-webc!'));
 };
 
-main(fs, path);
+// Run the script
+addComponents(fs, path);
