@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.75.1
+
+### Patch Changes
+
+- Updated dependencies [[`9b1d8ee1a`](https://github.com/justeattakeaway/pie/commit/9b1d8ee1a47baff6cf4ec57fae3a3da4c52aa795)]:
+  - @justeattakeaway/pie-checkbox@0.2.0
+
 ## 0.75.0
 
 ### Minor Changes
