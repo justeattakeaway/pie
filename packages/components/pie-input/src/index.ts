@@ -15,7 +15,6 @@ import {
     types, statusTypes, InputProps, InputDefaultPropertyValues,
 } from './defs';
 import 'element-internals-polyfill';
-import { AriaProps } from '@justeattakeaway/pie-switch/src';
 
 // Valid values available to consumers
 export * from './defs';
@@ -31,10 +30,6 @@ const componentSelector = 'pie-input';
  */
 export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements InputProps, PIEInputElement {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
-
-    @property({ type: Object })
-    public aria!: AriaProps;
-
     @property({ type: String, reflect: true })
     @validPropertyValues(componentSelector, types, 'text')
     public type? = InputDefaultPropertyValues.type;

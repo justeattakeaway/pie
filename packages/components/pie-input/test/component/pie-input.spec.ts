@@ -5,7 +5,6 @@ import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/IconPlaceh
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
 import { PieInput, InputProps } from '../../src/index.ts';
 import { statusTypes } from '../../src/defs.ts';
-import {CardProps, PieCard} from "@justeattakeaway/pie-card/src";
 
 const componentSelector = '[data-test-id="pie-input"]';
 const assistiveTextSelector = '[data-test-id="pie-input-assistive-text"]';
@@ -608,20 +607,20 @@ test.describe('PieInput - Component tests', () => {
             });
 
             test.describe('Assistive test ID attribute', () => {
-               test('should contain an ID associated the input element for a11y', async ({ mount, page }) => {
-                   // Arrange
-                   await mount(PieInput, {
-                       props: {
-                           assistiveText: 'Assistive text',
-                       } as InputProps,
-                   });
+                test('should contain an ID associated the input element for a11y', async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieInput, {
+                        props: {
+                            assistiveText: 'Assistive text',
+                        } as InputProps,
+                    });
 
-                   // Act
-                   const assistiveText = page.locator(assistiveTextSelector);
+                    // Act
+                    const assistiveText = page.locator(assistiveTextSelector);
 
-                   // Assert
-                   await expect(assistiveText).toHaveAttribute('id', 'assistive-text');
-               });
+                    // Assert
+                    await expect(assistiveText).toHaveAttribute('id', 'assistive-text');
+                });
             });
         });
 
