@@ -217,7 +217,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     placeholder=${ifDefined(placeholder)}
                     ?readonly=${readonly}
                     ?required=${required}
-                    aria-labelledby=${ifDefined(assistiveText ? 'assistive-text' : undefined)}
+                    aria-describedby=${ifDefined(assistiveText ? 'assistive-text' : undefined)}
                     aria-invalid=${status === 'error' ? 'true' : 'false'}
                     aria-errormessage="${ifDefined(status === 'error' ? 'assistive-text' : undefined)}"
                     @input=${this.handleInput}
@@ -225,7 +225,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     data-test-id="pie-input">
                 <slot name="trailing"></slot>
             </div>
-            ${assistiveText ? html`<assistive-text id="assistive-text" variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</assistive-text>` : nothing}`;
+            ${assistiveText ? html`<pie-assistive-text id="assistive-text" variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
