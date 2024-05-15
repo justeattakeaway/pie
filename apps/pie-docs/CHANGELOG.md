@@ -1,5 +1,19 @@
 # Changelog
 
+## 3.35.0
+
+### Minor Changes
+
+- [Added] - Added Cookie Banner overview documentation ([#1412](https://github.com/justeattakeaway/pie/pull/1412)) by [@maledr5](https://github.com/maledr5)
+
+  [Changed] - Improved list component to show highlight markers
+
+- [Added] - Create Patterns navigation and added Cookie Banner code documentation ([#1412](https://github.com/justeattakeaway/pie/pull/1412)) by [@maledr5](https://github.com/maledr5)
+
+### Patch Changes
+
+- [Fixed] - Tag component playground link was broken. Changed to point to Neutral story instead. ([#1412](https://github.com/justeattakeaway/pie/pull/1412)) by [@maledr5](https://github.com/maledr5)
+
 ## 3.34.0
 
 ### Minor Changes

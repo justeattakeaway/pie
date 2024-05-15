@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.2.0
+
+### Minor Changes
+
+- [Added] - Render a checkbox in pie-checkbox component with the following properties: name, value, label, checked, disabled, required and indeterminate. ([#1437](https://github.com/justeattakeaway/pie/pull/1437)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.1.0
 
 ### Minor Changes

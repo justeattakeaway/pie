@@ -1,0 +1,59 @@
+{
+    "headings": ["Prop", "Options", "Description", "Default"],
+    "rows": [
+        [
+            "hasPrimaryActionsOnly",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "When true, sets the variant to \"primary\" for the button which accepts necessary cookies only.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "locale",
+            "Any locale from [this list](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-cookie-banner/locales)",
+            "Assigns the localisation data for the component strings.",
+            "English language locale"
+        ],
+        [
+            "cookieStatementLink",
+            {
+                "type": "code",
+                "item": []
+            },
+            "The URL of the cookie statement page the banner should link to.",
+            {
+                "type": "code",
+                "item": ["\"\""]
+            }
+        ],
+        [
+          "cookieTechnologiesLink",
+          {
+            "type": "code",
+            "item": []
+          },
+          "The URL for the cookie technology link.",
+          {
+            "type": "code",
+            "item": ["\"\""]
+          }
+        ],
+        [
+          "defaultPreferences",
+          {
+            "type": "code",
+            "item": ["all", "necessary", "functional", "analytical", "personalized"]
+          },
+          "Allows default preferences to be passed in by the consumer, for example  \"{ 'functional': true, 'personalized': true, 'analytical': true }\"",
+          {
+            "type": "code",
+            "item": ["{}"]
+          }
+      ]
+    ]
+}
