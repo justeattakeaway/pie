@@ -9,6 +9,7 @@ import {
     sizes,
     variants,
     type AriaProps,
+    defaultProps,
 } from './defs';
 
 // Valid values available to consumers
@@ -24,12 +25,12 @@ export class PieSpinner extends LitElement implements SpinnerProps {
     public aria?: AriaProps;
 
     @property()
-    @validPropertyValues(componentSelector, sizes, 'medium')
-    public size?: SpinnerProps['size'] = 'medium';
+    @validPropertyValues(componentSelector, sizes, defaultProps.size)
+    public size?: SpinnerProps['size'] = defaultProps.size;
 
     @property()
-    @validPropertyValues(componentSelector, variants, 'brand')
-    public variant?: SpinnerProps['variant'] = 'brand';
+    @validPropertyValues(componentSelector, variants, defaultProps.variant)
+    public variant?: SpinnerProps['variant'] = defaultProps.variant;
 
     render () {
         const { variant, size, aria } = this;
@@ -40,8 +41,8 @@ export class PieSpinner extends LitElement implements SpinnerProps {
                 class="c-spinner"
                 role="status"
                 aria-live="polite"
-                size="${size || 'medium'}"
-                variant="${variant || 'brand'}">
+                size="${size || defaultProps.size}"
+                variant="${variant || defaultProps.variant}">
                    ${aria?.label ? html`<span class="c-spinner-label">${aria.label}</span>` : nothing}
                 </div>`;
     }

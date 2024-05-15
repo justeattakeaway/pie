@@ -2,7 +2,7 @@ import { html } from 'lit';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-assistive-text';
-import { AssistiveTextProps as AssistiveTextBaseProps, variants } from '@justeattakeaway/pie-assistive-text';
+import { AssistiveTextProps as AssistiveTextBaseProps, variants, defaultProps } from '@justeattakeaway/pie-assistive-text';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta, SlottedComponentProps } from '../types';
@@ -12,7 +12,7 @@ type AssistiveTextProps = SlottedComponentProps<AssistiveTextBaseProps>;
 type AssistiveTextStoryMeta = StoryMeta<AssistiveTextProps>;
 
 const defaultArgs: AssistiveTextProps = {
-    variant: 'default',
+    ...defaultProps,
     slot: 'Assistive Text',
 };
 
@@ -25,7 +25,7 @@ const assistiveTextStoryMeta: AssistiveTextStoryMeta = {
             control: 'select',
             options: variants,
             defaultValue: {
-                summary: 'default',
+                summary: defaultProps.variant,
             },
         },
         slot: {
@@ -49,7 +49,7 @@ const Template : TemplateFunction<AssistiveTextProps> = ({
     slot,
 }) => html`
     <pie-assistive-text
-        variant="${variant}">
+        variant="${variant || defaultProps.variant}">
         ${sanitizeAndRenderHTML(slot)}
     </pie-assistive-text>
 `;

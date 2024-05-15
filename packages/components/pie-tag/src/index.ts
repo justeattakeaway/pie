@@ -4,7 +4,9 @@ import {
 import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './tag.scss?inline';
-import { TagProps, variants, sizes } from './defs';
+import {
+    TagProps, variants, sizes, defaultProps,
+} from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -18,18 +20,18 @@ const componentSelector = 'pie-tag';
  */
 export class PieTag extends LitElement implements TagProps {
     @property({ type: String })
-    @validPropertyValues(componentSelector, variants, 'neutral')
-    public variant: TagProps['variant'] = 'neutral';
+    @validPropertyValues(componentSelector, variants, defaultProps.variant)
+    public variant: TagProps['variant'] = defaultProps.variant;
 
     @property({ type: String })
-    @validPropertyValues(componentSelector, sizes, 'large')
-    public size : TagProps['size'] = 'large';
+    @validPropertyValues(componentSelector, sizes, defaultProps.size)
+    public size : TagProps['size'] = defaultProps.size;
 
     @property({ type: Boolean })
-    public isStrong = false;
+    public isStrong = defaultProps.isStrong;
 
     @property({ type: Boolean })
-    public isDimmed = false;
+    public isDimmed = defaultProps.isDimmed;
 
     render () {
         const {
@@ -41,8 +43,8 @@ export class PieTag extends LitElement implements TagProps {
         return html`
             <div
                 class="c-tag"
-                variant=${variant || 'neutral'}
-                size=${size || 'large'}
+                variant=${variant || defaultProps.variant}
+                size=${size || defaultProps.size}
                 ?isStrong=${isStrong}
                 ?isDimmed=${isDimmed}
                 data-test-id="pie-tag"

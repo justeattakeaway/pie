@@ -1,3 +1,5 @@
+import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+
 export type AriaProps = {
     label?: string;
     labelledby?: string;
@@ -45,3 +47,11 @@ export interface CheckboxProps {
      */
     aria?: AriaProps;
 }
+
+export type DefaultProps = ComponentDefaultPropsGeneric<CheckboxProps, 'required' | 'indeterminate'>;
+
+export const defaultProps: DefaultProps = {
+    required: false,
+    indeterminate: false,
+};
+

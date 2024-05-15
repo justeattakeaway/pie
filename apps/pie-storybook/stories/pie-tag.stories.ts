@@ -3,7 +3,7 @@ import { html, nothing } from 'lit';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-tag';
 import {
-    TagProps as TagBaseProps, variants, sizes,
+    TagProps as TagBaseProps, variants, sizes, defaultProps,
 } from '@justeattakeaway/pie-tag';
 /* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
@@ -15,10 +15,7 @@ type TagProps = SlottedComponentProps<TagBaseProps> & { showIcon: boolean };
 type TagStoryMeta = StoryMeta<TagProps>;
 
 const defaultArgs: TagProps = {
-    variant: 'neutral',
-    size: 'large',
-    isStrong: false,
-    isDimmed: false,
+    ...defaultProps,
     showIcon: false,
     slot: 'Label',
 };
@@ -32,7 +29,7 @@ const tagStoryMeta: TagStoryMeta = {
             control: 'select',
             options: variants,
             defaultValue: {
-                summary: 'neutral',
+                summary: defaultProps.variant,
             },
         },
         size: {
@@ -40,28 +37,28 @@ const tagStoryMeta: TagStoryMeta = {
             control: 'select',
             options: sizes,
             defaultValue: {
-                summary: 'large',
+                summary: defaultProps.size,
             },
         },
         isStrong: {
             description: 'If `true`, displays strong tag styles for some of the variant',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.isStrong,
             },
         },
         isDimmed: {
             description: 'If `true`, lowers the tag opacity.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.isDimmed,
             },
         },
         showIcon: {
             description: 'Enable to see the example of Tag with icon. Available only for large tag size.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultArgs.showIcon,
             },
             if: { arg: 'size', eq: 'large' },
         },
@@ -90,8 +87,8 @@ const Template : TemplateFunction<TagProps> = ({
     slot,
 }) => html`
     <pie-tag
-        variant="${variant}"
-        size="${size}"
+        variant="${variant || defaultProps.variant}"
+        size="${size || defaultProps.size}"
         ?isStrong="${isStrong}"
         ?isDimmed="${isDimmed}">
         ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}

@@ -5,7 +5,7 @@ import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { validPropertyValues, defineCustomElement, FormControlMixin } from '@justeattakeaway/pie-webc-core';
 import {
-    ButtonProps, sizes, types, variants, iconPlacements,
+    ButtonProps, sizes, types, variants, iconPlacements, defaultProps,
 } from './defs';
 import styles from './button.scss?inline';
 import 'element-internals-polyfill';
@@ -52,32 +52,32 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
     }
 
     @property()
-    @validPropertyValues(componentSelector, sizes, 'medium')
-    public size: ButtonProps['size'] = 'medium';
+    @validPropertyValues(componentSelector, sizes, defaultProps.size)
+    public size: ButtonProps['size'] = defaultProps.size;
 
     @property()
-    @validPropertyValues(componentSelector, types, 'submit')
-    public type: ButtonProps['type'] = 'submit';
+    @validPropertyValues(componentSelector, types, defaultProps.type)
+    public type: ButtonProps['type'] = defaultProps.type;
 
     @property()
-    @validPropertyValues(componentSelector, variants, 'primary')
-    public variant: ButtonProps['variant'] = 'primary';
+    @validPropertyValues(componentSelector, variants, defaultProps.variant)
+    public variant: ButtonProps['variant'] = defaultProps.variant;
 
     @property({ type: String })
-    @validPropertyValues(componentSelector, iconPlacements, 'leading')
-    public iconPlacement: ButtonProps['iconPlacement'] = 'leading';
+    @validPropertyValues(componentSelector, iconPlacements, defaultProps.iconPlacement)
+    public iconPlacement: ButtonProps['iconPlacement'] = defaultProps.iconPlacement;
 
     @property({ type: Boolean })
-    public disabled = false;
+    public disabled = defaultProps.disabled;
 
     @property({ type: Boolean, reflect: true })
-    public isLoading = false;
+    public isLoading = defaultProps.isLoading;
 
     @property({ type: Boolean })
-    public isFullWidth = false;
+    public isFullWidth = defaultProps.isFullWidth;
 
     @property({ type: Boolean })
-    public isResponsive = false;
+    public isResponsive = defaultProps.isResponsive;
 
     @property({ type: String })
     public name?: string;

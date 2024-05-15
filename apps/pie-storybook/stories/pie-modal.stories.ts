@@ -11,6 +11,7 @@ import {
     headingLevels,
     sizes,
     positions,
+    defaultProps,
 } from '@justeattakeaway/pie-modal';
 /* eslint-enable import/no-duplicates */
 
@@ -21,17 +22,11 @@ type ModalProps = SlottedComponentProps<ModalPropsBase>;
 type ModalStoryMeta = StoryMeta<ModalProps>;
 
 const defaultArgs: ModalProps = {
-    heading: 'Modal header',
-    headingLevel: 'h2',
-    isDismissible: true,
+    ...defaultProps,
     hasBackButton: true,
-    hasStackedActions: false,
-    isFooterPinned: true,
-    isFullWidthBelowMid: false,
+    heading: 'Modal header',
+    isDismissible: true,
     isOpen: true,
-    isLoading: false,
-    size: 'medium',
-    position: 'center',
     slot: '<span>Body copy</span>',
     leadingAction: {
         text: 'Confirm',
@@ -192,7 +187,7 @@ const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
         <pie-modal
             .aria="${aria}"
             heading="${heading}"
-            headingLevel="${headingLevel}"
+            headingLevel="${headingLevel || defaultProps.headingLevel}"
             ?hasBackButton="${hasBackButton}"
             ?hasStackedActions="${hasStackedActions}"
             ?isDismissible="${isDismissible}"
@@ -201,9 +196,9 @@ const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
             ?isLoading="${isLoading}"
             ?isOpen="${isOpen}"
             .leadingAction="${leadingAction}"
-            position="${position}"
+            position="${position || defaultProps.position}"
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
-            size="${size}"
+            size="${size || defaultProps.size}"
             .supportingAction="${supportingAction}"
             @pie-modal-close="${closeAction}"
             @pie-modal-open="${openAction}"

@@ -4,7 +4,7 @@ import { html } from 'lit/static-html.js';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-card';
 import {
-    CardProps as CardPropsBase, variants, tags, paddingValues,
+    CardProps as CardPropsBase, variants, tags, paddingValues, defaultProps,
 } from '@justeattakeaway/pie-card';
 /* eslint-enable import/no-duplicates */
 
@@ -15,17 +15,14 @@ type CardProps = SlottedComponentProps<CardPropsBase>;
 type CardStoryMeta = StoryMeta<CardProps>;
 
 const defaultArgs: CardProps = {
-    tag: 'button',
-    variant: 'default',
+    ...defaultProps,
     href: '#',
     padding: 'a',
-    disabled: false,
     rel: '',
     target: '',
     aria: {
         label: 'Click to go to restaurant',
     },
-    isDraggable: false,
     // This is just an arbitrary example of some markup a user may pass into the card
     slot: `<div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-l-family);">
         <h2 style="margin-top: 0"> Card title </h2>
@@ -49,7 +46,7 @@ const cardStoryMeta: CardStoryMeta = {
             control: 'select',
             options: tags,
             defaultValue: {
-                summary: 'button',
+                summary: defaultProps.tag,
             },
         },
         variant: {
@@ -57,7 +54,7 @@ const cardStoryMeta: CardStoryMeta = {
             control: 'select',
             options: variants,
             defaultValue: {
-                summary: 'default',
+                summary: defaultProps.variant,
             },
         },
         padding: {
@@ -71,7 +68,7 @@ const cardStoryMeta: CardStoryMeta = {
             description: 'If `true`, disables the card.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.disabled,
             },
         },
         href: {
@@ -100,7 +97,7 @@ const cardStoryMeta: CardStoryMeta = {
         isDraggable: {
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.isDraggable,
             },
         },
     },

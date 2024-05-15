@@ -20,6 +20,7 @@ import {
     ON_NOTIFICATION_OPEN_EVENT,
     ON_NOTIFICATION_LEADING_ACTION_CLICK_EVENT,
     ON_NOTIFICATION_SUPPORTING_ACTION_CLICK_EVENT,
+    defaultProps,
 } from './defs';
 import styles from './notification.scss?inline';
 
@@ -46,28 +47,28 @@ export class PieNotification extends LitElement implements NotificationProps {
     public isOpen = true;
 
     @property()
-    @validPropertyValues(componentSelector, variants, 'neutral')
-    public variant: NonNullable<NotificationProps['variant']> = 'neutral';
+    @validPropertyValues(componentSelector, variants, defaultProps.variant)
+    public variant: NonNullable<NotificationProps['variant']> = defaultProps.variant;
 
     @property()
-    @validPropertyValues(componentSelector, positions, 'inline-content')
-    public position: NonNullable<NotificationProps['position']> = 'inline-content';
+    @validPropertyValues(componentSelector, positions, defaultProps.position)
+    public position: NonNullable<NotificationProps['position']> = defaultProps.position;
 
     @property({ type: Boolean })
-    public isDismissible = true;
+    public isDismissible = defaultProps.isDismissible;
 
     @property({ type: Boolean })
-    public isCompact = false;
+    public isCompact = defaultProps.isCompact;
 
     @property({ type: String })
     public heading!: string;
 
     @property()
-    @validPropertyValues(componentSelector, headingLevels, 'h2')
-    public headingLevel: NonNullable<NotificationProps['headingLevel']> = 'h2';
+    @validPropertyValues(componentSelector, headingLevels, defaultProps.headingLevel)
+    public headingLevel: NonNullable<NotificationProps['headingLevel']> = defaultProps.headingLevel;
 
     @property({ type: Boolean })
-    public hideIcon = false;
+    public hideIcon = defaultProps.hideIcon;
 
     @property({ type: Object })
     public leadingAction!: NotificationProps['leadingAction'];
@@ -76,7 +77,7 @@ export class PieNotification extends LitElement implements NotificationProps {
     public supportingAction!: NotificationProps['supportingAction'];
 
     @property({ type: Boolean })
-    public hasStackedActions = false;
+    public hasStackedActions = defaultProps.hasStackedActions;
 
     @queryAssignedElements({ slot: 'icon' }) _iconSlot!: Array<HTMLElement>;
 
@@ -327,10 +328,10 @@ export class PieNotification extends LitElement implements NotificationProps {
         const showCloseButton = isDismissible && !isCompact;
 
         return html`
-            <div 
-                data-test-id="${componentSelector}" 
-                class="${componentClass}" 
-                variant="${variant}" 
+            <div
+                data-test-id="${componentSelector}"
+                class="${componentClass}"
+                variant="${variant}"
                 position="${position}"
                 ?isCompact="${isCompact}">
                 ${showCloseButton ? this.renderCloseButton() : nothing}

@@ -27,10 +27,10 @@ import {
     type PreferenceIds,
     type CookieBannerLocale,
     type CustomTagEnhancers,
+    defaultProps,
 } from './defs';
 
 import { localiseText, localiseRichText } from './localisation-utils';
-import defaultLocale from '../locales/en-gb.json';
 
 // Valid values available to consumers
 export * from './defs';
@@ -52,19 +52,19 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     private _isModalOpen = false;
 
     @property({ type: Boolean })
-    public hasPrimaryActionsOnly = false;
+    public hasPrimaryActionsOnly = defaultProps.hasPrimaryActionsOnly;
 
     @property({ type: Object })
-    public defaultPreferences: CookieBannerProps['defaultPreferences'] = {};
+    public defaultPreferences: CookieBannerProps['defaultPreferences'] = defaultProps.defaultPreferences;
 
     @property({ type: Object })
-    public locale:CookieBannerLocale = defaultLocale;
+    public locale:CookieBannerLocale = defaultProps.locale;
 
     @property({ type: String })
-    public cookieStatementLink = '';
+    public cookieStatementLink = defaultProps.cookieStatementLink;
 
     @property({ type: String })
-    public cookieTechnologiesLink = '';
+    public cookieTechnologiesLink = defaultProps.cookieTechnologiesLink;
 
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;

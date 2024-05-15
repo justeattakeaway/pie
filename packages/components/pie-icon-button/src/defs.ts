@@ -1,3 +1,5 @@
+import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+
 export const sizes = ['xsmall', 'small', 'medium', 'large'] as const;
 export const variants = ['primary', 'secondary', 'outline', 'ghost',
     'ghost-secondary', 'inverse', 'ghost-inverse'] as const;
@@ -24,3 +26,12 @@ export interface IconButtonProps {
      */
     isLoading?: boolean;
 }
+
+export type DefaultProps = ComponentDefaultPropsGeneric<IconButtonProps, 'size' | 'variant' | 'disabled' | 'disabled' | 'isLoading'>;
+
+export const defaultProps: Readonly<DefaultProps> = {
+    size: 'medium',
+    variant: 'primary',
+    disabled: false,
+    isLoading: false,
+};

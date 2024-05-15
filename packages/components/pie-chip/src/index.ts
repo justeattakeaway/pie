@@ -8,7 +8,9 @@ import {
     validPropertyValues, defineCustomElement, dispatchCustomEvent,
 } from '@justeattakeaway/pie-webc-core';
 import styles from './chip.scss?inline';
-import { ChipProps, variants, ON_CHIP_CLOSE_EVENT } from './defs';
+import {
+    ChipProps, variants, ON_CHIP_CLOSE_EVENT, defaultProps,
+} from './defs';
 import '@justeattakeaway/pie-icons-webc/dist/IconCloseCircleFilled.js';
 import '@justeattakeaway/pie-spinner';
 
@@ -25,20 +27,20 @@ const componentSelector = 'pie-chip';
  */
 export class PieChip extends LitElement implements ChipProps {
     @property()
-    @validPropertyValues(componentSelector, variants, 'primary')
-    public variant: ChipProps['variant'] = 'default';
+    @validPropertyValues(componentSelector, variants, defaultProps.variant)
+    public variant: ChipProps['variant'] = defaultProps.variant;
 
     @property({ type: Boolean })
-    public disabled = false;
+    public disabled = defaultProps.disabled;
 
     @property({ type: Boolean })
-    public isSelected = false;
+    public isSelected = defaultProps.isSelected;
 
     @property({ type: Boolean })
-    public isLoading = false;
+    public isLoading = defaultProps.isLoading;
 
     @property({ type: Boolean })
-    public isDismissible = false;
+    public isDismissible = defaultProps.isDismissible;
 
     @property({ type: Object })
     public aria: ChipProps['aria'];
@@ -98,15 +100,15 @@ export class PieChip extends LitElement implements ChipProps {
         return html`
             <div
                 aria-atomic="true"
-                aria-busy="${isLoading}"
-                aria-current="${isSelected}"
+                aria-busy="${ifDefined(isLoading)}"
+                aria-current="${ifDefined(isSelected)}"
                 aria-label="${ifDefined(this.aria?.label)}"
                 aria-live="polite"
                 class="c-chip"
                 data-test-id="pie-chip"
                 tabindex="0"
                 role="button"
-                variant="${variant}"
+                ?variant="${variant}"
                 ?disabled="${disabled}"
                 ?isSelected="${isSelected}"
                 ?isLoading="${isLoading}"

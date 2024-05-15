@@ -1,6 +1,10 @@
+import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+
 import {
     TemplateResult,
 } from 'lit';
+
+import defaultLocale from '../locales/en-gb.json';
 
 export interface CookieBannerLocale {
     banner: {
@@ -140,3 +144,13 @@ export const preferences: Preference[] = [
 export interface CustomTagEnhancers {
     [key: string]: (tagContent: string) => TemplateResult;
 }
+
+export type DefaultProps = ComponentDefaultPropsGeneric<CookieBannerProps, 'hasPrimaryActionsOnly' | 'defaultPreferences' | 'locale' | 'cookieStatementLink' | 'cookieTechnologiesLink'>;
+
+export const defaultProps: Readonly<DefaultProps> = {
+    hasPrimaryActionsOnly: false,
+    defaultPreferences: {},
+    locale: defaultLocale,
+    cookieStatementLink: '',
+    cookieTechnologiesLink: '',
+};

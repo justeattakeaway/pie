@@ -28,6 +28,7 @@ import {
     headingLevels,
     positions,
     sizes,
+    defaultProps,
     ON_MODAL_BACK_EVENT,
     ON_MODAL_CLOSE_EVENT,
     ON_MODAL_OPEN_EVENT,
@@ -61,29 +62,29 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     public heading!: string;
 
     @property()
-    @validPropertyValues(componentSelector, headingLevels, 'h2')
-    public headingLevel: ModalProps['headingLevel'] = 'h2';
+    @validPropertyValues(componentSelector, headingLevels, defaultProps.headingLevel)
+    public headingLevel: ModalProps['headingLevel'] = defaultProps.headingLevel;
 
     @property({ type: Boolean })
-    public hasBackButton = false;
+    public hasBackButton = defaultProps.hasBackButton;
 
     @property({ type: Boolean })
-    public hasStackedActions = false;
+    public hasStackedActions = defaultProps.hasStackedActions;
 
     @property({ type: Boolean, reflect: true })
-    public isDismissible = false;
+    public isDismissible = defaultProps.isDismissible;
 
     @property({ type: Boolean })
-    public isFooterPinned = true;
+    public isFooterPinned = defaultProps.isFooterPinned;
 
     @property({ type: Boolean })
-    public isFullWidthBelowMid = false;
+    public isFullWidthBelowMid = defaultProps.isFullWidthBelowMid;
 
     @property({ type: Boolean, reflect: true })
-    public isLoading = false;
+    public isLoading = defaultProps.isLoading;
 
     @property({ type: Boolean })
-    public isOpen = false;
+    public isOpen = defaultProps.isOpen;
 
     @property({ type: Object })
     public leadingAction!: ActionProps;
