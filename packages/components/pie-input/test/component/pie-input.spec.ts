@@ -148,6 +148,40 @@ test.describe('PieInput - Component tests', () => {
             });
         });
 
+        test.describe('ID', () => {
+            test.describe('when the `name` attribute is defined', () => {
+                test('should render an ID which matches the name attribute on the input element', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieInput, {
+                        props: {
+                            name: 'testName',
+                        } as InputProps,
+                    });
+
+                    // Act
+                    const input = component.locator('input');
+
+                    // Assert
+                    expect((await input.getAttribute('id'))).toBe('testName');
+                });
+            });
+
+            test.describe('when the `name` attribute is not defined', () => {
+                test('should not render an ID attribute on the input element', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieInput, {
+                        props: {} as InputProps,
+                    });
+
+                    // Act
+                    const input = component.locator('input');
+
+                    // Assert
+                    expect((await input.getAttribute('id'))).toBe(null);
+                });
+            });
+        });
+
         test.describe('name', () => {
             test('should not render a name attribute on the input element if no name provided', async ({ mount }) => {
                 // Arrange

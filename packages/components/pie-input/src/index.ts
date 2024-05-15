@@ -203,6 +203,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                 <input
                     type=${ifDefined(type)}
                     .value=${live(value)}
+                    id=${ifDefined(name)}
                     name=${ifDefined(name)}
                     ?disabled=${live(disabled)}
                     pattern=${ifDefined(pattern)}
