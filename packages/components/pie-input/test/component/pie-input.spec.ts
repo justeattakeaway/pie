@@ -148,40 +148,6 @@ test.describe('PieInput - Component tests', () => {
             });
         });
 
-        test.describe('ID', () => {
-            test.describe('when the `name` attribute is defined', () => {
-                test('should render an ID which matches the name attribute on the input element', async ({ mount }) => {
-                    // Arrange
-                    const component = await mount(PieInput, {
-                        props: {
-                            name: 'testName',
-                        } as InputProps,
-                    });
-
-                    // Act
-                    const input = component.locator('input');
-
-                    // Assert
-                    expect((await input.getAttribute('id'))).toBe('testName');
-                });
-            });
-
-            test.describe('when the `name` attribute is not defined', () => {
-                test('should not render an ID attribute on the input element', async ({ mount }) => {
-                    // Arrange
-                    const component = await mount(PieInput, {
-                        props: {} as InputProps,
-                    });
-
-                    // Act
-                    const input = component.locator('input');
-
-                    // Assert
-                    expect((await input.getAttribute('id'))).toBe(null);
-                });
-            });
-        });
-
         test.describe('name', () => {
             test('should not render a name attribute on the input element if no name provided', async ({ mount }) => {
                 // Arrange
@@ -1276,6 +1242,7 @@ test.describe('PieInput - Component tests', () => {
                     expect(componentAttribute).toBeNull();
                 });
             });
+
             test.describe('when `assistiveText` is defined', () => {
                 test('should render the attribute correctly with the correct value', async ({ mount }) => {
                     // Arrange
@@ -1291,7 +1258,7 @@ test.describe('PieInput - Component tests', () => {
                     const componentAttribute = await input.getAttribute('aria-describedby');
 
                     // Assert
-                    expect(componentAttribute).toBeDefined();
+                    expect(componentAttribute).toBe('assistive-text');
                 });
             });
         });
@@ -1315,8 +1282,9 @@ test.describe('PieInput - Component tests', () => {
                     expect(componentAttribute).toBeDefined();
                 });
             });
-            test.describe('when the component `status` is set to anything but `Error`', () => {
-                test('should not render the should render the `aria-invalid` attribute', async ({ mount }) => {
+
+            test.describe('when the component `status` is set to anything but `error`', () => {
+                test('should not render the `aria-invalid` attribute', async ({ mount }) => {
                     // Arrange
                     const component = await mount(PieInput, {
                         props: {
@@ -1354,8 +1322,9 @@ test.describe('PieInput - Component tests', () => {
                     expect(componentAttribute).toBeDefined();
                 });
             });
-            test.describe('when the component `status` is set to anything but `Error`', () => {
-                test('should not render the should render the `aria-invalid` attribute', async ({ mount }) => {
+
+            test.describe('when the component `status` is set to anything but `error`', () => {
+                test('should not render the `aria-invalid` attribute', async ({ mount }) => {
                     // Arrange
                     const component = await mount(PieInput, {
                         props: {
