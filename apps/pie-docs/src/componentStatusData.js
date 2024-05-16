@@ -516,7 +516,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/chip--default',
-            status: statusTypes.ALPHA,
+            status: statusTypes.BETA,
         },
         {
             resource: resourceTypes.VUE,
@@ -542,6 +542,48 @@ const rows = [
         {
             resource: resourceTypes.ANDROID_JETPACK,
             status: statusTypes.PLANNED,
+        }
+    ],
+    [
+        { componentName: 'Cookie Banner' },
+        {
+            resource: resourceTypes.PATTERN,
+            link: 'https://www.figma.com/file/Rqz8KHogVsGCS4j0nDueNo/[Core]-Patterns-%E2%9A%AA%EF%B8%8F-[PIE-2.0]?type=design&node-id=1599-41380&mode=design&t=8G38n2fCOYB5Bd2d-0',
+            status: statusTypes.AVAILABLE,
+        },
+        {
+            resource: resourceTypes.DOCUMENTATION,
+            link: 'https://www.figma.com/file/Rqz8KHogVsGCS4j0nDueNo/[Core]-Patterns-%E2%9A%AA%EF%B8%8F-[PIE-2.0]?type=design&node-id=2755-20043&mode=design&t=8G38n2fCOYB5Bd2d-0',
+            status: statusTypes.AVAILABLE,
+        },
+        {
+            resource: resourceTypes.WEB_COMPONENTS,
+            link: 'https://webc.pie.design/?path=/story/cookie-banner--default',
+            status: statusTypes.BETA,
+        },
+        {
+            resource: resourceTypes.VUE,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.REACT,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.IOS_JUST_UI,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.IOS_PIE,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.ANDROID_XML,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.ANDROID_JETPACK,
+            status: statusTypes.NOT_APPLICABLE,
         }
     ],
     [
@@ -1989,7 +2031,8 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            link: 'https://webc.pie.design/?path=/story/tag--neutral',
+            status: statusTypes.BETA,
         },
         {
             resource: resourceTypes.VUE,

@@ -1,5 +1,34 @@
 # @justeattakeaway/pie-form-label
 
+## 0.13.4
+
+### Patch Changes
+
+- Updated dependencies [[`ab5cad99b`](https://github.com/justeattakeaway/pie/commit/ab5cad99bd66e4bd37804b6173bedc37217592d8)]:
+  - @justeattakeaway/pie-webc-core@0.22.0
+
+## 0.13.3
+
+### Patch Changes
+
+- [Removed] - Unneeded `bundledJetDeps` array (patch versions are required because pie-components-config is a dev dependency) ([#1378](https://github.com/justeattakeaway/pie/pull/1378)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9)]:
+  - @justeattakeaway/pie-webc-core@0.21.1
+
+## 0.13.2
+
+### Patch Changes
+
+- Updated dependencies [[`1086464e8`](https://github.com/justeattakeaway/pie/commit/1086464e86fbce635f4a30783b0c145b7f5854e3)]:
+  - @justeattakeaway/pie-webc-core@0.21.0
+
+## 0.13.1
+
+### Patch Changes
+
+- [Added] - pieMetadata object to component package.json files with a componentStatus property to query when needing the current component status ([#1361](https://github.com/justeattakeaway/pie/pull/1361)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.13.0
 
 ### Minor Changes

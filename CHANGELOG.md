@@ -1,5 +1,51 @@
 # Changelog
 
+## 2.59.2
+
+### Patch Changes
+
+- [Changed] - update babel dependencies ([#1432](https://github.com/justeattakeaway/pie/pull/1432)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 2.59.1
+
+### Patch Changes
+
+- [Changed] - github project-labeler ([#1418](https://github.com/justeattakeaway/pie/pull/1418)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 2.59.0
+
+### Minor Changes
+
+- [Changed] - Updated CI so that package changes will trigger builds and tests of its dependents (such as a change in pie-icons-webc triggering visual tests for pie-icon-button ([#1409](https://github.com/justeattakeaway/pie/pull/1409)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 2.58.1
+
+### Patch Changes
+
+- [Fixed] - Issue where comment-branch action was failing when GITHUB_TOKEN was provided ([#1416](https://github.com/justeattakeaway/pie/pull/1416)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.58.0
+
+### Minor Changes
+
+- [Added] - Automatic changeset generation for Snyk PRs ([#1410](https://github.com/justeattakeaway/pie/pull/1410)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Fixed] - loading state is not centred correctly ([#1404](https://github.com/justeattakeaway/pie/pull/1404)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - updated the component status to beta
+
+## 2.57.1
+
+### Patch Changes
+
+- [Added] - github labels for configs projects ([#1378](https://github.com/justeattakeaway/pie/pull/1378)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 2.57.0
+
+### Minor Changes
+
+- [Added] - Bundle visualiser that runs during build for webc icons, webc core and our components ([#1391](https://github.com/justeattakeaway/pie/pull/1391)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.56.5
 
 ### Patch Changes

@@ -8,22 +8,14 @@
   </a>
 </p>
 
-# Table of Contents
-
-1. [Introduction](#pie-cookie-banner)
-2. [Installation](#installation)
-3. [Importing the component](#importing-the-component)
-4. [Peer Dependencies](#peer-dependencies)
-5. [Props](#props)
-6. [Events](#events)
-7. [Contributing](#contributing)
-
-
 ## pie-cookie-banner
 
 `pie-cookie-banner` is a Web Component built using the Lit library.
 
 This component can be easily integrated into various frontend frameworks and customized through a set of properties.
+
+## Cookies
+`pie-cookie-banner` purely handles the UI and user interactions for cookie consent. It does not handle the setting or management of cookies or the storage of user preferences. It is the responsibility of the consuming application to handle these aspects.
 
 
 ## Installation
@@ -40,84 +32,13 @@ $ yarn add @justeattakeaway/pie-cookie-banner
 
 For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
 
+## Documentation
 
-### Importing the component
+Visit  [Cookie Banner | PIE Design System](https://pie.design/patterns/cookie-banner/code/) to view more information on this component.
 
-#### JavaScript
-```js
-// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
-import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner';
+## Questions
 
-// If you don't need to reference the imported object, you can simply
-// import the module which registers the component as a custom element.
-import '@justeattakeaway/pie-cookie-banner';
-```
-
-#### React
-```js
-// React
-// For React, you will need to import our React-specific component build
-// which wraps the web component using ​@lit/react
-import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner/dist/react';
-```
-
-> [!NOTE]
-> When using the React version of the component, please make sure to also
-> include React as a [peer dependency](#peer-dependencies) in your project.
-
-
-## Peer Dependencies
-
-> [!IMPORTANT]
-> When using `pie-cookie-banner`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
-
-## Props
-
-| Property | Type | Default | Description |
-|---|---|---|---|
-| hasPrimaryActionsOnly | `Boolean` | `false` | When true, sets the variant to "primary" for the button which accepts necessary cookies only. |
-| locale | `Object`  | {English language locale} | Assigns the localisation data for the component strings. |
-| cookieStatementLink | `String`  | `''` | Allows a url to be passed for the cookie statement link. |
-| cookieTechnologiesLink | `String`  | `''` | Allows a url to be passed for the cookie technology link. |
-| defaultPreferences | `Object`  | `{}` | Allows default preferences to be passed in by the consumer`{ 'functional': true, 'personalized': true, 'analytical': true }` or `{ 'functional': true }`. |
-
-## Events
-
-The pie cookie banner does not directly establish cookies within the application or component. Instead, it offers events that application developers (consumers of this component) can subscribe to. This, in turn, enables applications to manage the process of setting their own cookies. The table below provides a list of events you can listen to:
-
-| Event | Type | Description |
-|-------|------|-------------|
-| `pie-cookie-banner-accept-all` | `CustomEvent` | Triggered when `accept all` is clicked. |
-| `pie-cookie-banner-necessary-only` | `CustomEvent` | Triggered when `necessary` is clicked. |
-| `pie-cookie-banner-manage-prefs` | `CustomEvent` | Triggered when `manage prefs` is clicked. |
-| `pie-cookie-banner-prefs-saved` | `CustomEvent` | Triggered when `manage prefs saved` is clicked. |
-
-In your markup or JSX, you can then use these to set the properties for the `pie-cookie-banner` component:
-
-```html
-<!-- Native HTML -->
-<pie-cookie-banner></pie-cookie-banner>
-
-<!-- JSX -->
-<PieCookieBanner></PieCookieBanner>
-```
-
-### Localisation
-
-By default the component displays its content in English language. To display the content in another language, you need to import the locale data for that language and pass it in the `locale` prop. For example, to display the content in Dutch, you need to import the Dutch locale data:
-
-```js
-import locale from '@justeattakeaway/pie-cookie-banner/locales/nl-nl.json';
-
-<!-- JSX -->
-<PieCookieBanner locale={locale}></PieCookieBanner>
-```
-
-It's possible to import all locales at once, if necessary:
-
-```js
-import allLocales from '@justeattakeaway/pie-cookie-banner/locales';
-```
+Please head to [FAQs | PIE Design System](https://pie.design/support/contact-us/) to see our FAQs and get in touch.
 
 ## Contributing
 

@@ -4,5 +4,4 @@
     "baseUrl": ".",
     "rootDir": ".",
   },
-  "include": ["src/**/*.ts"],
 }

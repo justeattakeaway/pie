@@ -6,7 +6,7 @@ import {
     ButtonProps as ButtonPropsBase, iconPlacements, sizes, types, variants, responsiveSizes,
 } from '@justeattakeaway/pie-button';
 /* eslint-enable import/no-duplicates */
-import '@justeattakeaway/pie-icons-webc/IconPlusCircle';
+import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 import { StoryMeta, SlottedComponentProps } from '../types';

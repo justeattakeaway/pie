@@ -1,5 +1,31 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.21.0
+
+### Minor Changes
+
+- [Changed] - Invoke the new `add-components` command after generating new components to ensure they are correctly added to pie-webc ([#1426](https://github.com/justeattakeaway/pie/pull/1426)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Changed] - Improve logging and message formatting
+
+## 0.20.3
+
+### Patch Changes
+
+- - [Changed] - `README.md` simplifying setup instructions ([#1419](https://github.com/justeattakeaway/pie/pull/1419)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  - [Added] - Volta settings
+  - [Added] - `test:browsers-setup` script
+  - [Changed] - template so it can use `npm-check-updates` to update dependencies
+
+## 0.20.2
+
+### Patch Changes
+
+- [Fixed] - Bug where generated components didn't align with refactored Turborepo build pipeline ([#1377](https://github.com/justeattakeaway/pie/pull/1377)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - pieMetadata object to component package.json files with a componentStatus property to query when needing the current component status ([#1361](https://github.com/justeattakeaway/pie/pull/1361)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.20.1
 
 ### Patch Changes

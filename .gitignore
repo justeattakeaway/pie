@@ -164,6 +164,7 @@ visual-report/
 lit-visual-report/
 react-browsers-report/
 packages/components/**/playwright/
+packages/tools/**/playwright/
 
 # TypeScript
 compiled/
@@ -173,3 +174,4 @@ build/**
 dist/
 custom-elements.json
 **/src/react.ts
+**/stats.html

@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/generator-pie-component",
-  "version": "0.20.1",
+  "version": "0.21.0",
   "description": "A generator for PIE Web Components",
   "author": "Just Eat Takeaway.com - Design System Team",
   "files": [
@@ -30,5 +30,9 @@
     "rollup-plugin-delete": "2.0.0"
   },
   "repository": "https://github.com/justeattakeaway/pie.git",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "volta": {
+    "node": "20.9.0",
+    "yarn": "3.8.1"
+  }
 }

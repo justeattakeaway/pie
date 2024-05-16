@@ -10,6 +10,13 @@ pie-docs:
 pie-storybook:
 - 'apps/pie-storybook/**/*'
 
+# Config projects
+configs:
+- 'configs/**/*'
+
+pie-components-config:
+- 'configs/pie-components-config/**/*'
+
 # Tools projects
 tools:
 - 'packages/tools/**/*'
@@ -95,3 +102,6 @@ pie-webc-core:
 
 pie-webc-testing:
 - 'packages/components/pie-webc-testing/**/*'
+
+pie-checkbox:
+- 'packages/components/pie-checkbox/**/*'

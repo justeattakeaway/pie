@@ -84,3 +84,6 @@ Sometimes when we are testing our components using Percy, we want to place the t
 We currently use  a `WebComponentTestWrapper` component to do this. The component takes a string representation of a component and renders it with some additional information about the props being used. This is the same concept as outlined in the Browser tests section above.
 
 As with the browser tests, it is vital that the component to test is mounted and unmounted in a `beforeEach` block. This ensures that the component is loaded in the browser before the test runs.
+
+## Bundling
+When we build a component, we run a plugin for Rollup named `rollup-plugin-visualizer`. This generates a file for each component named `stats.html` in the root of the component package. This file can be viewed in the browser to visualise the bundled Javascript and better understand what contributes to the size of the final build output.

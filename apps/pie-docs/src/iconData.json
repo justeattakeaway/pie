@@ -1221,6 +1221,10 @@
                     "displayName": "Location Target"
                 },
                 {
+                    "name": "map",
+                    "displayName": "Map"
+                },
+                {
                     "name": "route-pin",
                     "displayName": "Route Pin"
                 }
@@ -1291,6 +1295,10 @@
                 {
                     "name": "electronic-accessories",
                     "displayName": "Electronic Accessories"
+                },
+                {
+                    "name": "flag",
+                    "displayName": "Flag"
                 },
                 {
                     "name": "flowers",
@@ -1473,6 +1481,10 @@
                     "displayName": "Barcode"
                 },
                 {
+                    "name": "budget-add",
+                    "displayName": "Budget Add"
+                },
+                {
                     "name": "cash",
                     "displayName": "Cash"
                 },
@@ -1525,12 +1537,20 @@
                     "displayName": "Instant Bank"
                 },
                 {
+                    "name": "instant-bank-filled",
+                    "displayName": "Instant Bank Filled"
+                },
+                {
                     "name": "pin-at-home",
                     "displayName": "Pin Home"
                 },
                 {
                     "name": "pin-at-home-filled",
                     "displayName": "Pin Home Filled"
+                },
+                {
+                    "name": "pin-code",
+                    "displayName": "Pin Code"
                 },
                 {
                     "name": "service-charge",
@@ -1555,6 +1575,10 @@
                 {
                     "name": "wallet-filled",
                     "displayName": "Wallet Filled"
+                },
+                {
+                    "name": "wallet-add",
+                    "displayName": "Wallet Add"
                 }
             ]
         },
@@ -2115,6 +2139,10 @@
                 {
                     "name": "dashboard",
                     "displayName": "Dashboard"
+                },
+                {
+                    "name": "dashboard-filled",
+                    "displayName": "Dashboard Filled"
                 },
                 {
                     "name": "driver-car",

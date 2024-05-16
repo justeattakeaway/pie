@@ -1,5 +1,52 @@
 # Changelog
 
+## 3.35.0
+
+### Minor Changes
+
+- [Added] - Added Cookie Banner overview documentation ([#1412](https://github.com/justeattakeaway/pie/pull/1412)) by [@maledr5](https://github.com/maledr5)
+
+  [Changed] - Improved list component to show highlight markers
+
+- [Added] - Create Patterns navigation and added Cookie Banner code documentation ([#1412](https://github.com/justeattakeaway/pie/pull/1412)) by [@maledr5](https://github.com/maledr5)
+
+### Patch Changes
+
+- [Fixed] - Tag component playground link was broken. Changed to point to Neutral story instead. ([#1412](https://github.com/justeattakeaway/pie/pull/1412)) by [@maledr5](https://github.com/maledr5)
+
+## 3.34.0
+
+### Minor Changes
+
+- [Added] - new icons description ([#1423](https://github.com/justeattakeaway/pie/pull/1423)) by [@raoufswe](https://github.com/raoufswe)
+
+## 3.33.4
+
+### Patch Changes
+
+- Updated dependencies [[`9eb62f192`](https://github.com/justeattakeaway/pie/commit/9eb62f19282a96a6abaa7400ebf4188febda97b2)]:
+  - @justeattakeaway/pie-icons@4.17.0
+
+## 3.33.3
+
+### Patch Changes
+
+- [Fixed] - Fixed typo for image not showing in Tag component ([#1401](https://github.com/justeattakeaway/pie/pull/1401)) by [@maledr5](https://github.com/maledr5)
+
+- [Changed] - update the Chip and Tag component status to beta ([#1404](https://github.com/justeattakeaway/pie/pull/1404)) by [@raoufswe](https://github.com/raoufswe)
+
+## 3.33.2
+
+### Patch Changes
+
+- [Changed] - Update import paths for webc icons ([#1378](https://github.com/justeattakeaway/pie/pull/1378)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 3.33.1
+
+### Patch Changes
+
+- [Changed] - Fix spelling mistake ([#1365](https://github.com/justeattakeaway/pie/pull/1365)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 3.33.0
 
 ### Minor Changes

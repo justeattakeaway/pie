@@ -26,6 +26,23 @@
       "outputs": [
         "dist/**"
       ]
+    },
+    "test:browsers": {
+      "cache": false,
+      "dependsOn": [
+        "^build",
+        "test:browsers-setup"
+      ],
+      "outputs": [
+        "__snapshots__/**"
+      ]
+    },
+    "test:browsers:ci": {
+      "cache": false,
+      "dependsOn": [
+        "^build",
+        "test:browsers-setup"
+      ]
     }
   }
 }

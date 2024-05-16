@@ -1,5 +1,71 @@
 # @justeattakeaway/pie-notification
 
+## 0.6.0
+
+### Minor Changes
+
+- [Changed] - address design review notes ([#1435](https://github.com/justeattakeaway/pie/pull/1435)) by [@raoufswe](https://github.com/raoufswe)
+
+  - The icons size should be 24 x 24px
+  - The top padding of the icon is currently 4px, needs to be reduced to 2px
+  - The title should use token 'heading-s/narrow' (16px, 24lh)
+  - Update the story title text to `heading` to be consistent
+  - The space between the title and supporting text should be 4px
+  - The supporting text shouldn't run underneath the close icon.
+  - When 'stacked actions = true', the leading action should be above.
+
+### Patch Changes
+
+- [Added] - `position` prop - Specifies whether the notification should be displayed inline or full width ([#1388](https://github.com/justeattakeaway/pie/pull/1388)) by [@thejfreitas](https://github.com/thejfreitas)
+
+## 0.5.5
+
+### Patch Changes
+
+- Updated dependencies [[`ab5cad99b`](https://github.com/justeattakeaway/pie/commit/ab5cad99bd66e4bd37804b6173bedc37217592d8)]:
+  - @justeattakeaway/pie-webc-core@0.22.0
+  - @justeattakeaway/pie-icon-button@0.28.5
+  - @justeattakeaway/pie-icons-webc@0.23.1
+
+## 0.5.4
+
+### Patch Changes
+
+- Updated dependencies [[`9eb62f192`](https://github.com/justeattakeaway/pie/commit/9eb62f19282a96a6abaa7400ebf4188febda97b2), [`d325ed167`](https://github.com/justeattakeaway/pie/commit/d325ed167056d6d3e14f8b4535c9d3b2e8c16b90)]:
+  - @justeattakeaway/pie-icons-webc@0.23.0
+  - @justeattakeaway/pie-icon-button@0.28.4
+
+## 0.5.3
+
+### Patch Changes
+
+- [Removed] - Unneeded `bundledJetDeps` array (patch versions are required because pie-components-config is a dev dependency) ([#1378](https://github.com/justeattakeaway/pie/pull/1378)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - update pie-icons-webc imports ([#1378](https://github.com/justeattakeaway/pie/pull/1378)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9), [`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9), [`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9)]:
+  - @justeattakeaway/pie-icons-webc@0.22.0
+  - @justeattakeaway/pie-icon-button@0.28.3
+  - @justeattakeaway/pie-webc-core@0.21.1
+
+## 0.5.2
+
+### Patch Changes
+
+- Updated dependencies [[`1086464e8`](https://github.com/justeattakeaway/pie/commit/1086464e86fbce635f4a30783b0c145b7f5854e3)]:
+  - @justeattakeaway/pie-webc-core@0.21.0
+  - @justeattakeaway/pie-icons-webc@0.21.0
+  - @justeattakeaway/pie-icon-button@0.28.2
+
+## 0.5.1
+
+### Patch Changes
+
+- [Added] - pieMetadata object to component package.json files with a componentStatus property to query when needing the current component status ([#1361](https://github.com/justeattakeaway/pie/pull/1361)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`a7495cba5`](https://github.com/justeattakeaway/pie/commit/a7495cba55203b5dea71e9c51d50cb04fe4bb759)]:
+  - @justeattakeaway/pie-icon-button@0.28.1
+
 ## 0.5.0
 
 ### Minor Changes

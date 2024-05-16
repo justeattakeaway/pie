@@ -1,17 +1,18 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 .c-notification {
-    $breakpoint-narrow: 640px;
+    $breakpoint-wide: 768px;
 
     --notification-border-radius: var(--dt-radius-rounded-c);
     --notification-background-color: var(--dt-color-container-subtle);
     --notification-direction: column;
-    --notification-icon-size-override: 22px;
-    --notification-heading-font-size: #{p.font-size(--dt-font-size-20)};
-    --notification-heading-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
-    --notification-font-size: #{p.font-size(--dt-font-size-16)};
-    --notification-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
+    --notification-heading-font-size: #{p.font-size(--dt-font-heading-s-size--narrow)};
+    --notification-heading-line-height: #{p.line-height(--dt-font-heading-s-line-height--narrow)};
+    --notification-font-size: #{p.font-size(--dt-font-body-l-size)};
+    --notification-line-height: #{p.line-height(--dt-font-body-l-line-height)};
     --notification-icon-fill: var(--dt-color-content-default);
+    --notification-close-icon-offset: var(--dt-spacing-b);
+    --notification-heading-icon-offset: 2px;
 
     padding: var(--dt-spacing-d);
     border-radius: var(--notification-border-radius);
@@ -23,19 +24,12 @@
     font-size: var(--notification-font-size);
     line-height: var(--notification-line-height);
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin: 0;
-        font-size: var(--notification-heading-font-size);
-        line-height: var(--notification-heading-line-height);
-    }
-
     &[isCompact] {
         --notification-direction: row;
+    }
+
+    &[position='full-width'] {
+        --notification-border-radius: var(--dt-radius-rounded-none);
     }
 
     &[variant='neutral-alternative'] {
@@ -60,31 +54,42 @@
         --notification-icon-fill: var(--dt-color-red);
     }
 
+
+    &-heading {
+        margin: 0;
+        margin-block-end: var(--dt-spacing-a);
+        font-size: var(--notification-heading-font-size);
+        line-height: var(--notification-heading-line-height);
+
+        @media (min-width: $breakpoint-wide) {
+            --notification-heading-font-size: #{p.font-size(--dt-font-heading-s-size--wide)};
+            --notification-heading-line-height: #{p.line-height(--dt-font-heading-s-line-height--wide)};
+        }
+    }
+
     &-content-section {
         display: flex;
         flex-direction: row;
-
-        article {
-            &[hasGutter] {
-                padding-inline-end: var(--dt-spacing-e);
-            }
-        }
-
+    
         .has-icon {
             display: block ruby; // This is a hack to avoid the icon overlap the text in Firefox
             margin-inline-end: var(--dt-spacing-c);
         }
+
+        &[isDismissible] {
+            max-width: calc(100% - var(--notification-close-icon-offset) - 40px); // 40px is the size of the medium icon button
+        }
     }
 
     &-heading-icon {
-        padding-block-start: var(--dt-spacing-a);
+        padding-block-start: var(--notification-heading-icon-offset);
         color: var(--notification-icon-fill);
     }
 
     &-icon-close {
         position: absolute;
-        inset-block-start: var(--dt-spacing-b);
-        inset-inline-end: var(--dt-spacing-b);
+        inset-block-start: var(--notification-close-icon-offset);
+        inset-inline-end: var(--notification-close-icon-offset);
     }
 
     &-footer {
@@ -97,9 +102,9 @@
             align-self: flex-end;
         }
 
-        @media (max-width: $breakpoint-narrow) {
+        @media (max-width: $breakpoint-wide) {
             &[isStacked] {
-                flex-direction: column;
+                flex-direction: column-reverse;
             }
         }
     }

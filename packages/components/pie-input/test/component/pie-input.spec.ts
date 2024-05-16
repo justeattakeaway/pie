@@ -1,7 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import type { Page } from '@playwright/test';
-import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/IconPlaceholder';
+import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
 import { PieInput, InputProps } from '../../src/index.ts';
 import { statusTypes } from '../../src/defs.ts';
@@ -778,7 +778,7 @@ test.describe('PieInput - Component tests', () => {
                 const inputShell = component.locator(componentShellSelector);
 
                 // Assert
-                expect(inputShell).toHaveAttribute('size', 'medium');
+                expect(inputShell).toHaveAttribute('data-pie-size', 'medium');
             });
 
             test('should apply the size prop to the HTML input rendered', async ({ mount }) => {
@@ -793,7 +793,99 @@ test.describe('PieInput - Component tests', () => {
                 const inputShell = component.locator(componentShellSelector);
 
                 // Assert
-                expect(inputShell).toHaveAttribute('size', 'large');
+                expect(inputShell).toHaveAttribute('data-pie-size', 'large');
+            });
+        });
+
+        test.describe('required', () => {
+            test('should not render a required attribute on the input element if no required provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('required'))).toBe(null);
+            });
+
+            test('should apply the required prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        required: true,
+                    } as InputProps,
+                });
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('required'))).toBe('');
+            });
+
+            test('should be invalid state `valueMissing` if the input is empty and required', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieInput, {
+                    props: {
+                        required: true,
+                    } as InputProps,
+                });
+
+                // Act
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valueMissing);
+
+                // Assert
+                expect(isInvalid).toBe(true);
+            });
+
+            test('should be valid state if the input is not empty and required', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        required: true,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('test');
+
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
+            });
+
+            test('should be valid state if the input has a value prop and required', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieInput, {
+                    props: {
+                        required: true,
+                        value: 'test',
+                    } as InputProps,
+                });
+
+                // Act
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
+            });
+
+            test('should be valid state if the input is empty and required but disabled', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieInput, {
+                    props: {
+                        required: true,
+                        disabled: true,
+                    } as InputProps,
+                });
+
+                // Act
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
             });
         });
     });

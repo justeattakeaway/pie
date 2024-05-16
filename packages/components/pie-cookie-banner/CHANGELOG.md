@@ -1,5 +1,76 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.19.6
+
+### Patch Changes
+
+- Updated dependencies [[`ab5cad99b`](https://github.com/justeattakeaway/pie/commit/ab5cad99bd66e4bd37804b6173bedc37217592d8)]:
+  - @justeattakeaway/pie-webc-core@0.22.0
+  - @justeattakeaway/pie-button@0.47.4
+  - @justeattakeaway/pie-divider@0.13.4
+  - @justeattakeaway/pie-icon-button@0.28.5
+  - @justeattakeaway/pie-link@0.17.4
+  - @justeattakeaway/pie-modal@0.42.5
+  - @justeattakeaway/pie-switch@0.29.4
+
+## 0.19.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@0.28.4
+  - @justeattakeaway/pie-modal@0.42.4
+  - @justeattakeaway/pie-switch@0.29.3
+
+## 0.19.4
+
+### Patch Changes
+
+- [Removed] - Unneeded `bundledJetDeps` array (patch versions are required because pie-components-config is a dev dependency) ([#1378](https://github.com/justeattakeaway/pie/pull/1378)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9), [`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9), [`9bdd9c947`](https://github.com/justeattakeaway/pie/commit/9bdd9c947110688f509140bfa480dbe8d7770ff9)]:
+  - @justeattakeaway/pie-icon-button@0.28.3
+  - @justeattakeaway/pie-button@0.47.3
+  - @justeattakeaway/pie-divider@0.13.3
+  - @justeattakeaway/pie-link@0.17.3
+  - @justeattakeaway/pie-modal@0.42.3
+  - @justeattakeaway/pie-switch@0.29.2
+  - @justeattakeaway/pie-webc-core@0.21.1
+
+## 0.19.3
+
+### Patch Changes
+
+- Updated dependencies [[`1086464e8`](https://github.com/justeattakeaway/pie/commit/1086464e86fbce635f4a30783b0c145b7f5854e3)]:
+  - @justeattakeaway/pie-webc-core@0.21.0
+  - @justeattakeaway/pie-button@0.47.2
+  - @justeattakeaway/pie-divider@0.13.2
+  - @justeattakeaway/pie-icon-button@0.28.2
+  - @justeattakeaway/pie-link@0.17.2
+  - @justeattakeaway/pie-modal@0.42.2
+  - @justeattakeaway/pie-switch@0.29.1
+
+## 0.19.2
+
+### Patch Changes
+
+- Updated dependencies [[`9bfffe6a5`](https://github.com/justeattakeaway/pie/commit/9bfffe6a5ccb0c03190e6086712941275df60e8b)]:
+  - @justeattakeaway/pie-switch@0.29.0
+
+## 0.19.1
+
+### Patch Changes
+
+- [Added] - pieMetadata object to component package.json files with a componentStatus property to query when needing the current component status ([#1361](https://github.com/justeattakeaway/pie/pull/1361)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`a7495cba5`](https://github.com/justeattakeaway/pie/commit/a7495cba55203b5dea71e9c51d50cb04fe4bb759)]:
+  - @justeattakeaway/pie-icon-button@0.28.1
+  - @justeattakeaway/pie-divider@0.13.1
+  - @justeattakeaway/pie-button@0.47.1
+  - @justeattakeaway/pie-switch@0.28.1
+  - @justeattakeaway/pie-modal@0.42.1
+  - @justeattakeaway/pie-link@0.17.1
+
 ## 0.19.0
 
 ### Minor Changes

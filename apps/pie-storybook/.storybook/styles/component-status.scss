@@ -1,13 +1,17 @@
 .c-componentStatus {
     position: fixed;
-    right: var(--dt-spacing-c);
+    inset-inline-end: var(--dt-spacing-c);
     z-index: 9999;
+
+    a:visited {
+        color: inherit;
+    }
 }
 
 .c-componentStatus:not(.c-componentStatus--top) {
-    bottom: var(--dt-spacing-c);
+    inset-block-end: var(--dt-spacing-c);
 }
 
 .c-componentStatus--top {
-    top: var(--dt-spacing-c);
+    inset-block-start: var(--dt-spacing-c);
 }

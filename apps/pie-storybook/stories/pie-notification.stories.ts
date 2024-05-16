@@ -2,13 +2,13 @@ import { html } from 'lit';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-notification';
 import { action } from '@storybook/addon-actions';
-import { NotificationProps as NotificationBaseProps, variants, headingLevels } from '@justeattakeaway/pie-notification';
+import {
+    NotificationProps as NotificationBaseProps, variants, headingLevels, positions,
+} from '@justeattakeaway/pie-notification';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
-
-import '@justeattakeaway/pie-icons-webc/IconAlertCircleFilled';
 
 type NotificationProps = SlottedComponentProps<NotificationBaseProps>;
 type NotificationStoryMeta = StoryMeta<NotificationProps>;
@@ -16,10 +16,11 @@ type NotificationStoryMeta = StoryMeta<NotificationProps>;
 const defaultArgs: NotificationProps = {
     isOpen: true,
     variant: 'neutral',
+    position: 'inline-content',
     isDismissible: true,
     isCompact: false,
     slot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna.',
-    heading: 'Title',
+    heading: 'Heading',
     headingLevel: 'h2',
     hideIcon: false,
     leadingAction: {
@@ -50,6 +51,14 @@ const notificationStoryMeta: NotificationStoryMeta = {
             options: variants,
             defaultValue: {
                 summary: 'neutral',
+            },
+        },
+        position: {
+            description: 'Specifies whether the notification should be displayed inline, within the content, or full width (recommended at the top of the interface, under the header)',
+            control: 'select',
+            options: positions,
+            defaultValue: {
+                summary: 'inline-content',
             },
         },
         isDismissible: {
@@ -126,6 +135,7 @@ const Template : TemplateFunction<NotificationProps> = ({
     isDismissible,
     isCompact,
     variant,
+    position,
     heading,
     headingLevel,
     hideIcon,
@@ -137,6 +147,7 @@ const Template : TemplateFunction<NotificationProps> = ({
     <pie-notification
         ?isOpen="${isOpen}"
         variant="${variant}"
+        position="${position}"
         ?isCompact="${isCompact}"
         ?isDismissible="${isDismissible}"
         heading="${heading}"
@@ -150,8 +161,15 @@ const Template : TemplateFunction<NotificationProps> = ({
         @pie-notification-close="${pieNotificationClose}"
         @pie-notification-open="${pieNotificationOpen}"
         >
-        <icon-alert-circle-filled slot="icon" size="s"></icon-alert-circle-filled>
         ${slot}
     </pie-notification>`;
 
-export const Default = createStory<NotificationProps>(Template, defaultArgs)();
+const createNotificationStory = createStory<NotificationProps>(Template, defaultArgs);
+
+export const Neutral = createNotificationStory();
+export const NeutralAlternative = createNotificationStory({ variant: 'neutral-alternative' }, { bgColor: 'dark (container-dark)' });
+export const Info = createNotificationStory({ variant: 'info' });
+export const Success = createNotificationStory({ variant: 'success' });
+export const Error = createNotificationStory({ variant: 'error' });
+export const Warning = createNotificationStory({ variant: 'warning' });
+
