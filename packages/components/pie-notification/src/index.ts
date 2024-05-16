@@ -12,6 +12,7 @@ import {
     type NotificationProps,
     type ActionProps,
     variants,
+    positions,
     headingLevels,
     componentSelector,
     componentClass,
@@ -48,6 +49,10 @@ export class PieNotification extends LitElement implements NotificationProps {
     @validPropertyValues(componentSelector, variants, 'neutral')
     public variant: NonNullable<NotificationProps['variant']> = 'neutral';
 
+    @property()
+    @validPropertyValues(componentSelector, positions, 'inline-content')
+    public position: NonNullable<NotificationProps['position']> = 'inline-content';
+
     @property({ type: Boolean })
     public isDismissible = true;
 
@@ -63,9 +68,6 @@ export class PieNotification extends LitElement implements NotificationProps {
 
     @property({ type: Boolean })
     public hideIcon = false;
-
-    @property({ type: Boolean })
-    public hideCloseIcon = false;
 
     @property({ type: Object })
     public leadingAction!: NotificationProps['leadingAction'];
@@ -84,18 +86,8 @@ export class PieNotification extends LitElement implements NotificationProps {
     @state()
     protected _hasIconClass = false;
 
-    @state()
-    protected _hasContentGutter = false;
-
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
-
-    /**
-     * Lifecycle method executed after component renders.
-     */
-    protected firstUpdated (): void {
-        this.updateIconProperties();
-    }
 
     /**
      * Lifecycle method executed when component is about to update.
@@ -115,10 +107,6 @@ export class PieNotification extends LitElement implements NotificationProps {
     protected updated (_changedProperties: PropertyValues<this>): void {
         if (_changedProperties.has('isOpen') && this.isOpen) {
             dispatchCustomEvent(this, ON_NOTIFICATION_OPEN_EVENT, { targetNotification: this });
-        }
-
-        if (_changedProperties.has('heading') || _changedProperties.has('isDismissible') || _changedProperties.has('isCompact')) {
-            this._hasContentGutter = (this.heading === '' || this.heading === undefined) && (this.isDismissible && !this.isCompact);
         }
     }
 
@@ -158,11 +146,7 @@ export class PieNotification extends LitElement implements NotificationProps {
      * @private
      */
     private renderNotificationHeading (heading: NotificationProps['heading'], headingTag: StaticValue): TemplateResult {
-        return html`
-            <header class="${componentClass}-header" data-test-id="${componentSelector}-header">
-                <${headingTag} class="${componentClass}-heading" data-test-id="${componentSelector}-heading">${heading}</${headingTag}>
-            </header>
-        `;
+        return html`<${headingTag} class="${componentClass}-heading" data-test-id="${componentSelector}-heading">${heading}</${headingTag}>`;
     }
 
     /**
@@ -188,13 +172,13 @@ export class PieNotification extends LitElement implements NotificationProps {
     private getDefaultVariantIcon (variant: NonNullable<NotificationProps['variant']>) {
         switch (variant) {
             case 'info':
-                return html`<icon-info-circle size="s" data-test-id="${componentSelector}-heading-icon-info"></icon-info-circle>`;
+                return html`<icon-info-circle size="m" data-test-id="${componentSelector}-heading-icon-info"></icon-info-circle>`;
             case 'success':
-                return html`<icon-check-circle size="s" data-test-id="${componentSelector}-heading-icon-success"></icon-check-circle>`;
+                return html`<icon-check-circle size="m" data-test-id="${componentSelector}-heading-icon-success"></icon-check-circle>`;
             case 'warning':
-                return html`<icon-alert-triangle size="s" data-test-id="${componentSelector}-heading-icon-warning"></icon-alert-triangle>`;
+                return html`<icon-alert-triangle size="m" data-test-id="${componentSelector}-heading-icon-warning"></icon-alert-triangle>`;
             case 'error':
-                return html`<icon-alert-circle size="s" data-test-id="${componentSelector}-heading-icon-error"></icon-alert-circle>`;
+                return html`<icon-alert-circle size="m" data-test-id="${componentSelector}-heading-icon-error"></icon-alert-circle>`;
             default:
                 return nothing as never;
         }
@@ -323,6 +307,7 @@ export class PieNotification extends LitElement implements NotificationProps {
     render () {
         const {
             variant,
+            position,
             heading,
             headingLevel,
             isDismissible,
@@ -333,20 +318,26 @@ export class PieNotification extends LitElement implements NotificationProps {
             leadingAction,
             supportingAction,
             isOpen,
-            _hasContentGutter,
         } = this;
 
         if (!isOpen) {
             return nothing;
         }
 
-        return html`
-            <div data-test-id="${componentSelector}" class="${componentClass}" variant="${variant}" ?isCompact="${isCompact}">
-                ${isDismissible && !isCompact ? this.renderCloseButton() : nothing}
+        const showCloseButton = isDismissible && !isCompact;
 
-                <section class="${componentClass}-content-section">
+        return html`
+            <div 
+                data-test-id="${componentSelector}" 
+                class="${componentClass}" 
+                variant="${variant}" 
+                position="${position}"
+                ?isCompact="${isCompact}">
+                ${showCloseButton ? this.renderCloseButton() : nothing}
+
+                <section class="${componentClass}-content-section" ?isDismissible="${showCloseButton}">
                     ${!hideIcon ? this.renderIcon(variant, _hasExternalIcon, _hasIconClass) : nothing}
-                    <article ?hasGutter="${_hasContentGutter}">
+                    <article>
                         ${heading ? this.renderNotificationHeading(heading, unsafeStatic(headingLevel)) : nothing}
                         <slot></slot>
                     </article>

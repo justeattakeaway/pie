@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-webc
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - An automation script named `add-components` which will add all pie components into pie-webc ([#1426](https://github.com/justeattakeaway/pie/pull/1426)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Added] - Supporting unit tests
+
 ## 0.3.2
 
 ### Patch Changes

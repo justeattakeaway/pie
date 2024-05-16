@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.75.1
+
+### Patch Changes
+
+- Updated dependencies [[`9b1d8ee1a`](https://github.com/justeattakeaway/pie/commit/9b1d8ee1a47baff6cf4ec57fae3a3da4c52aa795)]:
+  - @justeattakeaway/pie-checkbox@0.2.0
+
+## 0.75.0
+
+### Minor Changes
+
+- [Changed] - address design review notes ([#1435](https://github.com/justeattakeaway/pie/pull/1435)) by [@raoufswe](https://github.com/raoufswe)
+
+  - The icons size should be 24 x 24px
+  - The top padding of the icon is currently 4px, needs to be reduced to 2px
+  - The title should use token 'heading-s/narrow' (16px, 24lh)
+  - Update the story title text to `heading` to be consistent
+  - The space between the title and supporting text should be 4px
+  - The supporting text shouldn't run underneath the close icon.
+  - When 'stacked actions = true', the leading action should be above.
+
+### Patch Changes
+
+- [Added] - `position` prop documentation ([#1388](https://github.com/justeattakeaway/pie/pull/1388)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- Updated dependencies [[`a33b7a358`](https://github.com/justeattakeaway/pie/commit/a33b7a35887bc8f0cb9774b959513bf4e1a1cae0), [`65d480cfa`](https://github.com/justeattakeaway/pie/commit/65d480cfada6fbea2eab0bcce244f5e8678214f7)]:
+  - @justeattakeaway/pie-notification@0.6.0
+
 ## 0.74.2
 
 ### Patch Changes

@@ -5,6 +5,10 @@ module.exports = {
         icon: '/assets/img/components/icons/figma.svg',
         resource: 'Figma Component',
     },
+    [resourceTypes.PATTERN]: {
+        icon: '/assets/img/components/icons/figma.svg',
+        resource: 'Figma Pattern',
+    },
     [resourceTypes.DOCUMENTATION]: {
         icon: '/assets/img/components/icons/figma.svg',
         resource: 'Figma Documentation',

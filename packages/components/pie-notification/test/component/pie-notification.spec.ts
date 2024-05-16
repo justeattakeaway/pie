@@ -16,7 +16,6 @@ const headingIconInfoSelector = `[data-test-id="${rootSelector}-heading-icon-inf
 const headingIconSuccessSelector = `[data-test-id="${rootSelector}-heading-icon-success"]`;
 const headingIconWarningSelector = `[data-test-id="${rootSelector}-heading-icon-warning"]`;
 const headingIconErrorSelector = `[data-test-id="${rootSelector}-heading-icon-error"]`;
-const headerSelector = `[data-test-id="${rootSelector}-header"]`;
 const headingSelector = `[data-test-id="${rootSelector}-heading"]`;
 const footerSelector = `[data-test-id="${rootSelector}-footer"]`;
 const leadingActionSelector = `[data-test-id="${rootSelector}-leading-action"]`;
@@ -161,23 +160,6 @@ test.describe('PieNotification - Component tests', () => {
         });
 
         test.describe('heading', () => {
-            test('should not render the header if heading is not provided', async ({ mount, page }) => {
-                // Arrange
-                await mount(PieNotification, {
-                    props: { heading: undefined },
-                });
-
-                // Act
-                const notification = page.locator(componentSelector);
-                const iconClose = page.locator(iconCloseSelector);
-                const header = page.locator(headerSelector);
-
-                // Assert
-                expect(notification).toBeVisible();
-                expect(iconClose).toBeVisible();
-                expect(header).not.toBeVisible();
-            });
-
             test('should render the header when heading is provided', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieNotification, {
@@ -187,13 +169,11 @@ test.describe('PieNotification - Component tests', () => {
                 // Act
                 const notification = page.locator(componentSelector);
                 const iconClose = page.locator(iconCloseSelector);
-                const header = page.locator(headerSelector);
                 const heading = page.locator(`h2${headingSelector}`);
 
                 // Assert
                 expect(notification).toBeVisible();
                 expect(iconClose).toBeVisible();
-                expect(header).toBeVisible();
                 expect(heading).toBeVisible();
                 expect(heading).toHaveText('Title');
             });
@@ -213,10 +193,8 @@ test.describe('PieNotification - Component tests', () => {
 
                         // Act
                         const heading = page.locator(`${headingLevel}${headingSelector}`);
-                        const header = page.locator(headerSelector);
 
                         // Assert
-                        expect(header).toBeVisible();
                         expect(heading).toBeVisible();
                         expect(heading).toHaveText(`Title using ${headingLevel}`);
                     });

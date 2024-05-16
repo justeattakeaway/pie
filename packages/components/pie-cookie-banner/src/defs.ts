@@ -54,12 +54,12 @@ export interface CookieBannerProps {
     locale: CookieBannerLocale;
 
     /**
-     * Allows consumers to pass in a specific cookie statement link.
+     * The URL of the cookie statement page the banner should link to.
      */
     cookieStatementLink: string;
 
     /**
-     * Allows consumers to pass in a specific cookie technology link.
+     * The URL for the cookie technology link.
      */
     cookieTechnologiesLink: string;
 
@@ -68,6 +68,7 @@ export interface CookieBannerProps {
      * the switch to be on by default (if set to `true`).
      *
      * e.g. { 'functional': true }
+     * or { 'functional': true, 'personalized': true, 'analytical': true }
      */
     defaultPreferences?: Partial<Record<PreferenceIds, boolean>>;
 }
