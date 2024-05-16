@@ -1295,7 +1295,7 @@ test.describe('PieInput - Component tests', () => {
                     // Act
                     const input = component.locator('input');
 
-                    const componentAttribute = await input.getAttribute('aria-describedby');
+                    const componentAttribute = await input.getAttribute('aria-invalid');
 
                     // Assert
                     expect(componentAttribute).toBeNull();
@@ -1324,7 +1324,7 @@ test.describe('PieInput - Component tests', () => {
             });
 
             test.describe('when the component `status` is set to anything but `error`', () => {
-                test('should not render the `aria-invalid` attribute', async ({ mount }) => {
+                test('should not render the `aria-errormessage` attribute', async ({ mount }) => {
                     // Arrange
                     const component = await mount(PieInput, {
                         props: {
@@ -1335,7 +1335,7 @@ test.describe('PieInput - Component tests', () => {
                     // Act
                     const input = component.locator('input');
 
-                    const componentAttribute = await input.getAttribute('aria-invalid');
+                    const componentAttribute = await input.getAttribute('aria-errormessage');
 
                     // Assert
                     expect(componentAttribute).toBeNull();
