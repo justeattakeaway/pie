@@ -218,9 +218,9 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     placeholder=${ifDefined(placeholder)}
                     ?readonly=${readonly}
                     ?required=${required}
-                    aria-describedby=${ifDefined(assistiveText ? assistiveTextValue : nothing)}
+                    aria-describedby=${ifDefined(assistiveText ? assistiveTextValue : undefined)}
                     aria-invalid=${status === 'error' ? 'true' : 'false'}
-                    aria-errormessage="${ifDefined(status === 'error' ? assistiveTextValue : nothing)}"
+                    aria-errormessage="${ifDefined(status === 'error' ? assistiveTextValue : undefined)}"
                     @input=${this.handleInput}
                     @change=${this.handleChange}
                     data-test-id="pie-input">
