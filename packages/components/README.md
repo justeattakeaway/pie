@@ -2,6 +2,29 @@
 
 This readme contains some general information that is relevant for all components. For specific information about a component, please refer to the readme in the component's directory.
 
+## Development
+
+### Creating a new component
+We have a component generator package for generating new components named `generator-pie-component`. Please read the readme file found at `packages/tools/generator-pie-component/README.md` for information on how to use it.
+
+### Running Storybook
+To run Storybook, run the following command from the root of the monorepo:
+
+```bash
+yarn dev --filter=pie-storybook
+```
+
+### Watch a component whilst running Storybook
+We can run storybook as above, and then watch a specific component in another shell. This is useful for developing a component in isolation. Run both commands from the root of the monorepo.
+
+```bash
+yarn dev --filter=pie-storybook
+```
+In another shell:
+```bash
+yarn watch --filter={{COMPONENT_NAME}}
+```
+
 ## Events
 Some components dispatch events that consuming applications can listen for. In some cases, we simply allow native events, such as `input` to bubble up from the component. However, in some cases we need to dispatch custom events. This could be due to the fact that the component does not have a native counterpart, and so the event is unique to the component. Or it could be that the native event, such as `change`
 has `composed` set to false. This prevents such events from bubbling outside of the shadow DOM. [Reference](https://javascript.info/shadow-dom-events#event-composed).
