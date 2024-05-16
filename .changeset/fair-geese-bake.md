@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-input": minor
 ---
 
-Adds attributes for a11y
+[Added] - HTML attributes for a11y support
