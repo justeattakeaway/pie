@@ -94,7 +94,7 @@ export class PieCheckbox extends RtlMixin(LitElement) implements CheckboxProps {
                 ?required=${required}
                 .indeterminate=${indeterminate}
                 aria-label=${aria?.label || nothing}
-                aria-labelledby=${label ? nothing : aria?.labelledby}
+                aria-labelledby=${label ? nothing : aria?.labelledby || nothing}
                 aria-describedby= ${aria?.describedby || nothing}
                 @change=${this.handleChange}
                 data-test-id="pie-checkbox"

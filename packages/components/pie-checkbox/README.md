@@ -78,7 +78,7 @@ import { PieCheckbox } from '@justeattakeaway/pie-checkbox/dist/react';
 | `name` | `string` | - | The name of the checkbox (used as a key/value pair with `value`). This is required in order to work properly with forms. |
 | `value` | `string` | 'on' | The value of the input (used as a key/value pair in HTML forms with `name`). If not passed falls back to the html default value "on". |
 | `required` | `boolean` | `false` | If true, the checkbox is required to be checked before submitting the form. If it is not in checked state, the component validity state will be invalid. |
-| `label` | `string` | '' | Text associated with the checkbox. If not passed make sure to either pass label or labeledby/describedby to aria object. |
+| `label` | `string` | '' | Text associated with the checkbox. If there is no label to provide, make sure to pass label, labelledby or describedby to the aria property. |
 | `disabled` | `boolean` | `false` | Indicates whether or not the checkbox is disabled. |
 | `checked` | `boolean` | `false` | Indicates whether or not the checkbox is checked by default (when the page loads). |
 | `indeterminate` | `boolean` | `false` | Indicates whether the checkbox visually shows a horizontal line in the box instead of a check/tick. It has no impact on whether the checkbox's value is used in a form submission. That is decided by the checked state, regardless of the indeterminate state. |
