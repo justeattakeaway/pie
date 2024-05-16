@@ -1298,7 +1298,7 @@ test.describe('PieInput - Component tests', () => {
                     const componentAttribute = await input.getAttribute('aria-invalid');
 
                     // Assert
-                    expect(componentAttribute).toBeNull();
+                    expect(componentAttribute).toBe('false');
                 });
             });
         });
