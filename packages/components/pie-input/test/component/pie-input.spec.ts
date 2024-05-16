@@ -1335,7 +1335,7 @@ test.describe('PieInput - Component tests', () => {
                     // Act
                     const input = component.locator('input');
 
-                    const componentAttribute = await input.getAttribute('aria-errormessage');
+                    const componentAttribute = await input.getAttribute('aria-invalid');
 
                     // Assert
                     expect(componentAttribute).toBeNull();
