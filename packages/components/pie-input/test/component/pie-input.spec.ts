@@ -1264,7 +1264,7 @@ test.describe('PieInput - Component tests', () => {
         });
 
         test.describe('aria-invalid', () => {
-            test.describe('when the component status is set to `Error`', () => {
+            test.describe('when the component status is set to `error`', () => {
                 test('should render the `aria-invalid` attribute', async ({ mount }) => {
                     // Arrange
                     const component = await mount(PieInput, {
@@ -1304,7 +1304,7 @@ test.describe('PieInput - Component tests', () => {
         });
 
         test.describe('aria-errormessage', () => {
-            test.describe('when the component status is set to `Error`', () => {
+            test.describe('when the component status is set to `error`', () => {
                 test('should render the `aria-errormessage` attribute', async ({ mount }) => {
                     // Arrange
                     const component = await mount(PieInput, {
