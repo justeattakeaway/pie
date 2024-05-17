@@ -2,7 +2,7 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieCheckbox, CheckboxProps } from '../../src/index.ts';
 
-const componentSelector = '[data-test-id="pie-checkbox"]';
+const componentSelector = '[data-test-id="checkbox-input"]';
 
 test.describe('PieCheckbox - Component tests', () => {
     // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
