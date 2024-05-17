@@ -32,8 +32,8 @@ export class PieDivider extends LitElement implements DividerProps {
                 data-test-id="pie-divider"
                 aria-hidden="true"
                 class="c-divider"
-                variant=${ifDefined(variant || defaultProps.variant)}
-                orientation=${ifDefined(orientation || defaultProps.orientation)}
+                variant=${ifDefined(variant)}
+                orientation=${ifDefined(orientation)}
             />`;
     }
 

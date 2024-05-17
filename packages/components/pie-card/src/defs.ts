@@ -63,7 +63,7 @@ export interface CardProps {
 
 export type DefaultProps = ComponentDefaultPropsGeneric<CardProps, 'tag' | 'variant' | 'disabled' | 'isDraggable'>;
 
-export const defaultProps: Readonly<DefaultProps> = {
+export const defaultProps: DefaultProps = {
     tag: 'button',
     variant: 'default',
     disabled: false,

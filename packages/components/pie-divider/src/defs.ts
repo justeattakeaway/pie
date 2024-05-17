@@ -16,7 +16,7 @@ export interface DividerProps {
 
 export type DefaultProps = ComponentDefaultPropsGeneric<DividerProps, 'variant' | 'orientation'>;
 
-export const defaultProps: Readonly<DefaultProps> = {
+export const defaultProps: DefaultProps = {
     variant: 'default',
     orientation: 'horizontal',
 };

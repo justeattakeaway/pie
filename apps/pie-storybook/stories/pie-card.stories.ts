@@ -125,8 +125,8 @@ const Template: TemplateFunction<CardProps> = ({
     isDraggable,
 }) => html`
         <pie-card
-            tag="${tag}"
-            variant="${variant}"
+            tag="${tag || defaultProps.tag}"
+            variant="${variant || defaultProps.tag}"
             href="${href || nothing}"
             target="${target || nothing}"
             rel="${rel || nothing}"

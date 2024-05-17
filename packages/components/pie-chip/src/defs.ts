@@ -45,7 +45,7 @@ export const ON_CHIP_CLOSE_EVENT = 'pie-chip-close';
 
 export type DefaultProps = ComponentDefaultPropsGeneric<ChipProps, 'variant' | 'disabled' | 'isSelected' | 'isLoading' | 'isDismissible'>;
 
-export const defaultProps: Readonly<DefaultProps> = {
+export const defaultProps: DefaultProps = {
     variant: 'default',
     disabled: false,
     isSelected: false,

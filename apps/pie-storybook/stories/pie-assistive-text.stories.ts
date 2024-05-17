@@ -1,5 +1,5 @@
 import { html } from 'lit';
-
+import { ifDefined } from 'lit/directives/if-defined.js';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-assistive-text';
 import { AssistiveTextProps as AssistiveTextBaseProps, variants, defaultProps } from '@justeattakeaway/pie-assistive-text';
@@ -49,7 +49,7 @@ const Template : TemplateFunction<AssistiveTextProps> = ({
     slot,
 }) => html`
     <pie-assistive-text
-        variant="${variant || defaultProps.variant}">
+        variant="${ifDefined(variant)}">
         ${sanitizeAndRenderHTML(slot)}
     </pie-assistive-text>
 `;

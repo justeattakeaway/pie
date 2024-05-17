@@ -44,7 +44,7 @@ export * from './defs';
  */
 export class PieNotification extends LitElement implements NotificationProps {
     @property({ type: Boolean })
-    public isOpen = true;
+    public isOpen = defaultProps.isOpen;
 
     @property()
     @validPropertyValues(componentSelector, variants, defaultProps.variant)

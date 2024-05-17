@@ -153,7 +153,7 @@ export type ModalActionType = 'leading' | 'supporting';
 
 export type DefaultProps = ComponentDefaultPropsGeneric<ModalProps, 'headingLevel'|'hasBackButton'|'hasStackedActions'|'isDismissible'|'isFooterPinned'|'isFullWidthBelowMid'|'isLoading'|'isOpen'|'position'|'size'>;
 
-export const defaultProps: Readonly<DefaultProps> = {
+export const defaultProps: DefaultProps = {
     headingLevel: 'h2',
     hasBackButton: false,
     hasStackedActions: false,

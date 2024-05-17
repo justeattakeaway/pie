@@ -40,7 +40,7 @@ export * from './defs';
 // TODO: Move this object to defs.ts
 // It can be moved as soon as we manage to figure a safe way to avoid the error TS2821
 // Import assertions are only supported when the '--module' option is set to 'esnext' or 'nodenext'
-export const defaultProps: Readonly<DefaultProps> = {
+export const defaultProps: DefaultProps = {
     hasPrimaryActionsOnly: false,
     defaultPreferences: {},
     locale: defaultLocale,

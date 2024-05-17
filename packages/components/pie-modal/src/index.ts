@@ -90,15 +90,15 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     public leadingAction!: ActionProps;
 
     @property()
-    @validPropertyValues(componentSelector, positions, 'center')
-    public position: ModalProps['position'] = 'center';
+    @validPropertyValues(componentSelector, positions, defaultProps.position)
+    public position: ModalProps['position'] = defaultProps.position;
 
     @property()
     public returnFocusAfterCloseSelector?: string;
 
     @property()
-    @validPropertyValues(componentSelector, sizes, 'medium')
-    public size: ModalProps['size'] = 'medium';
+    @validPropertyValues(componentSelector, sizes, defaultProps.size)
+    public size: ModalProps['size'] = defaultProps.size;
 
     @property({ type: Object })
     public supportingAction!: ActionProps;
@@ -397,8 +397,8 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         <dialog
             id="dialog"
             class="c-modal"
-            size="${size || 'medium'}"
-            position="${position || 'center'}"
+            size="${size || defaultProps.size}"
+            position="${position || defaultProps.position}"
             ?hasActions=${leadingAction || supportingAction}
             ?hasBackButton=${hasBackButton}
             ?hasStackedActions=${hasStackedActions}

@@ -29,7 +29,7 @@ export interface IconButtonProps {
 
 export type DefaultProps = ComponentDefaultPropsGeneric<IconButtonProps, 'size' | 'variant' | 'disabled' | 'disabled' | 'isLoading'>;
 
-export const defaultProps: Readonly<DefaultProps> = {
+export const defaultProps: DefaultProps = {
     size: 'medium',
     variant: 'primary',
     disabled: false,
