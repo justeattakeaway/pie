@@ -1383,6 +1383,22 @@
                 {
                     "name": "tutorial",
                     "displayName": "Tutorial"
+                },
+                {
+                    "name": "cannabis",
+                    "displayName": "Cannabis"
+                },
+                {
+                    "name": "building-blocks",
+                    "displayName": "Building Blocks"
+                },
+                {
+                    "name": "pacifier",
+                    "displayName": "Pacifier"
+                },
+                {
+                    "name": "experiment",
+                    "displayName": "Experiment"
                 }
             ]
         },
@@ -1641,6 +1657,10 @@
                 {
                     "name": "users",
                     "displayName": "Users"
+                },
+                {
+                    "name": "baby-kid",
+                    "displayName": "Baby Kid"
                 }
             ]
         },
@@ -2057,6 +2077,10 @@
                 {
                     "name": "printer-filled",
                     "displayName": "Printer Filled"
+                },
+                {
+                    "name": "laptop-filled",
+                    "displayName": "Laptop Filled"
                 }
             ]
         },
