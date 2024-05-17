@@ -20,7 +20,7 @@ import 'element-internals-polyfill';
 export * from './defs';
 
 const componentSelector = 'pie-input';
-const assistiveTextValue = 'assistive-text';
+const assistiveTextIdValue = 'assistive-text';
 
 /**
  * @tagname pie-input
@@ -218,15 +218,15 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     placeholder=${ifDefined(placeholder)}
                     ?readonly=${readonly}
                     ?required=${required}
-                    aria-describedby=${ifDefined(assistiveText ? assistiveTextValue : undefined)}
+                    aria-describedby=${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}
                     aria-invalid=${status === 'error' ? 'true' : 'false'}
-                    aria-errormessage="${ifDefined(status === 'error' ? assistiveTextValue : undefined)}"
+                    aria-errormessage="${ifDefined(status === 'error' ? assistiveTextIdValue : undefined)}"
                     @input=${this.handleInput}
                     @change=${this.handleChange}
                     data-test-id="pie-input">
                 <slot name="trailing"></slot>
             </div>
-            ${assistiveText ? html`<pie-assistive-text id="${assistiveTextValue}" variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}`;
+            ${assistiveText ? html`<pie-assistive-text id="${assistiveTextIdValue}" variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
