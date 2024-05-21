@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - aria property to support aria-label, aria-labeledby and aria-describedby attributes. ([#1440](https://github.com/justeattakeaway/pie/pull/1440)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Changed] - updated README to include component properties and events
+
 ## 0.2.0
 
 ### Minor Changes

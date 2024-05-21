@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.75.2
+
+### Patch Changes
+
+- [Fixed] - Type declarations for background colours ([#1373](https://github.com/justeattakeaway/pie/pull/1373)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`5d9fea26f`](https://github.com/justeattakeaway/pie/commit/5d9fea26f1e3ff1abf3df241fb9f9a4b4dfc5221)]:
+  - @justeattakeaway/pie-checkbox@0.3.0
+
 ## 0.75.1
 
 ### Patch Changes
