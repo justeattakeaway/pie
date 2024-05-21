@@ -187,7 +187,7 @@ const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
         <pie-modal
             .aria="${aria}"
             heading="${heading}"
-            headingLevel="${headingLevel || defaultProps.headingLevel}"
+            headingLevel="${headingLevel}"
             ?hasBackButton="${hasBackButton}"
             ?hasStackedActions="${hasStackedActions}"
             ?isDismissible="${isDismissible}"
