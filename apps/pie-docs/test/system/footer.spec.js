@@ -12,7 +12,7 @@ test.describe('PIE - Footer - @desktop', () => {
         for await (const link of await page.getByTestId('footer_link').all()) {
             const href = await link.getAttribute('href');
 
-            /* privacy-policy is known to be flaky */
+            // TODO: DSW-2047 - Replace footer link test with a snapshot test
             if (!href.includes('privacy-policy')) {
                 await Promise.all([
                     page.waitForResponse((resp) => resp.url().includes(href))
