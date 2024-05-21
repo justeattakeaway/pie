@@ -1,4 +1,5 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-spinner';
@@ -61,8 +62,8 @@ const Template: TemplateFunction<SpinnerProps> = ({
     aria,
 }) => html`
         <pie-spinner
-            size="${size || defaultProps.size}"
-            variant="${variant || defaultProps.variant}"
+            size="${ifDefined(size)}"
+            variant="${ifDefined(variant)}"
             .aria="${aria}">
         </pie-spinner>`;
 

@@ -1,4 +1,5 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-divider';
@@ -48,7 +49,7 @@ export default dividerStoryMeta;
 
 const Template : TemplateFunction<DividerProps> = ({ variant, orientation }) => html`
             <div style="${orientation === 'horizontal' ? 'width' : 'height'}: 400px">
-                <pie-divider variant="${variant || defaultProps.variant}" orientation="${orientation || defaultProps.orientation}"></pie-divider>
+                <pie-divider variant="${ifDefined(variant)}" orientation="${ifDefined(orientation)}"></pie-divider>
             </div>
         `;
 

@@ -1,4 +1,5 @@
 import { html, nothing } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-button';
@@ -185,9 +186,9 @@ const Template: TemplateFunction<ButtonProps> = ({
     responsiveSize,
 }) => html`
 <pie-button
-    size="${size || defaultProps.size}"
-    variant="${variant || defaultProps.variant}"
-    type="${type || defaultProps.type}"
+    size="${ifDefined(size)}"
+    variant="${ifDefined(variant)}"
+    type="${ifDefined(type)}"
     iconPlacement="${iconPlacement || nothing}"
     ?disabled="${disabled}"
     ?isLoading="${isLoading}"

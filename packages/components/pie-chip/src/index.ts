@@ -108,7 +108,7 @@ export class PieChip extends LitElement implements ChipProps {
                 data-test-id="pie-chip"
                 tabindex="0"
                 role="button"
-                ?variant="${variant}"
+                variant="${variant}"
                 ?disabled="${disabled}"
                 ?isSelected="${isSelected}"
                 ?isLoading="${isLoading}"

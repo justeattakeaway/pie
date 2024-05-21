@@ -41,8 +41,8 @@ export class PieSpinner extends LitElement implements SpinnerProps {
                 class="c-spinner"
                 role="status"
                 aria-live="polite"
-                size="${size || defaultProps.size}"
-                variant="${variant || defaultProps.variant}">
+                size="${size}"
+                variant="${variant}">
                    ${aria?.label ? html`<span class="c-spinner-label">${aria.label}</span>` : nothing}
                 </div>`;
     }

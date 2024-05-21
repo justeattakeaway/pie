@@ -1,5 +1,6 @@
 import { html, nothing } from 'lit';
 import { action } from '@storybook/addon-actions';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-chip';
@@ -109,7 +110,7 @@ const Template: TemplateFunction<ChipProps> = ({
                 ?isSelected="${isSelected}"
                 ?isLoading="${isLoading}"
                 ?isDismissible="${isDismissible}"
-                variant="${variant || defaultProps.variant}"
+                variant="${ifDefined(variant)}"
                 @pie-chip-close="${closeAction}">
                     ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
                     ${sanitizeAndRenderHTML(slot)}

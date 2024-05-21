@@ -1,4 +1,6 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
+
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-notification';
 import { action } from '@storybook/addon-actions';
@@ -139,12 +141,12 @@ const Template : TemplateFunction<NotificationProps> = ({
 }) => html`
     <pie-notification
         ?isOpen="${isOpen}"
-        variant="${variant || defaultProps.variant}"
-        position="${position || defaultProps.position}"
+        variant="${ifDefined(variant)}"
+        position="${ifDefined(position)}"
         ?isCompact="${isCompact}"
         ?isDismissible="${isDismissible}"
-        heading="${heading}"
-        headingLevel="${headingLevel || defaultProps.headingLevel}"
+        heading="${ifDefined(heading)}"
+        headingLevel="${ifDefined(headingLevel)}"
         ?hideIcon="${hideIcon}"
         .leadingAction="${leadingAction}"
         .supportingAction="${supportingAction}"

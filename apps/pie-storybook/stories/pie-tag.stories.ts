@@ -1,4 +1,5 @@
 import { html, nothing } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-tag';
@@ -87,8 +88,8 @@ const Template : TemplateFunction<TagProps> = ({
     slot,
 }) => html`
     <pie-tag
-        variant="${variant || defaultProps.variant}"
-        size="${size || defaultProps.size}"
+        variant="${ifDefined(variant)}"
+        size="${ifDefined(size)}"
         ?isStrong="${isStrong}"
         ?isDimmed="${isDimmed}">
         ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}

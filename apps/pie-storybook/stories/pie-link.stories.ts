@@ -1,4 +1,5 @@
 import { html, nothing } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-link';
@@ -147,9 +148,9 @@ const Template : TemplateFunction<LinkProps> = ({
     iconPlacement,
 }) => html`
         <pie-link
-            tag="${tag || defaultProps.tag}"
-            variant="${variant || defaultProps.variant}"
-            size="${size || defaultProps.size}"
+            tag="${ifDefined(tag)}"
+            variant="${ifDefined(variant)}"
+            size="${ifDefined(size)}"
             underline="${underline || nothing}"
             iconPlacement="${iconPlacement || nothing}"
             href="${href || nothing}"

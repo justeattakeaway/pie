@@ -1,5 +1,6 @@
 import { nothing } from 'lit';
 import { html } from 'lit/static-html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-card';
@@ -125,8 +126,8 @@ const Template: TemplateFunction<CardProps> = ({
     isDraggable,
 }) => html`
         <pie-card
-            tag="${tag || defaultProps.tag}"
-            variant="${variant || defaultProps.tag}"
+            tag="${ifDefined(tag)}"
+            variant="${ifDefined(variant)}"
             href="${href || nothing}"
             target="${target || nothing}"
             rel="${rel || nothing}"
