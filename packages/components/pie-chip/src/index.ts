@@ -100,8 +100,8 @@ export class PieChip extends LitElement implements ChipProps {
         return html`
             <div
                 aria-atomic="true"
-                aria-busy="${ifDefined(isLoading)}"
-                aria-current="${ifDefined(isSelected)}"
+                aria-busy="${isLoading}"
+                aria-current="${isSelected}"
                 aria-label="${ifDefined(this.aria?.label)}"
                 aria-live="polite"
                 class="c-chip"

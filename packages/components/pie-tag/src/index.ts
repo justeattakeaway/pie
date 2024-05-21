@@ -43,8 +43,8 @@ export class PieTag extends LitElement implements TagProps {
         return html`
             <div
                 class="c-tag"
-                variant=${variant || defaultProps.variant}
-                size=${size || defaultProps.size}
+                variant=${variant}
+                size=${size}
                 ?isStrong=${isStrong}
                 ?isDimmed=${isDimmed}
                 data-test-id="pie-tag"
