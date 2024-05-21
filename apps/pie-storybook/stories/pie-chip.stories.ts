@@ -1,9 +1,10 @@
 import { html, nothing } from 'lit';
 import { action } from '@storybook/addon-actions';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-chip';
-import { ChipProps as ChipPropsBase, variants } from '@justeattakeaway/pie-chip';
+import { ChipProps as ChipPropsBase, variants, defaultProps } from '@justeattakeaway/pie-chip';
 /* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
@@ -14,15 +15,11 @@ type ChipProps = SlottedComponentProps<ChipPropsBase> & { showIcon: boolean };
 type ChipStoryMeta = StoryMeta<ChipProps>;
 
 const defaultArgs: ChipProps = {
+    ...defaultProps,
     aria: {
         label: 'Chip Label',
         close: 'Chip Close',
     },
-    variant: 'default',
-    disabled: false,
-    isSelected: false,
-    isLoading: false,
-    isDismissible: false,
     showIcon: false,
     slot: 'String',
 };
@@ -40,35 +37,35 @@ const chipStoryMeta: ChipStoryMeta = {
             control: 'select',
             options: variants,
             defaultValue: {
-                summary: 'default',
+                summary: defaultProps.variant,
             },
         },
         disabled: {
             description: 'If `true`, disables the chip.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.disabled,
             },
         },
         isSelected: {
             description: 'If `true`, the chip element will apply the selected styles.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.isSelected,
             },
         },
         isLoading: {
             description: 'If `true`, displays a loading indicator inside the chip.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.isLoading,
             },
         },
         isDismissible: {
             description: 'If `true`, displays a close icon to dismiss the chip component. <br /><br /> Can be only used if `isSelected` is set to true',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.isDismissible,
             },
             if: { arg: 'isSelected', eq: true },
         },
@@ -76,7 +73,7 @@ const chipStoryMeta: ChipStoryMeta = {
             description: 'Enable to see the example of Chip with icon.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultArgs.showIcon,
             },
         },
         slot: {
@@ -113,7 +110,7 @@ const Template: TemplateFunction<ChipProps> = ({
                 ?isSelected="${isSelected}"
                 ?isLoading="${isLoading}"
                 ?isDismissible="${isDismissible}"
-                variant="${variant}"
+                variant="${ifDefined(variant)}"
                 @pie-chip-close="${closeAction}">
                     ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
                     ${sanitizeAndRenderHTML(slot)}

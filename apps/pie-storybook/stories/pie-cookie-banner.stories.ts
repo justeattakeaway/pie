@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-cookie-banner';
-import { CookieBannerProps } from '@justeattakeaway/pie-cookie-banner';
+import { CookieBannerProps, defaultProps } from '@justeattakeaway/pie-cookie-banner';
 import pieCookieBannerLocales from '@justeattakeaway/pie-cookie-banner/locales';
 /* eslint-enable import/no-duplicates */
 
@@ -13,8 +13,7 @@ import { createStory } from '../utilities';
 type CookieBannerStoryMeta = StoryMeta<CookieBannerProps>;
 
 const defaultArgs: CookieBannerProps = {
-    hasPrimaryActionsOnly: false,
-    locale: pieCookieBannerLocales.enGB,
+    ...defaultProps,
     cookieTechnologiesLink: 'en/technologies',
     cookieStatementLink: 'en/cookiestatement',
     defaultPreferences: {
@@ -37,7 +36,7 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
             mapping: pieCookieBannerLocales,
             description: 'Assigns the data for localising the component strings',
             defaultValue: {
-                summary: 'enGB',
+                summary: defaultProps.locale,
             },
         },
         defaultPreferences: {

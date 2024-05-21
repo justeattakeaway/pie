@@ -1,3 +1,5 @@
+import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+
 export const types = ['text', 'number', 'password', 'url', 'email', 'tel'] as const;
 export const inputModes = ['none', 'text', 'tel', 'url', 'email', 'numeric', 'decimal', 'search'] as const;
 export const statusTypes = ['success', 'error'] as const;
@@ -110,21 +112,15 @@ export interface InputProps {
     required?: boolean;
 }
 
-// TODO - There is a ticket to add default prop values to our existing components. This might be replaced by the code added in that ticket.
-/**
- * A subset of interface properties that are required (i.e. they have a fallback value in the component).
- */
-type SubsetRequiredProperties<T, K extends keyof T> = Required<Pick<T, K>>;
-
 /**
  * The default values for the `InputProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultInputPropValues = SubsetRequiredProperties<InputProps, 'type' | 'value' | 'size'>;
+type DefaultProps = ComponentDefaultPropsGeneric<InputProps, 'type' | 'value' | 'size'>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
  */
-export const InputDefaultPropertyValues: DefaultInputPropValues = {
+export const defaultProps: DefaultProps = {
     type: 'text',
     value: '',
     size: 'medium',
