@@ -3,12 +3,12 @@ import { test, expect } from '@sand4rt/experimental-ct-web';
 import type { Page } from '@playwright/test';
 import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
-import { PieInput, InputProps } from '../../src/index.ts';
+import { PieTextInput, TextInputProps } from '../../src/index.ts';
 import { statusTypes } from '../../src/defs.ts';
 
-const componentSelector = '[data-test-id="pie-input"]';
-const assistiveTextSelector = '[data-test-id="pie-input-assistive-text"]';
-const componentShellSelector = '[data-test-id="pie-input-shell"]';
+const componentSelector = '[data-test-id="pie-text-input"]';
+const assistiveTextSelector = '[data-test-id="pie-text-input-assistive-text"]';
+const componentShellSelector = '[data-test-id="pie-text-input-shell"]';
 
 /**
  * Sets up form data extraction for testing form submissions. This function expects a form element
@@ -18,7 +18,7 @@ const componentShellSelector = '[data-test-id="pie-input-shell"]';
  *
  * Expected HTML structure on the page:
  * <form id="form-selector" action="/foo" method="POST">
- *     <pie-input type="text" name="username"></pie-input>
+ *     <pie-text-input type="text" name="username"></pie-text-input>
  *     <!-- other form elements -->
  *     <button type="submit">Submit</button>
  * </form>
@@ -64,11 +64,11 @@ async function getFormDataObject (page: Page, outputSelector: string): Promise<{
     return JSON.parse(formDataJson || '{}');
 }
 
-test.describe('PieInput - Component tests', () => {
+test.describe('PieTextInput - Component tests', () => {
     // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
     // mount the component will still have it available in Playwright's cache (loaded and registered in the test browser)
     test.beforeEach(async ({ mount }) => {
-        const component = await mount(PieInput);
+        const component = await mount(PieTextInput);
         await component.unmount();
 
         const iconComponent = await mount(IconPlaceholder);
@@ -80,8 +80,8 @@ test.describe('PieInput - Component tests', () => {
 
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
-        await mount(PieInput, {
-            props: {} as InputProps,
+        await mount(PieTextInput, {
+            props: {} as TextInputProps,
         });
 
         // Act
@@ -95,7 +95,7 @@ test.describe('PieInput - Component tests', () => {
         test.describe('type', () => {
             test('should default to text type if no type prop provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {});
+                const component = await mount(PieTextInput, {});
 
                 // Act
                 const input = component.locator('input');
@@ -106,10 +106,10 @@ test.describe('PieInput - Component tests', () => {
 
             test('should apply the type prop to the HTML input rendered', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         type: 'number',
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
@@ -123,7 +123,7 @@ test.describe('PieInput - Component tests', () => {
         test.describe('value', () => {
             test('should default to an empty string if no value prop provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {});
+                const component = await mount(PieTextInput, {});
 
                 // Act
                 const input = component.locator('input');
@@ -134,10 +134,10 @@ test.describe('PieInput - Component tests', () => {
 
             test('should apply the value prop to the HTML input rendered', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         value: 'test',
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
@@ -151,7 +151,7 @@ test.describe('PieInput - Component tests', () => {
         test.describe('name', () => {
             test('should not render a name attribute on the input element if no name provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {});
+                const component = await mount(PieTextInput, {});
 
                 // Act
                 const input = component.locator('input');
@@ -162,10 +162,10 @@ test.describe('PieInput - Component tests', () => {
 
             test('should apply the name prop to the HTML input rendered', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         name: 'test',
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
@@ -179,7 +179,7 @@ test.describe('PieInput - Component tests', () => {
         test.describe('pattern', () => {
             test('should not render a pattern attribute on the input element if no pattern provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {});
+                const component = await mount(PieTextInput, {});
 
                 // Act
                 const input = component.locator('input');
@@ -190,16 +190,16 @@ test.describe('PieInput - Component tests', () => {
 
             test('should be invalid state `patternMismatch` if pattern is not met', async ({ mount, page }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         pattern: '[a-z]{4,8}',
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
                 await component.type('hello world');
 
-                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.patternMismatch);
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.patternMismatch);
 
                 // Assert
                 expect(isInvalid).toBe(true);
@@ -207,16 +207,16 @@ test.describe('PieInput - Component tests', () => {
 
             test('should be valid state if pattern is met', async ({ mount, page }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         pattern: '[a-z]{4,8}',
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
                 await component.type('test');
 
-                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+                const isValid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -226,7 +226,7 @@ test.describe('PieInput - Component tests', () => {
         test.describe('minlength', () => {
             test('should not render a minlength attribute on the input element if no minlength provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {});
+                const component = await mount(PieTextInput, {});
 
                 // Act
                 const input = component.locator('input');
@@ -237,16 +237,16 @@ test.describe('PieInput - Component tests', () => {
 
             test('should be invalid state `tooShort` if the min length is not entered', async ({ mount, page }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         minlength: 3,
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
                 await component.type('te');
 
-                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.tooShort);
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.tooShort);
 
                 // Assert
                 expect(isInvalid).toBe(true);
@@ -254,16 +254,16 @@ test.describe('PieInput - Component tests', () => {
 
             test('should be valid state if the min length is met', async ({ mount, page }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         minlength: 3,
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
                 await component.type('tes');
 
-                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+                const isValid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -273,7 +273,7 @@ test.describe('PieInput - Component tests', () => {
         test.describe('maxlength', () => {
             test('should not render a maxlength attribute on the input element if no maxlength provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {});
+                const component = await mount(PieTextInput, {});
 
                 // Act
                 const input = component.locator('input');
@@ -284,10 +284,10 @@ test.describe('PieInput - Component tests', () => {
 
             test('should not be able to input a value greater than the maxlength provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         maxlength: 3,
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
@@ -299,19 +299,19 @@ test.describe('PieInput - Component tests', () => {
 
             test('should be invalid state `tooLong` if the maxlength is exceeded programmatically', async ({ mount, page }) => {
                 // Arrange
-                await mount(PieInput, {
+                await mount(PieTextInput, {
                     props: {
                         maxlength: 2,
                         value: 'test',
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
-                await page.focus('pie-input');
+                await page.focus('pie-text-input');
                 await page.keyboard.press('ArrowRight'); // Move cursor to end of input so we don't delete the whole value
                 await page.keyboard.press('Backspace'); // Delete the last character to trigger an input event - this should trigger the validity state update
 
-                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.tooLong);
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.tooLong);
 
                 // Assert
                 expect(isInvalid).toBe(true);
@@ -319,16 +319,16 @@ test.describe('PieInput - Component tests', () => {
 
             test('should be valid state if the max length is not exceeded', async ({ mount, page }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         maxlength: 3,
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
                 await component.type('tes');
 
-                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+                const isValid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -338,7 +338,7 @@ test.describe('PieInput - Component tests', () => {
         test.describe('autocomplete', () => {
             test('should not render an autocomplete attribute on the input element if no autocomplete provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {});
+                const component = await mount(PieTextInput, {});
 
                 // Act
                 const input = component.locator('input');
@@ -349,10 +349,10 @@ test.describe('PieInput - Component tests', () => {
 
             test('should apply the autocomplete prop to the HTML input rendered', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         autocomplete: 'on',
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
@@ -366,7 +366,7 @@ test.describe('PieInput - Component tests', () => {
         test.describe('placeholder', () => {
             test('should not render a placeholder attribute on the input element if no placeholder provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {});
+                const component = await mount(PieTextInput, {});
 
                 // Act
                 const input = component.locator('input');
@@ -377,10 +377,10 @@ test.describe('PieInput - Component tests', () => {
 
             test('should apply the placeholder prop to the HTML input rendered', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         placeholder: 'Test Placeholder',
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
@@ -395,7 +395,7 @@ test.describe('PieInput - Component tests', () => {
             test('should focus the component when autoFocus is `true`', async ({ page }) => {
                 // Arrange
                 // Setting the content this way rather than a mount call triggers the autofocus behaviour immediately
-                await page.setContent('<pie-input data-test-id="testInput" type="text" autofocus></pie-input>');
+                await page.setContent('<pie-text-input data-test-id="testInput" type="text" autofocus></pie-text-input>');
 
                 // Act
                 const inputLocator = page.getByTestId('testInput');
@@ -407,7 +407,7 @@ test.describe('PieInput - Component tests', () => {
             test('should not focus the component when autoFocus is not provided', async ({ page }) => {
                 // Arrange
                 // Setting the content this way rather than a mount call triggers the autofocus behaviour immediately
-                await page.setContent('<pie-input data-test-id="testInput" type="text"></pie-input>');
+                await page.setContent('<pie-text-input data-test-id="testInput" type="text"></pie-text-input>');
 
                 // Act
                 const inputLocator = page.getByTestId('testInput');
@@ -420,7 +420,7 @@ test.describe('PieInput - Component tests', () => {
         test.describe('inputmode', () => {
             test('should not render an inputmode attribute on the input element if no inputmode provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {});
+                const component = await mount(PieTextInput, {});
 
                 // Act
                 const input = component.locator('input');
@@ -431,10 +431,10 @@ test.describe('PieInput - Component tests', () => {
 
             test('should apply the inputmode prop to the HTML input rendered', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         inputmode: 'numeric',
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
@@ -448,11 +448,11 @@ test.describe('PieInput - Component tests', () => {
         test.describe('readonly', () => {
             test('should be able to edit the component value when readonly is `false`', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         readonly: false,
                         value: 'test',
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
@@ -464,11 +464,11 @@ test.describe('PieInput - Component tests', () => {
 
             test('should not be able to edit the component value when readonly is `true`', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         readonly: true,
                         value: 'test',
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
@@ -484,17 +484,17 @@ test.describe('PieInput - Component tests', () => {
                 // Arrange
                 await page.setContent(`
                     <form id="testForm" action="/foo" method="POST">
-                        <pie-input type="text" name="username" defaultValue="foo"></pie-input>
+                        <pie-text-input type="text" name="username" defaultValue="foo"></pie-text-input>
                         <button type="reset">Submit</button>
                     </form>
                 `);
 
                 // Act & Assert
-                await page.locator('pie-input').type('test');
-                expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('test');
+                await page.locator('pie-text-input').type('test');
+                expect(await page.evaluate(() => document.querySelector('pie-text-input')?.value)).toBe('test');
 
                 await page.click('button[type="reset"]');
-                expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('foo');
+                expect(await page.evaluate(() => document.querySelector('pie-text-input')?.value)).toBe('foo');
             });
         });
 
@@ -502,11 +502,11 @@ test.describe('PieInput - Component tests', () => {
             test.describe('when true', () => {
                 test('should disable the component', async ({ mount }) => {
                     // Arrange
-                    const component = await mount(PieInput, {
+                    const component = await mount(PieTextInput, {
                         props: {
                             disabled: true,
                             value: 'test',
-                        } as InputProps,
+                        } as TextInputProps,
                     });
 
                     // Act
@@ -518,10 +518,10 @@ test.describe('PieInput - Component tests', () => {
 
                 test('should not be able to focus the component', async ({ page }) => {
                     // Arrange
-                    await page.setContent('<pie-input type="text" disabled></pie-input>');
+                    await page.setContent('<pie-text-input type="text" disabled></pie-text-input>');
 
                     // Act
-                    const input = page.locator('pie-input');
+                    const input = page.locator('pie-text-input');
                     await input.focus();
 
                     // Assert
@@ -532,7 +532,7 @@ test.describe('PieInput - Component tests', () => {
             test.describe('when not provided', () => {
                 test('should not disable the component', async ({ mount }) => {
                     // Arrange
-                    const component = await mount(PieInput, {});
+                    const component = await mount(PieTextInput, {});
 
                     // Act
                     const input = component.locator('input');
@@ -543,10 +543,10 @@ test.describe('PieInput - Component tests', () => {
 
                 test('should still be able to focus the component', async ({ page }) => {
                     // Arrange
-                    await page.setContent('<pie-input type="text"></pie-input>');
+                    await page.setContent('<pie-text-input type="text"></pie-text-input>');
 
                     // Act
-                    const input = page.locator('pie-input');
+                    const input = page.locator('pie-text-input');
                     await input.focus();
 
                     // Assert
@@ -558,7 +558,7 @@ test.describe('PieInput - Component tests', () => {
         test.describe('assistiveText', () => {
             test('should not render the assistive text component if the prop is not provided', async ({ mount, page }) => {
                 // Arrange
-                await mount(PieInput, {});
+                await mount(PieTextInput, {});
 
                 // Act
                 const assistiveText = page.locator(assistiveTextSelector);
@@ -569,10 +569,10 @@ test.describe('PieInput - Component tests', () => {
 
             test('should not apply a variant attribute if no status is provided', async ({ mount, page }) => {
                 // Arrange
-                await mount(PieInput, {
+                await mount(PieTextInput, {
                     props: {
                         assistiveText: 'Assistive text',
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
@@ -588,11 +588,11 @@ test.describe('PieInput - Component tests', () => {
                 statusTypes.forEach((status) => {
                     test(`should render the assistive text component with the ${status} variant`, async ({ mount, page }) => {
                         // Arrange
-                        await mount(PieInput, {
+                        await mount(PieTextInput, {
                             props: {
                                 assistiveText: 'Assistive text',
                                 status,
-                            } as InputProps,
+                            } as TextInputProps,
                         });
 
                         // Act
@@ -611,80 +611,80 @@ test.describe('PieInput - Component tests', () => {
             test.describe('when type is number', () => {
                 test('should be able to increment the value by the step amount when using the up arrow', async ({ mount, page }) => {
                     // Arrange
-                    await mount(PieInput, {
+                    await mount(PieTextInput, {
                         props: {
                             type: 'number',
                             value: '0',
                             step: 5,
-                        } as InputProps,
+                        } as TextInputProps,
                     });
 
                     // Act
-                    await page.focus('pie-input');
+                    await page.focus('pie-text-input');
                     await page.keyboard.press('ArrowUp');
                     await page.keyboard.press('ArrowUp');
 
                     // Assert
-                    expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('10');
+                    expect(await page.evaluate(() => document.querySelector('pie-text-input')?.value)).toBe('10');
                 });
 
                 test('should be able to decrement the value by the step amount when using the down arrow', async ({ mount, page }) => {
                     // Arrange
-                    await mount(PieInput, {
+                    await mount(PieTextInput, {
                         props: {
                             type: 'number',
                             value: '0',
                             step: 5,
-                        } as InputProps,
+                        } as TextInputProps,
                     });
 
                     // Act
-                    await page.focus('pie-input');
+                    await page.focus('pie-text-input');
                     await page.keyboard.press('ArrowDown');
                     await page.keyboard.press('ArrowDown');
 
                     // Assert
-                    expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('-10');
+                    expect(await page.evaluate(() => document.querySelector('pie-text-input')?.value)).toBe('-10');
                 });
             });
 
             test.describe('when type is not number', () => {
                 test('should not be able to increment the value by the step amount when using the up arrow', async ({ mount, page }) => {
                     // Arrange
-                    await mount(PieInput, {
+                    await mount(PieTextInput, {
                         props: {
                             type: 'text',
                             value: '0',
                             step: 5,
-                        } as InputProps,
+                        } as TextInputProps,
                     });
 
                     // Act
-                    await page.focus('pie-input');
+                    await page.focus('pie-text-input');
                     await page.keyboard.press('ArrowUp');
                     await page.keyboard.press('ArrowUp');
 
                     // Assert
-                    expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('0');
+                    expect(await page.evaluate(() => document.querySelector('pie-text-input')?.value)).toBe('0');
                 });
 
                 test('should not be able to decrement the value by the step amount when using the down arrow', async ({ mount, page }) => {
                     // Arrange
-                    await mount(PieInput, {
+                    await mount(PieTextInput, {
                         props: {
                             type: 'text',
                             value: '0',
                             step: 5,
-                        } as InputProps,
+                        } as TextInputProps,
                     });
 
                     // Act
-                    await page.focus('pie-input');
+                    await page.focus('pie-text-input');
                     await page.keyboard.press('ArrowDown');
                     await page.keyboard.press('ArrowDown');
 
                     // Assert
-                    expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('0');
+                    expect(await page.evaluate(() => document.querySelector('pie-text-input')?.value)).toBe('0');
                 });
             });
         });
@@ -692,18 +692,18 @@ test.describe('PieInput - Component tests', () => {
         test.describe('min', () => {
             test('should be invalid state `rangeUnderflow` if the value is lower than the min', async ({ mount, page }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         type: 'number',
                         value: '0',
                         min: 5,
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
                 await component.type('4');
 
-                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.rangeUnderflow);
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.rangeUnderflow);
 
                 // Assert
                 expect(isInvalid).toBe(true);
@@ -711,18 +711,18 @@ test.describe('PieInput - Component tests', () => {
 
             test('should be valid state if the value is greater than the min', async ({ mount, page }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         type: 'number',
                         value: '0',
                         min: 5,
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
                 await component.type('6');
 
-                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+                const isValid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -732,18 +732,18 @@ test.describe('PieInput - Component tests', () => {
         test.describe('max', () => {
             test('should be invalid state `rangeOverflow` if the value is greater than the max', async ({ mount, page }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         type: 'number',
                         value: '0',
                         max: 5,
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
                 await component.type('6');
 
-                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.rangeOverflow);
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.rangeOverflow);
 
                 // Assert
                 expect(isInvalid).toBe(true);
@@ -751,18 +751,18 @@ test.describe('PieInput - Component tests', () => {
 
             test('should be valid state if the value is lower than the max', async ({ mount, page }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         type: 'number',
                         value: '0',
                         max: 5,
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
                 await component.type('4');
 
-                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+                const isValid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -772,7 +772,7 @@ test.describe('PieInput - Component tests', () => {
         test.describe('size', () => {
             test('should default to medium size if no size prop provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {});
+                const component = await mount(PieTextInput, {});
 
                 // Act
                 const inputShell = component.locator(componentShellSelector);
@@ -783,10 +783,10 @@ test.describe('PieInput - Component tests', () => {
 
             test('should apply the size prop to the HTML input rendered', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         size: 'large',
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
@@ -800,7 +800,7 @@ test.describe('PieInput - Component tests', () => {
         test.describe('required', () => {
             test('should not render a required attribute on the input element if no required provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {});
+                const component = await mount(PieTextInput, {});
 
                 // Act
                 const input = component.locator('input');
@@ -811,10 +811,10 @@ test.describe('PieInput - Component tests', () => {
 
             test('should apply the required prop to the HTML input rendered', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         required: true,
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
@@ -826,14 +826,14 @@ test.describe('PieInput - Component tests', () => {
 
             test('should be invalid state `valueMissing` if the input is empty and required', async ({ mount, page }) => {
                 // Arrange
-                await mount(PieInput, {
+                await mount(PieTextInput, {
                     props: {
                         required: true,
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
-                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valueMissing);
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valueMissing);
 
                 // Assert
                 expect(isInvalid).toBe(true);
@@ -841,16 +841,16 @@ test.describe('PieInput - Component tests', () => {
 
             test('should be valid state if the input is not empty and required', async ({ mount, page }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     props: {
                         required: true,
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
                 await component.type('test');
 
-                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+                const isValid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -858,15 +858,15 @@ test.describe('PieInput - Component tests', () => {
 
             test('should be valid state if the input has a value prop and required', async ({ mount, page }) => {
                 // Arrange
-                await mount(PieInput, {
+                await mount(PieTextInput, {
                     props: {
                         required: true,
                         value: 'test',
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
-                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+                const isValid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -874,15 +874,15 @@ test.describe('PieInput - Component tests', () => {
 
             test('should be valid state if the input is empty and required but disabled', async ({ mount, page }) => {
                 // Arrange
-                await mount(PieInput, {
+                await mount(PieTextInput, {
                     props: {
                         required: true,
                         disabled: true,
-                    } as InputProps,
+                    } as TextInputProps,
                 });
 
                 // Act
-                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+                const isValid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -897,8 +897,8 @@ test.describe('PieInput - Component tests', () => {
                 const messages: InputEvent[] = [];
                 const expectedMessagesLength = 5;
 
-                const component = await mount(PieInput, {
-                    props: {} as InputProps,
+                const component = await mount(PieTextInput, {
+                    props: {} as TextInputProps,
                     on: {
                         input: (data: InputEvent) => {
                             messages.push(data);
@@ -921,13 +921,13 @@ test.describe('PieInput - Component tests', () => {
                 const expectedMessage = 'tes';
 
                 await page.setContent(`
-                    <pie-input type="text"></pie-input>
+                    <pie-text-input type="text"></pie-text-input>
                     <div id="output"></div>
                 `);
 
                 await page.evaluate(() => {
                     const output = (document.getElementById('output') as HTMLDivElement);
-                    const input = document.querySelector('pie-input');
+                    const input = document.querySelector('pie-text-input');
 
                     input?.addEventListener('input', (event: Event) => {
                         const currentValue = (event.target as HTMLInputElement).value;
@@ -935,7 +935,7 @@ test.describe('PieInput - Component tests', () => {
                     });
                 });
 
-                const input = page.locator('pie-input');
+                const input = page.locator('pie-text-input');
 
                 // Act
                 await input.type('test');
@@ -952,13 +952,13 @@ test.describe('PieInput - Component tests', () => {
                 const expectedMessage = 'tes';
 
                 await page.setContent(`
-                    <pie-input type="text"></pie-input>
+                    <pie-text-input type="text"></pie-text-input>
                     <div id="output"></div>
                 `);
 
                 await page.evaluate(() => {
                     const output = document.getElementById('output') as HTMLDivElement;
-                    const input = document.querySelector('pie-input');
+                    const input = document.querySelector('pie-text-input');
 
                     input?.addEventListener('input', (event) => {
                         const { data } = event as InputEvent;
@@ -974,7 +974,7 @@ test.describe('PieInput - Component tests', () => {
                     });
                 });
 
-                const input = page.locator('pie-input');
+                const input = page.locator('pie-text-input');
 
                 // Act
                 await input.type('test');
@@ -990,8 +990,8 @@ test.describe('PieInput - Component tests', () => {
                 // Arrange
                 const messages: CustomEvent[] = [];
 
-                await mount(PieInput, {
-                    props: {} as InputProps,
+                await mount(PieTextInput, {
+                    props: {} as TextInputProps,
                     on: {
                         change: (data: CustomEvent) => {
                             messages.push(data);
@@ -999,7 +999,7 @@ test.describe('PieInput - Component tests', () => {
                     },
                 });
 
-                const input = page.locator('pie-input');
+                const input = page.locator('pie-text-input');
 
                 // Act
                 await input.type('test');
@@ -1014,8 +1014,8 @@ test.describe('PieInput - Component tests', () => {
                 const messages: CustomEvent[] = [];
                 const expectedMessages = [{ sourceEvent: { isTrusted: true } }];
 
-                await mount(PieInput, {
-                    props: {} as InputProps,
+                await mount(PieTextInput, {
+                    props: {} as TextInputProps,
                     on: {
                         change: (data: CustomEvent) => {
                             messages.push(data);
@@ -1023,7 +1023,7 @@ test.describe('PieInput - Component tests', () => {
                     },
                 });
 
-                const input = page.locator('pie-input');
+                const input = page.locator('pie-text-input');
 
                 // Act
                 await input.type('test');
@@ -1039,7 +1039,7 @@ test.describe('PieInput - Component tests', () => {
         test.describe('leading', () => {
             test('should render the leading slot content', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     slots: {
                         leading: '<icon-placeholder id="leading"></icon-placeholder>',
                     },
@@ -1056,7 +1056,7 @@ test.describe('PieInput - Component tests', () => {
         test.describe('trailing', () => {
             test('should render the trailing slot content', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     slots: {
                         trailing: '<icon-placeholder id="trailing"></icon-placeholder>',
                     },
@@ -1073,7 +1073,7 @@ test.describe('PieInput - Component tests', () => {
         test.describe('leading and trailing', () => {
             test('should render both the leading and trailing slot content', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                const component = await mount(PieTextInput, {
                     slots: {
                         leading: '<icon-placeholder id="leading"></icon-placeholder>',
                         trailing: '<span id="trailing">#</span>',
@@ -1096,7 +1096,7 @@ test.describe('PieInput - Component tests', () => {
             // Arrange
             await page.setContent(`
                 <form id="testForm" action="/foo" method="POST">
-                    <pie-input type="text" name="username"></pie-input>
+                    <pie-text-input type="text" name="username"></pie-text-input>
                     <button type="submit">Submit</button>
                 </form>
                 <div id="formDataJson""></div>
@@ -1105,7 +1105,7 @@ test.describe('PieInput - Component tests', () => {
             await setupFormDataExtraction(page, '#testForm', '#formDataJson');
 
             // Act
-            await page.locator('pie-input').type('test');
+            await page.locator('pie-text-input').type('test');
             await page.click('button[type="submit"]');
             const formDataObj = await getFormDataObject(page, '#formDataJson');
 
@@ -1117,7 +1117,7 @@ test.describe('PieInput - Component tests', () => {
             // Arrange
             await page.setContent(`
                 <form id="testForm" action="/foo" method="POST">
-                    <pie-input type="text" name="username"></pie-input>
+                    <pie-text-input type="text" name="username"></pie-text-input>
                     <button type="submit">Submit</button>
                 </form>
                 <div id="formDataJson""></div>
@@ -1126,10 +1126,10 @@ test.describe('PieInput - Component tests', () => {
             await setupFormDataExtraction(page, '#testForm', '#formDataJson');
 
             // Act
-            await page.locator('pie-input').type('test');
+            await page.locator('pie-text-input').type('test');
 
             await page.evaluate(() => {
-                const input = document.querySelector('pie-input') as PieInput;
+                const input = document.querySelector('pie-text-input') as PieTextInput;
                 input.value = 'test2';
             });
 
@@ -1145,25 +1145,25 @@ test.describe('PieInput - Component tests', () => {
             // Arrange
             await page.setContent(`
                 <form id="testForm" action="/foo" method="POST">
-                    <pie-input type="text" name="username"></pie-input>
+                    <pie-text-input type="text" name="username"></pie-text-input>
                     <button type="reset">Reset</button>
                 </form>
             `);
 
             // Act & Assert
-            await page.locator('pie-input').type('test');
-            expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('test');
+            await page.locator('pie-text-input').type('test');
+            expect(await page.evaluate(() => document.querySelector('pie-text-input')?.value)).toBe('test');
 
             await page.click('button[type="reset"]');
-            expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('');
+            expect(await page.evaluate(() => document.querySelector('pie-text-input')?.value)).toBe('');
         });
 
         test('should not submit the value for disabled inputs', async ({ page }) => {
             // Arrange
             await page.setContent(`
                 <form id="testForm" action="/foo" method="POST">
-                    <pie-input type="text" name="username" value="excluded" disabled></pie-input>
-                    <pie-input type="text" name="email" value="test@test.com"></pie-input>
+                    <pie-text-input type="text" name="username" value="excluded" disabled></pie-text-input>
+                    <pie-text-input type="text" name="email" value="test@test.com"></pie-text-input>
                     <button type="submit">Submit</button>
                 </form>
                 <div id="formDataJson""></div>
@@ -1185,9 +1185,9 @@ test.describe('PieInput - Component tests', () => {
             await page.setContent(`
                 <form id="testForm" action="/foo" method="POST">
                     <fieldset disabled>
-                        <pie-input type="text" name="username" value="excluded"></pie-input>
+                        <pie-text-input type="text" name="username" value="excluded"></pie-text-input>
                     </fieldset>
-                    <pie-input type="text" name="email" value="included@test.com"></pie-input>
+                    <pie-text-input type="text" name="email" value="included@test.com"></pie-text-input>
                     <button type="submit">Submit</button>
                 </form>
                 <div id="formDataJson""></div>

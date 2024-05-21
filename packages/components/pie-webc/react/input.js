@@ -1,1 +1,1 @@
-export * from '@justeattakeaway/pie-input/dist/react.js';
+export * from '@justeattakeaway/pie-text-input/dist/react.js';

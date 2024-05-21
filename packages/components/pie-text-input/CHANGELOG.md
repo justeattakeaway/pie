@@ -1,4 +1,4 @@
-# @justeattakeaway/pie-input
+# @justeattakeaway/pie-text-input
 
 ## 0.19.0
 

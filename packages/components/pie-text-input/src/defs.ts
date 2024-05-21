@@ -3,7 +3,7 @@ export const inputModes = ['none', 'text', 'tel', 'url', 'email', 'numeric', 'de
 export const statusTypes = ['success', 'error'] as const;
 export const sizes = ['small', 'medium', 'large'] as const;
 
-export interface InputProps {
+export interface TextInputProps {
     /**
      * The type of HTML input to render.
      */
@@ -117,14 +117,14 @@ export interface InputProps {
 type SubsetRequiredProperties<T, K extends keyof T> = Required<Pick<T, K>>;
 
 /**
- * The default values for the `InputProps` that are required (i.e. they have a fallback value in the component).
+ * The default values for the `TextInputProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultInputPropValues = SubsetRequiredProperties<InputProps, 'type' | 'value' | 'size'>;
+type DefaultTextInputPropValues = SubsetRequiredProperties<TextInputProps, 'type' | 'value' | 'size'>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
  */
-export const InputDefaultPropertyValues: DefaultInputPropValues = {
+export const TextInputDefaultPropertyValues: DefaultTextInputPropValues = {
     type: 'text',
     value: '',
     size: 'medium',

@@ -1,5 +1,5 @@
 import { test, expect, MountOptions } from '@sand4rt/experimental-ct-web';
-import { PieInput } from '@justeattakeaway/pie-input';
+import { PieTextInput } from '@justeattakeaway/pie-text-input';
 import { PieSwitch } from '@justeattakeaway/pie-switch';
 import { PieFormLabel, FormLabelProps } from '../../src/index.ts';
 
@@ -29,8 +29,8 @@ test.describe('PieFormLabel - Component tests', () => {
         // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
         // mount the component will still have it available in Playwright's cache (loaded and registered in the test browser)
         test.beforeEach(async ({ mount }) => {
-            const pieInput = await mount(PieInput);
-            await pieInput.unmount();
+            const pieTextInput = await mount(PieTextInput);
+            await pieTextInput.unmount();
 
             const pieSwitch = await mount(PieSwitch);
             await pieSwitch.unmount();
@@ -41,7 +41,7 @@ test.describe('PieFormLabel - Component tests', () => {
 
         test('when used with a text input', async ({ page }) => {
             // Arrange
-            await page.setContent('<pie-form-label for="email">Email:</pie-form-label><pie-input id="email"></pie-input>');
+            await page.setContent('<pie-form-label for="email">Email:</pie-form-label><pie-text-input id="email"></pie-text-input>');
 
             // Act
             const target = page.locator('#email');
