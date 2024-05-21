@@ -46,7 +46,7 @@ For full information on using PIE components as part of an application, check ou
 #### JavaScript
 ```js
 // Default – for Native JS Applications, Vue, Angular, Svelte, etc.
-import { PieInput } from '@justeattakeaway/pie-text-input';
+import { PieTextInput } from '@justeattakeaway/pie-text-input';
 
 // If you don't need to reference the imported object, you can simply
 // import the module which registers the component as a custom element.
@@ -58,7 +58,7 @@ import '@justeattakeaway/pie-text-input';
 // React
 // For React, you will need to import our React-specific component build
 // which wraps the web component using ​@lit/react
-import { PieInput } from '@justeattakeaway/pie-text-input/dist/react';
+import { PieTextInput } from '@justeattakeaway/pie-text-input/dist/react';
 ```
 
 > [!NOTE]
@@ -114,7 +114,7 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 </pie-text-input>
 
 <!-- JSX -->
-<PieInput
+<PieTextInput
     autocomplete="on"
     autoFocus
     inputmode="text"
@@ -126,7 +126,7 @@ In your markup or JSX, you can then use these to set the properties for the `pie
     readonly
     type="text"
     value="">
-</PieInput>
+</PieTextInput>
 ```
 
 ## Events
