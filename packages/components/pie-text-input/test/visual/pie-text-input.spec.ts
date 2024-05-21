@@ -17,7 +17,7 @@ import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-di
 import { PieTextInput } from '../../src/index.ts';
 
 // Renders a <pie-input> HTML string with the given prop values
-type InputSlotOptions = {
+type TextInputSlotOptions = {
     leadingIcon?: boolean;
     trailingIcon?: boolean;
     leadingCharacter?: boolean;
@@ -40,7 +40,7 @@ const renderTestPieTextInput = (propVals: WebComponentPropValues) => {
 };
 
 // Adds any slots to the component HTML string
-const addSlotsToComponent = (component: string, slotOptions: InputSlotOptions) => {
+const addSlotsToComponent = (component: string, slotOptions: TextInputSlotOptions) => {
     let slots = '';
 
     if (slotOptions.leadingIcon) slots += '<icon-placeholder slot="leading"></icon-placeholder>';
@@ -57,8 +57,8 @@ test.beforeEach(async ({ mount }, testInfo) => {
 
     // This ensures the input component is registered in the DOM for each test.
     // It appears to add them to a Playwright cache which we understand is required for the tests to work correctly.
-    const inputComponent = await mount(PieTextInput);
-    await inputComponent.unmount();
+    const textInputComponent = await mount(PieTextInput);
+    await textInputComponent.unmount();
 
     const iconComponent = await mount(IconPlaceholder);
     await iconComponent.unmount();
@@ -100,7 +100,7 @@ test('Size variants with value and placeholder', async ({ mount, page }) => {
         );
     }));
 
-    await percySnapshot(page, 'PIE Input - Size variants with value and placeholder', percyWidths);
+    await percySnapshot(page, 'Pie Text Input - Size variants with value and placeholder', percyWidths);
 });
 
 const readingDirections = ['LTR', 'RTL'];
@@ -167,7 +167,7 @@ await Promise.all(readingDirections.map(async (dir) => {
             },
         );
 
-        await percySnapshot(page, `PIE Input - Assistive text and statuses - ${dir}`, percyWidths);
+        await percySnapshot(page, `Pie Text Input - Assistive text and statuses - ${dir}`, percyWidths);
     });
 }));
 
@@ -454,6 +454,6 @@ await Promise.all(readingDirections.map(async (dir) => {
             },
         );
 
-        await percySnapshot(page, `PIE Input - Content and Slots - ${dir}`, percyWidths);
+        await percySnapshot(page, `Pie Text Input - Content and Slots - ${dir}`, percyWidths);
     });
 }));
