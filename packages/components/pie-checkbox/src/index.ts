@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS,
+    LitElement, html, unsafeCSS, nothing,
 } from 'lit';
 import {
     RtlMixin,
@@ -45,6 +45,9 @@ export class PieCheckbox extends RtlMixin(LitElement) implements CheckboxProps {
     @property({ type: Boolean })
     public indeterminate?: CheckboxProps['indeterminate'] = false;
 
+    @property({ type: Object })
+    public aria: CheckboxProps['aria'];
+
     @query('input')
     private checkbox?: HTMLInputElement;
 
@@ -77,7 +80,9 @@ export class PieCheckbox extends RtlMixin(LitElement) implements CheckboxProps {
             disabled,
             required,
             indeterminate,
+            aria,
         } = this;
+
         return html`
         <label>
             <input
@@ -88,6 +93,9 @@ export class PieCheckbox extends RtlMixin(LitElement) implements CheckboxProps {
                 ?disabled=${disabled}
                 ?required=${required}
                 .indeterminate=${indeterminate}
+                aria-label=${aria?.label || nothing}
+                aria-labelledby=${label ? nothing : aria?.labelledby || nothing}
+                aria-describedby= ${aria?.describedby || nothing}
                 @change=${this.handleChange}
                 data-test-id="pie-checkbox"
             />
