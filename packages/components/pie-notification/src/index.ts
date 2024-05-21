@@ -339,7 +339,7 @@ export class PieNotification extends LitElement implements NotificationProps {
         const showCloseButton = isDismissible && !isCompact;
 
         return html`
-            <section
+            <div
                 data-test-id="${componentSelector}" 
                 class="${componentClass}" 
                 variant="${variant}" 
@@ -360,7 +360,7 @@ export class PieNotification extends LitElement implements NotificationProps {
                 </section>
 
                 ${leadingAction ? this.renderFooter(leadingAction, supportingAction) : nothing}
-            </section>`;
+            </div>`;
     }
 }
 
