@@ -16,7 +16,7 @@ import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
 import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-direction.ts';
 import { PieTextInput } from '../../src/index.ts';
 
-// Renders a <pie-input> HTML string with the given prop values
+// Renders a <pie-text-input> HTML string with the given prop values
 type TextInputSlotOptions = {
     leadingIcon?: boolean;
     trailingIcon?: boolean;
@@ -48,7 +48,7 @@ const addSlotsToComponent = (component: string, slotOptions: TextInputSlotOption
     if (slotOptions.leadingCharacter) slots += '<span slot="leading">#</span>';
     if (slotOptions.trailingCharacter) slots += '<span slot="trailing">#</span>';
 
-    // add slots between > and </pie-input>
+    // add slots between > and </pie-text-input>
     return component.replace('></pie-text-input>', `>${slots}</pie-text-input>`);
 };
 

@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- [Added] - Use the element internals polyfill in pie-input component ([#1428](https://github.com/justeattakeaway/pie/pull/1428)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - Use the element internals polyfill in pie-text-input component ([#1428](https://github.com/justeattakeaway/pie/pull/1428)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ## 0.18.2
 
@@ -36,7 +36,7 @@
 
 ### Minor Changes
 
-- [Added] - box styles to pie-input ([#1393](https://github.com/justeattakeaway/pie/pull/1393)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - box styles to pie-text-input ([#1393](https://github.com/justeattakeaway/pie/pull/1393)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ## 0.16.1
 
@@ -52,7 +52,7 @@
 
 ### Minor Changes
 
-- [Added] - `required` property to pie-input component ([#1392](https://github.com/justeattakeaway/pie/pull/1392)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - `required` property to pie-text-input component ([#1392](https://github.com/justeattakeaway/pie/pull/1392)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ### Patch Changes
 
@@ -87,7 +87,7 @@
 
 ### Minor Changes
 
-- [Added] - step, min and max properties to pie-input component ([#1332](https://github.com/justeattakeaway/pie/pull/1332)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - step, min and max properties to pie-text-input component ([#1332](https://github.com/justeattakeaway/pie/pull/1332)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ## 0.13.1
 
@@ -138,7 +138,7 @@
 
 ### Minor Changes
 
-- [Added] - Leading and Trailing content slots to pie-input component ([#1255](https://github.com/justeattakeaway/pie/pull/1255)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - Leading and Trailing content slots to pie-text-input component ([#1255](https://github.com/justeattakeaway/pie/pull/1255)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ## 0.9.0
 
@@ -154,9 +154,9 @@
 
 ### Minor Changes
 
-- [Added] - pattern, minlength and maxlength attributes to pie-input component ([#1209](https://github.com/justeattakeaway/pie/pull/1209)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - pattern, minlength and maxlength attributes to pie-text-input component ([#1209](https://github.com/justeattakeaway/pie/pull/1209)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
-- [Added] - inputmode, readonly, placeholder, autocomplete and autoFocus properties to pie-input component ([#1213](https://github.com/justeattakeaway/pie/pull/1213)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - inputmode, readonly, placeholder, autocomplete and autoFocus properties to pie-text-input component ([#1213](https://github.com/justeattakeaway/pie/pull/1213)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ## 0.7.0
 
@@ -177,7 +177,7 @@
 
 ### Minor Changes
 
-- [Added] - name property to `pie-input` component ([#1170](https://github.com/justeattakeaway/pie/pull/1170)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - name property to `pie-text-input` component ([#1170](https://github.com/justeattakeaway/pie/pull/1170)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 - [Added] - `updated` lifecycle method to ensure we update the form value when the value prop is changed externally ([#1170](https://github.com/justeattakeaway/pie/pull/1170)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
@@ -229,7 +229,7 @@
 
 ### Minor Changes
 
-- [Added] - Render an input inside of pie-input with a type property that defaults to text ([#1138](https://github.com/justeattakeaway/pie/pull/1138)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - Render an input inside of pie-text-input with a type property that defaults to text ([#1138](https://github.com/justeattakeaway/pie/pull/1138)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ### Patch Changes
 
