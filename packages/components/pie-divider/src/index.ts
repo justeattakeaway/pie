@@ -1,6 +1,5 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './divider.scss?inline';
 import {
