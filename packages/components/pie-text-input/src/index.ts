@@ -12,7 +12,7 @@ import '@justeattakeaway/pie-assistive-text';
 
 import styles from './text-input.scss?inline';
 import {
-    types, statusTypes, TextInputProps, TextInputDefaultPropertyValues,
+    types, statusTypes, TextInputProps, defaultProps,
 } from './defs';
 import 'element-internals-polyfill';
 
@@ -32,11 +32,11 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @property({ type: String, reflect: true })
-    @validPropertyValues(componentSelector, types, 'text')
-    public type? = TextInputDefaultPropertyValues.type;
+    @validPropertyValues(componentSelector, types, defaultProps.type)
+    public type? = defaultProps.type;
 
     @property({ type: String })
-    public value = TextInputDefaultPropertyValues.value;
+    public value = defaultProps.value;
 
     @property({ type: String })
     public name?: TextInputProps['name'];
@@ -88,7 +88,7 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
     public max?: TextInputProps['max'];
 
     @property({ type: String })
-    public size?: TextInputProps['size'] = TextInputDefaultPropertyValues.size;
+    public size?: TextInputProps['size'] = defaultProps.size;
 
     @property({ type: Boolean })
     public required?: TextInputProps['required'] = false;
@@ -122,7 +122,7 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
      * Resets the value to the default value.
      */
     public formResetCallback (): void {
-        this.value = this.defaultValue ?? TextInputDefaultPropertyValues.value;
+        this.value = this.defaultValue ?? defaultProps.value;
 
         // This ensures the input value is updated when the form is reset.
         // Otherwise there is a bug where values like 'e1212' for number inputs do not correctly reset.

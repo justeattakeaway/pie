@@ -7,7 +7,7 @@ import {
 } from '@justeattakeaway/pie-webc-core';
 import styles from './switch.scss?inline';
 import {
-    SwitchProps, AriaProps, labelPlacements,
+    SwitchProps, AriaProps, labelPlacements, defaultProps,
 } from './defs';
 import 'element-internals-polyfill';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
@@ -45,26 +45,26 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
     public label?: string;
 
     @property({ type: String })
-    @validPropertyValues(componentSelector, labelPlacements, 'leading')
-    public labelPlacement: SwitchProps['labelPlacement'] = 'leading';
+    @validPropertyValues(componentSelector, labelPlacements, defaultProps.labelPlacement)
+    public labelPlacement: SwitchProps['labelPlacement'] = defaultProps.labelPlacement;
 
     @property({ type: Object })
     public aria!: AriaProps;
 
     @property({ type: Boolean, reflect: true })
-    public checked = false;
+    public checked = defaultProps.checked;
 
     @property({ type: Boolean, reflect: true })
-    public required = false;
+    public required = defaultProps.required;
 
     @property({ type: String })
-    public value = 'on';
+    public value = defaultProps.value;
 
     @property({ type: String })
     public name?: string;
 
     @property({ type: Boolean, reflect: true })
-    public disabled = false;
+    public disabled = defaultProps.disabled;
 
     @query('label')
     public focusTarget!: HTMLElement;

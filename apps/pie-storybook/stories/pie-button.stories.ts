@@ -1,9 +1,10 @@
 import { html, nothing } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-button';
 import {
-    ButtonProps as ButtonPropsBase, iconPlacements, sizes, types, variants, responsiveSizes,
+    ButtonProps as ButtonPropsBase, iconPlacements, sizes, types, variants, responsiveSizes, defaultProps,
 } from '@justeattakeaway/pie-button';
 /* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
@@ -15,13 +16,8 @@ type ButtonProps = SlottedComponentProps<ButtonPropsBase>;
 type ButtonStoryMeta = StoryMeta<ButtonProps>;
 
 const defaultArgs: ButtonProps = {
-    size: 'medium',
-    type: 'submit',
-    variant: 'primary',
-    disabled: false,
-    isFullWidth: false,
-    isLoading: false,
-    isResponsive: false,
+    ...defaultProps,
+    iconPlacement: undefined,
     slot: 'Label',
 };
 
@@ -34,7 +30,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
             control: 'select',
             options: sizes,
             defaultValue: {
-                summary: 'medium',
+                summary: defaultProps.size,
             },
         },
         type: {
@@ -42,7 +38,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
             control: 'select',
             options: types,
             defaultValue: {
-                summary: 'submit',
+                summary: defaultProps.type,
             },
         },
         variant: {
@@ -50,7 +46,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
             control: 'select',
             options: variants,
             defaultValue: {
-                summary: 'primary',
+                summary: defaultProps.variant,
             },
         },
         iconPlacement: {
@@ -62,28 +58,28 @@ const buttonStoryMeta: ButtonStoryMeta = {
             description: 'If `true`, disables the button.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.disabled,
             },
         },
         isFullWidth: {
             description: 'If `true`, sets the button width to 100% of it’s container.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.isFullWidth,
             },
         },
         isLoading: {
             description: 'If `true`, displays a loading indicator inside the button.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.isLoading,
             },
         },
         isResponsive: {
             description: 'If `true`, uses the next larger size on wide viewports',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.isResponsive,
             },
         },
         slot: {
@@ -190,9 +186,9 @@ const Template: TemplateFunction<ButtonProps> = ({
     responsiveSize,
 }) => html`
 <pie-button
-    size="${size}"
-    variant="${variant}"
-    type="${type}"
+    size="${ifDefined(size)}"
+    variant="${ifDefined(variant)}"
+    type="${ifDefined(type)}"
     iconPlacement="${iconPlacement || nothing}"
     ?disabled="${disabled}"
     ?isLoading="${isLoading}"

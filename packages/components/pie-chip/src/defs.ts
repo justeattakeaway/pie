@@ -1,3 +1,5 @@
+import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+
 export const variants = ['default', 'outline', 'ghost'] as const;
 
 export type AriaProps = {
@@ -40,3 +42,13 @@ export interface ChipProps {
  */
 
 export const ON_CHIP_CLOSE_EVENT = 'pie-chip-close';
+
+export type DefaultProps = ComponentDefaultPropsGeneric<ChipProps, 'variant' | 'disabled' | 'isSelected' | 'isLoading' | 'isDismissible'>;
+
+export const defaultProps: DefaultProps = {
+    variant: 'default',
+    disabled: false,
+    isSelected: false,
+    isLoading: false,
+    isDismissible: false,
+};

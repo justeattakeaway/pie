@@ -1,3 +1,5 @@
+import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+
 export const variants = ['neutral', 'neutral-alternative', 'info', 'success', 'warning', 'error'] as const;
 export const headingLevels = ['h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const positions = ['inline-content', 'full-width'] as const;
@@ -101,3 +103,16 @@ export const ON_NOTIFICATION_LEADING_ACTION_CLICK_EVENT = `${componentSelector}-
  * @constant
  */
 export const ON_NOTIFICATION_SUPPORTING_ACTION_CLICK_EVENT = `${componentSelector}-supporting-action-click`;
+
+export type DefaultProps = ComponentDefaultPropsGeneric<NotificationProps, 'isOpen' | 'variant' | 'position' | 'isDismissible' | 'isCompact' | 'headingLevel' | 'hideIcon' | 'hasStackedActions'>;
+
+export const defaultProps: DefaultProps = {
+    isOpen: true,
+    variant: 'neutral',
+    position: 'inline-content',
+    isDismissible: true,
+    isCompact: false,
+    headingLevel: 'h2',
+    hideIcon: false,
+    hasStackedActions: false,
+};

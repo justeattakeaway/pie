@@ -9,7 +9,7 @@ import '@justeattakeaway/pie-icons-webc/dist/IconAlertCircle.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheckCircle.js';
 
 import styles from './assistive-text.scss?inline';
-import { AssistiveTextProps, variants } from './defs';
+import { AssistiveTextProps, variants, defaultProps } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -22,8 +22,8 @@ const componentSelector = 'pie-assistive-text';
  */
 export class PieAssistiveText extends LitElement implements AssistiveTextProps {
     @property({ type: String })
-    @validPropertyValues(componentSelector, variants, 'default')
-    public variant?: AssistiveTextProps['variant'] = 'default';
+    @validPropertyValues(componentSelector, variants, defaultProps.variant)
+    public variant?: AssistiveTextProps['variant'] = defaultProps.variant;
 
     /**
  * Renders the assistive-text icon content.

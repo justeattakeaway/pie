@@ -6,7 +6,7 @@ import { useArgs as UseArgs } from '@storybook/preview-api';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-text-input';
 import {
-    types, inputModes, statusTypes, TextInputProps as TextInputPropsBase, sizes,
+    types, inputModes, statusTypes, TextInputProps as TextInputPropsBase, sizes, defaultProps,
 } from '@justeattakeaway/pie-text-input';
 /* eslint-enable import/no-duplicates */
 
@@ -31,12 +31,10 @@ type TextInputProps = TextInputPropsBase & {
 type TextInputStoryMeta = StoryMeta<TextInputProps>;
 
 const defaultArgs: TextInputProps = {
-    type: 'text',
-    value: '',
+    ...defaultProps,
     name: 'testName',
     leadingSlot: 'None',
     trailingSlot: 'None',
-    size: 'medium',
 };
 
 const slotOptions = ['Icon (Placeholder)', 'Short text (#)', 'None'] as const;
@@ -50,21 +48,21 @@ const textInputStoryMeta: TextInputStoryMeta = {
             control: 'select',
             options: types,
             defaultValue: {
-                summary: 'text',
+                summary: defaultProps.type,
             },
         },
         value: {
             description: 'The value of the input (used as a key/value pair in HTML forms with `name`).',
             control: 'text',
             defaultValue: {
-                summary: '',
+                summary: defaultProps.value,
             },
         },
         name: {
             description: 'The name of the input (used as a key/value pair with `value`). This is required in order to work properly with forms.',
             control: 'text',
             defaultValue: {
-                summary: 'testName',
+                summary: defaultArgs.name,
             },
         },
         disabled: {
@@ -195,6 +193,9 @@ const textInputStoryMeta: TextInputStoryMeta = {
             description: 'The size of the input field. Can be `small`, `medium`, or `large`. Defaults to `medium`.',
             control: 'select',
             options: sizes,
+            defaultValue: {
+                summary: defaultProps.size,
+            },
         },
         required: {
             description: 'If true, the input is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid.',
