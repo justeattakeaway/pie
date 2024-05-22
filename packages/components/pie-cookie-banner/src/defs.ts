@@ -4,6 +4,8 @@ import {
     TemplateResult,
 } from 'lit';
 
+import defaultLocale from '../locales/en-gb.json';
+
 export interface CookieBannerLocale {
     banner: {
         title: string;
@@ -145,3 +147,10 @@ export interface CustomTagEnhancers {
 
 export type DefaultProps = ComponentDefaultPropsGeneric<CookieBannerProps, 'hasPrimaryActionsOnly' | 'defaultPreferences' | 'locale' | 'cookieStatementLink' | 'cookieTechnologiesLink'>;
 
+export const defaultProps: DefaultProps = {
+    hasPrimaryActionsOnly: false,
+    defaultPreferences: {},
+    locale: defaultLocale,
+    cookieStatementLink: '',
+    cookieTechnologiesLink: '',
+};
