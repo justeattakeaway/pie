@@ -98,16 +98,6 @@
       "require": "./react/icon-button.js",
       "types": "./react/icon-button.d.ts"
     },
-    "./components/text-input.js": {
-      "import": "./components/text-input.js",
-      "require": "./components/text-input.js",
-      "types": "./components/text-input.d.ts"
-    },
-    "./react/text-input.js": {
-      "import": "./react/text-input.js",
-      "require": "./react/text-input.js",
-      "types": "./react/text-input.d.ts"
-    },
     "./components/link.js": {
       "import": "./components/link.js",
       "require": "./components/link.js",
@@ -167,6 +157,16 @@
       "import": "./react/tag.js",
       "require": "./react/tag.js",
       "types": "./react/tag.d.ts"
+    },
+    "./components/text-input.js": {
+      "import": "./components/text-input.js",
+      "require": "./components/text-input.js",
+      "types": "./components/text-input.d.ts"
+    },
+    "./react/text-input.js": {
+      "import": "./react/text-input.js",
+      "require": "./react/text-input.js",
+      "types": "./react/text-input.d.ts"
     }
   },
   "bin": {
