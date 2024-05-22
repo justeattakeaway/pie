@@ -340,9 +340,9 @@ export class PieNotification extends LitElement implements NotificationProps {
 
         return html`
             <div
-                data-test-id="${componentSelector}" 
-                class="${componentClass}" 
-                variant="${variant}" 
+                data-test-id="${componentSelector}"
+                class="${componentClass}"
+                variant="${variant}"
                 position="${position}"
                 ?isCompact="${isCompact}"
                 role="region"
