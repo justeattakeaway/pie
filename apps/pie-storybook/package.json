@@ -25,13 +25,13 @@
     "@justeattakeaway/pie-form-label": "0.13.5",
     "@justeattakeaway/pie-icon-button": "0.28.6",
     "@justeattakeaway/pie-icons-webc": "0.24.0",
-    "@justeattakeaway/pie-input": "0.19.1",
     "@justeattakeaway/pie-link": "0.17.5",
     "@justeattakeaway/pie-modal": "0.42.6",
     "@justeattakeaway/pie-notification": "0.6.1",
     "@justeattakeaway/pie-spinner": "0.6.5",
     "@justeattakeaway/pie-switch": "0.29.5",
     "@justeattakeaway/pie-tag": "0.9.6",
+    "@justeattakeaway/pie-text-input": "0.19.1",
     "dompurify": "3.0.11"
   },
   "devDependencies": {

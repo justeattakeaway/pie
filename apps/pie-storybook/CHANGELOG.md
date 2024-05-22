@@ -67,7 +67,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`0c061b6cf`](https://github.com/justeattakeaway/pie/commit/0c061b6cf3ef8a3c5372ce1cc2aef45bf806e4b8)]:
-  - @justeattakeaway/pie-input@0.19.0
+  - @justeattakeaway/pie-text-input@0.19.0
 
 ## 0.74.1
 
@@ -83,7 +83,7 @@
   - @justeattakeaway/pie-divider@0.13.4
   - @justeattakeaway/pie-form-label@0.13.4
   - @justeattakeaway/pie-icon-button@0.28.5
-  - @justeattakeaway/pie-input@0.18.2
+  - @justeattakeaway/pie-text-input@0.18.2
   - @justeattakeaway/pie-link@0.17.4
   - @justeattakeaway/pie-modal@0.42.5
   - @justeattakeaway/pie-notification@0.5.5
@@ -105,7 +105,7 @@
   - @justeattakeaway/pie-assistive-text@0.3.5
   - @justeattakeaway/pie-chip@0.6.1
   - @justeattakeaway/pie-icon-button@0.28.4
-  - @justeattakeaway/pie-input@0.18.1
+  - @justeattakeaway/pie-text-input@0.18.1
   - @justeattakeaway/pie-modal@0.42.4
   - @justeattakeaway/pie-notification@0.5.4
   - @justeattakeaway/pie-switch@0.29.3
@@ -115,7 +115,7 @@
 
 ### Patch Changes
 
-- [Changed] - Use pie-input for component status on docs page. Accidentally used pie-button before. ([#1405](https://github.com/justeattakeaway/pie/pull/1405)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Changed] - Use pie-text-input for component status on docs page. Accidentally used pie-button before. ([#1405](https://github.com/justeattakeaway/pie/pull/1405)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 - Updated dependencies [[`d7798b2b4`](https://github.com/justeattakeaway/pie/commit/d7798b2b406e22618ffc2ae4e372c2fb5c41f187), [`d7798b2b4`](https://github.com/justeattakeaway/pie/commit/d7798b2b406e22618ffc2ae4e372c2fb5c41f187)]:
   - @justeattakeaway/pie-tag@0.9.4
@@ -125,12 +125,12 @@
 
 ### Minor Changes
 
-- [Added] - All stories for pie-input ([#1399](https://github.com/justeattakeaway/pie/pull/1399)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - All stories for pie-text-input ([#1399](https://github.com/justeattakeaway/pie/pull/1399)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ### Patch Changes
 
 - Updated dependencies [[`c7ba1d856`](https://github.com/justeattakeaway/pie/commit/c7ba1d856cf147fbdedfe37463a712a4c4177002), [`c7ba1d856`](https://github.com/justeattakeaway/pie/commit/c7ba1d856cf147fbdedfe37463a712a4c4177002)]:
-  - @justeattakeaway/pie-input@0.18.0
+  - @justeattakeaway/pie-text-input@0.18.0
   - @justeattakeaway/pie-assistive-text@0.3.4
 
 ## 0.72.2
@@ -138,7 +138,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`f575e94a7`](https://github.com/justeattakeaway/pie/commit/f575e94a7bd0afd28a4df51809bd9c21a436dfab)]:
-  - @justeattakeaway/pie-input@0.17.0
+  - @justeattakeaway/pie-text-input@0.17.0
 
 ## 0.72.1
 
@@ -156,7 +156,7 @@
   - @justeattakeaway/pie-cookie-banner@0.19.4
   - @justeattakeaway/pie-divider@0.13.3
   - @justeattakeaway/pie-form-label@0.13.3
-  - @justeattakeaway/pie-input@0.16.1
+  - @justeattakeaway/pie-text-input@0.16.1
   - @justeattakeaway/pie-link@0.17.3
   - @justeattakeaway/pie-modal@0.42.3
   - @justeattakeaway/pie-notification@0.5.3
@@ -170,13 +170,13 @@
 
 - [Added] - Help icon with docs site link to component status ([#1365](https://github.com/justeattakeaway/pie/pull/1365)) by [@xander-marjoram](https://github.com/xander-marjoram)
 
-- [Added] - `required` property to pie-input component ([#1392](https://github.com/justeattakeaway/pie/pull/1392)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - `required` property to pie-text-input component ([#1392](https://github.com/justeattakeaway/pie/pull/1392)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ### Patch Changes
 
 - Updated dependencies [[`1086464e8`](https://github.com/justeattakeaway/pie/commit/1086464e86fbce635f4a30783b0c145b7f5854e3), [`6aba71ef8`](https://github.com/justeattakeaway/pie/commit/6aba71ef84765a0cf6285ceeccbabec7851d3a90)]:
   - @justeattakeaway/pie-icons-webc@0.21.0
-  - @justeattakeaway/pie-input@0.16.0
+  - @justeattakeaway/pie-text-input@0.16.0
   - @justeattakeaway/pie-assistive-text@0.3.2
   - @justeattakeaway/pie-button@0.47.2
   - @justeattakeaway/pie-card@0.19.2
@@ -218,7 +218,7 @@
   - @justeattakeaway/pie-spinner@0.6.1
   - @justeattakeaway/pie-button@0.47.1
   - @justeattakeaway/pie-switch@0.28.1
-  - @justeattakeaway/pie-input@0.15.1
+  - @justeattakeaway/pie-text-input@0.15.1
   - @justeattakeaway/pie-modal@0.42.1
   - @justeattakeaway/pie-card@0.19.1
   - @justeattakeaway/pie-chip@0.5.1
@@ -241,13 +241,13 @@
 
 ### Minor Changes
 
-- [Added] - Support for the new `size` prop in `pie-input` ([#1354](https://github.com/justeattakeaway/pie/pull/1354)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - Support for the new `size` prop in `pie-text-input` ([#1354](https://github.com/justeattakeaway/pie/pull/1354)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ### Patch Changes
 
 - Updated dependencies [[`74d8c1680`](https://github.com/justeattakeaway/pie/commit/74d8c1680ca632ff21823dbe1d61ef7bf22a36c8), [`31a1b0aaa`](https://github.com/justeattakeaway/pie/commit/31a1b0aaa456a72c79564a33dde30b755cf2cfc3), [`130f1aaa3`](https://github.com/justeattakeaway/pie/commit/130f1aaa32ccd464b213febf75dd147e6b8aecc3)]:
   - @justeattakeaway/pie-chip@0.4.0
-  - @justeattakeaway/pie-input@0.15.0
+  - @justeattakeaway/pie-text-input@0.15.0
   - @justeattakeaway/pie-assistive-text@0.3.0
   - @justeattakeaway/pie-button@0.47.0
   - @justeattakeaway/pie-card@0.19.0
@@ -286,14 +286,14 @@
 
 ### Minor Changes
 
-- [Added] - step, min and max properties to pie-input component ([#1332](https://github.com/justeattakeaway/pie/pull/1332)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - step, min and max properties to pie-text-input component ([#1332](https://github.com/justeattakeaway/pie/pull/1332)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ### Patch Changes
 
 - Updated dependencies [[`93cbb3985`](https://github.com/justeattakeaway/pie/commit/93cbb39853dba44f0c554faa041505d03dcb886d), [`a400bc394`](https://github.com/justeattakeaway/pie/commit/a400bc39491660a1ef04e29eeb15553b80714c44), [`86e7fe4a1`](https://github.com/justeattakeaway/pie/commit/86e7fe4a183db91c3ffa96597acfe826508433b8)]:
   - @justeattakeaway/pie-cookie-banner@0.17.6
   - @justeattakeaway/pie-modal@0.40.0
-  - @justeattakeaway/pie-input@0.14.0
+  - @justeattakeaway/pie-text-input@0.14.0
 
 ## 0.66.0
 
@@ -315,7 +315,7 @@
   - @justeattakeaway/pie-icon-button@0.27.7
   - @justeattakeaway/pie-form-label@0.12.2
   - @justeattakeaway/pie-divider@0.12.4
-  - @justeattakeaway/pie-input@0.13.1
+  - @justeattakeaway/pie-text-input@0.13.1
   - @justeattakeaway/pie-icons-webc@0.19.1
   - @justeattakeaway/pie-chip@0.3.0
   - @justeattakeaway/pie-link@0.15.4
@@ -333,7 +333,7 @@
 - Updated dependencies [[`d256fecfd`](https://github.com/justeattakeaway/pie/commit/d256fecfd31b5c4c92404b332a260dfe92cd9e29), [`473f57efc`](https://github.com/justeattakeaway/pie/commit/473f57efcef3b47d8641436015b1a3af7da8b6c4), [`50a6b53c1`](https://github.com/justeattakeaway/pie/commit/50a6b53c1786960cbfadfc8bf69b0cafd81b8251)]:
   - @justeattakeaway/pie-assistive-text@0.2.3
   - @justeattakeaway/pie-icons-webc@0.19.0
-  - @justeattakeaway/pie-input@0.13.0
+  - @justeattakeaway/pie-text-input@0.13.0
   - @justeattakeaway/pie-chip@0.2.1
   - @justeattakeaway/pie-icon-button@0.27.6
   - @justeattakeaway/pie-modal@0.38.8
@@ -377,7 +377,7 @@
   - @justeattakeaway/pie-card@0.17.4
   - @justeattakeaway/pie-divider@0.12.3
   - @justeattakeaway/pie-form-label@0.12.1
-  - @justeattakeaway/pie-input@0.12.1
+  - @justeattakeaway/pie-text-input@0.12.1
   - @justeattakeaway/pie-notification@0.3.3
   - @justeattakeaway/pie-spinner@0.5.4
 
@@ -394,7 +394,7 @@
 
 - Updated dependencies [[`86791bd11`](https://github.com/justeattakeaway/pie/commit/86791bd11b7b5e53f171b212699831a79ec4e2d2), [`86791bd11`](https://github.com/justeattakeaway/pie/commit/86791bd11b7b5e53f171b212699831a79ec4e2d2)]:
   - @justeattakeaway/pie-switch@0.27.0
-  - @justeattakeaway/pie-input@0.12.0
+  - @justeattakeaway/pie-text-input@0.12.0
   - @justeattakeaway/pie-form-label@0.12.0
   - @justeattakeaway/pie-cookie-banner@0.17.2
   - @justeattakeaway/pie-assistive-text@0.2.1
@@ -425,13 +425,13 @@
 - Updated dependencies [[`9a37997dd`](https://github.com/justeattakeaway/pie/commit/9a37997ddbd4855344dba530c413bc0f443d1103), [`1313c73b7`](https://github.com/justeattakeaway/pie/commit/1313c73b7deea16d257b598124ca96b8b07222bf), [`69977c413`](https://github.com/justeattakeaway/pie/commit/69977c413459e3858dc57e572a198c1b59155727), [`e74d057e2`](https://github.com/justeattakeaway/pie/commit/e74d057e26e496b7226b256c08efa4d46344593b), [`86d3655a4`](https://github.com/justeattakeaway/pie/commit/86d3655a44fbb1e66c6bd1f841801daa600e21b0)]:
   - @justeattakeaway/pie-chip@0.1.0
   - @justeattakeaway/pie-assistive-text@0.2.0
-  - @justeattakeaway/pie-input@0.11.0
+  - @justeattakeaway/pie-text-input@0.11.0
 
 ## 0.63.0
 
 ### Minor Changes
 
-- [Added] - Leading and Trailing content slots to pie-input component ([#1255](https://github.com/justeattakeaway/pie/pull/1255)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - Leading and Trailing content slots to pie-text-input component ([#1255](https://github.com/justeattakeaway/pie/pull/1255)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ### Patch Changes
 
@@ -441,7 +441,7 @@
   - @justeattakeaway/pie-button@0.45.3
   - @justeattakeaway/pie-link@0.15.1
   - @justeattakeaway/pie-tag@0.6.1
-  - @justeattakeaway/pie-input@0.10.0
+  - @justeattakeaway/pie-text-input@0.10.0
   - @justeattakeaway/pie-cookie-banner@0.17.1
 
 ## 0.62.0
@@ -481,20 +481,20 @@
 
 - Updated dependencies [[`5e250539f`](https://github.com/justeattakeaway/pie/commit/5e250539fe9045f0f8293236874d56eb5ecb6e7e), [`38698ed45`](https://github.com/justeattakeaway/pie/commit/38698ed45a82f42803a6eb857bff4a268eb5c48e), [`38698ed45`](https://github.com/justeattakeaway/pie/commit/38698ed45a82f42803a6eb857bff4a268eb5c48e), [`b82f82797`](https://github.com/justeattakeaway/pie/commit/b82f8279745d952c8c73531d812ea6099356b627)]:
   - @justeattakeaway/pie-css@0.10.0
-  - @justeattakeaway/pie-input@0.9.0
+  - @justeattakeaway/pie-text-input@0.9.0
 
 ## 0.60.0
 
 ### Minor Changes
 
-- [Added] - pattern, minlength and maxlength attributes to pie-input component ([#1209](https://github.com/justeattakeaway/pie/pull/1209)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - pattern, minlength and maxlength attributes to pie-text-input component ([#1209](https://github.com/justeattakeaway/pie/pull/1209)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
-- [Added] - inputmode, readonly, placeholder, autocomplete and autoFocus properties to pie-input component ([#1213](https://github.com/justeattakeaway/pie/pull/1213)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - inputmode, readonly, placeholder, autocomplete and autoFocus properties to pie-text-input component ([#1213](https://github.com/justeattakeaway/pie/pull/1213)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ### Patch Changes
 
 - Updated dependencies [[`7aab10f23`](https://github.com/justeattakeaway/pie/commit/7aab10f23f436f95f1c9cc17857edbeaaa200317), [`b5e35eb58`](https://github.com/justeattakeaway/pie/commit/b5e35eb58e8c6517530cc27c870ee69bc3f424b0)]:
-  - @justeattakeaway/pie-input@0.8.0
+  - @justeattakeaway/pie-text-input@0.8.0
 
 ## 0.59.3
 
@@ -516,7 +516,7 @@
   - @justeattakeaway/pie-spinner@0.5.2
   - @justeattakeaway/pie-css@0.9.1
   - @justeattakeaway/pie-switch@0.25.0
-  - @justeattakeaway/pie-input@0.7.0
+  - @justeattakeaway/pie-text-input@0.7.0
   - @justeattakeaway/pie-link@0.15.0
   - @justeattakeaway/pie-cookie-banner@0.16.0
   - @justeattakeaway/pie-modal@0.38.2
@@ -535,7 +535,7 @@
   - @justeattakeaway/pie-form-label@0.10.1
   - @justeattakeaway/pie-divider@0.12.1
   - @justeattakeaway/pie-spinner@0.5.1
-  - @justeattakeaway/pie-input@0.6.1
+  - @justeattakeaway/pie-text-input@0.6.1
   - @justeattakeaway/pie-modal@0.38.1
   - @justeattakeaway/pie-card@0.17.1
   - @justeattakeaway/pie-link@0.14.1
@@ -546,12 +546,12 @@
 
 ### Minor Changes
 
-- [Added] - name property to `pie-input` component ([#1170](https://github.com/justeattakeaway/pie/pull/1170)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - name property to `pie-text-input` component ([#1170](https://github.com/justeattakeaway/pie/pull/1170)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ### Patch Changes
 
 - Updated dependencies [[`bcc1a60a4`](https://github.com/justeattakeaway/pie/commit/bcc1a60a4d15eeb944ebdbcb387574ae11227372), [`918593afd`](https://github.com/justeattakeaway/pie/commit/918593afd939e8c911542235a5d861680ceba2d0), [`bcc1a60a4`](https://github.com/justeattakeaway/pie/commit/bcc1a60a4d15eeb944ebdbcb387574ae11227372), [`24be8ac1a`](https://github.com/justeattakeaway/pie/commit/24be8ac1a5b5113b94c1971b9a59713fbaf86be5)]:
-  - @justeattakeaway/pie-input@0.6.0
+  - @justeattakeaway/pie-text-input@0.6.0
   - @justeattakeaway/pie-switch@0.24.0
   - @justeattakeaway/pie-cookie-banner@0.15.0
   - @justeattakeaway/pie-notification@0.3.0
@@ -570,12 +570,12 @@
 
 ### Minor Changes
 
-- [Added] - value prop to pie-input stories ([#1165](https://github.com/justeattakeaway/pie/pull/1165)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - value prop to pie-text-input stories ([#1165](https://github.com/justeattakeaway/pie/pull/1165)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ### Patch Changes
 
 - Updated dependencies [[`4bd3f9cd8`](https://github.com/justeattakeaway/pie/commit/4bd3f9cd8511ea7acd5de7196e7de4919a85bf17)]:
-  - @justeattakeaway/pie-input@0.5.0
+  - @justeattakeaway/pie-text-input@0.5.0
 
 ## 0.57.0
 
@@ -586,7 +586,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`847c71160`](https://github.com/justeattakeaway/pie/commit/847c71160c38d8618a8dfd59891a4209f52bb015)]:
-  - @justeattakeaway/pie-input@0.4.0
+  - @justeattakeaway/pie-text-input@0.4.0
 
 ## 0.56.2
 
@@ -601,7 +601,7 @@
   - @justeattakeaway/pie-divider@0.11.0
   - @justeattakeaway/pie-spinner@0.4.0
   - @justeattakeaway/pie-button@0.44.0
-  - @justeattakeaway/pie-input@0.3.0
+  - @justeattakeaway/pie-text-input@0.3.0
   - @justeattakeaway/pie-modal@0.37.0
   - @justeattakeaway/pie-icons-webc@0.17.0
   - @justeattakeaway/pie-card@0.16.0
@@ -620,7 +620,7 @@
   - @justeattakeaway/pie-divider@0.10.2
   - @justeattakeaway/pie-form-label@0.8.5
   - @justeattakeaway/pie-icon-button@0.25.2
-  - @justeattakeaway/pie-input@0.2.1
+  - @justeattakeaway/pie-text-input@0.2.1
   - @justeattakeaway/pie-link@0.12.2
   - @justeattakeaway/pie-modal@0.36.2
   - @justeattakeaway/pie-notification@0.1.5
@@ -632,12 +632,12 @@
 
 ### Minor Changes
 
-- [Added] - Render an input inside of pie-input with a type property that defaults to text ([#1138](https://github.com/justeattakeaway/pie/pull/1138)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - Render an input inside of pie-text-input with a type property that defaults to text ([#1138](https://github.com/justeattakeaway/pie/pull/1138)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ### Patch Changes
 
 - Updated dependencies [[`68df521fd`](https://github.com/justeattakeaway/pie/commit/68df521fdd765bfdba5428f9973be79bf8fb4b20), [`03cd71ffa`](https://github.com/justeattakeaway/pie/commit/03cd71ffa072f6cfe3f1114e20ec2990a728daba)]:
-  - @justeattakeaway/pie-input@0.2.0
+  - @justeattakeaway/pie-text-input@0.2.0
   - @justeattakeaway/pie-button@0.42.1
   - @justeattakeaway/pie-card@0.15.1
   - @justeattakeaway/pie-cookie-banner@0.13.3
@@ -656,7 +656,7 @@
 
 ### Minor Changes
 
-- [Added] - Initial generated storybook boilerplate for pie-input ([#1135](https://github.com/justeattakeaway/pie/pull/1135)) by [@jamieomaguire](https://github.com/jamieomaguire)
+- [Added] - Initial generated storybook boilerplate for pie-text-input ([#1135](https://github.com/justeattakeaway/pie/pull/1135)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
 ### Patch Changes
 
