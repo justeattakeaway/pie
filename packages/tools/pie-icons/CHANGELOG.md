@@ -1,5 +1,46 @@
 # Changelog
 
+## 4.18.0
+
+### Minor Changes
+
+- [Added] - Icons ([#1460](https://github.com/justeattakeaway/pie/pull/1460)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+  ### Misc
+
+  - cannabis
+  - cannabis-large
+  - building-blocks
+  - building-blocks-large
+  - pacifier
+  - pacifier-large
+  - experiment
+  - experiment-large
+
+  ### People
+
+  - baby-kid
+  - baby-kid-large
+
+  ### Technology
+
+  - laptop-filled
+  - laptop-filled-large
+
+  [Updated] - Icons
+
+  ### Pay
+
+  - account-credit
+  - account-credit-large
+
+  ### Bag & Basket
+
+  - bag
+  - bag-large
+  - bag-filled
+  - bag-filled-large
+
 ## 4.17.0
 
 ### Minor Changes
