@@ -612,7 +612,7 @@ test.describe('PieTextInput - Component tests', () => {
                     await mount(PieTextInput, {
                         props: {
                             assistiveText: 'Assistive text',
-                        } as InputProps,
+                        } as TextInputProps,
                     });
 
                     // Act
@@ -1230,7 +1230,7 @@ test.describe('PieTextInput - Component tests', () => {
                 test('should not render the attribute', async ({ mount }) => {
                     // Arrange
                     const component = await mount(PieTextInput, {
-                        props: {} as InputProps,
+                        props: {} as TextInputProps,
                     });
 
                     // Act
@@ -1249,7 +1249,7 @@ test.describe('PieTextInput - Component tests', () => {
                     const component = await mount(PieTextInput, {
                         props: {
                             assistiveText: 'Some useful message',
-                        } as InputProps,
+                        } as TextInputProps,
                     });
 
                     // Act
@@ -1270,7 +1270,7 @@ test.describe('PieTextInput - Component tests', () => {
                     const component = await mount(PieTextInput, {
                         props: {
                             status: 'error',
-                        } as InputProps,
+                        } as TextInputProps,
                     });
 
                     // Act
@@ -1289,7 +1289,7 @@ test.describe('PieTextInput - Component tests', () => {
                     const component = await mount(PieTextInput, {
                         props: {
                             status: 'success',
-                        } as InputProps,
+                        } as TextInputProps,
                     });
 
                     // Act
@@ -1310,7 +1310,7 @@ test.describe('PieTextInput - Component tests', () => {
                     const component = await mount(PieTextInput, {
                         props: {
                             status: 'error',
-                        } as InputProps,
+                        } as TextInputProps,
                     });
 
                     // Act
@@ -1329,7 +1329,7 @@ test.describe('PieTextInput - Component tests', () => {
                     const component = await mount(PieTextInput, {
                         props: {
                             status: 'success',
-                        } as InputProps,
+                        } as TextInputProps,
                     });
 
                     // Act
