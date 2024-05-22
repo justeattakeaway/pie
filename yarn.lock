@@ -5448,8 +5448,8 @@ __metadata:
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
     "@justeattakeaway/pie-components-config": 0.16.0
-    "@justeattakeaway/pie-switch": ^0.29.4
-    "@justeattakeaway/pie-text-input": ^0.19.0
+    "@justeattakeaway/pie-switch": 0.29.4
+    "@justeattakeaway/pie-text-input": 0.19.0
     "@justeattakeaway/pie-webc-core": 0.22.0
     "@justeattakeaway/pie-wrapper-react": 0.14.0
     cem-plugin-module-file-extensions: 0.0.5
@@ -5618,7 +5618,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-switch@0.29.4, @justeattakeaway/pie-switch@^0.29.4, @justeattakeaway/pie-switch@workspace:packages/components/pie-switch":
+"@justeattakeaway/pie-switch@0.29.4, @justeattakeaway/pie-switch@workspace:packages/components/pie-switch":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-switch@workspace:packages/components/pie-switch"
   dependencies:
@@ -5645,7 +5645,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-text-input@0.19.0, @justeattakeaway/pie-text-input@^0.19.0, @justeattakeaway/pie-text-input@workspace:packages/components/pie-text-input":
+"@justeattakeaway/pie-text-input@0.19.0, @justeattakeaway/pie-text-input@workspace:packages/components/pie-text-input":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-text-input@workspace:packages/components/pie-text-input"
   dependencies:
