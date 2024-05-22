@@ -100,7 +100,7 @@ test('Size variants with value and placeholder', async ({ mount, page }) => {
         );
     }));
 
-    await percySnapshot(page, 'Pie Text Input - Size variants with value and placeholder', percyWidths);
+    await percySnapshot(page, 'PIE Text Input - Size variants with value and placeholder', percyWidths);
 });
 
 const readingDirections = ['LTR', 'RTL'];
@@ -167,7 +167,7 @@ await Promise.all(readingDirections.map(async (dir) => {
             },
         );
 
-        await percySnapshot(page, `Pie Text Input - Assistive text and statuses - ${dir}`, percyWidths);
+        await percySnapshot(page, `PIE Text Input - Assistive text and statuses - ${dir}`, percyWidths);
     });
 }));
 
@@ -454,6 +454,6 @@ await Promise.all(readingDirections.map(async (dir) => {
             },
         );
 
-        await percySnapshot(page, `Pie Text Input - Content and Slots - ${dir}`, percyWidths);
+        await percySnapshot(page, `PIE Text Input - Content and Slots - ${dir}`, percyWidths);
     });
 }));
