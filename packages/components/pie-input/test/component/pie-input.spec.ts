@@ -1284,7 +1284,7 @@ test.describe('PieInput - Component tests', () => {
             });
 
             test.describe('when the component `status` is set to anything but `error`', () => {
-                test('should not render the `aria-invalid` attribute', async ({ mount }) => {
+                test('should render the `aria-invalid` with a value of `false`', async ({ mount }) => {
                     // Arrange
                     const component = await mount(PieInput, {
                         props: {
