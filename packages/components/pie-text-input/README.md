@@ -30,7 +30,7 @@ This component can be easily integrated into various frontend frameworks and cus
 
 To install `pie-text-input` in your application, run the following on your command line:
 
-_Note: Older versions of this component were named `pie-input`._
+_Note: Versions of this component prior to v0.19.0 were named `pie-input`._
 
 ```bash
 # npm
