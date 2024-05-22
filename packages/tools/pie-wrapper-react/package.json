@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@babel/preset-react": "7.24.1",
-    "@lit/react": "1.0.4",
+    "@lit/react": "1.0.5",
     "@types/react": "18.2.75"
   },
   "dependencies": {
