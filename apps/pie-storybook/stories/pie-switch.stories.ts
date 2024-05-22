@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-switch';
-import { SwitchProps, labelPlacements } from '@justeattakeaway/pie-switch';
+import { SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-switch';
 /* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
@@ -13,17 +13,14 @@ import { createStory, type TemplateFunction } from '../utilities';
 type SwitchStoryMeta = StoryMeta<SwitchProps>;
 
 const defaultArgs: SwitchProps = {
-    checked: false,
-    disabled: false,
+    ...defaultProps,
     label: 'Label',
-    labelPlacement: 'leading',
     aria: {
         label: 'switch label',
         describedBy: 'switch description',
     },
     name: 'switch',
     value: 'switchValue',
-    required: true,
 };
 
 const switchStoryMeta: SwitchStoryMeta = {
@@ -34,14 +31,14 @@ const switchStoryMeta: SwitchStoryMeta = {
             description: 'Same as the HTML checked attribute - indicates whether the switch is on or off',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.checked,
             },
         },
         disabled: {
             description: 'Same as the HTML disabled attribute - indicates whether the switch is disabled or not',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.disabled,
             },
         },
         label: {
@@ -59,7 +56,7 @@ const switchStoryMeta: SwitchStoryMeta = {
             if: { arg: 'label', truthy: true },
             options: labelPlacements,
             defaultValue: {
-                summary: 'leading',
+                summary: defaultProps.labelPlacement,
             },
         },
         aria: {
@@ -80,7 +77,7 @@ const switchStoryMeta: SwitchStoryMeta = {
             control: {
                 type: 'text',
                 defaultValue: {
-                    summary: 'on',
+                    summary: defaultProps.value,
                 },
             },
         },
@@ -88,7 +85,7 @@ const switchStoryMeta: SwitchStoryMeta = {
             description: 'Same as the HTML required attribute - for use in forms',
             control: 'boolean',
             defaultValue: {
-                summary: true,
+                summary: defaultProps.required,
             },
         },
     },

@@ -1,5 +1,20 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.19.7
+
+### Patch Changes
+
+- [Changed] - components to use a single source of truth for props default values ([#1451](https://github.com/justeattakeaway/pie/pull/1451)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`bfb142f84`](https://github.com/justeattakeaway/pie/commit/bfb142f848a06a8ac6662b300289e34eb22bb6bd), [`bfb142f84`](https://github.com/justeattakeaway/pie/commit/bfb142f848a06a8ac6662b300289e34eb22bb6bd)]:
+  - @justeattakeaway/pie-webc-core@0.23.0
+  - @justeattakeaway/pie-icon-button@0.28.6
+  - @justeattakeaway/pie-divider@0.13.5
+  - @justeattakeaway/pie-button@0.47.5
+  - @justeattakeaway/pie-switch@0.29.5
+  - @justeattakeaway/pie-modal@0.42.6
+  - @justeattakeaway/pie-link@0.17.5
+
 ## 0.19.6
 
 ### Patch Changes

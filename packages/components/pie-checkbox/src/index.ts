@@ -10,7 +10,7 @@ import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 import styles from './checkbox.scss?inline';
-import { CheckboxProps } from './defs';
+import { CheckboxProps, defaultProps } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -40,10 +40,10 @@ export class PieCheckbox extends RtlMixin(LitElement) implements CheckboxProps {
     public disabled?: CheckboxProps['disabled'];
 
     @property({ type: Boolean, reflect: true })
-    public required?: CheckboxProps['required'] = false;
+    public required?: CheckboxProps['required'] = defaultProps.required;
 
     @property({ type: Boolean })
-    public indeterminate?: CheckboxProps['indeterminate'] = false;
+    public indeterminate?: CheckboxProps['indeterminate'] = defaultProps.indeterminate;
 
     @property({ type: Object })
     public aria: CheckboxProps['aria'];

@@ -1,8 +1,11 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-icon-button';
-import { IconButtonProps, sizes, variants } from '@justeattakeaway/pie-icon-button';
+import {
+    IconButtonProps, sizes, variants, defaultProps,
+} from '@justeattakeaway/pie-icon-button';
 /* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 
@@ -11,12 +14,7 @@ import { createStory, type TemplateFunction } from '../utilities';
 
 type IconButtonStoryMeta = StoryMeta<IconButtonProps>;
 
-const defaultArgs: IconButtonProps = {
-    size: 'medium',
-    variant: 'primary',
-    disabled: false,
-    isLoading: false,
-};
+const defaultArgs: IconButtonProps = { ...defaultProps };
 
 const iconButtonStoryMeta: IconButtonStoryMeta = {
     title: 'Icon Button',
@@ -27,7 +25,7 @@ const iconButtonStoryMeta: IconButtonStoryMeta = {
             control: 'select',
             options: sizes,
             defaultValue: {
-                summary: 'medium',
+                summary: defaultProps.size,
             },
         },
         variant: {
@@ -35,21 +33,21 @@ const iconButtonStoryMeta: IconButtonStoryMeta = {
             control: 'select',
             options: variants,
             defaultValue: {
-                summary: 'primary',
+                summary: defaultProps.variant,
             },
         },
         disabled: {
             description: 'If `true`, disables the icon button.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.disabled,
             },
         },
         isLoading: {
             description: 'If `true`, displays a loading indicator inside the icon button.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.isLoading,
             },
         },
     },
@@ -71,8 +69,8 @@ const Template : TemplateFunction<IconButtonProps> = ({
     isLoading,
 }) => html`
         <pie-icon-button
-            size="${size}"
-            variant="${variant}"
+            size="${ifDefined(size)}"
+            variant="${ifDefined(variant)}"
             ?disabled="${disabled}"
             ?isLoading="${isLoading}">
             <icon-close></icon-close>

@@ -1,9 +1,11 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
+
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-notification';
 import { action } from '@storybook/addon-actions';
 import {
-    NotificationProps as NotificationBaseProps, variants, headingLevels, positions,
+    NotificationProps as NotificationBaseProps, variants, headingLevels, positions, defaultProps,
 } from '@justeattakeaway/pie-notification';
 /* eslint-enable import/no-duplicates */
 
@@ -14,15 +16,9 @@ type NotificationProps = SlottedComponentProps<NotificationBaseProps>;
 type NotificationStoryMeta = StoryMeta<NotificationProps>;
 
 const defaultArgs: NotificationProps = {
-    isOpen: true,
-    variant: 'neutral',
-    position: 'inline-content',
-    isDismissible: true,
-    isCompact: false,
+    ...defaultProps,
     slot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna.',
     heading: 'Heading',
-    headingLevel: 'h2',
-    hideIcon: false,
     leadingAction: {
         text: 'Confirm',
         ariaLabel: 'Descriptive confirmation text',
@@ -31,7 +27,6 @@ const defaultArgs: NotificationProps = {
         text: 'Cancel',
         ariaLabel: 'Descriptive cancellation text',
     },
-    hasStackedActions: false,
 };
 
 const notificationStoryMeta: NotificationStoryMeta = {
@@ -42,7 +37,7 @@ const notificationStoryMeta: NotificationStoryMeta = {
             description: 'When true, the notification is set to be open and visible.',
             control: 'boolean',
             defaultValue: {
-                summary: true,
+                summary: defaultProps.isOpen,
             },
         },
         variant: {
@@ -50,7 +45,7 @@ const notificationStoryMeta: NotificationStoryMeta = {
             control: 'select',
             options: variants,
             defaultValue: {
-                summary: 'neutral',
+                summary: defaultProps.variant,
             },
         },
         position: {
@@ -58,21 +53,21 @@ const notificationStoryMeta: NotificationStoryMeta = {
             control: 'select',
             options: positions,
             defaultValue: {
-                summary: 'inline-content',
+                summary: defaultProps.position,
             },
         },
         isDismissible: {
             description: 'Allows dismissing the notification by clicking on the close button.',
             control: 'boolean',
             defaultValue: {
-                summary: true,
+                summary: defaultProps.isDismissible,
             },
         },
         isCompact: {
             description: 'When true, the footer aligns to the header and icons which makes the component compact and the Close button is not shown.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.isCompact,
             },
         },
         heading: {
@@ -84,14 +79,14 @@ const notificationStoryMeta: NotificationStoryMeta = {
             control: 'select',
             options: headingLevels,
             defaultValue: {
-                summary: 'h2',
+                summary: defaultProps.headingLevel,
             },
         },
         hideIcon: {
             description: 'Option to hide the icon regardless its variant or if user provided an icon.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.hideIcon,
             },
         },
         leadingAction: {
@@ -106,7 +101,7 @@ const notificationStoryMeta: NotificationStoryMeta = {
             description: 'When true, the notification will stack the action buttons on narrow screens.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.hasStackedActions,
             },
         },
         slot: {
@@ -146,12 +141,12 @@ const Template : TemplateFunction<NotificationProps> = ({
 }) => html`
     <pie-notification
         ?isOpen="${isOpen}"
-        variant="${variant}"
-        position="${position}"
+        variant="${ifDefined(variant)}"
+        position="${ifDefined(position)}"
         ?isCompact="${isCompact}"
         ?isDismissible="${isDismissible}"
-        heading="${heading}"
-        headingLevel="${headingLevel}"
+        heading="${ifDefined(heading)}"
+        headingLevel="${ifDefined(headingLevel)}"
         ?hideIcon="${hideIcon}"
         .leadingAction="${leadingAction}"
         .supportingAction="${supportingAction}"

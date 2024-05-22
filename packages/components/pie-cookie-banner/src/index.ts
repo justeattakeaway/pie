@@ -15,6 +15,8 @@ import { PieSwitch } from '@justeattakeaway/pie-switch';
 import { defineCustomElement, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
 /* eslint-enable import/no-duplicates */
 
+import defaultLocale from '../locales/en-gb.json';
+
 import styles from './cookie-banner.scss?inline';
 import {
     CookieBannerProps,
@@ -27,13 +29,24 @@ import {
     type PreferenceIds,
     type CookieBannerLocale,
     type CustomTagEnhancers,
+    DefaultProps,
 } from './defs';
 
 import { localiseText, localiseRichText } from './localisation-utils';
-import defaultLocale from '../locales/en-gb.json';
 
 // Valid values available to consumers
 export * from './defs';
+
+// TODO: Move this object to defs.ts
+// It can be moved as soon as we manage to figure a safe way to avoid the error TS2821
+// Import assertions are only supported when the '--module' option is set to 'esnext' or 'nodenext'
+export const defaultProps: DefaultProps = {
+    hasPrimaryActionsOnly: false,
+    defaultPreferences: {},
+    locale: defaultLocale,
+    cookieStatementLink: '',
+    cookieTechnologiesLink: '',
+};
 
 const componentSelector = 'pie-cookie-banner';
 
@@ -52,19 +65,19 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     private _isModalOpen = false;
 
     @property({ type: Boolean })
-    public hasPrimaryActionsOnly = false;
+    public hasPrimaryActionsOnly = defaultProps.hasPrimaryActionsOnly;
 
     @property({ type: Object })
-    public defaultPreferences: CookieBannerProps['defaultPreferences'] = {};
+    public defaultPreferences: CookieBannerProps['defaultPreferences'] = defaultProps.defaultPreferences;
 
     @property({ type: Object })
-    public locale:CookieBannerLocale = defaultLocale;
+    public locale:CookieBannerLocale = defaultProps.locale;
 
     @property({ type: String })
-    public cookieStatementLink = '';
+    public cookieStatementLink = defaultProps.cookieStatementLink;
 
     @property({ type: String })
-    public cookieTechnologiesLink = '';
+    public cookieTechnologiesLink = defaultProps.cookieTechnologiesLink;
 
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;

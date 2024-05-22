@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-assistive-text
 
+## 0.3.7
+
+### Patch Changes
+
+- [Changed] - components to use a single source of truth for props default values ([#1451](https://github.com/justeattakeaway/pie/pull/1451)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`bfb142f84`](https://github.com/justeattakeaway/pie/commit/bfb142f848a06a8ac6662b300289e34eb22bb6bd), [`abaadfddc`](https://github.com/justeattakeaway/pie/commit/abaadfddc651f9b2516e94449211bbd19a1bf651)]:
+  - @justeattakeaway/pie-webc-core@0.23.0
+  - @justeattakeaway/pie-icons-webc@0.24.0
+
 ## 0.3.6
 
 ### Patch Changes
