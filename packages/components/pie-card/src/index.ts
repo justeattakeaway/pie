@@ -9,6 +9,7 @@ import {
     variants,
     tags,
     CardProps,
+    defaultProps,
     paddingValues,
 } from './defs';
 
@@ -22,12 +23,12 @@ const componentSelector = 'pie-card';
  */
 export class PieCard extends LitElement implements CardProps {
     @property()
-    @validPropertyValues(componentSelector, tags, 'button')
-    public tag: CardProps['tag'] = 'button';
+    @validPropertyValues(componentSelector, tags, defaultProps.tag)
+    public tag: CardProps['tag'] = defaultProps.tag;
 
     @property()
-    @validPropertyValues(componentSelector, variants, 'default')
-    public variant: CardProps['variant'] = 'default';
+    @validPropertyValues(componentSelector, variants, defaultProps.variant)
+    public variant: CardProps['variant'] = defaultProps.variant;
 
     @property({ type: String, reflect: true })
     public href?: string;
@@ -39,13 +40,13 @@ export class PieCard extends LitElement implements CardProps {
     public rel?: string;
 
     @property({ type: Boolean })
-    public disabled = false;
+    public disabled = defaultProps.disabled;
 
     @property({ type: Object })
-    public aria: CardProps['aria'];
+    public aria?: CardProps['aria'];
 
     @property({ type: Boolean })
-    public isDraggable = false;
+    public isDraggable = defaultProps.isDraggable;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, paddingValues, undefined)

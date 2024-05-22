@@ -1,10 +1,11 @@
 import { html, nothing } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-link';
 import {
     LinkProps as LinkBaseProps, sizes, variants,
-    iconPlacements, tags, buttonTypes, underlineTypes,
+    iconPlacements, tags, buttonTypes, underlineTypes, defaultProps,
 } from '@justeattakeaway/pie-link';
 /* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
@@ -16,15 +17,10 @@ type LinkProps = SlottedComponentProps<LinkBaseProps>;
 type LinkStoryMeta = StoryMeta<LinkProps>;
 
 const defaultArgs: LinkProps = {
-    tag: 'a',
-    variant: 'default',
-    size: 'medium',
-    underline: 'default',
+    ...defaultProps,
+    iconPlacement: undefined,
     href: 'https://pie.design',
     target: '_blank',
-    isBold: false,
-    isStandalone: false,
-    hasVisited: false,
     slot: 'Link',
 };
 
@@ -37,7 +33,7 @@ const linkStoryMeta: LinkStoryMeta = {
             control: 'select',
             options: tags,
             defaultValue: {
-                summary: 'a',
+                summary: defaultProps.tag,
             },
         },
         variant: {
@@ -45,7 +41,7 @@ const linkStoryMeta: LinkStoryMeta = {
             control: 'select',
             options: variants,
             defaultValue: {
-                summary: 'default',
+                summary: defaultProps.variant,
             },
         },
         size: {
@@ -53,7 +49,7 @@ const linkStoryMeta: LinkStoryMeta = {
             control: 'select',
             options: sizes,
             defaultValue: {
-                summary: 'medium',
+                summary: defaultProps.size,
             },
         },
         underline: {
@@ -61,7 +57,7 @@ const linkStoryMeta: LinkStoryMeta = {
             control: 'select',
             options: underlineTypes,
             defaultValue: {
-                summary: 'default',
+                summary: defaultProps.underline,
             },
             if: { arg: 'isStandalone', eq: true },
         },
@@ -91,7 +87,7 @@ const linkStoryMeta: LinkStoryMeta = {
             control: 'select',
             options: buttonTypes,
             defaultValue: {
-                summary: 'submit',
+                summary: defaultProps.type,
             },
             if: { arg: 'tag', eq: 'button' },
         },
@@ -99,21 +95,21 @@ const linkStoryMeta: LinkStoryMeta = {
             description: 'If `true`, makes the link text bold.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.isBold,
             },
         },
         isStandalone: {
             description: 'If `true`, the link will be treated as a block element.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.isStandalone,
             },
         },
         hasVisited: {
             description:  'If `true`, the link will apply the styles for the visited state.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.hasVisited,
             },
             if: { arg: 'tag', eq: 'a' },
         },
@@ -152,9 +148,9 @@ const Template : TemplateFunction<LinkProps> = ({
     iconPlacement,
 }) => html`
         <pie-link
-            tag="${tag}"
-            variant="${variant}"
-            size="${size}"
+            tag="${ifDefined(tag)}"
+            variant="${ifDefined(variant)}"
+            size="${ifDefined(size)}"
             underline="${underline || nothing}"
             iconPlacement="${iconPlacement || nothing}"
             href="${href || nothing}"

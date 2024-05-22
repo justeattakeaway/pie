@@ -13,6 +13,7 @@ import {
     buttonTypes,
     underlineTypes,
     type AriaProps,
+    defaultProps,
 } from './defs';
 
 // Valid values available to consumers
@@ -28,24 +29,24 @@ const componentSelector = 'pie-link';
 
 export class PieLink extends LitElement implements LinkProps {
     @property()
-    @validPropertyValues(componentSelector, tags, 'a')
-    public tag: LinkProps['tag'] = 'a';
+    @validPropertyValues(componentSelector, tags, defaultProps.tag)
+    public tag: LinkProps['tag'] = defaultProps.tag;
 
     @property({ type: String })
-    @validPropertyValues(componentSelector, variants, 'default')
-    public variant: LinkProps['variant'] = 'default';
+    @validPropertyValues(componentSelector, variants, defaultProps.variant)
+    public variant: LinkProps['variant'] = defaultProps.variant;
 
     @property({ type: String })
-    @validPropertyValues(componentSelector, sizes, 'medium')
-    public size: LinkProps['size'] = 'medium';
+    @validPropertyValues(componentSelector, sizes, defaultProps.size)
+    public size: LinkProps['size'] = defaultProps.size;
 
     @property({ type: String })
-    @validPropertyValues(componentSelector, underlineTypes, 'default')
-    public underline: LinkProps['underline'] = 'default';
+    @validPropertyValues(componentSelector, underlineTypes, defaultProps.underline)
+    public underline: LinkProps['underline'] = defaultProps.underline;
 
     @property({ type: String })
-    @validPropertyValues(componentSelector, iconPlacements, 'leading')
-    public iconPlacement: LinkProps['iconPlacement'] = 'leading';
+    @validPropertyValues(componentSelector, iconPlacements, defaultProps.iconPlacement)
+    public iconPlacement: LinkProps['iconPlacement'] = defaultProps.iconPlacement;
 
     @property({ type: String, reflect: true })
     public href?: string;
@@ -57,17 +58,17 @@ export class PieLink extends LitElement implements LinkProps {
     public rel?: string;
 
     @property({ type: Boolean })
-    public isBold = false;
+    public isBold = defaultProps.isBold;
 
     @property({ type: Boolean })
-    public isStandalone = false;
+    public isStandalone = defaultProps.isStandalone;
 
     @property({ type: Boolean })
-    public hasVisited = false;
+    public hasVisited = defaultProps.hasVisited;
 
     @property()
-    @validPropertyValues(componentSelector, buttonTypes, 'submit')
-    public type: LinkProps['type'] = 'submit';
+    @validPropertyValues(componentSelector, buttonTypes, defaultProps.type)
+    public type: LinkProps['type'] = defaultProps.type;
 
     @property({ type: Object })
     public aria!: AriaProps;

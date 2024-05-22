@@ -1,8 +1,11 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-spinner';
-import { SpinnerProps, sizes, variants } from '@justeattakeaway/pie-spinner';
+import {
+    SpinnerProps, sizes, variants, defaultProps,
+} from '@justeattakeaway/pie-spinner';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
@@ -11,8 +14,7 @@ import { TemplateFunction, createStory } from '../utilities';
 type SpinnerStoryMeta = StoryMeta<SpinnerProps>;
 
 const defaultArgs: SpinnerProps = {
-    variant: 'brand',
-    size: 'm',
+    ...defaultProps,
     aria: {
         label: 'Loading',
     },
@@ -27,7 +29,7 @@ const spinnerStoryMeta: SpinnerStoryMeta = {
             control: 'select',
             options: sizes,
             defaultValue: {
-                summary: 'medium',
+                summary: defaultProps.size,
             },
         },
         variant: {
@@ -35,7 +37,7 @@ const spinnerStoryMeta: SpinnerStoryMeta = {
             control: 'select',
             options: variants,
             defaultValue: {
-                summary: 'brand',
+                summary: defaultProps.variant,
             },
         },
         aria: {
@@ -60,8 +62,8 @@ const Template: TemplateFunction<SpinnerProps> = ({
     aria,
 }) => html`
         <pie-spinner
-            size="${size}"
-            variant="${variant}"
+            size="${ifDefined(size)}"
+            variant="${ifDefined(variant)}"
             .aria="${aria}">
         </pie-spinner>`;
 

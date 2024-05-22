@@ -2,7 +2,7 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-checkbox';
-import { CheckboxProps } from '@justeattakeaway/pie-checkbox';
+import { CheckboxProps, defaultProps } from '@justeattakeaway/pie-checkbox';
 /* eslint-enable import/no-duplicates */
 
 import { action } from '@storybook/addon-actions';
@@ -12,6 +12,7 @@ import { createStory } from '../utilities';
 type CheckboxStoryMeta = StoryMeta<CheckboxProps>;
 
 const defaultArgs: CheckboxProps = {
+    ...defaultProps,
     value: '',
     name: '',
     label: 'Label',
@@ -33,42 +34,42 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
             description: 'The value of the checkbox (used as a key/value pair in HTML forms with `name`).',
             control: 'text',
             defaultValue: {
-                summary: '',
+                summary: defaultArgs.value,
             },
         },
         name: {
             description: 'The name of the checkbox (used as a key/value pair with `value`). This is required in order to work properly with forms.',
             control: 'text',
             defaultValue: {
-                summary: '',
+                summary: defaultArgs.name,
             },
         },
         label: {
             description: 'The visible label for the checkbox',
             control: 'text',
             defaultValue: {
-                summary: '',
+                summary: defaultArgs.label,
             },
         },
         checked: {
             description: 'Indicates whether or not the checkbox is checked by default (when the page loads).',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultArgs.checked,
             },
         },
         disabled: {
             description: 'If true, disables the checkbox.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultArgs.disabled,
             },
         },
         indeterminate: {
             description: 'Indicates whether the checkbox visually shows a horizontal line in the box instead of a check/tick. It has no impact on whether the checkbox\'s value is used in a form submission. That is decided by the checked state, regardless of the indeterminate state.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.indeterminate,
             },
         },
 

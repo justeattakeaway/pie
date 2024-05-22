@@ -2,7 +2,9 @@ import { LitElement, html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './divider.scss?inline';
-import { DividerProps, variants, orientations } from './defs';
+import {
+    DividerProps, variants, orientations, defaultProps,
+} from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -14,12 +16,12 @@ const componentSelector = 'pie-divider';
  */
 export class PieDivider extends LitElement implements DividerProps {
     @property({ type: String })
-    @validPropertyValues(componentSelector, variants, 'default')
-    public variant: DividerProps['variant'] = 'default';
+    @validPropertyValues(componentSelector, variants, defaultProps.variant)
+    public variant: DividerProps['variant'] = defaultProps.variant;
 
     @property({ type: String })
-    @validPropertyValues(componentSelector, orientations, 'horizontal')
-    public orientation : DividerProps['orientation'] = 'horizontal';
+    @validPropertyValues(componentSelector, orientations, defaultProps.orientation)
+    public orientation : DividerProps['orientation'] = defaultProps.orientation;
 
     render () {
         const { variant, orientation } = this;
@@ -29,8 +31,8 @@ export class PieDivider extends LitElement implements DividerProps {
                 data-test-id="pie-divider"
                 aria-hidden="true"
                 class="c-divider"
-                variant=${variant || 'default'}
-                orientation=${orientation || 'horizontal'}
+                variant=${variant}
+                orientation=${orientation}
             />`;
     }
 

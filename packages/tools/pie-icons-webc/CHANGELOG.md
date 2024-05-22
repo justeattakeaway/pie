@@ -1,5 +1,51 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.24.0
+
+### Minor Changes
+
+- [Added] - Icons ([#1460](https://github.com/justeattakeaway/pie/pull/1460)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+  ### Misc
+
+  - cannabis
+  - cannabis-large
+  - building-blocks
+  - building-blocks-large
+  - pacifier
+  - pacifier-large
+  - experiment
+  - experiment-large
+
+  ### People
+
+  - baby-kid
+  - baby-kid-large
+
+  ### Technology
+
+  - laptop-filled
+  - laptop-filled-large
+
+  [Updated] - Icons
+
+  ### Pay
+
+  - account-credit
+  - account-credit-large
+
+  ### Bag & Basket
+
+  - bag
+  - bag-large
+  - bag-filled
+  - bag-filled-large
+
+### Patch Changes
+
+- Updated dependencies [[`bfb142f84`](https://github.com/justeattakeaway/pie/commit/bfb142f848a06a8ac6662b300289e34eb22bb6bd)]:
+  - @justeattakeaway/pie-webc-core@0.23.0
+
 ## 0.23.1
 
 ### Patch Changes

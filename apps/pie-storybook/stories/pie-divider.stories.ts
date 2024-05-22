@@ -1,8 +1,11 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-divider';
-import { DividerProps, variants, orientations } from '@justeattakeaway/pie-divider';
+import {
+    DividerProps, variants, orientations, defaultProps,
+} from '@justeattakeaway/pie-divider';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
@@ -10,10 +13,7 @@ import { createStory, type TemplateFunction } from '../utilities';
 
 type DividerStoryMeta = StoryMeta<DividerProps>;
 
-const defaultArgs: DividerProps = {
-    variant: 'default',
-    orientation: 'horizontal',
-};
+const defaultArgs: DividerProps = { ...defaultProps };
 
 const dividerStoryMeta: DividerStoryMeta = {
     title: 'Divider',
@@ -24,7 +24,7 @@ const dividerStoryMeta: DividerStoryMeta = {
             control: 'select',
             options: variants,
             defaultValue: {
-                summary: 'default',
+                summary: defaultProps.variant,
             },
         },
         orientation: {
@@ -32,7 +32,7 @@ const dividerStoryMeta: DividerStoryMeta = {
             control: 'select',
             options: orientations,
             defaultValue: {
-                summary: 'horizontal',
+                summary: defaultProps.orientation,
             },
         },
     },
@@ -49,7 +49,7 @@ export default dividerStoryMeta;
 
 const Template : TemplateFunction<DividerProps> = ({ variant, orientation }) => html`
             <div style="${orientation === 'horizontal' ? 'width' : 'height'}: 400px">
-                <pie-divider variant="${variant}" orientation="${orientation}"></pie-divider>
+                <pie-divider variant="${ifDefined(variant)}" orientation="${ifDefined(orientation)}"></pie-divider>
             </div>
         `;
 

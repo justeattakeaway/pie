@@ -1,3 +1,5 @@
+import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+
 import { Variant } from '@justeattakeaway/pie-button/src/defs.ts';
 
 export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
@@ -148,3 +150,18 @@ export const ON_MODAL_LEADING_ACTION_CLICK = 'pie-modal-leading-action-click';
 export const ON_MODAL_SUPPORTING_ACTION_CLICK = 'pie-modal-supporting-action-click';
 
 export type ModalActionType = 'leading' | 'supporting';
+
+export type DefaultProps = ComponentDefaultPropsGeneric<ModalProps, 'headingLevel'|'hasBackButton'|'hasStackedActions'|'isDismissible'|'isFooterPinned'|'isFullWidthBelowMid'|'isLoading'|'isOpen'|'position'|'size'>;
+
+export const defaultProps: DefaultProps = {
+    headingLevel: 'h2',
+    hasBackButton: false,
+    hasStackedActions: false,
+    isDismissible: false,
+    isFooterPinned: true,
+    isFullWidthBelowMid: false,
+    isLoading: false,
+    isOpen: false,
+    position: 'center',
+    size: 'medium',
+};

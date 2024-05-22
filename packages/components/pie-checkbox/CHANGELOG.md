@@ -1,5 +1,22 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.3.1
+
+### Patch Changes
+
+- [Changed] - components to use a single source of truth for props default values ([#1451](https://github.com/justeattakeaway/pie/pull/1451)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`bfb142f84`](https://github.com/justeattakeaway/pie/commit/bfb142f848a06a8ac6662b300289e34eb22bb6bd)]:
+  - @justeattakeaway/pie-webc-core@0.23.0
+
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - aria property to support aria-label, aria-labeledby and aria-describedby attributes. ([#1440](https://github.com/justeattakeaway/pie/pull/1440)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Changed] - updated README to include component properties and events
+
 ## 0.2.0
 
 ### Minor Changes
