@@ -605,6 +605,23 @@ test.describe('PieTextInput - Component tests', () => {
                     });
                 });
             });
+
+            test.describe('Assistive test ID attribute', () => {
+                test('should contain an ID associated the input element for a11y', async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieTextInput, {
+                        props: {
+                            assistiveText: 'Assistive text',
+                        } as TextInputProps,
+                    });
+
+                    // Act
+                    const assistiveText = page.locator(assistiveTextSelector);
+
+                    // Assert
+                    await expect(assistiveText).toHaveAttribute('id', 'assistive-text');
+                });
+            });
         });
 
         test.describe('step', () => {
@@ -1203,6 +1220,126 @@ test.describe('PieTextInput - Component tests', () => {
             // Assert
             expect(formDataObj).toStrictEqual({
                 email: 'included@test.com',
+            });
+        });
+    });
+
+    test.describe('Attributes:', () => {
+        test.describe('aria-describedby', () => {
+            test.describe('when `assistiveText` is not defined', () => {
+                test('should not render the attribute', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieTextInput, {
+                        props: {} as TextInputProps,
+                    });
+
+                    // Act
+                    const input = component.locator('input');
+
+                    const componentAttribute = await input.getAttribute('aria-describedby');
+
+                    // Assert
+                    expect(componentAttribute).toBeNull();
+                });
+            });
+
+            test.describe('when `assistiveText` is defined', () => {
+                test('should render the attribute correctly with the correct value', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieTextInput, {
+                        props: {
+                            assistiveText: 'Some useful message',
+                        } as TextInputProps,
+                    });
+
+                    // Act
+                    const input = component.locator('input');
+
+                    const componentAttribute = await input.getAttribute('aria-describedby');
+
+                    // Assert
+                    expect(componentAttribute).toBe('assistive-text');
+                });
+            });
+        });
+
+        test.describe('aria-invalid', () => {
+            test.describe('when the component status is set to `error`', () => {
+                test('should render the `aria-invalid` attribute', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieTextInput, {
+                        props: {
+                            status: 'error',
+                        } as TextInputProps,
+                    });
+
+                    // Act
+                    const input = component.locator('input');
+
+                    const componentAttribute = await input.getAttribute('aria-invalid');
+
+                    // Assert
+                    expect(componentAttribute).toBeDefined();
+                });
+            });
+
+            test.describe('when the component `status` is set to anything but `error`', () => {
+                test('should render the `aria-invalid` with a value of `false`', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieTextInput, {
+                        props: {
+                            status: 'success',
+                        } as TextInputProps,
+                    });
+
+                    // Act
+                    const input = component.locator('input');
+
+                    const componentAttribute = await input.getAttribute('aria-invalid');
+
+                    // Assert
+                    expect(componentAttribute).toBe('false');
+                });
+            });
+        });
+
+        test.describe('aria-errormessage', () => {
+            test.describe('when the component status is set to `error`', () => {
+                test('should render the `aria-errormessage` attribute', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieTextInput, {
+                        props: {
+                            status: 'error',
+                        } as TextInputProps,
+                    });
+
+                    // Act
+                    const input = component.locator('input');
+
+                    const componentAttribute = await input.getAttribute('aria-errormessage');
+
+                    // Assert
+                    expect(componentAttribute).toBeDefined();
+                });
+            });
+
+            test.describe('when the component `status` is set to anything but `error`', () => {
+                test('should not render the `aria-errormessage` attribute', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieTextInput, {
+                        props: {
+                            status: 'success',
+                        } as TextInputProps,
+                    });
+
+                    // Act
+                    const input = component.locator('input');
+
+                    const componentAttribute = await input.getAttribute('aria-errormessage');
+
+                    // Assert
+                    expect(componentAttribute).toBeNull();
+                });
             });
         });
     });

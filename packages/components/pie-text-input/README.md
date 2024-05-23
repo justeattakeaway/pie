@@ -90,7 +90,7 @@ import { PieTextInput } from '@justeattakeaway/pie-text-input/dist/react';
 | `type` | `'text'`, `'number'`, `'password'`, `'url'`, `'email'`, `'tel'` | `text` | The type of HTML input to render. |
 | `value` | `string` | `''` | The value of the input (used as a key/value pair in HTML forms with `name`). |
 | `assistiveText` | `string` | `''` | Allows assistive text to be displayed below the input element. |
-| `status` | `'error'`, `'success'` | `undefined` | The status of the input component / assistive text. |
+| `status` | `'error'`, `'success'` | `undefined` | The status of the input component / assistive text. If you use `status` you must provide an `assistiveText` prop value for accessibility purposes. |
 | `step` | `number` | - | An optional amount that value should be incremented or decremented by when using the up and down arrows in the input. Only applies when type is `number`. |
 | `min` | `number` | - | The minimum value of the input. Only applies when type is `number`. If the value provided is lower, the input is invalid. |
 | `max` | `number` | - | The maximum value of the input. Only applies when type is `number`. If the value provided is higher, the input is invalid. |
