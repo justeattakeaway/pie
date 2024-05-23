@@ -1,3 +1,4 @@
+const webComponentStatuses = require('../component-statuses.json');
 const resourceTypes = require('./_data/resourceTypes');
 const statusTypes = require('./_data/statusTypes');
 
@@ -98,7 +99,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            status: webComponentStatuses['pie-assistive-text'],
         },
         {
             resource: resourceTypes.VUE,
@@ -328,7 +329,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/button--primary',
-            status: statusTypes.BETA,
+            status: webComponentStatuses['pie-button'],
         },
         {
             resource: resourceTypes.VUE,
@@ -349,7 +350,11 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_PIE,
+            resource: resourceTypes.ANDROID_XML,
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.ANDROID_JETPACK,
             status: statusTypes.STABLE,
         }
     ],
@@ -368,7 +373,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/card--default',
-            status: statusTypes.BETA,
+            status: webComponentStatuses['pie-card'],
         },
         {
             resource: resourceTypes.VUE,
@@ -379,18 +384,6 @@ const rows = [
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/card/',
             status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.IOS_PIE,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.PLANNED,
         }
     ],
     [
@@ -444,7 +437,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            status: webComponentStatuses['pie-checkbox'],
         },
         {
             resource: resourceTypes.VUE,
@@ -465,7 +458,11 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_PIE,
+            resource: resourceTypes.ANDROID_XML,
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.ANDROID_JETPACK,
             status: statusTypes.STABLE,
         }
     ],
@@ -484,7 +481,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/chip--default',
-            status: statusTypes.BETA,
+            status: webComponentStatuses['pie-chip'],
         },
         {
             resource: resourceTypes.VUE,
@@ -504,8 +501,12 @@ const rows = [
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.ALPHA,
+            resource: resourceTypes.ANDROID_XML,
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.ANDROID_JETPACK,
+            status: statusTypes.PLANNED,
         }
     ],
     [
@@ -523,7 +524,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/cookie-banner--default',
-            status: statusTypes.BETA,
+            status: webComponentStatuses['pie-cookie-banner'],
         },
         {
             resource: resourceTypes.VUE,
@@ -707,7 +708,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/divider--default',
-            status: statusTypes.BETA,
+            status: webComponentStatuses['pie-divider'],
         },
         {
             resource: resourceTypes.VUE,
@@ -820,7 +821,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            status: webComponentStatuses['pie-form-label'],
         },
         {
             resource: resourceTypes.VUE,
@@ -858,7 +859,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/icon-button--primary',
-            status: statusTypes.BETA,
+            status: webComponentStatuses['pie-icon-button'],
         },
         {
             resource: resourceTypes.VUE,
@@ -879,7 +880,11 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_PIE,
+            resource: resourceTypes.ANDROID_XML,
+            status: statusTypes.ALPHA,
+        },
+        {
+            resource: resourceTypes.ANDROID_JETPACK,
             status: statusTypes.STABLE,
         }
     ],
@@ -898,7 +903,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/link--default',
-            status: statusTypes.BETA,
+            status: webComponentStatuses['pie-link'],
         },
         {
             resource: resourceTypes.VUE,
@@ -1051,7 +1056,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/modal--default',
-            status: statusTypes.ALPHA,
+            status: webComponentStatuses['pie-modal'],
         },
         {
             resource: resourceTypes.VUE,
@@ -1072,8 +1077,12 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.TBC,
+            resource: resourceTypes.ANDROID_XML,
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.ANDROID_JETPACK,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -1090,7 +1099,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            status: webComponentStatuses['pie-notification'],
         },
         {
             resource: resourceTypes.VUE,
@@ -1453,7 +1462,11 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_PIE,
+            resource: resourceTypes.ANDROID_XML,
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.ANDROID_JETPACK,
             status: statusTypes.STABLE,
         }
     ],
@@ -1492,8 +1505,12 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.TBC,
+            resource: resourceTypes.ANDROID_XML,
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.ANDROID_JETPACK,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -1569,8 +1586,12 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.NOT_APPLICABLE,
+            resource: resourceTypes.ANDROID_XML,
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.ANDROID_JETPACK,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -1737,7 +1758,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/spinner--brand',
-            status: statusTypes.BETA,
+            status: webComponentStatuses['pie-spinner'],
         },
         {
             resource: resourceTypes.VUE,
@@ -1777,7 +1798,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/switch--default',
-            status: statusTypes.ALPHA,
+            status: webComponentStatuses['pie-switch'],
         },
         {
             resource: resourceTypes.VUE,
@@ -1798,7 +1819,11 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_PIE,
+            resource: resourceTypes.ANDROID_XML,
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.ANDROID_JETPACK,
             status: statusTypes.STABLE,
         }
     ],
@@ -1894,7 +1919,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            status: webComponentStatuses['pie-text-input'],
         },
         {
             resource: resourceTypes.VUE,
@@ -2029,8 +2054,12 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.ALPHA,
+            resource: resourceTypes.ANDROID_XML,
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.ANDROID_JETPACK,
+            status: statusTypes.STABLE,
         }
     ],
     [

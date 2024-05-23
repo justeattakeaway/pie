@@ -1,0 +1,18 @@
+{
+  "pie-assistive-text": "alpha",
+  "pie-button": "beta",
+  "pie-card": "beta",
+  "pie-checkbox": "alpha",
+  "pie-chip": "beta",
+  "pie-cookie-banner": "alpha",
+  "pie-divider": "beta",
+  "pie-form-label": "alpha",
+  "pie-icon-button": "beta",
+  "pie-link": "beta",
+  "pie-modal": "alpha",
+  "pie-notification": "alpha",
+  "pie-spinner": "beta",
+  "pie-switch": "alpha",
+  "pie-tag": "beta",
+  "pie-text-input": "alpha"
+}

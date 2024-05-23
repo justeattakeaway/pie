@@ -175,3 +175,4 @@ dist/
 custom-elements.json
 **/src/react.ts
 **/stats.html
+component-statuses.json

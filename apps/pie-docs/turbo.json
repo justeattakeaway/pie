@@ -12,7 +12,8 @@
       "cache": true,
       "dependsOn": [
         "^build",
-        "clean"
+        "clean",
+        "generate:component-statuses"
       ],
       "outputs": [
         "dist/**"
@@ -21,7 +22,8 @@
     "build:dev": {
       "cache": true,
       "dependsOn": [
-        "^build"
+        "^build",
+        "generate:component-statuses"
       ]
     },
     "dev": {

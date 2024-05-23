@@ -5,7 +5,8 @@
       "cache": true,
       "dependsOn": [
         "^build",
-        "build:react-wrapper"
+        "build:react-wrapper",
+        "generate:component-statuses"
       ],
       "outputs": [
         "dist/**"
@@ -54,6 +55,12 @@
         ".output/**"
       ]
     },
+    "generate:component-statuses": {
+      "cache": false,
+      "outputs": [
+        "**/component-statuses.json"
+      ]
+    },
     "watch": {
       "cache": true,
       "dependsOn": []
@@ -94,7 +101,6 @@
     "test:coverage": {
       "cache": false
     },
-
     "test:browsers-setup": {
       "cache": true,
       "inputs": [
@@ -160,7 +166,8 @@
     "dev": {
       "cache": false,
       "dependsOn": [
-        "^build"
+        "^build",
+        "generate:component-statuses"
       ]
     }
   }

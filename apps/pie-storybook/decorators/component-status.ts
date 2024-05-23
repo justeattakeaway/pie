@@ -1,8 +1,8 @@
 import { TemplateResult, html } from 'lit';
 import '@justeattakeaway/pie-tag';
 import '@justeattakeaway/pie-icons-webc/dist/IconHelpCircle.js';
-import { StorybookContext } from '../interfaces/storybook-context';
 import componentStatusesJson from '../component-statuses.json';
+import { StorybookContext } from '../interfaces/storybook-context';
 import { ComponentStatuses } from '../interfaces/component-status';
 import { tagVariantToStatusMap } from '../data/tag-variants-to-statuses-map';
 
