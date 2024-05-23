@@ -119,7 +119,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -195,7 +195,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -728,7 +728,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -1759,7 +1759,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -1877,7 +1877,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         }
     ],
     [
