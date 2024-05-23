@@ -82,12 +82,12 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 ```html
 <!-- Native HTML -->
 <pie-form-label for="username">Label</pie-form-label>
-<pie-input id="username" name="username" type="text"></pie-input>
+<pie-text-input id="username" name="username" type="text"></pie-text-input>
 
 
 <!-- JSX -->
 <PieFormLabel for="username">Label</PieFormLabel>
-<PieInput id="username" name="username" type="text"></PieInput>
+<PieTextInput id="username" name="username" type="text"></PieTextInput>
 ```
 
 Note that the `for` prop should match the `id` of the input element you want to associate the label with.
