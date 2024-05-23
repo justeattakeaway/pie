@@ -1,10 +1,10 @@
 /**
- * Defines all types of component status i.e. avaiable, planned.
+ * Defines all types of component status i.e. stable, planned.
  * Prevents duplicate uses of magic strings across the project
  * @returns {Object} - an option of string values
  */
 module.exports = {
-    AVAILABLE: 'available',
+    STABLE: 'stable',
     PLANNED: 'planned',
     ALPHA: 'alpha',
     BETA: 'beta',
