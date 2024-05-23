@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.76.0
+
+### Minor Changes
+
+- [Changed] - Rename pie-input to pie-text-input ([#1462](https://github.com/justeattakeaway/pie/pull/1462)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`82915502e`](https://github.com/justeattakeaway/pie/commit/82915502e357f0ec8068ec7434eb872a9125ada6)]:
+  - @justeattakeaway/pie-text-input@0.20.0
+
 ## 0.75.3
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "pie-storybook",
-  "version": "0.75.3",
+  "version": "0.76.0",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
@@ -31,7 +31,7 @@
     "@justeattakeaway/pie-spinner": "0.6.5",
     "@justeattakeaway/pie-switch": "0.29.5",
     "@justeattakeaway/pie-tag": "0.9.6",
-    "@justeattakeaway/pie-text-input": "0.19.1",
+    "@justeattakeaway/pie-text-input": "0.20.0",
     "dompurify": "3.0.11"
   },
   "devDependencies": {
