@@ -40,7 +40,7 @@ Foundations are the **building blocks** of our design system. They are owned by 
 
 They include colour, typography, elevation, radius, spacing and others.
 
-Foundations are split into two themes: **PIE 2.0 Light** and **PIE 2.0 Dark**. Each theme has its own library, so please check with the PIE team if you're unsure which one to use.
+Foundations themes are available in the PIE 3.0 library, featuring light and dark modes using Figma Variables.
 
 ### Core Components libraries
 
@@ -48,7 +48,7 @@ Core components are the pieces we use to create JET products. They are owned by 
 
 They include buttons, labels, chips, input fields and more.
 
-Our core components are also split into two themes: **PIE 2.0 Light** and **PIE 2.0 Dark**. Each theme has its own library, so please check with the PIE team if you're unsure which one to use.
+Core Components are split into two libraries. PIE 3.0 App Component and PIE 3.0 Web Component library, featuring light and dark modes using Figma Variables.
 
 ### Asset libraries
 
