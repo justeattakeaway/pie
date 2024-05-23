@@ -16,9 +16,9 @@ const statusColours = {
 };
 
 module.exports = {
-    [statusTypes.AVAILABLE]: {
+    [statusTypes.STABLE]: {
         bgColor: statusColours.active,
-        status: 'Available',
+        status: 'Stable',
     },
     [statusTypes.PLANNED]: {
         bgColor: statusColours.planned,
