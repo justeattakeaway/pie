@@ -417,7 +417,7 @@ test.describe('PieNotification - Component tests', () => {
                     expect(actionLeading).toBeVisible();
                     expect(actionSupporting).toBeVisible();
 
-                    expect(footer).toHaveCSS('flex-direction', 'column');
+                    expect(footer).toHaveCSS('flex-direction', 'column-reverse');
                     // 295px is the size of the button when the viewport size is 375px
                     expect(actionLeading).toHaveCSS('width', '295px');
                     expect(actionSupporting).toHaveCSS('width', '295px');
@@ -448,6 +448,122 @@ test.describe('PieNotification - Component tests', () => {
                     expect(actionSupporting).toBeVisible();
 
                     expect(footer).toHaveCSS('flex-direction', 'row');
+                });
+            });
+        });
+
+        test.describe('Aria attributes', () => {
+            test('should assign role="region"', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieNotification, {});
+
+                const notification = await page.locator(componentSelector);
+
+                // Act & Assert
+                await expect(notification).toHaveAttribute('role', 'region');
+            });
+
+            test.describe('aria-label', () => {
+                test('should only be set if there is no heading to ensure the region is announced with a title', async ({ mount, page }) => {
+                    // Arrange
+                    const ariaLabel = 'Notification heading';
+                    await mount(PieNotification, {
+                        props: {
+                            aria: {
+                                label: ariaLabel,
+                            },
+                        } as PieNotification,
+                    });
+
+                    const notification = await page.locator(componentSelector);
+                    const heading = await page.locator(`h2${headingSelector}`);
+
+                    // Act & Assert
+                    expect(notification).toHaveAttribute('aria-label', ariaLabel);
+                    expect(heading).not.toBeVisible();
+                });
+
+                test('should be ignored if heading is provided as the title will be used as the region title', async ({ mount, page }) => {
+                    // Arrange
+                    const ariaLabel = 'Notification heading';
+                    await mount(PieNotification, {
+                        props: {
+                            aria: {
+                                label: ariaLabel,
+                            },
+                            heading: 'Heading',
+                        } as PieNotification,
+                    });
+
+                    const notification = await page.locator(componentSelector);
+                    const heading = await page.locator(`h2${headingSelector}`);
+
+                    // Act & Assert
+                    expect(notification).not.toHaveAttribute('aria-label', ariaLabel);
+                    expect(heading).toBeVisible();
+                });
+            });
+
+            test.describe('aria-labelledby', () => {
+                test('should only be set if heading is provided to ensure the region is announced with a title', async ({ mount, page }) => {
+                    // Arrange
+                    const ariaLabel = 'Notification heading';
+                    await mount(PieNotification, {
+                        props: {
+                            aria: {
+                                label: ariaLabel,
+                            },
+                            heading: 'Heading',
+                        } as PieNotification,
+                    });
+
+                    const notification = await page.locator(componentSelector);
+
+                    // Act & Assert
+                    expect(notification).toHaveAttribute('aria-labelledby', `${rootSelector}-heading`);
+                });
+
+                test('should be ignored if heading is not provided', async ({ mount, page }) => {
+                    // Arrange
+                    const ariaLabel = 'Notification heading';
+                    await mount(PieNotification, {
+                        props: {
+                            aria: {
+                                label: ariaLabel,
+                            },
+                        } as PieNotification,
+                    });
+
+                    const notification = await page.locator(componentSelector);
+
+                    // Act & Assert
+                    expect(notification).not.toHaveAttribute('aria-labelledby', `${rootSelector}-heading`);
+                });
+            });
+
+            test.describe('aria-live', () => {
+                test('should be set to `polite` by default', async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieNotification, {});
+
+                    const notification = await page.locator(componentSelector);
+
+                    // Act & Assert
+                    expect(notification).toHaveAttribute('aria-live', 'polite');
+                });
+
+                test('should be set to `assertive` for the error variant', async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieNotification, {
+                        props: {
+                            variant: 'error',
+                        } as PieNotification,
+                    });
+
+                    const notification = await page.locator(componentSelector);
+
+                    // Act & Assert
+                    expect(notification).toHaveAttribute('aria-live', 'assertive');
                 });
             });
         });

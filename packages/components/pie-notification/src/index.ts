@@ -8,6 +8,7 @@ import {
 import { type StaticValue, html, unsafeStatic } from 'lit/static-html.js';
 import { defineCustomElement, validPropertyValues, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
 import { property, queryAssignedElements, state } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import {
     type NotificationProps,
     type ActionProps,
@@ -79,6 +80,9 @@ export class PieNotification extends LitElement implements NotificationProps {
     @property({ type: Boolean })
     public hasStackedActions = defaultProps.hasStackedActions;
 
+    @property({ type: Object })
+    public aria: NotificationProps['aria'];
+
     @queryAssignedElements({ slot: 'icon' }) _iconSlot!: Array<HTMLElement>;
 
     @state()
@@ -147,7 +151,12 @@ export class PieNotification extends LitElement implements NotificationProps {
      * @private
      */
     private renderNotificationHeading (heading: NotificationProps['heading'], headingTag: StaticValue): TemplateResult {
-        return html`<${headingTag} class="${componentClass}-heading" data-test-id="${componentSelector}-heading">${heading}</${headingTag}>`;
+        return html`<${headingTag}
+                        id="${componentSelector}-heading"
+                        class="${componentClass}-heading"
+                        data-test-id="${componentSelector}-heading">
+                            ${heading}
+                    </${headingTag}>`;
     }
 
     /**
@@ -234,6 +243,7 @@ export class PieNotification extends LitElement implements NotificationProps {
                 class="${componentClass}-icon-close"
                 data-test-id="${componentSelector}-icon-close"
                 @click="${this.handleCloseButton}"
+                aria-label="${ifDefined(this.aria?.close)}"
                 >
                 <icon-close></icon-close>
             </pie-icon-button>`;
@@ -319,6 +329,7 @@ export class PieNotification extends LitElement implements NotificationProps {
             leadingAction,
             supportingAction,
             isOpen,
+            aria,
         } = this;
 
         if (!isOpen) {
@@ -333,7 +344,11 @@ export class PieNotification extends LitElement implements NotificationProps {
                 class="${componentClass}"
                 variant="${variant}"
                 position="${position}"
-                ?isCompact="${isCompact}">
+                ?isCompact="${isCompact}"
+                role="region"
+                aria-live="${variant === 'error' ? 'assertive' : 'polite'}"
+                aria-labelledby="${heading ? `${componentSelector}-heading` : nothing}"
+                aria-label="${!heading && ifDefined(aria?.label)}">
                 ${showCloseButton ? this.renderCloseButton() : nothing}
 
                 <section class="${componentClass}-content-section" ?isDismissible="${showCloseButton}">

@@ -4,6 +4,11 @@ export const variants = ['neutral', 'neutral-alternative', 'info', 'success', 'w
 export const headingLevels = ['h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const positions = ['inline-content', 'full-width'] as const;
 
+export type AriaProps = {
+  close?: string;
+  label?: string;
+};
+
 export type ActionProps = {
   /**
    * The text to display inside the button.
@@ -71,6 +76,12 @@ export interface NotificationProps {
    * When true, the notification will stack the action buttons on narrow screens.
    */
   hasStackedActions?: boolean;
+
+  /**
+    * The ARIA labels used for various parts of the notification.
+    * Only pass label if there is no heading to ensure the region is announced with a title
+    */
+  aria?: AriaProps;
 }
 
 export const componentSelector = 'pie-notification';
