@@ -20,6 +20,7 @@ Entrance easing describes the deceleration of motion as it enters from off the s
 
 {% contentPageImage {
 src:"../../../../assets/img/foundations/motion/easing/easing-out.svg",
+alt: "Motion example: Entrance Easing.",
 width: "250px"
 } %}
 
@@ -31,6 +32,7 @@ Exit easing describes the acceleration of motion as it exits from off the screen
 
 {% contentPageImage {
 src:"../../../../assets/img/foundations/motion/easing/easing-in.svg",
+alt: "Motion example: Exit Easing.",
 width: "250px"
 } %}
 
@@ -44,6 +46,7 @@ Persistent functional easing describes the acceleration and deceleration of moti
 
 {% contentPageImage {
 src:"../../../../assets/img/foundations/motion/easing/easing-functional.svg",
+alt: "Motion example: Functional easing.",
 width: "250px"
 } %}
 
