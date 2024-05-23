@@ -4,7 +4,7 @@ import {
     TemplateResult,
 } from 'lit';
 
-import defaultLocale from '../locales/en-gb.json';
+import defaultLocale from '../locales/en-gb.json' assert { type: 'json' };
 
 export interface CookieBannerLocale {
     banner: {
