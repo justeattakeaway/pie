@@ -40,12 +40,8 @@ const appHeadings = [
         icon: '/assets/img/components/icons/swift-ui.svg',
     },
     {
-        title: 'XML views',
+        title: 'Android PIE [Compose & Views]',
         icon: '/assets/img/components/icons/android.svg',
-    },
-    {
-        title: 'Jetpack compose',
-        icon: '/assets/img/components/icons/jetpack-compose.svg',
     }
 ];
 
@@ -84,12 +80,8 @@ const rows = [
             status: statusTypes.PRE_RELEASE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -126,12 +118,8 @@ const rows = [
             status: statusTypes.PRE_RELEASE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.AVAILABLE,
         }
     ],
     [
@@ -167,12 +155,8 @@ const rows = [
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -210,12 +194,8 @@ const rows = [
             status: statusTypes.PRE_RELEASE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.AVAILABLE,
         }
     ],
     [
@@ -253,11 +233,7 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.PLANNED,
         }
     ],
@@ -294,12 +270,8 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.BETA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
@@ -337,11 +309,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -381,11 +349,7 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.AVAILABLE,
         }
     ],
@@ -415,6 +379,18 @@ const rows = [
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/card/',
             status: statusTypes.AVAILABLE,
+        },
+        {
+            resource: resourceTypes.IOS_JUST_UI,
+            status: statusTypes.TBC,
+        },
+        {
+            resource: resourceTypes.IOS_PIE,
+            status: statusTypes.TBC,
+        },
+        {
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.PLANNED,
         }
     ],
     [
@@ -450,12 +426,8 @@ const rows = [
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -493,11 +465,7 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.AVAILABLE,
         }
     ],
@@ -536,18 +504,14 @@ const rows = [
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
         { componentName: 'Cookie Banner' },
         {
-            resource: resourceTypes.PATTERN,
+            resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/Rqz8KHogVsGCS4j0nDueNo/[Core]-Patterns-%E2%9A%AA%EF%B8%8F-[PIE-2.0]?type=design&node-id=1599-41380&mode=design&t=8G38n2fCOYB5Bd2d-0',
             status: statusTypes.AVAILABLE,
         },
@@ -578,11 +542,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.NOT_APPLICABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.NOT_APPLICABLE,
         }
     ],
@@ -619,11 +579,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -660,11 +616,7 @@ const rows = [
             status: statusTypes.TBC,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -701,11 +653,7 @@ const rows = [
             status: statusTypes.TBC,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -741,11 +689,7 @@ const rows = [
             status: statusTypes.TBC,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -783,12 +727,8 @@ const rows = [
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.ALPHA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.ALPHA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.AVAILABLE,
         }
     ],
     [
@@ -826,12 +766,8 @@ const rows = [
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.ALPHA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.ALPHA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.PLANNED,
         }
     ],
     [
@@ -866,11 +802,7 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.PLANNED,
         }
     ],
@@ -907,12 +839,8 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.TBC,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
@@ -951,11 +879,7 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.ALPHA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.AVAILABLE,
         }
     ],
@@ -995,11 +919,7 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -1037,12 +957,8 @@ const rows = [
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
@@ -1079,12 +995,8 @@ const rows = [
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
@@ -1120,12 +1032,8 @@ const rows = [
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1164,12 +1072,8 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.AVAILABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1207,12 +1111,8 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
@@ -1249,12 +1149,8 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.NOT_APPLICABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.NOT_APPLICABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1291,11 +1187,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -1333,11 +1225,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -1375,12 +1263,8 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.BETA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.ALPHA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1417,12 +1301,8 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.BETA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.ALPHA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1459,11 +1339,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -1501,12 +1377,8 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.ALPHA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.BETA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1542,11 +1414,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -1585,11 +1453,7 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.AVAILABLE,
         }
     ],
@@ -1628,12 +1492,8 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.AVAILABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1671,12 +1531,8 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.BETA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.TBC,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.PLANNED,
         }
     ],
     [
@@ -1713,12 +1569,8 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.AVAILABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.NOT_APPLICABLE,
         }
     ],
     [
@@ -1755,12 +1607,8 @@ const rows = [
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1795,11 +1643,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -1838,12 +1682,8 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.ALPHA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
         }
     ],
     [
@@ -1878,12 +1718,8 @@ const rows = [
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1922,12 +1758,8 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.ALPHA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.ALPHA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.AVAILABLE,
         }
     ],
     [
@@ -1966,11 +1798,7 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.AVAILABLE,
         }
     ],
@@ -2009,12 +1837,8 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.ALPHA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -2052,12 +1876,8 @@ const rows = [
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.AVAILABLE,
         }
     ],
     [
@@ -2095,12 +1915,8 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.BETA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.BETA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
@@ -2138,12 +1954,8 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.BETA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.BETA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.NOT_APPLICABLE,
         }
     ],
     [
@@ -2180,11 +1992,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -2221,12 +2029,8 @@ const rows = [
             status: statusTypes.AVAILABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.AVAILABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
@@ -2263,11 +2067,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -2304,11 +2104,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.NOT_APPLICABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.NOT_APPLICABLE,
         }
     ]

@@ -12,6 +12,5 @@ module.exports = {
     REACT: 'React [Snacks]',
     IOS_JUST_UI: 'JustUI [UI Kit]',
     IOS_PIE: 'PIE [SwiftUI]',
-    ANDROID_XML: 'XML views',
-    ANDROID_JETPACK: 'Jetpack compose',
+    ANDROID_PIE: 'Android PIE [Compose & Views]',
 };
