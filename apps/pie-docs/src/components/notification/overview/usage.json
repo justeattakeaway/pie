@@ -1,0 +1,12 @@
+{
+    "rows": [
+      [
+       "<b>Notification</b>",
+       "Block of messaging appearing either at the top or somewhere within the interface, inline with page/screen content."
+      ],
+      [ "<b>Toast</b>",    
+        "Non-disruptive and temporary messages, typically in the bottom centre or bottom left of the interface. Provides succinct feedback on the outcome of a user action."
+      ]
+    ]
+  }
+  
