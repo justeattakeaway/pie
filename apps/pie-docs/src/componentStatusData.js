@@ -234,7 +234,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.PLANNED,
+            status: statusTypes.ALPHA,
         }
     ],
     [
