@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.76.1
+
+### Patch Changes
+
+- Updated dependencies [[`fab76fafe`](https://github.com/justeattakeaway/pie/commit/fab76fafedf3619449d9817ec3ef8bf3f4b746d9), [`5411e59fe`](https://github.com/justeattakeaway/pie/commit/5411e59fe66521a1bcba191f58acbdb4d48e7b15)]:
+  - @justeattakeaway/pie-text-input@0.21.0
+  - @justeattakeaway/pie-notification@0.7.0
+
 ## 0.76.0
 
 ### Minor Changes
