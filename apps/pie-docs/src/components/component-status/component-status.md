@@ -28,7 +28,7 @@ eleventyNavigation:
 {% termsAndDescriptions {
     rows: [
         {
-            term: statusTypes.AVAILABLE,
+            term: statusTypes.STABLE,
             description: 'Ready to be used.'
         },
         {
