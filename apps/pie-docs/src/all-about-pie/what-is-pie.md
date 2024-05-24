@@ -45,7 +45,7 @@ Here are six reasons why you should use PIE for your products:
 
 ## How we support teams
 
-PIE is both a service and a product. We create and maintain its contents and guidelines, and also support other teams through [business area libraries](https://www.figma.com/file/KND7Higqcvksz7WkXRKLHm/PIE-Microsite?node-id=3204%3A188255&t=CBkGw0yndbtBW9TK-0){target="_blank"}.
+PIE is both a service and a product. We create and maintain its contents and guidelines, and also support other teams through business area libraries.
 
 Our goal isn't to take ownership of design from designers. We're here to support you and ensure all JET's products align to the system, providing scalability, consistency and high levels of craft.
 

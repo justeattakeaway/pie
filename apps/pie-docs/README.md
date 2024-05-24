@@ -61,7 +61,7 @@ Our primary concerns are:
 ### Page testing
 We have route navigation tests that ensure all existing pages can be correctly navigated to. When you add new pages, these tests will fail as there are new unexpected pages (this is by design).
 
-In order to fix the tests, you will need to register the routes to your newly added pages by running: `yarn test:generate-routes`. This will update the JSON file named `expected-routes.snapshot.json` with the URLs to your new page.
+In order to fix the tests, you will need to register the routes to your newly added pages by running from the root of the monorepo: `yarn test:generate-routes`. This will update the JSON file named `expected-routes.snapshot.json` with the URLs to your new page.
 
 From here, we run navigation, accessibility and visual tests against each route.
 
@@ -76,6 +76,9 @@ In order to run this command you will need the site to be served to localhost by
 ### Unit testing
 Our unit testing is quite light. We generally write unit tests for `Javascript` utilities and for `shortcodes`. With shortcodes, we often perform [snapshot tests](https://jestjs.io/docs/snapshot-testing) on the returned markup. Whilst visual tests will catch changes to how the markup looks, snapshot tests will catch any unwanted changes to things like `HTML` attributes.
 
+For testing snapshots you can run from the root of the monorepo `yarn test --filter=pie-docs`
+
+If you would like to update snapshots because the changes are expected, you can run from the root of the monorepo `yarn test:update --filter=pie-docs`
 
 ## Conventions
 - If you want to create some reusable/shared content, you can add it to a markdown file using the following naming format: `**.content.md`. Eleventy knows to ignore these file types during build, so they will not turn into their own pages. Because we use Nunjucks as our markdown rendering engine, we are able to use includes in our markdown files like so: `{% include 'some/path/to/reusable-stuff.content.md' %}`. This allows us to reuse copy if needed.
