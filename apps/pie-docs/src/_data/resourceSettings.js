@@ -33,12 +33,8 @@ module.exports = {
         icon: '/assets/img/components/icons/swift-ui.svg',
         resource: 'iOS PIE [SwiftUI]',
     },
-    [resourceTypes.ANDROID_XML]: {
+    [resourceTypes.ANDROID_PIE]: {
         icon: '/assets/img/components/icons/android.svg',
-        resource: 'Android [XML views]',
-    },
-    [resourceTypes.ANDROID_JETPACK]: {
-        icon: '/assets/img/components/icons/jetpack-compose.svg',
-        resource: 'Android [Jetpack compose]',
+        resource: 'Android PIE [Compose & Views]',
     },
 };
