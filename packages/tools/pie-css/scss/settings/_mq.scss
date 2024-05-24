@@ -1,0 +1,8 @@
+@use './breakpoints' as *;
+
+// This is a horrible way to import this mixin!
+// but other than copy/pasting the mixin into a local file, this seems to be the tidiest solution
+@forward '../../node_modules/include-media/dist/include-media' with (
+    $breakpoints: $breakpoints,
+    $unit-intervals: $unit-intervals
+); // Cleaner media query declarations – http://include-media.com

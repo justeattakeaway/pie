@@ -1,0 +1,15 @@
+$unit-intervals: (
+    'px': 1,
+    'em': 0.001,
+    // We need more sensitivity, some browsers are very specific with breakpoints
+    'rem': 0.1,
+    '': 0
+);
+$breakpoints: (
+    xs: 320px,
+    sm: 600px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px,
+    xxl: 1440px
+);
