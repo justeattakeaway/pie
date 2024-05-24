@@ -389,11 +389,7 @@ ___
             status: statusTypes.PLANNED
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.PLANNED
         }
     ]
