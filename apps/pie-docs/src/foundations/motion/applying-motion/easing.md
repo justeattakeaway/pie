@@ -32,7 +32,7 @@ Exit easing describes the acceleration of motion as it exits from off the screen
 
 {% contentPageImage {
 src:"../../../../assets/img/foundations/motion/easing/easing-in.svg",
-alt: "Graph showing the exceleration of motion with an ease-in curve.",
+alt: "Graph showing the acceleration of motion with an ease-in curve.",
 width: "250px"
 } %}
 
@@ -46,7 +46,7 @@ Persistent functional easing describes the acceleration and deceleration of moti
 
 {% contentPageImage {
 src:"../../../../assets/img/foundations/motion/easing/easing-functional.svg",
-alt: "Graph showing the exceleration and deceleration of motion with an ease-in-and-out curve.",
+alt: "Graph showing the acceleration and deceleration of motion with an ease-in-and-out curve.",
 width: "250px"
 } %}
 
