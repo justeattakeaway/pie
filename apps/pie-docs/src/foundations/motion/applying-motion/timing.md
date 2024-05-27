@@ -18,13 +18,13 @@ Timing is used in conjunction with easing to create natural and smooth movements
 
 Both the size of the element and the distance the element travels during the interaction should be taken into account when applying timing to motion. Smaller UI elements that appear lighter should mimic real-life physics by feeling quick and responsive, whilst larger UI elements that appear heavier should mimic real-life physics by moving slower due to their volume and mass. Objects that don’t travel very far should get from A to B quicker, than objects that travel longer distances (such as page level actions).
 
-### Short: 100ms, 150ms
+### Short: 100ms - 150ms
 
 Short timings should be reserved for small sized UI elements that supply immediate feedback to the user and cover very little distance such as carousel indicators or checkboxes.
 
 ### Medium: 200ms - 250ms
 
-Medium timings between 200ms and 250ms should be used for the majority of UI elements in our design system for smooth and clear animations that don’t feel so quick they are unrecognisable, but aren’t so slow that they UI feels slow or unresponsive.
+Medium timings between 200ms and 250ms should be used for the majority of UI elements in our design system for smooth and clear animations that don’t feel so quick they are unrecognisable, but aren’t so slow that the UI feels slow or unresponsive.
 
 ### Long: 300 - 350ms
 
