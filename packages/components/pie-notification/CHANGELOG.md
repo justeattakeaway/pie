@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-notification
 
+## 0.7.0
+
+### Minor Changes
+
+- [Added] - Accessibility attributes ([#1447](https://github.com/justeattakeaway/pie/pull/1447)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.6.1
 
 ### Patch Changes

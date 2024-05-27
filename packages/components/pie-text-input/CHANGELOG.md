@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-text-input
 
+## 0.21.0
+
+### Minor Changes
+
+- [Added] - HTML attributes for a11y support ([#1449](https://github.com/justeattakeaway/pie/pull/1449)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.20.0
 
 ### Minor Changes
