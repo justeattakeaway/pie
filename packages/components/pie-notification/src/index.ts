@@ -62,7 +62,7 @@ export class PieNotification extends LitElement implements NotificationProps {
     public isCompact = defaultProps.isCompact;
 
     @property({ type: String })
-    public heading!: string;
+    public heading?: string;
 
     @property()
     @validPropertyValues(componentSelector, headingLevels, defaultProps.headingLevel)
@@ -107,7 +107,6 @@ export class PieNotification extends LitElement implements NotificationProps {
     /**
      * Lifecycle method executed when component is updated.
      * It dispatches an event if notification is opened.
-     * It applies a gutter if there's no heading content in order to avoid the close button overlap the content.
      */
     protected updated (_changedProperties: PropertyValues<this>): void {
         if (_changedProperties.has('isOpen') && this.isOpen) {

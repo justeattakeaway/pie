@@ -40,6 +40,7 @@
     "components/map-pin",
     "components/modal/code",
     "components/modal/overview",
+    "components/notification/code",
     "components/notification/overview",
     "components/numeric-stepper/numeric-stepper",
     "components/numeric-stepper/numeric-stepper-form",
