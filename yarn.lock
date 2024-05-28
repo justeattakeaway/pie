@@ -5449,7 +5449,7 @@ __metadata:
     "@custom-elements-manifest/analyzer": 0.9.0
     "@justeattakeaway/pie-components-config": 0.16.0
     "@justeattakeaway/pie-switch": 0.29.5
-    "@justeattakeaway/pie-text-input": 0.20.0
+    "@justeattakeaway/pie-text-input": 0.21.0
     "@justeattakeaway/pie-webc-core": 0.23.0
     "@justeattakeaway/pie-wrapper-react": 0.14.0
     cem-plugin-module-file-extensions: 0.0.5
@@ -5592,7 +5592,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-notification@0.6.1, @justeattakeaway/pie-notification@workspace:packages/components/pie-notification":
+"@justeattakeaway/pie-notification@0.7.0, @justeattakeaway/pie-notification@workspace:packages/components/pie-notification":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-notification@workspace:packages/components/pie-notification"
   dependencies:
@@ -5645,7 +5645,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-text-input@0.20.0, @justeattakeaway/pie-text-input@workspace:packages/components/pie-text-input":
+"@justeattakeaway/pie-text-input@0.21.0, @justeattakeaway/pie-text-input@workspace:packages/components/pie-text-input":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-text-input@workspace:packages/components/pie-text-input"
   dependencies:
@@ -5694,11 +5694,11 @@ __metadata:
     "@justeattakeaway/pie-icon-button": 0.28.6
     "@justeattakeaway/pie-link": 0.17.5
     "@justeattakeaway/pie-modal": 0.42.6
-    "@justeattakeaway/pie-notification": 0.6.1
+    "@justeattakeaway/pie-notification": 0.7.0
     "@justeattakeaway/pie-spinner": 0.6.5
     "@justeattakeaway/pie-switch": 0.29.5
     "@justeattakeaway/pie-tag": 0.9.6
-    "@justeattakeaway/pie-text-input": 0.20.0
+    "@justeattakeaway/pie-text-input": 0.21.0
     chalk: 5.3.0
   bin:
     add-components: ./src/index.js
@@ -29153,11 +29153,11 @@ __metadata:
     "@justeattakeaway/pie-icons-webc": 0.24.0
     "@justeattakeaway/pie-link": 0.17.5
     "@justeattakeaway/pie-modal": 0.42.6
-    "@justeattakeaway/pie-notification": 0.6.1
+    "@justeattakeaway/pie-notification": 0.7.0
     "@justeattakeaway/pie-spinner": 0.6.5
     "@justeattakeaway/pie-switch": 0.29.5
     "@justeattakeaway/pie-tag": 0.9.6
-    "@justeattakeaway/pie-text-input": 0.20.0
+    "@justeattakeaway/pie-text-input": 0.21.0
     "@storybook/addon-a11y": 7.6.18
     "@storybook/addon-designs": 7.0.9
     "@storybook/addon-essentials": 7.6.18
