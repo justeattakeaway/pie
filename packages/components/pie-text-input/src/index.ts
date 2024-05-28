@@ -1,7 +1,7 @@
 import {
     LitElement, html, unsafeCSS, PropertyValues, nothing,
 } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { property, query, queryAssignedElements } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 
@@ -100,6 +100,12 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
     @query('input')
     public focusTarget!: HTMLElement;
 
+    @queryAssignedElements({ slot: 'leading' })
+    private leadingSlotElements!: Array<HTMLElement>;
+
+    @queryAssignedElements({ slot: 'trailing' })
+    private trailingSlotElements!: Array<HTMLElement>;
+
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.
      * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
@@ -137,6 +143,16 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
     protected firstUpdated (_changedProperties: PropertyValues<this>): void {
         super.firstUpdated(_changedProperties);
         this._internals.setFormValue(this.value);
+        this.handleSlotChange(this.leadingSlotElements);
+        this.handleSlotChange(this.trailingSlotElements);
+    }
+
+    private handleSlotChange (elements: Array<HTMLElement>): void {
+        elements.forEach((el) => {
+            if (el.tagName.startsWith('ICON-')) {
+                (el as HTMLElement).classList.add('c-textInput-icon'); // Icon elements
+            }
+        });
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {
@@ -201,7 +217,7 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
                 data-pie-status=${ifDefined(status)}
                 ?data-pie-disabled=${live(disabled)}
                 ?data-pie-readonly=${readonly}>
-                <slot name="leading"></slot>
+                <slot name="leading" @slotchange=${() => this.handleSlotChange(this.leadingSlotElements)}></slot>
                 <input
                     type=${ifDefined(type)}
                     .value=${live(value)}
@@ -225,7 +241,7 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
                     @input=${this.handleInput}
                     @change=${this.handleChange}
                     data-test-id="pie-text-input">
-                <slot name="trailing"></slot>
+                <slot name="trailing" @slotchange=${() => this.handleSlotChange(this.trailingSlotElements)}></slot>
             </div>
             ${assistiveText ? html`<pie-assistive-text id="${assistiveTextIdValue}" variant=${ifDefined(status)} data-test-id="pie-text-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}`;
     }
