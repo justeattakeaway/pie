@@ -31,7 +31,7 @@
     flex-wrap: nowrap;
     align-items: center;
     background-color: var(--input-container-color);
-    color: var(--input-text-color-leading-trailing-content); // Applies to the leading/trailing slot text and icons
+    color: var(--input-text-color-leading-trailing-content); // Applies to the leadingText and trailingText slot content
     cursor: var(--input-cursor);
 
     &[data-pie-size="large"] {
