@@ -203,7 +203,7 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
                 data-pie-status=${ifDefined(status)}
                 ?data-pie-disabled=${live(disabled)}
                 ?data-pie-readonly=${readonly}>
-                <!-- The reason for separate slots or icons and text is that we cannot programmatically be aware of the
+                <!-- The reason for separate slots for icons and text is that we cannot programmatically be aware of the
                 HTML used inside of the slot without breaking SSR in consuming applications (icons need to use different colours than text content)
                 Therefore, we provide two slots and advise consumers do not attempt to use both leading/trailing at the same time
                 as this would violate the design guidelines for this component. -->
@@ -232,7 +232,7 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
                     @input=${this.handleInput}
                     @change=${this.handleChange}
                     data-test-id="pie-text-input">
-                <!-- The reason for separate slots or icons and text is that we cannot programmatically be aware of the
+                <!-- The reason for separate slots for icons and text is that we cannot programmatically be aware of the
                 HTML used inside of the slot without breaking SSR in consuming applications (icons need to use different colours than text content)
                 Therefore, we provide two slots and advise consumers do not attempt to use both leading/trailing at the same time
                 as this would violate the design guidelines for this component. -->
