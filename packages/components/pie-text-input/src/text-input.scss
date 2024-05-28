@@ -77,7 +77,7 @@
 
     &[data-pie-readonly] {
         --input-container-color: var(--dt-color-disabled-01);
-        --input-border-color: var(--dt-color-border-inverse);
+        --input-border-color: var(--dt-color-interactive-form);
     }
 
     // Ensure that if an input is readonly and disabled, the disabled styles take precedence
