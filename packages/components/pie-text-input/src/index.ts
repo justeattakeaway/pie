@@ -1,7 +1,7 @@
 import {
     LitElement, html, unsafeCSS, PropertyValues, nothing,
 } from 'lit';
-import { property, query, queryAssignedElements } from 'lit/decorators.js';
+import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 
@@ -26,8 +26,10 @@ const assistiveTextIdValue = 'assistive-text';
  * @tagname pie-text-input
  * @event {InputEvent} input - when the input value is changed.
  * @event {CustomEvent} change - when the input value is changed.
- * @slot leading - An icon or short text to display at the start of the input.
- * @slot trailing - An icon or short text to display at the end of the input.
+ * @slot leadingText - Short text to display at the start of the input. Wrap the text in a <span>. Do not use with leadingIcon at the same time.
+ * @slot leadingIcon - An icon to display at the start of the input. Do not use with leadingText at the same time.
+ * @slot trailingText - Short text to display at the end of the input. Wrap the text in a <span>. Do not use with trailingIcon at the same time.
+ * @slot trailingIcon - An icon to display at the end of the input. Do not use with trailingText at the same time.
  */
 export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) implements TextInputProps, PIEInputElement {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
@@ -100,12 +102,6 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
     @query('input')
     public focusTarget!: HTMLElement;
 
-    @queryAssignedElements({ slot: 'leading' })
-    private leadingSlotElements!: Array<HTMLElement>;
-
-    @queryAssignedElements({ slot: 'trailing' })
-    private trailingSlotElements!: Array<HTMLElement>;
-
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.
      * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
@@ -143,16 +139,6 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
     protected firstUpdated (_changedProperties: PropertyValues<this>): void {
         super.firstUpdated(_changedProperties);
         this._internals.setFormValue(this.value);
-        this.handleSlotChange(this.leadingSlotElements);
-        this.handleSlotChange(this.trailingSlotElements);
-    }
-
-    private handleSlotChange (elements: Array<HTMLElement>): void {
-        elements.forEach((el) => {
-            if (el.tagName.startsWith('ICON-')) {
-                (el as HTMLElement).classList.add('c-textInput-icon'); // Icon elements
-            }
-        });
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {
@@ -217,7 +203,12 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
                 data-pie-status=${ifDefined(status)}
                 ?data-pie-disabled=${live(disabled)}
                 ?data-pie-readonly=${readonly}>
-                <slot name="leading" @slotchange=${() => this.handleSlotChange(this.leadingSlotElements)}></slot>
+                <!-- The reason for separate slots or icons and text is that we cannot programmatically be aware of the
+                HTML used inside of the slot without breaking SSR in consuming applications (icons need to use different colours than text content)
+                Therefore, we provide two slots and advise consumers do not attempt to use both leading/trailing at the same time
+                as this would violate the design guidelines for this component. -->
+                <slot name="leadingIcon"></slot>
+                <slot name="leadingText"></slot>
                 <input
                     type=${ifDefined(type)}
                     .value=${live(value)}
@@ -241,7 +232,12 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
                     @input=${this.handleInput}
                     @change=${this.handleChange}
                     data-test-id="pie-text-input">
-                <slot name="trailing" @slotchange=${() => this.handleSlotChange(this.trailingSlotElements)}></slot>
+                <!-- The reason for separate slots or icons and text is that we cannot programmatically be aware of the
+                HTML used inside of the slot without breaking SSR in consuming applications (icons need to use different colours than text content)
+                Therefore, we provide two slots and advise consumers do not attempt to use both leading/trailing at the same time
+                as this would violate the design guidelines for this component. -->
+                <slot name="trailingIcon"></slot>
+                <slot name="trailingText"></slot>
             </div>
             ${assistiveText ? html`<pie-assistive-text id="${assistiveTextIdValue}" variant=${ifDefined(status)} data-test-id="pie-text-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}`;
     }

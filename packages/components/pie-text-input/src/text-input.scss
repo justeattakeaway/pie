@@ -48,24 +48,33 @@
         --input-border-color: var(--dt-color-support-error);
     }
 
-    ::slotted([slot="leading"]) {
+    ::slotted([slot="leadingText"]),
+    ::slotted([slot="leadingIcon"]) {
         margin-inline-end: var(--input-gap);
     }
 
-    ::slotted([slot="trailing"]) {
+    ::slotted([slot="trailingText"]),
+    ::slotted([slot="trailingIcon"]) {
         margin-inline-start: var(--input-gap);
     }
 
     @supports (gap: var(--input-gap)) {
         gap: var(--input-gap);
 
-        ::slotted([slot="leading"]) {
+        ::slotted([slot="leadingText"]),
+        ::slotted([slot="leadingIcon"]) {
             margin-inline-end: 0;
         }
 
-        ::slotted([slot="trailing"]) {
+        ::slotted([slot="trailingText"]),
+        ::slotted([slot="trailingIcon"]) {
             margin-inline-start: 0;
         }
+    }
+
+    ::slotted([slot="leadingIcon"]),
+    ::slotted([slot="trailingIcon"]) {
+        color: var(--dt-color-content-subdued);
     }
 
     @media (hover: hover) {
@@ -92,10 +101,6 @@
 
     &:focus-within {
         @include p.focus;
-    }
-
-    ::slotted(.c-textInput-icon) {
-        color: var(--dt-color-content-subdued);
     }
 }
 
