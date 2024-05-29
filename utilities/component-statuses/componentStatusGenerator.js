@@ -26,6 +26,7 @@ class ComponentStatusGenerator {
 
         while (currentDir !== this.path.parse(currentDir).root) {
             const potentialComponentsDir = this.path.join(currentDir, 'packages', 'components');
+            this.console.log(`Checking ${potentialComponentsDir}`);
             if (this.fs.existsSync(potentialComponentsDir) && this.fs.lstatSync(potentialComponentsDir).isDirectory()) {
                 return currentDir;
             }
@@ -42,7 +43,9 @@ class ComponentStatusGenerator {
 
         try {
             const monorepoRoot = this.findMonorepoRootSync(process.cwd());
+            this.console.log(`Monorepo root found at ${monorepoRoot}`);
             const componentsDir = this.path.resolve(monorepoRoot, 'packages/components');
+            this.console.log(`Components directory: ${componentsDir}`);
             const files = await this.readdir(componentsDir);
 
             const componentDirsPromises = files.map(async (file) => {
@@ -85,6 +88,7 @@ class ComponentStatusGenerator {
             this.console.info('Component statuses:', filteredStatuses);
 
             const outputPath = this.path.resolve(process.cwd(), 'component-statuses.json');
+            this.console.log(`Writing to ${outputPath}`);
             await this.writeFile(outputPath, JSON.stringify(filteredStatuses, null, 2));
             this.console.info(`Successfully wrote component statuses to ${outputPath}`);
         } catch (err) {
