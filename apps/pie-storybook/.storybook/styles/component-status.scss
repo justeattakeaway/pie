@@ -3,6 +3,10 @@
     inset-inline-end: var(--dt-spacing-c);
     z-index: 9999;
 
+    a {
+      line-height: 0;
+    }
+
     a:visited {
         color: inherit;
     }
