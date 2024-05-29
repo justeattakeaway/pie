@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-switch
 
+## 0.29.6
+
+### Patch Changes
+
+- [Changed] - Update `element-internals-polyfill` to v1.3.11 ([#1452](https://github.com/justeattakeaway/pie/pull/1452)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.29.5
 
 ### Patch Changes

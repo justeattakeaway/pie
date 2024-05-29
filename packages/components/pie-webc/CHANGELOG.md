@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-webc
 
+## 0.5.2
+
+### Patch Changes
+
+- Updated dependencies [[`bd8f779ae`](https://github.com/justeattakeaway/pie/commit/bd8f779aee5b62fe539805efd23c31efc637548c), [`bd8f779ae`](https://github.com/justeattakeaway/pie/commit/bd8f779aee5b62fe539805efd23c31efc637548c), [`ac9e2a837`](https://github.com/justeattakeaway/pie/commit/ac9e2a837675026b62931a1e9531655bc581659d), [`bd8f779ae`](https://github.com/justeattakeaway/pie/commit/bd8f779aee5b62fe539805efd23c31efc637548c)]:
+  - @justeattakeaway/pie-assistive-text@0.4.0
+  - @justeattakeaway/pie-text-input@0.22.0
+  - @justeattakeaway/pie-button@0.47.6
+  - @justeattakeaway/pie-switch@0.29.6
+  - @justeattakeaway/pie-cookie-banner@0.19.8
+  - @justeattakeaway/pie-modal@0.42.7
+
 ## 0.5.1
 
 ### Patch Changes
