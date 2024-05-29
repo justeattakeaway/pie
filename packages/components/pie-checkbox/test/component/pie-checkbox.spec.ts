@@ -243,12 +243,13 @@ test.describe('PieCheckbox - Component tests', () => {
                 expect(messages).toStrictEqual(expectedMessages);
             });
         });
+
         test.describe('Form integration', () => {
             test('should correctly set the name and value of the checkbox in the FormData object when submitted', async ({ page }) => {
                 // Arrange
                 await page.setContent(`
                     <form id="testForm" action="/foo" method="POST">
-                    <pie-checkbox type="text" name="testName"></pie-checkbox>
+                        <pie-checkbox type="text" name="testName"></pie-checkbox>
                         <button type="submit">Submit</button>
                     </form>
                     <div id="formDataJson""></div>
