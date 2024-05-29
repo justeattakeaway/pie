@@ -72,8 +72,8 @@
         }
     }
 
-    ::slotted([slot="leadingIcon"]),
-    ::slotted([slot="trailingIcon"]) {
+    &:not([data-pie-disabled]) ::slotted([slot="leadingIcon"]),
+    &:not([data-pie-disabled]) ::slotted([slot="trailingIcon"]) {
         color: var(--dt-color-content-subdued);
     }
 
