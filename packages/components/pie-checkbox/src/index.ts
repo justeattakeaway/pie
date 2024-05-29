@@ -21,7 +21,7 @@ const componentSelector = 'pie-checkbox';
 
 /**
  * @tagname pie-checkbox
- *  * @event {CustomEvent} change - when checked state is changed.
+ * @event {CustomEvent} change - when checked state is changed.
  */
 export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
@@ -52,11 +52,6 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
 
     @query('input[type="checkbox"]')
     private checkbox?: HTMLInputElement;
-
-    private onClick () {
-        this.checked = !this.checked;
-        this.indeterminate = false;
-    }
 
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.
@@ -102,7 +97,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
      * Captures the native change event and wraps it in a custom event.
      * @param {Event} event - This should be the change event that was listened for on an input element with `type="checkbox"`.
      */
-    private handleChange = (event: Event) => {
+    private handleChange (event: Event) {
         const { checked } = event?.currentTarget as HTMLInputElement;
         this.checked = checked;
         // This is because some events set `composed` to `false`.
@@ -111,7 +106,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
         this.dispatchEvent(customChangeEvent);
 
         this.handleFormAssociation();
-    };
+    }
 
     render () {
         const {
@@ -138,7 +133,6 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
                 aria-label=${aria?.label || nothing}
                 aria-labelledby=${label ? nothing : aria?.labelledby || nothing}
                 aria-describedby= ${aria?.describedby || nothing}
-                @click=${this.onClick}
                 @change=${this.handleChange}
                 data-test-id="checkbox-input"
             />
