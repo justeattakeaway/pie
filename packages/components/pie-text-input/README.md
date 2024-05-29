@@ -140,8 +140,10 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 ## Slots
 | Slot | Description |
 |------|-------------|
-| `leading` | An icon or short text to display at the start of the input. |
-| `trailing` | An icon or short text to display at the end of the input. |
+| `leadingText` | Short text to display at the start of the input. Wrap the text in a `<span>`. Do not use with `leadingIcon` at the same time. |
+| `leadingIcon` | An icon to display at the start of the input. Do not use with `leadingText` at the same time. |
+| `trailingText` | Short text to display at the end of the input. Wrap the text in a `<span>`. Do not use with `trailingIcon` at the same time. |
+| `trailingIcon` | An icon to display at the end of the input. Do not use with `trailingText` at the same time. |
 
 ## Contributing
 
