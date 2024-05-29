@@ -51,7 +51,9 @@ class ComponentStatusGenerator {
                 return stats.isDirectory() && !this.excludes.includes(`@justeattakeaway/${file}`) ? file : null;
             });
 
-            const componentDirs = (await Promise.all(componentDirsPromises)).filter(Boolean);
+            const componentDirs = (await Promise.all(componentDirsPromises))
+                .filter(Boolean)
+                .filter((dirName) => !dirName.startsWith('.')); // Filter hidden directories (e.g., .turbo)
 
             const statusesPromises = componentDirs.map(async (component) => {
                 const componentPath = this.path.resolve(componentsDir, component, 'package.json');

@@ -29130,7 +29130,7 @@ __metadata:
     vue-template-compiler: 2.7.14
     webpack: 5.77.0
   bin:
-    "generate:component-statuses": ./utilities/component-statuses/generate-component-statuses.js
+    generate-component-statuses: ./utilities/component-statuses/generate-component-statuses.js
   languageName: unknown
   linkType: soft
 
