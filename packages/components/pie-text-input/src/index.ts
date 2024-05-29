@@ -10,25 +10,26 @@ import {
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-assistive-text';
 
-import styles from './input.scss?inline';
+import styles from './text-input.scss?inline';
 import {
-    types, statusTypes, InputProps, defaultProps,
+    types, statusTypes, TextInputProps, defaultProps,
 } from './defs';
 import 'element-internals-polyfill';
 
 // Valid values available to consumers
 export * from './defs';
 
-const componentSelector = 'pie-input';
+const componentSelector = 'pie-text-input';
+const assistiveTextIdValue = 'assistive-text';
 
 /**
- * @tagname pie-input
+ * @tagname pie-text-input
  * @event {InputEvent} input - when the input value is changed.
  * @event {CustomEvent} change - when the input value is changed.
  * @slot leading - An icon or short text to display at the start of the input.
  * @slot trailing - An icon or short text to display at the end of the input.
  */
-export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements InputProps, PIEInputElement {
+export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) implements TextInputProps, PIEInputElement {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @property({ type: String, reflect: true })
@@ -39,59 +40,59 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     public value = defaultProps.value;
 
     @property({ type: String })
-    public name?: InputProps['name'];
+    public name?: TextInputProps['name'];
 
     @property({ type: Boolean, reflect: true })
-    public disabled?: InputProps['disabled'];
+    public disabled?: TextInputProps['disabled'];
 
     @property({ type: String })
-    public pattern?: InputProps['pattern'];
+    public pattern?: TextInputProps['pattern'];
 
     @property({ type: Number })
-    public minlength?: InputProps['minlength'];
+    public minlength?: TextInputProps['minlength'];
 
     @property({ type: Number })
-    public maxlength?: InputProps['maxlength'];
+    public maxlength?: TextInputProps['maxlength'];
 
     @property({ type: String })
-    public autocomplete?: InputProps['autocomplete'];
+    public autocomplete?: TextInputProps['autocomplete'];
 
     @property({ type: String })
-    public placeholder?: InputProps['placeholder'];
+    public placeholder?: TextInputProps['placeholder'];
 
     @property({ type: Boolean })
-    public autoFocus?: InputProps['autoFocus'];
+    public autoFocus?: TextInputProps['autoFocus'];
 
     @property({ type: String })
-    public inputmode?: InputProps['inputmode'];
+    public inputmode?: TextInputProps['inputmode'];
 
     @property({ type: Boolean })
-    public readonly?: InputProps['readonly'];
+    public readonly?: TextInputProps['readonly'];
 
     @property({ type: String })
-    public defaultValue?: InputProps['defaultValue'];
+    public defaultValue?: TextInputProps['defaultValue'];
 
     @property({ type: String })
-    public assistiveText?: InputProps['assistiveText'];
+    public assistiveText?: TextInputProps['assistiveText'];
 
     @property({ type: String })
     @validPropertyValues(componentSelector, statusTypes, undefined)
-    public status?: InputProps['status'];
+    public status?: TextInputProps['status'];
 
     @property({ type: Number })
-    public step?: InputProps['step'];
+    public step?: TextInputProps['step'];
 
     @property({ type: Number })
-    public min?: InputProps['min'];
+    public min?: TextInputProps['min'];
 
     @property({ type: Number })
-    public max?: InputProps['max'];
+    public max?: TextInputProps['max'];
 
     @property({ type: String })
-    public size?: InputProps['size'] = defaultProps.size;
+    public size?: TextInputProps['size'] = defaultProps.size;
 
     @property({ type: Boolean })
-    public required?: InputProps['required'] = false;
+    public required?: TextInputProps['required'] = false;
 
     @query('input')
     private input?: HTMLInputElement;
@@ -194,8 +195,8 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
         return html`
             <div
-                class="c-input"
-                data-test-id="pie-input-shell"
+                class="c-textInput"
+                data-test-id="pie-text-input-shell"
                 data-pie-size=${ifDefined(size)}
                 data-pie-status=${ifDefined(status)}
                 ?data-pie-disabled=${live(disabled)}
@@ -218,22 +219,25 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     placeholder=${ifDefined(placeholder)}
                     ?readonly=${readonly}
                     ?required=${required}
+                    aria-describedby=${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}
+                    aria-invalid=${status === 'error' ? 'true' : 'false'}
+                    aria-errormessage="${ifDefined(status === 'error' ? assistiveTextIdValue : undefined)}"
                     @input=${this.handleInput}
                     @change=${this.handleChange}
-                    data-test-id="pie-input">
+                    data-test-id="pie-text-input">
                 <slot name="trailing"></slot>
             </div>
-            ${assistiveText ? html`<pie-assistive-text variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}`;
+            ${assistiveText ? html`<pie-assistive-text id="${assistiveTextIdValue}" variant=${ifDefined(status)} data-test-id="pie-text-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
 
-defineCustomElement(componentSelector, PieInput);
+defineCustomElement(componentSelector, PieTextInput);
 
 declare global {
     interface HTMLElementTagNameMap {
-        [componentSelector]: PieInput;
+        [componentSelector]: PieTextInput;
     }
 }

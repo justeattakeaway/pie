@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.36.0
+
+### Minor Changes
+
+- [Changed] - Renamed 'available' component status to 'stable' ([#1475](https://github.com/justeattakeaway/pie/pull/1475)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Update component status for Android PIE ([#1477](https://github.com/justeattakeaway/pie/pull/1477)) by [@fmontesino](https://github.com/fmontesino)
+
+### Patch Changes
+
+- [Changed] - small content updates and README improvements ([#1476](https://github.com/justeattakeaway/pie/pull/1476)) by [@maledr5](https://github.com/maledr5)
+
 ## 3.35.1
 
 ### Patch Changes

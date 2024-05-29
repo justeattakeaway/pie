@@ -144,7 +144,7 @@ ___
 
 ### Emphasis
 
-Tags are available in two types of emphasis. 
+Tags are available in two types of emphasis.
 Not all colours available within the subtle emphasis are available within the strong emphasis, for example, brand, neutral - alternative, outline and ghost have only subtle variations.
 
 {% contentLayout %}
@@ -189,7 +189,7 @@ Icons can be used to visually support the Tag’s label. Only available at the l
   {% endcontentItem %}
 {% endcontentLayout %}
 
---- 
+---
 
 ## Sizes
 
@@ -239,13 +239,13 @@ Tag is available in 2 states. The disabled state has an opacity of 50%.
   {% endcontentItem %}
 {% endcontentLayout %}
 
---- 
+---
 
 ## Content
 
 ### Label guidance
 
-Tag doesn’t have a maximum width or overflow. The container width is dynamic to the content’s width. 
+Tag doesn’t have a maximum width or overflow. The container width is dynamic to the content’s width.
 
 {% usage {
     do: {
@@ -286,7 +286,7 @@ Tag doesn’t have a maximum width or overflow. The container width is dynamic t
 
 ___
 
-## Visual representation 
+## Visual representation
 
 Tags and colours can be used to indicate status or used to convey specific meanings within JET which are displayed below.
 
@@ -360,12 +360,12 @@ ___
         {
             resource: resourceTypes.COMPONENT,
             link: "https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-328&mode=design",
-            status: statusTypes.AVAILABLE
+            status: statusTypes.STABLE
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: "https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-328&mode=design",
-            status: statusTypes.AVAILABLE
+            status: statusTypes.STABLE
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -378,22 +378,18 @@ ___
         {
             resource: resourceTypes.REACT,
             link: "https://snacks.takeaway.com/portal/components/tag/",
-            status: statusTypes.AVAILABLE
+            status: statusTypes.STABLE
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE
+            status: statusTypes.STABLE
         },
         {
             resource: resourceTypes.IOS_PIE,
             status: statusTypes.PLANNED
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.PLANNED
         }
     ]

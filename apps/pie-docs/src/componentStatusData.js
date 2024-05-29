@@ -40,12 +40,8 @@ const appHeadings = [
         icon: '/assets/img/components/icons/swift-ui.svg',
     },
     {
-        title: 'XML views',
+        title: 'Android PIE [Compose & Views]',
         icon: '/assets/img/components/icons/android.svg',
-    },
-    {
-        title: 'Jetpack compose',
-        icon: '/assets/img/components/icons/jetpack-compose.svg',
     }
 ];
 
@@ -55,12 +51,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1410&mode=design&t=RgSr9spTcPyOytpv-0',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1410&mode=design&t=fi48JZ4cPeb7qkf2-0',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -73,7 +69,7 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/bubble/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
@@ -84,12 +80,8 @@ const rows = [
             status: statusTypes.PRE_RELEASE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -97,12 +89,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=981-5354&mode=design&t=eHntVWyoMgUqEPSN-0',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=981-5354&mode=design&t=eGcAax5wgCPMal5i-0',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -115,7 +107,7 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/bubble/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
@@ -126,12 +118,8 @@ const rows = [
             status: statusTypes.PRE_RELEASE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -139,7 +127,7 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=44260-73570&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
@@ -167,12 +155,8 @@ const rows = [
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -181,12 +165,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=38419-73358&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=33780-373521&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -199,7 +183,7 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/bubble/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
@@ -210,12 +194,8 @@ const rows = [
             status: statusTypes.PRE_RELEASE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -223,12 +203,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=877-2984&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=877-2984&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -237,28 +217,24 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-molecules--alert-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/notification/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
@@ -266,12 +242,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=9832-49773&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=9832-49773&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -287,19 +263,15 @@ const rows = [
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.BETA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
@@ -307,12 +279,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2425-1312&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2425-1312&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -321,12 +293,12 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-molecules--breadcrumbs-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/breadcrumbs/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
@@ -337,11 +309,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -350,12 +318,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=727-0&mode=design&t=CQEMbUPtF2XxT6Nu-0',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=727-0&mode=design&t=P7rOGYbNedINS79O-0',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -365,28 +333,24 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-atoms-f-button--button-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/button/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.AVAILABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -394,12 +358,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-326&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-326&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -409,12 +373,24 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-atoms--card-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/card/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.IOS_JUST_UI,
+            status: statusTypes.TBC,
+        },
+        {
+            resource: resourceTypes.IOS_PIE,
+            status: statusTypes.TBC,
+        },
+        {
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.PLANNED,
         }
     ],
     [
@@ -422,12 +398,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=21877-137791&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=21877-137791&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -443,19 +419,15 @@ const rows = [
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -463,12 +435,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=835-3026&mode=design&t=6BvgpFnD3pPWQayd-4',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=32007-382941&mode=design&t=aOGQYXIwnBhahFPU-4',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -477,28 +449,24 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-atoms-f-form-field--checkbox-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/checkbox/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.AVAILABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -506,12 +474,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=733-1358&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=733-1358&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -525,36 +493,32 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/chip/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
         { componentName: 'Cookie Banner' },
         {
-            resource: resourceTypes.PATTERN,
+            resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/Rqz8KHogVsGCS4j0nDueNo/[Core]-Patterns-%E2%9A%AA%EF%B8%8F-[PIE-2.0]?type=design&node-id=1599-41380&mode=design&t=8G38n2fCOYB5Bd2d-0',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/Rqz8KHogVsGCS4j0nDueNo/[Core]-Patterns-%E2%9A%AA%EF%B8%8F-[PIE-2.0]?type=design&node-id=2755-20043&mode=design&t=8G38n2fCOYB5Bd2d-0',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -578,11 +542,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.NOT_APPLICABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.NOT_APPLICABLE,
         }
     ],
@@ -591,12 +551,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2308-0&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2308-0&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -619,11 +579,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -632,7 +588,7 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=19180-143092&mode=design&t=6BvgpFnD3pPWQayd-4',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
@@ -660,11 +616,7 @@ const rows = [
             status: statusTypes.TBC,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -673,7 +625,7 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=35122-283303&mode=design&t=aOGQYXIwnBhahFPU-4',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
@@ -701,11 +653,7 @@ const rows = [
             status: statusTypes.TBC,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -714,7 +662,7 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=746-1146&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
@@ -741,11 +689,7 @@ const rows = [
             status: statusTypes.TBC,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -754,7 +698,7 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1227&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
@@ -772,23 +716,19 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/divider/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.ALPHA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.ALPHA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -796,7 +736,7 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=41132-65796&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
@@ -810,28 +750,24 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-atoms-f-form-field--dropdown-default-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/combo-box/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.ALPHA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.ALPHA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.PLANNED,
         }
     ],
     [
@@ -839,7 +775,7 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=820-0&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
@@ -859,18 +795,14 @@ const rows = [
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.PLANNED,
         }
     ],
@@ -879,12 +811,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=981-5350&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=981-5350&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -896,23 +828,19 @@ const rows = [
         },
         {
             resource: resourceTypes.REACT,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.TBC,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
@@ -920,12 +848,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-317&mode=design&t=TQwLuC8jGD8UIgAs-0',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-317&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -935,28 +863,24 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-atoms-f-button--icon-button-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/icon-button/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.ALPHA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.AVAILABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -964,12 +888,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2163-13005&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2163-13005&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -979,27 +903,23 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-atoms--v-link-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/text-link/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -1008,12 +928,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=14779-121656&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=14779-121656&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1026,23 +946,19 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/list/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
@@ -1050,12 +966,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=14779-121656&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=14779-121656&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1068,23 +984,19 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/list/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
@@ -1092,12 +1004,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=5491-23578&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=5491-23578&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1120,12 +1032,8 @@ const rows = [
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1133,12 +1041,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=1098-1144&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=1098-1144&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1148,28 +1056,24 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-molecules--mega-modal-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/modal/overview/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.AVAILABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1177,12 +1081,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=782-1302&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=782-1302&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1191,28 +1095,24 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-molecules--alert-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/notification/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
@@ -1220,12 +1120,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=14449-108513&mode=design&t=6BvgpFnD3pPWQayd-4',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=32007-398251&mode=design&t=aOGQYXIwnBhahFPU-4',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1238,7 +1138,7 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/counter/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
@@ -1249,12 +1149,8 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.NOT_APPLICABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.NOT_APPLICABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1262,12 +1158,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=1729-4184&mode=design&t=6BvgpFnD3pPWQayd-4',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=32007-397795&mode=design&t=aOGQYXIwnBhahFPU-4',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1280,7 +1176,7 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/counter/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
@@ -1291,11 +1187,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -1304,12 +1196,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=1860-14678&mode=design&t=6BvgpFnD3pPWQayd-4',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=32007-398034&mode=design&t=aOGQYXIwnBhahFPU-4',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1322,7 +1214,7 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/counter/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
@@ -1333,11 +1225,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -1346,12 +1234,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=14460-114966&mode=design&t=6BvgpFnD3pPWQayd-4',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=32007-398424&mode=design&t=aOGQYXIwnBhahFPU-4',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1364,7 +1252,7 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/counter/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
@@ -1375,12 +1263,8 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.BETA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.ALPHA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1388,12 +1272,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2373-13285&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2373-13285&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1406,7 +1290,7 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/pagination/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
@@ -1417,12 +1301,8 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.BETA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.ALPHA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1430,12 +1310,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1484&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1484&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1448,7 +1328,7 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/dropdown-dialog/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
@@ -1459,11 +1339,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -1472,12 +1348,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2420-13282&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2420-13282&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1490,23 +1366,19 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/progress-bar/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.ALPHA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.BETA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1514,12 +1386,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=3919-19442&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=3919-19442&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1542,11 +1414,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -1555,12 +1423,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=835-2959&mode=design&t=6BvgpFnD3pPWQayd-4',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=32007-383138&mode=design&t=aOGQYXIwnBhahFPU-4',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1569,28 +1437,24 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-molecules--alert-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/radio/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.AVAILABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -1598,12 +1462,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=3472-16894&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=3472-16894&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1612,28 +1476,24 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-molecules-f-rating--rating-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/rating/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.AVAILABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1641,12 +1501,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-319&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-319&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1655,28 +1515,24 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-atoms--segmented-control-variants',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/options/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.BETA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.TBC,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.PLANNED,
         }
     ],
     [
@@ -1684,12 +1540,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1329&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1329&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1702,23 +1558,19 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/combo-box/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.AVAILABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.NOT_APPLICABLE,
         }
     ],
     [
@@ -1726,12 +1578,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=14115-101942&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=14115-101942&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1744,23 +1596,19 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/show-more/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1768,7 +1616,7 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=3762-19209&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
@@ -1795,11 +1643,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -1808,12 +1652,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=24738-224311&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=24738-224311&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1822,28 +1666,24 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-molecules--skeleton-loader-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/skeleton-bar/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.ALPHA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
         }
     ],
     [
@@ -1851,7 +1691,7 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2236-12979&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
@@ -1878,12 +1718,8 @@ const rows = [
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1891,12 +1727,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-329&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-329&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1906,28 +1742,24 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-atoms--v-spinner-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/loading/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.ALPHA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.ALPHA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -1935,12 +1767,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=882-3264&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=882-3264&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1950,28 +1782,24 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-atoms--toggle-switch-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/switch/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.AVAILABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -1979,12 +1807,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2087-13001&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2087-13001&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1993,28 +1821,24 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-molecules--vue-tabs-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/tabs/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.ALPHA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -2022,12 +1846,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-328&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-328&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -2041,23 +1865,19 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/tag/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -2065,12 +1885,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-323&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-323&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -2079,28 +1899,24 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-atoms-f-form-field--text-input-default-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/input/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.BETA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.BETA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
@@ -2108,12 +1924,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=972-5408&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=972-5408&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -2122,12 +1938,12 @@ const rows = [
         {
             resource: resourceTypes.VUE,
             link: 'https://vue.pie.design/?path=/story/components-atoms-f-form-field--textarea-component',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/textarea/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
@@ -2138,12 +1954,8 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.BETA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.BETA,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.NOT_APPLICABLE,
         }
     ],
     [
@@ -2151,12 +1963,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=15875-125982&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=15875-125982&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -2169,7 +1981,7 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/avatar/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
@@ -2180,11 +1992,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -2193,7 +2001,7 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-324&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
@@ -2210,23 +2018,19 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/toast/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.AVAILABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.AVAILABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
@@ -2234,12 +2038,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-325&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-325&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -2252,7 +2056,7 @@ const rows = [
         {
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/tooltip/',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
@@ -2263,11 +2067,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.TBC,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.TBC,
         }
     ],
@@ -2276,12 +2076,12 @@ const rows = [
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1368&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1368&mode=design',
-            status: statusTypes.AVAILABLE,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -2304,11 +2104,7 @@ const rows = [
             status: statusTypes.NOT_APPLICABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.NOT_APPLICABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.NOT_APPLICABLE,
         }
     ]

@@ -1,7 +1,7 @@
 {
-  "name": "@justeattakeaway/pie-input",
+  "name": "@justeattakeaway/pie-text-input",
   "description": "PIE Design System Input built using Web Components",
-  "version": "0.19.1",
+  "version": "0.21.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -29,7 +29,7 @@
     "test:browsers-setup": "npx playwright-lit-setup",
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
-    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_INPUT} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
+    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_TEXT_INPUT} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
   },
   "author": "Just Eat Takeaway.com - Design System Team",

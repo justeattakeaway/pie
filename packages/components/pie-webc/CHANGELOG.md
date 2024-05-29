@@ -1,5 +1,24 @@
 # @justeattakeaway/pie-webc
 
+## 0.5.1
+
+### Patch Changes
+
+- Updated dependencies [[`fab76fafe`](https://github.com/justeattakeaway/pie/commit/fab76fafedf3619449d9817ec3ef8bf3f4b746d9), [`5411e59fe`](https://github.com/justeattakeaway/pie/commit/5411e59fe66521a1bcba191f58acbdb4d48e7b15)]:
+  - @justeattakeaway/pie-text-input@0.21.0
+  - @justeattakeaway/pie-notification@0.7.0
+
+## 0.5.0
+
+### Minor Changes
+
+- [Changed] - Rename pie-input to pie-text-input ([#1462](https://github.com/justeattakeaway/pie/pull/1462)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`82915502e`](https://github.com/justeattakeaway/pie/commit/82915502e357f0ec8068ec7434eb872a9125ada6)]:
+  - @justeattakeaway/pie-text-input@0.20.0
+
 ## 0.4.2
 
 ### Patch Changes

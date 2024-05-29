@@ -3,14 +3,14 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-input">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-input.svg">
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-text-input">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-text-input.svg">
   </a>
 </p>
 
 # Table of Contents
 
-1. [Introduction](#pie-input)
+1. [Introduction](#pie-text-input)
 2. [Installation](#installation)
 3. [Importing the component](#importing-the-component)
 4. [Peer Dependencies](#peer-dependencies)
@@ -19,23 +19,25 @@
 7. [Slots](#slots)
 8. [Contributing](#contributing)
 
-## pie-input
+## pie-text-input
 
-`pie-input` is a Web Component built using the Lit library.
+`pie-text-input` is a Web Component built using the Lit library.
 
 This component can be easily integrated into various frontend frameworks and customized through a set of properties.
 
 
 ## Installation
 
-To install `pie-input` in your application, run the following on your command line:
+To install `pie-text-input` in your application, run the following on your command line:
+
+_Note: Versions of this component prior to v0.19.0 were named `pie-input`._
 
 ```bash
 # npm
-$ npm i @justeattakeaway/pie-input
+$ npm i @justeattakeaway/pie-text-input
 
 # yarn
-$ yarn add @justeattakeaway/pie-input
+$ yarn add @justeattakeaway/pie-text-input
 ```
 
 For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
@@ -46,11 +48,11 @@ For full information on using PIE components as part of an application, check ou
 #### JavaScript
 ```js
 // Default – for Native JS Applications, Vue, Angular, Svelte, etc.
-import { PieInput } from '@justeattakeaway/pie-input';
+import { PieTextInput } from '@justeattakeaway/pie-text-input';
 
 // If you don't need to reference the imported object, you can simply
 // import the module which registers the component as a custom element.
-import '@justeattakeaway/pie-input';
+import '@justeattakeaway/pie-text-input';
 ```
 
 #### React
@@ -58,7 +60,7 @@ import '@justeattakeaway/pie-input';
 // React
 // For React, you will need to import our React-specific component build
 // which wraps the web component using ​@lit/react
-import { PieInput } from '@justeattakeaway/pie-input/dist/react';
+import { PieTextInput } from '@justeattakeaway/pie-text-input/dist/react';
 ```
 
 > [!NOTE]
@@ -69,7 +71,7 @@ import { PieInput } from '@justeattakeaway/pie-input/dist/react';
 ## Peer Dependencies
 
 > [!IMPORTANT]
-> When using `pie-input`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
+> When using `pie-text-input`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
 
 
 ## Props
@@ -88,18 +90,18 @@ import { PieInput } from '@justeattakeaway/pie-input/dist/react';
 | `type` | `'text'`, `'number'`, `'password'`, `'url'`, `'email'`, `'tel'` | `text` | The type of HTML input to render. |
 | `value` | `string` | `''` | The value of the input (used as a key/value pair in HTML forms with `name`). |
 | `assistiveText` | `string` | `''` | Allows assistive text to be displayed below the input element. |
-| `status` | `'error'`, `'success'` | `undefined` | The status of the input component / assistive text. |
+| `status` | `'error'`, `'success'` | `undefined` | The status of the input component / assistive text. If you use `status` you must provide an `assistiveText` prop value for accessibility purposes. |
 | `step` | `number` | - | An optional amount that value should be incremented or decremented by when using the up and down arrows in the input. Only applies when type is `number`. |
 | `min` | `number` | - | The minimum value of the input. Only applies when type is `number`. If the value provided is lower, the input is invalid. |
 | `max` | `number` | - | The maximum value of the input. Only applies when type is `number`. If the value provided is higher, the input is invalid. |
 | `size` | `'small'`, `'medium'`, `'large'` | `medium` | The size of the input field. Can be `small`, `medium`, or `large`. Defaults to `medium`. |
 | `required` | `boolean` | `false` | If true, the input is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid. |
 
-In your markup or JSX, you can then use these to set the properties for the `pie-input` component:
+In your markup or JSX, you can then use these to set the properties for the `pie-text-input` component:
 
 ```html
 <!-- Native HTML -->
-<pie-input
+<pie-text-input
     autocomplete="on"
     autoFocus
     inputmode="text"
@@ -111,10 +113,10 @@ In your markup or JSX, you can then use these to set the properties for the `pie
     readonly
     type="text"
     value="">
-</pie-input>
+</pie-text-input>
 
 <!-- JSX -->
-<PieInput
+<PieTextInput
     autocomplete="on"
     autoFocus
     inputmode="text"
@@ -126,7 +128,7 @@ In your markup or JSX, you can then use these to set the properties for the `pie
     readonly
     type="text"
     value="">
-</PieInput>
+</PieTextInput>
 ```
 
 ## Events
