@@ -221,7 +221,7 @@ test.describe('PieCheckbox - Component tests', () => {
 
     test.describe('Events', () => {
         test.describe('change', () => {
-            test('should dispatch a change event when checkbox is clicked that contains the original native event', async ({ mount, page }) => {
+            test('should dispatch a change event when checkbox is clicked that contains the original native event', async ({ mount }) => {
                 // Arrange
                 const messages: CustomEvent[] = [];
                 const expectedMessages = [{ sourceEvent: { isTrusted: true } }];
