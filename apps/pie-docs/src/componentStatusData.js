@@ -350,11 +350,7 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.STABLE,
         }
     ],
@@ -384,6 +380,18 @@ const rows = [
             resource: resourceTypes.REACT,
             link: 'https://snacks.takeaway.com/portal/components/card/',
             status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.IOS_JUST_UI,
+            status: statusTypes.TBC,
+        },
+        {
+            resource: resourceTypes.IOS_PIE,
+            status: statusTypes.TBC,
+        },
+        {
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.PLANNED,
         }
     ],
     [
@@ -458,11 +466,7 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.STABLE,
         }
     ],
@@ -501,12 +505,8 @@ const rows = [
             status: statusTypes.PLANNED,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
@@ -880,11 +880,7 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.ALPHA,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.STABLE,
         }
     ],
@@ -1077,12 +1073,8 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.STABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1462,11 +1454,7 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.STABLE,
         }
     ],
@@ -1505,12 +1493,8 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.STABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.TBC,
         }
     ],
     [
@@ -1586,12 +1570,8 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.STABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.NOT_APPLICABLE,
         }
     ],
     [
@@ -1819,11 +1799,7 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
+            resource: resourceTypes.ANDROID_PIE,
             status: statusTypes.STABLE,
         }
     ],
@@ -2054,12 +2030,8 @@ const rows = [
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.STABLE,
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.ALPHA,
         }
     ],
     [
