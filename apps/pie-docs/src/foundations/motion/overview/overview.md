@@ -54,5 +54,5 @@ dont: {
 
 ## Accessibility
 
-We must also provide options for transitions without animation that retain it’s context and meaning to the user to that reduced motion can be applied for users that are sensitive or adverse to motion.
+We must also provide options for transitions without animation that retain context and meaning to the user so that reduced motion can be applied for users that are sensitive or averse to motion.
 

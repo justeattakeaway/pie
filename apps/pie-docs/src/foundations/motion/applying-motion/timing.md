@@ -38,7 +38,7 @@ We don’t use 400ms or above for any functional events, such as component trans
 
 ## Entrance & Exit Timings
 
-With elements that have enter & exit states such as message type components like Toast and Banner, or components like Dropdown and Accordion that expand and collapse, elements should exit the user view slightly quicker than when they appeared. This is because once the element has served it’s purpose to the user it is no longer needed.
+With elements that have enter and exit states such as message type components like Toast and Banner, or components like Dropdown and Accordion that expand and collapse, elements should exit the user view slightly quicker than when they appeared. This is because once the element has served its purpose to the user it is no longer needed.
 
 ---
 

@@ -28,7 +28,7 @@ width: "250px"
 
 ## Exit Easing (easing-in)
 
-Exit easing describes the acceleration of motion as it exits from off the screen. Objects that enter off the screen (such as Toast) will move slowly before getting faster as they exit. This mimics real-life physics where objects in motion take time to get up to speed from a stationary position. Exit easing should be used for objects that are off screen permanently. In cases where elements need to be recalled again default easing should be used so that the object appears as if it is just off screen to the user.
+Exit easing describes the acceleration of motion as it exits the screen. Objects that leave the screen (such as Toast) will move slowly before getting faster as they exit. This mimics real-life physics where objects in motion take time to get up to speed from a stationary position. Exit easing should be used for objects that are off screen permanently. In cases where elements need to be recalled again default easing should be used so that the object appears as if it is just off screen to the user.
 
 {% contentPageImage {
 src:"../../../../assets/img/foundations/motion/easing/easing-in.svg",
