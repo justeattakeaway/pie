@@ -5348,7 +5348,7 @@ __metadata:
     "@justeattakeaway/pie-webc-core": 0.23.0
     "@justeattakeaway/pie-wrapper-react": 0.14.0
     cem-plugin-module-file-extensions: 0.0.5
-    element-internals-polyfill: 1.3.10
+    element-internals-polyfill: 1.3.11
   languageName: unknown
   linkType: soft
 
@@ -5628,7 +5628,7 @@ __metadata:
     "@justeattakeaway/pie-webc-core": 0.23.0
     "@justeattakeaway/pie-wrapper-react": 0.14.0
     cem-plugin-module-file-extensions: 0.0.5
-    element-internals-polyfill: 1.3.10
+    element-internals-polyfill: 1.3.11
   languageName: unknown
   linkType: soft
 
@@ -18218,13 +18218,6 @@ __metadata:
   version: 1.4.752
   resolution: "electron-to-chromium@npm:1.4.752"
   checksum: ddce4f2161abbaf86b48cd65bd8e3d0efc8b62ca392b77381308495e2b5d13f79ed9a51621bbc80b90557f613342956e3dfe8f09ffd2d4c41902a1369c82342c
-  languageName: node
-  linkType: hard
-
-"element-internals-polyfill@npm:1.3.10":
-  version: 1.3.10
-  resolution: "element-internals-polyfill@npm:1.3.10"
-  checksum: b49ad685f23aa7c64e3a8fdffba35bb60d99e729636bc2954266979092bffe3694ae7c0b3d219a66879346d19bb1c53a0431c9100c1e35fb91b1041f47aeb3c2
   languageName: node
   linkType: hard
 
