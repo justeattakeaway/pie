@@ -43,10 +43,10 @@ const renderTestPieTextInput = (propVals: WebComponentPropValues) => {
 const addSlotsToComponent = (component: string, slotOptions: TextInputSlotOptions) => {
     let slots = '';
 
-    if (slotOptions.leadingIcon) slots += '<icon-placeholder slot="leading"></icon-placeholder>';
-    if (slotOptions.trailingIcon) slots += '<icon-placeholder slot="trailing"></icon-placeholder>';
-    if (slotOptions.leadingCharacter) slots += '<span slot="leading">#</span>';
-    if (slotOptions.trailingCharacter) slots += '<span slot="trailing">#</span>';
+    if (slotOptions.leadingIcon) slots += '<icon-placeholder slot="leadingIcon"></icon-placeholder>';
+    if (slotOptions.trailingIcon) slots += '<icon-placeholder slot="trailingIcon"></icon-placeholder>';
+    if (slotOptions.leadingCharacter) slots += '<span slot="leadingText">#</span>';
+    if (slotOptions.trailingCharacter) slots += '<span slot="trailingText">#</span>';
 
     // add slots between > and </pie-text-input>
     return component.replace('></pie-text-input>', `>${slots}</pie-text-input>`);
