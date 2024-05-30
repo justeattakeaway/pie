@@ -42,40 +42,47 @@ class ComponentStatusGenerator {
 
         try {
             const monorepoRoot = this.findMonorepoRootSync(process.cwd());
+
+            // Find components base dir
             const componentsDir = this.path.resolve(monorepoRoot, 'packages/components');
             const files = await this.readdir(componentsDir);
 
-            const componentDirsPromises = files.map(async (file) => {
-                const componentPath = this.path.resolve(componentsDir, file);
-                const stats = await this.stat(componentPath);
-                return stats.isDirectory() && !this.excludes.includes(`@justeattakeaway/${file}`) ? file : null;
-            });
+            // Gather component directories
+            const componentDirs = (await Promise
+                .all(files.map(async (file) => {
+                    const isNotAnExcludedPackage = !this.excludes.includes(`@justeattakeaway/${file}`) ? file : null;
+                    const componentPath = this.path.resolve(componentsDir, file);
+                    const stats = await this.stat(componentPath);
 
-            const componentDirs = (await Promise.all(componentDirsPromises))
+                    return stats.isDirectory() && isNotAnExcludedPackage;
+                })))
                 .filter(Boolean)
                 .filter((dirName) => !dirName.startsWith('.')); // Filter hidden directories (e.g., .turbo)
 
-            const statusesPromises = componentDirs.map(async (component) => {
+            // Read component statuses
+            const statuses = await Promise.all(componentDirs.map(async (component) => {
                 const componentPath = this.path.resolve(componentsDir, component, 'package.json');
+
                 try {
                     const data = await this.readFile(componentPath, 'utf-8');
                     const json = JSON.parse(data);
-                    if (json.pieMetadata?.componentStatus) {
-                        return {
-                            name: json.name,
-                            status: json.pieMetadata.componentStatus,
-                        };
+
+                    if (!json.pieMetadata?.componentStatus) {
+                        this.console.error('Error: componentStatus not found at path:', componentPath, 'Please add to pieMetadata.componentStatus in the component package.json');
+                        return null;
                     }
-                    this.console.error('Error: componentStatus not found in', json.name, 'Please add to pieMetadata.componentStatus in the component package.json');
-                    return null;
+
+                    return {
+                        name: json.name,
+                        status: json.pieMetadata.componentStatus,
+                    };
                 } catch (err) {
                     this.console.error('Error reading or parsing package.json for', component, err);
                     return null;
                 }
-            });
+            }));
 
-            const statuses = await Promise.all(statusesPromises);
-
+            // Filter components statuses and remove null entries
             const filteredStatuses = statuses.reduce((acc, entry) => {
                 if (entry !== null) {
                     const name = entry.name.replace('@justeattakeaway/', '');
@@ -86,8 +93,10 @@ class ComponentStatusGenerator {
 
             this.console.info('Component statuses:', filteredStatuses);
 
+            // write the statuses json file
             const outputPath = this.path.resolve(process.cwd(), 'component-statuses.json');
             await this.writeFile(outputPath, JSON.stringify(filteredStatuses, null, 2));
+
             this.console.info(`Successfully wrote component statuses to ${outputPath}`);
         } catch (err) {
             this.console.error('An error occurred:', err);
