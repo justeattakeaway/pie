@@ -156,7 +156,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.TBC,
+            status: statusTypes.ALPHA,
         }
     ],
     [
