@@ -91,10 +91,10 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
     }
 
     /**
-     * The onChange function updates the checkbox state and emits an event for consumers.
+     * The handleChange function updates the checkbox state and emits an event for consumers.
      * @param {Event} event - This should be the change event that was listened for on an input element with `type="checkbox"`.
      */
-    onChange (event: Event) {
+    private handleChange (event: Event) {
         const { checked } = event?.currentTarget as HTMLInputElement;
         this.checked = checked;
         const changedEvent = wrapNativeEvent(event);
@@ -196,7 +196,7 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
                         .required=${required}
                         .checked="${checked}"
                         .disabled="${disabled}"
-                        @change="${this.onChange}"
+                        @change="${this.handleChange}"
                         aria-label="${aria?.label || nothing}"
                         aria-describedby="${aria?.describedBy ? switchId : nothing}">
                     <div class="c-switch-control">

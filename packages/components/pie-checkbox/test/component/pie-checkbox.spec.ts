@@ -1,8 +1,9 @@
 
+import { setupFormDataExtraction, getFormDataObject } from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieCheckbox, CheckboxProps } from '../../src/index.ts';
 
-const componentSelector = '[data-test-id="pie-checkbox"]';
+const componentSelector = '[data-test-id="checkbox-input"]';
 
 test.describe('PieCheckbox - Component tests', () => {
     // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
@@ -215,6 +216,125 @@ test.describe('PieCheckbox - Component tests', () => {
                 // Assert
                 expect(isValid).toBe(true);
             });
+        });
+    });
+
+    test.describe('Events', () => {
+        test.describe('change', () => {
+            test('should dispatch a change event when checkbox is clicked that contains the original native event', async ({ mount }) => {
+                // Arrange
+                const messages: CustomEvent[] = [];
+                const expectedMessages = [{ sourceEvent: { isTrusted: true } }];
+
+                const component = await mount(PieCheckbox, {
+                    props: {} as CheckboxProps,
+                    on: {
+                        change: (data: CustomEvent) => {
+                            messages.push(data);
+                        },
+                    },
+                });
+
+                // Act
+                await component.locator(componentSelector).click();
+
+                // Assert
+                expect(messages.length).toEqual(1);
+                expect(messages).toStrictEqual(expectedMessages);
+            });
+        });
+
+        test.describe('Form integration', () => {
+            test('should correctly set the name and value of the checkbox in the FormData object when submitted', async ({ page }) => {
+                // Arrange
+                await page.setContent(`
+                    <form id="testForm" action="/foo" method="POST">
+                        <pie-checkbox type="text" name="testName"></pie-checkbox>
+                        <button type="submit">Submit</button>
+                    </form>
+                    <div id="formDataJson""></div>
+                `);
+
+                await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+                // Act
+                await page.locator('pie-checkbox').click();
+                await page.click('button[type="submit"]');
+                const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+                // Assert
+                expect(formDataObj).toStrictEqual({ testName: 'on' });
+            });
+
+            test('should submit the updated checked state if the checked prop is changed programmatically', async ({ page }) => {
+                // Arrange
+                await page.setContent(`
+                    <form id="testForm" action="/foo" method="POST">
+                    <pie-checkbox type="text" name="testName"></pie-checkbox>
+                        <button type="submit">Submit</button>
+                    </form>
+                    <div id="formDataJson""></div>
+                `);
+
+                await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+                // Act
+                await page.locator('pie-checkbox').click();
+
+                await page.evaluate(() => {
+                    const checkbox = document.querySelector('pie-checkbox') as PieCheckbox;
+                    checkbox.checked = false;
+                });
+
+                await page.click('button[type="submit"]');
+
+                const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+                // Assert
+                expect(formDataObj).toStrictEqual({});
+            });
+        });
+
+        test('should not submit the value if checkbox is disabled', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                <form id="testForm" action="/foo" method="POST">
+                    <pie-checkbox type="text" name="testName" disabled></pie-checkbox>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="formDataJson""></div>
+            `);
+            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+            // Act
+            await page.click('button[type="submit"]');
+            const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+            // Assert
+            expect(formDataObj).toStrictEqual({});
+        });
+
+        test('should not submit the value inside a disabled fieldset', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                <form id="testForm" action="/foo" method="POST">
+                    <fieldset disabled>
+                        <pie-checkbox type="text" name="testName"></pie-checkbox>
+                    </fieldset>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="formDataJson""></div>
+            `);
+
+            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+            // Act
+            await page.click('button[type="submit"]');
+
+            const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+            // Assert
+            expect(formDataObj).toStrictEqual({});
         });
     });
 });
