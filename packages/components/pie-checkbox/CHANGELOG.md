@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - form support ([#1458](https://github.com/justeattakeaway/pie/pull/1458)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.3.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-switch
 
+## 0.29.7
+
+### Patch Changes
+
+- [Changed] - renames onChange to handleChange and makes it private ([#1458](https://github.com/justeattakeaway/pie/pull/1458)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.29.6
 
 ### Patch Changes

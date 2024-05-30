@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-cookie-banner",
   "description": "PIE Design System Cookie Banner built using Web Components",
-  "version": "0.19.8",
+  "version": "0.19.9",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -48,7 +48,7 @@
     "@justeattakeaway/pie-icon-button": "0.28.6",
     "@justeattakeaway/pie-link": "0.17.5",
     "@justeattakeaway/pie-modal": "0.42.7",
-    "@justeattakeaway/pie-switch": "0.29.6",
+    "@justeattakeaway/pie-switch": "0.29.7",
     "@justeattakeaway/pie-webc-core": "0.23.0"
   },
   "volta": {

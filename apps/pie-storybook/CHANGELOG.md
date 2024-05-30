@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.77.1
+
+### Patch Changes
+
+- Updated dependencies [[`ccea27bfb`](https://github.com/justeattakeaway/pie/commit/ccea27bfbd5ed3e9112f251b1c7549885982bc06), [`ccea27bfb`](https://github.com/justeattakeaway/pie/commit/ccea27bfbd5ed3e9112f251b1c7549885982bc06), [`ccea27bfb`](https://github.com/justeattakeaway/pie/commit/ccea27bfbd5ed3e9112f251b1c7549885982bc06)]:
+  - @justeattakeaway/pie-text-input@0.22.1
+  - @justeattakeaway/pie-switch@0.29.7
+  - @justeattakeaway/pie-checkbox@0.4.0
+  - @justeattakeaway/pie-cookie-banner@0.19.9
+
 ## 0.77.0
 
 ### Minor Changes
