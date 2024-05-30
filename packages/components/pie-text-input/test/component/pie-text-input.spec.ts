@@ -1053,34 +1053,68 @@ test.describe('PieTextInput - Component tests', () => {
     });
 
     test.describe('Slots', () => {
-        test.describe('leading', () => {
+        test.describe('leadingText', () => {
             test('should render the leading slot content', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieTextInput, {
                     slots: {
-                        leading: '<icon-placeholder id="leading"></icon-placeholder>',
+                        leadingText: '<icon-placeholder id="leadingText"></icon-placeholder>',
                     },
                 });
 
                 // Act
-                const leadingSlot = component.locator('#leading');
+                const leadingSlot = component.locator('#leadingText');
 
                 // Assert
                 expect(leadingSlot).toBeVisible();
             });
         });
 
-        test.describe('trailing', () => {
-            test('should render the trailing slot content', async ({ mount }) => {
+        test.describe('trailingText', () => {
+            test('should render the trailingText slot content', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieTextInput, {
                     slots: {
-                        trailing: '<icon-placeholder id="trailing"></icon-placeholder>',
+                        trailingText: '<icon-placeholder id="trailingText"></icon-placeholder>',
                     },
                 });
 
                 // Act
-                const trailingSlot = component.locator('#trailing');
+                const trailingSlot = component.locator('#trailingText');
+
+                // Assert
+                expect(trailingSlot).toBeVisible();
+            });
+        });
+
+        test.describe('leadingIcon', () => {
+            test('should render the leadingIcon slot content', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextInput, {
+                    slots: {
+                        leadingIcon: '<icon-placeholder id="leadingIcon"></icon-placeholder>',
+                    },
+                });
+
+                // Act
+                const leadingSlot = component.locator('#leadingIcon');
+
+                // Assert
+                expect(leadingSlot).toBeVisible();
+            });
+        });
+
+        test.describe('trailingIcon', () => {
+            test('should render the trailingIcon slot content', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextInput, {
+                    slots: {
+                        trailingIcon: '<icon-placeholder id="trailingIcon"></icon-placeholder>',
+                    },
+                });
+
+                // Act
+                const trailingSlot = component.locator('#trailingIcon');
 
                 // Assert
                 expect(trailingSlot).toBeVisible();
@@ -1092,14 +1126,14 @@ test.describe('PieTextInput - Component tests', () => {
                 // Arrange
                 const component = await mount(PieTextInput, {
                     slots: {
-                        leading: '<icon-placeholder id="leading"></icon-placeholder>',
-                        trailing: '<span id="trailing">#</span>',
+                        leadingIcon: '<icon-placeholder id="leadingIcon"></icon-placeholder>',
+                        trailingText: '<span id="trailingText">#</span>',
                     },
                 });
 
                 // Act
-                const leadingSlot = component.locator('#leading');
-                const trailingSlot = component.locator('#trailing');
+                const leadingSlot = component.locator('#leadingIcon');
+                const trailingSlot = component.locator('#trailingText');
 
                 // Assert
                 expect(leadingSlot).toBeVisible();

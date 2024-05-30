@@ -165,12 +165,14 @@ const textInputStoryMeta: TextInputStoryMeta = {
             },
         },
         leadingSlot: {
-            description: 'An icon or short text to display at the start of the input. <br><b>*Not a component Prop</b>',
+            name: 'Leading Slot',
+            description: '<b>**Not a component Prop</b><br><br>Use the `leadingText` slot for alphanumeric content (wrap the text in a `<span>`) or `leadingIcon` for icons.',
             control: 'select',
             options: slotOptions,
         },
         trailingSlot: {
-            description: 'An icon or short text to display at the end of the input. <br><b>*Not a component Prop</b>',
+            name: 'Trailing Slot',
+            description: '<b>**Not a component Prop</b><br><br>Use the `trailingText` slot for alphanumeric content (wrap the text in a `<span>`) or `trailingIcon` for icons.',
             control: 'select',
             options: slotOptions,
         },
@@ -257,13 +259,25 @@ const Template = ({
         });
     }
 
-    function renderLeadingOrTrailingSlot (slotName: 'leading' | 'trailing', slotValue: typeof slotOptions[number]) {
+    function renderLeadingSlot (slotValue: typeof slotOptions[number]) {
         if (slotValue === slotOptions[0]) {
-            return html`<icon-placeholder slot="${slotName}"></icon-placeholder>`;
+            return html`<icon-placeholder slot="leadingIcon"></icon-placeholder>`;
         }
 
         if (slotValue === slotOptions[1]) {
-            return html`<span slot="${slotName}">#</span>`;
+            return html`<span slot="leadingText">#</span>`;
+        }
+
+        return nothing;
+    }
+
+    function renderTrailingSlot (slotValue: typeof slotOptions[number]) {
+        if (slotValue === slotOptions[0]) {
+            return html`<icon-placeholder slot="trailingIcon"></icon-placeholder>`;
+        }
+
+        if (slotValue === slotOptions[1]) {
+            return html`<span slot="trailingText">#</span>`;
         }
 
         return nothing;
@@ -294,8 +308,8 @@ const Template = ({
             ?required="${required}"
             @input="${onInput}"
             @change="${onChange}">
-            ${renderLeadingOrTrailingSlot('leading', leadingSlot)}
-            ${renderLeadingOrTrailingSlot('trailing', trailingSlot)}
+            ${renderLeadingSlot(leadingSlot)}
+            ${renderTrailingSlot(trailingSlot)}
         </pie-text-input>
     `;
 };
@@ -337,32 +351,32 @@ const ExampleFormTemplate: TemplateFunction<TextInputProps> = () => html`
     <form class="form">
         <pie-form-label for="username">Username:</pie-form-label>
         <pie-text-input class="form-field" id="username" name="username" type="text">
-            <icon-user slot="leading"></icon-user>
+            <icon-user slot="leadingIcon"></icon-user>
         </pie-text-input>
 
         <pie-form-label for="email">Email:</pie-form-label>
         <pie-text-input class="form-field" id="email" name="email" type="email">
-            <icon-email slot="leading"></icon-email>
+            <icon-email slot="leadingIcon"></icon-email>
         </pie-text-input>
 
         <pie-form-label for="url">Website:</pie-form-label>
         <pie-text-input class="form-field" id="url" name="url" type="url">
-            <icon-laptop slot="leading"></icon-laptop>
+            <icon-laptop slot="leadingIcon"></icon-laptop>
         </pie-text-input>
 
         <pie-form-label for="password">Password:</pie-form-label>
         <pie-text-input class="form-field" id="password" name="password" type="password">
-            <icon-key slot="leading"></icon-key>
+            <icon-key slot="leadingIcon"></icon-key>
         </pie-text-input>
 
         <pie-form-label for="favouriteNumber">Favourite Number:</pie-form-label>
         <pie-text-input class="form-field" id="favouriteNumber" name="favouriteNumber" type="number" min="-5" max="200" assistive-text="" state="">
-            <icon-number-symbol slot="leading"></icon-number-symbol>
+            <icon-number-symbol slot="leadingIcon"></icon-number-symbol>
         </pie-text-input>
 
         <pie-form-label for="tel">Telephone:</pie-form-label>
         <pie-text-input class="form-field" id="tel" name="tel" type="tel">
-            <icon-phone slot="leading"></icon-phone>
+            <icon-phone slot="leadingIcon"></icon-phone>
         </pie-text-input>
 
         <div class="form-btns">

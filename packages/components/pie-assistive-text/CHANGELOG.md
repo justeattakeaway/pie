@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-assistive-text
 
+## 0.4.0
+
+### Minor Changes
+
+- [Changed] - Use `--dt-color-content-subdued` token for default assistive-text colour ([#1483](https://github.com/justeattakeaway/pie/pull/1483)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.3.7
 
 ### Patch Changes

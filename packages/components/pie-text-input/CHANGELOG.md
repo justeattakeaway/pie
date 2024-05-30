@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-text-input
 
+## 0.22.0
+
+### Minor Changes
+
+- [Changed] - Corrected border and text colours in text input based on design feedback. ([#1483](https://github.com/justeattakeaway/pie/pull/1483)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Split leading and trailing slots into leadingIcon, leadingText and trailingIcon and trailingText due to design requirements and SSR constraints. ([#1483](https://github.com/justeattakeaway/pie/pull/1483)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`bd8f779ae`](https://github.com/justeattakeaway/pie/commit/bd8f779aee5b62fe539805efd23c31efc637548c)]:
+  - @justeattakeaway/pie-assistive-text@0.4.0
+
 ## 0.21.0
 
 ### Minor Changes

@@ -1,7 +1,7 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 .c-assistiveText {
-    --assistive-text-color: var(--dt-color-content-default);
+    --assistive-text-color: var(--dt-color-content-subdued);
 
     margin: 0;
     padding-block-start: var(--dt-spacing-a);
