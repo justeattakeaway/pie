@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.37.0
+
+### Minor Changes
+
+- [Added] Add Motion chapter documentation: Overview, Applying motion: Timing and Easing (Tabs) ([#1474](https://github.com/justeattakeaway/pie/pull/1474)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+### Patch Changes
+
+- update avatar status for android ([#1487](https://github.com/justeattakeaway/pie/pull/1487)) by [@fmontesino](https://github.com/fmontesino)
+
 ## 3.36.0
 
 ### Minor Changes

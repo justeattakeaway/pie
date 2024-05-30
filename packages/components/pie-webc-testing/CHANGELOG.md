@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.13.0
+
+### Minor Changes
+
+- [Added] - test form helper setupFormDataExtraction and getFormDataObject functions ([#1458](https://github.com/justeattakeaway/pie/pull/1458)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.12.1
 
 ### Patch Changes
