@@ -23,12 +23,12 @@ export type ActionProps = {
 
 export interface NotificationProps {
   /**
-   * Set the variant of the notification.
+   * Sets the variant of the notification.
    */
   variant?: typeof variants[number];
 
   /**
-   * The position of the notification defining proper styles if the component appear within the content or at the top of the interface.
+   * Defines the proper styles, whether the component appears within the content or at the top of the interface
    */
   position?: typeof positions[number];
 
@@ -38,7 +38,7 @@ export interface NotificationProps {
   isDismissible?: boolean;
 
   /**
-   * When true, the footer aligns to the header and icons which makes the component compact.
+   * When true, aligns the footer with the header and icons, making the component compact.
    */
   isCompact?: boolean;
 
@@ -53,7 +53,7 @@ export interface NotificationProps {
   headingLevel?: typeof headingLevels[number];
 
   /**
-   * Option to hide the icon regardless its variant or if user provided an icon.
+   * When true, the icon will be hidden.
    */
   hideIcon?: boolean;
 
@@ -73,7 +73,7 @@ export interface NotificationProps {
   supportingAction?: ActionProps;
 
   /**
-   * When true, the notification will stack the action buttons on narrow screens.
+   * When true, action buttons will stack on narrow screens.
    */
   hasStackedActions?: boolean;
 

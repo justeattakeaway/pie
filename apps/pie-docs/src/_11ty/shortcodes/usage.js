@@ -32,7 +32,7 @@ const buildImage = ({
           </picture>`;
 };
 
-const buildUsageCard = (usageType, { type, items }) => {
+const buildUsageCard = (usageType, { type, items, hasPadding = true }) => {
     const {
         iconName, iconFill, styleColour, displayName,
     } = metadata[usageType];
@@ -47,7 +47,10 @@ const buildUsageCard = (usageType, { type, items }) => {
             'aria-hidden': 'true',
         },
     });
-    const backdropClasses = ['c-usage-backdrop', ...(isImage ? ['c-usage-backdrop--hasImage'] : [])];
+    const backdropClasses = ['c-usage-backdrop',
+        ...(isImage ? ['c-usage-backdrop--hasImage'] : []),
+        ...(hasPadding ? ['c-usage-backdrop--hasPadding'] : []),
+    ];
 
     const content = isImage
         ? items.map((i) => buildImage(i)).join(' ')
