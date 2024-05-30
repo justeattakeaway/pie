@@ -1,11 +1,13 @@
 import {
-    LitElement, html, unsafeCSS, nothing,
+    LitElement, html, unsafeCSS, PropertyValues, nothing,
 } from 'lit';
 import {
     RtlMixin,
     defineCustomElement,
     wrapNativeEvent,
+    FormControlMixin,
 } from '@justeattakeaway/pie-webc-core';
+import { live } from 'lit/directives/live.js';
 import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
@@ -19,13 +21,13 @@ const componentSelector = 'pie-checkbox';
 
 /**
  * @tagname pie-checkbox
- * @slot - Default slot (checkbox label)
+ * @event {CustomEvent} change - when checked state is changed.
  */
-export class PieCheckbox extends RtlMixin(LitElement) implements CheckboxProps {
+export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @property({ type: String })
-    public value: CheckboxProps['value'];
+    public value = defaultProps.value;
 
     @property({ type: String })
     public label?: CheckboxProps['label'];
@@ -33,8 +35,8 @@ export class PieCheckbox extends RtlMixin(LitElement) implements CheckboxProps {
     @property({ type: String })
     public name?: CheckboxProps['name'];
 
-    @property({ type: Boolean })
-    public checked?: CheckboxProps['checked'];
+    @property({ type: Boolean, reflect: true })
+    public checked = defaultProps.checked;
 
     @property({ type: Boolean, reflect: true })
     public disabled?: CheckboxProps['disabled'];
@@ -42,13 +44,13 @@ export class PieCheckbox extends RtlMixin(LitElement) implements CheckboxProps {
     @property({ type: Boolean, reflect: true })
     public required?: CheckboxProps['required'] = defaultProps.required;
 
-    @property({ type: Boolean })
+    @property({ type: Boolean, reflect: true })
     public indeterminate?: CheckboxProps['indeterminate'] = defaultProps.indeterminate;
 
     @property({ type: Object })
     public aria: CheckboxProps['aria'];
 
-    @query('input')
+    @query('input[type="checkbox"]')
     private checkbox?: HTMLInputElement;
 
     /**
@@ -60,16 +62,51 @@ export class PieCheckbox extends RtlMixin(LitElement) implements CheckboxProps {
     }
 
     /**
-     * The onChange function updates the checkbox state and emits an event for consumers.
+     * Ensures that the form value is in sync with the component.
+     */
+    private handleFormAssociation () : void {
+        const isFormAssociated = !!this._internals.form && !!this.name;
+        if (isFormAssociated) {
+            this._internals.setFormValue(this.checked ? this.value : null);
+        }
+    }
+
+    /**
+     * Called after the disabled state of the element changes,
+     * either because the disabled attribute of this element was added or removed;
+     * or because the disabled state changed on a <fieldset> that's an ancestor of this element.
+     * @param disabled - The latest disabled state of the input.
+     */
+    public formDisabledCallback (disabled: boolean): void {
+        this.disabled = disabled;
+    }
+
+    protected firstUpdated (_changedProperties: PropertyValues<this>): void {
+        super.firstUpdated(_changedProperties);
+
+        this.handleFormAssociation();
+    }
+
+    protected updated (_changedProperties: PropertyValues<this>): void {
+        super.updated(_changedProperties);
+
+        this.handleFormAssociation();
+    }
+
+    /**
+     * Captures the native change event and wraps it in a custom event.
      * @param {Event} event - This should be the change event that was listened for on an input element with `type="checkbox"`.
      */
-    private handleChange = (event: Event) => {
+    private handleChange (event: Event) {
+        const { checked } = event?.currentTarget as HTMLInputElement;
+        this.checked = checked;
         // This is because some events set `composed` to `false`.
         // Reference: https://javascript.info/shadow-dom-events#event-composed
         const customChangeEvent = wrapNativeEvent(event);
-
         this.dispatchEvent(customChangeEvent);
-    };
+
+        this.handleFormAssociation();
+    }
 
     render () {
         const {
@@ -84,11 +121,11 @@ export class PieCheckbox extends RtlMixin(LitElement) implements CheckboxProps {
         } = this;
 
         return html`
-        <label>
+        <label data-test-id="checkbox-component">
             <input
                 type="checkbox"
-                ?checked=${ifDefined(checked)}
-                .value=${ifDefined(value)}
+                .value=${value}
+                ?checked=${live(checked)}
                 name=${ifDefined(name)}
                 ?disabled=${disabled}
                 ?required=${required}
@@ -97,7 +134,7 @@ export class PieCheckbox extends RtlMixin(LitElement) implements CheckboxProps {
                 aria-labelledby=${label ? nothing : aria?.labelledby || nothing}
                 aria-describedby= ${aria?.describedby || nothing}
                 @change=${this.handleChange}
-                data-test-id="pie-checkbox"
+                data-test-id="checkbox-input"
             />
             ${label}
         </label>`;

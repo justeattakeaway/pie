@@ -27,7 +27,7 @@ export interface CheckboxProps {
     disabled?: boolean;
 
     /**
-     * Same as the HTML checked attribute - indicates whether or not the checkbox is checked by default (when the page loads).
+     * Indicates whether or not the checkbox is checked.
      */
     checked?: boolean;
 
@@ -48,10 +48,14 @@ export interface CheckboxProps {
     aria?: AriaProps;
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<CheckboxProps, 'required' | 'indeterminate'>;
+export type DefaultProps = ComponentDefaultPropsGeneric<CheckboxProps, 'value' | 'required' | 'indeterminate' | 'checked' >;
 
 export const defaultProps: DefaultProps = {
+    // a default value for the html <input type="checkbox" /> value attribute.
+    // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#value
+    value: 'on',
     required: false,
     indeterminate: false,
+    checked: false,
 };
 

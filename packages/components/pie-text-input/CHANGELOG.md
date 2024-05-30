@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-text-input
 
+## 0.22.1
+
+### Patch Changes
+
+- [Changed] - form helper test functions are moved to pie-webc-helpers ([#1458](https://github.com/justeattakeaway/pie/pull/1458)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.22.0
 
 ### Minor Changes

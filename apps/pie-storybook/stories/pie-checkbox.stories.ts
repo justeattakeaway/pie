@@ -7,18 +7,18 @@ import { CheckboxProps, defaultProps } from '@justeattakeaway/pie-checkbox';
 
 import { action } from '@storybook/addon-actions';
 import { type StoryMeta } from '../types';
-import { createStory } from '../utilities';
+import { createStory, type TemplateFunction } from '../utilities';
 
 type CheckboxStoryMeta = StoryMeta<CheckboxProps>;
 
 const defaultArgs: CheckboxProps = {
     ...defaultProps,
-    value: '',
     name: '',
     label: 'Label',
     disabled: false,
     checked: false,
     indeterminate: false,
+    required: false,
     aria: {
         label: '',
         labelledby: '',
@@ -33,9 +33,6 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
         value: {
             description: 'The value of the checkbox (used as a key/value pair in HTML forms with `name`).',
             control: 'text',
-            defaultValue: {
-                summary: defaultArgs.value,
-            },
         },
         name: {
             description: 'The name of the checkbox (used as a key/value pair with `value`). This is required in order to work properly with forms.',
@@ -52,7 +49,7 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
             },
         },
         checked: {
-            description: 'Indicates whether or not the checkbox is checked by default (when the page loads).',
+            description: 'Indicates whether or not the checkbox is checked.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultArgs.checked,
@@ -70,6 +67,14 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.indeterminate,
+            },
+        },
+
+        required: {
+            description: 'If true, the checkbox must be checked for the form to be submittable.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
             },
         },
 
@@ -96,6 +101,7 @@ const Template = ({
     checked,
     disabled,
     indeterminate,
+    required,
     aria,
 }: CheckboxProps) => {
     function onChange (event: CustomEvent) {
@@ -112,10 +118,61 @@ const Template = ({
             ?checked="${checked}"
             ?disabled="${disabled}"
             ?indeterminate="${indeterminate}"
+            ?required="${required}"
             .aria="${aria}"
             @change="${onChange}">
         </pie-checkbox>
     `;
 };
 
+const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
+    value,
+    name,
+    checked,
+    disabled,
+    indeterminate,
+    required,
+    aria,
+}: CheckboxProps) => {
+    function onChange (event: CustomEvent) {
+        action('change')({
+            detail: event.detail,
+        });
+    }
+
+    return html`
+    <form id="testForm">
+        <pie-checkbox
+            .value="${ifDefined(value)}"
+            name="${ifDefined(name)}"
+            label="Pie Checkbox"
+            ?checked="${checked}"
+            ?disabled="${disabled}"
+            ?indeterminate="${indeterminate}"
+            ?required="${required}"
+            .aria="${aria}"
+            @change="${onChange}"></pie-checkbox>
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+        <script>
+            const form = document.querySelector('#testForm');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // log out all form input values
+                const formData = new FormData(form);
+                console.log('All form elements:', form.elements);
+                console.log('All form element data keys and values submitted:');
+
+                for (const entry of formData.entries()) {
+                    console.table(entry);
+                };
+            });
+        </script>
+    </form>
+    `;
+};
+
 export const Default = createStory<CheckboxProps>(Template, defaultArgs)();
+export const ExampleForm = createStory<CheckboxProps>(ExampleFormTemplate, defaultArgs)();

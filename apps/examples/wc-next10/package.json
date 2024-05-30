@@ -1,6 +1,6 @@
 {
   "name": "wc-next10",
-  "version": "0.5.37",
+  "version": "0.5.38",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-button": "0.47.6",
-    "@justeattakeaway/pie-cookie-banner": "0.19.8",
+    "@justeattakeaway/pie-cookie-banner": "0.19.9",
     "@justeattakeaway/pie-css": "0.11.0",
     "@lit/react": "1.0.2",
     "next": "10.2.3",

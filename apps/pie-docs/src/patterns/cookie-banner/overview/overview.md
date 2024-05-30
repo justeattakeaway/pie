@@ -9,7 +9,7 @@ shouldShowContents: true
 
 ## Overview
 
-The purpose of the cookie banner is to inform users about the use of cookies, obtain their consent, and customise their preferences. 
+The purpose of the cookie banner is to inform users about the use of cookies, obtain their consent, and customise their preferences.
 
 It aids websites in complying with privacy regulations by offering transparency regarding data collection practices and empowering users to control their privacy settings.
 
@@ -143,7 +143,7 @@ The background page of the cookie banner isn’t disabled, and is only disabled 
 
 {% contentPageImage {
   src:"../../../assets/img/patterns/cookie-banner/behaviours-background-banner.svg",
-  alt: "Banner possitioned at the bottom with the “Select your country” popover on top of the banner.",
+  alt: "Banner positioned at the bottom with the “Select your country” popover on top of the banner.",
   width: 120
 } %}
 
