@@ -10,7 +10,9 @@ shouldShowContents: true,
 
 ## Overview
 
-The purpose of notifications is to promptly inform users about relevant information or changes that require their attention. Notifications can be used to communicate messages like new messages, system updates, completed actions, errors or reminders.Notifications often include options for users to interact with the displayed information, such as dismissing the notification, taking action or accessing related content. They play a crucial role in keeping users informed and engaged with the application or system.
+The purpose of notifications is to promptly inform users about relevant information or changes that require their attention. Notifications can be used to communicate messages like new messages, system updates, completed actions, errors or reminders.
+
+Notifications often include options for users to interact with the displayed information, such as dismissing the notification, taking action or accessing related content. They play a crucial role in keeping users informed and engaged with the application or system.
 
 {% contentPageImage {
     src:"../../../assets/img/components/notification/overview.svg",
@@ -64,12 +66,13 @@ The purpose of notifications is to promptly inform users about relevant informat
 
 ### Neutral
 
-Neutral  provides generic messages to users that may not be related to the current action or task they’re performing. Does not require immediate action and can be dismissed on a timer or persist, depending on the content.
+Neutral notification provides generic messages to users that may not be related to the current action or task they’re performing. Does not require immediate action and can be dismissed on a timer or persist, depending on the content.
 
 {% contentPageImage {
     src:"../../../assets/img/components/notification/variation-neutral.svg",
     alt: "The neutral variant of the notification component.",
-    width: 1024
+    width: 1024,
+    variant: "secondary"
 } %}
 
 ### Neutral alternative
