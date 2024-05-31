@@ -5,9 +5,9 @@ import {
     type TemplateResult,
     type PropertyValues,
 } from 'lit';
-import { type StaticValue, html, unsafeStatic } from 'lit/static-html.js';
+import { html, unsafeStatic } from 'lit/static-html.js';
 import { defineCustomElement, validPropertyValues, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
-import { property, queryAssignedElements, state } from 'lit/decorators.js';
+import { property, queryAssignedElements } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import {
     type NotificationProps,
@@ -72,10 +72,10 @@ export class PieNotification extends LitElement implements NotificationProps {
     public hideIcon = defaultProps.hideIcon;
 
     @property({ type: Object })
-    public leadingAction!: NotificationProps['leadingAction'];
+    public leadingAction: NotificationProps['leadingAction'];
 
     @property({ type: Object })
-    public supportingAction!: NotificationProps['supportingAction'];
+    public supportingAction: NotificationProps['supportingAction'];
 
     @property({ type: Boolean })
     public hasStackedActions = defaultProps.hasStackedActions;
@@ -85,24 +85,8 @@ export class PieNotification extends LitElement implements NotificationProps {
 
     @queryAssignedElements({ slot: 'icon' }) _iconSlot!: Array<HTMLElement>;
 
-    @state()
-    protected _hasExternalIcon = false;
-
-    @state()
-    protected _hasIconClass = false;
-
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
-
-    /**
-     * Lifecycle method executed when component is about to update.
-     * It update icon properties if variant has changes.
-     */
-    protected willUpdate (_changedProperties: PropertyValues<this>): void {
-        if (_changedProperties.has('variant')) {
-            this.updateIconProperties();
-        }
-    }
 
     /**
      * Lifecycle method executed when component is updated.
@@ -115,23 +99,13 @@ export class PieNotification extends LitElement implements NotificationProps {
     }
 
     /**
-     * Method responsible to check if an external icon has been provided.
-     * It reads from icon slot if there is an external icon as well check if variant has default icon.
-     *
-     * @private
-     */
-    private updateIconProperties () {
-        this._hasExternalIcon = this._iconSlot.length > 0;
-        this._hasIconClass = this._hasExternalIcon || this.variantHasDefaultIcon(this.variant);
-    }
-
-    /**
      * Template for the footer area
      * Called within the main render function.
      *
      * @private
      */
-    private renderFooter (leadingAction: ActionProps, supportingAction?: ActionProps) {
+    private renderFooter () {
+        const { leadingAction, supportingAction } = this;
         return html`
             <footer class="${componentClass}-footer" data-test-id="${componentSelector}-footer" ?isCompact="${this.isCompact}" ?isStacked="${this.hasStackedActions && !this.isCompact}">
                 ${supportingAction ? this.renderActionButton(supportingAction, 'supporting') : nothing}
@@ -144,87 +118,53 @@ export class PieNotification extends LitElement implements NotificationProps {
      * Template for the header area
      * Called within the main render function.
      *
-     * @param {NotificationProps['heading']} heading
-     * @param {StaticValue} headingTag
-     *
      * @private
      */
-    private renderNotificationHeading (heading: NotificationProps['heading'], headingTag: StaticValue): TemplateResult {
-        return html`<${headingTag}
+    private renderNotificationHeading (): TemplateResult {
+        const { heading, headingLevel } = this;
+        const tag = unsafeStatic(headingLevel);
+
+        return html`<${tag}
                         id="${componentSelector}-heading"
                         class="${componentClass}-heading"
                         data-test-id="${componentSelector}-heading">
                             ${heading}
-                    </${headingTag}>`;
-    }
-
-    /**
-     * Util method that returns a boolean if variant has a default icon.
-     *
-     * @param {NonNullable<NotificationProps['variant']>} variant
-     *
-     * @private
-     */
-    private variantHasDefaultIcon (variant: NonNullable<NotificationProps['variant']>) {
-        const validVariants = ['info', 'success', 'warning', 'error'];
-
-        return validVariants.includes(variant);
+                    </${tag}>`;
     }
 
     /**
      * Util method that returns an icon from a variant that has default icon.
      *
-     * @param {NonNullable<NotificationProps['variant']>} variant
-     *
      * @private
      */
-    private getDefaultVariantIcon (variant: NonNullable<NotificationProps['variant']>) {
-        switch (variant) {
+    private getDefaultVariantIcon () {
+        switch (this.variant) {
             case 'info':
-                return html`<icon-info-circle size="m" data-test-id="${componentSelector}-heading-icon-info"></icon-info-circle>`;
+                return html`<icon-info-circle class="icon" size="m" data-test-id="${componentSelector}-heading-icon-info"></icon-info-circle>`;
             case 'success':
-                return html`<icon-check-circle size="m" data-test-id="${componentSelector}-heading-icon-success"></icon-check-circle>`;
+                return html`<icon-check-circle class="icon" size="m" data-test-id="${componentSelector}-heading-icon-success"></icon-check-circle>`;
             case 'warning':
-                return html`<icon-alert-triangle size="m" data-test-id="${componentSelector}-heading-icon-warning"></icon-alert-triangle>`;
+                return html`<icon-alert-triangle class="icon" size="m" data-test-id="${componentSelector}-heading-icon-warning"></icon-alert-triangle>`;
             case 'error':
-                return html`<icon-alert-circle size="m" data-test-id="${componentSelector}-heading-icon-error"></icon-alert-circle>`;
+                return html`<icon-alert-circle class="icon" size="m" data-test-id="${componentSelector}-heading-icon-error"></icon-alert-circle>`;
             default:
                 return nothing as never;
         }
     }
 
     /**
-     * Util method that returns a template with a default icon according to the chosen variant.
-     * Called within the renderIcon method.
-     *
-     * @param {NonNullable<NotificationProps['variant']>} variant
-     *
-     * @private
-     */
-    private renderIconVariant (variant: NonNullable<NotificationProps['variant']>) {
-        if (this.variantHasDefaultIcon(variant)) {
-            return this.getDefaultVariantIcon(variant);
-        }
-
-        return nothing;
-    }
-
-    /**
      * Template for the heading icon area.
-     * It can return an icon provided externally via named slot or it can return an default icon according to the chosen variant.
+     * It can return an icon provided externally via named slot or it can return a default icon according to the chosen variant if defined.
      * Called within the main render function.
      *
-     * @param {NonNullable<NotificationProps['variant']>} variant
-     * @param {boolean} hasExternalIcon
-     *
      * @private
      */
-    private renderIcon (variant: NonNullable<NotificationProps['variant']>, hasExternalIcon: boolean, hasIconClass: boolean): TemplateResult | typeof nothing {
+    private renderIcon (): TemplateResult | typeof nothing {
+        const hasExternalIcon = this._iconSlot.length > 0;
+
         return html`
-            <div data-test-id="${componentSelector}-icon-area" class="${hasIconClass ? 'has-icon ' : ''}${componentClass}-heading-icon">
-                ${!hasExternalIcon ? this.renderIconVariant(variant) : nothing}
+                ${!hasExternalIcon ? this.getDefaultVariantIcon() : nothing}
                 <slot name="icon"></slot>
-            </div>
         `;
     }
 
@@ -242,8 +182,7 @@ export class PieNotification extends LitElement implements NotificationProps {
                 class="${componentClass}-icon-close"
                 data-test-id="${componentSelector}-icon-close"
                 @click="${this.handleCloseButton}"
-                aria-label="${ifDefined(this.aria?.close)}"
-                >
+                aria-label="${ifDefined(this.aria?.close)}">
                 <icon-close></icon-close>
             </pie-icon-button>`;
     }
@@ -319,14 +258,10 @@ export class PieNotification extends LitElement implements NotificationProps {
             variant,
             position,
             heading,
-            headingLevel,
             isDismissible,
             isCompact,
-            _hasExternalIcon,
             hideIcon,
-            _hasIconClass,
             leadingAction,
-            supportingAction,
             isOpen,
             aria,
         } = this;
@@ -351,14 +286,14 @@ export class PieNotification extends LitElement implements NotificationProps {
                 ${showCloseButton ? this.renderCloseButton() : nothing}
 
                 <section class="${componentClass}-content-section" ?isDismissible="${showCloseButton}">
-                    ${!hideIcon ? this.renderIcon(variant, _hasExternalIcon, _hasIconClass) : nothing}
+                    ${!hideIcon ? this.renderIcon() : nothing}
                     <article>
-                        ${heading ? this.renderNotificationHeading(heading, unsafeStatic(headingLevel)) : nothing}
+                        ${heading ? this.renderNotificationHeading() : nothing}
                         <slot></slot>
                     </article>
                 </section>
 
-                ${leadingAction?.text ? this.renderFooter(leadingAction, supportingAction) : nothing}
+                ${leadingAction?.text ? this.renderFooter() : nothing}
             </div>`;
     }
 }
