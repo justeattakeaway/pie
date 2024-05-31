@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.61.0
+
+### Minor Changes
+
+- [Added] - Script to generate json containing the status of each pie web component. To be used by Storybook and Docs site and any other future apps. ([#1479](https://github.com/justeattakeaway/pie/pull/1479)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.60.0
 
 ### Minor Changes
