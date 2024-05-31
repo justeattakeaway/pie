@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "storybook build --output-dir dist",
-    "create:component-statuses": "node ./create-component-statuses.mjs",
     "lint:scripts": "run -T eslint .",
-    "lint:scripts:fix": "run -T eslint . --fix"
+    "lint:scripts:fix": "run -T eslint . --fix",
+    "generate:component-statuses": "npx generate-component-statuses"
   },
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
