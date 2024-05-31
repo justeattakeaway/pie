@@ -21,9 +21,9 @@
     "test:ci": "yarn test"
   },
   "devDependencies": {
-    "@babel/preset-react": "7.24.1",
+    "@babel/preset-react": "7.24.6",
     "@lit/react": "1.0.5",
-    "@types/react": "18.2.75"
+    "@types/react": "18.3.3"
   },
   "dependencies": {
     "fs-extra": "9.1.0"

@@ -5,9 +5,9 @@
   "dependencies": {
     "@justeattakeaway/pie-button": "0.47.6",
     "@justeattakeaway/pie-css": "0.11.0",
-    "@lit/react": "1.0.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "@lit/react": "1.0.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-scripts": "5.0.1"
   },
   "scripts": {
