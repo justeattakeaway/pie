@@ -13,7 +13,7 @@ $breakpoint-wide: 768px;
     --notification-close-icon-offset: var(--dt-spacing-b);
     --notification-icon-fill: var(--dt-color-content-default);
     --notification-icon-offset: 2px;
-    --notification-icon-size: 24px;
+    --icon-size-override: 24px;
 
     padding: var(--dt-spacing-d);
     border-radius: var(--notification-border-radius);
@@ -108,8 +108,6 @@ $breakpoint-wide: 768px;
     display: inline-flex;
     color: var(--notification-icon-fill);
     margin-block-start: var(--notification-icon-offset);
-    height: var(--notification-icon-size);
-    width: var(--notification-icon-size);
 
     @media (max-width: $breakpoint-wide) {
         margin-block-start: 0;
