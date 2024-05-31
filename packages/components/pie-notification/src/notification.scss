@@ -1,8 +1,7 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+$breakpoint-wide: 768px;
 
 .c-notification {
-    $breakpoint-wide: 768px;
-
     --notification-border-radius: var(--dt-radius-rounded-c);
     --notification-background-color: var(--dt-color-container-subtle);
     --notification-direction: column;
@@ -110,4 +109,8 @@
     margin-block-start: var(--notification-icon-offset);
     height: var(--notification-icon-size);
     width: var(--notification-icon-size);
+
+    @media (max-width: $breakpoint-wide) {
+        margin-block-start: 0;
+    }
 }
