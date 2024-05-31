@@ -358,7 +358,7 @@ export class PieNotification extends LitElement implements NotificationProps {
                     </article>
                 </section>
 
-                ${leadingAction ? this.renderFooter(leadingAction, supportingAction) : nothing}
+                ${leadingAction?.text ? this.renderFooter(leadingAction, supportingAction) : nothing}
             </div>`;
     }
 }

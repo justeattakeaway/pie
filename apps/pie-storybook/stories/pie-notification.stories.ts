@@ -62,6 +62,7 @@ const notificationStoryMeta: NotificationStoryMeta = {
             defaultValue: {
                 summary: defaultProps.isDismissible,
             },
+            if: { arg: 'isCompact', eq: false },
         },
         isCompact: {
             description: 'When true, the footer aligns to the header and icons which makes the component compact and the Close button is not shown.',
