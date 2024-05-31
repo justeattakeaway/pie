@@ -37,11 +37,11 @@ class ComponentStatusGenerator {
 
     // Generates a json file with the statuses of each PIE component. The status is sourced from the package.json file of each component.
     // The json will be outputted to the root of the package invoking this script as 'component-statuses.json'
-    async generateStatuses () {
+    async generateStatuses (workingDir) {
         this.console.info('Generating component statuses...');
 
         try {
-            const monorepoRoot = this.findMonorepoRootSync(process.cwd());
+            const monorepoRoot = this.findMonorepoRootSync(workingDir);
 
             // Find components base dir
             const componentsDir = this.path.resolve(monorepoRoot, 'packages/components');
@@ -94,7 +94,7 @@ class ComponentStatusGenerator {
             this.console.info('Component statuses:', filteredStatuses);
 
             // write the statuses json file
-            const outputPath = this.path.resolve(process.cwd(), 'component-statuses.json');
+            const outputPath = this.path.resolve(workingDir, 'component-statuses.json');
             await this.writeFile(outputPath, JSON.stringify(filteredStatuses, null, 2));
 
             this.console.info(`Successfully wrote component statuses to ${outputPath}`);
