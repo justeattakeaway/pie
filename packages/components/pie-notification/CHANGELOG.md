@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-notification
 
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - the code section of the notification component ([#1478](https://github.com/justeattakeaway/pie/pull/1478)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.7.0
 
 ### Minor Changes
