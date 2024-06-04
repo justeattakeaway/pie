@@ -75,6 +75,12 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
     @property({ type: String })
     public assistiveText?: TextInputProps['assistiveText'];
 
+    @property({ type: String, reflect: true })
+    public ariaLabel: TextInputProps['ariaLabel'] = defaultProps.ariaLabel;
+
+    @property({ type: String })
+    public ariaLabelledby?: TextInputProps['ariaLabelledby'];
+
     @property({ type: String })
     @validPropertyValues(componentSelector, statusTypes, undefined)
     public status?: TextInputProps['status'];

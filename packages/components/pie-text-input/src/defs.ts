@@ -110,12 +110,23 @@ export interface TextInputProps {
      * If true, the input is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid.
      */
     required?: boolean;
+
+    /**
+     * The aria-label attribute defines a string value that labels an interactive element.
+     */
+    ariaLabel: string | null;
+
+    /**
+     * The aria-labelledby property enables authors to reference other elements on the page to define an accessible name.
+     */
+    ariaLabelledby?: string;
+
 }
 
 /**
  * The default values for the `TextInputProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultPropsGeneric<TextInputProps, 'type' | 'value' | 'size'>;
+type DefaultProps = ComponentDefaultPropsGeneric<TextInputProps, 'type' | 'value' | 'size' | 'ariaLabel'>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
@@ -124,4 +135,5 @@ export const defaultProps: DefaultProps = {
     type: 'text',
     value: '',
     size: 'medium',
+    ariaLabel: '',
 };

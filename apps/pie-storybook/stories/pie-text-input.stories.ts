@@ -204,6 +204,20 @@ const textInputStoryMeta: TextInputStoryMeta = {
                 summary: false,
             },
         },
+        ariaLabel: {
+            description: 'The aria-label attribute defines a string value that labels an interactive element.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+        },
+        ariaLabelledby: {
+            description: 'The aria-labelledby property enables authors to reference other elements on the page to define an accessible name. Must match the ID value of the referenced component.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -238,6 +252,8 @@ const Template = ({
     step,
     size,
     required,
+    ariaLabel,
+    ariaLabelledby,
 }: TextInputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -289,6 +305,8 @@ const Template = ({
             ?autoFocus="${autoFocus}"
             ?readonly="${readonly}"
             assistiveText="${ifDefined(assistiveText)}"
+            aria-label=${ifDefined(ariaLabel)}
+            aria-labelledby=${ifDefined(ariaLabelledby)}
             status=${ifDefined(status)}
             size="${ifDefined(size)}"
             ?required="${required}"
@@ -302,7 +320,7 @@ const Template = ({
 
 const WithLabelTemplate: TemplateFunction<TextInputProps> = (props: TextInputProps) => html`
         <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-field</pie-link>.</p>
-        <pie-form-label for="${props.name}">Label</pie-form-label>
+        <pie-form-label for="${props.name}" id="${props.name}">Label</pie-form-label>
         ${Template(props)}
     `;
 
