@@ -5400,7 +5400,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-cookie-banner@0.19.9, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
+"@justeattakeaway/pie-cookie-banner@0.20.0, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
   dependencies:
@@ -5493,7 +5493,7 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": 4.5.1
     "@svgr/core": 6.4.0
     pascal-case: 3.1.2
-    react: 18.2.0
+    react: 18.3.1
     react-test-renderer: 18.0.0
     rollup: 3.20.2
     rollup-plugin-typescript2: 0.34.1
@@ -5536,7 +5536,7 @@ __metadata:
     "@web/test-runner": 0.16.1
     just-kebab-case: 4.2.0
     just-pascal-case: 3.2.0
-    react: 18.2.0
+    react: 18.3.1
     react-dom: 18.2.0
     rollup: 3.20.2
     rollup-plugin-multi-input: 1.4.1
@@ -5592,7 +5592,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-notification@0.7.0, @justeattakeaway/pie-notification@workspace:packages/components/pie-notification":
+"@justeattakeaway/pie-notification@0.8.0, @justeattakeaway/pie-notification@workspace:packages/components/pie-notification":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-notification@workspace:packages/components/pie-notification"
   dependencies:
@@ -5688,13 +5688,13 @@ __metadata:
     "@justeattakeaway/pie-checkbox": 0.4.0
     "@justeattakeaway/pie-chip": 0.6.3
     "@justeattakeaway/pie-components-config": 0.16.0
-    "@justeattakeaway/pie-cookie-banner": 0.19.9
+    "@justeattakeaway/pie-cookie-banner": 0.20.0
     "@justeattakeaway/pie-divider": 0.13.5
     "@justeattakeaway/pie-form-label": 0.13.5
     "@justeattakeaway/pie-icon-button": 0.28.6
     "@justeattakeaway/pie-link": 0.17.5
     "@justeattakeaway/pie-modal": 0.42.7
-    "@justeattakeaway/pie-notification": 0.7.0
+    "@justeattakeaway/pie-notification": 0.8.0
     "@justeattakeaway/pie-spinner": 0.6.5
     "@justeattakeaway/pie-switch": 0.29.7
     "@justeattakeaway/pie-tag": 0.9.6
@@ -5711,7 +5711,7 @@ __metadata:
   dependencies:
     "@babel/preset-react": 7.24.1
     "@lit/react": 1.0.5
-    "@types/react": 18.2.75
+    "@types/react": 18.3.3
     fs-extra: 9.1.0
   bin:
     build-react-wrapper: ./index.js
@@ -10586,13 +10586,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.75":
-  version: 18.2.75
-  resolution: "@types/react@npm:18.2.75"
+"@types/react@npm:18.3.3":
+  version: 18.3.3
+  resolution: "@types/react@npm:18.3.3"
   dependencies:
     "@types/prop-types": "*"
     csstype: ^3.0.2
-  checksum: f77322720744beba6650462c0d75ccc0be27c176bd7b2aff32039ea30e498a78fe6dbce4a1c3fdbf592ccc01286059f332a294a3b6975dbb0d8d5999718ece38
+  checksum: c63d6a78163244e2022b01ef79b0baec4fe4da3475dc4a90bb8accefad35ef0c43560fd0312e5974f92a0f1108aa4d669ac72d73d66396aa060ea03b5d2e3873
   languageName: node
   linkType: hard
 
@@ -29084,7 +29084,7 @@ __metadata:
     "@rollup/plugin-node-resolve": 15.1.0
     "@sand4rt/experimental-ct-web": 1.0.8
     "@types/node": 20.4.8
-    "@types/react": 18.2.75
+    "@types/react": 18.3.3
     "@typescript-eslint/eslint-plugin": 5.62.0
     "@typescript-eslint/parser": 5.62.0
     "@vitest/coverage-c8": 0.29.8
@@ -29137,7 +29137,7 @@ __metadata:
     "@justeattakeaway/pie-card": 0.19.5
     "@justeattakeaway/pie-checkbox": 0.4.0
     "@justeattakeaway/pie-chip": 0.6.3
-    "@justeattakeaway/pie-cookie-banner": 0.19.9
+    "@justeattakeaway/pie-cookie-banner": 0.20.0
     "@justeattakeaway/pie-css": 0.11.0
     "@justeattakeaway/pie-divider": 0.13.5
     "@justeattakeaway/pie-form-label": 0.13.5
@@ -29146,7 +29146,7 @@ __metadata:
     "@justeattakeaway/pie-icons-webc": 0.24.0
     "@justeattakeaway/pie-link": 0.17.5
     "@justeattakeaway/pie-modal": 0.42.7
-    "@justeattakeaway/pie-notification": 0.7.0
+    "@justeattakeaway/pie-notification": 0.8.0
     "@justeattakeaway/pie-spinner": 0.6.5
     "@justeattakeaway/pie-switch": 0.29.7
     "@justeattakeaway/pie-tag": 0.9.6
@@ -32128,6 +32128,15 @@ __metadata:
   dependencies:
     loose-envify: ^1.1.0
   checksum: 88e38092da8839b830cda6feef2e8505dec8ace60579e46aa5490fc3dc9bba0bd50336507dc166f43e3afc1c42939c09fe33b25fae889d6f402721dcd78fca1b
+  languageName: node
+  linkType: hard
+
+"react@npm:18.3.1":
+  version: 18.3.1
+  resolution: "react@npm:18.3.1"
+  dependencies:
+    loose-envify: ^1.1.0
+  checksum: a27bcfa8ff7c15a1e50244ad0d0c1cb2ad4375eeffefd266a64889beea6f6b64c4966c9b37d14ee32d6c9fcd5aa6ba183b6988167ab4d127d13e7cb5b386a376
   languageName: node
   linkType: hard
 
@@ -38188,7 +38197,7 @@ __metadata:
     "@babel/preset-env": 7.24.5
     "@babel/preset-react": 7.24.1
     "@justeattakeaway/pie-button": 0.47.6
-    "@justeattakeaway/pie-cookie-banner": 0.19.9
+    "@justeattakeaway/pie-cookie-banner": 0.20.0
     "@justeattakeaway/pie-css": 0.11.0
     "@lit/react": 1.0.2
     babel-loader: 8
