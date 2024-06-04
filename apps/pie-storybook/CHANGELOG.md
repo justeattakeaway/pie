@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.79.0
+
+### Minor Changes
+
+- [Changed] - `supportingAction` should only render if `leadingAction` is passed ([#1490](https://github.com/justeattakeaway/pie/pull/1490)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - The `isDismissible` control on Storybook should only be visible if `isCompact` is set to false
+
+  [Changed] - Simplified the logic of rendering default and named slot icons
+
+  [Changed] - Render a placeholder icon for stories
+
+### Patch Changes
+
+- Updated dependencies [[`9462db3b8`](https://github.com/justeattakeaway/pie/commit/9462db3b8b6a4593d2971b8f15160b11a12d768b), [`17f9409d2`](https://github.com/justeattakeaway/pie/commit/17f9409d2a3bc66570694fb80e4d7501fd6e819e)]:
+  - @justeattakeaway/pie-notification@0.9.0
+  - @justeattakeaway/pie-icons-webc@0.24.1
+  - @justeattakeaway/pie-cookie-banner@0.20.1
+  - @justeattakeaway/pie-icon-button@0.28.7
+  - @justeattakeaway/pie-modal@0.42.8
+  - @justeattakeaway/pie-switch@0.29.8
+  - @justeattakeaway/pie-text-input@0.22.2
+  - @justeattakeaway/pie-assistive-text@0.4.1
+  - @justeattakeaway/pie-chip@0.6.4
+
 ## 0.78.0
 
 ### Minor Changes
