@@ -360,18 +360,23 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * @private
      */
     private renderModalContentAndFooter (): TemplateResult {
+        const hasActions = this.leadingAction || this.supportingAction;
+
         return html`
-        <article class="c-modal-scrollContainer c-modal-content c-modal-content--scrollable">
-            <div class="c-modal-contentInner"
-            data-test-id="modal-content-inner">
-                <slot></slot>
-            </div>
-            ${this.isLoading ? html`<pie-spinner size="xlarge" variant="secondary"></pie-spinner>` : nothing}
-        </article>
-        <footer class="c-modal-footer">
-            ${this.leadingAction ? this.renderLeadingAction() : nothing}
-            ${this.supportingAction ? this.renderSupportingAction() : nothing}
-        </footer>`;
+            <article class="c-modal-scrollContainer c-modal-content c-modal-content--scrollable">
+                <div class="c-modal-contentInner"
+                     data-test-id="modal-content-inner">
+                    <slot></slot>
+                </div>
+                ${this.isLoading ? html`<pie-spinner size="xlarge" variant="secondary"></pie-spinner>` : nothing}
+            </article>
+
+            ${hasActions ? html`
+                <footer class="c-modal-footer"
+                        data-test-id="pie-modal-footer">
+                    ${this.leadingAction ? this.renderLeadingAction() : nothing}
+                    ${this.supportingAction ? this.renderSupportingAction() : nothing}
+                </footer>` : nothing}`;
     }
 
     public render () {
