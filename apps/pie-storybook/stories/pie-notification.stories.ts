@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
@@ -8,6 +8,8 @@ import {
     NotificationProps as NotificationBaseProps, variants, headingLevels, positions, defaultProps,
 } from '@justeattakeaway/pie-notification';
 /* eslint-enable import/no-duplicates */
+
+import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
 import { type StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
@@ -62,6 +64,7 @@ const notificationStoryMeta: NotificationStoryMeta = {
             defaultValue: {
                 summary: defaultProps.isDismissible,
             },
+            if: { arg: 'isCompact', eq: false },
         },
         isCompact: {
             description: 'When true, the footer aligns to the header and icons which makes the component compact and the Close button is not shown.',
@@ -138,7 +141,10 @@ const Template : TemplateFunction<NotificationProps> = ({
     supportingAction,
     hasStackedActions,
     slot,
-}) => html`
+}) => {
+    const shouldShowPlaceholderIcon = variant && ['neutral', 'neutral-alternative'].includes(variant);
+
+    return html`
     <pie-notification
         ?isOpen="${isOpen}"
         variant="${ifDefined(variant)}"
@@ -156,8 +162,10 @@ const Template : TemplateFunction<NotificationProps> = ({
         @pie-notification-close="${pieNotificationClose}"
         @pie-notification-open="${pieNotificationOpen}"
         >
-        ${slot}
+            ${shouldShowPlaceholderIcon ? html`<icon-placeholder slot="icon"></icon-placeholder>` : nothing}
+            ${slot}
     </pie-notification>`;
+};
 
 const createNotificationStory = createStory<NotificationProps>(Template, defaultArgs);
 

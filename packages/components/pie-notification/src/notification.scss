@@ -1,8 +1,8 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-.c-notification {
-    $breakpoint-wide: 768px;
+$breakpoint-wide: 768px;
 
+.c-notification {
     --notification-border-radius: var(--dt-radius-rounded-c);
     --notification-background-color: var(--dt-color-container-subtle);
     --notification-direction: column;
@@ -10,9 +10,10 @@
     --notification-heading-line-height: #{p.line-height(--dt-font-heading-s-line-height--narrow)};
     --notification-font-size: #{p.font-size(--dt-font-body-l-size)};
     --notification-line-height: #{p.line-height(--dt-font-body-l-line-height)};
-    --notification-icon-fill: var(--dt-color-content-default);
     --notification-close-icon-offset: var(--dt-spacing-b);
-    --notification-heading-icon-offset: 2px;
+    --notification-icon-fill: var(--dt-color-content-default);
+    --notification-icon-offset: 2px;
+    --icon-size-override: 24px;
 
     padding: var(--dt-spacing-d);
     border-radius: var(--notification-border-radius);
@@ -43,6 +44,7 @@
 
     &[variant='success'] {
         --notification-background-color: var(--dt-color-support-positive-02);
+        --notification-icon-fill: var(--dt-color-content-positive);
     }
 
     &[variant='warning'] {
@@ -51,7 +53,7 @@
 
     &[variant='error'] {
         --notification-background-color: var(--dt-color-support-error-02);
-        --notification-icon-fill: var(--dt-color-red);
+        --notification-icon-fill: var(--dt-color-support-error);
     }
 
 
@@ -70,20 +72,11 @@
     &-content-section {
         display: flex;
         flex-direction: row;
-    
-        .has-icon {
-            display: block ruby; // This is a hack to avoid the icon overlap the text in Firefox
-            margin-inline-end: var(--dt-spacing-c);
-        }
+        gap: var(--dt-spacing-c);
 
         &[isDismissible] {
             max-width: calc(100% - var(--notification-close-icon-offset) - 40px); // 40px is the size of the medium icon button
         }
-    }
-
-    &-heading-icon {
-        padding-block-start: var(--notification-heading-icon-offset);
-        color: var(--notification-icon-fill);
     }
 
     &-icon-close {
@@ -107,5 +100,16 @@
                 flex-direction: column-reverse;
             }
         }
+    }
+}
+
+.icon,
+::slotted([slot="icon"]) {
+    display: inline-flex;
+    color: var(--notification-icon-fill);
+    margin-block-start: var(--notification-icon-offset);
+
+    @media (max-width: $breakpoint-wide) {
+        margin-block-start: 0;
     }
 }

@@ -69,6 +69,7 @@ export interface NotificationProps {
 
   /**
    * The supporting action for the notification.
+   * Will only render if `leadingAction` is passed
    */
   supportingAction?: ActionProps;
 
