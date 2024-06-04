@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.78.0
+
+### Minor Changes
+
+- [Added] - the code section of the notification component ([#1478](https://github.com/justeattakeaway/pie/pull/1478)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - Script to generate json containing the status of each pie web component. To be used by Storybook and Docs site and any other future apps. ([#1479](https://github.com/justeattakeaway/pie/pull/1479)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`fddbbe9cc`](https://github.com/justeattakeaway/pie/commit/fddbbe9ccab4cc458175af7204dcb1d05d49f5ad), [`1903de88d`](https://github.com/justeattakeaway/pie/commit/1903de88d5f9df71483c4f521beb5d999bf4ed1f)]:
+  - @justeattakeaway/pie-notification@0.8.0
+  - @justeattakeaway/pie-cookie-banner@0.20.0
+
 ## 0.77.1
 
 ### Patch Changes

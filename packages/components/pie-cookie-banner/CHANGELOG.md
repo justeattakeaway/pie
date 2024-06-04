@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.20.0
+
+### Minor Changes
+
+- [Changed] - Set cookie-banner status to beta to match what was previously on docs site (alpha in package.json was incorrect) ([#1479](https://github.com/justeattakeaway/pie/pull/1479)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.19.9
 
 ### Patch Changes
