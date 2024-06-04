@@ -127,7 +127,7 @@
                 "type": "code",
                 "item": ["{ text: string, ariaLabel?: string }"]
             },
-            "An object representing the supporting action of the notification.",
+            "An object representing the supporting action of the notification. <br> The action will only render if `leadingAction` is passed",
             {
                 "type": "code",
                 "item": ["undefined"]
