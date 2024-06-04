@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.38.0
+
+### Minor Changes
+
+- [Added] - the code section of the notification component ([#1478](https://github.com/justeattakeaway/pie/pull/1478)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - Renamed 'available' component status to 'stable' ([#1479](https://github.com/justeattakeaway/pie/pull/1479)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Script to generate json containing the status of each pie web component. To be used by Storybook and Docs site and any other future apps. ([#1479](https://github.com/justeattakeaway/pie/pull/1479)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - The overview docs of the notification component ([#1478](https://github.com/justeattakeaway/pie/pull/1478)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 3.37.0
 
 ### Minor Changes
