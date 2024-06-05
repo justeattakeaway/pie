@@ -26,13 +26,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-chip` in your application, run the following on your command line:
 
 ```shell
-# npm
-$ npm i @justeattakeaway/pie-chip
+npm i @justeattakeaway/pie-chip
 ```
 
 ```shell
-# yarn
-$ yarn add @justeattakeaway/pie-chip
+yarn add @justeattakeaway/pie-chip
 ```
 
 {% notification {
@@ -101,7 +99,7 @@ import '@justeattakeaway/pie-chip'
 <script type="module" src="/main.js"></script>
 ```
 
-For Native JS Applications, Vue, Angular, Svelte etc.: 
+For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 // Vue templates (using Nuxt 3)

@@ -21,11 +21,9 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-button` in your application, run the following on your command line:
 
 ```bash
-# npm
-$ npm i @justeattakeaway/pie-button
+npm i @justeattakeaway/pie-button
 
-# yarn
-$ yarn add @justeattakeaway/pie-button
+yarn add @justeattakeaway/pie-button
 ```
 
 ## Documentation

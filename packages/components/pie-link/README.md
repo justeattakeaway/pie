@@ -20,11 +20,9 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-link` in your application, run the following on your command line:
 
 ```bash
-# npm
-$ npm i @justeattakeaway/pie-link
+npm i @justeattakeaway/pie-link
 
-# yarn
-$ yarn add @justeattakeaway/pie-link
+yarn add @justeattakeaway/pie-link
 ```
 
 ## Documentation

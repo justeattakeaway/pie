@@ -26,13 +26,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-button` in your application, run the following on your command line:
 
 ```shell
-# npm
-$ npm i @justeattakeaway/pie-button
+npm i @justeattakeaway/pie-button
 ```
 
 ```shell
-# yarn
-$ yarn add @justeattakeaway/pie-button
+yarn add @justeattakeaway/pie-button
 ```
 
 {% notification {
@@ -143,7 +141,7 @@ import '@justeattakeaway/pie-button'
 <script type="module" src="/main.js"></script>
 ```
 
-For Native JS Applications, Vue, Angular, Svelte etc.: 
+For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 // Vue templates (using Nuxt 3)

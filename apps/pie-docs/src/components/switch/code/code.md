@@ -25,13 +25,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-switch` in your application, run the following on your command line:
 
 ```shell
-# npm
-$ npm i @justeattakeaway/pie-switch
+npm i @justeattakeaway/pie-switch
 ```
 
 ```shell
-# yarn
-$ yarn add @justeattakeaway/pie-switch
+yarn add @justeattakeaway/pie-switch
 ```
 
 {% notification {

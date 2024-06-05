@@ -26,13 +26,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-tag` in your application, run the following on your command line:
 
 ```shell
-# npm
-$ npm i @justeattakeaway/pie-tag
+npm i @justeattakeaway/pie-tag
 ```
 
 ```shell
-# yarn
-$ yarn add @justeattakeaway/pie-tag
+yarn add @justeattakeaway/pie-tag
 ```
 
 {% notification {
@@ -103,7 +101,7 @@ import '@justeattakeaway/pie-tag'
 <script type="module" src="/main.js"></script>
 ```
 
-For Native JS Applications, Vue, Angular, Svelte etc.: 
+For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 // Vue templates (using Nuxt 3)
