@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.18.1
+
+### Patch Changes
+
+- [Changed] - Minor package updates (typescript, babel, react) ([#1492](https://github.com/justeattakeaway/pie/pull/1492)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 4.18.0
 
 ### Minor Changes
