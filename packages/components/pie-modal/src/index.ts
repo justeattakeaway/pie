@@ -360,7 +360,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * @private
      */
     private renderModalContentAndFooter (): TemplateResult {
-        const hasActions = this.leadingAction || this.supportingAction;
+        const hasActions = this.leadingAction?.text || this.supportingAction?.text;
 
         return html`
             <article class="c-modal-scrollContainer c-modal-content c-modal-content--scrollable">
