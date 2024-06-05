@@ -45,7 +45,7 @@ npm i @justeattakeaway/pie-card
   src="https://webc.pie.design/?path=/story/card--default&viewMode=story&shortcuts=false&singleStory=true"
   width="100%",
   height="600px"
-  style="border: none; margin-top: 32px;"
+  style="border: none; margin-top: var(--dt-spacing-f);"
 ></iframe>
 
 ## Props

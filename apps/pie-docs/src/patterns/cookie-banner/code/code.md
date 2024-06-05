@@ -49,7 +49,7 @@ yarn add @justeattakeaway/pie-cookie-banner
   src="https://webc.pie.design/?path=/story/cookie-banner--default&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="900px"
-  style="border: none; margin-top: 32px;"
+  style="border: none; margin-top: var(--dt-spacing-f);"
 ></iframe>
 
 

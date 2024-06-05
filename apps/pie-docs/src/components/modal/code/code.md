@@ -48,7 +48,7 @@ yarn add @justeattakeaway/pie-modal
   src="https://webc.pie.design/?path=/story/modal--default&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="600px"
-  style="border: none; margin-top: 32px;"
+  style="border: none; margin-top: var(--dt-spacing-f);"
 ></iframe>
 
 ---

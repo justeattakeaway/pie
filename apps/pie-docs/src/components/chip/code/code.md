@@ -45,7 +45,7 @@ yarn add @justeattakeaway/pie-chip
   src="https://webc.pie.design/?path=/story/chip--default&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="600px"
-  style="border: none; margin-top: 32px;"
+  style="border: none; margin-top: var(--dt-spacing-f);"
 ></iframe>
 
 ## Variants
@@ -54,7 +54,7 @@ yarn add @justeattakeaway/pie-chip
   src="https://webc.pie.design/?path=/docs/chip--variants&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="600px"
-  style="border: none; margin-top: 32px;"
+  style="border: none; margin-top: var(--dt-spacing-f);"
 ></iframe>
 
 ## Props

@@ -45,7 +45,7 @@ yarn add @justeattakeaway/pie-button
   src="https://webc.pie.design/?path=/story/button--primary&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="600px"
-  style="border: none; margin-top: 32px;"
+  style="border: none; margin-top: var(--dt-spacing-f);"
 ></iframe>
 
 ## Variants
@@ -54,7 +54,7 @@ yarn add @justeattakeaway/pie-button
   src="https://webc.pie.design/?path=/docs/button--variants&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="600px"
-  style="border: none; margin-top: 32px;"
+  style="border: none; margin-top: var(--dt-spacing-f);"
 ></iframe>
 
 ## Props
@@ -92,7 +92,7 @@ The `pie-button` provides a set of attributes to customize its behavior within f
   src="https://webc.pie.design/?path=/story/button--form-integration&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="600px"
-  style="border: none; margin-top: 32px;"
+  style="border: none; margin-top: var(--dt-spacing-f);"
 ></iframe>
 
 {% notification {
