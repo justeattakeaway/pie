@@ -238,7 +238,6 @@ const Template = ({
     step,
     size,
     required,
-    aria,
 }: TextInputProps) => {
     const [, updateArgs] = UseArgs();
 
