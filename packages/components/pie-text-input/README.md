@@ -87,6 +87,7 @@ import { PieTextInput } from '@justeattakeaway/pie-text-input/dist/react';
 | `pattern` | `string` | - | Specifies a regular expression the form control's value should match. |
 | `placeholder` | `string` | - | The placeholder text to display when the input is empty. Only applies to types: `text`, `url`, `tel`, `email`, and `password`. |
 | `readonly` | `boolean` | - | When true, the user cannot edit the control. Not the same as disabled. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information. |
+| `disabled` | `boolean` | - | When true, the user cannot edit or interact with the control.|
 | `type` | `'text'`, `'number'`, `'password'`, `'url'`, `'email'`, `'tel'` | `text` | The type of HTML input to render. |
 | `value` | `string` | `''` | The value of the input (used as a key/value pair in HTML forms with `name`). |
 | `assistiveText` | `string` | `''` | Allows assistive text to be displayed below the input element. |
@@ -95,7 +96,8 @@ import { PieTextInput } from '@justeattakeaway/pie-text-input/dist/react';
 | `min` | `number` | - | The minimum value of the input. Only applies when type is `number`. If the value provided is lower, the input is invalid. |
 | `max` | `number` | - | The maximum value of the input. Only applies when type is `number`. If the value provided is higher, the input is invalid. |
 | `size` | `'small'`, `'medium'`, `'large'` | `medium` | The size of the input field. Can be `small`, `medium`, or `large`. Defaults to `medium`. |
-| `required` | `boolean` | `false` | If true, the input is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid. |
+| `required` | `boolean` | `false` | If true, the input is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid. Important note: This will not prevent the form submission. |
+| `defaultValue` | `string` | - | During a form reset, the default value will replace the current value. |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-text-input` component:
 
