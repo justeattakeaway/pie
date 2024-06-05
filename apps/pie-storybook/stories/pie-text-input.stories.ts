@@ -204,20 +204,6 @@ const textInputStoryMeta: TextInputStoryMeta = {
                 summary: false,
             },
         },
-        ariaLabel: {
-            description: 'The aria-label attribute defines a string value that labels an interactive element.',
-            control: 'text',
-            defaultValue: {
-                summary: '',
-            },
-        },
-        ariaLabelledby: {
-            description: 'The aria-labelledby property enables authors to reference other elements on the page to define an accessible name. Must match the ID value of the referenced component.',
-            control: 'text',
-            defaultValue: {
-                summary: '',
-            },
-        },
     },
     args: defaultArgs,
     parameters: {
@@ -252,8 +238,7 @@ const Template = ({
     step,
     size,
     required,
-    ariaLabel,
-    ariaLabelledby,
+    aria,
 }: TextInputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -295,6 +280,7 @@ const Template = ({
             pattern="${ifDefined(pattern)}"
             minlength="${ifDefined(minlength)}"
             maxlength="${ifDefined(maxlength)}"
+            aria-label="Read my text"
             min="${ifDefined(min)}"
             max="${ifDefined(max)}"
             step="${ifDefined(step)}"
@@ -305,8 +291,6 @@ const Template = ({
             ?autoFocus="${autoFocus}"
             ?readonly="${readonly}"
             assistiveText="${ifDefined(assistiveText)}"
-            aria-label=${ifDefined(ariaLabel)}
-            aria-labelledby=${ifDefined(ariaLabelledby)}
             status=${ifDefined(status)}
             size="${ifDefined(size)}"
             ?required="${required}"
