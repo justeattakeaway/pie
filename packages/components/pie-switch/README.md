@@ -17,11 +17,9 @@
 To install `pie-switch` in your application, run the following on your command line:
 
 ```bash
-# npm
-$ npm i @justeattakeaway/pie-switch
+npm i @justeattakeaway/pie-switch
 
-# yarn
-$ yarn add @justeattakeaway/pie-switch
+yarn add @justeattakeaway/pie-switch
 ```
 
 ## Documentation

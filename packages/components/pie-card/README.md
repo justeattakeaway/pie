@@ -20,11 +20,9 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-card` in your application, run the following on your command line:
 
 ```bash
-# npm
-$ npm i @justeattakeaway/pie-card
+npm i @justeattakeaway/pie-card
 
-# yarn
-$ yarn add @justeattakeaway/pie-card
+yarn add @justeattakeaway/pie-card
 ```
 
 ## Documentation

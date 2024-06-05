@@ -28,11 +28,9 @@ This means that after installing this package as a dependency, you can use as ma
 To install `pie-webc` in your application, run the following on your command line:
 
 ```bash
-# npm
-$ npm i @justeattakeaway/pie-webc
+npm i @justeattakeaway/pie-webc
 
-# yarn
-$ yarn add @justeattakeaway/pie-webc
+yarn add @justeattakeaway/pie-webc
 ```
 
 
