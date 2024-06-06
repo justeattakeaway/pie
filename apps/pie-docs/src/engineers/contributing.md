@@ -29,25 +29,25 @@ You can take a look at our Storybook instances:
         {
           linkText: "Web Components",
           href: "https://webc.pie.design/",
-          src: "../../assets/img/engineers/webc@2x.png",
+          src: "../../assets/img/engineers/webComponents.png",
           shouldOpenInNewTab: true
         },
         {
           linkText: "Vue",
           href: "https://vue.pie.design/",
-          src: "../../assets/img/engineers/vue@2x.png",
+          src: "../../assets/img/engineers/vue.png",
           shouldOpenInNewTab: true
         },
         {
           linkText: "React for Takeaway.com",
           href: "https://snacks.takeaway.com/",
-          src: "../../assets/img/engineers/react@2x.png",
+          src: "../../assets/img/engineers/react.png",
           shouldOpenInNewTab: true
         },
         {
           linkText: "React for SkipTheDishes",
           href: "https://react.pie.design/",
-          src: "../../assets/img/engineers/react@2x.png",
+          src: "../../assets/img/engineers/react.png",
           shouldOpenInNewTab: true
         }
     ]
