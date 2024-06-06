@@ -96,25 +96,6 @@ import '@justeattakeaway/pie-text-input';
 </pie-text-input>
 ```
 
-For JS Frameworks such as Angular:
-```jsx
-import { PieTextInput } from '@justeattakeaway/pie-text-input';
-
-<PieTextInput
-    autocomplete="on"
-    autoFocus
-    inputmode="text"
-    maxlength={8}
-    minlength={4}
-    name="myinput"
-    pattern="[a-z]{4,8}"
-    placeholder="Please enter a value"
-    readonly
-    type="text"
-    value="">
-</PieTextInput>
-```
-
 For React Applications:
 
 ```jsx
