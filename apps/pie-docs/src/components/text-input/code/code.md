@@ -24,7 +24,7 @@ This component integrates easily with various frontend frameworks and can be cus
 
 ## Installation
 
-To install `pie-text-input` in your application, run the following on your command line:
+To install `pie-text-input` in your application via `npm` or `yarn`:
 
 ```shell
 npm i @justeattakeaway/pie-text-input
