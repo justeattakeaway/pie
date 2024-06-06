@@ -29,11 +29,9 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-spinner` in your application, run the following on your command line:
 
 ```bash
-# npm
-$ npm i @justeattakeaway/pie-spinner
+npm i @justeattakeaway/pie-spinner
 
-# yarn
-$ yarn add @justeattakeaway/pie-spinner
+yarn add @justeattakeaway/pie-spinner
 ```
 
 For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).

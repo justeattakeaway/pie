@@ -25,13 +25,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-divider` in your application, run the following on your command line:
 
 ```shell
-# npm
-$ npm i @justeattakeaway/pie-divider
+npm i @justeattakeaway/pie-divider
 ```
 
 ```shell
-# yarn
-$ yarn add @justeattakeaway/pie-divider
+yarn add @justeattakeaway/pie-divider
 ```
 
 {% notification {
@@ -46,7 +44,7 @@ $ yarn add @justeattakeaway/pie-divider
   src="https://webc.pie.design/?path=/story/divider--default&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="600px"
-  style="border: none; margin-top: 32px;"
+  style="border: none; margin-top: var(--dt-spacing-f);"
 ></iframe>
 
 ## Variants
@@ -55,7 +53,7 @@ $ yarn add @justeattakeaway/pie-divider
   src="https://webc.pie.design/?path=/docs/divider--variants&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="600px"
-  style="border: none; margin-top: 32px;"
+  style="border: none; margin-top: var(--dt-spacing-f);"
 ></iframe>
 
 ## Props
@@ -79,7 +77,7 @@ import '@justeattakeaway/pie-divider'
 <script type="module" src="/main.js"></script>
 ```
 
-For Native JS Applications, Vue, Angular, Svelte etc.: 
+For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 // Vue templates (using Nuxt 3)

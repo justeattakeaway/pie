@@ -25,13 +25,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-switch` in your application, run the following on your command line:
 
 ```shell
-# npm
-$ npm i @justeattakeaway/pie-switch
+npm i @justeattakeaway/pie-switch
 ```
 
 ```shell
-# yarn
-$ yarn add @justeattakeaway/pie-switch
+yarn add @justeattakeaway/pie-switch
 ```
 
 {% notification {
@@ -46,7 +44,7 @@ $ yarn add @justeattakeaway/pie-switch
   src="https://webc.pie.design/?path=/story/switch--default&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="600px"
-  style="border: none; margin-top: 32px;"
+  style="border: none; margin-top: var(--dt-spacing-f);"
 ></iframe>
 
 ## Props

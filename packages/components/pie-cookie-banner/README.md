@@ -23,11 +23,9 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-cookie-banner` in your application, run the following on your command line:
 
 ```bash
-# npm
-$ npm i @justeattakeaway/pie-cookie-banner
+npm i @justeattakeaway/pie-cookie-banner
 
-# yarn
-$ yarn add @justeattakeaway/pie-cookie-banner
+yarn add @justeattakeaway/pie-cookie-banner
 ```
 
 For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
