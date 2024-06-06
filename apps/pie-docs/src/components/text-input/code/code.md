@@ -136,7 +136,7 @@ import { PieTextInput } from '@justeattakeaway/pie-text-input/dist/react';
 ```
 
 ## Types
-The text input accepts various values for the `type` property, allowing control over input behavior. These are mostly standard HTML input types. For most use cases, the default type of `text` will suffice. It is important to note that setting the type to `number` does not guarantee the prevention of non-numeric characters being entered. This behavior, which is consistent with native HTML inputs, allows some non-numeric characters such as `e`,`+`, `-`, and `.`.
+The text input accepts various values for the `type` property, allowing control over input behaviour. These are mostly standard HTML input types. For most use cases, the default type of `text` will suffice. It is important to note that setting the type to `number` does not guarantee the prevention of non-numeric characters being entered. This behaviour, which is consistent with native HTML inputs, allows some non-numeric characters such as `e`,`+`, `-`, and `.`.
 
 While different types can influence the virtual keyboard on mobile devices, this can also be controlled using the `inputmode` property.
 
