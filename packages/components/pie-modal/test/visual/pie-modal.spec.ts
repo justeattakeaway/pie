@@ -369,7 +369,31 @@ test.describe('Prop: `supportingAction`', () => {
             await percySnapshot(page, 'Modal displays supportingAction alongside leadingAction');
         });
 
-        test('should display modal footer correctly', async ({ mount, page }) => {
+        test('should display modal footer if `LeadingAction` is provided alongside `supportingAction`', async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    isOpen: true,
+                    leadingAction: {
+                        text: 'Confirm',
+                        variant: 'primary',
+                        ariaLabel: 'Confirmation text',
+                    },
+                    supportingAction: {
+                        text: 'Cancel',
+                        variant: 'ghost',
+                        ariaLabel: 'Cancellation text',
+                    },
+                } as ModalProps,
+            });
+
+            const modal = page.locator(componentFooterSelector);
+            await expect.soft(modal).toBeVisible();
+
+            await percySnapshot(page, 'Modal displays footer');
+        });
+
+        test('should not display modal footer if only `supportingAction` is provided', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
@@ -383,7 +407,7 @@ test.describe('Prop: `supportingAction`', () => {
             });
 
             const modal = page.locator(componentFooterSelector);
-            await expect.soft(modal).toBeVisible();
+            await expect.soft(modal).not.toBeVisible();
 
             await percySnapshot(page, 'Modal displays footer');
         });

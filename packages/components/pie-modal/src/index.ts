@@ -360,8 +360,6 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * @private
      */
     private renderModalContentAndFooter (): TemplateResult {
-        const hasActions = this.leadingAction?.text || this.supportingAction?.text;
-
         return html`
             <article class="c-modal-scrollContainer c-modal-content c-modal-content--scrollable">
                 <div class="c-modal-contentInner"
@@ -371,7 +369,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 ${this.isLoading ? html`<pie-spinner size="xlarge" variant="secondary"></pie-spinner>` : nothing}
             </article>
 
-            ${hasActions ? html`
+            ${this.leadingAction?.text ? html`
                 <footer class="c-modal-footer"
                         data-test-id="pie-modal-footer">
                     ${this.leadingAction ? this.renderLeadingAction() : nothing}
