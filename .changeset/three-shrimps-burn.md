@@ -2,4 +2,6 @@
 "pie-docs": minor
 ---
 
-[Updated] Added updates to Engineers - Getting started - Structure(Pie Component Systems section)
+[Updated] Engineers - Getting started - Structure(Pie Component Systems section):
+- added another reference to the PIE Web Component System
+- updated logos for all supported component systems
