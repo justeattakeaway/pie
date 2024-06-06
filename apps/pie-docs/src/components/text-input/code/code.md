@@ -158,6 +158,7 @@ When providing icons to the `leadingIcon` or `trailingIcon` slots, ensure you ar
   name="username"
   type="text">
   <icon-user slot="leadingIcon"></icon-user>
+  <span slot="trailingText">##</span>
 </pie-text-input>
 ```
 #### Vue
@@ -171,6 +172,7 @@ When providing icons to the `leadingIcon` or `trailingIcon` slots, ensure you ar
   name="username"
   type="text">
   <icon-user slot="leadingIcon"></icon-user>
+  <span slot="trailingText">##</span>
 </pie-text-input>
 ```
 #### React
@@ -184,6 +186,7 @@ When providing icons to the `leadingIcon` or `trailingIcon` slots, ensure you ar
   onInput={handleUsernameInput as any}
   type="text">
   <IconUser slot="leadingIcon"></IconUser>
+  <span slot="trailingText">##</span>
 </PieTextInput>
 ```
 
