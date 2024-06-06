@@ -77,12 +77,11 @@ yarn add @justeattakeaway/pie-text-input
 For HTML and Vue:
 
 ```js
-// import as module into a js file e.g. main.js
+// import as module into a js file that will be loaded on the page where the component is used.
 import '@justeattakeaway/pie-text-input';
 ```
 
 ```html
-<!-- Native HTML -->
 <pie-text-input
     autocomplete="on"
     autoFocus
@@ -120,7 +119,6 @@ import { PieTextInput } from '@justeattakeaway/pie-text-input';
 For React Applications:
 
 ```jsx
-// React templates (using Next 13)
 import { PieTextInput } from '@justeattakeaway/pie-text-input/dist/react';
 
 <PieTextInput
@@ -137,6 +135,13 @@ import { PieTextInput } from '@justeattakeaway/pie-text-input/dist/react';
     value="">
 </PieTextInput>
 ```
+
+## Types
+The text input accepts a variety of values for the `type` property that can be used to control input behaviour. These are mostly standard HTML input types. For most use cases, the default type of `text` will be sufficient. It is important to note that setting a type of `number` will not guarantee preventing non-numeric characters from being entered. This is a browser behaviour and is the same for native HTML inputs. Some non-numeric characters that can be entered are `e`, `+`, `-`, and `.`.
+
+Whilst different types can affect the virtual keyboard on mobile devices, this can also be controlled using the `inputmode` property.
+
+If your application has specific formatting requirements and needs to control what characters can be entered by a user, or provide some form of auto formatting (such as adding spaces to a credit card number), you will need to handle this in your application code. You can listen to the `input` and `change` events emitted by the text input component to handle this.
 
 ## Slots usage
 
