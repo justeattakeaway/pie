@@ -149,10 +149,6 @@ You can provide icons or text to sit before or after the input value. If using t
 
 When providing icons to the `leadingIcon` or `trailingIcon` slots, ensure you are using the icon components from our web component [icon library](https://www.npmjs.com/package/@justeattakeaway/pie-icons-webc). Any other icons are not guaranteed to work, nor will they be supported.
 
-{% componentDetailsTable {
-  tableData: slots
-} %}
-
 #### HTML
 ```html
 <pie-text-input
