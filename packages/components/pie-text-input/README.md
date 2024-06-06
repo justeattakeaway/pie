@@ -33,11 +33,9 @@ To install `pie-text-input` in your application, run the following on your comma
 _Note: Versions of this component prior to v0.19.0 were named `pie-input`._
 
 ```bash
-# npm
-$ npm i @justeattakeaway/pie-text-input
+npm i @justeattakeaway/pie-text-input
 
-# yarn
-$ yarn add @justeattakeaway/pie-text-input
+yarn add @justeattakeaway/pie-text-input
 ```
 
 For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).

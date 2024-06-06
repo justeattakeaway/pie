@@ -20,11 +20,9 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-divider` in your application, run the following on your command line:
 
 ```bash
-# npm
-$ npm i @justeattakeaway/pie-divider
+npm i @justeattakeaway/pie-divider
 
-# yarn
-$ yarn add @justeattakeaway/pie-divider
+yarn add @justeattakeaway/pie-divider
 ```
 
 ## Documentation

@@ -26,13 +26,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-link` in your application, run the following on your command line:
 
 ```shell
-# npm
-$ npm i @justeattakeaway/pie-link
+npm i @justeattakeaway/pie-link
 ```
 
 ```shell
-# yarn
-$ yarn add @justeattakeaway/pie-link
+yarn add @justeattakeaway/pie-link
 ```
 
 {% notification {
@@ -47,7 +45,7 @@ $ yarn add @justeattakeaway/pie-link
   src="https://webc.pie.design/?path=/story/link--default&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="600px"
-  style="border: none; margin-top: 32px;"
+  style="border: none; margin-top: var(--dt-spacing-f);"
 ></iframe>
 
 ## Variants
@@ -56,7 +54,7 @@ $ yarn add @justeattakeaway/pie-link
   src="https://webc.pie.design/?path=/docs/link--variants&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="600px"
-  style="border: none; margin-top: 32px;"
+  style="border: none; margin-top: var(--dt-spacing-f);"
 ></iframe>
 
 ## Props
@@ -105,7 +103,7 @@ import '@justeattakeaway/pie-link'
 <script type="module" src="/main.js"></script>
 ```
 
-For Native JS Applications, Vue, Angular, Svelte etc.: 
+For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 // Vue templates (using Nuxt 3)

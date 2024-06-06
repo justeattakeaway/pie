@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.39.0
+
+### Minor Changes
+
+- [Changed] - `supportingAction` should only render if `leadingAction` is passed ([#1490](https://github.com/justeattakeaway/pie/pull/1490)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - The `isDismissible` control on Storybook should only be visible if `isCompact` is set to false
+
+  [Changed] - Simplified the logic of rendering default and named slot icons
+
+  [Changed] - Render a placeholder icon for stories
+
 ## 3.38.0
 
 ### Minor Changes

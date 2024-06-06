@@ -20,11 +20,9 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-chip` in your application, run the following on your command line:
 
 ```bash
-# npm
-$ npm i @justeattakeaway/pie-chip
+npm i @justeattakeaway/pie-chip
 
-# yarn
-$ yarn add @justeattakeaway/pie-chip
+yarn add @justeattakeaway/pie-chip
 ```
 
 ## Documentation

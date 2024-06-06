@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.24.1
+
+### Patch Changes
+
+- [Changed] - Minor package updates (typescript, babel, react) ([#1492](https://github.com/justeattakeaway/pie/pull/1492)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.24.0
 
 ### Minor Changes

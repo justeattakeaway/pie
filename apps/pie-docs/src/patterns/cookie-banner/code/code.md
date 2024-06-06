@@ -30,13 +30,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-cookie-banner` in your application, run the following on your command line:
 
 ```shell
-# npm
-$ npm i @justeattakeaway/pie-cookie-banner
+npm i @justeattakeaway/pie-cookie-banner
 ```
 
 ```shell
-# yarn
-$ yarn add @justeattakeaway/pie-cookie-banner
+yarn add @justeattakeaway/pie-cookie-banner
 ```
 
 {% notification {
@@ -51,7 +49,7 @@ $ yarn add @justeattakeaway/pie-cookie-banner
   src="https://webc.pie.design/?path=/story/cookie-banner--default&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="900px"
-  style="border: none; margin-top: 32px;"
+  style="border: none; margin-top: var(--dt-spacing-f);"
 ></iframe>
 
 
