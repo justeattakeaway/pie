@@ -372,8 +372,8 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             ${this.leadingAction?.text ? html`
                 <footer class="c-modal-footer"
                         data-test-id="pie-modal-footer">
-                    ${this.leadingAction ? this.renderLeadingAction() : nothing}
-                    ${this.supportingAction ? this.renderSupportingAction() : nothing}
+                    ${this.renderLeadingAction()}
+                    ${this.supportingAction?.text ? this.renderSupportingAction() : nothing}
                 </footer>` : nothing}`;
     }
 
