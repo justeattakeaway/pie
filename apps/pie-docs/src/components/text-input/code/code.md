@@ -270,10 +270,11 @@ const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 ```tsx
 // Very simplified example
 <form id="testForm" onSubmit={handleSubmit} novalidate>
-  <PieFormLabel htmlFor="favouriteNumber">
+  <PieFormLabel id="favouriteNumberLabel" for="favouriteNumber">
       Favourite Number:
   </PieFormLabel>
   <PieTextInput
+      aria-labelledby="favouriteNumberLabel"
       id="favouriteNumber"
       data-test-id="favouriteNumber"
       name="favouriteNumber"
@@ -316,7 +317,20 @@ Displaying success messages works in the same way, but with the `status` propert
 ```
 
 ### Labelling
-Please use the [form label](/components/form-label/) component for adding a label to the text input.
+Please use the [form label](/components/form-label/) component for adding a label to the text input. Similar to native HTML, the label should be a sibling of the input component and reference the input's `id` attribute using the `for` attribute.
+
+The usage of `aria-labelledby` is very important so that screenreaders will announce the label when the input is focused. This is especially important for users who rely on screen readers to navigate the web.
+
+```html
+<pie-form-label id="first-name-label" for="first-name">First name:</pie-form-label>
+<pie-text-input aria-labelledby="first-name-label" id="first-name" name="first-name"></pie-text-input>
+```
+
+If you do not need to use a visual label, you must still provide an `aria-label` attribute to the text input. This is important for screen reader users as it will announce the purpose of the input when it is focused, even if a visual label is not used.
+
+```html
+<pie-text-input aria-label="First name" name="first-name"></pie-text-input>
+```
 
 
 ## Changelog
