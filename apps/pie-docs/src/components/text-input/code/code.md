@@ -18,10 +18,9 @@ eleventyComputed:
   </a>
 </p>
 
+`pie-text-input` is a Web Component built with the Lit library, providing a simple and accessible text input for web applications.
 
-`pie-text-input` is a Web Component built using the Lit library. It offers a simple and accessible text input component for web applications.
-
-This component can be easily integrated into various frontend frameworks and customized through a set of properties.
+This component integrates easily with various frontend frameworks and can be customized through a set of properties.
 
 ## Installation
 
@@ -66,7 +65,7 @@ yarn add @justeattakeaway/pie-text-input
 
 {% notification {
   type: "warning",
-  message: "In React, the change event is similar to the input event. Our components follow the web standards definition of the change event, meaning it is fired when the element loses focus after its value has been changed. [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event)"
+  message: "In React, the change event is similar to the input event. Our components adhere to the web standards definition of the change event, which means it is triggered when the element loses focus after its value has been changed. [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event)"
 } %}
 
 {% componentDetailsTable {
@@ -137,17 +136,17 @@ import { PieTextInput } from '@justeattakeaway/pie-text-input/dist/react';
 ```
 
 ## Types
-The text input accepts a variety of values for the `type` property that can be used to control input behaviour. These are mostly standard HTML input types. For most use cases, the default type of `text` will be sufficient. It is important to note that setting a type of `number` will not guarantee preventing non-numeric characters from being entered. This is a browser behaviour and is the same for native HTML inputs. Some non-numeric characters that can be entered are `e`, `+`, `-`, and `.`.
+The text input accepts various values for the `type` property, allowing control over input behavior. These are mostly standard HTML input types. For most use cases, the default type of `text` will suffice. It is important to note that setting the type to `number` does not guarantee the prevention of non-numeric characters being entered. This behavior, which is consistent with native HTML inputs, allows some non-numeric characters such as `e`,`+`, `-`, and `.`.
 
-Whilst different types can affect the virtual keyboard on mobile devices, this can also be controlled using the `inputmode` property.
+While different types can influence the virtual keyboard on mobile devices, this can also be controlled using the `inputmode` property.
 
-If your application has specific formatting requirements and needs to control what characters can be entered by a user, or provide some form of auto formatting (such as adding spaces to a credit card number), you will need to handle this in your application code. You can listen to the `input` and `change` events emitted by the text input component to handle this.
+If your application requires specific formatting and needs to control which characters can be entered, or if you need to provide auto-formatting (such as adding spaces to a credit card number), you will need to handle this in your application code. You can listen to the `input` and `change` events emitted by the text input component to manage these requirements.
 
 ## Slots usage
 
-You can provide icons or text to sit before or after the input value. If using the `leadingText` or `trailingText` slots, wrap the text in a `<span>` and do not add more than 2-3 characters at most. Do not use `leadingText` with `leadingIcon` or `trailingText` with `trailingIcon` at the same time.
+You can provide icons or text to sit before or after the input value. When using the `leadingText` or `trailingText` slots, wrap the text in a `<span>` and limit it to 2-3 characters at most. Do not use `leadingText` with `leadingIcon` or `trailingText` with `trailingIcon` simultaneously.
 
-When providing icons to the `leadingIcon` or `trailingIcon` slots, ensure you are using the icon components from our web component [icon library](https://www.npmjs.com/package/@justeattakeaway/pie-icons-webc). Any other icons are not guaranteed to work, nor will they be supported.
+For icons in the `leadingIcon` or `trailingIcon` slots, ensure you use the icon components from our web component [icon library](https://www.npmjs.com/package/@justeattakeaway/pie-icons-webc). Other icons are not guaranteed to work and will not be supported.
 
 #### HTML
 ```html
@@ -197,10 +196,10 @@ When providing icons to the `leadingIcon` or `trailingIcon` slots, ensure you ar
   message: "For general guidance on using our web components within forms, see [our wiki page](https://github.com/justeattakeaway/pie/wiki/Form-Controls#pie-forms-usage)."
 } %}
 
-It is essential that when using the text input inside of a form that you provide a `name` attribute. HTML forms create key/value pairs for input data based on the `name` attribute. This is essential for native form submission.
+It is essential that when using the text input inside of a form, you provide a `name` attribute. HTML forms create key/value pairs for input data based on the `name` attribute, which is crucial for native form submission.
 
 ### Validation
-The text input component utilises the [constraint validation API](https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation) to provide a queryable validity state for consumers. This means that the component's validity can be checked via a `validity` getter.
+The text input component utilizes the [constraint validation API](https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation) to provide a queryable validity state for consumers. This means that the component's validity can be checked via a `validity` getter.
 
 #### Example:
 ```js
@@ -208,7 +207,7 @@ const textInput = document.querySelector('pie-text-input');
 console.log(textInput.validity.valid);
 ```
 
-This getter can be useful for reducing the amount of validation code in your application. For example, say we want to create a text input that should be at least 2 characters long, at most 5 characters long and requires a value. We can set the `minlength`, `maxlength` and `required` attributes on the component and then check the validity of the input in our application code:
+This getter can be useful for reducing the amount of validation code in your application. For example, if you want to create a text input that should be at least 2 characters long, at most 5 characters long, and requires a value, you can set the `minlength`, `maxlength`, and `required` properties on the component. You can then check the validity of the input in your application code:
 
 ```html
 <pie-text-input
@@ -230,8 +229,7 @@ if (!isValid) {
 }
 ```
 
-These concepts work just as well inside of a Vue or React application. Below is a similar implementation for validating a number input in a React application.
-
+These concepts work just as well inside a Vue or React application. Below is a similar implementation for validating a number input in a React application.
 
 {% notification {
   type: "information",
@@ -318,7 +316,7 @@ Displaying success messages works in the same way, but with the `status` propert
 ### Labelling
 Please use the [form label](/components/form-label/) component for adding a label to the text input. Similar to native HTML, the label should be a sibling of the input component and reference the input's `id` attribute using the `for` attribute.
 
-The usage of `aria-labelledby` is very important so that screenreaders will announce the label when the input is focused. This is especially important for users who rely on screen readers to navigate the web.
+The usage of `aria-labelledby` is very important so that screen readers will announce the label when the input is focused. This is especially important for users who rely on screen readers to navigate the web.
 
 ```html
 <pie-form-label id="first-name-label" for="first-name">First name:</pie-form-label>
