@@ -30,11 +30,9 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-checkbox` in your application, run the following on your command line:
 
 ```bash
-# npm
-$ npm i @justeattakeaway/pie-checkbox
+npm i @justeattakeaway/pie-checkbox
 
-# yarn
-$ yarn add @justeattakeaway/pie-checkbox
+yarn add @justeattakeaway/pie-checkbox
 ```
 
 For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).

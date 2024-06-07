@@ -29,11 +29,9 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-form-label` in your application, run the following on your command line:
 
 ```bash
-# npm
-$ npm i @justeattakeaway/pie-form-label
+npm i @justeattakeaway/pie-form-label
 
-# yarn
-$ yarn add @justeattakeaway/pie-form-label
+yarn add @justeattakeaway/pie-form-label
 ```
 
 For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).

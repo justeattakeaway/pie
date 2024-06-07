@@ -62,7 +62,7 @@
   "devDependencies": {
     "@axe-core/playwright": "4.7.3",
     "@babel/cli": "7.24.6",
-    "@babel/core": "7.24.6",
+    "@babel/core": "7.24.7",
     "@babel/eslint-parser": "7.24.6",
     "@babel/node": "7.24.6",
     "@babel/preset-env": "7.24.6",
@@ -76,7 +76,7 @@
     "@justeattakeaway/generator-pie-component": "0.21.0",
     "@justeattakeaway/pie-icons": "4.18.0",
     "@justeattakeaway/pie-webc-testing": "0.13.0",
-    "@justeattakeaway/pie-wrapper-react": "0.14.0",
+    "@justeattakeaway/pie-wrapper-react": "0.14.1",
     "@justeattakeaway/stylelint-config-pie": "0.7.0",
     "@percy/cli": "1.26.3",
     "@percy/playwright": "1.0.4",

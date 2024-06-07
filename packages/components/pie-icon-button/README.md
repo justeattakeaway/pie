@@ -20,11 +20,9 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-icon-button` in your application, run the following on your command line:
 
 ```bash
-# npm
-$ npm i @justeattakeaway/pie-icon-button
+npm i @justeattakeaway/pie-icon-button
 
-# yarn
-$ yarn add @justeattakeaway/pie-icon-button
+yarn add @justeattakeaway/pie-icon-button
 ```
 
 ## Documentation

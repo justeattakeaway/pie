@@ -26,13 +26,11 @@ This component can be easily integrated into a variety of frontend frameworks (o
 To install `pie-card` in your application, run one of the following on your command line:
 
 ```shell
-# yarn
-$ yarn add @justeattakeaway/pie-card
+yarn add @justeattakeaway/pie-card
 ```
 
 ```shell
-# npm
-$ npm i @justeattakeaway/pie-card
+npm i @justeattakeaway/pie-card
 ```
 
 {% notification {
@@ -47,7 +45,7 @@ $ npm i @justeattakeaway/pie-card
   src="https://webc.pie.design/?path=/story/card--default&viewMode=story&shortcuts=false&singleStory=true"
   width="100%",
   height="600px"
-  style="border: none; margin-top: 32px;"
+  style="border: none; margin-top: var(--dt-spacing-f);"
 ></iframe>
 
 ## Props

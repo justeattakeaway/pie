@@ -27,13 +27,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-modal` in your application, run the following on your command line:
 
 ```shell
-# npm
-$ npm i @justeattakeaway/pie-modal
+npm i @justeattakeaway/pie-modal
 ```
 
 ```shell
-# yarn
-$ yarn add @justeattakeaway/pie-modal
+yarn add @justeattakeaway/pie-modal
 ```
 
 {% notification {
@@ -50,7 +48,7 @@ $ yarn add @justeattakeaway/pie-modal
   src="https://webc.pie.design/?path=/story/modal--default&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="600px"
-  style="border: none; margin-top: 32px;"
+  style="border: none; margin-top: var(--dt-spacing-f);"
 ></iframe>
 
 ---

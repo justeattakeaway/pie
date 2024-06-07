@@ -20,11 +20,9 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-tag` in your application, run the following on your command line:
 
 ```bash
-# npm
-$ npm i @justeattakeaway/pie-tag
+npm i @justeattakeaway/pie-tag
 
-# yarn
-$ yarn add @justeattakeaway/pie-tag
+yarn add @justeattakeaway/pie-tag
 ```
 
 ## Documentation
