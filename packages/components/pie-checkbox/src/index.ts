@@ -7,7 +7,6 @@ import {
     wrapNativeEvent,
     FormControlMixin,
 } from '@justeattakeaway/pie-webc-core';
-import { live } from 'lit/directives/live.js';
 import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
@@ -36,7 +35,10 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     public name?: CheckboxProps['name'];
 
     @property({ type: Boolean, reflect: true })
-    public checked = defaultProps.checked;
+    public checked: CheckboxProps['checked'] = defaultProps.checked;
+
+    @property({ type: Boolean, reflect: true })
+    public defaultChecked: CheckboxProps['defaultChecked'] = defaultProps.defaultChecked;
 
     @property({ type: Boolean, reflect: true })
     public disabled?: CheckboxProps['disabled'];
@@ -51,7 +53,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     public aria: CheckboxProps['aria'];
 
     @query('input[type="checkbox"]')
-    private checkbox?: HTMLInputElement;
+    public checkbox!: HTMLInputElement;
 
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.
@@ -65,7 +67,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
      * Ensures that the form value is in sync with the component.
      */
     private handleFormAssociation () : void {
-        const isFormAssociated = !!this._internals.form && !!this.name;
+        const isFormAssociated = !!this.form && !!this.name;
         if (isFormAssociated) {
             this._internals.setFormValue(this.checked ? this.value : null);
         }
@@ -108,6 +110,16 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
         this.handleFormAssociation();
     }
 
+    /**
+     * Called when the form that owns this component is reset.
+     * Sets the checked state to the default value.
+     */
+    public formResetCallback () : void {
+        this.checked = !!this.defaultChecked;
+
+        this.handleFormAssociation();
+    }
+
     render () {
         const {
             checked,
@@ -125,11 +137,11 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             <input
                 type="checkbox"
                 .value=${value}
-                ?checked=${live(checked)}
+                .checked=${!!checked}
                 name=${ifDefined(name)}
                 ?disabled=${disabled}
                 ?required=${required}
-                .indeterminate=${indeterminate}
+                .indeterminate=${!!indeterminate}
                 aria-label=${aria?.label || nothing}
                 aria-labelledby=${label ? nothing : aria?.labelledby || nothing}
                 aria-describedby= ${aria?.describedby || nothing}

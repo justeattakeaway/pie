@@ -13,10 +13,11 @@ type CheckboxStoryMeta = StoryMeta<CheckboxProps>;
 
 const defaultArgs: CheckboxProps = {
     ...defaultProps,
-    name: '',
+    name: 'name',
     label: 'Label',
-    disabled: false,
     checked: false,
+    defaultChecked: false,
+    disabled: false,
     indeterminate: false,
     required: false,
     aria: {
@@ -34,6 +35,7 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
             description: 'The value of the checkbox (used as a key/value pair in HTML forms with `name`).',
             control: 'text',
         },
+
         name: {
             description: 'The name of the checkbox (used as a key/value pair with `value`). This is required in order to work properly with forms.',
             control: 'text',
@@ -41,6 +43,7 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
                 summary: defaultArgs.name,
             },
         },
+
         label: {
             description: 'The visible label for the checkbox',
             control: 'text',
@@ -48,13 +51,23 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
                 summary: defaultArgs.label,
             },
         },
+
         checked: {
-            description: 'Indicates whether or not the checkbox is checked.',
+            description: 'The checked state of the checkbox.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultArgs.checked,
             },
         },
+
+        defaultChecked: {
+            description: 'The default checked state of the checkbox.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultArgs.defaultChecked,
+            },
+        },
+
         disabled: {
             description: 'If true, disables the checkbox.',
             control: 'boolean',
@@ -62,11 +75,12 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
                 summary: defaultArgs.disabled,
             },
         },
+
         indeterminate: {
             description: 'Indicates whether the checkbox visually shows a horizontal line in the box instead of a check/tick. It has no impact on whether the checkbox\'s value is used in a form submission. That is decided by the checked state, regardless of the indeterminate state.',
             control: 'boolean',
             defaultValue: {
-                summary: defaultProps.indeterminate,
+                summary: defaultArgs.indeterminate,
             },
         },
 
@@ -74,7 +88,7 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
             description: 'If true, the checkbox must be checked for the form to be submittable.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultArgs.required,
             },
         },
 
@@ -99,6 +113,7 @@ const Template = ({
     name,
     label,
     checked,
+    defaultChecked,
     disabled,
     indeterminate,
     required,
@@ -112,10 +127,11 @@ const Template = ({
 
     return html`
         <pie-checkbox
-            .value="${ifDefined(value)}"
+            .value="${value}"
             name="${ifDefined(name)}"
             label="${ifDefined(label)}"
             ?checked="${checked}"
+            ?defaultChecked="${defaultChecked}"
             ?disabled="${disabled}"
             ?indeterminate="${indeterminate}"
             ?required="${required}"
@@ -129,6 +145,7 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
     value,
     name,
     checked,
+    defaultChecked,
     disabled,
     indeterminate,
     required,
@@ -143,10 +160,11 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
     return html`
     <form id="testForm">
         <pie-checkbox
-            .value="${ifDefined(value)}"
+            .value="${value}"
             name="${ifDefined(name)}"
             label="Pie Checkbox"
             ?checked="${checked}"
+            ?defaultChecked="${defaultChecked}"
             ?disabled="${disabled}"
             ?indeterminate="${indeterminate}"
             ?required="${required}"
