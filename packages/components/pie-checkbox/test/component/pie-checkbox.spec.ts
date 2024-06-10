@@ -341,6 +341,73 @@ test.describe('PieCheckbox - Component tests', () => {
                 expect(messages.length).toEqual(1);
                 expect(messages).toStrictEqual(expectedMessages);
             });
+
+            test('should dispatch a change event when inside a form which is reset', async ({ page }) => {
+                // Arrange
+                await page.setContent(`
+                    <form id="testForm" action="/foo" method="POST">
+                        <pie-checkbox name="testName" checked></pie-checkbox>
+                        <button type="reset">Reset</button>
+                    </form>
+                    <div id="eventsContainer"></div>
+                `);
+
+                await page.evaluate(() => {
+                    const checkbox = document.querySelector('pie-checkbox') as PieCheckbox;
+                    const eventsContainer = document.querySelector('#eventsContainer') as HTMLDivElement;
+
+                    checkbox.addEventListener('change', () => {
+                        const el = document.createElement('div');
+                        el.innerText = 'change event fired';
+                        eventsContainer.appendChild(el);
+                    });
+                });
+
+                // Act
+                await page.click('button[type="reset"]');
+
+                const eventElements = await page.evaluate(() => {
+                    const events = document.querySelectorAll('#eventsContainer > div');
+                    return Array.from(events).map((el) => el.innerHTML);
+                });
+
+                // Assert
+                expect(eventElements).toHaveLength(1);
+                expect(eventElements[0]).toBe('change event fired');
+            });
+
+            test('should not dispatch a change event when inside a form which is reset if the value has not changed', async ({ page }) => {
+                // Arrange
+                await page.setContent(`
+                    <form id="testForm" action="/foo" method="POST">
+                        <pie-checkbox name="testName" checked defaultChecked></pie-checkbox>
+                        <button type="reset">Reset</button>
+                    </form>
+                    <div id="eventsContainer"></div>
+                `);
+
+                await page.evaluate(() => {
+                    const checkbox = document.querySelector('pie-checkbox') as PieCheckbox;
+                    const eventsContainer = document.querySelector('#eventsContainer') as HTMLDivElement;
+
+                    checkbox.addEventListener('change', () => {
+                        const el = document.createElement('div');
+                        el.innerText = 'change event fired';
+                        eventsContainer.appendChild(el);
+                    });
+                });
+
+                // Act
+                await page.click('button[type="reset"]');
+
+                const eventElements = await page.evaluate(() => {
+                    const events = document.querySelectorAll('#eventsContainer > div');
+                    return Array.from(events).map((el) => el.innerHTML);
+                });
+
+                // Assert
+                expect(eventElements).toHaveLength(0);
+            });
         });
     });
 
