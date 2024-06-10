@@ -27,7 +27,7 @@ export interface CheckboxProps {
     disabled?: boolean;
 
     /**
-     * The default checked state of the checkbox.
+     * The default checked state of the checkbox (not necessarily the same as the current checked state).
      */
     defaultChecked?: boolean;
 

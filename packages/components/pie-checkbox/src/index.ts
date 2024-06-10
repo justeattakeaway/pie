@@ -112,18 +112,19 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     }
 
     /**
-     * Called when the form that owns this component is reset.
-     * Sets the checked state to the default value.
+     * Called when the form that contains this component is reset.
+     * If the current checked state is different to the default checked state,
+     * the checked state is reset to the default checked state and a `change` event is emitted.
      */
     public formResetCallback () : void {
-        const oldValue = this.checked;
+        if (this.checked === this.defaultChecked) {
+            return;
+        }
+
         this.checked = this.defaultChecked;
 
-        // If the value has changed as part of the reset, emit a change event
-        if (oldValue !== this.checked) {
-            const changeEvent = new Event('change', { bubbles: true, composed: true });
-            this.dispatchEvent(changeEvent);
-        }
+        const changeEvent = new Event('change', { bubbles: true, composed: true });
+        this.dispatchEvent(changeEvent);
 
         this.handleFormAssociation();
     }

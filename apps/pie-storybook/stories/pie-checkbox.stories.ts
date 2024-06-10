@@ -61,7 +61,7 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
         },
 
         defaultChecked: {
-            description: 'The default checked state of the checkbox.',
+            description: 'The default checked state of the checkbox (not necessarily the same as the current checked state). Used when the checkbox is part of a form that is reset.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultArgs.defaultChecked,
