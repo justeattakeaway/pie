@@ -35,10 +35,10 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     public name?: CheckboxProps['name'];
 
     @property({ type: Boolean, reflect: true })
-    public checked: CheckboxProps['checked'] = defaultProps.checked;
+    public checked = defaultProps.checked;
 
     @property({ type: Boolean, reflect: true })
-    public defaultChecked: CheckboxProps['defaultChecked'] = defaultProps.defaultChecked;
+    public defaultChecked = defaultProps.defaultChecked;
 
     @property({ type: Boolean, reflect: true })
     public disabled?: CheckboxProps['disabled'];
@@ -115,7 +115,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
      * Sets the checked state to the default value.
      */
     public formResetCallback () : void {
-        this.checked = !!this.defaultChecked;
+        this.checked = this.defaultChecked;
 
         this.handleFormAssociation();
     }
@@ -137,7 +137,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             <input
                 type="checkbox"
                 .value=${value}
-                .checked=${!!checked}
+                .checked=${checked}
                 name=${ifDefined(name)}
                 ?disabled=${disabled}
                 ?required=${required}
