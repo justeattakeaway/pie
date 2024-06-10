@@ -690,9 +690,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/cli@npm:7.24.6":
-  version: 7.24.6
-  resolution: "@babel/cli@npm:7.24.6"
+"@babel/cli@npm:7.24.7":
+  version: 7.24.7
+  resolution: "@babel/cli@npm:7.24.7"
   dependencies:
     "@jridgewell/trace-mapping": ^0.3.25
     "@nicolo-ribaudo/chokidar-2": 2.1.8-no-fsevents.3
@@ -713,7 +713,7 @@ __metadata:
   bin:
     babel: ./bin/babel.js
     babel-external-helpers: ./bin/babel-external-helpers.js
-  checksum: b0c9c335737e635b96695d1b26bd86afbbb2203173d6c49861f970641be8c0b6cf8022aeddb1ea3e81078e9fbb0614e8f90c8c6566fef55049c0ac5645fc019f
+  checksum: 40dfde8062de913dc5bb1c65a4d4e88ec2c438f16387c5552b1f8b0524f8af454c3b7bf12364ca0da8509c5edafdabc1527a939587678dc7825659c38d357c1d
   languageName: node
   linkType: hard
 
@@ -869,9 +869,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/eslint-parser@npm:7.24.6":
-  version: 7.24.6
-  resolution: "@babel/eslint-parser@npm:7.24.6"
+"@babel/eslint-parser@npm:7.24.7":
+  version: 7.24.7
+  resolution: "@babel/eslint-parser@npm:7.24.7"
   dependencies:
     "@nicolo-ribaudo/eslint-scope-5-internals": 5.1.1-v1
     eslint-visitor-keys: ^2.1.0
@@ -879,7 +879,7 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.11.0
     eslint: ^7.5.0 || ^8.0.0 || ^9.0.0
-  checksum: 90fa58eef884c0a480fc51c0ed8e56f04c5b4dc7656066d1f994b4bea1a546173d82551fc98996bb2b203bfb32fa4e8c4b7b5d8a03b0bec51665d1382813dfbe
+  checksum: 0e08ccecfe48cf9dacd96fb46747014b9c3683882ae6886a17a666533f0d5e99b61e31e3992ffee0efc67d805ae8be9b2a6342ce5d66a36de8d99d88c9a244a0
   languageName: node
   linkType: hard
 
@@ -30324,9 +30324,9 @@ __metadata:
   resolution: "pie-monorepo@workspace:."
   dependencies:
     "@axe-core/playwright": 4.7.3
-    "@babel/cli": 7.24.6
+    "@babel/cli": 7.24.7
     "@babel/core": 7.24.7
-    "@babel/eslint-parser": 7.24.6
+    "@babel/eslint-parser": 7.24.7
     "@babel/node": 7.24.6
     "@babel/preset-env": 7.24.6
     "@babel/register": 7.24.6
