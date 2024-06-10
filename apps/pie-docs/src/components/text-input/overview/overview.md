@@ -134,8 +134,6 @@ Use when a text input requires a card number to be entered, and reflect the card
 
 ### Type
 
-Use when text input requires clarification of the input format, such as a symbol or unit of measure.
-
 {% contentLayout %}
   {% contentItem %}
     <h4>Placeholder</h4>
@@ -296,16 +294,16 @@ If the string exceeds its available visible bound, the content overflows to the 
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/overflow-left.svg",
+      src: "../../../assets/img/components/text-input/overflow-right.svg",
       width: "256px",
-      alt: "Text input content overflows to the left."
+      alt: "Text input content overflows to the right."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/overflow-right.svg",
+      src: "../../../assets/img/components/text-input/overflow-left.svg",
       width: "256px",
-      alt: "Text input content overflows to the right."
+      alt: "Text input content overflows to the left."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -315,6 +313,8 @@ If the string exceeds its available visible bound, the content overflows to the 
 ## Behavior
 
 ### Assistive text
+
+If space is limited, long assistive text may wrap to multiple lines, especially if there are multiple text inputs sitting side by side. Every text input should have its own assistive text, even if the content is identical.
 
 {% contentPageImage {
     src:"../../../assets/img/components/text-input/behaviour-assistivetext.svg",
@@ -373,7 +373,8 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/text-input/interactivestates-disabled.svg",
       width: "256px",
-      alt: "Interactive state example when input is disabled."
+      alt: "Interactive state example when input is disabled.",
+      variant: "secondary"
     } %}
   {% endcontentItem %}
   {% contentItem %}
