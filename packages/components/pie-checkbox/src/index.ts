@@ -7,6 +7,7 @@ import {
     wrapNativeEvent,
     FormControlMixin,
 } from '@justeattakeaway/pie-webc-core';
+import { live } from 'lit/directives/live.js';
 import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
@@ -137,7 +138,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             <input
                 type="checkbox"
                 .value=${value}
-                .checked=${checked}
+                .checked=${live(checked)}
                 name=${ifDefined(name)}
                 ?disabled=${disabled}
                 ?required=${required}
