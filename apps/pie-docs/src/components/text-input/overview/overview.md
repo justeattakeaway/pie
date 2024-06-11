@@ -52,7 +52,7 @@ Text inputs are fundamental elements used in forms, login screens and any user i
         "**String:** Placeholder or user inputted value.",
         "**Leading content (optional):** An icon, text, or symbol that is used to visually support the input. It is displayed before the input’s value. ",
         "**Trailing content (optional):** An icon, text, or symbol that is used to visually support the input. It is displayed after the input's value.",
-        "**Assistive text (optional):** The [assistive text](components/assistive-text/) provides additional instructional information / error / success messaging."
+        "**Assistive text (optional):** The [assistive text](/components/assistive-text/) provides additional instructional information / error / success messaging."
     ]
 } %}
 
@@ -62,7 +62,7 @@ Text inputs are fundamental elements used in forms, login screens and any user i
 
 ### Leading and trailing content
 
-An icon, text, or symbol can be added to visually support the input. Leading & trailing content can be combined depending on the use-case.
+An icon, text, or symbol can be added to visually support the input. Leading and trailing content can be combined depending on the use-case.
 
 #### Icon
 
@@ -84,7 +84,7 @@ An icon, text, or symbol can be added to visually support the input. Leading & t
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <p>Use both leading & trailing icons when none-interactive and interactive icons are required.</p>
+    <p>Use both leading and trailing icons when non-interactive and interactive icons are required.</p>
     {% contentPageImage {
       src: "../../../assets/img/components/text-input/modifiers-both-icons.svg",
       width: "256px",
@@ -196,7 +196,7 @@ Use a consistent text input height when it is being used alongside other form co
 ### Width
 
 Use the field width to set the users’ expectations, this can help us communicate how much input is required. For example, if a field should only have 5 characters, a full width field would not be suitable.
-When used in a form, all text input widths should be aligned.
+In forms, aim to standardise widths for text inputs to enhance readability for users.
 
 {% contentLayout %}
   {% contentItem %}
@@ -252,7 +252,7 @@ Use clear placeholder text for the text input trigger so that users understand t
   {% endcontentItem %}
   {% contentItem %}
     <h4>Password</h4>
-    <p>Both letters and number are replaced with dots that hide password text by default.</p>
+    <p>Characters are replaced with dots that hide the password text by default.</p>
     {% contentPageImage {
       src: "../../../assets/img/components/text-input/content-inputtypes-password.svg",
       width: "256px",
@@ -277,7 +277,7 @@ We support several types of numeric date formats in engineering. The position of
 #### Card number
 
 Specifically for card number entry, the card number is displayed in groups of 4 digits. A space appears automatically after the user has entered 4 digits.
-The user can enter a maximum of 16 digits.
+The user can enter a maximum of 19 digits.
 
 {% contentPageImage {
     src:"../../../assets/img/components/text-input/content-formatting-cardnumber.svg",
@@ -326,7 +326,7 @@ If space is limited, long assistive text may wrap to multiple lines, especially 
 
 {% notification {
   type: "warning",
-  message: "This is the suggested pattern for development, this functionality, if required is handled by pillar engineers'."
+  message: "This is the suggested pattern for development. This functionality, if required, is handled by pillar engineers."
 } %}
 
 When using the payment method, the specific card icon will appear as soon as the system detects the type of card entered by the user.
@@ -403,11 +403,11 @@ Outlines the atomic level interactive elements for the component.
 
 ### LTR examples
 
-Here are some examples of Buttons in left-to-right context:
+Here are some examples of text inputs in a left-to-right context:
 
 {% contentPageImage {
     src:"../../../assets/img/components/text-input/examples-LTR-default.svg",
-    alt: "Default example layout with left-to-right text alignment.",
+    alt: "Default example layout with left-to-right text direction.",
     width: "333px"
 } %}
 
@@ -416,35 +416,35 @@ Here are some examples of Buttons in left-to-right context:
     {% contentPageImage {
       src: "../../../assets/img/components/text-input/examples-LTR-password.svg",
       width: "256px",
-      alt: "Password input example with left-to-right text alignment."
+      alt: "Password input example with left-to-right text direction."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/text-input/examples-LTR-date.svg",
       width: "112px",
-      alt: "Date selection example with left-to-right text alignment."
+      alt: "Date selection example with left-to-right text direction."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/text-input/examples-LTR-search.svg",
       width: "256px",
-      alt: "Search bar example with left-to-right text alignment."
+      alt: "Search bar example with left-to-right text direction."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/text-input/examples-LTR-phone.svg",
       width: "256px",
-      alt: "Phone number input example with left-to-right text alignment."
+      alt: "Phone number input example with left-to-right text direction."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
 
 ### RTL examples
 
-Here are some examples of Buttons in right-to-left context:
+Here are some examples of text inputs in a right-to-left context:
 
 {% contentPageImage {
     src:"../../../assets/img/components/text-input/examples-RTL-default.svg",
