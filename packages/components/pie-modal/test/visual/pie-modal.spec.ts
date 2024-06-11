@@ -5,6 +5,7 @@ import { PieModal } from '../../src/index.ts';
 import { ModalProps, sizes, positions } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-modal"]';
+const componentFooterSelector = '[data-test-id="pie-modal-footer"]';
 
 sizes.forEach((size) => {
     test(`should render correctly with size = ${size}`, async ({ page, mount }) => {
@@ -266,6 +267,25 @@ test.describe('Prop: `leadingAction`', () => {
 
             await percySnapshot(page, 'Modal displays leadingAction');
         });
+
+        test('should display modal footer', async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    isOpen: true,
+                    leadingAction: {
+                        text: 'Confirm',
+                        variant: 'primary',
+                        ariaLabel: 'Confirmation text',
+                    },
+                } as ModalProps,
+            });
+
+            const modal = page.locator(componentFooterSelector);
+            await expect.soft(modal).toBeVisible();
+
+            await percySnapshot(page, 'Modal displays modal footer');
+        });
     });
 
     test.describe('when prop is provided but the optional child properties of `leadingAction` are not provided', () => {
@@ -347,6 +367,49 @@ test.describe('Prop: `supportingAction`', () => {
             await expect.soft(modal).toBeVisible();
 
             await percySnapshot(page, 'Modal displays supportingAction alongside leadingAction');
+        });
+
+        test('should display modal footer if `LeadingAction` is provided alongside `supportingAction`', async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    isOpen: true,
+                    leadingAction: {
+                        text: 'Confirm',
+                        variant: 'primary',
+                        ariaLabel: 'Confirmation text',
+                    },
+                    supportingAction: {
+                        text: 'Cancel',
+                        variant: 'ghost',
+                        ariaLabel: 'Cancellation text',
+                    },
+                } as ModalProps,
+            });
+
+            const modal = page.locator(componentFooterSelector);
+            await expect.soft(modal).toBeVisible();
+
+            await percySnapshot(page, 'Modal displays footer');
+        });
+
+        test('should not display modal footer if only `supportingAction` is provided', async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    isOpen: true,
+                    supportingAction: {
+                        text: 'Cancel',
+                        variant: 'ghost',
+                        ariaLabel: 'Cancellation text',
+                    },
+                } as ModalProps,
+            });
+
+            const modal = page.locator(componentFooterSelector);
+            await expect.soft(modal).not.toBeVisible();
+
+            await percySnapshot(page, 'Modal displays footer');
         });
 
         test.describe('when prop is provided but the optional child properties of `supportingAction` are not provided', () => {
@@ -438,6 +501,24 @@ test.describe('Prop: `supportingAction`', () => {
             await expect.soft(modal).toBeVisible();
 
             await percySnapshot(page, 'Modal will not render `supportingAction` when `leadingAction` is not supplied');
+        });
+    });
+});
+
+test.describe('Modal Footer', () => {
+    test.describe('when `leadingAction` or `supportingAction` props are not provided', () => {
+        test('should not render the modal footer', async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    isOpen: true,
+                } as ModalProps,
+            });
+
+            const modal = page.locator(componentFooterSelector);
+            await expect.soft(modal).not.toBeVisible();
+
+            await percySnapshot(page, 'Modal does not display footer');
         });
     });
 });
