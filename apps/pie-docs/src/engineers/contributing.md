@@ -10,18 +10,7 @@ description: In this section you’ll find everything you need to know about con
 
 ### How can I get in contact with the Design System team?
 
-You can reach out to us on one of our Slack channels (JET employees only):
-- **#help-designsystem**
-- **#guild-designsystem**
-- **#guild-frontend**
-- **#guild-accessibility**
-
-We also run a [PIE engineering clinic](https://calendly.com/jetpie/engineering-clinics) every other Tuesday where you can book a slot to speak to one of our engineers.
-
-{% notification {
-type: "information",
-message: "The booking link for the PIE clinic goes live the day before each session."
-} %}
+You can reach out to us on our Slack channel **#help-designsystem** or [speak to the Design System team](/support/contact-us) and we can support you.
 
 ---
 
@@ -38,21 +27,27 @@ You can take a look at our Storybook instances:
 {% card {
   items: [
         {
+          linkText: "Web Components",
+          href: "https://webc.pie.design/",
+          src: "../../assets/img/engineers/webComponents.png",
+          shouldOpenInNewTab: true
+        },
+        {
           linkText: "Vue",
           href: "https://vue.pie.design/",
-          src: "../../assets/img/engineers/vue@2x.png",
+          src: "../../assets/img/engineers/vue.png",
           shouldOpenInNewTab: true
         },
         {
           linkText: "React for Takeaway.com",
           href: "https://snacks.takeaway.com/",
-          src: "../../assets/img/engineers/react@2x.png",
+          src: "../../assets/img/engineers/react.png",
           shouldOpenInNewTab: true
         },
         {
           linkText: "React for SkipTheDishes",
           href: "https://react.pie.design/",
-          src: "../../assets/img/engineers/react@2x.png",
+          src: "../../assets/img/engineers/react.png",
           shouldOpenInNewTab: true
         }
     ]
