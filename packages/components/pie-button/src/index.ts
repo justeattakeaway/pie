@@ -209,7 +209,8 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
         return html`
                     <pie-spinner
                         size="${spinnerSize}"
-                        variant="${spinnerVariant}">
+                        variant="${spinnerVariant}"
+                        test-id="test-change">
                     </pie-spinner>`;
     }
 
