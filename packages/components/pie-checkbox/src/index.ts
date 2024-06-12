@@ -54,7 +54,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     public aria: CheckboxProps['aria'];
 
     @query('input[type="checkbox"]')
-    public checkbox!: HTMLInputElement;
+    private checkbox!: HTMLInputElement;
 
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.

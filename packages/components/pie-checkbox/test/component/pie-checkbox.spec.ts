@@ -87,20 +87,18 @@ test.describe('PieCheckbox - Component tests', () => {
         });
 
         test.describe('checked', () => {
-            test('should default to false', async ({ mount, page }) => {
+            test('should default to false', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieCheckbox, {});
 
                 // Act
                 const checkbox = component.locator(componentSelector);
-                const isChecked = await page.evaluate(() => document.querySelector('pie-checkbox')?.checkbox?.checked);
 
                 // Assert
                 expect(await checkbox.isChecked()).toBe(false);
-                expect(isChecked).toBe(false);
             });
 
-            test('should be unchecked if the checked prop is false', async ({ mount, page }) => {
+            test('should be unchecked if the checked prop is false', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieCheckbox, {
                     props: {
@@ -110,14 +108,12 @@ test.describe('PieCheckbox - Component tests', () => {
 
                 // Act
                 const checkbox = component.locator(componentSelector);
-                const isChecked = await page.evaluate(() => document.querySelector('pie-checkbox')?.checkbox?.checked);
 
                 // Assert
                 expect(await checkbox.isChecked()).toBe(false);
-                expect(isChecked).toBe(false);
             });
 
-            test('should be checked if the checked prop is true', async ({ mount, page }) => {
+            test('should be checked if the checked prop is true', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieCheckbox, {
                     props: {
@@ -127,11 +123,9 @@ test.describe('PieCheckbox - Component tests', () => {
 
                 // Act
                 const checkbox = component.locator(componentSelector);
-                const isChecked = await page.evaluate(() => document.querySelector('pie-checkbox')?.checkbox?.checked);
 
                 // Assert
                 expect(await checkbox.isChecked()).toBe(true);
-                expect(isChecked).toBe(true);
             });
         });
 
