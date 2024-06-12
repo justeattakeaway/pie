@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.43.0
+
+### Minor Changes
+
+- [Fixed] Footer padding issue when no leading action ([#1508](https://github.com/justeattakeaway/pie/pull/1508)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.42.8
 
 ### Patch Changes
