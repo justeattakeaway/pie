@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-modal",
-  "version": "0.42.8",
+  "version": "0.43.0",
   "description": "PIE design system modal built using web components",
   "type": "module",
   "main": "dist/index.js",
