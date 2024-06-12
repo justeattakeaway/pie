@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.5.0
+
+### Minor Changes
+
+- [Added] - `defaultChecked` property. ([#1504](https://github.com/justeattakeaway/pie/pull/1504)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Clarified usage of `checked` property. This was being used for both the initial and current states.
+  [Added] - Form reset behaviour. If the checkbox is associated with a form and the form is reset, `checked` is updated to match the value of `defaultChecked`.
+
 ## 0.4.0
 
 ### Minor Changes
