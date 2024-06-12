@@ -6,18 +6,20 @@ import {
     defineCustomElement,
     wrapNativeEvent,
     FormControlMixin,
+    validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
 import { live } from 'lit/directives/live.js';
 import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 import styles from './checkbox.scss?inline';
-import { CheckboxProps, defaultProps } from './defs';
+import { CheckboxProps, defaultProps, statusTypes } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
 
 const componentSelector = 'pie-checkbox';
+const assistiveTextIdValue = 'assistive-text';
 
 /**
  * @tagname pie-checkbox
@@ -52,6 +54,13 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
 
     @query('input[type="checkbox"]')
     private checkbox?: HTMLInputElement;
+
+    @property({ type: String })
+    public assistiveText?: CheckboxProps['assistiveText'];
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, statusTypes, undefined)
+    public status?: CheckboxProps['status'];
 
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.
@@ -118,6 +127,8 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             required,
             indeterminate,
             aria,
+            assistiveText,
+            status,
         } = this;
 
         return html`
@@ -132,12 +143,13 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
                 .indeterminate=${indeterminate}
                 aria-label=${aria?.label || nothing}
                 aria-labelledby=${label ? nothing : aria?.labelledby || nothing}
-                aria-describedby= ${aria?.describedby || nothing}
+                aria-describedby=${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}
                 @change=${this.handleChange}
                 data-test-id="checkbox-input"
             />
             ${label}
-        </label>`;
+        </label>
+        ${assistiveText ? html`<pie-assistive-text id="${assistiveTextIdValue}" variant=${ifDefined(status)} data-test-id="pie-checkbox-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
