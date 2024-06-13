@@ -151,8 +151,6 @@ If a validation variant of the assistive text is required for error or success, 
 
 ## Examples
 
-Outlines the atomic level interactive elements for the component.
-
 ### LTR examples
 
 Here are some examples of assistive text in left-to-right context:
