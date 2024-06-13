@@ -146,7 +146,7 @@ Use when a text input requires a card number to be entered, and reflect the card
   {% endcontentItem %}
   {% contentItem %}
     <h4>Filled</h4>
-    <p>Placeholder text disappears after the user begins entering data into the input.</p>
+    <p>Placeholder text disappears as soon as the user starts entering data into the text input field.</p>
     {% contentPageImage {
       src: "../../../assets/img/components/text-input/modifiers-type-filled.svg",
       width: "256px",
