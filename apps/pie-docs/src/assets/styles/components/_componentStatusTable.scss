@@ -1,4 +1,4 @@
-@use '@justeattakeaway/pie-css/scss' as p;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 
 $breakpoint-wide: 992px;
 
@@ -12,7 +12,7 @@ $breakpoint-wide: 992px;
     // ensures larger tables are responsive
     overflow-x: auto;
 
-    @media (min-width: $breakpoint-wide) {
+    @include media('>=' + $breakpoint-wide) {
         padding: var(--dt-spacing-d) var(--dt-spacing-e) var(--dt-spacing-e);
     }
 }
