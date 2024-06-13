@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-notification",
   "description": "PIE Design System Notification built using Web Components",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -13,7 +13,7 @@
     "**/*.d.ts"
   ],
   "pieMetadata": {
-    "componentStatus": "alpha"
+    "componentStatus": "beta"
   },
   "scripts": {
     "build": "run -T vite build",

@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-webc",
   "description": "Component bundle containing all PIE web components",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "type": "module",
   "files": [
     "components",
