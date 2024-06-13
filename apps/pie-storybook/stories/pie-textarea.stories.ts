@@ -20,7 +20,7 @@ const textareaStoryMeta: TextareaStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: '',
+            url: 'https://www.figma.com/design/6mNN7EK3baDTPJjFx2E69u/Textarea-web-component-audit?node-id=1573-114527',
         },
     },
 };
