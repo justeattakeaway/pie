@@ -108,7 +108,7 @@ const rows = [
         },
         {
             resource: resourceTypes.REACT,
-            status: statusTypes.STABLE,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
