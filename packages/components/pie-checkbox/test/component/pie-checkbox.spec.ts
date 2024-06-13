@@ -92,6 +92,49 @@ test.describe('PieCheckbox - Component tests', () => {
             });
         });
 
+        test.describe('checked', () => {
+            test('should default to false', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieCheckbox, {});
+
+                // Act
+                const checkbox = component.locator(componentSelector);
+
+                // Assert
+                expect(await checkbox.isChecked()).toBe(false);
+            });
+
+            test('should be unchecked if the checked prop is false', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieCheckbox, {
+                    props: {
+                        checked: false,
+                    } as CheckboxProps,
+                });
+
+                // Act
+                const checkbox = component.locator(componentSelector);
+
+                // Assert
+                expect(await checkbox.isChecked()).toBe(false);
+            });
+
+            test('should be checked if the checked prop is true', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieCheckbox, {
+                    props: {
+                        checked: true,
+                    } as CheckboxProps,
+                });
+
+                // Act
+                const checkbox = component.locator(componentSelector);
+
+                // Assert
+                expect(await checkbox.isChecked()).toBe(true);
+            });
+        });
+
         test.describe('disabled', () => {
             test.describe('when true', () => {
                 test('should disable the component', async ({ mount }) => {
@@ -175,10 +218,11 @@ test.describe('PieCheckbox - Component tests', () => {
                 expect((await checkbox.getAttribute('required'))).toBe('');
             });
 
-            test('should be in an invalid state if checkbox is unchecked and required', async ({ mount, page }) => {
+            test('should be in a valid state if the checkbox is required and checked', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieCheckbox, {
                     props: {
+                        checked: true,
                         required: true,
                     } as CheckboxProps,
                 });
@@ -187,15 +231,15 @@ test.describe('PieCheckbox - Component tests', () => {
                 const isValid = await page.evaluate(() => document.querySelector('pie-checkbox')?.validity.valid);
 
                 // Assert
-                expect(isValid).toBe(false);
+                expect(isValid).toBe(true);
             });
 
-            test('should be in a valid state if checkbox is checked and required', async ({ mount, page }) => {
+            test('should be in a valid state if the checkbox is required and checked manually', async ({ mount, page }) => {
                 // Arrange
                 const component = await mount(PieCheckbox, {
                     props: {
-                        checked: false,
                         required: true,
+                        checked: false,
                     } as CheckboxProps,
                 });
 
@@ -207,12 +251,61 @@ test.describe('PieCheckbox - Component tests', () => {
                 expect(isValid).toBe(true);
             });
 
-            test('should be in a valid state if the input has a checked prop and required', async ({ mount, page }) => {
+            test('should be in an invalid state if the checkbox is required but unchecked', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieCheckbox, {
                     props: {
                         required: true,
+                        checked: false,
+                    } as CheckboxProps,
+                });
+
+                // Act
+                const isValid = await page.evaluate(() => document.querySelector('pie-checkbox')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(false);
+            });
+
+            test('should be in an invalid state if the checkbox is required and unchecked manually', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieCheckbox, {
+                    props: {
+                        required: true,
                         checked: true,
+                    } as CheckboxProps,
+                });
+
+                // Act
+                await component.locator(componentSelector).click();
+                const isValid = await page.evaluate(() => document.querySelector('pie-checkbox')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(false);
+            });
+
+            test('should be in a valid state if the checkbox is checked but not required', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieCheckbox, {
+                    props: {
+                        required: false,
+                        checked: true,
+                    } as CheckboxProps,
+                });
+
+                // Act
+                const isValid = await page.evaluate(() => document.querySelector('pie-checkbox')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
+            });
+
+            test('should be in a valid state if the checkbox is unchecked and not required', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieCheckbox, {
+                    props: {
+                        required: false,
+                        checked: false,
                     } as CheckboxProps,
                 });
 
@@ -317,64 +410,151 @@ test.describe('PieCheckbox - Component tests', () => {
                 expect(messages.length).toEqual(1);
                 expect(messages).toStrictEqual(expectedMessages);
             });
-        });
 
-        test.describe('Form integration', () => {
-            test('should correctly set the name and value of the checkbox in the FormData object when submitted', async ({ page }) => {
+            test('should dispatch a change event when inside a form which is reset', async ({ page }) => {
                 // Arrange
                 await page.setContent(`
                     <form id="testForm" action="/foo" method="POST">
-                        <pie-checkbox type="text" name="testName"></pie-checkbox>
-                        <button type="submit">Submit</button>
+                        <pie-checkbox name="testName" checked></pie-checkbox>
+                        <button type="reset">Reset</button>
                     </form>
-                    <div id="formDataJson""></div>
+                    <div id="eventsContainer"></div>
                 `);
-
-                await setupFormDataExtraction(page, '#testForm', '#formDataJson');
-
-                // Act
-                await page.locator('pie-checkbox').click();
-                await page.click('button[type="submit"]');
-                const formDataObj = await getFormDataObject(page, '#formDataJson');
-
-                // Assert
-                expect(formDataObj).toStrictEqual({ testName: 'on' });
-            });
-
-            test('should submit the updated checked state if the checked prop is changed programmatically', async ({ page }) => {
-                // Arrange
-                await page.setContent(`
-                    <form id="testForm" action="/foo" method="POST">
-                    <pie-checkbox type="text" name="testName"></pie-checkbox>
-                        <button type="submit">Submit</button>
-                    </form>
-                    <div id="formDataJson""></div>
-                `);
-
-                await setupFormDataExtraction(page, '#testForm', '#formDataJson');
-
-                // Act
-                await page.locator('pie-checkbox').click();
 
                 await page.evaluate(() => {
                     const checkbox = document.querySelector('pie-checkbox') as PieCheckbox;
-                    checkbox.checked = false;
+                    const eventsContainer = document.querySelector('#eventsContainer') as HTMLDivElement;
+
+                    checkbox.addEventListener('change', () => {
+                        const el = document.createElement('div');
+                        el.innerText = 'change event fired';
+                        eventsContainer.appendChild(el);
+                    });
                 });
 
-                await page.click('button[type="submit"]');
+                // Act
+                await page.click('button[type="reset"]');
 
-                const formDataObj = await getFormDataObject(page, '#formDataJson');
+                const eventElements = await page.evaluate(() => {
+                    const events = document.querySelectorAll('#eventsContainer > div');
+                    return Array.from(events).map((el) => el.innerHTML);
+                });
 
                 // Assert
-                expect(formDataObj).toStrictEqual({});
+                expect(eventElements).toHaveLength(1);
+                expect(eventElements[0]).toBe('change event fired');
             });
+
+            test('should not dispatch a change event when inside a form which is reset if the value has not changed', async ({ page }) => {
+                // Arrange
+                await page.setContent(`
+                    <form id="testForm" action="/foo" method="POST">
+                        <pie-checkbox name="testName" checked defaultChecked></pie-checkbox>
+                        <button type="reset">Reset</button>
+                    </form>
+                    <div id="eventsContainer"></div>
+                `);
+
+                await page.evaluate(() => {
+                    const checkbox = document.querySelector('pie-checkbox') as PieCheckbox;
+                    const eventsContainer = document.querySelector('#eventsContainer') as HTMLDivElement;
+
+                    checkbox.addEventListener('change', () => {
+                        const el = document.createElement('div');
+                        el.innerText = 'change event fired';
+                        eventsContainer.appendChild(el);
+                    });
+                });
+
+                // Act
+                await page.click('button[type="reset"]');
+
+                const eventElements = await page.evaluate(() => {
+                    const events = document.querySelectorAll('#eventsContainer > div');
+                    return Array.from(events).map((el) => el.innerHTML);
+                });
+
+                // Assert
+                expect(eventElements).toHaveLength(0);
+            });
+        });
+    });
+
+    test.describe('Form integration', () => {
+        test('should correctly set the name and value of the checkbox in the FormData object when submitted', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                <form id="testForm" action="/foo" method="POST">
+                    <pie-checkbox name="testName"></pie-checkbox>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="formDataJson""></div>
+            `);
+
+            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+            // Act
+            await page.locator('pie-checkbox').click();
+            await page.click('button[type="submit"]');
+            const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+            // Assert
+            expect(formDataObj).toStrictEqual({ testName: 'on' });
+        });
+
+        test('should submit the updated checked state if the checked attribute is changed programmatically', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                <form id="testForm" action="/foo" method="POST">
+                <pie-checkbox name="testName"></pie-checkbox>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="formDataJson""></div>
+            `);
+
+            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+            // Act
+            await page.locator('pie-checkbox').click();
+
+            await page.evaluate(() => {
+                const checkbox = document.querySelector('pie-checkbox') as PieCheckbox;
+                checkbox.checked = false;
+                return checkbox;
+            });
+
+            await page.click('button[type="submit"]');
+
+            const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+            // Assert
+            expect(formDataObj).toStrictEqual({});
         });
 
         test('should not submit the value if checkbox is disabled', async ({ page }) => {
             // Arrange
             await page.setContent(`
                 <form id="testForm" action="/foo" method="POST">
-                    <pie-checkbox type="text" name="testName" disabled></pie-checkbox>
+                    <pie-checkbox name="testName" disabled></pie-checkbox>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="formDataJson""></div>
+            `);
+            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+            // Act
+            await page.click('button[type="submit"]');
+            const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+            // Assert
+            expect(formDataObj).toStrictEqual({});
+        });
+
+        test('should not submit the value if checkbox is disabled, even if checked', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                <form id="testForm" action="/foo" method="POST">
+                    <pie-checkbox name="testName" checked disabled></pie-checkbox>
                     <button type="submit">Submit</button>
                 </form>
                 <div id="formDataJson""></div>
@@ -394,7 +574,7 @@ test.describe('PieCheckbox - Component tests', () => {
             await page.setContent(`
                 <form id="testForm" action="/foo" method="POST">
                     <fieldset disabled>
-                        <pie-checkbox type="text" name="testName"></pie-checkbox>
+                        <pie-checkbox name="testName"></pie-checkbox>
                     </fieldset>
                     <button type="submit">Submit</button>
                 </form>
@@ -410,6 +590,52 @@ test.describe('PieCheckbox - Component tests', () => {
 
             // Assert
             expect(formDataObj).toStrictEqual({});
+        });
+
+        test.describe('when the form is reset', () => {
+            test.describe('and defaultChecked is true', () => {
+                test('should reset the checkbox to a checked state', async ({ page }) => {
+                    // Arrange
+                    await page.setContent(`
+                        <form id="testForm" action="/foo" method="POST">
+                            <pie-checkbox name="testName" defaultChecked></pie-checkbox>
+                            <button type="reset">Reset</button>
+                        </form>
+                    `);
+
+                    let isChecked = await page.evaluate(() => document.querySelector('pie-checkbox')?.checked);
+                    expect.soft(isChecked).toBe(false);
+
+                    // Act
+                    await page.click('button[type="reset"]');
+
+                    // Assert
+                    isChecked = await page.evaluate(() => document.querySelector('pie-checkbox')?.checked);
+                    expect(isChecked).toBe(true);
+                });
+            });
+
+            test.describe('and defaultChecked is false', () => {
+                test('should reset the checkbox to its default state', async ({ page }) => {
+                    // Arrange
+                    await page.setContent(`
+                        <form id="testForm" action="/foo" method="POST">
+                            <pie-checkbox name="testName" checked></pie-checkbox>
+                            <button type="reset">Reset</button>
+                        </form>
+                    `);
+
+                    let isChecked = await page.evaluate(() => document.querySelector('pie-checkbox')?.checked);
+                    expect.soft(isChecked).toBe(true);
+
+                    // Act
+                    await page.click('button[type="reset"]');
+
+                    // Assert
+                    isChecked = await page.evaluate(() => document.querySelector('pie-checkbox')?.checked);
+                    expect(isChecked).toBe(false);
+                });
+            });
         });
     });
 });
