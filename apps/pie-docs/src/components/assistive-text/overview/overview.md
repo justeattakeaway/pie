@@ -161,7 +161,7 @@ Here are some examples of assistive text in left-to-right context:
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/assistive-text/examples-LTR-checkbox.svg",
-      width: "135px",
+      width: "173px",
       alt: "Example of a left-to-right checkbox field with assistive text."
     } %}
   {% endcontentItem %}
@@ -182,7 +182,7 @@ Here are some examples of assistive text in right-to-left context:
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/assistive-text/examples-RTL-checkbox.svg",
-      width: "135px",
+      width: "180px",
       alt: "Example of a right-to-left checkbox field with assistive text."
     } %}
   {% endcontentItem %}
