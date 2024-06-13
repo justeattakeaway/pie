@@ -167,6 +167,16 @@
       "import": "./react/text-input.js",
       "require": "./react/text-input.js",
       "types": "./react/text-input.d.ts"
+    },
+    "./components/textarea.js": {
+      "import": "./components/textarea.js",
+      "require": "./components/textarea.js",
+      "types": "./components/textarea.d.ts"
+    },
+    "./react/textarea.js": {
+      "import": "./react/textarea.js",
+      "require": "./react/textarea.js",
+      "types": "./react/textarea.d.ts"
     }
   },
   "bin": {
@@ -202,7 +212,8 @@
     "@justeattakeaway/pie-spinner": "0.6.5",
     "@justeattakeaway/pie-switch": "0.29.8",
     "@justeattakeaway/pie-tag": "0.9.6",
-    "@justeattakeaway/pie-text-input": "0.22.2"
+    "@justeattakeaway/pie-text-input": "0.22.2",
+    "@justeattakeaway/pie-textarea": "0.0.0"
   },
   "volta": {
     "extends": "../../../package.json"
