@@ -1,10 +1,14 @@
+// Interval settings to be used by @include-media Sass library
+// https://eduardoboucas.github.io/include-media/documentation/#variable-unit-intervals
 $unit-intervals: (
     'px': 1,
-    'em': 0.001,
-    // We need more sensitivity, some browsers are very specific with breakpoints
+    'em': 0.001, // We need more sensitivity, some browsers are very specific with breakpoints
     'rem': 0.1,
     '': 0
 );
+
+// Breakpoints to be used by @include-media Sass library
+// https://eduardoboucas.github.io/include-media/documentation/#variable-breakpoints
 $breakpoints: (
     xs: 320px,
     sm: 600px,

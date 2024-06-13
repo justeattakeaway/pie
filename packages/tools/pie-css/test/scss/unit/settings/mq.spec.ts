@@ -21,7 +21,7 @@ describe('settings :: mq', () => {
         `;
 
         const expectedCss = stripCSSWhitespace(`
-          @media (max-width:600px) {
+          @media (max-width: 600px) {
             .foo {
               color: red;
             }
@@ -34,6 +34,7 @@ describe('settings :: mq', () => {
         // Assert
         expect(css).toBe(expectedCss);
     });
+
     it('should render the expected CSS media query', () => {
         // Arrange
         const scssToTest = `
@@ -60,154 +61,32 @@ describe('settings :: mq', () => {
         // Assert
         expect(css).toBe(expectedCss);
     });
-    it('should render the xs media query breakpoint shortcut', () => {
+
+    it.each([
+        ['xs', '320px'],
+        ['sm', '600px'],
+        ['md', '768px'],
+        ['lg', '1024px'],
+        ['xl', '1280px'],
+        ['xxl', '1440px']
+    ])('should render the "%p" media query breakpoint shortcut when referenced', (bpKey, bpValue) => {
         // Arrange
         const scssToTest = `
-          @use 'settings' as *;
+            @use 'settings' as *;
 
-          .foo {
-            @include media('>=xs') {
-                color: red;
+            .foo {
+                @include media('>=${bpKey}') {
+                    color: red;
+                }
             }
-          }
         `;
 
         const expectedCss = stripCSSWhitespace(`
-          @media (min-width: 320px) {
-            .foo {
-              color: red;
+            @media (min-width: ${bpValue}) {
+                .foo {
+                    color: red;
+                }
             }
-          }
-        `);
-
-        // Act
-        const css = stripCSSWhitespace(compileCss(scssToTest));
-
-        // Assert
-        expect(css).toBe(expectedCss);
-    });
-    it('should render the sm media query breakpoint', () => {
-        // Arrange
-        const scssToTest = `
-          @use 'settings' as *;
-
-          .foo {
-            @include media('>=sm') {
-                text-align: center;
-            }
-          }
-        `;
-
-        const expectedCss = stripCSSWhitespace(`
-          @media (min-width: 600px) {
-            .foo {
-              text-align: center;
-            }
-          }
-        `);
-
-        // Act
-        const css = stripCSSWhitespace(compileCss(scssToTest));
-
-        // Assert
-        expect(css).toBe(expectedCss);
-    });
-    it('should render the md media query breakpoint', () => {
-        // Arrange
-        const scssToTest = `
-          @use 'settings' as *;
-
-          .foo {
-            @include media('>=md') {
-                text-decoration: underline;
-            }
-          }
-        `;
-
-        const expectedCss = stripCSSWhitespace(`
-          @media (min-width: 768px) {
-            .foo {
-              text-decoration: underline;
-            }
-          }
-        `);
-
-        // Act
-        const css = stripCSSWhitespace(compileCss(scssToTest));
-
-        // Assert
-        expect(css).toBe(expectedCss);
-    });
-    it('should render the lg media query breakpoint', () => {
-        // Arrange
-        const scssToTest = `
-          @use 'settings' as *;
-
-          .foo {
-            @include media('>=lg') {
-                text-transform: uppercase;
-            }
-          }
-        `;
-
-        const expectedCss = stripCSSWhitespace(`
-          @media (min-width: 1024px) {
-            .foo {
-              text-transform: uppercase;
-            }
-          }
-        `);
-
-        // Act
-        const css = stripCSSWhitespace(compileCss(scssToTest));
-
-        // Assert
-        expect(css).toBe(expectedCss);
-    });
-    it('should render the xl media query breakpoint', () => {
-        // Arrange
-        const scssToTest = `
-          @use 'settings' as *;
-
-          .foo {
-            @include media('>=xl') {
-                font-weight: bold;
-            }
-          }
-        `;
-
-        const expectedCss = stripCSSWhitespace(`
-          @media (min-width: 1280px) {
-            .foo {
-              font-weight: bold;
-            }
-          }
-        `);
-
-        // Act
-        const css = stripCSSWhitespace(compileCss(scssToTest));
-
-        // Assert
-        expect(css).toBe(expectedCss);
-    });
-    it('should render the xxl media query breakpoint', () => {
-        // Arrange
-        const scssToTest = `
-          @use 'settings' as *;
-
-          .foo {
-            @include media('>=xxl') {
-                font-style: italic;
-            }
-          }
-        `;
-
-        const expectedCss = stripCSSWhitespace(`
-          @media (min-width: 1440px) {
-            .foo {
-                font-style: italic;
-            }
-          }
         `);
 
         // Act
