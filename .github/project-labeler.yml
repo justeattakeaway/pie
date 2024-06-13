@@ -76,6 +76,9 @@ pie-icon-button:
 pie-text-input:
 - "packages/components/pie-text-input/**/*"
 
+pie-textarea:
+- "packages/components/pie-textarea/**/*"
+
 pie-link:
 - 'packages/components/pie-link/**/*'
 
