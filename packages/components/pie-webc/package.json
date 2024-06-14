@@ -26,7 +26,8 @@
     "chalk": "5.3.0"
   },
   "dependencies": {
-    "@justeattakeaway/pie-assistive-text": "0.4.1"
+    "@justeattakeaway/pie-assistive-text": "0.4.1",
+    "@justeattakeaway/pie-button": "0.47.6"
   },
   "volta": {
     "extends": "../../../package.json"
