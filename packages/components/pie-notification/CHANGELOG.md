@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-notification
 
+## 0.9.1
+
+### Patch Changes
+
+- [Changed] - update the notificaiton component status to beta ([#1514](https://github.com/justeattakeaway/pie/pull/1514)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.9.0
 
 ### Minor Changes

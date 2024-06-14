@@ -1,5 +1,25 @@
 # Changelog
 
+## 3.40.0
+
+### Minor Changes
+
+- [Updated] Engineers - Contributing page: ([#1497](https://github.com/justeattakeaway/pie/pull/1497)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+  - references to the engineering clinic have been removed to avoid confusing visitors
+  - updated the recommended Slack channels to direct visitors to #help-designsystem only and added link to the contact us page
+  - in the section "How can I find out which components have already been built?" added another reference to the PIE Web Component System
+  - updated logos for all supported component systems
+
+- [Updated] Engineers - Getting started - Structure(Pie Component Systems section): ([#1497](https://github.com/justeattakeaway/pie/pull/1497)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+  - added another reference to the PIE Web Component System
+  - updated logos for all supported component systems
+
+### Patch Changes
+
+- [Changed] - update the notificaiton component status to beta ([#1514](https://github.com/justeattakeaway/pie/pull/1514)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 3.39.0
 
 ### Minor Changes

@@ -250,8 +250,12 @@
         padding-inline-start: var(--modal-content-padding-inline);
         padding-inline-end: var(--modal-content-padding-inline);
         padding-block-start: var(--modal-content-padding-block);
-        padding-block-end: var(--modal-content-padding-block);
+        padding-block-end: var(--modal-content-padding-block-end); // We require a larger bottom padding when there's no footer
         flex-grow: 1;
+
+        &.c-modal-hasFooterActions {
+          padding-block-end: var(--modal-content-padding-block);
+        }
 
         &--scrollable {
             background:
