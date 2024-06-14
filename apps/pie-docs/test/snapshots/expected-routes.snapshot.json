@@ -64,6 +64,7 @@
     "components/tabs",
     "components/tag/code",
     "components/tag/overview",
+    "components/text-input/code",
     "components/text-input/overview",
     "components/textarea",
     "components/thumbnail",
