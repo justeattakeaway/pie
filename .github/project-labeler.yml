@@ -76,6 +76,9 @@ pie-icon-button:
 pie-text-input:
 - "packages/components/pie-text-input/**/*"
 
+pie-textarea:
+- "packages/components/pie-textarea/**/*"
+
 pie-link:
 - 'packages/components/pie-link/**/*'
 
@@ -105,3 +108,6 @@ pie-webc-testing:
 
 pie-checkbox:
 - 'packages/components/pie-checkbox/**/*'
+
+pie-toast:
+- 'packages/components/pie-toast/**/*'

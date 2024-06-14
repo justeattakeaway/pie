@@ -99,6 +99,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
+            link: 'https://webc.pie.design/?path=/story/assistive-text--default',
             status: webComponentStatuses['pie-assistive-text'],
         },
         {
@@ -107,8 +108,7 @@ const rows = [
         },
         {
             resource: resourceTypes.REACT,
-            link: 'https://snacks.takeaway.com/portal/components/bubble/',
-            status: statusTypes.STABLE,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
@@ -1896,6 +1896,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
+            link: 'https://webc.pie.design/?path=/story/text-input--default',
             status: webComponentStatuses['pie-text-input'],
         },
         {
