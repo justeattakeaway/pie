@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-webc
 
+## 0.5.7
+
+### Patch Changes
+
+- [Added] - initial pie-textarea files from component generator ([#1518](https://github.com/justeattakeaway/pie/pull/1518)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`18bc95a0f`](https://github.com/justeattakeaway/pie/commit/18bc95a0f036befc3b5ec6ac58635494b1ae5445), [`d2b2fa52f`](https://github.com/justeattakeaway/pie/commit/d2b2fa52f02e22bf4b4c5aaf787e5287dd7a8bd1), [`6df12416d`](https://github.com/justeattakeaway/pie/commit/6df12416dc3623d607babda8a5d74d738dd8ae42)]:
+  - @justeattakeaway/pie-textarea@0.1.0
+  - @justeattakeaway/pie-toast@0.1.0
+  - @justeattakeaway/pie-modal@0.43.1
+  - @justeattakeaway/pie-cookie-banner@0.20.3
+
 ## 0.5.6
 
 ### Patch Changes
