@@ -1,11 +1,18 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
+import type {
+    WebComponentPropValues, WebComponentTestInput,
+} from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
+
 import {
-    createTestWebComponent, percyWidths,
-    setRTL,
-    WebComponentPropValues,
-    type WebComponentTestInput, WebComponentTestWrapper,
-} from '@justeattakeaway/pie-webc-testing';
+    createTestWebComponent,
+} from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
+import {
+    WebComponentTestWrapper,
+} from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+
+import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
+import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-direction.ts';
 
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
 import { PieCheckbox } from '../../src/index.ts';
@@ -15,7 +22,6 @@ const readingDirections = ['LTR', 'RTL'];
 const renderTestPieCheckbox = (propVals: WebComponentPropValues) => {
     let attributes = '';
 
-    if (propVals.value) attributes += ` value="${propVals.value}"`;
     if (propVals.status) attributes += ` status="${propVals.status}"`;
     if (propVals.assistiveText) attributes += ` assistiveText="${propVals.assistiveText}"`;
 
@@ -42,7 +48,7 @@ await Promise.all(readingDirections.map(async (dir) => {
 
         // Assistive text with no status
         let testComponent: WebComponentTestInput = createTestWebComponent({ assistiveText: 'Assistive text', value: 'String' }, renderTestPieCheckbox);
-        let propKeyValues = `assistiveText: ${testComponent.propValues.value}, value: ${testComponent.propValues.value}`;
+        let propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, value: ${testComponent.propValues.value}`;
 
         await mount(
             WebComponentTestWrapper,
