@@ -64,7 +64,7 @@
     "@babel/cli": "7.24.7",
     "@babel/core": "7.24.7",
     "@babel/eslint-parser": "7.24.7",
-    "@babel/node": "7.24.6",
+    "@babel/node": "7.24.7",
     "@babel/preset-env": "7.24.6",
     "@babel/register": "7.24.6",
     "@changesets/changelog-github": "0.4.8",
