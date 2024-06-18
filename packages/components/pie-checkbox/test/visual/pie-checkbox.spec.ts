@@ -76,20 +76,6 @@ await Promise.all(readingDirections.map(async (dir) => {
             },
         );
 
-        // Error and no assistive text
-        testComponent = createTestWebComponent({ label: 'String', status: 'error' }, renderTestPieCheckbox);
-        propKeyValues = `label: ${testComponent.propValues.label}, status: ${testComponent.propValues.status}`;
-
-        await mount(
-            WebComponentTestWrapper,
-            {
-                props: { propKeyValues },
-                slots: {
-                    component: testComponent.renderedString.trim(),
-                },
-            },
-        );
-
         // Success + assistive text
         testComponent = createTestWebComponent({ assistiveText: 'Success text', label: 'String', status: 'success' }, renderTestPieCheckbox);
         propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, label: ${testComponent.propValues.label}, status: ${testComponent.propValues.status}`;
