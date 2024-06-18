@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.41.0
+
+### Minor Changes
+
+- [Added] - 'Overview' page for pie-text-input component ([#1500](https://github.com/justeattakeaway/pie/pull/1500)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- [Added] - 'Overview' page for pie-assistive-text component ([#1509](https://github.com/justeattakeaway/pie/pull/1509)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- [Added] - 'Code' page for pie-text-input component ([#1501](https://github.com/justeattakeaway/pie/pull/1501)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 3.40.0
 
 ### Minor Changes
