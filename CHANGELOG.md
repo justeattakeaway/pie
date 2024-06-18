@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.61.1
+
+### Patch Changes
+
+- [Changed] - update github workflows for new pie-textarea component ([#1518](https://github.com/justeattakeaway/pie/pull/1518)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 2.61.0
 
 ### Minor Changes
