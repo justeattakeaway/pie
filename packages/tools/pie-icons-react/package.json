@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.24.7",
-    "@babel/node": "7.24.6",
+    "@babel/node": "7.24.7",
     "@babel/preset-react": "7.24.6",
     "@justeattakeaway/pie-icons": "4.18.0",
     "@justeattakeaway/pie-icons-configs": "4.5.1",
