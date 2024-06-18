@@ -1,1 +1,264 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+@keyframes checkboxCheck {
+    0% {
+        width: 0;
+        height: 0;
+        border-color: #fff;
+
+        transform: translate3d(0, 0, 0) rotate(45deg);
+    }
+
+    33% {
+        width: 8px;
+        height: 0;
+
+        transform: translate3d(0, 0, 0) rotate(45deg);
+    }
+
+    100% {
+        width: 8px;
+        height: 16px;
+        border-color: #fff;
+        border-bottom-right-radius: 2px;
+
+        transform: translate3d(0, -16px, 0) rotate(45deg);
+    }
+}
+
+@keyframes scaleDown {
+    0% {
+        transform: scale(0.7);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(0);
+    }
+
+    33% {
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.c-checkbox {
+    --checkbox-height: 24px;
+    --checkbox-width: 24px;
+    --checkbox-radius: var(--dt-radius-rounded-a);
+    --checkbox-margin: 1px;
+    --checkbox-gap: var(--dt-spacing-b);
+    --checkbox-fz: var(--dt-font-body-l-size);
+    --checkbox-fw: var(--dt-font-weight-regular);
+    --checkbox-bg: var(--dt-color-container-default);
+    --checkbox-border-color: var(--dt-color-interactive-form);
+    --checkbox-content-color: var(--dt-color-content-default);
+    --checkbox-motion-easing: var(--dt-motion-easing-persistent-functional);
+    --checkbox-motion-timing-100: var(--dt-motion-timing-100);
+    --checkbox-motion-timing-200: var(--dt-motion-timing-200);
+
+    display: flex;
+    flex-direction: column;
+
+    input {
+        display: block;
+        position: absolute;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip-path: inset(1px);
+        white-space: nowrap;
+    }
+
+    label {
+        display: flex;
+        max-width: 100%;
+        white-space: nowrap;
+        cursor: pointer;
+    }
+
+    .c-checkbox-text {
+        display: inline;
+        flex: 1 1 auto;
+        align-self: center;
+        min-width: 0;
+        margin-inline-start: var(--checkbox-gap);
+        white-space: normal;
+        color: var(--checkbox-content-color);
+        font-size: var(--checkbox-fz);
+        font-weight: var(--checkbox-fw);
+    }
+
+    .c-checkbox-tick {
+        content: "";
+        display: flex;
+
+        flex: 0 0 auto;
+
+        width: var(--checkbox-width);
+        height: var(--checkbox-height);
+
+        margin: var(--checkbox-margin);
+
+        border: 1px solid var(--checkbox-border-color);
+        border-radius: var(--checkbox-radius);
+        background-color: var(--checkbox-bg);
+
+        transition: background-color var(--checkbox-motion-timing-100) var(--checkbox-motion-easing);
+
+        @media (prefers-reduced-motion: no-preference) {
+            animation: scaleDown var(--checkbox-motion-timing-100) var(--checkbox-motion-easing);
+        }
+    }
+
+    &:hover {
+        .c-checkbox-tick {
+            --checkbox-bg: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
+
+            transition: background-color var(--checkbox-motion-timing-200) var(--checkbox-motion-easing);
+        }
+    }
+
+    &:active {
+        .c-checkbox-tick {
+            --checkbox-bg: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-active-01))));
+
+            transition: background-color var(--checkbox-motion-timing-100) var(--checkbox-motion-easing);
+        }
+    }
+
+    &:focus,
+    &:focus-within {
+        .c-checkbox-tick {
+            @include p.focus;
+        }
+    }
+
+    &[data-pie-disabled] {
+        label {
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .c-checkbox-tick {
+            --checkbox-bg: var(--dt-color-container-strong);
+            --checkbox-border-color: var(--dt-color-disabled-01);
+        }
+    }
+
+    &[data-pie-checked] {
+        .c-checkbox-tick {
+            @media (prefers-reduced-motion: no-preference) {
+                animation: scaleUp var(--checkbox-motion-timing-100) var(--checkbox-motion-easing);
+            }
+        }
+    }
+
+    &[data-pie-status="error"] {
+        .c-checkbox-tick {
+            --checkbox-border-color: var(--dt-color-support-error);
+        }
+
+        &:hover {
+            .c-checkbox-tick {
+                --checkbox-bg: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
+            }
+        }
+
+        &:active {
+            .c-checkbox-tick {
+                --checkbox-bg: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-active-01))));
+            }
+        }
+    }
+
+    &[data-pie-checked] {
+        &:not([data-pie-indeterminate]) {
+            .c-checkbox-tick:before {
+                content: "";
+
+                position: relative;
+                top: 55%;
+                left: 14%;
+
+                border-right: 2px solid transparent;
+                border-bottom: 2px solid transparent;
+
+                transform: rotate(45deg);
+                transform-origin: 0% 100%;
+
+                animation: checkboxCheck var(--checkbox-motion-timing-100) var(--checkbox-motion-easing) var(--checkbox-motion-timing-100) forwards;
+            }
+        }
+
+        &:not([data-pie-disabled]) {
+            .c-checkbox-tick {
+                --checkbox-bg: var(--dt-color-interactive-brand);
+                --checkbox-border-color: var(--dt-color-interactive-brand);
+            }
+        }
+
+        &[data-pie-status="error"] {
+            .c-checkbox-tick {
+                --checkbox-bg: var(--dt-color-support-error);
+                --checkbox-border-color: var(--dt-color-support-error);
+            }
+        }
+
+        &:hover:not([data-pie-disabled]) {
+            .c-checkbox-tick {
+                --checkbox-bg: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + calc(-1 * var(--dt-color-hover-01))));
+                --checkbox-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + calc(-1 * var(--dt-color-hover-01))));
+            }
+        }
+
+        &:hover[data-pie-status="error"] {
+            .c-checkbox-tick {
+                --checkbox-bg: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) + calc(-1 * var(--dt-color-hover-01))));
+                --checkbox-border-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) + calc(-1 * var(--dt-color-hover-01))));
+            }
+        }
+
+        &:active:not([data-pie-disabled]) {
+            .c-checkbox-tick {
+                --checkbox-bg: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + calc(-1 * var(--dt-color-active-01))));
+                --checkbox-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + calc(-1 * var(--dt-color-active-01))));
+            }
+        }
+
+        &:active[data-pie-status="error"] {
+            .c-checkbox-tick {
+                --checkbox-bg: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) + calc(-1 * var(--dt-color-active-01))));
+                --checkbox-border-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) + calc(-1 * var(--dt-color-active-01))));
+            }
+        }
+    }
+
+    // styles for indeterminate state
+    .c-checkbox-tick:after {
+        content: "";
+
+        position: relative;
+        top: 47%;
+        left: 14%;
+        width: 0;
+        height: 2px;
+        background-color: white;
+    }
+
+    &[data-pie-indeterminate][data-pie-checked] {
+        .c-checkbox-tick:after {
+            width: 16px;
+
+            transition: width var(--checkbox-motion-timing-100) var(--checkbox-motion-easing) var(--checkbox-motion-timing-100);
+        }
+    }
+}

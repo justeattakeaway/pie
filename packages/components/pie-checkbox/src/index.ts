@@ -155,9 +155,15 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
         } = this;
 
         return html`
-        <label data-test-id="checkbox-component">
+        <div
+            class="c-checkbox"
+            ?data-pie-checked=${checked}
+            ?data-pie-disabled=${live(disabled)}
+            ?data-pie-indeterminate=${indeterminate}
+            data-pie-status=${!disabled && ifDefined(status)}>
             <input
                 type="checkbox"
+                id="inputId"
                 .value=${value}
                 .checked=${live(checked)}
                 name=${ifDefined(name)}
@@ -170,9 +176,18 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
                 @change=${this.handleChange}
                 data-test-id="checkbox-input"
             />
-            ${label}
-        </label>
-        ${assistiveText ? html`<pie-assistive-text id="${assistiveTextIdValue}" variant=${ifDefined(status)} data-test-id="pie-checkbox-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}`;
+            <label for="inputId" data-test-id="checkbox-component">
+                <span class="c-checkbox-tick"></span>
+                <span class="c-checkbox-text">${label}</span>
+            </label>
+            ${assistiveText ? html`
+                <pie-assistive-text
+                    id="${assistiveTextIdValue}"
+                    variant=${ifDefined(status)}
+                    data-test-id="pie-checkbox-assistive-text">
+                        ${assistiveText}
+                </pie-assistive-text>` : nothing}
+        </div>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
