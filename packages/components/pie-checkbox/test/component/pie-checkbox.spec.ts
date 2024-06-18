@@ -329,7 +329,7 @@ test.describe('PieCheckbox - Component tests', () => {
                 expect(assistiveText).not.toBeVisible();
             });
 
-            test('should not apply a variant attribute if no status is provided', async ({ mount, page }) => {
+            test('should apply the "default" variant attribute if no status is provided', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieCheckbox, {
                     props: {
@@ -342,7 +342,7 @@ test.describe('PieCheckbox - Component tests', () => {
 
                 // Assert
                 expect(assistiveText).toBeVisible();
-                expect(await assistiveText.getAttribute('variant')).toBe(null);
+                expect(await assistiveText.getAttribute('variant')).toBe('default');
                 expect(assistiveText).toHaveText('Assistive text');
             });
 

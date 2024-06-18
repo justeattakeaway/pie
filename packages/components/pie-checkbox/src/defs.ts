@@ -1,6 +1,6 @@
 import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
 
-export const statusTypes = ['success', 'error'] as const;
+export const statusTypes = ['default', 'success', 'error'] as const;
 
 export type AriaProps = {
     label?: string;
@@ -54,17 +54,17 @@ export interface CheckboxProps {
     aria?: AriaProps;
 
     /**
-     * An optional assistive text to display below the checkbox element.
+     * An optional assistive text to display below the input element. Must be provided when the status is success or error.
      */
     assistiveText?: string;
 
     /**
-     * The status of the checkbox component / assistive text such as error, success or default.
+     * The status of the checkbox component / assistive text. Can be default, success or error.
      */
     status?: typeof statusTypes[number];
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<CheckboxProps, 'value' | 'required' | 'indeterminate' | 'checked' | 'defaultChecked'>;
+export type DefaultProps = ComponentDefaultPropsGeneric<CheckboxProps, 'value' | 'required' | 'indeterminate' | 'checked' | 'defaultChecked' | 'status'>;
 
 export const defaultProps: DefaultProps = {
     // a default value for the html <input type="checkbox" /> value attribute.
@@ -74,4 +74,5 @@ export const defaultProps: DefaultProps = {
     defaultChecked: false,
     indeterminate: false,
     checked: false,
+    status: 'default',
 };

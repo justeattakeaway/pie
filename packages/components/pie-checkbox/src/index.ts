@@ -62,8 +62,8 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     public assistiveText?: CheckboxProps['assistiveText'];
 
     @property({ type: String })
-    @validPropertyValues(componentSelector, statusTypes, undefined)
-    public status?: CheckboxProps['status'];
+    @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
+    public status?: CheckboxProps['status'] = defaultProps.status;
 
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.

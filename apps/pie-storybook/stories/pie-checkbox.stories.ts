@@ -96,18 +96,18 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
             control: 'object',
         },
         assistiveText: {
-            description: 'An optional assistive text to display below the checkbox element.',
+            description: 'An optional assistive text to display below the checkbox element. Must be provided when the status is success or error.',
             control: 'text',
             defaultValue: {
                 summary: '',
             },
         },
         status: {
-            description: 'Sets the status of the checkbox component / assistive text.',
+            description: 'The status of the checkbox component / assistive text. Can be default, success or error.',
             control: 'select',
-            options: [undefined, ...statusTypes],
+            options: statusTypes,
             defaultValue: {
-                summary: undefined,
+                summary: defaultProps.status,
             },
         },
     },
