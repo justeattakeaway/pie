@@ -2,7 +2,7 @@ import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-cor
 
 export const types = ['text', 'number', 'password', 'url', 'email', 'tel'] as const;
 export const inputModes = ['none', 'text', 'tel', 'url', 'email', 'numeric', 'decimal', 'search'] as const;
-export const statusTypes = ['success', 'error'] as const;
+export const statusTypes = ['default', 'success', 'error'] as const;
 export const sizes = ['small', 'medium', 'large'] as const;
 
 export interface TextInputProps {
@@ -77,12 +77,12 @@ export interface TextInputProps {
     defaultValue?: string;
 
     /**
-     * An optional assistive text to display below the input element.
+     * An optional assistive text to display below the input element. Must be provided when the status is success or error.
      */
     assistiveText?: string;
 
     /**
-     * The status of the input component / assistive text such as error, success or default.
+     * The status of the input component / assistive text. Can be default, success or error.
      */
     status?: typeof statusTypes[number];
 
@@ -115,7 +115,7 @@ export interface TextInputProps {
 /**
  * The default values for the `TextInputProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultPropsGeneric<TextInputProps, 'type' | 'value' | 'size'>;
+type DefaultProps = ComponentDefaultPropsGeneric<TextInputProps, 'type' | 'value' | 'size' | 'status'>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
@@ -124,4 +124,5 @@ export const defaultProps: DefaultProps = {
     type: 'text',
     value: '',
     size: 'medium',
+    status: 'default',
 };
