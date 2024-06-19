@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.43.1
+
+### Patch Changes
+
+- [Changed] - Component to beta status ([#1528](https://github.com/justeattakeaway/pie/pull/1528)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.43.0
 
 ### Minor Changes
