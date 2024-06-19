@@ -25,6 +25,7 @@
     --spinner-size: 24px;
     --spinner-left-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 1);
     --spinner-right-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 0.35);
+    --spinner-animation-speed: 1.15s;
 
     block-size: var(--spinner-size);
     inline-size: var(--spinner-size);
@@ -33,7 +34,7 @@
     border-style: solid;
     border-color: var(--spinner-left-color) var(--spinner-right-color) var(--spinner-right-color) var(--spinner-left-color);
     will-change: transform;
-    animation: rotate360 1.15s linear infinite;
+    animation: rotate360 var(--spinner-animation-speed) linear infinite;
 
     @include spinner-base-colors('--dt-color-content-brand');
 

@@ -52,6 +52,9 @@ test.describe('PieSpinner - Visual tests`', () => {
             );
         }));
 
-        await percySnapshot(page, `PIE Spinner - Variant: ${variant}`, percyWidths);
+        await percySnapshot(page, `PIE Spinner - Variant: ${variant}`, {
+            ...percyWidths,
+            percyCSS: '--spinner-animation-speed: 999s;',
+        });
     }));
 });
