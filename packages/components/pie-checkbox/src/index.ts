@@ -1,6 +1,10 @@
 import {
     LitElement, html, unsafeCSS, PropertyValues, nothing,
 } from 'lit';
+import { property, query } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { live } from 'lit/directives/live.js';
+
 import {
     RtlMixin,
     defineCustomElement,
@@ -8,9 +12,7 @@ import {
     FormControlMixin,
     validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
-import { live } from 'lit/directives/live.js';
-import { property, query } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
+import '@justeattakeaway/pie-assistive-text';
 
 import styles from './checkbox.scss?inline';
 import { CheckboxProps, defaultProps, statusTypes } from './defs';
