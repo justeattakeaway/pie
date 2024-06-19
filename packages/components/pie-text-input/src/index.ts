@@ -78,8 +78,8 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
     public assistiveText?: TextInputProps['assistiveText'];
 
     @property({ type: String })
-    @validPropertyValues(componentSelector, statusTypes, undefined)
-    public status?: TextInputProps['status'];
+    @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
+    public status?: TextInputProps['status'] = defaultProps.status;
 
     @property({ type: Number })
     public step?: TextInputProps['step'];
@@ -239,7 +239,14 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
                 <slot name="trailingIcon"></slot>
                 <slot name="trailingText"></slot>
             </div>
-            ${assistiveText ? html`<pie-assistive-text id="${assistiveTextIdValue}" variant=${ifDefined(status)} data-test-id="pie-text-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}`;
+            ${assistiveText ? html`
+                <pie-assistive-text
+                    id="${assistiveTextIdValue}"
+                    variant=${ifDefined(status)}
+                    data-test-id="pie-text-input-assistive-text">
+                    ${assistiveText}
+                </pie-assistive-text>
+            ` : nothing}`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

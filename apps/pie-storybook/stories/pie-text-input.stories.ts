@@ -177,18 +177,18 @@ const textInputStoryMeta: TextInputStoryMeta = {
             options: slotOptions,
         },
         assistiveText: {
-            description: 'An optional assistive text to display below the input element.',
+            description: 'An optional assistive text to display below the input element. Must be provided when the status is success or error.',
             control: 'text',
             defaultValue: {
                 summary: '',
             },
         },
         status: {
-            description: 'Sets the status of the input component / assistive text.',
+            description: 'The status of the input component / assistive text. Can be default, success or error.',
             control: 'select',
-            options: [undefined, ...statusTypes],
+            options: statusTypes,
             defaultValue: {
-                summary: undefined,
+                summary: defaultProps.status,
             },
         },
         size: {

@@ -513,7 +513,7 @@ test.describe('PieTextInput - Component tests', () => {
                 expect(assistiveText).not.toBeVisible();
             });
 
-            test('should not apply a variant attribute if no status is provided', async ({ mount, page }) => {
+            test('should apply the "default" variant attribute if no status is provided', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieTextInput, {
                     props: {
@@ -526,7 +526,7 @@ test.describe('PieTextInput - Component tests', () => {
 
                 // Assert
                 expect(assistiveText).toBeVisible();
-                expect(await assistiveText.getAttribute('variant')).toBe(null);
+                expect(await assistiveText.getAttribute('variant')).toBe('default');
                 expect(assistiveText).toHaveText('Assistive text');
             });
 
@@ -1263,22 +1263,22 @@ test.describe('PieTextInput - Component tests', () => {
                 });
             });
 
-            test.describe('when the component `status` is set to anything but `error`', () => {
-                test('should render the `aria-invalid` with a value of `false`', async ({ mount }) => {
-                    // Arrange
-                    const component = await mount(PieTextInput, {
-                        props: {
-                            status: 'success',
-                        } as TextInputProps,
+            statusTypes.filter((status) => status !== 'error').forEach((status) => {
+                test.describe(`when the component status is set to "${status}"`, () => {
+                    test('should render the `aria-invalid` with a value of `false`', async ({ mount }) => {
+                        // Arrange
+                        const component = await mount(PieTextInput, {
+                            props: { status } as TextInputProps,
+                        });
+
+                        // Act
+                        const input = component.locator('input');
+
+                        const componentAttribute = await input.getAttribute('aria-invalid');
+
+                        // Assert
+                        expect(componentAttribute).toBe('false');
                     });
-
-                    // Act
-                    const input = component.locator('input');
-
-                    const componentAttribute = await input.getAttribute('aria-invalid');
-
-                    // Assert
-                    expect(componentAttribute).toBe('false');
                 });
             });
         });
@@ -1303,22 +1303,22 @@ test.describe('PieTextInput - Component tests', () => {
                 });
             });
 
-            test.describe('when the component `status` is set to anything but `error`', () => {
-                test('should not render the `aria-errormessage` attribute', async ({ mount }) => {
-                    // Arrange
-                    const component = await mount(PieTextInput, {
-                        props: {
-                            status: 'success',
-                        } as TextInputProps,
+            statusTypes.filter((status) => status !== 'error').forEach((status) => {
+                test.describe(`when the component status is set to "${status}"`, () => {
+                    test('should not render the `aria-errormessage` attribute', async ({ mount }) => {
+                        // Arrange
+                        const component = await mount(PieTextInput, {
+                            props: { status } as TextInputProps,
+                        });
+
+                        // Act
+                        const input = component.locator('input');
+
+                        const componentAttribute = await input.getAttribute('aria-errormessage');
+
+                        // Assert
+                        expect(componentAttribute).toBeNull();
                     });
-
-                    // Act
-                    const input = component.locator('input');
-
-                    const componentAttribute = await input.getAttribute('aria-errormessage');
-
-                    // Assert
-                    expect(componentAttribute).toBeNull();
                 });
             });
         });
