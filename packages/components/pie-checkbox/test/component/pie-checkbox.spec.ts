@@ -369,22 +369,68 @@ test.describe('PieCheckbox - Component tests', () => {
             });
 
             test.describe('Assistive test ID attribute', () => {
-                test('should contain an ID associated the checkbox element for a11y', async ({ mount, page }) => {
+                test('should contain an ID associated with the checkbox element for a11y', async ({ mount, page }) => {
                     // Arrange
-                    await mount(PieCheckbox, {
+                    const component = await mount(PieCheckbox, {
                         props: {
                             assistiveText: 'Assistive text',
                         } as PieCheckbox,
                     });
 
                     // Act
+                    const checkbox = component.locator(componentSelector);
                     const assistiveText = page.locator(assistiveTextSelector);
+
+                    const componentAttribute = await checkbox.getAttribute('aria-describedby');
 
                     // Assert
                     await expect(assistiveText).toHaveAttribute('id', 'assistive-text');
+                    expect(componentAttribute).toBe('assistive-text');
+
                 });
             });
         });
+    });
+
+    test.describe('Attributes:', () => {
+        test.describe('aria-describedby', () => {
+            test.describe('when `assistiveText` is not defined', () => {
+                test('should not render the attribute', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieCheckbox, {
+                        props: {} as CheckboxProps,
+                    });
+
+                    // Act
+                    const checkbox = component.locator(componentSelector);
+
+                    const componentAttribute = await checkbox.getAttribute('aria-describedby');
+
+                    // Assert
+                    expect(componentAttribute).toBeNull();
+                });
+            });
+
+            test.describe('when `assistiveText` is defined', () => {
+                test('should render the attribute correctly with the correct value', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieCheckbox, {
+                        props: {
+                            assistiveText: 'Assistive text',
+                        } as CheckboxProps,
+                    });
+
+                    // Act
+                    const checkbox = component.locator(componentSelector);
+
+                    const componentAttribute = await checkbox.getAttribute('aria-describedby');
+
+                    // Assert
+                    expect(componentAttribute).toBe('assistive-text');
+                });
+            });
+        });
+
     });
 
     test.describe('Events', () => {
