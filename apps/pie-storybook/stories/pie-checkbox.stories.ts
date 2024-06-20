@@ -2,7 +2,7 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-checkbox';
-import { CheckboxProps, defaultProps } from '@justeattakeaway/pie-checkbox';
+import { CheckboxProps, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox';
 /* eslint-enable import/no-duplicates */
 
 import { action } from '@storybook/addon-actions';
@@ -23,7 +23,6 @@ const defaultArgs: CheckboxProps = {
     aria: {
         label: '',
         labelledby: '',
-        describedby: '',
     },
 };
 
@@ -96,6 +95,21 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
             description: 'ARIA object to pass label/labelledby/describedby aria attributes',
             control: 'object',
         },
+        assistiveText: {
+            description: 'An optional assistive text to display below the checkbox element. Must be provided when the status is success or error.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+        },
+        status: {
+            description: 'The status of the checkbox component / assistive text. Can be default, success or error.',
+            control: 'select',
+            options: statusTypes,
+            defaultValue: {
+                summary: defaultProps.status,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -118,6 +132,8 @@ const Template = ({
     indeterminate,
     required,
     aria,
+    assistiveText,
+    status,
 }: CheckboxProps) => {
     function onChange (event: CustomEvent) {
         action('change')({
@@ -136,7 +152,9 @@ const Template = ({
             ?indeterminate="${indeterminate}"
             ?required="${required}"
             .aria="${aria}"
-            @change="${onChange}">
+            @change="${onChange}"
+            assistiveText="${ifDefined(assistiveText)}"
+            status=${ifDefined(status)}>
         </pie-checkbox>
     `;
 };
@@ -150,6 +168,8 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
     indeterminate,
     required,
     aria,
+    assistiveText,
+    status,
 }: CheckboxProps) => {
     function onChange (event: CustomEvent) {
         action('change')({
@@ -169,7 +189,9 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
             ?indeterminate="${indeterminate}"
             ?required="${required}"
             .aria="${aria}"
-            @change="${onChange}"></pie-checkbox>
+            @change="${onChange}"
+            assistiveText="${ifDefined(assistiveText)}"
+            status=${ifDefined(status)}></pie-checkbox>
         <button type="reset">Reset</button>
         <button type="submit">Submit</button>
         <script>
