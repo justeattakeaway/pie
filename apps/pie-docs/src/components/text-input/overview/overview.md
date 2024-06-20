@@ -4,6 +4,7 @@ eleventyNavigation:
     parent: 'Text Input'
     order: 1
 shouldShowContents: true
+permalink: components/text-input/
 ---
 
 ## Overview

@@ -4,6 +4,7 @@ eleventyNavigation:
     parent: Tag
     order: 1
 shouldShowContents: true
+permalink: components/tag/
 ---
 
 ## Overview

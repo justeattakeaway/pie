@@ -6,6 +6,7 @@ eleventyNavigation:
 eleventyComputed:
     sizes: "{% include './sizes.json' %}"
 shouldShowContents: true,
+permalink: components/modal/
 ---
 
 

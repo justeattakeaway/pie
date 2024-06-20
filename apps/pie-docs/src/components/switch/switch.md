@@ -3,5 +3,6 @@ eleventyNavigation:
     key: 'Switch'
     parent: Components
     order: 41
-    url: /components/switch/overview/
+    url: /components/switch/
+permalink: false
 ---
