@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: Typography
     parent: Foundations
-    url: /foundations/typography/overview/
+    url: /foundations/typography/
     order: 7
+permalink: false
 ---
