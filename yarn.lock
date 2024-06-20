@@ -6559,30 +6559,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/f-cookie-banner@npm:4.7.0":
-  version: 4.7.0
-  resolution: "@justeat/f-cookie-banner@npm:4.7.0"
-  dependencies:
-    "@justeat/f-services": 1.x
-  peerDependencies:
-    "@justeat/browserslist-config-fozzie": ">=1.1.1"
-    js-cookie: 2.2.1
-  checksum: 072fe042d0d201431c77cbe5107c1660943b7152c869942b8a93f6e3a9d958947ed349485a22ce58b90f64384b472847c3c4500326a70bbe63cc22b2006133eb
-  languageName: node
-  linkType: hard
-
-"@justeat/f-services@npm:1.x":
-  version: 1.18.1
-  resolution: "@justeat/f-services@npm:1.18.1"
-  dependencies:
-    lodash-es: 4.17.21
-    window-or-global: 1.0.1
-  peerDependencies:
-    axios: ">=0.28.1"
-  checksum: 12f604b154933f26d4669376862aed28e3fbbb074da3d4e73c96d027cd468c86c551fd8bc3390caf5f29d330571e2872d01f48ec7536ffb933508a4f70f7bc2f
-  languageName: node
-  linkType: hard
-
 "@justeat/fozzie@npm:11.0.2":
   version: 11.0.2
   resolution: "@justeat/fozzie@npm:11.0.2"
@@ -26634,13 +26610,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash-es@npm:4.17.21":
-  version: 4.17.21
-  resolution: "lodash-es@npm:4.17.21"
-  checksum: 05cbffad6e2adbb331a4e16fbd826e7faee403a1a04873b82b42c0f22090f280839f85b95393f487c1303c8a3d2a010048bf06151a6cbe03eee4d388fb0a12d2
-  languageName: node
-  linkType: hard
-
 "lodash._reinterpolate@npm:^3.0.0":
   version: 3.0.0
   resolution: "lodash._reinterpolate@npm:3.0.0"
@@ -30325,7 +30294,6 @@ __metadata:
     "@11ty/eleventy-navigation": 0.3.5
     "@docsearch/css": 3.5.2
     "@docsearch/js": 3.5.2
-    "@justeat/f-cookie-banner": 4.7.0
     "@justeat/fozzie": 11.0.2
     "@justeat/pie-design-tokens": 6.0.0
     "@justeattakeaway/browserslist-config-pie": 0.2.0
@@ -40289,13 +40257,6 @@ __metadata:
   version: 2.0.1
   resolution: "wildcard@npm:2.0.1"
   checksum: e0c60a12a219e4b12065d1199802d81c27b841ed6ad6d9d28240980c73ceec6f856771d575af367cbec2982d9ae7838759168b551776577f155044f5a5ba843c
-  languageName: node
-  linkType: hard
-
-"window-or-global@npm:1.0.1":
-  version: 1.0.1
-  resolution: "window-or-global@npm:1.0.1"
-  checksum: 19272a9589dedf790389376015b7a92e9b987d1c9b15457840f65a3829c5173a8cecce72111944624d98c2120799168d26b38e6b911fff77b4828a2322a8a02e
   languageName: node
   linkType: hard
 
