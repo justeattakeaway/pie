@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Overview
     parent: Design Tokens
     order: 1
+permalink: "foundations/design-tokens/"
 ---
 
 ## What are Design Tokens?
