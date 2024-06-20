@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Overview
     parent: Iconography
     order: 1
+permalink: /foundations/iconography/
 ---
 
 ## Icon sets
