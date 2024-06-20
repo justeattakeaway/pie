@@ -1,1 +1,2 @@
 dist/**/*.css
+scss/settings/_include-media.scss
