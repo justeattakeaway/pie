@@ -386,7 +386,6 @@ test.describe('PieCheckbox - Component tests', () => {
                     // Assert
                     await expect(assistiveText).toHaveAttribute('id', 'assistive-text');
                     expect(componentAttribute).toBe('assistive-text');
-
                 });
             });
         });
@@ -430,7 +429,6 @@ test.describe('PieCheckbox - Component tests', () => {
                 });
             });
         });
-
     });
 
     test.describe('Events', () => {
