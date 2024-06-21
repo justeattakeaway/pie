@@ -37,62 +37,13 @@ yarn add @justeattakeaway/pie-assistive-text
 
 For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
 
+## Documentation
 
-### Importing the component
+Visit  [Assistive Text | PIE Design System](https://pie.design/components/assistive-text/code) to view more information on this component.
 
-#### JavaScript
-```js
-// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
-import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
+## Questions
 
-// If you don't need to reference the imported object, you can simply
-// import the module which registers the component as a custom element.
-import '@justeattakeaway/pie-assistive-text';
-```
-
-#### React
-```js
-// React
-// For React, you will need to import our React-specific component build
-// which wraps the web component using ​@lit/react
-import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text/dist/react';
-```
-
-> [!NOTE]
-> When using the React version of the component, please make sure to also
-> include React as a [peer dependency](#peer-dependencies) in your project.
-
-## Peer Dependencies
-
-> [!IMPORTANT]
-> When using `pie-assistive-text`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
-## Props
-
-| Property | Type | Default | Description |
-|---|---|---|---|
-| `variant` | `string` | `default` | Sets the type of message displayed to one of three potential options: `error`, `success` or `default`. `error` and `success` include an icon and are used for validation messages. `default` provides users with extra context and guidance. |
-
-## Slots
-
-| Property | Description |
-|---|---|
-| `default` | The default, unnamed slot is used to pass in text to the component. |
-
-In your markup or JSX, you can then use these to set the properties for the `pie-assistive-text` component:
-
-```html
-<!-- Native HTML -->
-<pie-assistive-text
-  variant="success">
-  Your request has been submitted.
-</pie-assistive-text>
-
-<!-- JSX -->
-<PieAssistiveText
-  variant="error">
-  Password contains too few characters.
-</PieAssistiveText>
-```
+Please head to [FAQs | PIE Design System](https://pie.design/support/contact-us/) to see our FAQs and get in touch.
 
 ## Contributing
 
