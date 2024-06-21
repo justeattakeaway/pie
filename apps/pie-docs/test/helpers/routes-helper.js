@@ -1,19 +1,12 @@
 const dree = require('dree');
 
-/*
 // Use the 'dree' library to scan the directory of our built pages
-*/
 exports.getNavigationRoutes = () => {
     const children = dree.scan('./dist');
-
-    const expectedRoutes = readChildren(children);
-
-    return expectedRoutes;
+    return readChildren(children);
 };
 
-/*
 // This function gets called recursively so that subdirectories are included as part of our expected routes.
-*/
 const readChildren = (childDirectories, result = []) => {
     // folders in the dist we want to ignore
     const ignores = ['assets', 'node_modules'];
@@ -23,28 +16,40 @@ const readChildren = (childDirectories, result = []) => {
 
     if (includes.includes(childDirectories.name) && !childDirectories.children) {
         result.push(childDirectories.relativePath);
-        return;
+        return result;
     }
 
     // Ignore directories that don't have subdirectories / files, as these aren't valid routes
     if (ignores.includes(childDirectories.name) || !childDirectories.children) {
-        return;
+        return result;
     }
 
-    if (childDirectories.children.length === 1) {
+    if (childDirectories.children.length === 1 && childDirectories.children[0].name === 'index.html') {
         if (process.platform === 'win32') {
-            childDirectories.relativePath = childDirectories.relativePath.replaceAll('\\', '/');
+            childDirectories.relativePath = childDirectories.relativePath.replace(/\\/g, '/');
         }
+
         result.push(childDirectories.relativePath);
 
-        return;
+        return result;
+    }
+
+    // This allows us to include urls such as /foundations, /foundations/typography, etc.
+    // Some of these pages should display a 404 page but we still want to include them in our routes as they technically exist.
+    const hasIndexHtmlChild = childDirectories.children.some((child) => child.name === 'index.html');
+    const directoriesToInclude = ['foundations'];
+    const shouldInclude = directoriesToInclude.some((dir) => childDirectories.relativePath.includes(dir));
+
+    if (childDirectories.children.length > 0 && hasIndexHtmlChild && shouldInclude) {
+        if (process.platform === 'win32') {
+            childDirectories.relativePath = childDirectories.relativePath.replace(/\\/g, '/');
+        }
+
+        result.push(childDirectories.relativePath);
     }
 
     // Recursively call readChildren() so that subdirectories are added to the array.
-    childDirectories.children.forEach((child) => {
-        readChildren(child, result);
-    });
+    childDirectories.children.forEach((child) => readChildren(child, result));
 
-    // eslint-disable-next-line consistent-return
     return result;
 };
