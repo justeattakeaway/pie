@@ -94,7 +94,7 @@ import '@justeattakeaway/pie-assistive-text'
 
 ```html
 <!-- pass js file into <script> tag -->
-<pie-assistive-text href="https://www.pie.design">pie.design</pie-assistive-text>
+<pie-assistive-text>pie.design</pie-assistive-text>
 <script type="module" src="/main.js"></script>
 ```
 
@@ -115,12 +115,12 @@ import '@justeattakeaway/pie-assistive-text';
 For React Applications:
 
 ```jsx
-import { PieTextInput } from '@justeattakeaway/pie-assistive-text/dist/react';
+import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text/dist/react';
 
-<pie-assistive-text
+<PieAssistiveText
   variant="success">
   Your request has been submitted.
-</pie-assistive-text>
+</PieAssistiveText>
 ```
 
 ## Changelog
