@@ -11,7 +11,9 @@
       {
         "type": "code",
         "item": [
-          "string"
+          "\"default\"",
+          "\"error\"",
+          "\"success\""
         ]
       },
       "Sets the type of message displayed to one of three potential options: `error`, `success` or `default`. `error` and `success` include an icon and are used for validation messages. `default` provides users with extra context and guidance.",
