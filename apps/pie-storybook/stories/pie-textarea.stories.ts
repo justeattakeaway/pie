@@ -7,6 +7,7 @@ import { TextareaProps } from '@justeattakeaway/pie-textarea';
 
 import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
+import textInputStoryMeta from "./pie-text-input.stories";
 
 type TextareaStoryMeta = StoryMeta<TextareaProps>;
 
@@ -15,7 +16,15 @@ const defaultArgs: TextareaProps = {};
 const textareaStoryMeta: TextareaStoryMeta = {
     title: 'Textarea',
     component: 'pie-textarea',
-    argTypes: {},
+    argTypes: {
+        disabled: {
+            description: 'If true, disables the textarea field.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
+    },
     args: defaultArgs,
     parameters: {
         design: {
@@ -25,12 +34,19 @@ const textareaStoryMeta: TextareaStoryMeta = {
     },
 };
 
-export default textareaStoryMeta;
 
 // TODO: remove the eslint-disable rule when props are added
 // eslint-disable-next-line no-empty-pattern
-const Template = ({}: TextareaProps) => html`
-    <pie-textarea></pie-textarea>
-`;
+const Template = ({
+  disabled,
+}: TextareaProps) => {
+    return html`
+        <pie-textarea
+                ?disabled="${disabled}">
+        </pie-textarea>
+    `;
+};
 
 export const Default = createStory<TextareaProps>(Template, defaultArgs)();
+
+export default textareaStoryMeta;
