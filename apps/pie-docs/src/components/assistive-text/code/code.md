@@ -94,7 +94,7 @@ import '@justeattakeaway/pie-assistive-text'
 
 ```html
 <!-- pass js file into <script> tag -->
-<pie-assistive-text>pie.design</pie-assistive-text>
+<pie-assistive-text variant="success">Your request has been submitted.</pie-assistive-text>
 <script type="module" src="/main.js"></script>
 ```
 
