@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-assistive-text
 
+## 0.5.0
+
+### Minor Changes
+
+- [Changed] - Bumped status from Alpha to Beta ([#1535](https://github.com/justeattakeaway/pie/pull/1535)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Code pages documentation to pie-docs ([#1525](https://github.com/justeattakeaway/pie/pull/1525)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.4.1
 
 ### Patch Changes
