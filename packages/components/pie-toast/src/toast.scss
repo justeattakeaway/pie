@@ -1,1 +1,10 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+.c-toast {
+  --toast-border-radius: var(--dt-radius-rounded-c);
+  --toast-background-color: var(--dt-color-container-subtle);
+
+  padding: var(--dt-spacing-d);
+  border-radius: var(--toast-border-radius);
+  background-color: var(--toast-background-color);
+}
