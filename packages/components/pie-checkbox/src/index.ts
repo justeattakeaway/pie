@@ -49,10 +49,10 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     public disabled?: CheckboxProps['disabled'];
 
     @property({ type: Boolean, reflect: true })
-    public required?: CheckboxProps['required'] = defaultProps.required;
+    public required = defaultProps.required;
 
     @property({ type: Boolean, reflect: true })
-    public indeterminate?: CheckboxProps['indeterminate'] = defaultProps.indeterminate;
+    public indeterminate = defaultProps.indeterminate;
 
     @property({ type: Object })
     public aria: CheckboxProps['aria'];
@@ -65,7 +65,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
 
     @property({ type: String })
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
-    public status?: CheckboxProps['status'] = defaultProps.status;
+    public status = defaultProps.status;
 
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.
@@ -160,7 +160,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             ?data-pie-checked=${checked}
             ?data-pie-disabled=${live(disabled)}
             ?data-pie-indeterminate=${indeterminate}
-            data-pie-status=${!disabled && ifDefined(status)}>
+            data-pie-status=${!disabled && status}>
             <input
                 type="checkbox"
                 id="inputId"
@@ -169,7 +169,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
                 name=${ifDefined(name)}
                 ?disabled=${disabled}
                 ?required=${required}
-                .indeterminate=${!!indeterminate}
+                .indeterminate=${indeterminate}
                 aria-label=${aria?.label || nothing}
                 aria-labelledby=${label ? nothing : aria?.labelledby || nothing}
                 aria-describedby=${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}
@@ -183,7 +183,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             ${assistiveText ? html`
                 <pie-assistive-text
                     id="${assistiveTextIdValue}"
-                    variant=${ifDefined(status)}
+                    variant=${status}
                     data-test-id="pie-checkbox-assistive-text">
                         ${assistiveText}
                 </pie-assistive-text>` : nothing}

@@ -1,6 +1,7 @@
 ---
 "@justeattakeaway/pie-cookie-banner": patch
 "@justeattakeaway/pie-modal": patch
+"@justeattakeaway/pie-css": patch
 "wc-vanilla": patch
 "pie-storybook": patch
 "pie-docs": patch
