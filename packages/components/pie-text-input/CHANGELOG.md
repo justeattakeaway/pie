@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-text-input
 
+## 0.23.0
+
+### Minor Changes
+
+- [Added] - Default status type ([#1513](https://github.com/justeattakeaway/pie/pull/1513)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Bumped the text-input status from Alpha to Beta ([#1535](https://github.com/justeattakeaway/pie/pull/1535)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`e0152be7f`](https://github.com/justeattakeaway/pie/commit/e0152be7fb7dfc0e1c5813160895a88a2bc34d89), [`29ec6b66a`](https://github.com/justeattakeaway/pie/commit/29ec6b66a5b6e4dcb4e72c5f16aeddffb118b0a2)]:
+  - @justeattakeaway/pie-assistive-text@0.5.0
+
 ## 0.22.2
 
 ### Patch Changes

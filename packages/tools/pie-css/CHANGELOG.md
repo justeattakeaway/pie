@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.12.0
+
+### Minor Changes
+
+- [Added] - Media query shortcuts using include-media ([#1480](https://github.com/justeattakeaway/pie/pull/1480)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.11.0
 
 ### Minor Changes

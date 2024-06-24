@@ -1,5 +1,20 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - `assistiveText` and `status` properties. ([#1516](https://github.com/justeattakeaway/pie/pull/1516)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+### Patch Changes
+
+- [Fixed] Lint error related to line breaks ([#1536](https://github.com/justeattakeaway/pie/pull/1536)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [Added] - Missing dependency on pie-assistive-text ([#1543](https://github.com/justeattakeaway/pie/pull/1543)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`e0152be7f`](https://github.com/justeattakeaway/pie/commit/e0152be7fb7dfc0e1c5813160895a88a2bc34d89), [`29ec6b66a`](https://github.com/justeattakeaway/pie/commit/29ec6b66a5b6e4dcb4e72c5f16aeddffb118b0a2)]:
+  - @justeattakeaway/pie-assistive-text@0.5.0
+
 ## 0.5.0
 
 ### Minor Changes
