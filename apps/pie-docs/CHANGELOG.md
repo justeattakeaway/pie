@@ -1,5 +1,22 @@
 # Changelog
 
+## 3.42.0
+
+### Minor Changes
+
+- [Changed] – updated media query to use new include-media mixin ([#1480](https://github.com/justeattakeaway/pie/pull/1480)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Updated] - Updated Resources table on Overview page ([#1533](https://github.com/justeattakeaway/pie/pull/1533)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- [Removed] - GTM scripts and Cookie banner ([#1532](https://github.com/justeattakeaway/pie/pull/1532)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Code pages documentation to pie-docs ([#1525](https://github.com/justeattakeaway/pie/pull/1525)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies [[`996293ecb`](https://github.com/justeattakeaway/pie/commit/996293ecb3e98627e8ad25abd2660af54e8d0af0)]:
+  - @justeattakeaway/pie-css@0.12.0
+
 ## 3.41.0
 
 ### Minor Changes
