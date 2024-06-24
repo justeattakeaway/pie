@@ -58,7 +58,7 @@
                                     {% for subpage in category.children %}
                                         {% if subpage.url %}
                                             {% if subpage.children.length and subpage.subPageDropdown %}
-                                                <details {% if page.url and page.url.includes(subpage.key) %} open{% endif %}>
+                                                <details {% if page.url and page.url.includes(subpage.key.toLowerCase()) %} open{% endif %}>
                                                     {{ summary(subpage.title) }}
                                                     <ul class="c-nav-list">
                                                     {% for child in subpage.children %}
