@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Overview
     parent: Elevation
     order: 1
+permalink: foundations/elevation/
 ---
 
 ## Why do we use elevation?

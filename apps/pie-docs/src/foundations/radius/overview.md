@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Overview
     parent: Radius
     order: 1
+permalink: foundations/radius/
 ---
 ## Why do we use radius?
 

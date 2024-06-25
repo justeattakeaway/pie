@@ -74,7 +74,7 @@
                                                     {% set splitPageUrl = ([] if page.url === false else page.url.split("/")) %}
                                                     {% set currentPageArea = [splitPageUrl[1], splitPageUrl[2]] | join('/') %}
                                                     {# Set the nav item to active if the url contains it's category #}
-                                                    {# this means something like /foundations/colour/overview/ and /foundations/colour/tokens/global/ will activate 'colour' #}
+                                                    {# this means something like /foundations/colour/ and /foundations/colour/tokens/global/ will activate 'colour' #}
                                                     {{ listItem(subpage.title, subpage.url, page.url, subPageArea == currentPageArea) }}
                                             {% endif %}
                                         {% endif %}
