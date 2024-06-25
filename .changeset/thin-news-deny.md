@@ -3,4 +3,4 @@
 "pie-storybook": minor
 ---
 
-[Added] - disabled attribute to pie-textarea component
+[Added] - Render a textarea inside the pie-textarea with a `disabled` property that defaults to `false`
