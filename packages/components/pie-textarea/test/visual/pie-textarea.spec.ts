@@ -46,7 +46,21 @@ await Promise.all(readingDirections.map(async (dir) => {
             disabled: true,
         }, renderTestPieTextarea);
 
-        const propKeyValues = `disabled: ${testComponent.propValues.disabled}`;
+        let propKeyValues = `disabled: ${testComponent.propValues.disabled}`;
+
+        await mount(
+            WebComponentTestWrapper,
+            {
+                props: { propKeyValues },
+            },
+        );
+
+        // Not Disabled placeholder
+        testComponent = createTestWebComponent({
+            disabled: false,
+        }, renderTestPieTextarea);
+
+        propKeyValues = `disabled: ${testComponent.propValues.disabled}`;
 
         await mount(
             WebComponentTestWrapper,

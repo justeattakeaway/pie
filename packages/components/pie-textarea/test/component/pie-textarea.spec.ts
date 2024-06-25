@@ -56,7 +56,7 @@ test.describe('PieTextarea - Component tests', () => {
                 });
             });
 
-            test.describe('when not provided', () => {
+            test.describe('when false', () => {
                 test('should not disable the component', async ({ mount }) => {
                     // Arrange
                     const component = await mount(PieTextarea, {});

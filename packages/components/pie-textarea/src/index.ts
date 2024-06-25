@@ -1,6 +1,5 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
-import { live } from 'lit/directives/live.js';
 
 import { RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 
@@ -29,7 +28,7 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
         return html`
             <textarea
                 data-test-id="pie-textarea"
-                ?disabled=${live(disabled)}
+                ?disabled=${disabled}
             />`;
     }
 
