@@ -40,7 +40,7 @@ const readChildren = (childDirectories, result = []) => {
     const directoriesToInclude = ['foundations'];
     const shouldInclude = directoriesToInclude.some((dir) => childDirectories.relativePath.includes(dir));
 
-    if (childDirectories.children.length > 0 && hasIndexHtmlChild && shouldInclude) {
+    if (hasIndexHtmlChild && shouldInclude) {
         if (process.platform === 'win32') {
             childDirectories.relativePath = childDirectories.relativePath.replace(/\\/g, '/');
         }
