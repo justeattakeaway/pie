@@ -73,8 +73,8 @@ import { PieTextarea } from '@justeattakeaway/pie-textarea/dist/react';
 ## Props
 
 | Property | Type | Default | Description |
-|---|---|---|---|
-| - | - | - | - |
+|--|--|--|--|
+| `disabled` | `boolean` | `false` | Indicates whether or not the checkbox is disabled. |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-textarea` component:
 
