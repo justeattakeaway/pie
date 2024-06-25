@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Overview
     parent: Typography
     order: 1
+permalink: foundations/typography/
 ---
 
 ## Font families

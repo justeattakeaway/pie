@@ -5,6 +5,7 @@ eleventyNavigation:
     order: 1
 eleventyComputed:
     principlesData: "{% include './motion-principles.json' %}"
+permalink: foundations/motion/
 ---
 ## Introduction
 
