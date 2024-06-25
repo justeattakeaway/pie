@@ -1,4 +1,6 @@
 import { LitElement, html, unsafeCSS } from 'lit';
+import { property } from 'lit/decorators.js';
+
 import { RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 
 import styles from './textarea.scss?inline';
@@ -13,8 +15,21 @@ const componentSelector = 'pie-textarea';
  * @tagname pie-textarea
  */
 export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
+    static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
+
+    @property({ type: Boolean, reflect: true })
+    public disabled?: TextareaProps['disabled'];
+
     render () {
-        return html`<h1 data-test-id="pie-textarea">Hello world!</h1>`;
+        const {
+            disabled,
+        } = this;
+
+        return html`
+            <textarea
+                data-test-id="pie-textarea"
+                ?disabled=${disabled}
+            />`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
