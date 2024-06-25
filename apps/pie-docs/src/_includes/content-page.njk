@@ -18,26 +18,16 @@
         {% include "page-tabs.njk" %}
     {% endif %}
 
-    {# temporarily adding a condition to check if the title is PIE Design System - this allows an empty home page not to display the coming soon graphic in the page body #}
-    {% if content %}
-        <div class="c-content">
-            <div class="c-content-container">
-                {% if shouldShowContents %}
-                    <aside>
-                        <h2>Contents</h2>
-                        {{ content | toc | safe}}
-                        <hr />
-                    </aside>
-                {% endif %}
-                {{ content | safe }}
-            </div>
+    <div class="c-content">
+        <div class="c-content-container">
+            {% if shouldShowContents %}
+                <aside>
+                    <h2>Contents</h2>
+                    {{ content | toc | safe}}
+                    <hr />
+                </aside>
+            {% endif %}
+            {{ content | safe }}
         </div>
-    {% else %}
-        <div class="c-content u-noPad">
-            <div class="c-content-container">
-                {# By default we will show the coming soon graphic for an empty page within a tabbed section #}
-                {% include "coming-soon.njk" %}
-            </div>
-        </div>
-    {% endif %}
+    </div>
 </div>

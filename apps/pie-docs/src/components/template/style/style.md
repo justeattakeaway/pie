@@ -17,16 +17,16 @@ eleventyComputed:
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [link](/foundations/design-tokens/overview)."
+  message: "Check out the [link](/foundations/design-tokens)."
 } %}
 
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [link](/foundations/design-tokens/overview)."
+  message: "Check out the [link](/foundations/design-tokens)."
 } %}
 
---- 
+---
 
 ## Typography
 
@@ -37,7 +37,7 @@ eleventyComputed:
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [link](/foundations/design-tokens/overview)."
+  message: "Check out the [link](/foundations/design-tokens)."
 } %}
 
 ---
