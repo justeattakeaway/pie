@@ -40,7 +40,7 @@ const renderTestPieCheckbox = (propVals: WebComponentPropValues) => {
     if (propVals.disabled) attributes += ` disabled="${propVals.disabled}"`;
     if (propVals.checked) attributes += ` checked="${propVals.checked}"`;
 
-    return `<pie-checkbox${attributes} status="${propVals.status}"></pie-checkbox>`
+    return `<pie-checkbox${attributes} status="${propVals.status}"></pie-checkbox>`;
 };
 
 const componentPropsMatrix: WebComponentPropValues[] = getAllPropCombinations(props);
@@ -59,7 +59,6 @@ test.beforeEach(async ({ mount }, testInfo) => {
     await assistiveTextComponent.unmount();
 });
 
-
 componentVariants.forEach((variant) => test(`should render all prop variations for the checked state: ${variant}`, async ({ page, mount }) => {
     await Promise.all(componentPropsMatrixByCheckedState[variant].map(async (combo: WebComponentPropValues) => {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCheckbox);
@@ -69,7 +68,7 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
             label: ${testComponent.propValues.label ? 'with label' : 'no label'},
             status: ${testComponent.propValues.status},
             indeterminate: ${testComponent.propValues.indeterminate},
-            assistiveText: ${testComponent.propValues.assistiveText ? 'with assistive text' : 'no assistive text'},`
+            assistiveText: ${testComponent.propValues.assistiveText ? 'with assistive text' : 'no assistive text'},`;
 
         await mount(
             WebComponentTestWrapper,
@@ -80,10 +79,10 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
                 },
             },
         );
-    }))
+    }));
 
     await percySnapshot(page, `PIE Checkbox - Checked State: ${variant}`, percyWidths);
-}))
+}));
 
 await Promise.all(readingDirections.map(async (dir) => {
     test(`Assistive text and statuses - ${dir}`, async ({ mount, page }) => {
