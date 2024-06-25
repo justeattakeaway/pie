@@ -4,7 +4,7 @@ eleventyNavigation:
     parent: Template
     order: 1
 shouldShowContents: true
-permalink: components/template
+# permalink: components/template
 ---
 
 ## Overview
