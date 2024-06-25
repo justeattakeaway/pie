@@ -34,7 +34,7 @@ This set should be used for illustrative purposes, such as communications or mar
 
 ## Icon anatomy
 
-Our icons are always placed inside a bounding box, which ensures that vertical and horizontal spacing adhere to our [spacing guides](/foundations/spacing/overview/).
+Our icons are always placed inside a bounding box, which ensures that vertical and horizontal spacing adhere to our [spacing guides](/foundations/spacing/).
 
 When exporting icons for your products, please export the whole bounding box, instead of just the icon area.
 
