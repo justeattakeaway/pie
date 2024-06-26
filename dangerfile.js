@@ -6,6 +6,12 @@ const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
 const isRenovatePR = pr.user.login === 'renovate[bot]';
 const isDependabotPR = pr.user.login === 'dependabot[bot]';
 
+// Exit early if the PR is a draft
+if (pr.draft) {
+    console.info('PR is a draft, skipping checks.');
+    return;
+}
+
 // Check for correct Changeset formatting
 danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') && !filepath.includes('.changeset/pre.json'))
     .forEach((filepath) => {
