@@ -1,1 +1,22 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+.c-textarea {
+  --textarea-height: 72px;
+  --textarea-cursor: text;
+
+  height: var(--textarea-height);
+  cursor: var(--textarea-cursor);
+
+  &[data-pie-size="large"] {
+    --textarea-height: 80px;
+  }
+
+  &[data-pie-size="small"] {
+    --textarea-height: 64px;
+  }
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+}
