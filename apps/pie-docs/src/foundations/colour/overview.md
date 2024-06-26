@@ -5,7 +5,7 @@ eleventyNavigation:
     order: 1
 permalink: foundations/colour/
 ---
-## Our colour principles
+## Our colour principles test
 
 We have a set of principles to help you use colour in your products more effectively.
 
