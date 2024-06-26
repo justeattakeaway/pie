@@ -2,11 +2,11 @@ name: DangerJS PR Checks
 
 on:
   pull_request:
-    types: [opened, edited, reopened, synchronize]
+    types: [opened, edited, reopened, synchronize, ready_for_review]
 
 jobs:
   danger-checks:
-    if: github.actor != 'renovate-bot' && github.actor != 'renovate[bot]'
+    if: ${{ github.event.pull_request.draft == false && github.actor != 'renovate-bot' && github.actor != 'renovate[bot]' }}
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
