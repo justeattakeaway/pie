@@ -197,6 +197,17 @@
                 transform-origin: 0% 100%;
 
                 animation: checkboxCheck var(--checkbox-motion-timing-100) var(--checkbox-motion-easing) var(--checkbox-motion-timing-100) forwards;
+
+                @media only percy {
+                    animation: none;
+
+                    width: 8px;
+                    height: 16px;
+                    border-color: #fff;
+                    border-bottom-right-radius: 2px;
+
+                    transform: translate3d(0, -16px, 0) rotate(45deg);
+                }
             }
         }
 
