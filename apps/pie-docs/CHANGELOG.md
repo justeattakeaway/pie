@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.43.0
+
+### Minor Changes
+
+- [Changed] - Removed /overview urls from foundations pages and use overview content as the index.html of each directory. I.e. /foundations/colour for the overview page instead of /foundations/colour/overview. Also now uses the 404 rather than coming soon partial for empty pages as the coming soon was misleading and often not true. ([#1538](https://github.com/justeattakeaway/pie/pull/1538)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens version bump to 6.3.1 ([#1546](https://github.com/justeattakeaway/pie/pull/1546)) by [@dandel10n](https://github.com/dandel10n)
+
+- Updated dependencies [[`ddd2dca0f`](https://github.com/justeattakeaway/pie/commit/ddd2dca0f44724e7308011c6e63733e172b091bc)]:
+  - @justeattakeaway/pie-css@0.12.1
+
 ## 3.42.0
 
 ### Minor Changes
