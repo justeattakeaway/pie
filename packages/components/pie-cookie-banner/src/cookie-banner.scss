@@ -14,10 +14,13 @@ $breakpoint-wide: 700px;
     --cb-padding-inline: var(--dt-spacing-d);
     --cb-padding-block: var(--dt-spacing-d);
     --cb-offset: 0;
+    --cb-background-color: var(--dt-color-background-dark);
+    --cb-content-color: var(--dt-color-content-inverse);
+    --cb-border-color: var(--dt-color-background-dark);
 
     color-scheme: only dark; // For Dark mode we will need to switch this to only light
-    background-color: var(--dt-color-background-dark);
-    color: var(--dt-color-content-inverse);
+    background-color: var(--cb-background-color);
+    color: var(--cb-content-color);
     font-family: var(--cb-font-family);
     font-size: var(--cb-font-size);
     line-height: var(--cb-line-height);
@@ -80,7 +83,7 @@ $breakpoint-wide: 700px;
     background:
         // Scroll shadow cover
         // A top-to-bottom opacity gradient from transparent to the component background colour
-        linear-gradient(to bottom, transparent, var(--dt-color-background-dark) 75%) center bottom,
+        linear-gradient(to bottom, transparent, var(--cb-background-color) 75%) center bottom,
         // Scroll shadow
         linear-gradient(transparent, var(--cb-scroll-shadow-color)) center bottom;
     background-repeat: no-repeat;
@@ -151,4 +154,13 @@ $breakpoint-wide: 700px;
     &:last-child {
         margin-block-end: 0;
     }
+}
+
+.c-cookieBanner--inverse {
+    --cb-border-color: var(--dt-color-border-strong);
+    --cb-background-color: var(--dt-color-dark-container-inverse);
+    --cb-content-color: var(--dt-color-dark-content-inverse);
+    --cb-scroll-shadow-color: var(--dt-color-border-strong);
+
+    outline: 1px solid var(--cb-border-color);
 }

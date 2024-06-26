@@ -79,14 +79,21 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     @property({ type: String })
     public cookieTechnologiesLink = defaultProps.cookieTechnologiesLink;
 
+    @property({ type: Boolean })
+    public hasInverseColours = false;
+
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;
 
+    private get _linkVariant () {
+        return this.hasInverseColours ? 'default' : 'inverse';
+    }
+
     private _customTagEnhancers: CustomTagEnhancers = {
-        linkStatement: (tagContent: string) => html`<pie-link href="${this.cookieStatementLink}" variant="inverse" target="_blank" data-test-id="cookie-statement-link">${tagContent}</pie-link>`,
-        linkNecessaryOnly: (tagContent: string) => html`<pie-link data-test-id="body-necessary-only" tag="button" variant="inverse" @click="${this._onNecessaryOnly}">${tagContent}</pie-link>`,
-        linkManagePreferences: (tagContent: string) => html`<pie-link data-test-id="body-manage-prefs" tag="button" variant="inverse" @click="${this._openManagePreferencesModal}">${tagContent}</pie-link>`,
-        linkAcceptAll: (tagContent: string) => html`<pie-link data-test-id="body-accept-all" tag="button" variant="inverse" @click="${this._onAcceptAll}">${tagContent}</pie-link>`,
+        linkStatement: (tagContent: string) => html`<pie-link href="${this.cookieStatementLink}" variant="${this._linkVariant}" target="_blank" data-test-id="cookie-statement-link">${tagContent}</pie-link>`,
+        linkNecessaryOnly: (tagContent: string) => html`<pie-link data-test-id="body-necessary-only" tag="button" variant="${this._linkVariant}" @click="${this._onNecessaryOnly}">${tagContent}</pie-link>`,
+        linkManagePreferences: (tagContent: string) => html`<pie-link data-test-id="body-manage-prefs" tag="button" variant="${this._linkVariant}" @click="${this._openManagePreferencesModal}">${tagContent}</pie-link>`,
+        linkAcceptAll: (tagContent: string) => html`<pie-link data-test-id="body-accept-all" tag="button" variant="${this._linkVariant}" @click="${this._onAcceptAll}">${tagContent}</pie-link>`,
         linkCookieStatement: (tagContent: string) => html`<pie-link href="${this.cookieStatementLink}" size="small" target="_blank" data-test-id="cookie-statement-link">${tagContent}</pie-link>`,
         linkCookieTechList: (tagContent: string) => html`<pie-link href="${this.cookieTechnologiesLink}" size="small" target="_blank" data-test-id="cookie-technology-link">${tagContent}</pie-link>`,
     };
@@ -235,6 +242,15 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             ariaLabel: this._localiseText('preferencesManagement.cta.save.label'), // TODO: Replace with the appropriate "ariaLabel" as soon as the spreadsheet is updated
         };
 
+        const invertedColourClass = this.hasInverseColours ? ' c-cookieBanner--inverse' : '';
+
+        let necessaryOnlyButtonVariant = 'outline-inverse';
+        if (this.hasPrimaryActionsOnly) {
+            necessaryOnlyButtonVariant = 'primary';
+        } else if (this.hasInverseColours) {
+            necessaryOnlyButtonVariant = 'outline';
+        }
+
         return html`
         <pie-modal
             .isOpen="${this._isModalOpen}"
@@ -247,7 +263,10 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             @pie-modal-back="${this._displayCookieBanner}">
                 ${this.renderModalContent()}
         </pie-modal>
-        <aside data-test-id="pie-cookie-banner" class="c-cookieBanner" ?isCookieBannerHidden=${this._isCookieBannerHidden}>
+        <aside
+            data-test-id="pie-cookie-banner"
+            class="${`c-cookieBanner${invertedColourClass}`}"
+            ?isCookieBannerHidden=${this._isCookieBannerHidden}>
             <h2 class="c-cookieBanner-title">${this._localiseText('banner.title')}</h2>
             <div class="c-cookieBanner-body" data-test-id="banner-description">
                 <p>${this._localiseRichText('banner.description')}</p>
@@ -265,7 +284,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                 <pie-button
                     data-test-id="actions-necessary-only"
                     @click="${this._onNecessaryOnly}"
-                    variant="${this.hasPrimaryActionsOnly ? 'primary' : 'outline-inverse'}"
+                    variant="${necessaryOnlyButtonVariant}"
                     isFullWidth
                     size="small-expressive">
                     ${this._localiseText('banner.cta.necessaryOnly')}
@@ -274,7 +293,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     data-test-id="actions-manage-prefs"
                     @click="${this._openManagePreferencesModal}"
                     tag="button"
-                    variant="inverse"
+                    variant="${this._linkVariant}"
                     isBold="true">
                     ${this._localiseText('banner.cta.managePreferences')}
                 </pie-link>
