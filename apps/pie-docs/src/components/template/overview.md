@@ -4,7 +4,7 @@ eleventyNavigation:
     parent: Template
     order: 1
 shouldShowContents: true
-# permalink: components/template
+# permalink: components/template // should be uncommented for a live component page
 ---
 
 ## Overview
