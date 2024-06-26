@@ -2,10 +2,8 @@
 
 .c-textarea {
   --textarea-height: 72px;
-  --textarea-cursor: text;
 
   height: var(--textarea-height);
-  cursor: var(--textarea-cursor);
 
   &[data-pie-size="large"] {
     --textarea-height: 80px;

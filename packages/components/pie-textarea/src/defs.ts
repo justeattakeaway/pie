@@ -9,7 +9,7 @@ export interface TextareaProps {
     disabled?: boolean;
 
     /**
-     * The size of the textarea field. Can be `small`, `medium`, or `large`. Defaults to `medium`.
+     * The size of the textarea field. Can be `small`, `medium` or `large`. Defaults to `medium`.
      */
     size?: typeof sizes[number];
 }
