@@ -244,11 +244,9 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
 
         const invertedColourClass = this.hasInverseColours ? ' c-cookieBanner--inverse' : '';
 
-        let necessaryOnlyButtonVariant = 'outline-inverse';
+        let necessaryOnlyButtonVariant = this.hasInverseColours ? 'outline' : 'outline-inverse';
         if (this.hasPrimaryActionsOnly) {
             necessaryOnlyButtonVariant = 'primary';
-        } else if (this.hasInverseColours) {
-            necessaryOnlyButtonVariant = 'outline';
         }
 
         return html`
