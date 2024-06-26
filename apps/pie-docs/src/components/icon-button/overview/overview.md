@@ -34,7 +34,7 @@ Icon buttons feature simple and recognizable icons that represent a specific act
     dont: {
         type: usageTypes.text,
         items: [
-            "Don’t use if an icon on its own doesn’t clearly indicate the action, in the case use a standard [Button](/components/button/overview)."
+            "Don’t use if an icon on its own doesn’t clearly indicate the action, in the case use a standard [Button](/components/button)."
         ]
     }
 } %}

@@ -16,7 +16,7 @@ The purpose of modals is to focus the user's attention on a specific task, messa
 Modals are commonly used for tasks such as displaying notifications, presenting detailed information, requesting user input, or confirming critical actions.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/overview.svg",
+    src: "../../../assets/img/components/modal/overview.svg",
     alt: "A Modal containing a heading, body copy and a button placed on the bottom right corner."
 } %}
 
@@ -45,7 +45,7 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
 ## Anatomy
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/anatomy.svg",
+    src: "../../../assets/img/components/modal/anatomy.svg",
     alt: "Anatomy of a Modal.",
     shouldShowPadding: true
 } %}
@@ -68,7 +68,7 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
 ### Default
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/variation-default.svg",
+    src: "../../../assets/img/components/modal/variation-default.svg",
     alt: "Default variation of modal.",
     width: 600
 } %}
@@ -84,7 +84,7 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
 If a multi-step Modal is required, from steps two onwards a back Icon Button is displayed allowing the user to move back to the preview view.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/modifier-header-back.svg",
+    src: "../../../assets/img/components/modal/modifier-header-back.svg",
     alt: "A Modal with a back icon button in the header.",
     width: 600
 } %}
@@ -94,7 +94,7 @@ If a multi-step Modal is required, from steps two onwards a back Icon Button is 
 Use this Header modifier when the Modal can be dismissed.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/modifier-header-close.svg",
+    src: "../../../assets/img/components/modal/modifier-header-close.svg",
     alt: "A Modal with a close icon button in the header.",
     width: 600
 } %}
@@ -108,7 +108,7 @@ You can replace the footer Buttons with any Button or Button pair defined within
 A maximum of two Buttons are allowed within the Modal’s footer, with the primary Button right-aligned and the lower-emphasis Button on the left.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/modifier-footer-double.svg",
+    src: "../../../assets/img/components/modal/modifier-footer-double.svg",
     alt: "A Modal with dual buttons",
     width: 600
 } %}
@@ -117,7 +117,7 @@ A maximum of two Buttons are allowed within the Modal’s footer, with the prima
 
 A single Button variant is available when only one action is required.
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/modifier-footer-single.svg",
+    src: "../../../assets/img/components/modal/modifier-footer-single.svg",
     alt: "A Modal with a single primary button in its footer.",
     width: 600
 } %}
@@ -127,7 +127,7 @@ A single Button variant is available when only one action is required.
 You can use the Passive modifier for the footer in instances where the user doesn't need to take an action. This will remove the buttons at the bottom of the Modal.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/modifier-footer-passive.svg",
+    src: "../../../assets/img/components/modal/modifier-footer-passive.svg",
     alt: "A Modal with a pair of primary and ghost buttons in its footer.",
     width: 600
 } %}
@@ -147,7 +147,7 @@ Modals with short messages should use the small Modal to avoid long single lines
 ### Large
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/size-large.svg",
+    src: "../../../assets/img/components/modal/size-large.svg",
     alt: "Large size modal.",
     width: 968
 } %}
@@ -155,7 +155,7 @@ Modals with short messages should use the small Modal to avoid long single lines
 ### Medium
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/size-medium.svg",
+    src: "../../../assets/img/components/modal/size-medium.svg",
     alt: "Medium size modal.",
     width: 520
 } %}
@@ -163,7 +163,7 @@ Modals with short messages should use the small Modal to avoid long single lines
 ### Small
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/size-small.svg",
+    src: "../../../assets/img/components/modal/size-small.svg",
     alt: "Small size modal.",
     width: 336
 } %}
@@ -178,7 +178,7 @@ Modals with short messages should use the small Modal to avoid long single lines
 
 Large modals will expand to fill the entire page width at narrow viewports.
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/narrow-size-full-screen.svg",
+    src: "../../../assets/img/components/modal/narrow-size-full-screen.svg",
     alt: "A fullscreen Modal on a mobile screen.",
     width: 302
 } %}
@@ -188,7 +188,7 @@ Large modals will expand to fill the entire page width at narrow viewports.
 Medium and small modals will expand to 75% page width at narrow viewports.
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/narrow-size-75-percent.svg",
+    src: "../../../assets/img/components/modal/narrow-size-75-percent.svg",
     alt: "A Modal with 75% width on a mobile screen.",
     width: 336
 } %}
@@ -201,12 +201,12 @@ As well as the standard Modal footer modifiers, at a narrow size you have the op
 
 {% contentLayout %}
   {% contentPageImage {
-      src: "../../../assets/img/components/modal/overview/narrow-modifier-footer-single-action.svg",
+      src: "../../../assets/img/components/modal/narrow-modifier-footer-single-action.svg",
       alt: "A Modal with a single primary button in its footer on a mobile screen.",
       width: 336
   } %}
   {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/narrow-modifier-footer-dual-action.svg",
+    src: "../../../assets/img/components/modal/narrow-modifier-footer-dual-action.svg",
     alt: "A Modal with a single primary button in its footer on a mobile screen.",
     width: 288
   } %}
@@ -221,7 +221,7 @@ As well as the standard Modal footer modifiers, at a narrow size you have the op
 In order to keep the size consistent when the content inside the Modal is loading, we have set a fixed height of 360px while the loading spinner is visible.
 
 {% contentPageImage {
-  src: "../../../assets/img/components/modal/overview/behaviour-loading.svg",
+  src: "../../../assets/img/components/modal/behaviour-loading.svg",
   alt: "Loading behaviour of a modal.",
   width: 600
 } %}
@@ -242,7 +242,7 @@ In order to keep the size consistent when the content inside the Modal is loadin
 The Modal is positioned at the center of the screen by default.
 
 {% contentPageImage {
-  src: "../../../assets/img/components/modal/overview/layout-position-center.svg",
+  src: "../../../assets/img/components/modal/layout-position-center.svg",
   alt: "A Modal that is positioned in the middle of the screen.",
   shouldShowPadding: true
 } %}
@@ -252,7 +252,7 @@ The Modal is positioned at the center of the screen by default.
 The Modal is positioned at the top of the screen by default.
 
 {% contentPageImage {
-  src: "../../../assets/img/components/modal/overview/layout-position-top.svg",
+  src: "../../../assets/img/components/modal/layout-position-top.svg",
   alt: "A Modal that is positioned at the top of the screen.",
   shouldShowPadding: true
 } %}
@@ -266,7 +266,7 @@ The Modal is positioned at the top of the screen by default.
 When the title exceeds the available width, it wraps onto a new line.
 
 {% contentPageImage {
-  src: "../../../assets/img/components/modal/overview/overflow-title.svg",
+  src: "../../../assets/img/components/modal/overflow-title.svg",
   alt: "A Modal with a long title.",
   width: 600
 } %}
@@ -280,7 +280,7 @@ When the Modal’s content is longer than the available Modal height, then the b
 If the actions are required to be sticky, they are pinned to the bottom of the Modal container whilst the user scrolls to indicate there is more content below.
 
 {% contentPageImage {
-  src: "../../../assets/img/components/modal/overview/overflow-body-content-footer-pinned.svg",
+  src: "../../../assets/img/components/modal/overflow-body-content-footer-pinned.svg",
   alt: "A Modal with a pinned footer.",
   width: 400
 } %}
@@ -290,7 +290,7 @@ If the actions are required to be sticky, they are pinned to the bottom of the M
 If the actions aren’t required to be sticky and are placed at the bottom of the content, the passive footer is pinned to the bottom of the Modal container whilst the user scrolls to indicate the presence of additional content below.
 
 {% contentPageImage {
-  src: "../../../assets/img/components/modal/overview/overflow-body-content-footer-not-pinned.svg",
+  src: "../../../assets/img/components/modal/overflow-body-content-footer-not-pinned.svg",
   alt: "A Modal with an unpinned footer.",
   width: 400
 } %}
@@ -306,7 +306,7 @@ If the actions aren’t required to be sticky and are placed at the bottom of th
 If the Modal can be dismissed by the user, they should be able to dismiss it by clicking the close Icon Button or anywhere on the overlay. Doing this will close the Modal.
 
 {% contentPageImage {
-  src: "../../../assets/img/components/modal/overview/interaction-close-dismissible.svg",
+  src: "../../../assets/img/components/modal/interaction-close-dismissible.svg",
   alt: "A dismissible Modal with a close button.",
   shouldShowPadding: true
 } %}
@@ -316,7 +316,7 @@ If the Modal can be dismissed by the user, they should be able to dismiss it by 
 If the Modal is not dismissible, the user has to complete the flow in order to close the Modal.
 
 {% contentPageImage {
-  src: "../../../assets/img/components/modal/overview/interaction-close-non-dismissible.svg",
+  src: "../../../assets/img/components/modal/interaction-close-non-dismissible.svg",
   alt: "A non-dismissible Modal without a close button.",
   shouldShowPadding: true
 } %}
@@ -332,19 +332,19 @@ Outlines the atomic level interactive elements for the component.
 Here are some examples of modals in a left-to-right context:
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/example-ltr-stampcards.svg",
+    src: "../../../assets/img/components/modal/example-ltr-stampcards.svg",
     alt: "A left-to-right example of a Modal with form fields in the Modal body.",
     shouldShowPadding: true
 } %}
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/example-ltr-my-account.svg",
+    src: "../../../assets/img/components/modal/example-ltr-my-account.svg",
     alt: "A left-to-right example of list items and buttons in the Modal body.",
     shouldShowPadding: true
 } %}
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/example-ltr-personal-information.svg",
+    src: "../../../assets/img/components/modal/example-ltr-personal-information.svg",
     alt: "A left-to-right example of tabs and cards in the Modal body.",
     shouldShowPadding: true
 } %}
@@ -354,19 +354,19 @@ Here are some examples of modals in a left-to-right context:
 Here are some examples of Buttons in right-to-left context:
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/example-rtl-stampcards.svg",
+    src: "../../../assets/img/components/modal/example-rtl-stampcards.svg",
     alt: "A right-to-left example of a Modal with form fields in the Modal body.",
     shouldShowPadding: true
 } %}
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/example-rtl-my-account.svg",
+    src: "../../../assets/img/components/modal/example-rtl-my-account.svg",
     alt: "A right-to-left example of list items and buttons in the Modal body.",
     shouldShowPadding: true
 } %}
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/example-rtl-personal-information.svg",
+    src: "../../../assets/img/components/modal/example-rtl-personal-information.svg",
     alt: "A right-to-left example of tabs and cards in the Modal body.",
     shouldShowPadding: true
 } %}
