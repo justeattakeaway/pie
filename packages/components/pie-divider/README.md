@@ -27,7 +27,7 @@ yarn add @justeattakeaway/pie-divider
 
 ## Documentation
 
-Visit  [Divider | PIE Design System](https://pie.design/components/divider/overview) to view more information on this component.
+Visit  [Divider | PIE Design System](https://pie.design/components/divider) to view more information on this component.
 
 ## Questions
 
