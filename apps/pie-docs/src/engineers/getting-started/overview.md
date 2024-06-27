@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Overview
     parent: engineers-getting-started
     order: 1
+permalink: engineers/getting-started/
 ---
 
 ## Introduction

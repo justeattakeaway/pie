@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Overview
     parent: designers-getting-started
     order: 1
+permalink: designers/getting-started/
 ---
 
 ## Introduction
