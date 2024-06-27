@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.80.0
+
+### Minor Changes
+
+- [Added] - Render a textarea inside the pie-textarea with a `disabled` property that defaults to `false` ([#1539](https://github.com/justeattakeaway/pie/pull/1539)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens version bump to 6.3.1 ([#1546](https://github.com/justeattakeaway/pie/pull/1546)) by [@dandel10n](https://github.com/dandel10n)
+
+- Updated dependencies [[`ddd2dca0f`](https://github.com/justeattakeaway/pie/commit/ddd2dca0f44724e7308011c6e63733e172b091bc), [`f582e9263`](https://github.com/justeattakeaway/pie/commit/f582e92638dfb142833602200354fb3add131a45)]:
+  - @justeattakeaway/pie-cookie-banner@0.20.4
+  - @justeattakeaway/pie-modal@0.43.2
+  - @justeattakeaway/pie-css@0.12.1
+  - @justeattakeaway/pie-textarea@0.2.0
+
 ## 0.79.3
 
 ### Patch Changes
