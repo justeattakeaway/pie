@@ -21,6 +21,7 @@ const defaultArgs: CookieBannerProps = {
         personalized: true,
         analytical: true,
     },
+    hasInverseColours: false,
 };
 
 const cookieBannerStoryMeta: CookieBannerStoryMeta = {
@@ -41,6 +42,10 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
         },
         defaultPreferences: {
             control: 'object',
+        },
+        hasInverseColours: {
+            description: 'When true, uses the inverted colour scheme for the banner.',
+            control: 'boolean',
         },
     },
     args: defaultArgs,
@@ -67,6 +72,7 @@ const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => {
         cookieStatementLink,
         cookieTechnologiesLink,
         defaultPreferences,
+        hasInverseColours,
     } = props;
 
     return html`
@@ -75,6 +81,7 @@ const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => {
             .cookieStatementLink=${cookieStatementLink}
             .cookieTechnologiesLink=${cookieTechnologiesLink}
             ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"
+            ?hasInverseColours="${hasInverseColours}"
             .defaultPreferences="${defaultPreferences}"
             @pie-cookie-banner-necessary-only="${necessaryOnlyAction}"
             @pie-cookie-banner-accept-all="${acceptAllAction}"

@@ -73,6 +73,13 @@ export interface CookieBannerProps {
      * or { 'functional': true, 'personalized': true, 'analytical': true }
      */
     defaultPreferences?: Partial<Record<PreferenceIds, boolean>>;
+
+    /**
+     * DSW-2174: TEST USE ONLY
+     *
+     * When true, uses the inverted colour scheme for the banner.
+     */
+    hasInverseColours?: boolean;
 }
 
 /**
@@ -144,4 +151,3 @@ export interface CustomTagEnhancers {
 }
 
 export type DefaultProps = ComponentDefaultPropsGeneric<CookieBannerProps, 'hasPrimaryActionsOnly' | 'defaultPreferences' | 'locale' | 'cookieStatementLink' | 'cookieTechnologiesLink'>;
-
