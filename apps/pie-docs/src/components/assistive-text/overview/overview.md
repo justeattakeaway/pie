@@ -4,6 +4,7 @@ eleventyNavigation:
     parent: 'Assistive Text'
     order: 1
 shouldShowContents: true
+permalink: components/assistive-text/
 ---
 
 ## Overview

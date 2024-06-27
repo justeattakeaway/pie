@@ -28,7 +28,7 @@ yarn add @justeattakeaway/pie-button
 
 ## Documentation
 
-Visit  [Button | PIE Design System](https://pie.design/components/button/overview) to view more information on this component.
+Visit  [Button | PIE Design System](https://pie.design/components/button) to view more information on this component.
 
 ## Questions
 
