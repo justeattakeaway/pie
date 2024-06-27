@@ -4,6 +4,7 @@ eleventyNavigation:
     parent: Switch
     order: 1
 shouldShowContents: true
+permalink: components/switch/
 ---
 
 ## Overview
