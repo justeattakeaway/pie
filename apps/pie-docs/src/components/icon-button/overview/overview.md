@@ -6,7 +6,7 @@ eleventyNavigation:
 eleventyComputed:
     sizes: "{% include './sizes.json' %}"
 shouldShowContents: true
-permalink: /components/icon-button/
+permalink: components/icon-button/
 ---
 
 ## Overview
