@@ -2,10 +2,10 @@ import { LitElement, html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-import { RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { validPropertyValues, RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 
 import styles from './textarea.scss?inline';
-import { TextareaProps, defaultProps } from './defs';
+import { TextareaProps, defaultProps, sizes } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -22,6 +22,7 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
     public disabled?: TextareaProps['disabled'];
 
     @property({ type: String })
+    @validPropertyValues(componentSelector, sizes, defaultProps.size)
     public size?: TextareaProps['size'] = defaultProps.size;
 
     render () {
