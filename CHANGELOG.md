@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.61.2
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens version bump to 6.3.1 ([#1546](https://github.com/justeattakeaway/pie/pull/1546)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 2.61.1
 
 ### Patch Changes
