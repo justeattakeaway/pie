@@ -27,7 +27,7 @@ yarn add @justeattakeaway/pie-icon-button
 
 ## Documentation
 
-Visit  [Icon Button | PIE Design System](https://pie.design/components/icon-button/overview) to view more information on this component.
+Visit  [Icon Button | PIE Design System](https://pie.design/components/icon-button) to view more information on this component.
 
 ## Questions
 

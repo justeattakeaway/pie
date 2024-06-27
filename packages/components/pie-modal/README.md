@@ -28,7 +28,7 @@ yarn add @justeattakeaway/pie-modal
 
 ## Documentation
 
-Visit  [Modal | PIE Design System](https://pie.design/components/modal/overview) to view more information on this component.
+Visit  [Modal | PIE Design System](https://pie.design/components/modal) to view more information on this component.
 
 ## Questions
 

@@ -27,7 +27,7 @@ yarn add @justeattakeaway/pie-card
 
 ## Documentation
 
-Visit  [Card | PIE Design System](https://pie.design/components/card/overview) to view more information on this component.
+Visit  [Card | PIE Design System](https://pie.design/components/card) to view more information on this component.
 
 ## Questions
 
