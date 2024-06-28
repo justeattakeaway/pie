@@ -51,7 +51,9 @@
         white-space: inherit;
 
         // text-overflow: ellipsis; for multiline lines only works using webkit prefix
+        /* stylelint-disable */
         display: -webkit-box;
+        /* stylelint-enable */
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
       }
