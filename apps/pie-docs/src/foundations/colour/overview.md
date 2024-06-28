@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Overview
     parent: Colour
     order: 1
+permalink: foundations/colour/
 ---
 ## Our colour principles
 

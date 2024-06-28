@@ -49,6 +49,7 @@
       span {
         max-height: 60px;
         white-space: inherit;
+
         // text-overflow: ellipsis; for multiline lines only works using webkit prefix
         display: -webkit-box;
         -webkit-line-clamp: 3;

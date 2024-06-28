@@ -27,7 +27,7 @@ yarn add @justeattakeaway/pie-chip
 
 ## Documentation
 
-Visit  [Chip | PIE Design System](https://pie.design/components/chip/overview) to view more information on this component.
+Visit  [Chip | PIE Design System](https://pie.design/components/chip) to view more information on this component.
 
 ## Questions
 

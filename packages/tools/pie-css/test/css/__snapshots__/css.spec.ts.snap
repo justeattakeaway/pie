@@ -53,7 +53,8 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-red: #d50525;
     --dt-color-red-10: #ffe9ea;
     --dt-color-red-25: #f2a6b0;
-    --dt-color-red-30: #ec556c;
+    --dt-color-red-30: #f68179;
+    --dt-color-red-40: #e22c3e;
     --dt-color-red-90: #491e24;
     --dt-color-red-dark-hc: #a4041f;
     --dt-color-red-light-hc: #ff7a80;
@@ -62,6 +63,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-tomato-5: #ffd3bf;
     --dt-color-tomato-90: #622b18;
     --dt-color-turmeric-5: #fff9de;
+    --dt-color-turmeric-60: #bf8b09;
     --dt-color-turmeric-80: #745300;
     --dt-color-white: #fff;
     --dt-color-yellow: #f6c243;
@@ -93,6 +95,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-interactive-inverse: var(--dt-color-white);
     --dt-color-interactive-light: var(--dt-color-white);
     --dt-color-interactive-form: var(--dt-color-mozzarella-60);
+    --dt-color-interactive-error: var(--dt-color-red);
     --dt-color-overlay: rgb(0,0,0,0.55);
     --dt-color-support-error: var(--dt-color-red);
     --dt-color-support-warning: var(--dt-color-yellow);
@@ -106,7 +109,8 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-support-info-inverse: var(--dt-color-blue-30);
     --dt-color-support-positive-inverse: var(--dt-color-green-30);
     --dt-color-support-neutral-persistent: var(--dt-color-mozzarella-20);
-    --dt-color-support-error-inverse: var(--dt-color-red-30);
+    --dt-color-support-error-inverse: var(--dt-color-red-40);
+    --dt-color-support-warning-inverse: var(--dt-color-yellow);
     --dt-color-support-brand-01: var(--dt-color-orange-30);
     --dt-color-support-brand-02: var(--dt-color-orange-10);
     --dt-color-support-brand-03: var(--dt-color-blue-25);
@@ -159,6 +163,9 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-skeleton-01: var(--dt-color-mozzarella-10);
     --dt-color-skeleton-02: var(--dt-color-mozzarella-20);
     --dt-color-skeleton-03: var(--dt-color-white);
+    --dt-color-skeleton-shimmer-01: var(--dt-color-mozzarella-5);
+    --dt-color-skeleton-shimmer-02: var(--dt-color-mozzarella-5);
+    --dt-color-skeleton-shimmer-03: var(--dt-color-mozzarella-10);
     /* Highcontrast color theme */
     --dt-color-highcontrast-background-default: var(--dt-color-white);
     --dt-color-highcontrast-background-subtle: var(--dt-color-white);
@@ -183,6 +190,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-interactive-inverse: var(--dt-color-white);
     --dt-color-highcontrast-interactive-light: var(--dt-color-white);
     --dt-color-highcontrast-interactive-form: var(--dt-color-black);
+    --dt-color-highcontrast-interactive-error: var(--dt-color-red);
     --dt-color-highcontrast-overlay: rgb(0,0,0,0.55);
     --dt-color-highcontrast-support-error: var(--dt-color-red-dark-hc);
     --dt-color-highcontrast-support-warning: var(--dt-color-yellow-dark-hc);
@@ -197,6 +205,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-support-positive-inverse: var(--dt-color-green-light-hc);
     --dt-color-highcontrast-support-neutral-persistent: var(--dt-color-white);
     --dt-color-highcontrast-support-error-inverse: var(--dt-color-red-light-hc);
+    --dt-color-highcontrast-support-warning-inverse: var(--dt-color-yellow);
     --dt-color-highcontrast-support-brand-01: var(--dt-color-orange-30);
     --dt-color-highcontrast-support-brand-02: var(--dt-color-white);
     --dt-color-highcontrast-support-brand-03: var(--dt-color-white);
@@ -249,6 +258,9 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-skeleton-01: var(--dt-color-mozzarella-10);
     --dt-color-highcontrast-skeleton-02: var(--dt-color-mozzarella-20);
     --dt-color-highcontrast-skeleton-03: var(--dt-color-white);
+    --dt-color-highcontrast-skeleton-shimmer-01: var(--dt-color-mozzarella-5);
+    --dt-color-highcontrast-skeleton-shimmer-02: var(--dt-color-mozzarella-5);
+    --dt-color-highcontrast-skeleton-shimmer-03: var(--dt-color-mozzarella-10);
     /* Dark color theme */
     --dt-color-dark-background-default: var(--dt-color-mozzarella-100);
     --dt-color-dark-background-subtle: var(--dt-color-mozzarella-80);
@@ -273,8 +285,9 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-dark-interactive-inverse: var(--dt-color-mozzarella-90);
     --dt-color-dark-interactive-light: var(--dt-color-white);
     --dt-color-dark-interactive-form: var(--dt-color-mozzarella-50);
+    --dt-color-dark-interactive-error: var(--dt-color-red-40);
     --dt-color-dark-overlay: rgb(0,0,0,0.55);
-    --dt-color-dark-support-error: var(--dt-color-red-30);
+    --dt-color-dark-support-error: var(--dt-color-red-40);
     --dt-color-dark-support-warning: var(--dt-color-yellow);
     --dt-color-dark-support-positive: var(--dt-color-green-30);
     --dt-color-dark-support-info: var(--dt-color-blue-30);
@@ -287,6 +300,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-dark-support-positive-inverse: var(--dt-color-green);
     --dt-color-dark-support-neutral-persistent: var(--dt-color-mozzarella-20);
     --dt-color-dark-support-error-inverse: var(--dt-color-red);
+    --dt-color-dark-support-warning-inverse: var(--dt-color-turmeric-60);
     --dt-color-dark-support-brand-01: var(--dt-color-orange-30);
     --dt-color-dark-support-brand-02: var(--dt-color-orange-90);
     --dt-color-dark-support-brand-03: var(--dt-color-blue-25);
@@ -337,8 +351,11 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-dark-disabled-01: var(--dt-color-mozzarella-80);
     --dt-color-dark-disabled-01-inverse: var(--dt-color-mozzarella-20);
     --dt-color-dark-skeleton-01: var(--dt-color-mozzarella-80);
-    --dt-color-dark-skeleton-02: var(--dt-color-mozzarella-70);
+    --dt-color-dark-skeleton-02: var(--dt-color-mozzarella-75);
     --dt-color-dark-skeleton-03: var(--dt-color-mozzarella-90);
+    --dt-color-dark-skeleton-shimmer-01: var(--dt-color-mozzarella-75);
+    --dt-color-dark-skeleton-shimmer-02: var(--dt-color-mozzarella-70);
+    --dt-color-dark-skeleton-shimmer-03: var(--dt-color-mozzarella-80);
     /* Highcontrast-dark color theme */
     --dt-color-highcontrast-dark-background-default: var(--dt-color-black);
     --dt-color-highcontrast-dark-background-subtle: var(--dt-color-black);
@@ -363,6 +380,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-dark-interactive-inverse: var(--dt-color-black);
     --dt-color-highcontrast-dark-interactive-light: var(--dt-color-white);
     --dt-color-highcontrast-dark-interactive-form: var(--dt-color-white);
+    --dt-color-highcontrast-dark-interactive-error: var(--dt-color-red-40);
     --dt-color-highcontrast-dark-overlay: rgb(0,0,0,0.55);
     --dt-color-highcontrast-dark-support-error: var(--dt-color-red-light-hc);
     --dt-color-highcontrast-dark-support-warning: var(--dt-color-yellow);
@@ -377,6 +395,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-dark-support-positive-inverse: var(--dt-color-green-dark-hc);
     --dt-color-highcontrast-dark-support-neutral-persistent: var(--dt-color-black);
     --dt-color-highcontrast-dark-support-error-inverse: var(--dt-color-red-dark-hc);
+    --dt-color-highcontrast-dark-support-warning-inverse: var(--dt-color-turmeric-60);
     --dt-color-highcontrast-dark-support-brand-01: var(--dt-color-orange-30);
     --dt-color-highcontrast-dark-support-brand-02: var(--dt-color-black);
     --dt-color-highcontrast-dark-support-brand-03: var(--dt-color-black);
@@ -429,6 +448,9 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-dark-skeleton-01: var(--dt-color-mozzarella-80);
     --dt-color-highcontrast-dark-skeleton-02: var(--dt-color-mozzarella-100);
     --dt-color-highcontrast-dark-skeleton-03: var(--dt-color-mozzarella-90);
+    --dt-color-highcontrast-dark-skeleton-shimmer-01: var(--dt-color-mozzarella-75);
+    --dt-color-highcontrast-dark-skeleton-shimmer-02: var(--dt-color-mozzarella-70);
+    --dt-color-highcontrast-dark-skeleton-shimmer-03: var(--dt-color-mozzarella-80);
     /* Global tokens - Font */
     --dt-font-family-code: 'PTMono';
     --dt-font-family-primary: 'JetSansDigital';
@@ -621,6 +643,17 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-radius-rounded-c: var(--dt-radius-04);
     --dt-radius-rounded-d: var(--dt-radius-05);
     --dt-radius-rounded-e: var(--dt-radius-06);
+    /* Global tokens - Motion */
+    --dt-motion-easing-in: cubic-bezier(0.8, 0, 1, 1);
+    --dt-motion-easing-out: cubic-bezier(0, 0, 0.18, 0.99);
+    --dt-motion-easing-persistent-expressive: cubic-bezier(0.95, 0, 0, 0.95);
+    --dt-motion-easing-persistent-functional: cubic-bezier(0.45, 0, 0.55, 1);
+    --dt-motion-timing-100: 100ms;
+    --dt-motion-timing-150: 150ms;
+    --dt-motion-timing-200: 200ms;
+    --dt-motion-timing-250: 250ms;
+    --dt-motion-timing-300: 300ms;
+    --dt-motion-timing-350: 350ms;
     /* Global tokens - Spacing */
     --dt-spacing-10: 80px;
     --dt-spacing-00: 0;
@@ -835,9 +868,12 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-red-25-h: 352;
     --dt-color-red-25-s: 74.5%;
     --dt-color-red-25-l: 80%;
-    --dt-color-red-30-h: 351;
-    --dt-color-red-30-s: 79.9%;
-    --dt-color-red-30-l: 62.9%;
+    --dt-color-red-30-h: 4;
+    --dt-color-red-30-s: 87.4%;
+    --dt-color-red-30-l: 72%;
+    --dt-color-red-40-h: 354;
+    --dt-color-red-40-s: 75.8%;
+    --dt-color-red-40-l: 52.9%;
     --dt-color-red-90-h: 352;
     --dt-color-red-90-s: 41.7%;
     --dt-color-red-90-l: 20.2%;
@@ -862,6 +898,9 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-turmeric-5-h: 49;
     --dt-color-turmeric-5-s: 100%;
     --dt-color-turmeric-5-l: 93.5%;
+    --dt-color-turmeric-60-h: 43;
+    --dt-color-turmeric-60-s: 91%;
+    --dt-color-turmeric-60-l: 39.2%;
     --dt-color-turmeric-80-h: 43;
     --dt-color-turmeric-80-s: 100%;
     --dt-color-turmeric-80-l: 22.7%;
@@ -943,6 +982,9 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-interactive-form-h: var(--dt-color-mozzarella-60-h);
     --dt-color-interactive-form-s: var(--dt-color-mozzarella-60-s);
     --dt-color-interactive-form-l: var(--dt-color-mozzarella-60-l);
+    --dt-color-interactive-error-h: var(--dt-color-red-h);
+    --dt-color-interactive-error-s: var(--dt-color-red-s);
+    --dt-color-interactive-error-l: var(--dt-color-red-l);
     --dt-color-support-error-h: var(--dt-color-red-h);
     --dt-color-support-error-s: var(--dt-color-red-s);
     --dt-color-support-error-l: var(--dt-color-red-l);
@@ -979,9 +1021,12 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-support-neutral-persistent-h: var(--dt-color-mozzarella-20-h);
     --dt-color-support-neutral-persistent-s: var(--dt-color-mozzarella-20-s);
     --dt-color-support-neutral-persistent-l: var(--dt-color-mozzarella-20-l);
-    --dt-color-support-error-inverse-h: var(--dt-color-red-30-h);
-    --dt-color-support-error-inverse-s: var(--dt-color-red-30-s);
-    --dt-color-support-error-inverse-l: var(--dt-color-red-30-l);
+    --dt-color-support-error-inverse-h: var(--dt-color-red-40-h);
+    --dt-color-support-error-inverse-s: var(--dt-color-red-40-s);
+    --dt-color-support-error-inverse-l: var(--dt-color-red-40-l);
+    --dt-color-support-warning-inverse-h: var(--dt-color-yellow-h);
+    --dt-color-support-warning-inverse-s: var(--dt-color-yellow-s);
+    --dt-color-support-warning-inverse-l: var(--dt-color-yellow-l);
     --dt-color-support-brand-01-h: var(--dt-color-orange-30-h);
     --dt-color-support-brand-01-s: var(--dt-color-orange-30-s);
     --dt-color-support-brand-01-l: var(--dt-color-orange-30-l);
@@ -1111,6 +1156,15 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-skeleton-03-h: var(--dt-color-white-h);
     --dt-color-skeleton-03-s: var(--dt-color-white-s);
     --dt-color-skeleton-03-l: var(--dt-color-white-l);
+    --dt-color-skeleton-shimmer-01-h: var(--dt-color-mozzarella-5-h);
+    --dt-color-skeleton-shimmer-01-s: var(--dt-color-mozzarella-5-s);
+    --dt-color-skeleton-shimmer-01-l: var(--dt-color-mozzarella-5-l);
+    --dt-color-skeleton-shimmer-02-h: var(--dt-color-mozzarella-5-h);
+    --dt-color-skeleton-shimmer-02-s: var(--dt-color-mozzarella-5-s);
+    --dt-color-skeleton-shimmer-02-l: var(--dt-color-mozzarella-5-l);
+    --dt-color-skeleton-shimmer-03-h: var(--dt-color-mozzarella-10-h);
+    --dt-color-skeleton-shimmer-03-s: var(--dt-color-mozzarella-10-s);
+    --dt-color-skeleton-shimmer-03-l: var(--dt-color-mozzarella-10-l);
 }
 html {
     box-sizing: border-box;

@@ -72,13 +72,13 @@ eleventyComputed:
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [colour](/foundations/colour/overview) documentation."
+  message: "Check out the [colour](/foundations/colour) documentation."
 } %}
 
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [design tokens](/foundations/design-tokens/overview)."
+  message: "Check out the [design tokens](/foundations/design-tokens)."
 } %}
 
 ---
@@ -92,13 +92,13 @@ eleventyComputed:
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [typography](/foundations/typography/overview) documentation."
+  message: "Check out the [typography](/foundations/typography) documentation."
 } %}
 
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [design tokens](/foundations/design-tokens/overview)."
+  message: "Check out the [design tokens](/foundations/design-tokens)."
 } %}
 
 ---
@@ -112,13 +112,13 @@ eleventyComputed:
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [radius](/foundations/radius/overview) documentation."
+  message: "Check out the [radius](/foundations/radius) documentation."
 } %}
 
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "Check out the [design tokens](/foundations/design-tokens/overview)."
+  message: "Check out the [design tokens](/foundations/design-tokens)."
 } %}
 
 ---

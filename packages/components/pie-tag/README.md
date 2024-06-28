@@ -27,7 +27,7 @@ yarn add @justeattakeaway/pie-tag
 
 ## Documentation
 
-Visit  [Tag | PIE Design System](https://pie.design/components/tag/overview) to view more information on this component.
+Visit  [Tag | PIE Design System](https://pie.design/components/tag) to view more information on this component.
 
 ## Questions
 

@@ -3,5 +3,6 @@ eleventyNavigation:
     key: Icon Button
     parent: Components
     order: 21
-    url: /components/icon-button/overview/
+    url: /components/icon-button/
+permalink: false
 ---

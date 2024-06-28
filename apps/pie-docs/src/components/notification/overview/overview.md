@@ -6,6 +6,7 @@ eleventyNavigation:
 eleventyComputed:
     usage: "{% include './usage.json' %}"
 shouldShowContents: true,
+permalink: components/notification/
 ---
 
 ## Overview
@@ -158,7 +159,7 @@ Supporting icons can be removed for all variants if not required.
 
 {% contentPageImage {
     src:"../../../assets/img/components/notification/modifier-icons-removing-icons.svg",
-    alt: "A notification component with a title, supporting text and dismiss button only",  
+    alt: "A notification component with a title, supporting text and dismiss button only",
     width: 1024
 } %}
 
@@ -221,7 +222,7 @@ When a single action is required.
 
 #### No actions
 
-When the user is not required to take action against the notification. 
+When the user is not required to take action against the notification.
 
 {% contentPageImage {
     src:"../../../assets/img/components/notification/modifier-actions-no-actions.svg",
@@ -356,7 +357,7 @@ Notifications can appear full width, and always appears at the top of the interf
     width: 896
 } %}
 
---- 
+---
 
 ## Examples
 
