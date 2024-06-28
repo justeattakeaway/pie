@@ -199,7 +199,9 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
      */
     private renderMessage (message: string, messageAreaMaxWidth: number): TemplateResult {
         return html`
-            <span style="max-width: ${messageAreaMaxWidth}px">${message}</span>
+            <span style="max-width: ${messageAreaMaxWidth}px" data-test-id="${componentSelector}-message">
+                ${message}
+            </span>
         `;
     }
 

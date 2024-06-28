@@ -1,10 +1,28 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieToast, ToastProps } from '../../src/index.ts';
+import { PieToast } from '../../src/index.ts';
+import { type ToastProps } from '../../src/defs.ts';
 
-const componentSelector = '[data-test-id="pie-toast"]';
+const rootSelector = 'pie-toast';
+const componentSelector = `[data-test-id="${rootSelector}"]`;
+const messageSelector = `[data-test-id="${rootSelector}-message"]`;
+const iconCloseSelector = `[data-test-id="${rootSelector}-icon-close"]`;
+const footerSelector = `[data-test-id="${rootSelector}-footer"]`;
+const leadingActionSelector = `[data-test-id="${rootSelector}-leading-action"]`;
 
 test.describe('PieToast - Component tests', () => {
+    // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
+    // mount the component will still have it available in Playwright's cache (loaded and registered in the test browser)
+    test.beforeEach(async ({ mount }) => {
+        const component = await mount(PieToast);
+        await component.unmount();
+    });
+
+    const mainAction = {
+        text: 'Confirm',
+        ariaLabel: 'Button that confirm the action',
+    };
+
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
         await mount(PieToast, {
@@ -16,5 +34,162 @@ test.describe('PieToast - Component tests', () => {
 
         // Assert
         expect(toast).toBeVisible();
+    });
+
+    test.describe('Props', () => {
+        test.describe('isOpen', () => {
+            test('should not render component if isOpen is false', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieToast, {
+                    props: {
+                        isOpen: false,
+                    } as ToastProps,
+                });
+
+                // Act
+                const toast = page.locator(componentSelector);
+
+                // Assert
+                expect(toast).not.toBeVisible();
+            });
+        });
+
+        test.describe('message', () => {
+            test('should render the message', async ({ mount, page }) => {
+                // Arrange
+                const confirmMessage = 'Item has been created';
+                await mount(PieToast, {
+                    props: {
+                        message: confirmMessage,
+                    } as ToastProps,
+                });
+
+                // Act
+                const toast = page.locator(componentSelector);
+                const message = page.locator(messageSelector);
+
+                // Assert
+                expect(toast).toBeVisible();
+                expect(message).toBeVisible();
+                expect(message).toHaveText(confirmMessage);
+            });
+
+            test('should not render the message if is empty string', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieToast, {
+                    props: {
+                        message: '',
+                    } as ToastProps,
+                });
+
+                // Act
+                const toast = page.locator(componentSelector);
+                const message = page.locator(messageSelector);
+
+                // Assert
+                expect(toast).toBeVisible();
+                expect(message).not.toBeVisible();
+            });
+        });
+
+        test.describe('isDismissible', () => {
+            test('should not show the close icon if isDismissible is false', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieToast, {
+                    props: {
+                        isDismissible: false,
+                    },
+                });
+
+                // Act
+                const toast = page.locator(componentSelector);
+                const iconClose = page.locator(iconCloseSelector);
+
+                // Assert
+                expect(toast).toBeVisible();
+                expect(iconClose).not.toBeVisible();
+            });
+        });
+
+        test.describe('isMultiline', () => {
+            test('should show the footer if isMultiline is true and has leadingAction', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieToast, {
+                    props: {
+                        isMultiline: true,
+                        leadingAction: mainAction,
+                    } as ToastProps,
+                });
+
+                // Act
+                const toast = page.locator(componentSelector);
+                const footer = page.locator(footerSelector);
+                const leadingAction = page.locator(leadingActionSelector);
+
+                // Assert
+                expect(toast).toBeVisible();
+                expect(footer).toBeVisible();
+                expect(leadingAction).toBeVisible();
+            });
+        });
+
+        test.describe('leadingAction', () => {
+            test('should show the leadingAction when provided and if multiline is false', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieToast, {
+                    props: {
+                        isMultiline: false,
+                        leadingAction: mainAction,
+                    } as ToastProps,
+                });
+
+                // Act
+                const toast = page.locator(componentSelector);
+                const leadingAction = page.locator(leadingActionSelector);
+
+                // Assert
+                expect(toast).toBeVisible();
+                expect(leadingAction).toBeVisible();
+            });
+
+            test('should not show the footer if leadingAction is not provided', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieToast, {
+                    props: {
+                        isMultiline: true,
+                    } as ToastProps,
+                });
+
+                // Act
+                const toast = page.locator(componentSelector);
+                const footer = page.locator(footerSelector);
+                const leadingAction = page.locator(leadingActionSelector);
+
+                // Assert
+                expect(toast).toBeVisible();
+                expect(footer).not.toBeVisible();
+                expect(leadingAction).not.toBeVisible();
+            });
+
+            test('should show the footer if leadingAction is provided', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieToast, {
+                    props: {
+                        isDismissible: true,
+                        leadingAction: mainAction,
+                    } as ToastProps,
+                });
+
+                // Act
+                const toast = page.locator(componentSelector);
+                const footer = page.locator(footerSelector);
+                const actionLeading = page.locator(leadingActionSelector);
+
+                // Assert
+                expect(toast).toBeVisible();
+                expect(footer).toBeVisible();
+                expect(actionLeading).toBeVisible();
+            });
+        });
     });
 });
