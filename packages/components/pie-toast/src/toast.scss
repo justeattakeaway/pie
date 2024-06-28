@@ -1,10 +1,69 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 .c-toast {
-  --toast-border-radius: var(--dt-radius-rounded-c);
-  --toast-background-color: var(--dt-color-container-subtle);
+  --toast-border-radius: var(--dt-radius-rounded-b);
+  --toast-background-color: var(--dt-color-container-inverse);
+  --toast-font-color: var(--dt-color-content-inverse);
+  --toast-font-size: #{p.font-size(--dt-font-body-s-size)};
+  --toast-line-height: #{p.line-height(--dt-font-body-s-line-height)};
 
-  padding: var(--dt-spacing-d);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 48px;
+  max-height: 122px;
+  min-width: 300px;
+  max-width: 420px;
+  
+  padding: var(--dt-spacing-a) var(--dt-spacing-c) var(--dt-spacing-a) var(--dt-spacing-d);
   border-radius: var(--toast-border-radius);
+  gap: var(--dt-spacing-a);
   background-color: var(--toast-background-color);
+  box-shadow: var(--dt-elevation-03);
+  color: var(--toast-font-color);
+  font-size: var(--toast-font-size);
+  line-height: var(--toast-line-height);
+
+  &-content-area{
+    display: flex;
+    gap: var(--dt-spacing-b);
+    justify-content: space-between;
+    
+  }
+
+  &-message-area {
+    display: flex;
+    align-items: center;
+    gap: var(--dt-spacing-b);
+    padding: calc(var(--dt-spacing-03) / 2) 0;
+
+    span {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    &[isMultiline] {
+      align-items: flex-start;
+
+      span {
+        max-height: 60px;
+        white-space: inherit;
+        // text-overflow: ellipsis; for multiline lines only works using webkit prefix
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+
+  &-actions-area {
+    display: flex;
+    gap: var(--dt-spacing-b);
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: flex-end;
+  }
 }

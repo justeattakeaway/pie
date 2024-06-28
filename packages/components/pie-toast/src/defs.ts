@@ -16,17 +16,21 @@ export type ActionProps = {
 
 export interface ToastProps {
   /**
-   * When true, the notification is set to be open and visible.
+   * When true, the toast is set to be open and visible.
    */
   isOpen?: boolean;
   /**
-   * When true, allows dismissing the notification by clicking on the close button.
+   * When true, allows dismissing the toast by clicking on the close button.
    */
   isDismissible?: boolean;
   /**
    * The message content of the toast.
    */
-  message?: string;
+  message: string;
+  /**
+   * It allows the message content being displayed as multiline limited to three rows.
+   */
+  isMultiline?: boolean;
   /**
    * The leading action for the toast.
    */
@@ -57,9 +61,10 @@ export const ON_TOAST_OPEN_EVENT = `${componentSelector}-open`;
  */
 export const ON_TOAST_LEADING_ACTION_CLICK_EVENT = `${componentSelector}-leading-action-click`;
 
-export type DefaultProps = ComponentDefaultPropsGeneric<ToastProps, 'isOpen' | 'isDismissible'>;
+export type DefaultProps = ComponentDefaultPropsGeneric<ToastProps, 'isOpen' | 'isDismissible' | 'isMultiline'>;
 
 export const defaultProps: DefaultProps = {
     isOpen: true,
     isDismissible: true,
+    isMultiline: false,
 };

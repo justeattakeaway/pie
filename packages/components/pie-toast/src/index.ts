@@ -4,9 +4,14 @@ import {
     unsafeCSS,
     nothing,
     type TemplateResult,
+    type PropertyValues,
 } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, query } from 'lit/decorators.js';
 import { RtlMixin, defineCustomElement, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
+import '@justeattakeaway/pie-toast';
+import '@justeattakeaway/pie-icon-button';
+import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 import '@justeattakeaway/pie-button';
 
 import styles from './toast.scss?inline';
@@ -28,20 +33,92 @@ export * from './defs';
  * @tagname pie-toast
  */
 export class PieToast extends RtlMixin(LitElement) implements ToastProps {
+    @property()
+    public message: ToastProps['message'] = '';
+
     @property({ type: Boolean })
     public isOpen = defaultProps.isOpen;
 
     @property({ type: Boolean })
     public isDismissible = defaultProps.isDismissible;
 
-    @property({ type: String })
-    public message?: string;
+    @property({ type: Boolean })
+    public isMultiline = defaultProps.isMultiline;
 
     @property({ type: Object })
     public leadingAction: ToastProps['leadingAction'];
 
+    @query('pie-button') actionButton?: HTMLElement;
+
+    private _actionButtonOffset = 0;
+
+    private _messageAreaMaxWidth = 0;
+
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
+
+    /**
+     * Calculates and returns the width of the message based on the toast properties.
+     *
+     * @param {boolean} hasIcon - Indicates if the toast has an icon.
+     * @param {boolean} isMultiline - Indicates if the message is multiline.
+     * @param {boolean} hasActionButton - Indicates if the toast has an action button.
+     * @param {boolean} hasCloseIcon - Indicates if the toast has a close icon.
+     *
+     * @returns {number} - The width of the message in pixels.
+     */
+    private getMessageMaxWidth (hasIcon: boolean, isMultiline: boolean, hasActionButton: boolean, hasCloseIcon: boolean): number {
+        const iconOffset = 20;
+        const closeIconOffset = 32;
+        const gap = 8;
+        const toastMaxWidthWithoutPadding = 392;
+
+        let offset = 0;
+
+        if (hasIcon) {
+            offset = iconOffset + gap;
+        }
+
+        if (!isMultiline && hasActionButton) {
+            offset = offset + this._actionButtonOffset + gap;
+        }
+
+        if (hasCloseIcon) {
+            offset = offset + closeIconOffset + gap;
+        }
+
+        return toastMaxWidthWithoutPadding - offset;
+    }
+
+    /**
+     * Lifecycle method executed when component is updated.
+     * It dispatches an event if toast is opened.
+     * It calculates _messageAreaMaxWidth
+     */
+    protected async updated (_changedProperties: PropertyValues<this>) {
+        if (_changedProperties.has('isOpen') && this.isOpen) {
+            dispatchCustomEvent(this, ON_TOAST_OPEN_EVENT, { targetNotification: this });
+        }
+
+        await this.updateComplete;
+
+        if (this.actionButton) {
+            this._actionButtonOffset = this.actionButton.offsetWidth;
+        }
+
+        // Temporary const. This will be removed when we implement variants.
+        const hasIcon = true;
+
+        this._messageAreaMaxWidth = this.getMessageMaxWidth(hasIcon, this.isMultiline, !!this.leadingAction?.text, this.isDismissible);
+
+        if (
+            _changedProperties.has('message') ||
+            _changedProperties.has('isDismissible') ||
+            _changedProperties.has('isMultiline') ||
+            _changedProperties.has('leadingAction')) {
+            this.requestUpdate();
+        }
+    }
 
     /**
      * It handle the action button action.
@@ -65,10 +142,11 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
 
         return html`
             <pie-button
-                variant="ghost"
-                size="small-productive"
+                variant="ghost-inverse"
+                size="xsmall"
                 aria-label="${ariaLabel || nothing}"
                 @click="${() => this.handleActionClick()}"
+                class="${componentSelector}-leading-action"
                 data-test-id="${componentSelector}-leading-action"
                 type="button">
                 ${text}
@@ -77,7 +155,8 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     }
 
     /**
-     * Template for the footer area
+     * Template for the footer area.
+     * It should display only when isMultiline is true as well if has action button.
      * Called within the main render function.
      *
      * @private
@@ -100,13 +179,28 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     private renderCloseButton (): TemplateResult {
         return html`
             <pie-icon-button
-                variant="ghost-secondary"
-                size="small"
+                variant="ghost-inverse"
+                size="xsmall"
                 class="${componentClass}-icon-close"
                 data-test-id="${componentSelector}-icon-close"
                 @click="${this.handleCloseButton}">
                 <icon-close></icon-close>
             </pie-icon-button>`;
+    }
+
+    /**
+     * Template for the toast message. Called within the
+     * main render function.
+     *
+     * @param {string} message - The message to be displayed.
+     * @param {number} messageAreaMaxWidth - The maximum width of the message area calculated in the lifecycle method.
+     *
+     * @private
+     */
+    private renderMessage (message: string, messageAreaMaxWidth: number): TemplateResult {
+        return html`
+            <span style="max-width: ${messageAreaMaxWidth}px">${message}</span>
+        `;
     }
 
     /**
@@ -130,13 +224,32 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     }
 
     render () {
-        const { message, isDismissible, leadingAction } = this;
+        const {
+            isOpen,
+            message,
+            isDismissible,
+            leadingAction,
+            isMultiline,
+            _messageAreaMaxWidth,
+        } = this;
+
+        if (!isOpen) {
+            return nothing;
+        }
 
         return html`
             <div data-test-id="${componentSelector}" class="${componentClass}">
-                ${message}
-                ${isDismissible ? this.renderCloseButton() : nothing}
-                ${leadingAction?.text ? this.renderFooter() : nothing}
+                <div class="${componentClass}-content-area">
+                    <div class="${componentClass}-message-area" ?isMultiline="${isMultiline}">
+                        <icon-placeholder size="s"></icon-placeholder>
+                        ${message === '' ? nothing : this.renderMessage(message, _messageAreaMaxWidth)} 
+                    </div>
+                    <div class="${componentClass}-actions-area">
+                        ${!isMultiline && leadingAction?.text ? this.renderActionButton(leadingAction) : nothing}
+                        ${isDismissible ? this.renderCloseButton() : nothing}
+                    </div>
+                </div>
+                ${isMultiline && leadingAction?.text ? this.renderFooter() : nothing}
             </div>`;
     }
 }
