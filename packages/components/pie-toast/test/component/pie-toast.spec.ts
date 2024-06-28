@@ -175,7 +175,8 @@ test.describe('PieToast - Component tests', () => {
                 // Arrange
                 await mount(PieToast, {
                     props: {
-                        isDismissible: true,
+                        isDismissible: false,
+                        isMultiline: true,
                         leadingAction: mainAction,
                     } as ToastProps,
                 });
