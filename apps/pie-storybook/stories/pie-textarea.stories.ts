@@ -1,8 +1,9 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-textarea';
-import { TextareaProps } from '@justeattakeaway/pie-textarea';
+import { TextareaProps, defaultProps, sizes } from '@justeattakeaway/pie-textarea';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
@@ -10,7 +11,7 @@ import { createStory } from '../utilities';
 
 type TextareaStoryMeta = StoryMeta<TextareaProps>;
 
-const defaultArgs: TextareaProps = {};
+const defaultArgs: TextareaProps = { ...defaultProps };
 
 const textareaStoryMeta: TextareaStoryMeta = {
     title: 'Textarea',
@@ -21,6 +22,14 @@ const textareaStoryMeta: TextareaStoryMeta = {
             control: 'boolean',
             defaultValue: {
                 summary: false,
+            },
+        },
+        size: {
+            description: 'The size of the textarea field. Can be `small`, `medium` or `large`. Defaults to `medium`.',
+            control: 'select',
+            options: sizes,
+            defaultValue: {
+                summary: defaultProps.size,
             },
         },
     },
@@ -35,9 +44,11 @@ const textareaStoryMeta: TextareaStoryMeta = {
 
 const Template = ({
     disabled,
+    size,
 }: TextareaProps) => html`
         <pie-textarea
-                ?disabled="${disabled}">
+                ?disabled="${disabled}"
+                size="${ifDefined(size)}">
         </pie-textarea>
     `;
 

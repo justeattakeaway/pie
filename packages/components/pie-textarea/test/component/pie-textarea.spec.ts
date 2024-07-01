@@ -3,6 +3,7 @@ import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieTextarea, TextareaProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-textarea"]';
+const componentShellSelector = '[data-test-id="pie-textarea-shell"]';
 
 test.describe('PieTextarea - Component tests', () => {
     // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
@@ -79,6 +80,49 @@ test.describe('PieTextarea - Component tests', () => {
                     // Assert
                     expect(textarea).toBeFocused();
                 });
+            });
+        });
+
+        test.describe('size', () => {
+            test('should apply `medium` size prop by default if no size prop provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {});
+
+                // Act
+                const textareaShell = component.locator(componentShellSelector);
+
+                // Assert
+                expect(textareaShell).toHaveAttribute('data-pie-size', 'medium');
+            });
+
+            test('should apply `large` size prop to the HTML textarea rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {
+                    props: {
+                        size: 'large',
+                    } as TextareaProps,
+                });
+
+                // Act
+                const textareaShell = component.locator(componentShellSelector);
+
+                // Assert
+                expect(textareaShell).toHaveAttribute('data-pie-size', 'large');
+            });
+
+            test('should apply `small` size prop to the HTML textarea rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {
+                    props: {
+                        size: 'small',
+                    } as TextareaProps,
+                });
+
+                // Act
+                const textareaShell = component.locator(componentShellSelector);
+
+                // Assert
+                expect(textareaShell).toHaveAttribute('data-pie-size', 'small');
             });
         });
     });
