@@ -17,6 +17,7 @@ import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpo
 import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-direction.ts';
 
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
+import { percyCSS } from './percy-styles.ts';
 import { PieCheckbox } from '../../src/index.ts';
 import { statusTypes } from '../../src/defs.ts';
 
@@ -81,7 +82,14 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
         );
     }));
 
-    await percySnapshot(page, `PIE Checkbox - Checked State: ${variant}`, percyWidths);
+    await percySnapshot(
+        page,
+        `PIE Checkbox - Checked State: ${variant}`,
+        {
+            ...percyWidths,
+            ...percyCSS,
+        },
+    );
 }));
 
 await Promise.all(readingDirections.map(async (dir) => {

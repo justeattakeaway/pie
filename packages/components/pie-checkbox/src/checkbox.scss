@@ -197,16 +197,16 @@
 
                 animation: checkboxCheck var(--dt-motion-timing-150) var(--checkbox-motion-easing) forwards;
 
-                @media only percy {
-                    animation: none;
+                // @media only percy {
+                //     animation: none;
 
-                    width: 8px;
-                    height: 16px;
-                    border-color: #fff;
-                    border-bottom-right-radius: 2px;
+                //     width: 8px;
+                //     height: 16px;
+                //     border-color: #fff;
+                //     border-bottom-right-radius: 2px;
 
-                    transform: translate3d(0, -16px, 0) rotate(45deg);
-                }
+                //     transform: translate3d(0, -16px, 0) rotate(45deg);
+                // }
             }
         }
 
