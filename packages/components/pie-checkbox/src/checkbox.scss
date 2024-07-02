@@ -135,13 +135,6 @@
         }
     }
 
-    &:focus,
-    &:focus-within {
-        .c-checkbox-tick {
-            @include p.focus;
-        }
-    }
-
     &[data-pie-disabled] {
         label {
             cursor: default;
@@ -166,7 +159,15 @@
         .c-checkbox-tick {
             --checkbox-border-color: var(--dt-color-support-error);
         }
+    }
 
+    input:focus-visible + label {
+        .c-checkbox-tick {
+            @include p.focus;
+        }
+    }
+
+    &[data-pie-status="error"] {
         &:hover {
             .c-checkbox-tick {
                 --checkbox-bg: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
