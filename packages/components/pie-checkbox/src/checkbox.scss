@@ -51,15 +51,61 @@
     }
 }
 
+.c-checkbox-tick {
+    content: "";
+    display: flex;
+
+    flex: 0 0 auto;
+
+    width: var(--checkbox-width);
+    height: var(--checkbox-height);
+
+    margin: var(--checkbox-margin);
+
+    border: 1px solid var(--checkbox-border-color);
+    border-radius: var(--checkbox-radius);
+    background-color: var(--checkbox-bg-color);
+
+    transition: background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
+
+    @media (prefers-reduced-motion: no-preference) {
+        animation: scaleDown var(--dt-motion-timing-100) var(--checkbox-motion-easing);
+    }
+}
+
+.c-checkbox-text {
+    display: inline;
+    flex: 1 1 auto;
+    align-self: center;
+    min-width: 0;
+    margin-inline-start: var(--checkbox-gap);
+    white-space: normal;
+    color: var(--checkbox-content-color);
+    font-size: var(--checkbox-font-size);
+    font-weight: var(--checkbox-font-weight);
+}
+
+// styles for indeterminate state
+.c-checkbox-tick:after {
+    content: "";
+
+    position: relative;
+    top: 47%;
+    left: 14%;
+    width: 0;
+    height: 2px;
+    background-color: white;
+}
+
 .c-checkbox {
     --checkbox-height: 24px;
     --checkbox-width: 24px;
     --checkbox-radius: var(--dt-radius-rounded-a);
     --checkbox-margin: 1px;
     --checkbox-gap: var(--dt-spacing-b);
-    --checkbox-fz: var(--dt-font-body-l-size);
-    --checkbox-fw: var(--dt-font-weight-regular);
-    --checkbox-bg: var(--dt-color-container-default);
+    --checkbox-font-size: var(--dt-font-body-l-size);
+    --checkbox-font-weight: var(--dt-font-weight-regular);
+    --checkbox-bg-color: var(--dt-color-container-default);
     --checkbox-border-color: var(--dt-color-interactive-form);
     --checkbox-content-color: var(--dt-color-content-default);
     --checkbox-motion-easing: var(--dt-motion-easing-persistent-functional);
@@ -85,43 +131,9 @@
         cursor: pointer;
     }
 
-    .c-checkbox-text {
-        display: inline;
-        flex: 1 1 auto;
-        align-self: center;
-        min-width: 0;
-        margin-inline-start: var(--checkbox-gap);
-        white-space: normal;
-        color: var(--checkbox-content-color);
-        font-size: var(--checkbox-fz);
-        font-weight: var(--checkbox-fw);
-    }
-
-    .c-checkbox-tick {
-        content: "";
-        display: flex;
-
-        flex: 0 0 auto;
-
-        width: var(--checkbox-width);
-        height: var(--checkbox-height);
-
-        margin: var(--checkbox-margin);
-
-        border: 1px solid var(--checkbox-border-color);
-        border-radius: var(--checkbox-radius);
-        background-color: var(--checkbox-bg);
-
-        transition: background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
-
-        @media (prefers-reduced-motion: no-preference) {
-            animation: scaleDown var(--dt-motion-timing-100) var(--checkbox-motion-easing);
-        }
-    }
-
     &:hover {
         .c-checkbox-tick {
-            --checkbox-bg: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
+            --checkbox-bg-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
 
             transition: background-color var(--dt-motion-timing-200) var(--checkbox-motion-easing);
         }
@@ -129,7 +141,7 @@
 
     &:active {
         .c-checkbox-tick {
-            --checkbox-bg: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-active-01))));
+            --checkbox-bg-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-active-01))));
 
             transition: background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
         }
@@ -142,7 +154,7 @@
         }
 
         .c-checkbox-tick {
-            --checkbox-bg: var(--dt-color-container-strong);
+            --checkbox-bg-color: var(--dt-color-container-strong);
             --checkbox-border-color: var(--dt-color-disabled-01);
         }
     }
@@ -170,13 +182,13 @@
     &[data-pie-status="error"] {
         &:hover {
             .c-checkbox-tick {
-                --checkbox-bg: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
+                --checkbox-bg-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
             }
         }
 
         &:active {
             .c-checkbox-tick {
-                --checkbox-bg: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-active-01))));
+                --checkbox-bg-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-active-01))));
             }
         }
     }
@@ -213,57 +225,45 @@
 
         &:not([data-pie-disabled]) {
             .c-checkbox-tick {
-                --checkbox-bg: var(--dt-color-interactive-brand);
+                --checkbox-bg-color: var(--dt-color-interactive-brand);
                 --checkbox-border-color: var(--dt-color-interactive-brand);
             }
         }
 
         &[data-pie-status="error"] {
             .c-checkbox-tick {
-                --checkbox-bg: var(--dt-color-support-error);
+                --checkbox-bg-color: var(--dt-color-support-error);
                 --checkbox-border-color: var(--dt-color-support-error);
             }
         }
 
         &:hover:not([data-pie-disabled]) {
             .c-checkbox-tick {
-                --checkbox-bg: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + calc(-1 * var(--dt-color-hover-01))));
+                --checkbox-bg-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + calc(-1 * var(--dt-color-hover-01))));
                 --checkbox-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + calc(-1 * var(--dt-color-hover-01))));
             }
         }
 
         &:hover[data-pie-status="error"] {
             .c-checkbox-tick {
-                --checkbox-bg: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) + calc(-1 * var(--dt-color-hover-01))));
+                --checkbox-bg-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) + calc(-1 * var(--dt-color-hover-01))));
                 --checkbox-border-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) + calc(-1 * var(--dt-color-hover-01))));
             }
         }
 
         &:active:not([data-pie-disabled]) {
             .c-checkbox-tick {
-                --checkbox-bg: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + calc(-1 * var(--dt-color-active-01))));
+                --checkbox-bg-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + calc(-1 * var(--dt-color-active-01))));
                 --checkbox-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + calc(-1 * var(--dt-color-active-01))));
             }
         }
 
         &:active[data-pie-status="error"] {
             .c-checkbox-tick {
-                --checkbox-bg: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) + calc(-1 * var(--dt-color-active-01))));
+                --checkbox-bg-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) + calc(-1 * var(--dt-color-active-01))));
                 --checkbox-border-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) + calc(-1 * var(--dt-color-active-01))));
             }
         }
-    }
-
-    // styles for indeterminate state
-    .c-checkbox-tick:after {
-        content: "";
-
-        position: relative;
-        top: 47%;
-        left: 14%;
-        width: 0;
-        height: 2px;
-        background-color: white;
     }
 
     &[data-pie-indeterminate][data-pie-checked] {
