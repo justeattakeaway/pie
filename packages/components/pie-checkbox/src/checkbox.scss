@@ -66,9 +66,9 @@
     border-radius: var(--checkbox-radius);
     background-color: var(--checkbox-bg-color);
 
-    transition: background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
-
     @media (prefers-reduced-motion: no-preference) {
+        transition: background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
+
         animation: scaleDown var(--dt-motion-timing-100) var(--checkbox-motion-easing);
     }
 }
@@ -210,6 +210,16 @@
 
                 animation: checkboxCheck var(--dt-motion-timing-150) var(--checkbox-motion-easing) forwards;
 
+                @media (prefers-reduced-motion: reduce) {
+                    animation: none;
+                    width: 8px;
+                    height: 16px;
+                    border-color: #fff;
+                    border-bottom-right-radius: 2px;
+
+                    transform: translate3d(0, -16px, 0) rotate(45deg);
+                }
+
                 @media only percy {
                     animation: none;
 
@@ -270,7 +280,9 @@
         .c-checkbox-tick:after {
             width: 16px;
 
-            transition: width var(--dt-motion-timing-150) var(--checkbox-motion-easing);
+            @media (prefers-reduced-motion: no-preference) {
+                transition: width var(--dt-motion-timing-100) var(--checkbox-motion-easing) var(--dt-motion-timing-100);
+            }
         }
     }
 }
