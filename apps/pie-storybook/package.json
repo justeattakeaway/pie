@@ -1,6 +1,6 @@
 {
   "name": "pie-storybook",
-  "version": "0.81.0",
+  "version": "0.81.1",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
@@ -17,7 +17,7 @@
     "@justeattakeaway/pie-assistive-text": "0.5.0",
     "@justeattakeaway/pie-button": "0.47.7",
     "@justeattakeaway/pie-card": "0.19.6",
-    "@justeattakeaway/pie-checkbox": "0.6.0",
+    "@justeattakeaway/pie-checkbox": "0.7.0",
     "@justeattakeaway/pie-chip": "0.7.0",
     "@justeattakeaway/pie-cookie-banner": "0.20.5",
     "@justeattakeaway/pie-css": "0.12.1",
