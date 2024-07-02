@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.44.0
+
+### Minor Changes
+
+- [Changed] - Removed /overview urls from components pages and use overview content as the index.html of each directory. I.e. /components/button for the overview page instead of /components/button/overview ([#1548](https://github.com/justeattakeaway/pie/pull/1548)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 3.43.0
 
 ### Minor Changes
