@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-card
 
+## 0.19.6
+
+### Patch Changes
+
+- [Changed] - Point to updated component page link in docs site from readme file ([#1548](https://github.com/justeattakeaway/pie/pull/1548)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.19.5
 
 ### Patch Changes

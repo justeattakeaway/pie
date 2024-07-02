@@ -1,9 +1,11 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 import type {
-    WebComponentPropValues, WebComponentTestInput,
+    PropObject, WebComponentPropValues, WebComponentTestInput,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
-
+import {
+    getAllPropCombinations, splitCombinationsByPropertyValue,
+} from '@justeattakeaway/pie-webc-testing/src/helpers/get-all-prop-combos.ts';
 import {
     createTestWebComponent,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
@@ -16,19 +18,34 @@ import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-di
 
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
 import { PieCheckbox } from '../../src/index.ts';
+import { statusTypes } from '../../src/defs.ts';
 
 const readingDirections = ['LTR', 'RTL'];
+
+const props: PropObject = {
+    status: statusTypes,
+    checked: [true, false],
+    disabled: [true, false],
+    indeterminate: [true, false],
+    label: ['Label', ''],
+    assistiveText: ['Assistive text', ''],
+};
 
 const renderTestPieCheckbox = (propVals: WebComponentPropValues) => {
     let attributes = '';
 
     if (propVals.label) attributes += ` label="${propVals.label}"`;
-
-    if (propVals.status) attributes += ` status="${propVals.status}"`;
     if (propVals.assistiveText) attributes += ` assistiveText="${propVals.assistiveText}"`;
+    if (propVals.indeterminate) attributes += ` indeterminate="${propVals.indeterminate}"`;
+    if (propVals.disabled) attributes += ` disabled="${propVals.disabled}"`;
+    if (propVals.checked) attributes += ` checked="${propVals.checked}"`;
 
-    return `<pie-checkbox${attributes}></pie-checkbox>`;
+    return `<pie-checkbox${attributes} status="${propVals.status}"></pie-checkbox>`;
 };
+
+const componentPropsMatrix: WebComponentPropValues[] = getAllPropCombinations(props);
+const componentPropsMatrixByCheckedState: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'checked');
+const componentVariants: string[] = Object.keys(componentPropsMatrixByCheckedState);
 
 test.beforeEach(async ({ mount }, testInfo) => {
     testInfo.setTimeout(testInfo.timeout + 40000);
@@ -41,6 +58,31 @@ test.beforeEach(async ({ mount }, testInfo) => {
     const assistiveTextComponent = await mount(PieAssistiveText);
     await assistiveTextComponent.unmount();
 });
+
+componentVariants.forEach((variant) => test(`should render all prop variations for the checked state: ${variant}`, async ({ page, mount }) => {
+    await Promise.all(componentPropsMatrixByCheckedState[variant].map(async (combo: WebComponentPropValues) => {
+        const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCheckbox);
+        const propKeyValues = `
+            checked: ${testComponent.propValues.checked},
+            disabled: ${testComponent.propValues.disabled},
+            label: ${testComponent.propValues.label ? 'with label' : 'no label'},
+            status: ${testComponent.propValues.status},
+            indeterminate: ${testComponent.propValues.indeterminate},
+            assistiveText: ${testComponent.propValues.assistiveText ? 'with assistive text' : 'no assistive text'},`;
+
+        await mount(
+            WebComponentTestWrapper,
+            {
+                props: { propKeyValues },
+                slots: {
+                    component: testComponent.renderedString.trim(),
+                },
+            },
+        );
+    }));
+
+    await percySnapshot(page, `PIE Checkbox - Checked State: ${variant}`, percyWidths);
+}));
 
 await Promise.all(readingDirections.map(async (dir) => {
     test(`Assistive text and statuses - ${dir}`, async ({ mount, page }) => {

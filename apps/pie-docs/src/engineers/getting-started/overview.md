@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Overview
     parent: engineers-getting-started
     order: 1
+permalink: engineers/getting-started/
 ---
 
 ## Introduction
@@ -27,7 +28,7 @@ We also help to maintain a number of other projects that incorporate the PIE Des
 
 If you'd like to contribute to PIE, check out our [contributing guide](/engineers/contributing/).
 
-We also maintain **guides** for global front-end best practices across JET. These can be found in the [engineering guidelines section of our docs](/engineers/guidelines/overview).
+We also maintain **guides** for global front-end best practices across JET. These can be found in the [engineering guidelines section of our docs](/engineers/guidelines/).
 
 
 <!-- N.B. for the future – we should include a components summary section here like this when we want to start advertising our components:
