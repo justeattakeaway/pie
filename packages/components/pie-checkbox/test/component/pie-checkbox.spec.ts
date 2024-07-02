@@ -5,7 +5,8 @@ import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
 import { PieCheckbox, CheckboxProps } from '../../src/index.ts';
 import { statusTypes } from '../../src/defs.ts';
 
-const componentSelector = '[data-test-id="checkbox-input"]';
+const inputSelector = '[data-test-id="checkbox-input"]';
+const labelSelector = '[data-test-id="checkbox-component"]';
 const assistiveTextSelector = '[data-test-id="pie-checkbox-assistive-text"]';
 
 test.describe('PieCheckbox - Component tests', () => {
@@ -26,7 +27,7 @@ test.describe('PieCheckbox - Component tests', () => {
         });
 
         // Act
-        const checkbox = page.locator(componentSelector);
+        const checkbox = page.locator(inputSelector);
 
         // Assert
         expect(checkbox).toBeVisible();
@@ -42,7 +43,7 @@ test.describe('PieCheckbox - Component tests', () => {
                 const expected = 'on';
 
                 // Act
-                const checkbox = component.locator(componentSelector);
+                const checkbox = component.locator(inputSelector);
 
                 // Assert
                 expect((await checkbox.inputValue())).toBe(expected);
@@ -57,7 +58,7 @@ test.describe('PieCheckbox - Component tests', () => {
                 });
 
                 // Act
-                const checkbox = component.locator(componentSelector);
+                const checkbox = component.locator(inputSelector);
 
                 // Assert
                 expect((await checkbox.inputValue())).toBe('test');
@@ -70,7 +71,7 @@ test.describe('PieCheckbox - Component tests', () => {
                 const component = await mount(PieCheckbox, {});
 
                 // Act
-                const checkbox = component.locator(componentSelector);
+                const checkbox = component.locator(inputSelector);
 
                 // Assert
                 expect((await checkbox.getAttribute('name'))).toBe(null);
@@ -85,7 +86,7 @@ test.describe('PieCheckbox - Component tests', () => {
                 });
 
                 // Act
-                const checkbox = component.locator(componentSelector);
+                const checkbox = component.locator(inputSelector);
 
                 // Assert
                 expect((await checkbox.getAttribute('name'))).toBe('test');
@@ -98,7 +99,7 @@ test.describe('PieCheckbox - Component tests', () => {
                 const component = await mount(PieCheckbox, {});
 
                 // Act
-                const checkbox = component.locator(componentSelector);
+                const checkbox = component.locator(inputSelector);
 
                 // Assert
                 expect(await checkbox.isChecked()).toBe(false);
@@ -113,7 +114,7 @@ test.describe('PieCheckbox - Component tests', () => {
                 });
 
                 // Act
-                const checkbox = component.locator(componentSelector);
+                const checkbox = component.locator(inputSelector);
 
                 // Assert
                 expect(await checkbox.isChecked()).toBe(false);
@@ -128,7 +129,7 @@ test.describe('PieCheckbox - Component tests', () => {
                 });
 
                 // Act
-                const checkbox = component.locator(componentSelector);
+                const checkbox = component.locator(inputSelector);
 
                 // Assert
                 expect(await checkbox.isChecked()).toBe(true);
@@ -146,7 +147,7 @@ test.describe('PieCheckbox - Component tests', () => {
                     });
 
                     // Act
-                    const checkbox = component.locator(componentSelector);
+                    const checkbox = component.locator(inputSelector);
 
                     // Assert
                     expect(checkbox).toBeDisabled();
@@ -171,7 +172,7 @@ test.describe('PieCheckbox - Component tests', () => {
                     const component = await mount(PieCheckbox, {});
 
                     // Act
-                    const checkbox = component.locator(componentSelector);
+                    const checkbox = component.locator(inputSelector);
 
                     // Assert
                     expect(checkbox).not.toBeDisabled();
@@ -197,7 +198,7 @@ test.describe('PieCheckbox - Component tests', () => {
                 const component = await mount(PieCheckbox, {});
 
                 // Act
-                const checkbox = component.locator(componentSelector);
+                const checkbox = component.locator(inputSelector);
 
                 // Assert
                 expect((await checkbox.getAttribute('required'))).toBe(null);
@@ -212,7 +213,7 @@ test.describe('PieCheckbox - Component tests', () => {
                 });
 
                 // Act
-                const checkbox = component.locator(componentSelector);
+                const checkbox = component.locator(inputSelector);
 
                 // Assert
                 expect((await checkbox.getAttribute('required'))).toBe('');
@@ -244,7 +245,7 @@ test.describe('PieCheckbox - Component tests', () => {
                 });
 
                 // Act
-                await component.locator(componentSelector).click();
+                await component.locator(labelSelector).click();
                 const isValid = await page.evaluate(() => document.querySelector('pie-checkbox')?.validity.valid);
 
                 // Assert
@@ -277,7 +278,7 @@ test.describe('PieCheckbox - Component tests', () => {
                 });
 
                 // Act
-                await component.locator(componentSelector).click();
+                await component.locator(labelSelector).click();
                 const isValid = await page.evaluate(() => document.querySelector('pie-checkbox')?.validity.valid);
 
                 // Assert
@@ -378,7 +379,7 @@ test.describe('PieCheckbox - Component tests', () => {
                     });
 
                     // Act
-                    const checkbox = component.locator(componentSelector);
+                    const checkbox = component.locator(inputSelector);
                     const assistiveText = page.locator(assistiveTextSelector);
 
                     const componentAttribute = await checkbox.getAttribute('aria-describedby');
@@ -401,7 +402,7 @@ test.describe('PieCheckbox - Component tests', () => {
                     });
 
                     // Act
-                    const checkbox = component.locator(componentSelector);
+                    const checkbox = component.locator(inputSelector);
 
                     const componentAttribute = await checkbox.getAttribute('aria-describedby');
 
@@ -420,7 +421,7 @@ test.describe('PieCheckbox - Component tests', () => {
                     });
 
                     // Act
-                    const checkbox = component.locator(componentSelector);
+                    const checkbox = component.locator(inputSelector);
 
                     const componentAttribute = await checkbox.getAttribute('aria-describedby');
 
@@ -448,7 +449,7 @@ test.describe('PieCheckbox - Component tests', () => {
                 });
 
                 // Act
-                await component.locator(componentSelector).click();
+                await component.locator(labelSelector).click();
 
                 // Assert
                 expect(messages.length).toEqual(1);
