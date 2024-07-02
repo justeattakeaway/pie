@@ -1,8 +1,8 @@
 ---
 eleventyNavigation:
     key: Timing
-    parent: Applying Motion
-    order: 1
+    parent: Motion
+    order: 3
 ---
 ## Overview
 
