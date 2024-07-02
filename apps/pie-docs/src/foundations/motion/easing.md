@@ -1,8 +1,8 @@
 ---
 eleventyNavigation:
     key: Easing
-    parent: Applying Motion
-    order: 2
+    parent: Motion
+    order: 3
 ---
 ## Overview
 
