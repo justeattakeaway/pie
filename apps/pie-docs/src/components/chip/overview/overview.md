@@ -4,6 +4,7 @@ eleventyNavigation:
     parent: Chip
     order: 1
 shouldShowContents: true
+permalink: components/chip/
 ---
 
 ## Overview
@@ -100,7 +101,7 @@ Icons are always placed in a leading position.
 
 ### Tick icon
 
-Tick icon can be added for clarity and decision support when using chips to filter or multi-select to the selected state. 
+Tick icon can be added for clarity and decision support when using chips to filter or multi-select to the selected state.
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/modifier-tick-icon.svg",

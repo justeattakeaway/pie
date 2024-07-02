@@ -4,6 +4,7 @@ eleventyNavigation:
     parent: Card
     order: 1
 shouldShowContents: true
+permalink: components/card/
 ---
 
 ## Overview

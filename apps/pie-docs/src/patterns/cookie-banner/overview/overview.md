@@ -4,6 +4,7 @@ eleventyNavigation:
     parent: 'Cookie Banner'
     order: 1
 shouldShowContents: true
+permalink: patterns/cookie-banner/
 ---
 
 

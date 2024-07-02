@@ -4,6 +4,7 @@ eleventyNavigation:
     parent: Link
     order: 1
 shouldShowContents: true
+permalink: components/link/
 ---
 
 ## Overview
@@ -56,7 +57,7 @@ Links are often used to connect various pages, sections, or external resources, 
     ]
 } %}
 
---- 
+---
 
 ## Variations
 
@@ -106,7 +107,7 @@ Links can be de-emphasised by using their non-bold variant. When doing that, mak
 
 - Adding a leading or trailing icon.
 - Using the high visibility variant of the link.
-- Using the default underline variant of the link. 
+- Using the default underline variant of the link.
 
 {% contentLayout %}
   {% contentItem %}
@@ -198,13 +199,13 @@ You can use icons to reinforce the action that will take place when the user int
   {% endcontentItem %}
 {% endcontentLayout %}
 
---- 
+---
 
 ## Content
 
 - Be mindful of which words in a paragraph you use for your links. Make sure the words you convert into links are directly related to the content that the link will lead you to.
 
-- Use sentence-style capitalization (only the first word in a phrase and any proper nouns capitalized). 
+- Use sentence-style capitalization (only the first word in a phrase and any proper nouns capitalized).
 
 ---
 

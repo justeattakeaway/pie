@@ -4,5 +4,6 @@ eleventyNavigation:
     title: Guidelines
     parent: engineers
     order: 1
-    url: /engineers/guidelines/overview/
+    url: /engineers/guidelines/
+permalink: false
 ---

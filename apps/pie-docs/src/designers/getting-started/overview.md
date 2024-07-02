@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Overview
     parent: designers-getting-started
     order: 1
+permalink: designers/getting-started/
 ---
 
 ## Introduction
@@ -28,8 +29,8 @@ PIE is split into three parts: **foundations**, **components** and **assets**. E
 You'll need to enable these libraries in Figma if you want to use the PIE design system in your products.
 
 {% contentPageImage {
-src: "../../../assets/img/designers/getting-started/overview/libraries-wheel.svg",
-mobileSrc: "../../../assets/img/designers/getting-started/overview/libraries-wheel_narrow.svg",
+src: "../../../assets/img/designers/getting-started/libraries-wheel.svg",
+mobileSrc: "../../../assets/img/designers/getting-started/libraries-wheel_narrow.svg",
 width: "512px",
 caption: "A map of how PIE libraries are structured in Figma."
 } %}
@@ -73,18 +74,18 @@ If you need more detail on JET's visual and verbal standards, you've come to the
         {
           linkText: "JET Brand Guidelines",
           href: "https://brand-box.marketing.just-eat.com/",
-          src: "../../../assets/img/designers/getting-started/overview/document-placeholder.svg"
+          src: "../../../assets/img/designers/getting-started/document-placeholder.svg"
         },
         {
           linkText: "Global Brand Voice",
           href: "https://docs.google.com/presentation/d/1YXtsfzmIXfc5CAk1TsV9YQ21O9V4G9WK6J4elC3YmEI/edit#slide=id.gb6f3deb72f_0_702",
-          src: "../../../assets/img/designers/getting-started/overview/document-placeholder.svg",
+          src: "../../../assets/img/designers/getting-started/document-placeholder.svg",
           shouldOpenInNewTab: true
         },
         {
           linkText: "2022 UI copy style guide ",
           href: "https://docs.google.com/document/d/1aAyCnyBfNO_ErWORPqKoZ9DVF480ra1VvToQ0YFfm0I/edit",
-          src: "../../../assets/img/designers/getting-started/overview/document-placeholder.svg",
+          src: "../../../assets/img/designers/getting-started/document-placeholder.svg",
           shouldOpenInNewTab: true
         }
     ]

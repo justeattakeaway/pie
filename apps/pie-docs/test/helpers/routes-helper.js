@@ -37,7 +37,7 @@ const readChildren = (childDirectories, result = []) => {
     // This allows us to include urls such as /foundations, /foundations/typography, etc.
     // Some of these pages should display a 404 page but we still want to include them in our routes as they technically exist.
     const hasIndexHtmlChild = childDirectories.children.some((child) => child.name === 'index.html');
-    const directoriesToInclude = ['foundations'];
+    const directoriesToInclude = ['accessibility', 'all-about-pie', 'foundations', 'components', 'designers', 'engineers', 'patterns', 'support'];
     const shouldInclude = directoriesToInclude.some((dir) => childDirectories.relativePath.includes(dir));
 
     if (hasIndexHtmlChild && shouldInclude) {
