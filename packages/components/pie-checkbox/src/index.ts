@@ -159,7 +159,6 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             class="c-checkbox"
             ?data-pie-checked=${checked}
             ?data-pie-disabled=${live(disabled)}
-            ?data-pie-indeterminate=${indeterminate}
             data-pie-status=${!disabled && status}>
             <input
                 type="checkbox"
