@@ -1,6 +1,6 @@
 {
   "name": "wc-next10",
-  "version": "0.5.43",
+  "version": "0.5.45",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,9 +10,9 @@
     "lint:examples": "eslint ."
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "0.47.6",
-    "@justeattakeaway/pie-cookie-banner": "0.20.3",
-    "@justeattakeaway/pie-css": "0.12.0",
+    "@justeattakeaway/pie-button": "0.47.7",
+    "@justeattakeaway/pie-cookie-banner": "0.20.5",
+    "@justeattakeaway/pie-css": "0.12.1",
     "@lit/react": "1.0.2",
     "next": "10.2.3",
     "next-transpile-modules": "4.1.0",

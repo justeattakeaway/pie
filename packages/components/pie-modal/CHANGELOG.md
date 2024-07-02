@@ -1,5 +1,21 @@
 # @justeattakeaway/pie-modal
 
+## 0.43.3
+
+### Patch Changes
+
+- [Changed] - Point to updated component page link in docs site from readme file ([#1548](https://github.com/justeattakeaway/pie/pull/1548)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`86c3764c2`](https://github.com/justeattakeaway/pie/commit/86c3764c28ab7431a5aaff1e0e439a5e440f963b)]:
+  - @justeattakeaway/pie-icon-button@0.28.8
+  - @justeattakeaway/pie-button@0.47.7
+
+## 0.43.2
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens version bump to 6.3.1 ([#1546](https://github.com/justeattakeaway/pie/pull/1546)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.43.1
 
 ### Patch Changes

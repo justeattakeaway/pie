@@ -4,6 +4,7 @@ eleventyNavigation:
     parent: Divider
     order: 1
 shouldShowContents: true
+permalink: components/divider/
 ---
 
 ## Overview
@@ -102,7 +103,7 @@ ___
   {% endcontentItem %}
 {% endcontentLayout %}
 
---- 
+---
 
 ## Examples
 

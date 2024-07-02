@@ -7,6 +7,7 @@ eleventyComputed:
     iconSizes: "{% include './icon-sizes.json' %}"
     sizes: "{% include './sizes.json' %}"
 shouldShowContents: true
+permalink: components/button/
 ---
 
 ## Overview

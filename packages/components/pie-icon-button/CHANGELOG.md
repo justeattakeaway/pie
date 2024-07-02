@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.28.8
+
+### Patch Changes
+
+- [Changed] - Point to updated component page link in docs site from readme file ([#1548](https://github.com/justeattakeaway/pie/pull/1548)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.28.7
 
 ### Patch Changes

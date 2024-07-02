@@ -1,5 +1,43 @@
 # Changelog
 
+## 0.81.0
+
+### Minor Changes
+
+- [Added] - `size` property that defaults to `medium` ([#1551](https://github.com/justeattakeaway/pie/pull/1551)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+### Patch Changes
+
+- Updated dependencies [[`5741ab327`](https://github.com/justeattakeaway/pie/commit/5741ab3271576381c1864f74e86337657c853ceb), [`86c3764c2`](https://github.com/justeattakeaway/pie/commit/86c3764c28ab7431a5aaff1e0e439a5e440f963b), [`760c20a23`](https://github.com/justeattakeaway/pie/commit/760c20a2301a9393bde1c301bdef1023dba7a2eb)]:
+  - @justeattakeaway/pie-textarea@0.3.0
+  - @justeattakeaway/pie-icon-button@0.28.8
+  - @justeattakeaway/pie-divider@0.13.6
+  - @justeattakeaway/pie-button@0.47.7
+  - @justeattakeaway/pie-switch@0.29.9
+  - @justeattakeaway/pie-modal@0.43.3
+  - @justeattakeaway/pie-card@0.19.6
+  - @justeattakeaway/pie-chip@0.7.0
+  - @justeattakeaway/pie-link@0.17.6
+  - @justeattakeaway/pie-tag@0.9.7
+  - @justeattakeaway/pie-cookie-banner@0.20.5
+  - @justeattakeaway/pie-notification@0.9.2
+
+## 0.80.0
+
+### Minor Changes
+
+- [Added] - Render a textarea inside the pie-textarea with a `disabled` property that defaults to `false` ([#1539](https://github.com/justeattakeaway/pie/pull/1539)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens version bump to 6.3.1 ([#1546](https://github.com/justeattakeaway/pie/pull/1546)) by [@dandel10n](https://github.com/dandel10n)
+
+- Updated dependencies [[`ddd2dca0f`](https://github.com/justeattakeaway/pie/commit/ddd2dca0f44724e7308011c6e63733e172b091bc), [`f582e9263`](https://github.com/justeattakeaway/pie/commit/f582e92638dfb142833602200354fb3add131a45)]:
+  - @justeattakeaway/pie-cookie-banner@0.20.4
+  - @justeattakeaway/pie-modal@0.43.2
+  - @justeattakeaway/pie-css@0.12.1
+  - @justeattakeaway/pie-textarea@0.2.0
+
 ## 0.79.3
 
 ### Patch Changes

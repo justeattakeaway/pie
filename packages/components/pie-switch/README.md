@@ -24,7 +24,7 @@ yarn add @justeattakeaway/pie-switch
 
 ## Documentation
 
-Visit  [Modal | PIE Design System](https://pie.design/components/modal/overview) to view more information on this component.
+Visit  [Switch | PIE Design System](https://pie.design/components/switch) to view more information on this component.
 
 ## Questions
 

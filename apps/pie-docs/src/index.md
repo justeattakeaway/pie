@@ -16,7 +16,7 @@ heroCtaHref: /all-about-pie/what-is-pie
           linkText: "Get started",
           icon: "bulb-lightning",
           iconColour: "support-brand-03",
-          href: "/designers/getting-started/overview/",
+          href: "/designers/getting-started/",
           headingLevel: "3",
           isInternalLink: "true"
         },
@@ -26,7 +26,7 @@ heroCtaHref: /all-about-pie/what-is-pie
           linkText: "Get started",
           icon: "engineers",
           iconColour: "support-brand-04",
-          href: "/engineers/getting-started/overview/",
+          href: "/engineers/getting-started/",
           headingLevel: "3",
           isInternalLink: "true"
         },

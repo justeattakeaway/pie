@@ -49,10 +49,10 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     public disabled?: CheckboxProps['disabled'];
 
     @property({ type: Boolean, reflect: true })
-    public required?: CheckboxProps['required'] = defaultProps.required;
+    public required = defaultProps.required;
 
     @property({ type: Boolean, reflect: true })
-    public indeterminate?: CheckboxProps['indeterminate'] = defaultProps.indeterminate;
+    public indeterminate = defaultProps.indeterminate;
 
     @property({ type: Object })
     public aria: CheckboxProps['aria'];
@@ -65,7 +65,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
 
     @property({ type: String })
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
-    public status?: CheckboxProps['status'] = defaultProps.status;
+    public status = defaultProps.status;
 
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.
@@ -155,24 +155,39 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
         } = this;
 
         return html`
-        <label data-test-id="checkbox-component">
+        <div
+            class="c-checkbox"
+            ?data-pie-checked=${checked}
+            ?data-pie-disabled=${live(disabled)}
+            ?data-pie-indeterminate=${indeterminate}
+            data-pie-status=${!disabled && status}>
             <input
                 type="checkbox"
+                id="inputId"
                 .value=${value}
                 .checked=${live(checked)}
                 name=${ifDefined(name)}
                 ?disabled=${disabled}
                 ?required=${required}
-                .indeterminate=${!!indeterminate}
+                .indeterminate=${indeterminate}
                 aria-label=${aria?.label || nothing}
                 aria-labelledby=${label ? nothing : aria?.labelledby || nothing}
                 aria-describedby=${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}
                 @change=${this.handleChange}
                 data-test-id="checkbox-input"
             />
-            ${label}
-        </label>
-        ${assistiveText ? html`<pie-assistive-text id="${assistiveTextIdValue}" variant=${ifDefined(status)} data-test-id="pie-checkbox-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}`;
+            <label for="inputId" data-test-id="checkbox-component">
+                <span class="c-checkbox-tick"></span>
+                <span class="c-checkbox-text">${label}</span>
+            </label>
+            ${assistiveText ? html`
+                <pie-assistive-text
+                    id="${assistiveTextIdValue}"
+                    variant=${status}
+                    data-test-id="pie-checkbox-assistive-text">
+                        ${assistiveText}
+                </pie-assistive-text>` : nothing}
+        </div>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

@@ -4,5 +4,6 @@ eleventyNavigation:
     title: Getting started
     parent: designers
     order: 1
-    url: /designers/getting-started/overview/
+    url: /designers/getting-started/
+permalink: false
 ---

@@ -6,6 +6,7 @@ eleventyNavigation:
 eleventyComputed:
     sizes: "{% include './sizes.json' %}"
 shouldShowContents: true
+permalink: components/icon-button/
 ---
 
 ## Overview
@@ -30,10 +31,10 @@ Icon buttons feature simple and recognizable icons that represent a specific act
            "Use it when an icon button on its own can clearly indicate the action."
         ]
     },
-    dont: { 
+    dont: {
         type: usageTypes.text,
         items: [
-            "Don’t use if an icon on its own doesn’t clearly indicate the action, in the case use a standard [Button](/components/button/overview)."
+            "Don’t use if an icon on its own doesn’t clearly indicate the action, in the case use a standard [Button](/components/button)."
         ]
     }
 } %}
@@ -130,7 +131,7 @@ Outlines the Icon Button sizes that are available, and where they should be used
   tableData: sizes
 } %}
 
---- 
+---
 
 ## Hierarchy
 
@@ -146,7 +147,7 @@ The primary icon button should be the single most important button in the hierar
     width: 56
 } %}
 
-### Medium 
+### Medium
 
 The secondary and inverse icon buttons are of less importance and should have less prominence.
 
@@ -168,7 +169,7 @@ The secondary and inverse icon buttons are of less importance and should have le
   {% endcontentItem %}
 {% endcontentLayout %}
 
-### Low 
+### Low
 
 The outline, ghost, ghost tertiary and ghost inverse Icon Buttons should have the lowest prominence.
 
@@ -306,7 +307,7 @@ Outlines the atomic level interactive elements for the component.
   {% endcontentItem %}
 {% endcontentLayout %}
 
---- 
+---
 
 ## Resources
 
