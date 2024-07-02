@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Easing
     parent: Motion
-    order: 2
+    order: 3
 ---
 ## Overview
 

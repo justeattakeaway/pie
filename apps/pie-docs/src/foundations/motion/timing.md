@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Timing
     parent: Motion
-    order: 3
+    order: 2
 ---
 ## Overview
 
