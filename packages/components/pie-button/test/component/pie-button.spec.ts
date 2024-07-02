@@ -44,6 +44,11 @@ test('should correctly work with native click events', async ({ mount }) => {
 });
 
 test.describe('Form Actions', () => {
+    test.beforeEach(async ({ mount }) => {
+        const component = await mount(PieButton);
+        await component.unmount();
+    });
+
     test.describe('Submit', () => {
         test('should correctly submit an HTML form when type is `submit`', async ({ page }) => {
             // Arrange
