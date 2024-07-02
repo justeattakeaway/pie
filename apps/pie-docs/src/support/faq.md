@@ -35,7 +35,7 @@ Please check our contributing guidelines for [Designers](/designers/contributing
 
 ## How do I get started with PIE?
 
-We are here to help you get set up! Please check [Designers](/designers/getting-started/overview) and [Engineers](/engineers/getting-started/overview) to get started with PIE, or reach out directly if you just want to start a conversation about how PIE can help you or your team.
+We are here to help you get set up! Please check [Designers](/designers/getting-started/) and [Engineers](/engineers/getting-started/) to get started with PIE, or reach out directly if you just want to start a conversation about how PIE can help you or your team.
 
 ---
 
