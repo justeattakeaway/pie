@@ -6,10 +6,6 @@ eleventyNavigation:
 eleventyComputed:
     principlesData: "{% include './motion-principles.json' %}"
 permalink: foundations/motion/
-
-#title: Overview
-# navKey: Overview
-# description: How we use motion in PIE.
 ---
 ## Introduction
 
