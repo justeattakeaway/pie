@@ -68,7 +68,7 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
             label: ${testComponent.propValues.label ? 'with label' : 'no label'},
             status: ${testComponent.propValues.status},
             indeterminate: ${testComponent.propValues.indeterminate},
-            assistiveText: ${testComponent.propValues.assistiveText ? 'with assistive text' : 'no assistive text'},`;
+            assistiveText: ${testComponent.propValues.assistiveText ? 'with assistive text' : 'no assistive text'}`;
 
         await mount(
             WebComponentTestWrapper,
