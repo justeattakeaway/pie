@@ -157,9 +157,10 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
         return html`
         <div
             class="c-checkbox"
-            ?data-pie-checked=${checked}
+            data-pie-status=${!disabled && status}
             ?data-pie-disabled=${live(disabled)}
-            data-pie-status=${!disabled && status}>
+            ?data-pie-checked=${checked}
+            ?data-pie-indeterminate=${indeterminate && !checked}>
             <input
                 type="checkbox"
                 id="inputId"
@@ -176,7 +177,12 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
                 data-test-id="checkbox-input"
             />
             <label for="inputId" data-test-id="checkbox-component">
-                <span class="c-checkbox-tick"></span>
+                <span
+                    class="c-checkbox-tick"
+                    ?data-pie-checked=${checked}
+                    ?data-pie-disabled=${live(disabled)}
+                    data-pie-status=${!disabled && status}
+                    ?data-pie-indeterminate=${indeterminate && !checked}></span>
                 <span class="c-checkbox-text">${label}</span>
             </label>
             ${assistiveText ? html`
