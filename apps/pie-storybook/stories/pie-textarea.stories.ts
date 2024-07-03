@@ -3,7 +3,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-textarea';
-import { TextareaProps, defaultProps, sizes } from '@justeattakeaway/pie-textarea';
+import { TextareaProps, defaultProps, resizeModes, sizes } from '@justeattakeaway/pie-textarea';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
@@ -32,6 +32,14 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: defaultProps.size,
             },
         },
+        resize: {
+            description: 'Controls the resizing behaviour of the textarea. Can be `auto` or `manual`. Defaults to `auto`.',
+            control: 'select',
+            options: resizeModes,
+            defaultValue: {
+                summary: defaultProps.resize,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -44,12 +52,14 @@ const textareaStoryMeta: TextareaStoryMeta = {
 
 const Template = ({
     disabled,
+    resize,
     size,
 }: TextareaProps) => html`
-        <pie-textarea
-                ?disabled="${disabled}"
-                size="${ifDefined(size)}">
-        </pie-textarea>
+    <pie-textarea
+            ?disabled="${disabled}"
+            size="${ifDefined(size)}"
+            resize="${ifDefined(resize)}">
+    </pie-textarea>
     `;
 
 export const Default = createStory<TextareaProps>(Template, defaultArgs)();

@@ -1,22 +1,69 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+// Heights are being defined based on the line height of the text and the padding.
+// Changing the `size` property affects the padding and therefore the height of the textarea.
+// Default height is two lines of text.
+// Minimum height in manual resize mode is one line of text.
+// Maximum height in auto resize mode is six lines of text.
 .c-textarea {
-  --textarea-height: 72px;
+  --textarea-line-height: calc(var(--dt-font-body-l-line-height) * 1px);
+  --textarea-border-thickness: 1px;
 
-  height: var(--textarea-height);
+  --textarea-padding-inline: var(--dt-spacing-d);
+  --textarea-padding-block-base: var(--dt-spacing-c);
+  --textarea-padding-block-large: var(--dt-spacing-d);
+  --textarea-padding-block-small: var(--dt-spacing-b);
+  --textarea-padding-block: var(--textarea-padding-block-base);
+
+  --textarea-inner-height-base: calc(var(--textarea-line-height) * 2);
+  --textarea-height: calc(var(--textarea-inner-height-base) + (var(--textarea-padding-block) * 2) + (var(--textarea-border-thickness) * 2));
+
+  --textarea-resize: none;
+
+  line-height: 0; // Remove once there is text outside the textarea
+
+  textarea {
+    font-size: calc(var(--dt-font-body-l-size) * 1px);
+    line-height: var(--textarea-line-height);
+    font-family: var(--dt-font-body-l-family);
+
+    border-radius: var(--dt-radius-rounded-c);
+    block-size: var(--textarea-height);
+    resize: var(--textarea-resize);
+
+    padding-block-start: var(--textarea-padding-block);
+    padding-block-end: var(--textarea-padding-block);
+    padding-inline-start: var(--textarea-padding-inline);
+    padding-inline-end: var(--textarea-padding-inline);
+
+    &:focus-visible {
+      @include p.focus;
+    }
+  }
 
   &[data-pie-size="large"] {
-    --textarea-height: 80px;
+    --textarea-padding-block: var(--textarea-padding-block-large);
   }
 
   &[data-pie-size="small"] {
-    --textarea-height: 64px;
+    --textarea-padding-block: var(--textarea-padding-block-small);
   }
 
-  textarea {
-    width: 100%;
-    height: 100%;
+  &[data-pie-resize="manual"] {
+    --textarea-resize: vertical;
+
+    --textarea-min-height: calc(var(--textarea-height) - var(--textarea-line-height)); // One line of text
+
+    textarea {
+      min-block-size: var(--textarea-min-height);
+    }
+  }
+
+  &[data-pie-resize="auto"] {
+    --textarea-max-height: calc(var(--textarea-height) + calc(var(--textarea-line-height) * 4)); // Six lines of text
+
+    textarea {
+      max-block-size: var(--textarea-max-height);
+    }
   }
 }
-
-
