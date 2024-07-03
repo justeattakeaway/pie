@@ -71,6 +71,88 @@
 
         animation: scaleDown var(--dt-motion-timing-100) var(--checkbox-motion-easing);
     }
+
+    &[data-pie-disabled] {
+        --checkbox-bg-color: var(--dt-color-container-strong);
+        --checkbox-border-color: var(--dt-color-disabled-01);
+    }
+
+    &[data-pie-status="error"] {
+        --checkbox-border-color: var(--dt-color-support-error);
+    }
+
+    &[data-pie-checked] {
+        @media (prefers-reduced-motion: no-preference) {
+            animation: scaleUp var(--dt-motion-timing-100) var(--checkbox-motion-easing);
+        }
+
+        &:not([data-pie-disabled]) {
+            --checkbox-bg-color: var(--dt-color-interactive-brand);
+            --checkbox-border-color: var(--dt-color-interactive-brand);
+        }
+
+        &[data-pie-status="error"] {
+            --checkbox-border-color: var(--dt-color-support-error);
+            --checkbox-bg-color: var(--dt-color-support-error);
+        }
+    }
+
+    &[data-pie-checked]:before {
+        content: "";
+
+        position: relative;
+        top: 55%;
+        left: 14%;
+
+        border-right: 2px solid transparent;
+        border-bottom: 2px solid transparent;
+
+        transform: rotate(45deg);
+        transform-origin: 0% 100%;
+
+        animation: checkboxCheck var(--dt-motion-timing-150) var(--checkbox-motion-easing) forwards;
+
+        @media (prefers-reduced-motion: reduce) {
+            animation: none;
+            width: 8px;
+            height: 16px;
+            border-color: #fff;
+            border-bottom-right-radius: 2px;
+
+            transform: translate3d(0, -16px, 0) rotate(45deg);
+        }
+
+        @media only percy {
+            animation: none;
+
+            width: 8px;
+            height: 16px;
+            border-color: #fff;
+            border-bottom-right-radius: 2px;
+
+            transform: translate3d(0, -16px, 0) rotate(45deg);
+        }
+    }
+
+    &[data-pie-indeterminate] {
+        &:not([data-pie-disabled]) {
+            --checkbox-bg-color: var(--dt-color-interactive-brand);
+            --checkbox-border-color: var(--dt-color-interactive-brand);
+        }
+
+        &[data-pie-status="error"] {
+            --checkbox-border-color: var(--dt-color-support-error);
+            --checkbox-bg-color: var(--dt-color-support-error);
+        }
+    }
+
+    &[data-pie-indeterminate]:after {
+        width: 16px;
+
+        @media (prefers-reduced-motion: no-preference) {
+            transition: width var(--dt-motion-timing-100) var(--checkbox-motion-easing) var(--dt-motion-timing-100);
+        }
+    }
 }
 
 .c-checkbox-text {
@@ -85,7 +167,7 @@
     font-weight: var(--checkbox-font-weight);
 }
 
-// styles for indeterminate state
+// initial styles for indeterminate state
 .c-checkbox-tick:after {
     content: "";
 
@@ -152,30 +234,21 @@
             cursor: default;
             pointer-events: none;
         }
-
-        .c-checkbox-tick {
-            --checkbox-bg-color: var(--dt-color-container-strong);
-            --checkbox-border-color: var(--dt-color-disabled-01);
-        }
-    }
-
-    &[data-pie-checked] {
-        .c-checkbox-tick {
-            @media (prefers-reduced-motion: no-preference) {
-                animation: scaleUp var(--dt-motion-timing-100) var(--checkbox-motion-easing);
-            }
-        }
-    }
-
-    &[data-pie-status="error"] {
-        .c-checkbox-tick {
-            --checkbox-border-color: var(--dt-color-support-error);
-        }
     }
 
     input:focus-visible + label {
         .c-checkbox-tick {
             @include p.focus;
+        }
+    }
+
+    &[data-pie-disabled] {
+        &:hover,
+        &:active {
+            .c-checkbox-tick {
+                --checkbox-bg-color: var(--dt-color-container-strong);
+                --checkbox-border-color: var(--dt-color-disabled-01);
+            }
         }
     }
 
@@ -193,95 +266,33 @@
         }
     }
 
-    &[data-pie-checked] {
-        &:not([data-pie-indeterminate]) {
-            .c-checkbox-tick:before {
-                content: "";
-
-                position: relative;
-                top: 55%;
-                left: 14%;
-
-                border-right: 2px solid transparent;
-                border-bottom: 2px solid transparent;
-
-                transform: rotate(45deg);
-                transform-origin: 0% 100%;
-
-                animation: checkboxCheck var(--dt-motion-timing-150) var(--checkbox-motion-easing) forwards;
-
-                @media (prefers-reduced-motion: reduce) {
-                    animation: none;
-                    width: 8px;
-                    height: 16px;
-                    border-color: #fff;
-                    border-bottom-right-radius: 2px;
-
-                    transform: translate3d(0, -16px, 0) rotate(45deg);
-                }
-
-                @media only percy {
-                    animation: none;
-
-                    width: 8px;
-                    height: 16px;
-                    border-color: #fff;
-                    border-bottom-right-radius: 2px;
-
-                    transform: translate3d(0, -16px, 0) rotate(45deg);
-                }
-            }
-        }
-
-        &:not([data-pie-disabled]) {
-            .c-checkbox-tick {
-                --checkbox-bg-color: var(--dt-color-interactive-brand);
-                --checkbox-border-color: var(--dt-color-interactive-brand);
-            }
-        }
-
-        &[data-pie-status="error"] {
-            .c-checkbox-tick {
-                --checkbox-bg-color: var(--dt-color-support-error);
-                --checkbox-border-color: var(--dt-color-support-error);
-            }
-        }
-
-        &:hover:not([data-pie-disabled]) {
+    &[data-pie-checked],
+    &[data-pie-indeterminate] {
+        &:not([data-pie-disabled]):hover {
             .c-checkbox-tick {
                 --checkbox-bg-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + calc(-1 * var(--dt-color-hover-01))));
                 --checkbox-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + calc(-1 * var(--dt-color-hover-01))));
             }
         }
 
-        &:hover[data-pie-status="error"] {
+        &[data-pie-status="error"]:hover {
             .c-checkbox-tick {
                 --checkbox-bg-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) + calc(-1 * var(--dt-color-hover-01))));
                 --checkbox-border-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) + calc(-1 * var(--dt-color-hover-01))));
             }
         }
 
-        &:active:not([data-pie-disabled]) {
+        &:not([data-pie-disabled]):active {
             .c-checkbox-tick {
                 --checkbox-bg-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + calc(-1 * var(--dt-color-active-01))));
                 --checkbox-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + calc(-1 * var(--dt-color-active-01))));
             }
         }
 
-        &:active[data-pie-status="error"] {
+        &[data-pie-status="error"]:active {
             .c-checkbox-tick {
                 --checkbox-bg-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) + calc(-1 * var(--dt-color-active-01))));
                 --checkbox-border-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) + calc(-1 * var(--dt-color-active-01))));
-            }
-        }
-    }
-
-    &[data-pie-indeterminate][data-pie-checked] {
-        .c-checkbox-tick:after {
-            width: 16px;
-
-            @media (prefers-reduced-motion: no-preference) {
-                transition: width var(--dt-motion-timing-100) var(--checkbox-motion-easing) var(--dt-motion-timing-100);
             }
         }
     }
