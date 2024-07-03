@@ -57,9 +57,11 @@
 
   &[data-pie-resize="auto"] {
     --textarea-max-height: calc(var(--textarea-height) + calc(var(--textarea-line-height) * 4)); // Six lines of text
+    --textarea-min-height: var(--textarea-height); // Two lines of text
 
     textarea {
       max-block-size: var(--textarea-max-height);
+      min-block-size: var(--textarea-min-height);
     }
   }
 }
