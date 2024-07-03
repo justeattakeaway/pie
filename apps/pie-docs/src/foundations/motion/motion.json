@@ -1,3 +1,6 @@
 {
-  "metaTitlePrefix": "Motion — "
+  "metaTitlePrefix": "Motion — ",
+  "title": "Motion",
+  "navKey": "Motion",
+  "description": "How we use motion in PIE."
 }

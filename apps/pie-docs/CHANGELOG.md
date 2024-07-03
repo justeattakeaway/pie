@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.45.0
+
+### Minor Changes
+
+- [Changed] - flatten the motion foundation pages to be a single page with tabs like the other foundations pages. No more /motion/applying-motion url. ([#1568](https://github.com/justeattakeaway/pie/pull/1568)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Removed /overview urls from designers, engineers sections and use overview content as the index.html of each directory. I.e. /designers/getting-started for the overview page instead of /designers/getting-started/overview. ([#1566](https://github.com/justeattakeaway/pie/pull/1566)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Removed] - Draft style page from template and button pages ([#1556](https://github.com/justeattakeaway/pie/pull/1556)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 3.44.0
 
 ### Minor Changes
