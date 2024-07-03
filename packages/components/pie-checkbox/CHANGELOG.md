@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.7.0
+
+### Minor Changes
+
+- [Added] - checkbox styling ([#1542](https://github.com/justeattakeaway/pie/pull/1542)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- [Changed] - Bug fix for indeterminate + checked state - when the checkbox is checked it should ignore indeterminate css styles, when it is not checked but indeterminate - it should show indeterminate styles ([#1571](https://github.com/justeattakeaway/pie/pull/1571)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Changed] - Rearranged some css styles to reduce specificity
+  [Removed] - Extra colon in Percy screenshots
+
 ## 0.6.0
 
 ### Minor Changes
