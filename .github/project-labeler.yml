@@ -109,5 +109,8 @@ pie-webc-testing:
 pie-checkbox:
 - 'packages/components/pie-checkbox/**/*'
 
+pie-checkbox-group:
+- 'packages/components/pie-checkbox-group/**/*'
+
 pie-toast:
 - 'packages/components/pie-toast/**/*'
