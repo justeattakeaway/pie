@@ -3,7 +3,7 @@ import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieTextarea, TextareaProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-textarea"]';
-const componentShellSelector = '[data-test-id="pie-textarea-shell"]';
+const componentShellSelector = '[data-test-id="pie-textarea-wrapper"]';
 
 test.describe('PieTextarea - Component tests', () => {
     // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly

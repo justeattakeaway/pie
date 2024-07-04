@@ -1,5 +1,7 @@
-import { LitElement, html, unsafeCSS } from 'lit';
-import { property } from 'lit/decorators.js';
+import {
+    LitElement, html, unsafeCSS, PropertyValues,
+} from 'lit';
+import { property, query } from 'lit/decorators.js';
 
 import { validPropertyValues, RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 
@@ -30,6 +32,22 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
     @validPropertyValues(componentSelector, resizeModes, defaultProps.resize)
     public resize = defaultProps.resize;
 
+    @query('textarea')
+    private _textarea!: HTMLTextAreaElement;
+
+    private handleResize () {
+        if (this.resize === 'auto') {
+            this._textarea.style.height = 'auto';
+            this._textarea.style.height = `${this._textarea.scrollHeight + 2}px`; // +2 for border thicknesses
+        }
+    }
+
+    updated (changedProperties: PropertyValues<this>) {
+        if (this.resize === 'auto' && (changedProperties.has('resize') || changedProperties.has('size'))) {
+            this.handleResize();
+        }
+    }
+
     render () {
         const {
             disabled,
@@ -39,12 +57,13 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
 
         return html`
             <div
-                class="c-textarea"
-                data-test-id="pie-textarea-shell"
+                class="c-textareaWrapper"
+                data-test-id="pie-textarea-wrapper"
                 data-pie-size=${size}
                 data-pie-resize=${resize}>
                 <textarea
                     data-test-id="pie-textarea"
+                    @input=${this.handleResize}
                     ?disabled=${disabled}
                 ></textarea>
             </div>`;
