@@ -64,9 +64,3 @@ Ensure that you provide annotations or include comments specifically directed to
 
 We're planning to have quarterly check-ins to go over your screens or interactions. These sessions can help you figure out if you're using the right haptic feedback in your products or if you need to make some changes or additions.
 
-{% notification {
-  type: "information",
-  iconName: "calendar-add",
-  message: "Add the [quarterly haptic feedback reviews](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes) to your calendar."
-} %}
-
