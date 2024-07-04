@@ -3,7 +3,7 @@ import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieTextarea, TextareaProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-textarea"]';
-const componentShellSelector = '[data-test-id="pie-textarea-wrapper"]';
+const componentWrapperSelector = '[data-test-id="pie-textarea-wrapper"]';
 
 test.describe('PieTextarea - Component tests', () => {
     // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
@@ -89,13 +89,13 @@ test.describe('PieTextarea - Component tests', () => {
                 const component = await mount(PieTextarea, {});
 
                 // Act
-                const textareaShell = component.locator(componentShellSelector);
+                const textareaWrapper = component.locator(componentWrapperSelector);
 
                 // Assert
-                expect(textareaShell).toHaveAttribute('data-pie-size', 'medium');
+                expect(textareaWrapper).toHaveAttribute('data-pie-size', 'medium');
             });
 
-            test('should apply `large` size prop to the HTML textarea rendered', async ({ mount }) => {
+            test('should apply `large` size attribute to the textarea wrapper', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieTextarea, {
                     props: {
@@ -104,13 +104,13 @@ test.describe('PieTextarea - Component tests', () => {
                 });
 
                 // Act
-                const textareaShell = component.locator(componentShellSelector);
+                const textareaWrapper = component.locator(componentWrapperSelector);
 
                 // Assert
-                expect(textareaShell).toHaveAttribute('data-pie-size', 'large');
+                expect(textareaWrapper).toHaveAttribute('data-pie-size', 'large');
             });
 
-            test('should apply `small` size prop to the HTML textarea rendered', async ({ mount }) => {
+            test('should apply `small` size attribute to the textarea wrapper', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieTextarea, {
                     props: {
@@ -119,10 +119,53 @@ test.describe('PieTextarea - Component tests', () => {
                 });
 
                 // Act
-                const textareaShell = component.locator(componentShellSelector);
+                const textareaWrapper = component.locator(componentWrapperSelector);
 
                 // Assert
-                expect(textareaShell).toHaveAttribute('data-pie-size', 'small');
+                expect(textareaWrapper).toHaveAttribute('data-pie-size', 'small');
+            });
+        });
+
+        test.describe('resize', () => {
+            test('should apply `auto` resize prop by default if no resize prop provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {});
+
+                // Act
+                const textareaWrapper = component.locator(componentWrapperSelector);
+
+                // Assert
+                expect(textareaWrapper).toHaveAttribute('data-pie-resize', 'auto');
+            });
+
+            test('should apply `manual` resize attribute to the textarea wrapper', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {
+                    props: {
+                        resize: 'manual',
+                    } as TextareaProps,
+                });
+
+                // Act
+                const textareaWrapper = component.locator(componentWrapperSelector);
+
+                // Assert
+                expect(textareaWrapper).toHaveAttribute('data-pie-resize', 'manual');
+            });
+
+            test('should apply `auto` resize attribute to the textarea wrapper', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {
+                    props: {
+                        resize: 'auto',
+                    } as TextareaProps,
+                });
+
+                // Act
+                const textareaWrapper = component.locator(componentWrapperSelector);
+
+                // Assert
+                expect(textareaWrapper).toHaveAttribute('data-pie-resize', 'auto');
             });
         });
     });

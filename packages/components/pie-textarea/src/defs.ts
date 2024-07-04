@@ -25,12 +25,13 @@ export interface TextareaProps {
 /**
  * The default values for the `TextareaProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultPropsGeneric<TextareaProps, keyof Omit<TextareaProps, 'disabled'>>;
+type DefaultProps = ComponentDefaultPropsGeneric<TextareaProps, 'disabled' | 'size' | 'resize'>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
  */
 export const defaultProps: DefaultProps = {
+    disabled: false,
     size: 'medium',
     resize: 'auto',
 };

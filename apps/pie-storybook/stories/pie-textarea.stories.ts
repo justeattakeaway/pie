@@ -23,7 +23,7 @@ const textareaStoryMeta: TextareaStoryMeta = {
             description: 'If true, disables the textarea field.',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: defaultProps.disabled,
             },
         },
         size: {
