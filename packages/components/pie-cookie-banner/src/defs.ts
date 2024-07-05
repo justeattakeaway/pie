@@ -73,6 +73,8 @@ export interface CookieBannerProps {
      * or { 'functional': true, 'personalized': true, 'analytical': true }
      */
     defaultPreferences?: Partial<Record<PreferenceIds, boolean>>;
+
+    entranceAnimationVariant?: '0' | '1' | '2' | '3' | '4';
 }
 
 /**
@@ -143,5 +145,4 @@ export interface CustomTagEnhancers {
     [key: string]: (tagContent: string) => TemplateResult;
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<CookieBannerProps, 'hasPrimaryActionsOnly' | 'defaultPreferences' | 'locale' | 'cookieStatementLink' | 'cookieTechnologiesLink'>;
-
+export type DefaultProps = ComponentDefaultPropsGeneric<CookieBannerProps, 'hasPrimaryActionsOnly' | 'defaultPreferences' | 'locale' | 'cookieStatementLink' | 'cookieTechnologiesLink' | 'entranceAnimationVariant'>;
