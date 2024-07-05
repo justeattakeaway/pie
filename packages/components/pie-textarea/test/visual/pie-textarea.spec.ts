@@ -1,29 +1,11 @@
-import { test } from '@sand4rt/experimental-ct-web';
+import { test, expect } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import type {
-    WebComponentPropValues, WebComponentTestInput,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
-import {
-    createTestWebComponent,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
-import {
-    WebComponentTestWrapper,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-direction.ts';
 
 import { PieTextarea } from '../../src/index.ts';
+import { sizes } from '../../src/defs.ts';
 
-const readingDirections = ['LTR', 'RTL'];
-
-const renderTestPieTextarea = (propVals: WebComponentPropValues) => {
-    let attributes = '';
-
-    if (propVals.disabled) attributes += ' disabled';
-    if (propVals.size) attributes += ` size="${propVals.size}"`;
-
-    return `<pie-textarea${attributes}></pie-textarea>`;
-};
+const componentSelector = '[data-test-id="pie-textarea"]';
 
 test.beforeEach(async ({ mount }, testInfo) => {
     testInfo.setTimeout(testInfo.timeout + 40000);
@@ -34,64 +16,126 @@ test.beforeEach(async ({ mount }, testInfo) => {
     await component.unmount();
 });
 
-test('Size variants', async ({ mount, page }) => {
-    const sizeVariants = ['small', 'medium', 'large'];
+sizes.forEach((size) => {
+    test(`should render correctly with size: ${size}`, async ({ page, mount }) => {
+        await mount(PieTextarea, {
+            props: {
+                size,
+            } as PieTextarea,
+        });
 
-    await Promise.all(sizeVariants.map(async (size) => {
-        const testComponent: WebComponentTestInput = createTestWebComponent({ size }, renderTestPieTextarea);
-        const propKeyValues = `size: ${testComponent.propValues.size}`;
+        const textarea = page.locator(componentSelector);
 
-        await mount(
-            WebComponentTestWrapper,
-            {
-                props: { propKeyValues },
-                slots: {
-                    component: testComponent.renderedString.trim(),
-                },
-            },
-        );
-    }));
+        await expect.soft(textarea).toBeVisible();
 
-    await percySnapshot(page, 'PIE Textarea - Size variants', percyWidths);
+        await percySnapshot(page, `Textarea - size: "${size}"`, percyWidths);
+    });
 });
 
-await Promise.all(readingDirections.map(async (dir) => {
-    test(`Content and props - ${dir}`, async ({ mount, page }) => {
-        if (dir === 'RTL') {
-            setRTL(page);
-        }
+test.describe('disabled', () => {
+    test('should render correctly when disabled', async ({ page, mount }) => {
+        await mount(PieTextarea, {
+            props: {
+                disabled: true,
+            } as PieTextarea,
+        });
 
-        let testComponent: WebComponentTestInput = createTestWebComponent({ value: 'String' }, renderTestPieTextarea);
-
-        // Disabled placeholder
-        testComponent = createTestWebComponent({
-            disabled: true,
-        }, renderTestPieTextarea);
-
-        let propKeyValues = `disabled: ${testComponent.propValues.disabled}`;
-
-        await mount(
-            WebComponentTestWrapper,
-            {
-                props: { propKeyValues },
-            },
-        );
-
-        // Not Disabled placeholder
-        testComponent = createTestWebComponent({
-            disabled: false,
-        }, renderTestPieTextarea);
-
-        propKeyValues = `disabled: ${testComponent.propValues.disabled}`;
-
-        await mount(
-            WebComponentTestWrapper,
-            {
-                props: { propKeyValues },
-            },
-        );
-
-        await percySnapshot(page, `PIE Textarea - Content and props - ${dir}`, percyWidths);
+        await percySnapshot(page, 'Textarea - disabled: true', percyWidths);
     });
-}));
 
+    test('should render correctly when not disabled', async ({ page, mount }) => {
+        await mount(PieTextarea, {
+            props: {
+                disabled: false,
+            } as PieTextarea,
+        });
+
+        await percySnapshot(page, 'Textarea - disabled: false', percyWidths);
+    });
+});
+
+test.describe('Resize mode:', () => {
+    test.describe('auto', () => {
+        test('should render correctly with resize mode: auto', async ({ page, mount }) => {
+            await mount(PieTextarea, {
+                props: {
+                    resize: 'auto',
+                } as PieTextarea,
+            });
+
+            await percySnapshot(page, 'Textarea - resize: "auto"', percyWidths);
+        });
+
+        test('should resize the textarea vertically', async ({ page, mount }) => {
+            await mount(PieTextarea, {
+                props: {
+                    resize: 'auto',
+                } as PieTextarea,
+            });
+
+            const textarea = await page.locator(componentSelector);
+
+            await textarea.fill('The default height is enough for two lines of text, but it should grow if you type more.');
+
+            await percySnapshot(page, 'Textarea - resize: "auto" (multiline content)', percyWidths);
+        });
+
+        test('should overflow when content exceeds maximum height', async ({ page, mount }) => {
+            await mount(PieTextarea, {
+                props: {
+                    resize: 'auto',
+                } as PieTextarea,
+            });
+
+            const textarea = await page.locator(componentSelector);
+            await textarea.fill('The default height is enough for two lines of text, but it should grow if you type more. If you reach more than six lines of content, the element will not continue to grow and scrollbars will appear.');
+
+            await percySnapshot(page, 'Textarea - resize mode: auto - with overflowing content', percyWidths);
+        });
+
+        test('should not grow beyond its maximum height', async ({ page, mount }) => {
+            await mount(PieTextarea, {
+                props: {
+                    resize: 'auto',
+                } as PieTextarea,
+            });
+
+            const textarea = await page.locator(componentSelector);
+            await textarea.fill('This textarea has been filled with enough text for the automatic resizing to reach its maximum height. Some content should be cut off and you should not be able to see the end of this text. If this happens then the maximum height is not being limited correctly.');
+
+            await page.evaluate(() => {
+                const textarea = document.querySelector('pie-textarea');
+                textarea?.shadowRoot?.querySelector('textarea')?.setAttribute('style', 'height: 600px;'); // Setting the height too high, maxHeight should override this.
+            });
+
+            await percySnapshot(page, 'Textarea - resize: "auto" - with large height', percyWidths);
+        });
+    });
+
+    test.describe('manual', () => {
+        test('should render correctly with resize mode: manual', async ({ page, mount }) => {
+            await mount(PieTextarea, {
+                props: {
+                    resize: 'manual',
+                } as PieTextarea,
+            });
+
+            await percySnapshot(page, 'Textarea - resize: "manual"', percyWidths);
+        });
+
+        test('should render correctly with a large height', async ({ page, mount }) => {
+            await mount(PieTextarea, {
+                props: {
+                    resize: 'manual',
+                } as PieTextarea,
+            });
+
+            await page.evaluate(() => {
+                const textarea = document.querySelector('pie-textarea');
+                textarea?.shadowRoot?.querySelector('textarea')?.setAttribute('style', 'height: 600px;');
+            });
+
+            await percySnapshot(page, 'Textarea - resize: "manual" - with large height', percyWidths);
+        });
+    });
+});

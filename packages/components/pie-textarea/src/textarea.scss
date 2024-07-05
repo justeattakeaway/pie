@@ -15,6 +15,9 @@
   --textarea-padding-block-small: var(--dt-spacing-b);
   --textarea-padding-block: var(--textarea-padding-block-base);
   --textarea-inner-height-base: calc(var(--textarea-line-height) * 2);
+  --textarea-background-color: var(--dt-color-container-default);
+  --textarea-border-color: var(--dt-color-interactive-form);
+  --textarea-content-color: var(--dt-color-content-default);
 
   // Default height is two lines of text
   --textarea-height: calc(var(--textarea-inner-height-base) + (var(--textarea-padding-block) * 2) + (var(--textarea-border-thickness) * 2));
@@ -26,6 +29,9 @@
     line-height: var(--textarea-line-height);
     font-family: var(--dt-font-body-l-family);
     resize: var(--textarea-resize);
+    border: var(--textarea-border-thickness) solid var(--textarea-border-color);
+    background-color: var(--textarea-background-color);
+    color: var(--textarea-content-color);
 
     border-radius: var(--dt-radius-rounded-c);
     block-size: var(--textarea-height);
@@ -36,6 +42,18 @@
     padding-block-end: var(--textarea-padding-block);
     padding-inline-start: var(--textarea-padding-inline);
     padding-inline-end: var(--textarea-padding-inline);
+
+    &[disabled] {
+      --textarea-background-color: var(--dt-color-disabled-01);
+      --textarea-border-color: var(--dt-color-disabled-01);
+      --textarea-content-color: var(--dt-color-content-disabled);
+    }
+
+    @media (hover: hover) {
+      &:hover:not([disabled]) {
+        --textarea-background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
+      }
+    }
 
     &:focus-visible {
       @include p.focus;
