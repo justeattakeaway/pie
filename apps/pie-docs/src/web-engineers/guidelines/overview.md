@@ -4,9 +4,9 @@ eleventyNavigation:
     title: Overview
     parent: engineers-guidelines
     order: 1
-permalink: engineers/guidelines/
+permalink: web-engineers/guidelines/
 ---
 
 Here is a list of guidelines that the PIE Design Team currently maintain:
 
-- [Recommended Browser Support Checklist](/engineers/guidelines/browser-support/)
+- [Recommended Browser Support Checklist](/web-engineers/guidelines/browser-support/)
