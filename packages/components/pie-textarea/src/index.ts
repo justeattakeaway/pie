@@ -59,8 +59,8 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
             <div
                 class="c-textareaWrapper"
                 data-test-id="pie-textarea-wrapper"
-                data-pie-size=${size}
-                data-pie-resize=${resize}>
+                data-pie-size="${size}"
+                data-pie-resize="${resize}">
                 <textarea
                     data-test-id="pie-textarea"
                     @input=${this.handleResize}

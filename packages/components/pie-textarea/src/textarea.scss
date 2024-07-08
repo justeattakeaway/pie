@@ -10,17 +10,13 @@
   --textarea-border-thickness: 1px;
   --textarea-resize: none;
   --textarea-padding-inline: var(--dt-spacing-d);
-  --textarea-padding-block-base: var(--dt-spacing-c);
-  --textarea-padding-block-large: var(--dt-spacing-d);
-  --textarea-padding-block-small: var(--dt-spacing-b);
-  --textarea-padding-block: var(--textarea-padding-block-base);
-  --textarea-inner-height-base: calc(var(--textarea-line-height) * 2);
+  --textarea-padding-block: var(--dt-spacing-c);
   --textarea-background-color: var(--dt-color-container-default);
   --textarea-border-color: var(--dt-color-interactive-form);
   --textarea-content-color: var(--dt-color-content-default);
 
   // Default height is two lines of text
-  --textarea-height: calc(var(--textarea-inner-height-base) + (var(--textarea-padding-block) * 2) + (var(--textarea-border-thickness) * 2));
+  --textarea-height: calc((var(--textarea-line-height) * 2) + (var(--textarea-padding-block) * 2) + (var(--textarea-border-thickness) * 2));
 
   line-height: 0; // Remove once there is text outside the textarea
 
@@ -61,11 +57,11 @@
   }
 
   &[data-pie-size="large"] {
-    --textarea-padding-block: var(--textarea-padding-block-large);
+    --textarea-padding-block: var(--dt-spacing-d);
   }
 
   &[data-pie-size="small"] {
-    --textarea-padding-block: var(--textarea-padding-block-small);
+    --textarea-padding-block: var(--dt-spacing-b);
   }
 
   &[data-pie-resize="manual"] {
