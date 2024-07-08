@@ -1,6 +1,6 @@
 import bgBG from './bg-bg.json';
 import deDE from './de-de.json';
-import dkDK from './dk-dk.json';
+import daDK from './da-dk.json';
 import enGB from './en-gb.json';
 import esES from './es-es.json';
 import frFR from './fr-fr.json';
@@ -14,7 +14,8 @@ import skSK from './sk-sk.json';
 export default {
     bgBG,
     deDE,
-    dkDK,
+    daDK,
+    dkDK: daDK,
     enGB,
     esES,
     frFR,

@@ -4,7 +4,7 @@
     "description": "Nous utilisons nos propres cookies et ceux de tiers, ainsi que d’autres technologies, afin d’améliorer et de personnaliser votre expérience d’utilisateur, d’optimiser nos analyses et d’afficher des publicités en partenariat avec des tiers (veuillez consulter notre <linkStatement>déclaration</linkStatement>). Nous installons toujours les cookies essentiels. Cliquez sur <linkNecessaryOnly>Cookies essentiels uniquement</linkNecessaryOnly> pour continuer en acceptant uniquement les cookies indispensables. Cliquez sur <linkManagePreferences>Gérer les préférences</linkManagePreferences> pour choisir vous-même vos cookies ou sur <linkAcceptAll>Tout accepter</linkAcceptAll>.",
     "cta": {
       "managePreferences": "Gérer les préférences",
-      "necessaryOnly": " Cookies essentiels uniquement",
+      "necessaryOnly": "Continuer sans accepter",
       "acceptAll": "Tout accepter"
     }
   },
@@ -15,7 +15,7 @@
       "title": "Tout activer"
     },
     "necessary": {
-      "title": "Cookies essentiels",
+      "title": "Continuer sans accepter",
       "description": "Ces cookies sont indispensables au bon fonctionnement du site Web et de ses fonctionnalités. Les services que vous avez demandés ne peuvent être fournis sans ces cookies."
     },
     "functional": {
