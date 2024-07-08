@@ -22,7 +22,7 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @property({ type: Boolean, reflect: true })
-    public disabled?: TextareaProps['disabled'];
+    public disabled = defaultProps.disabled;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
