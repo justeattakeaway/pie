@@ -93,7 +93,7 @@ test.describe('Resize mode:', () => {
             await percySnapshot(page, 'Textarea - resize mode: auto - with overflowing content', percyWidths);
         });
 
-        test('should not grow beyond its maximum height', async ({ page, mount }) => {
+        test('should not be able to be made taller than its maximum height', async ({ page, mount }) => {
             await mount(PieTextarea, {
                 props: {
                     resize: 'auto',
