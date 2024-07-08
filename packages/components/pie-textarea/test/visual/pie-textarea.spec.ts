@@ -20,6 +20,7 @@ const renderTestPieTextarea = (propVals: WebComponentPropValues) => {
     let attributes = '';
 
     if (propVals.disabled) attributes += ' disabled';
+    if (propVals.size) attributes += ` size="${propVals.size}"`;
 
     return `<pie-textarea${attributes}></pie-textarea>`;
 };
@@ -31,6 +32,27 @@ test.beforeEach(async ({ mount }, testInfo) => {
     // It appears to add them to a Playwright cache which we understand is required for the tests to work correctly.
     const component = await mount(PieTextarea);
     await component.unmount();
+});
+
+test('Size variants', async ({ mount, page }) => {
+    const sizeVariants = ['small', 'medium', 'large'];
+
+    await Promise.all(sizeVariants.map(async (size) => {
+        const testComponent: WebComponentTestInput = createTestWebComponent({ size }, renderTestPieTextarea);
+        const propKeyValues = `size: ${testComponent.propValues.size}`;
+
+        await mount(
+            WebComponentTestWrapper,
+            {
+                props: { propKeyValues },
+                slots: {
+                    component: testComponent.renderedString.trim(),
+                },
+            },
+        );
+    }));
+
+    await percySnapshot(page, 'PIE Textarea - Size variants', percyWidths);
 });
 
 await Promise.all(readingDirections.map(async (dir) => {

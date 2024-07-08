@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-chip
 
+## 0.7.0
+
+### Minor Changes
+
+- [Changed] - styles of pie-chip component ([#1559](https://github.com/justeattakeaway/pie/pull/1559)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+### Patch Changes
+
+- [Changed] - Point to updated component page link in docs site from readme file ([#1548](https://github.com/justeattakeaway/pie/pull/1548)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.6.4
 
 ### Patch Changes
