@@ -63,7 +63,7 @@ Yes. If the component has been approved by designers then you are more than welc
 
 ### Can I make a custom implementation for a component that already exists?
 
-No. We suggest that you raise a feature request using our **#help-designsystem** Slack channel. Please, make sure you use the Propose Feature workflow to describe your needs.
+No. We suggest that you raise a feature request using our **#help-designsystem** Slack channel. Please make sure you use the Propose Feature workflow to describe your needs.
 
 Once submitted, we will discuss how they can be met by using (or extending) an existing component.
 
