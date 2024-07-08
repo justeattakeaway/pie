@@ -43,7 +43,7 @@ export interface ChipProps {
 
 export const ON_CHIP_CLOSE_EVENT = 'pie-chip-close';
 
-export type DefaultProps = ComponentDefaultPropsGeneric<ChipProps, 'variant' | 'disabled' | 'isSelected' | 'isLoading' | 'isDismissible'>;
+export type DefaultProps = ComponentDefaultPropsGeneric<ChipProps, keyof Omit<ChipProps, 'aria'>>;
 
 export const defaultProps: DefaultProps = {
     variant: 'default',

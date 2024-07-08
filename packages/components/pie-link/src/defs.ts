@@ -68,16 +68,16 @@ export interface LinkProps {
     type?: typeof buttonTypes[number];
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<LinkProps, 'tag' | 'variant' | 'size' | 'underline' | 'iconPlacement' | 'isBold' | 'isStandalone' | 'hasVisited' | 'type'>;
+export type DefaultProps = ComponentDefaultPropsGeneric<LinkProps, keyof Omit<LinkProps, 'aria' | 'href' | 'target' | 'rel'>>;
 
 export const defaultProps: DefaultProps = {
     tag: 'a',
     variant: 'default',
     size: 'medium',
     underline: 'default',
-    iconPlacement: 'leading',
     isBold: false,
     isStandalone: false,
     hasVisited: false,
+    iconPlacement: 'leading',
     type: 'submit',
 };

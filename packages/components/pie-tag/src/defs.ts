@@ -25,11 +25,11 @@ export interface TagProps {
     size?: typeof sizes[number];
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<TagProps, 'variant' | 'size' | 'isStrong' | 'isDimmed'>;
+export type DefaultProps = ComponentDefaultPropsGeneric<TagProps>;
 
 export const defaultProps: DefaultProps = {
     variant: 'neutral',
-    size: 'large',
     isStrong: false,
     isDimmed: false,
+    size: 'large',
 };

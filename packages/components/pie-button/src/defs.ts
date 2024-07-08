@@ -101,7 +101,7 @@ export interface ButtonProps {
     responsiveSize?: typeof responsiveSizes[number];
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<ButtonProps, 'size' | 'type' | 'variant' | 'iconPlacement' | 'disabled' | 'isLoading' | 'isFullWidth' | 'isResponsive'>;
+export type DefaultProps = ComponentDefaultPropsGeneric<ButtonProps, 'size' | 'type' | 'variant' | 'iconPlacement' | 'disabled' | 'isFullWidth' | 'isLoading' | 'isResponsive'>;
 
 export const defaultProps: DefaultProps = {
     size: 'medium',

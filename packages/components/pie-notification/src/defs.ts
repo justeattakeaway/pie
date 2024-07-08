@@ -116,15 +116,15 @@ export const ON_NOTIFICATION_LEADING_ACTION_CLICK_EVENT = `${componentSelector}-
  */
 export const ON_NOTIFICATION_SUPPORTING_ACTION_CLICK_EVENT = `${componentSelector}-supporting-action-click`;
 
-export type DefaultProps = ComponentDefaultPropsGeneric<NotificationProps, 'isOpen' | 'variant' | 'position' | 'isDismissible' | 'isCompact' | 'headingLevel' | 'hideIcon' | 'hasStackedActions'>;
+export type DefaultProps = ComponentDefaultPropsGeneric<NotificationProps, keyof Omit<NotificationProps, 'heading' | 'aria' | 'leadingAction' | 'supportingAction'>>;
 
 export const defaultProps: DefaultProps = {
-    isOpen: true,
     variant: 'neutral',
     position: 'inline-content',
     isDismissible: true,
     isCompact: false,
     headingLevel: 'h2',
     hideIcon: false,
+    isOpen: true,
     hasStackedActions: false,
 };

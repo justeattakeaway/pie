@@ -9,7 +9,7 @@ export interface AssistiveTextProps {
     variant?: typeof variants[number];
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<AssistiveTextProps, 'variant'>;
+export type DefaultProps = ComponentDefaultPropsGeneric<AssistiveTextProps>;
 
 export const defaultProps: DefaultProps = {
     variant: 'default',

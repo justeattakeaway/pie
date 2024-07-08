@@ -143,5 +143,4 @@ export interface CustomTagEnhancers {
     [key: string]: (tagContent: string) => TemplateResult;
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<CookieBannerProps, 'hasPrimaryActionsOnly' | 'defaultPreferences' | 'locale' | 'cookieStatementLink' | 'cookieTechnologiesLink'>;
-
+export type DefaultProps = ComponentDefaultPropsGeneric<CookieBannerProps>;

@@ -22,7 +22,8 @@ export interface SpinnerProps {
     variant?: typeof variants[number];
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<SpinnerProps, 'size' | 'variant'>;
+export type DefaultProps = ComponentDefaultPropsGeneric<SpinnerProps, keyof Omit<SpinnerProps, 'aria'>>;
+
 export const defaultProps: DefaultProps = {
     size: 'medium',
     variant: 'brand',

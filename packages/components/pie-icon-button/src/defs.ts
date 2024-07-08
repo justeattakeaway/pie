@@ -27,7 +27,7 @@ export interface IconButtonProps {
     isLoading?: boolean;
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<IconButtonProps, 'size' | 'variant' | 'disabled' | 'disabled' | 'isLoading'>;
+export type DefaultProps = ComponentDefaultPropsGeneric<IconButtonProps>;
 
 export const defaultProps: DefaultProps = {
     size: 'medium',

@@ -64,15 +64,16 @@ export interface CheckboxProps {
     status?: typeof statusTypes[number];
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<CheckboxProps, 'value' | 'required' | 'indeterminate' | 'checked' | 'defaultChecked' | 'status'>;
+export type DefaultProps = ComponentDefaultPropsGeneric<CheckboxProps, keyof Omit<CheckboxProps, 'label' | 'name' | 'aria' | 'assistiveText'>>;
 
 export const defaultProps: DefaultProps = {
     // a default value for the html <input type="checkbox" /> value attribute.
     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#value
     value: 'on',
-    required: false,
+    disabled: false,
     defaultChecked: false,
-    indeterminate: false,
     checked: false,
+    indeterminate: false,
+    required: false,
     status: 'default',
 };
