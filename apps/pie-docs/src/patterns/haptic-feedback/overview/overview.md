@@ -17,7 +17,7 @@ By integrating haptic feedback, we aim to provide users with a more intuitive an
 {% contentPageImage {
   src:"../../../assets/img/patterns/haptic-feedback/overview-desktop.svg",
   mobileSrc: "../../../assets/img/patterns/haptic-feedback/overview-mobile.svg",
-  alt: "Visual representation of haptic feedback."
+  alt: "Illustration of a mobile device surrounded by shapes that indicate vibration."
 } %}
 
 ---
@@ -59,8 +59,4 @@ It is the designer’s responsibility to indicate which interactions should prov
 ### How do I share haptic interactions with development?
 
 Ensure that you provide annotations or include comments specifically directed to the engineers involved in your project. Clearly indicate the locations where haptic feedback is intended and specify the type of haptic feedback to be implemented.
-
-### Quarterly haptic feedback reviews
-
-We're planning to have quarterly check-ins to go over your screens or interactions. These sessions can help you figure out if you're using the right haptic feedback in your products or if you need to make some changes or additions.
 

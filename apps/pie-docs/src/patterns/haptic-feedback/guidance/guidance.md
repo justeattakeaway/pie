@@ -23,7 +23,7 @@ Soft haptic feedback can serve various purposes in order to enhance the overall 
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/haptic-feedback/soft-haptic-feedback.svg",
-  alt: "Visual representation of soft haptic feedback.",
+  alt: "Vertical short orange bar intersected by a horizontal line, representing soft haptic feedback signal.",
   width: "344px"
 } %}
 
@@ -50,7 +50,7 @@ A medium-intensity haptic feedback which can convey a sense of importance and gr
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/haptic-feedback/medium-haptic-feedback.svg",
-  alt: "Visual representation of medium haptic feedback.",
+  alt: "Vertical long orange bar intersected by a horizontal line, indicating medium haptic feedback signal.",
   width: "344px"
 } %}
 
@@ -73,7 +73,7 @@ A medium-intensity haptic feedback used to highlight a confirmation of an action
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/haptic-feedback/success-haptic-feedback.svg",
-  alt: "Visual representation of success haptic feedback.",
+  alt: "Two vertical orange bars, one short the next long, placed side by side and intersected by a horizontal line, representing success haptic feedback signals.",
   width: "344px"
 } %}
 
@@ -97,7 +97,7 @@ They can be strategically used in various scenarios where it's essential to aler
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/haptic-feedback/warning-haptic-feedback.svg",
-  alt: "Visual representation of warning haptic feedback.",
+  alt: "Two vertical orange bars, one longer, the next short, placed side-by-side and intersected by a horizontal line, representing warning haptic feedback signals.",
   width: "344px"
 } %}
 
@@ -121,7 +121,7 @@ A strong, noticeable vibration. You can use them when an error occurs or an inva
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/haptic-feedback/error-haptic-feedback.svg",
-  alt: "Visual representation of error haptic feedback.",
+  alt: "Four vertical orange bars, the third one longer than the others, placed side by side and intersected by a horizontal line, symbolizing error haptic feedback signals.",
   width: "344px"
 } %}
 
