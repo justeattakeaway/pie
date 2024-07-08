@@ -73,6 +73,14 @@
 
     // Minimum is one line of text
     --textarea-min-height: calc((var(--textarea-line-height) * 1) + (var(--textarea-padding-block) * 2) + (var(--textarea-border-thickness) * 2)); // One line of text
+
+    @media (pointer: coarse) {
+      // Fixed size for touch devices
+      --textarea-height: calc((var(--textarea-line-height) * 6) + (var(--textarea-padding-block) * 2) + (var(--textarea-border-thickness) * 2));
+      --textarea-min-height: calc((var(--textarea-line-height) * 6) + (var(--textarea-padding-block) * 2) + (var(--textarea-border-thickness) * 2));
+      --textarea-max-height: calc((var(--textarea-line-height) * 6) + (var(--textarea-padding-block) * 2) + (var(--textarea-border-thickness) * 2));
+      --textarea-resize: none;
+    }
   }
 
   &[data-pie-resize="auto"] {
