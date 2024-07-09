@@ -8,16 +8,23 @@
  *
  * @example ```tsx
  * interface MyComponentProps {
- *    a: string;
+ *   a: string;
  *   b?: number;
+ *   c: boolean;
  * }
  * const allProps: ComponentDefaultProps<MyComponentProps> = {
  *   a: 'default value',
  *   b: 42,
+ *   c: true,
  * };
  *
- * const someProps: ComponentDefaultProps<MyComponentProps, 'a'> = {
+ * const pickProps: ComponentDefaultProps<MyComponentProps, 'a'> = {
  *   a: 'default value',
+ * };
+ *
+ * const omitProps: ComponentDefaultProps<MyComponentProps, keyof Omit<MyComponentProps, 'a'>> = {
+ *   b: 42,
+ *   c: true,
  * };
  * ```
  */
