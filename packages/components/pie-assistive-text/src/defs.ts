@@ -1,4 +1,4 @@
-import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const variants = ['default', 'error', 'success'] as const;
 
@@ -9,7 +9,7 @@ export interface AssistiveTextProps {
     variant?: typeof variants[number];
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<AssistiveTextProps>;
+export type DefaultProps = ComponentDefaultProps<AssistiveTextProps>;
 
 export const defaultProps: DefaultProps = {
     variant: 'default',

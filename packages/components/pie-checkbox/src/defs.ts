@@ -1,4 +1,4 @@
-import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const statusTypes = ['default', 'success', 'error'] as const;
 
@@ -64,7 +64,7 @@ export interface CheckboxProps {
     status?: typeof statusTypes[number];
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<CheckboxProps, keyof Omit<CheckboxProps, 'label' | 'name' | 'aria' | 'assistiveText'>>;
+export type DefaultProps = ComponentDefaultProps<CheckboxProps, keyof Omit<CheckboxProps, 'label' | 'name' | 'aria' | 'assistiveText'>>;
 
 export const defaultProps: DefaultProps = {
     // a default value for the html <input type="checkbox" /> value attribute.

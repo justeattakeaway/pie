@@ -1,4 +1,4 @@
-import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const variants = ['neutral', 'neutral-alternative', 'info', 'success', 'warning', 'error'] as const;
 export const headingLevels = ['h2', 'h3', 'h4', 'h5', 'h6'] as const;
@@ -116,7 +116,7 @@ export const ON_NOTIFICATION_LEADING_ACTION_CLICK_EVENT = `${componentSelector}-
  */
 export const ON_NOTIFICATION_SUPPORTING_ACTION_CLICK_EVENT = `${componentSelector}-supporting-action-click`;
 
-export type DefaultProps = ComponentDefaultPropsGeneric<NotificationProps, keyof Omit<NotificationProps, 'heading' | 'aria' | 'leadingAction' | 'supportingAction'>>;
+export type DefaultProps = ComponentDefaultProps<NotificationProps, keyof Omit<NotificationProps, 'heading' | 'aria' | 'leadingAction' | 'supportingAction'>>;
 
 export const defaultProps: DefaultProps = {
     variant: 'neutral',

@@ -1,4 +1,4 @@
-import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const sizes = ['xsmall', 'small-productive', 'small-expressive', 'medium', 'large'] as const;
 export const responsiveSizes = ['productive', 'expressive'] as const;
@@ -101,7 +101,7 @@ export interface ButtonProps {
     responsiveSize?: typeof responsiveSizes[number];
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<ButtonProps, 'size' | 'type' | 'variant' | 'iconPlacement' | 'disabled' | 'isFullWidth' | 'isLoading' | 'isResponsive'>;
+export type DefaultProps = ComponentDefaultProps<ButtonProps, 'size' | 'type' | 'variant' | 'iconPlacement' | 'disabled' | 'isFullWidth' | 'isLoading' | 'isResponsive'>;
 
 export const defaultProps: DefaultProps = {
     size: 'medium',

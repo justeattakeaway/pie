@@ -1,4 +1,4 @@
-import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const variants = ['default', 'inverse'] as const;
 export const orientations = ['horizontal', 'vertical'] as const;
@@ -14,7 +14,7 @@ export interface DividerProps {
    orientation?: typeof orientations[number];
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<DividerProps>;
+export type DefaultProps = ComponentDefaultProps<DividerProps>;
 
 export const defaultProps: DefaultProps = {
     variant: 'default',

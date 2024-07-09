@@ -1,4 +1,4 @@
-import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const sizes = ['small', 'medium', 'large'] as const;
 
@@ -17,7 +17,7 @@ export interface TextareaProps {
 /**
  * The default values for the `TextareaProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultPropsGeneric<TextareaProps>;
+type DefaultProps = ComponentDefaultProps<TextareaProps>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.

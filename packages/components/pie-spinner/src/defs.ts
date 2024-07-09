@@ -1,4 +1,4 @@
-import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const sizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'] as const;
 export const variants = ['brand', 'secondary', 'inverse'] as const;
@@ -22,7 +22,7 @@ export interface SpinnerProps {
     variant?: typeof variants[number];
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<SpinnerProps, keyof Omit<SpinnerProps, 'aria'>>;
+export type DefaultProps = ComponentDefaultProps<SpinnerProps, keyof Omit<SpinnerProps, 'aria'>>;
 
 export const defaultProps: DefaultProps = {
     size: 'medium',

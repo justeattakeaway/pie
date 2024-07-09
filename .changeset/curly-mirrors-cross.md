@@ -18,3 +18,5 @@
 ---
 
 [Changed] - Update default props generic helper type to include all props by default
+[Changed] - Naming of generic type
+[Added] - JSDoc comment
