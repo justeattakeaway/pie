@@ -183,7 +183,7 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
                 size="xsmall"
                 class="${componentClass}-close"
                 data-test-id="${componentSelector}-close"
-                @click="${this.handleCloseButton}">
+                @click="${this.closeToastComponent}">
                 <icon-close></icon-close>
             </pie-icon-button>`;
     }
@@ -206,23 +206,14 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     }
 
     /**
-     * It handles the action when user clicks in the close button.
-     * Also triggers an event when is executed.
-     *
-     * @private
-     */
-    private handleCloseButton () {
-        this.closeToastComponent();
-        dispatchCustomEvent(this, ON_TOAST_CLOSE_EVENT, { targetNotification: this });
-    }
-
-    /**
      * Util method responsible to close the component.
+     * It handles the action when user clicks in the close button and triggers an event when is executed.
      *
      * @private
      */
     private closeToastComponent () {
         this.isOpen = false;
+        dispatchCustomEvent(this, ON_TOAST_CLOSE_EVENT, { targetNotification: this });
     }
 
     render () {
