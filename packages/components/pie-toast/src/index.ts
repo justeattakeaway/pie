@@ -181,8 +181,8 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
             <pie-icon-button
                 variant="ghost-inverse"
                 size="xsmall"
-                class="${componentClass}-icon-close"
-                data-test-id="${componentSelector}-icon-close"
+                class="${componentClass}-close"
+                data-test-id="${componentSelector}-close"
                 @click="${this.handleCloseButton}">
                 <icon-close></icon-close>
             </pie-icon-button>`;

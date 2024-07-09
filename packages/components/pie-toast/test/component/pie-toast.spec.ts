@@ -6,7 +6,7 @@ import { type ToastProps } from '../../src/defs.ts';
 const rootSelector = 'pie-toast';
 const componentSelector = `[data-test-id="${rootSelector}"]`;
 const messageSelector = `[data-test-id="${rootSelector}-message"]`;
-const iconCloseSelector = `[data-test-id="${rootSelector}-icon-close"]`;
+const closeSelector = `[data-test-id="${rootSelector}-close"]`;
 const footerSelector = `[data-test-id="${rootSelector}-footer"]`;
 const leadingActionSelector = `[data-test-id="${rootSelector}-leading-action"]`;
 
@@ -103,7 +103,7 @@ test.describe('PieToast - Component tests', () => {
 
                 // Act
                 const toast = page.locator(componentSelector);
-                const iconClose = page.locator(iconCloseSelector);
+                const iconClose = page.locator(closeSelector);
 
                 // Assert
                 expect(toast).toBeVisible();
