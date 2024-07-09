@@ -4,6 +4,7 @@ eleventyNavigation:
     title: Structure
     parent: engineers-getting-started
     order: 2
+shouldShowContents: true
 ---
 
 ## PIE Component Systems
@@ -48,6 +49,97 @@ For more details on Fozzie, Snacks and Skip PIE, please check out the **document
 } %}
 
 ---
+
+## What library to use?
+
+### Latest tech stack and Vanilla JS
+
+{% contentLayout %}
+    {% tag {
+    label: "Next 14",
+    variant: "blue"
+    } %}
+    {% tag {
+    label: "React 18",
+    variant: "blue"
+    } %}
+    {% tag {
+    label: "Nuxt 3",
+    variant: "blue"
+    } %}
+    {% tag {
+    label: "Vue 3",
+    variant: "blue"
+    } %}
+    {% tag {
+    label: "Vanilla JS",
+    variant: "blue"
+    } %}
+{% endcontentLayout %}
+
+If you are working with latest stack both in React and Vue ecosystems, we recommend to go straight away with
+[PIE Web Components](/engineers/web-components/)
+
+### Next 13 and below 
+
+{% contentLayout %}
+    {% tag {
+    label: "Next 13",
+    variant: "blue"
+    } %}
+    {% tag {
+    label: "Next 10",
+    variant: "blue"
+    } %}
+{% endcontentLayout %}
+ 
+For Next 13 and below, we recommend using [PIE Web Components](/engineers/web-components/)
+only for client side components. If you need to render components on the server (SSR), [Snacks](https://snacks.takeaway.com/portal/) is the best library for you.
+
+### Vue and Nuxt 2
+
+{% contentLayout %}
+    {% tag {
+    label: "Vue 2",
+    variant: "blue"
+    } %}
+    {% tag {
+    label: "Nuxt 2",
+    variant: "blue"
+    } %}
+{% endcontentLayout %}
+
+Our [Fozzie](https://vue.pie.design/) library currently supports older versions of Vue. We recommend updating to the latest Vue ecosystem if possible.
+
+### _Is your project a greenfield?_
+
+We recommend using [PIE Web Components](/engineers/web-components/) as much as you can, if your tech stack is supported. This helps us test our new components and avoids any need for a future migration.
+
+### _I can't find the web component I need_
+
+**Do you need it right away?**
+
+If you need the component right away, please check our legacy systems ([Snacks](https://snacks.takeaway.com/), [Fozzie](https://vue.pie.design/)) in case a similar component exist.
+We also recommend to check with our team if you can use another existing component for your solution instead.
+
+If you can't wait and can't find the component in our libraries, please implement it yourself in your codebase.
+
+
+**I can wait for the component to be implemented**
+
+If you have some time before needing the component or are planning ahead, please reach out to us in **#help-designsystem** to check if we can include the component you need.
+
+In our current process it takes us around a month and a half to two moths to have a new component ready from design to implementation, so please keep this in mind.
+
+**Can you contribute the component?**
+
+If you are able to contribute, we can start an ad-hoc audit and have the designs ready for contribution in 2-4 weeks. We have a process to support you during your time working in our code base and would greatly appreciate your contribution.
+
+
+
+
+
+___
 
 ## PIE project structure
 

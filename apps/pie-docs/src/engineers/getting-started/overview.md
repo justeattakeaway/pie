@@ -14,13 +14,13 @@ If you're just starting out with PIE, here's a list of recommended resources to 
 
 ---
 
-## Code and Project Structure
+## PIE component systems
 
-All of our PIE components, tools and documentation (including this site) are maintained on the open-source [PIE Monorepo on Github](https://github.com/justeattakeaway/pie).
+We develop and maintain different projects that incorporate the PIE Design Language. If you would like to know which one to use, please follow [this guide](/engineers/getting-started/structure/#what-library-to-use) to understand what is the best library for you, based on your tech stack.
 
 For a more detailed look at the **component systems** the PIE team maintain, the PIE monorepo and how it’s structured, see the [structure section of our engineering docs](/engineers/getting-started/structure).
 
-We also help to maintain a number of other projects that incorporate the PIE Design Language (such as [Fozzie](https://github.com/justeattakeaway/fozzie-components) for **VueJS components**, or [Snacks](https://snacks.takeaway.com/) and [Skip PIE](https://github.com/justeat/pie-project) for **React components**).
+For a list of what components are supported in our different libraries please refer to the [Components Status page](/components/component-status/).
 
 ---
 
@@ -30,6 +30,11 @@ If you'd like to contribute to PIE, check out our [contributing guide](/engineer
 
 We also maintain **guides** for global front-end best practices across JET. These can be found in the [engineering guidelines section of our docs](/engineers/guidelines/).
 
+### Code and Project Structure
+
+PIE Web Components, tools and documentation (including this site) are maintained on the open-source [PIE Monorepo on Github](https://github.com/justeattakeaway/pie).
+
+We support and maintain a number of other projects that incorporate the PIE Design Language (such as [Fozzie](https://github.com/justeattakeaway/fozzie-components) for **VueJS components**, or [Snacks](https://snacks.takeaway.com/) and [Skip PIE](https://github.com/justeat/pie-project) for **React components**).
 
 <!-- N.B. for the future – we should include a components summary section here like this when we want to start advertising our components:
 
