@@ -23,7 +23,7 @@ Soft haptic feedback can serve various purposes in order to enhance the overall 
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/haptic-feedback/soft-haptic-feedback.svg",
-  alt: "Vertical short orange bar intersected by a horizontal line, representing soft haptic feedback signal.",
+  alt: "A short vertical orange bar, representing a soft haptic feedback signal.",
   width: "344px"
 } %}
 
@@ -46,11 +46,11 @@ Soft haptic feedback can serve various purposes in order to enhance the overall 
 
 ## Medium haptic feedback
 
-A medium-intensity haptic feedback which can convey a sense of importance and grab the user's attention. A good example of this might be the haptic feedback that occurs when a user navigates to a new screen, commonly known as a "screen transition haptic", which is designed to provide a tactile confirmation of the navigation action.
+Medium-intensity haptic feedback can convey a sense of importance and grab the user's attention. A good example of this might be the haptic feedback that occurs when a user navigates to a new screen, commonly known as a "screen transition haptic", which is designed to provide a tactile confirmation of the navigation action.
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/haptic-feedback/medium-haptic-feedback.svg",
-  alt: "Vertical long orange bar intersected by a horizontal line, indicating medium haptic feedback signal.",
+  alt: "A tall vertical orange bar indicating a medium-strength haptic feedback signal.",
   width: "344px"
 } %}
 
@@ -69,11 +69,11 @@ A medium-intensity haptic feedback which can convey a sense of importance and gr
 
 ## Success haptic feedback
 
-A medium-intensity haptic feedback used to highlight a confirmation of an action. You can use it for the successful submission of a form or completion of a task, providing users with a reassuring response.
+A medium-intensity haptic response used to highlight the confirmation of an action. You can use it for the successful submission of a form or completion of a task, providing users with a reassuring response.
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/haptic-feedback/success-haptic-feedback.svg",
-  alt: "Two vertical orange bars, one short the next long, placed side by side and intersected by a horizontal line, representing success haptic feedback signals.",
+  alt: "Two vertical orange bars - one short, the next taller - stood side-by-side, representing the success feedback haptic pattern.",
   width: "344px"
 } %}
 
@@ -97,7 +97,7 @@ They can be strategically used in various scenarios where it's essential to aler
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/haptic-feedback/warning-haptic-feedback.svg",
-  alt: "Two vertical orange bars, one longer, the next short, placed side-by-side and intersected by a horizontal line, representing warning haptic feedback signals.",
+  alt: "Two vertical orange bars - one tall, the next shorter - stood side-by-side, representing the warning haptic feedback pattern.",
   width: "344px"
 } %}
 
@@ -117,7 +117,7 @@ They can be strategically used in various scenarios where it's essential to aler
 
 ## Error haptic feedback
 
-A strong, noticeable vibration. You can use them when an error occurs or an invalid action is attempted, signalling to the user that corrective action is needed.
+A strong, noticeable vibration. You can use this when an error occurs or an invalid action is attempted, signalling to the user that corrective action is needed.
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/haptic-feedback/error-haptic-feedback.svg",
