@@ -24,14 +24,13 @@
   font-size: var(--toast-font-size);
   line-height: var(--toast-line-height);
 
-  &-content-area{
+  & .c-toast-contentArea{
     display: flex;
     gap: var(--dt-spacing-b);
     justify-content: space-between;
-    
   }
 
-  &-message-area {
+  & .c-toast-messageArea {
     display: flex;
     align-items: center;
     gap: var(--dt-spacing-b);
@@ -60,12 +59,12 @@
     }
   }
 
-  &-actions-area {
+  & .c-toast-actionsArea {
     display: flex;
     gap: var(--dt-spacing-b);
   }
 
-  &-footer {
+  & .c-toast-footer {
     display: flex;
     justify-content: flex-end;
   }

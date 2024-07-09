@@ -151,7 +151,6 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
                 size="xsmall"
                 aria-label="${ariaLabel || nothing}"
                 @click="${() => this.handleActionClick()}"
-                class="${componentSelector}-leading-action"
                 data-test-id="${componentSelector}-leading-action"
                 type="button">
                 ${text}
@@ -186,7 +185,6 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
             <pie-icon-button
                 variant="ghost-inverse"
                 size="xsmall"
-                class="${componentClass}-close"
                 data-test-id="${componentSelector}-close"
                 @click="${this.closeToastComponent}">
                 <icon-close></icon-close>
@@ -237,12 +235,12 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
 
         return html`
             <div data-test-id="${componentSelector}" class="${componentClass}">
-                <div class="${componentClass}-content-area">
-                    <div class="${componentClass}-message-area" ?isMultiline="${isMultiline}">
+                <div class="${componentClass}-contentArea">
+                    <div class="${componentClass}-messageArea" ?isMultiline="${isMultiline}">
                         <icon-placeholder size="s"></icon-placeholder>
                         ${message === '' ? nothing : this.renderMessage(message, _messageAreaMaxWidth)} 
                     </div>
-                    <div class="${componentClass}-actions-area">
+                    <div class="${componentClass}-actionsArea">
                         ${!isMultiline && leadingAction?.text ? this.renderActionButton(leadingAction) : nothing}
                         ${isDismissible ? this.renderCloseButton() : nothing}
                     </div>
