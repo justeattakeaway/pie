@@ -67,7 +67,12 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
      *
      * @returns {number} - The width of the message in pixels.
      */
-    private getMessageMaxWidth (hasIcon: boolean, isMultiline: boolean, hasActionButton: boolean, hasCloseIcon: boolean): number {
+    private getMessageMaxWidth (
+        hasIcon: boolean,
+        isMultiline: boolean,
+        hasActionButton: boolean,
+        hasCloseIcon: boolean,
+    ): number {
         const iconOffset = 20;
         const closeIconOffset = 32;
         const gap = 8;
@@ -76,15 +81,15 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
         let offset = 0;
 
         if (hasIcon) {
-            offset = iconOffset + gap;
+            offset += iconOffset + gap;
         }
 
         if (!isMultiline && hasActionButton) {
-            offset = offset + this._actionButtonOffset + gap;
+            offset += this._actionButtonOffset + gap;
         }
 
         if (hasCloseIcon) {
-            offset = offset + closeIconOffset + gap;
+            offset += closeIconOffset + gap;
         }
 
         return toastMaxWidthWithoutPadding - offset;
