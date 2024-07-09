@@ -11,8 +11,12 @@ eleventyComputed:
 ## Overview
 
 <p>
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-divider">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-divider.svg">
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-divider" style="text-decoration: none">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-divider.svg?label=pie-divider">
+  </a>
+
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-webc">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc.svg?label=pie-webc">
   </a>
 </p>
 
@@ -25,11 +29,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-divider` in your application, run the following on your command line:
 
 ```shell
-npm i @justeattakeaway/pie-divider
+npm i @justeattakeaway/pie-webc
 ```
 
 ```shell
-yarn add @justeattakeaway/pie-divider
+yarn add @justeattakeaway/pie-webc
 ```
 
 {% notification {
@@ -68,7 +72,7 @@ For HTML:
 
 ```js
 // import as module into a js file e.g. main.js
-import '@justeattakeaway/pie-divider'
+import '@justeattakeaway/pie-webc/components/divider.js'
 ```
 
 ```html
@@ -81,7 +85,7 @@ For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 // Vue templates (using Nuxt 3)
-import { PieDivider } from '@justeattakeaway/pie-divider';
+import { PieDivider } from '@justeattakeaway/pie-webc/components/divider.js';
 
 <pie-divider></pie-divider>
 ```
@@ -90,7 +94,7 @@ For React Applications:
 
 ```js
 // React templates (using Next 13)
-import { PieDivider } from '@justeattakeaway/pie-divider/dist/react';
+import { PieDivider } from '@justeattakeaway/pie-webc/react/divider.js';
 
 <PieDivider></PieDivider>
 

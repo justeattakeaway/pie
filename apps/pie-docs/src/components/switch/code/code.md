@@ -11,8 +11,12 @@ eleventyComputed:
 ## Overview
 
 <p>
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-switch">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-switch.svg">
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-switch" style="text-decoration: none">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-switch.svg?label=pie-switch">
+  </a>
+
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-webc">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc.svg?label=pie-webc">
   </a>
 </p>
 
@@ -25,11 +29,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-switch` in your application, run the following on your command line:
 
 ```shell
-npm i @justeattakeaway/pie-switch
+npm i @justeattakeaway/pie-webc
 ```
 
 ```shell
-yarn add @justeattakeaway/pie-switch
+yarn add @justeattakeaway/pie-webc
 ```
 
 {% notification {
@@ -67,7 +71,7 @@ For examples of how to add an event listener, see the [Examples](#examples) sect
 
 Register the component in JavaScript:
 ```js
-import '@justeattakeaway/pie-switch';
+import '@justeattakeaway/pie-webc/components/switch.js';
 ```
 
 #### index.html
@@ -107,7 +111,7 @@ Note that as the component has already been registered in the browser, you don't
 
 ```html
 <script>
-  import '@justeattakeaway/pie-switch';
+  import '@justeattakeaway/pie-webc/components/switch.js';
 </script>
 
 <template>
@@ -117,7 +121,7 @@ Note that as the component has already been registered in the browser, you don't
 
 ### React
 ```jsx
-import { PieSwitch } from '@justeattakeaway/pie-switch/dist/react';
+import { PieSwitch } from '@justeattakeaway/pie-webc/react/switch.js';
 
 <PieSwitch checked label="Label" labelPlacement="trailing" onChange={handleChange}></PieSwitch>
 ```

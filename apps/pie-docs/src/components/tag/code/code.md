@@ -12,8 +12,12 @@ eleventyComputed:
 ## Overview
 
 <p>
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-tag">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-tag.svg">
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-tag" style="text-decoration: none">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-tag.svg?label=pie-tag">
+  </a>
+
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-webc">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc.svg?label=pie-webc">
   </a>
 </p>
 
@@ -26,11 +30,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-tag` in your application, run the following on your command line:
 
 ```shell
-npm i @justeattakeaway/pie-tag
+npm i @justeattakeaway/pie-webc
 ```
 
 ```shell
-yarn add @justeattakeaway/pie-tag
+yarn add @justeattakeaway/pie-webc
 ```
 
 {% notification {
@@ -92,7 +96,7 @@ For HTML:
 
 ```js
 // import as module into a js file e.g. main.js
-import '@justeattakeaway/pie-tag'
+import '@justeattakeaway/pie-webc/components/tag.js'
 ```
 
 ```html
@@ -105,7 +109,7 @@ For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 // Vue templates (using Nuxt 3)
-import { PieTag } from '@justeattakeaway/pie-tag';
+import { PieTag } from '@justeattakeaway/pie-webc/components/tag.js';
 
 <pie-tag>Label</pie-tag>
 ```
@@ -114,7 +118,7 @@ For React Applications:
 
 ```js
 // React templates (using Next 13)
-import { PieTag } from '@justeattakeaway/pie-tag/dist/react';
+import { PieTag } from '@justeattakeaway/pie-webc/react/tag.js';
 
 <PieTag>Label</PieTag>
 

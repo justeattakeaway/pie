@@ -12,8 +12,12 @@ eleventyComputed:
 ## Overview
 
 <p>
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-assistive-text">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-assistive-text.svg">
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-assistive-text" style="text-decoration: none">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-assistive-text.svg?label=pie-assistive-text">
+  </a>
+
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-webc">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc.svg?label=pie-webc">
   </a>
 </p>
 
@@ -26,11 +30,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-assistive-text` in your application, run the following on your command line:
 
 ```shell
-npm i @justeattakeaway/pie-assistive-text
+npm i @justeattakeaway/pie-webc
 ```
 
 ```shell
-yarn add @justeattakeaway/pie-assistive-text
+yarn add @justeattakeaway/pie-webc
 ```
 
 ## Peer Dependencies
@@ -89,7 +93,7 @@ style="border: none; margin-top: var(--dt-spacing-f);"
 For Native JS Applications:
 ```js
 // import as module into a js file e.g. main.js
-import '@justeattakeaway/pie-assistive-text'
+import '@justeattakeaway/pie-webc/components/assistive-text.js'
 ```
 
 ```html
@@ -102,7 +106,7 @@ For Vue Applications:
 
 ```js
 // import as module into a js file that will be loaded on the page where the component is used.
-import '@justeattakeaway/pie-assistive-text';
+import '@justeattakeaway/pie-webc/components/assistive-text.js';
 ```
 
 ```html
@@ -115,7 +119,7 @@ import '@justeattakeaway/pie-assistive-text';
 For React Applications:
 
 ```jsx
-import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text/dist/react';
+import { PieAssistiveText } from '@justeattakeaway/pie-webc/react/assistive-text.js';
 
 <PieAssistiveText
   variant="success">

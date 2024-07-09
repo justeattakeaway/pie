@@ -11,8 +11,12 @@ eleventyComputed:
 ## Overview
 
 <p>
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-modal">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-modal.svg">
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-modal" style="text-decoration: none">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-modal.svg?label=pie-modal">
+  </a>
+
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-webc">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc.svg?label=pie-webc">
   </a>
 </p>
 
@@ -27,11 +31,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-modal` in your application, run the following on your command line:
 
 ```shell
-npm i @justeattakeaway/pie-modal
+npm i @justeattakeaway/pie-webc
 ```
 
 ```shell
-yarn add @justeattakeaway/pie-modal
+yarn add @justeattakeaway/pie-webc
 ```
 
 {% notification {
@@ -82,7 +86,7 @@ For HTML:
 
 ```js
 // import as module into a js file e.g. main.js
-import '@justeattakeaway/pie-modal'
+import '@justeattakeaway/pie-webc/components/modal.js'
 ```
 
 ```html
@@ -95,7 +99,7 @@ For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 // Vue templates (using Nuxt 3)
-import '@justeattakeaway/pie-modal';
+import '@justeattakeaway/pie-webc/components/modal.js';
 
 <pie-modal heading="My Awesome Heading" headingLevel="h3">Click me!</pie-modal>
 ```
@@ -104,7 +108,7 @@ For React Applications. When using the React version of the component, please ma
 
 ```js
 // React templates (using Next 13)
-import { PieModal } from '@justeattakeaway/pie-modal/dist/react';
+import { PieModal } from '@justeattakeaway/pie-webc/react/modal.js';
 
 <PieModal heading='My Awesome Heading' headingLevel='h3'>Click me!</PieModal>
 

@@ -12,9 +12,13 @@ eleventyComputed:
 ## Overview
 
 <p>
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-link">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-link.svg">
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-link" style="text-decoration: none">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-link.svg?label=pie-link">
   </a>
+
+   <a href="https://www.npmjs.com/package/@justeattakeaway/pie-webc">
+      <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc.svg?label=pie-webc">
+   </a>
 </p>
 
 `pie-link` is a Web Component built using the Lit library. It offers a simple and accessible link component for web applications.
@@ -26,11 +30,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-link` in your application, run the following on your command line:
 
 ```shell
-npm i @justeattakeaway/pie-link
+npm i @justeattakeaway/pie-webc
 ```
 
 ```shell
-yarn add @justeattakeaway/pie-link
+yarn add @justeattakeaway/pie-webc
 ```
 
 {% notification {
@@ -94,7 +98,7 @@ For HTML:
 
 ```js
 // import as module into a js file e.g. main.js
-import '@justeattakeaway/pie-link'
+import '@justeattakeaway/pie-webc/components/link.js'
 ```
 
 ```html
@@ -107,7 +111,7 @@ For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 // Vue templates (using Nuxt 3)
-import { PieLink } from '@justeattakeaway/pie-link';
+import { PieLink } from '@justeattakeaway/pie-webc/components/link.js';
 
 <pie-link href="https://www.pie.design">pie.design</pie-link>
 ```
@@ -116,7 +120,7 @@ For React Applications:
 
 ```js
 // React templates (using Next 13)
-import { PieLink } from '@justeattakeaway/pie-link/dist/react';
+import { PieLink } from '@justeattakeaway/pie-webc/react/link.js';
 
 <PieLink href="https://www.pie.design">pie.design</PieLink>
 

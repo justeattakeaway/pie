@@ -11,10 +11,13 @@ eleventyComputed:
 ---
 
 ## Overview
-
 <p>
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-notification">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-notification.svg">
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-notification" style="text-decoration: none">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-notification.svg?label=pie-notification">
+  </a>
+
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-webc">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc.svg?label=pie-webc">
   </a>
 </p>
 
@@ -27,11 +30,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-notification` in your application, run the following on your command line:
 
 ```shell
-npm i @justeattakeaway/pie-notification
+npm i @justeattakeaway/pie-webc
 ```
 
 ```shell
-yarn add @justeattakeaway/pie-notification
+yarn add @justeattakeaway/pie-webc
 ```
 
 {% notification {
@@ -104,7 +107,7 @@ For HTML:
 
 ```js
 // import as module into a js file e.g. main.js
-import '@justeattakeaway/pie-notification'
+import '@justeattakeaway/pie-webc/components/notification.js'
 ```
 
 ```html
@@ -117,7 +120,7 @@ For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 // Vue templates (using Nuxt 3)
-import { PieNotification } from '@justeattakeaway/pie-notification';
+import { PieNotification } from '@justeattakeaway/pie-webc/components/notification.js';
 
 <pie-notification title="Heading">Content</pie-notification>
 ```
@@ -126,7 +129,7 @@ For React Applications:
 
 ```js
 // React templates (using Next 13)
-import { PieNotification } from '@justeattakeaway/pie-notification/dist/react';
+import { PieNotification } from '@justeattakeaway/pie-webc/react/notification.js';
 
 <PieNotification title="Heading">Content</PieNotification>
 
