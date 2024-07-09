@@ -187,6 +187,16 @@
       "import": "./react/toast.js",
       "require": "./react/toast.js",
       "types": "./react/toast.d.ts"
+    },
+    "./components/checkbox-group.js": {
+      "import": "./components/checkbox-group.js",
+      "require": "./components/checkbox-group.js",
+      "types": "./components/checkbox-group.d.ts"
+    },
+    "./react/checkbox-group.js": {
+      "import": "./react/checkbox-group.js",
+      "require": "./react/checkbox-group.js",
+      "types": "./react/checkbox-group.d.ts"
     }
   },
   "bin": {
@@ -211,6 +221,7 @@
     "@justeattakeaway/pie-button": "0.47.7",
     "@justeattakeaway/pie-card": "0.19.6",
     "@justeattakeaway/pie-checkbox": "0.7.0",
+    "@justeattakeaway/pie-checkbox-group": "0.0.0",
     "@justeattakeaway/pie-chip": "0.7.0",
     "@justeattakeaway/pie-cookie-banner": "0.20.5",
     "@justeattakeaway/pie-divider": "0.13.6",
