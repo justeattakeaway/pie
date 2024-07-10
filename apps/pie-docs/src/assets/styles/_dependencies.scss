@@ -64,10 +64,3 @@
 @use 'components/tokensTable';
 @use 'components/usage';
 @use 'components/skipLink';
-
-/**
- * Overrides:
- * =================================
- * We shouldn't be using these much, but they are for overriding/extending styles
- */
-@use './overrides';
