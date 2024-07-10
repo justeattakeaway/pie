@@ -23,7 +23,7 @@ Soft haptic feedback can serve various purposes in order to enhance the overall 
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/haptic-feedback/soft-haptic-feedback.svg",
-  alt: "A short vertical orange bar, representing a soft haptic feedback signal.",
+  alt: "An illustration that represents a single haptic pulse of a specific duration and strength by showing a bar of a specific size. This particular pattern represents a soft impact.",
   width: "344px"
 } %}
 
@@ -50,7 +50,7 @@ Medium-intensity haptic feedback can convey a sense of importance and grab the u
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/haptic-feedback/medium-haptic-feedback.svg",
-  alt: "A tall vertical orange bar indicating a medium-strength haptic feedback signal.",
+  alt: "An illustration that represents a single haptic pulse of a specific duration and strength by showing a bar of a specific size. This particular pattern represents a medium impact.",
   width: "344px"
 } %}
 
@@ -73,7 +73,7 @@ A medium-intensity haptic response used to highlight the confirmation of an acti
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/haptic-feedback/success-haptic-feedback.svg",
-  alt: "Two vertical orange bars - one short, the next taller - stood side-by-side, representing the success feedback haptic pattern.",
+  alt: "An illustration that represents a series of two haptic pulses of various durations and strengths by showing bars of different sizes. This particular pattern represents a success.",
   width: "344px"
 } %}
 
@@ -97,7 +97,7 @@ They can be strategically used in various scenarios where it's essential to aler
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/haptic-feedback/warning-haptic-feedback.svg",
-  alt: "Two vertical orange bars - one tall, the next shorter - stood side-by-side, representing the warning haptic feedback pattern.",
+  alt: "An illustration that represents a series of two haptic pulses of various durations and strengths by showing bars of different sizes. This particular pattern represents a warning.",
   width: "344px"
 } %}
 
@@ -121,7 +121,7 @@ A strong, noticeable vibration. You can use this when an error occurs or an inva
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/haptic-feedback/error-haptic-feedback.svg",
-  alt: "Four vertical orange bars, the third one longer than the others, placed side by side and intersected by a horizontal line, symbolizing error haptic feedback signals.",
+  alt: "An illustration that represents a series of four haptic pulses of various durations and strengths by showing bars of different sizes. This particular pattern represents an error.",
   width: "344px"
 } %}
 
