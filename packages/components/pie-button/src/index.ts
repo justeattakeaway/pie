@@ -1,8 +1,8 @@
 import {
     LitElement, html, unsafeCSS, nothing, PropertyValues, TemplateResult,
 } from 'lit';
+import { classMap } from 'lit-html/directives/class-map.js';
 import { property } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { validPropertyValues, defineCustomElement, FormControlMixin } from '@justeattakeaway/pie-webc-core';
 import {
     ButtonProps, sizes, types, variants, iconPlacements, defaultProps,
@@ -226,18 +226,22 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
             responsiveSize,
         } = this;
 
+        const classes = {
+            'o-btn': true,
+            'o-btn--fullWidth': isFullWidth,
+            'is-responsive': isResponsive,
+            [`o-btn--${responsiveSize}`]: ((isResponsive && responsiveSize) || false),
+            [`o-btn--${variant}`]: true,
+            [`o-btn--${size}`]: true,
+            'is-loading': isLoading,
+        };
+
         return html`
             <button
                 @click=${this._handleClick}
-                class="o-btn"
+                class=${classMap(classes)}
                 type=${type || 'submit'}
-                variant=${variant || 'primary'}
-                size=${size || 'medium'}
-                responsiveSize=${ifDefined(responsiveSize)}
-                ?disabled=${disabled}
-                ?isFullWidth=${isFullWidth}
-                ?isResponsive=${isResponsive}
-                ?isLoading=${isLoading}>
+                ?disabled=${disabled}>
                     ${isLoading ? this.renderSpinner() : nothing}
                     ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                     <slot></slot>
