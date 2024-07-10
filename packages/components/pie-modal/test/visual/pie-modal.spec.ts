@@ -409,7 +409,7 @@ test.describe('Prop: `supportingAction`', () => {
             const modal = page.locator(componentFooterSelector);
             await expect.soft(modal).not.toBeVisible();
 
-            await percySnapshot(page, 'Modal displays footer');
+            await percySnapshot(page, 'Modal hides footer if there is no leadingAction');
         });
 
         test.describe('when prop is provided but the optional child properties of `supportingAction` are not provided', () => {
