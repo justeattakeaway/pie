@@ -1,4 +1,4 @@
-import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const types = ['text', 'number', 'password', 'url', 'email', 'tel'] as const;
 export const inputModes = ['none', 'text', 'tel', 'url', 'email', 'numeric', 'decimal', 'search'] as const;
@@ -115,7 +115,7 @@ export interface TextInputProps {
 /**
  * The default values for the `TextInputProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultPropsGeneric<TextInputProps, 'type' | 'value' | 'size' | 'status'>;
+type DefaultProps = ComponentDefaultProps<TextInputProps, 'type' | 'value' | 'size' | 'status'>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
