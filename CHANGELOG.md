@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.61.3
+
+### Patch Changes
+
+- [Changed] - update github workflows for new pie-checkbox-group component ([#1570](https://github.com/justeattakeaway/pie/pull/1570)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 2.61.2
 
 ### Patch Changes
