@@ -39,6 +39,9 @@ function verifyCommitMessage (commitMessage, ticketId) {
     // Process commit message and check if it already has a ticket id
     const match = commitMessage.match(/^(\w*)\((\w.*)\): (\w+?-\d{1,7}) (\w.*)/);
 
+    const isMergeCommit = commitMessage.trim().match(/^Merge branch '[\w-]+' into [\w-]+\n?/);
+    if (isMergeCommit !== null) return commitMessage.trim();
+
     // If the commit message doesn't have a ticket id, extract the existing message parts and add the ticket id
     if (!match) {
         const commitMessageParts = commitMessage.match(/^(\w*)\((\w.*)\): (\w.*)/);
