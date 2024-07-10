@@ -1,4 +1,4 @@
-import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const variants = ['default', 'high-visibility', 'inverse'] as const;
 export const sizes = ['small', 'medium'] as const;
@@ -68,16 +68,16 @@ export interface LinkProps {
     type?: typeof buttonTypes[number];
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<LinkProps, 'tag' | 'variant' | 'size' | 'underline' | 'iconPlacement' | 'isBold' | 'isStandalone' | 'hasVisited' | 'type'>;
+export type DefaultProps = ComponentDefaultProps<LinkProps, keyof Omit<LinkProps, 'aria' | 'href' | 'target' | 'rel'>>;
 
 export const defaultProps: DefaultProps = {
     tag: 'a',
     variant: 'default',
     size: 'medium',
     underline: 'default',
-    iconPlacement: 'leading',
     isBold: false,
     isStandalone: false,
     hasVisited: false,
+    iconPlacement: 'leading',
     type: 'submit',
 };

@@ -1,4 +1,4 @@
-import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const labelPlacements = ['leading', 'trailing'] as const;
 
@@ -51,11 +51,12 @@ export interface SwitchProps {
  */
 export const ON_SWITCH_CHANGED_EVENT = 'change';
 
-export type DefaultProps = ComponentDefaultPropsGeneric<SwitchProps, 'labelPlacement' | 'checked' | 'required' | 'value' | 'disabled'>;
+export type DefaultProps = ComponentDefaultProps<SwitchProps, keyof Omit<SwitchProps, 'aria' | 'label' | 'name'>>;
+
 export const defaultProps: DefaultProps = {
-    labelPlacement: 'leading',
     checked: false,
     required: false,
-    value: 'on',
     disabled: false,
+    value: 'on',
+    labelPlacement: 'leading',
 };
