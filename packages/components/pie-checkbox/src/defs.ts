@@ -56,6 +56,7 @@ export const defaultProps: DefaultProps = {
     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#value
     value: 'on',
     disabled: false,
+    disabledByParent: false,
     defaultChecked: false,
     checked: false,
     indeterminate: false,
