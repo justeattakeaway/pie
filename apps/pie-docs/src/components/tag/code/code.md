@@ -116,12 +116,17 @@ import { PieTag } from '@justeattakeaway/pie-webc/components/tag.js';
 
 For React Applications:
 
-```js
-// React templates (using Next 13)
+```jsx
 import { PieTag } from '@justeattakeaway/pie-webc/react/tag.js';
 
 <PieTag>Label</PieTag>
+```
 
+```jsx
+// React templates (using Next 13)
+import { PieTag } from '@justeattakeaway/pie-tag/dist/react';
+
+<PieTag>Label</PieTag>
 ```
 
 {% notification {

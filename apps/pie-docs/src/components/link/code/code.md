@@ -118,12 +118,17 @@ import { PieLink } from '@justeattakeaway/pie-webc/components/link.js';
 
 For React Applications:
 
-```js
-// React templates (using Next 13)
+```jsx
 import { PieLink } from '@justeattakeaway/pie-webc/react/link.js';
 
 <PieLink href="https://www.pie.design">pie.design</PieLink>
+```
 
+```jsx
+// React templates (using Next 13)
+import { PieLink } from '@justeattakeaway/pie-link/dist/react';
+
+<PieLink href="https://www.pie.design">pie.design</PieLink>
 ```
 
 {% notification {

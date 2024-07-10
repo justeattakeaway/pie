@@ -126,6 +126,13 @@ import { PieSwitch } from '@justeattakeaway/pie-webc/react/switch.js';
 <PieSwitch checked label="Label" labelPlacement="trailing" onChange={handleChange}></PieSwitch>
 ```
 
+```jsx
+// React templates (using Next 13)
+import { PieSwitch } from '@justeattakeaway/pie-switch/dist/react';
+
+<PieSwitch checked label="Label" labelPlacement="trailing" onChange={handleChange}></PieSwitch>
+```
+
 {% notification {
   type: "neutral",
   iconName: "link",

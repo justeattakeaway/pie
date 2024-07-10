@@ -106,12 +106,17 @@ import '@justeattakeaway/pie-webc/components/modal.js';
 
 For React Applications. When using the React version of the component, please make sure you also include React as a dependency in your project as well. See Peer Dependencies section.
 
-```js
-// React templates (using Next 13)
+```jsx
 import { PieModal } from '@justeattakeaway/pie-webc/react/modal.js';
 
 <PieModal heading='My Awesome Heading' headingLevel='h3'>Click me!</PieModal>
+```
 
+```jsx
+// React templates (using Next 13)
+import { PieModal } from '@justeattakeaway/pie-modal/dist/react';
+
+<PieModal heading='My Awesome Heading' headingLevel='h3'>Click me!</PieModal>
 ```
 
 {% notification {
