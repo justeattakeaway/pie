@@ -1,5 +1,27 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.21.0
+
+### Minor Changes
+
+- [Added] Mapping to correct DA translation instance while keeping the older one, fixed fr translation at the same time ([#1583](https://github.com/justeattakeaway/pie/pull/1583)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- [Changed] - Update default props generic helper type to include all props by default ([#1582](https://github.com/justeattakeaway/pie/pull/1582)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Naming of generic type
+  [Added] - JSDoc comment
+
+- Updated dependencies [[`ff65968f6`](https://github.com/justeattakeaway/pie/commit/ff65968f61ef9c998662416f72c1b9999567d9f7)]:
+  - @justeattakeaway/pie-webc-core@0.24.0
+  - @justeattakeaway/pie-icon-button@0.28.9
+  - @justeattakeaway/pie-divider@0.13.7
+  - @justeattakeaway/pie-button@0.47.8
+  - @justeattakeaway/pie-switch@0.29.10
+  - @justeattakeaway/pie-modal@0.43.4
+  - @justeattakeaway/pie-link@0.17.7
+
 ## 0.20.5
 
 ### Patch Changes

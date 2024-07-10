@@ -1,4 +1,4 @@
-import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const variants = ['default', 'outline', 'inverse', 'outline-inverse'] as const;
 export const tags = ['a', 'button'] as const;
@@ -51,7 +51,7 @@ export interface CardProps {
     /**
      * What HTML element the card should be such as `a` or `button`.
      */
-     tag?: typeof tags[number];
+    tag?: typeof tags[number];
 
     /**
      * Sets the padding of the card. Can be either a single value or two values
@@ -61,11 +61,11 @@ export interface CardProps {
     padding?: PaddingValue | `${PaddingValue},${PaddingValue}`;
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<CardProps, 'tag' | 'variant' | 'disabled' | 'isDraggable'>;
+export type DefaultProps = ComponentDefaultProps<CardProps, 'disabled' | 'variant' | 'isDraggable' | 'tag'>;
 
 export const defaultProps: DefaultProps = {
-    tag: 'button',
-    variant: 'default',
     disabled: false,
+    variant: 'default',
     isDraggable: false,
+    tag: 'button',
 };

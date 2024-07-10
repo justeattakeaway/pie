@@ -1,5 +1,32 @@
 # @justeattakeaway/pie-webc
 
+## 0.5.12
+
+### Patch Changes
+
+- [Added] - initial pie-checkbox-group files from component generator ([#1570](https://github.com/justeattakeaway/pie/pull/1570)) by [@dandel10n](https://github.com/dandel10n)
+
+- Updated dependencies [[`ff65968f6`](https://github.com/justeattakeaway/pie/commit/ff65968f61ef9c998662416f72c1b9999567d9f7), [`58636fcf3`](https://github.com/justeattakeaway/pie/commit/58636fcf3428fe047259a761d4c5091796a695c0), [`96ea944af`](https://github.com/justeattakeaway/pie/commit/96ea944afa3526717ca253f66057823afa95839d)]:
+  - @justeattakeaway/pie-assistive-text@0.5.1
+  - @justeattakeaway/pie-cookie-banner@0.21.0
+  - @justeattakeaway/pie-notification@0.9.3
+  - @justeattakeaway/pie-icon-button@0.28.9
+  - @justeattakeaway/pie-checkbox@0.7.1
+  - @justeattakeaway/pie-textarea@0.3.1
+  - @justeattakeaway/pie-divider@0.13.7
+  - @justeattakeaway/pie-spinner@0.6.6
+  - @justeattakeaway/pie-button@0.47.8
+  - @justeattakeaway/pie-switch@0.29.10
+  - @justeattakeaway/pie-modal@0.43.4
+  - @justeattakeaway/pie-card@0.19.7
+  - @justeattakeaway/pie-chip@0.7.1
+  - @justeattakeaway/pie-link@0.17.7
+  - @justeattakeaway/pie-tag@0.9.8
+  - @justeattakeaway/pie-checkbox-group@0.1.0
+  - @justeattakeaway/pie-form-label@0.13.6
+  - @justeattakeaway/pie-text-input@0.23.1
+  - @justeattakeaway/pie-toast@0.1.1
+
 ## 0.5.11
 
 ### Patch Changes
