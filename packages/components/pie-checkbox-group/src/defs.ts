@@ -2,12 +2,6 @@ import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-cor
 
 export const statusTypes = ['default', 'success', 'error'] as const;
 
-export type AriaProps = {
-    label?: string;
-    labelledby?: string;
-    describedby?: string;
-};
-
 export interface CheckboxGroupProps {
     /**
      * The label value of the component
@@ -25,11 +19,6 @@ export interface CheckboxGroupProps {
     disabled?: boolean;
 
     /**
-     * Various ARIA attributes.
-     */
-    aria?: AriaProps;
-
-    /**
      * The status of the checkbox component / assistive text. Can be default, success or error.
      */
     status?: typeof statusTypes[number];
@@ -38,7 +27,5 @@ export interface CheckboxGroupProps {
 export type DefaultProps = ComponentDefaultPropsGeneric<CheckboxGroupProps, 'status'>;
 
 export const defaultProps: DefaultProps = {
-    // a default value for the html <input type="checkbox" /> value attribute.
-    // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#value
     status: 'default',
 };

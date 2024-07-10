@@ -54,9 +54,6 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     @property({ type: Boolean, reflect: true })
     public indeterminate = defaultProps.indeterminate;
 
-    @property({ type: Object })
-    public aria: CheckboxProps['aria'];
-
     @query('input[type="checkbox"]')
     private checkbox!: HTMLInputElement;
 
@@ -149,7 +146,6 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             disabled,
             required,
             indeterminate,
-            aria,
             assistiveText,
             status,
         } = this;
@@ -170,8 +166,6 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
                 ?disabled=${disabled}
                 ?required=${required}
                 .indeterminate=${indeterminate}
-                aria-label=${aria?.label || nothing}
-                aria-labelledby=${label ? nothing : aria?.labelledby || nothing}
                 aria-describedby=${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}
                 @change=${this.handleChange}
                 data-test-id="checkbox-input"

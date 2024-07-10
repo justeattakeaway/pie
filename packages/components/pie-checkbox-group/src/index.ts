@@ -13,7 +13,7 @@ import { CheckboxGroupProps, defaultProps, statusTypes } from './defs';
 export * from './defs';
 
 const componentSelector = 'pie-checkbox-group';
-const assistiveTextIdValue = 'assistive-text';
+const assistiveTextId = 'assistive-text';
 
 /**
  * @tagname pie-checkbox-group
@@ -32,9 +32,6 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
     @property({ type: Boolean, reflect: true })
     public disabled?: CheckboxGroupProps['disabled'];
 
-    @property({ type: Object })
-    public aria: CheckboxGroupProps['aria'];
-
     get _slottedChildren () {
         const slot = this.shadowRoot?.querySelector('slot');
         return slot?.assignedElements();
@@ -47,11 +44,10 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
         }
     }
 
-    protected firstUpdated (_changedProperties: PropertyValues<this>): void {
-        super.firstUpdated(_changedProperties);
-
-        if (this.disabled) {
-            this._handleDisabled();
+    private _handleError () : void {
+        if (this._slottedChildren) {
+            [...this._slottedChildren]
+            .forEach((child) => child.setAttribute('status', 'error'));
         }
     }
 
@@ -61,6 +57,10 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
         if (this.disabled) {
             this._handleDisabled();
         }
+
+        if (this.status === 'error') {
+            this._handleError();
+        }
     }
 
     render () {
@@ -69,16 +69,13 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
             assistiveText,
             status,
             disabled,
-            aria,
         } = this;
         return html`
             <fieldset
                 ?disabled=${disabled}
-                aria-labelledby=${label ? nothing : aria?.labelledby || nothing}
-                aria-label=${aria?.label || nothing}
                 aria-invalid=${status === 'error' ? 'true' : 'false'}
-                aria-errormessage="${status === 'error' ? assistiveTextIdValue : nothing}"
-                aria-describedby=${ifDefined(assistiveText && status !== 'error' ? assistiveTextIdValue : nothing)}
+                aria-errormessage=${ifDefined(status === 'error' ? assistiveTextId : undefined)}
+                aria-describedby="${ifDefined(assistiveText && status !== 'error' ? assistiveTextId : undefined)}"
                 data-test-id="pie-checkbox-group"
             >
                 ${label ? html`<legend>${label}</legend>` : nothing}
@@ -86,7 +83,7 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
             </fieldset>
             ${assistiveText ? html`
                 <pie-assistive-text
-                    id="${assistiveTextIdValue}"
+                    id="${assistiveTextId}"
                     variant=${status}
                     data-test-id="pie-checkbox-group-assistive-text">
                         ${assistiveText}

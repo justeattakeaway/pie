@@ -12,10 +12,6 @@ type CheckboxGroupStoryMeta = StoryMeta<CheckboxGroupProps>;
 
 const defaultArgs: CheckboxGroupProps = {
     ...defaultProps,
-    aria: {
-        label: '',
-        labelledby: '',
-    },
     disabled: false,
 };
 
@@ -49,10 +45,6 @@ const checkboxGroupStoryMeta: CheckboxGroupStoryMeta = {
                 summary: '',
             },
         },
-        aria: {
-            description: 'ARIA object to pass label/labelledby/describedby aria attributes',
-            control: 'object',
-        },
     },
     args: defaultArgs,
     parameters: {
@@ -70,11 +62,9 @@ const Template = ({
     assistiveText,
     status,
     disabled,
-    aria,
 }: CheckboxGroupProps) => html`
     <pie-checkbox-group
         label="${ifDefined(label)}"
-        .aria="${aria}"
         assistiveText="${ifDefined(assistiveText)}"
         status=${ifDefined(status)}
         ?disabled="${disabled}"
