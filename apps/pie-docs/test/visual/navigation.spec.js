@@ -1,12 +1,11 @@
 import { test } from '@playwright/test';
 import PERCY_BREAKPOINTS from './percy-breakpoints';
-import { disableCookieBanner, percySnapshot } from '../playwright/playwright-helper';
+import { percySnapshot } from '../playwright/playwright-helper';
 import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
 
 test.describe('PIE - Page Visual Tests', () => {
-    test.beforeEach(async ({ page, context, baseURL }) => {
+    test.beforeEach(async ({ page, baseURL }) => {
         await page.goto(baseURL);
-        await disableCookieBanner(page, context, true);
     });
 
     expectedRoutesJson.forEach((route) => {
@@ -21,9 +20,8 @@ test.describe('PIE - Page Visual Tests', () => {
 });
 
 test.describe('PIE - Site Nav Menu', () => {
-    test.beforeEach(async ({ page, context, baseURL }) => {
+    test.beforeEach(async ({ page, baseURL }) => {
         await page.goto(baseURL);
-        await disableCookieBanner(page, context, true);
     });
 
     test('Should open and close the mobile navigation menu - @mobile', async ({ page }) => {

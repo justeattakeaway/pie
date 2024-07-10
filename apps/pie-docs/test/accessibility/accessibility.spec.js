@@ -2,11 +2,8 @@ import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/p
 
 import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
 
-const { disableCookieBanner } = require('../playwright/playwright-helper');
-
-test.beforeEach(async ({ page, context, baseURL }) => {
+test.beforeEach(async ({ page, baseURL }) => {
     await page.goto(baseURL);
-    await disableCookieBanner(page, context);
 });
 
 expectedRoutesJson.forEach((route) => {

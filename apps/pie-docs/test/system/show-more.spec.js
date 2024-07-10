@@ -1,10 +1,7 @@
 import { expect, test } from '@playwright/test';
 
-import { disableCookieBanner } from '../playwright/playwright-helper';
-
-test.beforeEach(async ({ page, context, baseURL }) => {
+test.beforeEach(async ({ page, baseURL }) => {
     await page.goto(baseURL);
-    await disableCookieBanner(page, context);
 });
 
 test.describe('PIE - Show more - @desktop', () => {
