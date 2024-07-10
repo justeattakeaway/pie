@@ -1,11 +1,13 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
+import { PieCheckbox } from '@justeattakeaway/pie-checkbox';
 import { PieCheckboxGroup, CheckboxGroupProps } from '../../src/index.ts';
 import { statusTypes } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-checkbox-group"]';
 const assistiveTextSelector = '[data-test-id="pie-checkbox-group-assistive-text"]';
+const checkboxSelector = '[data-test-id="checkbox-input"]';
 
 test.describe('PieCheckboxGroup - Component tests', () => {
     // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
@@ -16,6 +18,9 @@ test.describe('PieCheckboxGroup - Component tests', () => {
 
         const assistiveTextComponent = await mount(PieAssistiveText);
         await assistiveTextComponent.unmount();
+
+        const CheckboxComponent = await mount(PieCheckbox);
+        await CheckboxComponent.unmount();
     });
 
     test('should render successfully', async ({ mount, page }) => {
@@ -23,7 +28,7 @@ test.describe('PieCheckboxGroup - Component tests', () => {
         await mount(PieCheckboxGroup, {
             props: {} as CheckboxGroupProps,
             slots: {
-                default: '<input type="checkbox" />',
+                default: '<pie-checkbox></pie-checkbox>',
             },
         });
 
@@ -117,12 +122,48 @@ test.describe('PieCheckboxGroup - Component tests', () => {
                             disabled: true,
                         } as CheckboxGroupProps,
                         slots: {
-                            default: '<input type="checkbox" data-test-id="test-checkbox" />',
+                            default: '<pie-checkbox></pie-checkbox>',
                         },
                     });
 
                     // Act
-                    const checkbox = component.locator("[data-test-id='test-checkbox']");
+                    const checkbox = component.locator(checkboxSelector);
+
+                    // Assert
+                    expect(checkbox).toBeDisabled();
+                });
+            });
+            test.describe('when false', () => {
+                test('the slotted input component should not be disabled if checkbox itself is not disabled', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieCheckboxGroup, {
+                        props: {
+                            disabled: false,
+                        } as CheckboxGroupProps,
+                        slots: {
+                            default: '<pie-checkbox></pie-checkbox>',
+                        },
+                    });
+
+                    // Act
+                    const checkbox = component.locator(checkboxSelector);
+
+                    // Assert
+                    expect(checkbox).not.toBeDisabled();
+                });
+                test('the slotted input component should be disabled if checkbox itself is disabled', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieCheckboxGroup, {
+                        props: {
+                            disabled: false,
+                        } as CheckboxGroupProps,
+                        slots: {
+                            default: '<pie-checkbox disabled></pie-checkbox>',
+                        },
+                    });
+
+                    // Act
+                    const checkbox = component.locator(checkboxSelector);
 
                     // Assert
                     expect(checkbox).toBeDisabled();

@@ -8,11 +8,13 @@ import { CheckboxGroupProps, defaultProps, statusTypes } from '@justeattakeaway/
 import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
 
+import '@justeattakeaway/pie-link';
+import '@justeattakeaway/pie-checkbox';
+
 type CheckboxGroupStoryMeta = StoryMeta<CheckboxGroupProps>;
 
 const defaultArgs: CheckboxGroupProps = {
     ...defaultProps,
-    disabled: false,
 };
 
 const checkboxGroupStoryMeta: CheckboxGroupStoryMeta = {
@@ -63,6 +65,8 @@ const Template = ({
     status,
     disabled,
 }: CheckboxGroupProps) => html`
+    <p>Please note, the checkboxes are separate components. See
+    <pie-link href="/?path=/story/checkbox--default">pie-checkbox</pie-link>.</p>
     <pie-checkbox-group
         label="${ifDefined(label)}"
         assistiveText="${ifDefined(assistiveText)}"

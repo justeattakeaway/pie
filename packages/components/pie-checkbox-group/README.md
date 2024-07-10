@@ -29,10 +29,9 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-checkbox-group` in your application, run the following on your command line:
 
 ```bash
-# npm
 $ npm i @justeattakeaway/pie-checkbox-group
-
-# yarn
+```
+```bash
 $ yarn add @justeattakeaway/pie-checkbox-group
 ```
 
@@ -74,7 +73,12 @@ import { PieCheckboxGroup } from '@justeattakeaway/pie-checkbox-group/dist/react
 
 | Property | Type | Default | Description |
 |---|---|---|---|
-| - | - | - | - |
+| `label` | string | - | The label value of the component |
+| assistiveText | string | - | An optional assistive text to display below the checkbox group. |
+| `disabled` | boolean | - | Same as the HTML disabled attribute - indicates whether or not the checkbox group is disabled. |
+| `assistiveText` | `string` | `''` | Allows assistive text to be displayed below the checkbox group. |
+| `status` | `'default'`, `'error'`, `'success'` | `'default'` | The status of the checkbox group / assistive text. If you use `status` you must provide an `assistiveText` prop value for accessibility purposes. |
+
 
 In your markup or JSX, you can then use these to set the properties for the `pie-checkbox-group` component:
 

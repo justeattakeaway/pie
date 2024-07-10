@@ -23,6 +23,11 @@ export interface CheckboxProps {
     disabled?: boolean;
 
     /**
+     * Indicates whether or not the checkbox is disabled by the parent.
+     */
+    disabledByParent?: boolean;
+
+    /**
      * The default checked state of the checkbox (not necessarily the same as the current checked state).
      */
     defaultChecked?: boolean;
@@ -54,13 +59,14 @@ export interface CheckboxProps {
     status?: typeof statusTypes[number];
 }
 
-export type DefaultProps = ComponentDefaultProps<CheckboxProps, keyof Omit<CheckboxProps, 'label' | 'name' | 'aria' | 'assistiveText'>>;
+export type DefaultProps = ComponentDefaultProps<CheckboxProps, keyof Omit<CheckboxProps, 'label' | 'name' | 'assistiveText'>>;
 
 export const defaultProps: DefaultProps = {
     // a default value for the html <input type="checkbox" /> value attribute.
     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#value
     value: 'on',
     disabled: false,
+    disabledByParent: false,
     defaultChecked: false,
     checked: false,
     indeterminate: false,

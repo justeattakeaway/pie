@@ -46,7 +46,10 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     public defaultChecked = defaultProps.defaultChecked;
 
     @property({ type: Boolean, reflect: true })
-    public disabled?: CheckboxProps['disabled'];
+    public disabled = defaultProps.disabled;
+
+    @property({ type: Boolean, reflect: true })
+    public disabledByParent = defaultProps.disabledByParent;
 
     @property({ type: Boolean, reflect: true })
     public required = defaultProps.required;
@@ -90,12 +93,6 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
      */
     public formDisabledCallback (disabled: boolean): void {
         this.disabled = disabled;
-    }
-
-    protected firstUpdated (_changedProperties: PropertyValues<this>): void {
-        super.firstUpdated(_changedProperties);
-
-        this.handleFormAssociation();
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {
@@ -144,17 +141,20 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             name,
             label,
             disabled,
+            disabledByParent,
             required,
             indeterminate,
             assistiveText,
             status,
         } = this;
 
+        const componentDisabled = disabled || disabledByParent;
+
         return html`
         <div
             class="c-checkbox"
-            data-pie-status=${!disabled && status}
-            ?data-pie-disabled=${live(disabled)}
+            data-pie-status=${!componentDisabled && status}
+            ?data-pie-disabled=${componentDisabled}
             ?data-pie-checked=${checked}
             ?data-pie-indeterminate=${indeterminate && !checked}>
             <input
@@ -163,7 +163,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
                 .value=${value}
                 .checked=${live(checked)}
                 name=${ifDefined(name)}
-                ?disabled=${disabled}
+                ?disabled=${componentDisabled}
                 ?required=${required}
                 .indeterminate=${indeterminate}
                 aria-describedby=${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}
@@ -174,8 +174,8 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
                 <span
                     class="c-checkbox-tick"
                     ?data-pie-checked=${checked}
-                    ?data-pie-disabled=${live(disabled)}
-                    data-pie-status=${!disabled && status}
+                    ?data-pie-disabled=${componentDisabled}
+                    data-pie-status=${!componentDisabled && status}
                     ?data-pie-indeterminate=${indeterminate && !checked}></span>
                 <span class="c-checkbox-text">${label}</span>
             </label>

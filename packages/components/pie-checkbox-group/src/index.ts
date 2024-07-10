@@ -30,7 +30,11 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
     public status = defaultProps.status;
 
     @property({ type: Boolean, reflect: true })
-    public disabled?: CheckboxGroupProps['disabled'];
+    public disabled = defaultProps.disabled;
+
+    get _slot () {
+        return this.shadowRoot?.querySelector('slot');
+    }
 
     get _slottedChildren () {
         const slot = this.shadowRoot?.querySelector('slot');
@@ -40,14 +44,25 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
     private _handleDisabled () : void {
         if (this._slottedChildren) {
             [...this._slottedChildren]
-            .forEach((child) => child.setAttribute('disabled', 'true'));
+            .forEach((child) => {
+                child.setAttribute('disabledByParent', 'true');
+            });
         }
     }
 
-    private _handleError () : void {
+    private _handleEnabled () : void {
         if (this._slottedChildren) {
             [...this._slottedChildren]
-            .forEach((child) => child.setAttribute('status', 'error'));
+            .forEach((child) => {
+                child.removeAttribute('disabledByParent');
+            });
+        }
+    }
+
+    private _handleStatus () : void {
+        if (this._slottedChildren) {
+            [...this._slottedChildren]
+            .forEach((child) => child.setAttribute('status', this.status));
         }
     }
 
@@ -56,11 +71,10 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
 
         if (this.disabled) {
             this._handleDisabled();
+        } else {
+            this._handleEnabled();
         }
-
-        if (this.status === 'error') {
-            this._handleError();
-        }
+        this._handleStatus();
     }
 
     render () {
