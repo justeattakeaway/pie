@@ -111,11 +111,11 @@ only for client side components. If you need to render components on the server 
 
 Our [Fozzie](https://vue.pie.design/) library currently supports older versions of Vue. We recommend updating to the latest Vue ecosystem if possible.
 
-### _Is your project a greenfield?_
+### Is your project a greenfield?
 
 We recommend using [PIE Web Components](/engineers/web-components/) as much as you can, if your tech stack is supported. This helps us test our new components and avoids any need for a future migration.
 
-### _I can't find the web component I need_
+### I can't find the web component I need
 
 **Do you need it right away?**
 
