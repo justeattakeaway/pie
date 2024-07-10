@@ -1,4 +1,4 @@
-import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 import { Variant } from '@justeattakeaway/pie-button/src/defs.ts';
 
@@ -93,6 +93,11 @@ export type ModalProps = {
      */
     leadingAction?: ActionProps;
 
+    /**
+     * The supporting action configuration for the modal.
+     */
+    supportingAction?: ActionProps;
+
     /*
      * The position of the modal; this controls where it will appear on the page.
      */
@@ -107,11 +112,6 @@ export type ModalProps = {
      * The size of the modal; this controls how wide it will appear on the page.
      */
     size?: typeof sizes[number];
-
-    /**
-     * The supporting action configuration for the modal.
-     */
-    supportingAction?: ActionProps;
 };
 
 /**
@@ -151,17 +151,17 @@ export const ON_MODAL_SUPPORTING_ACTION_CLICK = 'pie-modal-supporting-action-cli
 
 export type ModalActionType = 'leading' | 'supporting';
 
-export type DefaultProps = ComponentDefaultPropsGeneric<ModalProps, 'headingLevel'|'hasBackButton'|'hasStackedActions'|'isDismissible'|'isFooterPinned'|'isFullWidthBelowMid'|'isLoading'|'isOpen'|'position'|'size'>;
+export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'heading' | 'leadingAction' | 'supportingAction' | 'returnFocusAfterCloseSelector'>>;
 
 export const defaultProps: DefaultProps = {
-    headingLevel: 'h2',
     hasBackButton: false,
     hasStackedActions: false,
+    headingLevel: 'h2',
+    isOpen: false,
     isDismissible: false,
     isFooterPinned: true,
     isFullWidthBelowMid: false,
     isLoading: false,
-    isOpen: false,
     position: 'center',
     size: 'medium',
 };
