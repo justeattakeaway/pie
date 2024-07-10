@@ -8,7 +8,6 @@ permalink: engineers/web-components/
 
 ## Introduction
 
-
 [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) are a set of native browser technologies that allow us to build custom components. In other words, create custom HTML elements native to browsers. 
 
 Currently, this technology is supported by all browsers, making it possible to have one central library that will work with most frontend frameworks.
@@ -48,5 +47,3 @@ ___
 The following guides are meant to support you while using our web components.
 
 For information about form elements and how to handle form data and validation, check out our [Form Usage Guide](https://github.com/justeattakeaway/pie/wiki/Form-Controls#pie-forms-usage).
-
-

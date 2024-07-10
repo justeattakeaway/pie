@@ -135,10 +135,6 @@ In our current process it takes us around a month and a half to two moths to hav
 
 If you are able to contribute, we can start an ad-hoc audit and have the designs ready for contribution in 2-4 weeks. We have a process to support you during your time working in our code base and would greatly appreciate your contribution.
 
-
-
-
-
 ___
 
 ## PIE project structure
