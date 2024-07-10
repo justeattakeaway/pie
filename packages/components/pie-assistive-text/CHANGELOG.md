@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-assistive-text
 
+## 0.5.1
+
+### Patch Changes
+
+- [Changed] - Update default props generic helper type to include all props by default ([#1582](https://github.com/justeattakeaway/pie/pull/1582)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Naming of generic type
+  [Added] - JSDoc comment
+
+- Updated dependencies [[`ff65968f6`](https://github.com/justeattakeaway/pie/commit/ff65968f61ef9c998662416f72c1b9999567d9f7)]:
+  - @justeattakeaway/pie-webc-core@0.24.0
+  - @justeattakeaway/pie-icons-webc@0.24.2
+
 ## 0.5.0
 
 ### Minor Changes
