@@ -90,6 +90,7 @@
     "engineers/getting-started/structure",
     "engineers/guidelines",
     "engineers/guidelines/browser-support",
+    "engineers/web-components",
     "foundations",
     "foundations/colour",
     "foundations/colour/tokens/alias/dark",
