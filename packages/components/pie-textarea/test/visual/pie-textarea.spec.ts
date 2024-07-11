@@ -76,6 +76,7 @@ test.describe('Resize mode:', () => {
             const textarea = await page.locator(componentSelector);
 
             await textarea.fill('The default height is enough for two lines of text, but it should grow if you type more.');
+            await page.waitForTimeout(250); // Wait for throttled resize event to fire.
 
             await percySnapshot(page, 'Textarea - resize: "auto" (multiline content)', percyWidths);
         });
@@ -89,6 +90,7 @@ test.describe('Resize mode:', () => {
 
             const textarea = await page.locator(componentSelector);
             await textarea.fill('The default height is enough for two lines of text, but it should grow if you type more. If you reach more than six lines of content, the element will not continue to grow and scrollbars will appear.');
+            await page.waitForTimeout(250); // Wait for throttled resize event to fire.
 
             await percySnapshot(page, 'Textarea - resize mode: auto - with overflowing content', percyWidths);
         });
@@ -102,6 +104,7 @@ test.describe('Resize mode:', () => {
 
             const textarea = await page.locator(componentSelector);
             await textarea.fill('This textarea has been filled with enough text for the automatic resizing to reach its maximum height. Some content should be cut off and you should not be able to see the end of this text. If this happens then the maximum height is not being limited correctly.');
+            await page.waitForTimeout(250); // Wait for throttled resize event to fire.
 
             await page.evaluate(() => {
                 const textarea = document.querySelector('pie-textarea');
