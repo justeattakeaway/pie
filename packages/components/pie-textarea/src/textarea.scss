@@ -6,7 +6,7 @@
 // Minimum height in manual resize mode is one line of text.
 // Maximum height in auto resize mode is six lines of text.
 .c-textareaWrapper {
-  --textarea-line-height: calc(var(--dt-font-body-l-line-height) * 1px);
+  --textarea-line-height: #{p.line-height(--dt-font-body-l-line-height)};
   --textarea-border-thickness: 1px;
   --textarea-resize: none;
   --textarea-padding-inline: var(--dt-spacing-d);
@@ -21,7 +21,7 @@
   line-height: 0; // Remove once there is text outside the textarea
 
   textarea {
-    font-size: calc(var(--dt-font-body-l-size) * 1px);
+    @include p.font-size(--dt-font-body-l-size);
     line-height: var(--textarea-line-height);
     font-family: var(--dt-font-body-l-family);
     resize: var(--textarea-resize);

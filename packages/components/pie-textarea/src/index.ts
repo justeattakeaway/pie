@@ -2,6 +2,7 @@ import {
     LitElement, html, unsafeCSS, PropertyValues,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
+import throttle from 'lodash.throttle';
 
 import { validPropertyValues, RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 
@@ -35,11 +36,15 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
     @query('textarea')
     private _textarea!: HTMLTextAreaElement;
 
-    private handleResize () {
+    private _throttledResize = throttle(() => {
         if (this.resize === 'auto') {
             this._textarea.style.height = 'auto';
             this._textarea.style.height = `${this._textarea.scrollHeight + 2}px`; // +2 for border thicknesses
         }
+    }, 100);
+
+    private handleResize () {
+        this._throttledResize();
     }
 
     updated (changedProperties: PropertyValues<this>) {
