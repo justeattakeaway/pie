@@ -122,6 +122,8 @@
     "patterns",
     "patterns/cookie-banner",
     "patterns/cookie-banner/code",
+    "patterns/haptic-feedback",
+    "patterns/haptic-feedback/guidance",
     "support",
     "support/contact-us",
     "support/faq"
