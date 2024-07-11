@@ -79,13 +79,12 @@ test.describe('PieCard - `padding` prop', async () => {
     }
 
     batches.forEach((batch, index) => test(`should render the padding prop value of batch number: ${index}`, async ({ page, mount }) => {
-        console.log(`HEEEEEEYYYYYY ${batch}`);
-        batch.forEach(async (padding, j) => {
-            console.log('AAAAAAAAAAAA', padding);
+        // eslint-disable-next-line no-restricted-syntax
+        for (const padding of batch) {
             const testComponent: WebComponentTestInput = createTestWebComponent({ padding }, renderTestPieCard);
             const propKeyValues = `padding: ${testComponent.propValues.padding}`;
-            await setTimeout(() => {}, j * 1000);
 
+            // eslint-disable-next-line no-await-in-loop
             await mount(
                 WebComponentTestWrapper,
                 {
@@ -93,10 +92,8 @@ test.describe('PieCard - `padding` prop', async () => {
                     slots: { component: testComponent.renderedString.trim() },
                 },
             );
-            console.log('OOOOOOOOOOO', padding);
-        });
-        const locator = page.getByTestId('pie-card');
-        console.log(`YOOOOOOOOO ${await locator.innerHTML()}`);
-        // await percySnapshot(page, `PIE Card - Padding values | batch number: ${index}`, percyWidths);
+        }
+
+        await percySnapshot(page, `PIE Card - Padding values | batch number: ${index}`, percyWidths);
     }));
 });
