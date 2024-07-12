@@ -33,10 +33,12 @@ test.beforeEach(async ({ }, testInfo) => {
 });
 
 test('should render all size variations', async ({ page, mount }) => {
-    await Promise.all(componentPropsMatrix.map(async (combo: WebComponentPropValues) => {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const combo of componentPropsMatrix) {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieButton);
         const propKeyValues = `size: ${testComponent.propValues.size}, isResponsive: ${testComponent.propValues.isResponsive}, responsiveSize: ${testComponent.propValues.responsiveSize}`;
 
+        // eslint-disable-next-line no-await-in-loop
         await mount(
             WebComponentTestWrapper,
             {
@@ -46,7 +48,7 @@ test('should render all size variations', async ({ page, mount }) => {
                 },
             },
         );
-    }));
+    }
 
     // Follow up to remove in Jan
     await page.waitForTimeout(2500);

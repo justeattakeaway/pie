@@ -46,11 +46,13 @@ test.beforeEach(async ({ mount }, testInfo) => {
 });
 
 componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const combo of componentPropsMatrixByVariant[variant]) {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieButton);
         const propKeyValues = `size: ${testComponent.propValues.size}, iconPlacement: ${testComponent.propValues.iconPlacement}, isFullWidth: ${testComponent.propValues.isFullWidth}, disabled: ${testComponent.propValues.disabled}, isLoading: ${testComponent.propValues.isLoading}`;
         const darkMode = ['inverse', 'ghost-inverse', 'outline-inverse'].includes(variant);
 
+        // eslint-disable-next-line no-await-in-loop
         await mount(
             WebComponentTestWrapper,
             {
@@ -60,7 +62,7 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
                 },
             },
         );
-    }));
+    }
 
     // Follow up to remove in Jan
     await page.waitForTimeout(2500);
