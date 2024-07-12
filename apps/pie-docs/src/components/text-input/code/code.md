@@ -122,7 +122,7 @@ import { PieTextInput } from '@justeattakeaway/pie-webc/react/text-input.js';
 
 ```jsx
 // React templates (using Next 13)
-import { PieTextInput } from '@justeattakeaway/pie-text-input/dist/react';
+import { PieTextInput } from '@justeattakeaway/pie-webc/react/text-input';
 
 <PieTextInput
   autocomplete="on"

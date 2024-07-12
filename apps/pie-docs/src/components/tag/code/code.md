@@ -124,7 +124,7 @@ import { PieTag } from '@justeattakeaway/pie-webc/react/tag.js';
 
 ```jsx
 // React templates (using Next 13)
-import { PieTag } from '@justeattakeaway/pie-tag/dist/react';
+import { PieTag } from '@justeattakeaway/pie-webc/react/tag';
 
 <PieTag>Label</PieTag>
 ```

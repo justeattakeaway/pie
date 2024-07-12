@@ -128,7 +128,7 @@ import { PieSwitch } from '@justeattakeaway/pie-webc/react/switch.js';
 
 ```jsx
 // React templates (using Next 13)
-import { PieSwitch } from '@justeattakeaway/pie-switch/dist/react';
+import { PieSwitch } from '@justeattakeaway/pie-webc/react/switch';
 
 <PieSwitch checked label="Label" labelPlacement="trailing" onChange={handleChange}></PieSwitch>
 ```

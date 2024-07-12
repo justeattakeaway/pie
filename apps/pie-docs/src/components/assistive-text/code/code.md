@@ -129,7 +129,7 @@ import { PieAssistiveText } from '@justeattakeaway/pie-webc/react/assistive-text
 
 ```jsx
 // React templates (using Next 13)
-import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text/dist/react';
+import { PieAssistiveText } from '@justeattakeaway/pie-webc/react/assistive-text';
 
 <PieAssistiveText
   variant="success">

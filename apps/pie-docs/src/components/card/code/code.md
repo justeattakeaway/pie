@@ -103,7 +103,7 @@ import { PieCard } from '@justeattakeaway/pie-webc/react/card.js';
 
 ```jsx
 // React templates (using Next 13)
-import { PieCard } from '@justeattakeaway/pie-card/dist/react';
+import { PieCard } from '@justeattakeaway/pie-webc/react/card';
 
 <PieCard tag="a" href="https://www.example.com" target="_blank" padding="d">
   Take me to example.com!

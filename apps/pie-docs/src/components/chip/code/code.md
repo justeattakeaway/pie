@@ -122,7 +122,7 @@ import { PieChip } from '@justeattakeaway/pie-webc/react/chip.js';
 
 ```jsx
 // React templates (using Next 13)
-import { PieChip } from '@justeattakeaway/pie-chip/dist/react';
+import { PieChip } from '@justeattakeaway/pie-webc/react/chip';
 
 <PieChip>String</PieChip>
 ```

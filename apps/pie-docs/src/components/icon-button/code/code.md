@@ -131,7 +131,7 @@ For React Applications:
 
 ```jsx
 import { PieIconButton } from '@justeattakeaway/pie-webc/react/icon-button.js';
-import { IconClose } from '@justeattakeaway/pie-icons-webc';
+import { IconClose } from '@justeattakeaway/pie-icons-webc/dist/react/IconClose.js';
 
 <PieIconButton onClick={handleClick}>
   <IconClose></IconClose>
@@ -140,8 +140,8 @@ import { IconClose } from '@justeattakeaway/pie-icons-webc';
 
 ```jsx
 // React templates (using Next 13)
-import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react';
-import { IconClose } from '@justeattakeaway/pie-icons-webc';
+import { PieIconButton } from '@justeattakeaway/pie-webc/react/icon-button';
+import { IconClose } from '@justeattakeaway/pie-icons-webc/dist/react/IconClose';
 
 <PieIconButton onClick={handleClick}>
   <IconClose></IconClose>
