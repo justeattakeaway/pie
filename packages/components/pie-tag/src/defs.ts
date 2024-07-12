@@ -1,4 +1,4 @@
-import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const variants = ['neutral-alternative', 'neutral', 'outline', 'ghost', 'blue', 'green', 'yellow', 'red', 'brand'] as const;
 export const sizes = ['small', 'large'] as const;
@@ -25,11 +25,11 @@ export interface TagProps {
     size?: typeof sizes[number];
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<TagProps, 'variant' | 'size' | 'isStrong' | 'isDimmed'>;
+export type DefaultProps = ComponentDefaultProps<TagProps>;
 
 export const defaultProps: DefaultProps = {
     variant: 'neutral',
-    size: 'large',
     isStrong: false,
     isDimmed: false,
+    size: 'large',
 };

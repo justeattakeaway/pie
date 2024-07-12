@@ -1,4 +1,4 @@
-import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 import {
     TemplateResult,
@@ -145,4 +145,4 @@ export interface CustomTagEnhancers {
     [key: string]: (tagContent: string) => TemplateResult;
 }
 
-export type DefaultProps = ComponentDefaultPropsGeneric<CookieBannerProps, 'hasPrimaryActionsOnly' | 'defaultPreferences' | 'locale' | 'cookieStatementLink' | 'cookieTechnologiesLink' | 'entranceAnimationVariant'>;
+export type DefaultProps = ComponentDefaultProps<CookieBannerProps>;

@@ -409,7 +409,7 @@ test.describe('Prop: `supportingAction`', () => {
             const modal = page.locator(componentFooterSelector);
             await expect.soft(modal).not.toBeVisible();
 
-            await percySnapshot(page, 'Modal displays footer');
+            await percySnapshot(page, 'Modal hides footer if there is no leadingAction');
         });
 
         test.describe('when prop is provided but the optional child properties of `supportingAction` are not provided', () => {
@@ -640,7 +640,7 @@ test.describe('Prop: `isFooterPinned`', () => {
 
 test.describe('Prop: `hasStackedActions`', () => {
     test.describe('when true', () => {
-        (['small', 'medium', 'large'] as Array<ModalProps['size']>)
+        sizes
             .forEach((size) => {
                 test(`should display actions full width (at narrow viewports – with leading action on top) for a modal with size = ${size}`, async ({ page, mount }) => {
                     await mount(PieModal, {

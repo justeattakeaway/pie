@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.24.0
+
+### Minor Changes
+
+- [Changed] - Update default props generic helper type to include all props by default ([#1582](https://github.com/justeattakeaway/pie/pull/1582)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Naming of generic type
+  [Added] - JSDoc comment
+
 ## 0.23.0
 
 ### Minor Changes
