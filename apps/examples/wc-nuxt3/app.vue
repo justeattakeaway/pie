@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { sizes, variants } from '@justeattakeaway/pie-button';
+import { sizes, variants } from '@justeattakeaway/pie-webc/components/button.js';
 
 export default {
     data () {
