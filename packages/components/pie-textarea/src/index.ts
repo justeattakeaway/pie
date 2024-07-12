@@ -1,11 +1,15 @@
-import { LitElement, html, unsafeCSS } from 'lit';
-import { property } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
+import {
+    LitElement, html, unsafeCSS, PropertyValues,
+} from 'lit';
+import { property, query } from 'lit/decorators.js';
+import throttle from 'lodash.throttle';
 
 import { validPropertyValues, RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 
 import styles from './textarea.scss?inline';
-import { TextareaProps, defaultProps, sizes } from './defs';
+import {
+    TextareaProps, defaultProps, sizes, resizeModes,
+} from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -19,25 +23,52 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @property({ type: Boolean, reflect: true })
-    public disabled?: TextareaProps['disabled'];
+    public disabled = defaultProps.disabled;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
-    public size?: TextareaProps['size'] = defaultProps.size;
+    public size = defaultProps.size;
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, resizeModes, defaultProps.resize)
+    public resize = defaultProps.resize;
+
+    @query('textarea')
+    private _textarea!: HTMLTextAreaElement;
+
+    private _throttledResize = throttle(() => {
+        if (this.resize === 'auto') {
+            this._textarea.style.height = 'auto';
+            this._textarea.style.height = `${this._textarea.scrollHeight + 2}px`; // +2 for border thicknesses
+        }
+    }, 100);
+
+    private handleResize () {
+        this._throttledResize();
+    }
+
+    updated (changedProperties: PropertyValues<this>) {
+        if (this.resize === 'auto' && (changedProperties.has('resize') || changedProperties.has('size'))) {
+            this.handleResize();
+        }
+    }
 
     render () {
         const {
             disabled,
+            resize,
             size,
         } = this;
 
         return html`
             <div
-                class="c-textarea"
-                data-test-id="pie-textarea-shell"
-                data-pie-size=${ifDefined(size)}>
+                class="c-textareaWrapper"
+                data-test-id="pie-textarea-wrapper"
+                data-pie-size="${size}"
+                data-pie-resize="${resize}">
                 <textarea
                     data-test-id="pie-textarea"
+                    @input=${this.handleResize}
                     ?disabled=${disabled}
                 ></textarea>
             </div>`;
