@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { disableCookieBanner } from '../playwright/playwright-helper';
 import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
 import { isElementVisibleInViewport } from '../helpers/functions';
 
@@ -8,10 +7,6 @@ test.beforeEach(async ({ page, baseURL }) => {
 });
 
 test.describe('PIE - Status Code Tests - @desktop', () => {
-    test.beforeEach(async ({ page, context }) => {
-        await disableCookieBanner(page, context, false);
-    });
-
     expectedRoutesJson.forEach((route) => {
         test(`Should respond with a '200' status code for route - ${route}`, async ({ page }) => {
             // Arrange
@@ -24,10 +19,6 @@ test.describe('PIE - Status Code Tests - @desktop', () => {
 });
 
 test.describe('PIE - site nav menu - @mobile', () => {
-    test.beforeEach(async ({ page, context }) => {
-        await disableCookieBanner(page, context);
-    });
-
     test('Should open and close the mobile navigation menu', async ({ page }) => {
         // Arrange
         const navToggleLabel = page.getByTestId('nav_toggle_label');
@@ -51,8 +42,7 @@ test.describe('PIE - site nav menu - @desktop', () => {
     let siteNavigation;
     let contentHeader;
 
-    test.beforeEach(async ({ page, context }) => {
-        await disableCookieBanner(page, context);
+    test.beforeEach(async ({ page }) => {
         await page.goto('all-about-pie/our-vision/');
 
         // Arrange

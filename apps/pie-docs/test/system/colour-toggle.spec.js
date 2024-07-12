@@ -1,15 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { disableCookieBanner } from '../playwright/playwright-helper';
 
 test.beforeEach(async ({ page, baseURL }) => {
     await page.goto(baseURL);
 });
 
 test.describe('PIE - colour page toggle - @desktop', () => {
-    test.beforeEach(async ({ page, context }) => {
-        await disableCookieBanner(page, context);
-    });
-
     test('Should display the content associated with the toggle that has been clicked', async ({ page }) => {
         // Arrange
         await page.goto('foundations/colour/tokens/alias/light');
