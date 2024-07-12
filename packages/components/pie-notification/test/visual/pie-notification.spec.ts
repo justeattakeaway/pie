@@ -40,8 +40,8 @@ const props: PropObject = {
 };
 
 // Renders a <pie-notification> HTML string with the given prop values
-const renderTestPieNotification = (propVals: WebComponentPropValues) => `<pie-notification 
-        variant="${propVals.variant}" 
+const renderTestPieNotification = (propVals: WebComponentPropValues) => `<pie-notification
+        variant="${propVals.variant}"
         ${propVals.isCompact ? 'isCompact' : ''}
         ${propVals.isDismissible ? 'isDismissible' : ''}
         ${propVals.hideIcon ? 'hideIcon' : ''}
@@ -63,7 +63,6 @@ test.beforeEach(async ({ mount }, testInfo) => {
 });
 
 componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    // eslint-disable-next-line no-restricted-syntax
     for (const combo of componentPropsMatrixByVariant[variant]) {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieNotification);
 
@@ -77,7 +76,6 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
 
         const darkMode = ['neutral-alternative'].includes(variant);
 
-        // eslint-disable-next-line no-await-in-loop
         await mount(
             WebComponentTestWrapper,
             {

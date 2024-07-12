@@ -60,7 +60,6 @@ test.beforeEach(async ({ mount }, testInfo) => {
 });
 
 componentVariants.forEach((variant) => test(`should render all prop variations for the checked state: ${variant}`, async ({ page, mount }) => {
-    // eslint-disable-next-line no-restricted-syntax
     for (const combo of componentPropsMatrixByCheckedState[variant]) {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCheckbox);
         const propKeyValues = `
@@ -71,7 +70,6 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
             indeterminate: ${testComponent.propValues.indeterminate},
             assistiveText: ${testComponent.propValues.assistiveText ? 'with assistive text' : 'no assistive text'}`;
 
-        // eslint-disable-next-line no-await-in-loop
         await mount(
             WebComponentTestWrapper,
             {
@@ -86,7 +84,6 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
     await percySnapshot(page, `PIE Checkbox - Checked State: ${variant}`, percyWidths);
 }));
 
-// eslint-disable-next-line no-restricted-syntax
 for (const dir of readingDirections) {
     test(`Assistive text and statuses - ${dir}`, async ({ mount, page }) => {
         if (dir === 'RTL') {

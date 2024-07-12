@@ -72,12 +72,10 @@ test('Size variants with value and placeholder', async ({ mount, page }) => {
     const value = 'String';
     const placeholder = 'Placeholder';
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const size of sizeVariants) {
         let testComponent: WebComponentTestInput = createTestWebComponent({ size, value }, renderTestPieTextInput);
         let propKeyValues = `size: ${testComponent.propValues.size}, value: ${testComponent.propValues.value}`;
 
-        // eslint-disable-next-line no-await-in-loop
         await mount(
             WebComponentTestWrapper,
             {
@@ -91,7 +89,6 @@ test('Size variants with value and placeholder', async ({ mount, page }) => {
         testComponent = createTestWebComponent({ size, placeholder }, renderTestPieTextInput);
         propKeyValues = `size: ${testComponent.propValues.size}, placeholder: ${testComponent.propValues.placeholder}`;
 
-        // eslint-disable-next-line no-await-in-loop
         await mount(
             WebComponentTestWrapper,
             {
@@ -108,7 +105,6 @@ test('Size variants with value and placeholder', async ({ mount, page }) => {
 
 const readingDirections = ['LTR', 'RTL'];
 
-// eslint-disable-next-line no-restricted-syntax
 for (const dir of readingDirections) {
     test(`Assistive text and statuses - ${dir}`, async ({ mount, page }) => {
         if (dir === 'RTL') {
@@ -175,7 +171,6 @@ for (const dir of readingDirections) {
     });
 }
 
-// eslint-disable-next-line no-restricted-syntax
 for (const dir of readingDirections) {
     test(`Content and slots - ${dir}`, async ({ mount, page }) => {
         if (dir === 'RTL') {
@@ -188,7 +183,6 @@ for (const dir of readingDirections) {
 
         let propKeyValues = `slots: Trailing + Leading Icon, value: ${testComponent.propValues.value}`;
 
-        // eslint-disable-next-line no-await-in-loop
         await mount(
             WebComponentTestWrapper,
             {

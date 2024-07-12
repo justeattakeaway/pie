@@ -50,13 +50,11 @@ test.describe('PieCard - Visual tests`', () => {
     const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
     componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-        // eslint-disable-next-line no-restricted-syntax
         for (const combo of componentPropsMatrixByVariant[variant]) {
             const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCard);
             const propKeyValues = `tag: ${testComponent.propValues.tag}, disabled: ${testComponent.propValues.disabled}`;
             const darkMode = variant.includes('inverse');
 
-            // eslint-disable-next-line no-await-in-loop
             await mount(
                 WebComponentTestWrapper,
                 {
@@ -81,12 +79,10 @@ test.describe('PieCard - `padding` prop', async () => {
     }
 
     batches.forEach((batch, index) => test(`should render the padding prop value of batch number: ${index}`, async ({ page, mount }) => {
-        // eslint-disable-next-line no-restricted-syntax
         for (const padding of batch) {
             const testComponent: WebComponentTestInput = createTestWebComponent({ padding }, renderTestPieCard);
             const propKeyValues = `padding: ${testComponent.propValues.padding}`;
 
-            // eslint-disable-next-line no-await-in-loop
             await mount(
                 WebComponentTestWrapper,
                 {
