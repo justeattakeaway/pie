@@ -38,11 +38,13 @@ test.beforeEach(async ({ mount }, testInfo) => {
 
 test('should render all prop variations', async ({ page, mount }) => {
     componentVariants.forEach(async (variant) => {
-        await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
+        // eslint-disable-next-line no-restricted-syntax
+        for (const combo of componentPropsMatrixByVariant[variant]) {
             const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieAssistiveText);
 
             const propKeyValues = `variant: ${variant}`;
 
+            // eslint-disable-next-line no-await-in-loop
             await mount(
                 WebComponentTestWrapper,
                 {
@@ -52,7 +54,7 @@ test('should render all prop variations', async ({ page, mount }) => {
                     },
                 },
             );
-        }));
+        }
     });
 
     await percySnapshot(page, 'PIE Assistive Text - Variants', percyWidths);
@@ -60,13 +62,15 @@ test('should render all prop variations', async ({ page, mount }) => {
 
 test('should render all prop variations with RTL set', async ({ page, mount }) => {
     componentVariants.forEach(async (variant) => {
-        await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
+        // eslint-disable-next-line no-restricted-syntax
+        for (const combo of componentPropsMatrixByVariant[variant]) {
             const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieAssistiveText);
 
             const propKeyValues = `variant: ${variant}, dir: RTL`;
 
             setRTL(page);
 
+            // eslint-disable-next-line no-await-in-loop
             await mount(
                 WebComponentTestWrapper,
                 {
@@ -76,7 +80,7 @@ test('should render all prop variations with RTL set', async ({ page, mount }) =
                     },
                 },
             );
-        }));
+        }
     });
 
     await percySnapshot(page, 'PIE Assistive Text - Variants with RTL', percyWidths);
