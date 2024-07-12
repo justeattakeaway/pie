@@ -1,1 +1,1 @@
-import { PieButton } from '@justeattakeaway/pie-button';
+import { PieButton } from '@justeattakeaway/pie-webc/components/button.js';

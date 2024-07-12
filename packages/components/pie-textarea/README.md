@@ -72,10 +72,11 @@ import { PieTextarea } from '@justeattakeaway/pie-textarea/dist/react';
 
 ## Props
 
-| Property   | Type                       | Default  | Description                                        |
-|------------|----------------------------|----------|----------------------------------------------------|
-| `disabled` | `boolean`                  | `false`  | Indicates whether or not the textarea is disabled. |
-| `size`     | `small`, `medium`, `large` | `medium` | The size of the textarea field.                    |
+| Property | Type | Default | Description |
+| --- | --- | --- | --- |
+| `disabled` | `boolean` | `false` | Indicates whether or not the textarea is disabled. |
+| `size` | `"small"`, `"medium"`, `"large"` | `"medium"` | The size of the textarea field. |
+| `resize` | `"auto"`, `"manual"` | `"auto"` | Controls the resizing behaviour of the textarea. |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-textarea` component:
 

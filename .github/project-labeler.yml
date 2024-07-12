@@ -56,13 +56,19 @@ pie-button:
 - 'packages/components/pie-button/**/*'
 
 pie-card:
-- './packages/components/pie-card/**/*'
+- 'packages/components/pie-card/**/*'
+
+pie-checkbox:
+- 'packages/components/pie-checkbox/**/*'
+
+pie-checkbox-group:
+- 'packages/components/pie-checkbox-group/**/*'
 
 pie-chip:
-- './packages/components/pie-chip/**/*'
+- 'packages/components/pie-chip/**/*'
 
 pie-cookie-banner:
-- './packages/components/pie-cookie-banner/**/*'
+- 'packages/components/pie-cookie-banner/**/*'
 
 pie-divider:
 - 'packages/components/pie-divider/**/*'
@@ -72,12 +78,6 @@ pie-form-label:
 
 pie-icon-button:
 - 'packages/components/pie-icon-button/**/*'
-
-pie-text-input:
-- "packages/components/pie-text-input/**/*"
-
-pie-textarea:
-- "packages/components/pie-textarea/**/*"
 
 pie-link:
 - 'packages/components/pie-link/**/*'
@@ -89,13 +89,22 @@ pie-notification:
 - 'packages/components/pie-notification/**/*'
 
 pie-spinner:
-- "packages/components/pie-spinner/**/*"
+- 'packages/components/pie-spinner/**/*'
 
 pie-switch:
 - 'packages/components/pie-switch/**/*'
 
 pie-tag:
-- "packages/components/pie-tag/**/*"
+- 'packages/components/pie-tag/**/*'
+
+pie-text-input:
+- 'packages/components/pie-text-input/**/*'
+
+pie-textarea:
+- 'packages/components/pie-textarea/**/*'
+
+pie-toast:
+- 'packages/components/pie-toast/**/*'
 
 pie-webc:
 - 'packages/components/pie-webc/**/*'
@@ -105,12 +114,3 @@ pie-webc-core:
 
 pie-webc-testing:
 - 'packages/components/pie-webc-testing/**/*'
-
-pie-checkbox:
-- 'packages/components/pie-checkbox/**/*'
-
-pie-checkbox-group:
-- 'packages/components/pie-checkbox-group/**/*'
-
-pie-toast:
-- 'packages/components/pie-toast/**/*'
