@@ -44,12 +44,10 @@ test.beforeEach(async ({ mount }) => {
 });
 
 componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    // eslint-disable-next-line no-restricted-syntax
     for (const combo of componentPropsMatrixByVariant[variant]) {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieDivider);
         const propKeyValues = `orientation: ${testComponent.propValues.orientation}`;
 
-        // eslint-disable-next-line no-await-in-loop
         await mount(
             WebComponentTestWrapper,
             {

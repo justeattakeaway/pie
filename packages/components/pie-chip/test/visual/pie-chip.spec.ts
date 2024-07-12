@@ -45,7 +45,6 @@ test.beforeEach(async ({ mount }, testInfo) => {
 });
 
 componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    // eslint-disable-next-line no-restricted-syntax
     for (const combo of componentPropsMatrixByVariant[variant]) {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieChip);
         const propKeyValues = `
@@ -56,7 +55,6 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
             disabled: ${testComponent.propValues.disabled},
             iconSlot: ${testComponent.propValues.iconSlot ? 'with icon' : 'no icon'}`;
 
-        // eslint-disable-next-line no-await-in-loop
         await mount(
             WebComponentTestWrapper,
             {

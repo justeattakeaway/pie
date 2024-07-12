@@ -44,7 +44,6 @@ test.beforeEach(async ({ mount }, testInfo) => {
 });
 
 componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    // eslint-disable-next-line no-restricted-syntax
     for (const combo of componentPropsMatrixByVariant[variant]) {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieTag);
         const propKeyValues = `
@@ -55,7 +54,6 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
             iconSlot: ${testComponent.propValues.iconSlot ? 'with icon' : 'no icon'}`;
         const darkMode = ['neutral-alternative'].includes(variant);
 
-        // eslint-disable-next-line no-await-in-loop
         await mount(
             WebComponentTestWrapper,
             {

@@ -38,13 +38,11 @@ test.beforeEach(async ({ mount }, testInfo) => {
 
 test('should render all prop variations', async ({ page, mount }) => {
     componentVariants.forEach(async (variant) => {
-        // eslint-disable-next-line no-restricted-syntax
         for (const combo of componentPropsMatrixByVariant[variant]) {
             const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieAssistiveText);
 
             const propKeyValues = `variant: ${variant}`;
 
-            // eslint-disable-next-line no-await-in-loop
             await mount(
                 WebComponentTestWrapper,
                 {
@@ -62,7 +60,6 @@ test('should render all prop variations', async ({ page, mount }) => {
 
 test('should render all prop variations with RTL set', async ({ page, mount }) => {
     componentVariants.forEach(async (variant) => {
-        // eslint-disable-next-line no-restricted-syntax
         for (const combo of componentPropsMatrixByVariant[variant]) {
             const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieAssistiveText);
 
@@ -70,7 +67,6 @@ test('should render all prop variations with RTL set', async ({ page, mount }) =
 
             setRTL(page);
 
-            // eslint-disable-next-line no-await-in-loop
             await mount(
                 WebComponentTestWrapper,
                 {
