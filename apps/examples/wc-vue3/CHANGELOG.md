@@ -1,5 +1,16 @@
 # wc-vue3
 
+## 0.5.0
+
+### Minor Changes
+
+- [Added] pie-webc package and removed component level packages ([#1591](https://github.com/justeattakeaway/pie/pull/1591)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.13
+
 ## 0.4.43
 
 ### Patch Changes
