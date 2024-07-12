@@ -50,11 +50,13 @@ test.describe('PieCard - Visual tests`', () => {
     const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
     componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-        await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
+        // eslint-disable-next-line no-restricted-syntax
+        for (const combo of componentPropsMatrixByVariant[variant]) {
             const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCard);
             const propKeyValues = `tag: ${testComponent.propValues.tag}, disabled: ${testComponent.propValues.disabled}`;
             const darkMode = variant.includes('inverse');
 
+            // eslint-disable-next-line no-await-in-loop
             await mount(
                 WebComponentTestWrapper,
                 {
@@ -64,7 +66,7 @@ test.describe('PieCard - Visual tests`', () => {
                     },
                 },
             );
-        }));
+        }
 
         await percySnapshot(page, `PIE Card - Variant: ${variant}`, percyWidths);
     }));
