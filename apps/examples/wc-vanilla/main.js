@@ -1,7 +1,7 @@
 import '@justeattakeaway/pie-css';
-import '@justeattakeaway/pie-button';
-import '@justeattakeaway/pie-modal';
-import '@justeattakeaway/pie-icon-button';
+import '@justeattakeaway/pie-webc/components/button.js';
+import '@justeattakeaway/pie-webc/components/modal.js';
+import '@justeattakeaway/pie-webc/components/icon-button.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconSearch.js';
 import './style.css';
