@@ -1,7 +1,7 @@
 import {
     LitElement, html, unsafeCSS, nothing, PropertyValues, TemplateResult,
 } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, queryAssignedElements } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { validPropertyValues, defineCustomElement, FormControlMixin } from '@justeattakeaway/pie-webc-core';
 import {
@@ -19,6 +19,7 @@ const componentSelector = 'pie-button';
 /**
  * @tagname pie-button
  * @slot icon - The icon slot
+ * @slot test - Testing the attribute reassignment
  * @slot - Default slot
  */
 export class PieButton extends FormControlMixin(LitElement) implements ButtonProps {
@@ -40,6 +41,29 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
 
     updated (changedProperties: PropertyValues<this>): void {
         super.updated(changedProperties);
+
+        // Making sure that icon passed in a slot has the correct icon size
+        const [iconElement] = this._iconSlotElement;
+
+        if (iconElement) {
+            if (this.size === 'xsmall') {
+                iconElement.setAttribute('size', 'xs');
+            }
+            if (this.size === 'small-expressive' || this.size === 'small-productive') {
+                iconElement.setAttribute('size', 's');
+            }
+
+            if (this.size === 'medium' || this.size === 'large') {
+                iconElement.setAttribute('size', 'm');
+            }
+        }
+
+        // Testing setting attributes to a default slot while icon component doesn't work in ssr
+        const [testElement] = this._testSlotElement;
+
+        if (testElement) {
+            testElement.setAttribute('size', 'small');
+        }
 
         if (changedProperties.has('type')) {
             // If the new type is "submit", add the keydown event listener
@@ -102,6 +126,12 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
 
     @property({ type: String })
     public responsiveSize?: ButtonProps['responsiveSize'];
+
+    @queryAssignedElements({ slot: 'icon' })
+        _iconSlotElement!: Array<HTMLElement>;
+
+    @queryAssignedElements({ slot: 'test' })
+        _testSlotElement!: Array<HTMLElement>;
 
     /**
      * This method creates an invisible button of the same type as pie-button. It is then clicked, and immediately removed from the DOM.
@@ -240,6 +270,7 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
                 ?isLoading=${isLoading}>
                     ${isLoading ? this.renderSpinner() : nothing}
                     ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
+                    <slot name="test"></slot>
                     <slot></slot>
                     ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
             </button>`;
