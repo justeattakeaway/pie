@@ -8,6 +8,11 @@ module.exports = {
         'plugin:vue/vue3-recommended'
     ],
     rules: {
-        ...vue.rules, ...vue3.rules, 'vue/sort-keys': 'off',
+        ...vue.rules,
+        ...vue3.rules,
+        'vue/sort-keys': 'off',
+        'import/extensions': ['error', 'ignorePackages', {
+            js: 'always',
+        }],
     },
 };
