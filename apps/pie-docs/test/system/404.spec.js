@@ -1,10 +1,8 @@
 import { test, expect } from '@playwright/test';
-import { disableCookieBanner } from '../playwright/playwright-helper';
 
 test.describe('PIE - 404 Page - @desktop', () => {
-    test.beforeEach(async ({ page, baseURL, context }) => {
+    test.beforeEach(async ({ page, baseURL }) => {
         await page.goto(baseURL);
-        await disableCookieBanner(page, context, false);
     });
 
     test('Should go to the homepage when clicking "Visit homepage" link', async ({ page, baseURL }) => {
