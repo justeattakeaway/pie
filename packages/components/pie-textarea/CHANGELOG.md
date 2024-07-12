@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-textarea
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - resize prop for textarea ([#1574](https://github.com/justeattakeaway/pie/pull/1574)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - auto and manual sizing functionality
+  [Added] - styling for different sizes
+  [Added] - disabled and focus styles
+  [Added] - visual and component tests
+  [Changed] - update textarea storybook story
+
 ## 0.3.1
 
 ### Patch Changes
