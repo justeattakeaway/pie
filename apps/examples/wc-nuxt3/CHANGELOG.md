@@ -1,5 +1,16 @@
 # wc-nuxt3
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] pie-webc integration to wc-nuxt2 and wc-nuxt3 ([#1595](https://github.com/justeattakeaway/pie/pull/1595)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.13
+
 ## 0.5.30
 
 ### Patch Changes

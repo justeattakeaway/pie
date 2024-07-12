@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.46.0
+
+### Minor Changes
+
+- [Added] - `Haptic Feedback` page to `Patterns` section ([#1573](https://github.com/justeattakeaway/pie/pull/1573)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
 ## 3.45.0
 
 ### Minor Changes
