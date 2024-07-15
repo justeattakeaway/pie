@@ -160,7 +160,7 @@ For instance, the code for the `pie.design` documentation site lives inside the 
 
 The `/packages` folder contains all the shareable packages that can be installed and used by engineers across JET (available via NPM).
 
-This folder is currently split into two categories; **Components** and **Tools**.
+This folder is currently split into two categories: **Components** and **Tools**.
 
 The `/packages/components` directory is where our global PIE Web Component packages can be found, such as `pie-button`.
 

@@ -18,7 +18,7 @@ The long-term aim will be to migrate JET teams over to this Web Component System
 
 ## Component status
 
-[pie.design](/) host the documentation for our new Web Components, you can find under `Components` in the navigation bar.
+[pie.design](/) host the documentation for our new Web Components, you can find under **Components** in the navigation bar.
 
 For a list of what components are supported in our different libraries please refer to the [Status page](/components/component-status/).
 
