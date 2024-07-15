@@ -419,6 +419,7 @@ test.describe('modal', () => {
                 expect(isModalVisible).toBe(true);
             });
 
+            // To be addressed in ticket DSW-2218
             test.skip('should NOT close the modal when the Escape key is pressed', async ({ mount, page }) => {
                 // Arrange
                 await mount(
