@@ -7307,12 +7307,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/playwright@npm:1.0.5":
-  version: 1.0.5
-  resolution: "@percy/playwright@npm:1.0.5"
+"@percy/playwright@npm:1.0.6":
+  version: 1.0.6
+  resolution: "@percy/playwright@npm:1.0.6"
   peerDependencies:
     playwright-core: ">=1"
-  checksum: bef7fe484b8fd7168cfadda7d066f1785d53e5554d1f0d7d82a12eb5de5bf47c464c5cb5b2b473db7096044e5eb08c7124c72fa103767c4d1c915f9cfb825d15
+  checksum: 43aa2677a9b9a21d5137cfa81c695ef618e4b032a073409879bd71b54ddcec53105f00223ba2863d654431ced66512608cd008fa31b0c2df0d1e04dab0815153
   languageName: node
   linkType: hard
 
@@ -27637,7 +27637,7 @@ __metadata:
     "@justeattakeaway/pie-wrapper-react": 0.14.1
     "@justeattakeaway/stylelint-config-pie": 0.7.0
     "@percy/cli": 1.28.8
-    "@percy/playwright": 1.0.5
+    "@percy/playwright": 1.0.6
     "@playwright/experimental-ct-react": 1.41.0
     "@playwright/test": 1.41.0
     "@rollup/plugin-node-resolve": 15.1.0
