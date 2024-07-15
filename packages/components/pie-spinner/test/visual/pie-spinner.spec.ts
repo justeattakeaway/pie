@@ -36,7 +36,7 @@ test.describe('PieSpinner - Visual tests`', () => {
     const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
     componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-        await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
+        for (const combo of componentPropsMatrixByVariant[variant]) {
             const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieSpinner);
             const propKeyValues = `variant: ${testComponent.propValues.variant}, size: ${testComponent.propValues.size}`;
             const darkMode = variant.includes('inverse');
@@ -50,7 +50,7 @@ test.describe('PieSpinner - Visual tests`', () => {
                     },
                 },
             );
-        }));
+        }
 
         await percySnapshot(page, `PIE Spinner - Variant: ${variant}`, percyWidths);
     }));
