@@ -271,7 +271,7 @@ Here are some examples of the component in left-to-right context:
 
 ### RTL examples
 
-Here are some examples of the component in right-to-right context:
+Here are some examples of the component in right-to-left context:
 
 {% contentLayout %}
   {% contentItem %}
