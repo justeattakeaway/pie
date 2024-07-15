@@ -28,7 +28,6 @@ const renderTestPieButton = (propVals: WebComponentPropValues) => `<pie-button s
 
 const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
 
-// eslint-disable-next-line no-empty-pattern
 test.beforeEach(async ({ mount }, testInfo) => {
     testInfo.setTimeout(testInfo.timeout + 40000);
     const component = await mount(PieButton);
