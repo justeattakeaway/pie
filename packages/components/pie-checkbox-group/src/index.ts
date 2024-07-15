@@ -38,6 +38,9 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
     @property({ type: String })
     public assistiveText?: CheckboxGroupProps['assistiveText'];
 
+    @property({ type: Boolean })
+    public isInline = defaultProps.isInline;
+
     @property({ type: String })
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
     public status = defaultProps.status;
@@ -75,6 +78,7 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
         const {
             name,
             label,
+            isInline,
             assistiveText,
             status,
             disabled,
@@ -85,8 +89,9 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
                 ?disabled=${disabled}
                 aria-describedby="${ifDefined(assistiveText ? assistiveTextId : undefined)}"
                 data-test-id="pie-checkbox-group"
+                class="c-checkbox-group ${isInline && '__inline'}"
             >
-                ${label && html`<legend>${label}</legend>`}
+                ${label && html`<legend class="label">${label}</legend>`}
                 <slot></slot>
             </fieldset>
             ${assistiveText && html`

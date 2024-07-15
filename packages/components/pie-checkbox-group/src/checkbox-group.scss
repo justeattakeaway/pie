@@ -1,1 +1,53 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+.c-checkbox-group {
+    --checkbox-group-offset: var(--dt-spacing-c);
+    --checkbox-group-offset--inline: var(--dt-spacing-e);
+    --checkbox-group-label-offset: var(--dt-spacing-a);
+
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0;
+
+    ::slotted(pie-checkbox) {
+        display: flex;
+    }
+
+    &:not(.__inline) {
+        ::slotted(pie-checkbox:not(:first-child)) {
+            margin-block-start: var(--checkbox-group-offset);
+        }
+    }
+}
+
+.__inline {
+    display: flex;
+
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.label {
+    max-width: 100%;
+    white-space: normal;
+    padding: 0;
+    font-size: p.font-size(--dt-font-body-strong-s-size);
+    line-height: p.line-height(--dt-font-body-strong-s-line-height);
+    font-weight: var(--dt-font-body-strong-s-weight);
+    color: var(--dt-color-content-default);
+
+    margin-bottom: var(--checkbox-group-label-offset);
+}
+
+.c-checkbox-group.__inline {
+    margin: calc(-1 * var(--checkbox-group-offset--inline) / 2) calc(-1 * var(--checkbox-group-offset--inline) / 2);
+
+    ::slotted(pie-checkbox) {
+        margin: calc(var(--checkbox-group-offset--inline) / 2) calc(var(--checkbox-group-offset--inline) / 2);
+    }
+
+    .label {
+        margin: 0 calc(var(--checkbox-group-offset--inline) / 2) calc(-1 * (var(--checkbox-group-offset--inline) / 2 - var(--checkbox-group-label-offset)));
+    }
+}
