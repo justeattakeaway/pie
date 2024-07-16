@@ -127,6 +127,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     }
 
     async firstUpdated (changedProperties: PropertyValues<this>) : Promise<void> {
+        console.log('initial open state in firstUpdated', this.isOpen);
         super.firstUpdated(changedProperties);
 
         if (this._dialog) {
@@ -206,8 +207,10 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     private _handleModalOpenStateOnFirstRender (changedProperties: PropertyValues<this>) : void {
         // This ensures if the modal is open on first render, the scroll lock and backdrop are applied
         const previousValue = changedProperties.get('isOpen');
+        console.log('previous value in firstUpdated', previousValue);
 
         if (previousValue === undefined && this.isOpen) {
+            console.log('Dispatching open event on first render');
             dispatchCustomEvent(this, ON_MODAL_OPEN_EVENT, { targetModal: this });
         }
     }
