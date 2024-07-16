@@ -59,30 +59,32 @@ test.beforeEach(async ({ mount }, testInfo) => {
     await assistiveTextComponent.unmount();
 });
 
-componentVariants.forEach((variant) => test(`should render all prop variations for the checked state: ${variant}`, async ({ page, mount }) => {
-    for (const combo of componentPropsMatrixByCheckedState[variant]) {
-        const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCheckbox);
-        const propKeyValues = `
-            checked: ${testComponent.propValues.checked},
-            disabled: ${testComponent.propValues.disabled},
-            label: ${testComponent.propValues.label ? 'with label' : 'no label'},
-            status: ${testComponent.propValues.status},
-            indeterminate: ${testComponent.propValues.indeterminate},
-            assistiveText: ${testComponent.propValues.assistiveText ? 'with assistive text' : 'no assistive text'}`;
+for (const variant of componentVariants) {
+    test(`should render all prop variations for the checked state: ${variant}`, async ({ page, mount }) => {
+        for (const combo of componentPropsMatrixByCheckedState[variant]) {
+            const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCheckbox);
+            const propKeyValues = `
+                checked: ${testComponent.propValues.checked},
+                disabled: ${testComponent.propValues.disabled},
+                label: ${testComponent.propValues.label ? 'with label' : 'no label'},
+                status: ${testComponent.propValues.status},
+                indeterminate: ${testComponent.propValues.indeterminate},
+                assistiveText: ${testComponent.propValues.assistiveText ? 'with assistive text' : 'no assistive text'}`;
 
-        await mount(
-            WebComponentTestWrapper,
-            {
-                props: { propKeyValues },
-                slots: {
-                    component: testComponent.renderedString.trim(),
+            await mount(
+                WebComponentTestWrapper,
+                {
+                    props: { propKeyValues },
+                    slots: {
+                        component: testComponent.renderedString.trim(),
+                    },
                 },
-            },
-        );
-    }
+            );
+        }
 
-    await percySnapshot(page, `PIE Checkbox - Checked State: ${variant}`, percyWidths);
-}));
+        await percySnapshot(page, `PIE Checkbox - Checked State: ${variant}`, percyWidths);
+    });
+}
 
 for (const dir of readingDirections) {
     test(`Assistive text and statuses - ${dir}`, async ({ mount, page }) => {

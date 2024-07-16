@@ -44,30 +44,32 @@ test.beforeEach(async ({ mount }, testInfo) => {
     await iconComponent.unmount();
 });
 
-componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    for (const combo of componentPropsMatrixByVariant[variant]) {
-        const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieChip);
-        const propKeyValues = `
-            variant: ${testComponent.propValues.variant},
-            isSelected: ${testComponent.propValues.isSelected},
-            isLoading: ${testComponent.propValues.isLoading},
-            isDismissible: ${testComponent.propValues.isDismissible},
-            disabled: ${testComponent.propValues.disabled},
-            iconSlot: ${testComponent.propValues.iconSlot ? 'with icon' : 'no icon'}`;
+for (const variant of componentVariants) {
+    test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+        for (const combo of componentPropsMatrixByVariant[variant]) {
+            const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieChip);
+            const propKeyValues = `
+                variant: ${testComponent.propValues.variant},
+                isSelected: ${testComponent.propValues.isSelected},
+                isLoading: ${testComponent.propValues.isLoading},
+                isDismissible: ${testComponent.propValues.isDismissible},
+                disabled: ${testComponent.propValues.disabled},
+                iconSlot: ${testComponent.propValues.iconSlot ? 'with icon' : 'no icon'}`;
 
-        await mount(
-            WebComponentTestWrapper,
-            {
-                props: { propKeyValues },
-                slots: {
-                    component: testComponent.renderedString.trim(),
+            await mount(
+                WebComponentTestWrapper,
+                {
+                    props: { propKeyValues },
+                    slots: {
+                        component: testComponent.renderedString.trim(),
+                    },
                 },
-            },
-        );
-    }
+            );
+        }
 
-    // Follow up to remove in Jan
-    await page.waitForTimeout(5000);
+        // Follow up to remove in Jan
+        await page.waitForTimeout(5000);
 
-    await percySnapshot(page, `PIE Chip - Variant: ${variant}`, percyWidths);
-}));
+        await percySnapshot(page, `PIE Chip - Variant: ${variant}`, percyWidths);
+    });
+}

@@ -35,23 +35,25 @@ test.describe('PieSpinner - Visual tests`', () => {
     const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
     const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
-    componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-        for (const combo of componentPropsMatrixByVariant[variant]) {
-            const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieSpinner);
-            const propKeyValues = `variant: ${testComponent.propValues.variant}, size: ${testComponent.propValues.size}`;
-            const darkMode = variant.includes('inverse');
+    for (const variant of componentVariants) {
+        test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+            for (const combo of componentPropsMatrixByVariant[variant]) {
+                const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieSpinner);
+                const propKeyValues = `variant: ${testComponent.propValues.variant}, size: ${testComponent.propValues.size}`;
+                const darkMode = variant.includes('inverse');
 
-            await mount(
-                WebComponentTestWrapper,
-                {
-                    props: { propKeyValues, darkMode },
-                    slots: {
-                        component: testComponent.renderedString.trim(),
+                await mount(
+                    WebComponentTestWrapper,
+                    {
+                        props: { propKeyValues, darkMode },
+                        slots: {
+                            component: testComponent.renderedString.trim(),
+                        },
                     },
-                },
-            );
-        }
+                );
+            }
 
-        await percySnapshot(page, `PIE Spinner - Variant: ${variant}`, percyWidths);
-    }));
+            await percySnapshot(page, `PIE Spinner - Variant: ${variant}`, percyWidths);
+        });
+    }
 });

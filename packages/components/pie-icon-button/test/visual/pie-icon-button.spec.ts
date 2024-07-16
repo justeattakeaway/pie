@@ -43,22 +43,24 @@ test.beforeEach(async ({ mount }, testInfo) => {
     await iconComponent.unmount();
 });
 
-componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    for (const combo of componentPropsMatrixByVariant[variant]) {
-        const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieIconButton);
-        const propKeyValues = `size: ${testComponent.propValues.size}, disabled: ${testComponent.propValues.disabled}, isLoading: ${testComponent.propValues.isLoading}`;
-        const darkMode = variant.includes('inverse');
+for (const variant of componentVariants) {
+    test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+        for (const combo of componentPropsMatrixByVariant[variant]) {
+            const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieIconButton);
+            const propKeyValues = `size: ${testComponent.propValues.size}, disabled: ${testComponent.propValues.disabled}, isLoading: ${testComponent.propValues.isLoading}`;
+            const darkMode = variant.includes('inverse');
 
-        await mount(
-            WebComponentTestWrapper,
-            {
-                props: { propKeyValues, darkMode },
-                slots: {
-                    component: testComponent.renderedString,
+            await mount(
+                WebComponentTestWrapper,
+                {
+                    props: { propKeyValues, darkMode },
+                    slots: {
+                        component: testComponent.renderedString,
+                    },
                 },
-            },
-        );
-    }
+            );
+        }
 
-    await percySnapshot(page, `PIE Icon Button - Variant: ${variant}`, percyWidths);
-}));
+        await percySnapshot(page, `PIE Icon Button - Variant: ${variant}`, percyWidths);
+    });
+}

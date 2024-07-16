@@ -49,27 +49,29 @@ test.beforeEach(async ({ mount }, testInfo) => {
     await iconComponent.unmount();
 });
 
-componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    for (const combo of componentPropsMatrixByVariant[variant]) {
-        const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieLink);
-        const propKeyValues = `
-            tag: ${testComponent.propValues.tag},
-            size: ${testComponent.propValues.size},
-            iconPlacement: ${testComponent.propValues.iconPlacement},
-            isBold: ${testComponent.propValues.isBold},
-            isStandalone: ${testComponent.propValues.isStandalone},
-            href: ${testComponent.propValues.href}`;
+for (const variant of componentVariants) {
+    test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+        for (const combo of componentPropsMatrixByVariant[variant]) {
+            const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieLink);
+            const propKeyValues = `
+                tag: ${testComponent.propValues.tag},
+                size: ${testComponent.propValues.size},
+                iconPlacement: ${testComponent.propValues.iconPlacement},
+                isBold: ${testComponent.propValues.isBold},
+                isStandalone: ${testComponent.propValues.isStandalone},
+                href: ${testComponent.propValues.href}`;
 
-        await mount(
-            WebComponentTestWrapper,
-            {
-                props: { propKeyValues, darkMode: variant === 'inverse' },
-                slots: {
-                    component: testComponent.renderedString.trim(),
+            await mount(
+                WebComponentTestWrapper,
+                {
+                    props: { propKeyValues, darkMode: variant === 'inverse' },
+                    slots: {
+                        component: testComponent.renderedString.trim(),
+                    },
                 },
-            },
-        );
-    }
+            );
+        }
 
-    await percySnapshot(page, `PIE Link - Variant: ${variant}`, percyWidths);
-}));
+        await percySnapshot(page, `PIE Link - Variant: ${variant}`, percyWidths);
+    });
+}

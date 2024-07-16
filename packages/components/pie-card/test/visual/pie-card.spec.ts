@@ -49,49 +49,51 @@ test.describe('PieCard - Visual tests`', () => {
     const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
     const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
-    componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-        for (const combo of componentPropsMatrixByVariant[variant]) {
-            const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCard);
-            const propKeyValues = `tag: ${testComponent.propValues.tag}, disabled: ${testComponent.propValues.disabled}`;
-            const darkMode = variant.includes('inverse');
+    for (const variant of componentVariants) {
+        test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+            for (const combo of componentPropsMatrixByVariant[variant]) {
+                const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCard);
+                const propKeyValues = `tag: ${testComponent.propValues.tag}, disabled: ${testComponent.propValues.disabled}`;
+                const darkMode = variant.includes('inverse');
 
-            await mount(
-                WebComponentTestWrapper,
-                {
-                    props: { propKeyValues, darkMode },
-                    slots: {
-                        component: testComponent.renderedString.trim(),
+                await mount(
+                    WebComponentTestWrapper,
+                    {
+                        props: { propKeyValues, darkMode },
+                        slots: {
+                            component: testComponent.renderedString.trim(),
+                        },
                     },
-                },
-            );
-        }
+                );
+            }
 
-        await percySnapshot(page, `PIE Card - Variant: ${variant}`, percyWidths);
-    }));
-});
-
-test.describe('PieCard - `padding` prop', async () => {
-    const batchSize = Math.ceil(paddingValues.length / 7);
-    const batches: string[][] = [];
-
-    for (let i = 0; i < paddingValues.length; i += batchSize) {
-        batches.push(paddingValues.slice(i, i + batchSize));
+            await percySnapshot(page, `PIE Card - Variant: ${variant}`, percyWidths);
+        });
     }
 
-    batches.forEach((batch, index) => test(`should render the padding prop value of batch number: ${index}`, async ({ page, mount }) => {
-        for (const padding of batch) {
-            const testComponent: WebComponentTestInput = createTestWebComponent({ padding }, renderTestPieCard);
-            const propKeyValues = `padding: ${testComponent.propValues.padding}`;
+    test.describe('PieCard - `padding` prop', async () => {
+        const batchSize = Math.ceil(paddingValues.length / 7);
+        const batches: string[][] = [];
 
-            await mount(
-                WebComponentTestWrapper,
-                {
-                    props: { propKeyValues },
-                    slots: { component: testComponent.renderedString.trim() },
-                },
-            );
+        for (let i = 0; i < paddingValues.length; i += batchSize) {
+            batches.push(paddingValues.slice(i, i + batchSize));
         }
 
-        await percySnapshot(page, `PIE Card - Padding values | batch number: ${index}`, percyWidths);
-    }));
+        batches.forEach((batch, index) => test(`should render the padding prop value of batch number: ${index}`, async ({ page, mount }) => {
+            for (const padding of batch) {
+                const testComponent: WebComponentTestInput = createTestWebComponent({ padding }, renderTestPieCard);
+                const propKeyValues = `padding: ${testComponent.propValues.padding}`;
+
+                await mount(
+                    WebComponentTestWrapper,
+                    {
+                        props: { propKeyValues },
+                        slots: { component: testComponent.renderedString.trim() },
+                    },
+                );
+            }
+
+            await percySnapshot(page, `PIE Card - Padding values | batch number: ${index}`, percyWidths);
+        }));
+    });
 });

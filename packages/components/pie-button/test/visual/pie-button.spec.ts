@@ -45,25 +45,24 @@ test.beforeEach(async ({ mount }, testInfo) => {
     await iconComponent.unmount();
 });
 
-componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    for (const combo of componentPropsMatrixByVariant[variant]) {
-        const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieButton);
-        const propKeyValues = `size: ${testComponent.propValues.size}, iconPlacement: ${testComponent.propValues.iconPlacement}, isFullWidth: ${testComponent.propValues.isFullWidth}, disabled: ${testComponent.propValues.disabled}, isLoading: ${testComponent.propValues.isLoading}`;
-        const darkMode = ['inverse', 'ghost-inverse', 'outline-inverse'].includes(variant);
+for (const variant of componentVariants) {
+    test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+        for (const combo of componentPropsMatrixByVariant[variant]) {
+            const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieButton);
+            const propKeyValues = `size: ${testComponent.propValues.size}, iconPlacement: ${testComponent.propValues.iconPlacement}, isFullWidth: ${testComponent.propValues.isFullWidth}, disabled: ${testComponent.propValues.disabled}, isLoading: ${testComponent.propValues.isLoading}`;
+            const darkMode = ['inverse', 'ghost-inverse', 'outline-inverse'].includes(variant);
 
-        await mount(
-            WebComponentTestWrapper,
-            {
-                props: { propKeyValues, darkMode },
-                slots: {
-                    component: testComponent.renderedString.trim(),
+            await mount(
+                WebComponentTestWrapper,
+                {
+                    props: { propKeyValues, darkMode },
+                    slots: {
+                        component: testComponent.renderedString.trim(),
+                    },
                 },
-            },
-        );
-    }
+            );
+        }
 
-    // Follow up to remove in Jan
-    await page.waitForTimeout(2500);
-
-    await percySnapshot(page, `PIE Button - Variant: ${variant}`, percyWidths);
-}));
+        await percySnapshot(page, `PIE Button - Variant: ${variant}`, percyWidths);
+    });
+}

@@ -43,30 +43,32 @@ test.beforeEach(async ({ mount }, testInfo) => {
     await iconComponent.unmount();
 });
 
-componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    for (const combo of componentPropsMatrixByVariant[variant]) {
-        const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieTag);
-        const propKeyValues = `
-            size: ${testComponent.propValues.size},
-            variant: ${testComponent.propValues.variant},
-            isStrong: ${testComponent.propValues.isStrong},
-            isDimmed: ${testComponent.propValues.isDimmed},
-            iconSlot: ${testComponent.propValues.iconSlot ? 'with icon' : 'no icon'}`;
-        const darkMode = ['neutral-alternative'].includes(variant);
+for (const variant of componentVariants) {
+    test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+        for (const combo of componentPropsMatrixByVariant[variant]) {
+            const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieTag);
+            const propKeyValues = `
+                size: ${testComponent.propValues.size},
+                variant: ${testComponent.propValues.variant},
+                isStrong: ${testComponent.propValues.isStrong},
+                isDimmed: ${testComponent.propValues.isDimmed},
+                iconSlot: ${testComponent.propValues.iconSlot ? 'with icon' : 'no icon'}`;
+            const darkMode = ['neutral-alternative'].includes(variant);
 
-        await mount(
-            WebComponentTestWrapper,
-            {
-                props: { propKeyValues, darkMode },
-                slots: {
-                    component: testComponent.renderedString.trim(),
+            await mount(
+                WebComponentTestWrapper,
+                {
+                    props: { propKeyValues, darkMode },
+                    slots: {
+                        component: testComponent.renderedString.trim(),
+                    },
                 },
-            },
-        );
-    }
+            );
+        }
 
-    // Follow up to remove in Jan
-    await page.waitForTimeout(5000);
+        // Follow up to remove in Jan
+        await page.waitForTimeout(5000);
 
-    await percySnapshot(page, `PIE Tag - Variant: ${variant}`, percyWidths);
-}));
+        await percySnapshot(page, `PIE Tag - Variant: ${variant}`, percyWidths);
+    });
+}

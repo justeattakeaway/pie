@@ -43,22 +43,24 @@ test.beforeEach(async ({ mount }) => {
     await component.unmount();
 });
 
-componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    for (const combo of componentPropsMatrixByVariant[variant]) {
-        const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieDivider);
-        const propKeyValues = `orientation: ${testComponent.propValues.orientation}`;
+for (const variant of componentVariants) {
+    test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+        for (const combo of componentPropsMatrixByVariant[variant]) {
+            const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieDivider);
+            const propKeyValues = `orientation: ${testComponent.propValues.orientation}`;
 
-        await mount(
-            WebComponentTestWrapper,
-            {
-                props: { propKeyValues, darkMode: variant === 'inverse' },
-                slots: {
-                    component: testComponent.renderedString.trim(),
+            await mount(
+                WebComponentTestWrapper,
+                {
+                    props: { propKeyValues, darkMode: variant === 'inverse' },
+                    slots: {
+                        component: testComponent.renderedString.trim(),
+                    },
                 },
-            },
 
-        );
-    }
+            );
+        }
 
-    await percySnapshot(page, `PIE Divider - Variant: ${variant}`, percyWidths);
-}));
+        await percySnapshot(page, `PIE Divider - Variant: ${variant}`, percyWidths);
+    });
+}

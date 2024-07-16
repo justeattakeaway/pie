@@ -62,36 +62,38 @@ test.beforeEach(async ({ mount }, testInfo) => {
     await iconComponent.unmount();
 });
 
-componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    for (const combo of componentPropsMatrixByVariant[variant]) {
-        const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieNotification);
+for (const variant of componentVariants) {
+    test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+        for (const combo of componentPropsMatrixByVariant[variant]) {
+            const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieNotification);
 
-        const propKeyValues = `
-            variant: ${testComponent.propValues.variant},
-            isCompact: ${testComponent.propValues.isCompact},
-            isDismissible: ${testComponent.propValues.isDismissible},
-            hideIcon: ${testComponent.propValues.hideIcon},
-            heading: ${testComponent.propValues.heading}
-        `;
+            const propKeyValues = `
+                variant: ${testComponent.propValues.variant},
+                isCompact: ${testComponent.propValues.isCompact},
+                isDismissible: ${testComponent.propValues.isDismissible},
+                hideIcon: ${testComponent.propValues.hideIcon},
+                heading: ${testComponent.propValues.heading}
+            `;
 
-        const darkMode = ['neutral-alternative'].includes(variant);
+            const darkMode = ['neutral-alternative'].includes(variant);
 
-        await mount(
-            WebComponentTestWrapper,
-            {
-                props: { propKeyValues, darkMode },
-                slots: {
-                    component: testComponent.renderedString.trim(),
+            await mount(
+                WebComponentTestWrapper,
+                {
+                    props: { propKeyValues, darkMode },
+                    slots: {
+                        component: testComponent.renderedString.trim(),
+                    },
                 },
-            },
-        );
-    }
+            );
+        }
 
-    // Follow up to remove in Jan
-    await page.waitForTimeout(5000);
+        // Follow up to remove in Jan
+        await page.waitForTimeout(5000);
 
-    await percySnapshot(page, `PIE Notification - Variant: ${variant}`, screenWidths);
-}));
+        await percySnapshot(page, `PIE Notification - Variant: ${variant}`, screenWidths);
+    });
+}
 
 const initialValues: NotificationProps = {
     isOpen: true,
