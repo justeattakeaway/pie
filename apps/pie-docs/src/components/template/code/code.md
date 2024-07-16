@@ -13,8 +13,12 @@ eleventyComputed:
 ## Overview
 
 <p>
-  <a href="https://www.npmjs.com/@justeattakeaway/{component}">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-button.svg">
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-template" style="text-decoration: none">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-template.svg?label=pie-template">
+  </a>
+
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-webc">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc.svg?label=pie-webc">
   </a>
 </p>
 
@@ -89,7 +93,7 @@ For HTML:
 
 ```
 
-For Native JS Applications, Vue, Angular, Svelte etc.: 
+For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 
