@@ -50,7 +50,7 @@ For more details on Fozzie, Snacks and Skip PIE, please check out the **document
 
 ---
 
-## Which library should I use?
+##  Which library should I use?
 
 ### Latest tech stack and Vanilla JS
 
@@ -77,10 +77,10 @@ For more details on Fozzie, Snacks and Skip PIE, please check out the **document
     } %}
 {% endcontentLayout %}
 
-If you are working with the latest version of React or Vue, we recommend using
-[PIE Web Components](/engineers/web-components/)
+If you are working with latest stack both in React and Vue ecosystems, we recommend to go straight away with
+[PIE Web Components](/engineers/web-components/).
 
-### Next 13 and below 
+### Next 13 and earlier versions 
 
 {% contentLayout %}
     {% tag {
@@ -93,8 +93,10 @@ If you are working with the latest version of React or Vue, we recommend using
     } %}
 {% endcontentLayout %}
  
-For Next 13 and below, we recommend using [PIE Web Components](/engineers/web-components/)
-only for client side components. If you need to render components on the server (SSR), [Snacks](https://snacks.takeaway.com/portal/) is the best library for you.
+You can use [PIE Web Components](/engineers/web-components/) for Next 13 or earlier versions if you don't need SSR. 
+If you need to render components on the server (SSR), [Snacks](https://snacks.takeaway.com/portal/) is the best library for you.
+
+We recommend updating to Next 14 if you would like to use our latest Web Components.
 
 ### Vue and Nuxt 2
 
@@ -119,7 +121,7 @@ We recommend using [PIE Web Components](/engineers/web-components/) as much as y
 
 **I need it right away**
 
-If you need the component right away, please check our legacy libraries ([Snacks](https://snacks.takeaway.com/) and [Fozzie](https://vue.pie.design/)) in case a suitable component already exists.
+If you need the component right away, check our legacy libraries ([Snacks](https://snacks.takeaway.com/) and [Fozzie](https://vue.pie.design/)) in case a suitable component already exists.
 We also recommend to check with our team if you can use another existing component for your solution instead.
 
 If you can't wait and can't find the component in our libraries, please implement it yourself in your codebase.
@@ -129,7 +131,7 @@ If you can't wait and can't find the component in our libraries, please implemen
 
 If you have some time before needing the component or are planning ahead, please reach out to us in **#help-designsystem** to check if we can include the component you need.
 
-In our current process it takes us around a month and a half to two months to have a new component ready from design to implementation, so please keep this in mind.
+In our current process it takes us around a month and a half to two months to have a new component ready from design to implementation, so keep this in mind.
 
 **I'd like to contribute to the component library**
 

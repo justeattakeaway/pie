@@ -1,3 +1,4 @@
+// @TODO DSW-2258: be replaced once web components are integrated
 /**
  * Generate an HTML tag component. It duplicates pie tag variants.
  * Can be replaced by pie tag when we include pie web components
