@@ -163,8 +163,8 @@ import { PieButton } from '@justeattakeaway/pie-webc/react/button.js';
 ```
 
 ```jsx
-// React templates (using Next 13)
-import { PieButton } from '@justeattakeaway/pie-webc/react/button';
+// React templates (using Next 13 and SSR)
+import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 
 <PieButton onClick={handleClick}>increment</PieButton>
 ```

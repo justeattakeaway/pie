@@ -139,8 +139,8 @@ import { IconClose } from '@justeattakeaway/pie-icons-webc/dist/react/IconClose.
 ```
 
 ```jsx
-// React templates (using Next 13)
-import { PieIconButton } from '@justeattakeaway/pie-webc/react/icon-button';
+// React templates (using Next 13 and SSR)
+import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react';
 import { IconClose } from '@justeattakeaway/pie-icons-webc/dist/react/IconClose';
 
 <PieIconButton onClick={handleClick}>

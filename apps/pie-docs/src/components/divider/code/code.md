@@ -99,8 +99,8 @@ import { PieDivider } from '@justeattakeaway/pie-webc/react/divider.js';
 ```
 
 ```jsx
-// React templates (using Next 13)
-import { PieDivider } from '@justeattakeaway/pie-webc/react/divider';
+// React templates (using Next 13 and SSR)
+import { PieDivider } from '@justeattakeaway/pie-divider/dist/react';
 
 <PieDivider></PieDivider>
 ```

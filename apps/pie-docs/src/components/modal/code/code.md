@@ -113,8 +113,8 @@ import { PieModal } from '@justeattakeaway/pie-webc/react/modal.js';
 ```
 
 ```jsx
-// React templates (using Next 13)
-import { PieModal } from '@justeattakeaway/pie-webc/react/modal';
+// React templates (using Next 13 and SSR)
+import { PieModal } from '@justeattakeaway/pie-modal/dist/react';
 
 <PieModal heading='My Awesome Heading' headingLevel='h3'>Click me!</PieModal>
 ```
