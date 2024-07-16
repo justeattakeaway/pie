@@ -44,7 +44,7 @@ test.beforeEach(async ({ mount }) => {
 });
 
 componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
+    for (const combo of componentPropsMatrixByVariant[variant]) {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieDivider);
         const propKeyValues = `orientation: ${testComponent.propValues.orientation}`;
 
@@ -58,7 +58,7 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
             },
 
         );
-    }));
+    }
 
     await percySnapshot(page, `PIE Divider - Variant: ${variant}`, percyWidths);
 }));

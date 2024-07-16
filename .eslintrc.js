@@ -27,6 +27,14 @@ module.exports = {
             parserOptions: {
                 project: `${__dirname}/tsconfig.json`,
             },
+        },
+        {
+            files: ['**/components/**/visual/*.spec.ts'],
+            rules: {
+                // ForOfStatement is allowed in Visual tests
+                'no-restricted-syntax': ['error', 'ForInStatement', 'LabeledStatement', 'WithStatement'],
+                'no-await-in-loop': 'off',
+            },
         }
     ],
 };

@@ -51,7 +51,7 @@
         }
     }
 
-    a:not(.cookie-banner-anchor a) {
+    a {
         text-decoration: none;
         color: var(--dt-color-content-default);
     }

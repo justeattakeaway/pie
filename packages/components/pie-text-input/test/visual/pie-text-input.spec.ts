@@ -72,7 +72,7 @@ test('Size variants with value and placeholder', async ({ mount, page }) => {
     const value = 'String';
     const placeholder = 'Placeholder';
 
-    await Promise.all(sizeVariants.map(async (size) => {
+    for (const size of sizeVariants) {
         let testComponent: WebComponentTestInput = createTestWebComponent({ size, value }, renderTestPieTextInput);
         let propKeyValues = `size: ${testComponent.propValues.size}, value: ${testComponent.propValues.value}`;
 
@@ -98,14 +98,14 @@ test('Size variants with value and placeholder', async ({ mount, page }) => {
                 },
             },
         );
-    }));
+    }
 
     await percySnapshot(page, 'PIE Text Input - Size variants with value and placeholder', percyWidths);
 });
 
 const readingDirections = ['LTR', 'RTL'];
 
-await Promise.all(readingDirections.map(async (dir) => {
+for (const dir of readingDirections) {
     test(`Assistive text and statuses - ${dir}`, async ({ mount, page }) => {
         if (dir === 'RTL') {
             setRTL(page);
@@ -169,9 +169,9 @@ await Promise.all(readingDirections.map(async (dir) => {
 
         await percySnapshot(page, `PIE Text Input - Assistive text and statuses - ${dir}`, percyWidths);
     });
-}));
+}
 
-await Promise.all(readingDirections.map(async (dir) => {
+for (const dir of readingDirections) {
     test(`Content and slots - ${dir}`, async ({ mount, page }) => {
         if (dir === 'RTL') {
             setRTL(page);
@@ -456,4 +456,4 @@ await Promise.all(readingDirections.map(async (dir) => {
 
         await percySnapshot(page, `PIE Text Input - Content and Slots - ${dir}`, percyWidths);
     });
-}));
+}

@@ -44,7 +44,7 @@ test.beforeEach(async ({ mount }, testInfo) => {
 });
 
 componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
+    for (const combo of componentPropsMatrixByVariant[variant]) {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieIconButton);
         const propKeyValues = `size: ${testComponent.propValues.size}, disabled: ${testComponent.propValues.disabled}, isLoading: ${testComponent.propValues.isLoading}`;
         const darkMode = variant.includes('inverse');
@@ -58,7 +58,7 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
                 },
             },
         );
-    }));
+    }
 
     await percySnapshot(page, `PIE Icon Button - Variant: ${variant}`, percyWidths);
 }));
