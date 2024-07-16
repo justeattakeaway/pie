@@ -111,6 +111,11 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 
+    constructor () {
+        super();
+        console.log('leadingAction in constructor', this.leadingAction);
+    }
+
     connectedCallback () : void {
         super.connectedCallback();
         this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
