@@ -37,7 +37,7 @@ test.beforeEach(async ({ mount }, testInfo) => {
 });
 
 test('should render all prop variations', async ({ page, mount }) => {
-    componentVariants.forEach(async (variant) => {
+    for (const variant of componentVariants) {
         for (const combo of componentPropsMatrixByVariant[variant]) {
             const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieAssistiveText);
 
@@ -53,13 +53,13 @@ test('should render all prop variations', async ({ page, mount }) => {
                 },
             );
         }
-    });
+    }
 
     await percySnapshot(page, 'PIE Assistive Text - Variants', percyWidths);
 });
 
 test('should render all prop variations with RTL set', async ({ page, mount }) => {
-    componentVariants.forEach(async (variant) => {
+    for (const variant of componentVariants) {
         for (const combo of componentPropsMatrixByVariant[variant]) {
             const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieAssistiveText);
 
@@ -77,7 +77,7 @@ test('should render all prop variations with RTL set', async ({ page, mount }) =
                 },
             );
         }
-    });
+    }
 
     await percySnapshot(page, 'PIE Assistive Text - Variants with RTL', percyWidths);
 });
