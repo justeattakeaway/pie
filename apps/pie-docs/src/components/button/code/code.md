@@ -12,8 +12,12 @@ eleventyComputed:
 ## Overview
 
 <p>
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-button">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-button.svg">
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-button" style="text-decoration: none">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-button.svg?label=pie-button">
+  </a>
+
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-webc">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc.svg?label=pie-webc">
   </a>
 </p>
 
@@ -26,11 +30,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-button` in your application, run the following on your command line:
 
 ```shell
-npm i @justeattakeaway/pie-button
+npm i @justeattakeaway/pie-webc
 ```
 
 ```shell
-yarn add @justeattakeaway/pie-button
+yarn add @justeattakeaway/pie-webc
 ```
 
 {% notification {
@@ -132,7 +136,7 @@ For HTML:
 
 ```js
 // import as module into a js file e.g. main.js
-import '@justeattakeaway/pie-button'
+import '@justeattakeaway/pie-webc/components/button.js'
 ```
 
 ```html
@@ -145,19 +149,24 @@ For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 // Vue templates (using Nuxt 3)
-import { PieButton } from '@justeattakeaway/pie-button';
+import { PieButton } from '@justeattakeaway/pie-webc/components/button.js';
 
 <pie-button @click="handleClick" size="large" type="button" variant="secondary">Click me!</pie-button>
 ```
 
 For React Applications:
 
-```js
-// React templates (using Next 13)
+```jsx
+import { PieButton } from '@justeattakeaway/pie-webc/react/button.js';
+
+<PieButton onClick={handleClick}>increment</PieButton>
+```
+
+```jsx
+// React templates (using Next 13 and SSR)
 import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 
 <PieButton onClick={handleClick}>increment</PieButton>
-
 ```
 
 {% notification {
