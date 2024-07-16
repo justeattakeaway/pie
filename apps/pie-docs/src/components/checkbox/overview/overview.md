@@ -15,7 +15,7 @@ They are commonly used in forms, settings panels, and various other interfaces w
 
 {% contentPageImage {
     src:"../../../assets/img/components/checkbox/overview.svg",
-    alt: "Selected checkbox component for accepting the terms and conditions placed at the bottom of the container."
+    alt: "Checkbox labeled 'I have read and accepted the terms and conditions' is checked."
 } %}
 
 ---
@@ -64,7 +64,7 @@ They are commonly used in forms, settings panels, and various other interfaces w
 
 {% contentPageImage {
     src:"../../../assets/img/components/checkbox/checkbox-default.svg",
-    alt: "Checkbox component in default state.",
+    alt: "Checkbox component in a default state.",
     width: "70px"
 } %}
 
@@ -81,14 +81,14 @@ A label should always be present unless being utilised as a nested component and
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-default.svg",
       width: "70px",
-      alt: "Checkbox component with a specified label text."
+      alt: "A blank checkbox followed by the label text."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox.svg",
       width: "24px",
-      alt: "Checkbox component without label text."
+      alt: "A blank checkbox component."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -99,7 +99,7 @@ Assistive text is used where needed to provide additional information or error /
 
 {% contentPageImage {
     src:"../../../assets/img/components/checkbox/checkbox-with-assistive-text.svg",
-    alt: "Checkbox component with assistive text below.",
+    alt: "A blank checkbox followed by assistive text in red below it.",
     width: "112px"
 } %}
 
@@ -124,7 +124,7 @@ When the label exceeds the available width, the label will wrap onto a new line.
 
 {% contentPageImage {
     src:"../../../assets/img/components/checkbox/overflow.svg",
-    alt: "Checkbox component with overflow displayed.",
+    alt: "A blank checkbox followed by the label that exceeds the available width and wraps onto a new line.",
     width: "281px"
 } %}
 
@@ -143,21 +143,21 @@ Use the partially selected state when the checkbox contains a sublist of selecti
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-unselected.svg",
       width: "112px",
-      alt: "Selected checkbox."
+      alt: "Checkbox component in a selected state."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-selected.svg",
       width: "94px",
-      alt: "Unselected checkbox."
+      alt: "Checkbox component in an unselected state."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-partially-selected.svg",
       width: "154px",
-      alt: "Partially selected checkbox."
+      alt: "Checkbox component in a partially selected state."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -173,14 +173,14 @@ Users can trigger the checkbox directly or by clicking the checkbox label. Havin
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-interaction.svg",
       width: "70px",
-      alt: "The illustration represents that users can trigger the checkbox directly."
+      alt: "An illustration represents that users can trigger the checkbox directly."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-label-interaction.svg",
       width: "70px",
-      alt: "The illustration represents that users can trigger the checkbox by clicking the checkbox label."
+      alt: "An illustration represents that users can trigger the checkbox by clicking the checkbox label. "
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -197,7 +197,7 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-default.svg",
       width: "70px",
-      alt: "An example of a checkbox default state."
+      alt: "Checkbox component in a default state."
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -205,7 +205,7 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-hovered.svg",
       width: "70px",
-      alt: "An example of a checkbox when hovering over it."
+      alt: "Checkbox component when hovered over."
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -213,15 +213,15 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-active.svg",
       width: "70px",
-      alt: "An example of a checkbox in active state."
+      alt: "Checkbox component in an active state."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     <h4>Focus</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/checkbox/checkbox-focused.png",
+      src: "../../../assets/img/components/checkbox/checkbox-focused.svg",
       width: "70px",
-      alt: "An example of a focused checkbox."
+      alt: "Checkbox component when it has focus."
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -229,7 +229,7 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-disabled.svg",
       width: "70px",
-      alt: "An example of a disabled checkbox."
+      alt: "Checkbox component in a disabled state."
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -257,14 +257,14 @@ Here are some examples of the component in left-to-right context:
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-LTR-agreement.svg",
       width: "375px",
-      alt: "Example of a left-to-right checkbox to accept the terms and conditions placed."
+      alt: "Checkbox labeled 'I have read and accepted the terms and conditions' in left-to-right context."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-checked-LTR.svg",
       width: "360px",
-      alt: "Example of a left-to-right checkbox."
+      alt: "Selected checkbox followed by the label text in left-to-right context."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -278,14 +278,14 @@ Here are some examples of the component in right-to-left context:
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-RTL-agreement.svg",
       width: "271px",
-      alt: "Example of a right-to-left checkbox to accept the terms and conditions placed."
+      alt: "Checkbox labeled 'I have read and accepted the terms and conditions' in right-to-left context."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-checked-RTL.svg",
       width: "360px",
-      alt: "Example of a right-to-left checkbox."
+      alt: "Selected checkbox followed by the label text in right-to-left context."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
