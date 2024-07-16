@@ -2,4 +2,4 @@
 "pie-docs": minor
 ---
 
-[Added] Checkbox overview page
+[Added] - Checkbox overview page
