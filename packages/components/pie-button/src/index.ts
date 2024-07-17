@@ -1,7 +1,7 @@
 import {
     LitElement, html, unsafeCSS, nothing, PropertyValues, TemplateResult,
 } from 'lit';
-import { classMap } from 'lit-html/directives/class-map.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement, FormControlMixin } from '@justeattakeaway/pie-webc-core';
 import {
@@ -229,8 +229,8 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
         const classes = {
             'o-btn': true,
             'o-btn--fullWidth': isFullWidth,
-            'is-responsive': isResponsive,
-            [`o-btn--${responsiveSize}`]: ((isResponsive && responsiveSize) || false),
+            'o-btn--responsive': isResponsive,
+            [`o-btn--${responsiveSize}`]: Boolean(isResponsive && responsiveSize),
             [`o-btn--${variant}`]: true,
             [`o-btn--${size}`]: true,
             'is-loading': isLoading,

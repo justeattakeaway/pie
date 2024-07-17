@@ -6,7 +6,7 @@
 * Takes in the the particular settings for the wide breakpoint.
 */
 @mixin responsive-wide {
-    &.is-responsive {
+    &.o-btn--responsive {
         @include media('>md') {
             @content;
         }
@@ -112,8 +112,8 @@
 
         // This is to handle the background colour change getting overridden above, but then being put in responsive mode
         // can't use :not for this unfortunately, as then the smaller narrow state would lose its background colour too
-        &.o-btn--xsmall.is-responsive.o-btn--expressive,
-        &.o-btn--small-productive.is-responsive {
+        &.o-btn--xsmall.o-btn--expressive,
+        &.o-btn--small-productive {
             @include responsive-wide {
                 --btn-bg-color: var(--dt-color-interactive-brand);
 
