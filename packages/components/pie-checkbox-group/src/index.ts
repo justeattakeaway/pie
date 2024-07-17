@@ -26,9 +26,12 @@ const assistiveTextId = 'assistive-text';
 
 /**
  * @tagname pie-checkbox-group
- * @event {CustomEvent} pie-checkbox-group-disabled - when the checkbox group disabled state changes.
+ * @event {CustomEvent} pie-checkbox-group-disabled - triggered after the disabled state of the checkbox group changes.
  */
 export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxGroupProps {
+    @property({ type: String })
+    public name?: CheckboxGroupProps['name'];
+
     @property({ type: String })
     public label?: CheckboxGroupProps['label'];
 
@@ -81,6 +84,7 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
 
     render () {
         const {
+            name,
             label,
             assistiveText,
             status,
@@ -88,6 +92,7 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
         } = this;
         return html`
             <fieldset
+                name=${ifDefined(name)}
                 ?disabled=${disabled}
                 aria-describedby="${ifDefined(assistiveText ? assistiveTextId : undefined)}"
                 data-test-id="pie-checkbox-group"

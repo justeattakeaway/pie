@@ -4,6 +4,11 @@ export const statusTypes = ['default', 'success', 'error'] as const;
 
 export interface CheckboxGroupProps {
     /**
+    * The name associated with the group.
+    */
+    name?: string;
+
+    /**
      * The label value of the component
      */
     label?: string;

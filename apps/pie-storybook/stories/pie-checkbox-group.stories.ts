@@ -21,8 +21,12 @@ const checkboxGroupStoryMeta: CheckboxGroupStoryMeta = {
     title: 'Checkbox Group',
     component: 'pie-checkbox-group',
     argTypes: {
+        name: {
+            description: 'The name associated with the group.',
+            control: 'text',
+        },
         label: {
-            description: 'The visible label for the checkbox group',
+            description: 'The visible label for the checkbox group.',
             control: 'text',
         },
         status: {
@@ -60,6 +64,7 @@ const checkboxGroupStoryMeta: CheckboxGroupStoryMeta = {
 export default checkboxGroupStoryMeta;
 
 const Template = ({
+    name,
     label,
     assistiveText,
     status,
@@ -68,6 +73,7 @@ const Template = ({
     <p>Please note, the checkboxes are separate components. See
     <pie-link href="/?path=/story/checkbox--default">pie-checkbox</pie-link>.</p>
     <pie-checkbox-group
+        name="${ifDefined(name)}"
         label="${ifDefined(label)}"
         assistiveText="${ifDefined(assistiveText)}"
         status=${ifDefined(status)}

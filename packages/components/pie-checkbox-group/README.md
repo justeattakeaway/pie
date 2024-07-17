@@ -21,6 +21,8 @@
 
 `pie-checkbox-group` is a Web Component built using the Lit library.
 
+It is a helper component that groups PieCheckbox components into a visual and functional group.
+
 This component can be easily integrated into various frontend frameworks and customized through a set of properties.
 
 
@@ -73,6 +75,7 @@ import { PieCheckboxGroup } from '@justeattakeaway/pie-checkbox-group/dist/react
 
 | Property | Type | Default | Description |
 |---|---|---|---|
+| `name` | string | - | The name associated with the group.
 | `label` | string | - | The label value of the component |
 | assistiveText | string | - | An optional assistive text to display below the checkbox group. |
 | `disabled` | boolean | - | Same as the HTML disabled attribute - indicates whether or not the checkbox group is disabled. |
@@ -84,11 +87,42 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 
 ```html
 <!-- Native HTML -->
-<pie-checkbox-group></pie-checkbox-group>
+<pie-checkbox-group name="TESTNAME">
+  <pie-checkbox
+    name="my-checkbox-one"
+    label="Checkbox Label 1">
+  </pie-checkbox>
+  <pie-checkbox
+      name="my-checkbox-two"
+      label="Checkbox Label 2">
+  </pie-checkbox>
+  <pie-checkbox
+      name="my-checkbox-three"
+      label="Checkbox Label 3">
+  </pie-checkbox>
+</pie-checkbox-group>
 
 <!-- JSX -->
-<PieCheckboxGroup></PieCheckboxGroup>
+<PieCheckboxGroup name="TESTNAME">
+  <PieCheckbox
+    name="my-checkbox-one"
+    label="Checkbox Label 1">
+  </PieCheckbox>
+  <PieCheckbox
+      name="my-checkbox-two"
+      label="Checkbox Label 2">
+  </PieCheckbox>
+  <PieCheckbox
+      name="my-checkbox-three"
+      label="Checkbox Label 3">
+  </PieCheckbox>
+</PieCheckboxGroup>
 ```
+
+## Events
+| Event | Type | Description |
+|-------|------|-------------|
+| `pie-checkbox-group-disabled` | `CustomEvent` | Triggered after the disabled state of the checkbox group changes. |
 
 ## Contributing
 

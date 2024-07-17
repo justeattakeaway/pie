@@ -67,9 +67,16 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
     public status = defaultProps.status;
 
-    constructor () {
-        super();
+    connectedCallback () : void {
+        super.connectedCallback();
+
         this.addEventListener('pie-checkbox-group-disabled', (e: CustomEventInit) => { this.disabledByParent = e.detail.disabled; });
+    }
+
+    disconnectedCallback () : void {
+        super.disconnectedCallback();
+
+        this.removeEventListener('pie-checkbox-group-disabled', (e: CustomEventInit) => { this.disabledByParent = e.detail.disabled; });
     }
 
     /**
