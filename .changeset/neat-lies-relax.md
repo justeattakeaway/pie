@@ -2,4 +2,4 @@
 "pie-docs": minor
 ---
 
-Updates Engineering copy and adds new Web Components index guide to current documentation in Github Wiki.
+[Changed] - Updates Engineering copy and adds new Web Components index guide to current documentation in Github Wiki.

@@ -16,11 +16,11 @@ If you're just starting out with PIE, here's a list of recommended resources to 
 
 ## PIE component systems
 
-We develop and maintain different projects that incorporate the PIE Design Language. If you would like to know which one to use, please follow [this guide](/engineers/getting-started/structure/#what-library-to-use) to understand what is the best library for you, based on your tech stack.
+We develop and maintain several component libraries that implement the PIE design language. Please follow [this guide](/engineers/getting-started/structure/#what-library-to-use) to find out which library to use based on your tech stack.
 
 For a more detailed look at the **component systems** the PIE team maintain, the PIE monorepo and how it’s structured, see the [structure section of our engineering docs](/engineers/getting-started/structure).
 
-For a list of what components are supported in our different libraries please refer to the [Components Status page](/components/component-status/).
+For a list of which components are supported in each of our libraries, please refer to the [Component Status page](/components/component-status/).
 
 ---
 

@@ -18,9 +18,9 @@ The long-term aim will be to migrate JET teams over to this Web Component System
 
 ## Component status
 
-[pie.design](/) host the documentation for our new Web Components, you can find under **Components** in the navigation bar.
+You can find the documentation for all of our components on this site in the **Components** section.
 
-For a list of what components are supported in our different libraries please refer to the [Status page](/components/component-status/).
+For a list of which components are supported in each of our libraries, please refer to the [Component Status page](/components/component-status/).
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 For every framework, you can start with our [Prerequisites Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
 
-For more specific frameworks, please follow this guides:
+For specific framework versions, please follow these guides:
 
 [Vue 3 Integration Guide](https://github.com/justeattakeaway/pie/wiki/PIE-Web-Components-%E2%80%90-Vue-Integration-Guide)
 

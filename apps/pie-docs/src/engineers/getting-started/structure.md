@@ -50,7 +50,7 @@ For more details on Fozzie, Snacks and Skip PIE, please check out the **document
 
 ---
 
-## What library to use?
+## Which library should I use?
 
 ### Latest tech stack and Vanilla JS
 
@@ -77,7 +77,7 @@ For more details on Fozzie, Snacks and Skip PIE, please check out the **document
     } %}
 {% endcontentLayout %}
 
-If you are working with latest stack both in React and Vue ecosystems, we recommend to go straight away with
+If you are working with the latest version of React or Vue, we recommend using
 [PIE Web Components](/engineers/web-components/)
 
 ### Next 13 and below 
@@ -111,15 +111,15 @@ only for client side components. If you need to render components on the server 
 
 Our [Fozzie](https://vue.pie.design/) library currently supports older versions of Vue. We recommend updating to the latest Vue ecosystem if possible.
 
-### Is your project a greenfield?
+### What if I'm working on a greenfield project?
 
 We recommend using [PIE Web Components](/engineers/web-components/) as much as you can, if your tech stack is supported. This helps us test our new components and avoids any need for a future migration.
 
 ### I can't find the web component I need
 
-**Do you need it right away?**
+**I need it right away**
 
-If you need the component right away, please check our legacy systems ([Snacks](https://snacks.takeaway.com/), [Fozzie](https://vue.pie.design/)) in case a similar component exist.
+If you need the component right away, please check our legacy libraries ([Snacks](https://snacks.takeaway.com/) and [Fozzie](https://vue.pie.design/)) in case a suitable component already exists.
 We also recommend to check with our team if you can use another existing component for your solution instead.
 
 If you can't wait and can't find the component in our libraries, please implement it yourself in your codebase.
@@ -129,11 +129,11 @@ If you can't wait and can't find the component in our libraries, please implemen
 
 If you have some time before needing the component or are planning ahead, please reach out to us in **#help-designsystem** to check if we can include the component you need.
 
-In our current process it takes us around a month and a half to two moths to have a new component ready from design to implementation, so please keep this in mind.
+In our current process it takes us around a month and a half to two months to have a new component ready from design to implementation, so please keep this in mind.
 
-**Can you contribute the component?**
+**I'd like to contribute to the component library**
 
-If you are able to contribute, we can start an ad-hoc audit and have the designs ready for contribution in 2-4 weeks. We have a process to support you during your time working in our code base and would greatly appreciate your contribution.
+If you are willing and able to contribute to the web component library, we can prioritise an ad-hoc design audit, and have the designs ready for contribution in 2-4 weeks. We have processes in place to support you during your time working in our codebase and would greatly appreciate your contribution.
 
 ___
 
