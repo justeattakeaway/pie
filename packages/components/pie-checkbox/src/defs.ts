@@ -23,11 +23,6 @@ export interface CheckboxProps {
     disabled?: boolean;
 
     /**
-     * Indicates whether or not the checkbox is disabled by the parent.
-     */
-    disabledByParent?: boolean;
-
-    /**
      * The default checked state of the checkbox (not necessarily the same as the current checked state).
      */
     defaultChecked?: boolean;
@@ -66,7 +61,6 @@ export const defaultProps: DefaultProps = {
     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#value
     value: 'on',
     disabled: false,
-    disabledByParent: false,
     defaultChecked: false,
     checked: false,
     indeterminate: false,

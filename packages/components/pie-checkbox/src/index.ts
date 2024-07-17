@@ -1,7 +1,7 @@
 import {
     LitElement, html, unsafeCSS, PropertyValues, nothing,
 } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 
@@ -30,6 +30,9 @@ const assistiveTextIdValue = 'assistive-text';
 export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
+    @state()
+    private disabledByParent = false;
+
     @property({ type: String })
     public value = defaultProps.value;
 
@@ -49,9 +52,6 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     public disabled = defaultProps.disabled;
 
     @property({ type: Boolean, reflect: true })
-    public disabledByParent = defaultProps.disabledByParent;
-
-    @property({ type: Boolean, reflect: true })
     public required = defaultProps.required;
 
     @property({ type: Boolean, reflect: true })
@@ -66,6 +66,11 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     @property({ type: String })
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
     public status = defaultProps.status;
+
+    constructor () {
+        super();
+        this.addEventListener('pie-checkbox-group-disabled', (e: CustomEventInit) => { this.disabledByParent = e.detail.disabled; });
+    }
 
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.

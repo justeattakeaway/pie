@@ -1,13 +1,22 @@
 import {
-    LitElement, html, unsafeCSS, nothing, PropertyValues,
+    LitElement, html, unsafeCSS, PropertyValues,
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import {
-    RtlMixin, defineCustomElement, FormControlMixin, validPropertyValues,
+    RtlMixin,
+    defineCustomElement,
+    FormControlMixin,
+    validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import styles from './checkbox-group.scss?inline';
-import { CheckboxGroupProps, defaultProps, statusTypes } from './defs';
+import {
+    ON_CHECKBOX_GROUP_DISABLED,
+    CheckboxGroupProps,
+    defaultProps,
+    statusTypes,
+} from './defs';
+import '@justeattakeaway/pie-assistive-text';
 
 // Valid values available to consumers
 export * from './defs';
@@ -17,6 +26,7 @@ const assistiveTextId = 'assistive-text';
 
 /**
  * @tagname pie-checkbox-group
+ * @event {CustomEvent} pie-checkbox-group-disabled - when the checkbox group disabled state changes.
  */
 export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxGroupProps {
     @property({ type: String })
@@ -45,16 +55,7 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
         if (this._slottedChildren) {
             [...this._slottedChildren]
             .forEach((child) => {
-                child.setAttribute('disabledByParent', 'true');
-            });
-        }
-    }
-
-    private _handleEnabled () : void {
-        if (this._slottedChildren) {
-            [...this._slottedChildren]
-            .forEach((child) => {
-                child.removeAttribute('disabledByParent');
+                child.dispatchEvent(new CustomEvent(ON_CHECKBOX_GROUP_DISABLED, { bubbles: false, composed: false, detail: { disabled: this.disabled } }));
             });
         }
     }
@@ -69,12 +70,13 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
     protected updated (_changedProperties: PropertyValues<this>): void {
         super.updated(_changedProperties);
 
-        if (this.disabled) {
+        if (_changedProperties.has('disabled')) {
             this._handleDisabled();
-        } else {
-            this._handleEnabled();
         }
-        this._handleStatus();
+
+        if (_changedProperties.has('status')) {
+            this._handleStatus();
+        }
     }
 
     render () {
@@ -87,21 +89,19 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
         return html`
             <fieldset
                 ?disabled=${disabled}
-                aria-invalid=${status === 'error' ? 'true' : 'false'}
-                aria-errormessage=${ifDefined(status === 'error' ? assistiveTextId : undefined)}
-                aria-describedby="${ifDefined(assistiveText && status !== 'error' ? assistiveTextId : undefined)}"
+                aria-describedby="${ifDefined(assistiveText ? assistiveTextId : undefined)}"
                 data-test-id="pie-checkbox-group"
             >
-                ${label ? html`<legend>${label}</legend>` : nothing}
+                ${label && html`<legend>${label}</legend>`}
                 <slot></slot>
             </fieldset>
-            ${assistiveText ? html`
+            ${assistiveText && html`
                 <pie-assistive-text
                     id="${assistiveTextId}"
                     variant=${status}
                     data-test-id="pie-checkbox-group-assistive-text">
                         ${assistiveText}
-                </pie-assistive-text>` : nothing}
+                </pie-assistive-text>`}
         `;
     }
 

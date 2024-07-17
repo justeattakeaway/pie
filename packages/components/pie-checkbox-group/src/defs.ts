@@ -24,6 +24,13 @@ export interface CheckboxGroupProps {
     status?: typeof statusTypes[number];
 }
 
+/**
+ * Event name for when checkbox group becomes disabled.
+ *
+ * @constant
+ */
+export const ON_CHECKBOX_GROUP_DISABLED = 'pie-checkbox-group-disabled';
+
 export type DefaultProps = ComponentDefaultProps<CheckboxGroupProps, 'status' | 'disabled'>;
 
 export const defaultProps: DefaultProps = {

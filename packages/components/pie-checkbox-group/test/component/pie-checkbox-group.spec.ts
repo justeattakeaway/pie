@@ -115,7 +115,7 @@ test.describe('PieCheckboxGroup - Component tests', () => {
     test.describe('Props', () => {
         test.describe('disabled', () => {
             test.describe('when true', () => {
-                test('should disable the slotted input component', async ({ mount }) => {
+                test('should disable the slotted component', async ({ mount }) => {
                     // Arrange
                     const component = await mount(PieCheckboxGroup, {
                         props: {
@@ -134,7 +134,7 @@ test.describe('PieCheckboxGroup - Component tests', () => {
                 });
             });
             test.describe('when false', () => {
-                test('the slotted input component should not be disabled if checkbox itself is not disabled', async ({ mount }) => {
+                test('the slotted checkbox component should not be disabled if checkbox itself is not disabled', async ({ mount }) => {
                     // Arrange
                     const component = await mount(PieCheckboxGroup, {
                         props: {
@@ -151,7 +151,7 @@ test.describe('PieCheckboxGroup - Component tests', () => {
                     // Assert
                     expect(checkbox).not.toBeDisabled();
                 });
-                test('the slotted input component should be disabled if checkbox itself is disabled', async ({ mount }) => {
+                test('the slotted checkbox component should be disabled if checkbox itself is disabled', async ({ mount }) => {
                     // Arrange
                     const component = await mount(PieCheckboxGroup, {
                         props: {
