@@ -1,5 +1,3 @@
-// Or use the appropriate export if ComponentDefaultPropsGeneric was a typo
-
 import { Component } from '@angular/core';
 import { ButtonProps, sizes, variants } from '@justeattakeaway/pie-webc/components/button.js';
 
