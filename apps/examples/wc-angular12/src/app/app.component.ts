@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonProps, sizes, variants } from '@justeattakeaway/pie-button';
+import { ButtonProps, sizes, variants } from '@justeattakeaway/pie-webc/components/button.js';
 
 @Component({
     selector: 'app-root',
