@@ -87,7 +87,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     public isOpen = defaultProps.isOpen;
 
     @property({ type: Object })
-    public leadingAction!: ActionProps;
+    public leadingAction: ModalProps['leadingAction'];
 
     @property()
     @validPropertyValues(componentSelector, positions, defaultProps.position)
@@ -313,6 +313,10 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * @private
      */
     private renderLeadingAction () : TemplateResult | typeof nothing {
+        if (!this.leadingAction) {
+            return nothing;
+        }
+
         const { text, variant = 'primary', ariaLabel } = this.leadingAction;
 
         if (!text) {
