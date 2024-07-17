@@ -1,4 +1,3 @@
-import { ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 // Or use the appropriate export if ComponentDefaultPropsGeneric was a typo
 
 import { Component } from '@angular/core';
@@ -9,6 +8,7 @@ import { ButtonProps, sizes, variants } from '@justeattakeaway/pie-webc/componen
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
+
 export class AppComponent {
     title = 'wc-angular12';
 
@@ -17,15 +17,15 @@ export class AppComponent {
     variantIndex = 0;
     variantName = 'primary';
 
-    increment() {
+    increment () {
         this.count++;
     }
 
-    decrement() {
+    decrement () {
         this.count--;
     }
 
-    switchVariant() {
+    switchVariant () {
         this.variantIndex += 1;
         const variant: ButtonProps['variant'] = variants[this.variantIndex % variants.length];
 
