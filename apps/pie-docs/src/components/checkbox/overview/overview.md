@@ -26,7 +26,7 @@ They are commonly used in forms, settings panels, and various other interfaces w
     do: {
         type: usageTypes.text,
         items: [
-          "Ensure labels are concise and descriptive that clearly indicates what selecting it will entail."
+          "Make sure labels are concise and that they clearly describe what checking the box means."
         ]
     },
     dont: {
