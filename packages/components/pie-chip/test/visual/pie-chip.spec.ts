@@ -45,7 +45,7 @@ test.beforeEach(async ({ mount }, testInfo) => {
 });
 
 componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
+    for (const combo of componentPropsMatrixByVariant[variant]) {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieChip);
         const propKeyValues = `
             variant: ${testComponent.propValues.variant},
@@ -64,7 +64,7 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
                 },
             },
         );
-    }));
+    }
 
     // Follow up to remove in Jan
     await page.waitForTimeout(5000);

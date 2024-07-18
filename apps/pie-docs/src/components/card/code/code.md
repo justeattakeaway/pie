@@ -12,8 +12,12 @@ eleventyComputed:
 ## Overview
 
 <p>
-  <a href="https://www.npmjs.com/@justeattakeaway/{component}">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-card.svg">
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-card" style="text-decoration: none">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-card.svg?label=pie-card">
+  </a>
+
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-webc">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc.svg?label=pie-webc">
   </a>
 </p>
 
@@ -26,11 +30,11 @@ This component can be easily integrated into a variety of frontend frameworks (o
 To install `pie-card` in your application, run one of the following on your command line:
 
 ```shell
-yarn add @justeattakeaway/pie-card
+yarn add @justeattakeaway/pie-webc
 ```
 
 ```shell
-npm i @justeattakeaway/pie-card
+npm i @justeattakeaway/pie-webc
 ```
 
 {% notification {
@@ -68,7 +72,7 @@ You can do this by using a standalone script which is referenced by an HTML file
 
 ### main.js
 ```js
-import '@justeattakeaway/pie-card';
+import '@justeattakeaway/pie-webc/components/card.js';
 ```
 
 ### index.html
@@ -90,10 +94,19 @@ import '@justeattakeaway/pie-card';
 For React Applications:
 
 ```jsx
-import { PieCard } from '@justeattakeaway/pie-card/dist/react';
+import { PieCard } from '@justeattakeaway/pie-webc/react/card.js';
 
 <PieCard tag="a" href="https://www.example.com" target="_blank" padding="d">
     Take me to example.com!
+</PieCard>
+```
+
+```jsx
+// React templates (using Next 13 and SSR)
+import { PieCard } from '@justeattakeaway/pie-card/dist/react';
+
+<PieCard tag="a" href="https://www.example.com" target="_blank" padding="d">
+  Take me to example.com!
 </PieCard>
 ```
 
