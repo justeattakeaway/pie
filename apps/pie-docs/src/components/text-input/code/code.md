@@ -13,8 +13,12 @@ eleventyComputed:
 ## Overview
 
 <p>
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-text-input">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-text-input.svg">
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-text-input" style="text-decoration: none">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-text-input.svg?label=pie-text-input">
+  </a>
+
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-webc">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc.svg?label=pie-webc">
   </a>
 </p>
 
@@ -27,11 +31,11 @@ This component integrates easily with various frontend frameworks and can be cus
 To install `pie-text-input` in your application via `npm` or `yarn`:
 
 ```shell
-npm i @justeattakeaway/pie-text-input
+npm i @justeattakeaway/pie-webc
 ```
 
 ```shell
-yarn add @justeattakeaway/pie-text-input
+yarn add @justeattakeaway/pie-webc
 ```
 
 {% notification {
@@ -77,7 +81,7 @@ For HTML and Vue:
 
 ```js
 // import as module into a js file that will be loaded on the page where the component is used.
-import '@justeattakeaway/pie-text-input';
+import '@justeattakeaway/pie-webc/components/text-input.js';
 ```
 
 ```html
@@ -99,7 +103,7 @@ import '@justeattakeaway/pie-text-input';
 For React Applications:
 
 ```jsx
-import { PieTextInput } from '@justeattakeaway/pie-text-input/dist/react';
+import { PieTextInput } from '@justeattakeaway/pie-webc/react/text-input.js';
 
 <PieTextInput
     autocomplete="on"
@@ -113,6 +117,25 @@ import { PieTextInput } from '@justeattakeaway/pie-text-input/dist/react';
     readonly
     type="text"
     value="">
+</PieTextInput>
+```
+
+```jsx
+// React templates (using Next 13 and SSR)
+import { PieTextInput } from '@justeattakeaway/pie-text-input/dist/react';
+
+<PieTextInput
+  autocomplete="on"
+  autoFocus
+  inputmode="text"
+  maxlength={8}
+  minlength={4}
+  name="myinput"
+  pattern="[a-z]{4,8}"
+  placeholder="Please enter a value"
+  readonly
+  type="text"
+  value="">
 </PieTextInput>
 ```
 

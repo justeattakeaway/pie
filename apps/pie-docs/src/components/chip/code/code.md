@@ -12,8 +12,12 @@ eleventyComputed:
 ## Overview
 
 <p>
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-chip">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-chip.svg">
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-chip" style="text-decoration: none">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-chip.svg?label=pie-chip">
+  </a>
+
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-webc">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc.svg?label=pie-webc">
   </a>
 </p>
 
@@ -26,11 +30,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-chip` in your application, run the following on your command line:
 
 ```shell
-npm i @justeattakeaway/pie-chip
+npm i @justeattakeaway/pie-webc
 ```
 
 ```shell
-yarn add @justeattakeaway/pie-chip
+yarn add @justeattakeaway/pie-webc
 ```
 
 {% notification {
@@ -90,7 +94,7 @@ For HTML:
 
 ```js
 // import as module into a js file e.g. main.js
-import '@justeattakeaway/pie-chip'
+import '@justeattakeaway/pie-webc/components/chip.js'
 ```
 
 ```html
@@ -103,19 +107,24 @@ For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 // Vue templates (using Nuxt 3)
-import { PieChip } from '@justeattakeaway/pie-chip';
+import { PieChip } from '@justeattakeaway/pie-webc/components/chip.js';
 
 <pie-chip>String</pie-chip>
 ```
 
 For React Applications:
 
-```js
-// React templates (using Next 13)
+```jsx
+import { PieChip } from '@justeattakeaway/pie-webc/react/chip.js';
+
+<PieChip>String</PieChip>
+```
+
+```jsx
+// React templates (using Next 13 and SSR)
 import { PieChip } from '@justeattakeaway/pie-chip/dist/react';
 
 <PieChip>String</PieChip>
-
 ```
 
 {% notification {
