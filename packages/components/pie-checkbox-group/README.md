@@ -75,7 +75,7 @@ import { PieCheckboxGroup } from '@justeattakeaway/pie-checkbox-group/dist/react
 
 | Property | Type | Default | Description |
 |---|---|---|---|
-| `name` | string | - | The name associated with the group.
+| `name` | string | - | The name associated with the group. |
 | `label` | string | - | The label value of the component |
 | assistiveText | string | - | An optional assistive text to display below the checkbox group. |
 | `disabled` | boolean | - | Same as the HTML disabled attribute - indicates whether or not the checkbox group is disabled. |
