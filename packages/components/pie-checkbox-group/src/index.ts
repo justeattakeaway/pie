@@ -1,7 +1,7 @@
 import {
     LitElement, html, unsafeCSS, PropertyValues,
 } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, queryAssignedElements } from 'lit/decorators.js';
 import {
     RtlMixin,
     defineCustomElement,
@@ -45,19 +45,11 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
 
-    get _slot () {
-        return this.shadowRoot?.querySelector('slot');
-    }
-
-    get _slottedChildren () {
-        const slot = this.shadowRoot?.querySelector('slot');
-        return slot?.assignedElements();
-    }
+    @queryAssignedElements({}) _slottedChildren!: Array<HTMLElement>;
 
     private _handleDisabled () : void {
         if (this._slottedChildren) {
-            [...this._slottedChildren]
-            .forEach((child) => {
+            this._slottedChildren.forEach((child) => {
                 child.dispatchEvent(new CustomEvent(ON_CHECKBOX_GROUP_DISABLED, { bubbles: false, composed: false, detail: { disabled: this.disabled } }));
             });
         }
@@ -65,14 +57,11 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
 
     private _handleStatus () : void {
         if (this._slottedChildren) {
-            [...this._slottedChildren]
-            .forEach((child) => child.setAttribute('status', this.status));
+            this._slottedChildren.forEach((child) => child.setAttribute('status', this.status));
         }
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {
-        super.updated(_changedProperties);
-
         if (_changedProperties.has('disabled')) {
             this._handleDisabled();
         }

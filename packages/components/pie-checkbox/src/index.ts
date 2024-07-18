@@ -107,9 +107,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
         this.disabled = disabled;
     }
 
-    protected updated (_changedProperties: PropertyValues<this>): void {
-        super.updated(_changedProperties);
-
+    protected updated (): void {
         this.handleFormAssociation();
     }
 
