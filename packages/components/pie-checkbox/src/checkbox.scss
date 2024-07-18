@@ -134,6 +134,11 @@
         }
     }
 
+    &[data-pie-checked][isRtl]:before {
+        left: unset;
+        right: 50%;
+    }
+
     &[data-pie-indeterminate] {
         &:not([data-pie-disabled]) {
             --checkbox-bg-color: var(--dt-color-interactive-brand);
@@ -177,6 +182,11 @@
     width: 0;
     height: 2px;
     background-color: white;
+}
+
+.c-checkbox-tick[isRtl]:after {
+    left: unset;
+    right: 14%;
 }
 
 .c-checkbox {

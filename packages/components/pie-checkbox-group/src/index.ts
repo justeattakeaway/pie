@@ -26,6 +26,7 @@ const assistiveTextId = 'assistive-text';
 
 /**
  * @tagname pie-checkbox-group
+ * @slot - Default slot
  * @event {CustomEvent} pie-checkbox-group-disabled - triggered after the disabled state of the checkbox group changes.
  */
 export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxGroupProps {

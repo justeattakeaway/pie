@@ -89,30 +89,12 @@ const Template = ({
             status=${ifDefined(status)}
             ?disabled="${disabled}"
         >
-            <pie-checkbox
-                name="checkbox-one"
-                label="checkbox 1">
-            </pie-checkbox>
-            <pie-checkbox
-                name="checkbox-two"
-                label="checkbox 2 longer label">
-            </pie-checkbox>
-            <pie-checkbox
-                name="checkbox-three"
-                label="checkbox 3">
-            </pie-checkbox>
-            <pie-checkbox
-                name="checkbox-three"
-                label="checkbox 4">
-            </pie-checkbox>
-            <pie-checkbox
-                name="checkbox-three"
-                label="checkbox 5 even longer label">
-            </pie-checkbox>
-            <pie-checkbox
-                name="checkbox-three"
-                label="checkbox 6">
-            </pie-checkbox>
+            <pie-checkbox name="checkbox-one">checkbox 1</pie-checkbox>
+            <pie-checkbox name="checkbox-two">checkbox 2 longer label</pie-checkbox>
+            <pie-checkbox name="checkbox-three">checkbox 3</pie-checkbox>
+            <pie-checkbox name="checkbox-three">checkbox 4</pie-checkbox>
+            <pie-checkbox name="checkbox-three">checkbox 5 even longer label</pie-checkbox>
+            <pie-checkbox name="checkbox-three">checkbox 6</pie-checkbox>
         </pie-checkbox-group>
     </div>
 `;
