@@ -1,5 +1,16 @@
 # wc-vanilla
 
+## 0.5.0
+
+### Minor Changes
+
+- [Added] pie-webc integration to wc-vanilla example app ([#1592](https://github.com/justeattakeaway/pie/pull/1592)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.13
+
 ## 0.4.78
 
 ### Patch Changes

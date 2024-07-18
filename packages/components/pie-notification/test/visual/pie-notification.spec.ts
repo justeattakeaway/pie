@@ -40,8 +40,8 @@ const props: PropObject = {
 };
 
 // Renders a <pie-notification> HTML string with the given prop values
-const renderTestPieNotification = (propVals: WebComponentPropValues) => `<pie-notification 
-        variant="${propVals.variant}" 
+const renderTestPieNotification = (propVals: WebComponentPropValues) => `<pie-notification
+        variant="${propVals.variant}"
         ${propVals.isCompact ? 'isCompact' : ''}
         ${propVals.isDismissible ? 'isDismissible' : ''}
         ${propVals.hideIcon ? 'hideIcon' : ''}
@@ -63,7 +63,7 @@ test.beforeEach(async ({ mount }, testInfo) => {
 });
 
 componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
+    for (const combo of componentPropsMatrixByVariant[variant]) {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieNotification);
 
         const propKeyValues = `
@@ -85,7 +85,7 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
                 },
             },
         );
-    }));
+    }
 
     // Follow up to remove in Jan
     await page.waitForTimeout(5000);
