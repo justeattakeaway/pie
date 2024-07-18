@@ -1,7 +1,6 @@
 const fs = require('fs')
 const { globSync } = require('glob')
 
-
 const getPackages = () => {
     const ignore = [
         'apps/examples/**',
@@ -20,6 +19,13 @@ const getPackages = () => {
         .sort();
 
     return packageNames;
+};
+
+const getCurrentTicketNumberFromBranch = () => {
+    const branchName = require('child_process').execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
+    const ticketNumber = branchName.match(/\d{1,7}/)?.[0];
+
+    return ticketNumber;
 };
 
 module.exports = {
@@ -45,7 +51,7 @@ module.exports = {
   messages: {
     type: "Select the type of change that you're committing:",
     scope: 'Denote the SCOPE of this change:',
-    ticketNumber: "Jira ticket number (enter 0 to fill automatically):",
+    ticketNumber: `Jira ticket number (${getCurrentTicketNumberFromBranch() || '000'}):`,
     subject: 'Write a SHORT, IMPERATIVE tense description of the change:',
     body: '(optional) Provide a LONGER description of the change. Use "|" to break new line:',
     breaking: '(optional) List any BREAKING CHANGES:',
@@ -55,6 +61,7 @@ module.exports = {
   allowCustomScopes: false,
   skipQuestions: ['footer'],
   allowTicketNumber: true,
+  fallbackTicketNumber: getCurrentTicketNumberFromBranch() || '000',
   isTicketNumberRequired: true,
   ticketNumberPrefix: 'DSW-',
   ticketNumberRegExp: '\\d{1,7}',
