@@ -42,7 +42,7 @@
       overflow: hidden;
     }
 
-    &[isMultiline] {
+    & .is-multiline {
       align-items: flex-start;
 
       span {

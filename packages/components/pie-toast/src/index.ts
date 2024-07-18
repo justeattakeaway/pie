@@ -7,6 +7,7 @@ import {
     type PropertyValues,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { RtlMixin, defineCustomElement, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-toast';
 import '@justeattakeaway/pie-icon-button';
@@ -233,10 +234,15 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
             return nothing;
         }
 
+        const messageAreaClasses = {
+            [`${componentClass}-messageArea`]: true,
+            'is-multiline': isMultiline,
+        };
+
         return html`
             <div data-test-id="${componentSelector}" class="${componentClass}">
                 <div class="${componentClass}-contentArea">
-                    <div class="${componentClass}-messageArea" ?isMultiline="${isMultiline}">
+                    <div class="${classMap(messageAreaClasses)}">
                         <icon-placeholder size="s"></icon-placeholder>
                         ${message === '' ? nothing : this.renderMessage(message, _messageAreaMaxWidth)} 
                     </div>
