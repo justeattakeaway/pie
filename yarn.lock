@@ -37562,8 +37562,8 @@ __metadata:
   linkType: hard
 
 "unimport@npm:^3.0.6, unimport@npm:^3.7.2":
-  version: 3.8.0
-  resolution: "unimport@npm:3.8.0"
+  version: 3.9.0
+  resolution: "unimport@npm:3.9.0"
   dependencies:
     "@rollup/pluginutils": ^5.1.0
     acorn: ^8.12.1
@@ -37578,7 +37578,7 @@ __metadata:
     scule: ^1.3.0
     strip-literal: ^2.1.0
     unplugin: ^1.11.0
-  checksum: fed39145a7a237e5f27d31d08fecc7f2922570b6618255b89002bbec0cfb07969924be2ec45e92110b4d70da8e1562f514fe300623f81adac87cc87008641d6f
+  checksum: be8724b47cc00233cc72dd3f7a06f91813f395d8eaf0723efe5566c27ef68eff6392a1f2cdf49bbf2704f687447bf98d37252adb1e99c9274876dd83b35cfcbf
   languageName: node
   linkType: hard
 
