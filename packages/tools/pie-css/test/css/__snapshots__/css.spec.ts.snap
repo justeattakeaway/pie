@@ -1200,5 +1200,25 @@ The values start at a high and specific number to avoid any conflicts */
     --dt-z-index-cookie-banner: 5000;
     --dt-z-index-toast: 6000;
 }
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0;
+}
+/**
+* 1. Correct the text wrapping in Edge.
+* 2. Correct the color inheritance from \\\\\`fieldset\\\\\` elements in Edge.
+* 3. Remove the padding so developers are not caught out when they zero out
+*    \\\\\`fieldset\\\\\` elements in all browsers.
+*/
+legend {
+    box-sizing: border-box; /* 1 */
+    display: table; /* 1 */
+    max-width: 100%; /* 1 */
+    white-space: normal; /* 1 */
+    color: inherit; /* 2 */
+    padding: 0; /* 3 */
+}
 "
 `;
