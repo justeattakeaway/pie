@@ -11,8 +11,12 @@ eleventyComputed:
 ## Overview
 
 <p>
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-icon-button">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-icon-button.svg">
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-icon-button" style="text-decoration: none">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-icon-button.svg?label=pie-icon-button">
+  </a>
+
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-webc">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc.svg?label=pie-webc">
   </a>
 </p>
 
@@ -25,11 +29,11 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-icon-button` in your application, run the following on your command line:
 
 ```shell
-npm i @justeattakeaway/pie-icon-button
+npm i @justeattakeaway/pie-webc
 ```
 
 ```shell
-yarn add @justeattakeaway/pie-icon-button
+yarn add @justeattakeaway/pie-webc
 ```
 
 {% notification {
@@ -67,7 +71,7 @@ We recommend using the `pie-icon-button` component alongside the `pie-icons-webc
 To import an icon using `pie-icons-webc`, you should import the icon that you would like to use alongside the `pie-icon-button` component:
 
 ```js
-import { PieIconButton } from '@justeattakeaway/pie-icon-button';
+import { PieIconButton } from '@justeattakeaway/pie-webc/components/icon-button.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 ```
 
@@ -100,7 +104,8 @@ For HTML:
 
 ```js
 // import as module into a js file e.g. main.js
-import '@justeattakeaway/pie-icon-button';
+import '@justeattakeaway/pie-webc/components/icon-button.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 ```
 
 ```html
@@ -115,7 +120,7 @@ For Native JS Applications, Vue, Angular, Svelte, etc.:
 
 ```js
 // Vue templates (using Nuxt 3)
-import { PieIconButton } from '@justeattakeaway/pie-icon-button';
+import { PieIconButton } from '@justeattakeaway/pie-webc/components/icon-button.js';
 
 <pie-icon-button @click="handleClick">
   <icon-close></icon-close>
@@ -125,9 +130,18 @@ import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 For React Applications:
 
 ```jsx
-// React templates (using Next 13)
-import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react.js';
+import { PieIconButton } from '@justeattakeaway/pie-webc/react/icon-button.js';
 import { IconClose } from '@justeattakeaway/pie-icons-webc/dist/react/IconClose.js';
+
+<PieIconButton onClick={handleClick}>
+  <IconClose></IconClose>
+</PieIconButton>
+```
+
+```jsx
+// React templates (using Next 13 and SSR)
+import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react';
+import { IconClose } from '@justeattakeaway/pie-icons-webc/dist/react/IconClose';
 
 <PieIconButton onClick={handleClick}>
   <IconClose></IconClose>
