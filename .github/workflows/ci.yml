@@ -45,6 +45,8 @@ env:
   PERCY_TOKEN_PIE_TEXTAREA: ${{ secrets.PERCY_TOKEN_PIE_TEXTAREA }}
   PERCY_TOKEN_PIE_TOAST: ${{ secrets.PERCY_TOKEN_PIE_TOAST }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  PERCY_DEBUG: "*"
+  LOG_LEVEL: debug
 
 jobs:
   dependency-changeset:
