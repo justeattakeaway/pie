@@ -112,7 +112,7 @@ All content should use sentence case.
 ### Label
 
 - Always use clear and concise labels for checkboxes.
-- Labels appear to the right of checkbox input.
+- Labels appear to the right of checkbox input (when the text direction is left-to-right).
 
 ---
 
@@ -246,46 +246,44 @@ Outlines the atomic level interactive elements for the component.
 
 ## Examples
 
-Outlines the atomic level interactive elements for the component.
-
 ### LTR examples
 
-Here are some examples of the component in left-to-right context:
+Here are some examples of the component in a left-to-right context:
 
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-LTR-agreement.svg",
       width: "375px",
-      alt: "Checkbox labeled 'I have read and accepted the terms and conditions' in left-to-right context."
+      alt: "Checkbox labeled 'I have read and accepted the terms and conditions' in a left-to-right context."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-checked-LTR.svg",
       width: "360px",
-      alt: "Selected checkbox followed by the label text in left-to-right context."
+      alt: "Selected checkbox followed by the label text in a left-to-right context."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
 
 ### RTL examples
 
-Here are some examples of the component in right-to-left context:
+Here are some examples of the component in a right-to-left context:
 
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-RTL-agreement.svg",
       width: "271px",
-      alt: "Checkbox labeled 'I have read and accepted the terms and conditions' in right-to-left context."
+      alt: "Checkbox labeled 'I have read and accepted the terms and conditions' in a right-to-left context."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/checkbox/checkbox-checked-RTL.svg",
       width: "360px",
-      alt: "Selected checkbox followed by the label text in right-to-left context."
+      alt: "Selected checkbox followed by the label text in a right-to-left context."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
