@@ -96,7 +96,7 @@ If you are working with latest stack both in React and Vue ecosystems, we recomm
 You can use [PIE Web Components](/engineers/web-components/) for Next 13 or earlier versions if you don't need SSR. 
 If you need to render components on the server (SSR), [Snacks](https://snacks.takeaway.com/portal/) is the best library for you.
 
-We recommend updating to Next 14 if you would like to use our latest Web Components.
+We recommend updating to Next 14 if you would like to use SSR with our new Web Components.
 
 ### Vue and Nuxt 2
 

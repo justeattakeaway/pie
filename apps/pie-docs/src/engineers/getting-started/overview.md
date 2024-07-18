@@ -10,12 +10,6 @@ permalink: engineers/getting-started/
 
 One of the core aims of the **PIE Design System** is to provide engineers with a consistent set of components and best practices for creating and maintaining UIs across JET.
 
-If you're just starting out with PIE, here's a list of recommended resources to get you started.
-
----
-
-## PIE component systems
-
 We develop and maintain several component libraries that implement the PIE design language. Please follow [this guide](/engineers/getting-started/structure/#which-library-should-i-use) to find out which library to use based on your tech stack.
 
 For a more detailed look at the **component systems** the PIE team maintain, the PIE monorepo and how it’s structured, see the [structure section of our engineering docs](/engineers/getting-started/structure).
