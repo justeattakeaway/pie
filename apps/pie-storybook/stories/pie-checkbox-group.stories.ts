@@ -56,7 +56,7 @@ const checkboxGroupStoryMeta: CheckboxGroupStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/design/aD4m0j97Ruw8Q4S5lED2Bl/Checkbox-audit?node-id=9938-14138&t=1V1VEYmtArFih6AX-4',
+            url: 'https://www.figma.com/file/aD4m0j97Ruw8Q4S5lED2Bl/Checkbox-audit?node-id=9938-14138&t=1V1VEYmtArFih6AX-4',
         },
     },
 };
