@@ -15,20 +15,20 @@
       "title": "Turn all on"
     },
     "necessary": {
-      "title": "Necessary",
-      "description": "These cookies are necessary to ensure that the website and its features function properly. Services you have asked for cannot be provided without these cookies."
+      "title": "Necessary Technologies",
+      "description": "These technologies are necessary to ensure that the website and its features function properly. Services you have asked for cannot be provided without these technologies."
     },
     "functional": {
-      "title": "Functional",
-      "description": "These cookies allow the website to remember the choices you make to give you better functionality and personal features."
+      "title": "Functional Technologies",
+      "description": "These technologies allow the website to remember the choices you make to give you better functionality and personal features."
     },
     "analytical": {
-      "title": "Analytical",
-      "description": "These analytical cookies, including statistics, are used to understand how visitors interact with the website and we can measure and improve the performance of our website."
+      "title": "Analytical Technologies",
+      "description": "These analytical technologies, including statistics, are used to understand how visitors interact with the website and we can measure and improve the performance of our website."
     },
     "personalized": {
-      "title": "Personalised (targeting and advertising)",
-      "description": "These marketing cookies are used to tailor the delivery of information to you based upon your interest and to measure the effectiveness of such advertisements, both on our website and our advertising partners' websites."
+      "title": "Personalised (targeting and advertising) Technologies",
+      "description": "These marketing technologies are used to tailor the delivery of information to you based upon your interest and to measure the effectiveness of such advertisements, both on our website and our advertising partners' websites."
     },
     "cta": {
       "save": {
