@@ -2,8 +2,8 @@
 eleventyNavigation:
     key: engineers-guidelines
     title: Guidelines
-    parent: engineers
+    parent: web-engineers
     order: 1
-    url: /engineers/guidelines/
+    url: /web-engineers/guidelines/
 permalink: false
 ---
