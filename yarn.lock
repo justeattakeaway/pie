@@ -17719,9 +17719,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cz-customizable@npm:7.1.0":
-  version: 7.1.0
-  resolution: "cz-customizable@npm:7.1.0"
+"cz-customizable@npm:7.2.1":
+  version: 7.2.1
+  resolution: "cz-customizable@npm:7.2.1"
   dependencies:
     editor: 1.0.0
     find-config: ^1.0.0
@@ -17732,7 +17732,7 @@ __metadata:
   bin:
     cz-cust: standalone.js
     cz-customizable: standalone.js
-  checksum: b8ce92e6aa84fb0c2d921d9cc676b032e12176fd850e384a71a9a6cf21d079d731d8b5364ad0aeb894df4538b0fee091cd21710900c005679646706cda3049b6
+  checksum: 60d32287fc94e3ff0c17615d28adc704d37a054a518a72e3f7fb82fcaa0de72865a7dbb09f5f4ed92802e0729aac97b651de97e82fac477ccad0f10cab4110b4
   languageName: node
   linkType: hard
 
@@ -29764,7 +29764,7 @@ __metadata:
     commitizen: 4.3.0
     cross-env: 7.0.3
     cssnano: 5.1.15
-    cz-customizable: 7.1.0
+    cz-customizable: 7.2.1
     danger: 11.3.0
     dree: 3.4.5
     eslint: 8.37.0
