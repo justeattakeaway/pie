@@ -167,7 +167,7 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
 
         return html`
             <pie-button
-                variant="ghost-inverse"
+                variant="${this.isVariantWarningAndIsStrong() ? 'ghost' : 'ghost-inverse'}"
                 size="xsmall"
                 aria-label="${ariaLabel || nothing}"
                 @click="${() => this.handleActionClick()}"
@@ -203,7 +203,7 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     private renderCloseButton (): TemplateResult {
         return html`
             <pie-icon-button
-                variant="ghost-inverse"
+                variant="${this.isVariantWarningAndIsStrong() ? 'ghost-secondary' : 'ghost-inverse'}"
                 size="xsmall"
                 data-test-id="${componentSelector}-close"
                 @click="${this.closeToastComponent}">
@@ -268,6 +268,15 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
      */
     private variantHasIcon (variant: typeof variants[number]) {
         return ['info', 'success', 'warning', 'error'].includes(variant);
+    }
+
+    /**
+     * util method that returns true if the variant is warning and is strong.
+     *
+     * @private
+     */
+    private isVariantWarningAndIsStrong () {
+        return this.variant === 'warning' && this.isStrong;
     }
 
     render () {
