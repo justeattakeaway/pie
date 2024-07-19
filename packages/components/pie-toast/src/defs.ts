@@ -1,4 +1,6 @@
-import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
+
+export const variants = ['neutral', 'info', 'warning', 'success', 'error'] as const;
 
 // TODO - please remove the eslint disable comment below when you add props to this interface
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -19,6 +21,17 @@ export interface ToastProps {
    * When true, the toast is set to be open and visible.
    */
   isOpen?: boolean;
+
+  /**
+   * Sets the variant of the toast.
+   */
+  variant?: typeof variants[number];
+
+  /**
+   * When true, the toast is displayed with a strong visual style.
+   */
+  isStrong?: boolean;
+
   /**
    * When true, allows dismissing the toast by clicking on the close button.
    */
@@ -61,10 +74,12 @@ export const ON_TOAST_OPEN_EVENT = `${componentSelector}-open`;
  */
 export const ON_TOAST_LEADING_ACTION_CLICK_EVENT = `${componentSelector}-leading-action-click`;
 
-export type DefaultProps = ComponentDefaultPropsGeneric<ToastProps, 'isOpen' | 'isDismissible' | 'isMultiline'>;
+export type DefaultProps = ComponentDefaultProps<ToastProps, 'isOpen' | 'isDismissible' | 'isMultiline' | 'variant' | 'isStrong'>;
 
 export const defaultProps: DefaultProps = {
+    variant: 'neutral',
     isOpen: true,
+    isStrong: false,
     isDismissible: true,
     isMultiline: false,
 };
