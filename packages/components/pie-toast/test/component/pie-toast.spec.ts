@@ -1,7 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieToast } from '../../src/index.ts';
-import { type ToastProps } from '../../src/defs.ts';
+import { type ToastProps, variants } from '../../src/defs.ts';
 
 const rootSelector = 'pie-toast';
 const componentSelector = `[data-test-id="${rootSelector}"]`;
@@ -9,6 +9,10 @@ const messageSelector = `[data-test-id="${rootSelector}-message"]`;
 const closeSelector = `[data-test-id="${rootSelector}-close"]`;
 const footerSelector = `[data-test-id="${rootSelector}-footer"]`;
 const leadingActionSelector = `[data-test-id="${rootSelector}-leading-action"]`;
+
+function getToastIconSelectors (variant: string): string {
+    return `[data-test-id="${rootSelector}-heading-icon-${variant}"]`;
+}
 
 test.describe('PieToast - Component tests', () => {
     // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
@@ -190,6 +194,46 @@ test.describe('PieToast - Component tests', () => {
                 expect(toast).toBeVisible();
                 expect(footer).toBeVisible();
                 expect(actionLeading).toBeVisible();
+            });
+        });
+
+        test.describe('variant', () => {
+            variants.forEach((variant) => {
+                if (variant !== 'neutral') {
+                    test(`should show the ${variant} icon`, async ({ mount, page }) => {
+                        // Arrange
+                        await mount(PieToast, {
+                            props: {
+                                variant: variant as ToastProps['variant'],
+                            } as ToastProps,
+                        });
+
+                        // Act
+                        const toast = page.locator(componentSelector);
+                        const icon = page.locator(getToastIconSelectors(variant));
+
+                        // Assert
+                        expect(toast).toBeVisible();
+                        expect(icon).toBeVisible();
+                    });
+                } else {
+                    test(`should no show the icon when variant is ${variant}`, async ({ mount, page }) => {
+                        // Arrange
+                        await mount(PieToast, {
+                            props: {
+                                variant: variant as ToastProps['variant'],
+                            } as ToastProps,
+                        });
+
+                        // Act
+                        const toast = page.locator(componentSelector);
+                        const icon = page.locator(getToastIconSelectors(variant));
+
+                        // Assert
+                        expect(toast).toBeVisible();
+                        expect(icon).not.toBeVisible();
+                    });
+                }
             });
         });
     });
