@@ -2,7 +2,7 @@ import { html } from 'lit';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-toast';
-import { ToastProps, defaultProps } from '@justeattakeaway/pie-toast';
+import { ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
 import { action } from '@storybook/addon-actions';
 /* eslint-enable import/no-duplicates */
 
@@ -29,6 +29,14 @@ const toastStoryMeta: ToastStoryMeta = {
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isOpen,
+            },
+        },
+        variant: {
+            description: 'Set the variant of the notification.',
+            control: 'select',
+            options: variants,
+            defaultValue: {
+                summary: defaultProps.variant,
             },
         },
         isDismissible: {
@@ -78,10 +86,14 @@ const Template = ({
     message,
     leadingAction,
     isMultiline,
+    isStrong,
+    variant,
 }: ToastProps) => html`
     <pie-toast 
         ?isOpen="${isOpen}" 
         ?isDismissible="${isDismissible}" 
+        ?isStrong="${isStrong}"
+        variant="${variant}"
         message="${message}" 
         ?isMultiline="${isMultiline}"
         .leadingAction="${leadingAction}"
