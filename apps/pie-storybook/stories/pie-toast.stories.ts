@@ -34,6 +34,13 @@ const toastStoryMeta: ToastStoryMeta = {
                 summary: defaultProps.variant,
             },
         },
+        isStrong: {
+            description: 'When true, the toast is displayed with a strong visual style.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.isStrong,
+            },
+        },
         isDismissible: {
             description: 'Allows dismissing the toast by clicking on the close button.',
             control: 'boolean',
