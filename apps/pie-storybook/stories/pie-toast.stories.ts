@@ -1,11 +1,6 @@
 import { html } from 'lit';
-
-/* eslint-disable import/no-duplicates */
-import '@justeattakeaway/pie-toast';
 import { ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
 import { action } from '@storybook/addon-actions';
-/* eslint-enable import/no-duplicates */
-
 import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
 

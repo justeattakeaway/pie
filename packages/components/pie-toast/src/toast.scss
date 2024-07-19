@@ -44,51 +44,51 @@
   &.variant-error {
     --toast-icon-fill: var(--dt-color-support-error);
   }
+}
+  
+.c-toast-contentArea {
+  display: flex;
+  gap: var(--dt-spacing-b);
+  justify-content: space-between;
+}
 
-  & .c-toast-contentArea{
-    display: flex;
-    gap: var(--dt-spacing-b);
-    justify-content: space-between;
+.c-toast-messageArea {
+  display: flex;
+  align-items: center;
+  gap: var(--dt-spacing-b);
+  padding: calc(var(--dt-spacing-03) / 2) 0;
+
+  span {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
-  & .c-toast-messageArea {
-    display: flex;
-    align-items: center;
-    gap: var(--dt-spacing-b);
-    padding: calc(var(--dt-spacing-03) / 2) 0;
+  &.is-multiline {
+    align-items: flex-start;
 
     span {
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-    }
+      max-height: 60px;
+      white-space: inherit;
 
-    & .is-multiline {
-      align-items: flex-start;
-
-      span {
-        max-height: 60px;
-        white-space: inherit;
-
-        // text-overflow: ellipsis; for multiline lines only works using webkit prefix
-        /* stylelint-disable */
-        display: -webkit-box;
-        /* stylelint-enable */
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-      }
+      // text-overflow: ellipsis; for multiline lines only works using webkit prefix
+      /* stylelint-disable */
+      display: -webkit-box;
+      /* stylelint-enable */
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
     }
   }
+}
 
-  & .c-toast-actionsArea {
-    display: flex;
-    gap: var(--dt-spacing-b);
-  }
+.c-toast-actionsArea {
+  display: flex;
+  gap: var(--dt-spacing-b);
+}
 
-  & .c-toast-footer {
-    display: flex;
-    justify-content: flex-end;
-  }
+.c-toast-footer {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .icon {
