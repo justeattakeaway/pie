@@ -20,10 +20,6 @@ const defaultArgs: CheckboxProps = {
     disabled: false,
     indeterminate: false,
     required: false,
-    aria: {
-        label: '',
-        labelledby: '',
-    },
 };
 
 const checkboxStoryMeta: CheckboxStoryMeta = {
@@ -91,10 +87,6 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
             },
         },
 
-        aria: {
-            description: 'ARIA object to pass label/labelledby/describedby aria attributes',
-            control: 'object',
-        },
         assistiveText: {
             description: 'An optional assistive text to display below the checkbox element. Must be provided when the status is success or error.',
             control: 'text',
@@ -102,6 +94,7 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
                 summary: '',
             },
         },
+
         status: {
             description: 'The status of the checkbox component / assistive text. Can be default, success or error.',
             control: 'select',
@@ -131,7 +124,6 @@ const Template = ({
     disabled,
     indeterminate,
     required,
-    aria,
     assistiveText,
     status,
 }: CheckboxProps) => {
@@ -151,7 +143,6 @@ const Template = ({
             ?disabled="${disabled}"
             ?indeterminate="${indeterminate}"
             ?required="${required}"
-            .aria="${aria}"
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}>
@@ -167,7 +158,6 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
     disabled,
     indeterminate,
     required,
-    aria,
     assistiveText,
     status,
 }: CheckboxProps) => {
@@ -188,7 +178,6 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
             ?disabled="${disabled}"
             ?indeterminate="${indeterminate}"
             ?required="${required}"
-            .aria="${aria}"
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}></pie-checkbox>

@@ -21,6 +21,8 @@
 
 `pie-checkbox-group` is a Web Component built using the Lit library.
 
+It is a helper component that groups PieCheckbox components into a visual and functional group.
+
 This component can be easily integrated into various frontend frameworks and customized through a set of properties.
 
 
@@ -29,10 +31,9 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-checkbox-group` in your application, run the following on your command line:
 
 ```bash
-# npm
 $ npm i @justeattakeaway/pie-checkbox-group
-
-# yarn
+```
+```bash
 $ yarn add @justeattakeaway/pie-checkbox-group
 ```
 
@@ -74,17 +75,53 @@ import { PieCheckboxGroup } from '@justeattakeaway/pie-checkbox-group/dist/react
 
 | Property | Type | Default | Description |
 |---|---|---|---|
-| - | - | - | - |
+| `name` | string | - | The name associated with the group. |
+| `label` | string | - | The label value of the component |
+| `disabled` | boolean | - | Same as the HTML disabled attribute - indicates whether or not the checkbox group is disabled. |
+| `assistiveText` | `string` | - | Allows assistive text to be displayed below the checkbox group. |
+| `status` | `'default'`, `'error'`, `'success'` | `'default'` | The status of the checkbox group / assistive text. If you use `status` you must provide an `assistiveText` prop value for accessibility purposes. |
+
 
 In your markup or JSX, you can then use these to set the properties for the `pie-checkbox-group` component:
 
 ```html
 <!-- Native HTML -->
-<pie-checkbox-group></pie-checkbox-group>
+<pie-checkbox-group name="TESTNAME">
+  <pie-checkbox
+    name="my-checkbox-one"
+    label="Checkbox Label 1">
+  </pie-checkbox>
+  <pie-checkbox
+      name="my-checkbox-two"
+      label="Checkbox Label 2">
+  </pie-checkbox>
+  <pie-checkbox
+      name="my-checkbox-three"
+      label="Checkbox Label 3">
+  </pie-checkbox>
+</pie-checkbox-group>
 
 <!-- JSX -->
-<PieCheckboxGroup></PieCheckboxGroup>
+<PieCheckboxGroup name="TESTNAME">
+  <PieCheckbox
+    name="my-checkbox-one"
+    label="Checkbox Label 1">
+  </PieCheckbox>
+  <PieCheckbox
+      name="my-checkbox-two"
+      label="Checkbox Label 2">
+  </PieCheckbox>
+  <PieCheckbox
+      name="my-checkbox-three"
+      label="Checkbox Label 3">
+  </PieCheckbox>
+</PieCheckboxGroup>
 ```
+
+## Events
+| Event | Type | Description |
+|-------|------|-------------|
+| `pie-checkbox-group-disabled` | `CustomEvent` | Triggered after the disabled state of the checkbox group changes. |
 
 ## Contributing
 
