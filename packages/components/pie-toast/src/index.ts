@@ -9,7 +9,6 @@ import {
 import { property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { RtlMixin, defineCustomElement, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
-import '@justeattakeaway/pie-toast';
 import '@justeattakeaway/pie-icon-button';
 import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
