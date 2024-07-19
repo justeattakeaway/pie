@@ -38,7 +38,7 @@ For specific framework versions, please follow these guides:
 
 For existing users, you may be interested in our [Migration guide of Web Components to Lit 3](https://github.com/justeattakeaway/pie/wiki/PIE-Web-Components-%E2%80%90-Nuxt-2---Next-10---Vue-2-Integration). This guide also details some specific configurations for React, Next and Vue2.
 
-More guidelines coming soon! 🚀
+More guides coming soon! 🚀
 
 ___
 

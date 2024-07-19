@@ -63,16 +63,16 @@ Our primary concerns are:
 We have route navigation tests that ensure all existing pages can be correctly navigated to. When you add new pages, these tests will fail as there are new unexpected pages (this is by design).
 
 Route tests need a production build so that they do not fail with `draft` page routes. For this, we recommend to:
-- stop any local instance of the doc site 
-- delete your `dist` folder 
-- create a production build with `yarn build --filter=pie-docs` 
+1. Stop any local instance of the doc site 
+2. Delete your `dist` folder 
+3. Create a production build with `yarn build --filter=pie-docs` 
 
-Once this is done, you can run route tests with `yarn test --filter=pie-docs`.
+Once this is done, you can run the route tests with `yarn test --filter=pie-docs`.
 From here, we run navigation, accessibility and visual tests against each route.
 
 #### Adding new routes
 
-In order to fix the tests, you will need to register the routes to your newly added pages by running the following command from the root of the monorepo: `yarn test:generate-routes`. This will update the JSON file named `expected-routes.snapshot.json` with the URLs to your new page.
+In order to fix the tests, you will need to register the routes to your newly added pages by running the following command from the root of the monorepo: `yarn test:generate-routes`. This will update the JSON file named `expected-routes.snapshot.json` with the paths to your new pages.
 
 ### Testing navigation responses
 
