@@ -6,6 +6,7 @@
   --toast-font-color: var(--dt-color-content-inverse);
   --toast-font-size: #{p.font-size(--dt-font-body-s-size)};
   --toast-line-height: #{p.line-height(--dt-font-body-s-line-height)};
+  --toast-icon-fill: var(--dt-color-content-default);
 
   display: flex;
   flex-direction: column;
@@ -23,6 +24,26 @@
   color: var(--toast-font-color);
   font-size: var(--toast-font-size);
   line-height: var(--toast-line-height);
+
+  &.variant-info {
+    --toast-icon-fill: var(--dt-color-support-info-02);
+
+    &.is-strong {
+      --toast-background-color: var(--dt-color-blue);
+    }
+  }
+
+  &.variant-warning {
+    --toast-icon-fill: var(--dt-color-support-warning-02);
+  }
+
+  &.variant-success {
+    --toast-icon-fill: var(--dt-color-support-positive-02);
+  }
+
+  &.variant-error {
+    --toast-icon-fill: var(--dt-color-support-error);
+  }
 
   & .c-toast-contentArea{
     display: flex;
@@ -68,4 +89,8 @@
     display: flex;
     justify-content: flex-end;
   }
+}
+
+.icon {
+  color: var(--toast-icon-fill);
 }

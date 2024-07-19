@@ -8,11 +8,22 @@ import {
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import { RtlMixin, defineCustomElement, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
+import {
+    RtlMixin,
+    defineCustomElement,
+    dispatchCustomEvent,
+    validPropertyValues,
+} from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-toast';
 import '@justeattakeaway/pie-icon-button';
 import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
+
+import '@justeattakeaway/pie-icons-webc/dist/IconInfoCircle.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconAlertCircle.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconAlertTriangle.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconCheckCircle.js';
+
 import '@justeattakeaway/pie-button';
 
 import styles from './toast.scss?inline';
@@ -25,6 +36,7 @@ import {
     ON_TOAST_OPEN_EVENT,
     ON_TOAST_LEADING_ACTION_CLICK_EVENT,
     defaultProps,
+    variants,
 } from './defs';
 
 // Valid values available to consumers
@@ -39,6 +51,13 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
 
     @property({ type: Boolean })
     public isOpen = defaultProps.isOpen;
+
+    @property()
+    @validPropertyValues(componentSelector, variants, defaultProps.variant)
+    public variant: NonNullable<ToastProps['variant']> = defaultProps.variant;
+
+    @property({ type: Boolean })
+    public isStrong = defaultProps.isStrong;
 
     @property({ type: Boolean })
     public isDismissible = defaultProps.isDismissible;
@@ -112,12 +131,13 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
             this._actionButtonOffset = this.actionButton.offsetWidth;
         }
 
-        // Temporary const. This will be removed when we implement variants.
-        const hasIcon = true;
+        const hasIcon = this.variantHasIcon(this.variant);
 
         this._messageAreaMaxWidth = this.getMessageMaxWidth(hasIcon, this.isMultiline, !!this.leadingAction?.text, this.isDismissible);
 
         if (
+            _changedProperties.has('variant') ||
+            _changedProperties.has('isStrong') ||
             _changedProperties.has('message') ||
             _changedProperties.has('isDismissible') ||
             _changedProperties.has('isMultiline') ||
@@ -220,13 +240,46 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
         dispatchCustomEvent(this, ON_TOAST_CLOSE_EVENT, { targetNotification: this });
     }
 
+    /**
+     * Util method that returns an icon from a variant that has default icon.
+     *
+     * @private
+     */
+    private getVariantIcon () {
+        switch (this.variant) {
+            case 'info':
+                return html`<icon-info-circle class="icon" size="s" data-test-id="${componentSelector}-heading-icon-info"></icon-info-circle>`;
+            case 'success':
+                return html`<icon-check-circle class="icon" size="s" data-test-id="${componentSelector}-heading-icon-success"></icon-check-circle>`;
+            case 'warning':
+                return html`<icon-alert-triangle class="icon" size="s" data-test-id="${componentSelector}-heading-icon-warning"></icon-alert-triangle>`;
+            case 'error':
+                return html`<icon-alert-circle class="icon" size="s" data-test-id="${componentSelector}-heading-icon-error"></icon-alert-circle>`;
+            default:
+                return nothing as never;
+        }
+    }
+
+    /**
+     * Util method that returns true if the variant has an icon.
+     *
+     * @param {typeof variants[number]} variant - The variant to check if has icon.
+     *
+     * @private
+     */
+    private variantHasIcon (variant: typeof variants[number]) {
+        return ['info', 'success', 'warning', 'error'].includes(variant);
+    }
+
     render () {
         const {
             isOpen,
+            variant,
             message,
             isDismissible,
             leadingAction,
             isMultiline,
+            isStrong,
             _messageAreaMaxWidth,
         } = this;
 
@@ -234,16 +287,22 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
             return nothing;
         }
 
+        const componentWrapperClasses = {
+            [componentClass]: true,
+            [`variant-${variant}`]: true,
+            'is-strong': isStrong,
+        };
+
         const messageAreaClasses = {
             [`${componentClass}-messageArea`]: true,
             'is-multiline': isMultiline,
         };
 
         return html`
-            <div data-test-id="${componentSelector}" class="${componentClass}">
+            <div data-test-id="${componentSelector}" class="${classMap(componentWrapperClasses)}">
                 <div class="${componentClass}-contentArea">
                     <div class="${classMap(messageAreaClasses)}">
-                        <icon-placeholder size="s"></icon-placeholder>
+                        ${this.variantHasIcon(variant) ? this.getVariantIcon() : nothing}
                         ${message === '' ? nothing : this.renderMessage(message, _messageAreaMaxWidth)} 
                     </div>
                     <div class="${componentClass}-actionsArea">
