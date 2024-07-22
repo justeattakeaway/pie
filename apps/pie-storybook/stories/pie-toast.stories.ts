@@ -53,7 +53,7 @@ const toastStoryMeta: ToastStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/branch/sjkhCbCcv7t4QkDrz7g0Xx/%E2%9C%A8-[Core]-Web-Components-[PIE-3]?node-id=7934-12060',
+            url: 'https://www.figma.com/file/pPSC73rPin4csb8DiK1CRr/branch/r96WaDE105zDbe5itnleVv/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?node-id=193-32270&t=UNBmhDoOOCzaIGuk-0',
         },
     },
 };
