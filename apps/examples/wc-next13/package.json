@@ -1,17 +1,17 @@
 {
   "name": "wc-next13",
-  "version": "0.3.43",
   "private": true,
+  "version": "0.3.43",
+  "type": "module",
   "scripts": {
-    "dev": "NODE_OPTIONS=--conditions=development next dev",
-    "build:examples": "yarn build-static",
-    "build-static": "next build && next export -o build",
-    "start": "next start",
-    "lint:examples": "next lint"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "0.47.8",
     "@justeattakeaway/pie-css": "0.12.1",
+    "@justeattakeaway/pie-webc": "0.5.13",
     "@lit-labs/nextjs": "0.2.0",
     "@lit/react": "1.0.5",
     "next": "13.5.5",
@@ -19,11 +19,14 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@types/node": "20.9.3",
+    "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
-    "eslint": "8.37.0",
-    "eslint-config-next": "13.5.5",
-    "typescript": "5.4.5"
+    "@vitejs/plugin-react": "4.3.1",
+    "eslint": "8.57.0",
+    "eslint-plugin-react": "7.34.3",
+    "eslint-plugin-react-hooks": "4.6.2",
+    "eslint-plugin-react-refresh": "0.4.7",
+    "vite": "5.3.4"
   },
   "volta": {
     "extends": "../../../package.json"
