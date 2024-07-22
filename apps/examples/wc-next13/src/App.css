@@ -25,13 +25,3 @@
 * {
     font-family: JETSansDigital, Arial, sans-serif;
 }
-
-.flex-wrapper {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.padding {
-    padding: 1rem;
-}
