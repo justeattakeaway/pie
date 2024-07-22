@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { variants } from '@justeattakeaway/pie-button';
-import { PieButton } from '@justeattakeaway/pie-button/dist/react';
+import { PieButton, variants } from '@justeattakeaway/pie-webc/react/button';
 
 export default function VariantSwitch () {
     const variantIndex = useRef(0);
