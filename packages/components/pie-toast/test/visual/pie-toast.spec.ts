@@ -35,7 +35,7 @@ test.describe('Props', () => {
                 } as ToastProps,
             });
 
-            await percySnapshot(page, 'PieNotification - isDismissible - Should show close icon if isDismissible is true');
+            await percySnapshot(page, 'PieToast - isDismissible - Should show close icon if isDismissible is true');
         });
 
         test('Should not show close icon if isDismissible is false', async ({ page, mount }) => {
@@ -46,7 +46,7 @@ test.describe('Props', () => {
                 } as ToastProps,
             });
 
-            await percySnapshot(page, 'PieNotification - isDismissible - Should not show close icon if isDismissible is false');
+            await percySnapshot(page, 'PieToast - isDismissible - Should not show close icon if isDismissible is false');
         });
     });
 
@@ -60,7 +60,7 @@ test.describe('Props', () => {
                 } as ToastProps,
             });
 
-            await percySnapshot(page, 'PieNotification - message - Should show ellipsis when message is too big and isMultiline is false');
+            await percySnapshot(page, 'PieToast - message - Should show ellipsis when message is too big and isMultiline is false');
         });
 
         test('Should show ellipsis when message is too big and isMultiline is true and message is limited to three lines', async ({ page, mount }) => {
@@ -72,7 +72,7 @@ test.describe('Props', () => {
                 } as ToastProps,
             });
 
-            await percySnapshot(page, 'PieNotification - message - Should show ellipsis when message is too big and isMultiline is true and message is limited to three lines');
+            await percySnapshot(page, 'PieToast - message - Should show ellipsis when message is too big and isMultiline is true and message is limited to three lines');
         });
     });
 
@@ -85,7 +85,7 @@ test.describe('Props', () => {
                 } as ToastProps,
             });
 
-            await percySnapshot(page, 'PieNotification - isMultiline - Should show close icon if isDismissible is true');
+            await percySnapshot(page, 'PieToast - isMultiline - Should show close icon if isDismissible is true');
         });
 
         test('Should not show close icon if isDismissible is false', async ({ page, mount }) => {
@@ -96,7 +96,7 @@ test.describe('Props', () => {
                 } as ToastProps,
             });
 
-            await percySnapshot(page, 'PieNotification - isMultiline - Should not show close icon if isDismissible is false');
+            await percySnapshot(page, 'PieToast - isMultiline - Should not show close icon if isDismissible is false');
         });
     });
 
@@ -109,7 +109,7 @@ test.describe('Props', () => {
                 } as ToastProps,
             });
 
-            await percySnapshot(page, 'PieNotification - isMultiline - Should show leadingAction in the footer if isMultiline is true');
+            await percySnapshot(page, 'PieToast - isMultiline - Should show leadingAction in the footer if isMultiline is true');
         });
 
         test('Should show leadingAction inline if isMultiline is false', async ({ page, mount }) => {
@@ -120,7 +120,7 @@ test.describe('Props', () => {
                 } as ToastProps,
             });
 
-            await percySnapshot(page, 'PieNotification - isMultiline - Should show leadingAction inline if isMultiline is false');
+            await percySnapshot(page, 'PieToast - isMultiline - Should show leadingAction inline if isMultiline is false');
         });
     });
 });
