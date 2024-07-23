@@ -2,6 +2,7 @@ const path = require('path');
 
 const transpileModules = [
     '@justeattakeaway/pie-button',
+    '@justeattakeaway/pie-webc',
     '@justeattakeaway/pie-cookie-banner',
     '@lit/react',
     'lit'
