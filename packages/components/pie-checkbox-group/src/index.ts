@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, PropertyValues,
+    LitElement, html, unsafeCSS, type PropertyValues,
 } from 'lit';
 import { property, queryAssignedElements } from 'lit/decorators.js';
 import {
@@ -12,7 +12,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import styles from './checkbox-group.scss?inline';
 import {
     ON_CHECKBOX_GROUP_DISABLED,
-    CheckboxGroupProps,
+    type CheckboxGroupProps,
     defaultProps,
     statusTypes,
 } from './defs';

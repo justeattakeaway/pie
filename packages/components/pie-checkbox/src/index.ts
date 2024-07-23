@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, PropertyValues, nothing,
+    LitElement, html, unsafeCSS, nothing,
 } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -15,7 +15,7 @@ import {
 import '@justeattakeaway/pie-assistive-text';
 
 import styles from './checkbox.scss?inline';
-import { CheckboxProps, defaultProps, statusTypes } from './defs';
+import { type CheckboxProps, defaultProps, statusTypes } from './defs';
 
 // Valid values available to consumers
 export * from './defs';

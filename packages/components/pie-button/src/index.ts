@@ -1,11 +1,11 @@
 import {
-    LitElement, html, unsafeCSS, nothing, PropertyValues, TemplateResult,
+    LitElement, html, unsafeCSS, nothing, type PropertyValues, type TemplateResult,
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { validPropertyValues, defineCustomElement, FormControlMixin } from '@justeattakeaway/pie-webc-core';
 import {
-    ButtonProps, sizes, types, variants, iconPlacements, defaultProps,
+    type ButtonProps, sizes, types, variants, iconPlacements, defaultProps,
 } from './defs';
 import styles from './button.scss?inline';
 import 'element-internals-polyfill';
