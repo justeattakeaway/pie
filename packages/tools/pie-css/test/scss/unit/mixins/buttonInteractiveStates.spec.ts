@@ -24,7 +24,7 @@ describe('mixins.button-interactive-states', () => {
         }
 
         .button:active:not(:disabled),
-        .button[isLoading]:not(:disabled) {
+        .button.is-loading:not(:disabled) {
           --active-modifier: calc(-1 * var(--dt-color-active-01));
           --btn-bg-color: hsl(var(primary-h), var(primary-s), calc(var(primary-l) + var(--active-modifier)));
         }
@@ -54,7 +54,7 @@ describe('mixins.button-interactive-states', () => {
         }
 
         .button:active:not(:disabled),
-        .button[isLoading]:not(:disabled) {
+        .button.is-loading:not(:disabled) {
           --active-modifier: calc(-1 * var(--dt-color-active-02));
           --btn-bg-color: hsl(var(primary-h), var(primary-s), calc(var(primary-l) + var(--active-modifier)));
         }
@@ -85,7 +85,7 @@ describe('mixins.button-interactive-states', () => {
         }
 
         .button:active:not(:disabled),
-        .button[isLoading]:not(:disabled) {
+        .button.is-loading:not(:disabled) {
           --active-modifier: calc(-1 * var(--dt-color-active-01));
           --active-modifier: var(--dt-color-active-01);
           --btn-bg-color: hsl(var(primary-h), var(primary-s), var(primary-l), var(--active-modifier));
