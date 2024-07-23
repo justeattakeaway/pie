@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.81.4
+
+### Patch Changes
+
+- [Added] - main logic for checkbox-group ([#1581](https://github.com/justeattakeaway/pie/pull/1581)) by [@dandel10n](https://github.com/dandel10n)
+
+- Updated dependencies [[`46bdcbe01`](https://github.com/justeattakeaway/pie/commit/46bdcbe01aeb7309bb7616114310736af70317d8), [`d2b3e77e8`](https://github.com/justeattakeaway/pie/commit/d2b3e77e8c90c6638294100f3f3aa56c5e69d02b), [`acbf96324`](https://github.com/justeattakeaway/pie/commit/acbf9632400026a3c08b7090283479b4c1049ffc), [`46bdcbe01`](https://github.com/justeattakeaway/pie/commit/46bdcbe01aeb7309bb7616114310736af70317d8)]:
+  - @justeattakeaway/pie-checkbox-group@0.2.0
+  - @justeattakeaway/pie-cookie-banner@0.22.0
+  - @justeattakeaway/pie-checkbox@0.8.0
+
 ## 0.81.3
 
 ### Patch Changes
