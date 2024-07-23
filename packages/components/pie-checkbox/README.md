@@ -90,7 +90,7 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 <!-- Native HTML -->
 <pie-checkbox name="mycheckbox">Label</pie-checkbox>
 
-<!-- Without a label it is necessary to pass aria-label or aria-labeledby attributes to the component  -->
+<!-- Without a label it is necessary to pass aria-label or aria-labelledby attributes to the component  -->
 <pie-checkbox name="mycheckbox" aria-label="Label"></pie-checkbox>
 
 <!-- JSX -->
