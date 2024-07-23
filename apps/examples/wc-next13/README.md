@@ -1,4 +1,11 @@
-## How to use Next.js App
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 ### `yarn dev`
 
@@ -39,4 +46,4 @@ React 18 and previous versions don't handle web components and custom elements o
 
 Therefore, in order to import the web component into your React application, please use:
 
-import { PieButton } from '@justeattakeaway/pie-button/dist/react';
+import { PieButton } from '@justeattakeaway/pie-webc/react/button.js';
