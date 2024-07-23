@@ -37,7 +37,7 @@
     font-weight: var(--dt-font-body-strong-s-weight);
     color: var(--dt-color-content-default);
 
-    margin-bottom: var(--checkbox-group-label-offset);
+    margin-block-end: var(--checkbox-group-label-offset);
 }
 
 .c-checkbox-group.__inline {
