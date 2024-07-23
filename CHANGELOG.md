@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.62.0
+
+### Minor Changes
+
+- [Changed] - Let commitizen read ticket number from branch name ([#1614](https://github.com/justeattakeaway/pie/pull/1614)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 2.61.3
 
 ### Patch Changes

@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { PieButton } from '@justeattakeaway/pie-button/dist/react';
+import { useState } from 'react'
+import { PieButton } from '@justeattakeaway/pie-webc/react/button.js';
 
 import '@justeattakeaway/pie-css';
-import './styles.css';
+import './App.css';
 
-function App () {
+function App() {
     const [counter, setCounter] = useState(0);
 
     return (
@@ -16,11 +16,11 @@ function App () {
             <h2>onClick</h2>
             <p>Count: {counter}</p>
             <PieButton
-            // eslint-disable-next-line no-console
+                // eslint-disable-next-line no-console
                 onClick={(e) => setCounter(counter + 1) + console.log(e)}
             >Increment</PieButton>
         </>
-    );
+    )
 }
 
-export default App;
+export default App
