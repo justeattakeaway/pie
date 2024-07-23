@@ -1,5 +1,16 @@
 # wc-angular12
 
+## 0.5.0
+
+### Minor Changes
+
+- [Added] pie-webc integration to angular examples app ([#1611](https://github.com/justeattakeaway/pie/pull/1611)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.14
+
 ## 0.4.43
 
 ### Patch Changes

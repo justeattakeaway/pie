@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-checkbox-group
 
+## 0.2.0
+
+### Minor Changes
+
+- [Added] - main logic for checkbox-group ([#1581](https://github.com/justeattakeaway/pie/pull/1581)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.1.0
 
 ### Minor Changes

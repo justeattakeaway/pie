@@ -1,5 +1,16 @@
 # wc-next10
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] pie-webc integration to next10 example app ([#1617](https://github.com/justeattakeaway/pie/pull/1617)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.14
+
 ## 0.5.46
 
 ### Patch Changes
