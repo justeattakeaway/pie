@@ -1,5 +1,16 @@
 # wc-next13
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - pie-webc integration to next13 example apps ([#1613](https://github.com/justeattakeaway/pie/pull/1613)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.14
+
 ## 0.3.43
 
 ### Patch Changes

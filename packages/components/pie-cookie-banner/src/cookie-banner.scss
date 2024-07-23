@@ -46,6 +46,16 @@ $breakpoint-wide: 700px;
     &[isCookieBannerHidden] {
         display: none;
     }
+
+    @media (prefers-reduced-motion: no-preference) {
+        @keyframes animate-enter {
+            0% { transform: translate3d(0, 75%, 0); }
+
+            100% { transform: translate3d(0, 0, 0); }
+        }
+
+        animation: 0.5s animate-enter ease-out;
+    }
 }
 
 .c-cookieBanner-title,

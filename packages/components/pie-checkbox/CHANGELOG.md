@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - event listener for pie-checkbox-group-disabled custom event ([#1581](https://github.com/justeattakeaway/pie/pull/1581)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Removed] - aria prop since aria attributes should be passed to the component directly
+
 ## 0.7.1
 
 ### Patch Changes
