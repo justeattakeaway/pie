@@ -4,6 +4,7 @@ eleventyNavigation:
     title: Structure
     parent: engineers-getting-started
     order: 2
+shouldShowContents: true
 ---
 
 ## PIE Component Systems
@@ -49,6 +50,95 @@ For more details on Fozzie, Snacks and Skip PIE, please check out the **document
 
 ---
 
+##  Which library should I use?
+
+### Latest tech stack and Vanilla JS
+
+{% contentLayout %}
+    {% tag {
+    label: "Next 14",
+    variant: "blue"
+    } %}
+    {% tag {
+    label: "React 18",
+    variant: "blue"
+    } %}
+    {% tag {
+    label: "Nuxt 3",
+    variant: "blue"
+    } %}
+    {% tag {
+    label: "Vue 3",
+    variant: "blue"
+    } %}
+    {% tag {
+    label: "Vanilla JS",
+    variant: "blue"
+    } %}
+{% endcontentLayout %}
+
+If you are working with latest stack both in React and Vue ecosystems, we recommend to go straight away with
+[PIE Web Components](/engineers/web-components/).
+
+### Next 13 and earlier versions 
+
+{% contentLayout %}
+    {% tag {
+    label: "Next 13",
+    variant: "blue"
+    } %}
+    {% tag {
+    label: "Next 10",
+    variant: "blue"
+    } %}
+{% endcontentLayout %}
+ 
+You can use [PIE Web Components](/engineers/web-components/) for Next 13 or earlier versions if you don't need SSR. 
+If you need to render components on the server (SSR), [Snacks](https://snacks.takeaway.com/portal/) is the best library for you.
+
+We recommend updating to Next 14 if you would like to use SSR with our new Web Components.
+
+### Vue and Nuxt 2
+
+{% contentLayout %}
+    {% tag {
+    label: "Vue 2",
+    variant: "blue"
+    } %}
+    {% tag {
+    label: "Nuxt 2",
+    variant: "blue"
+    } %}
+{% endcontentLayout %}
+
+Our [Fozzie](https://vue.pie.design/) library currently supports older versions of Vue. We recommend updating to the latest Vue ecosystem if possible.
+
+### What if I'm working on a greenfield project?
+
+We recommend using [PIE Web Components](/engineers/web-components/) as much as you can, if your tech stack is supported. This helps us test our new components and avoids any need for a future migration.
+
+### I can't find the web component I need
+
+**I need it right away**
+
+If you need the component right away, check our legacy libraries ([Snacks](https://snacks.takeaway.com/) and [Fozzie](https://vue.pie.design/)) in case a suitable component already exists.
+We also recommend to check with our team if you can use another existing component for your solution instead.
+
+If you can't wait and can't find the component in our libraries, please implement it yourself in your codebase.
+
+
+**I can wait for the component to be implemented**
+
+If you have some time before needing the component or are planning ahead, please reach out to us in **#help-designsystem** to check if we can include the component you need.
+
+In our current process it takes us around a month and a half to two months to have a new component ready from design to implementation, so keep this in mind.
+
+**I'd like to contribute to the component library**
+
+If you are willing and able to contribute to the web component library, we can prioritise an ad-hoc design audit, and have the designs ready for contribution in 2-4 weeks. We have processes in place to support you during your time working in our codebase and would greatly appreciate your contribution.
+
+___
+
 ## PIE project structure
 
 ### The PIE Monorepo
@@ -72,7 +162,7 @@ For instance, the code for the `pie.design` documentation site lives inside the 
 
 The `/packages` folder contains all the shareable packages that can be installed and used by engineers across JET (available via NPM).
 
-This folder is currently split into two categories; **Components** and **Tools**.
+This folder is currently split into two categories: **Components** and **Tools**.
 
 The `/packages/components` directory is where our global PIE Web Component packages can be found, such as `pie-button`.
 

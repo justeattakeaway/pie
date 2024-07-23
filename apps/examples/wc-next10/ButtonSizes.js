@@ -1,6 +1,5 @@
 import React from 'react';
-import { sizes } from '@justeattakeaway/pie-button';
-import { PieButton } from '@justeattakeaway/pie-button/dist/react';
+import { PieButton, sizes } from '@justeattakeaway/pie-webc/react/button';
 
 export default function ButtonSizes () {
     return (
