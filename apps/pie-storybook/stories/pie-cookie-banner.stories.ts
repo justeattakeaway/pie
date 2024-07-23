@@ -21,7 +21,6 @@ const defaultArgs: CookieBannerProps = {
         personalized: true,
         analytical: true,
     },
-    entranceAnimationVariant: '0',
 };
 
 const cookieBannerStoryMeta: CookieBannerStoryMeta = {
@@ -42,14 +41,6 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
         },
         defaultPreferences: {
             control: 'object',
-        },
-        entranceAnimationVariant: {
-            description: 'Sets the entrance animation variant for the cookie banner.',
-            options: ['0', '1', '2', '3', '4'],
-            control: 'select',
-            defaultValue: {
-                summary: '0',
-            },
         },
     },
     args: defaultArgs,
@@ -76,7 +67,6 @@ const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => {
         cookieStatementLink,
         cookieTechnologiesLink,
         defaultPreferences,
-        entranceAnimationVariant,
     } = props;
 
     return html`
@@ -86,7 +76,6 @@ const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => {
             .cookieTechnologiesLink=${cookieTechnologiesLink}
             ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"
             .defaultPreferences="${defaultPreferences}"
-            entranceAnimationVariant="${entranceAnimationVariant || '0'}"
             @pie-cookie-banner-necessary-only="${necessaryOnlyAction}"
             @pie-cookie-banner-accept-all="${acceptAllAction}"
             @pie-cookie-banner-manage-prefs="${managePrefsAction}"

@@ -47,45 +47,13 @@ $breakpoint-wide: 700px;
         display: none;
     }
 
-    &[data-entrance-animation="1"] {
-        @keyframes animate-enter-1 {
-            0% { transform: translate3d(0, 25%, 0); }
+    @keyframes animate-enter {
+        0% { transform: translate3d(0, 75%, 0); }
 
-            100% { transform: translate3d(0, 0, 0); }
-        }
-
-        animation: 0.5s animate-enter-1 ease-out;
+        100% { transform: translate3d(0, 0, 0); }
     }
 
-    &[data-entrance-animation="2"] {
-        @keyframes animate-enter-2 {
-            0% { transform: translate3d(0, 50%, 0); }
-
-            100% { transform: translate3d(0, 0, 0); }
-        }
-
-        animation: 0.5s animate-enter-2 ease-out;
-    }
-
-    &[data-entrance-animation="3"] {
-        @keyframes animate-enter-3 {
-            0% { transform: translate3d(0, 75%, 0); }
-
-            100% { transform: translate3d(0, 0, 0); }
-        }
-
-        animation: 0.5s animate-enter-3 ease-out;
-    }
-
-    &[data-entrance-animation="4"] {
-        @keyframes animate-enter-4 {
-            0% { transform: translate3d(0, 100%, 0); }
-
-            100% { transform: translate3d(0, 0, 0); }
-        }
-
-        animation: 0.5s animate-enter-4 ease-out;
-    }
+    animation: 0.5s animate-enter ease-out;
 }
 
 .c-cookieBanner-title,

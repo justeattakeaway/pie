@@ -73,8 +73,6 @@ export interface CookieBannerProps {
      * or { 'functional': true, 'personalized': true, 'analytical': true }
      */
     defaultPreferences?: Partial<Record<PreferenceIds, boolean>>;
-
-    entranceAnimationVariant?: '0' | '1' | '2' | '3' | '4';
 }
 
 /**

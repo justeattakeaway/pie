@@ -46,7 +46,6 @@ export const defaultProps: DefaultProps = {
     locale: defaultLocale,
     cookieStatementLink: '',
     cookieTechnologiesLink: '',
-    entranceAnimationVariant: '0',
 };
 
 const componentSelector = 'pie-cookie-banner';
@@ -79,9 +78,6 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
 
     @property({ type: String })
     public cookieTechnologiesLink = defaultProps.cookieTechnologiesLink;
-
-    @property({ type: String })
-    public entranceAnimationVariant = defaultProps.entranceAnimationVariant;
 
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;
@@ -254,8 +250,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         <aside
             data-test-id="pie-cookie-banner"
             class="c-cookieBanner"
-            ?isCookieBannerHidden=${this._isCookieBannerHidden}
-            data-entrance-animation="${this.entranceAnimationVariant}">
+            ?isCookieBannerHidden=${this._isCookieBannerHidden}>
             <h2 class="c-cookieBanner-title">${this._localiseText('banner.title')}</h2>
             <div class="c-cookieBanner-body" data-test-id="banner-description">
                 <p>${this._localiseRichText('banner.description')}</p>
