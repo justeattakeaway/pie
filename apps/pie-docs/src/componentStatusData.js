@@ -82,7 +82,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.TBC,
+            status: statusTypes.PLANNED,
         }
     ],
     [
@@ -157,7 +157,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.ALPHA,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -235,7 +235,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.ALPHA,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -272,7 +272,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.ALPHA,
+            status: statusTypes.BETA,
         }
     ],
     [
@@ -391,7 +391,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.PLANNED,
+            status: statusTypes.BETA,
         }
     ],
     [
@@ -506,7 +506,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.ALPHA,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -691,7 +691,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.TBC,
+            status: statusTypes.NOT_APPLICABLE,
         }
     ],
     [
@@ -841,7 +841,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.ALPHA,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -959,7 +959,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.ALPHA,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -997,7 +997,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.ALPHA,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -1074,7 +1074,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.TBC,
+            status: statusTypes.BETA,
         }
     ],
     [
@@ -1114,7 +1114,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.ALPHA,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -1304,7 +1304,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.TBC,
+            status: statusTypes.NOT_APPLICABLE,
         }
     ],
     [
@@ -1342,7 +1342,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.TBC,
+            status: statusTypes.NOT_APPLICABLE,
         }
     ],
     [
@@ -1495,7 +1495,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.TBC,
+            status: statusTypes.PLANNED,
         }
     ],
     [
@@ -1646,7 +1646,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.TBC,
+            status: statusTypes.NOT_APPLICABLE,
         }
     ],
     [
@@ -1685,7 +1685,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.ALPHA,
+            status: statusTypes.STABLE,
         }
     ],
     [
@@ -2033,7 +2033,7 @@ const rows = [
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.ALPHA,
+            status: statusTypes.BETA,
         }
     ],
     [
