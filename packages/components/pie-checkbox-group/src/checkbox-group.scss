@@ -1,6 +1,6 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-.c-checkbox-group {
+.c-checkboxGroup {
     --checkbox-group-offset: var(--dt-spacing-c);
     --checkbox-group-offset--inline: var(--dt-spacing-e);
     --checkbox-group-label-offset: var(--dt-spacing-a);
@@ -14,21 +14,21 @@
         display: flex;
     }
 
-    &:not(.__inline) {
+    &:not(.c-checkboxGroup--inline) {
         ::slotted(pie-checkbox:not(:first-child)) {
             margin-block-start: var(--checkbox-group-offset);
         }
     }
 }
 
-.__inline {
+.c-checkboxGroup--inline {
     display: flex;
 
     align-items: flex-start;
     flex-wrap: wrap;
 }
 
-.label {
+.c-checkboxGroup-label {
     max-width: 100%;
     white-space: normal;
     padding: 0;
@@ -40,7 +40,7 @@
     margin-block-end: var(--checkbox-group-label-offset);
 }
 
-.c-checkbox-group.__inline {
+.c-checkboxGroup.c-checkboxGroup--inline {
     margin: calc(-1 * var(--checkbox-group-offset--inline) / 2) calc(-1 * var(--checkbox-group-offset--inline) / 2);
 
     ::slotted(pie-checkbox) {

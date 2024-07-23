@@ -3,5 +3,5 @@
 ---
 
 [Added] - New `isInline` prop.
-[Added] -Styling for Checkbox Group.
+[Added] - Styling for Checkbox Group.
 [Added] -Visual tests.

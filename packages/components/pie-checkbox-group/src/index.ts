@@ -9,6 +9,7 @@ import {
     validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { classMap } from 'lit/directives/class-map.js';
 import styles from './checkbox-group.scss?inline';
 import {
     ON_CHECKBOX_GROUP_DISABLED,
@@ -84,15 +85,20 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
             status,
             disabled,
         } = this;
+
+        const dynamicClasses = {
+            'c-checkboxGroup--inline': isInline,
+        };
+
         return html`
             <fieldset
                 name=${ifDefined(name)}
                 ?disabled=${disabled}
                 aria-describedby="${ifDefined(assistiveText ? assistiveTextId : undefined)}"
                 data-test-id="pie-checkbox-group"
-                class="c-checkbox-group ${isInline && '__inline'}"
+                class="c-checkboxGroup ${classMap(dynamicClasses)}"
             >
-                ${label && html`<legend class="label">${label}</legend>`}
+                ${label && html`<legend class="c-checkboxGroup-label">${label}</legend>`}
                 <slot></slot>
             </fieldset>
             ${assistiveText && html`
