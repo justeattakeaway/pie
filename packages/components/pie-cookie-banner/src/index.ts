@@ -247,10 +247,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             @pie-modal-back="${this._displayCookieBanner}">
                 ${this.renderModalContent()}
         </pie-modal>
-        <aside
-            data-test-id="pie-cookie-banner"
-            class="c-cookieBanner"
-            ?isCookieBannerHidden=${this._isCookieBannerHidden}>
+        <aside data-test-id="pie-cookie-banner" class="c-cookieBanner" ?isCookieBannerHidden=${this._isCookieBannerHidden}>
             <h2 class="c-cookieBanner-title">${this._localiseText('banner.title')}</h2>
             <div class="c-cookieBanner-body" data-test-id="banner-description">
                 <p>${this._localiseRichText('banner.description')}</p>
