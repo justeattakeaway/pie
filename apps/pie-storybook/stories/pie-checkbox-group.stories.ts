@@ -90,10 +90,11 @@ const Template = ({
             ?disabled="${disabled}"
         >
             <pie-checkbox name="checkbox-one">checkbox 1</pie-checkbox>
-            <pie-checkbox name="checkbox-two">checkbox 2 longer label</pie-checkbox>
-            <pie-checkbox name="checkbox-three">checkbox 3</pie-checkbox>
+            <pie-checkbox name="checkbox-two">checkbox 2</pie-checkbox>
+            <pie-checkbox name="checkbox-three">checkbox 3 longer label</pie-checkbox>
             <pie-checkbox name="checkbox-three">checkbox 4</pie-checkbox>
-            <pie-checkbox name="checkbox-three">checkbox 5 even longer label</pie-checkbox>
+            <pie-checkbox name="checkbox-three">checkbox 5 even longer label: Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.</pie-checkbox>
             <pie-checkbox name="checkbox-three">checkbox 6</pie-checkbox>
         </pie-checkbox-group>
     </div>

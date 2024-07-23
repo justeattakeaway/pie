@@ -131,6 +131,29 @@ for (const dir of readingDirections) {
             },
         );
 
+        // Success + assistive text + isInline
+        testComponent = createTestWebComponent({
+            assistiveText: 'Success text',
+            label: 'Group label',
+            status: 'success',
+            isInline: true,
+        }, renderTestPieCheckboxGroup);
+        propKeyValues = `
+            assistiveText: ${testComponent.propValues.assistiveText},
+            label: ${testComponent.propValues.label},
+            status: ${testComponent.propValues.status},
+            isInline: ${testComponent.propValues.isInline}`;
+
+        await mount(
+            WebComponentTestWrapper,
+            {
+                props: { propKeyValues },
+                slots: {
+                    component: testComponent.renderedString.trim(),
+                },
+            },
+        );
+
         await percySnapshot(page, `PIE Checkbox Group - Assistive text and statuses - ${dir}`, percyWidths);
     });
 }
