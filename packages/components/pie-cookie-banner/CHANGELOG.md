@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.22.0
+
+### Minor Changes
+
+- [Added] - An entrance animation to the cookie banner that makes it slide into the viewport from below. ([#1579](https://github.com/justeattakeaway/pie/pull/1579)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - wording for en-FR and fr-FR to align with cookie policy page ([#1615](https://github.com/justeattakeaway/pie/pull/1615)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.21.0
 
 ### Minor Changes
