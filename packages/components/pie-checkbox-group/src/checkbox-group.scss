@@ -47,7 +47,7 @@
         margin: calc(var(--checkbox-group-offset--inline) / 2) calc(var(--checkbox-group-offset--inline) / 2);
     }
 
-    .label {
+    .c-checkboxGroup-label {
         margin: 0 calc(var(--checkbox-group-offset--inline) / 2) calc(-1 * (var(--checkbox-group-offset--inline) / 2 - var(--checkbox-group-label-offset)));
     }
 }
