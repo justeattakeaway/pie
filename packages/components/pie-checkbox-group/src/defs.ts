@@ -14,7 +14,7 @@ export interface CheckboxGroupProps {
     label?: string;
 
     /**
-     * Inline positioning of checkbox items
+     * Inline (horizontal) positioning of checkbox items
      */
     isInline?: boolean;
 

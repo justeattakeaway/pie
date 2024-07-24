@@ -86,7 +86,8 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
             disabled,
         } = this;
 
-        const dynamicClasses = {
+        const classes = {
+            'c-checkboxGroup': true,
             'c-checkboxGroup--inline': isInline,
         };
 
@@ -96,7 +97,7 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
                 ?disabled=${disabled}
                 aria-describedby="${ifDefined(assistiveText ? assistiveTextId : undefined)}"
                 data-test-id="pie-checkbox-group"
-                class="c-checkboxGroup ${classMap(dynamicClasses)}"
+                class="${classMap(classes)}"
             >
                 ${label && html`<legend class="c-checkboxGroup-label">${label}</legend>`}
                 <slot></slot>

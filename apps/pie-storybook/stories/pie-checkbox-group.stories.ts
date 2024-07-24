@@ -30,7 +30,7 @@ const checkboxGroupStoryMeta: CheckboxGroupStoryMeta = {
             control: 'text',
         },
         isInline: {
-            description: 'Inline positioning of checkbox items.',
+            description: 'Inline (horizontal) positioning of checkbox items.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultArgs.isInline,
