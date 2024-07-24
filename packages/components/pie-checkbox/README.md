@@ -77,7 +77,6 @@ import { PieCheckbox } from '@justeattakeaway/pie-checkbox/dist/react';
 | `name` | `string` | - | The name of the checkbox (used as a key/value pair with `value`). This is required in order to work properly with forms. |
 | `value` | `string`  `'on'` | The value of the input (used as a key/value pair in HTML forms with `name`). If not passed falls back to the html default value "on". |
 | `required` | `boolean` | `false` | If true, the checkbox is required to be checked before submitting the form. If it is not in checked state, the component validity state will be invalid. |
-| `label` | `string` | `''` | Text associated with the checkbox. If there is no label to provide, make sure to pass aria-label, aria-labelledby or aria-describedby attributes instead. |
 | `disabled` | `boolean` | `false` | Indicates whether or not the checkbox is disabled. |
 | `checked` | `boolean` | `false` | Controls whether or not the checkbox is checked. |
 | `defaultChecked` | `boolean` | `false` | Sets the default checked state for the checkbox. This does not directly set the initial checked state when the page loads, use `checked` for that. If the checkbox is inside a form which is reset, the `checked` state will be updated to match `defaultChecked`. |
@@ -89,16 +88,14 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 
 ```html
 <!-- Native HTML -->
-<pie-checkbox
-    name="mycheckbox"
-    label="Checkbox Label">
-</pie-checkbox>
+<pie-checkbox name="mycheckbox">Label</pie-checkbox>
+
+<!-- Without a label it is necessary to pass aria-label or aria-labelledby attributes to the component  -->
+<pie-checkbox name="mycheckbox" aria-label="Label"></pie-checkbox>
 
 <!-- JSX -->
-<PieCheckbox
-    name="mycheckbox"
-    label="Checkbox Label">
-</PieCheckbox>
+<PieCheckbox name="mycheckbox">Label</PieCheckbox>
+<PieCheckbox name="mycheckbox" aria-label="Label"></PieCheckbox>
 ```
 
 ## Events

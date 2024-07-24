@@ -8,11 +8,6 @@ export interface CheckboxProps {
     value?: string;
 
     /**
-     * The label value of the component
-     */
-    label?: string;
-
-    /**
      * The name of the checkbox (used as a key/value pair with `value`). This is required in order to work properly with forms.
      */
     name?: string;
@@ -54,7 +49,7 @@ export interface CheckboxProps {
     status?: typeof statusTypes[number];
 }
 
-export type DefaultProps = ComponentDefaultProps<CheckboxProps, keyof Omit<CheckboxProps, 'label' | 'name' | 'assistiveText'>>;
+export type DefaultProps = ComponentDefaultProps<CheckboxProps, keyof Omit<CheckboxProps, 'name' | 'assistiveText'>>;
 
 export const defaultProps: DefaultProps = {
     // a default value for the html <input type="checkbox" /> value attribute.

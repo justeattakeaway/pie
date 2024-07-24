@@ -87,34 +87,16 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 ```html
 <!-- Native HTML -->
 <pie-checkbox-group name="TESTNAME">
-  <pie-checkbox
-    name="my-checkbox-one"
-    label="Checkbox Label 1">
-  </pie-checkbox>
-  <pie-checkbox
-      name="my-checkbox-two"
-      label="Checkbox Label 2">
-  </pie-checkbox>
-  <pie-checkbox
-      name="my-checkbox-three"
-      label="Checkbox Label 3">
-  </pie-checkbox>
+  <pie-checkbox name="my-checkbox-one">Checkbox Label 1</pie-checkbox>
+  <pie-checkbox name="my-checkbox-two">Checkbox Label 2</pie-checkbox>
+  <pie-checkbox name="my-checkbox-three">Checkbox Label 3</pie-checkbox>
 </pie-checkbox-group>
 
 <!-- JSX -->
 <PieCheckboxGroup name="TESTNAME">
-  <PieCheckbox
-    name="my-checkbox-one"
-    label="Checkbox Label 1">
-  </PieCheckbox>
-  <PieCheckbox
-      name="my-checkbox-two"
-      label="Checkbox Label 2">
-  </PieCheckbox>
-  <PieCheckbox
-      name="my-checkbox-three"
-      label="Checkbox Label 3">
-  </PieCheckbox>
+  <PieCheckbox name="my-checkbox-one">Checkbox Label 1</PieCheckbox>
+  <PieCheckbox name="my-checkbox-two">Checkbox Label 2</PieCheckbox>
+  <PieCheckbox name="my-checkbox-three">Checkbox Label 3</PieCheckbox>
 </PieCheckboxGroup>
 ```
 
