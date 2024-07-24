@@ -134,7 +134,7 @@
         }
     }
 
-    &[data-pie-checked][isRtl]:before {
+    &[data-pie-checked][data-is-rtl]:before {
         left: unset;
         right: 50%;
     }
@@ -184,7 +184,7 @@
     background-color: white;
 }
 
-.c-checkbox-tick[isRtl]:after {
+.c-checkbox-tick[data-is-rtl]:after {
     left: unset;
     right: 14%;
 }
