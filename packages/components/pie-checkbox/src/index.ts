@@ -153,6 +153,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             indeterminate,
             assistiveText,
             status,
+            isRTL,
         } = this;
 
         const componentDisabled = disabled || disabledByParent;
@@ -180,7 +181,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             <label for="inputId" data-test-id="checkbox-component">
                 <span
                     class="c-checkbox-tick"
-                    ?isRTL=${this.isRTL}
+                    ?data-is-rtl=${isRTL}
                     ?data-pie-checked=${checked}
                     ?data-pie-disabled=${componentDisabled}
                     data-pie-status=${!componentDisabled && status}
