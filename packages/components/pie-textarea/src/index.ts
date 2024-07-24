@@ -31,9 +31,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     @property({ type: String })
     public value = defaultProps.value;
 
-    @property({ type: String })
-    public name?: TextareaProps['name'];
-
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
 
@@ -45,20 +42,20 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     @validPropertyValues(componentSelector, resizeModes, defaultProps.resize)
     public resize = defaultProps.resize;
 
+    @property({ type: Boolean })
+    public readonly = defaultProps.readonly;
+
+    @property({ type: Boolean })
+    public autoFocus = defaultProps.autoFocus;
+
+    @property({ type: Boolean })
+    public required = defaultProps.required;
+
+    @property({ type: String })
+    public name?: TextareaProps['name'];
+
     @property({ type: String })
     public autocomplete?: TextareaProps['autocomplete'];
-
-    @property({ type: Boolean })
-    public autoFocus?: TextareaProps['autoFocus'];
-
-    @property({ type: Boolean })
-    public readonly?: TextareaProps['readonly'];
-
-    @property({ type: String })
-    public defaultValue?: TextareaProps['defaultValue'];
-
-    @property({ type: Boolean })
-    public required?: TextareaProps['required'] = false;
 
     @query('textarea')
     private _textarea!: HTMLTextAreaElement;
@@ -93,19 +90,12 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
      * Resets the value to the default value.
      */
     public formResetCallback (): void {
-        this.value = this.defaultValue ?? defaultProps.value;
-
-        // This ensures the input value is updated when the form is reset.
-        // Otherwise, there is a bug where values like 'e1212' for number inputs do not correctly reset.
-        if (this._textarea) {
-            this._textarea.value = this.value;
-        }
+        this.value = defaultProps.value;
 
         this._internals.setFormValue(this.value);
     }
 
-    protected firstUpdated (_changedProperties: PropertyValues<this>): void {
-        super.firstUpdated(_changedProperties);
+    protected firstUpdated (): void {
         this._internals.setFormValue(this.value);
     }
 

@@ -51,11 +51,6 @@ export interface TextareaProps {
     readonly?: boolean;
 
     /**
-     * An optional default value to use when the textarea is reset.
-     */
-    defaultValue?: string;
-
-    /**
      * If true, the textarea is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid.
      */
     required?: boolean;
@@ -64,14 +59,17 @@ export interface TextareaProps {
 /**
  * The default values for the `TextareaProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultProps<TextareaProps, 'value' | 'disabled' | 'size' | 'resize'>;
+type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name'| 'autocomplete'>>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
  */
 export const defaultProps: DefaultProps = {
-    value: '',
     disabled: false,
     size: 'medium',
     resize: 'auto',
+    value: '',
+    autoFocus: false,
+    readonly: false,
+    required: false,
 };

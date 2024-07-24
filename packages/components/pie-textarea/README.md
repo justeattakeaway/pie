@@ -82,7 +82,6 @@ import { PieTextarea } from '@justeattakeaway/pie-textarea/dist/react';
 | `autocomplete` | `string` | `''` | Allows the user to enable or disable autocomplete functionality on the textarea field. |
 | `autoFocus` | `boolean` | `false` | If true, the textarea will be focused on the first render. |
 | `readonly` | `boolean` | `false` | When true, the user cannot edit the control. Not the same as disabled. |
-| `defaultValue` | `string` | `''` | An optional default value to use when the textarea is reset. |
 | `required` | `boolean` | `false` | If true, the textarea is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid. |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-textarea` component:

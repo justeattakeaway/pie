@@ -23,7 +23,6 @@ const Template = ({
     disabled,
     resize,
     size,
-    defaultValue,
     required,
     readonly,
     value,
@@ -57,7 +56,6 @@ const Template = ({
             ?disabled="${disabled}"
             size="${ifDefined(size)}"
             resize="${ifDefined(resize)}"
-            defaultValue="${ifDefined(defaultValue)}"
             autocomplete="${ifDefined(autocomplete)}"
             ?autoFocus="${autoFocus}"
             ?readonly="${readonly}"
@@ -96,7 +94,7 @@ const textareaStoryMeta: TextareaStoryMeta = {
             },
         },
         name: {
-            description: 'The name of the input (used as a key/value pair with `value`). This is required in order to work properly with forms.',
+            description: 'The name of the textarea (used as a key/value pair with `value`). This is required in order to work properly with forms.',
             control: 'text',
             defaultValue: {
                 summary: defaultArgs.name,
@@ -116,18 +114,25 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: false,
             },
         },
-        defaultValue: {
-            description: 'An optional default value to use when the textarea is reset.',
-            control: 'text',
-            defaultValue: {
-                summary: '',
-            },
-        },
         required: {
             description: 'If true, the textarea is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid.',
             control: 'boolean',
             defaultValue: {
                 summary: false,
+            },
+        },
+        autoFocus: {
+            description: 'If true, the textarea will be focused on the first render. No more than one element in the document or dialog may have the autofocus attribute. If applied to multiple elements the first one will receive focus. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus) for more information.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
+        autocomplete: {
+            description: 'Allows the user to enable or disable autocomplete functionality on the textarea field. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for more information and values.',
+            control: 'text',
+            defaultValue: {
+                summary: 'off',
             },
         },
     },
