@@ -41,16 +41,16 @@ export interface RTLInterface {
  *
  * class MyStyledElement extends RtlMixin(LitElement) {
  *   render() {
- *     return html`<div class="foo" ?isRTL=${this.isRTL}>Content</div>`;
+ *     return html`<div class="foo" ?data-is-rtl=${this.isRTL}>Content</div>`;
  *   }
  * }
  *
  * customElements.define('my-styled-element', MyStyledElement);
  * ```
  *
- * The corresponding SCSS to leverage the `isRTL` attribute:
+ * The corresponding SCSS to leverage the `data-is-rtl` attribute:
  * ```scss
- * .foo[isRTL] {
+ * .foo[data-is-rtl] {
  *   background-color: red;
  *   text-align: right;
  * }
