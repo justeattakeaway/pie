@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.9.0
+
+### Minor Changes
+
+- [Changed] - Replaced label prop with a slot to give consumers the option to easily customize the label. ([#1618](https://github.com/justeattakeaway/pie/pull/1618)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Changed] - Fixed the rtl styles for the tick/dash for checked/indeterminate state.
+  [Changed] - Updated visual tests.
+
+### Patch Changes
+
+- [Changed] - isRtl attr changed to data-is-rtl ([#1625](https://github.com/justeattakeaway/pie/pull/1625)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.8.0
 
 ### Minor Changes

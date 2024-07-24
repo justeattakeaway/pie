@@ -1,5 +1,12 @@
 # wc-angular12
 
+## 0.5.1
+
+### Patch Changes
+
+- Updated dependencies [[`927b800ed`](https://github.com/justeattakeaway/pie/commit/927b800ed2456c6db299694fbf850dea4aed34bd)]:
+  - @justeattakeaway/pie-webc@0.5.15
+
 ## 0.5.0
 
 ### Minor Changes

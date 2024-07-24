@@ -1,5 +1,16 @@
 # wc-react18
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - pie-webc integration and switch to using vite to resolve bundling error ([#1609](https://github.com/justeattakeaway/pie/pull/1609)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies [[`927b800ed`](https://github.com/justeattakeaway/pie/commit/927b800ed2456c6db299694fbf850dea4aed34bd)]:
+  - @justeattakeaway/pie-webc@0.5.15
+
 ## 0.5.42
 
 ### Patch Changes
