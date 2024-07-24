@@ -560,7 +560,7 @@ test.describe('props', () => {
                 );
 
                 await expect(component.locator('button'))
-                    .not.toHaveAttribute('isResponsive', ''); // TODO: Remove the empty argument once we upgrade Playwright to 1.39 or above
+                    .not.toHaveClass(/o-btn--responsive/);
             });
         });
         test.describe('when set to true', () => {
@@ -582,7 +582,7 @@ test.describe('props', () => {
                 );
 
                 await expect(component.locator('button'))
-                    .toHaveAttribute('isResponsive', ''); // TODO: Remove the empty argument once we upgrade Playwright to 1.39 or above
+                    .toHaveClass(/o-btn--responsive/);
             });
 
             sizes.forEach(({ sizeName, responsiveSize }) => {
@@ -622,7 +622,7 @@ test.describe('props', () => {
                 );
 
                 await expect(component.locator('button'))
-                    .not.toHaveAttribute('responsiveSize', ''); // TODO: Remove the empty argument once we upgrade Playwright to 1.39 or above
+                    .not.toHaveClass([/o-btn--productive/, /o-btn--expressive/]);
             });
         });
 
@@ -647,7 +647,7 @@ test.describe('props', () => {
                     );
 
                     await expect(component.locator('button'))
-                        .toHaveAttribute('responsiveSize', 'expressive');
+                        .toHaveClass([/o-btn--expressive/]);
                 });
             });
         });
@@ -672,7 +672,7 @@ test.describe('props', () => {
                 );
 
                 await expect(component.locator('button'))
-                    .toHaveAttribute('responsiveSize', 'productive');
+                    .toHaveClass(/o-btn--productive/);
             });
         });
     });
