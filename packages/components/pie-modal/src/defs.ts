@@ -1,6 +1,6 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-import { Variant } from '@justeattakeaway/pie-button/src/defs.ts';
+import { type Variant as ButtonVariant } from '@justeattakeaway/pie-button/src/defs.ts';
 
 export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const sizes = ['small', 'medium', 'large'] as const;
@@ -10,6 +10,8 @@ export type AriaProps = {
     close?: string;
     back?: string;
     loading?: string;
+    leadingActionLabel?: string;
+    supportingActionLabel?: string;
 };
 
 export type ActionProps = {
@@ -21,7 +23,7 @@ export type ActionProps = {
         /**
          * The button variant.
          */
-        variant?: Variant;
+        variant?: ButtonVariant;
 
         /**
          * The ARIA label for the button.
@@ -88,15 +90,10 @@ export type ModalProps = {
      */
     isLoading?: boolean;
 
-    /**
-     * The leading action configuration for the modal.
-     */
-    leadingAction?: ActionProps;
-
-    /**
-     * The supporting action configuration for the modal.
-     */
-    supportingAction?: ActionProps;
+    leadingActionText?: string;
+    leadingActionVariant?: ButtonVariant;
+    supportingActionText?: string;
+    supportingActionVariant?: ButtonVariant;
 
     /*
      * The position of the modal; this controls where it will appear on the page.
@@ -151,7 +148,7 @@ export const ON_MODAL_SUPPORTING_ACTION_CLICK = 'pie-modal-supporting-action-cli
 
 export type ModalActionType = 'leading' | 'supporting';
 
-export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'heading' | 'leadingAction' | 'supportingAction' | 'returnFocusAfterCloseSelector'>>;
+export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'heading' | 'returnFocusAfterCloseSelector' | 'leadingActionText' | 'supportingActionText'>>;
 
 export const defaultProps: DefaultProps = {
     hasBackButton: false,
@@ -162,6 +159,8 @@ export const defaultProps: DefaultProps = {
     isFooterPinned: true,
     isFullWidthBelowMid: false,
     isLoading: false,
+    leadingActionVariant: 'primary',
     position: 'center',
     size: 'medium',
+    supportingActionVariant: 'ghost',
 };
