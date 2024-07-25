@@ -305,11 +305,11 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     }
 
     /**
-     * Render leadingAction button depending on prop availability.
+     * Renders the "leadingAction" button if the text is provided.
      *
-     * 1. If the prop `leadingAction` is not provided, the button is not rendered.
-     * 2. If the prop `leadingAction` is provided but any of the optional properties
-     * are not provided, they fall back to their default values.
+     * If `leadingActionText` is not provided, the button is not rendered.
+     * If `leadingActionVariant` is not provided, the default value is used.
+     * The (optional) aria-label is read from the `aria` prop's `leadingActionLabel` property.
      *
      * @private
      */
@@ -332,13 +332,11 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     }
 
     /**
-     * Render supportingAction button depending on prop availability.
+     * Renders the "supportingAction" button if the text is provided.
+     * You cannot have a supporting action without a leading action.
      *
-     * 1. If the prop `supportingAction` is not provided, the button is not rendered.
-     * 2. If the prop `supportingAction` is provided but any of the optional properties
-     * are not provided, they fall back to their default values.
-     * 3. If `supportingAction` is provided but not `leadingAction`, log a warning and do
-     * not render `supportingAction`.
+     * If `supportingActionText` or `leadingActionText` are not provided, the button is not rendered.
+     * If `supportingActionVariant` is not provided, the default value is used.
      *
      * @private
      */

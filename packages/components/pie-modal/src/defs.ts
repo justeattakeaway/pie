@@ -14,23 +14,6 @@ export type AriaProps = {
     supportingActionLabel?: string;
 };
 
-export type ActionProps = {
-        /**
-         * The text to display inside the button.
-         */
-        text: string;
-
-        /**
-         * The button variant.
-         */
-        variant?: ButtonVariant;
-
-        /**
-         * The ARIA label for the button.
-         */
-        ariaLabel?: string;
-};
-
 export type ModalProps = {
     /**
      * The ARIA labels used for the modal close and back buttons, as well as loading state.
@@ -90,9 +73,24 @@ export type ModalProps = {
      */
     isLoading?: boolean;
 
+    /**
+     * The text to display inside the leading action button.
+     */
     leadingActionText?: string;
+
+    /**
+     * The button variant for the leading action button.
+     */
     leadingActionVariant?: ButtonVariant;
+
+    /**
+     * The text to display inside the supporting action button.
+     */
     supportingActionText?: string;
+
+    /**
+     * The button variant for the supporting action button.
+     */
     supportingActionVariant?: ButtonVariant;
 
     /*

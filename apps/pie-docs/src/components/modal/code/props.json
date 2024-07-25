@@ -7,7 +7,7 @@
                 "type": "code",
                 "item": []
             },
-            "An object representing the aria labels for the `close` & `back` buttons within the modal as well as the `isLoading` state labels (`aria-label` & `aria-busy`)."
+            "An object representing the aria labels for the `close`, `back`, `leadingAction` and `supportingAction` buttons within the modal as well as the `isLoading` state labels (`aria-label` & `aria-busy`)."
         ],
         [
             "hasBackButton",
@@ -137,12 +137,44 @@
             }
         ],
         [
-            "leadingAction",
+            "leadingActionText",
             {
                 "type": "code",
                 "item": []
             },
-            "An object representing the leading action of the modal."
+            "The text to display inside the leading action button."
+        ],
+        [
+            "leadingActionVariant",
+            {
+                "type": "code",
+                "item": ["See pie-button's variants"]
+            },
+            "The variant of the leading action button.",
+            {
+                "type": "code",
+                "item": ["primary"]
+            }
+        ],
+        [
+          "supportingActionText",
+          {
+              "type": "code",
+              "item": []
+          },
+          "The text to display inside the supporting action button."
+        ],
+        [
+          "supportingActionVariant",
+          {
+              "type": "code",
+              "item": ["See pie-button's variants"]
+          },
+          "The variant of the supporting action button.",
+          {
+              "type": "code",
+              "item": ["ghost"]
+          }
         ],
         [
             "position",
@@ -177,14 +209,6 @@
                 "type": "code",
                 "item": ["medium"]
             }
-        ],
-        [
-            "supportingAction",
-            {
-                "type": "code",
-                "item": []
-            },
-            "An object representing the supporting action of the modal."
         ]
     ]
 }
