@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-checkbox-group
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - New `isInline` prop. ([#1618](https://github.com/justeattakeaway/pie/pull/1618)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Added] - Styling for Checkbox Group.
+  [Added] - Visual tests.
+
 ## 0.2.0
 
 ### Minor Changes
