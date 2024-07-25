@@ -2,7 +2,7 @@ import { html } from 'lit';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-toast';
-import { ToastProps } from '@justeattakeaway/pie-toast';
+import { type ToastProps } from '@justeattakeaway/pie-toast';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';

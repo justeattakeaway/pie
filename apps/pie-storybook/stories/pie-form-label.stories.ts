@@ -1,11 +1,12 @@
 import { html, nothing } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-form-label';
-import { FormLabelProps as FormLabelPropsBase } from '@justeattakeaway/pie-form-label';
+import { type FormLabelProps as FormLabelPropsBase } from '@justeattakeaway/pie-form-label';
 /* eslint-enable import/no-duplicates */
 
-import { SlottedComponentProps, type StoryMeta } from '../types';
+import { type SlottedComponentProps, type StoryMeta } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type FormLabelProps = SlottedComponentProps<FormLabelPropsBase>;
@@ -66,9 +67,9 @@ const Template: TemplateFunction<FormLabelProps> = ({
     ...props
 }) => html`
         <pie-form-label
-            for="${props.for}"
-            optional="${optional || nothing}"
-            trailing="${trailing || nothing}">
+            for="${ifDefined(props.for)}"
+            optional="${ifDefined(optional)}"
+            trailing="${ifDefined(trailing)}">
             ${sanitizeAndRenderHTML(slot)}
         </pie-form-label>`;
 

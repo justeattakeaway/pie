@@ -2,7 +2,7 @@ import { LitElement, html, unsafeCSS } from 'lit';
 import { RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 
 import styles from './toast.scss?inline';
-import { ToastProps } from './defs';
+import { type ToastProps } from './defs';
 
 // Valid values available to consumers
 export * from './defs';

@@ -1,4 +1,4 @@
-import { TemplateResult } from 'lit';
+import { type TemplateResult } from 'lit';
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
@@ -6,8 +6,8 @@ import { action } from '@storybook/addon-actions';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-modal';
 import {
-    PieModal,
-    ModalProps as ModalPropsBase,
+    type PieModal,
+    type ModalProps as ModalPropsBase,
     headingLevels,
     sizes,
     positions,
@@ -15,7 +15,7 @@ import {
 } from '@justeattakeaway/pie-modal';
 /* eslint-enable import/no-duplicates */
 
-import { StoryMeta, SlottedComponentProps } from '../types';
+import { type StoryMeta, type SlottedComponentProps } from '../types';
 import { createStory, sanitizeAndRenderHTML } from '../utilities';
 
 type ModalProps = SlottedComponentProps<ModalPropsBase>;

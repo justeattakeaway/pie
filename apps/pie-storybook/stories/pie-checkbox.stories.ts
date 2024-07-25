@@ -2,24 +2,19 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-checkbox';
-import { CheckboxProps, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox';
+import { type CheckboxProps, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox';
 /* eslint-enable import/no-duplicates */
 
 import { action } from '@storybook/addon-actions';
 import { type StoryMeta } from '../types';
-import { createStory, type TemplateFunction } from '../utilities';
+import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type CheckboxStoryMeta = StoryMeta<CheckboxProps>;
 
 const defaultArgs: CheckboxProps = {
     ...defaultProps,
     name: 'name',
-    label: 'Label',
-    checked: false,
-    defaultChecked: false,
-    disabled: false,
-    indeterminate: false,
-    required: false,
+    slot: 'Label',
 };
 
 const checkboxStoryMeta: CheckboxStoryMeta = {
@@ -39,12 +34,9 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
             },
         },
 
-        label: {
-            description: 'The visible label for the checkbox',
+        slot: {
+            description: 'Content to place as a checkbox label',
             control: 'text',
-            defaultValue: {
-                summary: defaultArgs.label,
-            },
         },
 
         checked: {
@@ -118,7 +110,6 @@ export default checkboxStoryMeta;
 const Template = ({
     value,
     name,
-    label,
     checked,
     defaultChecked,
     disabled,
@@ -126,6 +117,7 @@ const Template = ({
     required,
     assistiveText,
     status,
+    slot,
 }: CheckboxProps) => {
     function onChange (event: CustomEvent) {
         action('change')({
@@ -137,7 +129,6 @@ const Template = ({
         <pie-checkbox
             .value="${value}"
             name="${ifDefined(name)}"
-            label="${ifDefined(label)}"
             ?checked="${checked}"
             ?defaultChecked="${defaultChecked}"
             ?disabled="${disabled}"
@@ -146,6 +137,7 @@ const Template = ({
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}>
+            ${sanitizeAndRenderHTML(slot)}
         </pie-checkbox>
     `;
 };
@@ -160,6 +152,7 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
     required,
     assistiveText,
     status,
+    slot,
 }: CheckboxProps) => {
     function onChange (event: CustomEvent) {
         action('change')({
@@ -172,7 +165,6 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
         <pie-checkbox
             .value="${value}"
             name="${ifDefined(name)}"
-            label="Pie Checkbox"
             ?checked="${checked}"
             ?defaultChecked="${defaultChecked}"
             ?disabled="${disabled}"
@@ -180,7 +172,9 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
             ?required="${required}"
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
-            status=${ifDefined(status)}></pie-checkbox>
+            status=${ifDefined(status)}>
+            ${sanitizeAndRenderHTML(slot)}
+        </pie-checkbox>
         <button type="reset">Reset</button>
         <button type="submit">Submit</button>
         <script>

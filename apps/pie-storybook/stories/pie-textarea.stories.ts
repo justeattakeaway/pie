@@ -4,7 +4,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-textarea';
 import {
-    TextareaProps, defaultProps, resizeModes, sizes,
+    type TextareaProps, defaultProps, resizeModes, sizes,
 } from '@justeattakeaway/pie-textarea';
 /* eslint-enable import/no-duplicates */
 

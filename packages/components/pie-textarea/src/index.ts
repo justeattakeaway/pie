@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, PropertyValues,
+    LitElement, html, unsafeCSS, type PropertyValues,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import throttle from 'lodash.throttle';
@@ -8,7 +8,7 @@ import { validPropertyValues, RtlMixin, defineCustomElement } from '@justeattake
 
 import styles from './textarea.scss?inline';
 import {
-    TextareaProps, defaultProps, sizes, resizeModes,
+    type TextareaProps, defaultProps, sizes, resizeModes,
 } from './defs';
 
 // Valid values available to consumers

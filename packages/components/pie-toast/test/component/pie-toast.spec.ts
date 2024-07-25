@@ -1,6 +1,6 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieToast, ToastProps } from '../../src/index.ts';
+import { PieToast, type ToastProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-toast"]';
 

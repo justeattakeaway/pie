@@ -5,13 +5,13 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import '@justeattakeaway/pie-notification';
 import { action } from '@storybook/addon-actions';
 import {
-    NotificationProps as NotificationBaseProps, variants, headingLevels, positions, defaultProps,
+    type NotificationProps as NotificationBaseProps, variants, headingLevels, positions, defaultProps,
 } from '@justeattakeaway/pie-notification';
 /* eslint-enable import/no-duplicates */
 
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
-import { type StoryMeta, SlottedComponentProps } from '../types';
+import { type StoryMeta, type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
 type NotificationProps = SlottedComponentProps<NotificationBaseProps>;

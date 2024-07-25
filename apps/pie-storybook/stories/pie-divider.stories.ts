@@ -4,7 +4,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-divider';
 import {
-    DividerProps, variants, orientations, defaultProps,
+    type DividerProps, variants, orientations, defaultProps,
 } from '@justeattakeaway/pie-divider';
 /* eslint-enable import/no-duplicates */
 

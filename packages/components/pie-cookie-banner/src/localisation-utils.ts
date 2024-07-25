@@ -1,5 +1,5 @@
 import {
-    TemplateResult,
+    type TemplateResult,
 } from 'lit';
 
 import {

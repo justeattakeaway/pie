@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, PropertyValues, nothing,
+    LitElement, html, unsafeCSS, type PropertyValues, nothing,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -12,7 +12,7 @@ import '@justeattakeaway/pie-assistive-text';
 
 import styles from './text-input.scss?inline';
 import {
-    types, statusTypes, TextInputProps, defaultProps,
+    types, statusTypes, type TextInputProps, defaultProps,
 } from './defs';
 import 'element-internals-polyfill';
 
