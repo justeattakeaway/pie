@@ -21,6 +21,7 @@
   line-height: 0; // Remove once there is text outside the textarea
 
   textarea {
+    width: 100%;
     @include p.font-size(--dt-font-body-l-size);
     line-height: var(--textarea-line-height);
     font-family: var(--dt-font-body-l-family);
