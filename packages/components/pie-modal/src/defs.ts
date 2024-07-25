@@ -146,7 +146,7 @@ export const ON_MODAL_SUPPORTING_ACTION_CLICK = 'pie-modal-supporting-action-cli
 
 export type ModalActionType = 'leading' | 'supporting';
 
-export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'heading' | 'returnFocusAfterCloseSelector' | 'leadingActionText' | 'supportingActionText'>>;
+export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'heading' | 'leadingActionText' | 'supportingActionText' | 'returnFocusAfterCloseSelector'>>;
 
 export const defaultProps: DefaultProps = {
     hasBackButton: false,
