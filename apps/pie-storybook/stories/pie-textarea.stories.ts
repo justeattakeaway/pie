@@ -42,6 +42,20 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: defaultProps.resize,
             },
         },
+        label: {
+            description: 'The label for the textarea field.',
+            control: 'text',
+            defaultValue: {
+                summary: defaultProps.label,
+            },
+        },
+        maxLength: {
+            description: 'The maximum number of characters allowed in the textarea field.',
+            control: 'number',
+            defaultValue: {
+                summary: 0,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -56,11 +70,15 @@ const Template = ({
     disabled,
     resize,
     size,
+    label,
+    maxLength,
 }: TextareaProps) => html`
     <pie-textarea
             ?disabled="${disabled}"
             size="${ifDefined(size)}"
-            resize="${ifDefined(resize)}">
+            resize="${ifDefined(resize)}"
+            label="${ifDefined(label)}"
+            maxLength="${ifDefined(maxLength)}">
     </pie-textarea>
     `;
 

@@ -1,7 +1,7 @@
 import {
-    LitElement, html, unsafeCSS, PropertyValues,
+    LitElement, html, unsafeCSS, PropertyValues, nothing,
 } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { property, query, state } from 'lit/decorators.js';
 import throttle from 'lodash.throttle';
 
 import { validPropertyValues, RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
@@ -10,6 +10,8 @@ import styles from './textarea.scss?inline';
 import {
     TextareaProps, defaultProps, sizes, resizeModes,
 } from './defs';
+
+import '@justeattakeaway/pie-form-label';
 
 // Valid values available to consumers
 export * from './defs';
@@ -33,8 +35,17 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
     @validPropertyValues(componentSelector, resizeModes, defaultProps.resize)
     public resize = defaultProps.resize;
 
+    @property({ type: String })
+    public label = defaultProps.label;
+
+    @property({ type: Number })
+    public maxLength: TextareaProps['maxLength'];
+
     @query('textarea')
     private _textarea!: HTMLTextAreaElement;
+
+    @state()
+    private _characterCount = this._textarea?.value.length || 0;
 
     private _throttledResize = throttle(() => {
         if (this.resize === 'auto') {
@@ -47,10 +58,36 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
         this._throttledResize();
     }
 
+    private updateCharacterCount () {
+        this._characterCount = this._textarea?.value?.length || 0;
+    }
+
+    private restrictInputLength () {
+        if (this.maxLength && this._textarea.value.length > this.maxLength) {
+            this._textarea.value = this._textarea.value.slice(0, this.maxLength);
+        }
+    }
+
+    private handleInput () {
+        this.restrictInputLength();
+        this.handleResize();
+        this.updateCharacterCount();
+    }
+
+    firstUpdated () {
+        this.updateCharacterCount();
+    }
+
     updated (changedProperties: PropertyValues<this>) {
         if (this.resize === 'auto' && (changedProperties.has('resize') || changedProperties.has('size'))) {
             this.handleResize();
         }
+    }
+
+    renderLabel (label: string, maxLength?: number) {
+        const characterCount = maxLength ? `${this._characterCount}/${maxLength}` : '';
+
+        return label?.length ? html`<pie-form-label trailing=${characterCount || nothing}>${label}</pie-form-label>` : nothing;
     }
 
     render () {
@@ -58,6 +95,8 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
             disabled,
             resize,
             size,
+            label,
+            maxLength,
         } = this;
 
         return html`
@@ -66,9 +105,10 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
                 data-test-id="pie-textarea-wrapper"
                 data-pie-size="${size}"
                 data-pie-resize="${resize}">
+                ${this.renderLabel(label, maxLength)}
                 <textarea
                     data-test-id="pie-textarea"
-                    @input=${this.handleResize}
+                    @input=${this.handleInput}
                     ?disabled=${disabled}
                 ></textarea>
             </div>`;

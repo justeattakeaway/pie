@@ -20,12 +20,16 @@ export interface TextareaProps {
      * When set to `manual`, the textarea will not resize automatically but can be resized by the user.
      */
     resize?: typeof resizeModes[number];
+
+    label: string;
+
+    maxLength?: number;
 }
 
 /**
  * The default values for the `TextareaProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultProps<TextareaProps>;
+type DefaultProps = ComponentDefaultProps<TextareaProps, 'disabled' | 'size' | 'resize' | 'label'>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
@@ -34,4 +38,5 @@ export const defaultProps: DefaultProps = {
     disabled: false,
     size: 'medium',
     resize: 'auto',
+    label: '',
 };
