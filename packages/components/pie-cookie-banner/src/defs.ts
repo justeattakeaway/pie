@@ -1,8 +1,5 @@
+import { type TemplateResult } from 'lit';
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
-
-import {
-    type TemplateResult,
-} from 'lit';
 
 export interface CookieBannerLocale {
     banner: {
