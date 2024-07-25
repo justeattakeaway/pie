@@ -24,12 +24,17 @@ export interface TextareaProps {
     label: string;
 
     maxLength?: number;
+
+    /**
+     * The value of the textarea.
+     */
+    value: string;
 }
 
 /**
  * The default values for the `TextareaProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultProps<TextareaProps, 'disabled' | 'size' | 'resize' | 'label'>;
+type DefaultProps = ComponentDefaultProps<TextareaProps, 'disabled' | 'size' | 'resize' | 'label' | 'value'>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
@@ -39,4 +44,5 @@ export const defaultProps: DefaultProps = {
     size: 'medium',
     resize: 'auto',
     label: '',
+    value: '',
 };
