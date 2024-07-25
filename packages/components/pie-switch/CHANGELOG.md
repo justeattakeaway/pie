@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-switch
 
+## 0.29.11
+
+### Patch Changes
+
+- [Changed] - isRtl attr changed to data-is-rtl ([#1625](https://github.com/justeattakeaway/pie/pull/1625)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.29.10
 
 ### Patch Changes

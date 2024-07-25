@@ -1,5 +1,16 @@
 # wc-react17
 
+## 0.5.0
+
+### Minor Changes
+
+- [Added] - pie-webc integration to react app ([#1610](https://github.com/justeattakeaway/pie/pull/1610)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies [[`927b800ed`](https://github.com/justeattakeaway/pie/commit/927b800ed2456c6db299694fbf850dea4aed34bd)]:
+  - @justeattakeaway/pie-webc@0.5.15
+
 ## 0.4.43
 
 ### Patch Changes

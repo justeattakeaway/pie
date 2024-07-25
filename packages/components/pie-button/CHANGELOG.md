@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.48.0
+
+### Minor Changes
+
+- [Changed] - Styles now use classmap ([#1587](https://github.com/justeattakeaway/pie/pull/1587)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Fixed] - Fixed background colour when button is in `xsmall` or `small` size and responsive mode is true, where the bg-color wasn't updating to orange as required
+
 ## 0.47.8
 
 ### Patch Changes
