@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.81.5
+
+### Patch Changes
+
+- Updated dependencies [[`d47b4cc02`](https://github.com/justeattakeaway/pie/commit/d47b4cc02465db340b8be94f5e24a09d363713c8), [`d3d974c76`](https://github.com/justeattakeaway/pie/commit/d3d974c76a5ee1e800c30b59e81002d089b5a26d), [`927b800ed`](https://github.com/justeattakeaway/pie/commit/927b800ed2456c6db299694fbf850dea4aed34bd), [`d47b4cc02`](https://github.com/justeattakeaway/pie/commit/d47b4cc02465db340b8be94f5e24a09d363713c8)]:
+  - @justeattakeaway/pie-checkbox@0.9.0
+  - @justeattakeaway/pie-button@0.48.0
+  - @justeattakeaway/pie-switch@0.29.11
+  - @justeattakeaway/pie-checkbox-group@0.3.0
+  - @justeattakeaway/pie-cookie-banner@0.22.1
+  - @justeattakeaway/pie-modal@0.43.5
+
 ## 0.81.4
 
 ### Patch Changes
