@@ -9,6 +9,7 @@ import {
     validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { classMap } from 'lit/directives/class-map.js';
 import styles from './checkbox-group.scss?inline';
 import {
     ON_CHECKBOX_GROUP_DISABLED,
@@ -26,6 +27,7 @@ const assistiveTextId = 'assistive-text';
 
 /**
  * @tagname pie-checkbox-group
+ * @slot - Default slot
  * @event {CustomEvent} pie-checkbox-group-disabled - triggered after the disabled state of the checkbox group changes.
  */
 export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxGroupProps {
@@ -37,6 +39,9 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
 
     @property({ type: String })
     public assistiveText?: CheckboxGroupProps['assistiveText'];
+
+    @property({ type: Boolean })
+    public isInline = defaultProps.isInline;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
@@ -75,18 +80,26 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
         const {
             name,
             label,
+            isInline,
             assistiveText,
             status,
             disabled,
         } = this;
+
+        const classes = {
+            'c-checkboxGroup': true,
+            'c-checkboxGroup--inline': isInline,
+        };
+
         return html`
             <fieldset
                 name=${ifDefined(name)}
                 ?disabled=${disabled}
                 aria-describedby="${ifDefined(assistiveText ? assistiveTextId : undefined)}"
                 data-test-id="pie-checkbox-group"
+                class="${classMap(classes)}"
             >
-                ${label && html`<legend>${label}</legend>`}
+                ${label && html`<legend class="c-checkboxGroup-label">${label}</legend>`}
                 <slot></slot>
             </fieldset>
             ${assistiveText && html`

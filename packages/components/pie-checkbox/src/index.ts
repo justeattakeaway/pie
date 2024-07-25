@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, PropertyValues, nothing,
+    LitElement, html, unsafeCSS, nothing,
 } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -25,6 +25,7 @@ const assistiveTextIdValue = 'assistive-text';
 
 /**
  * @tagname pie-checkbox
+ * @slot - Default slot
  * @event {CustomEvent} change - when checked state is changed.
  */
 export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxProps {
@@ -35,9 +36,6 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
 
     @property({ type: String })
     public value = defaultProps.value;
-
-    @property({ type: String })
-    public label?: CheckboxProps['label'];
 
     @property({ type: String })
     public name?: CheckboxProps['name'];
@@ -149,13 +147,13 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             checked,
             value,
             name,
-            label,
             disabled,
             disabledByParent,
             required,
             indeterminate,
             assistiveText,
             status,
+            isRTL,
         } = this;
 
         const componentDisabled = disabled || disabledByParent;
@@ -183,11 +181,14 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             <label for="inputId" data-test-id="checkbox-component">
                 <span
                     class="c-checkbox-tick"
+                    ?data-is-rtl=${isRTL}
                     ?data-pie-checked=${checked}
                     ?data-pie-disabled=${componentDisabled}
                     data-pie-status=${!componentDisabled && status}
                     ?data-pie-indeterminate=${indeterminate && !checked}></span>
-                <span class="c-checkbox-text">${label}</span>
+                <span class="c-checkbox-text">
+                    <slot></slot>
+                </span>
             </label>
             ${assistiveText ? html`
                 <pie-assistive-text

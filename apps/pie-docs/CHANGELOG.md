@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.47.0
+
+### Minor Changes
+
+- [Added] - Checkbox overview page ([#1605](https://github.com/justeattakeaway/pie/pull/1605)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- [Changed] - Updates Engineering copy and adds new Web Components index guide to current documentation in Github Wiki. ([#1589](https://github.com/justeattakeaway/pie/pull/1589)) by [@maledr5](https://github.com/maledr5)
+
+- [Updated] - pie-webc documentation for consumers ([#1585](https://github.com/justeattakeaway/pie/pull/1585)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
 ## 3.46.0
 
 ### Minor Changes

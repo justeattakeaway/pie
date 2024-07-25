@@ -28,7 +28,7 @@
     }
 
     &:active:not(:disabled),
-    &[isLoading]:not(:disabled) {
+    &.is-loading:not(:disabled) {
         @if $mode == 'alt' {
             --active-modifier: calc(-1 * var(--dt-color-active-02));
         } @else if $mode == 'inverse' {

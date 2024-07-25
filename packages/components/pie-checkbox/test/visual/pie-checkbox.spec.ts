@@ -27,20 +27,17 @@ const props: PropObject = {
     checked: [true, false],
     disabled: [true, false],
     indeterminate: [true, false],
-    label: ['Label', ''],
-    assistiveText: ['Assistive text', ''],
 };
 
 const renderTestPieCheckbox = (propVals: WebComponentPropValues) => {
     let attributes = '';
 
-    if (propVals.label) attributes += ` label="${propVals.label}"`;
     if (propVals.assistiveText) attributes += ` assistiveText="${propVals.assistiveText}"`;
     if (propVals.indeterminate) attributes += ` indeterminate="${propVals.indeterminate}"`;
     if (propVals.disabled) attributes += ` disabled="${propVals.disabled}"`;
     if (propVals.checked) attributes += ` checked="${propVals.checked}"`;
 
-    return `<pie-checkbox${attributes} status="${propVals.status}"></pie-checkbox>`;
+    return `<pie-checkbox${attributes} status="${propVals.status}">Label</pie-checkbox>`;
 };
 
 const componentPropsMatrix: WebComponentPropValues[] = getAllPropCombinations(props);
@@ -65,10 +62,8 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
         const propKeyValues = `
             checked: ${testComponent.propValues.checked},
             disabled: ${testComponent.propValues.disabled},
-            label: ${testComponent.propValues.label ? 'with label' : 'no label'},
             status: ${testComponent.propValues.status},
-            indeterminate: ${testComponent.propValues.indeterminate},
-            assistiveText: ${testComponent.propValues.assistiveText ? 'with assistive text' : 'no assistive text'}`;
+            indeterminate: ${testComponent.propValues.indeterminate}`;
 
         await mount(
             WebComponentTestWrapper,
@@ -91,8 +86,22 @@ for (const dir of readingDirections) {
         }
 
         // Assistive text with no status
-        let testComponent: WebComponentTestInput = createTestWebComponent({ assistiveText: 'Assistive text', label: 'String' }, renderTestPieCheckbox);
-        let propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, label: ${testComponent.propValues.label}`;
+        let testComponent: WebComponentTestInput = createTestWebComponent({ assistiveText: 'Assistive text' }, renderTestPieCheckbox);
+        let propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}`;
+
+        await mount(
+            WebComponentTestWrapper,
+            {
+                props: { propKeyValues },
+                slots: {
+                    component: testComponent.renderedString.trim(),
+                },
+            },
+        );
+
+        // Assistive text with no status + indeterminate
+        testComponent = createTestWebComponent({ assistiveText: 'Assistive text', indeterminate: true }, renderTestPieCheckbox);
+        propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, indeterminate: ${testComponent.propValues.indeterminate}`;
 
         await mount(
             WebComponentTestWrapper,
@@ -105,8 +114,8 @@ for (const dir of readingDirections) {
         );
 
         // Error + assistive text
-        testComponent = createTestWebComponent({ assistiveText: 'Error text', label: 'String', status: 'error' }, renderTestPieCheckbox);
-        propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, label: ${testComponent.propValues.label}, status: ${testComponent.propValues.status}`;
+        testComponent = createTestWebComponent({ assistiveText: 'Error text', status: 'error' }, renderTestPieCheckbox);
+        propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, status: ${testComponent.propValues.status}`;
 
         await mount(
             WebComponentTestWrapper,
@@ -119,8 +128,8 @@ for (const dir of readingDirections) {
         );
 
         // Success + assistive text
-        testComponent = createTestWebComponent({ assistiveText: 'Success text', label: 'String', status: 'success' }, renderTestPieCheckbox);
-        propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, label: ${testComponent.propValues.label}, status: ${testComponent.propValues.status}`;
+        testComponent = createTestWebComponent({ assistiveText: 'Success text', status: 'success', checked: true }, renderTestPieCheckbox);
+        propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, status: ${testComponent.propValues.status}, checked: ${testComponent.propValues.checked}`;
 
         await mount(
             WebComponentTestWrapper,

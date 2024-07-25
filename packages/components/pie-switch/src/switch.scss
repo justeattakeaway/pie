@@ -136,7 +136,7 @@
     @include p.visually-hidden;
 }
 
-.c-switch-wrapper[isRTL] {
+.c-switch-wrapper[data-is-rtl] {
     .c-switch-control {
         position: absolute;
         left: initial;

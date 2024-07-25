@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "The home of Just Eat Takeaway.com's PIE Design System",
-  "version": "2.61.3",
+  "version": "2.62.0",
   "keywords": [],
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
@@ -62,7 +62,7 @@
   "devDependencies": {
     "@axe-core/playwright": "4.7.3",
     "@babel/cli": "7.24.8",
-    "@babel/core": "7.24.7",
+    "@babel/core": "7.24.9",
     "@babel/eslint-parser": "7.24.7",
     "@babel/node": "7.24.7",
     "@babel/preset-env": "7.24.7",

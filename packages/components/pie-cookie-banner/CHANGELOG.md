@@ -1,5 +1,22 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.22.1
+
+### Patch Changes
+
+- Updated dependencies [[`d3d974c76`](https://github.com/justeattakeaway/pie/commit/d3d974c76a5ee1e800c30b59e81002d089b5a26d), [`927b800ed`](https://github.com/justeattakeaway/pie/commit/927b800ed2456c6db299694fbf850dea4aed34bd)]:
+  - @justeattakeaway/pie-button@0.48.0
+  - @justeattakeaway/pie-switch@0.29.11
+  - @justeattakeaway/pie-modal@0.43.5
+
+## 0.22.0
+
+### Minor Changes
+
+- [Added] - An entrance animation to the cookie banner that makes it slide into the viewport from below. ([#1579](https://github.com/justeattakeaway/pie/pull/1579)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - wording for en-FR and fr-FR to align with cookie policy page ([#1615](https://github.com/justeattakeaway/pie/pull/1615)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.21.0
 
 ### Minor Changes
