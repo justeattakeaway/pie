@@ -27,3 +27,7 @@
         display: inline-flex;
     }
 }
+
+.c-assistiveText--isVisuallyHidden {
+    @include p.visually-hidden;
+}

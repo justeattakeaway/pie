@@ -40,6 +40,7 @@ export interface CheckboxGroupProps {
  * @constant
  */
 export const ON_CHECKBOX_GROUP_DISABLED = 'pie-checkbox-group-disabled';
+export const ON_CHECKBOX_GROUP_ERROR = 'pie-checkbox-group-error';
 
 export type DefaultProps = ComponentDefaultProps<CheckboxGroupProps, 'status' | 'disabled' | 'isInline'>;
 
