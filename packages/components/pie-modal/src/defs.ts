@@ -16,7 +16,7 @@ export type AriaProps = {
 
 export type ModalProps = {
     /**
-     * The ARIA labels used for the modal close and back buttons, as well as loading state.
+     * The ARIA labels used for the modal leading action, supporting action, close and back buttons, as well as for the loading state.
      */
     aria?: AriaProps;
 

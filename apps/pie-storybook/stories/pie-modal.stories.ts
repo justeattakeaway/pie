@@ -118,7 +118,7 @@ const modalStoryMeta: ModalStoryMeta = {
             options: buttonVariants,
         },
         aria: {
-            description: 'The ARIA labels used for the modal close and back buttons, as well as loading state.',
+            description: 'The ARIA labels used for the modal leading action, supporting action, close and back buttons, as well as for the loading state.',
             control: 'object',
         },
     },
