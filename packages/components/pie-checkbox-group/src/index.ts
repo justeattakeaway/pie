@@ -52,7 +52,7 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
 
-    @queryAssignedElements({ selector: 'pie-checkbox' }) _slottedChildren!: Array<HTMLElement>;
+    @queryAssignedElements({ selector: 'pie-checkbox' }) _slottedChildren: Array<HTMLElement> | undefined;
 
     private _handleDisabled () : void {
         this._slottedChildren?.forEach((child) => child.dispatchEvent(new CustomEvent(ON_CHECKBOX_GROUP_DISABLED, {
