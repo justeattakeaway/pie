@@ -130,7 +130,6 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
 
         const hasIcon = this.variantHasIcon(this.variant);
 
-
         this._messageAreaMaxWidth = this.getMessageMaxWidth(hasIcon, this.isMultiline, !!this.leadingAction?.text, this.isDismissible);
 
         if (
