@@ -21,7 +21,7 @@ import { CheckboxProps, defaultProps, statusTypes } from './defs';
 export * from './defs';
 
 const componentSelector = 'pie-checkbox';
-const assistiveTextIdValue = 'assistive-text';
+const assistiveTextId = 'assistive-text';
 
 /**
  * @tagname pie-checkbox
@@ -33,6 +33,9 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
 
     @state()
     private disabledByParent = false;
+
+    @state()
+    private visuallyHiddenError = false;
 
     @property({ type: String })
     public value = defaultProps.value;
@@ -69,12 +72,14 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
         super.connectedCallback();
 
         this.addEventListener('pie-checkbox-group-disabled', (e: CustomEventInit) => { this.disabledByParent = e.detail.disabled; });
+        this.addEventListener('pie-checkbox-group-error', (e: CustomEventInit) => { this.visuallyHiddenError = e.detail.error; });
     }
 
     disconnectedCallback () : void {
         super.disconnectedCallback();
 
         this.removeEventListener('pie-checkbox-group-disabled', (e: CustomEventInit) => { this.disabledByParent = e.detail.disabled; });
+        this.removeEventListener('pie-checkbox-group-error', (e: CustomEventInit) => { this.visuallyHiddenError = e.detail.error; });
     }
 
     /**
@@ -149,6 +154,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             name,
             disabled,
             disabledByParent,
+            visuallyHiddenError,
             required,
             indeterminate,
             assistiveText,
@@ -174,7 +180,8 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
                 ?disabled=${componentDisabled}
                 ?required=${required}
                 .indeterminate=${indeterminate}
-                aria-describedby=${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}
+                aria-invalid=${status === 'error' ? 'true' : 'false'}
+                aria-describedby=${ifDefined(assistiveText ? assistiveTextId : undefined)}
                 @change=${this.handleChange}
                 data-test-id="checkbox-input"
             />
@@ -192,8 +199,9 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             </label>
             ${assistiveText ? html`
                 <pie-assistive-text
-                    id="${assistiveTextIdValue}"
+                    id="${assistiveTextId}"
                     variant=${status}
+                    ?isVisuallyHidden=${visuallyHiddenError}
                     data-test-id="pie-checkbox-assistive-text">
                         ${assistiveText}
                 </pie-assistive-text>` : nothing}
