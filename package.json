@@ -9,6 +9,7 @@
   "engines": {
     "node": "^16 || ^18 || ^20"
   },
+  "packageManager": "yarn@3.8.1",
   "workspaces": {
     "packages": [
       "apps/**/*",
@@ -52,9 +53,9 @@
     "test:generate-routes": "turbo run test:generate-routes --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "test:browsers-setup": "turbo run test:browsers-setup --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "test:browsers": "cross-env-shell turbo run test:browsers --filter=!pie-monorepo --token=${TURBO_TOKEN}",
-    "test:browsers:ci": "cross-env-shell turbo run test:browsers:ci --filter=!pie-monorepo --token=${TURBO_TOKEN}",
+    "test:browsers:ci": "cross-env-shell turbo run test:browsers:ci --filter=!pie-monorepo --token=${TURBO_TOKEN} --env-mode=loose",
     "test:visual": "turbo run test:visual --filter=!pie-monorepo",
-    "test:visual:ci": "turbo run test:visual:ci --filter=!pie-monorepo"
+    "test:visual:ci": "turbo run test:visual:ci --filter=!pie-monorepo --env-mode=loose"
   },
   "stylelint": {
     "extends": "@justeattakeaway/stylelint-config-pie/base"
@@ -115,7 +116,7 @@
     "stylelint-config-standard-scss": "13.0.0",
     "stylelint-order": "6.0.4",
     "ts-node": "10.9.1",
-    "turbo": "1.10.16",
+    "turbo": "2.0.9",
     "typescript": "5.4.5",
     "vite": "4.5.3",
     "vite-plugin-dts": "2.3.0",
