@@ -25,10 +25,7 @@
             "hasStackedActions",
             {
                 "type": "code",
-                "item": [
-                  "false",
-                  "true"
-                ]
+                "item": ["true", "false"]
             },
             "If true, the action buttons will be stacked (full width) at narrow breakpoints.",
             {
@@ -72,68 +69,48 @@
             "isFooterPinned",
             {
                 "type": "code",
-                "item": [
-                  "false",
-                  "true"
-                ]
+                "item": ["true", "false"]
               },
               "When false, the modal footer will scroll with the content inside the modal body.",
               {
                 "type": "code",
-                "item": [
-                  "true"
-                ]
+                "item": ["true"]
               }
         ],
         [
             "isFullWidthBelowMid",
             {
               "type": "code",
-              "item": [
-                "false",
-                "true"
-              ]
+              "item": ["true", "false"]
             },
             "If true and the page is narrower than the mid breakpoint, a **medium-sized** modal will take up the full width of the screen.",
             {
               "type": "code",
-              "item": [
-                "false"
-              ]
+              "item": ["false"]
             }
         ],
         [
             "isLoading",
             {
               "type": "code",
-              "item": [
-                "false",
-                "true"
-              ]
+              "item": ["true", "false"]
             },
             "When true, displays a loading spinner in the modal",
             {
               "type": "code",
-              "item": [
-                "false"
-              ]
+              "item": ["false"]
             }
         ],
         [
             "isOpen",
             {
               "type": "code",
-              "item": [
-                "false",
-                "true"
-              ]
+              "item": ["true", "false"]
             },
             "Controls if the modal element is open or closed",
             {
               "type": "code",
-              "item": [
-                "false"
-              ]
+              "item": ["false"]
             }
         ],
         [
@@ -146,14 +123,11 @@
         ],
         [
             "leadingActionVariant",
-            {
-                "type": "code",
-                "item": ["See pie-button's variants"]
-            },
+            "See pie-button's variants",
             "The variant of the leading action button.",
             {
                 "type": "code",
-                "item": ["primary"]
+                "item": ["\"primary\""]
             }
         ],
         [
@@ -166,28 +140,23 @@
         ],
         [
           "supportingActionVariant",
-          {
-              "type": "code",
-              "item": ["See pie-button's variants"]
-          },
+          "See pie-button's variants",
           "The variant of the supporting action button.",
           {
               "type": "code",
-              "item": ["ghost"]
+              "item": ["\"ghost\""]
           }
         ],
         [
             "position",
             {
                 "type": "code",
-                "item": ["top", "center"]
+                "item": ["\"top\"", "\"center\""]
             },
             "The position of the modal; this controls where it will appear on the page.",
             {
               "type": "code",
-              "item": [
-                "center"
-              ]
+              "item": ["\"center\""]
             }
         ],
         [
@@ -202,12 +171,12 @@
             "size",
             {
                 "type": "code",
-                "item": ["small", "medium", "large"]
+                "item": ["\"small\"", "\"medium\"", "\"large\""]
             },
             "Determines the maximum width of the modal. Large modals will expand to fill the entire page at narrow viewports.",
             {
                 "type": "code",
-                "item": ["medium"]
+                "item": ["\"medium\""]
             }
         ]
     ]
