@@ -51,7 +51,7 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
 
     @property()
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
-    public variant: NonNullable<ToastProps['variant']> = defaultProps.variant;
+    public variant = defaultProps.variant;
 
     @property({ type: Boolean })
     public isStrong = defaultProps.isStrong;
