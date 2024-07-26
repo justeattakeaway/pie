@@ -7,6 +7,7 @@
   --toast-font-size: #{p.font-size(--dt-font-body-s-size)};
   --toast-line-height: #{p.line-height(--dt-font-body-s-line-height)};
   --toast-icon-fill: var(--dt-color-content-default);
+  --toast-message-max-width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -79,6 +80,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    max-width: var(--toast-message-max-width);
   }
 
   &.is-multiline {

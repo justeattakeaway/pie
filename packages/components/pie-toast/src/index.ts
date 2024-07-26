@@ -16,7 +16,6 @@ import {
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icon-button';
 import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
-import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconInfoCircle.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconAlertCircle.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconAlertTriangle.js';
@@ -220,7 +219,7 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
      */
     private renderMessage (message: string, messageAreaMaxWidth: number): TemplateResult {
         return html`
-            <span style="max-width: ${messageAreaMaxWidth}px" data-test-id="${componentSelector}-message">
+            <span style="--toast-message-max-width: ${messageAreaMaxWidth}px" data-test-id="${componentSelector}-message">
                 ${message}
             </span>
         `;
