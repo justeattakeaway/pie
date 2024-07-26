@@ -217,7 +217,7 @@ test.describe('PieToast - Component tests', () => {
                         expect(icon).toBeVisible();
                     });
                 } else {
-                    test(`should no show the icon when variant is ${variant}`, async ({ mount, page }) => {
+                    test('should not show the icon when variant is neutral', async ({ mount, page }) => {
                         // Arrange
                         await mount(PieToast, {
                             props: {
