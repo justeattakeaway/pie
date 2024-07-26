@@ -11,6 +11,7 @@ const mediaElement = require('./mediaElementList');
 const notification = require('./notification');
 const resourceTable = require('./resourceTable');
 const simpleTable = require('./simpleTable');
+const tag = require('./tag');
 const termsAndDescriptions = require('./termsAndDescriptions');
 const tokensTable = require('./tokensTable');
 const usage = require('./usage');
@@ -36,8 +37,9 @@ const addAllShortCodes = (eleventyConfig) => {
     eleventyConfig.addShortcode('notification', (shortcodeArgs) => deindentHTML(notification(shortcodeArgs)));
     eleventyConfig.addShortcode('resourceTable', (shortcodeArgs) => deindentHTML(resourceTable(shortcodeArgs)));
     eleventyConfig.addShortcode('simpleTable', (shortcodeArgs) => deindentHTML(simpleTable(shortcodeArgs)));
-    eleventyConfig.addShortcode('tokensTable', (shortcodeArgs) => deindentHTML(tokensTable(shortcodeArgs)));
+    eleventyConfig.addShortcode('tag', (shortcodeArgs) => deindentHTML(tag(shortcodeArgs)));
     eleventyConfig.addShortcode('termsAndDescriptions', (shortcodeArgs) => deindentHTML(termsAndDescriptions(shortcodeArgs)));
+    eleventyConfig.addShortcode('tokensTable', (shortcodeArgs) => deindentHTML(tokensTable(shortcodeArgs)));
     eleventyConfig.addShortcode('usage', (shortcodeArgs) => deindentHTML(usage(shortcodeArgs)));
 };
 

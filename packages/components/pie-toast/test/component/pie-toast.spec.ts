@@ -1,7 +1,11 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieToast } from '../../src/index.ts';
+<<<<<<< HEAD
 import { type ToastProps, variants } from '../../src/defs.ts';
+=======
+import { type ToastProps } from '../../src/defs.ts';
+>>>>>>> @{-1}
 
 const rootSelector = 'pie-toast';
 const componentSelector = `[data-test-id="${rootSelector}"]`;
@@ -9,10 +13,13 @@ const messageSelector = `[data-test-id="${rootSelector}-message"]`;
 const closeSelector = `[data-test-id="${rootSelector}-close"]`;
 const footerSelector = `[data-test-id="${rootSelector}-footer"]`;
 const leadingActionSelector = `[data-test-id="${rootSelector}-leading-action"]`;
+<<<<<<< HEAD
 
 function getToastIconSelectors (variant: string): string {
     return `[data-test-id="${rootSelector}-heading-icon-${variant}"]`;
 }
+=======
+>>>>>>> @{-1}
 
 test.describe('PieToast - Component tests', () => {
     // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly

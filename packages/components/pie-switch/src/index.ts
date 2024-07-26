@@ -181,7 +181,7 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
         return html`
             <label
                 class="c-switch-wrapper"
-                ?isRTL=${isRTL}
+                ?data-is-rtl=${isRTL}
                 ?disabled=${disabled}>
                 ${labelPlacement === 'leading' ? this.renderSwitchLabel() : nothing}
                 <div

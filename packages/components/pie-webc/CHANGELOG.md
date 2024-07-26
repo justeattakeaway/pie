@@ -1,5 +1,28 @@
 # @justeattakeaway/pie-webc
 
+## 0.5.15
+
+### Patch Changes
+
+- [Changed] - isRtl attr changed to data-is-rtl ([#1625](https://github.com/justeattakeaway/pie/pull/1625)) by [@dandel10n](https://github.com/dandel10n)
+
+- Updated dependencies [[`d47b4cc02`](https://github.com/justeattakeaway/pie/commit/d47b4cc02465db340b8be94f5e24a09d363713c8), [`d3d974c76`](https://github.com/justeattakeaway/pie/commit/d3d974c76a5ee1e800c30b59e81002d089b5a26d), [`927b800ed`](https://github.com/justeattakeaway/pie/commit/927b800ed2456c6db299694fbf850dea4aed34bd), [`d47b4cc02`](https://github.com/justeattakeaway/pie/commit/d47b4cc02465db340b8be94f5e24a09d363713c8)]:
+  - @justeattakeaway/pie-checkbox@0.9.0
+  - @justeattakeaway/pie-button@0.48.0
+  - @justeattakeaway/pie-switch@0.29.11
+  - @justeattakeaway/pie-checkbox-group@0.3.0
+  - @justeattakeaway/pie-cookie-banner@0.22.1
+  - @justeattakeaway/pie-modal@0.43.5
+
+## 0.5.14
+
+### Patch Changes
+
+- Updated dependencies [[`46bdcbe01`](https://github.com/justeattakeaway/pie/commit/46bdcbe01aeb7309bb7616114310736af70317d8), [`d2b3e77e8`](https://github.com/justeattakeaway/pie/commit/d2b3e77e8c90c6638294100f3f3aa56c5e69d02b), [`acbf96324`](https://github.com/justeattakeaway/pie/commit/acbf9632400026a3c08b7090283479b4c1049ffc), [`46bdcbe01`](https://github.com/justeattakeaway/pie/commit/46bdcbe01aeb7309bb7616114310736af70317d8)]:
+  - @justeattakeaway/pie-checkbox-group@0.2.0
+  - @justeattakeaway/pie-cookie-banner@0.22.0
+  - @justeattakeaway/pie-checkbox@0.8.0
+
 ## 0.5.13
 
 ### Patch Changes

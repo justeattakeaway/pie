@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, PropertyValues, nothing,
+    LitElement, html, unsafeCSS, nothing,
 } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -21,10 +21,11 @@ import { CheckboxProps, defaultProps, statusTypes } from './defs';
 export * from './defs';
 
 const componentSelector = 'pie-checkbox';
-const assistiveTextIdValue = 'assistive-text';
+const assistiveTextId = 'assistive-text';
 
 /**
  * @tagname pie-checkbox
+ * @slot - Default slot
  * @event {CustomEvent} change - when checked state is changed.
  */
 export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxProps {
@@ -33,11 +34,11 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     @state()
     private disabledByParent = false;
 
-    @property({ type: String })
-    public value = defaultProps.value;
+    @state()
+    private visuallyHiddenError = false;
 
     @property({ type: String })
-    public label?: CheckboxProps['label'];
+    public value = defaultProps.value;
 
     @property({ type: String })
     public name?: CheckboxProps['name'];
@@ -71,12 +72,14 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
         super.connectedCallback();
 
         this.addEventListener('pie-checkbox-group-disabled', (e: CustomEventInit) => { this.disabledByParent = e.detail.disabled; });
+        this.addEventListener('pie-checkbox-group-error', (e: CustomEventInit) => { this.visuallyHiddenError = e.detail.error; });
     }
 
     disconnectedCallback () : void {
         super.disconnectedCallback();
 
         this.removeEventListener('pie-checkbox-group-disabled', (e: CustomEventInit) => { this.disabledByParent = e.detail.disabled; });
+        this.removeEventListener('pie-checkbox-group-error', (e: CustomEventInit) => { this.visuallyHiddenError = e.detail.error; });
     }
 
     /**
@@ -149,13 +152,14 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             checked,
             value,
             name,
-            label,
             disabled,
             disabledByParent,
+            visuallyHiddenError,
             required,
             indeterminate,
             assistiveText,
             status,
+            isRTL,
         } = this;
 
         const componentDisabled = disabled || disabledByParent;
@@ -176,23 +180,28 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
                 ?disabled=${componentDisabled}
                 ?required=${required}
                 .indeterminate=${indeterminate}
-                aria-describedby=${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}
+                aria-invalid=${status === 'error' ? 'true' : 'false'}
+                aria-describedby=${ifDefined(assistiveText ? assistiveTextId : undefined)}
                 @change=${this.handleChange}
                 data-test-id="checkbox-input"
             />
             <label for="inputId" data-test-id="checkbox-component">
                 <span
                     class="c-checkbox-tick"
+                    ?data-is-rtl=${isRTL}
                     ?data-pie-checked=${checked}
                     ?data-pie-disabled=${componentDisabled}
                     data-pie-status=${!componentDisabled && status}
                     ?data-pie-indeterminate=${indeterminate && !checked}></span>
-                <span class="c-checkbox-text">${label}</span>
+                <span class="c-checkbox-text">
+                    <slot></slot>
+                </span>
             </label>
             ${assistiveText ? html`
                 <pie-assistive-text
-                    id="${assistiveTextIdValue}"
+                    id="${assistiveTextId}"
                     variant=${status}
+                    ?isVisuallyHidden=${visuallyHiddenError}
                     data-test-id="pie-checkbox-assistive-text">
                         ${assistiveText}
                 </pie-assistive-text>` : nothing}

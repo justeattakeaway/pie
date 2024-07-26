@@ -1,14 +1,13 @@
 @use '@justeattakeaway/pie-css/scss' as p;
-
-$breakpoint-wide: 768px;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 
 /**
 * Mixin for adding the responsive behaviour.
 * Takes in the the particular settings for the wide breakpoint.
 */
 @mixin responsive-wide {
-    &[isResponsive] {
-        @media (min-width: $breakpoint-wide) {
+    &.o-btn--responsive {
+        @include media('>md') {
             @content;
         }
     }
@@ -94,12 +93,14 @@ $breakpoint-wide: 768px;
     // used to specify whether the button should be full width or not
     inline-size: var(--btn-inline-size);
 
-    // Variant
-    &[variant='primary'] {
+    // ************************
+    // Button Variant Modifiers
+    // ************************
+    &.o-btn--primary {
         @include p.button-interactive-states('--dt-color-interactive-brand');
 
-        &[size='xsmall'],
-        &[size='small-productive'] {
+        &.o-btn--xsmall,
+        &.o-btn--small-productive {
             /**
             * Where the font-size is smaller,
             * update the button backgrounds so that the text is accessible
@@ -108,16 +109,27 @@ $breakpoint-wide: 768px;
 
             @include p.button-interactive-states('--dt-color-interactive-primary', 'inverse');
         }
+
+        // This is to handle the background colour change getting overridden above, but then being put in responsive mode
+        // can't use :not for this unfortunately, as then the smaller narrow state would lose its background colour too
+        &.o-btn--xsmall.o-btn--expressive,
+        &.o-btn--small-productive {
+            @include responsive-wide {
+                --btn-bg-color: var(--dt-color-interactive-brand);
+
+                @include p.button-interactive-states('--dt-color-interactive-brand');
+            }
+        }
     }
 
-    &[variant='secondary'] {
+    &.o-btn--secondary {
         --btn-bg-color: var(--dt-color-interactive-secondary);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
 
         @include p.button-interactive-states('--dt-color-interactive-secondary');
     }
 
-    &[variant='outline'] {
+    &.o-btn--outline {
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-secondary);
 
@@ -128,7 +140,7 @@ $breakpoint-wide: 768px;
         @include p.button-interactive-states('--dt-color-black', 'transparent');
     }
 
-    &[variant='ghost'] {
+    &.o-btn--ghost {
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-link);
 
@@ -137,15 +149,15 @@ $breakpoint-wide: 768px;
         @include p.button-interactive-states('--dt-color-black', 'transparent');
     }
 
-    &[variant='inverse'] {
+    &.o-btn--inverse {
         --btn-bg-color: var(--dt-color-interactive-inverse);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
 
         @include p.button-interactive-states('--dt-color-interactive-inverse');
     }
 
-    &[variant='ghost-inverse'],
-    &[variant='outline-inverse'] {
+    &.o-btn--ghost-inverse,
+    &.o-btn--outline-inverse {
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-primary);
 
@@ -154,17 +166,17 @@ $breakpoint-wide: 768px;
         @include p.button-interactive-states('--dt-color-container-default', 'transparent');
     }
 
-    &[variant='outline-inverse']:not([disabled]) {
+    &.o-btn--outline-inverse:not([disabled]) {
         border: 1px solid var(--dt-color-border-strong);
     }
 
-    &[variant='destructive'] {
+    &.o-btn--destructive {
         --btn-bg-color: var(--dt-color-support-error);
 
         @include p.button-interactive-states('--dt-color-support-error');
     }
 
-    &[variant='destructive-ghost'] {
+    &.o-btn--destructive-ghost {
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-error);
 
@@ -173,65 +185,80 @@ $breakpoint-wide: 768px;
         @include p.button-interactive-states('--dt-color-black', 'transparent');
     }
 
-    // Additional modifiers
-    &[isFullWidth] {
+    // *********************
+    // Button Size Modifiers
+    // *********************
+    &.o-btn--xsmall {
+        @include button-size(xsmall);
+
+        @include responsive-wide {
+            // productive is the default size when responsive is enabled
+            @include button-size(small-productive);
+
+            &.o-btn--expressive {
+                @include button-size(small-expressive);
+            }
+        }
+    }
+
+    &.o-btn--small-expressive {
+        @include button-size(small-expressive);
+
+        @include responsive-wide {
+            @include button-size(medium);
+        }
+    }
+
+    &.o-btn--small-productive {
+        @include button-size(small-productive);
+
+        @include responsive-wide {
+            @include button-size(medium);
+        }
+    }
+
+    &.o-btn--medium {
+        @include button-size(medium);
+
+        @include responsive-wide {
+            @include button-size(large);
+        }
+    }
+
+    &.o-btn--large {
+        @include button-size(large);
+    }
+
+    // ******************************
+    // Additional component modifiers
+    // ******************************
+    &.o-btn--fullWidth {
         --btn-inline-size: 100%;
     }
 
+    // **************
+    // Disabled state
+    // **************
     &[disabled] {
         --btn-text-color: var(--dt-color-content-disabled) !important;
 
         cursor: not-allowed;
 
         // For every variant (except ghost variants) set the disabled background color
-        &:not([variant='ghost'], [variant='ghost-inverse'], [variant='destructive-ghost']) {
+        &:not(.o-btn--ghost, .o-btn--ghost-inverse, .o-btn--destructive-ghost) {
             --btn-bg-color: var(--dt-color-disabled-01) !important;
         }
 
         // For outline variants, set the border to the disabled color
-        &[variant='outline'] {
+        &.o-btn--outline {
             border-color: var(--dt-color-disabled-01) !important;
         }
     }
 
-    &[size='xsmall'] {
-        @include button-size(xsmall);
-        @include responsive-wide {
-            // productive is the default size when responsive is enabled
-            @include button-size(small-productive);
-
-            &[responsiveSize='expressive'] {
-                @include button-size(small-expressive);
-            }
-        }
-    }
-
-    &[size='small-expressive'] {
-        @include button-size(small-expressive);
-        @include responsive-wide {
-            @include button-size(medium);
-        }
-    }
-
-    &[size='small-productive'] {
-        @include button-size(small-productive);
-        @include responsive-wide {
-            @include button-size(medium);
-        }
-    }
-
-    &[size='medium'] {
-        @include button-size(medium);
-        @include responsive-wide {
-            @include button-size(large);
-        }
-    }
-
-    &[size='large'] {
-        @include button-size(large);
-    }
-
-    &[isLoading] {
+    // *************
+    // Loading state
+    // *************
+    &.is-loading {
         & > *:not(pie-spinner) {
             visibility: hidden;
         }
@@ -241,6 +268,9 @@ $breakpoint-wide: 768px;
         }
     }
 
+    // ************
+    // Focus styles
+    // ************
     &:focus-visible {
         @include p.focus;
     }

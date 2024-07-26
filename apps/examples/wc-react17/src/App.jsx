@@ -1,7 +1,7 @@
-import { PieButton } from '@justeattakeaway/pie-button/dist/react';
+import { PieButton } from '@justeattakeaway/pie-webc/react/button.js';
 
 import '@justeattakeaway/pie-css';
-import './styles.css';
+import './App.css';
 
 function App () {
     return (

@@ -17,12 +17,10 @@ import {
 import '@justeattakeaway/pie-icon-button';
 import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
-
 import '@justeattakeaway/pie-icons-webc/dist/IconInfoCircle.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconAlertCircle.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconAlertTriangle.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheckCircle.js';
-
 import '@justeattakeaway/pie-button';
 
 import styles from './toast.scss?inline';
@@ -131,6 +129,7 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
         }
 
         const hasIcon = this.variantHasIcon(this.variant);
+
 
         this._messageAreaMaxWidth = this.getMessageMaxWidth(hasIcon, this.isMultiline, !!this.leadingAction?.text, this.isDismissible);
 
