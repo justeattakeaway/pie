@@ -1,4 +1,5 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
+
 export const variants = ['neutral', 'info', 'warning', 'success', 'error'] as const;
 
 // TODO - please remove the eslint disable comment below when you add props to this interface
@@ -71,7 +72,7 @@ export const ON_TOAST_OPEN_EVENT = `${componentSelector}-open`;
  */
 export const ON_TOAST_LEADING_ACTION_CLICK_EVENT = `${componentSelector}-leading-action-click`;
 
-export type DefaultProps = ComponentDefaultProps<ToastProps, 'isOpen' | 'isDismissible' | 'isMultiline' | 'variant' | 'isStrong'>;
+export type DefaultProps = ComponentDefaultProps<ToastProps, keyof Omit<ToastProps, 'message' | 'leadingAction'>>;
 
 export const defaultProps: DefaultProps = {
     isOpen: true,
