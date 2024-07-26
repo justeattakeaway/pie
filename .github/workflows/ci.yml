@@ -210,7 +210,7 @@ jobs:
         uses: ./.github/actions/run-script
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='{./packages/components/*}' --filter=[HEAD^1]"
+          script-name: "test:visual:ci --filter='{./packages/components/*}'[HEAD^1]"
           concurrency: 1
       - name: Run Changed Package Visual Tests
         uses: ./.github/actions/run-script
