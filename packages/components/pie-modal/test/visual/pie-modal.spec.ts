@@ -249,7 +249,7 @@ test.describe('Prop: `isLoading`', () => {
 
 test.describe('Prop: `leadingActionText`', () => {
     test.describe('when prop is passed into component', () => {
-        test('should display `leadingAction`', async ({ mount, page }) => {
+        test('should display leading action button', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
@@ -306,7 +306,7 @@ test.describe('Prop: `leadingActionText`', () => {
     });
 
     test.describe('when prop is provided empty', () => {
-        test('should not render leadingAction markup', async ({ mount, page }) => {
+        test('should not render leading action markup', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
@@ -323,7 +323,7 @@ test.describe('Prop: `leadingActionText`', () => {
     });
 
     test.describe('when prop is not passed into component', () => {
-        test('should not display `leadingAction`', async ({ mount, page }) => {
+        test('should not display leading action button', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
@@ -339,9 +339,9 @@ test.describe('Prop: `leadingActionText`', () => {
     });
 });
 
-test.describe('Prop: `supportingAction`', () => {
+test.describe('Prop: `supportingActionText`', () => {
     test.describe('when `leadingActionText` prop exists', () => {
-        test('should display modal footer if `supportingActionText` is also provided', async ({ mount, page }) => {
+        test('should display modal footer if `supportingActionText` is provided', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
@@ -363,7 +363,7 @@ test.describe('Prop: `supportingAction`', () => {
             await percySnapshot(page, 'Modal displays footer');
         });
 
-        test.describe('when prop is provided but `supportingActionVariant` is not provided', () => {
+        test.describe('and `supportingActionText` is provided but `supportingActionVariant` is not', () => {
             test('should fall back to default property', async ({ mount, page }) => {
                 await mount(PieModal, {
                     props: {
@@ -386,8 +386,8 @@ test.describe('Prop: `supportingAction`', () => {
             });
         });
 
-        test.describe('when `supportingActionText` is provided but empty', () => {
-            test('should not render supportingAction markup', async ({ mount, page }) => {
+        test.describe('and `supportingActionText` is provided but empty', () => {
+            test('should not render supporting action markup', async ({ mount, page }) => {
                 await mount(PieModal, {
                     props: {
                         heading: 'This is a modal heading',
@@ -408,8 +408,8 @@ test.describe('Prop: `supportingAction`', () => {
             });
         });
 
-        test.describe('when `supportingAction` is not supplied', () => {
-            test('should not render supportingAction markup', async ({ mount, page }) => {
+        test.describe('and `supportingActionText` is not provided', () => {
+            test('should not render supporting action markup', async ({ mount, page }) => {
                 await mount(PieModal, {
                     props: {
                         heading: 'This is a modal heading',
@@ -430,8 +430,8 @@ test.describe('Prop: `supportingAction`', () => {
         });
     });
 
-    test.describe('when `leadingAction` prop does not exist and `supportingAction` is supplied', () => {
-        test('should not render supportingAction markup', async ({ mount, page }) => {
+    test.describe('when `supportingActionText` is supplied but `leadingActionText` is not', () => {
+        test('should not render supporting action markup', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
