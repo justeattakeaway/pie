@@ -295,8 +295,8 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
 
         const componentWrapperClasses = {
             [componentClass]: true,
-            [`variant-${variant}`]: true,
-            'is-strong': isStrong,
+            [`${componentClass}--variant-${variant}`]: true,
+            [`${componentClass}--is-strong`]: isStrong,
         };
 
         const messageAreaClasses = {

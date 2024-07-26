@@ -24,42 +24,42 @@
   color: var(--toast-font-color);
   font-size: var(--toast-font-size);
   line-height: var(--toast-line-height);
+}
 
-  &.variant-info {
-    --toast-icon-fill: var(--dt-color-support-info-inverse);
-
-    &.is-strong {
-      --toast-background-color: var(--dt-color-support-info);
-      --toast-icon-fill: var(--dt-color-content-inverse);
-    }
+.c-toast--variant-info {
+  --toast-icon-fill: var(--dt-color-support-info-inverse);
+  
+  &.c-toast--is-strong {
+    --toast-background-color: var(--dt-color-support-info);
+    --toast-icon-fill: var(--dt-color-content-inverse);
   }
+}
 
-  &.variant-warning {
-    --toast-icon-fill: var(--dt-color-support-warning-inverse);
-    
-    &.is-strong {
-      --toast-background-color: var(--dt-color-support-warning);
-      --toast-icon-fill: var(--dt-color-content-dark);
-      --toast-font-color: var(--dt-color-content-dark);
-    }
+.c-toast--variant-warning {
+  --toast-icon-fill: var(--dt-color-support-warning-inverse);
+  
+  &.c-toast--is-strong {
+    --toast-background-color: var(--dt-color-support-warning);
+    --toast-icon-fill: var(--dt-color-content-dark);
+    --toast-font-color: var(--dt-color-content-dark);
   }
+}
 
-  &.variant-success {
-    --toast-icon-fill: var(--dt-color-support-positive-inverse);
-
-    &.is-strong {
-      --toast-background-color: var(--dt-color-support-positive);
-      --toast-icon-fill: var(--dt-color-content-inverse);
-    }
+.c-toast--variant-success {
+  --toast-icon-fill: var(--dt-color-support-positive-inverse); 
+  
+  &.c-toast--is-strong {
+    --toast-background-color: var(--dt-color-support-positive);
+    --toast-icon-fill: var(--dt-color-content-inverse);
   }
+}
 
-  &.variant-error {
-    --toast-icon-fill: var(--dt-color-support-error-inverse);
+.c-toast--variant-error {
+  --toast-icon-fill: var(--dt-color-support-error-inverse);  
 
-    &.is-strong {
-      --toast-background-color: var(--dt-color-support-error);
-      --toast-icon-fill: var(--dt-color-content-inverse);
-    }
+  &.c-toast--is-strong {
+    --toast-background-color: var(--dt-color-support-error);
+    --toast-icon-fill: var(--dt-color-content-inverse);
   }
 }
 
