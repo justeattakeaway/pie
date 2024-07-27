@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.10.0
+
+### Minor Changes
+
+- [Added] - `visuallyHiddenError` private state and logic to hide pie-assistive-text visually. ([#1630](https://github.com/justeattakeaway/pie/pull/1630)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Added] - Event listener for `pie-checkbox-group-error` custom event.
+
+### Patch Changes
+
+- Updated dependencies [[`42cc25ee9`](https://github.com/justeattakeaway/pie/commit/42cc25ee922dfd47c8cb36277ba4f4f7e749b828)]:
+  - @justeattakeaway/pie-assistive-text@0.6.0
+
 ## 0.9.0
 
 ### Minor Changes

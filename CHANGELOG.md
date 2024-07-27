@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.63.0
+
+### Minor Changes
+
+- [Updated] - turbo version bump to 2.0.9 ([#1628](https://github.com/justeattakeaway/pie/pull/1628)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.62.0
 
 ### Minor Changes
