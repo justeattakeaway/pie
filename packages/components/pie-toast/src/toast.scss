@@ -27,38 +27,38 @@
   line-height: var(--toast-line-height);
 }
 
-.c-toast--variant-info {
+.c-toast--info {
   --toast-icon-fill: var(--dt-color-support-info-inverse);
   
-  &.c-toast--is-strong {
+  &.c-toast--strong {
     --toast-background-color: var(--dt-color-support-info);
     --toast-icon-fill: var(--dt-color-content-inverse);
   }
 }
 
-.c-toast--variant-warning {
+.c-toast--warning {
   --toast-icon-fill: var(--dt-color-support-warning-inverse);
   
-  &.c-toast--is-strong {
+  &.c-toast--strong {
     --toast-background-color: var(--dt-color-support-warning);
     --toast-icon-fill: var(--dt-color-content-dark);
     --toast-font-color: var(--dt-color-content-dark);
   }
 }
 
-.c-toast--variant-success {
+.c-toast--success {
   --toast-icon-fill: var(--dt-color-support-positive-inverse); 
   
-  &.c-toast--is-strong {
+  &.c-toast--strong {
     --toast-background-color: var(--dt-color-support-positive);
     --toast-icon-fill: var(--dt-color-content-inverse);
   }
 }
 
-.c-toast--variant-error {
+.c-toast--error {
   --toast-icon-fill: var(--dt-color-support-error-inverse);  
 
-  &.c-toast--is-strong {
+  &.c-toast--strong {
     --toast-background-color: var(--dt-color-support-error);
     --toast-icon-fill: var(--dt-color-content-inverse);
   }
@@ -83,9 +83,9 @@
     max-width: var(--toast-message-max-width);
   }
 
-  &.is-multiline {
+  &.c-toast--multiline {
     align-items: flex-start;
-
+    
     span {
       max-height: 60px;
       white-space: inherit;
@@ -110,7 +110,7 @@
   justify-content: flex-end;
 }
 
-.icon {
+.c-toast-icon {
   color: var(--toast-icon-fill);
 }
 

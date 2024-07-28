@@ -244,13 +244,13 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     private getVariantIcon () {
         switch (this.variant) {
             case 'info':
-                return html`<icon-info-circle class="icon" size="s" data-test-id="${componentSelector}-heading-icon-info"></icon-info-circle>`;
+                return html`<icon-info-circle class="c-toast-icon" size="s" data-test-id="${componentSelector}-heading-icon-info"></icon-info-circle>`;
             case 'success':
-                return html`<icon-check-circle class="icon" size="s" data-test-id="${componentSelector}-heading-icon-success"></icon-check-circle>`;
+                return html`<icon-check-circle class="c-toast-icon" size="s" data-test-id="${componentSelector}-heading-icon-success"></icon-check-circle>`;
             case 'warning':
-                return html`<icon-alert-triangle class="icon" size="s" data-test-id="${componentSelector}-heading-icon-warning"></icon-alert-triangle>`;
+                return html`<icon-alert-triangle class="c-toast-icon" size="s" data-test-id="${componentSelector}-heading-icon-warning"></icon-alert-triangle>`;
             case 'error':
-                return html`<icon-alert-circle class="icon" size="s" data-test-id="${componentSelector}-heading-icon-error"></icon-alert-circle>`;
+                return html`<icon-alert-circle class="c-toast-icon" size="s" data-test-id="${componentSelector}-heading-icon-error"></icon-alert-circle>`;
             default:
                 return nothing as never;
         }
@@ -294,13 +294,13 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
 
         const componentWrapperClasses = {
             [componentClass]: true,
-            [`${componentClass}--variant-${variant}`]: true,
-            [`${componentClass}--is-strong`]: isStrong,
+            [`${componentClass}--${variant}`]: true,
+            [`${componentClass}--strong`]: isStrong,
         };
 
         const messageAreaClasses = {
             [`${componentClass}-messageArea`]: true,
-            'is-multiline': isMultiline,
+            [`${componentClass}--multiline`]: isMultiline,
         };
 
         return html`
