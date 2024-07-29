@@ -13,7 +13,7 @@
     "@justeattakeaway/pie-css": "0.12.1",
     "@justeattakeaway/pie-webc": "0.5.16",
     "@lit/react": "1.0.2",
-    "next": "10.2.3",
+    "next": "13.5.0",
     "next-transpile-modules": "4.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
