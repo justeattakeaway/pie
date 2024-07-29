@@ -52,8 +52,8 @@ These groups are frequently utilised in forms, settings panels, and various inte
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Form label (Optional):** The form label provides necessary content / information to a form.",
-        "**Checkbox Input:** A checkbox input indicates the appropriate state. By default it is unselected.",
+        "**Form label (Optional):** The [form label](/components/form-label/) provides necessary content / information to a form.",
+        "**Checkbox input:** A checkbox input indicates the appropriate state. By default it is unselected.",
         "**Checkbox label:** Describes the information you want to select or unselect.",
         "**Assistive text (Optional):** The [assistive text](/components/assistive-text/) provides additional instructional information / error / success messaging for the whole checkbox group."
     ]
@@ -85,7 +85,7 @@ Checkbox groups can be laid out both horizontally and vertically depending on th
 
 ## Modifiers
 
-### Form Label
+### Form label
 
 A form label is recommended to provide the user context of the form element and it’s content.
 
