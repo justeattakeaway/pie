@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-assistive-text": "0.6.0",
+    "@justeattakeaway/pie-icons-webc": "0.24.2",
     "@justeattakeaway/pie-webc-core": "0.24.0"
   },
   "volta": {
