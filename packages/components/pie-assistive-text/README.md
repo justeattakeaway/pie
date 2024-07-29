@@ -12,11 +12,9 @@
 
 1. [Introduction](#pie-assistive-text)
 2. [Installation](#installation)
-3. [Importing the component](#importing-the-component)
-4. [Peer Dependencies](#peer-dependencies)
-5. [Props](#props)
-6. [Slots](#slots)
-6. [Contributing](#contributing)
+3. [Documentation](#documentation)
+4. [Questions](#questions)
+5. [Contributing](#contributing)
 
 ## pie-assistive-text
 

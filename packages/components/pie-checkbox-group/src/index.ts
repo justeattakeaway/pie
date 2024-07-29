@@ -13,6 +13,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import styles from './checkbox-group.scss?inline';
 import {
     ON_CHECKBOX_GROUP_DISABLED,
+    ON_CHECKBOX_GROUP_ERROR,
     CheckboxGroupProps,
     defaultProps,
     statusTypes,
@@ -29,6 +30,7 @@ const assistiveTextId = 'assistive-text';
  * @tagname pie-checkbox-group
  * @slot - Default slot
  * @event {CustomEvent} pie-checkbox-group-disabled - triggered after the disabled state of the checkbox group changes.
+ * @event {CustomEvent} pie-checkbox-group-error - triggered after the state of the checkbox group changes to error.
  */
 export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxGroupProps {
     @property({ type: String })
@@ -50,20 +52,23 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
 
-    @queryAssignedElements({}) _slottedChildren!: Array<HTMLElement>;
+    @queryAssignedElements({ selector: 'pie-checkbox' }) _slottedChildren: Array<HTMLElement> | undefined;
 
     private _handleDisabled () : void {
-        if (this._slottedChildren) {
-            this._slottedChildren.forEach((child) => {
-                child.dispatchEvent(new CustomEvent(ON_CHECKBOX_GROUP_DISABLED, { bubbles: false, composed: false, detail: { disabled: this.disabled } }));
-            });
-        }
+        this._slottedChildren?.forEach((child) => child.dispatchEvent(new CustomEvent(ON_CHECKBOX_GROUP_DISABLED, {
+            bubbles: false, composed: false, detail: { disabled: this.disabled },
+        })));
     }
 
     private _handleStatus () : void {
-        if (this._slottedChildren) {
-            this._slottedChildren.forEach((child) => child.setAttribute('status', this.status));
-        }
+        this._slottedChildren?.forEach((child) => {
+            child.setAttribute('status', this.status);
+
+            if (this.status === 'error' && this.assistiveText) {
+                child.setAttribute('assistiveText', this.assistiveText);
+                child.dispatchEvent(new CustomEvent(ON_CHECKBOX_GROUP_ERROR, { bubbles: false, composed: false, detail: { error: true } }));
+            }
+        });
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {
