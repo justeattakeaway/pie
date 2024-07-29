@@ -3,7 +3,6 @@ import {
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { live } from 'lit/directives/live.js';
 import throttle from 'lodash.throttle';
 
 import {
@@ -120,6 +119,8 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     private handleInput = (event: InputEvent) => {
         this.value = (event.target as HTMLTextAreaElement).value;
         this._internals.setFormValue(this.value);
+
+        this.handleResize();
     };
 
     private handleChange = (event: Event) => {
@@ -154,7 +155,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
                 <textarea
                     name=${ifDefined(name)}
                     autocomplete=${ifDefined(autocomplete)}
-                    .value=${live(value)}
+                    .value=${value}
                     ?autofocus=${autoFocus}
                     ?readonly=${readonly}
                     ?required=${required}
