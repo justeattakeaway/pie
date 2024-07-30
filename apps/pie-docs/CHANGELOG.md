@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.47.1
+
+### Patch Changes
+
+- [Added] - New prop for PIE Assistive Text component props json. ([#1630](https://github.com/justeattakeaway/pie/pull/1630)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 3.47.0
 
 ### Minor Changes

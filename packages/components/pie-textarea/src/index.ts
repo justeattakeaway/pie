@@ -1,6 +1,7 @@
 import {
     LitElement, html, unsafeCSS, PropertyValues, nothing,
 } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 import { live } from 'lit/directives/live.js';
 
@@ -62,7 +63,7 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
     }
 
     private restrictInputLength () {
-        if (this.maxLength && this.value.length > this.maxLength) {
+        if (this.label.length && this.maxLength && this.value.length > this.maxLength) {
             this.value = this.value.slice(0, this.maxLength);
         }
     }
@@ -89,9 +90,9 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
     }
 
     renderLabel (label: string, maxLength?: number) {
-        const characterCount = maxLength ? `${this.value.length}/${maxLength}` : '';
+        const characterCount = maxLength ? `${this.value.length}/${maxLength}` : undefined;
 
-        return label?.length ? html`<pie-form-label trailing=${characterCount || nothing}>${label}</pie-form-label>` : nothing;
+        return label?.length ? html`<pie-form-label trailing=${ifDefined(characterCount)}>${label}</pie-form-label>` : nothing;
     }
 
     render () {
