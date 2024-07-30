@@ -96,6 +96,8 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
 
     protected firstUpdated (): void {
         this._internals.setFormValue(this.value);
+
+        this._textarea.addEventListener('keydown', this.handleKeyDown);
     }
 
     private handleResize () {
@@ -131,6 +133,12 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         // Reference: https://javascript.info/shadow-dom-events#event-composed
         const customChangeEvent = wrapNativeEvent(event);
         this.dispatchEvent(customChangeEvent);
+    };
+
+    private handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key === 'Enter') {
+            event.stopPropagation();
+        }
     };
 
     render () {
