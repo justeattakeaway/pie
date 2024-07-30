@@ -95,7 +95,7 @@ jobs:
           - node-version: 20
             amplify-app-id: d3g23senqajlhy
             build-script: build:examples
-            dist-folder: ./apps/examples/wc-next13/build
+            dist-folder: ./apps/examples/wc-next13/dist
             example-app: wc-next13
           # Using the generate:examples script for static hosting. SSR requires more investigation
           - node-version: 16
@@ -113,13 +113,13 @@ jobs:
           - node-version: 20
             amplify-app-id: d2a3kuvjs3esad
             build-script: build:examples
-            dist-folder: ./apps/examples/wc-react17/build
+            dist-folder: ./apps/examples/wc-react17/dist
             example-app: wc-react17
 
           - node-version: 20
             amplify-app-id: d1zlc7g0rtfm9g
             build-script: build:examples
-            dist-folder: ./apps/examples/wc-react18/build
+            dist-folder: ./apps/examples/wc-react18/dist
             example-app: wc-react18
 
           - node-version: 20

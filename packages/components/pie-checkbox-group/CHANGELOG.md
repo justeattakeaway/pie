@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-checkbox-group
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - New `pie-checkbox-group-error` custom event dispatcher. ([#1630](https://github.com/justeattakeaway/pie/pull/1630)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Added] - When in error state component sets `assistiveText` prop for slotted PIE Checkboxes.
+  [Changed] - Limited `_slottedChildren` query to pie-checkbox custom elements.
+
+### Patch Changes
+
+- Updated dependencies [[`42cc25ee9`](https://github.com/justeattakeaway/pie/commit/42cc25ee922dfd47c8cb36277ba4f4f7e749b828)]:
+  - @justeattakeaway/pie-assistive-text@0.6.0
+
 ## 0.3.0
 
 ### Minor Changes
