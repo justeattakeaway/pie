@@ -3,7 +3,7 @@
   "extends": [
     "//"
   ],
-  "tasks": {
+  "pipeline": {
     "build:icons": {
       "cache": true,
       "dependsOn": [
