@@ -31,7 +31,9 @@ export function getPlaywrightVisualConfig () {
             trace: 'on',
             testIdAttribute: 'data-test-id',
             discovery: {
-                disallowedHostnames: { $ref: 'unpkg.com' },
+                disallowedHostnames: [
+                    'unpkg.com'
+                ],
             },
         },
 
