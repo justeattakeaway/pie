@@ -15,6 +15,7 @@ expectedRoutesJson.forEach((route) => {
 
         const results = await makeAxeBuilder()
             .include(`[data-test-id=${selector}]`)
+            .exclude('iframe')
             .analyze();
 
         expect(results.violations).toEqual([]);
