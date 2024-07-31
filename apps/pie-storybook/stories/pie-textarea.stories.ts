@@ -1,5 +1,7 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { action } from '@storybook/addon-actions';
+import { useArgs as UseArgs } from '@storybook/preview-api';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-textarea';
@@ -9,11 +11,64 @@ import {
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
-import { createStory } from '../utilities';
+import { createStory, type TemplateFunction } from '../utilities';
+import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-form-label';
 
 type TextareaStoryMeta = StoryMeta<TextareaProps>;
 
-const defaultArgs: TextareaProps = { ...defaultProps };
+const defaultArgs: TextareaProps = { ...defaultProps, name: 'testName' };
+
+const Template = ({
+    disabled,
+    resize,
+    size,
+    required,
+    readonly,
+    value,
+    name,
+    autocomplete,
+    autoFocus,
+    label,
+    maxLength,
+}: TextareaProps) => {
+    const [, updateArgs] = UseArgs();
+
+    function onInput (event: InputEvent) {
+        const textareaElement = event.target as HTMLTextAreaElement;
+        updateArgs({ value: textareaElement?.value });
+
+        action('input')({
+            data: event.data,
+            value: textareaElement.value,
+        });
+    }
+
+    function onChange (event: CustomEvent) {
+        action('change')({
+            detail: event.detail,
+        });
+    }
+
+    return html`
+        <pie-textarea
+            id="${ifDefined(name)}"
+            name="${ifDefined(name)}"
+            .value="${value}"
+            ?disabled="${disabled}"
+            size="${ifDefined(size)}"
+            resize="${ifDefined(resize)}"
+            autocomplete="${ifDefined(autocomplete)}"
+            ?autoFocus="${autoFocus}"
+            ?readonly="${readonly}"
+            ?required="${required}"
+            maxLength="${ifDefined(maxLength)}"
+            label="${ifDefined(label)}"
+            @input="${onInput}"
+            @change="${onChange}">
+        </pie-textarea>
+    `;
+};
 
 const textareaStoryMeta: TextareaStoryMeta = {
     title: 'Textarea',
@@ -42,6 +97,48 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: defaultProps.resize,
             },
         },
+        name: {
+            description: 'The name of the textarea (used as a key/value pair with `value`). This is required in order to work properly with forms.',
+            control: 'text',
+            defaultValue: {
+                summary: defaultArgs.name,
+            },
+        },
+        value: {
+            description: 'The value of the textarea (used as a key/value pair in HTML forms with `name`).',
+            control: 'text',
+            defaultValue: {
+                summary: defaultProps.value,
+            },
+        },
+        readonly: {
+            description: 'When true, the user cannot edit the control. Not the same as disabled. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
+        required: {
+            description: 'If true, the textarea is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
+        autoFocus: {
+            description: 'If true, the textarea will be focused on the first render. No more than one element in the document or dialog may have the autofocus attribute. If applied to multiple elements the first one will receive focus. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus) for more information.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
+        autocomplete: {
+            description: 'Allows the user to enable or disable autocomplete functionality on the textarea field. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for more information and values.',
+            control: 'text',
+            defaultValue: {
+                summary: 'off',
+            },
+        },
         label: {
             description: 'The label for the textarea field.',
             control: 'text',
@@ -56,13 +153,6 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: 0,
             },
         },
-        value: {
-            description: 'The value of the textarea',
-            control: 'text',
-            defaultValue: {
-                summary: defaultProps.value,
-            },
-        },
     },
     args: defaultArgs,
     parameters: {
@@ -73,25 +163,43 @@ const textareaStoryMeta: TextareaStoryMeta = {
     },
 };
 
-const Template = ({
-    disabled,
-    resize,
-    size,
-    label,
-    maxLength,
-    value,
-}: TextareaProps) => html`
-    <pie-textarea
-            ?disabled="${disabled}"
-            size="${ifDefined(size)}"
-            resize="${ifDefined(resize)}"
-            label="${ifDefined(label)}"
-            maxLength="${ifDefined(maxLength)}"
-            .value="${value}"
-            >
-    </pie-textarea>
-    `;
+const ExampleFormTemplate: TemplateFunction<TextareaProps> = () => html`
+    <style>
+        .form {
+            display: flex;
+            flex-direction: column;
+            padding: var(--dt-spacing-d);
+        }
+
+        .form-field {
+            display: block;
+            margin-bottom: var(--dt-spacing-d);
+        }
+
+        .form-btns {
+            margin-top: var(--dt-spacing-c);
+            display: flex;
+            gap: var(--dt-spacing-a)
+        }
+
+        .form-btns > .form-btn:first-of-type {
+            margin-left: auto;
+        }
+    </style>
+
+    <form class="form">
+        <pie-form-label for="description">Description:</pie-form-label>
+        <pie-textarea class="form-field" id="description" name="description">
+        </pie-textarea>
+
+        <div class="form-btns">
+            <pie-button class="form-btn" variant="secondary" type="reset">Reset</pie-button>
+            <pie-button class="form-btn" type="submit">Submit</pie-button>
+        </div>
+    </form>
+`;
 
 export const Default = createStory<TextareaProps>(Template, defaultArgs)();
+export const ExampleForm = createStory<TextareaProps>(ExampleFormTemplate, defaultArgs)();
 
 export default textareaStoryMeta;

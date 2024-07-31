@@ -1,14 +1,16 @@
 import {
     LitElement, html, unsafeCSS, PropertyValues, nothing,
 } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
+import { ifDefined, ifDefined } from 'lit/directives/if-defined.js';
 
 import { live } from 'lit/directives/live.js';
 
 import { property, query } from 'lit/decorators.js';
 import throttle from 'lodash.throttle';
 
-import { validPropertyValues, RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import {
+    validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent,
+} from '@justeattakeaway/pie-webc-core';
 
 import styles from './textarea.scss?inline';
 import {
@@ -24,15 +26,17 @@ const componentSelector = 'pie-textarea';
 
 /**
  * @tagname pie-textarea
+ * @event {InputEvent} input - when the textarea value is changed.
+ * @event {CustomEvent} change - when the textarea value is changed.
  */
-export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
+export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implements TextareaProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
-
-    @property({ type: Boolean, reflect: true })
-    public disabled = defaultProps.disabled;
 
     @property({ type: String })
     public value = defaultProps.value;
+
+    @property({ type: Boolean, reflect: true })
+    public disabled = defaultProps.disabled;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
@@ -48,6 +52,21 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
     @property({ type: Number })
     public maxLength: TextareaProps['maxLength'];
 
+    @property({ type: Boolean })
+    public readonly = defaultProps.readonly;
+
+    @property({ type: Boolean })
+    public autoFocus = defaultProps.autoFocus;
+
+    @property({ type: Boolean })
+    public required = defaultProps.required;
+
+    @property({ type: String })
+    public name?: TextareaProps['name'];
+
+    @property({ type: String })
+    public autocomplete?: TextareaProps['autocomplete'];
+
     @query('textarea')
     private _textarea!: HTMLTextAreaElement;
 
@@ -57,6 +76,42 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
             this._textarea.style.height = `${this._textarea.scrollHeight + 2}px`; // +2 for border thicknesses
         }
     }, 100);
+
+    /**
+     * (Read-only) returns a ValidityState with the validity states that this element is in.
+     * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
+     */
+    public get validity (): ValidityState {
+        return (this._textarea as HTMLTextAreaElement).validity;
+    }
+
+    /**
+     * Called after the disabled state of the element changes,
+     * either because the disabled attribute of this element was added or removed;
+     * or because the disabled state changed on a <fieldset> that's an ancestor of this element.
+     * @param disabled - The latest disabled state of the input.
+     */
+    public formDisabledCallback (disabled: boolean): void {
+        this.disabled = disabled;
+    }
+
+    /**
+     * Called when the form that owns this component is reset.
+     * Resets the value to the default value.
+     */
+    public formResetCallback (): void {
+        this.value = defaultProps.value;
+
+        this._internals.setFormValue(this.value);
+    }
+
+    protected firstUpdated (_changedProperties: PropertyValues): void {
+        super.firstUpdated(_changedProperties);
+        this.restrictInputLength();
+        this._internals.setFormValue(this.value);
+
+        this._textarea.addEventListener('keydown', this.handleKeyDown);
+    }
 
     private handleResize () {
         this._throttledResize();
@@ -68,41 +123,66 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
         }
     }
 
-    private handleInput (event: InputEvent) {
-        this.value = (event.target as HTMLInputElement).value;
-        this.restrictInputLength();
-        this.handleResize();
-    }
-
-    protected firstUpdated (_changedProperties: PropertyValues): void {
-        super.firstUpdated(_changedProperties);
-        this.restrictInputLength();
-    }
-
-    updated (changedProperties: PropertyValues<this>) {
+    protected updated (changedProperties: PropertyValues<this>) {
         if (this.resize === 'auto' && (changedProperties.has('resize') || changedProperties.has('size'))) {
             this.handleResize();
         }
 
         if (changedProperties.has('value')) {
             this.restrictInputLength();
+            this._internals.setFormValue(this.value);
         }
     }
 
     renderLabel (label: string, maxLength?: number) {
         const characterCount = maxLength ? `${this.value.length}/${maxLength}` : undefined;
 
-        return label?.length ? html`<pie-form-label trailing=${ifDefined(characterCount)}>${label}</pie-form-label>` : nothing;
+        return label?.length
+            ? html`<pie-form-label trailing=${ifDefined(characterCount)}>${label}</pie-form-label>`
+            : nothing;
     }
+
+    /**
+     * Handles data processing in response to the input event. The native input event is left to bubble up.
+     * @param event - The input event.
+     */
+    private handleInput = (event: InputEvent) => {
+        this.value = (event.target as HTMLTextAreaElement).value;
+        this.restrictInputLength();
+        this._internals.setFormValue(this.value);
+
+        this.handleResize();
+    };
+
+    private handleChange = (event: Event) => {
+        // We have to create our own change event because the native one
+        // does not penetrate the shadow boundary.
+
+        // This is because some events set `composed` to `false`.
+        // Reference: https://javascript.info/shadow-dom-events#event-composed
+        const customChangeEvent = wrapNativeEvent(event);
+        this.dispatchEvent(customChangeEvent);
+    };
+
+    private handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key === 'Enter') {
+            event.stopPropagation();
+        }
+    };
 
     render () {
         const {
             disabled,
             resize,
             size,
+            autocomplete,
+            autoFocus,
+            name,
+            readonly,
+            value,
+            required,
             label,
             maxLength,
-            value,
         } = this;
 
         return html`
@@ -114,10 +194,16 @@ export class PieTextarea extends RtlMixin(LitElement) implements TextareaProps {
                 ${this.renderLabel(label, maxLength)}
                 <textarea
                     data-test-id="pie-textarea"
-                    @input=${this.handleInput}
-                    ?disabled=${disabled}
+                    name=${ifDefined(name)}
+                    autocomplete=${ifDefined(autocomplete)}
                     .value=${live(value)}
-                ></textarea>
+                    ?autofocus=${autoFocus}
+                    ?readonly=${readonly}
+                    ?required=${required}
+                    ?disabled=${disabled}
+                    @input=${this.handleInput}
+                    @change=${this.handleChange}
+                    data-test-id="pie-textarea"></textarea>
             </div>`;
     }
 
