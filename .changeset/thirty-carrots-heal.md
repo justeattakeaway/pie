@@ -2,4 +2,4 @@
 "pie-docs": patch
 ---
 
-[Changed] - solidify foundations page ordering
+[Fixed] - Conflict in ordering of pages in Foundations section
