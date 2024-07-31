@@ -476,7 +476,7 @@ test.describe('PieTextarea - Component tests', () => {
             expect(await page.evaluate(() => document.querySelector('pie-textarea')?.value)).toBe('');
         });
 
-        test('should not submit the value for disabled textarea elements', async ({ page }) => {
+        test('should NOT submit the value for disabled textarea elements', async ({ page }) => {
             // Arrange
             await page.setContent(`
                 <form id="testForm" action="/foo" method="POST">
@@ -498,7 +498,7 @@ test.describe('PieTextarea - Component tests', () => {
             expect(formDataObj).toStrictEqual({ comments: 'commentsTextareaValue' });
         });
 
-        test('should not submit the value inside a disabled fieldset', async ({ page }) => {
+        test('should NOT submit the value inside a disabled fieldset', async ({ page }) => {
             // Arrange
             await page.setContent(`
                 <form id="testForm" action="/foo" method="POST">
@@ -522,6 +522,27 @@ test.describe('PieTextarea - Component tests', () => {
             expect(formDataObj).toStrictEqual({
                 comments: 'included',
             });
+        });
+
+        test('should NOT submit form when pressing Enter on a textarea element', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                <form id="testForm" action="/foo" method="POST">
+                    <pie-textarea name="description" autofocus></pie-textarea>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="formDataJson"></div>
+            `);
+
+            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+            // Act
+            await page.locator('pie-textarea').type('testValue');
+            await page.keyboard.press('Enter');
+            const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+            // Assert
+            expect(formDataObj).toStrictEqual({});
         });
     });
 
