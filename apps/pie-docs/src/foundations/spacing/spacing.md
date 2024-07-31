@@ -3,6 +3,6 @@ eleventyNavigation:
     key: Spacing
     parent: Foundations
     url: /foundations/spacing/
-    order: 6
+    order: 7
 permalink: false
 ---
