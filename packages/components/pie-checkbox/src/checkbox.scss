@@ -22,7 +22,6 @@
         border-color: #fff;
         border-bottom-right-radius: 2px;
 
-
         transform: translate3d(0, -16px, 0) rotate(45deg);
     }
 }
@@ -65,10 +64,11 @@
     border: 1px solid var(--checkbox-border-color);
     border-radius: var(--checkbox-radius);
     background-color: var(--checkbox-bg-color);
+    transition:
+        background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing),
+        border-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
 
     @media (prefers-reduced-motion: no-preference) {
-        transition: background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
-
         animation: scaleDown var(--dt-motion-timing-100) var(--checkbox-motion-easing);
     }
 
@@ -92,8 +92,8 @@
         }
 
         &[data-pie-status="error"] {
-            --checkbox-border-color: var(--dt-color-support-error);
             --checkbox-bg-color: var(--dt-color-support-error);
+            --checkbox-border-color: var(--dt-color-support-error);
         }
     }
 
@@ -113,7 +113,9 @@
         animation: checkboxCheck var(--dt-motion-timing-150) var(--checkbox-motion-easing) forwards;
 
         @media (prefers-reduced-motion: reduce) {
-            animation: none;
+            animation-duration: 1ms !important;
+            animation-delay: 0 !important;
+            animation-iteration-count: 1 !important;
             width: 8px;
             height: 16px;
             border-color: #fff;
@@ -226,8 +228,9 @@
     &:hover {
         .c-checkbox-tick {
             --checkbox-bg-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
-
-            transition: background-color var(--dt-motion-timing-200) var(--checkbox-motion-easing);
+            transition:
+                background-color var(--dt-motion-timing-200) var(--checkbox-motion-easing),
+                border-color var(--dt-motion-timing-200) var(--checkbox-motion-easing);
         }
     }
 
@@ -235,13 +238,15 @@
         .c-checkbox-tick {
             --checkbox-bg-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-active-01))));
 
-            transition: background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
+            transition:
+                background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing),
+                border-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
         }
     }
 
     &[data-pie-disabled] {
         label {
-            cursor: default;
+            cursor: not-allowed;
             pointer-events: none;
         }
     }
