@@ -1,7 +1,5 @@
-import { type ComponentDefaultPropsGeneric } from '@justeattakeaway/pie-webc-core';
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-// TODO - please remove the eslint disable comment below when you add props to this interface
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export type ActionProps = {
   /**
    * The text to display inside the button.
@@ -61,7 +59,7 @@ export const ON_TOAST_OPEN_EVENT = `${componentSelector}-open`;
  */
 export const ON_TOAST_LEADING_ACTION_CLICK_EVENT = `${componentSelector}-leading-action-click`;
 
-export type DefaultProps = ComponentDefaultPropsGeneric<ToastProps, 'isOpen' | 'isDismissible' | 'isMultiline'>;
+export type DefaultProps = ComponentDefaultProps<ToastProps, keyof Omit<ToastProps, 'leadingAction' | 'message'>>;
 
 export const defaultProps: DefaultProps = {
     isOpen: true,
