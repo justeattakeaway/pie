@@ -169,7 +169,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         const characterCount = maxLength ? `${this.value.length}/${maxLength}` : undefined;
 
         return label?.length
-            ? html`<pie-form-label trailing=${ifDefined(characterCount)}>${label}</pie-form-label>`
+            ? html`<pie-form-label for="${componentSelector}" trailing=${ifDefined(characterCount)}>${label}</pie-form-label>`
             : nothing;
     }
 
@@ -196,7 +196,8 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
                 data-pie-resize="${resize}">
                 ${this.renderLabel(label, maxLength)}
                 <textarea
-                    data-test-id="pie-textarea"
+                    id="${componentSelector}"
+                    data-test-id="${componentSelector}"
                     name=${ifDefined(name)}
                     autocomplete=${ifDefined(autocomplete)}
                     .value=${live(value)}

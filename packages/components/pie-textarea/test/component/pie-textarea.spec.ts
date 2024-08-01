@@ -539,6 +539,24 @@ test.describe('PieTextarea - Component tests', () => {
                 expect(textareaContent).toBe('12345');
             });
 
+            test('should not let a user programmatically set value more than the maxLength', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {
+                    props: {
+                        maxLength: 5,
+                        label: 'foo label',
+                        value: '123456',
+                    } as TextareaProps,
+                });
+
+                // Act & Assert
+                const maxLengthCounter = component.getByTestId('pie-form-label-trailing');
+                await expect(maxLengthCounter).toBeVisible();
+                await expect(maxLengthCounter).toHaveText('5/5');
+                const textareaContent = await page.locator(componentSelector).inputValue();
+                expect(textareaContent).toBe('12345');
+            });
+
             test('should not let a user paste more than the maxLength', async ({ mount, page, context }) => {
                 // Arrange
                 await context.grantPermissions(['clipboard-read', 'clipboard-write']);
@@ -561,6 +579,34 @@ test.describe('PieTextarea - Component tests', () => {
                 await expect(maxLengthCounter).toHaveText('5/5');
                 const textareaContent = await page.locator(componentSelector).inputValue();
                 expect(textareaContent).toBe('12345');
+            });
+        });
+
+        test.describe('label', () => {
+            test('should not render a label when the label is absent', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {});
+
+                // Act
+                const labelNodes = component.locator('pie-form-label');
+
+                // Assert
+                await expect(labelNodes).toHaveCount(0);
+            });
+
+            test('should render a label when the label is present', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {
+                    props: {
+                        label: 'foo label',
+                    } as TextareaProps,
+                });
+
+                // Act
+                const label = component.getByText('foo label');
+
+                // Assert
+                await expect(label).toBeVisible();
             });
         });
     });
