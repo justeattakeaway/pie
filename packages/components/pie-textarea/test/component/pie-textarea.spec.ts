@@ -575,9 +575,9 @@ test.describe('PieTextarea - Component tests', () => {
 
                 await page.evaluate(() => navigator.clipboard.writeText('123456'));
                 await component.press('Meta+v');
-
-                await expect(maxLengthCounter).toHaveText('5/5');
                 const textareaContent = await page.locator(componentSelector).inputValue();
+                console.log('textareaContent', textareaContent);
+                await expect(maxLengthCounter).toHaveText('5/5');
                 expect(textareaContent).toBe('12345');
             });
         });
