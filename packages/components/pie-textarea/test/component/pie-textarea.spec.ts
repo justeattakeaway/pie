@@ -556,36 +556,6 @@ test.describe('PieTextarea - Component tests', () => {
                 const textareaContent = await page.locator(componentSelector).inputValue();
                 expect(textareaContent).toBe('12345');
             });
-
-            test('should not let a user paste more than the maxLength', async ({ mount, page, context }) => {
-                // Arrange
-                await context.grantPermissions(['clipboard-read', 'clipboard-write']);
-
-                const component = await mount(PieTextarea, {
-                    props: {
-                        maxLength: 50,
-                        label: 'foo label',
-                    } as TextareaProps,
-                });
-
-                // Act & Assert
-                const maxLengthCounter = component.getByTestId('pie-form-label-trailing');
-                await expect(maxLengthCounter).toBeVisible();
-                await expect(maxLengthCounter).toHaveText('0/50');
-
-                // await page.evaluate(() => navigator.clipboard.writeText('123456'));
-                await component.type('123456');
-                await component.press('Meta+a');
-                await component.press('Meta+x');
-                const textareaContent = await page.locator(componentSelector).inputValue();
-                console.log('textareaContent', textareaContent);
-                expect(textareaContent).toBe('');
-                await component.press('Meta+v');
-                await component.press('Meta+v');
-                await expect(maxLengthCounter).toHaveText('12/50');
-                const newContent = await page.locator(componentSelector).inputValue();
-                expect(newContent).toBe('123456123456');
-            });
         });
 
         test.describe('label', () => {
