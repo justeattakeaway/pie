@@ -29,15 +29,13 @@ const assistiveTextId = 'assistive-text';
 /**
  * @tagname pie-checkbox-group
  * @slot - Default slot
+ * @slot label - The label slot
  * @event {CustomEvent} pie-checkbox-group-disabled - triggered after the disabled state of the checkbox group changes.
  * @event {CustomEvent} pie-checkbox-group-error - triggered after the state of the checkbox group changes to error.
  */
 export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxGroupProps {
     @property({ type: String })
     public name?: CheckboxGroupProps['name'];
-
-    @property({ type: String })
-    public label?: CheckboxGroupProps['label'];
 
     @property({ type: String })
     public assistiveText?: CheckboxGroupProps['assistiveText'];
@@ -84,7 +82,6 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
     render () {
         const {
             name,
-            label,
             isInline,
             assistiveText,
             status,
@@ -104,13 +101,14 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
                 data-test-id="pie-checkbox-group"
                 class="${classMap(classes)}"
             >
-                ${label && html`<legend class="c-checkboxGroup-label">${label}</legend>`}
+                <legend><slot name="label"></slot></legend>
                 <slot></slot>
             </fieldset>
             ${assistiveText && html`
                 <pie-assistive-text
                     id="${assistiveTextId}"
                     variant=${status}
+                    class="c-checkboxGroup-assistiveText"
                     data-test-id="pie-checkbox-group-assistive-text">
                         ${assistiveText}
                 </pie-assistive-text>`}
