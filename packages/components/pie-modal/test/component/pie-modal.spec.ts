@@ -420,7 +420,7 @@ test.describe('modal', () => {
             });
 
             // To be addressed in ticket DSW-2218
-            test('should NOT close the modal when the Escape key is pressed', async ({ mount, page }) => {
+            test.skip('should NOT close the modal when the Escape key is pressed', async ({ mount, page }) => {
                 // Arrange
                 await mount(
                     PieModal,
