@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-assistive-text
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - New `isVisuallyHidden` prop. ([#1630](https://github.com/justeattakeaway/pie/pull/1630)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.5.1
 
 ### Patch Changes
