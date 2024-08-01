@@ -3,6 +3,7 @@ import {
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { live } from 'lit/directives/live.js';
 import throttle from 'lodash.throttle';
 
 import {
@@ -141,6 +142,10 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         }
     };
 
+    public disconnectedCallback (): void {
+        this._textarea.removeEventListener('keydown', this.handleKeyDown);
+    }
+
     render () {
         const {
             disabled,
@@ -163,7 +168,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
                 <textarea
                     name=${ifDefined(name)}
                     autocomplete=${ifDefined(autocomplete)}
-                    .value=${value}
+                    .value=${live(value)}
                     ?autofocus=${autoFocus}
                     ?readonly=${readonly}
                     ?required=${required}

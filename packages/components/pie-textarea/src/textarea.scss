@@ -9,6 +9,7 @@
   --textarea-line-height: #{p.line-height(--dt-font-body-l-line-height)};
   --textarea-border-thickness: 1px;
   --textarea-resize: none;
+  --textarea-width: 100%;
   --textarea-padding-inline: var(--dt-spacing-d);
   --textarea-padding-block: var(--dt-spacing-c);
   --textarea-background-color: var(--dt-color-container-default);
@@ -21,7 +22,6 @@
   line-height: 0; // Remove once there is text outside the textarea
 
   textarea {
-    width: 100%;
     @include p.font-size(--dt-font-body-l-size);
     line-height: var(--textarea-line-height);
     font-family: var(--dt-font-body-l-family);
@@ -39,6 +39,7 @@
     padding-block-end: var(--textarea-padding-block);
     padding-inline-start: var(--textarea-padding-inline);
     padding-inline-end: var(--textarea-padding-inline);
+    width: var(--textarea-width);
 
     &[disabled] {
       --textarea-background-color: var(--dt-color-disabled-01);
