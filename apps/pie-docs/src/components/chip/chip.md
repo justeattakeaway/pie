@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Chip
     parent: Components
-    order: 13
+    order: 14
     url: /components/chip/
 permalink: false
 ---

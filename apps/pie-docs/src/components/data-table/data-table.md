@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Data Table'
     parent: Components
-    order: 14
+    order: 15
 ---
 
 ## Overview
