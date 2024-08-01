@@ -9,7 +9,6 @@
   --textarea-line-height: #{p.line-height(--dt-font-body-l-line-height)};
   --textarea-border-thickness: 1px;
   --textarea-resize: none;
-  --textarea-width: 100%;
   --textarea-padding-inline: var(--dt-spacing-d);
   --textarea-padding-block: var(--dt-spacing-c);
   --textarea-background-color: var(--dt-color-container-default);
@@ -39,7 +38,6 @@
     padding-block-end: var(--textarea-padding-block);
     padding-inline-start: var(--textarea-padding-inline);
     padding-inline-end: var(--textarea-padding-inline);
-    width: var(--textarea-width);
 
     &[disabled] {
       --textarea-background-color: var(--dt-color-disabled-01);
