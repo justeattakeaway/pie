@@ -3,6 +3,7 @@ import {
     getFormDataObject,
     setupFormDataExtraction,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
+import { PieFormLabel } from '@justeattakeaway/pie-form-label';
 import { PieTextarea, TextareaProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-textarea"]';
@@ -14,6 +15,9 @@ test.describe('PieTextarea - Component tests', () => {
     test.beforeEach(async ({ mount }) => {
         const component = await mount(PieTextarea);
         await component.unmount();
+
+        const label = await mount(PieFormLabel);
+        await label.unmount();
     });
 
     test('should render successfully', async ({ mount, page }) => {
@@ -405,6 +409,158 @@ test.describe('PieTextarea - Component tests', () => {
 
                 // Assert
                 expect(isValid).toBe(true);
+            });
+        });
+
+        test.describe('maxLength', () => {
+            test('should not display a form label when the label is absent but maxLength is provided', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {
+                    props: {
+                        maxLength: 10,
+                    } as TextareaProps,
+                });
+
+                // Act
+                const labelNodes = component.locator('pie-form-label');
+
+                // Assert
+                await expect(labelNodes).toHaveCount(0);
+            });
+
+            test('should not display a maxLength when label is provided but no maxLength', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {
+                    props: {
+                        label: 'foo label',
+                    } as TextareaProps,
+                });
+
+                // Act
+                const label = component.getByText('foo label');
+                const maxLengthCounterNodes = component.getByTestId('pie-form-label-trailing');
+
+                // Assert
+                await expect(label).toBeVisible();
+                await expect(maxLengthCounterNodes).toHaveCount(0);
+            });
+
+            test('should not display a maxLength when label is provided and maxLength is 0', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {
+                    props: {
+                        label: 'foo label',
+                        maxLength: 0,
+                    } as TextareaProps,
+                });
+
+                // Act
+                const label = component.getByText('foo label');
+                const maxLengthCounterNodes = component.getByTestId('pie-form-label-trailing');
+
+                // Assert
+                await expect(label).toBeVisible();
+                await expect(maxLengthCounterNodes).toHaveCount(0);
+            });
+
+            test('should display maxLength when label is present and maxLength provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {
+                    props: {
+                        maxLength: 10,
+                        label: 'foo label',
+                    } as TextareaProps,
+                });
+
+                // Act
+                const maxLengthCounter = component.getByTestId('pie-form-label-trailing');
+
+                // Assert
+                await expect(maxLengthCounter).toBeVisible();
+                await expect(maxLengthCounter).toHaveText('0/10');
+            });
+
+            test('should update the displayed maxLength as a user types', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {
+                    props: {
+                        maxLength: 10,
+                        label: 'foo label',
+                    } as TextareaProps,
+                });
+
+                // Act & Assert
+                const maxLengthCounter = component.getByTestId('pie-form-label-trailing');
+                await expect(maxLengthCounter).toBeVisible();
+                await expect(maxLengthCounter).toHaveText('0/10');
+
+                await component.type('12345');
+                await expect(maxLengthCounter).toHaveText('5/10');
+            });
+
+            test('should update the displayed maxLength as a user deletes', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {
+                    props: {
+                        maxLength: 10,
+                        label: 'foo label',
+                    } as TextareaProps,
+                });
+
+                // Act & Assert
+                const maxLengthCounter = component.getByTestId('pie-form-label-trailing');
+                await expect(maxLengthCounter).toBeVisible();
+                await expect(maxLengthCounter).toHaveText('0/10');
+
+                await component.type('12345');
+                await expect(maxLengthCounter).toHaveText('5/10');
+
+                await component.press('Backspace');
+                await expect(maxLengthCounter).toHaveText('4/10');
+            });
+
+            test('should not let a user type more than the maxLength', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {
+                    props: {
+                        maxLength: 5,
+                        label: 'foo label',
+                    } as TextareaProps,
+                });
+
+                // Act & Assert
+                const maxLengthCounter = component.getByTestId('pie-form-label-trailing');
+                await expect(maxLengthCounter).toBeVisible();
+                await expect(maxLengthCounter).toHaveText('0/5');
+
+                await component.type('123456');
+                await expect(maxLengthCounter).toHaveText('5/5');
+                const textareaContent = await page.locator(componentSelector).inputValue();
+                expect(textareaContent).toBe('12345');
+            });
+
+            test('should not let a user paste more than the maxLength', async ({ mount, page, context }) => {
+                // Arrange
+                await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+
+                const component = await mount(PieTextarea, {
+                    props: {
+                        maxLength: 5,
+                        label: 'foo label',
+                    } as TextareaProps,
+                });
+
+                // Act & Assert
+                const maxLengthCounter = component.getByTestId('pie-form-label-trailing');
+                await expect(maxLengthCounter).toBeVisible();
+                await expect(maxLengthCounter).toHaveText('0/5');
+
+                await page.evaluate(() => navigator.clipboard.writeText('123456'));
+                await component.press('Meta+v');
+
+                await expect(maxLengthCounter).toHaveText('5/5');
+                const textareaContent = await page.locator(componentSelector).inputValue();
+                expect(textareaContent).toBe('12345');
             });
         });
     });
