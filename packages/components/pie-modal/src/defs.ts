@@ -1,6 +1,6 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-import { type Variant } from '@justeattakeaway/pie-button/src/defs.ts';
+import { type Variant as ButtonVariant } from '@justeattakeaway/pie-button/src/defs.ts';
 
 export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const sizes = ['small', 'medium', 'large'] as const;
@@ -10,28 +10,13 @@ export type AriaProps = {
     close?: string;
     back?: string;
     loading?: string;
-};
-
-export type ActionProps = {
-        /**
-         * The text to display inside the button.
-         */
-        text: string;
-
-        /**
-         * The button variant.
-         */
-        variant?: Variant;
-
-        /**
-         * The ARIA label for the button.
-         */
-        ariaLabel?: string;
+    leadingActionLabel?: string;
+    supportingActionLabel?: string;
 };
 
 export type ModalProps = {
     /**
-     * The ARIA labels used for the modal close and back buttons, as well as loading state.
+     * The ARIA labels used for the modal leading action, supporting action, close and back buttons, as well as for the loading state.
      */
     aria?: AriaProps;
 
@@ -89,14 +74,24 @@ export type ModalProps = {
     isLoading?: boolean;
 
     /**
-     * The leading action configuration for the modal.
+     * The text to display inside the leading action button.
      */
-    leadingAction?: ActionProps;
+    leadingActionText?: string;
 
     /**
-     * The supporting action configuration for the modal.
+     * The button variant for the leading action button.
      */
-    supportingAction?: ActionProps;
+    leadingActionVariant?: ButtonVariant;
+
+    /**
+     * The text to display inside the supporting action button.
+     */
+    supportingActionText?: string;
+
+    /**
+     * The button variant for the supporting action button.
+     */
+    supportingActionVariant?: ButtonVariant;
 
     /*
      * The position of the modal; this controls where it will appear on the page.
@@ -151,7 +146,7 @@ export const ON_MODAL_SUPPORTING_ACTION_CLICK = 'pie-modal-supporting-action-cli
 
 export type ModalActionType = 'leading' | 'supporting';
 
-export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'heading' | 'leadingAction' | 'supportingAction' | 'returnFocusAfterCloseSelector'>>;
+export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'heading' | 'leadingActionText' | 'supportingActionText' | 'returnFocusAfterCloseSelector'>>;
 
 export const defaultProps: DefaultProps = {
     hasBackButton: false,
@@ -162,6 +157,8 @@ export const defaultProps: DefaultProps = {
     isFooterPinned: true,
     isFullWidthBelowMid: false,
     isLoading: false,
+    leadingActionVariant: 'primary',
     position: 'center',
     size: 'medium',
+    supportingActionVariant: 'ghost',
 };

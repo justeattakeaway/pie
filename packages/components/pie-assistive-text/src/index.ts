@@ -4,7 +4,7 @@ import {
 
 import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
-import { ifDefined } from 'lit/directives/if-defined.js';
+import { classMap } from 'lit/directives/class-map.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconAlertCircle.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheckCircle.js';
 
@@ -23,12 +23,15 @@ const componentSelector = 'pie-assistive-text';
 export class PieAssistiveText extends LitElement implements AssistiveTextProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
-    public variant?: AssistiveTextProps['variant'] = defaultProps.variant;
+    public variant = defaultProps.variant;
+
+    @property({ type: Boolean })
+    public isVisuallyHidden = defaultProps.isVisuallyHidden;
 
     /**
- * Renders the assistive-text icon content.
- * @private
- */
+     * Renders the assistive-text icon content.
+     * @private
+     */
     private renderIcon (): TemplateResult {
         const { variant } = this;
         return html`
@@ -39,13 +42,19 @@ export class PieAssistiveText extends LitElement implements AssistiveTextProps {
     render () {
         const {
             variant,
+            isVisuallyHidden,
         } = this;
+
+        const classes = {
+            'c-assistiveText': true,
+            'c-assistiveText--isVisuallyHidden': isVisuallyHidden,
+        };
 
         return html`
         <p
-            class="c-assistiveText"
+            class="${classMap(classes)}"
             data-test-id="pie-assistive-text"
-            variant=${ifDefined(variant)}>
+            variant=${variant}>
             ${this.renderIcon()}
             <slot></slot>
         </p>`;

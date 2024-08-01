@@ -104,6 +104,7 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 | Event | Type | Description |
 |-------|------|-------------|
 | `pie-checkbox-group-disabled` | `CustomEvent` | Triggered after the disabled state of the checkbox group changes. |
+| `pie-checkbox-group-error` | `CustomEvent` | Triggered after the state of the checkbox group changes to error. |
 
 ## Contributing
 

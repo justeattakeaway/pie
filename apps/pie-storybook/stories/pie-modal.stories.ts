@@ -15,6 +15,8 @@ import {
 } from '@justeattakeaway/pie-modal';
 /* eslint-enable import/no-duplicates */
 
+import { variants as buttonVariants } from '@justeattakeaway/pie-button';
+
 import { type StoryMeta, type SlottedComponentProps } from '../types';
 import { createStory, sanitizeAndRenderHTML } from '../utilities';
 
@@ -28,20 +30,14 @@ const defaultArgs: ModalProps = {
     isDismissible: true,
     isOpen: true,
     slot: '<span>Body copy</span>',
-    leadingAction: {
-        text: 'Confirm',
-        variant: 'primary',
-        ariaLabel: 'Descriptive confirmation text',
-    },
-    supportingAction: {
-        text: 'Cancel',
-        variant: 'ghost',
-        ariaLabel: 'Descriptive cancellation text',
-    },
+    leadingActionText: 'Confirm',
+    supportingActionText: 'Cancel',
     aria: {
-        close: 'Close',
         back: 'Back',
+        close: 'Close',
+        leadingActionLabel: 'Descriptive confirmation text',
         loading: 'Loading',
+        supportingActionLabel: 'Descriptive cancellation text',
     },
 };
 
@@ -103,16 +99,26 @@ const modalStoryMeta: ModalStoryMeta = {
             description: 'Content to place within the modal',
             control: 'text',
         },
-        leadingAction: {
-            description: 'The leading action configuration for the modal.',
-            control: 'object',
+        leadingActionText: {
+            description: 'The text to display on the leading action button.',
+            control: 'text',
         },
-        supportingAction: {
-            description: 'The supporting action configuration for the modal. Will not appear if no leading action is provided.',
-            control: 'object',
+        leadingActionVariant: {
+            description: 'The variant of the leading action button.',
+            control: 'select',
+            options: buttonVariants,
+        },
+        supportingActionText: {
+            description: 'The text to display on the supporting action button.',
+            control: 'text',
+        },
+        supportingActionVariant: {
+            description: 'The variant of the supporting action button.',
+            control: 'select',
+            options: buttonVariants,
         },
         aria: {
-            description: 'The ARIA labels used for the modal close and back buttons, as well as loading state.',
+            description: 'The ARIA labels used for the modal leading action, supporting action, close and back buttons, as well as for the loading state.',
             control: 'object',
         },
     },
@@ -166,40 +172,44 @@ const createFocusableElementsPageHTML = () : TemplateResult => html`
 const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
     const {
         aria,
-        heading,
-        headingLevel,
         hasBackButton,
         hasStackedActions,
+        heading,
+        headingLevel,
         isDismissible,
         isFooterPinned,
         isFullWidthBelowMid,
         isLoading,
         isOpen,
-        leadingAction,
+        leadingActionText,
+        leadingActionVariant,
         position,
         returnFocusAfterCloseSelector,
         size,
         slot,
-        supportingAction,
+        supportingActionText,
+        supportingActionVariant,
     } = props;
     return html`
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
         <pie-modal
             .aria="${aria}"
             heading="${heading}"
-            headingLevel="${headingLevel}"
+            headingLevel="${ifDefined(headingLevel)}"
             ?hasBackButton="${hasBackButton}"
             ?hasStackedActions="${hasStackedActions}"
             ?isDismissible="${isDismissible}"
-            .isFooterPinned="${isFooterPinned}"
+            ?isFooterPinned="${isFooterPinned}"
             ?isFullWidthBelowMid="${isFullWidthBelowMid}"
             ?isLoading="${isLoading}"
             ?isOpen="${isOpen}"
-            .leadingAction="${leadingAction}"
+            leadingActionText="${ifDefined(leadingActionText)}"
+            leadingActionVariant="${ifDefined(leadingActionVariant)}"
             position="${ifDefined(position)}"
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             size="${ifDefined(size)}"
-            .supportingAction="${supportingAction}"
+            supportingActionText="${ifDefined(supportingActionText)}"
+            supportingActionVariant="${ifDefined(supportingActionVariant)}"
             @pie-modal-close="${closeAction}"
             @pie-modal-open="${openAction}"
             @pie-modal-back="${backClickAction}"
