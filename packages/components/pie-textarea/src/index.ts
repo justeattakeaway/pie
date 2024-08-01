@@ -1,17 +1,16 @@
 import {
     LitElement, html, unsafeCSS, PropertyValues, nothing,
 } from 'lit';
-import { ifDefined, ifDefined } from 'lit/directives/if-defined.js';
-
-import { live } from 'lit/directives/live.js';
 
 import { property, query } from 'lit/decorators.js';
+import { live } from 'lit/directives/live.js';
 import throttle from 'lodash.throttle';
 
 import {
     validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent,
 } from '@justeattakeaway/pie-webc-core';
 
+import { ifDefined } from 'lit/directives/if-defined.js';
 import styles from './textarea.scss?inline';
 import {
     TextareaProps, defaultProps, sizes, resizeModes,
@@ -134,14 +133,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         }
     }
 
-    renderLabel (label: string, maxLength?: number) {
-        const characterCount = maxLength ? `${this.value.length}/${maxLength}` : undefined;
-
-        return label?.length
-            ? html`<pie-form-label trailing=${ifDefined(characterCount)}>${label}</pie-form-label>`
-            : nothing;
-    }
-
     /**
      * Handles data processing in response to the input event. The native input event is left to bubble up.
      * @param event - The input event.
@@ -169,6 +160,18 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
             event.stopPropagation();
         }
     };
+
+    public disconnectedCallback (): void {
+        this._textarea.removeEventListener('keydown', this.handleKeyDown);
+    }
+
+    renderLabel (label: string, maxLength?: number) {
+        const characterCount = maxLength ? `${this.value.length}/${maxLength}` : undefined;
+
+        return label?.length
+            ? html`<pie-form-label trailing=${ifDefined(characterCount)}>${label}</pie-form-label>`
+            : nothing;
+    }
 
     render () {
         const {
@@ -203,7 +206,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
                     ?disabled=${disabled}
                     @input=${this.handleInput}
                     @change=${this.handleChange}
-                    data-test-id="pie-textarea"></textarea>
+                ></textarea>
             </div>`;
     }
 
