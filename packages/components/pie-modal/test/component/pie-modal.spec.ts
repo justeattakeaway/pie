@@ -604,15 +604,13 @@ test.describe('modal', () => {
                         props: {
                             heading: 'Modal Header',
                             isOpen: true,
-                            leadingAction: {
-                                text: 'Confirm',
-                                variant: 'primary',
-                                ariaLabel: 'Descriptive message',
-                            },
-                            supportingAction: {
-                                text: 'Cancel',
-                                variant: 'ghost',
-                                ariaLabel: 'Descriptive message',
+                            leadingActionText: 'Confirm',
+                            leadingActionVariant: 'primary',
+                            supportingActionText: 'Cancel',
+                            supportingActionVariant: 'ghost',
+                            aria: {
+                                leadingActionLabel: 'Descriptive message',
+                                secondaryActionLabel: 'Descriptive message',
                             },
                         },
                     });
@@ -637,15 +635,13 @@ test.describe('modal', () => {
                         props: {
                             heading: 'Modal Header',
                             isOpen: true,
-                            leadingAction: {
-                                text: 'Confirm',
-                                variant: 'primary',
-                                ariaLabel: 'Descriptive message',
-                            },
-                            supportingAction: {
-                                text: 'Cancel',
-                                variant: 'ghost',
-                                ariaLabel: 'Descriptive message',
+                            leadingActionText: 'Confirm',
+                            leadingActionVariant: 'primary',
+                            supportingActionText: 'Cancel',
+                            supportingActionVariant: 'ghost',
+                            aria: {
+                                leadingActionLabel: 'Descriptive message',
+                                secondaryActionLabel: 'Descriptive message',
                             },
                         },
                         on: {
