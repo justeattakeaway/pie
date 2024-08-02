@@ -11,10 +11,15 @@ import {
 
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
-import { type StoryMeta, SlottedComponentProps } from '../types';
+import { type StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
-type NotificationProps = SlottedComponentProps<NotificationBaseProps>;
+// Extending the props type definition to include storybook specific properties for controls
+type NotificationProps = NotificationBaseProps & {
+    slot: string;
+    iconSlot: typeof slotOptions[number];
+};
+
 type NotificationStoryMeta = StoryMeta<NotificationProps>;
 
 const defaultArgs: NotificationProps = {
@@ -29,7 +34,10 @@ const defaultArgs: NotificationProps = {
         text: 'Cancel',
         ariaLabel: 'Descriptive cancellation text',
     },
+    iconSlot: 'None',
 };
+
+const slotOptions = ['PIE Placeholder Icon', 'None'] as const;
 
 const notificationStoryMeta: NotificationStoryMeta = {
     title: 'Notification',
@@ -111,6 +119,12 @@ const notificationStoryMeta: NotificationStoryMeta = {
             description: 'Content to place within the notification.',
             control: 'text',
         },
+        iconSlot: {
+            name: 'Icon Slot',
+            description: '<b>**Not a component Prop</b><br><br>Use the `icon` slot to pass PIE icon component different from the default ones.',
+            control: 'select',
+            options: slotOptions,
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -141,9 +155,16 @@ const Template : TemplateFunction<NotificationProps> = ({
     supportingAction,
     hasStackedActions,
     slot,
+    iconSlot,
 }) => {
     const shouldShowPlaceholderIcon = variant && ['neutral', 'neutral-alternative'].includes(variant);
 
+    function renderIconSlot (slotValue: typeof slotOptions[number]) {
+        if (slotValue === slotOptions[0]) {
+            return html`<icon-placeholder slot="icon"></icon-placeholder>`;
+        }
+        return nothing;
+    }
     return html`
     <pie-notification
         ?isOpen="${isOpen}"
@@ -162,7 +183,7 @@ const Template : TemplateFunction<NotificationProps> = ({
         @pie-notification-close="${pieNotificationClose}"
         @pie-notification-open="${pieNotificationOpen}"
         >
-            ${shouldShowPlaceholderIcon ? html`<icon-placeholder slot="icon"></icon-placeholder>` : nothing}
+            ${renderIconSlot(iconSlot)}
             ${slot}
     </pie-notification>`;
 };

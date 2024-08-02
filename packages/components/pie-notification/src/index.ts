@@ -7,7 +7,7 @@ import {
 } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { defineCustomElement, validPropertyValues, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
-import { property, queryAssignedElements } from 'lit/decorators.js';
+import { property, queryAssignedElements, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import {
     type NotificationProps,
@@ -42,8 +42,13 @@ export * from './defs';
  * @event {CustomEvent} pie-notification-supporting-action-click - When the notification supporting action is clicked.
  * @event {CustomEvent} pie-notification-close - When the notification is closed.
  * @event {CustomEvent} pie-notification-open - When the notification is opened.
+ * @slot - Default slot
+ * @slot icon - The icon slot
  */
 export class PieNotification extends LitElement implements NotificationProps {
+    @state()
+        hasExternalIcon = false;
+
     @property({ type: Boolean })
     public isOpen = defaultProps.isOpen;
 
@@ -152,6 +157,11 @@ export class PieNotification extends LitElement implements NotificationProps {
         }
     }
 
+    handleSlotchange (e: { target: HTMLSlotElement; }) {
+        const childNodes = e.target.assignedNodes({ flatten: true });
+        this.hasExternalIcon = childNodes.length > 0;
+    }
+
     /**
      * Template for the heading icon area.
      * It can return an icon provided externally via named slot or it can return a default icon according to the chosen variant if defined.
@@ -160,11 +170,9 @@ export class PieNotification extends LitElement implements NotificationProps {
      * @private
      */
     private renderIcon (): TemplateResult | typeof nothing {
-        const hasExternalIcon = this._iconSlot.length > 0;
-
         return html`
-                ${!hasExternalIcon ? this.getDefaultVariantIcon() : nothing}
-                <slot name="icon"></slot>
+                ${!this.hasExternalIcon ? this.getDefaultVariantIcon() : nothing}
+                <slot @slotchange=${this.handleSlotchange} name="icon"></slot>
         `;
     }
 
