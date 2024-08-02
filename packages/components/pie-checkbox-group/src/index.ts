@@ -1,7 +1,7 @@
 import {
-    LitElement, html, unsafeCSS, PropertyValues,
+    LitElement, html, unsafeCSS, PropertyValues, nothing, type TemplateResult,
 } from 'lit';
-import { property, queryAssignedElements } from 'lit/decorators.js';
+import { property, queryAssignedElements, state } from 'lit/decorators.js';
 import {
     RtlMixin,
     defineCustomElement,
@@ -29,15 +29,16 @@ const assistiveTextId = 'assistive-text';
 /**
  * @tagname pie-checkbox-group
  * @slot - Default slot
+ * @slot label - The label slot
  * @event {CustomEvent} pie-checkbox-group-disabled - triggered after the disabled state of the checkbox group changes.
  * @event {CustomEvent} pie-checkbox-group-error - triggered after the state of the checkbox group changes to error.
  */
 export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxGroupProps {
-    @property({ type: String })
-    public name?: CheckboxGroupProps['name'];
+    @state()
+        hasLabel = false;
 
     @property({ type: String })
-    public label?: CheckboxGroupProps['label'];
+    public name?: CheckboxGroupProps['name'];
 
     @property({ type: String })
     public assistiveText?: CheckboxGroupProps['assistiveText'];
@@ -53,6 +54,8 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
     public disabled = defaultProps.disabled;
 
     @queryAssignedElements({ selector: 'pie-checkbox' }) _slottedChildren: Array<HTMLElement> | undefined;
+
+    @queryAssignedElements({ slot: 'label' }) _labelSlot!: Array<HTMLElement>;
 
     private _handleDisabled () : void {
         this._slottedChildren?.forEach((child) => child.dispatchEvent(new CustomEvent(ON_CHECKBOX_GROUP_DISABLED, {
@@ -71,6 +74,25 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
         });
     }
 
+    /**
+     * Function that updates the local `hasLabel` state in case
+     * when the label slot receives content.
+     * @private
+     */
+    private handleSlotChange (e: { target: HTMLSlotElement; }) {
+        const childNodes = e.target.assignedNodes({ flatten: true });
+        this.hasLabel = childNodes.length > 0;
+    }
+
+    /**
+     * Template for the label slot to correctly wrap it into a legend element when it has content.
+     * Called within the main render function.
+     * @private
+     */
+    private renderWrappedLabel (): TemplateResult | typeof nothing {
+        return this.hasLabel ? html`<legend><slot name='label' @slotchange=${this.handleSlotChange}></slot></legend>` : html`<slot name='label' @slotchange=${this.handleSlotChange}></slot>`;
+    }
+
     protected updated (_changedProperties: PropertyValues<this>): void {
         if (_changedProperties.has('disabled')) {
             this._handleDisabled();
@@ -84,7 +106,6 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
     render () {
         const {
             name,
-            label,
             isInline,
             assistiveText,
             status,
@@ -104,13 +125,14 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
                 data-test-id="pie-checkbox-group"
                 class="${classMap(classes)}"
             >
-                ${label && html`<legend class="c-checkboxGroup-label">${label}</legend>`}
+                ${this.renderWrappedLabel()}
                 <slot></slot>
             </fieldset>
             ${assistiveText && html`
                 <pie-assistive-text
                     id="${assistiveTextId}"
                     variant=${status}
+                    class="c-checkboxGroup-assistiveText"
                     data-test-id="pie-checkbox-group-assistive-text">
                         ${assistiveText}
                 </pie-assistive-text>`}

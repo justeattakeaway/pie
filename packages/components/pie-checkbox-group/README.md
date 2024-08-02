@@ -76,11 +76,9 @@ import { PieCheckboxGroup } from '@justeattakeaway/pie-checkbox-group/dist/react
 | Property | Type | Default | Description |
 |---|---|---|---|
 | `name` | string | - | The name associated with the group. |
-| `label` | string | - | The label value of the component |
 | `disabled` | boolean | - | Same as the HTML disabled attribute - indicates whether or not the checkbox group is disabled. |
 | `assistiveText` | `string` | - | Allows assistive text to be displayed below the checkbox group. |
 | `status` | `'default'`, `'error'`, `'success'` | `'default'` | The status of the checkbox group / assistive text. If you use `status` you must provide an `assistiveText` prop value for accessibility purposes. |
-
 
 In your markup or JSX, you can then use these to set the properties for the `pie-checkbox-group` component:
 
@@ -99,6 +97,13 @@ In your markup or JSX, you can then use these to set the properties for the `pie
   <PieCheckbox name="my-checkbox-three">Checkbox Label 3</PieCheckbox>
 </PieCheckboxGroup>
 ```
+
+## Slots
+
+| Slot | Description |
+|---|---|
+| `default` | Pass PieCheckbox components as direct children for the CheckboxGroup. |
+| `label` | Pass PieFormLabel to render the checkbox group label. |
 
 ## Events
 | Event | Type | Description |
