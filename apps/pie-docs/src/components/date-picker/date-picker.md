@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Date Picker'
     parent: Components
-    order: 16
+    order: 17
 ---
 
 ## Overview
