@@ -413,7 +413,7 @@ test.describe('PieTextarea - Component tests', () => {
         });
 
         test.describe('maxLength', () => {
-            test('should not display a form label when the label is absent but maxLength is provided', async ({ mount, page }) => {
+            test('should not display a form label when the label is absent but maxLength is provided', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieTextarea, {
                     props: {
