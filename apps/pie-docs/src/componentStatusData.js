@@ -471,6 +471,44 @@ const rows = [
         }
     ],
     [
+        { componentName: 'Checkbox Group' },
+        {
+            resource: resourceTypes.COMPONENT,
+            link: 'https://www.figma.com/file/aD4m0j97Ruw8Q4S5lED2Bl/Checkbox-audit?node-id=6312-11778&t=7rNtILex9xojH5wx-4',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.DOCUMENTATION,
+            link: 'https://www.figma.com/file/aD4m0j97Ruw8Q4S5lED2Bl/Checkbox-audit?node-id=9938-14138&t=8Cx93DX9PwzEgNJS-4',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.WEB_COMPONENTS,
+            status: webComponentStatuses['pie-checkbox-group'],
+        },
+        {
+            resource: resourceTypes.VUE,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.REACT,
+            link: 'https://snacks.takeaway.com/portal/components/checkbox-group/',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.IOS_JUST_UI,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.IOS_PIE,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.NOT_APPLICABLE,
+        }
+    ],
+    [
         { componentName: 'Chip' },
         {
             resource: resourceTypes.COMPONENT,
