@@ -244,13 +244,13 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     private getVariantIcon () {
         switch (this.variant) {
             case 'info':
-                return html`<icon-info-circle class="c-toast-icon" size="s" data-test-id="${componentSelector}-heading-icon-info"></icon-info-circle>`;
+                return html`<icon-info-circle class="${componentClass}-icon" size="s" data-test-id="${componentSelector}-heading-icon-info"></icon-info-circle>`;
             case 'success':
-                return html`<icon-check-circle class="c-toast-icon" size="s" data-test-id="${componentSelector}-heading-icon-success"></icon-check-circle>`;
+                return html`<icon-check-circle class="${componentClass}-icon" size="s" data-test-id="${componentSelector}-heading-icon-success"></icon-check-circle>`;
             case 'warning':
-                return html`<icon-alert-triangle class="c-toast-icon" size="s" data-test-id="${componentSelector}-heading-icon-warning"></icon-alert-triangle>`;
+                return html`<icon-alert-triangle class="${componentClass}-icon" size="s" data-test-id="${componentSelector}-heading-icon-warning"></icon-alert-triangle>`;
             case 'error':
-                return html`<icon-alert-circle class="c-toast-icon" size="s" data-test-id="${componentSelector}-heading-icon-error"></icon-alert-circle>`;
+                return html`<icon-alert-circle class="${componentClass}-icon" size="s" data-test-id="${componentSelector}-heading-icon-error"></icon-alert-circle>`;
             default:
                 return nothing as never;
         }
