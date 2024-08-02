@@ -35,7 +35,7 @@ const assistiveTextId = 'assistive-text';
  */
 export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxGroupProps {
     @state()
-        labelPassed = false;
+        hasLabel = false;
 
     @property({ type: String })
     public name?: CheckboxGroupProps['name'];
@@ -75,22 +75,22 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
     }
 
     /**
-     * Function that updates the local `labelPassed` state in case
+     * Function that updates the local `hasLabel` state in case
      * when the label slot receives content.
      * @private
      */
-    private handleSlotchange (e: { target: HTMLSlotElement; }) {
+    private handleSlotChange (e: { target: HTMLSlotElement; }) {
         const childNodes = e.target.assignedNodes({ flatten: true });
-        this.labelPassed = childNodes.length > 0;
+        this.hasLabel = childNodes.length > 0;
     }
 
     /**
-     * Template for the label slot to correctly wrap it into a legend element with it has content.
+     * Template for the label slot to correctly wrap it into a legend element when it has content.
      * Called within the main render function.
      * @private
      */
     private renderWrappedLabel (): TemplateResult | typeof nothing {
-        return this.labelPassed ? html`<legend><slot name='label' @slotchange=${this.handleSlotchange}></slot></legend>` : html`<slot name='label' @slotchange=${this.handleSlotchange}></slot>`;
+        return this.hasLabel ? html`<legend><slot name='label' @slotchange=${this.handleSlotChange}></slot></legend>` : html`<slot name='label' @slotchange=${this.handleSlotChange}></slot>`;
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {

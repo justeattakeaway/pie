@@ -4,6 +4,7 @@
     --checkbox-group-offset: var(--dt-spacing-c);
     --checkbox-group-offset--inline: var(--dt-spacing-e);
     --checkbox-group-label-offset: var(--dt-spacing-a);
+    --checkbox-group-assistive-text-offset: var(--dt-spacing-a);
 
     margin: 0;
     padding: 0;
@@ -48,5 +49,5 @@
 
 .c-checkboxGroup-assistiveText {
     display: block;
-    margin-block-start: 4px;
+    margin-block-start: var(--checkbox-group-assistive-text-offset);
 }
