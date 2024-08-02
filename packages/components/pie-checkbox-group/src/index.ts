@@ -1,7 +1,7 @@
 import {
-    LitElement, html, unsafeCSS, PropertyValues,
+    LitElement, html, unsafeCSS, PropertyValues, nothing, type TemplateResult,
 } from 'lit';
-import { property, queryAssignedElements } from 'lit/decorators.js';
+import { property, queryAssignedElements, state } from 'lit/decorators.js';
 import {
     RtlMixin,
     defineCustomElement,
@@ -34,6 +34,9 @@ const assistiveTextId = 'assistive-text';
  * @event {CustomEvent} pie-checkbox-group-error - triggered after the state of the checkbox group changes to error.
  */
 export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxGroupProps {
+    @state()
+        labelPassed = false;
+
     @property({ type: String })
     public name?: CheckboxGroupProps['name'];
 
@@ -52,6 +55,8 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
 
     @queryAssignedElements({ selector: 'pie-checkbox' }) _slottedChildren: Array<HTMLElement> | undefined;
 
+    @queryAssignedElements({ slot: 'label' }) _labelSlot!: Array<HTMLElement>;
+
     private _handleDisabled () : void {
         this._slottedChildren?.forEach((child) => child.dispatchEvent(new CustomEvent(ON_CHECKBOX_GROUP_DISABLED, {
             bubbles: false, composed: false, detail: { disabled: this.disabled },
@@ -67,6 +72,25 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
                 child.dispatchEvent(new CustomEvent(ON_CHECKBOX_GROUP_ERROR, { bubbles: false, composed: false, detail: { error: true } }));
             }
         });
+    }
+
+    /**
+     * Function that updates the local `labelPassed` state in case
+     * when the label slot receives content.
+     * @private
+     */
+    private handleSlotchange (e: { target: HTMLSlotElement; }) {
+        const childNodes = e.target.assignedNodes({ flatten: true });
+        this.labelPassed = childNodes.length > 0;
+    }
+
+    /**
+     * Template for the label slot to correctly wrap it into a legend element with it has content.
+     * Called within the main render function.
+     * @private
+     */
+    private renderWrappedLabel (): TemplateResult | typeof nothing {
+        return this.labelPassed ? html`<legend><slot name='label' @slotchange=${this.handleSlotchange}></slot></legend>` : html`<slot name='label' @slotchange=${this.handleSlotchange}></slot>`;
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {
@@ -101,7 +125,7 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
                 data-test-id="pie-checkbox-group"
                 class="${classMap(classes)}"
             >
-                <legend><slot name="label"></slot></legend>
+                ${this.renderWrappedLabel()}
                 <slot></slot>
             </fieldset>
             ${assistiveText && html`

@@ -66,11 +66,12 @@
     border: 1px solid var(--checkbox-border-color);
     border-radius: var(--checkbox-radius);
     background-color: var(--checkbox-bg-color);
-    transition:
-        background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing),
-        border-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
 
     @media (prefers-reduced-motion: no-preference) {
+        transition:
+            background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing),
+            border-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
+
         animation: scaleDown var(--dt-motion-timing-100) var(--checkbox-motion-easing);
     }
 
