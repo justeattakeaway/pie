@@ -13,6 +13,7 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
+import { PieButton } from '../../src/index.ts';
 import { sizes } from '../../src/defs.ts';
 
 const props: PropObject = {
@@ -27,9 +28,10 @@ const renderTestPieButton = (propVals: WebComponentPropValues) => `<pie-button s
 
 const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
 
-// eslint-disable-next-line no-empty-pattern
-test.beforeEach(async ({ }, testInfo) => {
+test.beforeEach(async ({ mount }, testInfo) => {
     testInfo.setTimeout(testInfo.timeout + 40000);
+    const component = await mount(PieButton);
+    await component.unmount();
 });
 
 test('should render all size variations', async ({ page, mount }) => {
