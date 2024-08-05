@@ -13,28 +13,29 @@ import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpo
 import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-direction.ts';
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
 import { PieCheckbox } from '@justeattakeaway/pie-checkbox';
+import { PieFormLabel } from '@justeattakeaway/pie-form-label';
 import { PieCheckboxGroup } from '../../src/index.ts';
 import { statusTypes } from '../../src/defs.ts';
 
 const readingDirections = ['LTR', 'RTL'];
 
 const props: PropObject = {
-    label: ['Group Label', ''],
     status: statusTypes,
     isInline: [true, false],
     disabled: [true, false],
+    hasGroupLabel: [true, false],
 };
 
 const renderTestPieCheckboxGroup = (propVals: WebComponentPropValues) => {
     let attributes = '';
 
-    if (propVals.label) attributes += ` label="${propVals.label}"`;
     if (propVals.assistiveText) attributes += ` assistiveText="${propVals.assistiveText}"`;
     if (propVals.isInline) attributes += ` isInline="${propVals.isInline}"`;
     if (propVals.disabled) attributes += ` disabled="${propVals.disabled}"`;
 
     return `
     <pie-checkbox-group ${attributes} status="${propVals.status}">
+        ${propVals.hasGroupLabel ? '<pie-form-label slot="label">Group Label</pie-form-label>' : ''}
         <pie-checkbox>Label</pie-checkbox>
         <pie-checkbox checked>Label</pie-checkbox>
         <pie-checkbox>Label</pie-checkbox>
@@ -50,14 +51,17 @@ test.beforeEach(async ({ mount }, testInfo) => {
 
     // This ensures the checkbox component is registered in the DOM for each test.
     // It appears to add them to a Playwright cache which we understand is required for the tests to work correctly.
-    const checkboxPropComponent = await mount(PieCheckboxGroup);
-    await checkboxPropComponent.unmount();
+    const checkboxGroupComponent = await mount(PieCheckboxGroup);
+    await checkboxGroupComponent.unmount();
 
     const assistiveTextComponent = await mount(PieAssistiveText);
     await assistiveTextComponent.unmount();
 
     const checkboxComponent = await mount(PieCheckbox);
     await checkboxComponent.unmount();
+
+    const formLabelComponent = await mount(PieFormLabel);
+    await formLabelComponent.unmount();
 });
 
 componentVariants.forEach((variant) => test(`should render all prop variations for the isInline state: ${variant}`, async ({ page, mount }) => {
@@ -66,7 +70,7 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
         const propKeyValues = `
             isInline: ${testComponent.propValues.isInline},
             disabled: ${testComponent.propValues.disabled},
-            label: ${testComponent.propValues.label ? 'with label' : 'no label'},
+            hasGroupLabel: ${testComponent.propValues.hasGroupLabel},
             status: ${testComponent.propValues.status}`;
 
         await mount(
@@ -90,8 +94,8 @@ for (const dir of readingDirections) {
         }
 
         // Assistive text with no status
-        let testComponent: WebComponentTestInput = createTestWebComponent({ assistiveText: 'Assistive text', label: 'Group label' }, renderTestPieCheckboxGroup);
-        let propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, label: ${testComponent.propValues.label}`;
+        let testComponent: WebComponentTestInput = createTestWebComponent({ assistiveText: 'Assistive text', hasGroupLabel: true }, renderTestPieCheckboxGroup);
+        let propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}`;
 
         await mount(
             WebComponentTestWrapper,
@@ -104,8 +108,8 @@ for (const dir of readingDirections) {
         );
 
         // Error + assistive text
-        testComponent = createTestWebComponent({ assistiveText: 'Error text', label: 'Group label', status: 'error' }, renderTestPieCheckboxGroup);
-        propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, label: ${testComponent.propValues.label}, status: ${testComponent.propValues.status}`;
+        testComponent = createTestWebComponent({ assistiveText: 'Error text', status: 'error', hasGroupLabel: true }, renderTestPieCheckboxGroup);
+        propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, status: ${testComponent.propValues.status}`;
 
         await mount(
             WebComponentTestWrapper,
@@ -118,8 +122,8 @@ for (const dir of readingDirections) {
         );
 
         // Success + assistive text
-        testComponent = createTestWebComponent({ assistiveText: 'Success text', label: 'Group label', status: 'success' }, renderTestPieCheckboxGroup);
-        propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, label: ${testComponent.propValues.label}, status: ${testComponent.propValues.status}`;
+        testComponent = createTestWebComponent({ assistiveText: 'Success text', status: 'success', hasGroupLabel: true }, renderTestPieCheckboxGroup);
+        propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, status: ${testComponent.propValues.status}`;
 
         await mount(
             WebComponentTestWrapper,
@@ -134,13 +138,12 @@ for (const dir of readingDirections) {
         // Success + assistive text + isInline
         testComponent = createTestWebComponent({
             assistiveText: 'Success text',
-            label: 'Group label',
             status: 'success',
             isInline: true,
+            hasGroupLabel: true,
         }, renderTestPieCheckboxGroup);
         propKeyValues = `
             assistiveText: ${testComponent.propValues.assistiveText},
-            label: ${testComponent.propValues.label},
             status: ${testComponent.propValues.status},
             isInline: ${testComponent.propValues.isInline}`;
 
