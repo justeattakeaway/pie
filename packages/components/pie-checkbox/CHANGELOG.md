@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.11.0
+
+### Minor Changes
+
+- [Changed] - cursor styling for disabled state changed from default to not-allowed. ([#1660](https://github.com/justeattakeaway/pie/pull/1660)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Added] - transition styles to border colour in addition to background colour.
+
 ## 0.10.0
 
 ### Minor Changes

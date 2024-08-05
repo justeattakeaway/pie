@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-textarea
 
+## 0.5.0
+
+### Minor Changes
+
+- [Added] - pie-textarea component form functionality. Added a new story to storybook with a form integration example. ([#1621](https://github.com/justeattakeaway/pie/pull/1621)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+  [Updated] - pie-textarea component README.md file
+
 ## 0.4.0
 
 ### Minor Changes
