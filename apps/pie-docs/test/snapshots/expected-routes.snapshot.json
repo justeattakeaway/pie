@@ -24,6 +24,7 @@
     "components/carousel-indicator",
     "components/checkbox",
     "components/checkbox-group",
+    "components/checkbox-group/overview/code",
     "components/chip",
     "components/chip/code",
     "components/component-status",
