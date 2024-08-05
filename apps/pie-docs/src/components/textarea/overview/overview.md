@@ -282,7 +282,7 @@ The character limit and counter is used to let users know how long their entry c
     {% contentPageImage {
       src: "../../../assets/img/components/textarea/character-counter-empty.svg",
       width: "256px",
-      alt: "An empty textarea component with a label and character counter on the right top. Counter shows that the is zero from fifty symbols."
+      alt: "An empty textarea component with a label and character counter on the right top. Counter shows that there is zero from fifty symbols."
     } %}
   {% endcontentItem %}
   {% contentItem %}
