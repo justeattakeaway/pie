@@ -33,7 +33,7 @@ For full information on using PIE components as part of an application, check ou
 
 ## Documentation
 
-Visit  [Button | PIE Design System](https://pie.design/components/checkbox-group/) to view more information on this component.
+Visit  [Checkbox Group | PIE Design System](https://pie.design/components/checkbox-group/) to view more information on this component.
 
 ## Questions
 
