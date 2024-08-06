@@ -172,6 +172,6 @@ test.describe('Label and Character count:', () => {
             } as PieTextarea,
         });
 
-        await percySnapshot(page, 'Textarea - with label and character count', percyWidths);
+        await percySnapshot(page, 'Textarea RTL - with label and character count', percyWidths);
     });
 });
