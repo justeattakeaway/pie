@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-toast
 
+## 0.2.1
+
+### Patch Changes
+
+- [Added] - Missing package dependencies ([#1659](https://github.com/justeattakeaway/pie/pull/1659)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.2.0
 
 ### Minor Changes
