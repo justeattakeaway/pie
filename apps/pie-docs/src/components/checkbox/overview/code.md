@@ -14,7 +14,7 @@ eleventyComputed:
 
 <p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-checkbox" style="text-decoration: none">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-checkbox.svg?label=pie-assistive-text">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-checkbox.svg?label=pie-checkbox">
   </a>
 
   <a href="https://www.npmjs.com/package/@justeattakeaway/pie-webc">
