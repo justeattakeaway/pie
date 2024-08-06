@@ -104,8 +104,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         this._internals.setFormValue(this.value);
     }
 
-    protected firstUpdated (_changedProperties: PropertyValues): void {
-        super.firstUpdated(_changedProperties);
+    protected firstUpdated (): void {
         this.restrictInputLength();
         this._internals.setFormValue(this.value);
 
