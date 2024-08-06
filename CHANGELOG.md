@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.64.0
+
+### Minor Changes
+
+- [Changed] - Downgrade turbo to v1 ([#1645](https://github.com/justeattakeaway/pie/pull/1645)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Turned on Turborepo UI ([#1635](https://github.com/justeattakeaway/pie/pull/1635)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated Playwright and Percy CLI dependancies ([#1664](https://github.com/justeattakeaway/pie/pull/1664)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
 ## 2.63.0
 
 ### Minor Changes

@@ -1,5 +1,33 @@
 # Changelog
 
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - Moved PIE Storybook to v1 release 🎉 ([#1635](https://github.com/justeattakeaway/pie/pull/1635)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Changed] - Upgrade to Storybook v8
+
+### Minor Changes
+
+- [Changed] - Split leadingAction and supportingAction props into several new props ([#1626](https://github.com/justeattakeaway/pie/pull/1626)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Alphabetically sort components in Storybook sidebar ([#1662](https://github.com/justeattakeaway/pie/pull/1662)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - pie-textarea component form functionality. Added a new story to storybook with a form integration example. ([#1621](https://github.com/justeattakeaway/pie/pull/1621)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+  [Updated] - pie-textarea component README.md file
+
+### Patch Changes
+
+- Updated dependencies [[`bde5fdf8e`](https://github.com/justeattakeaway/pie/commit/bde5fdf8e7988963227fbf03229589199073cdcb), [`55857dadc`](https://github.com/justeattakeaway/pie/commit/55857dadc970f8883e1a90b9d0e62da8a90f4a9e), [`61fadf0f2`](https://github.com/justeattakeaway/pie/commit/61fadf0f2e56efcf583a8268e30c442c92e3b075), [`971a6a314`](https://github.com/justeattakeaway/pie/commit/971a6a314693cb6389291dc68d60bff0af929c5b), [`bde5fdf8e`](https://github.com/justeattakeaway/pie/commit/bde5fdf8e7988963227fbf03229589199073cdcb)]:
+  - @justeattakeaway/pie-checkbox@0.11.0
+  - @justeattakeaway/pie-toast@0.2.1
+  - @justeattakeaway/pie-cookie-banner@0.23.0
+  - @justeattakeaway/pie-modal@0.44.0
+  - @justeattakeaway/pie-textarea@0.5.0
+  - @justeattakeaway/pie-checkbox-group@0.5.0
+
 ## 0.82.0
 
 ### Minor Changes

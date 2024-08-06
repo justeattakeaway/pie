@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.23.0
+
+### Minor Changes
+
+- [Changed] - Split leadingAction and supportingAction props into several new props ([#1626](https://github.com/justeattakeaway/pie/pull/1626)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Updated dependencies [[`61fadf0f2`](https://github.com/justeattakeaway/pie/commit/61fadf0f2e56efcf583a8268e30c442c92e3b075)]:
+  - @justeattakeaway/pie-modal@0.44.0
+
 ## 0.22.1
 
 ### Patch Changes
