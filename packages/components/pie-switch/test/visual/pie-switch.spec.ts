@@ -3,7 +3,7 @@ import percySnapshot from '@percy/playwright';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-direction.ts';
 import { PieSwitch } from '../../src/index.ts';
-import { SwitchProps, labelPlacements } from '../../src/defs.ts';
+import { type SwitchProps, labelPlacements } from '../../src/defs.ts';
 
 [
     [false, false],

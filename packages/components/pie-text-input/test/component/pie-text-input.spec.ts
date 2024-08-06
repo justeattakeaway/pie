@@ -3,7 +3,7 @@ import { setupFormDataExtraction, getFormDataObject } from '@justeattakeaway/pie
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
-import { PieTextInput, TextInputProps } from '../../src/index.ts';
+import { PieTextInput, type TextInputProps } from '../../src/index.ts';
 import { statusTypes } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-text-input"]';

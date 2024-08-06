@@ -1,11 +1,11 @@
 import {
-    html, LitElement, unsafeCSS, nothing, TemplateResult,
+    html, LitElement, unsafeCSS, nothing, type TemplateResult,
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './link.scss?inline';
 import {
-    LinkProps,
+    type LinkProps,
     variants,
     sizes,
     iconPlacements,

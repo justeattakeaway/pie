@@ -1,4 +1,4 @@
-import { PropObject, WebComponentPropValues } from './defs';
+import { type PropObject, type WebComponentPropValues } from './defs';
 
 /**
  * Generate all possible combinations of properties for a given object.

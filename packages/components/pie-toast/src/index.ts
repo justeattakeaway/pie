@@ -16,14 +16,14 @@ import '@justeattakeaway/pie-button';
 
 import styles from './toast.scss?inline';
 import {
-    ToastProps,
-    componentSelector,
+    type ActionProps,
+    type ToastProps,
     componentClass,
-    ActionProps,
-    ON_TOAST_CLOSE_EVENT,
-    ON_TOAST_OPEN_EVENT,
-    ON_TOAST_LEADING_ACTION_CLICK_EVENT,
+    componentSelector,
     defaultProps,
+    ON_TOAST_CLOSE_EVENT,
+    ON_TOAST_LEADING_ACTION_CLICK_EVENT,
+    ON_TOAST_OPEN_EVENT,
 } from './defs';
 
 // Valid values available to consumers
@@ -243,7 +243,7 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
                 <div class="${componentClass}-contentArea">
                     <div class="${classMap(messageAreaClasses)}">
                         <icon-placeholder size="s"></icon-placeholder>
-                        ${message === '' ? nothing : this.renderMessage(message, _messageAreaMaxWidth)} 
+                        ${message === '' ? nothing : this.renderMessage(message, _messageAreaMaxWidth)}
                     </div>
                     <div class="${componentClass}-actionsArea">
                         ${!isMultiline && leadingAction?.text ? this.renderActionButton(leadingAction) : nothing}

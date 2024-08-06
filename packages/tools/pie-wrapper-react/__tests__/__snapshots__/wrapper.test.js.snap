@@ -2,9 +2,9 @@
 
 exports[`React Wrapper > should be added from mock custom elements JSON 1`] = `
 "import * as React from 'react';
-import { createComponent, EventName } from '@lit/react';
+import { createComponent, type EventName } from '@lit/react';
 import { MockComponent as MockComponentLit } from './index';
-import { MockComponentProps } from './defs';
+import { type MockComponentProps } from './defs';
 
 export * from './defs';
 
@@ -33,7 +33,7 @@ exports[`React Wrapper > should be named the same as the component itself 1`] = 
 "import * as React from 'react';
 import { createComponent } from '@lit/react';
 import { ButtonComponent as ButtonComponentLit } from './index';
-import { ButtonComponentProps } from './defs';
+import { type ButtonComponentProps } from './defs';
 
 export * from './defs';
 
@@ -54,7 +54,7 @@ exports[`React Wrapper > should leave the events object empty if the component c
 "import * as React from 'react';
 import { createComponent } from '@lit/react';
 import { MockComponent as MockComponentLit } from './index';
-import { MockComponentProps } from './defs';
+import { type MockComponentProps } from './defs';
 
 export * from './defs';
 

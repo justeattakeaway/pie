@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, nothing, TemplateResult,
+    LitElement, html, unsafeCSS, nothing, type TemplateResult,
 } from 'lit';
 
 import { property } from 'lit/decorators.js';
@@ -9,7 +9,7 @@ import '@justeattakeaway/pie-icons-webc/dist/IconAlertCircle.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheckCircle.js';
 
 import styles from './assistive-text.scss?inline';
-import { AssistiveTextProps, variants, defaultProps } from './defs';
+import { type AssistiveTextProps, variants, defaultProps } from './defs';
 
 // Valid values available to consumers
 export * from './defs';

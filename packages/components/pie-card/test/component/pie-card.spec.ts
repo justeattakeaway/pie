@@ -1,6 +1,6 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieCard, CardProps } from '../../src/index.ts';
+import { PieCard, type CardProps } from '../../src/index.ts';
 import { tags, paddingValues } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-card"]';

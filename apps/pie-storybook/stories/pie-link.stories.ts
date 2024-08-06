@@ -4,7 +4,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-link';
 import {
-    LinkProps as LinkBaseProps, sizes, variants,
+    type LinkProps as LinkBaseProps, sizes, variants,
     iconPlacements, tags, buttonTypes, underlineTypes, defaultProps,
 } from '@justeattakeaway/pie-link';
 /* eslint-enable import/no-duplicates */

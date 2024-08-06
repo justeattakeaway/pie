@@ -3,7 +3,7 @@ import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './divider.scss?inline';
 import {
-    DividerProps, variants, orientations, defaultProps,
+    type DividerProps, variants, orientations, defaultProps,
 } from './defs';
 
 // Valid values available to consumers

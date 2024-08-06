@@ -1,5 +1,5 @@
 import {
-    html, LitElement, unsafeCSS, nothing, TemplateResult,
+    html, LitElement, unsafeCSS, nothing, type TemplateResult,
 } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { property } from 'lit/decorators.js';
@@ -8,7 +8,7 @@ import styles from './card.scss?inline';
 import {
     variants,
     tags,
-    CardProps,
+    type CardProps,
     defaultProps,
     paddingValues,
 } from './defs';

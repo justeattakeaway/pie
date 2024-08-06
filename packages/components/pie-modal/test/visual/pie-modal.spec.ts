@@ -2,7 +2,7 @@ import { test, expect } from '@sand4rt/experimental-ct-web';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import percySnapshot from '@percy/playwright';
 import { PieModal } from '../../src/index.ts';
-import { ModalProps, sizes, positions } from '../../src/defs.ts';
+import { type ModalProps, sizes, positions } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-modal"]';
 const componentFooterSelector = '[data-test-id="pie-modal-footer"]';

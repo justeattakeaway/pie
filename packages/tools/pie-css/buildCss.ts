@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import postcss, { Result } from 'postcss';
+import postcss, { type Result } from 'postcss';
 import atImport from 'postcss-import';
 
 const cssInputFilePath = 'css/input.css';

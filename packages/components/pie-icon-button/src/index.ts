@@ -1,11 +1,11 @@
 import {
-    LitElement, TemplateResult, html, unsafeCSS,
+    LitElement, type TemplateResult, html, unsafeCSS,
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './iconButton.scss?inline';
 import {
-    IconButtonProps, sizes, variants, defaultProps,
+    type IconButtonProps, sizes, variants, defaultProps,
 } from './defs';
 import '@justeattakeaway/pie-spinner';
 

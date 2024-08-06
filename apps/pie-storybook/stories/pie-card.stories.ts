@@ -5,7 +5,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-card';
 import {
-    CardProps as CardPropsBase, variants, tags, paddingValues, defaultProps,
+    type CardProps as CardPropsBase, variants, tags, paddingValues, defaultProps,
 } from '@justeattakeaway/pie-card';
 /* eslint-enable import/no-duplicates */
 

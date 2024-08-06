@@ -105,7 +105,7 @@ With this package, the below code (example of `pie-button`) is automatically gen
 import * as React from 'react';
 import { createComponent } from '@lit/react';
 import { PieButton as PieButtonLit } from './index';
-import { ButtonProps } from './defs';
+import { type ButtonProps } from './defs';
 
 const PieButtonReact = createComponent({
         displayName: 'PieButton',

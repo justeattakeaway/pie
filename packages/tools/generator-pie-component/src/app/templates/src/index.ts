@@ -2,7 +2,7 @@ import { LitElement, html, unsafeCSS } from 'lit';
 <% if (needsRTL) { %>import { RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';<% } %>
 <% if (!needsRTL) { %>import { defineCustomElement } from '@justeattakeaway/pie-webc-core';<% } %>
 import styles from './<%= fileName %>.scss?inline';
-import { <%= componentName %>Props } from './defs';
+import { type <%= componentName %>Props } from './defs';
 
 // Valid values available to consumers
 export * from './defs';

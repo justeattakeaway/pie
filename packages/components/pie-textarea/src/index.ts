@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, PropertyValues, nothing,
+    LitElement, html, unsafeCSS, type PropertyValues, nothing,
 } from 'lit';
 
 import { property, query } from 'lit/decorators.js';
@@ -13,7 +13,7 @@ import {
 import { ifDefined } from 'lit/directives/if-defined.js';
 import styles from './textarea.scss?inline';
 import {
-    TextareaProps, defaultProps, sizes, resizeModes,
+    type TextareaProps, defaultProps, sizes, resizeModes,
 } from './defs';
 
 import '@justeattakeaway/pie-form-label';

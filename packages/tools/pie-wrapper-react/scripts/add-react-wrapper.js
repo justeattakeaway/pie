@@ -188,9 +188,9 @@ export function addReactWrapper (customElementsObject) {
 
             // Create the main source code
             componentSrc = `import * as React from 'react';
-import { createComponent${component.class.events?.length > 0 ? ', EventName' : ''} } from '@lit/react';
+import { createComponent${component.class.events?.length > 0 ? ', type EventName' : ''} } from '@lit/react';
 import { ${component.class.name} as ${component.class.name}Lit } from './index';
-import { ${componentPropsExportName} } from './defs';
+import { type ${componentPropsExportName} } from './defs';
 
 export * from './defs';
 

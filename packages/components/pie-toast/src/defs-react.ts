@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 /**
  * TODO: Verify if ReactBaseType can be set as a more specific React interface
  * Use the React IntrinsicElements interface to find how to map standard HTML elements to existing React Interfaces

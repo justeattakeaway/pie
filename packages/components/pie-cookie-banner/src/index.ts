@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, TemplateResult, nothing,
+    LitElement, html, unsafeCSS, type TemplateResult, nothing,
 } from 'lit';
 import { property, state, queryAll } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
@@ -11,7 +11,7 @@ import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-modal';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-switch';
-import { PieSwitch } from '@justeattakeaway/pie-switch';
+import { type PieSwitch } from '@justeattakeaway/pie-switch';
 import { defineCustomElement, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
 /* eslint-enable import/no-duplicates */
 
@@ -19,17 +19,17 @@ import defaultLocale from '../locales/en-gb.json';
 
 import styles from './cookie-banner.scss?inline';
 import {
-    CookieBannerProps,
     ON_COOKIE_BANNER_ACCEPT_ALL,
     ON_COOKIE_BANNER_NECESSARY_ONLY,
     ON_COOKIE_BANNER_MANAGE_PREFS,
     ON_COOKIE_BANNER_PREFS_SAVED,
     preferences,
+    type CookieBannerLocale,
+    type CookieBannerProps,
+    type CustomTagEnhancers,
+    type DefaultProps,
     type Preference,
     type PreferenceIds,
-    type CookieBannerLocale,
-    type CustomTagEnhancers,
-    DefaultProps,
 } from './defs';
 
 import { localiseText, localiseRichText } from './localisation-utils';

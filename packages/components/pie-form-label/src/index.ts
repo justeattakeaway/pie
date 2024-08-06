@@ -1,11 +1,11 @@
 import {
-    LitElement, TemplateResult, html, nothing, unsafeCSS,
+    LitElement, type TemplateResult, html, nothing, unsafeCSS,
 } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { RtlMixin, defineCustomElement, PIEInputElement } from '@justeattakeaway/pie-webc-core';
+import { RtlMixin, defineCustomElement, type PIEInputElement } from '@justeattakeaway/pie-webc-core';
 import { property } from 'lit/decorators.js';
 import styles from './form-label.scss?inline';
-import { FormLabelProps } from './defs';
+import { type FormLabelProps } from './defs';
 
 // Valid values available to consumers
 export * from './defs';

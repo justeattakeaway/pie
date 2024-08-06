@@ -1,7 +1,7 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieSwitch } from '../../src/index.ts';
 import {
-    SwitchProps,
+    type SwitchProps,
     type LabelPlacement,
     labelPlacements,
     ON_SWITCH_CHANGED_EVENT,

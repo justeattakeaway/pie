@@ -5,7 +5,7 @@ import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './spinner.scss?inline';
 import {
-    SpinnerProps,
+    type SpinnerProps,
     sizes,
     variants,
     type AriaProps,

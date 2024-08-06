@@ -1,7 +1,7 @@
 
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import { PieToast, ToastProps } from '../../src/index.ts';
+import { PieToast, type ToastProps } from '../../src/index.ts';
 
 test.describe('PieToast - Visual tests`', () => {
     test('should display the PieToast component successfully', async ({ page, mount }) => {

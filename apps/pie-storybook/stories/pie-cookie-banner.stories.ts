@@ -1,9 +1,9 @@
-import { html, TemplateResult } from 'lit';
+import { html, type TemplateResult } from 'lit';
 import { action } from '@storybook/addon-actions';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-cookie-banner';
-import { CookieBannerProps, defaultProps } from '@justeattakeaway/pie-cookie-banner';
+import { type CookieBannerProps, defaultProps } from '@justeattakeaway/pie-cookie-banner';
 import pieCookieBannerLocales from '@justeattakeaway/pie-cookie-banner/locales';
 /* eslint-enable import/no-duplicates */
 

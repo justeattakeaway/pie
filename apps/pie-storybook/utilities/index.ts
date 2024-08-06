@@ -1,7 +1,7 @@
-import { TemplateResult } from 'lit';
+import { type TemplateResult } from 'lit';
 import DOMPurify from 'dompurify';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-import { StoryOptions } from '../types/StoryOptions';
+import { type StoryOptions } from '../types/StoryOptions';
 
 export type TemplateFunction<T> = (props: T) => TemplateResult;
 

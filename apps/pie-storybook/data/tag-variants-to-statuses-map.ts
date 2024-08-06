@@ -1,4 +1,4 @@
-import { TagVariantToStatusMap } from '../interfaces/tag-variant-to-status-map';
+import { type TagVariantToStatusMap } from '../interfaces/tag-variant-to-status-map';
 
 export const tagVariantToStatusMap: TagVariantToStatusMap = {
     alpha: 'yellow',

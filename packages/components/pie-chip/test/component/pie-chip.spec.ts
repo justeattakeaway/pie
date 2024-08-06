@@ -1,6 +1,6 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieChip, ChipProps } from '../../src/index.ts';
+import { PieChip, type ChipProps } from '../../src/index.ts';
 import { ON_CHIP_CLOSE_EVENT } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-chip"]';

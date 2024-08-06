@@ -4,7 +4,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-tag';
 import {
-    TagProps as TagBaseProps, variants, sizes, defaultProps,
+    type TagProps as TagBaseProps, variants, sizes, defaultProps,
 } from '@justeattakeaway/pie-tag';
 /* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';

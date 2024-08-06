@@ -1,10 +1,11 @@
+
 import { expect, test } from '@sand4rt/experimental-ct-web';
 import {
     getFormDataObject,
     setupFormDataExtraction,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
 import { PieFormLabel } from '@justeattakeaway/pie-form-label';
-import { PieTextarea, TextareaProps } from '../../src/index.ts';
+import { PieTextarea, type TextareaProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-textarea"]';
 const componentWrapperSelector = '[data-test-id="pie-textarea-wrapper"]';

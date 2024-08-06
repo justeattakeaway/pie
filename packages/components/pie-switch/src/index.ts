@@ -1,13 +1,13 @@
 import {
-    LitElement, html, unsafeCSS, nothing, TemplateResult, PropertyValues,
+    LitElement, html, unsafeCSS, nothing, type TemplateResult, type PropertyValues,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import {
-    RtlMixin, validPropertyValues, defineCustomElement, FormControlMixin, wrapNativeEvent, PIEInputElement,
+    RtlMixin, validPropertyValues, defineCustomElement, FormControlMixin, wrapNativeEvent, type PIEInputElement,
 } from '@justeattakeaway/pie-webc-core';
 import styles from './switch.scss?inline';
 import {
-    SwitchProps, AriaProps, labelPlacements, defaultProps,
+    type SwitchProps, type AriaProps, labelPlacements, defaultProps,
 } from './defs';
 import 'element-internals-polyfill';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';

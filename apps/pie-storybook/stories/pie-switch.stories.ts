@@ -3,11 +3,11 @@ import { action } from '@storybook/addon-actions';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-switch';
-import { SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-switch';
+import { type SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-switch';
 /* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
-import { StoryMeta } from '../types';
+import { type StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
 type SwitchStoryMeta = StoryMeta<SwitchProps>;

@@ -1,7 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { readFile } from 'fs/promises';
-import { CookieBannerComponent, Level } from 'test/helpers/page-object/pie-cookie-banner.page.ts';
+import { CookieBannerComponent, type Level } from 'test/helpers/page-object/pie-cookie-banner.page.ts';
 import { ModalComponent } from '@justeattakeaway/pie-modal/test/helpers/page-object/pie-modal.page.ts';
 import {
     ON_COOKIE_BANNER_ACCEPT_ALL, ON_COOKIE_BANNER_NECESSARY_ONLY,
@@ -9,7 +9,7 @@ import {
     preferences,
 } from '../../src/defs.ts';
 import {
-    PieCookieBanner, CookieBannerProps,
+    PieCookieBanner, type CookieBannerProps,
 } from '../../src/index.ts';
 
 const englishLocale = JSON.parse(await readFile(new URL('../../locales/en-gb.json', import.meta.url)));

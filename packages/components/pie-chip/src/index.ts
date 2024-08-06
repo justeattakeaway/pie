@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, TemplateResult, nothing,
+    LitElement, html, unsafeCSS, type TemplateResult, nothing,
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -9,7 +9,7 @@ import {
 } from '@justeattakeaway/pie-webc-core';
 import styles from './chip.scss?inline';
 import {
-    ChipProps, variants, ON_CHIP_CLOSE_EVENT, defaultProps,
+    type ChipProps, variants, ON_CHIP_CLOSE_EVENT, defaultProps,
 } from './defs';
 import '@justeattakeaway/pie-icons-webc/dist/IconCloseCircleFilled.js';
 import '@justeattakeaway/pie-spinner';

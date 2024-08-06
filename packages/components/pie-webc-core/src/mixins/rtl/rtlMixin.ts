@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-import { LitElement, isServer } from 'lit';
+import { type LitElement, isServer } from 'lit';
 import type { GenericConstructor } from '../types/GenericConstructor';
 
 /**

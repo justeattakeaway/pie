@@ -1,5 +1,5 @@
 import { startCase, snakeCase, camelCase } from 'lodash';
-import { TransformedName } from './types';
+import { type TransformedName } from './types';
 
 function trim (str: string) {
     return str.replace(/\s/g, '');

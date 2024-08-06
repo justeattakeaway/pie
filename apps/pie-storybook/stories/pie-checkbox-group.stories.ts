@@ -2,7 +2,7 @@ import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-checkbox-group';
-import { CheckboxGroupProps as CheckboxGroupBase, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox-group';
+import { type CheckboxGroupProps as CheckboxGroupPropsBase, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox-group';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
@@ -13,7 +13,7 @@ import '@justeattakeaway/pie-checkbox';
 import '@justeattakeaway/pie-form-label';
 
 // Extending the props type definition to include storybook specific properties for controls
-type CheckboxGroupProps = CheckboxGroupBase & {
+type CheckboxGroupProps = CheckboxGroupPropsBase & {
     labelSlot: typeof slotOptions[number];
 };
 

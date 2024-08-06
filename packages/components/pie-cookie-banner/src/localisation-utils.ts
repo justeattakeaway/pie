@@ -1,6 +1,4 @@
-import {
-    TemplateResult,
-} from 'lit';
+import { type TemplateResult } from 'lit';
 
 import {
     type CookieBannerLocale,

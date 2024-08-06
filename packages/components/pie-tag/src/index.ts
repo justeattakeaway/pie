@@ -5,7 +5,7 @@ import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './tag.scss?inline';
 import {
-    TagProps, variants, sizes, defaultProps,
+    type TagProps, variants, sizes, defaultProps,
 } from './defs';
 
 // Valid values available to consumers

@@ -1,4 +1,4 @@
-import { Answers } from 'yeoman-generator';
+import { type Answers } from 'yeoman-generator';
 
 export type TransformedName = {
   componentName: string;
