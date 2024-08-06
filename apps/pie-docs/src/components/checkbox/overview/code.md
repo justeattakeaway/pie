@@ -93,7 +93,7 @@ For Vue Applications:
 
 ```js
 // import as module into a js file that will be loaded on the page where the component is used.
-import '@justeattakeaway/pie-webc/components/assistive-text.js';
+import '@justeattakeaway/pie-webc/components/checkbox.js';
 ```
 
 ```html
