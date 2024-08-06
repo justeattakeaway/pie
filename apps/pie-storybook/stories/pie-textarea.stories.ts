@@ -29,6 +29,8 @@ const Template = ({
     name,
     autocomplete,
     autoFocus,
+    label,
+    maxLength,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -60,6 +62,8 @@ const Template = ({
             ?autoFocus="${autoFocus}"
             ?readonly="${readonly}"
             ?required="${required}"
+            maxLength="${ifDefined(maxLength)}"
+            label="${ifDefined(label)}"
             @input="${onInput}"
             @change="${onChange}">
         </pie-textarea>
@@ -133,6 +137,20 @@ const textareaStoryMeta: TextareaStoryMeta = {
             control: 'text',
             defaultValue: {
                 summary: 'off',
+            },
+        },
+        label: {
+            description: 'The label for the textarea field.',
+            control: 'text',
+            defaultValue: {
+                summary: defaultProps.label,
+            },
+        },
+        maxLength: {
+            description: 'The maximum number of characters allowed in the textarea field.',
+            control: 'number',
+            defaultValue: {
+                summary: 0,
             },
         },
     },
