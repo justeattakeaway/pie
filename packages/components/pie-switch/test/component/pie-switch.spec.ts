@@ -12,6 +12,11 @@ const inputSelector = '[data-test-id="switch-input"]';
 const switchLabelSelector = (placement: LabelPlacement = 'leading') => `[data-test-id="switch-label-${placement}"]`;
 
 test.describe('Component: `Pie switch`', () => {
+    test.beforeEach(async ({ mount }) => {
+        const component = await mount(PieSwitch);
+        await component.unmount();
+    });
+
     test('should be visible', async ({ mount, page }) => {
         // Arrange
         await mount(PieSwitch, {

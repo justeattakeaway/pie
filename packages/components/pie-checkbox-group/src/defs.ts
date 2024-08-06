@@ -9,11 +9,6 @@ export interface CheckboxGroupProps {
     name?: string;
 
     /**
-     * The label value of the component
-     */
-    label?: string;
-
-    /**
      * Inline (horizontal) positioning of checkbox items
      */
     isInline?: boolean;

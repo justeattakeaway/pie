@@ -1,8 +1,8 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-checkbox-group';
-import { type CheckboxGroupProps, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox-group';
+import { type CheckboxGroupProps as CheckboxGroupPropsBase, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox-group';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
@@ -10,12 +10,21 @@ import { createStory } from '../utilities';
 
 import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-checkbox';
+import '@justeattakeaway/pie-form-label';
+
+// Extending the props type definition to include storybook specific properties for controls
+type CheckboxGroupProps = CheckboxGroupPropsBase & {
+    labelSlot: typeof slotOptions[number];
+};
 
 type CheckboxGroupStoryMeta = StoryMeta<CheckboxGroupProps>;
 
 const defaultArgs: CheckboxGroupProps = {
     ...defaultProps,
+    labelSlot: 'None',
 };
+
+const slotOptions = ['Checkbox Group Label', 'None'] as const;
 
 const checkboxGroupStoryMeta: CheckboxGroupStoryMeta = {
     title: 'Checkbox Group',
@@ -25,9 +34,11 @@ const checkboxGroupStoryMeta: CheckboxGroupStoryMeta = {
             description: 'The name associated with the group.',
             control: 'text',
         },
-        label: {
-            description: 'The visible label for the checkbox group.',
-            control: 'text',
+        labelSlot: {
+            name: 'Label Slot',
+            description: '<b>**Not a component Prop</b><br><br>Use the `label` slot to pass <pie-form-label> component with all the relevant props.',
+            control: 'select',
+            options: slotOptions,
         },
         isInline: {
             description: 'Inline (horizontal) positioning of checkbox items.',
@@ -72,32 +83,41 @@ export default checkboxGroupStoryMeta;
 
 const Template = ({
     name,
-    label,
     isInline,
     assistiveText,
     status,
     disabled,
-}: CheckboxGroupProps) => html`
-    <div style="max-width: 400px">
-        <p>Please note, the checkboxes are separate components. See
-        <pie-link href="/?path=/story/checkbox--default">pie-checkbox</pie-link>.</p>
-        <pie-checkbox-group
-            name="${ifDefined(name)}"
-            label="${ifDefined(label)}"
-            assistiveText="${ifDefined(assistiveText)}"
-            ?isInline=${isInline}
-            status=${ifDefined(status)}
-            ?disabled="${disabled}"
-        >
-            <pie-checkbox name="checkbox-one">checkbox 1</pie-checkbox>
-            <pie-checkbox name="checkbox-two">checkbox 2</pie-checkbox>
-            <pie-checkbox name="checkbox-three">checkbox 3 longer label</pie-checkbox>
-            <pie-checkbox name="checkbox-three">checkbox 4</pie-checkbox>
-            <pie-checkbox name="checkbox-three">checkbox 5 even longer label: Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.</pie-checkbox>
-            <pie-checkbox name="checkbox-three">checkbox 6</pie-checkbox>
-        </pie-checkbox-group>
-    </div>
-`;
+    labelSlot,
+}: CheckboxGroupProps) => {
+    function renderLabelSlot (slotValue: typeof slotOptions[number]) {
+        if (slotValue === slotOptions[0]) {
+            return html`<pie-form-label slot="label">Checkbox Group Label</pie-form-label>`;
+        }
+        return nothing;
+    }
+
+    return html`
+        <div style="max-width: 400px">
+            <p>Please note, the checkboxes are separate components. See
+            <pie-link href="/?path=/story/checkbox--default">pie-checkbox</pie-link>.</p>
+            <pie-checkbox-group
+                name="${ifDefined(name)}"
+                assistiveText="${ifDefined(assistiveText)}"
+                ?isInline=${isInline}
+                status=${ifDefined(status)}
+                ?disabled="${disabled}"
+            >
+                ${renderLabelSlot(labelSlot)}
+                <pie-checkbox name="checkbox-one">checkbox 1</pie-checkbox>
+                <pie-checkbox name="checkbox-two">checkbox 2</pie-checkbox>
+                <pie-checkbox name="checkbox-three">checkbox 3 longer label</pie-checkbox>
+                <pie-checkbox name="checkbox-three">checkbox 4</pie-checkbox>
+                <pie-checkbox name="checkbox-three">checkbox 5 even longer label: Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit.</pie-checkbox>
+                <pie-checkbox name="checkbox-three">checkbox 6</pie-checkbox>
+            </pie-checkbox-group>
+        </div>
+    `;
+};
 
 export const Default = createStory<CheckboxGroupProps>(Template, defaultArgs)();
