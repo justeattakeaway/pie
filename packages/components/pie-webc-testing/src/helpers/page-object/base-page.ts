@@ -1,5 +1,5 @@
 import { type Page } from '@playwright/test';
-import { buildUrl } from '/Users/joshua.ng/code/personal/pie/packages/components/pie-webc-testing/src/helpers/page-object/storybook-extensions';
+import { buildUrl } from './storybook-extensions';
 
 export class BasePage {
     readonly page: Page;
