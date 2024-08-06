@@ -117,18 +117,22 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
 
     private restrictInputLength () {
         if (this.label.length && this.maxLength && this.value.length > this.maxLength) {
-            this.value = this.value.slice(0, this.maxLength);
+            const trimmedValue = this.value.slice(0, this.maxLength);
+            // Ensures that the internal text area is correctly trimmed and synced with our value.
+            // The live() directive does not solve this for us.
+            this._textarea.value = trimmedValue;
+            this.value = trimmedValue;
         }
     }
 
     protected updated (changedProperties: PropertyValues<this>) {
-        if (this.resize === 'auto' && (changedProperties.has('resize') || changedProperties.has('size'))) {
-            this.handleResize();
-        }
-
         if (changedProperties.has('value')) {
             this.restrictInputLength();
             this._internals.setFormValue(this.value);
+        }
+
+        if (this.resize === 'auto' && (changedProperties.has('resize') || changedProperties.has('size'))) {
+            this.handleResize();
         }
     }
 
