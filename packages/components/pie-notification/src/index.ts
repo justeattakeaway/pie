@@ -46,9 +46,6 @@ export * from './defs';
  * @slot icon - The icon slot
  */
 export class PieNotification extends LitElement implements NotificationProps {
-    @state()
-    private hasExternalIcon = false;
-
     @property({ type: Boolean })
     public isOpen = defaultProps.isOpen;
 
@@ -112,9 +109,13 @@ export class PieNotification extends LitElement implements NotificationProps {
     private renderFooter () {
         const { leadingAction, supportingAction } = this;
         return html`
-            <footer class="${componentClass}-footer" data-test-id="${componentSelector}-footer" ?isCompact="${this.isCompact}" ?isStacked="${this.hasStackedActions && !this.isCompact}">
-                ${supportingAction ? this.renderActionButton(supportingAction, 'supporting') : nothing}
-                ${leadingAction ? this.renderActionButton(leadingAction, 'leading') : nothing}
+            <footer    
+                class="${componentClass}-footer" 
+                data-test-id="${componentSelector}-footer" 
+                ?isCompact="${this.isCompact}" 
+                ?isStacked="${this.hasStackedActions && !this.isCompact}">
+                    ${supportingAction ? this.renderActionButton(supportingAction, 'supporting') : nothing}
+                    ${leadingAction ? this.renderActionButton(leadingAction, 'leading') : nothing}
             </footer>
         `;
     }
@@ -157,11 +158,6 @@ export class PieNotification extends LitElement implements NotificationProps {
         }
     }
 
-    handleSlotchange (e: { target: HTMLSlotElement; }) {
-        const childNodes = e.target.assignedNodes({ flatten: true });
-        this.hasExternalIcon = childNodes.length > 0;
-    }
-
     /**
      * Template for the heading icon area.
      * It can return an icon provided externally via named slot or it can return a default icon according to the chosen variant if defined.
@@ -170,10 +166,7 @@ export class PieNotification extends LitElement implements NotificationProps {
      * @private
      */
     private renderIcon (): TemplateResult | typeof nothing {
-        return html`
-                ${!this.hasExternalIcon ? this.getDefaultVariantIcon() : nothing}
-                <slot @slotchange=${this.handleSlotchange} name="icon"></slot>
-        `;
+        return html`<slot name="icon">${this.getDefaultVariantIcon()}</slot>`;
     }
 
     /**
@@ -202,21 +195,12 @@ export class PieNotification extends LitElement implements NotificationProps {
      * @private
      */
     private handleCloseButton () {
-        this.closeNotificationComponent();
+        this.isOpen = false;
         dispatchCustomEvent(this, ON_NOTIFICATION_CLOSE_EVENT, { targetNotification: this });
     }
 
     /**
-     * Util method responsible to close the component.
-     *
-     * @private
-     */
-    private closeNotificationComponent () {
-        this.isOpen = false;
-    }
-
-    /**
-     * It handle the action button action.
+     * It handles the action button action.
      * Also triggers an event according to its `actionType`.
      *
      * @param {'leading' | 'supporting'} actionType
