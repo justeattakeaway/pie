@@ -17,13 +17,16 @@
 {% set navPagesTertiary = collections.all | eleventyNavigation("Docs-tertiary") %}
 {% set navSections = [navPagesPrimary, navPagesSecondary, navPagesTertiary] %}
 
-{% macro summary(title, iconKey) %}
+{% macro summary(title, iconKey, url, firstChildUrl, hasIndexPage) %}
     {% set className = ('c-nav-category' if iconKey else 'c-nav-subCategory') %}
+    {% set navUrl = (url if hasIndexPage else firstChildUrl) %}
     <summary class={{className}} style="--icon-fill: {{categoryIconFill}};">
-        {% if iconKey %}
-            {{ { name: navigationIcons[iconKey], attrs: { fill: categoryIconFill, height: '16', width: '16', class:'u-iconFilled', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
-        {% endif %}
-        {{ title }}
+        <a href="{{ navUrl }}">
+            {% if iconKey %}
+                {{ { name: navigationIcons[iconKey], attrs: { fill: categoryIconFill, height: '16', width: '16', class:'u-iconFilled', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
+            {% endif %}
+            {{ title }}
+        </a>
         {{ { name: 'chevron-up', attrs: { fill: chevronFill, height: '16', width: '16', class:'c-nav-toggle c-nav-toggle--close', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
         {{ { name: 'chevron-down', attrs: { fill: chevronFill, height: '16', width: '16', class:'c-nav-toggle c-nav-toggle--open', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
     </summary>
@@ -51,7 +54,7 @@
                 {% if category.url %}
                     <li>
                         <details {% if page.url and page.url.includes(category.url) %} open{% endif %}>
-                            {{ summary(category.title, category.key) }}
+                            {{ summary(category.title, category.key, category.url, category.children[0].url, category.hasIndexPage) }}
                             {% if category.children.length %}
                             {# build up a list of subCategories for each subpages (used in component pages) #}
                                 <ul class="c-nav-list">

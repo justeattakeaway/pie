@@ -5,6 +5,14 @@ $nav-category-gap: var(--dt-spacing-b);
 $nav-category-icon-width: var(--dt-spacing-e); // this needs to be kept in sync with the width given to the icon found in nav.njk
 $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width);
 
+summary.c-nav-category a,
+summary.c-nav-subCategory a {
+    all: unset;
+    align-items: center;
+    display: flex;
+    gap: var(--dt-spacing-b);
+}
+
 .c-nav {
     @include p.font-size(--dt-font-body-s-size);
     @include p.line-height(--dt-font-body-s-line-height);
@@ -140,3 +148,5 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
         display: none;
     }
 }
+
+
