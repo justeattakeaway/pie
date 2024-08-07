@@ -2,5 +2,5 @@
 "@justeattakeaway/pie-notification": minor
 ---
 
-[Fixed] - Make sure custom and default icons work as expected.
+[Fixed] - make sure custom and default icons work as expected.
 
