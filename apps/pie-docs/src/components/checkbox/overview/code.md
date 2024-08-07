@@ -115,7 +115,7 @@ import { PieCheckbox } from '@justeattakeaway/pie-checkbox/dist/react';
 <PieCheckbox name="mycheckbox">Label</PieCheckbox>
 ```
 
-Further examples with and without a label:
+Examples with and without a label:
 
 ```jsx
 <!-- Native HTML -->
@@ -128,6 +128,40 @@ Further examples with and without a label:
 <PieCheckbox name="mycheckbox">Label</PieCheckbox>
 <PieCheckbox name="mycheckbox" aria-label="Label"></PieCheckbox>
 ```
+### Validation
+The checkbox component utilizes the [constraint validation API](https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation) to provide a queryable validity state for consumers. This means that the component's validity can be checked via a `validity` getter.
+
+#### Example:
+```js
+const textInput = document.querySelector('pie-text-input');
+console.log(textInput.validity.valid);
+```
+
+This getter can be useful for reducing the amount of validation code in your application. For example, if you want to create a checkbox that requires attention, you can set the `required` property on the component. You can then check the validity of the input in your application code:
+
+```html
+<pie-checkbox
+  id="my-checkbox"
+  required></pie-checkbox>
+```
+
+```js
+const checkbox = document.querySelector('pie-checkbox');
+const isValid = checkbox.validity.valid;
+
+// We could use this to drive the status and assistiveText properties on our checkbox (this would likely be inside a submit event handler in a real application)
+if (!isValid) {
+  checkbox.status = 'error';
+  checkbox.assistiveText = 'This checkbox is required';
+}
+```
+
+These concepts work just as well inside a Vue or React application.
+
+{% notification {
+type: "information",
+message: "Using the constraint validation API we provide is completely optional. Feel free to use whatever form of validation best suits your application's needs. The validity state of an input will not interfere with the form submission or page behaviour."
+} %}
 
 ## Changelog
 
