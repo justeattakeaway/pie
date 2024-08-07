@@ -251,7 +251,7 @@
         padding-inline-start: var(--modal-content-padding-inline);
         padding-inline-end: var(--modal-content-padding-inline);
         padding-block-start: var(--modal-content-padding-block);
-        margin-block-end: var(--modal-content-margin-block-end); // We require a larger bottom padding when there's no footer
+        margin-block-end: var(--modal-content-margin-block-end); // We require a bottom margin when there's no footer
         flex-grow: 1;
 
         &.c-modal-hasFooterActions {
