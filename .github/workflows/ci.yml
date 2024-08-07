@@ -241,6 +241,9 @@ jobs:
           name: visual-report
           path: visual-report/
           retention-days: 7
+    env:
+      STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
+      PR_NUMBER: ${{ github.event.number }}
 
   deploy-docs:
     needs: unit-tests
