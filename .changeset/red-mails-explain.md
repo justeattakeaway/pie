@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-notification": minor
 ---
 
-[Fixed] - make isDismissible set to false by default
+[Fixed] - make `isDismissible` false by default
