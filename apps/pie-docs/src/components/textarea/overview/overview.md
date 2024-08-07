@@ -190,7 +190,7 @@ Use clear placeholder text so that users understand the purpose of the textarea.
 
 #### Alphanumeric
 
-Both letters and numbers are allowed, for all use-cases this will be used.
+Both letters, numbers and certain special characters are allowed, for the majority of use-cases this will be used.
 
 {% contentPageImage {
     src:"../../../assets/img/components/textarea/alphanumeric.svg",
