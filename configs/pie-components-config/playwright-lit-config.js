@@ -52,5 +52,11 @@ export function getPlaywrightConfig () {
                 testMatch: ['**/test/accessibility/*.spec.{js,ts}'],
             },
         ],
+        webServer: {
+            command: 'npx turbo dev --filter=pie-storybook',
+            url: 'http://127.0.0.1:6006',
+            timeout: 120 * 10000,
+            reuseExistingServer: !process.env.CI,
+        },
     };
 }

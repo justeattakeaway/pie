@@ -40,7 +40,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         test(`should emit the correct event and close the cookie banner when "Accept all" is clicked via element ${elementLevel.name}`, async () => {
             // Arrange
             await pieCookieBannerComponent.load({});
-            await pieCookieBannerComponent.emitEvent(ON_COOKIE_BANNER_ACCEPT_ALL);
+            await pieCookieBannerComponent.listenForEvent(ON_COOKIE_BANNER_ACCEPT_ALL);
 
             // Act
             await pieCookieBannerComponent.clickAcceptAll(level);
@@ -59,7 +59,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         test(`should emit the correct event and close the cookie banner when "Necessary only" is clicked via element = ${elementLevel.name}`, async () => {
         // Arrange
             await pieCookieBannerComponent.load({});
-            await pieCookieBannerComponent.emitEvent(ON_COOKIE_BANNER_NECESSARY_ONLY);
+            await pieCookieBannerComponent.listenForEvent(ON_COOKIE_BANNER_NECESSARY_ONLY);
 
             // Act
             await pieCookieBannerComponent.clickNecessaryOnlyAll(level);
@@ -78,7 +78,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         test(`should emit the correct event, open the modal and hide the cookie banner when "Manage preferences" is clicked via element ${elementLevel.name}`, async () => {
         // Arrange
             await pieCookieBannerComponent.load({});
-            await pieCookieBannerComponent.emitEvent(ON_COOKIE_BANNER_MANAGE_PREFS);
+            await pieCookieBannerComponent.listenForEvent(ON_COOKIE_BANNER_MANAGE_PREFS);
 
             // Act
             await pieCookieBannerComponent.clickManagePreferencesAll(level);
@@ -113,7 +113,7 @@ test.describe('PieCookieBanner - Component tests', () => {
     test('should close the modal and cookie banner and emit the save event when the save button in "Manage preferences" is clicked', async () => {
         // Arrange
         await pieCookieBannerComponent.load({});
-        await pieCookieBannerComponent.emitEvent(ON_COOKIE_BANNER_PREFS_SAVED);
+        await pieCookieBannerComponent.listenForEvent(ON_COOKIE_BANNER_PREFS_SAVED);
 
         // Act
         await pieCookieBannerComponent.clickManagePreferencesAction();

@@ -281,30 +281,4 @@ export class CookieBannerComponent extends BasePage {
     async getModalCookieTechnologiesLinkAttribute (attribute: string) : Promise<string | null> {
         return this.modalDescriptionLocator.locator(this.bodyCookieTechnologiesLinkLocator).getAttribute(attribute);
     }
-
-    /**
-     * Emits an on push event that has been passed through from the test
-     */
-    async emitEvent (eventName: string) {
-        await this.page.evaluate(() => {
-            (window as any).__eventsArray = [];
-        });
-
-        await this.page.evaluate((event) => {
-            window.addEventListener(event, (e) => {
-                (window as any).__eventsArray.push(e.type);
-            });
-        }, eventName);
-    }
-
-    /**
-     * Retrieves the emitted event from an events array
-     *
-     * @param {string} attribute The name of the attribute to retrieve.
-     * @returns {Promise<string | null>} A Promise that resolves to the value of the specified attribute
-     *                                   on the recieved event array on the page evaluate, or `null` if the attribute does not exist.
-     */
-    async getCapturedEvents (): Promise<string[]> {
-        return this.page.evaluate(() => (window as any).__eventsArray);
-    }
 }
