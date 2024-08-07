@@ -33,7 +33,7 @@
     "@justeattakeaway/pie-switch": "0.29.11",
     "@justeattakeaway/pie-tag": "0.9.8",
     "@justeattakeaway/pie-text-input": "0.23.2",
-    "@justeattakeaway/pie-textarea": "0.5.0",
+    "@justeattakeaway/pie-textarea": "0.0.0",
     "@justeattakeaway/pie-toast": "0.2.1",
     "dompurify": "3.0.11"
   },
