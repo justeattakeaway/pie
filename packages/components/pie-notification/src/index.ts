@@ -47,7 +47,7 @@ export * from './defs';
  */
 export class PieNotification extends LitElement implements NotificationProps {
     @state()
-        hasExternalIcon = false;
+    private hasExternalIcon = false;
 
     @property({ type: Boolean })
     public isOpen = defaultProps.isOpen;
