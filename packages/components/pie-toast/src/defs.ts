@@ -1,5 +1,7 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
+export const variants = ['neutral', 'info', 'warning', 'success', 'error'] as const;
+
 export type ActionProps = {
   /**
    * The text to display inside the button.
@@ -17,6 +19,15 @@ export interface ToastProps {
    * When true, the toast is set to be open and visible.
    */
   isOpen?: boolean;
+  /**
+   * Sets the variant of the toast.
+   */
+  variant?: typeof variants[number];
+
+  /**
+   * When true, the toast is displayed with a strong visual style.
+   */
+  isStrong?: boolean;
   /**
    * When true, allows dismissing the toast by clicking on the close button.
    */
@@ -59,10 +70,12 @@ export const ON_TOAST_OPEN_EVENT = `${componentSelector}-open`;
  */
 export const ON_TOAST_LEADING_ACTION_CLICK_EVENT = `${componentSelector}-leading-action-click`;
 
-export type DefaultProps = ComponentDefaultProps<ToastProps, keyof Omit<ToastProps, 'leadingAction' | 'message'>>;
+export type DefaultProps = ComponentDefaultProps<ToastProps, keyof Omit<ToastProps, 'message' | 'leadingAction'>>;
 
 export const defaultProps: DefaultProps = {
     isOpen: true,
+    variant: 'neutral',
+    isStrong: false,
     isDismissible: true,
     isMultiline: false,
 };
