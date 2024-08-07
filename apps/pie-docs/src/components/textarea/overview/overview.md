@@ -81,7 +81,7 @@ Textareas differ from text inputs as they allow for multiline input, where users
 {% contentLayout %}
   {% contentItem %}
     <h4>Placeholder</h4>
-    <p>Placeholder text should not contain crucial information, and only displayed if beneficial to the user.</p>
+    <p>Placeholder text should not contain crucial information, and should only be displayed if beneficial to the user.</p>
     {% contentPageImage {
       src: "../../../assets/img/components/textarea/default.svg",
       width: "256px",
@@ -115,7 +115,7 @@ The height, unlike the width, of a textarea is flexible, with two different opti
   {% endcontentItem %}
   {% contentItem %}
     <h4>Manual-resize</h4>
-    <p>Used when the intended behavior is for the user to have control over the form’s height.</p>
+    <p>Used when the intended behaviour is for the user to have control over the form’s height.</p>
     {% contentPageImage {
       src: "../../../assets/img/components/textarea/manual-resize.svg",
       width: "256px",
@@ -178,7 +178,7 @@ Use a consistent height when it is being used alongside other form components on
 
 ### Placeholder
 
-Use clear placeholder text for the text input trigger so that users understand the purpose.
+Use clear placeholder text so that users understand the purpose of the textarea.
 
 {% contentPageImage {
     src:"../../../assets/img/components/textarea/placeholder.svg",
@@ -274,7 +274,7 @@ The character limit and counter is used to let users know how long their entry c
 
 {% notification {
   type: "warning",
-  message: "Once the user reaches the character limit, they can’t enter more characters."
+  message: "Once the user reaches the character limit, they can’t enter any more characters."
 } %}
 
 {% contentLayout %}
@@ -282,14 +282,14 @@ The character limit and counter is used to let users know how long their entry c
     {% contentPageImage {
       src: "../../../assets/img/components/textarea/character-counter-empty.svg",
       width: "256px",
-      alt: "An empty textarea component with a label and character counter on the right top. Counter shows that there is zero from fifty symbols."
+      alt: "An empty textarea component with a label and character counter on the top right. The counter shows zero out of fifty characters."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/textarea/character-counter.svg",
       width: "256px",
-      alt: "Textarea component with a label and text inside it. Textarea's character counter on the right top of the component shows that there are fifty from fifty symbols."
+      alt: "A textarea component with a label, and text inside it. The character counter on the top right of the component shows fifty out of fifty characters."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -307,14 +307,14 @@ The manual-resize feature on mobile devices doesn't provide an optimal user expe
     {% contentPageImage {
       src: "../../../assets/img/components/textarea/fixed-height.svg",
       width: "256px",
-      alt: "Textarea component with a label and text inside it. Textarea's character counter on the right top of the component shows that there are fifty from fifty symbols."
+      alt: "A textarea component with a label, and text inside it. The character counter on the top right of the component shows fifty out of fifty characters."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/textarea/scrolled.svg",
       width: "256px",
-      alt: "An example of a textarea component with a lot of text content inside on a mobile device. This textarea has a fixed height and scroll functionality."
+      alt: "An example of a textarea component containing lots of text content on a mobile device. This textarea has a fixed height and scroll functionality."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -398,7 +398,7 @@ Outlines the atomic level interactive elements for the component.
 
 ### LTR examples
 
-Here are some examples of Textareas in left-to-right context:
+Here are some examples of textareas in a left-to-right context:
 
 {% contentLayout %}
   {% contentItem %}
@@ -419,7 +419,7 @@ Here are some examples of Textareas in left-to-right context:
 
 ### RTL examples
 
-Here are some examples of Textareas in right-to-left context:
+Here are some examples of textareas in a right-to-left context:
 
 {% contentLayout %}
   {% contentItem %}
