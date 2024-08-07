@@ -235,14 +235,14 @@
         --modal-content-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
         --modal-content-padding-block: var(--dt-spacing-a);
         --modal-content-padding-inline: var(--dt-spacing-d);
-        --modal-content-margin-block-end: var(--dt-spacing-e);
+        --modal-content-padding-block-end: var(--dt-spacing-e);
 
         @media (min-width: $breakpoint-wide) {
             --modal-content-padding-inline: var(--dt-spacing-e);
         }
 
         position: relative;
-        min-block-size: var(--dt-spacing-j);
+        min-block-size: 128px;
 
         font-size: var(--modal-content-font-size);
         line-height: var(--modal-content-line-height);
@@ -251,12 +251,11 @@
         padding-inline-start: var(--modal-content-padding-inline);
         padding-inline-end: var(--modal-content-padding-inline);
         padding-block-start: var(--modal-content-padding-block);
-        margin-block-end: var(--modal-content-margin-block-end); // We require a bottom margin when there's no footer
+        padding-block-end: var(--modal-content-padding-block-end); // We require a larger bottom padding when there's no footer
         flex-grow: 1;
 
         &.c-modal-hasFooterActions {
           padding-block-end: var(--modal-content-padding-block);
-          margin-block-end: 0;
         }
 
         &--scrollable {
@@ -309,12 +308,16 @@
         pie-spinner {
             position: absolute;
             left: 50%;
-            top: 50%;
+            top: calc(50% - 10px);
             transform: translate(-50%, -50%);
         }
 
         & .c-modal-contentInner {
             display: none;
+        }
+
+        &.c-modal-hasFooterActions {
+          top: 50%;
         }
     }
 
