@@ -138,7 +138,7 @@
     "yarn": "3.8.1"
   },
   "resolutions": {
-    "@babel/traverse": "7.22.5",
+    "@babel/traverse": "7.23.2",
     "lit": "3.1.2",
     "tar": "6.2.1",
     "@playwright/experimental-ct-core": "1.41.0"
