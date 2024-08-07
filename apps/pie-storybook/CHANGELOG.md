@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.1.0
+
+### Minor Changes
+
+- [Added] - Character count and label to pie-textarea ([#1666](https://github.com/justeattakeaway/pie/pull/1666)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Added] - variant and isStrong props ([#1619](https://github.com/justeattakeaway/pie/pull/1619)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- Updated dependencies [[`576945ab0`](https://github.com/justeattakeaway/pie/commit/576945ab03497a7ad333a818dc0fa212beb18e58), [`576945ab0`](https://github.com/justeattakeaway/pie/commit/576945ab03497a7ad333a818dc0fa212beb18e58), [`2af0d5093`](https://github.com/justeattakeaway/pie/commit/2af0d5093e456195083bbff32d075b24aee3354e)]:
+  - @justeattakeaway/pie-form-label@0.14.0
+  - @justeattakeaway/pie-textarea@0.6.0
+  - @justeattakeaway/pie-toast@0.3.0
+
 ## 1.0.0
 
 ### Major Changes
