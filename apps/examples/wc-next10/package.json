@@ -27,6 +27,9 @@
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4"
   },
+  "resolutions": {
+    "@babel/traverse": "7.22.5"
+  },
   "engines": {
     "node": "<=16.19.0"
   },
