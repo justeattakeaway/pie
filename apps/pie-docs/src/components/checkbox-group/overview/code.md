@@ -133,6 +133,21 @@ import { PieCheckboxGroup } from '@justeattakeaway/pie-checkbox-group/dist/react
 </PieCheckboxGroup>
 ```
 
+## Forms Usage
+Please use the [form label](/components/form-label/) component for adding a label to the Checkbox Group component. Similar to native HTML, the label should be a sibling of the input component and reference the input's `id` attribute using the `for` attribute.
+
+```html
+ <PieCheckboxGroup>
+  <PieFormLabel slot="label">Choose the way we can contact you:</PieFormLabel>
+  <PieCheckbox>
+    Contact By Email
+  </PieCheckbox>
+  <PieCheckbox>
+    Contact By Phone
+  </PieCheckbox>
+</PieCheckboxGroup>
+```
+
 ## Changelog
 
 {% notification {
