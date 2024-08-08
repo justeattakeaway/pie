@@ -1,5 +1,37 @@
 # @justeattakeaway/pie-webc
 
+## 0.5.18
+
+### Patch Changes
+
+- Updated dependencies [[`576945ab0`](https://github.com/justeattakeaway/pie/commit/576945ab03497a7ad333a818dc0fa212beb18e58), [`576945ab0`](https://github.com/justeattakeaway/pie/commit/576945ab03497a7ad333a818dc0fa212beb18e58), [`2af0d5093`](https://github.com/justeattakeaway/pie/commit/2af0d5093e456195083bbff32d075b24aee3354e)]:
+  - @justeattakeaway/pie-form-label@0.14.0
+  - @justeattakeaway/pie-textarea@0.6.0
+  - @justeattakeaway/pie-toast@0.3.0
+
+## 0.5.17
+
+### Patch Changes
+
+- Updated dependencies [[`bde5fdf8e`](https://github.com/justeattakeaway/pie/commit/bde5fdf8e7988963227fbf03229589199073cdcb), [`55857dadc`](https://github.com/justeattakeaway/pie/commit/55857dadc970f8883e1a90b9d0e62da8a90f4a9e), [`61fadf0f2`](https://github.com/justeattakeaway/pie/commit/61fadf0f2e56efcf583a8268e30c442c92e3b075), [`971a6a314`](https://github.com/justeattakeaway/pie/commit/971a6a314693cb6389291dc68d60bff0af929c5b), [`bde5fdf8e`](https://github.com/justeattakeaway/pie/commit/bde5fdf8e7988963227fbf03229589199073cdcb)]:
+  - @justeattakeaway/pie-checkbox@0.11.0
+  - @justeattakeaway/pie-toast@0.2.1
+  - @justeattakeaway/pie-cookie-banner@0.23.0
+  - @justeattakeaway/pie-modal@0.44.0
+  - @justeattakeaway/pie-textarea@0.5.0
+  - @justeattakeaway/pie-checkbox-group@0.5.0
+
+## 0.5.16
+
+### Patch Changes
+
+- Updated dependencies [[`100701cf3`](https://github.com/justeattakeaway/pie/commit/100701cf3ce41cd29e24035d628e226e9e322d66), [`42cc25ee9`](https://github.com/justeattakeaway/pie/commit/42cc25ee922dfd47c8cb36277ba4f4f7e749b828), [`42cc25ee9`](https://github.com/justeattakeaway/pie/commit/42cc25ee922dfd47c8cb36277ba4f4f7e749b828), [`42cc25ee9`](https://github.com/justeattakeaway/pie/commit/42cc25ee922dfd47c8cb36277ba4f4f7e749b828)]:
+  - @justeattakeaway/pie-toast@0.2.0
+  - @justeattakeaway/pie-assistive-text@0.6.0
+  - @justeattakeaway/pie-checkbox-group@0.4.0
+  - @justeattakeaway/pie-checkbox@0.10.0
+  - @justeattakeaway/pie-text-input@0.23.2
+
 ## 0.5.15
 
 ### Patch Changes

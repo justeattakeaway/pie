@@ -90,6 +90,11 @@ export default {
         viewport: {
             viewports: CUSTOM_VIEWPORTS
         },
-        layout: 'centered'
+        layout: 'centered',
+        options: {
+            storySort: {
+                method: 'alphabetical',
+            }
+        }
     }
 };

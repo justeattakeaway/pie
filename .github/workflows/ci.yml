@@ -45,6 +45,9 @@ env:
   PERCY_TOKEN_PIE_TEXTAREA: ${{ secrets.PERCY_TOKEN_PIE_TEXTAREA }}
   PERCY_TOKEN_PIE_TOAST: ${{ secrets.PERCY_TOKEN_PIE_TOAST }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  PERCY_DO_NOT_CAPTURE_RESPONSIVE_ASSETS: true
+  PERCY_PAGE_LOAD_TIMEOUT: 60000
+  PERCY_NETWORK_IDLE_WAIT_TIMEOUT: 60000
 
 jobs:
   dependency-changeset:
@@ -75,7 +78,7 @@ jobs:
       - name: Verify if pie-docs has changes
         id: docs-check
         run: |
-          DOCS_CHANGE=$(npx -y turbo run build --filter='{./apps/pie-docs}...[origin/main]' --dry=json | jq '.packages | length > 0')
+          DOCS_CHANGE=$(npx -y turbo run build --filter='pie-docs[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $DOCS_CHANGE"
           echo "docs-change=$DOCS_CHANGE" >> $GITHUB_OUTPUT
       - name: Verify if web components have changes
@@ -87,7 +90,7 @@ jobs:
       - name: Verify if storybook has changes
         id: storybook-check
         run: |
-          STORYBOOK_CHANGE=$(npx -y turbo run build --filter='{./apps/pie-storybook}...[origin/main]' --dry=json | jq '.packages | length > 0')
+          STORYBOOK_CHANGE=$(npx -y turbo run build --filter='pie-storybook[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $STORYBOOK_CHANGE"
           echo "storybook-change=$STORYBOOK_CHANGE" >> $GITHUB_OUTPUT
 
@@ -210,7 +213,7 @@ jobs:
         uses: ./.github/actions/run-script
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='{./packages/components/*}...[HEAD^1]'"
+          script-name: "test:visual:ci --filter='{./packages/components/*}[HEAD^1]'"
           concurrency: 1
       - name: Run Changed Package Visual Tests
         uses: ./.github/actions/run-script
@@ -287,7 +290,7 @@ jobs:
         uses: ./.github/actions/run-script
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='pie-docs...[HEAD^1]'"
+          script-name: "test:visual:ci --filter=pie-docs[HEAD^1]"
           concurrency: 1
       - name: Run Changed Package Visual Tests
         uses: ./.github/actions/run-script

@@ -1,5 +1,23 @@
 # Changelog
 
+## 3.48.0
+
+### Minor Changes
+
+- [Added] - PIE Checkbox Group Component overview page. ([#1665](https://github.com/justeattakeaway/pie/pull/1665)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Changed] - PIE Checkbox checkbox-checked-LTR.svg update.
+
+### Patch Changes
+
+- [Fixed] - Conflict in ordering of pages in Foundations section ([#1661](https://github.com/justeattakeaway/pie/pull/1661)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 3.47.1
+
+### Patch Changes
+
+- [Added] - New prop for PIE Assistive Text component props json. ([#1630](https://github.com/justeattakeaway/pie/pull/1630)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 3.47.0
 
 ### Minor Changes
