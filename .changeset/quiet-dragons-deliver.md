@@ -2,4 +2,4 @@
 "pie-docs": minor
 ---
 
-[Updated] - Icon categories to follow alphabetical order.
+[Updated] - Icons to follow alphabetical order.
