@@ -1,0 +1,14 @@
+{
+  "headings": [
+    "Event",
+    "Type",
+    "Description"
+  ],
+  "rows": [
+    [
+      "`change`",
+      "`CustomEvent`",
+      "Triggered after the checked state of a checkbox changes."
+    ]
+  ]
+}
