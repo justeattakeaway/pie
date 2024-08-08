@@ -4,6 +4,8 @@ import {
     TemplateResult,
 } from 'lit';
 
+import defaultLocale from '../locales/en-gb.json' assert { type: 'json' };
+
 export interface CookieBannerLocale {
     banner: {
         title: string;
@@ -144,3 +146,11 @@ export interface CustomTagEnhancers {
 }
 
 export type DefaultProps = ComponentDefaultProps<CookieBannerProps>;
+
+export const defaultProps: DefaultProps = {
+    hasPrimaryActionsOnly: false,
+    defaultPreferences: {},
+    locale: defaultLocale,
+    cookieStatementLink: '',
+    cookieTechnologiesLink: '',
+};
