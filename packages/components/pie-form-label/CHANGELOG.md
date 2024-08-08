@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-form-label
 
+## 0.14.0
+
+### Minor Changes
+
+- [Added] - data test id to leading and trailing label content ([#1666](https://github.com/justeattakeaway/pie/pull/1666)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.13.6
 
 ### Patch Changes
