@@ -318,7 +318,9 @@
         }
 
         &.c-modal-hasFooterActions {
-          top: 50%;
+          pie-spinner {
+            top: 50%;
+          }
         }
     }
 
