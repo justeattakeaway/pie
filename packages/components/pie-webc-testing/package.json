@@ -15,6 +15,9 @@
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix"
   },
+  "devDependencies": {
+    "@justeattakeaway/pie-css": "0.12.1"
+  },
   "peerDependencies": {
     "@axe-core/playwright": "^4.0.0",
     "@playwright/test": "^1.32.3"
