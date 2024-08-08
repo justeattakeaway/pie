@@ -24,8 +24,8 @@ import '@justeattakeaway/pie-icons-webc/dist/IconKey.js';
 
 // Extending the props type definition to include storybook specific properties for controls
 type TextInputProps = TextInputPropsBase & {
-    leadingSlot: typeof slotOptions[number];
-    trailingSlot: typeof slotOptions[number];
+    leadingSlot: keyof typeof leadingSlotOptions;
+    trailingSlot: keyof typeof trailingSlotOptions;
 };
 
 type TextInputStoryMeta = StoryMeta<TextInputProps>;
@@ -37,7 +37,17 @@ const defaultArgs: TextInputProps = {
     trailingSlot: 'None',
 };
 
-const slotOptions = ['Icon (Placeholder)', 'Short text (#)', 'None'] as const;
+const leadingSlotOptions = {
+    None: nothing,
+    'Icon (Placeholder)': html`<icon-placeholder slot="leadingIcon"></icon-placeholder>`,
+    'Short text (#)': html`<span slot="leadingText">#</span>`,
+};
+
+const trailingSlotOptions = {
+    None: nothing,
+    'Icon (Placeholder)': html`<icon-placeholder slot="trailingIcon"></icon-placeholder>`,
+    'Short text (#)': html`<span slot="trailingText">#</span>`,
+};
 
 const textInputStoryMeta: TextInputStoryMeta = {
     title: 'Text Input',
@@ -168,13 +178,15 @@ const textInputStoryMeta: TextInputStoryMeta = {
             name: 'Leading Slot',
             description: '<b>**Not a component Prop</b><br><br>Use the `leadingText` slot for alphanumeric content (wrap the text in a `<span>`) or `leadingIcon` for icons.',
             control: 'select',
-            options: slotOptions,
+            options: Object.keys(leadingSlotOptions),
+            mapping: leadingSlotOptions,
         },
         trailingSlot: {
             name: 'Trailing Slot',
             description: '<b>**Not a component Prop</b><br><br>Use the `trailingText` slot for alphanumeric content (wrap the text in a `<span>`) or `trailingIcon` for icons.',
             control: 'select',
-            options: slotOptions,
+            options: Object.keys(trailingSlotOptions),
+            mapping: trailingSlotOptions,
         },
         assistiveText: {
             description: 'An optional assistive text to display below the input element. Must be provided when the status is success or error.',
@@ -259,30 +271,6 @@ const Template = ({
         });
     }
 
-    function renderLeadingSlot (slotValue: typeof slotOptions[number]) {
-        if (slotValue === slotOptions[0]) {
-            return html`<icon-placeholder slot="leadingIcon"></icon-placeholder>`;
-        }
-
-        if (slotValue === slotOptions[1]) {
-            return html`<span slot="leadingText">#</span>`;
-        }
-
-        return nothing;
-    }
-
-    function renderTrailingSlot (slotValue: typeof slotOptions[number]) {
-        if (slotValue === slotOptions[0]) {
-            return html`<icon-placeholder slot="trailingIcon"></icon-placeholder>`;
-        }
-
-        if (slotValue === slotOptions[1]) {
-            return html`<span slot="trailingText">#</span>`;
-        }
-
-        return nothing;
-    }
-
     return html`
         <pie-text-input
             type="${ifDefined(type)}"
@@ -308,8 +296,8 @@ const Template = ({
             ?required="${required}"
             @input="${onInput}"
             @change="${onChange}">
-            ${renderLeadingSlot(leadingSlot)}
-            ${renderTrailingSlot(trailingSlot)}
+                ${leadingSlot}
+                ${trailingSlot}
         </pie-text-input>
     `;
 };
