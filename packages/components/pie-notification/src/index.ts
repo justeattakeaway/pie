@@ -42,6 +42,8 @@ export * from './defs';
  * @event {CustomEvent} pie-notification-supporting-action-click - When the notification supporting action is clicked.
  * @event {CustomEvent} pie-notification-close - When the notification is closed.
  * @event {CustomEvent} pie-notification-open - When the notification is opened.
+ * @slot - Default slot
+ * @slot icon - The icon slot
  */
 export class PieNotification extends LitElement implements NotificationProps {
     @property({ type: Boolean })
@@ -107,9 +109,13 @@ export class PieNotification extends LitElement implements NotificationProps {
     private renderFooter () {
         const { leadingAction, supportingAction } = this;
         return html`
-            <footer class="${componentClass}-footer" data-test-id="${componentSelector}-footer" ?isCompact="${this.isCompact}" ?isStacked="${this.hasStackedActions && !this.isCompact}">
-                ${supportingAction ? this.renderActionButton(supportingAction, 'supporting') : nothing}
-                ${leadingAction ? this.renderActionButton(leadingAction, 'leading') : nothing}
+            <footer    
+                class="${componentClass}-footer" 
+                data-test-id="${componentSelector}-footer" 
+                ?isCompact="${this.isCompact}" 
+                ?isStacked="${this.hasStackedActions && !this.isCompact}">
+                    ${supportingAction ? this.renderActionButton(supportingAction, 'supporting') : nothing}
+                    ${leadingAction ? this.renderActionButton(leadingAction, 'leading') : nothing}
             </footer>
         `;
     }
@@ -160,12 +166,7 @@ export class PieNotification extends LitElement implements NotificationProps {
      * @private
      */
     private renderIcon (): TemplateResult | typeof nothing {
-        const hasExternalIcon = this._iconSlot.length > 0;
-
-        return html`
-                ${!hasExternalIcon ? this.getDefaultVariantIcon() : nothing}
-                <slot name="icon"></slot>
-        `;
+        return html`<slot name="icon">${this.getDefaultVariantIcon()}</slot>`;
     }
 
     /**
@@ -194,21 +195,12 @@ export class PieNotification extends LitElement implements NotificationProps {
      * @private
      */
     private handleCloseButton () {
-        this.closeNotificationComponent();
+        this.isOpen = false;
         dispatchCustomEvent(this, ON_NOTIFICATION_CLOSE_EVENT, { targetNotification: this });
     }
 
     /**
-     * Util method responsible to close the component.
-     *
-     * @private
-     */
-    private closeNotificationComponent () {
-        this.isOpen = false;
-    }
-
-    /**
-     * It handle the action button action.
+     * It handles the action button action.
      * Also triggers an event according to its `actionType`.
      *
      * @param {'leading' | 'supporting'} actionType

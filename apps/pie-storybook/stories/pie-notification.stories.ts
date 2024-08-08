@@ -11,10 +11,15 @@ import {
 
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
-import { type StoryMeta, SlottedComponentProps } from '../types';
+import { type StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
-type NotificationProps = SlottedComponentProps<NotificationBaseProps>;
+// Extending the props type definition to include storybook specific properties for controls
+type NotificationProps = NotificationBaseProps & {
+    slot: string;
+    iconSlot: keyof typeof slotOptions;
+};
+
 type NotificationStoryMeta = StoryMeta<NotificationProps>;
 
 const defaultArgs: NotificationProps = {
@@ -29,6 +34,12 @@ const defaultArgs: NotificationProps = {
         text: 'Cancel',
         ariaLabel: 'Descriptive cancellation text',
     },
+    iconSlot: 'None',
+};
+
+const slotOptions = {
+    None: nothing,
+    Placeholder: html`<icon-placeholder slot="icon"></icon-placeholder>`,
 };
 
 const notificationStoryMeta: NotificationStoryMeta = {
@@ -111,6 +122,13 @@ const notificationStoryMeta: NotificationStoryMeta = {
             description: 'Content to place within the notification.',
             control: 'text',
         },
+        iconSlot: {
+            name: 'Icon Slot',
+            options: Object.keys(slotOptions),
+            description: '<b>**Not a component prop</b><br><br>Use the `icon` slot to pass a PIE icon component that differs from the default icon.',
+            control: 'select',
+            mapping: slotOptions,
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -141,10 +159,8 @@ const Template : TemplateFunction<NotificationProps> = ({
     supportingAction,
     hasStackedActions,
     slot,
-}) => {
-    const shouldShowPlaceholderIcon = variant && ['neutral', 'neutral-alternative'].includes(variant);
-
-    return html`
+    iconSlot,
+}) => html`
     <pie-notification
         ?isOpen="${isOpen}"
         variant="${ifDefined(variant)}"
@@ -160,12 +176,10 @@ const Template : TemplateFunction<NotificationProps> = ({
         @pie-notification-leading-action-click="${pieNotificationLeadingActionClick}"
         @pie-notification-supporting-action-click="${pieNotificationSupportingActionClick}"
         @pie-notification-close="${pieNotificationClose}"
-        @pie-notification-open="${pieNotificationOpen}"
-        >
-            ${shouldShowPlaceholderIcon ? html`<icon-placeholder slot="icon"></icon-placeholder>` : nothing}
+        @pie-notification-open="${pieNotificationOpen}">
+            ${iconSlot}
             ${slot}
     </pie-notification>`;
-};
 
 const createNotificationStory = createStory<NotificationProps>(Template, defaultArgs);
 
