@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-toast
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - variant and isStrong props ([#1619](https://github.com/justeattakeaway/pie/pull/1619)) by [@thejfreitas](https://github.com/thejfreitas)
+
 ## 0.2.1
 
 ### Patch Changes

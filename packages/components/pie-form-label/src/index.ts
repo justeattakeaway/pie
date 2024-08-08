@@ -60,10 +60,10 @@ export class PieFormLabel extends RtlMixin(LitElement) implements FormLabelProps
                 for=${ifDefined(this.for)}>
                     <div>
                         ${isRTL ? this._renderOptionalLabel() : nothing}
-                        <span class="c-formLabel-leading"><slot></slot></span>
+                        <span class="c-formLabel-leading" data-test-id="pie-form-label-leading"><slot></slot></span>
                         ${!isRTL ? this._renderOptionalLabel() : nothing}
                     </div>
-                    ${trailing ? html`<span class="c-formLabel-trailing">${trailing}</span>` : nothing}
+                    ${trailing ? html`<span class="c-formLabel-trailing" data-test-id="pie-form-label-trailing">${trailing}</span>` : nothing}
             </label>`;
     }
 

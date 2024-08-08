@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import { ToastProps, defaultProps } from '@justeattakeaway/pie-toast';
+import { ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
 import { action } from '@storybook/addon-actions';
 import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
@@ -24,6 +24,21 @@ const toastStoryMeta: ToastStoryMeta = {
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isOpen,
+            },
+        },
+        variant: {
+            description: 'Set the variant of the notification.',
+            control: 'select',
+            options: variants,
+            defaultValue: {
+                summary: defaultProps.variant,
+            },
+        },
+        isStrong: {
+            description: 'When true, the toast is displayed with a strong visual style.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.isStrong,
             },
         },
         isDismissible: {
@@ -73,10 +88,14 @@ const Template = ({
     message,
     leadingAction,
     isMultiline,
+    isStrong,
+    variant,
 }: ToastProps) => html`
     <pie-toast 
         ?isOpen="${isOpen}" 
         ?isDismissible="${isDismissible}" 
+        ?isStrong="${isStrong}"
+        variant="${variant}"
         message="${message}" 
         ?isMultiline="${isMultiline}"
         .leadingAction="${leadingAction}"
