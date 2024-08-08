@@ -26,7 +26,7 @@ test.describe('PieCookieBanner - Component tests', () => {
 
     test('should render successfully', async () => {
         // Arrange
-        await pieCookieBannerComponent.load({});
+        await pieCookieBannerComponent.load();
 
         // Act
         const isCookieBannerVisible = await pieCookieBannerComponent.isCookieBannerVisible();
@@ -39,7 +39,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         const level = elementLevel.name as Level;
         test(`should emit the correct event and close the cookie banner when "Accept all" is clicked via element ${elementLevel.name}`, async () => {
             // Arrange
-            await pieCookieBannerComponent.load({});
+            await pieCookieBannerComponent.load();
             await pieCookieBannerComponent.listenForEvent(ON_COOKIE_BANNER_ACCEPT_ALL);
 
             // Act
@@ -58,7 +58,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         const level = elementLevel.name as Level;
         test(`should emit the correct event and close the cookie banner when "Necessary only" is clicked via element = ${elementLevel.name}`, async () => {
         // Arrange
-            await pieCookieBannerComponent.load({});
+            await pieCookieBannerComponent.load();
             await pieCookieBannerComponent.listenForEvent(ON_COOKIE_BANNER_NECESSARY_ONLY);
 
             // Act
@@ -77,7 +77,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         const level = elementLevel.name as Level;
         test(`should emit the correct event, open the modal and hide the cookie banner when "Manage preferences" is clicked via element ${elementLevel.name}`, async () => {
         // Arrange
-            await pieCookieBannerComponent.load({});
+            await pieCookieBannerComponent.load();
             await pieCookieBannerComponent.listenForEvent(ON_COOKIE_BANNER_MANAGE_PREFS);
 
             // Act
@@ -96,7 +96,7 @@ test.describe('PieCookieBanner - Component tests', () => {
 
     test('should close the modal and re-display the cookie banner when the back button in "Manage preferences" is clicked', async () => {
         // Arrange
-        await pieCookieBannerComponent.load({});
+        await pieCookieBannerComponent.load();
 
         // Act
         await pieCookieBannerComponent.clickManagePreferencesAction();
@@ -112,7 +112,7 @@ test.describe('PieCookieBanner - Component tests', () => {
 
     test('should close the modal and cookie banner and emit the save event when the save button in "Manage preferences" is clicked', async () => {
         // Arrange
-        await pieCookieBannerComponent.load({});
+        await pieCookieBannerComponent.load();
         await pieCookieBannerComponent.listenForEvent(ON_COOKIE_BANNER_PREFS_SAVED);
 
         // Act
@@ -131,7 +131,7 @@ test.describe('PieCookieBanner - Component tests', () => {
 
     test('should always toggle the `necessary` preference and set it to disabled', async () => {
         // Arrange
-        await pieCookieBannerComponent.load({});
+        await pieCookieBannerComponent.load();
 
         // Act
         await pieCookieBannerComponent.clickManagePreferencesAction();

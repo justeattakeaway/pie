@@ -20,7 +20,7 @@ export class BasePage {
         this.args = '';
     }
 
-    async load (queries: Record<string, unknown>) {
+    async load (queries: Record<string, unknown> = {}) {
         const pageUrl = buildUrl(this.componentName, this.composePath(queries), this.args);
         await this.open(pageUrl);
     }

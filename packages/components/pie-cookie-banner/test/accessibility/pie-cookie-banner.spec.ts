@@ -4,7 +4,7 @@ import { CookieBannerComponent } from '../helpers/page-object/pie-cookie-banner.
 test.describe('PieCookieBanner - Accessibility tests', () => {
     test('a11y - should test the PieCookieBanner component WCAG compliance', async ({ makeAxeBuilder, page }) => {
         const cookieBannerPage = new CookieBannerComponent(page);
-        await cookieBannerPage.load('');
+        await cookieBannerPage.load();
 
         const results = await makeAxeBuilder().analyze();
 
