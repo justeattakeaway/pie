@@ -157,18 +157,6 @@
                     "displayName": "Microphone"
                 },
                 {
-                    "name": "sound-on",
-                    "displayName": "Sound On"
-                },
-                {
-                    "name": "sound-on-filled",
-                    "displayName": "Sound On Filled"
-                },
-                {
-                    "name": "sound-off",
-                    "displayName": "Sound Off"
-                },
-                {
                     "name": "pause",
                     "displayName": "Pause"
                 },
@@ -191,6 +179,18 @@
                 {
                     "name": "play-circle-filled",
                     "displayName": "Play Circle Filled"
+                },
+                {
+                    "name": "sound-off",
+                    "displayName": "Sound Off"
+                },
+                {
+                    "name": "sound-on",
+                    "displayName": "Sound On"
+                },
+                {
+                    "name": "sound-on-filled",
+                    "displayName": "Sound On Filled"
                 }
             ]
         },
@@ -243,6 +243,10 @@
                 {
                     "name": "offer",
                     "displayName": "Offer"
+                },
+                {
+                    "name": "offer-filled",
+                    "displayName": "Offer Filled"
                 },
                 {
                     "name": "offer-star",
@@ -451,20 +455,20 @@
             "displayName": "Controls",
             "icons": [
                 {
-                    "name": "checkbox-unselected",
-                    "displayName": "Checkbox"
-                },
-                {
                     "name": "checkbox-selected",
                     "displayName": "Checkbox Selected"
                 },
                 {
-                    "name": "radio-unselected",
-                    "displayName": "Radio"
+                    "name": "checkbox-unselected",
+                    "displayName": "Checkbox"
                 },
                 {
                     "name": "radio-selected",
                     "displayName": "Radio Selected"
+                },
+                {
+                  "name": "radio-unselected",
+                  "displayName": "Radio"
                 }
             ]
         },
@@ -537,6 +541,10 @@
                 {
                     "name": "euro",
                     "displayName": "Euro"
+                },
+                {
+                    "name": "krone",
+                    "displayName": "Krone"
                 },
                 {
                     "name": "lei",
@@ -647,16 +655,16 @@
             "displayName": "Documents",
             "icons": [
                 {
+                    "name": "document",
+                    "displayName": "Document"
+                },
+                {
                     "name": "consent",
                     "displayName": "Consent"
                 },
                 {
                     "name": "cookie-policy",
                     "displayName": "Cookie Policy"
-                },
-                {
-                    "name": "document",
-                    "displayName": "Document"
                 },
                 {
                     "name": "terms-and-conditions",
@@ -699,20 +707,20 @@
             "displayName": "Eye",
             "icons": [
                 {
-                    "name": "eye-on",
-                    "displayName": "Eye On"
-                },
-                {
-                    "name": "eye-on-filled",
-                    "displayName": "Eye On Filled"
-                },
-                {
                     "name": "eye-off",
                     "displayName": "Eye Off"
                 },
                 {
                     "name": "eye-off-filled",
                     "displayName": "Eye Off Filled"
+                },
+                {
+                    "name": "eye-on",
+                    "displayName": "Eye On"
+                },
+                {
+                    "name": "eye-on-filled",
+                    "displayName": "Eye On Filled"
                 }
             ]
         },
@@ -837,14 +845,6 @@
             "displayName": "Food",
             "icons": [
                 {
-                    "name": "food",
-                    "displayName": "Food"
-                },
-                {
-                    "name": "food-filled",
-                    "displayName": "Food Filled"
-                },
-                {
                     "name": "alcohol",
                     "displayName": "Alcohol"
                 },
@@ -859,6 +859,14 @@
                 {
                     "name": "drink",
                     "displayName": "Drink"
+                },
+                {
+                    "name": "food",
+                    "displayName": "Food"
+                },
+                {
+                    "name": "food-filled",
+                    "displayName": "Food Filled"
                 },
                 {
                     "name": "fried-chicken",
@@ -919,12 +927,12 @@
             "displayName": "Fullscreen",
             "icons": [
                 {
-                    "name": "fullscreen-expand",
-                    "displayName": "Fullscreen Expand"
-                },
-                {
                     "name": "fullscreen-exit",
                     "displayName": "Fullscreen Exit"
+                },
+                {
+                    "name": "fullscreen-expand",
+                    "displayName": "Fullscreen Expand"
                 }
             ]
         },
@@ -932,6 +940,10 @@
             "name": "functionality",
             "displayName": "Functionality",
             "icons": [
+                {
+                    "name": "archive",
+                    "displayName": "Archive"
+                },
                 {
                     "name": "bookmark",
                     "displayName": "Bookmark"
@@ -965,38 +977,6 @@
                     "displayName": "Close Circle Filled"
                 },
                 {
-                    "name": "image-flip-horizontal",
-                    "displayName": "Image Flip Horizontal"
-                },
-                {
-                    "name": "image-flip-vertical",
-                    "displayName": "Image Flip Vertical"
-                },
-                {
-                    "name": "minus",
-                    "displayName": "Minus"
-                },
-                {
-                    "name": "minus-circle",
-                    "displayName": "Minus Circle"
-                },
-                {
-                    "name": "minus-circle-filled",
-                    "displayName": "Minus Circle Filled"
-                },
-                {
-                    "name": "plus",
-                    "displayName": "Plus"
-                },
-                {
-                    "name": "plus-circle",
-                    "displayName": "Plus Circle"
-                },
-                {
-                    "name": "plus-circle-filled",
-                    "displayName": "Plus Circle Filled"
-                },
-                {
                     "name": "drag",
                     "displayName": "Drag"
                 },
@@ -1025,12 +1005,12 @@
                     "displayName": "Grid View Filled"
                 },
                 {
-                    "name": "more-horizontal",
-                    "displayName": "More Horizontal"
+                    "name": "image-flip-horizontal",
+                    "displayName": "Image Flip Horizontal"
                 },
                 {
-                    "name": "more-vertical",
-                    "displayName": "More Vertical"
+                    "name": "image-flip-vertical",
+                    "displayName": "Image Flip Vertical"
                 },
                 {
                     "name": "layers",
@@ -1049,6 +1029,26 @@
                     "displayName": "Menu"
                 },
                 {
+                    "name": "minus",
+                    "displayName": "Minus"
+                },
+                {
+                    "name": "minus-circle",
+                    "displayName": "Minus Circle"
+                },
+                {
+                    "name": "minus-circle-filled",
+                    "displayName": "Minus Circle Filled"
+                },
+                {
+                    "name": "more-horizontal",
+                    "displayName": "More Horizontal"
+                },
+                {
+                    "name": "more-vertical",
+                    "displayName": "More Vertical"
+                },
+                {
                     "name": "navigation-collapse",
                     "displayName": "Navigation Collapse"
                 },
@@ -1059,6 +1059,18 @@
                 {
                     "name": "note",
                     "displayName": "Note"
+                },
+                {
+                    "name": "plus",
+                    "displayName": "Plus"
+                },
+                {
+                    "name": "plus-circle",
+                    "displayName": "Plus Circle"
+                },
+                {
+                    "name": "plus-circle-filled",
+                    "displayName": "Plus Circle Filled"
                 },
                 {
                     "name": "refresh",
@@ -1105,12 +1117,12 @@
                     "displayName": "Sort Descending"
                 },
                 {
-                    "name": "switch-product",
-                    "displayName": "Switch Product"
-                },
-                {
                     "name": "sync",
                     "displayName": "Sync"
+                },
+                {
+                    "name": "switch-product",
+                    "displayName": "Switch Product"
                 },
                 {
                     "name": "trash",
@@ -1159,12 +1171,12 @@
                     "displayName": "Link"
                 },
                 {
-                    "name": "unlink",
-                    "displayName": "Unlink"
-                },
-                {
                     "name": "link-external",
                     "displayName": "External Link"
+                },
+                {
+                    "name": "unlink",
+                    "displayName": "Unlink"
                 }
             ]
         },
@@ -1269,8 +1281,16 @@
                     "displayName": "Books"
                 },
                 {
+                    "name": "building-blocks",
+                    "displayName": "Building Blocks"
+                },
+                {
                     "name": "bulb-lightning",
                     "displayName": "Bulb Lightning"
+                },
+                {
+                    "name": "cannabis",
+                    "displayName": "Cannabis"
                 },
                 {
                     "name": "cleaning",
@@ -1295,6 +1315,10 @@
                 {
                     "name": "electronic-accessories",
                     "displayName": "Electronic Accessories"
+                },
+                {
+                    "name": "experiment",
+                    "displayName": "Experiment"
                 },
                 {
                     "name": "flag",
@@ -1335,6 +1359,10 @@
                 {
                     "name": "paintbrush",
                     "displayName": "Paintbrush"
+                },
+                {
+                    "name": "pacifier",
+                    "displayName": "Pacifier"
                 },
                 {
                     "name": "pet-supplies",
@@ -1383,22 +1411,6 @@
                 {
                     "name": "tutorial",
                     "displayName": "Tutorial"
-                },
-                {
-                    "name": "cannabis",
-                    "displayName": "Cannabis"
-                },
-                {
-                    "name": "building-blocks",
-                    "displayName": "Building Blocks"
-                },
-                {
-                    "name": "pacifier",
-                    "displayName": "Pacifier"
-                },
-                {
-                    "name": "experiment",
-                    "displayName": "Experiment"
                 }
             ]
         },
@@ -1463,16 +1475,16 @@
                     "displayName": "Download"
                 },
                 {
-                    "name": "upload",
-                    "displayName": "Upload"
-                },
-                {
                     "name": "network-error",
                     "displayName": "Network Error"
                 },
                 {
                     "name": "rss",
                     "displayName": "RSS"
+                },
+                {
+                    "name": "upload",
+                    "displayName": "Upload"
                 },
                 {
                     "name": "wifi",
@@ -1491,6 +1503,10 @@
                 {
                     "name": "account-credit",
                     "displayName": "Account Credit"
+                },
+                {
+                    "name": "account-credit-filled",
+                    "displayName": "Account Credit Filled"
                 },
                 {
                     "name": "barcode",
@@ -1603,32 +1619,44 @@
             "displayName": "People",
             "icons": [
                 {
+                    "name": "baby-kid",
+                    "displayName": "Baby Kid"
+                },
+                {
                     "name": "face-happy",
                     "displayName": "Face Happy"
+                },
+                {
+                    "name": "users",
+                    "displayName": "Users"
                 },
                 {
                     "name": "user",
                     "displayName": "User"
                 },
                 {
-                    "name": "user-filled",
-                    "displayName": "User Filled"
+                    "name": "user-add",
+                    "displayName": "User Add"
                 },
                 {
                     "name": "user-circle",
                     "displayName": "User Circle"
                 },
                 {
+                    "name": "user-cancelled",
+                    "displayName": "User Cancelled"
+                },
+                {
                     "name": "user-circle-filled",
                     "displayName": "User Circle Filled"
                 },
                 {
-                    "name": "user-add",
-                    "displayName": "User Add"
-                },
-                {
                     "name": "user-community",
                     "displayName": "User Community"
+                },
+                {
+                    "name": "user-filled",
+                    "displayName": "User Filled"
                 },
                 {
                     "name": "user-group",
@@ -1643,6 +1671,10 @@
                     "displayName": "User Marker"
                 },
                 {
+                    "name": "user-move",
+                    "displayName": "User Move"
+                },
+                {
                     "name": "user-partnership",
                     "displayName": "User Partnership"
                 },
@@ -1653,14 +1685,6 @@
                 {
                     "name": "user-shield",
                     "displayName": "User Shield"
-                },
-                {
-                    "name": "users",
-                    "displayName": "Users"
-                },
-                {
-                    "name": "baby-kid",
-                    "displayName": "Baby Kid"
                 }
             ]
         },
@@ -1717,20 +1741,20 @@
                     "displayName": "Star"
                 },
                 {
-                    "name": "star-half-filled",
-                    "displayName": "Star Half Filled"
-                },
-                {
-                    "name": "star-filled",
-                    "displayName": "Star Filled"
-                },
-                {
                     "name": "star-circle",
                     "displayName": "Star Circle"
                 },
                 {
                     "name": "star-circle-filled",
                     "displayName": "Star Circle Filled"
+                },
+                {
+                    "name": "star-filled",
+                    "displayName": "Star Filled"
+                },
+                {
+                    "name": "star-half-filled",
+                    "displayName": "Star Half Filled"
                 }
             ]
         },
@@ -1819,6 +1843,10 @@
                     "displayName": "Restaurant Filled"
                 },
                 {
+                    "name": "restaurant-cancelled",
+                    "displayName": "Restaurant Cancelled"
+                },
+                {
                     "name": "restaurant-menu",
                     "displayName": "Restaurant Menu"
                 },
@@ -1841,12 +1869,12 @@
                     "displayName": "Ribbon Heart"
                 },
                 {
-                    "name": "ribbon-success",
-                    "displayName": "Ribbon Success"
-                },
-                {
                     "name": "ribbon-star",
                     "displayName": "Ribbon Star"
+                },
+                {
+                    "name": "ribbon-success",
+                    "displayName": "Ribbon Success"
                 }
             ]
         },
@@ -1880,53 +1908,18 @@
             "name": "social",
             "displayName": "Social",
             "icons": [
+
                 {
-                    "name": "facebook-static",
-                    "displayName": "Facebook Static"
+                    "name": "android-circle",
+                    "displayName": "Android Circle"
                 },
                 {
-                    "name": "facebook-circle",
-                    "displayName": "Facebook Circle"
+                    "name": "android-circle-filled",
+                    "displayName": "Android Circle Filled"
                 },
                 {
-                    "name": "facebook-circle-filled",
-                    "displayName": "Facebook Circle Filled"
-                },
-                {
-                    "name": "instagram-static",
-                    "displayName": "Instagram Static"
-                },
-                {
-                    "name": "instagram-circle",
-                    "displayName": "Instagram Circle"
-                },
-                {
-                    "name": "instagram-circle-filled",
-                    "displayName": "Instagram Circle Filled"
-                },
-                {
-                    "name": "twitter-static",
-                    "displayName": "Twitter Static"
-                },
-                {
-                    "name": "twitter-circle",
-                    "displayName": "Twitter Circle"
-                },
-                {
-                    "name": "twitter-circle-filled",
-                    "displayName": "Twitter Circle Filled"
-                },
-                {
-                    "name": "youtube-static",
-                    "displayName": "YouTube Static"
-                },
-                {
-                    "name": "youtube-circle",
-                    "displayName": "YouTube Circle"
-                },
-                {
-                    "name": "youtube-circle-filled",
-                    "displayName": "YouTube Circle Filled"
+                    "name": "android-static",
+                    "displayName": "Android Static"
                 },
                 {
                     "name": "apple",
@@ -1941,8 +1934,28 @@
                     "displayName": "Apple Circle Filled"
                 },
                 {
-                    "name": "google-static",
-                    "displayName": "Google Static"
+                    "name": "blogger-circle",
+                    "displayName": "Blogger Circle"
+                },
+                {
+                    "name": "blogger-circle-filled",
+                    "displayName": "Blogger Circle Filled"
+                },
+                {
+                    "name": "blogger-static",
+                    "displayName": "Blogger Static"
+                },
+                {
+                    "name": "facebook-circle",
+                    "displayName": "Facebook Circle"
+                },
+                {
+                    "name": "facebook-circle-filled",
+                    "displayName": "Facebook Circle Filled"
+                },
+                {
+                    "name": "facebook-static",
+                    "displayName": "Facebook Static"
                 },
                 {
                     "name": "google-circle",
@@ -1953,20 +1966,20 @@
                     "displayName": "Google Circle Filled"
                 },
                 {
-                    "name": "pinterest-static",
-                    "displayName": "Pinterest Static"
+                    "name": "google-static",
+                    "displayName": "Google Static"
                 },
                 {
-                    "name": "pinterest-circle",
-                    "displayName": "Pinterest Circle"
+                    "name": "instagram-circle",
+                    "displayName": "Instagram Circle"
                 },
                 {
-                    "name": "pinterest-circle-filled",
-                    "displayName": "Pinterest Circle Filled"
+                    "name": "instagram-circle-filled",
+                    "displayName": "Instagram Circle Filled"
                 },
                 {
-                    "name": "linkedin-static",
-                    "displayName": "LinkedIn Static"
+                    "name": "instagram-static",
+                    "displayName": "Instagram Static"
                 },
                 {
                     "name": "linkedin-circle",
@@ -1977,8 +1990,8 @@
                     "displayName": "LinkedIn Circle Filled"
                 },
                 {
-                    "name": "microsoft-static",
-                    "displayName": "Microsoft Static"
+                    "name": "linkedin-static",
+                    "displayName": "LinkedIn Static"
                 },
                 {
                     "name": "microsoft-circle",
@@ -1989,28 +2002,44 @@
                     "displayName": "Microsoft Circle Filled"
                 },
                 {
-                    "name": "blogger-static",
-                    "displayName": "Blogger Static"
+                    "name": "microsoft-static",
+                    "displayName": "Microsoft Static"
                 },
                 {
-                    "name": "blogger-circle",
-                    "displayName": "Blogger Circle"
+                    "name": "pinterest-circle",
+                    "displayName": "Pinterest Circle"
                 },
                 {
-                    "name": "blogger-circle-filled",
-                    "displayName": "Blogger Circle Filled"
+                    "name": "pinterest-circle-filled",
+                    "displayName": "Pinterest Circle Filled"
                 },
                 {
-                    "name": "android-static",
-                    "displayName": "Android Static"
+                    "name": "pinterest-static",
+                    "displayName": "Pinterest Static"
                 },
                 {
-                    "name": "android-circle",
-                    "displayName": "Android Circle"
+                    "name": "twitter-circle",
+                    "displayName": "Twitter Circle"
                 },
                 {
-                    "name": "android-circle-filled",
-                    "displayName": "Android Circle Filled"
+                    "name": "twitter-circle-filled",
+                    "displayName": "Twitter Circle Filled"
+                },
+                {
+                    "name": "twitter-static",
+                    "displayName": "Twitter Static"
+                },
+                {
+                    "name": "youtube-circle",
+                    "displayName": "YouTube Circle"
+                },
+                {
+                    "name": "youtube-circle-filled",
+                    "displayName": "YouTube Circle Filled"
+                },
+                {
+                    "name": "youtube-static",
+                    "displayName": "YouTube Static"
                 }
             ]
         },
@@ -2051,6 +2080,10 @@
                     "displayName": "Laptop Error"
                 },
                 {
+                    "name": "laptop-filled",
+                    "displayName": "Laptop Filled"
+                },
+                {
                     "name": "laptop-success",
                     "displayName": "Laptop Success"
                 },
@@ -2077,10 +2110,6 @@
                 {
                     "name": "printer-filled",
                     "displayName": "Printer Filled"
-                },
-                {
-                    "name": "laptop-filled",
-                    "displayName": "Laptop Filled"
                 }
             ]
         },
@@ -2089,20 +2118,20 @@
             "displayName": "Thumbs",
             "icons": [
                 {
-                    "name": "thumbs-up",
-                    "displayName": "Thumbs Up"
-                },
-                {
-                    "name": "thumbs-up-filled",
-                    "displayName": "Thumbs Up Filled"
-                },
-                {
                     "name": "thumbs-down",
                     "displayName": "Thumbs Down"
                 },
                 {
                     "name": "thumbs-down-filled",
                     "displayName": "Thumbs Down Filled"
+                },
+                {
+                    "name": "thumbs-up",
+                    "displayName": "Thumbs Up"
+                },
+                {
+                    "name": "thumbs-up-filled",
+                    "displayName": "Thumbs Up Filled"
                 }
             ]
         },
@@ -2115,16 +2144,16 @@
                     "displayName": "Clock"
                 },
                 {
-                    "name": "clock-filled",
-                    "displayName": "Clock Filled"
-                },
-                {
                     "name": "clock-add",
                     "displayName": "Clock Add"
                 },
                 {
                     "name": "clock-alert",
                     "displayName": "Clock Alert"
+                },
+                {
+                    "name": "clock-filled",
+                    "displayName": "Clock Filled"
                 },
                 {
                     "name": "clock-refresh",
@@ -2175,6 +2204,14 @@
                 {
                     "name": "driver-moped",
                     "displayName": "Driver Moped"
+                },
+                {
+                    "name": "ebike",
+                    "displayName": "eBike"
+                },
+                {
+                    "name": "ebike-filled",
+                    "displayName": "eBike Filled"
                 },
                 {
                     "name": "helmet",
