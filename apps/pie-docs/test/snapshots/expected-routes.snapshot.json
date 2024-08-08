@@ -23,6 +23,7 @@
     "components/card/code",
     "components/carousel-indicator",
     "components/checkbox",
+    "components/checkbox/overview/code",
     "components/checkbox-group",
     "components/chip",
     "components/chip/code",
