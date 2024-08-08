@@ -242,7 +242,7 @@
         }
 
         position: relative;
-        min-block-size: 128px;
+        min-block-size: 128px; // The sum of the minimum height and block paddings, when footerActions aren't rendered
 
         font-size: var(--modal-content-font-size);
         line-height: var(--modal-content-line-height);
@@ -256,6 +256,7 @@
 
         &.c-modal-hasFooterActions {
           padding-block-end: var(--modal-content-padding-block);
+          min-block-size: var(--dt-spacing-j);
         }
 
         &--scrollable {
@@ -308,7 +309,7 @@
         pie-spinner {
             position: absolute;
             left: 50%;
-            top: calc(50% - 10px);
+            top: calc(50% - 10px); // The 10px compensates for the block-bottom padding, when footerActions aren't rendered
             transform: translate(-50%, -50%);
         }
 
