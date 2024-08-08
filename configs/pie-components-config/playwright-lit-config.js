@@ -53,8 +53,8 @@ export function getPlaywrightConfig () {
             },
         ],
         webServer: {
-            command: 'npx turbo dev --filter=pie-storybook',
-            url: 'http://127.0.0.1:6006',
+            command: !process.env.CI ? 'npx turbo dev --filter=pie-storybook' : '',
+            url: 'http://localhost:6006',
             timeout: 120 * 10000,
             reuseExistingServer: !process.env.CI,
         },
