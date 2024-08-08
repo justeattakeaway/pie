@@ -2,6 +2,8 @@ import { test, expect } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 
+import { PieFormLabel } from '@justeattakeaway/pie-form-label';
+import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-direction.ts';
 import { PieTextarea } from '../../src/index.ts';
 import { sizes } from '../../src/defs.ts';
 
@@ -14,6 +16,9 @@ test.beforeEach(async ({ mount }, testInfo) => {
     // It appears to add them to a Playwright cache which we understand is required for the tests to work correctly.
     const component = await mount(PieTextarea);
     await component.unmount();
+
+    const label = await mount(PieFormLabel);
+    await label.unmount();
 });
 
 sizes.forEach((size) => {
@@ -140,5 +145,33 @@ test.describe('Resize mode:', () => {
 
             await percySnapshot(page, 'Textarea - resize: "manual" - with large height', percyWidths);
         });
+    });
+});
+
+test.describe('Label and Character count:', () => {
+    test('Renders the label and character count correctly', async ({ page, mount }) => {
+        await mount(PieTextarea, {
+            props: {
+                label: 'Label',
+                maxLength: 250,
+                value: 'This is a test value',
+            } as PieTextarea,
+        });
+
+        await percySnapshot(page, 'Textarea - with label and character count', percyWidths);
+    });
+
+    test('RTL - Renders the label and character count correctly', async ({ page, mount }) => {
+        setRTL(page);
+
+        await mount(PieTextarea, {
+            props: {
+                label: 'Label',
+                maxLength: 250,
+                value: 'This is a test value',
+            } as PieTextarea,
+        });
+
+        await percySnapshot(page, 'Textarea RTL - with label and character count', percyWidths);
     });
 });

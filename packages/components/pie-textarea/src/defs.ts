@@ -54,12 +54,23 @@ export interface TextareaProps {
      * If true, the textarea is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid.
      */
     required?: boolean;
+
+    /**
+    * The label text for the textarea field.
+    */
+    label?: string;
+
+    /**
+     * The maximum number of characters allowed in the textarea field.
+     * If the `label` property is not set, this property will have no effect.
+     */
+    maxLength?: number;
 }
 
 /**
  * The default values for the `TextareaProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name'| 'autocomplete'>>;
+type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'maxLength'>>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
@@ -68,6 +79,7 @@ export const defaultProps: DefaultProps = {
     disabled: false,
     size: 'medium',
     resize: 'auto',
+    label: '',
     value: '',
     autoFocus: false,
     readonly: false,
