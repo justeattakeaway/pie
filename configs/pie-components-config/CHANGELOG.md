@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-components-config
 
+## 0.17.0
+
+### Minor Changes
+
+- [Changed] - tsconfig module settings to ESNext ([#1472](https://github.com/justeattakeaway/pie/pull/1472)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.16.0
 
 ### Minor Changes
