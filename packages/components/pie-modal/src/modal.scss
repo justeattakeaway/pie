@@ -311,7 +311,9 @@
         pie-spinner {
             position: absolute;
             left: 50%;
-            top: calc(50% - 10px); // The 10px compensates for the block-bottom padding, when footerActions aren't rendered
+
+            // Compensates different block paddings, when footerActions aren't rendered
+            top: calc(50% - (var(--modal-content-padding-block-end) - var(--modal-content-padding-block)) / 2);
             transform: translate(-50%, -50%);
         }
 
