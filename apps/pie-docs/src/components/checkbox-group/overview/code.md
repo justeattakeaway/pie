@@ -7,7 +7,6 @@ shouldShowContents: true
 eleventyComputed:
     props: "{% include './props.json' %}"
     slots: "{% include './slots.json' %}"
-    events: "{% include './events.json' %}"
 ---
 
 ## Overview
@@ -69,12 +68,6 @@ When using `pie-checkbox-group`, you will also need to include a couple of depen
 
 {% componentDetailsTable {
   tableData: slots
-} %}
-
-## Events
-
-{% componentDetailsTable {
-  tableData: events
 } %}
 
 ## Importing and usage in templates
