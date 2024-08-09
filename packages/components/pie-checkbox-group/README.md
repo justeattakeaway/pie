@@ -8,15 +8,6 @@
   </a>
 </p>
 
-# Table of Contents
-
-1. [Introduction](#pie-checkbox-group)
-2. [Installation](#installation)
-3. [Importing the component](#importing-the-component)
-4. [Peer Dependencies](#peer-dependencies)
-5. [Props](#props)
-6. [Contributing](#contributing)
-
 ## pie-checkbox-group
 
 `pie-checkbox-group` is a Web Component built using the Lit library.
@@ -40,76 +31,13 @@ $ yarn add @justeattakeaway/pie-checkbox-group
 For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
 
 
-### Importing the component
+## Documentation
 
-#### JavaScript
-```js
-// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
-import { PieCheckboxGroup } from '@justeattakeaway/pie-checkbox-group';
+Visit  [Checkbox Group | PIE Design System](https://pie.design/components/checkbox-group/) to view more information on this component.
 
-// If you don't need to reference the imported object, you can simply
-// import the module which registers the component as a custom element.
-import '@justeattakeaway/pie-checkbox-group';
-```
+## Questions
 
-#### React
-```js
-// React
-// For React, you will need to import our React-specific component build
-// which wraps the web component using ​@lit/react
-import { PieCheckboxGroup } from '@justeattakeaway/pie-checkbox-group/dist/react';
-```
-
-> [!NOTE]
-> When using the React version of the component, please make sure to also
-> include React as a [peer dependency](#peer-dependencies) in your project.
-
-
-## Peer Dependencies
-
-> [!IMPORTANT]
-> When using `pie-checkbox-group`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
-
-
-## Props
-
-| Property | Type | Default | Description |
-|---|---|---|---|
-| `name` | string | - | The name associated with the group. |
-| `disabled` | boolean | - | Same as the HTML disabled attribute - indicates whether or not the checkbox group is disabled. |
-| `assistiveText` | `string` | - | Allows assistive text to be displayed below the checkbox group. |
-| `status` | `'default'`, `'error'`, `'success'` | `'default'` | The status of the checkbox group / assistive text. If you use `status` you must provide an `assistiveText` prop value for accessibility purposes. |
-
-In your markup or JSX, you can then use these to set the properties for the `pie-checkbox-group` component:
-
-```html
-<!-- Native HTML -->
-<pie-checkbox-group name="TESTNAME">
-  <pie-checkbox name="my-checkbox-one">Checkbox Label 1</pie-checkbox>
-  <pie-checkbox name="my-checkbox-two">Checkbox Label 2</pie-checkbox>
-  <pie-checkbox name="my-checkbox-three">Checkbox Label 3</pie-checkbox>
-</pie-checkbox-group>
-
-<!-- JSX -->
-<PieCheckboxGroup name="TESTNAME">
-  <PieCheckbox name="my-checkbox-one">Checkbox Label 1</PieCheckbox>
-  <PieCheckbox name="my-checkbox-two">Checkbox Label 2</PieCheckbox>
-  <PieCheckbox name="my-checkbox-three">Checkbox Label 3</PieCheckbox>
-</PieCheckboxGroup>
-```
-
-## Slots
-
-| Slot | Description |
-|---|---|
-| `default` | Pass PieCheckbox components as direct children for the CheckboxGroup. |
-| `label` | Pass PieFormLabel to render the checkbox group label. |
-
-## Events
-| Event | Type | Description |
-|-------|------|-------------|
-| `pie-checkbox-group-disabled` | `CustomEvent` | Triggered after the disabled state of the checkbox group changes. |
-| `pie-checkbox-group-error` | `CustomEvent` | Triggered after the state of the checkbox group changes to error. |
+Please head to [FAQs | PIE Design System](https://pie.design/support/contact-us/) to see our FAQs and get in touch.
 
 ## Contributing
 
