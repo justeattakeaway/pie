@@ -1,0 +1,32 @@
+{
+  "headings": [
+    "Textarea size",
+    "Default height</br>[Desktop]",
+    "Minimum height</br>[Desktop]",
+    "Maximum height</br>[Desktop]",
+    "Fixed height</br>[Mobile]"
+  ],
+  "rows": [
+    [
+      "Large",
+      "80px",
+      "56px",
+      "N/A",
+      "176px"
+    ],
+    [
+      "Medium",
+      "72px",
+      "48px",
+      "N/A",
+      "168px"
+    ],
+    [
+      "Small",
+      "64px",
+      "40px",
+      "N/A",
+      "160px"
+    ]
+  ]
+}
