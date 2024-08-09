@@ -58,7 +58,7 @@ export class BasePage {
     }
 
     /**
-     * Emits an on push event that has been passed through from the test
+     * Listens for the given event. When it is emitted, the name of the event is pushed to an array on the `window` object.
      */
     async listenForEvent (eventName: string) {
         await this.page.evaluate(() => {
