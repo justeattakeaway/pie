@@ -75,7 +75,8 @@ When using `pie-checkbox-group`, you will also need to include a couple of depen
 For Native JS Applications:
 ```js
 // import as module into a js file e.g. main.js
-import '@justeattakeaway/pie-webc/components/checkbox-group.js'
+import '@justeattakeaway/pie-webc/components/checkbox-group.js';
+import '@justeattakeaway/pie-webc/components/checkbox.js';
 ```
 
 ```html
@@ -93,6 +94,7 @@ For Vue Applications:
 ```js
 // import as module into a js file that will be loaded on the page where the component is used.
 import '@justeattakeaway/pie-webc/components/checkbox-group.js';
+import '@justeattakeaway/pie-webc/components/checkbox.js';
 ```
 
 ```html
@@ -107,6 +109,7 @@ For React Applications:
 
 ```jsx
 import { PieCheckboxGroup } from '@justeattakeaway/pie-webc/react/checkbox-group.js';
+import { PieCheckbox } from '@justeattakeaway/pie-webc/react/checkbox.js';
 
 <PieCheckboxGroup>
   <PieCheckbox name="my-checkbox-one">Checkbox Label 1</PieCheckbox>
@@ -118,6 +121,7 @@ import { PieCheckboxGroup } from '@justeattakeaway/pie-webc/react/checkbox-group
 ```jsx
 // React templates (using Next 13 and SSR)
 import { PieCheckboxGroup } from '@justeattakeaway/pie-checkbox-group/dist/react';
+import { PieCheckbox } from '@justeattakeaway/pie-checkbox/dist/react';
 
 <PieCheckboxGroup>
   <PieCheckbox name="my-checkbox-one">Checkbox Label 1</PieCheckbox>
