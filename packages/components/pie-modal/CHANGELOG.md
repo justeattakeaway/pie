@@ -1,5 +1,20 @@
 # @justeattakeaway/pie-modal
 
+## 0.44.1
+
+### Patch Changes
+
+- [Added] - indent to `pie-modal` when the footer isn’t rendered ([#1679](https://github.com/justeattakeaway/pie/pull/1679)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
+- Updated dependencies [[`b32bf5d25`](https://github.com/justeattakeaway/pie/commit/b32bf5d257bb87da130194a9fe2ddf3ec93bced9)]:
+  - @justeattakeaway/pie-icon-button@0.28.10
+  - @justeattakeaway/pie-spinner@0.6.7
+  - @justeattakeaway/pie-button@0.48.1
+
 ## 0.44.0
 
 ### Minor Changes

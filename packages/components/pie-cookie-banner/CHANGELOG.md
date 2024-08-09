@@ -1,5 +1,23 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.23.1
+
+### Patch Changes
+
+- [Changed] - moved defaultProps and JSON locale import to defs.ts ([#1472](https://github.com/justeattakeaway/pie/pull/1472)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
+- Updated dependencies [[`1801e656a`](https://github.com/justeattakeaway/pie/commit/1801e656a4c7c4c7859a9260821ae10a05f92f8f), [`b32bf5d25`](https://github.com/justeattakeaway/pie/commit/b32bf5d257bb87da130194a9fe2ddf3ec93bced9)]:
+  - @justeattakeaway/pie-modal@0.44.1
+  - @justeattakeaway/pie-icon-button@0.28.10
+  - @justeattakeaway/pie-divider@0.13.8
+  - @justeattakeaway/pie-button@0.48.1
+  - @justeattakeaway/pie-switch@0.29.12
+  - @justeattakeaway/pie-link@0.17.8
+
 ## 0.23.0
 
 ### Minor Changes

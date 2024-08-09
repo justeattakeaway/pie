@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.48.1
+
+### Patch Changes
+
+- [Fixed] - make `isDismissible` false by default ([#1668](https://github.com/justeattakeaway/pie/pull/1668)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 3.48.0
 
 ### Minor Changes

@@ -1,5 +1,32 @@
 # Changelog
 
+## 1.1.1
+
+### Patch Changes
+
+- [Fixed] - use storybook mapping to render different slot content ([#1668](https://github.com/justeattakeaway/pie/pull/1668)) by [@dandel10n](https://github.com/dandel10n)
+
+- Updated dependencies [[`395a6dd72`](https://github.com/justeattakeaway/pie/commit/395a6dd72f2dd892d01feffdb0c391276b8214b4), [`70501ef09`](https://github.com/justeattakeaway/pie/commit/70501ef09555e3d16f1e2b020ae2ea5ce0c1e203), [`1801e656a`](https://github.com/justeattakeaway/pie/commit/1801e656a4c7c4c7859a9260821ae10a05f92f8f), [`04141b19f`](https://github.com/justeattakeaway/pie/commit/04141b19f67a43102c73d2b592a151cda426f03a), [`1904ca3db`](https://github.com/justeattakeaway/pie/commit/1904ca3dbaa6c2e23c8822c262887f418e5be40b), [`b32bf5d25`](https://github.com/justeattakeaway/pie/commit/b32bf5d257bb87da130194a9fe2ddf3ec93bced9), [`1904ca3db`](https://github.com/justeattakeaway/pie/commit/1904ca3dbaa6c2e23c8822c262887f418e5be40b)]:
+  - @justeattakeaway/pie-checkbox@0.12.0
+  - @justeattakeaway/pie-checkbox-group@0.6.0
+  - @justeattakeaway/pie-modal@0.44.1
+  - @justeattakeaway/pie-cookie-banner@0.23.1
+  - @justeattakeaway/pie-notification@0.10.0
+  - @justeattakeaway/pie-assistive-text@0.6.1
+  - @justeattakeaway/pie-icon-button@0.28.10
+  - @justeattakeaway/pie-form-label@0.14.1
+  - @justeattakeaway/pie-text-input@0.23.3
+  - @justeattakeaway/pie-textarea@0.6.1
+  - @justeattakeaway/pie-divider@0.13.8
+  - @justeattakeaway/pie-spinner@0.6.7
+  - @justeattakeaway/pie-button@0.48.1
+  - @justeattakeaway/pie-switch@0.29.12
+  - @justeattakeaway/pie-toast@0.3.1
+  - @justeattakeaway/pie-card@0.19.8
+  - @justeattakeaway/pie-chip@0.7.2
+  - @justeattakeaway/pie-link@0.17.8
+  - @justeattakeaway/pie-tag@0.9.9
+
 ## 1.1.0
 
 ### Minor Changes
