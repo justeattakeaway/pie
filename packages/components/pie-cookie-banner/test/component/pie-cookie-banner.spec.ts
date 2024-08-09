@@ -50,7 +50,7 @@ test.describe('PieCookieBanner - Component tests', () => {
 
             // Assert
             expect.soft(isCookieBannerVisible).toBe(false);
-            expect(events).toContain(ON_COOKIE_BANNER_ACCEPT_ALL);
+            expect(events).toHaveLength(1);
         });
     });
 
@@ -126,7 +126,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         // Assert
         expect(isModalVisible).toBe(false);
         expect(isCookieBannerVisible).toBe(false);
-        expect(events).toContain(ON_COOKIE_BANNER_PREFS_SAVED);
+        expect(events).toHaveLength(1);
     });
 
     test('should always toggle the `necessary` preference and set it to disabled', async () => {
@@ -217,7 +217,7 @@ test.describe('PieCookieBanner - Component tests', () => {
     test.describe('`locale` prop', () => {
         test('should render text in the default (English) language when the locale is not set', async () => {
             // Arrange
-            await pieCookieBannerComponent.load({ defaultPreferences: null });
+            await pieCookieBannerComponent.load();
 
             // Act
             const acceptAllButtonText = await pieCookieBannerComponent.getAcceptAllTextContent();
