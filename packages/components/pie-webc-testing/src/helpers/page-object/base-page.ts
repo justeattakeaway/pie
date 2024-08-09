@@ -30,13 +30,22 @@ export class BasePage {
         return this;
     }
 
+    /**
+     * Composes the path passed in from the load function.
+     * If no query is passed in, returns the base component.
+     * Takes in objects with key/value pairs and flatmaps the queries into string values.
+     * Returns them as an interpolated string to be used in the URL.
+     *
+     * @param {string} queries The name of the attribute to retrieve.
+     * @returns args passed into URL seperated by ;
+     *
+     */
     composePath (queries: Record<string, unknown>) {
         if (!queries) {
             return '';
         }
 
-        const flattenQueries = (obj: Record<string, unknown>, prefix = ''): string[] => Object.keys(obj).flatMap((key) => {
-            const value = obj[key];
+        const flattenQueries = (obj: Record<string, unknown>, prefix = ''): string[] => Object.entries(obj).flatMap(([key, value]) => {
             const newKey = prefix ? `${prefix}.${key}` : key;
 
             if (typeof value === 'object' && value !== null) {
@@ -68,7 +77,7 @@ export class BasePage {
      *
      * @param {string} attribute The name of the attribute to retrieve.
      * @returns {Promise<string | null>} A Promise that resolves to the value of the specified attribute
-     *                                   on the recieved event array on the page evaluate, or `null` if the attribute does not exist.
+     * on the recieved event array on the page evaluate, or `null` if the attribute does not exist.
      */
     async getCapturedEvents (): Promise<string[]> {
         return this.page.evaluate(() => window.__eventsArray);
