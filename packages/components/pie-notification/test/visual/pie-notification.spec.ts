@@ -37,6 +37,7 @@ const props: PropObject = {
     isDismissible: [false, true],
     isCompact: [false, true],
     hideIcon: [false, true],
+    iconSlot: ['', '<icon-heart-filled slot="icon"></icon-heart-filled>'],
 };
 
 // Renders a <pie-notification> HTML string with the given prop values
@@ -45,7 +46,10 @@ const renderTestPieNotification = (propVals: WebComponentPropValues) => `<pie-no
         ${propVals.isCompact ? 'isCompact' : ''}
         ${propVals.isDismissible ? 'isDismissible' : ''}
         ${propVals.hideIcon ? 'hideIcon' : ''}
-        heading="${propVals.heading}">${slotContent}</pie-notification>`;
+        heading="${propVals.heading}">
+            ${propVals.iconSlot}
+            ${slotContent}
+        </pie-notification>`;
 
 const componentPropsMatrix: WebComponentPropValues[] = getAllPropCombinations(props);
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
@@ -71,7 +75,8 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
             isCompact: ${testComponent.propValues.isCompact},
             isDismissible: ${testComponent.propValues.isDismissible},
             hideIcon: ${testComponent.propValues.hideIcon},
-            heading: ${testComponent.propValues.heading}
+            heading: ${testComponent.propValues.heading},
+            iconSlot: ${testComponent.propValues.iconSlot ? 'with an external icon' : 'no external icon'}
         `;
 
         const darkMode = ['neutral-alternative'].includes(variant);

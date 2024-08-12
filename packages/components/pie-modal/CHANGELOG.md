@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.44.0
+
+### Minor Changes
+
+- [Changed] - Split leadingAction and supportingAction props into several new props ([#1626](https://github.com/justeattakeaway/pie/pull/1626)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.43.5
 
 ### Patch Changes

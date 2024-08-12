@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-checkbox-group
 
+## 0.5.0
+
+### Minor Changes
+
+- [Changed] - replaced label prop with a slot. ([#1660](https://github.com/justeattakeaway/pie/pull/1660)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Changed] - increased spacing after label and before assistive text.
+  [Changed] - reduced spacing detween checkboxes in inline mode.
+
 ## 0.4.0
 
 ### Minor Changes

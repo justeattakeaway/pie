@@ -1,5 +1,24 @@
 # @justeattakeaway/pie-textarea
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - Character count and label ([#1666](https://github.com/justeattakeaway/pie/pull/1666)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`576945ab0`](https://github.com/justeattakeaway/pie/commit/576945ab03497a7ad333a818dc0fa212beb18e58)]:
+  - @justeattakeaway/pie-form-label@0.14.0
+
+## 0.5.0
+
+### Minor Changes
+
+- [Added] - pie-textarea component form functionality. Added a new story to storybook with a form integration example. ([#1621](https://github.com/justeattakeaway/pie/pull/1621)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+  [Updated] - pie-textarea component README.md file
+
 ## 0.4.0
 
 ### Minor Changes
