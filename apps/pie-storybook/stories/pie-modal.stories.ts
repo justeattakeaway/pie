@@ -30,14 +30,20 @@ const defaultArgs: ModalProps = {
     isDismissible: true,
     isOpen: true,
     slot: '<span>Body copy</span>',
-    leadingActionText: 'Confirm',
-    supportingActionText: 'Cancel',
+    leadingAction: {
+        text: 'Confirm',
+        variant: 'primary',
+        ariaLabel: 'Descriptive confirmation text',
+    },
+    supportingAction: {
+        text: 'Cancel',
+        variant: 'ghost',
+        ariaLabel: 'Descriptive cancellation text',
+    },
     aria: {
         back: 'Back',
         close: 'Close',
-        leadingActionLabel: 'Descriptive confirmation text',
         loading: 'Loading',
-        supportingActionLabel: 'Descriptive cancellation text',
     },
 };
 
@@ -99,26 +105,16 @@ const modalStoryMeta: ModalStoryMeta = {
             description: 'Content to place within the modal',
             control: 'text',
         },
-        leadingActionText: {
-            description: 'The text to display on the leading action button.',
-            control: 'text',
+        leadingAction: {
+            description: 'The leading action configuration for the modal.',
+            control: 'object',
         },
-        leadingActionVariant: {
-            description: 'The variant of the leading action button.',
-            control: 'select',
-            options: buttonVariants,
-        },
-        supportingActionText: {
-            description: 'The text to display on the supporting action button.',
-            control: 'text',
-        },
-        supportingActionVariant: {
-            description: 'The variant of the supporting action button.',
-            control: 'select',
-            options: buttonVariants,
+        supportingAction: {
+            description: 'The supporting action configuration for the modal. The supporting action will not appear without a leading action.',
+            control: 'object',
         },
         aria: {
-            description: 'The ARIA labels used for the modal leading action, supporting action, close and back buttons, as well as for the loading state.',
+            description: 'The ARIA labels used for the modal close and back buttons, as well as for the loading state.',
             control: 'object',
         },
     },
@@ -181,14 +177,12 @@ const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
         isFullWidthBelowMid,
         isLoading,
         isOpen,
-        leadingActionText,
-        leadingActionVariant,
+        leadingAction,
         position,
         returnFocusAfterCloseSelector,
         size,
         slot,
-        supportingActionText,
-        supportingActionVariant,
+        supportingAction,
     } = props;
     return html`
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
@@ -203,13 +197,11 @@ const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
             ?isFullWidthBelowMid="${isFullWidthBelowMid}"
             ?isLoading="${isLoading}"
             ?isOpen="${isOpen}"
-            leadingActionText="${ifDefined(leadingActionText)}"
-            leadingActionVariant="${ifDefined(leadingActionVariant)}"
+            .leadingAction=${leadingAction}
             position="${ifDefined(position)}"
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             size="${ifDefined(size)}"
-            supportingActionText="${ifDefined(supportingActionText)}"
-            supportingActionVariant="${ifDefined(supportingActionVariant)}"
+            .supportingAction="${supportingAction}"
             @pie-modal-close="${closeAction}"
             @pie-modal-open="${openAction}"
             @pie-modal-back="${backClickAction}"

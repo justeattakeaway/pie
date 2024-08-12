@@ -114,15 +114,18 @@
             }
         ],
         [
-            "leadingActionText",
             {
                 "type": "code",
-                "item": []
+                "item": ["leadingAction.text"]
             },
-            "The text to display inside the leading action button."
+            "-",
+            "The text to display inside the leading action button. The button won't render without this."
         ],
         [
-            "leadingActionVariant",
+            {
+                "type": "code",
+                "item": ["leadingAction.variant"]
+            },
             "See pie-button's variants",
             "The variant of the leading action button.",
             {
@@ -131,15 +134,18 @@
             }
         ],
         [
-          "supportingActionText",
-          {
-              "type": "code",
-              "item": []
-          },
-          "The text to display inside the supporting action button."
+            {
+                "type": "code",
+                "item": ["supportingAction.text"]
+            },
+          "-",
+          "The text to display inside the supporting action button. The button won't render without this."
         ],
         [
-          "supportingActionVariant",
+            {
+                "type": "code",
+                "item": ["supportingAction.variant"]
+            },
           "See pie-button's variants",
           "The variant of the supporting action button.",
           {
