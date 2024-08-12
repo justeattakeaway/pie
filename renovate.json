@@ -1,6 +1,6 @@
 {
   "extends": [
-    "schedule:weekly",
+    "schedule:daily",
     ":rebaseStalePrs",
     ":disableMajorUpdates",
     ":dependencyDashboard"
