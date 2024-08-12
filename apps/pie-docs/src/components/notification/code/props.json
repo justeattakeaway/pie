@@ -58,7 +58,7 @@
             "When true, allows dismissing the notification by clicking on the close button",
             {
                 "type": "code",
-                "item": ["true"]
+                "item": ["false"]
             }
         ],
         [

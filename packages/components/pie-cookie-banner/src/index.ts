@@ -15,19 +15,17 @@ import { type PieSwitch } from '@justeattakeaway/pie-switch';
 import { defineCustomElement, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
 /* eslint-enable import/no-duplicates */
 
-import defaultLocale from '../locales/en-gb.json';
-
 import styles from './cookie-banner.scss?inline';
 import {
     ON_COOKIE_BANNER_ACCEPT_ALL,
     ON_COOKIE_BANNER_NECESSARY_ONLY,
     ON_COOKIE_BANNER_MANAGE_PREFS,
     ON_COOKIE_BANNER_PREFS_SAVED,
+    defaultProps,
     preferences,
     type CookieBannerLocale,
     type CookieBannerProps,
     type CustomTagEnhancers,
-    type DefaultProps,
     type Preference,
     type PreferenceIds,
 } from './defs';
@@ -36,17 +34,6 @@ import { localiseText, localiseRichText } from './localisation-utils';
 
 // Valid values available to consumers
 export * from './defs';
-
-// TODO: Move this object to defs.ts
-// It can be moved as soon as we manage to figure a safe way to avoid the error TS2821
-// Import assertions are only supported when the '--module' option is set to 'esnext' or 'nodenext'
-export const defaultProps: DefaultProps = {
-    hasPrimaryActionsOnly: false,
-    defaultPreferences: {},
-    locale: defaultLocale,
-    cookieStatementLink: '',
-    cookieTechnologiesLink: '',
-};
 
 const componentSelector = 'pie-cookie-banner';
 

@@ -121,7 +121,7 @@ export type DefaultProps = ComponentDefaultProps<NotificationProps, keyof Omit<N
 export const defaultProps: DefaultProps = {
     variant: 'neutral',
     position: 'inline-content',
-    isDismissible: true,
+    isDismissible: false,
     isCompact: false,
     headingLevel: 'h2',
     hideIcon: false,

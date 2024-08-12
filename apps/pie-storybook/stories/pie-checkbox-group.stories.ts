@@ -14,7 +14,7 @@ import '@justeattakeaway/pie-form-label';
 
 // Extending the props type definition to include storybook specific properties for controls
 type CheckboxGroupProps = CheckboxGroupPropsBase & {
-    labelSlot: typeof slotOptions[number];
+    labelSlot: keyof typeof labelSlotOptions;
 };
 
 type CheckboxGroupStoryMeta = StoryMeta<CheckboxGroupProps>;
@@ -24,7 +24,10 @@ const defaultArgs: CheckboxGroupProps = {
     labelSlot: 'None',
 };
 
-const slotOptions = ['Checkbox Group Label', 'None'] as const;
+const labelSlotOptions = {
+    None: nothing,
+    Label: html`<pie-form-label slot="label">Checkbox Group Label</pie-form-label>`,
+};
 
 const checkboxGroupStoryMeta: CheckboxGroupStoryMeta = {
     title: 'Checkbox Group',
@@ -36,9 +39,10 @@ const checkboxGroupStoryMeta: CheckboxGroupStoryMeta = {
         },
         labelSlot: {
             name: 'Label Slot',
-            description: '<b>**Not a component Prop</b><br><br>Use the `label` slot to pass <pie-form-label> component with all the relevant props.',
+            options: Object.keys(labelSlotOptions),
+            description: '<b>**Not a component Prop</b><br><br>Use the `label` slot to pass a <pie-form-label> component with all relevant props.',
             control: 'select',
-            options: slotOptions,
+            mapping: labelSlotOptions,
         },
         isInline: {
             description: 'Inline (horizontal) positioning of checkbox items.',
@@ -88,15 +92,7 @@ const Template = ({
     status,
     disabled,
     labelSlot,
-}: CheckboxGroupProps) => {
-    function renderLabelSlot (slotValue: typeof slotOptions[number]) {
-        if (slotValue === slotOptions[0]) {
-            return html`<pie-form-label slot="label">Checkbox Group Label</pie-form-label>`;
-        }
-        return nothing;
-    }
-
-    return html`
+}: CheckboxGroupProps) => html`
         <div style="max-width: 400px">
             <p>Please note, the checkboxes are separate components. See
             <pie-link href="/?path=/story/checkbox--default">pie-checkbox</pie-link>.</p>
@@ -107,7 +103,7 @@ const Template = ({
                 status=${ifDefined(status)}
                 ?disabled="${disabled}"
             >
-                ${renderLabelSlot(labelSlot)}
+                ${labelSlot}
                 <pie-checkbox name="checkbox-one">checkbox 1</pie-checkbox>
                 <pie-checkbox name="checkbox-two">checkbox 2</pie-checkbox>
                 <pie-checkbox name="checkbox-three">checkbox 3 longer label</pie-checkbox>
@@ -118,6 +114,5 @@ const Template = ({
             </pie-checkbox-group>
         </div>
     `;
-};
 
 export const Default = createStory<CheckboxGroupProps>(Template, defaultArgs)();

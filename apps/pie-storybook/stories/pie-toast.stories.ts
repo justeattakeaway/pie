@@ -1,7 +1,8 @@
 import { html } from 'lit';
-
-import { type ToastProps, defaultProps } from '@justeattakeaway/pie-toast';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
+
+import { type ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
 import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
 
@@ -25,6 +26,21 @@ const toastStoryMeta: ToastStoryMeta = {
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isOpen,
+            },
+        },
+        variant: {
+            description: 'Set the variant of the notification.',
+            control: 'select',
+            options: variants,
+            defaultValue: {
+                summary: defaultProps.variant,
+            },
+        },
+        isStrong: {
+            description: 'When true, the toast is displayed with a strong visual style.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.isStrong,
             },
         },
         isDismissible: {
@@ -66,18 +82,20 @@ const pieToastSupportingActionClick = action('pie-toast-supporting-action-click'
 const pieToastClose = action('pie-toast-close');
 const pieToastOpen = action('pie-toast-open');
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
 const Template = ({
     isOpen,
     isDismissible,
     message,
     leadingAction,
     isMultiline,
+    isStrong,
+    variant,
 }: ToastProps) => html`
     <pie-toast
         ?isOpen="${isOpen}"
         ?isDismissible="${isDismissible}"
+        ?isStrong="${isStrong}"
+        variant="${ifDefined(variant)}"
         message="${message}"
         ?isMultiline="${isMultiline}"
         .leadingAction="${leadingAction}"

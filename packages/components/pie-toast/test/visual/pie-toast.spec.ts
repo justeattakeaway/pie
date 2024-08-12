@@ -1,7 +1,15 @@
 
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import { PieToast, type ToastProps } from '../../src/index.ts';
+
+import {
+    type PropObject, type WebComponentPropValues, type WebComponentTestInput,
+} from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
+import { getAllPropCombinations, splitCombinationsByPropertyValue } from '@justeattakeaway/pie-webc-testing/src/helpers/get-all-prop-combos.ts';
+import { createTestWebComponent } from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
+import { WebComponentTestWrapper } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+
+import { PieToast, type ToastProps, variants } from '../../src/index.ts';
 
 test.describe('PieToast - Visual tests`', () => {
     test('should display the PieToast component successfully', async ({ page, mount }) => {
@@ -24,6 +32,53 @@ const initialValues: ToastProps = {
     message: 'Item has been created',
     leadingAction: mainAction,
 };
+
+export const screenWidths = {
+    widths: [1450, 375],
+};
+
+const variantProps: PropObject = {
+    variant: variants,
+    isStrong: [false, true],
+};
+
+// Renders a <pie-toast> HTML string with the given prop values
+const renderTestPieToast = (propVals: WebComponentPropValues) => `<pie-toast
+        variant="${propVals.variant}"
+        ${propVals.isCompact ? 'isStrong' : ''}
+        "></pie-toast>`;
+
+const componentPropsMatrix: WebComponentPropValues[] = getAllPropCombinations(variantProps);
+const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
+const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
+
+componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+    for (const combo of componentPropsMatrixByVariant[variant]) {
+        const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieToast);
+
+        const propKeyValues = `
+            variant: ${testComponent.propValues.variant},
+            isStrong: ${testComponent.propValues.isStrong}
+        `;
+
+        const darkMode = ['neutral-alternative'].includes(variant);
+
+        await mount(
+            WebComponentTestWrapper,
+            {
+                props: { propKeyValues, darkMode },
+                slots: {
+                    component: testComponent.renderedString.trim(),
+                },
+            },
+        );
+    }
+
+    // Follow up to remove in Jan
+    await page.waitForTimeout(5000);
+
+    await percySnapshot(page, `PIE Toast - Variant: ${variant}`, screenWidths);
+}));
 
 test.describe('Props', () => {
     test.describe('isDismissible', () => {
