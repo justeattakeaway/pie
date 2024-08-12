@@ -142,7 +142,7 @@ Use a consistent height when it is being used alongside other form components on
   {% endcontentItem %}
   {% contentItem %}
     <h4>Medium</h4>
-    <p>Default size and should be used whenever possible.</p>
+    <p>Default size and should always be used wherever it is practically possible.</p>
     {% contentPageImage {
       src: "../../../assets/img/components/textarea/medium.svg",
       width: "206px",
