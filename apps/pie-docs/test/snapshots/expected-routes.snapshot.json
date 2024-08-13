@@ -18,7 +18,6 @@
     "components/bottom-sheet",
     "components/breadcrumb",
     "components/button",
-    "components/button/code",
     "components/card",
     "components/card/code",
     "components/carousel-indicator",
