@@ -2,7 +2,7 @@ import { html } from 'lit';
 import { ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
 import { action } from '@storybook/addon-actions';
 import { type StoryMeta } from '../types';
-import { createStory } from '../utilities';
+import { createStory, TemplateFunction } from '../utilities';
 
 type ToastStoryMeta = StoryMeta<ToastProps>;
 
@@ -76,13 +76,10 @@ const toastStoryMeta: ToastStoryMeta = {
 export default toastStoryMeta;
 
 const pieToastLeadingActionClick = action('pie-toast-leading-action-click');
-const pieToastSupportingActionClick = action('pie-toast-supporting-action-click');
 const pieToastClose = action('pie-toast-close');
 const pieToastOpen = action('pie-toast-open');
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
-const Template = ({
+const Template : TemplateFunction<ToastProps> = ({
     isOpen,
     isDismissible,
     message,
@@ -100,10 +97,20 @@ const Template = ({
         ?isMultiline="${isMultiline}"
         .leadingAction="${leadingAction}"
         @pie-toast-leading-action-click="${pieToastLeadingActionClick}"
-        @pie-toast-supporting-action-click="${pieToastSupportingActionClick}"
         @pie-toast-close="${pieToastClose}"
         @pie-toast-open="${pieToastOpen}"
     /></pie-toast>
 `;
 
-export const Default = createStory<ToastProps>(Template, defaultArgs)();
+const createToastStory = createStory<ToastProps>(Template, defaultArgs);
+
+export const Neutral = createToastStory();
+export const Info = createToastStory({ variant: 'info' });
+export const InfoStrong = createToastStory({ variant: 'info', isStrong: true });
+export const Warning = createToastStory({ variant: 'warning' });
+export const WarningStrong = createToastStory({ variant: 'warning', isStrong: true });
+export const Success = createToastStory({ variant: 'success' });
+export const SuccessStrong = createToastStory({ variant: 'success', isStrong: true });
+export const Error = createToastStory({ variant: 'error' });
+export const ErrorStrong = createToastStory({ variant: 'error', isStrong: true });
+export const AutoDismiss = createToastStory();
