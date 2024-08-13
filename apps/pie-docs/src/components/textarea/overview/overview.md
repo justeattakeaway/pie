@@ -158,9 +158,12 @@ Use a consistent height when it is being used alongside other form components on
       alt: "Textarea component with a large height."
     } %}
   {% endcontentItem %}
+  {% contentItem %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Auto-resize</h4>
+  {% endcontentItem %}
 {% endcontentLayout %}
-
-#### Auto-resize
 
 {% componentDetailsTable {
   tableData: autoResize
@@ -235,9 +238,12 @@ When typing into a textarea and reaching the end of the field, the cursor should
       alt: "A large-sized textarea component with auto-resize functionality is focused and has text inside it."
     } %}
   {% endcontentItem %}
+  {% contentItem %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Manual-resize</h4>
+  {% endcontentItem %}
 {% endcontentLayout %}
-
-#### Manual-resize
 
 {% notification {
   type: "information",
