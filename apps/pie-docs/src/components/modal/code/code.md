@@ -49,7 +49,7 @@ yarn add @justeattakeaway/pie-webc
 ## Playground
 
  <iframe
-  src="https://webc.pie.design/?path=/story/modal--default&viewMode=story&shortcuts=true&singleStory=true"
+  src="https://pr1691-storybook.pie.design/?path=/story/modal--default&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="600px"
   style="border: none; margin-top: var(--dt-spacing-f);"
