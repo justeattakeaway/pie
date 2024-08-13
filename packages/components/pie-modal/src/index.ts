@@ -308,19 +308,19 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * @private
      */
     private renderLeadingAction () : TemplateResult | typeof nothing {
-        if (!this.leadingAction?.text) {
-            return nothing;
-        }
+        const { ariaLabel, text, variant = 'primary' } = this.leadingAction || {};
+
+        if (!text) return nothing;
 
         return html`
             <pie-button
-                variant="${this.leadingAction?.variant || 'primary'}"
-                aria-label="${ifDefined(this.leadingAction?.ariaLabel)}"
+                variant="${variant}"
+                aria-label="${ifDefined(ariaLabel)}"
                 type="submit"
                 ?isFullWidth="${this.hasStackedActions}"
                 @click="${() => this._handleActionClick('leading')}"
                 data-test-id="modal-leading-action">
-                ${this.leadingAction.text}
+                ${text}
             </pie-button>
         `;
     }
@@ -336,9 +336,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * @private
      */
     private renderSupportingAction (): TemplateResult | typeof nothing {
-        if (!this.supportingAction?.text) {
-            return nothing;
-        }
+        const { ariaLabel, text, variant = 'ghost' } = this.supportingAction || {};
+
+        if (!text) return nothing;
 
         if (!this.leadingAction?.text) {
             console.warn('You cannot have a supporting action without a leading action. If you only need one button then use a leading action instead.');
@@ -347,13 +347,13 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
 
         return html`
             <pie-button
-                variant="${this.supportingAction?.variant || 'ghost'}"
-                aria-label="${ifDefined(this.supportingAction?.ariaLabel)}"
+                variant="${variant}"
+                aria-label="${ifDefined(ariaLabel)}"
                 type="reset"
                 ?isFullWidth="${this.hasStackedActions}"
                 @click="${() => this._handleActionClick('supporting')}"
                 data-test-id="modal-supporting-action">
-                ${this.supportingAction.text}
+                ${text}
             </pie-button>
         `;
     }

@@ -7,7 +7,7 @@
                 "type": "code",
                 "item": []
             },
-            "An object representing the aria labels for the `close`, `back`, `leadingAction` and `supportingAction` buttons within the modal as well as the `isLoading` state labels (`aria-label` & `aria-busy`)."
+            "An object representing the aria labels for the `close` and `back` buttons within the modal as well as the `isLoading` state labels (`aria-label` & `aria-busy`)."
         ],
         [
             "hasBackButton",
