@@ -27,7 +27,7 @@ const toastStoryMeta: ToastStoryMeta = {
             },
         },
         variant: {
-            description: 'Set the variant of the notification.',
+            description: 'Set the variant of the toast.',
             control: 'select',
             options: variants,
             defaultValue: {
