@@ -13,6 +13,7 @@ const defaultArgs: ToastProps = {
         text: 'Confirm',
         ariaLabel: 'Descriptive confirmation text',
     },
+    duration: null,
 };
 
 const toastStoryMeta: ToastStoryMeta = {
@@ -63,6 +64,10 @@ const toastStoryMeta: ToastStoryMeta = {
             description: 'The leading action configuration for the toast.',
             control: 'object',
         },
+        duration: {
+            description: 'It set the duration of the toast in milliseconds before it auto-dismiss.',
+            control: 'number',
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -87,6 +92,7 @@ const Template : TemplateFunction<ToastProps> = ({
     isMultiline,
     isStrong,
     variant,
+    duration,
 }: ToastProps) => html`
     <pie-toast 
         ?isOpen="${isOpen}" 
@@ -94,6 +100,7 @@ const Template : TemplateFunction<ToastProps> = ({
         ?isStrong="${isStrong}"
         variant="${variant}"
         message="${message}" 
+        .duration="${duration}"
         ?isMultiline="${isMultiline}"
         .leadingAction="${leadingAction}"
         @pie-toast-leading-action-click="${pieToastLeadingActionClick}"
@@ -113,4 +120,4 @@ export const Success = createToastStory({ variant: 'success' });
 export const SuccessStrong = createToastStory({ variant: 'success', isStrong: true });
 export const Error = createToastStory({ variant: 'error' });
 export const ErrorStrong = createToastStory({ variant: 'error', isStrong: true });
-export const AutoDismiss = createToastStory();
+export const AutoDismiss = createToastStory({ duration: 3000, message: 'Closing in three seconds' });

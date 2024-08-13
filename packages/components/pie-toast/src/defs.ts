@@ -2,6 +2,8 @@ import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const variants = ['neutral', 'info', 'warning', 'success', 'error'] as const;
 
+export const defaultDuration = 5000;
+
 export type ActionProps = {
   /**
    * The text to display inside the button.
@@ -44,6 +46,13 @@ export interface ToastProps {
    * The leading action for the toast.
    */
   leadingAction?: ActionProps;
+
+  /**
+   * It set the duration of the toast in milliseconds before it auto-dismiss
+   * If the value is null auto-dismiss is disabled
+   * If the value is not provided it auto-dismiss after 5 seconds (5000 milliseconds)
+   */
+  duration?: number | null;
 }
 
 export const componentSelector = 'pie-toast';
@@ -70,7 +79,7 @@ export const ON_TOAST_OPEN_EVENT = `${componentSelector}-open`;
  */
 export const ON_TOAST_LEADING_ACTION_CLICK_EVENT = `${componentSelector}-leading-action-click`;
 
-export type DefaultProps = ComponentDefaultProps<ToastProps, keyof Omit<ToastProps, 'message' | 'leadingAction'>>;
+export type DefaultProps = ComponentDefaultProps<ToastProps, keyof Omit<ToastProps, 'message' | 'leadingAction' | 'duration'>>;
 
 export const defaultProps: DefaultProps = {
     isOpen: true,

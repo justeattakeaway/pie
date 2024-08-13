@@ -33,6 +33,7 @@ import {
     ON_TOAST_LEADING_ACTION_CLICK_EVENT,
     defaultProps,
     variants,
+    defaultDuration,
 } from './defs';
 
 // Valid values available to consumers
@@ -64,14 +65,64 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     @property({ type: Object })
     public leadingAction: ToastProps['leadingAction'];
 
+    @property()
+    public duration: ToastProps['duration'];
+
     @query('pie-button') actionButton?: HTMLElement;
 
     private _actionButtonOffset = 0;
 
     private _messageAreaMaxWidth = 0;
 
+    private _timeoutId: NodeJS.Timeout | null = null;
+
+    private _abortController: AbortController | null = null;
+
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
+
+    /**
+     * Create a timeout function and set its id into a private attribute.
+     *
+     * @private
+     */
+    private setAutoDismiss () {
+        this._timeoutId = setTimeout(() => {
+            this.closeToastComponent();
+        }, this.setAutoDismissDuration());
+    }
+
+    /**
+     * It gets the duration of the timeout in milliseconds.
+     * If the duration is undefined it returns 5000 which is the default value.
+     * If the duration is an arbitrary number provided by the user, it returns the number itself.
+     *
+     * @returns number
+     * @private
+     */
+    private setAutoDismissDuration (): number {
+        switch (typeof this.duration) {
+            case 'undefined':
+                return defaultDuration;
+            case 'number':
+                return this.duration as number;
+            default:
+                return 0 as never;
+        }
+    }
+
+    /**
+     * If the _abortController is set, it aborts all event
+     * listeners in this controller and the controller turns into null.
+     *
+     * @private
+     */
+    private abortAndCleanEventListeners () {
+        if (this._abortController) {
+            this._abortController.abort();
+            this._abortController = null;
+        }
+    }
 
     /**
      * Calculates and returns the width of the message based on the toast properties.
@@ -112,6 +163,28 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     }
 
     /**
+     * It created all event listeners to handle the auto-dismiss capability
+     * as well the controller responsible to remove the events when needed.
+     *
+     * @private
+     */
+    private createAutoDismissEventListeners () {
+        this._abortController = new AbortController();
+
+        this.setAutoDismiss();
+
+        const { signal } = this._abortController;
+        this.addEventListener('mouseover', () => {
+            if (this._timeoutId) {
+                clearTimeout(this._timeoutId);
+            }
+        }, { signal });
+        this.addEventListener('mouseout', () => {
+            this.setAutoDismiss();
+        }, { signal });
+    }
+
+    /**
      * Lifecycle method executed when component is updated.
      * It dispatches an event if toast is opened.
      * It calculates _messageAreaMaxWidth
@@ -119,6 +192,14 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     protected async updated (_changedProperties: PropertyValues<this>) {
         if (_changedProperties.has('isOpen') && this.isOpen) {
             dispatchCustomEvent(this, ON_TOAST_OPEN_EVENT, { targetNotification: this });
+
+            if (this.duration !== null) {
+                this.createAutoDismissEventListeners();
+            }
+        }
+
+        if (_changedProperties.has('isOpen') && !this.isOpen && this._abortController) {
+            this.abortAndCleanEventListeners();
         }
 
         await this.updateComplete;
@@ -137,7 +218,8 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
             _changedProperties.has('message') ||
             _changedProperties.has('isDismissible') ||
             _changedProperties.has('isMultiline') ||
-            _changedProperties.has('leadingAction')) {
+            _changedProperties.has('leadingAction') ||
+            _changedProperties.has('duration')) {
             this.requestUpdate();
         }
     }
@@ -234,6 +316,7 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     private closeToastComponent () {
         this.isOpen = false;
         dispatchCustomEvent(this, ON_TOAST_CLOSE_EVENT, { targetNotification: this });
+        this.abortAndCleanEventListeners();
     }
 
     /**
