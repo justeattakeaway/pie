@@ -1,0 +1,28 @@
+{
+  "headings": [
+    "Textarea size",
+    "Default height",
+    "Minimum height ",
+    "Maximum height"
+  ],
+  "rows": [
+    [
+      "Large",
+      "80px",
+      "80px",
+      "176px"
+    ],
+    [
+      "Medium",
+      "72px",
+      "72px",
+      "168px"
+    ],
+    [
+      "Small",
+      "64px",
+      "64px",
+      "160px"
+    ]
+  ]
+}
