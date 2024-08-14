@@ -3,6 +3,7 @@ import {
 } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
@@ -417,22 +418,27 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
+        const ariaLabel = (isLoading && this.aria?.loading) || undefined;
+
+        const modalClasses = {
+            'c-modal': true,
+            [`c-modal--${size}`]: true,
+            'c-modal--top': position === 'top',
+            'c-modal--hasActions': Boolean(leadingAction?.text || supportingAction?.text),
+            'c-modal--hasBackButton': hasBackButton,
+            'c-modal--hasStackedActions': hasStackedActions,
+            'c-modal--isDismissible': isDismissible,
+            'c-modal--isFooterPinned': isFooterPinned,
+            'c-modal--isFullWidthBelowMid': isFullWidthBelowMid,
+            'c-modal--isLoading': isLoading,
+        };
 
         return html`
         <dialog
             id="dialog"
-            class="c-modal"
-            size="${size}"
-            position="${position}"
-            ?hasActions=${leadingAction?.text || supportingAction?.text}
-            ?hasBackButton=${hasBackButton}
-            ?hasStackedActions=${hasStackedActions}
-            ?isDismissible=${isDismissible}
-            ?isFooterPinned=${isFooterPinned}
-            ?isFullWidthBelowMid=${isFullWidthBelowMid}
-            ?isLoading=${isLoading}
+            class="${classMap(modalClasses)}"
             aria-busy="${isLoading ? 'true' : 'false'}"
-            aria-label="${(isLoading && aria?.loading) || nothing}"
+            aria-label="${ifDefined(ariaLabel)}"
             data-test-id="pie-modal">
             <header class="c-modal-header"
             data-test-id="modal-header">
