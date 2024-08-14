@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.65.0
+
+### Minor Changes
+
+- [Changed] - Renovate schedule changed to daily ([#1686](https://github.com/justeattakeaway/pie/pull/1686)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.64.0
 
 ### Minor Changes

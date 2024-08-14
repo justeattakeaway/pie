@@ -1,5 +1,20 @@
 # @justeattakeaway/pie-checkbox-group
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - Code pages to pie-doc site ([#1672](https://github.com/justeattakeaway/pie/pull/1672)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
+- Updated dependencies [[`b32bf5d25`](https://github.com/justeattakeaway/pie/commit/b32bf5d257bb87da130194a9fe2ddf3ec93bced9)]:
+  - @justeattakeaway/pie-assistive-text@0.6.1
+
 ## 0.5.0
 
 ### Minor Changes

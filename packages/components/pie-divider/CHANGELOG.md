@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-divider
 
+## 0.13.8
+
+### Patch Changes
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
 ## 0.13.7
 
 ### Patch Changes
