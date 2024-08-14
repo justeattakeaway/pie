@@ -15,8 +15,6 @@ import {
 } from '@justeattakeaway/pie-modal';
 /* eslint-enable import/no-duplicates */
 
-import { variants as buttonVariants } from '@justeattakeaway/pie-button';
-
 import { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, sanitizeAndRenderHTML } from '../utilities';
 
