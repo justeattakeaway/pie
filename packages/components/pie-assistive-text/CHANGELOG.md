@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-assistive-text
 
+## 0.7.0
+
+### Minor Changes
+
+- [Changed] - Use classmap for assistive-text variant styles ([#1694](https://github.com/justeattakeaway/pie/pull/1694)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.6.1
 
 ### Patch Changes
