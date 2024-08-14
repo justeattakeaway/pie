@@ -363,6 +363,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      */
     private renderModalFooter () : TemplateResult | typeof nothing {
         if (!this.leadingAction?.text) {
+            if (this.supportingAction?.text) {
+                console.warn('You cannot have a supporting action without a leading action. If you only need one button then use a leading action instead.');
+            }
             return nothing;
         }
 
