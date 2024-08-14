@@ -10,13 +10,28 @@ export type AriaProps = {
     close?: string;
     back?: string;
     loading?: string;
-    leadingActionLabel?: string;
-    supportingActionLabel?: string;
+};
+
+type ActionProps = {
+    /**
+     * The text to display inside the button.
+     */
+    text: string;
+
+    /**
+     * The button variant.
+     */
+    variant?: ButtonVariant;
+
+    /**
+     * The aria label for the button.
+     */
+    ariaLabel?: string;
 };
 
 export type ModalProps = {
     /**
-     * The ARIA labels used for the modal leading action, supporting action, close and back buttons, as well as for the loading state.
+     * The ARIA labels used for the modal close and back buttons, as well as for the loading state.
      */
     aria?: AriaProps;
 
@@ -74,24 +89,14 @@ export type ModalProps = {
     isLoading?: boolean;
 
     /**
-     * The text to display inside the leading action button.
+     * The leading action configuration for the modal.
      */
-    leadingActionText?: string;
+    leadingAction?: ActionProps;
 
     /**
-     * The button variant for the leading action button.
+     * The supporting action configuration for the modal.
      */
-    leadingActionVariant?: ButtonVariant;
-
-    /**
-     * The text to display inside the supporting action button.
-     */
-    supportingActionText?: string;
-
-    /**
-     * The button variant for the supporting action button.
-     */
-    supportingActionVariant?: ButtonVariant;
+    supportingAction?: ActionProps;
 
     /*
      * The position of the modal; this controls where it will appear on the page.
@@ -146,7 +151,7 @@ export const ON_MODAL_SUPPORTING_ACTION_CLICK = 'pie-modal-supporting-action-cli
 
 export type ModalActionType = 'leading' | 'supporting';
 
-export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'heading' | 'leadingActionText' | 'supportingActionText' | 'returnFocusAfterCloseSelector'>>;
+export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'heading' | 'leadingAction' | 'supportingAction' | 'returnFocusAfterCloseSelector'>>;
 
 export const defaultProps: DefaultProps = {
     hasBackButton: false,
@@ -157,8 +162,6 @@ export const defaultProps: DefaultProps = {
     isFooterPinned: true,
     isFullWidthBelowMid: false,
     isLoading: false,
-    leadingActionVariant: 'primary',
     position: 'center',
     size: 'medium',
-    supportingActionVariant: 'ghost',
 };

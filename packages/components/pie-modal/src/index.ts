@@ -86,28 +86,22 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: Boolean })
     public isOpen = defaultProps.isOpen;
 
-    @property({ type: String })
-    public leadingActionText: ModalProps['leadingActionText'];
-
-    @property({ type: String })
-    public leadingActionVariant = defaultProps.leadingActionVariant;
+    @property({ type: Object })
+    public leadingAction: ModalProps['leadingAction'];
 
     @property()
     @validPropertyValues(componentSelector, positions, defaultProps.position)
     public position = defaultProps.position;
 
     @property()
-    public returnFocusAfterCloseSelector?: ModalProps['returnFocusAfterCloseSelector'];
+    public returnFocusAfterCloseSelector: ModalProps['returnFocusAfterCloseSelector'];
 
     @property()
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
     public size = defaultProps.size;
 
-    @property({ type: String })
-    public supportingActionText: ModalProps['supportingActionText'];
-
-    @property({ type: String })
-    public supportingActionVariant = defaultProps.supportingActionVariant;
+    @property({ type: Object })
+    public supportingAction: ModalProps['supportingAction'];
 
     @query('dialog')
     private _dialog?: HTMLDialogElement;
@@ -307,26 +301,26 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     /**
      * Renders the "leadingAction" button if the text is provided.
      *
-     * If `leadingActionText` is not provided, the button is not rendered.
-     * If `leadingActionVariant` is not provided, the default value is used.
-     * The (optional) aria-label is read from the `aria` prop's `leadingActionLabel` property.
+     * If `leadingAction.text` is not provided, the button is not rendered.
+     * If `leadingAction.variant` is not provided, the default value of "primary" is used.
+     * The (optional) aria-label is read from `leadingAction.ariaLabel`.
      *
      * @private
      */
     private renderLeadingAction () : TemplateResult | typeof nothing {
-        if (!this.leadingActionText) {
-            return nothing;
-        }
+        const { ariaLabel, text, variant = 'primary' } = this.leadingAction || {};
+
+        if (!text) return nothing;
 
         return html`
             <pie-button
-                variant="${this.leadingActionVariant}"
-                aria-label="${ifDefined(this.aria?.leadingActionLabel)}"
+                variant="${variant}"
+                aria-label="${ifDefined(ariaLabel)}"
                 type="submit"
                 ?isFullWidth="${this.hasStackedActions}"
                 @click="${() => this._handleActionClick('leading')}"
                 data-test-id="modal-leading-action">
-                ${this.leadingActionText}
+                ${text}
             </pie-button>
         `;
     }
@@ -335,30 +329,31 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * Renders the "supportingAction" button if the text is provided.
      * You cannot have a supporting action without a leading action.
      *
-     * If `supportingActionText` or `leadingActionText` are not provided, the button is not rendered.
-     * If `supportingActionVariant` is not provided, the default value is used.
+     * If either `supportingAction.text` or `leadingAction.text` are not provided, the button is not rendered.
+     * If `supportingAction.variant` is not provided, the default value of "ghost" is used.
+     * The (optional) aria-label is read from `supportingAction.ariaLabel`.
      *
      * @private
      */
     private renderSupportingAction (): TemplateResult | typeof nothing {
-        if (!this.supportingActionText) {
-            return nothing;
-        }
+        const { ariaLabel, text, variant = 'ghost' } = this.supportingAction || {};
 
-        if (!this.leadingActionText) {
+        if (!text) return nothing;
+
+        if (!this.leadingAction?.text) {
             console.warn('You cannot have a supporting action without a leading action. If you only need one button then use a leading action instead.');
             return nothing;
         }
 
         return html`
             <pie-button
-                variant="${this.supportingActionVariant}"
-                aria-label="${ifDefined(this.aria?.supportingActionLabel)}"
+                variant="${variant}"
+                aria-label="${ifDefined(ariaLabel)}"
                 type="reset"
                 ?isFullWidth="${this.hasStackedActions}"
                 @click="${() => this._handleActionClick('supporting')}"
                 data-test-id="modal-supporting-action">
-                ${this.supportingActionText}
+                ${text}
             </pie-button>
         `;
     }
@@ -368,7 +363,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * @private
      */
     private renderModalContentAndFooter (): TemplateResult {
-        const hasFooterLeadingAction = Boolean(this.leadingActionText);
+        const hasFooterLeadingAction = Boolean(this.leadingAction?.text);
 
         const scrollContainerClasses = {
             'c-modal-scrollContainer': true,
@@ -402,10 +397,10 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             isFooterPinned,
             isFullWidthBelowMid,
             isLoading,
-            leadingActionText,
+            leadingAction,
             position,
             size,
-            supportingActionText,
+            supportingAction,
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
@@ -416,7 +411,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             class="c-modal"
             size="${size}"
             position="${position}"
-            ?hasActions=${leadingActionText || supportingActionText}
+            ?hasActions=${leadingAction?.text || supportingAction?.text}
             ?hasBackButton=${hasBackButton}
             ?hasStackedActions=${hasStackedActions}
             ?isDismissible=${isDismissible}

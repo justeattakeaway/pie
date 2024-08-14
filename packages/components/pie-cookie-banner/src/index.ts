@@ -216,6 +216,11 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     }
 
     render () {
+        const modalLeadingActionProps = {
+            text: this._localiseText('preferencesManagement.cta.save.label'),
+            ariaLabel: this._localiseText('preferencesManagement.cta.save.label'),
+        };
+
         return html`
         <pie-modal
             .isOpen="${this._isModalOpen}"
@@ -223,9 +228,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             hasStackedActions
             isFullWidthBelowMid
             heading="${this._localiseText('preferencesManagement.title')}"
-            leadingActionText="${this._localiseText('preferencesManagement.cta.save.label')}"
-            leadingActionVariant="primary"
-            .aria=${{ leadingActionLabel: this._localiseText('preferencesManagement.cta.save.label') }}
+            .leadingAction=${modalLeadingActionProps}
             @pie-modal-leading-action-click="${this._handlePreferencesSaved}"
             @pie-modal-back="${this._displayCookieBanner}">
                 ${this.renderModalContent()}
