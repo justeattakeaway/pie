@@ -320,6 +320,25 @@ test.describe('PieTextarea - Component tests', () => {
             });
         });
 
+        test.describe('defaultValue', () => {
+            test('should correctly reset the textarea value to the default value if one is provided when the form is reset', async ({ page }) => {
+                // Arrange
+                await page.setContent(`
+                    <form id="testForm" action="/foo" method="POST">
+                        <pie-textarea defaultValue="foo"></pie-textarea>
+                        <button type="reset">Submit</button>
+                    </form>
+                `);
+
+                // Act & Assert
+                await page.locator('pie-textarea').type('test');
+                expect(await page.evaluate(() => document.querySelector('pie-textarea')?.value)).toBe('test');
+
+                await page.click('button[type="reset"]');
+                expect(await page.evaluate(() => document.querySelector('pie-textarea')?.value)).toBe('foo');
+            });
+        });
+
         test.describe('required', () => {
             test('should not render the required property on the textarea element if no required property is provided', async ({ mount }) => {
                 // Arrange

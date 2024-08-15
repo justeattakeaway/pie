@@ -26,6 +26,7 @@ const Template = ({
     required,
     readonly,
     value,
+    defaultValue,
     name,
     autocomplete,
     autoFocus,
@@ -55,6 +56,7 @@ const Template = ({
             id="${ifDefined(name)}"
             name="${ifDefined(name)}"
             .value="${value}"
+            defaultValue="${ifDefined(defaultValue)}"
             ?disabled="${disabled}"
             size="${ifDefined(size)}"
             resize="${ifDefined(resize)}"
@@ -109,6 +111,13 @@ const textareaStoryMeta: TextareaStoryMeta = {
             control: 'text',
             defaultValue: {
                 summary: defaultProps.value,
+            },
+        },
+        defaultValue: {
+            description: 'An optional default value to use when the textarea is reset.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
             },
         },
         readonly: {
