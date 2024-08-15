@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.2
+
+### Patch Changes
+
+- Updated dependencies [[`e2274aaac`](https://github.com/justeattakeaway/pie/commit/e2274aaac986fcc288760a22a09e9b4d3b7822b3)]:
+  - @justeattakeaway/pie-assistive-text@0.7.0
+  - @justeattakeaway/pie-checkbox@0.12.1
+  - @justeattakeaway/pie-checkbox-group@0.6.1
+  - @justeattakeaway/pie-text-input@0.23.4
+
 ## 1.1.1
 
 ### Patch Changes
