@@ -251,6 +251,7 @@
         padding-block-end: var(--modal-content-padding-block-end); // We require a larger bottom padding when there's no footer
         flex-grow: 1;
 
+        // If the footer is rendered, the modal content is not the last child
         &:not(:last-child) {
           padding-block-end: var(--modal-content-padding-block);
           min-block-size: var(--modal-content-min-block-size);
@@ -316,6 +317,7 @@
             display: none;
         }
 
+        // If the footer is rendered, the modal content is not the last child
         &:not(:last-child) {
           pie-spinner {
             top: 50%;
