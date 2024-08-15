@@ -369,8 +369,13 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             return nothing;
         }
 
+        const footerClasses = {
+            'c-modal-footer': true,
+            'c-modal-footer--stackedActions': this.hasStackedActions,
+        };
+
         return html`
-            <footer class="c-modal-footer" data-test-id="pie-modal-footer">
+            <footer class="${classMap(footerClasses)}" data-test-id="pie-modal-footer">
                 ${this.renderLeadingAction()}
                 ${this.renderSupportingAction()}
             </footer>`;
@@ -403,41 +408,50 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             ${this.renderModalFooter()}`;
     }
 
-    public render () {
-        const headingTag = unsafeStatic(this.headingLevel);
-        const ariaLabel = (this.isLoading && this.aria?.loading) || undefined;
+    render () {
+        const {
+            aria,
+            heading,
+            headingLevel,
+            isDismissible,
+            isFooterPinned,
+            isFullWidthBelowMid,
+            isLoading,
+            position,
+            size,
+        } = this;
+
+        const headingTag = unsafeStatic(headingLevel);
+        const ariaLabel = (isLoading && aria?.loading) || undefined;
 
         const modalClasses = {
             'c-modal': true,
-            [`c-modal--${this.size}`]: true,
-            'c-modal--top': this.position === 'top',
-            'c-modal--hasActions': Boolean(this.leadingAction?.text || this.supportingAction?.text),
-            'c-modal--hasBackButton': this.hasBackButton,
-            'c-modal--hasStackedActions': this.hasStackedActions,
-            'c-modal--isDismissible': this.isDismissible,
-            'c-modal--isFooterPinned': this.isFooterPinned,
-            'c-modal--isFullWidthBelowMid': this.isFullWidthBelowMid,
-            'c-modal--isLoading': this.isLoading,
+            [`c-modal--${size}`]: true,
+            'c-modal--top': position === 'top',
+            'c-modal--dismissible': isDismissible,
+            'c-modal--loading': isLoading,
+            'c-modal--pinnedFooter': isFooterPinned,
+            'c-modal--fullWidthBelowMid': isFullWidthBelowMid,
         };
 
         return html`
         <dialog
             id="dialog"
             class="${classMap(modalClasses)}"
-            aria-busy="${this.isLoading ? 'true' : 'false'}"
+            aria-busy="${isLoading ? 'true' : 'false'}"
             aria-label="${ifDefined(ariaLabel)}"
             data-test-id="pie-modal">
             <header class="c-modal-header"
             data-test-id="modal-header">
                 ${this.renderBackButton()}
                 <${headingTag} class="c-modal-heading">
-                    ${this.heading}
+                    ${heading}
                 </${headingTag}>
                 ${this.renderCloseButton()}
             </header>
             ${
             // We need to wrap the remaining content in a shared scrollable container if the footer is not pinned
-            this.isFooterPinned
+            isFooterPinned
                 ? this.renderModalContentAndFooter()
                 : html`
                     <div class="c-modal-scrollContainer">
