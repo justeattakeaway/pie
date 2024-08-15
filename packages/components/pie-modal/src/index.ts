@@ -1,5 +1,5 @@
 import {
-    LitElement, nothing, TemplateResult, unsafeCSS, PropertyValues,
+    LitElement, nothing, type TemplateResult, unsafeCSS, type PropertyValues,
 } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js';
