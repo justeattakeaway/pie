@@ -14,11 +14,19 @@ class Accordion {
         this.isClosing = false;
         // Store if the element is expanding
         this.isExpanding = false;
-        // Detect user clicks on the summary element
-        this.summary.addEventListener('click', (event) => this.onClick(event));
+        // Detect user clicks on the summary toggle element
+        this.summaryToggle = element.querySelector('.c-nav-toggles');
+        this.summaryToggle.addEventListener('click', (event) => this.onToggleClick(event));
+
+        // Triggers open animation when navigating using the link
+        const hasCurrentLink = element.querySelector('[aria-current]') != null;
+        if (hasCurrentLink) {
+            this.element.style.overflow = 'hidden';
+            this.open();
+        }
     }
 
-    onClick (event) {
+    onToggleClick (event) {
         // Stop default behaviour from the browser
         event.preventDefault();
         // Add an overflow on the <details> to avoid content overflowing

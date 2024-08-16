@@ -31,6 +31,26 @@
 - Our unit tests are written using [Jest](https://jestjs.io/)
 - Our accessibility tests are written using [Axe with Playwright](https://playwright.dev/docs/accessibility-testing)
 
+## Creating docsite pages
+
+Please follow our [Wiki documentation](https://github.com/justeattakeaway/pie/wiki/Creating-docsite-pages) for reference on how to create new pages and set eleventyNavigation.
+
+### Adding Index pages
+An index page represents content for one of our main navigation items, for example: Foundations or Components.
+When a main navigation item does not have an index page, it will navigate to the first page under it. When it has content, it will open the accordion and navigate to that content.
+
+To set content for a main navigation item, in the item `.md` page, please add to the eleventyNavigation section at the top `hasIndexPage` like so:
+
+```json
+---
+eleventyNavigation:
+    ...
+    hasIndexPage: true
+---
+```
+
+Content needs to be added after this. If no content is added, it will navigate to a 404.
+
 ## Drafts
 
 When building a page that is not yet ready for production we can mark the page as a `draft` by adding `draft: true` to the page front matter. This will allow 11ty to build the page during development mode but will exclude the page from builds during production.
@@ -63,9 +83,9 @@ Our primary concerns are:
 We have route navigation tests that ensure all existing pages can be correctly navigated to. When you add new pages, these tests will fail as there are new unexpected pages (this is by design).
 
 Route tests need a production build so that they do not fail with `draft` page routes. For this, we recommend to:
-1. Stop any local instance of the doc site 
-2. Delete your `dist` folder 
-3. Create a production build with `yarn build --filter=pie-docs` 
+1. Stop any local instance of the doc site
+2. Delete your `dist` folder
+3. Create a production build with `yarn build --filter=pie-docs`
 
 Once this is done, you can run the route tests with `yarn test --filter=pie-docs`.
 From here, we run navigation, accessibility and visual tests against each route.

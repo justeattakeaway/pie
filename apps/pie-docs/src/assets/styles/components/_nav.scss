@@ -1,7 +1,7 @@
 @use '../fozzie-config' as f;
 @use '@justeattakeaway/pie-css/scss' as p;
 
-$nav-category-gap: var(--dt-spacing-b);
+$nav-category-gap: var(--dt-spacing-a);
 $nav-category-icon-width: var(--dt-spacing-e); // this needs to be kept in sync with the width given to the icon found in nav.njk
 $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width);
 
@@ -49,6 +49,11 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
     height: 100%; // 100% of the parent .c-nav container
     overflow-y: auto;
 
+    > ul {
+      // helps making focus more visible on the top of the first navigation item
+      margin: 2px;
+    }
+
     @include f.media('>=wide') {
         max-height: 100vh;
     }
@@ -70,11 +75,21 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
     content: '';
 }
 
+.c-nav-link {
+  align-items: center;
+  display: flex;
+  gap: var(--dt-spacing-b);
+  width: 100%;
+}
+
 .c-nav-category {
-    padding-block: 10px;
-    padding-inline-start: var(--dt-spacing-d);
-    padding-inline-end: var(--dt-spacing-d);
-    font-weight: var(--dt-font-weight-bold);
+    &.is-active {
+      background-color: var(--dt-color-container-subtle);
+    }
+
+  .c-nav-link {
+      font-weight: var(--dt-font-weight-bold);
+    }
 }
 
 .c-nav-item {
@@ -101,10 +116,12 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
 }
 
 .c-nav-subCategory {
-    padding-block: 10px;
-    padding-inline-start: calc(var(--dt-spacing-d) + $nav-item-inline-start-margin);
-    padding-inline-end: var(--dt-spacing-d);
-    margin-block: 0 2px;
+    .c-nav-link {
+      padding-block: 10px;
+      padding-inline-start: calc(var(--dt-spacing-d) + $nav-item-inline-start-margin);
+      padding-inline-end: var(--dt-spacing-d);
+      margin-block: 0 2px;
+    }
 
     + .c-nav-list {
         margin-inline-start: var(--dt-spacing-d);
@@ -112,8 +129,8 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
 }
 
 .c-nav-item,
-.c-nav-subCategory,
-.c-nav-category {
+.c-nav-link,
+.c-nav-toggles {
     cursor: pointer;
 
     &:hover,
@@ -121,6 +138,31 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
         background-color: var(--dt-color-container-subtle);
         text-decoration: underline;
     }
+}
+
+// removes default link and button styles
+a.c-nav-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+button.c-nav-toggles {
+    background: none;
+    border: none;
+    appearance: none;
+}
+
+
+
+.c-nav-link,
+.c-nav-toggles {
+    padding-block: 10px;
+    padding-inline-start: var(--dt-spacing-d);
+    padding-inline-end: var(--dt-spacing-d);
+}
+
+.c-nav-category .c-nav-link {
+    font-weight: var(--dt-font-weight-bold);
 }
 
 // SideNav accordion toggle
