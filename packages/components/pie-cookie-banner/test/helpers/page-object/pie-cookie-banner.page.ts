@@ -25,7 +25,7 @@ export class CookieBannerComponent extends BasePage {
     private readonly modalDescriptionLocator: Locator;
 
     constructor (page: Page) {
-        super(page);
+        super(page, 'cookie-banner');
         this.componentLocator = page.getByTestId(cookieBanner.selectors.container.dataTestId);
         this.descriptionLocator = page.getByTestId(cookieBanner.selectors.description.dataTestId);
         this.acceptAllButtonLocator = page.getByTestId(cookieBanner.selectors.acceptAllButton.dataTestId);
