@@ -79,7 +79,7 @@
     "@justeattakeaway/pie-webc-testing": "0.13.1",
     "@justeattakeaway/pie-wrapper-react": "0.14.1",
     "@justeattakeaway/stylelint-config-pie": "0.7.0",
-    "@percy/cli": "1.28.8",
+    "@percy/cli": "1.29.1",
     "@percy/playwright": "1.0.5",
     "@playwright/experimental-ct-react": "1.41.0",
     "@playwright/test": "1.41.0",
