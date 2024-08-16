@@ -6,9 +6,10 @@
   column-gap: var(--dt-spacing-e);
 
   @include f.media('>=mid') {
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
+
     > * {
+      // stylelint-disable-next-line declaration-block-no-redundant-longhand-properties
       flex: 0 1 calc(50% - (var(--dt-spacing-e) / 2));
     }
   }
