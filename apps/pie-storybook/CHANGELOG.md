@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.3
+
+### Patch Changes
+
+- [Changed] - Use classes instead of attributes for styling ([#1696](https://github.com/justeattakeaway/pie/pull/1696)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - tidy up modal render functions ([#1696](https://github.com/justeattakeaway/pie/pull/1696)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`ccb4ced90`](https://github.com/justeattakeaway/pie/commit/ccb4ced90fb719567b9e2f0e5c89535108d662d1), [`ccb4ced90`](https://github.com/justeattakeaway/pie/commit/ccb4ced90fb719567b9e2f0e5c89535108d662d1)]:
+  - @justeattakeaway/pie-modal@0.46.0
+  - @justeattakeaway/pie-cookie-banner@0.24.1
+
 ## 1.1.2
 
 ### Patch Changes
