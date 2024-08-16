@@ -179,9 +179,23 @@ jobs:
         with:
           script-name: "test:ci"
 
+  deploy-storybook:
+    needs: unit-tests
+    if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/amplify-deploy.yml
+    with:
+      os: ubuntu-latest
+      node-version: 20
+      amplify-app-id: d17ja0ul7nrdy0
+      package-name: 'pie-storybook'
+      package-dist-directory: ./apps/pie-storybook/dist
+      bucket-name-preview: 'pie-storybook-preview'
+      bucket-name-main: 'pie-storybook'
+    secrets: inherit
+
   # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
   browser-tests-components:
-    needs: build-ubuntu-node-20
+    needs: [build-ubuntu-node-20, deploy-storybook]
     if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
@@ -229,6 +243,9 @@ jobs:
           name: visual-report
           path: visual-report/
           retention-days: 7
+    env:
+      STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
+      PR_NUMBER: ${{ github.event.number }}
 
   deploy-docs:
     needs: unit-tests
@@ -242,20 +259,6 @@ jobs:
       package-dist-directory: ./apps/pie-docs/dist
       bucket-name-preview: 'pie-docs-preview'
       bucket-name-main: 'pie-docs'
-    secrets: inherit
-
-  deploy-storybook:
-    needs: unit-tests
-    if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
-    uses: ./.github/workflows/amplify-deploy.yml
-    with:
-      os: ubuntu-latest
-      node-version: 20
-      amplify-app-id: d17ja0ul7nrdy0
-      package-name: 'pie-storybook'
-      package-dist-directory: ./apps/pie-storybook/dist
-      bucket-name-preview: 'pie-storybook-preview'
-      bucket-name-main: 'pie-storybook'
     secrets: inherit
 
   browser-tests-docs:
