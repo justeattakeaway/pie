@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-divider
 
+## 0.13.9
+
+### Patch Changes
+
+- [Changed] - use classes for styling instead of attributes ([#1704](https://github.com/justeattakeaway/pie/pull/1704)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.13.8
 
 ### Patch Changes
