@@ -86,8 +86,8 @@ export class CookieBannerComponent extends BasePage {
      * @returns {Promise<string | null>} A Promise that resolves to the value of the specified attribute
      *                                   on the "Accept All" button, or `null` if the attribute does not exist.
      */
-    async getAcceptAllVariant (attribute: string) : Promise<string | null> {
-        return this.acceptAllButtonLocator.getAttribute(attribute);
+    async getAcceptAllVariant () : Promise<string | null> {
+        return this.acceptAllButtonLocator.getAttribute('variant');
     }
 
     /**
@@ -107,8 +107,8 @@ export class CookieBannerComponent extends BasePage {
      * @returns {Promise<string | null>} A Promise that resolves to the value of the specified attribute
      *                                   on the "Necessary Only" button, or `null` if the attribute does not exist.
      */
-    async getNecessaryOnlyButtonVariant (attribute: string) : Promise<string | null> {
-        return this.necessaryOnlyButtonLocator.getAttribute(attribute);
+    async getNecessaryOnlyButtonVariant () : Promise<string | null> {
+        return this.necessaryOnlyButtonLocator.getAttribute('variant');
     }
 
     /**
@@ -280,5 +280,13 @@ export class CookieBannerComponent extends BasePage {
      */
     async getModalCookieTechnologiesLinkAttribute (attribute: string) : Promise<string | null> {
         return this.modalDescriptionLocator.locator(this.bodyCookieTechnologiesLinkLocator).getAttribute(attribute);
+    }
+
+    async getAllCheckedPreferences (preferences: { id: string }[]): Promise<{ id: string; isChecked: boolean }[]> {
+        const elements = preferences.map(async ({ id }) => ({
+            id,
+            isChecked: await this.isPreferenceToggleChecked(id as PreferenceIds),
+        }));
+        return Promise.all(elements);
     }
 }
