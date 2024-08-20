@@ -35,7 +35,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     public value = defaultProps.value;
 
     @property({ type: String })
-    public defaultValue?: TextareaProps['defaultValue'];
+    public defaultValue: TextareaProps['defaultValue'];
 
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
