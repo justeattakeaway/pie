@@ -1,5 +1,5 @@
 import {
-    LitElement, nothing, TemplateResult, unsafeCSS, PropertyValues,
+    LitElement, nothing, type TemplateResult, unsafeCSS, type PropertyValues,
 } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js';
@@ -338,10 +338,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     private renderSupportingAction (): TemplateResult | typeof nothing {
         const { ariaLabel, text, variant = 'ghost' } = this.supportingAction || {};
 
-        if (!text) return nothing;
-
-        if (!this.leadingAction?.text) {
-            console.warn('You cannot have a supporting action without a leading action. If you only need one button then use a leading action instead.');
+        if (!text || !this.leadingAction?.text) {
             return nothing;
         }
 
@@ -359,67 +356,90 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     }
 
     /**
-     * Renders the modal inner content and footer of the modal.
+     * Renders the modal footer if a leading action is provided.
+     * Additionally renders the supporting action if it is provided.
+     *
      * @private
      */
-    private renderModalContentAndFooter (): TemplateResult {
-        const hasFooterLeadingAction = Boolean(this.leadingAction?.text);
+    private renderModalFooter () : TemplateResult | typeof nothing {
+        if (!this.leadingAction?.text) {
+            if (this.supportingAction?.text) {
+                console.warn('You cannot have a supporting action without a leading action. If you only need one button then use a leading action instead.');
+            }
+            return nothing;
+        }
 
-        const scrollContainerClasses = {
-            'c-modal-scrollContainer': true,
-            'c-modal-content': true,
-            'c-modal-content--scrollable': true,
-            'c-modal-hasFooterActions': hasFooterLeadingAction,
+        const footerClasses = {
+            'c-modal-footer': true,
+            'c-modal-footer--stackedActions': this.hasStackedActions,
         };
 
         return html`
-            <article class=${classMap(scrollContainerClasses)}>
+            <footer class="${classMap(footerClasses)}" data-test-id="pie-modal-footer">
+                ${this.renderLeadingAction()}
+                ${this.renderSupportingAction()}
+            </footer>`;
+    }
+
+    /**
+     * Renders the loading spinner if `isLoading` is true.
+     * @private
+     */
+    private renderLoadingSpinner () : TemplateResult | typeof nothing {
+        if (!this.isLoading) {
+            return nothing;
+        }
+
+        return html`<pie-spinner size="xlarge" variant="secondary"></pie-spinner>`;
+    }
+
+    /**
+     * Renders the modal inner content and footer of the modal.
+     * @private
+     */
+    private renderModalContentAndFooter () : TemplateResult {
+        return html`
+            <article class="c-modal-scrollContainer c-modal-content c-modal-content--scrollable">
                 <div class="c-modal-contentInner" data-test-id="modal-content-inner">
                     <slot></slot>
                 </div>
-                ${this.isLoading ? html`<pie-spinner size="xlarge" variant="secondary"></pie-spinner>` : nothing}
+                ${this.renderLoadingSpinner()}
             </article>
-            ${hasFooterLeadingAction ? html`
-                <footer class="c-modal-footer" data-test-id="pie-modal-footer">
-                    ${this.renderLeadingAction()}
-                    ${this.renderSupportingAction()}
-                </footer>` : nothing}`;
+            ${this.renderModalFooter()}`;
     }
 
-    public render () {
+    render () {
         const {
             aria,
-            hasBackButton,
-            hasStackedActions,
             heading,
             headingLevel,
             isDismissible,
             isFooterPinned,
             isFullWidthBelowMid,
             isLoading,
-            leadingAction,
             position,
             size,
-            supportingAction,
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
+        const ariaLabel = (isLoading && aria?.loading) || undefined;
+
+        const modalClasses = {
+            'c-modal': true,
+            [`c-modal--${size}`]: true,
+            'c-modal--top': position === 'top',
+            'c-modal--dismissible': isDismissible,
+            'c-modal--loading': isLoading,
+            'c-modal--pinnedFooter': isFooterPinned,
+            'c-modal--fullWidthBelowMid': isFullWidthBelowMid,
+        };
 
         return html`
         <dialog
             id="dialog"
-            class="c-modal"
-            size="${size}"
-            position="${position}"
-            ?hasActions=${leadingAction?.text || supportingAction?.text}
-            ?hasBackButton=${hasBackButton}
-            ?hasStackedActions=${hasStackedActions}
-            ?isDismissible=${isDismissible}
-            ?isFooterPinned=${isFooterPinned}
-            ?isFullWidthBelowMid=${isFullWidthBelowMid}
-            ?isLoading=${isLoading}
+            class="${classMap(modalClasses)}"
             aria-busy="${isLoading ? 'true' : 'false'}"
-            aria-label="${(isLoading && aria?.loading) || nothing}"
+            aria-label="${ifDefined(ariaLabel)}"
             data-test-id="pie-modal">
             <header class="c-modal-header"
             data-test-id="modal-header">
@@ -434,10 +454,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             isFooterPinned
                 ? this.renderModalContentAndFooter()
                 : html`
-                        <div class="c-modal-scrollContainer">
-                            ${this.renderModalContentAndFooter()}
-                        </div>
-                        `
+                    <div class="c-modal-scrollContainer">
+                        ${this.renderModalContentAndFooter()}
+                    </div>`
             }
         </dialog>`;
     }

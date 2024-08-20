@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-modal
 
+## 0.46.0
+
+### Minor Changes
+
+- [Changed] - Use classes instead of attributes for styling ([#1696](https://github.com/justeattakeaway/pie/pull/1696)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - tidy up modal render functions ([#1696](https://github.com/justeattakeaway/pie/pull/1696)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.45.0
 
 ### Minor Changes
