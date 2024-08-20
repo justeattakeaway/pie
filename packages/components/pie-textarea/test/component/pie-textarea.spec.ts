@@ -654,6 +654,23 @@ test.describe('PieTextarea - Component tests', () => {
             expect(await page.evaluate(() => document.querySelector('pie-textarea')?.value)).toBe('');
         });
 
+        test('should correctly reset the textarea value to the `defaultValue` if one is provided when the form is reset', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                    <form id="testForm" action="/foo" method="POST">
+                        <pie-textarea defaultValue="foo"></pie-textarea>
+                        <button type="reset">Submit</button>
+                    </form>
+                `);
+
+            // Act & Assert
+            await page.locator('pie-textarea').type('test');
+            expect(await page.evaluate(() => document.querySelector('pie-textarea')?.value)).toBe('test');
+
+            await page.click('button[type="reset"]');
+            expect(await page.evaluate(() => document.querySelector('pie-textarea')?.value)).toBe('foo');
+        });
+
         test('should NOT submit the value for disabled textarea elements', async ({ page }) => {
             // Arrange
             await page.setContent(`
