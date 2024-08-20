@@ -21,6 +21,12 @@ eleventyComputed:
 
 This component can be easily integrated into various frontend frameworks and customised through a set of properties.
 
+{% notification {
+  type: "information",
+  iconName: "engineers",
+  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/story/cookie-banner) instance!"
+} %}
+
 ## Cookies
 `pie-cookie-banner` purely handles the UI and user interactions for cookie consent. It does not handle the setting or management of cookies or the storage of user preferences. It is the responsibility of the consuming application to handle these aspects. See [Events](#events) for more information.
 
