@@ -26,6 +26,12 @@ eleventyComputed:
 
 This component integrates easily with various frontend frameworks and can be customised through a set of properties.
 
+{% notification {
+  type: "information",
+  iconName: "engineers",
+  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/docs/text-input--sizes) instance!"
+} %}
+
 ## Installation
 
 To install `pie-text-input` in your application via `npm` or `yarn`:

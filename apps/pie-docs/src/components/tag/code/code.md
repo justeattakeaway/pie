@@ -25,6 +25,12 @@ eleventyComputed:
 
 This component can be easily integrated into various frontend frameworks and customised through a set of properties.
 
+{% notification {
+  type: "information",
+  iconName: "engineers",
+  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/docs/tag--variants) instance!"
+} %}
+
 ## Installation
 
 To install `pie-tag` in your application, run the following on your command line:
