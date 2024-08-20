@@ -20,11 +20,9 @@ eleventyComputed:
   </a>
 </p>
 
-`pie-modal` is a Web Component built using the Lit library. It offers a simple and accessible modal component for web applications, which uses the native HTML dialog element under the hood.
+`pie-modal` is a Web Component built using [Lit](https://lit.dev/). It offers a simple and accessible modal component for web applications, which uses the native HTML dialog element under the hood.
 
-This component can be easily integrated into various frontend frameworks and customized through a set of properties.
-
----
+This component can be easily integrated into various frontend frameworks and customised through a set of properties.
 
 ## Installation
 
@@ -44,26 +42,11 @@ yarn add @justeattakeaway/pie-webc
   message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide.](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
 } %}
 
----
-
-## Playground
-
- <iframe
-  src="https://webc.pie.design/?path=/story/modal--default&viewMode=story&shortcuts=true&singleStory=true"
-  width="100%"
-  height="600px"
-  style="border: none; margin-top: var(--dt-spacing-f);"
-></iframe>
-
----
-
 ## Props
 
 {% componentDetailsTable {
   tableData: props
 } %}
-
----
 
 ## Legacy browser support
 
@@ -77,8 +60,6 @@ Dialogs should not be contained by parents that create a stacking context
  - The browser's chrome may not always be accessible via the tab key
  - Changes to the CSS top/bottom values while open aren't retained
  - For more details, check the package documentation mentioned above.
-
----
 
 ## Examples
 
@@ -124,7 +105,6 @@ import { PieModal } from '@justeattakeaway/pie-modal/dist/react';
   iconName: "link",
   message: "For more examples, see [here](https://github.com/justeattakeaway/pie-aperture/tree/main)."
 } %}
-
 
 ## Changelog
 
