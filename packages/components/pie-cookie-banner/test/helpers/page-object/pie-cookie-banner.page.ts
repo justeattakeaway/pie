@@ -282,6 +282,14 @@ export class CookieBannerComponent extends BasePage {
         return this.modalDescriptionLocator.locator(this.bodyCookieTechnologiesLinkLocator).getAttribute(attribute);
     }
 
+    /**
+     * Checks whether the preference toggle associated with the specified preference IDs is checked.
+     *
+     * @param {Object[]} preferences An array of preference objects.
+     * @param {string} preferences[].id The preference IDs used to locate the preference toggle.
+     * @returns {Promise<Object[]>} A promise that resolves to an array of objects for prefernece ID and
+     *                              whether the preference toggle is checked (`true`) or not (`false`).
+     */
     async getAllCheckedPreferences (preferences: { id: string }[]): Promise<{ id: string; isChecked: boolean }[]> {
         const elements = preferences.map(async ({ id }) => ({
             id,
