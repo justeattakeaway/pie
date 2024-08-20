@@ -1,9 +1,10 @@
 import { html, nothing } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-switch';
-import { SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-switch';
+import { type SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-switch';
 /* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
@@ -120,9 +121,9 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
         <pie-switch
             id="pie-switch"
             name="${name || nothing}"
-            value="${value || nothing}"
             label="${label || nothing}"
-            labelPlacement="${label && labelPlacement ? labelPlacement : nothing}"
+            labelPlacement="${ifDefined(labelPlacement)}"
+            value="${ifDefined(value)}"
             .aria="${aria}"
             ?required="${required}"
             ?checked="${checked}"
@@ -177,5 +178,9 @@ const createSwitchStory = createStory(Template, defaultArgs);
 
 const createSwitchStoryWithForm = createStory<SwitchProps>(FormTemplate, defaultArgs);
 
-export const Default = createSwitchStory();
+export const Default = createSwitchStory({}, {
+    controls: {
+        exclude: ['name', 'required', 'value'],
+    },
+});
 export const FormIntegration = createSwitchStoryWithForm({ label: 'Click me' });
