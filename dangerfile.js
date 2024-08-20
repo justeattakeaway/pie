@@ -1,4 +1,5 @@
 import { danger, fail, exec } from 'danger';
+import fs from 'fs';
 
 const { pr } = danger.github;
 const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
@@ -43,16 +44,27 @@ if (pr.body.includes('- [ ]') && !isDependabotPR && !isRenovatePR) {
     fail('You currently have an unchecked checklist item in your PR description.\n\nPlease confirm this check has been carried out – if it\'s not relevant to your PR, delete this line from the PR checklist.');
 }
 
-// Check if package.json and yarn.lock are in sync
-const packageJsonModified = danger.git.modified_files.includes('package.json');
+// Check if any package.json was modified
+const packageJsonModified = danger.git.modified_files.some((file) => file.endsWith('package.json'));
 const yarnLockModified = danger.git.modified_files.includes('yarn.lock');
 
-if (packageJsonModified && !yarnLockModified && !isRenovatePR && !isDependabotPR) {
-    exec('yarn install --check-files').then((result) => {
-        if (result.stdout.includes('error')) {
-            fail('It seems your `yarn.lock` file is not in sync with a `package.json` file. Please run `yarn install` and commit the updated `yarn.lock` file.');
+if (packageJsonModified && !isRenovatePR && !isDependabotPR) {
+    // Store the current yarn.lock file content
+    const yarnLockBefore = fs.readFileSync('yarn.lock', 'utf8');
+
+    // Run yarn install to update the lock file
+    exec('yarn install').then(() => {
+        // Store the new yarn.lock file content
+        const yarnLockAfter = fs.readFileSync('yarn.lock', 'utf8');
+
+        if (yarnLockBefore !== yarnLockAfter) {
+            fail('It seems your `yarn.lock` file is not fully in sync with the `package.json` file(s). Please run `yarn install` and commit the updated `yarn.lock` file.');
+        } else if (!yarnLockModified) {
+            // In case yarn.lock was not included in the PR but should have been
+            fail('You modified `package.json` but did not update `yarn.lock`. Please commit the updated `yarn.lock` file.');
         }
     }).catch((error) => {
-        console.error('Error running yarn install --check-files:', error);
+        console.error('Error running yarn install:', error);
+        fail('There was an error running `yarn install`. Please ensure your environment is set up correctly.');
     });
 }
