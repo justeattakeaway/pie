@@ -1,5 +1,4 @@
-import { danger, fail, exec } from 'danger';
-import fs from 'fs/promises'; // Import the promises version of fs for async operations
+import { danger, fail } from 'danger';
 
 const { pr } = danger.github;
 const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
@@ -17,14 +16,12 @@ danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') &
         const numberOfCategories = changesetCategories ? changesetCategories.length : 0;
 
         if (isRenovatePR) {
-            // Check if at least one of the valid changeset categories is present
             if (numberOfCategories === 0) {
                 fail(`:memo: Your changeset doesn't include a category. Please add one of: \`${validChangesetCategories.join(', ')}\`. Filepath: \`${filepath}`);
             } else if (!validChangesetCategories.some((cat) => changesetCategories.includes(cat))) {
                 fail(`:memo: Your changeset includes an invalid category. Please use one of: \`${validChangesetCategories.join(', ')}\`. Filepath: \`${filepath}`);
             }
 
-            // Check that categories are followed are in the following format `[Category] - {Description}`
             const changesetLineFormatRegex = /\[\w+\] - [\S].+/g;
             const validChangesetEntries = diffString.match(changesetLineFormatRegex);
             const numberOfValidChangesetEntries = (validChangesetEntries === null ? 0 : validChangesetEntries.length);
@@ -39,27 +36,30 @@ if (pr.body.includes('- [ ]') && !isDependabotPR && !isRenovatePR) {
     fail('You currently have an unchecked checklist item in your PR description.\n\nPlease confirm this check has been carried out – if it\'s not relevant to your PR, delete this line from the PR checklist.');
 }
 
-// Check if any package.json was modified
-const packageJsonModified = danger.git.modified_files.some((file) => file.endsWith('package.json'));
+// Get a list of modified package.json files
+const modifiedPackageJsons = danger.git.modified_files.filter((file) => file.endsWith('package.json'));
 const yarnLockModified = danger.git.modified_files.includes('yarn.lock');
 
-if (packageJsonModified && !isRenovatePR && !isDependabotPR) {
-    // Store the current yarn.lock file content
-    const yarnLockBefore = await fs.readFile('yarn.lock', 'utf8');
+if (modifiedPackageJsons.length > 0 && !isRenovatePR && !isDependabotPR) {
+    if (!yarnLockModified) {
+        fail('You modified `package.json` but did not update `yarn.lock`. Please run `yarn install` and commit the updated `yarn.lock` file.');
+    } else {
+        // Compare diffs between package.json and yarn.lock
+        Promise.all(modifiedPackageJsons.map(async (packageJson) => {
+            const packageJsonDiff = await danger.git.diffForFile(packageJson);
+            const yarnLockDiff = await danger.git.diffForFile('yarn.lock');
 
-    // Run yarn install to update the lock file
-    exec('yarn install').then(async () => {
-        // Store the new yarn.lock file content
-        const yarnLockAfter = await fs.readFile('yarn.lock', 'utf8');
+            const packageJsonDepsRegex = /"dependencies": {(.*)}/gs;
+            const depsMatches = packageJsonDiff.diff.match(packageJsonDepsRegex);
 
-        if (yarnLockBefore !== yarnLockAfter) {
-            fail('It seems your `yarn.lock` file is not fully in sync with the `package.json` file(s). Please run `yarn install` and commit the updated `yarn.lock` file.');
-        } else if (!yarnLockModified) {
-            // In case yarn.lock was not included in the PR but should have been
-            fail('You modified `package.json` but did not update `yarn.lock`. Please commit the updated `yarn.lock` file.');
-        }
-    }).catch((error) => {
-        console.error('Error running yarn install:', error);
-        fail('There was an error running `yarn install`. Please ensure your environment is set up correctly.');
-    });
+            if (depsMatches) {
+                const updatedDeps = depsMatches[1].split(',').map((dep) => dep.trim().split(':')[0].replace(/"/g, ''));
+                const missingDeps = updatedDeps.filter((dep) => !yarnLockDiff.diff.includes(dep));
+
+                if (missingDeps.length > 0) {
+                    fail(`The following dependencies were updated in \`${packageJson}\` but are missing in \`yarn.lock\`: ${missingDeps.join(', ')}. Please run \`yarn install\` and commit the updated \`yarn.lock\`.`);
+                }
+            }
+        }));
+    }
 }
