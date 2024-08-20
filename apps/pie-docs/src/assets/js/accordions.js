@@ -26,9 +26,7 @@ class Accordion {
         }
     }
 
-    onToggleClick (event) {
-        // Stop default behaviour from the browser
-        event.preventDefault();
+    onToggleClick () {
         // Add an overflow on the <details> to avoid content overflowing
         this.element.style.overflow = 'hidden';
         // Check if the element is being closed or is already closed
@@ -130,27 +128,11 @@ class Accordion {
 }
 
 function initialise () {
-    const accordions = [];
-
-    const resizeObserver = new ResizeObserver((entries) => {
-        entries.forEach((entry) => {
-            const { width } = entry.contentRect;
-
-            // ensure we don't duplicate accordion instances
-            if (width > 600 && !accordions.length) {
-            // TODO: use fozzie JS breakpoint helpers instead of hardcoding 600px
-                document.querySelectorAll('.c-nav details').forEach((el) => {
-                    accordions.push(new Accordion(el));
-                });
-            }
-        });
-    });
-
     // Only do this if the user doesn't opt out of animations
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     if (!prefersReducedMotion.matches) {
-        resizeObserver.observe(document.querySelector('html'));
+        document.querySelectorAll('.c-nav details').forEach((el) => new Accordion(el));
     }
 }
 

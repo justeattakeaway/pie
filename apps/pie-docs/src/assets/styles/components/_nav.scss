@@ -133,8 +133,9 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
 .c-nav-toggles {
     cursor: pointer;
 
+    // focus-visible prevents background color staying visible in button when not hovering
     &:hover,
-    &:focus {
+    &:focus-visible {
         background-color: var(--dt-color-container-subtle);
         text-decoration: underline;
     }
