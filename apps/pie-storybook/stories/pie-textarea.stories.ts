@@ -208,7 +208,15 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps> = () => html`
     </form>
 `;
 
-export const Default = createStory<TextareaProps>(Template, defaultArgs)();
-export const ExampleForm = createStory<TextareaProps>(ExampleFormTemplate, defaultArgs)();
+const CreateTextareaStory = createStory<TextareaProps>(Template, defaultArgs);
+const CreateTextareaStoryWithForm = createStory<TextareaProps>(ExampleFormTemplate, defaultArgs);
+
+export const Default = CreateTextareaStory({}, {
+    argTypes: {
+        defaultValue: { table: { readonly: true }, description: 'This prop only works when the textarea is inside a form. To interact with this, view the Example Form story.' },
+    },
+});
+
+export const ExampleForm = CreateTextareaStoryWithForm();
 
 export default textareaStoryMeta;
