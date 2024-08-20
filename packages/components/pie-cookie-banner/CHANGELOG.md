@@ -1,5 +1,45 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.25.0
+
+### Minor Changes
+
+- [Updated] - Cookie banner component and a11y tests updated to remove @sand4rt/experimental-ct-web and replace with load function within page object modal ([#1702](https://github.com/justeattakeaway/pie/pull/1702)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+### Patch Changes
+
+- Updated dependencies [[`4472c2445`](https://github.com/justeattakeaway/pie/commit/4472c2445aaf5b8a2a11f83f94c5268b791227f0)]:
+  - @justeattakeaway/pie-divider@0.13.9
+
+## 0.24.1
+
+### Patch Changes
+
+- Updated dependencies [[`ccb4ced90`](https://github.com/justeattakeaway/pie/commit/ccb4ced90fb719567b9e2f0e5c89535108d662d1), [`ccb4ced90`](https://github.com/justeattakeaway/pie/commit/ccb4ced90fb719567b9e2f0e5c89535108d662d1)]:
+  - @justeattakeaway/pie-modal@0.46.0
+
+## 0.24.0
+
+### Minor Changes
+
+- [Changed] - Recombine modal's leading and supporting action props ([#1685](https://github.com/justeattakeaway/pie/pull/1685)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- [Changed] - moved defaultProps and JSON locale import to defs.ts ([#1472](https://github.com/justeattakeaway/pie/pull/1472)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
+- Updated dependencies [[`651222101`](https://github.com/justeattakeaway/pie/commit/651222101b349b3c537d1f09c2d33a49851f9d8b), [`1801e656a`](https://github.com/justeattakeaway/pie/commit/1801e656a4c7c4c7859a9260821ae10a05f92f8f), [`b32bf5d25`](https://github.com/justeattakeaway/pie/commit/b32bf5d257bb87da130194a9fe2ddf3ec93bced9)]:
+  - @justeattakeaway/pie-modal@0.45.0
+  - @justeattakeaway/pie-icon-button@0.28.10
+  - @justeattakeaway/pie-divider@0.13.8
+  - @justeattakeaway/pie-button@0.48.1
+  - @justeattakeaway/pie-switch@0.29.12
+  - @justeattakeaway/pie-link@0.17.8
+
 ## 0.23.0
 
 ### Minor Changes

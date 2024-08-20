@@ -1,4 +1,4 @@
-import { TemplateResult } from 'lit';
+import { type TemplateResult } from 'lit';
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
@@ -6,16 +6,14 @@ import { action } from '@storybook/addon-actions';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-modal';
 import {
-    PieModal,
-    ModalProps as ModalPropsBase,
+    type PieModal,
+    type ModalProps as ModalPropsBase,
     headingLevels,
     sizes,
     positions,
     defaultProps,
 } from '@justeattakeaway/pie-modal';
 /* eslint-enable import/no-duplicates */
-
-import { variants as buttonVariants } from '@justeattakeaway/pie-button';
 
 import { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, sanitizeAndRenderHTML } from '../utilities';
@@ -30,14 +28,20 @@ const defaultArgs: ModalProps = {
     isDismissible: true,
     isOpen: true,
     slot: '<span>Body copy</span>',
-    leadingActionText: 'Confirm',
-    supportingActionText: 'Cancel',
+    leadingAction: {
+        text: 'Confirm',
+        variant: 'primary',
+        ariaLabel: 'Descriptive confirmation text',
+    },
+    supportingAction: {
+        text: 'Cancel',
+        variant: 'ghost',
+        ariaLabel: 'Descriptive cancellation text',
+    },
     aria: {
         back: 'Back',
         close: 'Close',
-        leadingActionLabel: 'Descriptive confirmation text',
         loading: 'Loading',
-        supportingActionLabel: 'Descriptive cancellation text',
     },
 };
 
@@ -99,26 +103,16 @@ const modalStoryMeta: ModalStoryMeta = {
             description: 'Content to place within the modal',
             control: 'text',
         },
-        leadingActionText: {
-            description: 'The text to display on the leading action button.',
-            control: 'text',
+        leadingAction: {
+            description: 'The leading action configuration for the modal.',
+            control: 'object',
         },
-        leadingActionVariant: {
-            description: 'The variant of the leading action button.',
-            control: 'select',
-            options: buttonVariants,
-        },
-        supportingActionText: {
-            description: 'The text to display on the supporting action button.',
-            control: 'text',
-        },
-        supportingActionVariant: {
-            description: 'The variant of the supporting action button.',
-            control: 'select',
-            options: buttonVariants,
+        supportingAction: {
+            description: 'The supporting action configuration for the modal. The supporting action will not appear without a leading action.',
+            control: 'object',
         },
         aria: {
-            description: 'The ARIA labels used for the modal leading action, supporting action, close and back buttons, as well as for the loading state.',
+            description: 'The ARIA labels used for the modal close and back buttons, as well as for the loading state.',
             control: 'object',
         },
     },
@@ -181,14 +175,12 @@ const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
         isFullWidthBelowMid,
         isLoading,
         isOpen,
-        leadingActionText,
-        leadingActionVariant,
+        leadingAction,
         position,
         returnFocusAfterCloseSelector,
         size,
         slot,
-        supportingActionText,
-        supportingActionVariant,
+        supportingAction,
     } = props;
     return html`
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
@@ -203,13 +195,11 @@ const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
             ?isFullWidthBelowMid="${isFullWidthBelowMid}"
             ?isLoading="${isLoading}"
             ?isOpen="${isOpen}"
-            leadingActionText="${ifDefined(leadingActionText)}"
-            leadingActionVariant="${ifDefined(leadingActionVariant)}"
+            .leadingAction=${leadingAction}
             position="${ifDefined(position)}"
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             size="${ifDefined(size)}"
-            supportingActionText="${ifDefined(supportingActionText)}"
-            supportingActionVariant="${ifDefined(supportingActionVariant)}"
+            .supportingAction="${supportingAction}"
             @pie-modal-close="${closeAction}"
             @pie-modal-open="${openAction}"
             @pie-modal-back="${backClickAction}"
@@ -247,7 +237,6 @@ export const FocusManagement = createStory<ModalProps>(FocusableElementsPageStor
     returnFocusAfterCloseSelector: '#focus-3',
 });
 export const LargeTextContent = createBaseModalStory({
-    isFooterPinned: false,
     slot: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quas inventore quasi ullam, sed ab odio dicta, tempore, ex adipisci atque asperiores suscipit quisquam alias aliquam minus amet ad a?
     Iure consequuntur nihil officia odio, ut dolores reprehenderit tenetur, repellat eveniet dolore, dignissimos aspernatur quo laboriosam eum repellendus ratione libero. Aspernatur in, inventore ratione molestias exercitationem repudiandae omnis nisi illo?
     Laborum, aspernatur labore! Nulla corporis laudantium, odio iure cum maiores veritatis. Facere ullam sequi voluptate ipsa neque? Atque necessitatibus aspernatur quibusdam sit pariatur quo sunt, voluptatem doloribus dolore consequatur temporibus?

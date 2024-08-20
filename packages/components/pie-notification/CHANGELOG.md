@@ -1,5 +1,23 @@
 # @justeattakeaway/pie-notification
 
+## 0.10.0
+
+### Minor Changes
+
+- [Fixed] - make `isDismissible` false by default ([#1668](https://github.com/justeattakeaway/pie/pull/1668)) by [@dandel10n](https://github.com/dandel10n)
+
+- [Fixed] - make sure custom and default icons work as expected. ([#1668](https://github.com/justeattakeaway/pie/pull/1668)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
+- Updated dependencies [[`b32bf5d25`](https://github.com/justeattakeaway/pie/commit/b32bf5d257bb87da130194a9fe2ddf3ec93bced9), [`ccfe4583c`](https://github.com/justeattakeaway/pie/commit/ccfe4583c274531d879b9c877f4c5c08dc9418cd)]:
+  - @justeattakeaway/pie-icon-button@0.28.10
+  - @justeattakeaway/pie-icons-webc@0.25.0
+
 ## 0.9.3
 
 ### Patch Changes

@@ -610,13 +610,11 @@ test.describe('modal', () => {
                         props: {
                             heading: 'Modal Header',
                             isOpen: true,
-                            leadingActionText: 'Confirm',
-                            leadingActionVariant: 'primary',
-                            supportingActionText: 'Cancel',
-                            supportingActionVariant: 'ghost',
-                            aria: {
-                                leadingActionLabel: 'Descriptive message',
-                                secondaryActionLabel: 'Descriptive message',
+                            leadingAction: {
+                                text: 'Confirm',
+                            },
+                            supportingAction: {
+                                text: 'Cancel',
                             },
                         },
                     });
@@ -641,13 +639,11 @@ test.describe('modal', () => {
                         props: {
                             heading: 'Modal Header',
                             isOpen: true,
-                            leadingActionText: 'Confirm',
-                            leadingActionVariant: 'primary',
-                            supportingActionText: 'Cancel',
-                            supportingActionVariant: 'ghost',
-                            aria: {
-                                leadingActionLabel: 'Descriptive message',
-                                secondaryActionLabel: 'Descriptive message',
+                            leadingAction: {
+                                text: 'Confirm',
+                            },
+                            supportingAction: {
+                                text: 'Cancel',
                             },
                         },
                         on: {
