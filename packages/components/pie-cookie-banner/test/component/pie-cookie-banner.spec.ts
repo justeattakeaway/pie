@@ -150,10 +150,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         // Act
         await pieCookieBannerComponent.clickManagePreferencesAction();
         await pieCookieBannerComponent.clickPreferenceToggle('all');
-        const elements = preferences.map(async ({ id }) => ({
-            isChecked: await pieCookieBannerComponent.isPreferenceToggleChecked(id),
-        }));
-        const results = await Promise.all(elements);
+        const results = await pieCookieBannerComponent.getAllCheckedPreferences(preferences);
 
         // Assert
         results.forEach((result) => {
@@ -188,11 +185,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         await pieCookieBannerComponent.clickManagePreferencesAction();
         await pieCookieBannerComponent.clickPreferenceToggle('all'); // turn on
         await pieCookieBannerComponent.clickPreferenceToggle('all'); // turn off
-        const elements = preferences.map(async ({ id }) => ({
-            id,
-            isChecked: await pieCookieBannerComponent.isPreferenceToggleChecked(id),
-        }));
-        const results = await Promise.all(elements);
+        const results = await pieCookieBannerComponent.getAllCheckedPreferences(preferences);
 
         // Assert
         results.forEach(({ id, isChecked }) => {
@@ -278,8 +271,8 @@ test.describe('PieCookieBanner - Component tests', () => {
             await pieCookieBannerComponent.load({ hasPrimaryActionsOnly: true });
 
             // Act
-            const acceptAllButtonVariant = await pieCookieBannerComponent.getAcceptAllVariant('variant');
-            const necessaryOnlyButtonVariant = await pieCookieBannerComponent.getNecessaryOnlyButtonVariant('variant');
+            const acceptAllButtonVariant = await pieCookieBannerComponent.getAcceptAllVariant();
+            const necessaryOnlyButtonVariant = await pieCookieBannerComponent.getNecessaryOnlyButtonVariant();
 
             // Assert
             expect(acceptAllButtonVariant).toBe('primary');
@@ -292,8 +285,8 @@ test.describe('PieCookieBanner - Component tests', () => {
                 await pieCookieBannerComponent.load({ hasPrimaryActionsOnly });
 
                 // Act
-                const acceptAllButtonVariant = await pieCookieBannerComponent.getAcceptAllVariant('variant');
-                const necessaryOnlyButtonVariant = await pieCookieBannerComponent.getNecessaryOnlyButtonVariant('variant');
+                const acceptAllButtonVariant = await pieCookieBannerComponent.getAcceptAllVariant();
+                const necessaryOnlyButtonVariant = await pieCookieBannerComponent.getNecessaryOnlyButtonVariant();
 
                 // Assert
                 expect(acceptAllButtonVariant).toBe('primary');
