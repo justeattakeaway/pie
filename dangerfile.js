@@ -1,4 +1,4 @@
-import { danger, fail } from 'danger';
+import { danger, fail, exec } from 'danger';
 
 const { pr } = danger.github;
 const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
@@ -41,4 +41,18 @@ danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') &
 // Check for empty PR Description checkboxes - but not for automated version PRs
 if (pr.body.includes('- [ ]') && !isDependabotPR && !isRenovatePR) {
     fail('You currently have an unchecked checklist item in your PR description.\n\nPlease confirm this check has been carried out – if it\'s not relevant to your PR, delete this line from the PR checklist.');
+}
+
+// Check if package.json and yarn.lock are in sync
+const packageJsonModified = danger.git.modified_files.includes('package.json');
+const yarnLockModified = danger.git.modified_files.includes('yarn.lock');
+
+if (packageJsonModified && !yarnLockModified && !isRenovatePR && !isDependabotPR) {
+    exec('yarn install --check-files').then((result) => {
+        if (result.stdout.includes('error')) {
+            fail('It seems your `yarn.lock` file is not in sync with a `package.json` file. Please run `yarn install` and commit the updated `yarn.lock` file.');
+        }
+    }).catch((error) => {
+        console.error('Error running yarn install --check-files:', error);
+    });
 }
