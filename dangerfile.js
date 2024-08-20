@@ -1,5 +1,5 @@
 import { danger, fail, exec } from 'danger';
-import fs from 'fs';
+import fs from 'fs/promises'; // Import the promises version of fs for async operations
 
 const { pr } = danger.github;
 const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
@@ -9,34 +9,29 @@ const isDependabotPR = pr.user.login === 'dependabot[bot]';
 
 // Check for correct Changeset formatting
 danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') && !filepath.includes('.changeset/pre.json'))
-    .forEach((filepath) => {
-        // get the git diff for the changeset file
-        const changesetDiff = danger.git.diffForFile(filepath);
-        changesetDiff.then((result) => {
-            const diffString = result.diff;
-            const changesetCategoryRegex = /(?<=\[).+?(?=\])/g;
-            const changesetCategories = diffString.match(changesetCategoryRegex);
-            const numberOfCategories = changesetCategories ? changesetCategories.length : 0;
+    .forEach(async (filepath) => {
+        const changesetDiff = await danger.git.diffForFile(filepath);
+        const diffString = changesetDiff.diff;
+        const changesetCategoryRegex = /(?<=\[).+?(?=\])/g;
+        const changesetCategories = diffString.match(changesetCategoryRegex);
+        const numberOfCategories = changesetCategories ? changesetCategories.length : 0;
 
-            if (isRenovatePR) {
-                // Check if at least one of the valid changeset categories is present
-                if (numberOfCategories === 0) {
-                    fail(`:memo: Your changeset doesn't include a category. Please add one of: \`${validChangesetCategories.join(', ')}\`. Filepath: \`${filepath}`);
-                } else if (!validChangesetCategories.some((cat) => changesetCategories.includes(cat))) {
-                    fail(`:memo: Your changeset includes an invalid category. Please use one of: \`${validChangesetCategories.join(', ')}\`. Filepath: \`${filepath}`);
-                }
-
-                // Check that categories are followed are in the following format `[Category] - {Description}`
-                const changesetLineFormatRegex = /\[\w+\] - [\S].+/g;
-                const validChangesetEntries = diffString.match(changesetLineFormatRegex);
-                const numberOfValidChangesetEntries = (validChangesetEntries === null ? 0 : validChangesetEntries.length);
-                if (numberOfCategories !== numberOfValidChangesetEntries) {
-                    fail(`:memo: Your changeset entries should be in the format: \`[Category] - {Description}\`. One or more of your entries does not follow this format. Filepath: \`${filepath}`);
-                }
+        if (isRenovatePR) {
+            // Check if at least one of the valid changeset categories is present
+            if (numberOfCategories === 0) {
+                fail(`:memo: Your changeset doesn't include a category. Please add one of: \`${validChangesetCategories.join(', ')}\`. Filepath: \`${filepath}`);
+            } else if (!validChangesetCategories.some((cat) => changesetCategories.includes(cat))) {
+                fail(`:memo: Your changeset includes an invalid category. Please use one of: \`${validChangesetCategories.join(', ')}\`. Filepath: \`${filepath}`);
             }
-        }, (err) => {
-            console.error(err);
-        });
+
+            // Check that categories are followed are in the following format `[Category] - {Description}`
+            const changesetLineFormatRegex = /\[\w+\] - [\S].+/g;
+            const validChangesetEntries = diffString.match(changesetLineFormatRegex);
+            const numberOfValidChangesetEntries = (validChangesetEntries === null ? 0 : validChangesetEntries.length);
+            if (numberOfCategories !== numberOfValidChangesetEntries) {
+                fail(`:memo: Your changeset entries should be in the format: \`[Category] - {Description}\`. One or more of your entries does not follow this format. Filepath: \`${filepath}`);
+            }
+        }
     });
 
 // Check for empty PR Description checkboxes - but not for automated version PRs
@@ -50,12 +45,12 @@ const yarnLockModified = danger.git.modified_files.includes('yarn.lock');
 
 if (packageJsonModified && !isRenovatePR && !isDependabotPR) {
     // Store the current yarn.lock file content
-    const yarnLockBefore = fs.readFileSync('yarn.lock', 'utf8');
+    const yarnLockBefore = await fs.readFile('yarn.lock', 'utf8');
 
     // Run yarn install to update the lock file
-    exec('yarn install').then(() => {
+    exec('yarn install').then(async () => {
         // Store the new yarn.lock file content
-        const yarnLockAfter = fs.readFileSync('yarn.lock', 'utf8');
+        const yarnLockAfter = await fs.readFile('yarn.lock', 'utf8');
 
         if (yarnLockBefore !== yarnLockAfter) {
             fail('It seems your `yarn.lock` file is not fully in sync with the `package.json` file(s). Please run `yarn install` and commit the updated `yarn.lock` file.');
