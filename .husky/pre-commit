@@ -17,3 +17,13 @@ git-secrets --register-aws > /dev/null
 echo "Running git-secrets..."
 # Scans all files that are about to be committed.
 git-secrets --pre_commit_hook -- "$@"
+
+# Ensure `yarn.lock` is updated
+echo "Installing dependencies to update yarn.lock if necessary..."
+yarn install # This will update the `yarn.lock` file if dependencies have changed
+
+# Check if `yarn.lock` was modified
+if [ -n "$(git status --porcelain yarn.lock)" ]; then
+    echo "yarn.lock was updated. Staging the file..."
+    git add yarn.lock
+fi
