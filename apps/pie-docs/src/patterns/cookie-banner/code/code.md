@@ -17,9 +17,15 @@ eleventyComputed:
   </a>
 </p>
 
-`pie-cookie-banner` is a Web Component built using the Lit library.
+`pie-cookie-banner` is a Web Component built using [Lit](https://lit.dev/).
 
-This component can be easily integrated into various frontend frameworks and customized through a set of properties.
+This component can be easily integrated into various frontend frameworks and customised through a set of properties.
+
+{% notification {
+  type: "information",
+  iconName: "engineers",
+  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/story/cookie-banner) instance!"
+} %}
 
 ## Cookies
 `pie-cookie-banner` purely handles the UI and user interactions for cookie consent. It does not handle the setting or management of cookies or the storage of user preferences. It is the responsibility of the consuming application to handle these aspects. See [Events](#events) for more information.
@@ -42,16 +48,6 @@ yarn add @justeattakeaway/pie-cookie-banner
   iconName: "link",
   message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
 } %}
-
-## Playground
-
- <iframe
-  src="https://webc.pie.design/?path=/story/cookie-banner--default&viewMode=story&shortcuts=true&singleStory=true"
-  width="100%"
-  height="900px"
-  style="border: none; margin-top: var(--dt-spacing-f);"
-></iframe>
-
 
 ## Props
 
@@ -103,11 +99,10 @@ For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 // Default – for Native JS Applications, Vue, Angular, Svelte, etc.
-import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner';
-
-// If you don't need to reference the imported object, you can simply
-// import the module which registers the component as a custom element.
 import '@justeattakeaway/pie-cookie-banner';
+
+// Or, if you need to use the component class
+import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner';
 ```
 
 Use of locales in Vue:
