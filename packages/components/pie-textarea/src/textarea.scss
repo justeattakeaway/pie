@@ -24,6 +24,7 @@
   border: var(--textarea-border-thickness) solid var(--textarea-border-color);
   background-color: var(--textarea-background-color);
   border-radius: var(--dt-radius-rounded-c);
+  inline-size: 100%;
 
   textarea {
     @include p.font-size(--dt-font-body-l-size);
@@ -37,6 +38,7 @@
     block-size: var(--textarea-height);
     max-block-size: var(--textarea-max-height);
     min-block-size: var(--textarea-min-height);
+    inline-size: 100%;
 
     padding-block-start: var(--textarea-padding-block);
     padding-block-end: var(--textarea-padding-block);
