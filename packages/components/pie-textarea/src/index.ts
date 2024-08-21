@@ -64,10 +64,10 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     public required = defaultProps.required;
 
     @property({ type: String })
-    public name?: TextareaProps['name'];
+    public name: TextareaProps['name'];
 
     @property({ type: String })
-    public autocomplete?: TextareaProps['autocomplete'];
+    public autocomplete: TextareaProps['autocomplete'];
 
     @query('textarea')
     private _textarea!: HTMLTextAreaElement;
@@ -75,7 +75,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     private _throttledResize = throttle(() => {
         if (this.resize === 'auto') {
             this._textarea.style.height = 'auto';
-            this._textarea.style.height = `${this._textarea.scrollHeight + 2}px`; // +2 for border thicknesses
+            this._textarea.style.height = `${this._textarea.scrollHeight}px`;
         }
     }, 100);
 

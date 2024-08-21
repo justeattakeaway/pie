@@ -1,6 +1,7 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 // Heights are being defined based on the line height of the text and the padding.
+// Some of the padding is in the wrapper element to properly position the textarea resize handle.
 // Changing the `size` property affects the padding and therefore the height of the textarea.
 // Default height is two lines of text.
 // Minimum height in manual resize mode is one line of text.
@@ -9,27 +10,30 @@
   --textarea-line-height: #{p.line-height(--dt-font-body-l-line-height)};
   --textarea-border-thickness: 1px;
   --textarea-resize: none;
-  --textarea-padding-inline: var(--dt-spacing-d);
-  --textarea-padding-block: var(--dt-spacing-c);
+  --textarea-padding-inline: var(--dt-spacing-c);
+  --textarea-padding-block: var(--dt-spacing-b);
   --textarea-background-color: var(--dt-color-container-default);
   --textarea-border-color: var(--dt-color-interactive-form);
   --textarea-content-color: var(--dt-color-content-default);
 
   // Default height is two lines of text
-  --textarea-height: calc((var(--textarea-line-height) * 2) + (var(--textarea-padding-block) * 2) + (var(--textarea-border-thickness) * 2));
+  --textarea-height: calc((var(--textarea-line-height) * 2) + (var(--textarea-padding-block) * 2));
 
-  line-height: 0; // Remove once there is text outside the textarea
+  line-height: 0;
+  padding: var(--dt-spacing-a);
+  border: var(--textarea-border-thickness) solid var(--textarea-border-color);
+  background-color: var(--textarea-background-color);
+  border-radius: var(--dt-radius-rounded-c);
 
   textarea {
     @include p.font-size(--dt-font-body-l-size);
     line-height: var(--textarea-line-height);
     font-family: var(--dt-font-body-l-family);
     resize: var(--textarea-resize);
-    border: var(--textarea-border-thickness) solid var(--textarea-border-color);
+    border: none;
     background-color: var(--textarea-background-color);
     color: var(--textarea-content-color);
 
-    border-radius: var(--dt-radius-rounded-c);
     block-size: var(--textarea-height);
     max-block-size: var(--textarea-max-height);
     min-block-size: var(--textarea-min-height);
@@ -39,49 +43,55 @@
     padding-inline-start: var(--textarea-padding-inline);
     padding-inline-end: var(--textarea-padding-inline);
 
-    &[disabled] {
-      --textarea-background-color: var(--dt-color-disabled-01);
-      --textarea-border-color: var(--dt-color-disabled-01);
-      --textarea-content-color: var(--dt-color-content-disabled);
+    &:focus {
+      box-shadow: none;
+      outline: none;
     }
+  }
 
-    @media (hover: hover) {
-      &:hover:not([disabled]) {
-        --textarea-background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
-      }
-    }
 
-    &:focus-visible {
-      @include p.focus;
+  &[disabled] {
+    --textarea-background-color: var(--dt-color-disabled-01);
+    --textarea-border-color: var(--dt-color-disabled-01);
+    --textarea-content-color: var(--dt-color-content-disabled);
+  }
+
+  @media (hover: hover) {
+    &:hover:not([disabled]) {
+      --textarea-background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
     }
+  }
+
+  &:focus-within {
+    @include p.focus;
   }
 
   &[data-pie-size="large"] {
-    --textarea-padding-block: var(--dt-spacing-d);
+    --textarea-padding-block: var(--dt-spacing-c);
   }
 
   &[data-pie-size="small"] {
-    --textarea-padding-block: var(--dt-spacing-b);
+    --textarea-padding-block: var(--dt-spacing-a);
   }
 
   &[data-pie-resize="manual"] {
     --textarea-resize: vertical;
 
     // Minimum is one line of text
-    --textarea-min-height: calc((var(--textarea-line-height) * 1) + (var(--textarea-padding-block) * 2) + (var(--textarea-border-thickness) * 2)); // One line of text
+    --textarea-min-height: calc((var(--textarea-line-height) * 1) + (var(--textarea-padding-block) * 2));
 
     @media (pointer: coarse) {
       // Fixed size for touch devices
-      --textarea-height: calc((var(--textarea-line-height) * 6) + (var(--textarea-padding-block) * 2) + (var(--textarea-border-thickness) * 2));
-      --textarea-min-height: calc((var(--textarea-line-height) * 6) + (var(--textarea-padding-block) * 2) + (var(--textarea-border-thickness) * 2));
-      --textarea-max-height: calc((var(--textarea-line-height) * 6) + (var(--textarea-padding-block) * 2) + (var(--textarea-border-thickness) * 2));
+      --textarea-height: calc((var(--textarea-line-height) * 6) + (var(--textarea-padding-block) * 2));
+      --textarea-min-height: calc((var(--textarea-line-height) * 6) + (var(--textarea-padding-block) * 2));
+      --textarea-max-height: calc((var(--textarea-line-height) * 6) + (var(--textarea-padding-block) * 2));
       --textarea-resize: none;
     }
   }
 
   &[data-pie-resize="auto"] {
     // Maximum is six lines of text
-    --textarea-max-height: calc((var(--textarea-line-height) * 6) + (var(--textarea-padding-block) * 2) + (var(--textarea-border-thickness) * 2));
+    --textarea-max-height: calc((var(--textarea-line-height) * 6) + (var(--textarea-padding-block) * 2));
 
     // Minimum is two lines of text
     --textarea-min-height: var(--textarea-height);
