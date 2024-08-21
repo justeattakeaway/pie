@@ -1,5 +1,4 @@
 import { html, nothing } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 
 /* eslint-disable import/no-duplicates */
@@ -121,9 +120,9 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
         <pie-switch
             id="pie-switch"
             name="${name || nothing}"
+            value="${value || nothing}"
             label="${label || nothing}"
-            labelPlacement="${ifDefined(labelPlacement)}"
-            value="${ifDefined(value)}"
+            labelPlacement="${label && labelPlacement ? labelPlacement : nothing}"
             .aria="${aria}"
             ?required="${required}"
             ?checked="${checked}"
