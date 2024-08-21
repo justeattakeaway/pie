@@ -17,7 +17,7 @@
     }
 
     &:active:not([disabled]),
-    &[isLoading]:not([disabled]) {
+    .is-loading:not([disabled]) {
         @if $mode == 'inverse' {
             --active-modifier: var(--dt-color-active-02);
         } @else {
@@ -32,7 +32,6 @@
         }
     }
 }
-
 
 .c-chip {
     --chip-bg-color: var(--dt-color-interactive-secondary);
@@ -72,29 +71,29 @@
 
     @include chip-interactive-states('--dt-color-interactive-secondary');
 
-    &[variant='default'] {
+    &.c-chip--default {
         // same as default styles
     }
 
-    &[variant='outline']:not([disabled], [isSelected], [isLoading]) {
+    &.c-chip--outline:not([disabled], .c-chip--selected, .is-loading) {
         --chip-border-color: var(--dt-color-border-strong);
     }
 
-    &[variant='outline'],
-    &[variant='ghost'] {
+    &.c-chip--outline,
+    &.c-chip--ghost {
         --chip-bg-color: transparent;
 
         @include chip-interactive-states('--dt-color-black', 'transparent');
     }
 
-    &[isSelected] {
+    &.c-chip--selected {
         --chip-bg-color: var(--dt-color-interactive-primary);
         --chip-color: var(--dt-color-content-interactive-primary);
 
         @include chip-interactive-states('--dt-color-interactive-primary', 'inverse');
     }
 
-    &[isDismissible][isSelected] {
+    &.c-chip--dismissible.c-chip--selected {
         padding-inline-end: var(--chip-padding-dismissible);
         padding-block-start: var(--chip-padding-dismissible);
         padding-block-end: var(--chip-padding-dismissible);
@@ -113,7 +112,7 @@
         }
     }
 
-    &[isLoading] {
+    &.is-loading {
         & > *:not(.c-chip-spinner) {
             visibility: hidden;
         }
