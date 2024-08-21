@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.0
+
+### Minor Changes
+
+- [Changed] - `contentLayout` and `contentItem` shortcodes styles ([#1706](https://github.com/justeattakeaway/pie/pull/1706)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
 ## 4.0.0
 
 ### Major Changes
