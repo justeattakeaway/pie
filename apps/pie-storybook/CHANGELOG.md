@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.1.5
+
+### Patch Changes
+
+- [Added] - new `defaultValue` prop has been added. ([#1697](https://github.com/justeattakeaway/pie/pull/1697)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- Updated dependencies [[`de81be88f`](https://github.com/justeattakeaway/pie/commit/de81be88fb0f6343fc76f83436d765d281ad86f5)]:
+  - @justeattakeaway/pie-textarea@0.7.0
+
 ## 1.1.4
 
 ### Patch Changes
