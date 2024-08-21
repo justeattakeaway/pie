@@ -175,3 +175,93 @@ test.describe('Label and Character count:', () => {
         await percySnapshot(page, 'Textarea RTL - with label and character count', percyWidths);
     });
 });
+
+test.describe('Assistive text and statuses:', () => {
+    test('Renders assistive text without status correctly', async ({ page, mount }) => {
+        await mount(PieTextarea, {
+            props: {
+                assistiveText: 'Assistive text',
+                value: 'This is a test value',
+            } as PieTextarea,
+        });
+
+        await percySnapshot(page, 'Textarea - assistive text with no status', percyWidths);
+    });
+
+    test('RTL - Renders assistive text without status correctly', async ({ page, mount }) => {
+        setRTL(page);
+
+        await mount(PieTextarea, {
+            props: {
+                assistiveText: 'Assistive text',
+                value: 'This is a test value',
+            } as PieTextarea,
+        });
+
+        await percySnapshot(page, 'Textarea RTL - assistive text with no status', percyWidths);
+    });
+
+    test('Renders assistive text with `error` status correctly', async ({ page, mount }) => {
+        await mount(PieTextarea, {
+            props: {
+                assistiveText: 'Error text',
+                status: 'error',
+                value: 'This is a test value',
+            } as PieTextarea,
+        });
+
+        await percySnapshot(page, 'Textarea - assistive text with `error` status', percyWidths);
+    });
+
+    test('RTL - Renders assistive text with `error` status correctly', async ({ page, mount }) => {
+        setRTL(page);
+
+        await mount(PieTextarea, {
+            props: {
+                assistiveText: 'Error text',
+                status: 'error',
+                value: 'This is a test value',
+            } as PieTextarea,
+        });
+
+        await percySnapshot(page, 'Textarea RTL - assistive text with `error` status', percyWidths);
+    });
+
+    test('Should NOT render assistive-text component with `error` status if assistive text is not provided', async ({ page, mount }) => {
+        await mount(PieTextarea, {
+            props: {
+                status: 'error',
+                value: 'This is a test value',
+            } as PieTextarea,
+        });
+
+        await percySnapshot(page, 'Textarea - `error` status and no assistive text', percyWidths);
+    });
+
+    test('Renders assistive text with `success` status correctly', async ({ page, mount }) => {
+        await mount(PieTextarea, {
+            props: {
+                assistiveText: 'Success text',
+                status: 'success',
+                value: 'This is a test value',
+            } as PieTextarea,
+        });
+
+        await percySnapshot(page, 'Textarea - assistive text with `success` status', percyWidths);
+    });
+
+    test('RTL - Renders assistive text with `success` status correctly', async ({ page, mount }) => {
+        setRTL(page);
+
+        await mount(PieTextarea, {
+            props: {
+                assistiveText: 'Success text',
+                status: 'success',
+                value: 'This is a test value',
+            } as PieTextarea,
+        });
+
+        await percySnapshot(page, 'Textarea RTL - assistive text with `success` status', percyWidths);
+    });
+});
+

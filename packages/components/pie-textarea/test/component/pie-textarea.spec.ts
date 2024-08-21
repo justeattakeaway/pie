@@ -6,8 +6,11 @@ import {
 import { PieFormLabel } from '@justeattakeaway/pie-form-label';
 import { PieTextarea, TextareaProps } from '../../src/index.ts';
 
+import { statusTypes } from '../../src/defs.ts';
+
 const componentSelector = '[data-test-id="pie-textarea"]';
 const componentWrapperSelector = '[data-test-id="pie-textarea-wrapper"]';
+const assistiveTextSelector = '[data-test-id="pie-textarea-assistive-text"]';
 
 test.describe('PieTextarea - Component tests', () => {
     // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
@@ -585,6 +588,75 @@ test.describe('PieTextarea - Component tests', () => {
                 await expect(label).toBeVisible();
             });
         });
+
+        test.describe('assistiveText', () => {
+            test('should NOT render the assistive-text component if this property is not provided', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieTextarea, {});
+
+                // Act
+                const assistiveText = page.locator(assistiveTextSelector);
+
+                // Assert
+                expect(assistiveText).not.toBeVisible();
+            });
+
+            test('should apply the `default` variant attribute if no status is provided', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieTextarea, {
+                    props: {
+                        assistiveText: 'Assistive text',
+                    } as TextareaProps,
+                });
+
+                // Act
+                const assistiveText = page.locator(assistiveTextSelector);
+
+                // Assert
+                expect(assistiveText).toBeVisible();
+                expect(await assistiveText.getAttribute('variant')).toBe('default');
+                expect(assistiveText).toHaveText('Assistive text');
+            });
+
+            test.describe('Assistive text: Status', () => {
+                statusTypes.forEach((status) => {
+                    test(`should render the assistive-text component with the ${status} variant`, async ({ mount, page }) => {
+                        // Arrange
+                        await mount(PieTextarea, {
+                            props: {
+                                assistiveText: 'Assistive text',
+                                status,
+                            } as TextareaProps,
+                        });
+
+                        // Act
+                        const assistiveText = page.locator(assistiveTextSelector);
+
+                        // Assert
+                        expect(assistiveText).toBeVisible();
+                        expect(assistiveText).toHaveAttribute('variant', status);
+                        expect(assistiveText).toHaveText('Assistive text');
+                    });
+                });
+            });
+
+            test.describe('Assistive text: ID attribute', () => {
+                test('should contain an ID associated the textarea element for a11y', async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieTextarea, {
+                        props: {
+                            assistiveText: 'Assistive text',
+                        } as TextareaProps,
+                    });
+
+                    // Act
+                    const assistiveText = page.locator(assistiveTextSelector);
+
+                    // Assert
+                    await expect(assistiveText).toHaveAttribute('id', 'assistive-text');
+                });
+            });
+        });
     });
 
     test.describe('Form integration', () => {
@@ -881,6 +953,126 @@ test.describe('PieTextarea - Component tests', () => {
 
                 // Assert
                 expect(messages).toStrictEqual(expectedMessages);
+            });
+        });
+    });
+
+    test.describe('Attributes', () => {
+        test.describe('aria-describedby', () => {
+            test.describe('when `assistiveText` is NOT defined', () => {
+                test('should not render the attribute', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieTextarea, {
+                        props: {} as TextareaProps,
+                    });
+
+                    // Act
+                    const textarea = component.locator('textarea');
+
+                    const componentAttribute = await textarea.getAttribute('aria-describedby');
+
+                    // Assert
+                    expect(componentAttribute).toBeNull();
+                });
+            });
+
+            test.describe('when `assistiveText` is defined', () => {
+                test('should render the attribute correctly with the correct value', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieTextarea, {
+                        props: {
+                            assistiveText: 'Some useful message',
+                        } as TextareaProps,
+                    });
+
+                    // Act
+                    const textarea = component.locator('textarea');
+
+                    const componentAttribute = await textarea.getAttribute('aria-describedby');
+
+                    // Assert
+                    expect(componentAttribute).toBe('assistive-text');
+                });
+            });
+        });
+
+        test.describe('aria-invalid', () => {
+            test.describe('when the component status is set to `error`', () => {
+                test('should render the `aria-invalid` attribute', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieTextarea, {
+                        props: {
+                            status: 'error',
+                        } as TextareaProps,
+                    });
+
+                    // Act
+                    const textarea = component.locator('textarea');
+
+                    const componentAttribute = await textarea.getAttribute('aria-invalid');
+
+                    // Assert
+                    expect(componentAttribute).toBeDefined();
+                });
+            });
+
+            statusTypes.filter((status) => status !== 'error').forEach((status) => {
+                test.describe(`when the component status is set to "${status}"`, () => {
+                    test('should render the `aria-invalid` with a value of `false`', async ({ mount }) => {
+                        // Arrange
+                        const component = await mount(PieTextarea, {
+                            props: { status } as TextareaProps,
+                        });
+
+                        // Act
+                        const textarea = component.locator('textarea');
+
+                        const componentAttribute = await textarea.getAttribute('aria-invalid');
+
+                        // Assert
+                        expect(componentAttribute).toBe('false');
+                    });
+                });
+            });
+        });
+
+        test.describe('aria-errormessage', () => {
+            test.describe('when the component status is set to `error`', () => {
+                test('should render the `aria-errormessage` attribute', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieTextarea, {
+                        props: {
+                            status: 'error',
+                        } as TextareaProps,
+                    });
+
+                    // Act
+                    const textarea = component.locator('textarea');
+
+                    const componentAttribute = await textarea.getAttribute('aria-errormessage');
+
+                    // Assert
+                    expect(componentAttribute).toBeDefined();
+                });
+            });
+
+            statusTypes.filter((status) => status !== 'error').forEach((status) => {
+                test.describe(`when the component status is set to "${status}"`, () => {
+                    test('should not render the `aria-errormessage` attribute', async ({ mount }) => {
+                        // Arrange
+                        const component = await mount(PieTextarea, {
+                            props: { status } as TextareaProps,
+                        });
+
+                        // Act
+                        const textarea = component.locator('textarea');
+
+                        const componentAttribute = await textarea.getAttribute('aria-errormessage');
+
+                        // Assert
+                        expect(componentAttribute).toBeNull();
+                    });
+                });
             });
         });
     });
