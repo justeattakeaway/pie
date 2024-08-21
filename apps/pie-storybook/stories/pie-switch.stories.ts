@@ -177,9 +177,19 @@ const createSwitchStory = createStory(Template, defaultArgs);
 
 const createSwitchStoryWithForm = createStory<SwitchProps>(FormTemplate, defaultArgs);
 
+const formIntegrationOnly = {
+    description: 'This prop is only used when the switch is used inside a form. You can try it out in the Form Integration story.',
+    table: {
+        readonly: true,
+    },
+};
+
 export const Default = createSwitchStory({}, {
-    controls: {
-        exclude: ['name', 'required', 'value'],
+    argTypes: {
+        name: formIntegrationOnly,
+        required: formIntegrationOnly,
+        value: formIntegrationOnly,
     },
 });
+
 export const FormIntegration = createSwitchStoryWithForm({ label: 'Click me' });
