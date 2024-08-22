@@ -25,7 +25,7 @@
     "components/checkbox",
     "components/checkbox/overview/code",
     "components/checkbox-group",
-    "components/checkbox-group/overview/code",
+    "components/checkbox-group/code",
     "components/chip",
     "components/chip/code",
     "components/component-status",
