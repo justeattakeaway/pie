@@ -195,25 +195,27 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         } = this;
 
         return html`
-            <div
-                class="c-textareaWrapper"
-                data-test-id="pie-textarea-wrapper"
-                data-pie-size="${size}"
-                data-pie-resize="${resize}">
+            <div class="c-textarea-wrapper">
                 ${this.renderLabel(label, maxLength)}
-                <textarea
-                    id="${componentSelector}"
-                    data-test-id="${componentSelector}"
-                    name=${ifDefined(name)}
-                    autocomplete=${ifDefined(autocomplete)}
-                    .value=${live(value)}
-                    ?autofocus=${autoFocus}
-                    ?readonly=${readonly}
-                    ?required=${required}
-                    ?disabled=${disabled}
-                    @input=${this.handleInput}
-                    @change=${this.handleChange}
-                ></textarea>
+                <div
+                    class="c-textarea"
+                    data-test-id="pie-textarea-wrapper"
+                    data-pie-size="${size}"
+                    data-pie-resize="${resize}">
+                    <textarea
+                        id="${componentSelector}"
+                        data-test-id="${componentSelector}"
+                        name=${ifDefined(name)}
+                        autocomplete=${ifDefined(autocomplete)}
+                        .value=${live(value)}
+                        ?autofocus=${autoFocus}
+                        ?readonly=${readonly}
+                        ?required=${required}
+                        ?disabled=${disabled}
+                        @input=${this.handleInput}
+                        @change=${this.handleChange}
+                    ></textarea>
+                </div>
             </div>`;
     }
 
