@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.2.0
+
+### Minor Changes
+
+- [Removed] - Storybook previews from component code pages ([#1711](https://github.com/justeattakeaway/pie/pull/1711)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - Storybook link to component code pages
+
 ## 4.1.0
 
 ### Minor Changes
