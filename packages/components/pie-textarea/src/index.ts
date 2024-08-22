@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, PropertyValues, nothing,
+    LitElement, html, unsafeCSS, type PropertyValues, nothing,
 } from 'lit';
 
 import { property, query } from 'lit/decorators.js';
@@ -8,12 +8,13 @@ import throttle from 'lodash.throttle';
 
 import {
     validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent,
+    type PIEInputElement,
 } from '@justeattakeaway/pie-webc-core';
 
 import { ifDefined } from 'lit/directives/if-defined.js';
 import styles from './textarea.scss?inline';
 import {
-    TextareaProps, defaultProps, sizes, resizeModes,
+    type TextareaProps, defaultProps, sizes, resizeModes,
 } from './defs';
 
 import '@justeattakeaway/pie-form-label';
@@ -28,7 +29,7 @@ const componentSelector = 'pie-textarea';
  * @event {InputEvent} input - when the textarea value is changed.
  * @event {CustomEvent} change - when the textarea value is changed.
  */
-export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implements TextareaProps {
+export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implements TextareaProps, PIEInputElement {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @property({ type: String })
@@ -71,6 +72,9 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
 
     @query('textarea')
     private _textarea!: HTMLTextAreaElement;
+
+    @query('textarea')
+    public focusTarget!: HTMLElement;
 
     private _throttledResize = throttle(() => {
         if (this.resize === 'auto') {
