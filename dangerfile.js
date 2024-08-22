@@ -6,6 +6,16 @@ const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
 const isRenovatePR = pr.user.login === 'renovate[bot]';
 const isDependabotPR = pr.user.login === 'dependabot[bot]';
 
+// Run `yarn` and check if the lockfile has changed
+danger.utils.exec('yarn').then(() => danger.git.diffForFile('yarn.lock')).then((diff) => {
+    if (diff && diff.modified) {
+        fail(':lock: It looks like your `yarn.lock` file has changed after running `yarn`. Please commit the updated lockfile.');
+    }
+}).catch((error) => {
+    console.error('Failed to run yarn or check lockfile changes', error);
+    fail(':exclamation: There was an error running `yarn` or checking for lockfile changes.');
+});
+
 // Check for correct Changeset formatting
 danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') && !filepath.includes('.changeset/pre.json'))
     .forEach((filepath) => {
