@@ -111,6 +111,12 @@
     background-color: var(--dt-color-interactive-light);
     padding: var(--switch-padding);
 
+    .c-switch-wrapper--rtl & {
+        position: absolute;
+        left: initial;
+        right: 2px;
+    }
+
     .c-switch-input:checked + & {
         @include switch-transition(transform);
         transform: translateX(var(--switch-translation));
@@ -136,13 +142,7 @@
     @include p.visually-hidden;
 }
 
-.c-switch-wrapper[data-is-rtl] {
-    .c-switch-control {
-        position: absolute;
-        left: initial;
-        right: 2px;
-    }
-
+.c-switch-wrapper--rtl {
     .c-switch-input:checked + .c-switch-control {
         @include switch-transition(transform);
         transform: translateX(calc(-1 * var(--switch-translation)));

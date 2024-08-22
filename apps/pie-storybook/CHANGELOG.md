@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.6
+
+### Patch Changes
+
+- [Changed] - use classes instead of attributes for styling ([#1715](https://github.com/justeattakeaway/pie/pull/1715)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`95fbc5e5f`](https://github.com/justeattakeaway/pie/commit/95fbc5e5f71a1eb9af08ef6689eeabf3360c5254)]:
+  - @justeattakeaway/pie-switch@0.30.0
+  - @justeattakeaway/pie-cookie-banner@0.25.1
+
 ## 1.1.5
 
 ### Patch Changes
