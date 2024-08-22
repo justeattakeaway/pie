@@ -5575,7 +5575,7 @@ __metadata:
     include-media: 2.0.0
     postcss: 8.4.32
     postcss-import: 15.1.0
-    w3c-css-validator: 1.3.1
+    w3c-css-validator: 1.3.2
   languageName: unknown
   linkType: soft
 
@@ -33835,10 +33835,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"w3c-css-validator@npm:1.3.1":
-  version: 1.3.1
-  resolution: "w3c-css-validator@npm:1.3.1"
-  checksum: 0e0d8ec67e57baa1b4f3fb32469324183ad1d6718ca5973bcafe7938f3677e225fcca97f390d0a3ae196b6e9d582135d4abf8108bc8df891daa99bca92526014
+"w3c-css-validator@npm:1.3.2":
+  version: 1.3.2
+  resolution: "w3c-css-validator@npm:1.3.2"
+  checksum: 2dcbdc121c4580362197c93100559076cd41f5e80681350437e18cebda124969d8d2ddb867241bcef1b30336deaeac0a9afcf28b45ec2b73d4dce20b11531ae8
   languageName: node
   linkType: hard
 
