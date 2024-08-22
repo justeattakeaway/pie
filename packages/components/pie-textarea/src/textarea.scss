@@ -1,6 +1,6 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-.c-textarea-wrapper {
+.c-textarea-container {
   inline-size: 100%;
 }
 
@@ -10,7 +10,7 @@
 // Default height is two lines of text.
 // Minimum height in manual resize mode is one line of text.
 // Maximum height in auto resize mode is six lines of text.
-.c-textarea {
+.c-textareaWrapper {
   --textarea-line-height: #{p.line-height(--dt-font-body-l-line-height)};
   --textarea-border-thickness: 1px;
   --textarea-resize: none;
