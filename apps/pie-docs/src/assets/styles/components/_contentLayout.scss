@@ -79,6 +79,10 @@
     .c-contentImage {
       margin: 0;
       width: 100%;
+
+      &.c-contentImage--fullWidth img {
+        border-radius: 0;
+      }
     }
 
     .c-componentDetailsTable-backdrop {
