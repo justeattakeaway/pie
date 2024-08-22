@@ -1,5 +1,6 @@
 import { danger, fail } from 'danger';
-import { execSync } from 'child_process';
+
+const { execSync } = require('child_process');
 
 const { pr } = danger.github;
 const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
