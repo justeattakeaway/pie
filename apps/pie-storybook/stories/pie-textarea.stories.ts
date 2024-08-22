@@ -6,7 +6,7 @@ import { useArgs as UseArgs } from '@storybook/preview-api';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-textarea';
 import {
-    TextareaProps, defaultProps, resizeModes, sizes, statusTypes,
+    type TextareaProps, defaultProps, resizeModes, sizes, statusTypes,
 } from '@justeattakeaway/pie-textarea';
 /* eslint-enable import/no-duplicates */
 

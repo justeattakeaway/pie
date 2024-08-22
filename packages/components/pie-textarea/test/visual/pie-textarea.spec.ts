@@ -1,13 +1,36 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
+import type {
+    WebComponentPropValues, WebComponentTestInput,
+} from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
+import {
+    createTestWebComponent,
+} from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
+import {
+    WebComponentTestWrapper,
+} from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
+import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-direction.ts';
 
 import { PieFormLabel } from '@justeattakeaway/pie-form-label';
-import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-direction.ts';
-import { PieTextarea } from '../../src/index.ts';
+import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
+
 import { sizes } from '../../src/defs.ts';
+import { PieTextarea } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-textarea"]';
+
+const readingDirections = ['LTR', 'RTL'];
+
+const renderTestPieTextarea = (propVals: WebComponentPropValues) => {
+    let attributes = '';
+
+    if (propVals.value) attributes += ` value="${propVals.value}"`;
+    if (propVals.status) attributes += ` status="${propVals.status}"`;
+    if (propVals.assistiveText) attributes += ` assistiveText="${propVals.assistiveText}"`;
+
+    return `<pie-textarea${attributes}></pie-textarea>`;
+};
 
 test.beforeEach(async ({ mount }, testInfo) => {
     testInfo.setTimeout(testInfo.timeout + 40000);
@@ -19,6 +42,9 @@ test.beforeEach(async ({ mount }, testInfo) => {
 
     const label = await mount(PieFormLabel);
     await label.unmount();
+
+    const assistiveTextComponent = await mount(PieAssistiveText);
+    await assistiveTextComponent.unmount();
 });
 
 sizes.forEach((size) => {
@@ -177,91 +203,70 @@ test.describe('Label and Character count:', () => {
 });
 
 test.describe('Assistive text and statuses:', () => {
-    test('Renders assistive text without status correctly', async ({ page, mount }) => {
-        await mount(PieTextarea, {
-            props: {
-                assistiveText: 'Assistive text',
-                value: 'This is a test value',
-            } as PieTextarea,
+    for (const dir of readingDirections) {
+        test(`Assistive text and statuses - ${dir}`, async ({ mount, page }) => {
+            if (dir === 'RTL') {
+                setRTL(page);
+            }
+
+            // Assistive text with no status
+            let testComponent: WebComponentTestInput = createTestWebComponent({ assistiveText: 'Assistive text', value: 'String' }, renderTestPieTextarea);
+            let propKeyValues = `assistiveText: ${testComponent.propValues.value}, value: ${testComponent.propValues.value}`;
+
+            await mount(
+                WebComponentTestWrapper,
+                {
+                    props: { propKeyValues },
+                    slots: {
+                        component: testComponent.renderedString.trim(),
+                    },
+                },
+            );
+
+            // Error + assistive text
+            testComponent = createTestWebComponent({ assistiveText: 'Error text', value: 'String', status: 'error' }, renderTestPieTextarea);
+            propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, value: ${testComponent.propValues.value}, status: ${testComponent.propValues.status}`;
+
+            await mount(
+                WebComponentTestWrapper,
+                {
+                    props: { propKeyValues },
+                    slots: {
+                        component: testComponent.renderedString.trim(),
+                    },
+                },
+            );
+
+            // Error and no assistive text
+            testComponent = createTestWebComponent({ value: 'String', status: 'error' }, renderTestPieTextarea);
+            propKeyValues = `value: ${testComponent.propValues.value}, status: ${testComponent.propValues.status}`;
+
+            await mount(
+                WebComponentTestWrapper,
+                {
+                    props: { propKeyValues },
+                    slots: {
+                        component: testComponent.renderedString.trim(),
+                    },
+                },
+            );
+
+            // Success + assistive text
+            testComponent = createTestWebComponent({ assistiveText: 'Success text', value: 'String', status: 'success' }, renderTestPieTextarea);
+            propKeyValues = `assistiveText: ${testComponent.propValues.assistiveText}, value: ${testComponent.propValues.value}, status: ${testComponent.propValues.status}`;
+
+            await mount(
+                WebComponentTestWrapper,
+                {
+                    props: { propKeyValues },
+                    slots: {
+                        component: testComponent.renderedString.trim(),
+                    },
+                },
+            );
+
+            await percySnapshot(page, `PIE Textarea - Assistive text and statuses - ${dir}`, percyWidths);
         });
-
-        await percySnapshot(page, 'Textarea - assistive text with no status', percyWidths);
-    });
-
-    test('RTL - Renders assistive text without status correctly', async ({ page, mount }) => {
-        setRTL(page);
-
-        await mount(PieTextarea, {
-            props: {
-                assistiveText: 'Assistive text',
-                value: 'This is a test value',
-            } as PieTextarea,
-        });
-
-        await percySnapshot(page, 'Textarea RTL - assistive text with no status', percyWidths);
-    });
-
-    test('Renders assistive text with `error` status correctly', async ({ page, mount }) => {
-        await mount(PieTextarea, {
-            props: {
-                assistiveText: 'Error text',
-                status: 'error',
-                value: 'This is a test value',
-            } as PieTextarea,
-        });
-
-        await percySnapshot(page, 'Textarea - assistive text with `error` status', percyWidths);
-    });
-
-    test('RTL - Renders assistive text with `error` status correctly', async ({ page, mount }) => {
-        setRTL(page);
-
-        await mount(PieTextarea, {
-            props: {
-                assistiveText: 'Error text',
-                status: 'error',
-                value: 'This is a test value',
-            } as PieTextarea,
-        });
-
-        await percySnapshot(page, 'Textarea RTL - assistive text with `error` status', percyWidths);
-    });
-
-    test('Should NOT render assistive-text component with `error` status if assistive text is not provided', async ({ page, mount }) => {
-        await mount(PieTextarea, {
-            props: {
-                status: 'error',
-                value: 'This is a test value',
-            } as PieTextarea,
-        });
-
-        await percySnapshot(page, 'Textarea - `error` status and no assistive text', percyWidths);
-    });
-
-    test('Renders assistive text with `success` status correctly', async ({ page, mount }) => {
-        await mount(PieTextarea, {
-            props: {
-                assistiveText: 'Success text',
-                status: 'success',
-                value: 'This is a test value',
-            } as PieTextarea,
-        });
-
-        await percySnapshot(page, 'Textarea - assistive text with `success` status', percyWidths);
-    });
-
-    test('RTL - Renders assistive text with `success` status correctly', async ({ page, mount }) => {
-        setRTL(page);
-
-        await mount(PieTextarea, {
-            props: {
-                assistiveText: 'Success text',
-                status: 'success',
-                value: 'This is a test value',
-            } as PieTextarea,
-        });
-
-        await percySnapshot(page, 'Textarea RTL - assistive text with `success` status', percyWidths);
-    });
+    }
 });
 

@@ -188,6 +188,21 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
             : nothing;
     }
 
+    renderAssistiveText () {
+        if (!this.assistiveText) {
+            return nothing;
+        }
+
+        return html`
+            <pie-assistive-text
+                id="${assistiveTextIdValue}"
+                variant=${ifDefined(this.status)}
+                data-test-id="pie-textarea-assistive-text">
+                ${this.assistiveText}
+            </pie-assistive-text>
+        `;
+    }
+
     render () {
         const {
             disabled,
@@ -229,14 +244,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
                     aria-errormessage="${ifDefined(status === 'error' ? assistiveTextIdValue : undefined)}"
                 ></textarea>
             </div>
-            ${assistiveText ? html`
-                <pie-assistive-text
-                    id="${assistiveTextIdValue}"
-                    variant=${ifDefined(status)}
-                    data-test-id="pie-textarea-assistive-text">
-                    ${assistiveText}
-                </pie-assistive-text>
-            ` : nothing}`;
+            ${this.renderAssistiveText()}`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
