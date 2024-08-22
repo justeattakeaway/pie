@@ -56,50 +56,8 @@ jobs:
     secrets:
       githubToken: ${{ secrets.GITHUB_TOKEN }}
 
-  update-lockfile:
-    runs-on: ubuntu-latest
-    if: github.actor == 'pie-design-system-bot'|| github.actor == 'renovate[bot]' || contains(github.ref_name, 'changeset-release/main')
-    permissions:
-      # Give the default GITHUB_TOKEN write permission to commit and push the
-      # added or changed files to the repository.
-      contents: write
-
-    steps:
-        - name: Checkout
-          uses: actions/checkout@v3
-          with:
-            fetch-depth: 0
-        # Setup Repo
-        - name: Setup Repo
-          uses: ./.github/actions/setup-repo
-          with:
-            node-version: 20
-            os: ubuntu-latest
-
-        # Check if yarn.lock has changed
-        - name: Check if yarn.lock was updated
-          id: yarn_lock_check
-          run: |
-            if git diff --quiet yarn.lock; then
-              echo "lockfile_changed=false" >> $GITHUB_ENV
-            else
-              echo "lockfile_changed=true" >> $GITHUB_ENV
-            fi
-
-        # Commit and push changes if yarn.lock was updated
-        - name: Commit and push changes
-          if: env.lockfile_changed == 'true'
-          uses: stefanzweifel/git-auto-commit-action@v5
-          with:
-            commit_message: "chore(pie-monorepo): DSW-000 auto update lockfile"
-          env:
-            HUSKY: 0  # Disable Husky hooks
-
   check-change-type:
     name: Get change type
-    needs: ['update-lockfile']
-    # Ensures this job runs even if 'update-lockfile' step is skipped
-    if: always()
     runs-on: ubuntu-latest
     outputs:
       pie-docs-change: ${{ steps.docs-check.outputs.docs-change }}
@@ -384,5 +342,5 @@ jobs:
       uses: re-actors/alls-green@release/v1
       with:
         # "allowed-skips" lists jobs that are optional but should not fail
-        allowed-skips: browser-tests-components, deploy-docs, deploy-storybook, browser-tests-docs, build-ubuntu-node-20, unit-tests
+        allowed-skips: browser-tests-components, deploy-docs, deploy-storybook, browser-tests-docs
         jobs: ${{ toJSON(needs) }}
