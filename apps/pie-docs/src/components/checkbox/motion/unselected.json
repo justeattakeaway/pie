@@ -10,7 +10,7 @@
             "Tick",
             "(.45, 0, .55, 1)",
             "$easing-functional",
-            "Path animation at 100ms"
+            "Scales 0-100% at 100ms"
         ],
         [
             "Fill",
