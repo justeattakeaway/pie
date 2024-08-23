@@ -6,7 +6,7 @@ import { useArgs as UseArgs } from '@storybook/preview-api';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-textarea';
 import {
-    TextareaProps, defaultProps, resizeModes, sizes,
+    type TextareaProps, defaultProps, resizeModes, sizes, statusTypes,
 } from '@justeattakeaway/pie-textarea';
 /* eslint-enable import/no-duplicates */
 
@@ -32,6 +32,8 @@ const Template = ({
     autoFocus,
     label,
     maxLength,
+    assistiveText,
+    status,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -67,7 +69,9 @@ const Template = ({
             maxLength="${ifDefined(maxLength)}"
             label="${ifDefined(label)}"
             @input="${onInput}"
-            @change="${onChange}">
+            @change="${onChange}"
+            assistiveText="${ifDefined(assistiveText)}"
+            status=${ifDefined(status)}>
         </pie-textarea>
     `;
 };
@@ -97,6 +101,21 @@ const textareaStoryMeta: TextareaStoryMeta = {
             options: resizeModes,
             defaultValue: {
                 summary: defaultProps.resize,
+            },
+        },
+        assistiveText: {
+            description: 'An optional assistive text to display below the textarea element. Must be provided when the status is success or error.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+        },
+        status: {
+            description: 'The status of the textarea component / assistive text. Can be default, success or error.',
+            control: 'select',
+            options: statusTypes,
+            defaultValue: {
+                summary: defaultProps.status,
             },
         },
         name: {
