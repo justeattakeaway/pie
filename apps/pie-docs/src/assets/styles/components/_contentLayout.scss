@@ -59,3 +59,34 @@
     margin-block-start: var(--dt-spacing-f);
   }
 }
+
+.c-contentWrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-block-start: var(--dt-spacing-e);
+  padding-block-end: var(--dt-spacing-e);
+  padding-inline-start: var(--dt-spacing-e);
+  padding-inline-end: var(--dt-spacing-e);
+  border-radius: var(--dt-radius-rounded-d);
+  background-color: var(--dt-color-container-default);
+  border: 2px solid var(--dt-color-border-default);
+  gap: var(--dt-spacing-e);
+  margin-block-start: var(--dt-spacing-f);
+
+    .c-contentImage {
+      margin: 0;
+      width: 100%;
+
+      &.c-contentImage--fullWidth img {
+        border-radius: 0;
+      }
+    }
+
+    .c-componentDetailsTable-backdrop {
+      margin: 0;
+      width: 100%;
+    }
+}
