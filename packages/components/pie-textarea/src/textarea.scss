@@ -98,4 +98,8 @@
     // Minimum is two lines of text
     --textarea-min-height: var(--textarea-height);
   }
+
+  &[data-pie-status="error"] {
+    --textarea-border-color: var(--dt-color-support-error);
+  }
 }
