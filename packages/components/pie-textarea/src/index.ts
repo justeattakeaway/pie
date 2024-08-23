@@ -66,6 +66,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     @property({ type: Boolean })
     public required = defaultProps.required;
 
+    @property({ type: String })
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
     public status = defaultProps.status;
 
