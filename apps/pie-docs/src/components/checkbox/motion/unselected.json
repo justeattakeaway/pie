@@ -10,13 +10,13 @@
             "Tick",
             "(.45, 0, .55, 1)",
             "$easing-functional",
-            "Scales 0-100% at 100ms"
+            "Scales 100-0% at 100ms"
         ],
         [
             "Fill",
             "(.45, 0, .55, 1)",
             "$easing-functional",
-            "Scales 0-100% at 100ms"
+            "Scales 100-0% at 100ms"
         ]
     ]
 }

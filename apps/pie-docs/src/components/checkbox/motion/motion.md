@@ -26,7 +26,7 @@ Illustrates the animations that happen in the checkbox component. In this compon
 
 ## Hover
 
-When the user hovers over an unselected checkbox (on:Hover), the hover state $hover01 fades in at 200ms. When a user moves the mouse away (off:Hover) the hover state $hover01 fades out at 200ms.
+When the user hovers over an unselected checkbox, the hover state `$hover-01` fades in at 200ms. When a user moves the mouse away the hover state `$hover-01` fades out at 200ms.
 
 {% contentWrapper %}
     {% contentPageImage {
@@ -40,7 +40,7 @@ When the user hovers over an unselected checkbox (on:Hover), the hover state $ho
 
 ## Active
 
-When the user clicks a checkbox (on:Click), the active state $active01 fades in at 100ms and then out at 100ms.
+When the user clicks a checkbox, the active state `$active-01` fades in at 100ms and then out at 100ms.
 
 {% contentWrapper %}
     {% contentPageImage {
@@ -55,7 +55,7 @@ When the user clicks a checkbox (on:Click), the active state $active01 fades in 
 
 ## Selected
 
-When a checkbox is selected the colour fill $interactive-brand scales from the centre 0-100% and the tick path animates in, both at 150ms.
+When a checkbox is selected the colour fill `$interactive-brand` scales from the centre 0-100% and the tick path animates in, both at 150ms.
 
 {% contentWrapper %}
     {% contentPageImage {
