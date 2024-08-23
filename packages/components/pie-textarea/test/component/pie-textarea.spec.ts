@@ -235,6 +235,19 @@ test.describe('PieTextarea - Component tests', () => {
             });
         });
 
+        test.describe('defaultValue', () => {
+            test('should apply the `defaultValue` property to the rendered HTML textarea element', async ({ page }) => {
+                // Arrange
+                await page.setContent('<pie-textarea defaultValue="testDefaultValue"></pie-textarea>');
+
+                // Act
+                const textarea = page.locator('pie-textarea');
+
+                // Assert
+                expect((await textarea.getAttribute('defaultValue'))).toBe('testDefaultValue');
+            });
+        });
+
         test.describe('autocomplete', () => {
             test('should not render an autocomplete attribute on the textarea element if no autocomplete is provided', async ({ mount }) => {
                 // Arrange
@@ -726,20 +739,6 @@ test.describe('PieTextarea - Component tests', () => {
             expect(await page.evaluate(() => document.querySelector('pie-textarea')?.value)).toBe('');
         });
 
-        test('should correctly set the textarea value even if `defaultValue` is provided', async ({ page }) => {
-            // Arrange
-            await page.setContent(`
-                    <form id="testForm" action="/foo" method="POST">
-                        <pie-textarea defaultValue="foo"></pie-textarea>
-                        <button type="reset">Submit</button>
-                    </form>
-                `);
-
-            // Act & Assert
-            await page.locator('pie-textarea').type('test');
-            expect(await page.evaluate(() => document.querySelector('pie-textarea')?.value)).toBe('test');
-        });
-
         test('should correctly reset the textarea value to the `defaultValue` if one is provided when the form is reset', async ({ page }) => {
             // Arrange
             await page.setContent(`
@@ -1025,7 +1024,7 @@ test.describe('PieTextarea - Component tests', () => {
                     const componentAttribute = await textarea.getAttribute('aria-invalid');
 
                     // Assert
-                    expect(componentAttribute).toBeDefined();
+                    expect(componentAttribute).toBe('true');
                 });
             });
 

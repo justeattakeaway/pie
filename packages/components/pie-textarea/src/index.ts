@@ -225,6 +225,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
                 class="c-textareaWrapper"
                 data-test-id="pie-textarea-wrapper"
                 data-pie-size="${size}"
+                data-pie-status=${ifDefined(status)}
                 data-pie-resize="${resize}">
                 ${this.renderLabel(label, maxLength)}
                 <textarea
