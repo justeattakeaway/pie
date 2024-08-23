@@ -115,6 +115,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         this.restrictInputLength();
         this._internals.setFormValue(this.value);
 
+        window.addEventListener('resize', () => this.handleResize());
         this._textarea.addEventListener('keydown', this.handleKeyDown);
     }
 
@@ -173,6 +174,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
 
     public disconnectedCallback (): void {
         this._textarea.removeEventListener('keydown', this.handleKeyDown);
+        window.removeEventListener('resize', () => this.handleResize());
     }
 
     renderLabel (label: string, maxLength?: number) {
