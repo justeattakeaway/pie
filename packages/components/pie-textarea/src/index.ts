@@ -1,24 +1,22 @@
 import {
     LitElement, html, unsafeCSS, type PropertyValues, nothing,
 } from 'lit';
-
 import { property, query } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import throttle from 'lodash.throttle';
 
+import '@justeattakeaway/pie-assistive-text';
+import '@justeattakeaway/pie-form-label';
 import {
-    validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent,
-    type PIEInputElement,
+    validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent, type PIEInputElement,
 } from '@justeattakeaway/pie-webc-core';
 
-import { ifDefined } from 'lit/directives/if-defined.js';
 import styles from './textarea.scss?inline';
 import {
     type TextareaProps, defaultProps, sizes, resizeModes, statusTypes,
 } from './defs';
-
-import '@justeattakeaway/pie-form-label';
-import '@justeattakeaway/pie-assistive-text';
 
 // Valid values available to consumers
 export * from './defs';
@@ -226,14 +224,19 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
             assistiveText,
         } = this;
 
+        const classes = {
+            'c-textareaWrapper': true,
+            'c-textarea--disabled': disabled,
+            'c-textarea--error': status === 'error',
+            [`c-textarea--resize-${resize}`]: true,
+            [`c-textarea--${size}`]: true,
+        };
+
         return html`<div>
             ${this.renderLabel(label, maxLength)}
             <div
-                class="c-textareaWrapper"
-                data-test-id="pie-textarea-wrapper"
-                data-pie-size="${size}"
-                data-pie-status="${status}"
-                data-pie-resize="${resize}">
+                class="${classMap(classes)}"
+                data-test-id="pie-textarea-wrapper">
                 <textarea
                     id="${componentSelector}"
                     data-test-id="${componentSelector}"
