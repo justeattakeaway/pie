@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Code
     parent: Checkbox
-    order: 2
+    order: 3
 shouldShowContents: true
 eleventyComputed:
     props: "{% include './props.json' %}"
@@ -130,8 +130,8 @@ The checkbox component utilizes the [constraint validation API](https://develope
 
 #### Example:
 ```js
-const textInput = document.querySelector('pie-text-input');
-console.log(textInput.validity.valid);
+const checkbox = document.querySelector('pie-checkbox');
+console.log(checkbox.validity.valid);
 ```
 
 This getter can be useful for reducing the amount of validation code in your application. For example, if you want to create a checkbox that requires attention, you can set the `required` property on the component. You can then check the validity of the input in your application code:
