@@ -199,7 +199,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         } = this;
 
         return html`
-            <div class="c-textarea-container">
+            <div>
                 ${this.renderLabel(label, maxLength)}
                 <div
                     class="c-textareaWrapper"
