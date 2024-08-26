@@ -1,0 +1,26 @@
+@use '../fozzie-config' as f;
+@use '../variables' as v;
+@use '@justeattakeaway/pie-css/scss' as p;
+
+.c-indexPage {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dt-spacing-g) var(--dt-spacing-e);
+
+    .c-indexPage-menu-item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .c-indexPage-link {
+        text-decoration: none;
+        color: inherit;
+        @include p.font-size(--dt-font-interactive-l-size);
+        @include p.line-height(--dt-font-interactive-l-line-height);
+        font-weight: var(--dt-font-interactive-l-weight);
+
+        &:visited {
+            color: initial;
+        }
+    }
+}

@@ -5,6 +5,7 @@ const componentStatusTable = require('./componentStatusTable');
 const contentPageImage = require('./contentPageImage');
 const { contentLayout, contentItem } = require('./contentLayout');
 const globalTokensWarning = require('./notifications/globalTokensWarning');
+const indexPageDisplay = require('./indexPageDisplay');
 const link = require('./link');
 const list = require('./list');
 const mediaElement = require('./mediaElementList');
@@ -31,6 +32,7 @@ const addAllShortCodes = (eleventyConfig) => {
     eleventyConfig.addPairedShortcode('contentLayout', (shortcodeArgs) => deindentHTML(contentLayout(shortcodeArgs)));
     eleventyConfig.addPairedShortcode('contentItem', (shortcodeArgs) => deindentHTML(contentItem(shortcodeArgs)));
     eleventyConfig.addShortcode('globalTokensWarning', (shortcodeArgs) => deindentHTML(globalTokensWarning(shortcodeArgs)));
+    eleventyConfig.addShortcode('indexPageDisplay', (shortcodeArgs) => deindentHTML(indexPageDisplay(shortcodeArgs)));
     eleventyConfig.addShortcode('link', (shortcodeArgs) => deindentHTML(link(shortcodeArgs)));
     eleventyConfig.addShortcode('list', (shortcodeArgs) => deindentHTML(list(shortcodeArgs)));
     eleventyConfig.addShortcode('mediaElementList', (shortcodeArgs) => deindentHTML(mediaElement(shortcodeArgs)));

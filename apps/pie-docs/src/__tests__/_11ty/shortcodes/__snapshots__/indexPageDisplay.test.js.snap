@@ -1,0 +1,44 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`indexPageDisplay.js > should return the expected HTML for an index page and render default image and warning when image is not provided 1`] = `
+"<div class=\\"c-indexPage\\">
+                <div class=\\"c-indexPage-menu-item\\">
+                    <picture>
+                    
+                    <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/first-sub-item.svg\\" alt=\\"A preview image of First Sub Item in Test Menu Item\\">
+                    </picture>
+                    <a class=\\"c-indexPage-link\\" href=\\"/first-sub-item/\\">First Sub Item</a>
+                </div>
+                <div class=\\"c-indexPage-menu-item\\">
+                    <picture>
+                    
+                    <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/second-sub-item.svg\\" alt=\\"A preview image of Second Sub Item in Test Menu Item\\">
+                    </picture>
+                    <a class=\\"c-indexPage-link\\" href=\\"/second-sub-item/\\">Second Sub Item</a>
+                </div>
+                <div class=\\"c-indexPage-menu-item\\">
+                    <picture>
+                    
+                    <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/default.svg\\" alt=\\"A preview image of Third Sub Item without image in Test Menu Item\\">
+                    </picture>
+                    <a class=\\"c-indexPage-link\\" href=\\"/second-sub-item/\\">Third Sub Item without image</a>
+                </div></div>"
+`;
+
+exports[`indexPageDisplay.js > should return the expected HTML for an index page with excluded items 1`] = `
+"<div class=\\"c-indexPage\\">
+                <div class=\\"c-indexPage-menu-item\\">
+                    <picture>
+                    
+                    <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/first-sub-item.svg\\" alt=\\"A preview image of First Sub Item in Test Menu Item\\">
+                    </picture>
+                    <a class=\\"c-indexPage-link\\" href=\\"/first-sub-item/\\">First Sub Item</a>
+                </div>
+                <div class=\\"c-indexPage-menu-item\\">
+                    <picture>
+                    
+                    <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/second-sub-item.svg\\" alt=\\"A preview image of Second Sub Item in Test Menu Item\\">
+                    </picture>
+                    <a class=\\"c-indexPage-link\\" href=\\"/second-sub-item/\\">Second Sub Item</a>
+                </div></div>"
+`;

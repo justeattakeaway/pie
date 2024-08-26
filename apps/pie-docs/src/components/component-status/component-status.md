@@ -1,6 +1,6 @@
 ---
 eleventyNavigation:
-    key: 'Component status'
+    key: 'Component Status'
     parent: Components
     order: 1
 ---

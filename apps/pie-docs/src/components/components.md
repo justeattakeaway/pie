@@ -8,4 +8,9 @@ eleventyNavigation:
 title: Components
 ---
 
-Some content
+{% indexPageDisplay {
+collection: collections.all,
+itemKey: "Components",
+excludedElements: ['Component Status']
+} %}
+
