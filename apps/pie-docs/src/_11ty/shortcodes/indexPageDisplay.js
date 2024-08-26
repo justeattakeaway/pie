@@ -44,15 +44,16 @@ module.exports = function ({
             };
 
             return `
-                <div class="c-indexPage-menu-item">
+                <a class="c-indexPage-link" href="${element.url}">
                     <picture>
                     ${hasMobileSource ? `<source media="(max-width: 600px)" srcset="${imgMobileSrc}">` : ''}
                     ${hasSource
                 ? `<img src="${imgSrc}">`
                 : renderFallbackImage()}
                     </picture>
-                    <a class="c-indexPage-link" href="${element.url}">${element.title}</a>
-                </div>`;
+                    ${element.title}
+                    <div class="c-indexPage-background"></div>
+                </a>`;
         }
         return '';
     });
