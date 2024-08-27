@@ -4,4 +4,4 @@
 "pie-docs": patch
 ---
 
-checkbox and checkbox-group components from alfa to beta
+[Updated] - checkbox and checkbox-group components status from `alpha` to `beta`
