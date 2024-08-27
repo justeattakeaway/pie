@@ -1,11 +1,9 @@
-import { html, TemplateResult } from 'lit';
+import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-cookie-banner';
-import { CookieBannerProps, defaultProps } from '@justeattakeaway/pie-cookie-banner';
+import { type CookieBannerProps, defaultProps } from '@justeattakeaway/pie-cookie-banner';
 import pieCookieBannerLocales from '@justeattakeaway/pie-cookie-banner/locales';
-/* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
@@ -60,7 +58,7 @@ const acceptAllAction = action('accept-all');
 const managePrefsAction = action('manage-prefs');
 const prefsSavedAction = action('prefs-saved');
 
-const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => {
+const BaseStoryTemplate = (props: CookieBannerProps) => {
     const {
         hasPrimaryActionsOnly,
         locale,
@@ -85,7 +83,7 @@ const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => {
 /**
  * Creates a 'page' of scrollable HTML. Useful for testing scroll behaviours in a Story.
  */
-const createScrollablePageHTML = () : TemplateResult => {
+const createScrollablePageHTML = () => {
     const items = [];
     for (let i = 0; i < 200; i++) {
         items.push(html`<li>Item ${i}</li>`);
@@ -97,7 +95,7 @@ const createScrollablePageHTML = () : TemplateResult => {
         <ul>${items}</ul>`;
 };
 
-const ScrollablePageStoryTemplate = (props: CookieBannerProps) : TemplateResult => html`
+const ScrollablePageStoryTemplate = (props: CookieBannerProps) => html`
     ${BaseStoryTemplate(props)}
     ${createScrollablePageHTML()}`;
 
