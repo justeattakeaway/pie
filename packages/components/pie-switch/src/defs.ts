@@ -2,9 +2,7 @@ import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const labelPlacements = ['leading', 'trailing'] as const;
 
-export type LabelPlacement = typeof labelPlacements[number];
-
-export type AriaProps = {
+type AriaProps = {
     label?: string,
     describedBy?: string
 };
@@ -33,7 +31,7 @@ export interface SwitchProps {
     /**
      * The placement of the label such as leading or trailing
      */
-    labelPlacement?: LabelPlacement;
+    labelPlacement?: typeof labelPlacements[number];
     /**
      * Same as the HTML name attribute - indicates the name of the switch (for use with forms)
      */
@@ -55,8 +53,8 @@ export type DefaultProps = ComponentDefaultProps<SwitchProps, keyof Omit<SwitchP
 
 export const defaultProps: DefaultProps = {
     checked: false,
-    required: false,
     disabled: false,
-    value: 'on',
     labelPlacement: 'leading',
+    required: false,
+    value: 'on',
 };
