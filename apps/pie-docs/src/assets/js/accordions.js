@@ -14,15 +14,27 @@ class Accordion {
         this.isClosing = false;
         // Store if the element is expanding
         this.isExpanding = false;
-        // Detect user clicks on the summary toggle element
+
+        // Triggers open animation when user clicks on the summary toggle element
         this.summaryToggle = element.querySelector('.c-nav-toggles');
         this.summaryToggle.addEventListener('click', (event) => this.onToggleClick(event));
 
-        // Triggers open animation when navigating using the link
-        const hasCurrentLink = element.querySelector('[aria-current]') != null;
-        if (hasCurrentLink) {
-            this.element.style.overflow = 'hidden';
-            this.open();
+        /**
+         * Triggers open animation when navigating using the link.
+         * The following logic is needed to capture what menu item was selected before navigating.
+         * When navigating the context is lost with the re-render, so needs to be captured in local storage
+         */
+        const isCurrentPage = element.querySelector('[aria-current]') != null;
+        if (isCurrentPage) {
+            const currentMenuItem = this.element.querySelector('a').text.trim();
+            const previousMenuItem = localStorage.getItem('openItem');
+            if (currentMenuItem === previousMenuItem) {
+                this.element.open = true;
+            } else {
+                localStorage.setItem('openItem', currentMenuItem);
+                this.element.style.overflow = 'hidden';
+                this.open();
+            }
         }
     }
 
