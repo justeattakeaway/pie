@@ -82,6 +82,9 @@ pie-icon-button:
 pie-link:
 - 'packages/components/pie-link/**/*'
 
+pie-lottie-player:
+- 'packages/components/pie-lottie-player/**/*'
+
 pie-modal:
 - 'packages/components/pie-modal/**/*'
 
