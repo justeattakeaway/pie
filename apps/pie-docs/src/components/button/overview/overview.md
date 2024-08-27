@@ -36,7 +36,7 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
     dont: {
         type: usageTypes.text,
         items: [
-            "Do not use buttons as navigational elements. Instead, use links when the desired action is to take the user to a new page."
+            "Only include one primary button in a page or area of UI."
         ]
     }
 } %}
@@ -87,7 +87,7 @@ Secondary buttons serve as supplementary options for secondary, non-essential ac
 
 ### Outline
 
-Outline buttons are designed to provide increased emphasis compared to ghost buttons, owing to their visible stroke. They can be utilized either as standalone buttons or in combination with a primary button.
+Outline buttons are designed to provide increased emphasis compared to ghost buttons, owing to their visible stroke. They can be utilised either as standalone buttons or in combination with a primary button.
 
 {% contentPageImage {
     src:"../../../assets/img/components/button/variation-outline.svg",
@@ -257,11 +257,23 @@ Button sizes can adapt to different screen widths, like wide and narrow views, b
 
 ---
 
+## Behaviours
+
+### Buttons that act as links
+
+This is available when a button needs to be used as a navigational element to direct users to a new page or location.
+
+Use these with caution - dictation software users may not be able to properly identify these actions, since they are semantically links, even though they may look like buttons.
+
+---
+
 ## Content
 
 ### Labels
 
-Button labels should clearly indicate the action of the Button and describe what will occur once the user clicks the Button. Use active verbs, such as Add or Delete. For sets of buttons, use specific labels, such as Save or Discard, instead of using OK and Cancel. This is particularly helpful when the user is confirming an action. Use sentence-style capitalisation (only the first world in a phrase and any proper nouns capitalised).
+Button labels should clearly indicate the action of the Button and describe what will occur once the user clicks the Button. Use active verbs, such as Add or Delete. For sets of buttons, use specific labels, such as Save or Discard, instead of using OK and Cancel. This is particularly helpful when the user is confirming an action.
+
+Use sentence-style capitalisation (only the first world in a phrase and any proper nouns capitalised).
 
 ---
 
