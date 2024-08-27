@@ -445,6 +445,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
+            link: 'https://webc.pie.design/?path=/story/checkbox--default',
             status: webComponentStatuses['pie-checkbox'],
         },
         {
@@ -484,6 +485,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
+            link: 'https://webc.pie.design/?path=/story/checkbox-group--default',
             status: webComponentStatuses['pie-checkbox-group'],
         },
         {

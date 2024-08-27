@@ -1,5 +1,32 @@
 # Changelog
 
+## 1.1.6
+
+### Patch Changes
+
+- [Changed] - use classes instead of attributes for styling ([#1715](https://github.com/justeattakeaway/pie/pull/1715)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`95fbc5e5f`](https://github.com/justeattakeaway/pie/commit/95fbc5e5f71a1eb9af08ef6689eeabf3360c5254)]:
+  - @justeattakeaway/pie-switch@0.30.0
+  - @justeattakeaway/pie-cookie-banner@0.25.1
+
+## 1.1.5
+
+### Patch Changes
+
+- [Added] - new `defaultValue` prop has been added. ([#1697](https://github.com/justeattakeaway/pie/pull/1697)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- Updated dependencies [[`de81be88f`](https://github.com/justeattakeaway/pie/commit/de81be88fb0f6343fc76f83436d765d281ad86f5)]:
+  - @justeattakeaway/pie-textarea@0.7.0
+
+## 1.1.4
+
+### Patch Changes
+
+- Updated dependencies [[`0789f0e36`](https://github.com/justeattakeaway/pie/commit/0789f0e36316a0e84dc2b4f2786519811ad8a630), [`4472c2445`](https://github.com/justeattakeaway/pie/commit/4472c2445aaf5b8a2a11f83f94c5268b791227f0)]:
+  - @justeattakeaway/pie-cookie-banner@0.25.0
+  - @justeattakeaway/pie-divider@0.13.9
+
 ## 1.1.3
 
 ### Patch Changes

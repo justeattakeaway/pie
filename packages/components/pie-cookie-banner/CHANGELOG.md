@@ -1,5 +1,23 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.25.1
+
+### Patch Changes
+
+- Updated dependencies [[`95fbc5e5f`](https://github.com/justeattakeaway/pie/commit/95fbc5e5f71a1eb9af08ef6689eeabf3360c5254)]:
+  - @justeattakeaway/pie-switch@0.30.0
+
+## 0.25.0
+
+### Minor Changes
+
+- [Updated] - Cookie banner component and a11y tests updated to remove @sand4rt/experimental-ct-web and replace with load function within page object modal ([#1702](https://github.com/justeattakeaway/pie/pull/1702)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+### Patch Changes
+
+- Updated dependencies [[`4472c2445`](https://github.com/justeattakeaway/pie/commit/4472c2445aaf5b8a2a11f83f94c5268b791227f0)]:
+  - @justeattakeaway/pie-divider@0.13.9
+
 ## 0.24.1
 
 ### Patch Changes

@@ -1,0 +1,22 @@
+{
+    "headings": [
+        "Property",
+        "Cubic Bezier",
+        "Easing token",
+        "Notes"
+    ],
+    "rows": [
+        [
+            "Tick",
+            "(.45, 0, .55, 1)",
+            "$easing-functional",
+            "Path animation at 150ms"
+        ],
+        [
+            "Fill",
+            "(.45, 0, .55, 1)",
+            "$easing-functional",
+            "Scales 0-100% at 150ms"
+        ]
+    ]
+}

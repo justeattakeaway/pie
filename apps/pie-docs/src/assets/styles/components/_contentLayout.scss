@@ -1,50 +1,92 @@
 @use '../fozzie-config' as f;
 
 .c-columns {
-    display: grid;
-    grid-template-columns: 1fr;
-    column-gap: var(--dt-spacing-e);
+  display: flex;
+  flex-direction: column;
+  column-gap: var(--dt-spacing-e);
 
-    @include f.media('>=mid') {
-        grid-template-columns: 1fr 1fr;
+  @include f.media('>=mid') {
+    flex-flow: row wrap;
+
+    > * {
+      // stylelint-disable-next-line declaration-block-no-redundant-longhand-properties
+      flex: 0 1 calc(50% - (var(--dt-spacing-e) / 2));
     }
+  }
 }
 
 .c-columns-item {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    @include f.media('>=mid') {
-        margin-block-end: 0;
-    }
+  @include f.media('>=mid') {
+    margin-block-end: 0;
+  }
 
-    h2,
-    h3,
-    h4 {
-        margin-block-start: var(--dt-spacing-f);
-    }
+  h2,
+  h3,
+  h4 {
+    margin-block-start: var(--dt-spacing-f);
+  }
+}
 
-    .c-contentPage-img {
-        flex-grow: 1;
-    }
+.c-columns-item:not(:has(p)) .c-contentPage-img {
+  flex-grow: 1;
+}
+
+.c-columns-item + .c-columns-item {
+  p {
+    flex-grow: 1;
+  }
 }
 
 
 .c-columns-item + .c-columns-item {
-    h2,
-    h3,
-    h4 {
-        @include f.media('<=mid') {
-            margin-block-start: var(--dt-spacing-f);
-        }
+  h2,
+  h3,
+  h4 {
+    @include f.media('<=mid') {
+      margin-block-start: var(--dt-spacing-f);
     }
+  }
 }
 
 // Any column not on the first row
 .c-columns-item:not(:first-child) + .c-columns-item {
-    h2,
-    h3,
-    h4 {
-        margin-block-start: var(--dt-spacing-f);
+  h2,
+  h3,
+  h4 {
+    margin-block-start: var(--dt-spacing-f);
+  }
+}
+
+.c-contentWrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-block-start: var(--dt-spacing-e);
+  padding-block-end: var(--dt-spacing-e);
+  padding-inline-start: var(--dt-spacing-e);
+  padding-inline-end: var(--dt-spacing-e);
+  border-radius: var(--dt-radius-rounded-d);
+  background-color: var(--dt-color-container-default);
+  border: 2px solid var(--dt-color-border-default);
+  gap: var(--dt-spacing-e);
+  margin-block-start: var(--dt-spacing-f);
+
+    .c-contentImage {
+      margin: 0;
+      width: 100%;
+
+      &.c-contentImage--fullWidth img {
+        border-radius: 0;
+      }
+    }
+
+    .c-componentDetailsTable-backdrop {
+      margin: 0;
+      width: 100%;
     }
 }

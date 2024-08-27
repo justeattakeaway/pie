@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-switch
 
+## 0.30.0
+
+### Minor Changes
+
+- [Changed] - use classes instead of attributes for styling ([#1715](https://github.com/justeattakeaway/pie/pull/1715)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.29.12
 
 ### Patch Changes

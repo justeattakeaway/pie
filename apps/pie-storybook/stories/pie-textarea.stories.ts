@@ -6,7 +6,7 @@ import { useArgs as UseArgs } from '@storybook/preview-api';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-textarea';
 import {
-    TextareaProps, defaultProps, resizeModes, sizes,
+    type TextareaProps, defaultProps, resizeModes, sizes, statusTypes,
 } from '@justeattakeaway/pie-textarea';
 /* eslint-enable import/no-duplicates */
 
@@ -26,11 +26,14 @@ const Template = ({
     required,
     readonly,
     value,
+    defaultValue,
     name,
     autocomplete,
     autoFocus,
     label,
     maxLength,
+    assistiveText,
+    status,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -55,6 +58,7 @@ const Template = ({
             id="${ifDefined(name)}"
             name="${ifDefined(name)}"
             .value="${value}"
+            defaultValue="${ifDefined(defaultValue)}"
             ?disabled="${disabled}"
             size="${ifDefined(size)}"
             resize="${ifDefined(resize)}"
@@ -65,7 +69,9 @@ const Template = ({
             maxLength="${ifDefined(maxLength)}"
             label="${ifDefined(label)}"
             @input="${onInput}"
-            @change="${onChange}">
+            @change="${onChange}"
+            assistiveText="${ifDefined(assistiveText)}"
+            status=${ifDefined(status)}>
         </pie-textarea>
     `;
 };
@@ -97,6 +103,21 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: defaultProps.resize,
             },
         },
+        assistiveText: {
+            description: 'An optional assistive text to display below the textarea element. Must be provided when the status is success or error.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+        },
+        status: {
+            description: 'The status of the textarea component / assistive text. Can be default, success or error.',
+            control: 'select',
+            options: statusTypes,
+            defaultValue: {
+                summary: defaultProps.status,
+            },
+        },
         name: {
             description: 'The name of the textarea (used as a key/value pair with `value`). This is required in order to work properly with forms.',
             control: 'text',
@@ -109,6 +130,13 @@ const textareaStoryMeta: TextareaStoryMeta = {
             control: 'text',
             defaultValue: {
                 summary: defaultProps.value,
+            },
+        },
+        defaultValue: {
+            description: 'An optional default value to use when the textarea is reset.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
             },
         },
         readonly: {
@@ -199,7 +227,15 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps> = () => html`
     </form>
 `;
 
-export const Default = createStory<TextareaProps>(Template, defaultArgs)();
-export const ExampleForm = createStory<TextareaProps>(ExampleFormTemplate, defaultArgs)();
+const CreateTextareaStory = createStory<TextareaProps>(Template, defaultArgs);
+const CreateTextareaStoryWithForm = createStory<TextareaProps>(ExampleFormTemplate, defaultArgs);
+
+export const Default = CreateTextareaStory({}, {
+    argTypes: {
+        defaultValue: { table: { readonly: true }, description: 'This prop only works when the textarea is inside a form. To interact with this, view the Example Form story.' },
+    },
+});
+
+export const ExampleForm = CreateTextareaStoryWithForm();
 
 export default textareaStoryMeta;
