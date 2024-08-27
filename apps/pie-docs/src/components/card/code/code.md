@@ -21,9 +21,15 @@ eleventyComputed:
   </a>
 </p>
 
-`pie-card` is a Web Component built using Lit. It offers a simple, functional and reusable card component for use in web applications.
+`pie-card` is a Web Component built using [Lit](https://lit.dev/). It offers a simple, functional and reusable card component for use in web applications.
 
 This component can be easily integrated into a variety of frontend frameworks (or simply plain JavaScript and HTML). Its appearance and functionality can be customised with props.
+
+{% notification {
+  type: "information",
+  iconName: "engineers",
+  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/story/card) instance!"
+} %}
 
 ## Installation
 
@@ -42,15 +48,6 @@ npm i @justeattakeaway/pie-webc
   iconName: "link",
   message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide.](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
 } %}
-
-## Playground
-
-<iframe
-  src="https://webc.pie.design/?path=/story/card--default&viewMode=story&shortcuts=false&singleStory=true"
-  width="100%",
-  height="600px"
-  style="border: none; margin-top: var(--dt-spacing-f);"
-></iframe>
 
 ## Props
 

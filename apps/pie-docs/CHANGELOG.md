@@ -1,5 +1,19 @@
 # Changelog
 
+## 4.2.0
+
+### Minor Changes
+
+- [Removed] - Storybook previews from component code pages ([#1711](https://github.com/justeattakeaway/pie/pull/1711)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - Storybook link to component code pages
+
+## 4.1.0
+
+### Minor Changes
+
+- [Changed] - `contentLayout` and `contentItem` shortcodes styles ([#1706](https://github.com/justeattakeaway/pie/pull/1706)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
 ## 4.0.0
 
 ### Major Changes
