@@ -28,15 +28,15 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
     do: {
         type: usageTypes.text,
         items: [
-            "Use Buttons when you need to direct the user to an action.",
-            "When pairing Buttons, use the same sized Buttons together."
-
+            "Use buttons when you need to direct the user to an action.",
+            "When pairing buttons, use the same sized buttons together.",
+            "When multiple buttons are used within the same component or page, ensure that there is a clear hierarchy of actions."
         ]
     },
     dont: {
         type: usageTypes.text,
         items: [
-            "Only include one primary button in a page or area of UI."
+            "Don't mix button sizes when buttons are used together in a pair."
         ]
     }
 } %}
