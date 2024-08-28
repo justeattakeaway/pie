@@ -1,4 +1,4 @@
-import { TemplateResult } from 'lit';
+import { type TemplateResult } from 'lit';
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
@@ -6,8 +6,8 @@ import { action } from '@storybook/addon-actions';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-modal';
 import {
-    PieModal,
-    ModalProps as ModalPropsBase,
+    type PieModal,
+    type ModalProps as ModalPropsBase,
     headingLevels,
     sizes,
     positions,
@@ -39,8 +39,8 @@ const defaultArgs: ModalProps = {
         ariaLabel: 'Descriptive cancellation text',
     },
     aria: {
-        close: 'Close',
         back: 'Back',
+        close: 'Close',
         loading: 'Loading',
     },
 };
@@ -108,11 +108,11 @@ const modalStoryMeta: ModalStoryMeta = {
             control: 'object',
         },
         supportingAction: {
-            description: 'The supporting action configuration for the modal. Will not appear if no leading action is provided.',
+            description: 'The supporting action configuration for the modal. The supporting action will not appear without a leading action.',
             control: 'object',
         },
         aria: {
-            description: 'The ARIA labels used for the modal close and back buttons, as well as loading state.',
+            description: 'The ARIA labels used for the modal close and back buttons, as well as for the loading state.',
             control: 'object',
         },
     },
@@ -166,10 +166,10 @@ const createFocusableElementsPageHTML = () : TemplateResult => html`
 const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
     const {
         aria,
-        heading,
-        headingLevel,
         hasBackButton,
         hasStackedActions,
+        heading,
+        headingLevel,
         isDismissible,
         isFooterPinned,
         isFullWidthBelowMid,
@@ -187,15 +187,15 @@ const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
         <pie-modal
             .aria="${aria}"
             heading="${heading}"
-            headingLevel="${headingLevel}"
+            headingLevel="${ifDefined(headingLevel)}"
             ?hasBackButton="${hasBackButton}"
             ?hasStackedActions="${hasStackedActions}"
             ?isDismissible="${isDismissible}"
-            .isFooterPinned="${isFooterPinned}"
+            ?isFooterPinned="${isFooterPinned}"
             ?isFullWidthBelowMid="${isFullWidthBelowMid}"
             ?isLoading="${isLoading}"
             ?isOpen="${isOpen}"
-            .leadingAction="${leadingAction}"
+            .leadingAction=${leadingAction}
             position="${ifDefined(position)}"
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             size="${ifDefined(size)}"
@@ -237,7 +237,6 @@ export const FocusManagement = createStory<ModalProps>(FocusableElementsPageStor
     returnFocusAfterCloseSelector: '#focus-3',
 });
 export const LargeTextContent = createBaseModalStory({
-    isFooterPinned: false,
     slot: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quas inventore quasi ullam, sed ab odio dicta, tempore, ex adipisci atque asperiores suscipit quisquam alias aliquam minus amet ad a?
     Iure consequuntur nihil officia odio, ut dolores reprehenderit tenetur, repellat eveniet dolore, dignissimos aspernatur quo laboriosam eum repellendus ratione libero. Aspernatur in, inventore ratione molestias exercitationem repudiandae omnis nisi illo?
     Laborum, aspernatur labore! Nulla corporis laudantium, odio iure cum maiores veritatis. Facere ullam sequi voluptate ipsa neque? Atque necessitatibus aspernatur quibusdam sit pariatur quo sunt, voluptatem doloribus dolore consequatur temporibus?

@@ -30,6 +30,11 @@ export function getPlaywrightVisualConfig () {
             /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
             trace: 'on',
             testIdAttribute: 'data-test-id',
+            discovery: {
+                disallowedHostnames: [
+                    'unpkg.com'
+                ],
+            },
         },
 
         /* Configure projects for major browsers */
@@ -46,7 +51,7 @@ export function getPlaywrightVisualConfig () {
                 name: 'visual:mobile',
                 grep: /@mobile/,
                 use: {
-                    ...devices['Pixel 5'],
+                    ...devices['Galaxy S8'],
                 },
                 testMatch: ['**/test/visual/*.spec.ts'],
             },

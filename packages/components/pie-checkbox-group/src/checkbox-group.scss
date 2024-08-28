@@ -14,9 +14,14 @@
         display: flex;
     }
 
+    ::slotted(pie-form-label) {
+        display: block;
+        padding-block-end: var(--checkbox-group-label-offset);
+    }
+
     &:not(.c-checkboxGroup--inline) {
-        ::slotted(pie-checkbox:not(:first-child)) {
-            margin-block-start: var(--checkbox-group-offset);
+        ::slotted(pie-checkbox:not(:last-child)) {
+            margin-block-end: var(--checkbox-group-offset);
         }
     }
 }
@@ -28,26 +33,22 @@
     flex-wrap: wrap;
 }
 
-.c-checkboxGroup-label {
-    max-width: 100%;
-    white-space: normal;
-    padding: 0;
-    font-size: p.font-size(--dt-font-body-strong-s-size);
-    line-height: p.line-height(--dt-font-body-strong-s-line-height);
-    font-weight: var(--dt-font-body-strong-s-weight);
-    color: var(--dt-color-content-default);
-
-    margin-block-end: var(--checkbox-group-label-offset);
-}
-
 .c-checkboxGroup.c-checkboxGroup--inline {
-    margin: calc(-1 * var(--checkbox-group-offset--inline) / 2) calc(-1 * var(--checkbox-group-offset--inline) / 2);
+    margin: calc(-1 * var(--checkbox-group-offset) / 2) calc(-1 * var(--checkbox-group-offset--inline) / 2);
 
     ::slotted(pie-checkbox) {
-        margin: calc(var(--checkbox-group-offset--inline) / 2) calc(var(--checkbox-group-offset--inline) / 2);
+        margin: calc(var(--checkbox-group-offset) / 2) calc(var(--checkbox-group-offset--inline) / 2);
     }
 
-    .c-checkboxGroup-label {
-        margin: 0 calc(var(--checkbox-group-offset--inline) / 2) calc(-1 * (var(--checkbox-group-offset--inline) / 2 - var(--checkbox-group-label-offset)));
+    ::slotted(pie-form-label) {
+        margin: 0 calc(var(--checkbox-group-offset--inline) / 2) calc(-1 * (var(--checkbox-group-offset) / 2 - var(--checkbox-group-label-offset)));
+        padding-block-end: 0;
     }
+}
+
+.c-checkboxGroup-assistiveText {
+    --checkbox-group-assistive-text-offset: var(--dt-spacing-a);
+
+    display: block;
+    margin-block-start: var(--checkbox-group-assistive-text-offset);
 }

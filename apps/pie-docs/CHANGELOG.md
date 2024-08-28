@@ -1,5 +1,50 @@
 # Changelog
 
+## 4.2.0
+
+### Minor Changes
+
+- [Removed] - Storybook previews from component code pages ([#1711](https://github.com/justeattakeaway/pie/pull/1711)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - Storybook link to component code pages
+
+## 4.1.0
+
+### Minor Changes
+
+- [Changed] - `contentLayout` and `contentItem` shortcodes styles ([#1706](https://github.com/justeattakeaway/pie/pull/1706)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+## 4.0.0
+
+### Major Changes
+
+- [Added] - pie-textarea overview page ([#1670](https://github.com/justeattakeaway/pie/pull/1670)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+### Minor Changes
+
+- [Updated] - Icons to follow alphabetical order. ([#1682](https://github.com/justeattakeaway/pie/pull/1682)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+### Patch Changes
+
+- [Changed] - Recombine modal's leading and supporting action props ([#1685](https://github.com/justeattakeaway/pie/pull/1685)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Fixed] - make `isDismissible` false by default ([#1668](https://github.com/justeattakeaway/pie/pull/1668)) by [@dandel10n](https://github.com/dandel10n)
+
+- Updated dependencies [[`ccfe4583c`](https://github.com/justeattakeaway/pie/commit/ccfe4583c274531d879b9c877f4c5c08dc9418cd)]:
+  - @justeattakeaway/pie-icons@4.19.0
+
+## 3.48.0
+
+### Minor Changes
+
+- [Added] - PIE Checkbox Group Component overview page. ([#1665](https://github.com/justeattakeaway/pie/pull/1665)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Changed] - PIE Checkbox checkbox-checked-LTR.svg update.
+
+### Patch Changes
+
+- [Fixed] - Conflict in ordering of pages in Foundations section ([#1661](https://github.com/justeattakeaway/pie/pull/1661)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 3.47.1
 
 ### Patch Changes

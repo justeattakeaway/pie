@@ -1,5 +1,36 @@
 # @justeattakeaway/pie-checkbox-group
 
+## 0.6.1
+
+### Patch Changes
+
+- Updated dependencies [[`e2274aaac`](https://github.com/justeattakeaway/pie/commit/e2274aaac986fcc288760a22a09e9b4d3b7822b3)]:
+  - @justeattakeaway/pie-assistive-text@0.7.0
+
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - Code pages to pie-doc site ([#1672](https://github.com/justeattakeaway/pie/pull/1672)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
+- Updated dependencies [[`b32bf5d25`](https://github.com/justeattakeaway/pie/commit/b32bf5d257bb87da130194a9fe2ddf3ec93bced9)]:
+  - @justeattakeaway/pie-assistive-text@0.6.1
+
+## 0.5.0
+
+### Minor Changes
+
+- [Changed] - replaced label prop with a slot. ([#1660](https://github.com/justeattakeaway/pie/pull/1660)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Changed] - increased spacing after label and before assistive text.
+  [Changed] - reduced spacing detween checkboxes in inline mode.
+
 ## 0.4.0
 
 ### Minor Changes

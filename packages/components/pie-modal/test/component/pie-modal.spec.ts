@@ -18,8 +18,10 @@ import {
 let modalComponent: ModalComponent;
 
 test.describe('modal', () => {
-    test.beforeEach(async ({ page }) => {
+    test.beforeEach(async ({ page, mount }) => {
         modalComponent = new ModalComponent(page);
+        const component = await mount(PieModal);
+        await component.unmount();
     });
 
     test('should be visible when opened', async ({ mount }) => {
@@ -417,14 +419,18 @@ test.describe('modal', () => {
                 expect(isModalVisible).toBe(true);
             });
 
-            test('should NOT close the modal when the Escape key is pressed', async ({ mount, page }) => {
+            // To be addressed in ticket DSW-2218
+            test.skip('should NOT close the modal when the Escape key is pressed', async ({ mount, page }) => {
                 // Arrange
-                await mount(PieModal, {
-                    props: {
-                        isOpen: true,
-                        isDismissible: false,
+                await mount(
+                    PieModal,
+                    {
+                        props: {
+                            isOpen: true,
+                            isDismissible: false,
+                        },
                     },
-                });
+                );
 
                 // Act
                 await page.keyboard.press('Escape');
@@ -606,13 +612,9 @@ test.describe('modal', () => {
                             isOpen: true,
                             leadingAction: {
                                 text: 'Confirm',
-                                variant: 'primary',
-                                ariaLabel: 'Descriptive message',
                             },
                             supportingAction: {
                                 text: 'Cancel',
-                                variant: 'ghost',
-                                ariaLabel: 'Descriptive message',
                             },
                         },
                     });
@@ -639,13 +641,9 @@ test.describe('modal', () => {
                             isOpen: true,
                             leadingAction: {
                                 text: 'Confirm',
-                                variant: 'primary',
-                                ariaLabel: 'Descriptive message',
                             },
                             supportingAction: {
                                 text: 'Cancel',
-                                variant: 'ghost',
-                                ariaLabel: 'Descriptive message',
                             },
                         },
                         on: {

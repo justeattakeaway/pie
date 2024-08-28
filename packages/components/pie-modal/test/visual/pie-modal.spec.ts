@@ -16,8 +16,6 @@ sizes.forEach((size) => {
                 size,
                 leadingAction: {
                     text: 'Confirm',
-                    variant: 'primary',
-                    ariaLabel: 'Confirmation text',
                 },
             } as ModalProps,
         });
@@ -37,11 +35,8 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                     heading: 'This is a modal heading',
                     isFullWidthBelowMid: true,
                     isOpen: true,
-                    size: 'medium',
                     leadingAction: {
                         text: 'Confirm',
-                        variant: 'primary',
-                        ariaLabel: 'Confirmation text',
                     },
                 } as ModalProps,
             });
@@ -61,8 +56,6 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                     size: 'small',
                     leadingAction: {
                         text: 'Confirm',
-                        variant: 'primary',
-                        ariaLabel: 'Confirmation text',
                     },
                 } as ModalProps,
             });
@@ -86,8 +79,6 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                             size,
                             leadingAction: {
                                 text: 'Confirm',
-                                variant: 'primary',
-                                ariaLabel: 'Confirmation text',
                             },
                         } as ModalProps,
                     });
@@ -111,8 +102,6 @@ test.describe('Prop: `isDismissible`', () => {
                     isOpen: true,
                     leadingAction: {
                         text: 'Confirm',
-                        variant: 'primary',
-                        ariaLabel: 'Confirmation text',
                     },
                 } as ModalProps,
             });
@@ -133,8 +122,6 @@ test.describe('Prop: `isDismissible`', () => {
                     isOpen: true,
                     leadingAction: {
                         text: 'Confirm',
-                        variant: 'primary',
-                        ariaLabel: 'Confirmation text',
                     },
                 } as ModalProps,
             });
@@ -161,8 +148,6 @@ test.describe('Prop: `hasBackButton`', () => {
                         dir,
                         leadingAction: {
                             text: 'Confirm',
-                            variant: 'primary',
-                            ariaLabel: 'Confirmation text',
                         },
                     } as PieModal,
                 });
@@ -184,8 +169,6 @@ test.describe('Prop: `hasBackButton`', () => {
                         dir,
                         leadingAction: {
                             text: 'Confirm',
-                            variant: 'primary',
-                            ariaLabel: 'Confirmation text',
                         },
                     } as PieModal,
                 });
@@ -205,13 +188,10 @@ test.describe('Prop: `heading`', () => {
             props: {
                 heading: 'This is a modal heading but super long and should span multiple lines, hopefully this should never happen on production!',
                 isOpen: true,
-                size: 'medium',
                 hasBackButton: true,
                 isDismissible: true,
                 leadingAction: {
                     text: 'Confirm',
-                    variant: 'primary',
-                    ariaLabel: 'Confirmation text',
                 },
             } as ModalProps,
         });
@@ -234,8 +214,6 @@ test.describe('Prop: `isLoading`', () => {
                 isLoading: true,
                 leadingAction: {
                     text: 'Confirm',
-                    variant: 'primary',
-                    ariaLabel: 'Confirmation text',
                 },
             } as ModalProps,
         });
@@ -249,15 +227,13 @@ test.describe('Prop: `isLoading`', () => {
 
 test.describe('Prop: `leadingAction`', () => {
     test.describe('when prop is passed into component', () => {
-        test('should display `leadingAction` when props are passed correctly', async ({ mount, page }) => {
+        test('should display leading action button', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
                     isOpen: true,
                     leadingAction: {
                         text: 'Confirm',
-                        variant: 'primary',
-                        ariaLabel: 'Confirmation text',
                     },
                 } as ModalProps,
             });
@@ -267,35 +243,17 @@ test.describe('Prop: `leadingAction`', () => {
 
             await percySnapshot(page, 'Modal displays leadingAction');
         });
-
-        test('should display modal footer', async ({ mount, page }) => {
-            await mount(PieModal, {
-                props: {
-                    heading: 'This is a modal heading',
-                    isOpen: true,
-                    leadingAction: {
-                        text: 'Confirm',
-                        variant: 'primary',
-                        ariaLabel: 'Confirmation text',
-                    },
-                } as ModalProps,
-            });
-
-            const modal = page.locator(componentFooterSelector);
-            await expect.soft(modal).toBeVisible();
-
-            await percySnapshot(page, 'Modal displays modal footer');
-        });
     });
 
-    test.describe('when prop is provided but the optional child properties of `leadingAction` are not provided', () => {
-        test('should falls back to defaults', async ({ mount, page }) => {
+    test.describe('when `leadingAction.variant` is set to "destructive"', () => {
+        test('should show a "destructive" button', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
                     isOpen: true,
                     leadingAction: {
                         text: 'Confirm',
+                        variant: 'destructive',
                     },
                 } as ModalProps,
             });
@@ -303,12 +261,12 @@ test.describe('Prop: `leadingAction`', () => {
             const modal = page.locator(componentSelector);
             await expect.soft(modal).toBeVisible();
 
-            await percySnapshot(page, 'Modal falls back to default property `primary`');
+            await percySnapshot(page, 'Modal leadingAction variant can be overridden');
         });
     });
 
-    test.describe('when prop is provided but the `text` child property of `leadingAction` is empty', () => {
-        test('should not render leadingAction markup', async ({ mount, page }) => {
+    test.describe('when prop is provided empty', () => {
+        test('should not render leading action markup', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
@@ -327,7 +285,7 @@ test.describe('Prop: `leadingAction`', () => {
     });
 
     test.describe('when prop is not passed into component', () => {
-        test('should not display `leadingAction`', async ({ mount, page }) => {
+        test('should not display leading action or footer', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
@@ -336,7 +294,9 @@ test.describe('Prop: `leadingAction`', () => {
             });
 
             const modal = page.locator(componentSelector);
+            const footer = page.locator(componentFooterSelector);
             await expect.soft(modal).toBeVisible();
+            await expect.soft(footer).not.toBeVisible();
 
             await percySnapshot(page, 'Modal does not display leadingAction');
         });
@@ -345,87 +305,17 @@ test.describe('Prop: `leadingAction`', () => {
 
 test.describe('Prop: `supportingAction`', () => {
     test.describe('when `leadingAction` prop exists', () => {
-        test('should display `supportingAction` correctly', async ({ mount, page }) => {
-            await mount(PieModal, {
-                props: {
-                    heading: 'This is a modal heading',
-                    isOpen: true,
-                    leadingAction: {
-                        text: 'Confirm',
-                        variant: 'primary',
-                        ariaLabel: 'Confirmation text',
-                    },
-                    supportingAction: {
-                        text: 'Cancel',
-                        variant: 'ghost',
-                        ariaLabel: 'Cancellation text',
-                    },
-                } as ModalProps,
-            });
-
-            const modal = page.locator(componentSelector);
-            await expect.soft(modal).toBeVisible();
-
-            await percySnapshot(page, 'Modal displays supportingAction alongside leadingAction');
-        });
-
-        test('should display modal footer if `LeadingAction` is provided alongside `supportingAction`', async ({ mount, page }) => {
-            await mount(PieModal, {
-                props: {
-                    heading: 'This is a modal heading',
-                    isOpen: true,
-                    leadingAction: {
-                        text: 'Confirm',
-                        variant: 'primary',
-                        ariaLabel: 'Confirmation text',
-                    },
-                    supportingAction: {
-                        text: 'Cancel',
-                        variant: 'ghost',
-                        ariaLabel: 'Cancellation text',
-                    },
-                } as ModalProps,
-            });
-
-            const modal = page.locator(componentFooterSelector);
-            await expect.soft(modal).toBeVisible();
-
-            await percySnapshot(page, 'Modal displays footer');
-        });
-
-        test('should not display modal footer if only `supportingAction` is provided', async ({ mount, page }) => {
-            await mount(PieModal, {
-                props: {
-                    heading: 'This is a modal heading',
-                    isOpen: true,
-                    supportingAction: {
-                        text: 'Cancel',
-                        variant: 'ghost',
-                        ariaLabel: 'Cancellation text',
-                    },
-                } as ModalProps,
-            });
-
-            const modal = page.locator(componentFooterSelector);
-            await expect.soft(modal).not.toBeVisible();
-
-            await percySnapshot(page, 'Modal hides footer if there is no leadingAction');
-        });
-
-        test.describe('when prop is provided but the optional child properties of `supportingAction` are not provided', () => {
-            test('should fall back to default property', async ({ mount, page }) => {
+        test.describe('and `supportingAction.text` is provided but `supportingAction.variant` is not', () => {
+            test('should fall back to default variant', async ({ mount, page }) => {
                 await mount(PieModal, {
                     props: {
                         heading: 'This is a modal heading',
                         isOpen: true,
                         leadingAction: {
                             text: 'Confirm',
-                            variant: 'primary',
-                            ariaLabel: 'Confirmation text',
                         },
                         supportingAction: {
                             text: 'Cancel',
-                            ariaLabel: 'Confirmation text',
                         },
                     } as ModalProps,
                 });
@@ -437,16 +327,14 @@ test.describe('Prop: `supportingAction`', () => {
             });
         });
 
-        test.describe('when `supportingAction` prop is provided but the `text` child property of `supportingAction` is empty', () => {
-            test('should not render supportingAction markup', async ({ mount, page }) => {
+        test.describe('and `supportingAction.text` is provided but empty', () => {
+            test('should not render supporting action markup', async ({ mount, page }) => {
                 await mount(PieModal, {
                     props: {
                         heading: 'This is a modal heading',
                         isOpen: true,
                         leadingAction: {
                             text: 'Confirm',
-                            variant: 'primary',
-                            ariaLabel: 'Confirmation text',
                         },
                         supportingAction: {
                             text: '',
@@ -461,16 +349,14 @@ test.describe('Prop: `supportingAction`', () => {
             });
         });
 
-        test.describe('when `supportingAction` is not supplied', () => {
-            test('should not render supportingAction markup', async ({ mount, page }) => {
+        test.describe('and `supportingAction.text` is not provided', () => {
+            test('should not render supporting action markup', async ({ mount, page }) => {
                 await mount(PieModal, {
                     props: {
                         heading: 'This is a modal heading',
                         isOpen: true,
                         leadingAction: {
                             text: 'Confirm',
-                            variant: 'primary',
-                            ariaLabel: 'Confirmation text',
                         },
                     } as ModalProps,
                 });
@@ -483,16 +369,14 @@ test.describe('Prop: `supportingAction`', () => {
         });
     });
 
-    test.describe('when `leadingAction` prop does not exist and `supportingAction` is supplied', () => {
-        test('should not render supportingAction markup', async ({ mount, page }) => {
+    test.describe('when `supportingAction.text` is supplied but `leadingAction.text` is not', () => {
+        test('should not render supporting action markup', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
                     isOpen: true,
                     supportingAction: {
                         text: 'Cancel',
-                        variant: 'ghost',
-                        ariaLabel: 'Cancellation text',
                     },
                 } as ModalProps,
             });
@@ -501,24 +385,6 @@ test.describe('Prop: `supportingAction`', () => {
             await expect.soft(modal).toBeVisible();
 
             await percySnapshot(page, 'Modal will not render `supportingAction` when `leadingAction` is not supplied');
-        });
-    });
-});
-
-test.describe('Modal Footer', () => {
-    test.describe('when `leadingAction` or `supportingAction` props are not provided', () => {
-        test('should not render the modal footer', async ({ mount, page }) => {
-            await mount(PieModal, {
-                props: {
-                    heading: 'This is a modal heading',
-                    isOpen: true,
-                } as ModalProps,
-            });
-
-            const modal = page.locator(componentFooterSelector);
-            await expect.soft(modal).not.toBeVisible();
-
-            await percySnapshot(page, 'Modal does not display footer');
         });
     });
 });
@@ -539,8 +405,6 @@ test.describe('Prop: `position`', () => {
                                     size,
                                     leadingAction: {
                                         text: 'Confirm',
-                                        variant: 'primary',
-                                        ariaLabel: 'Confirmation text',
                                     },
                                 } as ModalProps,
                             });
@@ -567,8 +431,6 @@ test.describe('Prop: `isFooterPinned`', () => {
                     isOpen: true,
                     leadingAction: {
                         text: 'Confirm',
-                        variant: 'primary',
-                        ariaLabel: 'Confirmation text',
                     },
                 } as ModalProps,
                 slots: {
@@ -615,8 +477,6 @@ test.describe('Prop: `isFooterPinned`', () => {
                         isOpen: true,
                         leadingAction: {
                             text: 'Confirm',
-                            variant: 'primary',
-                            ariaLabel: 'Confirmation text',
                         },
                         size,
                         isFullWidthBelowMid: size === 'medium',
@@ -651,13 +511,9 @@ test.describe('Prop: `hasStackedActions`', () => {
                             size,
                             leadingAction: {
                                 text: 'Confirm',
-                                variant: 'primary',
-                                ariaLabel: 'Confirmation text',
                             },
                             supportingAction: {
                                 text: 'Cancel',
-                                variant: 'ghost',
-                                ariaLabel: 'Cancel and close modal',
                             },
                         } as ModalProps,
                     });

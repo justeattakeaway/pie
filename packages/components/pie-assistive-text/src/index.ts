@@ -48,13 +48,13 @@ export class PieAssistiveText extends LitElement implements AssistiveTextProps {
         const classes = {
             'c-assistiveText': true,
             'c-assistiveText--isVisuallyHidden': isVisuallyHidden,
+            [`c-assistiveText--${variant}`]: true,
         };
 
         return html`
         <p
             class="${classMap(classes)}"
-            data-test-id="pie-assistive-text"
-            variant=${variant}>
+            data-test-id="pie-assistive-text">
             ${this.renderIcon()}
             <slot></slot>
         </p>`;
