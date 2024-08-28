@@ -7,6 +7,7 @@ describe('indexPageDisplay.js', () => {
     const collectionAll = [
         {
             data: {
+                title: 'First Sub Item',
                 eleventyNavigation: {
                     key: 'First Sub Item',
                     parent: 'Test Menu Item',
@@ -18,6 +19,7 @@ describe('indexPageDisplay.js', () => {
         },
         {
             data: {
+                title: 'Second Sub Item',
                 eleventyNavigation: {
                     key: 'Second Sub Item',
                     parent: 'Test Menu Item',
@@ -29,6 +31,7 @@ describe('indexPageDisplay.js', () => {
         },
         {
             data: {
+                title: 'Third Sub Item without image',
                 eleventyNavigation: {
                     key: 'Third Sub Item without image',
                     parent: 'Test Menu Item',
@@ -57,6 +60,24 @@ describe('indexPageDisplay.js', () => {
         // act
         const result = indexPageDisplay({
             collection: collectionAll,
+            itemKey: 'Test Menu Item',
+            excludedElements: ['Third Sub Item without image'],
+            imageSrcDirectory: testImageDirectory,
+        });
+
+        // assert
+        expect(result)
+            .toMatchSnapshot();
+    });
+
+    it('should not render items if the page is a draft', () => {
+        // setup
+        const collectionsWithDraft = [...collectionAll];
+        collectionsWithDraft[0].data.draft = true;
+
+        // act
+        const result = indexPageDisplay({
+            collection: collectionsWithDraft,
             itemKey: 'Test Menu Item',
             excludedElements: ['Third Sub Item without image'],
             imageSrcDirectory: testImageDirectory,

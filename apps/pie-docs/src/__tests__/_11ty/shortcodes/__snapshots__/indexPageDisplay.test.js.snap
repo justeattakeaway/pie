@@ -1,5 +1,17 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`indexPageDisplay.js > should not render items if the page is a draft 1`] = `
+"<div class=\\"c-indexPage\\">
+                <a class=\\"c-indexPage-link\\" href=\\"/second-sub-item/\\">
+                    <picture>
+                    
+                    <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/second-sub-item.svg\\">
+                    </picture>
+                    Second Sub Item
+                    <div class=\\"c-indexPage-background\\"></div>
+                </a></div>"
+`;
+
 exports[`indexPageDisplay.js > should return the expected HTML for an index page and render default image and warning when image is not provided 1`] = `
 "<div class=\\"c-indexPage\\">
                 <a class=\\"c-indexPage-link\\" href=\\"/first-sub-item/\\">

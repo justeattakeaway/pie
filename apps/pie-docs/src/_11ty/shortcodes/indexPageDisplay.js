@@ -19,6 +19,14 @@ const path = require('path');
 const defaultImageDirectory = '../../assets/img/index';
 const toSlug = (string) => string.toLowerCase().replace(/\s+/g, '-');
 
+const getDraftPagesList = (collection) => {
+    const draftPages = [];
+    collection.forEach((item) => {
+        if (item.data && item.data.draft) draftPages.push(item.data.title);
+    });
+    return draftPages;
+};
+
 module.exports = function ({
     collection,
     itemKey,
@@ -26,8 +34,10 @@ module.exports = function ({
     imageSrcDirectory,
 }) {
     const menuItems = find(collection, itemKey);
+    const draftPages = getDraftPagesList(collection);
+
     const indexElements = menuItems.map((element) => {
-        if (!excludedElements.includes(element.title)) {
+        if (!excludedElements.includes(element.title) && !draftPages.includes(element.title)) {
             const menuItemSlug = toSlug(element.title);
             const itemKeySlug = toSlug(itemKey);
             const imageDirectory = imageSrcDirectory || defaultImageDirectory;
