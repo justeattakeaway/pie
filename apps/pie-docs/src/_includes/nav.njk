@@ -66,7 +66,7 @@
             {% for category in section %}
                 {% if category.url %}
                     <li>
-                        <details>
+                        <details {% if page.url and page.url.includes(category.url) %} open{% endif %}>
                             {# hasIndexPage is an attribute that is set in eleventyNavigation metadata when a category has an index page #}
                             {{ summary(category.title, category.url, category.children[0].url, category.hasIndexPage, category.key) }}
                             {% if category.children.length %}
@@ -75,7 +75,7 @@
                                     {% for subpage in category.children %}
                                         {% if subpage.url %}
                                             {% if subpage.children.length and subpage.subPageDropdown %}
-                                                <details>
+                                                <details {% if page.url and page.url.includes(subpage.key) %} open{% endif %}>
                                                     {{ summary(subpage.title, subpage.url, subpage.children[0].url, subpage.hasIndexPage) }}
                                                     <ul class="c-nav-list">
                                                     {% for child in subpage.children %}
