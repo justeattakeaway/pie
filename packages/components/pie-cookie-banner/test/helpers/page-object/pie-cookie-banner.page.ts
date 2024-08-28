@@ -21,7 +21,7 @@ export class CookieBannerComponent extends BasePage {
     private readonly modalDescriptionLocator: Locator;
 
     constructor (page: Page) {
-        super(page);
+        super(page, 'cookie-banner');
         this.componentLocator = page.getByTestId(cookieBanner.selectors.container.dataTestId);
         this.descriptionLocator = page.getByTestId(cookieBanner.selectors.description.dataTestId);
         this.acceptAllButtonLocator = page.getByTestId(cookieBanner.selectors.acceptAllButton.dataTestId);
@@ -82,8 +82,8 @@ export class CookieBannerComponent extends BasePage {
      * @returns {Promise<string | null>} A Promise that resolves to the value of the specified attribute
      *                                   on the "Accept All" button, or `null` if the attribute does not exist.
      */
-    async getAcceptAllVariant (attribute: string) : Promise<string | null> {
-        return this.acceptAllButtonLocator.getAttribute(attribute);
+    async getAcceptAllVariant () : Promise<string | null> {
+        return this.acceptAllButtonLocator.getAttribute('variant');
     }
 
     /**
@@ -103,8 +103,8 @@ export class CookieBannerComponent extends BasePage {
      * @returns {Promise<string | null>} A Promise that resolves to the value of the specified attribute
      *                                   on the "Necessary Only" button, or `null` if the attribute does not exist.
      */
-    async getNecessaryOnlyButtonVariant (attribute: string) : Promise<string | null> {
-        return this.necessaryOnlyButtonLocator.getAttribute(attribute);
+    async getNecessaryOnlyButtonVariant () : Promise<string | null> {
+        return this.necessaryOnlyButtonLocator.getAttribute('variant');
     }
 
     /**
@@ -276,5 +276,21 @@ export class CookieBannerComponent extends BasePage {
      */
     async getModalCookieTechnologiesLinkAttribute (attribute: string) : Promise<string | null> {
         return this.modalDescriptionLocator.locator(this.bodyCookieTechnologiesLinkLocator).getAttribute(attribute);
+    }
+
+    /**
+     * Checks whether the preference toggle associated with the specified preference IDs is checked.
+     *
+     * @param {Object[]} preferences An array of preference objects.
+     * @param {string} preferences[].id The preference IDs used to locate the preference toggle.
+     * @returns {Promise<Object[]>} A promise that resolves to an array of objects for prefernece ID and
+     *                              whether the preference toggle is checked (`true`) or not (`false`).
+     */
+    async getAllCheckedPreferences (preferences: { id: string }[]): Promise<{ id: string; isChecked: boolean }[]> {
+        const elements = preferences.map(async ({ id }) => ({
+            id,
+            isChecked: await this.isPreferenceToggleChecked(id as PreferenceIds),
+        }));
+        return Promise.all(elements);
     }
 }

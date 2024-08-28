@@ -1,15 +1,10 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieSwitch } from '../../src/index.ts';
-import {
-    type SwitchProps,
-    type LabelPlacement,
-    labelPlacements,
-    ON_SWITCH_CHANGED_EVENT,
-} from '../../src/defs.ts';
+import { type SwitchProps, labelPlacements, ON_SWITCH_CHANGED_EVENT } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="switch-component"]';
 const inputSelector = '[data-test-id="switch-input"]';
-const switchLabelSelector = (placement: LabelPlacement = 'leading') => `[data-test-id="switch-label-${placement}"]`;
+const switchLabelSelector = (placement: SwitchProps['labelPlacement'] = 'leading') => `[data-test-id="switch-label-${placement}"]`;
 
 test.describe('Component: `Pie switch`', () => {
     test.beforeEach(async ({ mount }) => {
@@ -19,12 +14,7 @@ test.describe('Component: `Pie switch`', () => {
 
     test('should be visible', async ({ mount, page }) => {
         // Arrange
-        await mount(PieSwitch, {
-            props: {
-                checked: false,
-                disabled: false,
-            },
-        });
+        await mount(PieSwitch);
 
         // Act
         const pieSwitch = page.locator(componentSelector);

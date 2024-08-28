@@ -1,15 +1,10 @@
 
 import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/webc-fixtures.ts';
-import { PieDivider, type DividerProps } from '../../src/index.ts';
+import { PieDivider } from '../../src/index.ts';
 
 test.describe('PieDivider - Accessibility tests', () => {
     test('a11y - should test the PieDivider component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
-        await mount(
-            PieDivider,
-            {
-                props: {} as DividerProps,
-            },
-        );
+        await mount(PieDivider);
 
         const results = await makeAxeBuilder().analyze();
 

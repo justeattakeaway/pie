@@ -1,9 +1,7 @@
-import { type TemplateResult } from 'lit';
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-modal';
 import {
     type PieModal,
@@ -13,9 +11,6 @@ import {
     positions,
     defaultProps,
 } from '@justeattakeaway/pie-modal';
-/* eslint-enable import/no-duplicates */
-
-import { variants as buttonVariants } from '@justeattakeaway/pie-button';
 
 import { type StoryMeta, type SlottedComponentProps } from '../types';
 import { createStory, sanitizeAndRenderHTML } from '../utilities';
@@ -145,7 +140,7 @@ const toggleModal = () => {
     }
 };
 
-const createFocusableElementsPageHTML = () : TemplateResult => html`
+const createFocusableElementsPageHTML = () => html`
     <pie-button id="focus-1">#focus-1</pie-button>
     <pie-button id="focus-2">#focus-2</pie-button>
     <pie-button id="focus-3">#focus-3</pie-button>
@@ -165,7 +160,7 @@ const createFocusableElementsPageHTML = () : TemplateResult => html`
         }
     </style>`;
 
-const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
+const BaseStoryTemplate = (props: ModalProps) => {
     const {
         aria,
         hasBackButton,
@@ -223,11 +218,11 @@ const createScrollablePageHTML = () => {
         <ul>${items}</ul>`;
 };
 
-const ScrollablePageStoryTemplate = (props: ModalProps) : TemplateResult => html`
+const ScrollablePageStoryTemplate = (props: ModalProps) => html`
     ${BaseStoryTemplate(props)}
     ${createScrollablePageHTML()}`;
 
-const FocusableElementsPageStoryTemplate = (props: ModalProps) : TemplateResult => html`
+const FocusableElementsPageStoryTemplate = (props: ModalProps) => html`
     ${BaseStoryTemplate(props)}
     ${createFocusableElementsPageHTML()}`;
 
@@ -239,7 +234,6 @@ export const FocusManagement = createStory<ModalProps>(FocusableElementsPageStor
     returnFocusAfterCloseSelector: '#focus-3',
 });
 export const LargeTextContent = createBaseModalStory({
-    isFooterPinned: false,
     slot: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quas inventore quasi ullam, sed ab odio dicta, tempore, ex adipisci atque asperiores suscipit quisquam alias aliquam minus amet ad a?
     Iure consequuntur nihil officia odio, ut dolores reprehenderit tenetur, repellat eveniet dolore, dignissimos aspernatur quo laboriosam eum repellendus ratione libero. Aspernatur in, inventore ratione molestias exercitationem repudiandae omnis nisi illo?
     Laborum, aspernatur labore! Nulla corporis laudantium, odio iure cum maiores veritatis. Facere ullam sequi voluptate ipsa neque? Atque necessitatibus aspernatur quibusdam sit pariatur quo sunt, voluptatem doloribus dolore consequatur temporibus?

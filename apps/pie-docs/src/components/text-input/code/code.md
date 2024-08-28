@@ -22,9 +22,15 @@ eleventyComputed:
   </a>
 </p>
 
-`pie-text-input` is a Web Component built with the Lit library, providing a simple and accessible text input for web applications.
+`pie-text-input` is a Web Component built with [Lit](https://lit.dev/), providing a simple and accessible text input for web applications.
 
-This component integrates easily with various frontend frameworks and can be customized through a set of properties.
+This component integrates easily with various frontend frameworks and can be customised through a set of properties.
+
+{% notification {
+  type: "information",
+  iconName: "engineers",
+  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/docs/text-input) instance!"
+} %}
 
 ## Installation
 
@@ -43,15 +49,6 @@ yarn add @justeattakeaway/pie-webc
   iconName: "link",
   message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide.](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
 } %}
-
-## Playground
-
- <iframe
-  src="https://webc.pie.design/?path=/story/text-input--default&viewMode=story&shortcuts=true&singleStory=true"
-  width="100%"
-  height="600px"
-  style="border: none; margin-top: var(--dt-spacing-f);"
-></iframe>
 
 ## Props
 

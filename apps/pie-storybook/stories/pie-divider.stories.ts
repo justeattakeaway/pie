@@ -20,8 +20,8 @@ const dividerStoryMeta: DividerStoryMeta = {
     component: 'pie-divider',
     argTypes: {
         variant: {
-            description: 'Set the variant of the divider.',
-            control: 'select',
+            description: 'Set the variant of the divider. To change this, view the other story.',
+            control: { disable: true },
             options: variants,
             defaultValue: {
                 summary: defaultProps.variant,

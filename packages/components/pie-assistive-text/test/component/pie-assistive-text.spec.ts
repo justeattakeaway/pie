@@ -23,6 +23,6 @@ test.describe('PieAssistiveText - Component tests', () => {
         const assistiveTextComponent = component.locator(componentSelector);
 
         // Assert
-        expect(assistiveTextComponent).toHaveAttribute('variant', 'default');
+        await expect(assistiveTextComponent).toHaveClass(/c-assistiveText--default/);
     });
 });

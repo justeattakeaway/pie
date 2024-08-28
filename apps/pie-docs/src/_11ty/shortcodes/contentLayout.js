@@ -3,7 +3,15 @@ const { deindentHTML } = require('./shortcode-utilities');
 const headingAnchor = require('../filters/headingAnchor');
 
 /**
- * Creates a container for a selection of elements that dhould be displayed in one column.
+ * Creates a container for a selection of elements that have one visual wrapper.
+ * @param {object} content - content to be displayed inside the wrapper
+ */
+const contentWrapper = (content) => `<div class="c-contentWrapper">
+        ${markdownFilter(deindentHTML(content))}
+    </div>`;
+
+/**
+ * Creates a container for a selection of elements that should be displayed in one column.
  * @param {object} content - content to be displayed in columns
  */
 const contentItem = (content) => `<div class="c-columns-item">
@@ -21,4 +29,5 @@ const contentLayout = (content) => `<div class="c-columns">
 module.exports = {
     contentLayout,
     contentItem,
+    contentWrapper,
 };

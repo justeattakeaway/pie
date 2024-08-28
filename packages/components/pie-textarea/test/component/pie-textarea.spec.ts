@@ -1,14 +1,13 @@
 
 import { expect, test } from '@sand4rt/experimental-ct-web';
-import {
-    getFormDataObject,
-    setupFormDataExtraction,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
+import { getFormDataObject, setupFormDataExtraction } from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
 import { PieFormLabel } from '@justeattakeaway/pie-form-label';
-import { PieTextarea, type TextareaProps } from '../../src/index.ts';
+
+import { PieTextarea } from '../../src/index.ts';
+import { type TextareaProps, statusTypes } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-textarea"]';
-const componentWrapperSelector = '[data-test-id="pie-textarea-wrapper"]';
+const assistiveTextSelector = '[data-test-id="pie-textarea-assistive-text"]';
 
 test.describe('PieTextarea - Component tests', () => {
     // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
@@ -23,9 +22,7 @@ test.describe('PieTextarea - Component tests', () => {
 
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
-        await mount(PieTextarea, {
-            props: {} as TextareaProps,
-        });
+        await mount(PieTextarea);
 
         // Act
         const textarea = page.locator(componentSelector);
@@ -91,92 +88,6 @@ test.describe('PieTextarea - Component tests', () => {
             });
         });
 
-        test.describe('size', () => {
-            test('should apply `medium` size prop by default if no size prop provided', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieTextarea, {});
-
-                // Act
-                const textareaWrapper = component.locator(componentWrapperSelector);
-
-                // Assert
-                expect(textareaWrapper).toHaveAttribute('data-pie-size', 'medium');
-            });
-
-            test('should apply `large` size attribute to the textarea wrapper', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        size: 'large',
-                    } as TextareaProps,
-                });
-
-                // Act
-                const textareaWrapper = component.locator(componentWrapperSelector);
-
-                // Assert
-                expect(textareaWrapper).toHaveAttribute('data-pie-size', 'large');
-            });
-
-            test('should apply `small` size attribute to the textarea wrapper', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        size: 'small',
-                    } as TextareaProps,
-                });
-
-                // Act
-                const textareaWrapper = component.locator(componentWrapperSelector);
-
-                // Assert
-                expect(textareaWrapper).toHaveAttribute('data-pie-size', 'small');
-            });
-        });
-
-        test.describe('resize', () => {
-            test('should apply `auto` resize prop by default if no resize prop provided', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieTextarea, {});
-
-                // Act
-                const textareaWrapper = component.locator(componentWrapperSelector);
-
-                // Assert
-                expect(textareaWrapper).toHaveAttribute('data-pie-resize', 'auto');
-            });
-
-            test('should apply `manual` resize attribute to the textarea wrapper', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        resize: 'manual',
-                    } as TextareaProps,
-                });
-
-                // Act
-                const textareaWrapper = component.locator(componentWrapperSelector);
-
-                // Assert
-                expect(textareaWrapper).toHaveAttribute('data-pie-resize', 'manual');
-            });
-
-            test('should apply `auto` resize attribute to the textarea wrapper', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        resize: 'auto',
-                    } as TextareaProps,
-                });
-
-                // Act
-                const textareaWrapper = component.locator(componentWrapperSelector);
-
-                // Assert
-                expect(textareaWrapper).toHaveAttribute('data-pie-resize', 'auto');
-            });
-        });
-
         test.describe('value', () => {
             test('should default to an empty string if no value property is provided', async ({ mount }) => {
                 // Arrange
@@ -230,6 +141,19 @@ test.describe('PieTextarea - Component tests', () => {
 
                 // Assert
                 expect((await textarea.getAttribute('name'))).toBe('testName');
+            });
+        });
+
+        test.describe('defaultValue', () => {
+            test('should apply the `defaultValue` property to the rendered HTML textarea element', async ({ page }) => {
+                // Arrange
+                await page.setContent('<pie-textarea defaultValue="testDefaultValue"></pie-textarea>');
+
+                // Act
+                const textarea = page.locator('pie-textarea');
+
+                // Assert
+                expect((await textarea.getAttribute('defaultValue'))).toBe('testDefaultValue');
             });
         });
 
@@ -586,6 +510,75 @@ test.describe('PieTextarea - Component tests', () => {
                 await expect(label).toBeVisible();
             });
         });
+
+        test.describe('assistiveText', () => {
+            test('should NOT render the assistive-text component if this property is not provided', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieTextarea, {});
+
+                // Act
+                const assistiveText = page.locator(assistiveTextSelector);
+
+                // Assert
+                expect(assistiveText).not.toBeVisible();
+            });
+
+            test('should apply the `default` variant attribute if no status is provided', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieTextarea, {
+                    props: {
+                        assistiveText: 'Assistive text',
+                    } as TextareaProps,
+                });
+
+                // Act
+                const assistiveText = page.locator(assistiveTextSelector);
+
+                // Assert
+                expect(assistiveText).toBeVisible();
+                expect(await assistiveText.getAttribute('variant')).toBe('default');
+                expect(assistiveText).toHaveText('Assistive text');
+            });
+
+            test.describe('Assistive text: Status', () => {
+                statusTypes.forEach((status) => {
+                    test(`should render the assistive-text component with the ${status} variant`, async ({ mount, page }) => {
+                        // Arrange
+                        await mount(PieTextarea, {
+                            props: {
+                                assistiveText: 'Assistive text',
+                                status,
+                            } as TextareaProps,
+                        });
+
+                        // Act
+                        const assistiveText = page.locator(assistiveTextSelector);
+
+                        // Assert
+                        expect(assistiveText).toBeVisible();
+                        expect(assistiveText).toHaveAttribute('variant', status);
+                        expect(assistiveText).toHaveText('Assistive text');
+                    });
+                });
+            });
+
+            test.describe('Assistive text: ID attribute', () => {
+                test('should contain an ID associated the textarea element for a11y', async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieTextarea, {
+                        props: {
+                            assistiveText: 'Assistive text',
+                        } as TextareaProps,
+                    });
+
+                    // Act
+                    const assistiveText = page.locator(assistiveTextSelector);
+
+                    // Assert
+                    await expect(assistiveText).toHaveAttribute('id', 'assistive-text');
+                });
+            });
+        });
     });
 
     test.describe('Form integration', () => {
@@ -653,6 +646,22 @@ test.describe('PieTextarea - Component tests', () => {
 
             await page.click('button[type="reset"]');
             expect(await page.evaluate(() => document.querySelector('pie-textarea')?.value)).toBe('');
+        });
+
+        test('should correctly reset the textarea value to the `defaultValue` if one is provided when the form is reset', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                    <form id="testForm" action="/foo" method="POST">
+                        <pie-textarea defaultValue="foo"></pie-textarea>
+                        <button type="reset">Submit</button>
+                    </form>
+                `);
+
+            // Act & Assert
+            await page.locator('pie-textarea').type('test');
+
+            await page.click('button[type="reset"]');
+            expect(await page.evaluate(() => document.querySelector('pie-textarea')?.value)).toBe('foo');
         });
 
         test('should NOT submit the value for disabled textarea elements', async ({ page }) => {
@@ -733,7 +742,6 @@ test.describe('PieTextarea - Component tests', () => {
                 const expectedMessagesLength = 10;
 
                 const component = await mount(PieTextarea, {
-                    props: {} as PieTextarea,
                     on: {
                         input: (data: InputEvent) => {
                             messages.push(data);
@@ -865,6 +873,126 @@ test.describe('PieTextarea - Component tests', () => {
 
                 // Assert
                 expect(messages).toStrictEqual(expectedMessages);
+            });
+        });
+    });
+
+    test.describe('Attributes', () => {
+        test.describe('aria-describedby', () => {
+            test.describe('when `assistiveText` is NOT defined', () => {
+                test('should not render the attribute', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieTextarea, {
+                        props: {} as TextareaProps,
+                    });
+
+                    // Act
+                    const textarea = component.locator('textarea');
+
+                    const componentAttribute = await textarea.getAttribute('aria-describedby');
+
+                    // Assert
+                    expect(componentAttribute).toBeNull();
+                });
+            });
+
+            test.describe('when `assistiveText` is defined', () => {
+                test('should render the attribute correctly with the correct value', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieTextarea, {
+                        props: {
+                            assistiveText: 'Some useful message',
+                        } as TextareaProps,
+                    });
+
+                    // Act
+                    const textarea = component.locator('textarea');
+
+                    const componentAttribute = await textarea.getAttribute('aria-describedby');
+
+                    // Assert
+                    expect(componentAttribute).toBe('assistive-text');
+                });
+            });
+        });
+
+        test.describe('aria-invalid', () => {
+            test.describe('when the component status is set to `error`', () => {
+                test('should render the `aria-invalid` attribute', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieTextarea, {
+                        props: {
+                            status: 'error',
+                        } as TextareaProps,
+                    });
+
+                    // Act
+                    const textarea = component.locator('textarea');
+
+                    const componentAttribute = await textarea.getAttribute('aria-invalid');
+
+                    // Assert
+                    expect(componentAttribute).toBe('true');
+                });
+            });
+
+            statusTypes.filter((status) => status !== 'error').forEach((status) => {
+                test.describe(`when the component status is set to "${status}"`, () => {
+                    test('should render the `aria-invalid` with a value of `false`', async ({ mount }) => {
+                        // Arrange
+                        const component = await mount(PieTextarea, {
+                            props: { status } as TextareaProps,
+                        });
+
+                        // Act
+                        const textarea = component.locator('textarea');
+
+                        const componentAttribute = await textarea.getAttribute('aria-invalid');
+
+                        // Assert
+                        expect(componentAttribute).toBe('false');
+                    });
+                });
+            });
+        });
+
+        test.describe('aria-errormessage', () => {
+            test.describe('when the component status is set to `error`', () => {
+                test('should render the `aria-errormessage` attribute', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieTextarea, {
+                        props: {
+                            status: 'error',
+                        } as TextareaProps,
+                    });
+
+                    // Act
+                    const textarea = component.locator('textarea');
+
+                    const componentAttribute = await textarea.getAttribute('aria-errormessage');
+
+                    // Assert
+                    expect(componentAttribute).toBeDefined();
+                });
+            });
+
+            statusTypes.filter((status) => status !== 'error').forEach((status) => {
+                test.describe(`when the component status is set to "${status}"`, () => {
+                    test('should not render the `aria-errormessage` attribute', async ({ mount }) => {
+                        // Arrange
+                        const component = await mount(PieTextarea, {
+                            props: { status } as TextareaProps,
+                        });
+
+                        // Act
+                        const textarea = component.locator('textarea');
+
+                        const componentAttribute = await textarea.getAttribute('aria-errormessage');
+
+                        // Assert
+                        expect(componentAttribute).toBeNull();
+                    });
+                });
             });
         });
     });
