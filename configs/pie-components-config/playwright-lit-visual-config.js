@@ -51,7 +51,7 @@ export function getPlaywrightVisualConfig () {
                 name: 'visual:mobile',
                 grep: /@mobile/,
                 use: {
-                    ...devices['Pixel 5'],
+                    ...devices['Galaxy S8'],
                 },
                 testMatch: ['**/test/visual/*.spec.ts'],
             },

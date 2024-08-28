@@ -1,23 +1,22 @@
 import {
-    LitElement, html, unsafeCSS, PropertyValues, nothing,
+    LitElement, html, unsafeCSS, type PropertyValues, nothing,
 } from 'lit';
-
 import { property, query } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import throttle from 'lodash.throttle';
 
+import '@justeattakeaway/pie-assistive-text';
+import '@justeattakeaway/pie-form-label';
 import {
-    validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent,
+    validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent, type PIEInputElement,
 } from '@justeattakeaway/pie-webc-core';
 
-import { ifDefined } from 'lit/directives/if-defined.js';
 import styles from './textarea.scss?inline';
 import {
-    TextareaProps, defaultProps, sizes, resizeModes, statusTypes,
+    type TextareaProps, defaultProps, sizes, resizeModes, statusTypes,
 } from './defs';
-
-import '@justeattakeaway/pie-form-label';
-import '@justeattakeaway/pie-assistive-text';
 
 // Valid values available to consumers
 export * from './defs';
@@ -30,7 +29,7 @@ const assistiveTextIdValue = 'assistive-text';
  * @event {InputEvent} input - when the textarea value is changed.
  * @event {CustomEvent} change - when the textarea value is changed.
  */
-export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implements TextareaProps {
+export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implements TextareaProps, PIEInputElement {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @property({ type: String })
@@ -73,18 +72,21 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     public assistiveText: TextareaProps['assistiveText'];
 
     @property({ type: String })
-    public name?: TextareaProps['name'];
+    public name: TextareaProps['name'];
 
     @property({ type: String })
-    public autocomplete?: TextareaProps['autocomplete'];
+    public autocomplete: TextareaProps['autocomplete'];
 
     @query('textarea')
     private _textarea!: HTMLTextAreaElement;
 
+    @query('textarea')
+    public focusTarget!: HTMLElement;
+
     private _throttledResize = throttle(() => {
         if (this.resize === 'auto') {
             this._textarea.style.height = 'auto';
-            this._textarea.style.height = `${this._textarea.scrollHeight + 2}px`; // +2 for border thicknesses
+            this._textarea.style.height = `${this._textarea.scrollHeight}px`;
         }
     }, 100);
 
@@ -120,6 +122,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         this.restrictInputLength();
         this._internals.setFormValue(this.value);
 
+        window.addEventListener('resize', () => this.handleResize());
         this._textarea.addEventListener('keydown', this.handleKeyDown);
     }
 
@@ -178,6 +181,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
 
     public disconnectedCallback (): void {
         this._textarea.removeEventListener('keydown', this.handleKeyDown);
+        window.removeEventListener('resize', () => this.handleResize());
     }
 
     renderLabel (label: string, maxLength?: number) {
@@ -220,14 +224,19 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
             assistiveText,
         } = this;
 
-        return html`
+        const classes = {
+            'c-textareaWrapper': true,
+            'c-textarea--disabled': disabled,
+            'c-textarea--error': status === 'error',
+            [`c-textarea--resize-${resize}`]: true,
+            [`c-textarea--${size}`]: true,
+        };
+
+        return html`<div>
+            ${this.renderLabel(label, maxLength)}
             <div
-                class="c-textareaWrapper"
-                data-test-id="pie-textarea-wrapper"
-                data-pie-size="${size}"
-                data-pie-status=${ifDefined(status)}
-                data-pie-resize="${resize}">
-                ${this.renderLabel(label, maxLength)}
+                class="${classMap(classes)}"
+                data-test-id="pie-textarea-wrapper">
                 <textarea
                     id="${componentSelector}"
                     data-test-id="${componentSelector}"
@@ -238,14 +247,15 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
                     ?readonly=${readonly}
                     ?required=${required}
                     ?disabled=${disabled}
-                    @input=${this.handleInput}
-                    @change=${this.handleChange}
                     aria-describedby=${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}
                     aria-invalid=${status === 'error' ? 'true' : 'false'}
                     aria-errormessage="${ifDefined(status === 'error' ? assistiveTextIdValue : undefined)}"
+                    @input=${this.handleInput}
+                    @change=${this.handleChange}
                 ></textarea>
             </div>
-            ${this.renderAssistiveText()}`;
+            ${this.renderAssistiveText()}
+        </div>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
