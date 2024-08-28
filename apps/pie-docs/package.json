@@ -43,7 +43,7 @@
     "@justeat/pie-design-tokens": "6.3.1",
     "@justeattakeaway/browserslist-config-pie": "0.2.0",
     "@justeattakeaway/pie-css": "0.12.1",
-    "@justeattakeaway/pie-icons": "4.19.0",
+    "@justeattakeaway/pie-icons": "1.0.0",
     "@types/markdown-it": "13.0.2",
     "eleventy-plugin-toc": "1.1.5",
     "js-cookie": "2.2.1",
