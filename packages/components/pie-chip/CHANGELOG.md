@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-chip
 
+## 0.8.0
+
+### Minor Changes
+
+- [Changed] - Use classmap instead of custom attributes for styling component ([#1716](https://github.com/justeattakeaway/pie/pull/1716)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.7.2
 
 ### Patch Changes

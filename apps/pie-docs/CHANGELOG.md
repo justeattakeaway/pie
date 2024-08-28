@@ -1,5 +1,20 @@
 # Changelog
 
+## 4.3.0
+
+### Minor Changes
+
+- [Added] - a new contentWrapper shortcode to visually combine different items into a visual container. So far it has only one design (white background with 2px rounded border and 24px padding). ([#1723](https://github.com/justeattakeaway/pie/pull/1723)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Added] - a new motion tab for pie-checkbox.
+  [Changed] - moved code section to its own folder under pie-checkbox.
+
+### Patch Changes
+
+- [Changed] - structure of checkbox group docs folder ([#1725](https://github.com/justeattakeaway/pie/pull/1725)) by [@dandel10n](https://github.com/dandel10n)
+
+- [Updated] - checkbox and checkbox-group components status from `alpha` to `beta` ([#1729](https://github.com/justeattakeaway/pie/pull/1729)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 4.2.0
 
 ### Minor Changes

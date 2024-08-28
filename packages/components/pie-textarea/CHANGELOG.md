@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-textarea
 
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - `assistiveText` property, `status` property with the possible values `default`, `success` and `error` ([#1717](https://github.com/justeattakeaway/pie/pull/1717)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- [Changed] - Position of resize handle ([#1719](https://github.com/justeattakeaway/pie/pull/1719)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- [Changed] - use classes for styling instead of attributes ([#1719](https://github.com/justeattakeaway/pie/pull/1719)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.7.0
 
 ### Minor Changes

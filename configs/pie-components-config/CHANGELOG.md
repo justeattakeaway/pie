@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-components-config
 
+## 0.18.0
+
+### Minor Changes
+
+- [Changed] - use Galaxy S8 for @mobile visual tests to better align with 375px breakpoint (temporary fix until we move to storybook for visual tests) ([#1719](https://github.com/justeattakeaway/pie/pull/1719)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.17.0
 
 ### Minor Changes
