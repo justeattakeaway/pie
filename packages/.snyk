@@ -1,0 +1,16 @@
+ # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities
+version: v1.25.0
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+    SNYK-JS-IP-7148531:
+        - '*':
+            reason: >-
+                It is related to snyk not understanding 0.0.0-use.local package versions.
+            expires: 2025-07-31T00:00:00.000Z
+            created: 2024-07-31T12:55:40.141Z
+    SNYK-JS-WS-7266574:
+        - '*':
+            reason: >-
+                It is related to snyk not understanding 0.0.0-use.local package versions.
+            expires: 2025-07-31T00:00:00.000Z
+            created: 2024-07-31T12:55:40.141Z
