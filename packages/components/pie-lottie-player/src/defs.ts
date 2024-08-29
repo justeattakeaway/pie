@@ -6,35 +6,35 @@ export type AnimationDirection = typeof directions[number];
 export interface LottiePlayerProps {
     /**
      * Lottie animation JSON file URL or relative path
-     * Define either animationSrc or animationData
+     * animationSrc and animationData are mutually exclusive
      */
     animationSrc?: string;
 
     /**
      * Object with Lottie animation data
-     * Define either animationSrc or animationData
+     * animationSrc and animationData are mutually exclusive
      */
     animationData?: object;
 
     /**
-     * Determines if the animation loops after reaching the end
+     * Indicates whether the animation loops after reaching the end
      */
     loop?: boolean;
 
     /**
-     * Determines if the animation starts as soon as it is ready to play
+     * Indicates whether the animation starts as soon as it is ready to play
+     * Changing the value while the animation is already playing will not change its state
      */
     autoPlay?: boolean;
 
     /**
      * Determines the animation reproduction speed
-     * @param speed {number} 1 is the regular speed, 2 is twice as fast
+     * 1 is the regular speed, 2 is twice as fast
      */
     speed?:number;
 
     /**
      * Sets the animation reproduction direction
-     * @param direction {AnimationDirection}
      */
     direction?:AnimationDirection;
 
