@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-divider": minor
 ---
 
-[Added] - slot for `pie-devider` label
+[Added] - slot to `pie-divider` label
