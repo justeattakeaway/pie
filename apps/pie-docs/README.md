@@ -37,7 +37,7 @@ Please follow our [Wiki documentation](https://github.com/justeattakeaway/pie/wi
 
 ### Adding Index pages
 An index page represents content for one of our main navigation items, for example: Foundations or Components.
-When a main navigation item does not have an index page, it will navigate to the first page under it. When it has content, it will open the accordion and navigate to that content.
+When a main navigation item does not have an index page, it will navigate to the first page under it. When it has content, it will navigate to that content. In both cases the accordion will be opened, as well when clicking the right caret.
 
 To set content for a main navigation item, in the item `.md` page, please add to the eleventyNavigation section at the top `hasIndexPage` like so:
 
@@ -50,6 +50,23 @@ eleventyNavigation:
 ```
 
 Content needs to be added after this. If no content is added, it will navigate to a 404.
+
+Index pages will have the same format, as such, we developed a mechanism to render link-card items for each navigation item under the Section.
+The shortcode `indexPageDisplay` will automatically render each card and look for a matching image in `assets/images/index/<section-name>`. It can be configured like this:
+
+```njk
+{% indexPageDisplay {
+collection: collections.all,
+itemKey: "Components",
+excludedElements: ['Component Status', 'Banner', 'Checkbox Group']
+} %}
+```
+
+`collections.all` is an eleventy object that is used by the `eleventy-navigation`plugin to return a list of navigation items.
+`itemKey` is the section name that the navigation plugin will search for.
+`excludedElements` is a list of elements we would like to exclude from the list. Both for the key name and excluded items, names must follow the `key` attribute use in each page, including casing and white spaces when is 2 or more words.
+
+When adding new index page content, just remember to add images in the right directory and exclude any items we don't wish to link in that page.
 
 ## Drafts
 

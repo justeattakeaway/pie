@@ -13,8 +13,10 @@ const path = require('path');
  *  - image should have the name of the sub-menu in snakecase, for example Checkbox Group is called 'checkbox-group'
  *  - mobile images will use the same name with a mobile keyword, for example 'checkbox-group-mobile'
  * @param {string} collection - It is the object from 11y collections.all https://www.11ty.dev/docs/collections/
- * @returns {string} itemKey - Is the key of the element in the main menu, and the page we will be rendering e.g. components
- * @returns {string} excludedElements - Is the key of the element in the main menu, and the page we will be rendering e.g. 'Component Status'
+ * @param {string} itemKey - Is the key of the element in the main menu, and the page we will be rendering e.g. components
+ * @param {string} excludedElements - A list of keys from pages that have to be excluded e.g. ['Component status']
+ * @param {string} imageSrcDirectory - Optional when need to replace the default directory
+ * @returns {string}  a <div> element containing a list of cards representing all elements under the itemKey category
  */
 const defaultImageDirectory = '../../assets/img/index';
 const toSlug = (string) => string.toLowerCase().replace(/\s+/g, '-');
