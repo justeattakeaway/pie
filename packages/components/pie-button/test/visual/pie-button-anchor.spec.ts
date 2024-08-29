@@ -31,11 +31,12 @@ test('should render all size and variant variations for anchor tag', async ({ pa
     for (const combo of componentPropsMatrix) {
         const { renderedString, propValues } = createTestWebComponent(combo, renderTestPieButton);
         const propKeyValues = `tag: ${propValues.tag}, size: ${propValues.size}, variant: ${propValues.variant}`;
+        const darkMode = ['inverse', 'ghost-inverse', 'outline-inverse'].includes(propValues.variant);
 
         await mount(
             WebComponentTestWrapper,
             {
-                props: { propKeyValues },
+                props: { propKeyValues, darkMode },
                 slots: {
                     component: renderedString.trim(),
                 },
