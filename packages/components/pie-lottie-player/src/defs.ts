@@ -27,6 +27,18 @@ export interface LottiePlayerProps {
     autoPlay?: boolean;
 
     /**
+     * Determines the animation reproduction speed
+     * @param speed {number} 1 is the regular speed, 2 is twice as fast
+     */
+    speed?:number;
+
+    /**
+     * Sets the animation reproduction direction
+     * @param direction {AnimationDirection}
+     */
+    direction?:AnimationDirection;
+
+    /**
      * Plays ther animation
      */
     play (): void;
@@ -35,23 +47,13 @@ export interface LottiePlayerProps {
      * Stops the animation
      */
     stop (): void;
-
-    /**
-     * Sets the animation reproduction speed
-     * @param speed {number} 1 is the regular speed
-     */
-    setSpeed (speed:number): void;
-
-    /**
-     * Sets the animation reproduction direction
-     * @param direction {AnimationDirection}
-     */
-    setDirection (direction:AnimationDirection): void;
 }
 
-export type DefaultProps = ComponentDefaultProps<LottiePlayerProps, keyof Omit<LottiePlayerProps, 'animationSrc' | 'animationData'| 'play' | 'stop' | 'setSpeed' | 'setDirection'>>;
+export type DefaultProps = ComponentDefaultProps<LottiePlayerProps, keyof Omit<LottiePlayerProps, 'animationSrc' | 'animationData'| 'play' | 'stop'>>;
 
 export const defaultProps: DefaultProps = {
     loop: true,
     autoPlay: true,
+    speed: 1,
+    direction: directions[0],
 };
