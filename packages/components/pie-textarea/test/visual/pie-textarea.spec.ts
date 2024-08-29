@@ -85,6 +85,30 @@ test.describe('disabled', () => {
     });
 });
 
+test.describe('placeholder', () => {
+    test('should render correctly when `placeholder` is passed', async ({ page, mount }) => {
+        await mount(PieTextarea, {
+            props: {
+                placeholder: 'Placeholder',
+            } as PieTextarea,
+        });
+
+        await percySnapshot(page, 'Textarea - placeholder', percyWidths);
+    });
+});
+
+test.describe('readonly', () => {
+    test('should render correctly when `readonly` is passed', async ({ page, mount }) => {
+        await mount(PieTextarea, {
+            props: {
+                readonly: true,
+            } as PieTextarea,
+        });
+
+        await percySnapshot(page, 'Textarea - readonly', percyWidths);
+    });
+});
+
 test.describe('Resize mode:', () => {
     test.describe('auto', () => {
         test('should render correctly with resize mode: auto', async ({ page, mount }) => {
