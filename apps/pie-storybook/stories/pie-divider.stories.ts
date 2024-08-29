@@ -4,12 +4,12 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-divider';
 import {
-    DividerProps, variants, orientations, defaultProps,
+    type DividerProps, variants, orientations, defaultProps,
 } from '@justeattakeaway/pie-divider';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
-import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
+import { createStory, type TemplateFunction } from '../utilities';
 
 type DividerStoryMeta = StoryMeta<DividerProps>;
 
@@ -27,9 +27,14 @@ const dividerStoryMeta: DividerStoryMeta = {
                 summary: defaultProps.variant,
             },
         },
-        slot: {
-            description: 'Content to place within the divider.',
-            control: 'text',
+        label: {
+            description: 'The label text for the divider.',
+            control: {
+                type: 'text',
+                defaultValue: {
+                    summary: 'Label',
+                },
+            },
         },
         orientation: {
             description: 'Set the orientation of the divider.',
@@ -51,9 +56,9 @@ const dividerStoryMeta: DividerStoryMeta = {
 
 export default dividerStoryMeta;
 
-const Template : TemplateFunction<DividerProps> = ({ variant, slot, orientation }) => html`
+const Template : TemplateFunction<DividerProps> = ({ variant, label, orientation }) => html`
             <div style="${orientation === 'horizontal' ? 'width' : 'height'}: 400px">
-                <pie-divider variant="${ifDefined(variant)}" orientation="${ifDefined(orientation)}">${sanitizeAndRenderHTML(slot)}</pie-divider>
+                <pie-divider variant="${ifDefined(variant)}" orientation="${ifDefined(orientation)}" label="${ifDefined(label)}"></pie-divider>
             </div>
         `;
 
@@ -61,4 +66,5 @@ const createDividerStory = createStory<DividerProps>(Template, defaultArgs);
 
 export const Default = createDividerStory();
 export const Inverse = createDividerStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
-export const Labelled = createDividerStory({ slot: 'Label' });
+export const Labelled = createDividerStory({ label: 'Label' });
+

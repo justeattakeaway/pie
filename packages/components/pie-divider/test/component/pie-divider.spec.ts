@@ -1,10 +1,8 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieDivider } from '../../src/index.ts';
+import { PieDivider, type DividerProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-divider"]';
-
-const slotContent = 'Label';
 
 test.describe('PieDivider - Component tests', () => {
     test('should render successfully', async ({ mount, page }) => {
@@ -18,17 +16,19 @@ test.describe('PieDivider - Component tests', () => {
         expect(divider).toBeVisible();
     });
 
-    test('should render successfully with slotContent', async ({ mount, page }) => {
+    test('should render the `label` if it is provided', async ({ mount, page }) => {
         // Arrange
-        await mount(PieDivider, {
-            slots: { default: slotContent },
+        const component = await mount(PieDivider, {
+            props: {
+                label: 'foo label',
+            } as DividerProps,
         });
 
         // Act
-        const divider = page.locator(componentSelector);
+        const label = component.getByText('foo label');
 
         // Assert
-        expect(divider).toBeVisible();
+        expect(label).toBeVisible();
     });
 });
 
