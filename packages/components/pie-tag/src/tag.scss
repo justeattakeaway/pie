@@ -34,7 +34,7 @@
     line-height: var(--tag-line-height);
 
     // Size
-    &[size='small'] {
+    &.c-tag--small {
         --tag-padding-block: 0;
         --tag-padding-inline: var(--dt-spacing-a);
         --tag-border-radius: var(--dt-radius-rounded-a);
@@ -42,71 +42,71 @@
         --tag-line-height: #{p.line-height(--dt-font-caption-line-height)};
     }
 
-    &[size='large'] {
+    &.c-tag--large {
         // same as default styles
     }
 
     // Variant
-    &[variant='neutral'] {
+    &.c-tag--neutral {
         // same as default styles
 
-        &[isStrong] {
+        &.c-tag--strong {
             --tag-bg-color: var(--dt-color-container-inverse);
             --tag-color: var(--dt-color-content-inverse);
         }
     }
 
-    &[variant='blue'] {
+    &.c-tag--blue {
         --tag-bg-color: var(--dt-color-support-info-02);
         --tag-color: var(--dt-color-content-default);
 
-        &[isStrong] {
+        &.c-tag--strong {
             --tag-bg-color: var(--dt-color-support-info);
             --tag-color: var(--dt-color-content-inverse);
         }
     }
 
-    &[variant='green'] {
+    &.c-tag--green {
         --tag-bg-color: var(--dt-color-support-positive-02);
         --tag-color: var(--dt-color-content-default);
 
-        &[isStrong] {
+        &.c-tag--strong {
             --tag-bg-color: var(--dt-color-support-positive);
             --tag-color: var(--dt-color-content-inverse);
         }
     }
 
-    &[variant='yellow'] {
+    &.c-tag--yellow {
         --tag-bg-color: var(--dt-color-support-warning-02);
         --tag-color: var(--dt-color-content-default);
 
-        &[isStrong] {
+        &.c-tag--strong {
             --tag-bg-color: var(--dt-color-support-warning);
             --tag-color: var(--dt-color-content-dark);
         }
     }
 
-    &[variant='red'] {
+    &.c-tag--red {
         --tag-bg-color: var(--dt-color-support-error-02);
         --tag-color: var(--dt-color-content-default);
 
-        &[isStrong] {
+        &.c-tag--strong {
             --tag-bg-color: var(--dt-color-support-error);
             --tag-color: var(--dt-color-content-light);
         }
     }
 
-    &[variant='brand'] {
+    &.c-tag--brand {
         --tag-bg-color: var(--dt-color-support-brand-02);
         --tag-color: var(--dt-color-content-default);
     }
 
-    &[variant='neutral-alternative'] {
+    &.c-tag--neutral-alternative {
         --tag-bg-color: var(--dt-color-container-default);
         --tag-color: var(--dt-color-content-default);
     }
 
-    &[variant='outline'] {
+    &.c-tag--outline {
         --tag-bg-color: var(--tag-transparent-bg-color);
         --tag-color: var(--dt-color-content-default);
 
@@ -116,12 +116,12 @@
         box-shadow: 0 0 0 1px var(--dt-color-border-strong);
     }
 
-    &[variant='ghost'] {
+    &.c-tag--ghost {
         --tag-bg-color: var(--tag-transparent-bg-color);
         --tag-color: var(--dt-color-content-default);
     }
 
-    &[isDimmed] {
+    &.c-tag--dimmed {
         opacity: 0.5;
     }
 }
