@@ -22,16 +22,21 @@ const props: PropObject = {
     orientation: orientations,
 };
 
-const renderTestPieDivider = (propVals: WebComponentPropValues) => {
+const scenarios = [
+    { slotContent: '', description: 'without Slot content' },
+    { slotContent: 'Label', description: 'with Slot content' },
+];
+
+const renderTestPieDivider = (propVals: WebComponentPropValues, slotContent = '') => {
     const { variant, orientation } = propVals;
     if (orientation === 'vertical') {
         return `
             <div style="height: 250px">
-                <pie-divider variant="${variant}" orientation="${orientation}" />
+                <pie-divider variant="${variant}" orientation="${orientation}">${slotContent}</pie-divider>
             </div>
         `;
     }
-    return `<pie-divider variant="${variant}" orientation="${orientation}"></pie-divider>`;
+    return `<pie-divider variant="${variant}" orientation="${orientation}">${slotContent}</pie-divider>`;
 };
 
 const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
@@ -43,22 +48,26 @@ test.beforeEach(async ({ mount }) => {
     await component.unmount();
 });
 
-componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    for (const combo of componentPropsMatrixByVariant[variant]) {
-        const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieDivider);
-        const propKeyValues = `orientation: ${testComponent.propValues.orientation}`;
+for (const { slotContent, description } of scenarios) {
+    componentVariants.forEach((variant) => test(`should render all prop variations ${description} for variant: ${variant} `, async ({
+        page,
+        mount,
+    }) => {
+        for (const combo of componentPropsMatrixByVariant[variant]) {
+            const testComponent: WebComponentTestInput = createTestWebComponent(combo, (props) => renderTestPieDivider(props, slotContent));
+            const propKeyValues = `orientation: ${testComponent.propValues.orientation}`;
 
-        await mount(
-            WebComponentTestWrapper,
-            {
-                props: { propKeyValues, darkMode: variant === 'inverse' },
-                slots: {
-                    component: testComponent.renderedString.trim(),
+            await mount(
+                WebComponentTestWrapper,
+                {
+                    props: { propKeyValues, darkMode: variant === 'inverse' },
+                    slots: {
+                        component: testComponent.renderedString.trim(),
+                    },
                 },
-            },
+            );
+        }
 
-        );
-    }
-
-    await percySnapshot(page, `PIE Divider - Variant: ${variant}`, percyWidths);
-}));
+        await percySnapshot(page, `PIE Divider ${description} - Variant: ${variant}`, percyWidths);
+    }));
+}

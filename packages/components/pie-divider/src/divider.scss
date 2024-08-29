@@ -1,22 +1,39 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 .c-divider {
-    --divider-bg-color: var(--dt-color-divider-default);
-    --divider-width: 100%;
-    --divider-height: 1px;
+  --divider-bg-color: var(--dt-color-divider-default);
+  --divider-width: 100%;
+  --divider-height: 1px;
 
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: var(--divider-height);
+  gap: var(--dt-spacing-b);
+
+  hr {
+    flex-grow: 1;
     margin: 0;
+
     border: 0;
     width: var(--divider-width);
     height: var(--divider-height);
     background-color: var(--divider-bg-color);
+  }
 
-    &.c-divider--inverse {
-        --divider-bg-color: var(--dt-color-divider-inverse);
-    }
 
-    &.c-divider--vertical {
-        --divider-width: 1px;
-        --divider-height: 100%;
+  &.c-divider--inverse {
+    color: var(--dt-color-content-inverse);
+
+    hr {
+      --divider-bg-color: var(--dt-color-divider-inverse);
     }
+  }
+
+  &.c-divider--vertical {
+    --divider-width: 1px;
+    --divider-height: 100%;
+
+    flex-direction: column;
+  }
 }

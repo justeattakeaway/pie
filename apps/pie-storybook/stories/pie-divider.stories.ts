@@ -9,7 +9,7 @@ import {
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
-import { createStory, type TemplateFunction } from '../utilities';
+import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type DividerStoryMeta = StoryMeta<DividerProps>;
 
@@ -27,6 +27,10 @@ const dividerStoryMeta: DividerStoryMeta = {
                 summary: defaultProps.variant,
             },
         },
+        slot: {
+            description: 'Content to place within the divider.',
+            control: 'text',
+        },
         orientation: {
             description: 'Set the orientation of the divider.',
             control: 'select',
@@ -40,16 +44,16 @@ const dividerStoryMeta: DividerStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: '',
+            url: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?node-id=876-1227&node-type=CANVAS&t=v6qypWzZqWE6lPxm-0',
         },
     },
 };
 
 export default dividerStoryMeta;
 
-const Template : TemplateFunction<DividerProps> = ({ variant, orientation }) => html`
+const Template : TemplateFunction<DividerProps> = ({ variant, slot, orientation }) => html`
             <div style="${orientation === 'horizontal' ? 'width' : 'height'}: 400px">
-                <pie-divider variant="${ifDefined(variant)}" orientation="${ifDefined(orientation)}"></pie-divider>
+                <pie-divider variant="${ifDefined(variant)}" orientation="${ifDefined(orientation)}">${sanitizeAndRenderHTML(slot)}</pie-divider>
             </div>
         `;
 
@@ -57,3 +61,4 @@ const createDividerStory = createStory<DividerProps>(Template, defaultArgs);
 
 export const Default = createDividerStory();
 export const Inverse = createDividerStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
+export const Labelled = createDividerStory({ slot: 'Label' });
