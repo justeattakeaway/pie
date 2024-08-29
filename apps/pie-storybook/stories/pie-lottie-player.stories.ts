@@ -41,22 +41,22 @@ const lottiePlayerStoryMeta: LottiePlayerStoryMeta = {
                 summary: defaultArgs.animationSrc,
             },
         },
-        loop: {
-            description: 'Indicates whether the animation loops after reaching the end.',
+        disableLoop: {
+            description: 'By the default animations loop, setting this prop as true will prevent that behaviour.',
             control: 'boolean',
             defaultValue: {
-                summary: defaultArgs.loop,
+                summary: defaultArgs.disableLoop,
             },
         },
-        autoPlay: {
-            description: 'Indicates whether the animation starts as soon as it is ready to play.\nChanging the value while the animation is already playing will not change its state.',
+        disableAutoPlay: {
+            description: 'By default animations start playing as soons as its data is available, setting this prop as true will prevent that behaviour.',
             control: 'boolean',
             defaultValue: {
-                summary: defaultArgs.autoPlay,
+                summary: defaultArgs.disableAutoPlay,
             },
         },
         speed: {
-            description: 'Determines the animation reproduction speed.\n1 is the regular speed, 2 is twice as fast',
+            description: 'Determines the animation reproduction speed.\n1 is the regular speed, 2 is twice as fast.',
             control: {
                 type: 'number',
                 step: 0.25,
@@ -98,8 +98,8 @@ function handleStartAnimationClick () {
 
 const Template = ({
     animationSrc,
-    loop,
-    autoPlay,
+    disableLoop,
+    disableAutoPlay,
     speed,
     direction,
 }: LottiePlayerProps) => html`
@@ -109,8 +109,8 @@ const Template = ({
     </div>
     <pie-lottie-player
         .animationSrc="${animationSrc === undefined ? animationSrcOptions[0] : animationSrc}"
-        ?loop="${loop}"
-        ?autoPlay="${autoPlay}"
+        ?disableLoop="${disableLoop}"
+        ?disableAutoPlay="${disableAutoPlay}"
         .speed="${speed || 1}"
         .direction="${direction || directions[0]}"
     ></pie-lottie-player>

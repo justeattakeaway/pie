@@ -24,8 +24,8 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
 
     private animationInstance?: AnimationItem;
 
-    private _autoPlay = defaultProps.autoPlay;
-    private _loop = defaultProps.loop;
+    private _disableAutoPlay = defaultProps.disableAutoPlay;
+    private _disableLoop = defaultProps.disableLoop;
     private _speed = defaultProps.speed;
     private _direction = defaultProps.direction;
     private _animationSrc = '';
@@ -51,11 +51,13 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
             this.animationInstance = lottie.loadAnimation({
                 container: this.hostElement, // the dom element that will contain the animation
                 renderer: 'canvas',
-                loop: this.loop,
-                autoplay: this.autoPlay,
+                loop: !this.disableLoop,
+                autoplay: !this.disableAutoPlay,
                 animationData: this.animationData,
                 path: this.animationSrc,
             });
+            this.animationInstance.setSpeed(this.speed);
+            this._updateDirection();
         } catch (error:any) {
             console.error(`PieLottiePlayer: the animation couldn't be played. Error: "${error.message}"`);
         }
@@ -92,26 +94,32 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
         this._loadAnimation();
     }
 
-    @property({ type: Boolean, reflect: true })
-    get autoPlay () {
-        return this._autoPlay;
+    @property({ type: Boolean })
+    get disableAutoPlay () {
+        return this._disableAutoPlay;
     }
 
-    set autoPlay (value) {
+    set disableAutoPlay (value) {
+        this._disableAutoPlay = value;
         if (!this.animationInstance) return;
-        this._autoPlay = value;
+
         this.animationInstance.autoplay = value;
     }
 
-    @property({ type: Boolean, reflect: true })
-    get loop () {
-        return this._loop;
+    @property({ type: Boolean })
+    get disableLoop () {
+        return this._disableLoop;
     }
 
-    set loop (value) {
+    set disableLoop (value) {
+        this._disableLoop = value;
         if (!this.animationInstance) return;
-        this._loop = value;
-        this.animationInstance.loop = value;
+
+        this.animationInstance.loop = !value;
+
+        // Ensure to resume playing if looping was disabled
+        const shouldResumePlaying = this._disableLoop === false && this.animationInstance.isPaused && this.animationInstance.isLoaded;
+        if (shouldResumePlaying) this.play();
     }
 
     @property({ type: Number, reflect: true })
@@ -120,8 +128,9 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
     }
 
     set speed (value) {
-        if (!this.animationInstance) return;
         this._speed = value;
+        if (!this.animationInstance) return;
+
         this.animationInstance.setSpeed(value);
     }
 
@@ -131,10 +140,16 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
     }
 
     set direction (value) {
-        if (!this.animationInstance) return;
         if (!value) return;
-
         this._direction = value;
+
+        if (!this.animationInstance) return;
+
+        this._updateDirection();
+    }
+
+    private _updateDirection () {
+        if (!this.animationInstance) return;
 
         switch (this._direction) {
             case 'reverse':
@@ -148,7 +163,10 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
 
     public play (): void {
         if (!this.animationInstance) return;
-        this.animationInstance.play();
+        // `goToAndPlay` is more useful than `play` in cases when looping is
+        // disabled, as `play` will simply try to resume playing from the last
+        // available frame and nothing will happen
+        this.animationInstance.goToAndPlay(0, true);
     }
 
     public stop (): void {
