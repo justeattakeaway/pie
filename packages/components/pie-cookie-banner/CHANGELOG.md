@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.26.0
+
+### Minor Changes
+
+- [Added] - Catalan locale ([#1731](https://github.com/justeattakeaway/pie/pull/1731)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.25.1
 
 ### Patch Changes

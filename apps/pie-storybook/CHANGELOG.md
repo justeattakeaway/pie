@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.2.1
+
+### Patch Changes
+
+- [Added] - Catalan locale ([#1731](https://github.com/justeattakeaway/pie/pull/1731)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`415046470`](https://github.com/justeattakeaway/pie/commit/41504647009fa672b1d7e8309a4188fcd3d24a55)]:
+  - @justeattakeaway/pie-cookie-banner@0.26.0
+
 ## 1.2.0
 
 ### Minor Changes
