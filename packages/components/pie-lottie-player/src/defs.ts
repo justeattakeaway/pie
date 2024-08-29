@@ -17,15 +17,14 @@ export interface LottiePlayerProps {
     animationData?: object;
 
     /**
-     * Indicates whether the animation loops after reaching the end
+     * By the default animations loop, setting this prop as true will prevent that behaviour
      */
-    loop?: boolean;
+    disableLoop?: boolean;
 
     /**
-     * Indicates whether the animation starts as soon as it is ready to play
-     * Changing the value while the animation is already playing will not change its state
+     * By default animations start playing as soons as its data is available, setting this prop as true will prevent that behaviour
      */
-    autoPlay?: boolean;
+    disableAutoPlay?: boolean;
 
     /**
      * Determines the animation reproduction speed
@@ -52,8 +51,8 @@ export interface LottiePlayerProps {
 export type DefaultProps = ComponentDefaultProps<LottiePlayerProps, keyof Omit<LottiePlayerProps, 'animationSrc' | 'animationData'| 'play' | 'stop'>>;
 
 export const defaultProps: DefaultProps = {
-    loop: true,
-    autoPlay: true,
+    disableLoop: false,
+    disableAutoPlay: false,
     speed: 1,
     direction: directions[0],
 };
