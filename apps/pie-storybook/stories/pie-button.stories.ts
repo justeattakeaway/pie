@@ -341,46 +341,48 @@ const createButtonStory = createStory<ButtonProps>(Template, defaultArgs);
 
 const createButtonStoryWithForm = createStory<ButtonProps>(FormTemplate, defaultArgs);
 
+const anchorOnlyProps : Array<keyof ButtonProps> = ['href', 'target', 'rel'];
+
 export const Primary = createButtonStory({}, {
-    controls: { exclude: ['variant', 'href', 'rel', 'target'] },
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
 
 export const Secondary = createButtonStory({ variant: 'secondary' }, {
-    controls: { exclude: ['variant', 'href', 'rel', 'target'] },
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
 
 export const Outline = createButtonStory({ variant: 'outline' }, {
     bgColor: 'background-subtle',
-    controls: { exclude: ['variant', 'href', 'rel', 'target'] },
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
 
 export const Ghost = createButtonStory({ variant: 'ghost' }, {
     bgColor: 'background-subtle',
-    controls: { exclude: ['variant', 'href', 'rel', 'target'] },
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
 
 export const Destructive = createButtonStory({ variant: 'destructive' }, {
-    controls: { exclude: ['variant', 'href', 'rel', 'target'] },
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
 
 export const DestructiveGhost = createButtonStory({ variant: 'destructive-ghost' }, {
     bgColor: 'background-subtle',
-    controls: { exclude: ['variant', 'href', 'rel', 'target'] },
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
 
 export const Inverse = createButtonStory({ variant: 'inverse' }, {
     bgColor: 'dark (container-dark)',
-    controls: { exclude: ['variant', 'href', 'rel', 'target'] },
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
 
 export const GhostInverse = createButtonStory({ variant: 'ghost-inverse' }, {
     bgColor: 'dark (container-dark)',
-    controls: { exclude: ['variant', 'href', 'rel', 'target'] },
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
 
 export const OutlineInverse = createButtonStory({ variant: 'outline-inverse' }, {
     bgColor: 'dark (container-dark)',
-    controls: { exclude: ['variant', 'href', 'rel', 'target'] },
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
 
 export const Anchor = createStory(AnchorTemplate, defaultArgs)({
@@ -395,6 +397,6 @@ export const Anchor = createStory(AnchorTemplate, defaultArgs)({
 export const FormIntegration = createButtonStoryWithForm({ type: 'submit' }, {
     controls: {
         // For this story we simply want to test form integration with a reset and submit button. Therefore we are restricting what controls are shown.
-        exclude: ['type', 'slot', 'variant', 'isFullWidth', 'iconPlacement', 'href', 'rel', 'target'],
+        exclude: ['type', 'slot', 'variant', 'isFullWidth', 'iconPlacement', ...anchorOnlyProps],
     },
 });
