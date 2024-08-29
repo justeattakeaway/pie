@@ -600,10 +600,10 @@ test.describe('PieTextarea - Component tests', () => {
                 });
 
                 // Act
-                const input = component.locator('input');
+                const textarea = component.locator('textarea');
 
                 // Assert
-                expect((await input.getAttribute('placeholder'))).toBe('Test Placeholder');
+                expect((await textarea.getAttribute('placeholder'))).toBe('Test Placeholder');
             });
         });
     });
