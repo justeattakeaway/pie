@@ -2,28 +2,20 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-checkbox';
-import { CheckboxProps, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox';
+import { type CheckboxProps as CheckboxBaseProps, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox';
 /* eslint-enable import/no-duplicates */
 
 import { action } from '@storybook/addon-actions';
-import { type StoryMeta } from '../types';
-import { createStory, type TemplateFunction } from '../utilities';
+import { type StoryMeta, type SlottedComponentProps } from '../types';
+import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
+type CheckboxProps = SlottedComponentProps<CheckboxBaseProps>;
 type CheckboxStoryMeta = StoryMeta<CheckboxProps>;
 
 const defaultArgs: CheckboxProps = {
     ...defaultProps,
     name: 'name',
-    label: 'Label',
-    checked: false,
-    defaultChecked: false,
-    disabled: false,
-    indeterminate: false,
-    required: false,
-    aria: {
-        label: '',
-        labelledby: '',
-    },
+    slot: 'Label',
 };
 
 const checkboxStoryMeta: CheckboxStoryMeta = {
@@ -43,12 +35,9 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
             },
         },
 
-        label: {
-            description: 'The visible label for the checkbox',
+        slot: {
+            description: 'Content to place as a checkbox label',
             control: 'text',
-            defaultValue: {
-                summary: defaultArgs.label,
-            },
         },
 
         checked: {
@@ -91,10 +80,6 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
             },
         },
 
-        aria: {
-            description: 'ARIA object to pass label/labelledby/describedby aria attributes',
-            control: 'object',
-        },
         assistiveText: {
             description: 'An optional assistive text to display below the checkbox element. Must be provided when the status is success or error.',
             control: 'text',
@@ -102,6 +87,7 @@ const checkboxStoryMeta: CheckboxStoryMeta = {
                 summary: '',
             },
         },
+
         status: {
             description: 'The status of the checkbox component / assistive text. Can be default, success or error.',
             control: 'select',
@@ -125,15 +111,14 @@ export default checkboxStoryMeta;
 const Template = ({
     value,
     name,
-    label,
     checked,
     defaultChecked,
     disabled,
     indeterminate,
     required,
-    aria,
     assistiveText,
     status,
+    slot,
 }: CheckboxProps) => {
     function onChange (event: CustomEvent) {
         action('change')({
@@ -145,16 +130,15 @@ const Template = ({
         <pie-checkbox
             .value="${value}"
             name="${ifDefined(name)}"
-            label="${ifDefined(label)}"
             ?checked="${checked}"
             ?defaultChecked="${defaultChecked}"
             ?disabled="${disabled}"
             ?indeterminate="${indeterminate}"
             ?required="${required}"
-            .aria="${aria}"
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}>
+            ${sanitizeAndRenderHTML(slot)}
         </pie-checkbox>
     `;
 };
@@ -167,9 +151,9 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
     disabled,
     indeterminate,
     required,
-    aria,
     assistiveText,
     status,
+    slot,
 }: CheckboxProps) => {
     function onChange (event: CustomEvent) {
         action('change')({
@@ -182,16 +166,16 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
         <pie-checkbox
             .value="${value}"
             name="${ifDefined(name)}"
-            label="Pie Checkbox"
             ?checked="${checked}"
             ?defaultChecked="${defaultChecked}"
             ?disabled="${disabled}"
             ?indeterminate="${indeterminate}"
             ?required="${required}"
-            .aria="${aria}"
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
-            status=${ifDefined(status)}></pie-checkbox>
+            status=${ifDefined(status)}>
+            ${sanitizeAndRenderHTML(slot)}
+        </pie-checkbox>
         <button type="reset">Reset</button>
         <button type="submit">Submit</button>
         <script>

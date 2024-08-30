@@ -3,7 +3,7 @@ const categorisedIconList = require('./categorisedIconList');
 const componentDetailsTable = require('./componentDetailsTable');
 const componentStatusTable = require('./componentStatusTable');
 const contentPageImage = require('./contentPageImage');
-const { contentLayout, contentItem } = require('./contentLayout');
+const { contentLayout, contentItem, contentWrapper } = require('./contentLayout');
 const globalTokensWarning = require('./notifications/globalTokensWarning');
 const link = require('./link');
 const list = require('./list');
@@ -11,6 +11,7 @@ const mediaElement = require('./mediaElementList');
 const notification = require('./notification');
 const resourceTable = require('./resourceTable');
 const simpleTable = require('./simpleTable');
+const tag = require('./tag');
 const termsAndDescriptions = require('./termsAndDescriptions');
 const tokensTable = require('./tokensTable');
 const usage = require('./usage');
@@ -27,6 +28,7 @@ const addAllShortCodes = (eleventyConfig) => {
     eleventyConfig.addShortcode('componentDetailsTable', (shortcodeArgs) => deindentHTML(componentDetailsTable(shortcodeArgs)));
     eleventyConfig.addShortcode('componentStatusTable', (shortcodeArgs) => deindentHTML(componentStatusTable(shortcodeArgs)));
     eleventyConfig.addShortcode('contentPageImage', (shortcodeArgs) => deindentHTML(contentPageImage(shortcodeArgs)));
+    eleventyConfig.addPairedShortcode('contentWrapper', (shortcodeArgs) => deindentHTML(contentWrapper(shortcodeArgs)));
     eleventyConfig.addPairedShortcode('contentLayout', (shortcodeArgs) => deindentHTML(contentLayout(shortcodeArgs)));
     eleventyConfig.addPairedShortcode('contentItem', (shortcodeArgs) => deindentHTML(contentItem(shortcodeArgs)));
     eleventyConfig.addShortcode('globalTokensWarning', (shortcodeArgs) => deindentHTML(globalTokensWarning(shortcodeArgs)));
@@ -36,8 +38,9 @@ const addAllShortCodes = (eleventyConfig) => {
     eleventyConfig.addShortcode('notification', (shortcodeArgs) => deindentHTML(notification(shortcodeArgs)));
     eleventyConfig.addShortcode('resourceTable', (shortcodeArgs) => deindentHTML(resourceTable(shortcodeArgs)));
     eleventyConfig.addShortcode('simpleTable', (shortcodeArgs) => deindentHTML(simpleTable(shortcodeArgs)));
-    eleventyConfig.addShortcode('tokensTable', (shortcodeArgs) => deindentHTML(tokensTable(shortcodeArgs)));
+    eleventyConfig.addShortcode('tag', (shortcodeArgs) => deindentHTML(tag(shortcodeArgs)));
     eleventyConfig.addShortcode('termsAndDescriptions', (shortcodeArgs) => deindentHTML(termsAndDescriptions(shortcodeArgs)));
+    eleventyConfig.addShortcode('tokensTable', (shortcodeArgs) => deindentHTML(tokensTable(shortcodeArgs)));
     eleventyConfig.addShortcode('usage', (shortcodeArgs) => deindentHTML(usage(shortcodeArgs)));
 };
 

@@ -1,21 +1,11 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const statusTypes = ['default', 'success', 'error'] as const;
-
-export type AriaProps = {
-    label?: string;
-    labelledby?: string;
-};
 export interface CheckboxProps {
     /**
      * The value of the checkbox (used as a key/value pair in HTML forms with `name`).
      */
     value?: string;
-
-    /**
-     * The label value of the component
-     */
-    label?: string;
 
     /**
      * The name of the checkbox (used as a key/value pair with `value`). This is required in order to work properly with forms.
@@ -49,11 +39,6 @@ export interface CheckboxProps {
     required?: boolean;
 
     /**
-     * Various ARIA attributes.
-     */
-    aria?: AriaProps;
-
-    /**
      * An optional assistive text to display below the input element. Must be provided when the status is success or error.
      */
     assistiveText?: string;
@@ -64,7 +49,7 @@ export interface CheckboxProps {
     status?: typeof statusTypes[number];
 }
 
-export type DefaultProps = ComponentDefaultProps<CheckboxProps, keyof Omit<CheckboxProps, 'label' | 'name' | 'aria' | 'assistiveText'>>;
+export type DefaultProps = ComponentDefaultProps<CheckboxProps, keyof Omit<CheckboxProps, 'name' | 'assistiveText'>>;
 
 export const defaultProps: DefaultProps = {
     // a default value for the html <input type="checkbox" /> value attribute.

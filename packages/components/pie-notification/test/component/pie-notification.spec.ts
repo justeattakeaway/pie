@@ -167,12 +167,10 @@ test.describe('PieNotification - Component tests', () => {
 
                 // Act
                 const notification = page.locator(componentSelector);
-                const iconClose = page.locator(iconCloseSelector);
                 const heading = page.locator(`h2${headingSelector}`);
 
                 // Assert
                 expect(notification).toBeVisible();
-                expect(iconClose).toBeVisible();
                 expect(heading).toBeVisible();
                 expect(heading).toHaveText('Title');
             });

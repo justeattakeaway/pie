@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.48.1
+
+### Patch Changes
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
+- Updated dependencies [[`b32bf5d25`](https://github.com/justeattakeaway/pie/commit/b32bf5d257bb87da130194a9fe2ddf3ec93bced9)]:
+  - @justeattakeaway/pie-spinner@0.6.7
+
+## 0.48.0
+
+### Minor Changes
+
+- [Changed] - Styles now use classmap ([#1587](https://github.com/justeattakeaway/pie/pull/1587)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Fixed] - Fixed background colour when button is in `xsmall` or `small` size and responsive mode is true, where the bg-color wasn't updating to orange as required
+
 ## 0.47.8
 
 ### Patch Changes

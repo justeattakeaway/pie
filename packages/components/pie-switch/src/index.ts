@@ -1,16 +1,18 @@
 import {
-    LitElement, html, unsafeCSS, nothing, TemplateResult, PropertyValues,
+    LitElement, html, unsafeCSS, nothing,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import {
-    RtlMixin, validPropertyValues, defineCustomElement, FormControlMixin, wrapNativeEvent, PIEInputElement,
-} from '@justeattakeaway/pie-webc-core';
-import styles from './switch.scss?inline';
-import {
-    SwitchProps, AriaProps, labelPlacements, defaultProps,
-} from './defs';
+import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import 'element-internals-polyfill';
+
+import {
+    RtlMixin, validPropertyValues, defineCustomElement, FormControlMixin, wrapNativeEvent, type PIEInputElement,
+} from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
+
+import styles from './switch.scss?inline';
+import { type SwitchProps, labelPlacements, defaultProps } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -22,34 +24,15 @@ const componentSelector = 'pie-switch';
  * @event {CustomEvent} change - when the switch checked state is changed.
  */
 export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements SwitchProps, PIEInputElement {
-    @query('input[type="checkbox"]')
-    private input?: HTMLInputElement;
-
-    protected firstUpdated (_changedProperties: PropertyValues<this>): void {
-        super.firstUpdated(_changedProperties);
-
-        this.handleFormAssociation();
-        // This ensures that invalid events triggered by checkValidity() are propagated to the custom element
-        // for consumers to listen to: https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/checkValidity
-        this.input?.addEventListener('invalid', (event) => {
-            this.dispatchEvent(new Event('invalid', event));
-        });
-    }
-
-    protected updated (_changedProperties: PropertyValues<this>): void {
-        super.updated(_changedProperties);
-        this.handleFormAssociation();
-    }
-
     @property({ type: String })
-    public label?: string;
+    public label: SwitchProps['label'];
 
     @property({ type: String })
     @validPropertyValues(componentSelector, labelPlacements, defaultProps.labelPlacement)
-    public labelPlacement: SwitchProps['labelPlacement'] = defaultProps.labelPlacement;
+    public labelPlacement = defaultProps.labelPlacement;
 
     @property({ type: Object })
-    public aria!: AriaProps;
+    public aria: SwitchProps['aria'];
 
     @property({ type: Boolean, reflect: true })
     public checked = defaultProps.checked;
@@ -61,13 +44,29 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
     public value = defaultProps.value;
 
     @property({ type: String })
-    public name?: string;
+    public name: SwitchProps['name'];
 
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
 
+    @query('input[type="checkbox"]')
+    private input?: HTMLInputElement;
+
     @query('label')
     public focusTarget!: HTMLElement;
+
+    protected firstUpdated (): void {
+        this.handleFormAssociation();
+        // This ensures that invalid events triggered by checkValidity() are propagated to the custom element
+        // for consumers to listen to: https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/checkValidity
+        this.input?.addEventListener('invalid', (event) => {
+            this.dispatchEvent(new Event('invalid', event));
+        });
+    }
+
+    protected updated (): void {
+        this.handleFormAssociation();
+    }
 
     static styles = unsafeCSS(styles);
 
@@ -148,42 +147,57 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
     }
 
     /**
-     * Renders the label for a switch if provided.
-     * if invalid value is passed, nothing gets rendered
+     * If a label is provided, renders it if `labelPlacement` matches the given position.
+     * If no label is provided, or `labelPlacement` does not match the given position, nothing is rendered.
      *
      * @private
      */
-    private renderSwitchLabel (): TemplateResult {
+    private renderSwitchLabel (placement : SwitchProps['labelPlacement']) {
         const { label, labelPlacement } = this;
 
-        if (label) {
-            return html`
-                <span data-test-id="switch-label-${labelPlacement}">
-                    ${label}
-                </span>`;
+        if (!label || labelPlacement !== placement) {
+            return nothing;
         }
 
-        return html``;
+        return html`
+            <span data-test-id="switch-label-${labelPlacement}">
+                ${label}
+            </span>`;
+    }
+
+    private renderAriaDescription () {
+        if (!this.aria?.describedBy) {
+            return nothing;
+        }
+
+        return html`
+            <div
+                id="switch-description"
+                data-test-id="switch-description"
+                class="c-switch-description">
+                ${this.aria.describedBy}
+            </div>`;
     }
 
     render () {
         const {
-            labelPlacement,
             aria,
             checked,
-            required,
             disabled,
             isRTL,
+            required,
         } = this;
 
-        const switchId = 'switch-description';
+        const classes = {
+            'c-switch-wrapper': true,
+            'c-switch-wrapper--rtl': isRTL,
+        };
 
         return html`
             <label
-                class="c-switch-wrapper"
-                ?isRTL=${isRTL}
+                class="${classMap(classes)}"
                 ?disabled=${disabled}>
-                ${labelPlacement === 'leading' ? this.renderSwitchLabel() : nothing}
+                ${this.renderSwitchLabel('leading')}
                 <div
                     data-test-id="switch-component"
                     class="c-switch"
@@ -197,16 +211,15 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
                         .checked="${checked}"
                         .disabled="${disabled}"
                         @change="${this.handleChange}"
-                        aria-label="${aria?.label || nothing}"
-                        aria-describedby="${aria?.describedBy ? switchId : nothing}">
+                        aria-label="${ifDefined(aria?.label)}"
+                        aria-describedby="${aria?.describedBy ? 'switch-description' : nothing}">
                     <div class="c-switch-control">
                         ${checked ? html`<icon-check></icon-check>` : nothing}
                     </div>
                 </div>
-                ${labelPlacement === 'trailing' ? this.renderSwitchLabel() : nothing}
-                ${aria?.describedBy ? html`<div id="${switchId}" data-test-id="${switchId}" class="c-switch-description">${aria?.describedBy}</div>` : nothing}
-            </label>
-        `;
+                ${this.renderSwitchLabel('trailing')}
+                ${this.renderAriaDescription()}
+            </label>`;
     }
 }
 

@@ -1,5 +1,86 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.26.0
+
+### Minor Changes
+
+- [Added] - Catalan locale ([#1731](https://github.com/justeattakeaway/pie/pull/1731)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.25.1
+
+### Patch Changes
+
+- Updated dependencies [[`95fbc5e5f`](https://github.com/justeattakeaway/pie/commit/95fbc5e5f71a1eb9af08ef6689eeabf3360c5254)]:
+  - @justeattakeaway/pie-switch@0.30.0
+
+## 0.25.0
+
+### Minor Changes
+
+- [Updated] - Cookie banner component and a11y tests updated to remove @sand4rt/experimental-ct-web and replace with load function within page object modal ([#1702](https://github.com/justeattakeaway/pie/pull/1702)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+### Patch Changes
+
+- Updated dependencies [[`4472c2445`](https://github.com/justeattakeaway/pie/commit/4472c2445aaf5b8a2a11f83f94c5268b791227f0)]:
+  - @justeattakeaway/pie-divider@0.13.9
+
+## 0.24.1
+
+### Patch Changes
+
+- Updated dependencies [[`ccb4ced90`](https://github.com/justeattakeaway/pie/commit/ccb4ced90fb719567b9e2f0e5c89535108d662d1), [`ccb4ced90`](https://github.com/justeattakeaway/pie/commit/ccb4ced90fb719567b9e2f0e5c89535108d662d1)]:
+  - @justeattakeaway/pie-modal@0.46.0
+
+## 0.24.0
+
+### Minor Changes
+
+- [Changed] - Recombine modal's leading and supporting action props ([#1685](https://github.com/justeattakeaway/pie/pull/1685)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- [Changed] - moved defaultProps and JSON locale import to defs.ts ([#1472](https://github.com/justeattakeaway/pie/pull/1472)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
+- Updated dependencies [[`651222101`](https://github.com/justeattakeaway/pie/commit/651222101b349b3c537d1f09c2d33a49851f9d8b), [`1801e656a`](https://github.com/justeattakeaway/pie/commit/1801e656a4c7c4c7859a9260821ae10a05f92f8f), [`b32bf5d25`](https://github.com/justeattakeaway/pie/commit/b32bf5d257bb87da130194a9fe2ddf3ec93bced9)]:
+  - @justeattakeaway/pie-modal@0.45.0
+  - @justeattakeaway/pie-icon-button@0.28.10
+  - @justeattakeaway/pie-divider@0.13.8
+  - @justeattakeaway/pie-button@0.48.1
+  - @justeattakeaway/pie-switch@0.29.12
+  - @justeattakeaway/pie-link@0.17.8
+
+## 0.23.0
+
+### Minor Changes
+
+- [Changed] - Split leadingAction and supportingAction props into several new props ([#1626](https://github.com/justeattakeaway/pie/pull/1626)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Updated dependencies [[`61fadf0f2`](https://github.com/justeattakeaway/pie/commit/61fadf0f2e56efcf583a8268e30c442c92e3b075)]:
+  - @justeattakeaway/pie-modal@0.44.0
+
+## 0.22.1
+
+### Patch Changes
+
+- Updated dependencies [[`d3d974c76`](https://github.com/justeattakeaway/pie/commit/d3d974c76a5ee1e800c30b59e81002d089b5a26d), [`927b800ed`](https://github.com/justeattakeaway/pie/commit/927b800ed2456c6db299694fbf850dea4aed34bd)]:
+  - @justeattakeaway/pie-button@0.48.0
+  - @justeattakeaway/pie-switch@0.29.11
+  - @justeattakeaway/pie-modal@0.43.5
+
+## 0.22.0
+
+### Minor Changes
+
+- [Added] - An entrance animation to the cookie banner that makes it slide into the viewport from below. ([#1579](https://github.com/justeattakeaway/pie/pull/1579)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - wording for en-FR and fr-FR to align with cookie policy page ([#1615](https://github.com/justeattakeaway/pie/pull/1615)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.21.0
 
 ### Minor Changes

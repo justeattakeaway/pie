@@ -7,7 +7,7 @@
                 "type": "code",
                 "item": []
             },
-            "An object representing the aria labels for the `close` & `back` buttons within the modal as well as the `isLoading` state labels (`aria-label` & `aria-busy`)."
+            "An object representing the aria labels for the `close` and `back` buttons within the modal as well as the `isLoading` state labels (`aria-label` & `aria-busy`)."
         ],
         [
             "hasBackButton",
@@ -25,10 +25,7 @@
             "hasStackedActions",
             {
                 "type": "code",
-                "item": [
-                  "false",
-                  "true"
-                ]
+                "item": ["true", "false"]
             },
             "If true, the action buttons will be stacked (full width) at narrow breakpoints.",
             {
@@ -72,90 +69,100 @@
             "isFooterPinned",
             {
                 "type": "code",
-                "item": [
-                  "false",
-                  "true"
-                ]
+                "item": ["true", "false"]
               },
               "When false, the modal footer will scroll with the content inside the modal body.",
               {
                 "type": "code",
-                "item": [
-                  "true"
-                ]
+                "item": ["true"]
               }
         ],
         [
             "isFullWidthBelowMid",
             {
               "type": "code",
-              "item": [
-                "false",
-                "true"
-              ]
+              "item": ["true", "false"]
             },
             "If true and the page is narrower than the mid breakpoint, a **medium-sized** modal will take up the full width of the screen.",
             {
               "type": "code",
-              "item": [
-                "false"
-              ]
+              "item": ["false"]
             }
         ],
         [
             "isLoading",
             {
               "type": "code",
-              "item": [
-                "false",
-                "true"
-              ]
+              "item": ["true", "false"]
             },
             "When true, displays a loading spinner in the modal",
             {
               "type": "code",
-              "item": [
-                "false"
-              ]
+              "item": ["false"]
             }
         ],
         [
             "isOpen",
             {
               "type": "code",
-              "item": [
-                "false",
-                "true"
-              ]
+              "item": ["true", "false"]
             },
             "Controls if the modal element is open or closed",
             {
               "type": "code",
-              "item": [
-                "false"
-              ]
+              "item": ["false"]
             }
         ],
         [
-            "leadingAction",
             {
                 "type": "code",
-                "item": []
+                "item": ["leadingAction.text"]
             },
-            "An object representing the leading action of the modal."
+            "-",
+            "The text to display inside the leading action button. The button won't render without this."
+        ],
+        [
+            {
+                "type": "code",
+                "item": ["leadingAction.variant"]
+            },
+            "See pie-button's variants",
+            "The variant of the leading action button.",
+            {
+                "type": "code",
+                "item": ["\"primary\""]
+            }
+        ],
+        [
+            {
+                "type": "code",
+                "item": ["supportingAction.text"]
+            },
+          "-",
+          "The text to display inside the supporting action button. The button won't render without this."
+        ],
+        [
+            {
+                "type": "code",
+                "item": ["supportingAction.variant"]
+            },
+          "See pie-button's variants",
+          "The variant of the supporting action button.",
+          {
+              "type": "code",
+              "item": ["\"ghost\""]
+          }
         ],
         [
             "position",
             {
                 "type": "code",
-                "item": ["top", "center"]
+                "item": ["\"top\"", "\"center\""]
             },
             "The position of the modal; this controls where it will appear on the page.",
             {
               "type": "code",
-              "item": [
-                "center"
-              ]
+              "item": ["\"center\""]
             }
         ],
         [
@@ -170,21 +177,13 @@
             "size",
             {
                 "type": "code",
-                "item": ["small", "medium", "large"]
+                "item": ["\"small\"", "\"medium\"", "\"large\""]
             },
             "Determines the maximum width of the modal. Large modals will expand to fill the entire page at narrow viewports.",
             {
                 "type": "code",
-                "item": ["medium"]
+                "item": ["\"medium\""]
             }
-        ],
-        [
-            "supportingAction",
-            {
-                "type": "code",
-                "item": []
-            },
-            "An object representing the supporting action of the modal."
         ]
     ]
 }

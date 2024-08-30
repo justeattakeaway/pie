@@ -15,8 +15,6 @@ import { PieSwitch } from '@justeattakeaway/pie-switch';
 import { defineCustomElement, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
 /* eslint-enable import/no-duplicates */
 
-import defaultLocale from '../locales/en-gb.json';
-
 import styles from './cookie-banner.scss?inline';
 import {
     CookieBannerProps,
@@ -24,29 +22,18 @@ import {
     ON_COOKIE_BANNER_NECESSARY_ONLY,
     ON_COOKIE_BANNER_MANAGE_PREFS,
     ON_COOKIE_BANNER_PREFS_SAVED,
+    defaultProps,
     preferences,
     type Preference,
     type PreferenceIds,
     type CookieBannerLocale,
     type CustomTagEnhancers,
-    DefaultProps,
 } from './defs';
 
 import { localiseText, localiseRichText } from './localisation-utils';
 
 // Valid values available to consumers
 export * from './defs';
-
-// TODO: Move this object to defs.ts
-// It can be moved as soon as we manage to figure a safe way to avoid the error TS2821
-// Import assertions are only supported when the '--module' option is set to 'esnext' or 'nodenext'
-export const defaultProps: DefaultProps = {
-    hasPrimaryActionsOnly: false,
-    defaultPreferences: {},
-    locale: defaultLocale,
-    cookieStatementLink: '',
-    cookieTechnologiesLink: '',
-};
 
 const componentSelector = 'pie-cookie-banner';
 
@@ -229,10 +216,9 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     }
 
     render () {
-        const modalActionProps = {
+        const modalLeadingActionProps = {
             text: this._localiseText('preferencesManagement.cta.save.label'),
-            variant: 'primary',
-            ariaLabel: this._localiseText('preferencesManagement.cta.save.label'), // TODO: Replace with the appropriate "ariaLabel" as soon as the spreadsheet is updated
+            ariaLabel: this._localiseText('preferencesManagement.cta.save.label'),
         };
 
         return html`
@@ -242,7 +228,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             hasStackedActions
             isFullWidthBelowMid
             heading="${this._localiseText('preferencesManagement.title')}"
-            .leadingAction="${modalActionProps}"
+            .leadingAction=${modalLeadingActionProps}
             @pie-modal-leading-action-click="${this._handlePreferencesSaved}"
             @pie-modal-back="${this._displayCookieBanner}">
                 ${this.renderModalContent()}

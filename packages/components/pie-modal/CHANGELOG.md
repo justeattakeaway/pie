@@ -1,5 +1,46 @@
 # @justeattakeaway/pie-modal
 
+## 0.46.0
+
+### Minor Changes
+
+- [Changed] - Use classes instead of attributes for styling ([#1696](https://github.com/justeattakeaway/pie/pull/1696)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - tidy up modal render functions ([#1696](https://github.com/justeattakeaway/pie/pull/1696)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.45.0
+
+### Minor Changes
+
+- [Changed] - Recombine modal's leading and supporting action props ([#1685](https://github.com/justeattakeaway/pie/pull/1685)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- [Added] - indent to `pie-modal` when the footer isn’t rendered ([#1679](https://github.com/justeattakeaway/pie/pull/1679)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
+- Updated dependencies [[`b32bf5d25`](https://github.com/justeattakeaway/pie/commit/b32bf5d257bb87da130194a9fe2ddf3ec93bced9), [`ccfe4583c`](https://github.com/justeattakeaway/pie/commit/ccfe4583c274531d879b9c877f4c5c08dc9418cd)]:
+  - @justeattakeaway/pie-icon-button@0.28.10
+  - @justeattakeaway/pie-spinner@0.6.7
+  - @justeattakeaway/pie-button@0.48.1
+  - @justeattakeaway/pie-icons-webc@0.25.0
+
+## 0.44.0
+
+### Minor Changes
+
+- [Changed] - Split leadingAction and supportingAction props into several new props ([#1626](https://github.com/justeattakeaway/pie/pull/1626)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.43.5
+
+### Patch Changes
+
+- Updated dependencies [[`d3d974c76`](https://github.com/justeattakeaway/pie/commit/d3d974c76a5ee1e800c30b59e81002d089b5a26d)]:
+  - @justeattakeaway/pie-button@0.48.0
+
 ## 0.43.4
 
 ### Patch Changes

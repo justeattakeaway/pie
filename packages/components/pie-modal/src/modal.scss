@@ -66,7 +66,7 @@
     max-block-size: var(--modal-max-block-size);
     max-inline-size: var(--modal-max-inline-size);
 
-    &[size='small'] {
+    &.c-modal--small {
         --modal-max-inline-size: var(--modal-size-s);
 
         @media (min-width: $breakpoint-wide) {
@@ -74,19 +74,19 @@
         }
     }
 
-    &[size='medium'] {
+    &.c-modal--medium {
         /* Same as default styles */
     }
 
-    &[size='large'] {
+    &.c-modal--large {
         --modal-inline-size: 75%;
         --modal-max-inline-size: var(--modal-size-l);
         --modal-margin-block: var(--modal-margin-large);
     }
 
     // Fullscreen styles
-    &[size='large'],
-    &[size='medium'][isfullwidthbelowmid] {
+    &.c-modal--large,
+    &.c-modal--medium.c-modal--fullWidthBelowMid {
         @media (width < $breakpoint-wide) {
             --modal-margin-block: var(--modal-margin-none);
             --modal-border-radius: var(--dt-radius-rounded-none);
@@ -104,12 +104,12 @@
         }
     }
 
-    &[position='top'] {
+    &.c-modal--top {
         margin-block-start: var(--dt-spacing-j);
         max-block-size: calc(100% - var(--dt-spacing-j) * 2);
 
-        &[size='large'],
-        &[isfullwidthbelowmid][size='medium'] {
+        &.c-modal--large,
+        &.c-modal--fullWidthBelowMid.c-modal--medium {
             @media (width < $breakpoint-wide) {
                 margin-block-start: var(--dt-spacing-none);
                 max-block-size: 100%;
@@ -136,12 +136,8 @@
         @media (min-width: $breakpoint-wide) {
             --modal-footer-padding: var(--dt-spacing-e);
         }
-    }
 
-    // When hasStackedActions is set
-    // change the direction of the footer flex container so buttons are full width of modal
-    &[hasstackedactions] {
-        & .c-modal-footer {
+        &.c-modal-footer--stackedActions {
             // TODO: Move breakpoint sizes into shared CSS component utilities
             @media (width < $breakpoint-wide) {
                 flex-direction: column;
@@ -181,7 +177,7 @@
     }
 
     // Ensure correct padding when there is a back button in front of the heading
-    &[hasbackbutton] .c-modal-heading {
+    .c-modal-backBtn + .c-modal-heading {
         margin-inline-start: var(--dt-spacing-b);
 
         @media (min-width: $breakpoint-wide) {
@@ -189,8 +185,7 @@
         }
     }
 
-    // Ensure correct padding when there is a close button behind the heading
-    &[isdismissible] .c-modal-heading {
+    &.c-modal--dismissible .c-modal-heading {
         margin-inline-end: var(--dt-spacing-d);
 
         @media (min-width: $breakpoint-wide) {
@@ -235,13 +230,16 @@
         --modal-content-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
         --modal-content-padding-block: var(--dt-spacing-a);
         --modal-content-padding-inline: var(--dt-spacing-d);
+        --modal-content-padding-block-end: var(--dt-spacing-e);
+        --modal-content-min-block-size: var(--dt-spacing-j);
+
 
         @media (min-width: $breakpoint-wide) {
             --modal-content-padding-inline: var(--dt-spacing-e);
         }
 
         position: relative;
-        min-block-size: var(--dt-spacing-j);
+        min-block-size: calc(var(--modal-content-min-block-size) + var(--modal-content-padding-block) + var(--modal-content-padding-block-end)); // The sum of the minimum height and block paddings, when footerActions aren't rendered
 
         font-size: var(--modal-content-font-size);
         line-height: var(--modal-content-line-height);
@@ -253,8 +251,10 @@
         padding-block-end: var(--modal-content-padding-block-end); // We require a larger bottom padding when there's no footer
         flex-grow: 1;
 
-        &.c-modal-hasFooterActions {
+        // If the footer is rendered, the modal content is not the last child
+        &:not(:last-child) {
           padding-block-end: var(--modal-content-padding-block);
+          min-block-size: var(--modal-content-min-block-size);
         }
 
         &--scrollable {
@@ -299,20 +299,29 @@
         }
     }
 
-    &[isfooterpinned] .c-modal-content {
+    &.c-modal--pinnedFooter .c-modal-content {
         overflow-y: auto;
     }
 
-    &[isLoading] .c-modal-content {
+    &.c-modal--loading .c-modal-content {
         pie-spinner {
             position: absolute;
             left: 50%;
-            top: 50%;
+
+            // Compensates different block paddings, when footerActions aren't rendered
+            top: calc(50% - (var(--modal-content-padding-block-end) - var(--modal-content-padding-block)) / 2);
             transform: translate(-50%, -50%);
         }
 
         & .c-modal-contentInner {
             display: none;
+        }
+
+        // If the footer is rendered, the modal content is not the last child
+        &:not(:last-child) {
+          pie-spinner {
+            top: 50%;
+          }
         }
     }
 

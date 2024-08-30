@@ -1,5 +1,100 @@
 # wc-next10
 
+## 0.6.12
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.26
+
+## 0.6.11
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.25
+
+## 0.6.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.24
+
+## 0.6.9
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.23
+
+## 0.6.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.22
+
+## 0.6.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.21
+
+## 0.6.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.20
+
+## 0.6.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.19
+
+## 0.6.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.18
+
+## 0.6.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.17
+
+## 0.6.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.16
+
+## 0.6.1
+
+### Patch Changes
+
+- Updated dependencies [[`927b800ed`](https://github.com/justeattakeaway/pie/commit/927b800ed2456c6db299694fbf850dea4aed34bd)]:
+  - @justeattakeaway/pie-webc@0.5.15
+
+## 0.6.0
+
+### Minor Changes
+
+- [Added] pie-webc integration to next10 example app ([#1617](https://github.com/justeattakeaway/pie/pull/1617)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.14
+
 ## 0.5.46
 
 ### Patch Changes

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PieButton } from '@justeattakeaway/pie-button/dist/react';
+import { PieButton } from '@justeattakeaway/pie-webc/react/button';
 
 export default function Counter () {
     const [count, setCount] = useState(0);

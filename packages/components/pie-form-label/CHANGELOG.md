@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-form-label
 
+## 0.14.1
+
+### Patch Changes
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
+## 0.14.0
+
+### Minor Changes
+
+- [Added] - data test id to leading and trailing label content ([#1666](https://github.com/justeattakeaway/pie/pull/1666)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.13.6
 
 ### Patch Changes

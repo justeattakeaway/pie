@@ -22,14 +22,15 @@
         border-color: #fff;
         border-bottom-right-radius: 2px;
 
-
-        transform: translate3d(0, -16px, 0) rotate(45deg);
+        // had to add 1px to z-axis to fix a bug in Safari
+        // that adds a tiny line between check borders
+        transform: translate3d(0, -16px, 1px) rotate(45deg);
     }
 }
 
 @keyframes scaleDown {
     0% {
-        transform: scale(0.7);
+        transform: scale(1);
     }
 
     100% {
@@ -67,7 +68,9 @@
     background-color: var(--checkbox-bg-color);
 
     @media (prefers-reduced-motion: no-preference) {
-        transition: background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
+        transition:
+            background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing),
+            border-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
 
         animation: scaleDown var(--dt-motion-timing-100) var(--checkbox-motion-easing);
     }
@@ -92,8 +95,8 @@
         }
 
         &[data-pie-status="error"] {
-            --checkbox-border-color: var(--dt-color-support-error);
             --checkbox-bg-color: var(--dt-color-support-error);
+            --checkbox-border-color: var(--dt-color-support-error);
         }
     }
 
@@ -113,7 +116,9 @@
         animation: checkboxCheck var(--dt-motion-timing-150) var(--checkbox-motion-easing) forwards;
 
         @media (prefers-reduced-motion: reduce) {
-            animation: none;
+            animation-duration: 1ms !important;
+            animation-delay: 0 !important;
+            animation-iteration-count: 1 !important;
             width: 8px;
             height: 16px;
             border-color: #fff;
@@ -132,6 +137,11 @@
 
             transform: translate3d(0, -16px, 0) rotate(45deg);
         }
+    }
+
+    &[data-pie-checked][data-is-rtl]:before {
+        left: unset;
+        right: 50%;
     }
 
     &[data-pie-indeterminate] {
@@ -179,13 +189,18 @@
     background-color: white;
 }
 
+.c-checkbox-tick[data-is-rtl]:after {
+    left: unset;
+    right: 14%;
+}
+
 .c-checkbox {
     --checkbox-height: 24px;
     --checkbox-width: 24px;
     --checkbox-radius: var(--dt-radius-rounded-a);
     --checkbox-margin: 1px;
     --checkbox-gap: var(--dt-spacing-b);
-    --checkbox-font-size: var(--dt-font-body-l-size);
+    --checkbox-font-size: p.font-size(--dt-font-body-l-size);
     --checkbox-font-weight: var(--dt-font-weight-regular);
     --checkbox-bg-color: var(--dt-color-container-default);
     --checkbox-border-color: var(--dt-color-interactive-form);
@@ -216,8 +231,9 @@
     &:hover {
         .c-checkbox-tick {
             --checkbox-bg-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
-
-            transition: background-color var(--dt-motion-timing-200) var(--checkbox-motion-easing);
+            transition:
+                background-color var(--dt-motion-timing-200) var(--checkbox-motion-easing),
+                border-color var(--dt-motion-timing-200) var(--checkbox-motion-easing);
         }
     }
 
@@ -225,14 +241,15 @@
         .c-checkbox-tick {
             --checkbox-bg-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-active-01))));
 
-            transition: background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
+            transition:
+                background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing),
+                border-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
         }
     }
 
     &[data-pie-disabled] {
         label {
-            cursor: default;
-            pointer-events: none;
+            cursor: not-allowed;
         }
     }
 

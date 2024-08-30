@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-webc-testing",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "description": "PIE design system helpers and utilities for testing our web components",
   "type": "module",
   "main": "index.ts",
@@ -14,6 +14,9 @@
   "scripts": {
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix"
+  },
+  "devDependencies": {
+    "@justeattakeaway/pie-css": "0.12.1"
   },
   "peerDependencies": {
     "@axe-core/playwright": "^4.0.0",

@@ -1,6 +1,6 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-import { Variant } from '@justeattakeaway/pie-button/src/defs.ts';
+import { type Variant as ButtonVariant } from '@justeattakeaway/pie-button/src/defs.ts';
 
 export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const sizes = ['small', 'medium', 'large'] as const;
@@ -12,26 +12,26 @@ export type AriaProps = {
     loading?: string;
 };
 
-export type ActionProps = {
-        /**
-         * The text to display inside the button.
-         */
-        text: string;
+type ActionProps = {
+    /**
+     * The text to display inside the button.
+     */
+    text: string;
 
-        /**
-         * The button variant.
-         */
-        variant?: Variant;
+    /**
+     * The button variant.
+     */
+    variant?: ButtonVariant;
 
-        /**
-         * The ARIA label for the button.
-         */
-        ariaLabel?: string;
+    /**
+     * The aria label for the button.
+     */
+    ariaLabel?: string;
 };
 
 export type ModalProps = {
     /**
-     * The ARIA labels used for the modal close and back buttons, as well as loading state.
+     * The ARIA labels used for the modal close and back buttons, as well as for the loading state.
      */
     aria?: AriaProps;
 

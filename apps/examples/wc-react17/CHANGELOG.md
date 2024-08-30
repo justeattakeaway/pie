@@ -1,5 +1,93 @@
 # wc-react17
 
+## 0.5.11
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.26
+
+## 0.5.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.25
+
+## 0.5.9
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.24
+
+## 0.5.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.23
+
+## 0.5.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.22
+
+## 0.5.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.21
+
+## 0.5.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.20
+
+## 0.5.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.19
+
+## 0.5.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.18
+
+## 0.5.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.17
+
+## 0.5.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.16
+
+## 0.5.0
+
+### Minor Changes
+
+- [Added] - pie-webc integration to react app ([#1610](https://github.com/justeattakeaway/pie/pull/1610)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies [[`927b800ed`](https://github.com/justeattakeaway/pie/commit/927b800ed2456c6db299694fbf850dea4aed34bd)]:
+  - @justeattakeaway/pie-webc@0.5.15
+
 ## 0.4.43
 
 ### Patch Changes

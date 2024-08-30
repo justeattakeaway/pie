@@ -15,15 +15,19 @@
     align-items: flex-start;
     overflow-wrap: anywhere; // Break word will not have any effect inside a flex container
 
-    &[variant='success'] {
-        --assistive-text-color: var(--dt-color-content-positive);
-    }
-
-    &[variant='error'] {
-        --assistive-text-color: var(--dt-color-content-error);
-    }
-
     .c-assistiveText-icon {
         display: inline-flex;
     }
+}
+
+.c-assistiveText--success {
+    --assistive-text-color: var(--dt-color-content-positive);
+}
+
+.c-assistiveText--error {
+    --assistive-text-color: var(--dt-color-content-error);
+}
+
+.c-assistiveText--isVisuallyHidden {
+    @include p.visually-hidden;
 }
