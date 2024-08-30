@@ -1,8 +1,6 @@
 import { LitElement, PropertyValues, html } from 'lit';
 import { property, query } from 'lit/decorators.js';
-// @ts-expect-error - Type is defined below
-import lottieLight from 'lottie-web/build/player/esm/lottie_light_canvas.min.js';
-import Lottie, { AnimationItem } from 'lottie-web';
+import { LottiePlayer, AnimationItem } from 'lottie-web';
 
 import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { LottiePlayerProps, defaultProps, AnimationDirection } from './defs';
@@ -11,9 +9,6 @@ import { LottiePlayerProps, defaultProps, AnimationDirection } from './defs';
 export * from './defs';
 
 const componentSelector = 'pie-lottie-player';
-
-// Use type assertion to assign the LottiePlayer type to the lottie import
-const lottie = lottieLight as typeof Lottie;
 
 /**
  * @tagname pie-lottie-player
@@ -24,6 +19,7 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
 
     private animationInstance?: AnimationItem;
 
+    private _lottie?:LottiePlayer;
     private _disableAutoPlay = defaultProps.disableAutoPlay;
     private _disableLoop = defaultProps.disableLoop;
     private _speed = defaultProps.speed;
@@ -31,8 +27,14 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
     private _animationSrc = '';
     private _animationData?:object;
 
-    protected firstUpdated (_changedProperties: PropertyValues): void {
-        this._loadAnimation();
+    protected async firstUpdated (_changedProperties: PropertyValues): Promise<void> {
+        // Check if the code is running in a browser environment
+        if (this.canUseDOM()) {
+            // TODO: Solve TS issue
+            const asyncLottieModule = await import('lottie-web/build/player/esm/lottie_light_canvas.min.js'); // Dynamically import the 'lottie-web' library to avoid SSR issues
+            this._lottie = asyncLottieModule.default;
+            this._loadAnimation();
+        }
     }
 
     disconnectedCallback () {
@@ -40,15 +42,21 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
         this._destroyAnimation();
     }
 
+    private canUseDOM () {
+        return typeof window !== 'undefined' && 'document' in window && 'createElement' in window.document;
+    }
+
     private _loadAnimation (): void {
+        if (!this.canUseDOM()) return;
         if (!this.hostElement) return;
+        if (!this._lottie) return;
 
         this._destroyAnimation();
 
         if (!this.animationSrc && !this.animationData) return;
 
         try {
-            this.animationInstance = lottie.loadAnimation({
+            this.animationInstance = this._lottie.loadAnimation({
                 container: this.hostElement, // the dom element that will contain the animation
                 renderer: 'canvas',
                 loop: !this.disableLoop,
