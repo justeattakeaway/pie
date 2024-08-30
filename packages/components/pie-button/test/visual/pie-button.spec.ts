@@ -24,7 +24,7 @@ const props: PropObject = {
     isFullWidth: [true, false],
     disabled: [true, false],
     isLoading: [true, false],
-    iconPlacement: [undefined, ...iconPlacements],
+    iconPlacement: iconPlacements,
 };
 
 // Renders a <pie-button> HTML string with the given prop values
@@ -45,25 +45,32 @@ test.beforeEach(async ({ mount }, testInfo) => {
     await iconComponent.unmount();
 });
 
-componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    for (const combo of componentPropsMatrixByVariant[variant]) {
-        const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieButton);
-        const propKeyValues = `size: ${testComponent.propValues.size}, iconPlacement: ${testComponent.propValues.iconPlacement}, isFullWidth: ${testComponent.propValues.isFullWidth}, disabled: ${testComponent.propValues.disabled}, isLoading: ${testComponent.propValues.isLoading}`;
-        const darkMode = ['inverse', 'ghost-inverse', 'outline-inverse'].includes(variant);
+componentVariants.forEach((variant) => {
+    const componentPropsMatrixBySize = splitCombinationsByPropertyValue(componentPropsMatrixByVariant[variant], 'size');
+    const componentSizes: string[] = Object.keys(componentPropsMatrixBySize);
 
-        await mount(
-            WebComponentTestWrapper,
-            {
-                props: { propKeyValues, darkMode },
-                slots: {
-                    component: testComponent.renderedString.trim(),
-                },
-            },
-        );
-    }
+    componentSizes.forEach((size) => {
+        test(`should render all prop variations for Variant: ${variant} and Size: ${size}`, async ({ page, mount }) => {
+            const combos = componentPropsMatrixBySize[size];
 
-    // Follow up to remove in Jan
-    await page.waitForTimeout(2500);
+            for (const combo of combos) {
+                const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieButton);
+                const propKeyValues = `size: ${testComponent.propValues.size}, iconPlacement: ${testComponent.propValues.iconPlacement}, isFullWidth: ${testComponent.propValues.isFullWidth}, disabled: ${testComponent.propValues.disabled}, isLoading: ${testComponent.propValues.isLoading}`;
+                const darkMode = ['inverse', 'ghost-inverse', 'outline-inverse'].includes(variant);
 
-    await percySnapshot(page, `PIE Button - Variant: ${variant}`, percyWidths);
-}));
+                await mount(
+                    WebComponentTestWrapper,
+                    {
+                        props: { propKeyValues, darkMode },
+                        slots: {
+                            component: testComponent.renderedString.trim(),
+                        },
+                    },
+                );
+            }
+
+            const snapshotName = `PIE Button - Variant: ${variant} - Size: ${size}`;
+            await percySnapshot(page, snapshotName, percyWidths);
+        });
+    });
+});
