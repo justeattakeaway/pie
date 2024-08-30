@@ -97,7 +97,7 @@ test.describe('Resize mode:', () => {
             await percySnapshot(page, 'Textarea - resize: "auto"', percyWidths);
         });
 
-        test('should resize the textarea vertically', async ({ page, mount }) => {
+        test('should resize the textarea vertically - @mobile', async ({ page, mount }) => {
             await mount(PieTextarea, {
                 props: {
                     resize: 'auto',
@@ -112,7 +112,7 @@ test.describe('Resize mode:', () => {
             await percySnapshot(page, 'Textarea - resize: "auto" (multiline content)', percyWidths);
         });
 
-        test('should overflow when content exceeds maximum height', async ({ page, mount }) => {
+        test('should overflow when content exceeds maximum height - @mobile', async ({ page, mount }) => {
             await mount(PieTextarea, {
                 props: {
                     resize: 'auto',
@@ -120,13 +120,13 @@ test.describe('Resize mode:', () => {
             });
 
             const textarea = await page.locator(componentSelector);
-            await textarea.fill('The default height is enough for two lines of text, but it should grow if you type more. If you reach more than six lines of content, the element will not continue to grow and scrollbars will appear.');
+            await textarea.fill('The default height is enough for two lines of text, but it should grow if you type more.\n\nIf you reach more than six lines of content, the element will not continue to grow and scrollbars will appear.');
             await page.waitForTimeout(250); // Wait for throttled resize event to fire.
 
             await percySnapshot(page, 'Textarea - resize mode: auto - with overflowing content', percyWidths);
         });
 
-        test('should not be able to be made taller than its maximum height', async ({ page, mount }) => {
+        test('should not be able to be made taller than its maximum height - @mobile', async ({ page, mount }) => {
             await mount(PieTextarea, {
                 props: {
                     resize: 'auto',
@@ -269,4 +269,3 @@ test.describe('Assistive text and statuses:', () => {
         });
     }
 });
-

@@ -1,6 +1,6 @@
 {
   "name": "wc-next10",
-  "version": "0.6.10",
+  "version": "0.6.12",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-css": "0.12.1",
-    "@justeattakeaway/pie-webc": "0.5.24",
+    "@justeattakeaway/pie-webc": "0.5.26",
     "@lit/react": "1.0.2",
     "next": "10.2.3",
     "next-transpile-modules": "4.1.0",
