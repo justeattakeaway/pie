@@ -69,6 +69,8 @@ componentVariants.forEach((variant) => {
                 );
             }
 
+            await page.waitForLoadState('domcontentloaded');
+
             const snapshotName = `PIE Button - Variant: ${variant} - Size: ${size}`;
             await percySnapshot(page, snapshotName, percyWidths);
         });

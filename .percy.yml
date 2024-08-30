@@ -1,4 +1,0 @@
-version: 2
-discovery:
-  disallowedHostnames:
-    - ​unpkg.com
