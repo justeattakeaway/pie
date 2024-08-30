@@ -44,9 +44,10 @@ export class PieDivider extends LitElement implements DividerProps {
                 <div
                     id="${componentSelector}"
                     data-test-id="${componentSelector}"
-                    class="c-divider${classMap(classes)}">
+                    class="c-divider${classMap(classes)}"
+                    aria-labelledby="${componentSelector}-label">
                         <hr aria-hidden="true"/>
-                        <span class="c-divider-label">${label}</span>
+                        <span id="${componentSelector}-label" class="c-divider-label">${label}</span>
                         <hr aria-hidden="true"/>
                 </div>`
             : html`
