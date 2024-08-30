@@ -121,6 +121,8 @@ input {
 
     &::placeholder {
         color: var(--input-text-color-placeholder);
+
+        opacity: 1; // normalize opacity for all browsers
     }
 
     &:disabled {
