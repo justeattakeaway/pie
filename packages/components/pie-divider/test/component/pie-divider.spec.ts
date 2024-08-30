@@ -21,6 +21,7 @@ test.describe('PieDivider - Component tests', () => {
         const component = await mount(PieDivider, {
             props: {
                 label: 'foo label',
+                orientation: 'horizontal',
             } as DividerProps,
         });
 
@@ -29,6 +30,22 @@ test.describe('PieDivider - Component tests', () => {
 
         // Assert
         expect(label).toBeVisible();
+    });
+
+    test('should NOT render the `label` if divider orientation is vertical', async ({ mount, page }) => {
+        // Arrange
+        const component = await mount(PieDivider, {
+            props: {
+                label: 'foo label',
+                orientation: 'vertical',
+            } as DividerProps,
+        });
+
+        // Act
+        const label = component.getByText('foo label');
+
+        // Assert
+        expect(label).not.toBeVisible();
     });
 });
 

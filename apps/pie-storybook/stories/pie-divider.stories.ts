@@ -67,4 +67,5 @@ const createDividerStory = createStory<DividerProps>(Template, defaultArgs);
 export const Default = createDividerStory();
 export const Inverse = createDividerStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
 export const Labelled = createDividerStory({ label: 'Label' });
+export const LargeTextContent = createDividerStory({ label: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quas inventore quasi ullam, sed ab odio dicta, tempore' });
 

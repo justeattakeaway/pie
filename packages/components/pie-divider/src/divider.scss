@@ -4,36 +4,47 @@
   --divider-bg-color: var(--dt-color-divider-default);
   --divider-width: 100%;
   --divider-height: 1px;
+  --divider-lebel-max-width: 90%;
 
-  display: flex;
-  align-items: center;
-  text-align: center;
+  margin: 0;
+  border: 0;
+  width: var(--divider-width);
   height: var(--divider-height);
-  gap: var(--dt-spacing-b);
+  background-color: var(--divider-bg-color);
 
-  hr {
-    flex-grow: 1;
-    margin: 0;
+  &.c-divider--labelled {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    gap: var(--dt-spacing-b);
+    background-color: transparent;
 
-    border: 0;
-    width: var(--divider-width);
-    height: var(--divider-height);
-    background-color: var(--divider-bg-color);
-  }
-
-
-  &.c-divider--inverse {
-    color: var(--dt-color-content-inverse);
+    .c-divider-label {
+      max-width: var(--divider-lebel-max-width);
+      word-wrap: break-word;
+    }
 
     hr {
-      --divider-bg-color: var(--dt-color-divider-inverse);
+      flex-grow: 1;
+      margin: 0;
+
+      border: 0;
+      height: var(--divider-height);
+      background-color: var(--divider-bg-color);
     }
+
+    &.c-divider--inverse {
+      color: var(--dt-color-content-inverse);
+    }
+  }
+
+  &.c-divider--inverse {
+    --divider-bg-color: var(--dt-color-divider-inverse);
   }
 
   &.c-divider--vertical {
     --divider-width: 1px;
     --divider-height: 100%;
-
-    flex-direction: column;
   }
 }

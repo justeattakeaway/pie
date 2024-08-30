@@ -1,5 +1,5 @@
 import {
-    html, LitElement, nothing, unsafeCSS,
+    html, LitElement, unsafeCSS,
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -29,34 +29,33 @@ export class PieDivider extends LitElement implements DividerProps {
     @property({ type: String })
     public label = defaultProps.label;
 
-    renderDividerLabel () {
-        if (!this.label) {
-            return nothing;
-        }
-
-        return html`
-            <hr aria-hidden="true"/>
-            <span class="c-divider-label">${this.label}</span>
-        `;
-    }
-
     render () {
         const { variant, orientation, label } = this;
 
         const classes = {
-            'c-divider': true,
             'c-divider--inverse': variant === 'inverse',
             'c-divider--vertical': orientation === 'vertical',
+            'c-divider--labelled': label.length > 0 && orientation === 'horizontal',
         };
 
         return html`
-            <div
-                id="${componentSelector}"
-                data-test-id="${componentSelector}"
-                class="${classMap(classes)}">
-                ${this.renderDividerLabel()}
-                <hr aria-hidden="true"/>
-            </div>`;
+            ${label && orientation === 'horizontal'
+            ? html`
+                <div
+                    id="${componentSelector}"
+                    data-test-id="${componentSelector}"
+                    class="c-divider${classMap(classes)}">
+                        <hr aria-hidden="true"/>
+                        <span class="c-divider-label">${label}</span>
+                        <hr aria-hidden="true"/>
+                </div>`
+            : html`
+                <hr id="${componentSelector}"
+                    data-test-id="${componentSelector}"
+                    class="c-divider${classMap(classes)}"
+                    aria-hidden="true"
+                />`
+            }`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
