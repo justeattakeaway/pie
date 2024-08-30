@@ -388,6 +388,11 @@ export const OutlineInverse = createButtonStory({ variant: 'outline-inverse' }, 
 export const Anchor = createStory(AnchorTemplate, defaultArgs)({
     href: '/?path=/story/button--anchor',
 }, {
+    argTypes: {
+        tag: {
+            description: 'Choose the HTML element that will be used to render the button.<br>For this story, the prop has the value of `a`. See the other stories to interact with the component when this prop has a value of `button`.',
+        },
+    },
     controls: {
         // Hide button-only controls
         exclude: ['type', 'disabled', 'formaction', 'formenctype', 'formmethod', 'formnovalidate', 'formtarget', 'isLoading', 'name', 'value'],
