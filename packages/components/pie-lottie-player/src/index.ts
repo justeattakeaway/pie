@@ -161,6 +161,9 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
         }
     }
 
+    /**
+     * Plays the animation
+     */
     public play (): void {
         if (!this.animationInstance) return;
         // `goToAndPlay` is more useful than `play` in cases when looping is
@@ -169,6 +172,9 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
         this.animationInstance.goToAndPlay(0, true);
     }
 
+    /**
+     * Stops the animation
+     */
     public stop (): void {
         if (!this.animationInstance) return;
         this.animationInstance.stop();
