@@ -184,12 +184,11 @@ const textareaStoryMeta: TextareaStoryMeta = {
             },
         },
         placeholder: {
-            description: 'The placeholder text to display when the textarea is empty. Only applies to types: `text`, `url`, `tel`, `email`, and `password`.',
+            description: 'The placeholder text to display when the textarea is empty.',
             control: 'text',
             defaultValue: {
                 summary: '',
             },
-            if: { arg: 'type', neq: 'number' },
         },
     },
     args: defaultArgs,

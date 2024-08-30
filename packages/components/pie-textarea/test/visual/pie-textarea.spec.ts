@@ -95,12 +95,35 @@ test.describe('placeholder', () => {
 
         await percySnapshot(page, 'Textarea - placeholder', percyWidths);
     });
+
+    test('should render with the value instead of the placeholder when `value` is passed', async ({ page, mount }) => {
+        await mount(PieTextarea, {
+            props: {
+                value: 'test',
+                placeholder: 'Placeholder',
+            } as PieTextarea,
+        });
+
+        await percySnapshot(page, 'Textarea - placeholder + value', percyWidths);
+    });
+
+    test('should render correctly when `disabled` and `placeholder` are set', async ({ page, mount }) => {
+        await mount(PieTextarea, {
+            props: {
+                disabled: true,
+                placeholder: 'Placeholder',
+            } as PieTextarea,
+        });
+
+        await percySnapshot(page, 'Textarea - placeholder + disabled', percyWidths);
+    });
 });
 
 test.describe('readonly', () => {
     test('should render correctly when `readonly` is passed', async ({ page, mount }) => {
         await mount(PieTextarea, {
             props: {
+                value: 'test',
                 readonly: true,
             } as PieTextarea,
         });
