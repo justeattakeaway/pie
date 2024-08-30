@@ -32,19 +32,20 @@ export class PieDivider extends LitElement implements DividerProps {
     render () {
         const { variant, orientation, label } = this;
 
+        const showLabel = label.length > 0 && orientation === 'horizontal';
         const classes = {
+            'c-divider': true,
             'c-divider--inverse': variant === 'inverse',
             'c-divider--vertical': orientation === 'vertical',
-            'c-divider--labelled': label.length > 0 && orientation === 'horizontal',
+            'c-divider--labelled': showLabel,
         };
 
         return html`
-            ${label && orientation === 'horizontal'
-            ? html`
+            ${showLabel ? html`
                 <div
                     id="${componentSelector}"
                     data-test-id="${componentSelector}"
-                    class="c-divider${classMap(classes)}"
+                    class="${classMap(classes)}"
                     aria-labelledby="${componentSelector}-label">
                         <hr aria-hidden="true"/>
                         <span id="${componentSelector}-label" class="c-divider-label">${label}</span>
@@ -53,7 +54,7 @@ export class PieDivider extends LitElement implements DividerProps {
             : html`
                 <hr id="${componentSelector}"
                     data-test-id="${componentSelector}"
-                    class="c-divider${classMap(classes)}"
+                    class="${classMap(classes)}"
                     aria-hidden="true"
                 />`
             }`;

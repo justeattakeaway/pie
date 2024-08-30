@@ -4,24 +4,26 @@
   --divider-bg-color: var(--dt-color-divider-default);
   --divider-width: 100%;
   --divider-height: 1px;
-  --divider-lebel-max-width: 90%;
+  --divider-label-max-width: 90%;
 
   margin: 0;
   border: 0;
   width: var(--divider-width);
-  height: var(--divider-height);
   background-color: var(--divider-bg-color);
+
+  &:not(.c-divider--labelled) {
+    height: var(--divider-height);
+  }
 
   &.c-divider--labelled {
     display: flex;
     align-items: center;
     text-align: center;
-    height: auto;
     gap: var(--dt-spacing-b);
     background-color: transparent;
 
     .c-divider-label {
-      max-width: var(--divider-lebel-max-width);
+      max-width: var(--divider-label-max-width);
       word-wrap: break-word;
     }
 

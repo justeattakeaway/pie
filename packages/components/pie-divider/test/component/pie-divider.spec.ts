@@ -16,7 +16,7 @@ test.describe('PieDivider - Component tests', () => {
         expect(divider).toBeVisible();
     });
 
-    test('should render the `label` if it is provided', async ({ mount, page }) => {
+    test('should render the `label` if it is provided', async ({ mount }) => {
         // Arrange
         const component = await mount(PieDivider, {
             props: {
@@ -32,7 +32,7 @@ test.describe('PieDivider - Component tests', () => {
         expect(label).toBeVisible();
     });
 
-    test('should NOT render the `label` if divider orientation is vertical', async ({ mount, page }) => {
+    test('should NOT render the `label` if divider orientation is vertical', async ({ mount }) => {
         // Arrange
         const component = await mount(PieDivider, {
             props: {
