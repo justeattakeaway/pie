@@ -102,7 +102,7 @@
       "cache": false
     },
     "test:browsers-setup": {
-      "cache": true,
+      "cache": false,
       "inputs": [
         "./configs/pie-components-config/playwright/index.html",
         "./configs/pie-components-config/playwright/index.ts"
