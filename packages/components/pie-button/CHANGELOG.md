@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.49.0
+
+### Minor Changes
+
+- [Added] - tag prop which lets the button render as an anchor tag ([#1703](https://github.com/justeattakeaway/pie/pull/1703)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - `href`, `rel` and `target` props which can be passed to the anchor element
+
 ## 0.48.1
 
 ### Patch Changes
