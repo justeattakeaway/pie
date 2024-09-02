@@ -32,9 +32,8 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
     protected async firstUpdated (_changedProperties: PropertyValues): Promise<void> {
         // Check if the code is running in a browser environment
         if (this.canUseDOM()) {
-            // TODO: Solve TS issue
-            const asyncLottieModule = await import('lottie-web/build/player/esm/lottie_light_canvas.min.js'); // Dynamically import the 'lottie-web' library to avoid SSR issues
-            this._lottie = asyncLottieModule.default;
+            const { default: lottieModule } = await import('lottie-web/build/player/lottie_light_canvas.min.js'); // Dynamically import the 'lottie-web' library to avoid SSR issues
+            this._lottie = lottieModule;
             this._loadAnimation();
         }
     }
