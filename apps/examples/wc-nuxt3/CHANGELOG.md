@@ -1,5 +1,12 @@
 # wc-nuxt3
 
+## 0.6.14
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.27
+
 ## 0.6.13
 
 ### Patch Changes
