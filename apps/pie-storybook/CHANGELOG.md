@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.2.2
+
+### Patch Changes
+
+- [Added] - anchor story for pie-button ([#1703](https://github.com/justeattakeaway/pie/pull/1703)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - new props to button stories
+  [Changed] - exclude some button props from stories where they aren't relevant
+
+- Updated dependencies [[`7de240b2d`](https://github.com/justeattakeaway/pie/commit/7de240b2d00df37493f4d29d9a7baac10ebc90ee), [`2f8c8be9d`](https://github.com/justeattakeaway/pie/commit/2f8c8be9d8c90a2e2be2e58d7d2bec99cbac9792)]:
+  - @justeattakeaway/pie-button@0.49.0
+  - @justeattakeaway/pie-icons-webc@0.25.1
+  - @justeattakeaway/pie-cookie-banner@0.26.1
+  - @justeattakeaway/pie-modal@0.46.1
+  - @justeattakeaway/pie-toast@0.3.2
+  - @justeattakeaway/pie-assistive-text@0.7.1
+  - @justeattakeaway/pie-chip@0.8.1
+  - @justeattakeaway/pie-icon-button@0.28.11
+  - @justeattakeaway/pie-notification@0.10.1
+  - @justeattakeaway/pie-switch@0.30.1
+  - @justeattakeaway/pie-text-input@0.23.5
+  - @justeattakeaway/pie-checkbox@0.12.3
+  - @justeattakeaway/pie-checkbox-group@0.6.3
+
 ## 1.2.1
 
 ### Patch Changes
