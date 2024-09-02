@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.19.1
+
+### Patch Changes
+
+- [Changed] - use latest webpack for security fixes ([#1743](https://github.com/justeattakeaway/pie/pull/1743)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 4.19.0
 
 ### Minor Changes
