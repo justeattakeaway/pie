@@ -17,14 +17,14 @@ export interface LottiePlayerProps {
     animationData?: object;
 
     /**
-     * By the default animations loop, setting this prop as true will prevent that behaviour
+     * By the default animations loop, setting this prop as true will prevent such behaviour
      */
-    disableLoop?: boolean;
+    loopDisabled?: boolean;
 
     /**
-     * By default animations start playing as soons as its data is available, setting this prop as true will prevent that behaviour
+     * By default animations start playing as soons as its data is available, setting this prop as true will prevent such behaviour
      */
-    disableAutoPlay?: boolean;
+    autoPlayDisabled?: boolean;
 
     /**
      * Determines the animation reproduction speed
@@ -41,8 +41,8 @@ export interface LottiePlayerProps {
 export type DefaultProps = ComponentDefaultProps<LottiePlayerProps, keyof Omit<LottiePlayerProps, 'animationSrc' | 'animationData'>>;
 
 export const defaultProps: DefaultProps = {
-    disableLoop: false,
-    disableAutoPlay: false,
+    loopDisabled: false,
+    autoPlayDisabled: false,
     speed: 1,
     direction: directions[0],
 };

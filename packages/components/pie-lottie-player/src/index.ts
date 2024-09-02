@@ -22,8 +22,8 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
 
     private _animationSrc = '';
     private _animationData?:object;
-    private _disableAutoPlay = defaultProps.disableAutoPlay;
-    private _disableLoop = defaultProps.disableLoop;
+    private _autoPlayDisabled = defaultProps.autoPlayDisabled;
+    private _loopDisabled = defaultProps.loopDisabled;
     private _speed = defaultProps.speed;
     private _direction = defaultProps.direction;
 
@@ -58,8 +58,8 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
             this._animationInstance = this._lottie.loadAnimation({
                 container: this._hostElement, // the dom element that will contain the animation
                 renderer: 'canvas',
-                loop: !this.disableLoop,
-                autoplay: !this.disableAutoPlay,
+                loop: !this.loopDisabled,
+                autoplay: !this.autoPlayDisabled,
                 animationData: this.animationData,
                 path: this.animationSrc,
             });
@@ -102,30 +102,30 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
     }
 
     @property({ type: Boolean })
-    get disableAutoPlay () {
-        return this._disableAutoPlay;
+    get autoPlayDisabled () {
+        return this._autoPlayDisabled;
     }
 
-    set disableAutoPlay (value) {
-        this._disableAutoPlay = value;
+    set autoPlayDisabled (value) {
+        this._autoPlayDisabled = value;
         if (!this._animationInstance) return;
 
         this._animationInstance.autoplay = value;
     }
 
     @property({ type: Boolean })
-    get disableLoop () {
-        return this._disableLoop;
+    get loopDisabled () {
+        return this._loopDisabled;
     }
 
-    set disableLoop (value) {
-        this._disableLoop = value;
+    set loopDisabled (value) {
+        this._loopDisabled = value;
         if (!this._animationInstance) return;
 
         this._animationInstance.loop = !value;
 
         // Ensure to resume playing if looping was disabled
-        const shouldResumePlaying = this._disableLoop === false && this._animationInstance.isPaused && this._animationInstance.isLoaded;
+        const shouldResumePlaying = this._loopDisabled === false && this._animationInstance.isPaused && this._animationInstance.isLoaded;
         if (shouldResumePlaying) this.play();
     }
 
