@@ -65,8 +65,10 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
             });
             this._animationInstance.setSpeed(this.speed);
             this._updateDirection();
-        } catch (error:any) {
-            console.error(`PieLottiePlayer: the animation couldn't be played. Error: "${error.message}"`);
+        } catch (_error:unknown) {
+            const error = _error as Error;
+            const errorMessage = error && error.message && `Error: "${error.message}"`;
+            console.error(`PieLottiePlayer: the animation couldn't be played. ${errorMessage}`);
         }
     }
 
