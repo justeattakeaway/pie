@@ -1,23 +1,16 @@
 import { getShadowElementStylePropValues } from '@justeattakeaway/pie-webc-testing/src/helpers/get-shadow-element-style-prop-values.ts';
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieTag, TagProps } from '../../src/index.ts';
+import { PieTag, type TagProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-tag"]';
 const tagIconSelector = '[data-test-id="tag-icon"]';
-
-const props: Partial<TagProps> = {
-    size: 'large',
-    variant: 'neutral',
-    isStrong: false,
-    isDimmed: false,
-};
 
 type VariantToBgStyle = {
     variantName: TagProps['variant'];
     bgStyle: string;
 };
 
-const variantsToIsStrongStyle:Array<VariantToBgStyle> = [
+const variantsToIsStrongStyle: Array<VariantToBgStyle> = [
     { variantName: 'neutral', bgStyle: '--dt-color-container-inverse' },
     { variantName: 'green', bgStyle: '--dt-color-support-positive' },
     { variantName: 'red', bgStyle: '--dt-color-support-error' },
@@ -35,7 +28,6 @@ test.describe('PieTag - Component tests', () => {
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
         await mount(PieTag, {
-            props,
             slots: {
                 default: 'Label',
             },
@@ -54,7 +46,6 @@ test.describe('PieTag - Component tests', () => {
                 test('should render the icon', async ({ mount, page }) => {
                     // Arrange
                     await mount(PieTag, {
-                        props,
                         slots: {
                             default: 'Label',
                             icon,
@@ -74,7 +65,6 @@ test.describe('PieTag - Component tests', () => {
                     // Arrange
                     await mount(PieTag, {
                         props: {
-                            ...props,
                             size: 'small',
                         },
                         slots: {
@@ -96,7 +86,6 @@ test.describe('PieTag - Component tests', () => {
             test('should NOT render the icon', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieTag, {
-                    props,
                     slots: {
                         default: 'Label',
                     },
@@ -115,7 +104,6 @@ test.describe('PieTag - Component tests', () => {
         test(`a "${variantName}" tag variant bg colour should be equivalent to "${bgStyle}"`, async ({ mount }) => {
             const component = await mount(PieTag, {
                 props: {
-                    ...props,
                     variant: variantName,
                     isStrong: true,
                 },
