@@ -6,10 +6,14 @@
   --divider-height: 1px;
   --divider-label-max-width: 90%;
 
-  margin: 0;
-  border: 0;
   width: var(--divider-width);
-  background-color: var(--divider-bg-color);
+
+  &,
+  hr {
+    margin: 0;
+    border: 0;
+    background-color: var(--divider-bg-color);
+  }
 
   &:not(.c-divider--labelled) {
     height: var(--divider-height);
@@ -29,11 +33,7 @@
 
     hr {
       flex-grow: 1;
-      margin: 0;
-
-      border: 0;
       height: var(--divider-height);
-      background-color: var(--divider-bg-color);
     }
 
     &.c-divider--inverse {
