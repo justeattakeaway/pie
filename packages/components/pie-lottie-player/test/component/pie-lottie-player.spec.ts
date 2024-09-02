@@ -3,7 +3,7 @@ import { readFile } from 'fs/promises';
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieLottiePlayer, LottiePlayerProps } from '../../src/index.ts';
 
-const animationData = JSON.parse(await readFile(new URL('./courier.json', import.meta.url), { encoding: 'utf-8' }));
+const animationData = JSON.parse(await readFile(new URL('../courier.json', import.meta.url), { encoding: 'utf-8' }));
 
 const componentSelector = 'pie-lottie-player';
 
