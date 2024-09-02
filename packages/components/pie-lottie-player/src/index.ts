@@ -1,4 +1,6 @@
-import { LitElement, PropertyValues, html } from 'lit';
+import {
+    LitElement, PropertyValues, html, unsafeCSS,
+} from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { LottiePlayer, AnimationItem } from 'lottie-web';
 
@@ -191,6 +193,9 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
     render () {
         return html`<div data-test-id="pie-lottie-player"></div>`;
     }
+
+    // Renders a `CSSResult` generated from SCSS by Vite
+    static styles = unsafeCSS(''); // Kept as empty to ensure it will be present during SSR testing
 }
 
 defineCustomElement(componentSelector, PieLottiePlayer);
