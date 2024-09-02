@@ -36,9 +36,19 @@ export interface LottiePlayerProps {
      * Sets the animation reproduction direction
      */
     direction?:AnimationDirection;
+
+    /**
+     * Plays ther animation
+     */
+    play (): void;
+
+    /**
+     * Stops the animation
+     */
+    stop (): void;
 }
 
-export type DefaultProps = ComponentDefaultProps<LottiePlayerProps, keyof Omit<LottiePlayerProps, 'animationSrc' | 'animationData'>>;
+export type DefaultProps = ComponentDefaultProps<LottiePlayerProps, keyof Omit<LottiePlayerProps, 'animationSrc' | 'animationData' | 'play' | 'stop'>>;
 
 export const defaultProps: DefaultProps = {
     loopDisabled: false,
