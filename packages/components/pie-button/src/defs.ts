@@ -1,5 +1,6 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
+export const tags = ['button', 'a'] as const;
 export const sizes = ['xsmall', 'small-productive', 'small-expressive', 'medium', 'large'] as const;
 export const responsiveSizes = ['productive', 'expressive'] as const;
 export const types = ['submit', 'button', 'reset'] as const;
@@ -17,29 +18,40 @@ export const formTargetTypes = ['_self', '_blank', '_parent', '_top'] as const;
 
 export interface ButtonProps {
     /**
+     * Which HTML element to use when rendering the button.
+     */
+    tag?: typeof tags[number];
+
+    /**
      * What size the button should be.
      */
     size?: typeof sizes[number];
+
     /**
      * What type attribute should be applied to the button. For example submit, button.
      */
     type?: typeof types[number];
+
     /**
      * What style variant the button should be such as primary, outline or ghost.
      */
     variant?: Variant;
+
     /**
      * The placement of the icon slot, if provided, such as leading or trailing
      */
     iconPlacement?: typeof iconPlacements[number];
+
     /**
      * When true, the button element is disabled.
      */
     disabled?: boolean;
+
     /**
      * When true, the button element will occupy the full width of its container.
      */
     isFullWidth?: boolean;
+
     /**
      * When true, displays a loading indicator inside the button.
      */
@@ -99,11 +111,30 @@ export interface ButtonProps {
      * What size should be attributed to the button when isResponsive is true and the screen is wide.
      */
     responsiveSize?: typeof responsiveSizes[number];
+
+    /**
+     * If the button is rendered as an anchor element, this attribute will be applied to the `href` attribute on the anchor.
+     * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href)
+     */
+    href?: string;
+
+    /**
+     * If the button is rendered as an anchor element, this attribute will be applied to the `rel` attribute on the anchor.
+     * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel)
+     */
+    rel?: string;
+
+    /**
+     * If the button is rendered as an anchor element, this attribute will be applied to the `target` attribute on the anchor.
+     * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target)
+     */
+    target?: string;
 }
 
-export type DefaultProps = ComponentDefaultProps<ButtonProps, 'size' | 'type' | 'variant' | 'iconPlacement' | 'disabled' | 'isFullWidth' | 'isLoading' | 'isResponsive'>;
+export type DefaultProps = ComponentDefaultProps<ButtonProps, 'tag' | 'size' | 'type' | 'variant' | 'iconPlacement' | 'disabled' | 'isFullWidth' | 'isLoading' | 'isResponsive'>;
 
 export const defaultProps: DefaultProps = {
+    tag: 'button',
     size: 'medium',
     type:  'submit',
     variant: 'primary',
