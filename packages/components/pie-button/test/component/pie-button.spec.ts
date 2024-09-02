@@ -1,18 +1,13 @@
 import { getShadowElementStylePropValues } from '@justeattakeaway/pie-webc-testing/src/helpers/get-shadow-element-style-prop-values.ts';
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieButton, ButtonProps } from '../../src/index.ts';
-
-const props: Partial<ButtonProps> = {
-    size: 'large',
-    variant: 'primary',
-};
+import { PieButton, type ButtonProps } from '../../src/index.ts';
 
 type SizeResponsiveSize = {
     sizeName: ButtonProps['size'];
     responsiveSize: string;
 };
 
-const sizes:Array<SizeResponsiveSize> = [
+const sizes: Array<SizeResponsiveSize> = [
     { sizeName: 'xsmall', responsiveSize: '--btn-height--small' },
     { sizeName: 'small-expressive', responsiveSize: '--btn-height--medium' },
     { sizeName: 'small-productive', responsiveSize: '--btn-height--medium' },
@@ -26,7 +21,6 @@ test('should correctly work with native click event', async ({ mount }) => {
     const component = await mount(
         PieButton,
         {
-            props,
             slots: {
                 default: 'Click me!',
             },
@@ -552,7 +546,6 @@ test.describe('props', () => {
                 const component = await mount(
                     PieButton,
                     {
-                        props,
                         slots: {
                             default: 'Click me!',
                         },
@@ -565,8 +558,7 @@ test.describe('props', () => {
         });
         test.describe('when set to true', () => {
             test('the button should have the attribute', async ({ mount }) => {
-                const testProps:Partial<ButtonProps> = {
-                    ...props,
+                const props: ButtonProps = {
                     size: 'xsmall',
                     isResponsive: true,
                 };
@@ -574,7 +566,7 @@ test.describe('props', () => {
                 const component = await mount(
                     PieButton,
                     {
-                        props: testProps,
+                        props,
                         slots: {
                             default: 'Click me!',
                         },
@@ -587,14 +579,13 @@ test.describe('props', () => {
 
             sizes.forEach(({ sizeName, responsiveSize }) => {
                 test(`a "${sizeName}" size button height should be equivalent to "${responsiveSize}"`, async ({ mount }) => {
-                    const testProps: Partial<ButtonProps> = {
-                        ...props,
+                    const props: ButtonProps = {
                         size: sizeName,
                         isResponsive: true,
                     };
 
                     const component = await mount(PieButton, {
-                        props: testProps,
+                        props,
                         slots: {
                             default: 'Click me!',
                         },
@@ -614,7 +605,6 @@ test.describe('props', () => {
                 const component = await mount(
                     PieButton,
                     {
-                        props,
                         slots: {
                             default: 'Click me!',
                         },
@@ -629,8 +619,7 @@ test.describe('props', () => {
         test.describe('when "isResponsive" is true', () => {
             test.describe('when "responsiveSize" is "expressive"', () => {
                 test('the button should have the expected attribute', async ({ mount }) => {
-                    const testProps:Partial<ButtonProps> = {
-                        ...props,
+                    const props: ButtonProps = {
                         size: 'xsmall',
                         isResponsive: true,
                         responsiveSize: 'expressive',
@@ -639,7 +628,7 @@ test.describe('props', () => {
                     const component = await mount(
                         PieButton,
                         {
-                            props: testProps,
+                            props,
                             slots: {
                                 default: 'Click me!',
                             },
@@ -654,8 +643,7 @@ test.describe('props', () => {
 
         test.describe('when "responsiveSize" is "productive"', () => {
             test('the button should have the expected attribute', async ({ mount }) => {
-                const testProps:Partial<ButtonProps> = {
-                    ...props,
+                const props: ButtonProps = {
                     size: 'xsmall',
                     isResponsive: true,
                     responsiveSize: 'productive',
@@ -664,7 +652,7 @@ test.describe('props', () => {
                 const component = await mount(
                     PieButton,
                     {
-                        props: testProps,
+                        props,
                         slots: {
                             default: 'Click me!',
                         },
@@ -673,6 +661,113 @@ test.describe('props', () => {
 
                 await expect(component.locator('button'))
                     .toHaveClass(/o-btn--productive/);
+            });
+        });
+    });
+
+    test.describe('tag', () => {
+        test.describe('when set to "button"', () => {
+            test('should render a button element', async ({ mount }) => {
+                // Arrange
+                const props: ButtonProps = {
+                    tag: 'button',
+                };
+
+                // Act
+                const component = await mount(PieButton, {
+                    props,
+                    slots: {
+                        default: 'Click me!',
+                    },
+                });
+
+                const button = component.locator('button');
+
+                // Assert
+                expect(button).toBeVisible();
+            });
+
+            test('should not render anchor-specific attributes', async ({ mount }) => {
+                // Arrange
+                const props: ButtonProps = {
+                    tag: 'button',
+                    // Anchor-specific props
+                    href: '/test',
+                    rel: 'noopener noreferrer',
+                    target: '_blank',
+                };
+
+                // Act
+                const component = await mount(PieButton, {
+                    props,
+                    slots: {
+                        default: 'Click me!',
+                    },
+                });
+
+                const button = component.locator('button');
+
+                const href = await button.getAttribute('href');
+                const rel = await button.getAttribute('rel');
+                const target = await button.getAttribute('target');
+
+                // Assert
+                expect.soft(rel).toBeNull();
+                expect.soft(target).toBeNull();
+                expect(href).toBeNull();
+            });
+        });
+
+        test.describe('when set to "a"', () => {
+            test('should render an anchor element', async ({ mount }) => {
+                // Arrange
+                const props: ButtonProps = {
+                    tag: 'a',
+                };
+
+                // Act
+                const component = await mount(PieButton, {
+                    props,
+                    slots: {
+                        default: 'Click me!',
+                    },
+                });
+
+                const anchor = component.locator('a');
+
+                // Assert
+                expect(anchor).toBeVisible();
+            });
+
+            test('should not render button-specific attributes', async ({ mount }) => {
+                // Arrange
+                const props: ButtonProps = {
+                    tag: 'a',
+                    // Button-specific props
+                    disabled: true,
+                    isLoading: true,
+                    type: 'submit',
+                };
+
+                // Act
+                const component = await mount(PieButton, {
+                    props,
+                    slots: {
+                        default: 'Click me!',
+                    },
+                });
+
+                const anchor = component.locator('a');
+
+                // Assert
+                const disabled = await anchor.getAttribute('disabled');
+                const type = await anchor.getAttribute('type');
+                const spinner = component.locator('pie-spinner');
+
+                expect.soft(anchor).not.toHaveClass(/is-loading/);
+                expect.soft(disabled).toBeNull();
+                expect.soft(type).toBeNull();
+                expect(spinner).not.toBeVisible();
             });
         });
     });
