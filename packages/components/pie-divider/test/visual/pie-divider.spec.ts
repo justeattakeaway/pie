@@ -20,7 +20,7 @@ import { PieDivider } from '../../src/index.ts';
 const props: PropObject<DividerProps> = {
     variant: variants,
     orientation: orientations,
-    label: ['', 'Label'],
+    label: ['', 'Label', 'Lorem ipsum dolor sit amet consectetur'],
 };
 
 const renderTestPieDivider = (propVals: WebComponentPropValues) => {
