@@ -41,18 +41,18 @@ const lottiePlayerStoryMeta: LottiePlayerStoryMeta = {
                 summary: defaultArgs.animationSrc,
             },
         },
-        disableLoop: {
-            description: 'By the default animations loop, setting this prop as true will prevent that behaviour.',
+        loopDisabled: {
+            description: 'By the default animations loop, setting this prop as true will prevent such behaviour.',
             control: 'boolean',
             defaultValue: {
-                summary: defaultArgs.disableLoop,
+                summary: defaultArgs.loopDisabled,
             },
         },
-        disableAutoPlay: {
-            description: 'By default animations start playing as soons as its data is available, setting this prop as true will prevent that behaviour.',
+        autoPlayDisabled: {
+            description: 'By default animations start playing as soons as its data is available, setting this prop as true will prevent such behaviour.',
             control: 'boolean',
             defaultValue: {
-                summary: defaultArgs.disableAutoPlay,
+                summary: defaultArgs.autoPlayDisabled,
             },
         },
         speed: {
@@ -98,8 +98,8 @@ function handleStartAnimationClick () {
 
 const Template = ({
     animationSrc,
-    disableLoop,
-    disableAutoPlay,
+    loopDisabled,
+    autoPlayDisabled,
     speed,
     direction,
 }: LottiePlayerProps) => html`
@@ -109,8 +109,8 @@ const Template = ({
     </div>
     <pie-lottie-player
         .animationSrc="${animationSrc === undefined ? animationSrcOptions[0] : animationSrc}"
-        ?disableLoop="${disableLoop}"
-        ?disableAutoPlay="${disableAutoPlay}"
+        ?loopDisabled="${loopDisabled}"
+        ?autoPlayDisabled="${autoPlayDisabled}"
         .speed="${speed || 1}"
         .direction="${direction || directions[0]}"
     ></pie-lottie-player>
