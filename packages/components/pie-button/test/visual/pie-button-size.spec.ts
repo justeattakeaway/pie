@@ -1,7 +1,7 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import type {
-    PropObject, WebComponentPropValues, WebComponentTestInput,
+import {
+    type PropObject, type WebComponentPropValues,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
 import {
     getAllPropCombinations,
@@ -14,9 +14,9 @@ import {
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { PieButton } from '../../src/index.ts';
-import { sizes } from '../../src/defs.ts';
+import { type ButtonProps, sizes } from '../../src/defs.ts';
 
-const props: PropObject = {
+const props: PropObject<ButtonProps> = {
     variant: ['primary'],
     size: sizes,
     isResponsive: [true, false],
@@ -26,7 +26,7 @@ const props: PropObject = {
 // Renders a <pie-button> HTML string with the given prop values
 const renderTestPieButton = (propVals: WebComponentPropValues) => `<pie-button size="${propVals.size}" ${propVals.isResponsive ? 'isResponsive' : ''} responsiveSize="${propVals.responsiveSize ? propVals.responsiveSize : ''}">Hello world</pie-button>`;
 
-const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
+const componentPropsMatrix = getAllPropCombinations(props);
 
 test.beforeEach(async ({ mount }, testInfo) => {
     testInfo.setTimeout(testInfo.timeout + 40000);
@@ -36,7 +36,7 @@ test.beforeEach(async ({ mount }, testInfo) => {
 
 test('should render all size variations', async ({ page, mount }) => {
     for (const combo of componentPropsMatrix) {
-        const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieButton);
+        const testComponent = createTestWebComponent(combo, renderTestPieButton);
         const propKeyValues = `size: ${testComponent.propValues.size}, isResponsive: ${testComponent.propValues.isResponsive}, responsiveSize: ${testComponent.propValues.responsiveSize}`;
 
         await mount(
