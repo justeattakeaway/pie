@@ -15,6 +15,7 @@
   --textarea-background-color: var(--dt-color-container-default);
   --textarea-border-color: var(--dt-color-interactive-form);
   --textarea-content-color: var(--dt-color-content-default);
+  --textarea-placeholder-color: var(--dt-color-content-subdued);
 
   // Default height is two lines of text
   --textarea-height: calc((var(--textarea-line-height) * 2) + (var(--textarea-padding-block) * 2));
@@ -49,16 +50,28 @@
       box-shadow: none;
       outline: none;
     }
+
+    &::placeholder {
+      color: var(--textarea-placeholder-color);
+
+      opacity: 1; // normalize opacity for all browsers
+    }
+  }
+
+  &.c-textarea--readonly {
+    --textarea-background-color: var(--dt-color-container-subtle);
+    --textarea-border-color: var(--dt-color-interactive-form);
   }
 
   &.c-textarea--disabled {
     --textarea-background-color: var(--dt-color-disabled-01);
     --textarea-border-color: var(--dt-color-disabled-01);
     --textarea-content-color: var(--dt-color-content-disabled);
+    --textarea-placeholder-color: var(--dt-color-content-disabled);
   }
 
   @media (hover: hover) {
-    &:hover:not(.c-textarea--disabled) {
+    &:hover:not(.c-textarea--disabled, .c-textarea--readonly) {
       --textarea-background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
     }
   }
