@@ -25,7 +25,7 @@ env:
 
 jobs:
   lint:
-    runs-on: [ self-hosted, ubuntu-latest ]
+    runs-on: [ ubuntu-latest ]
     if: github.event_name == 'workflow_dispatch' || contains(github.event.pull_request.labels.*.name, 'ci') && (github.event.repository.fork == false || github.event_name == 'pull_request')
     steps:
 
