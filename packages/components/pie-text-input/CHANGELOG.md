@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-text-input
 
+## 0.23.6
+
+### Patch Changes
+
+- [Changed] - ensure the placeholder text isn't obscured by opacity in firefox ([#1747](https://github.com/justeattakeaway/pie/pull/1747)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - updated the readonly background to use the subtle token
+
 ## 0.23.5
 
 ### Patch Changes

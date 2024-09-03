@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-textarea
 
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - support `placeholder` and `readonly` props ([#1747](https://github.com/justeattakeaway/pie/pull/1747)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.8.0
 
 ### Minor Changes
