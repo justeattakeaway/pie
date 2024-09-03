@@ -7,8 +7,12 @@ on:
   push:
     branches: [ main ]
     paths:
-      - '.github/**'
+      - '.github/workflows/**.yml'
+      - '.github/actions/**.yml'
   pull_request:
+    paths:
+      - '.github/workflows/**.yml'
+      - '.github/actions/**.yml'
 
   workflow_dispatch:
 
