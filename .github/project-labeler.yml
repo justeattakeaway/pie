@@ -4,6 +4,9 @@
 apps:
 - 'apps/**/*'
 
+ci:
+- '.github/**/*'
+
 pie-docs:
 - 'apps/pie-docs/**/*'
 
