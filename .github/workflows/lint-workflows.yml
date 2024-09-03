@@ -19,5 +19,7 @@ jobs:
     - name: actionlint
       # v2.0.0
       uses: raven-actions/actionlint@01fce4f43a270a612932cb1c64d40505a029f821
+      env:
+        HUSKY: 0
       with:
         pyflakes: false # we do not use python scripts
