@@ -1,0 +1,23 @@
+name: Actionlint
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '.github/**'
+  pull_request:
+    paths:
+      - '.github/**'
+
+jobs:
+  actionlint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      # v4.1.7
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+    - name: actionlint
+      # v2.0.0
+      uses: raven-actions/actionlint@01fce4f43a270a612932cb1c64d40505a029f821
+      with:
+        pyflakes: false # we do not use python scripts

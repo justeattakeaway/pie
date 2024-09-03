@@ -66,7 +66,8 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@v3
+        # v4.1.7
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
         with:
           fetch-depth: 0
       # Setup Repo
@@ -99,7 +100,8 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@v3
+        # v4.1.7
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
       # Setup Repo
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
@@ -118,7 +120,8 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@v3
+        # v4.1.7
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
       # Setup Repo
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
@@ -159,7 +162,8 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@v3
+        # v4.1.7
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
       # Setup Repo
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
@@ -199,7 +203,8 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@v3
+        # v4.1.7
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
         with:
           fetch-depth: 0
       # Setup Repo
@@ -216,7 +221,8 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: "test:browsers:ci --filter='./packages/components/*'"
-      - uses: actions/upload-artifact@v3
+      # v4.4.0
+      - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874
         if: always()
         with:
           name: browsers-report
@@ -235,7 +241,8 @@ jobs:
         with:
           script-name: "test:visual:ci --filter='{./packages/components/*}...[origin/main]'"
           concurrency: 1
-      - uses: actions/upload-artifact@v3
+      # v4.4.0
+      - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874
         if: always()
         with:
           name: visual-report
@@ -265,7 +272,8 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@v3
+        # v4.1.7
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
         with:
           fetch-depth: 0
       # Setup Repo
@@ -282,7 +290,8 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: "test:browsers:ci --filter=pie-docs"
-      - uses: actions/upload-artifact@v3
+      # v4.4.0
+      - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874
         if: always()
         with:
           name: browsers-report
@@ -301,7 +310,8 @@ jobs:
         with:
           script-name: "test:visual:ci --filter=pie-docs"
           concurrency: 1
-      - uses: actions/upload-artifact@v3
+      # v4.4.0
+      - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874
         if: always()
         with:
           name: visual-report

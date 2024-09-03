@@ -14,7 +14,8 @@ runs:
   steps:
       # Setup Node
       - name: Setup Node
-        uses: actions/setup-node@v4
+        # v4.0.3
+        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b
         with:
           node-version: ${{ inputs.node-version }}
           cache: "yarn"

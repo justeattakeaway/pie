@@ -31,14 +31,16 @@ runs:
   using: composite
   steps:
   - name: 🎟 Get GitHub App token
-    uses: navikt/github-app-token-generator@v1.2.0        
+    # v1.2.1
+    uses: navikt/github-app-token-generator@b96ff604b2300989cd1105e3fad09199fca56681  
     id: get-token
     with:
       app-id: ${{ inputs.gh-app-id }}
       private-key: ${{ inputs.gh-app-private-key }}
 
   - name: Delete associated GitHub environment
-    uses: strumwolf/delete-deployment-environment@v2.2.3
+    # v3.0.0
+    uses: strumwolf/delete-deployment-environment@a4825dd9648c57da8437a4885c3fcad58beac69c
     with:
       # Use a JWT created with your GitHub App's private key
       token: ${{ steps.get-token.outputs.token }}

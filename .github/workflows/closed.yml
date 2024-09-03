@@ -14,11 +14,13 @@ jobs:
       hasStorybookEnv: ${{ steps.list-environments.outputs.hasStorybookEnv }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        # v4.1.7
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
 
       - name: List repo environments
         id: list-environments
-        uses: actions/github-script@v6
+        # v7.0.1
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
         with:
           github-token: ${{ secrets.CHANGESETS_TOKEN }}
           script: |
