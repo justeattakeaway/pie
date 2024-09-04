@@ -216,8 +216,8 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: "test:browsers:ci --filter='./packages/components/*'"
-      # v4.4.0
-      - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 # v4.4.0
         if: always()
         with:
           name: browsers-report
@@ -236,8 +236,8 @@ jobs:
         with:
           script-name: "test:visual:ci --filter='{./packages/components/*}...[origin/main]'"
           concurrency: 1
-      # v4.4.0
-      - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 # v4.4.0
         if: always()
         with:
           name: visual-report
@@ -284,8 +284,8 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: "test:browsers:ci --filter=pie-docs"
-      # v4.4.0
-      - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 # v4.4.0
         if: always()
         with:
           name: browsers-report
@@ -304,8 +304,8 @@ jobs:
         with:
           script-name: "test:visual:ci --filter=pie-docs"
           concurrency: 1
-      # v4.4.0
-      - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
         if: always()
         with:
           name: visual-report
