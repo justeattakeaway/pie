@@ -1,4 +1,6 @@
-import { LitElement, html, unsafeCSS } from 'lit';
+import {
+    LitElement, html, isServer, unsafeCSS,
+} from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { LottiePlayer, AnimationItem } from 'lottie-web';
 
@@ -29,11 +31,11 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
 
     protected async firstUpdated (): Promise<void> {
         // Check if the code is running in a browser environment
-        if (this._canUseDOM()) {
-            const { default: lottieModule } = await import('lottie-web/build/player/lottie_light_canvas.min.js'); // Dynamically import the 'lottie-web' library to avoid SSR issues
-            this._lottie = lottieModule;
-            this._loadAnimation();
-        }
+        if (isServer) return;
+
+        const { default: lottieModule } = await import('lottie-web/build/player/lottie_light_canvas.min.js'); // Dynamically import the 'lottie-web' library to avoid SSR issues
+        this._lottie = lottieModule;
+        this._loadAnimation();
     }
 
     disconnectedCallback () {
@@ -41,12 +43,8 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
         this._destroyAnimation();
     }
 
-    private _canUseDOM () {
-        return typeof window !== 'undefined' && 'document' in window && 'createElement' in window.document;
-    }
-
     private _loadAnimation (): void {
-        if (!this._canUseDOM()) return;
+        if (isServer) return;
         if (!this._hostElement) return;
         if (!this._lottie) return;
 
