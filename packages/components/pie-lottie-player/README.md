@@ -72,21 +72,21 @@ import { PieLottiePlayer } from '@justeattakeaway/pie-lottie-player/dist/react';
 
 | Property         | Type      | Default | Description                                                                                                                  |
 | ---------------- | --------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| animationSrc     | `String`  | -       | Lottie animation JSON file URL or relative path. animationSrc and animationData are mutually exclusive.                      |
-| animationData    | `Object`  | -       | Object with Lottie animation data. animationSrc and animationData are mutually exclusive.                                    |
-| loopDisabled     | `Boolean` | false   | By the default animations loop, setting this prop as true will prevent such behaviour.                                       |
-| autoPlayDisabled | `Boolean` | false   | By default animations start playing as soon as its data is available, setting this prop as true will prevent such behaviour. |
-| speed            | `Number`  | 1       | Determines the animation reproduction speed. 1 is the regular speed, 2 is twice as fast.                                     |
-| direction        | `String`  | forward | Sets the animation reproduction direction.                                                                                   |
+| animationSrc | `String` | - | Lottie animation JSON file URL or relative path. animationSrc and animationData are mutually exclusive. |
+| animationData | `Object` | - | Object with Lottie animation data. animationSrc and animationData are mutually exclusive. |
+| loopDisabled | `Boolean` | false | By the default animations loop, setting this prop as true will prevent such behaviour. |
+| autoPlayDisabled | `Boolean` | false | By default animations start playing as soon as its data is available, setting this prop as true will prevent such behaviour. |
+| speed | `Number` | 1 | Determines the animation reproduction speed. 1 is the regular speed, 2 is twice as fast. |
+| direction | `String` | forward | Sets the animation reproduction direction. |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-lottie-player` component:
 
 ```html
 <!-- Native HTML -->
-<pie-lottie-player></pie-lottie-player>
+<pie-lottie-player animationSrc="./animation-file.json"></pie-lottie-player>
 
 <!-- JSX -->
-<PieLottiePlayer></PieLottiePlayer>
+<PieLottiePlayer animationSrc="./animation-file.json"></PieLottiePlayer>
 ```
 
 ## Contributing
