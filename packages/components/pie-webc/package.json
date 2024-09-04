@@ -234,7 +234,7 @@
     "@justeattakeaway/pie-switch": "0.30.1",
     "@justeattakeaway/pie-tag": "0.9.10",
     "@justeattakeaway/pie-text-input": "0.23.6",
-    "@justeattakeaway/pie-textarea": "0.9.0",
+    "@justeattakeaway/pie-textarea": "0.0.0",
     "@justeattakeaway/pie-toast": "0.3.2"
   },
   "volta": {
