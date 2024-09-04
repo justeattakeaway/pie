@@ -2,6 +2,7 @@ import {
     LitElement, html, unsafeCSS, nothing,
 } from 'lit';
 import { property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './tag.scss?inline';
 import {
@@ -21,11 +22,11 @@ const componentSelector = 'pie-tag';
 export class PieTag extends LitElement implements TagProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
-    public variant: TagProps['variant'] = defaultProps.variant;
+    public variant = defaultProps.variant;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
-    public size : TagProps['size'] = defaultProps.size;
+    public size = defaultProps.size;
 
     @property({ type: Boolean })
     public isStrong = defaultProps.isStrong;
@@ -35,18 +36,23 @@ export class PieTag extends LitElement implements TagProps {
 
     render () {
         const {
-            variant,
-            size,
-            isStrong,
             isDimmed,
+            isStrong,
+            size,
+            variant,
         } = this;
+
+        const classes = {
+            'c-tag': true,
+            [`c-tag--${size}`]: true,
+            [`c-tag--${variant}`]: true,
+            'c-tag--dimmed': isDimmed,
+            'c-tag--strong': isStrong,
+        };
+
         return html`
             <div
-                class="c-tag"
-                variant=${variant}
-                size=${size}
-                ?isStrong=${isStrong}
-                ?isDimmed=${isDimmed}
+                class="${classMap(classes)}"
                 data-test-id="pie-tag"
             >
                 ${size === 'large' ? html`<slot name="icon"></slot>` : nothing}

@@ -1,12 +1,10 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-button';
 import {
-    type ButtonProps as ButtonPropsBase, iconPlacements, sizes, types, variants, responsiveSizes, defaultProps,
+    type ButtonProps as ButtonPropsBase, defaultProps, iconPlacements, responsiveSizes, sizes, types, variants,
 } from '@justeattakeaway/pie-button';
-/* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
@@ -25,6 +23,15 @@ const buttonStoryMeta: ButtonStoryMeta = {
     title: 'Button',
     component: 'pie-button',
     argTypes: {
+        tag: {
+            description: 'Choose the HTML element that will be used to render the button.<br>For this story, the prop has the value of `button`. See the Anchor story to interact with the component when this prop has a value of `a`.',
+            control: {
+                disable: true,
+            },
+            defaultValue: {
+                summary: 'button',
+            },
+        },
         size: {
             description: 'Set the size of the button.',
             control: 'select',
@@ -34,7 +41,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
             },
         },
         type: {
-            description: 'Set the type of the button.',
+            description: 'Set the type of the button.<br><br>Set this to `submit` to reveal more controls relating to form submission.',
             control: 'select',
             options: types,
             defaultValue: {
@@ -76,7 +83,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
             },
         },
         isResponsive: {
-            description: 'If `true`, uses the next larger size on wide viewports',
+            description: 'If `true`, uses the next larger size on wide viewports.<br><br>Set this to `true` to show the `responsiveSize` control.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isResponsive,
@@ -154,6 +161,18 @@ const buttonStoryMeta: ButtonStoryMeta = {
             },
             if: { arg: 'isResponsive', eq: true },
         },
+        href: {
+            description: 'Set the href attribute for the underlying anchor tag.',
+            control: 'text',
+        },
+        target: {
+            description: 'Set the target attribute for the underlying anchor tag.',
+            control: 'text',
+        },
+        rel: {
+            description: 'Set the rel attribute for the underlying anchor tag',
+            control: 'text',
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -186,25 +205,42 @@ const Template: TemplateFunction<ButtonProps> = ({
     responsiveSize,
 }) => html`
 <pie-button
+    tag="button"
     size="${ifDefined(size)}"
     variant="${ifDefined(variant)}"
     type="${ifDefined(type)}"
-    iconPlacement="${iconPlacement || nothing}"
+    iconPlacement="${ifDefined(iconPlacement)}"
     ?disabled="${disabled}"
     ?isLoading="${isLoading}"
     ?isFullWidth="${isFullWidth}"
     ?isResponsive="${isResponsive}"
-    name=${name || nothing}
-    value=${value || nothing}
-    responsiveSize="${responsiveSize || nothing}"
-    formaction=${formaction || nothing}
-    formenctype=${formenctype || nothing}
-    formmethod=${formmethod || nothing}
-    formtarget=${formtarget || nothing}
+    name=${ifDefined(name)}
+    value=${ifDefined(value)}
+    responsiveSize="${ifDefined(responsiveSize)}"
+    formaction=${ifDefined(formaction)}
+    formenctype=${ifDefined(formenctype)}
+    formmethod=${ifDefined(formmethod)}
+    formtarget=${ifDefined(formtarget)}
     ?formnovalidate="${formnovalidate}">
     ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
     ${sanitizeAndRenderHTML(slot)}
 </pie-button>`;
+
+const AnchorTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => html`
+    <pie-button
+        tag="a"
+        size="${ifDefined(props.size)}"
+        variant="${ifDefined(props.variant)}"
+        iconPlacement="${ifDefined(props.iconPlacement)}"
+        ?isFullWidth="${props.isFullWidth}"
+        ?isResponsive="${props.isResponsive}"
+        responsiveSize="${ifDefined(props.responsiveSize)}"
+        href="${ifDefined(props.href)}"
+        rel="${ifDefined(props.rel)}"
+        target="${ifDefined(props.target)}">
+        ${props.iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
+        ${sanitizeAndRenderHTML(props.slot)}
+    </pie-button>`;
 
 const FormTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => html`
 <p id="formLog" style="display: none; font-size: 2rem; color: var(--dt-color-support-positive);"></p>
@@ -302,18 +338,67 @@ const createButtonStory = createStory<ButtonProps>(Template, defaultArgs);
 
 const createButtonStoryWithForm = createStory<ButtonProps>(FormTemplate, defaultArgs);
 
-export const Primary = createButtonStory();
-export const Secondary = createButtonStory({ variant: 'secondary' });
-export const Outline = createButtonStory({ variant: 'outline' }, { bgColor: 'background-subtle' });
-export const Ghost = createButtonStory({ variant: 'ghost' }, { bgColor: 'background-subtle' });
-export const Destructive = createButtonStory({ variant: 'destructive' });
-export const DestructiveGhost = createButtonStory({ variant: 'destructive-ghost' }, { bgColor: 'background-subtle' });
-export const Inverse = createButtonStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
-export const GhostInverse = createButtonStory({ variant: 'ghost-inverse' }, { bgColor: 'dark (container-dark)' });
-export const OutlineInverse = createButtonStory({ variant: 'outline-inverse' }, { bgColor: 'dark (container-dark)' });
-// For this story we simply want to test form integration with a reset and submit button. Therefore we are restricting what controls are shown.
+const anchorOnlyProps : Array<keyof ButtonProps> = ['href', 'target', 'rel'];
+
+export const Primary = createButtonStory({}, {
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
+});
+
+export const Secondary = createButtonStory({ variant: 'secondary' }, {
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
+});
+
+export const Outline = createButtonStory({ variant: 'outline' }, {
+    bgColor: 'background-subtle',
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
+});
+
+export const Ghost = createButtonStory({ variant: 'ghost' }, {
+    bgColor: 'background-subtle',
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
+});
+
+export const Destructive = createButtonStory({ variant: 'destructive' }, {
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
+});
+
+export const DestructiveGhost = createButtonStory({ variant: 'destructive-ghost' }, {
+    bgColor: 'background-subtle',
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
+});
+
+export const Inverse = createButtonStory({ variant: 'inverse' }, {
+    bgColor: 'dark (container-dark)',
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
+});
+
+export const GhostInverse = createButtonStory({ variant: 'ghost-inverse' }, {
+    bgColor: 'dark (container-dark)',
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
+});
+
+export const OutlineInverse = createButtonStory({ variant: 'outline-inverse' }, {
+    bgColor: 'dark (container-dark)',
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
+});
+
+export const Anchor = createStory(AnchorTemplate, defaultArgs)({
+    href: '/?path=/story/button--anchor',
+}, {
+    argTypes: {
+        tag: {
+            description: 'Choose the HTML element that will be used to render the button.<br>For this story, the prop has the value of `a`. See the other stories to interact with the component when this prop has a value of `button`.',
+        },
+    },
+    controls: {
+        // Hide button-only controls
+        exclude: ['type', 'disabled', 'formaction', 'formenctype', 'formmethod', 'formnovalidate', 'formtarget', 'isLoading', 'name', 'value'],
+    },
+});
+
 export const FormIntegration = createButtonStoryWithForm({ type: 'submit' }, {
     controls: {
-        exclude: ['type', 'slot', 'variant', 'isFullWidth', 'iconPlacement'],
+        // For this story we simply want to test form integration with a reset and submit button. Therefore we are restricting what controls are shown.
+        exclude: ['type', 'slot', 'variant', 'isFullWidth', 'iconPlacement', ...anchorOnlyProps],
     },
 });

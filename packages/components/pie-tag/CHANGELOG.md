@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-tag
 
+## 0.9.10
+
+### Patch Changes
+
+- [Changed] - use classes instead of attributes for styling ([#1749](https://github.com/justeattakeaway/pie/pull/1749)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.9.9
 
 ### Patch Changes

@@ -1,5 +1,27 @@
 # wc-vanilla
 
+## 0.5.15
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.28
+
+## 0.5.14
+
+### Patch Changes
+
+- Updated dependencies [[`2f8c8be9d`](https://github.com/justeattakeaway/pie/commit/2f8c8be9d8c90a2e2be2e58d7d2bec99cbac9792)]:
+  - @justeattakeaway/pie-icons-webc@0.25.1
+  - @justeattakeaway/pie-webc@0.5.27
+
+## 0.5.13
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.26
+
 ## 0.5.12
 
 ### Patch Changes

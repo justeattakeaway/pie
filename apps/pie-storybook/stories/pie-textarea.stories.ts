@@ -32,6 +32,7 @@ const Template = ({
     maxLength,
     assistiveText,
     status,
+    placeholder,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -61,6 +62,7 @@ const Template = ({
             size="${ifDefined(size)}"
             resize="${ifDefined(resize)}"
             autocomplete="${ifDefined(autocomplete)}"
+            placeholder="${ifDefined(placeholder)}"
             ?autoFocus="${autoFocus}"
             ?readonly="${readonly}"
             ?required="${required}"
@@ -177,6 +179,13 @@ const textareaStoryMeta: TextareaStoryMeta = {
             control: 'number',
             defaultValue: {
                 summary: 0,
+            },
+        },
+        placeholder: {
+            description: 'The placeholder text to display when the textarea is empty.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
             },
         },
     },

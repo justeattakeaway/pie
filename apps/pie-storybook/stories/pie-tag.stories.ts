@@ -1,15 +1,13 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-tag';
 import {
     type TagProps as TagBaseProps, variants, sizes, defaultProps,
 } from '@justeattakeaway/pie-tag';
-/* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
-import type { StoryMeta, SlottedComponentProps } from '../types';
+import { type StoryMeta, type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type TagProps = SlottedComponentProps<TagBaseProps> & { showIcon: boolean };

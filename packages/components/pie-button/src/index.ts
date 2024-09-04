@@ -1,15 +1,20 @@
 import {
     LitElement, html, unsafeCSS, nothing, type PropertyValues, type TemplateResult,
 } from 'lit';
-import { classMap } from 'lit/directives/class-map.js';
+import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { property } from 'lit/decorators.js';
+import 'element-internals-polyfill';
+
 import { validPropertyValues, defineCustomElement, FormControlMixin } from '@justeattakeaway/pie-webc-core';
+
+import '@justeattakeaway/pie-spinner';
+import { type SpinnerProps } from '@justeattakeaway/pie-spinner';
+
 import {
-    type ButtonProps, sizes, types, variants, iconPlacements, defaultProps,
+    type ButtonProps, defaultProps, iconPlacements, sizes, tags, types, variants,
 } from './defs';
 import styles from './button.scss?inline';
-import 'element-internals-polyfill';
-import '@justeattakeaway/pie-spinner';
 
 // Valid values available to consumers
 export * from './defs';
@@ -39,8 +44,6 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
     }
 
     updated (changedProperties: PropertyValues<this>): void {
-        super.updated(changedProperties);
-
         if (changedProperties.has('type')) {
             // If the new type is "submit", add the keydown event listener
             if (this.type === 'submit') {
@@ -51,21 +54,25 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
         }
     }
 
-    @property()
+    @property({ type: String })
+    @validPropertyValues(componentSelector, tags, defaultProps.tag)
+    public tag = defaultProps.tag;
+
+    @property({ type: String })
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
-    public size: ButtonProps['size'] = defaultProps.size;
+    public size = defaultProps.size;
 
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, types, defaultProps.type)
-    public type: ButtonProps['type'] = defaultProps.type;
+    public type = defaultProps.type;
 
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
-    public variant: ButtonProps['variant'] = defaultProps.variant;
+    public variant = defaultProps.variant;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, iconPlacements, defaultProps.iconPlacement)
-    public iconPlacement: ButtonProps['iconPlacement'] = defaultProps.iconPlacement;
+    public iconPlacement = defaultProps.iconPlacement;
 
     @property({ type: Boolean })
     public disabled = defaultProps.disabled;
@@ -80,28 +87,37 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
     public isResponsive = defaultProps.isResponsive;
 
     @property({ type: String })
-    public name?: string;
+    public name: ButtonProps['name'];
 
     @property({ type: String })
-    public value?: string;
+    public value: ButtonProps['value'];
 
-    @property()
+    @property({ type: String })
     public formaction: ButtonProps['formaction'];
 
-    @property()
+    @property({ type: String })
     public formenctype: ButtonProps['formenctype'];
 
-    @property()
+    @property({ type: String })
     public formmethod: ButtonProps['formmethod'];
 
     @property({ type: Boolean })
     public formnovalidate: ButtonProps['formnovalidate'];
 
-    @property()
+    @property({ type: String })
     public formtarget: ButtonProps['formtarget'];
 
     @property({ type: String })
-    public responsiveSize?: ButtonProps['responsiveSize'];
+    public responsiveSize: ButtonProps['responsiveSize'];
+
+    @property({ type: String })
+    public href: ButtonProps['href'];
+
+    @property({ type: String })
+    public rel: ButtonProps['rel'];
+
+    @property({ type: String })
+    public target: ButtonProps['target'];
 
     /**
      * This method creates an invisible button of the same type as pie-button. It is then clicked, and immediately removed from the DOM.
@@ -157,17 +173,17 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
     }
 
     private _handleClick () {
-        if (!this.isLoading && this.form) {
-            if (this.type === 'submit') {
-                // only submit the form if either formnovalidate is set, or the form passes validation checks (triggers native form validation)
-                if (this.formnovalidate || this.form.reportValidity()) {
-                    this._simulateNativeButtonClick('submit');
-                }
-            }
+        if (!this.form) return;
+        if (this.isLoading) return;
+        if (this.tag !== 'button') return;
 
-            if (this.type === 'reset') {
-                this._simulateNativeButtonClick('reset');
+        if (this.type === 'submit') {
+            // only submit the form if either formnovalidate is set, or the form passes validation checks (triggers native form validation)
+            if (this.formnovalidate || this.form.reportValidity()) {
+                this._simulateNativeButtonClick('submit');
             }
+        } else if (this.type === 'reset') {
+            this._simulateNativeButtonClick('reset');
         }
     }
 
@@ -197,8 +213,9 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
      */
     private renderSpinner (): TemplateResult {
         const { size, variant, disabled } = this;
-        const spinnerSize = size && size.includes('small') ? 'small' : 'medium'; // includes("small") matches for any small size value and xsmall
-        let spinnerVariant;
+
+        const spinnerSize: SpinnerProps['size'] = size && size.includes('small') ? 'small' : 'medium'; // includes("small") matches for any small size value and xsmall
+        let spinnerVariant: SpinnerProps['variant'];
         if (disabled) {
             spinnerVariant = variant === 'ghost-inverse' ? 'inverse' : 'secondary';
         } else {
@@ -207,23 +224,60 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
         }
 
         return html`
-                    <pie-spinner
-                        size="${spinnerSize}"
-                        variant="${spinnerVariant}">
-                    </pie-spinner>`;
+            <pie-spinner
+                size="${spinnerSize}"
+                variant="${spinnerVariant}">
+            </pie-spinner>`;
+    }
+
+    renderAnchor (classes: ClassInfo) {
+        const {
+            href, iconPlacement, rel, target,
+        } = this;
+
+        return html`
+            <a
+                href="${ifDefined(href)}"
+                rel="${ifDefined(rel)}"
+                target="${ifDefined(target)}"
+                class="${classMap(classes)}">
+                ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
+                <slot></slot>
+                ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
+            </a>`;
+    }
+
+    renderButton (classes: ClassInfo) {
+        const {
+            disabled, iconPlacement, isLoading, type,
+        } = this;
+
+        const buttonClasses = {
+            ...classes,
+            'is-loading': isLoading,
+        };
+
+        return html`
+            <button
+                @click=${this._handleClick}
+                class=${classMap(buttonClasses)}
+                type=${type}
+                ?disabled=${disabled}>
+                    ${isLoading ? this.renderSpinner() : nothing}
+                    ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
+                    <slot></slot>
+                    ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
+            </button>`;
     }
 
     render () {
         const {
-            type,
-            disabled,
             isFullWidth,
-            variant,
-            size,
-            isLoading,
             isResponsive,
-            iconPlacement,
             responsiveSize,
+            size,
+            tag,
+            variant,
         } = this;
 
         const classes = {
@@ -233,20 +287,13 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
             [`o-btn--${responsiveSize}`]: Boolean(isResponsive && responsiveSize),
             [`o-btn--${variant}`]: true,
             [`o-btn--${size}`]: true,
-            'is-loading': isLoading,
         };
 
-        return html`
-            <button
-                @click=${this._handleClick}
-                class=${classMap(classes)}
-                type=${type || 'submit'}
-                ?disabled=${disabled}>
-                    ${isLoading ? this.renderSpinner() : nothing}
-                    ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
-                    <slot></slot>
-                    ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
-            </button>`;
+        if (tag === 'a') {
+            return this.renderAnchor(classes);
+        }
+
+        return this.renderButton(classes);
     }
 
     focus () {

@@ -579,6 +579,34 @@ test.describe('PieTextarea - Component tests', () => {
                 });
             });
         });
+
+        test.describe('placeholder', () => {
+            test('should not render a placeholder attribute on the textarea element if no placeholder provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {});
+
+                // Act
+                const textarea = component.locator('textarea');
+
+                // Assert
+                expect((await textarea.getAttribute('placeholder'))).toBe(null);
+            });
+
+            test('should apply the placeholder prop to the HTML textarea rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {
+                    props: {
+                        placeholder: 'Test Placeholder',
+                    } as TextareaProps,
+                });
+
+                // Act
+                const textarea = component.locator('textarea');
+
+                // Assert
+                expect((await textarea.getAttribute('placeholder'))).toBe('Test Placeholder');
+            });
+        });
     });
 
     test.describe('Form integration', () => {
