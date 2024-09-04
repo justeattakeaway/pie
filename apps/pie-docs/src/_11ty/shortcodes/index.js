@@ -29,7 +29,7 @@ const addAllShortCodes = (eleventyConfig) => {
     eleventyConfig.addShortcode('componentStatusTable', (shortcodeArgs) => deindentHTML(componentStatusTable(shortcodeArgs)));
     eleventyConfig.addShortcode('contentPageImage', (shortcodeArgs) => deindentHTML(contentPageImage(shortcodeArgs)));
     eleventyConfig.addPairedShortcode('contentWrapper', (shortcodeArgs) => deindentHTML(contentWrapper(shortcodeArgs)));
-    eleventyConfig.addPairedShortcode('contentLayout', (shortcodeArgs) => deindentHTML(contentLayout(shortcodeArgs)));
+    eleventyConfig.addPairedShortcode('contentLayout', (content, options) => deindentHTML(contentLayout(content, options)));
     eleventyConfig.addPairedShortcode('contentItem', (shortcodeArgs) => deindentHTML(contentItem(shortcodeArgs)));
     eleventyConfig.addShortcode('globalTokensWarning', (shortcodeArgs) => deindentHTML(globalTokensWarning(shortcodeArgs)));
     eleventyConfig.addShortcode('link', (shortcodeArgs) => deindentHTML(link(shortcodeArgs)));
