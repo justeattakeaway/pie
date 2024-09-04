@@ -1,6 +1,6 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieSpinner } from '../../src/index.ts';
+import { PieSpinner, type SpinnerProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-spinner"]';
 
@@ -44,7 +44,11 @@ test.describe('PieSpinner - Component tests', () => {
             const ariaLabelText = 'Loading';
 
             const component = await mount(PieSpinner, {
-                props: { aria: { label: ariaLabelText } },
+                props: {
+                    aria: {
+                        label: ariaLabelText,
+                    },
+                } as SpinnerProps,
             });
 
             // Act

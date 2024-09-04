@@ -14,10 +14,10 @@ import {
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { IconHeartFilled } from '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled';
-import { sizes, variants } from '../../src/defs.ts';
+import { type TagProps, sizes, variants } from '../../src/defs.ts';
 import { PieTag } from '../../src/index.ts';
 
-const props: PropObject = {
+const props: PropObject<TagProps & { iconSlot: string }> = {
     variant: variants,
     size: sizes,
     isStrong: [true, false],
