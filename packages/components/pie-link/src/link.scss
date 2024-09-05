@@ -33,12 +33,7 @@
 
     @include link-interactive-states('default');
 
-
-    &[tag='a'] {
-        /* Same as default styles */
-    }
-
-    &[tag='button'] {
+    &button {
         outline: none;
         border: none;
         user-select: none;
@@ -46,51 +41,47 @@
         padding: 0;
     }
 
-    &[variant='default'] {
+    &.c-link--default {
         /* Same as default styles */
     }
 
-    &[variant='high-visibility'] {
+    &.c-link--high-visibility {
         --link-text-color: var(--dt-color-content-link-distinct);
     }
 
-    &[variant='inverse'] {
+    &.c-link--inverse {
         --link-text-color: var(--dt-color-content-link-inverse);
     }
 
-    &[size='small'] {
+    &.c-link--small {
         --link-font-size: #{p.font-size(--dt-font-size-14)};
         --link-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
         --link-icon-offset-top: 2px;
     }
 
-    &[size='medium'] {
+    &.c-link--medium {
         /* Same as default styles */
     }
 
-    &[underline='default'] {
-        /* Same as default styles */
-    }
-
-    &[underline='reversed'][isStandalone] {
+    &.c-link--underline-reversed.c-link--standalone {
         --link-text-decoration: none;
 
         @include link-interactive-states('reversed');
     }
 
-    &[isBold] {
+    &.c-link--bold {
         --link-font-weight: var(--dt-font-weight-bold);
     }
 
-    &[isStandalone] {
+    &.c-link--standalone {
         display: block;
         width: fit-content;
     }
 
-    &[hasVisited]:visited {
+    &.c-link--hasVisited:visited {
         color: var(--dt-color-content-link-visited);
 
-        &[variant='inverse'] {
+        &.c-link--inverse {
             color: var(--dt-color-content-link-visited-inverse);
         }
     }
