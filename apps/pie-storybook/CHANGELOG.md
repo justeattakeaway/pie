@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.3.1
+
+### Patch Changes
+
+- [Changed] - Rename `isDimmed` prop to `disabled` ([#1765](https://github.com/justeattakeaway/pie/pull/1765)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - `isInteractive` prop which renders the tag as a button
+  [Added] - Interactive styling
+
+- Updated dependencies [[`e99674628`](https://github.com/justeattakeaway/pie/commit/e99674628547f4603663e36634c8f04a4757bdc7), [`61c372964`](https://github.com/justeattakeaway/pie/commit/61c37296475b870eec3c54b2fad8fa6b19e31ced), [`e99674628`](https://github.com/justeattakeaway/pie/commit/e99674628547f4603663e36634c8f04a4757bdc7)]:
+  - @justeattakeaway/pie-spinner@0.7.0
+  - @justeattakeaway/pie-tag@0.10.0
+  - @justeattakeaway/pie-button@0.49.1
+  - @justeattakeaway/pie-chip@0.8.2
+  - @justeattakeaway/pie-icon-button@0.28.12
+  - @justeattakeaway/pie-modal@0.46.2
+  - @justeattakeaway/pie-cookie-banner@0.26.3
+  - @justeattakeaway/pie-toast@0.3.3
+  - @justeattakeaway/pie-notification@0.10.2
+
 ## 1.3.0
 
 ### Minor Changes
