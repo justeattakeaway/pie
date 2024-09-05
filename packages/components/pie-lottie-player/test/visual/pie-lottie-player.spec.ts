@@ -1,8 +1,7 @@
-
 import { readFile } from 'fs/promises';
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import { PieLottiePlayer, LottiePlayerProps } from '../../src/index.ts';
+import { PieLottiePlayer, type LottiePlayerProps } from '../../src/index.ts';
 
 const animationData = JSON.parse(await readFile(new URL('../courier.json', import.meta.url), { encoding: 'utf-8' }));
 
