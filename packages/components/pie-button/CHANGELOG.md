@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.49.1
+
+### Patch Changes
+
+- [Changed] - small type updates ([#1762](https://github.com/justeattakeaway/pie/pull/1762)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`e99674628`](https://github.com/justeattakeaway/pie/commit/e99674628547f4603663e36634c8f04a4757bdc7)]:
+  - @justeattakeaway/pie-spinner@0.7.0
+
 ## 0.49.0
 
 ### Minor Changes
