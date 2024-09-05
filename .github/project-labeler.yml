@@ -91,6 +91,9 @@ pie-modal:
 pie-notification:
 - 'packages/components/pie-notification/**/*'
 
+pie-radio:
+- 'packages/components/pie-radio/**/*'
+
 pie-spinner:
 - 'packages/components/pie-spinner/**/*'
 
@@ -108,9 +111,6 @@ pie-textarea:
 
 pie-toast:
 - 'packages/components/pie-toast/**/*'
-
-pie-radio:
-  - 'packages/components/pie-radio/**/*'
 
 pie-webc:
 - 'packages/components/pie-webc/**/*'
