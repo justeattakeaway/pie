@@ -31,7 +31,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "If `true`, the chip component will apply the selected styles.",
+            "If true, the chip component will apply the selected styles.",
             {
                 "type": "code",
                 "item": ["false"]
@@ -43,7 +43,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "if <code>true</code>, displays a loading indicator inside the chip.",
+            "If true, displays a loading indicator inside the chip.",
             {
                 "type": "code",
                 "item": ["false"]

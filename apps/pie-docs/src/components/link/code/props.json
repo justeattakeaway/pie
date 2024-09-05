@@ -40,7 +40,7 @@
         [
             "href",
             null,
-            "The <code>href</code> attribute to apply.",
+            "The <code>href</code> attribute to apply.<br>Cannot be used if <code>tag</code> is set to <code>\"button\"</code>.",
             {
                 "type": "code",
                 "item": ["undefined"]
@@ -49,7 +49,7 @@
         [
             "target",
             null,
-            "The <code>target</code> attribute to apply.",
+            "The <code>target</code> attribute to apply.<br>Cannot be used if <code>tag</code> is set to <code>\"button\"</code>.",
             {
                 "type": "code",
                 "item": ["undefined"]
@@ -58,7 +58,7 @@
         [
             "rel",
             null,
-            "The <code>rel</code> attribute to apply",
+            "The <code>rel</code> attribute to apply.<br>Cannot be used if <code>tag</code> is set to <code>\"button\"</code>.",
             {
                 "type": "code",
                 "item": ["undefined"]
@@ -70,7 +70,7 @@
                 "type": "code",
                 "item": ["\"button\"", "\"reset\"", "\"submit\""]
             },
-            "The <code>type</code> attribute to apply when the link has <code>tag=\"button\"</code>.",
+            "The <code>type</code> attribute to apply when <code>tag</code> is set to <code>\"button\"</code>.",
             {
                 "type": "code",
                 "item": ["\"submit\""]
@@ -82,7 +82,7 @@
                 "type": "code",
                 "item": ["\"default\"", "\"reversed\""]
             },
-            "The underline behavior of the link. The <code>reversed</code> value can only be used if <code>isStandalone</code> is set to true.",
+            "The underline behaviour of the link. The <code>\"reversed\"</code> value can only be used if <code>isStandalone</code> is set to true.",
             {
                 "type": "code",
                 "item": ["\"default\""]
@@ -94,7 +94,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "if <code>true</code>, sets the link text bold.",
+            "If true, makes the link text bold.",
             {
                 "type": "code",
                 "item": ["false"]
@@ -106,7 +106,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "if <code>true</code>, sets the link as a block element.",
+            "If true, sets the link as a block element.",
             {
                 "type": "code",
                 "item": ["false"]
@@ -118,7 +118,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "if <code>true</code>, the link will apply the styles for the visited state.",
+            "If true, the link will apply the styles for the visited state.",
             {
                 "type": "code",
                 "item": ["false"]
@@ -130,7 +130,7 @@
                 "type": "code",
                 "item": ["\"leading\"", "\"trailing\""]
             },
-            "Show a leading/trailing icon. Leading comes before the text and trailing comes after, taking writing direction into account. To use this with pie-button, you can pass an icon into the icon slot.",
+            "Sets the position of the icon relative to the text. Leading comes before the text and trailing comes after, taking writing direction into account. To use this, you must pass an icon into the <a href=\"#slots\">icon slot</a>.",
             {
                 "type": "code",
                 "item": ["undefined"]

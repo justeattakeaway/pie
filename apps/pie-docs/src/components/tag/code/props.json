@@ -31,7 +31,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "If `true`, displays strong tag styles for `green`, `yellow`, `red`, `blue` and `neutral` variants.",
+            "If true, displays strong tag styles for `\"green\"`, `\"yellow\"`, `\"red\"`, `\"blue\"` and `\"neutral\"` variants.",
             {
                 "type": "code",
                 "item": ["false"]

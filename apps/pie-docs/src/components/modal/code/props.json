@@ -157,7 +157,7 @@
             "position",
             {
                 "type": "code",
-                "item": ["\"top\"", "\"center\""]
+                "item": ["\"center\"", "\"top\""]
             },
             "The position of the modal; this controls where it will appear on the page.",
             {
