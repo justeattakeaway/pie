@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-spinner
 
+## 0.7.0
+
+### Minor Changes
+
+- [Changed] - use classes instead of attributes for styling ([#1762](https://github.com/justeattakeaway/pie/pull/1762)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.6.7
 
 ### Patch Changes
