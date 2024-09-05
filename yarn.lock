@@ -5761,6 +5761,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-radio@0.0.0, @justeattakeaway/pie-radio@workspace:packages/components/pie-radio":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-radio@workspace:packages/components/pie-radio"
+  dependencies:
+    "@custom-elements-manifest/analyzer": 0.9.0
+    "@justeattakeaway/pie-components-config": 0.18.0
+    "@justeattakeaway/pie-css": 0.12.1
+    "@justeattakeaway/pie-webc-core": 0.24.0
+    cem-plugin-module-file-extensions: 0.0.5
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-spinner@0.6.7, @justeattakeaway/pie-spinner@workspace:packages/components/pie-spinner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-spinner@workspace:packages/components/pie-spinner"
@@ -5887,6 +5899,7 @@ __metadata:
     "@justeattakeaway/pie-link": 0.17.8
     "@justeattakeaway/pie-modal": 0.46.1
     "@justeattakeaway/pie-notification": 0.10.1
+    "@justeattakeaway/pie-radio": 0.0.0
     "@justeattakeaway/pie-spinner": 0.6.7
     "@justeattakeaway/pie-switch": 0.30.1
     "@justeattakeaway/pie-tag": 0.9.10
@@ -26192,6 +26205,7 @@ __metadata:
     "@justeattakeaway/pie-link": 0.17.8
     "@justeattakeaway/pie-modal": 0.46.1
     "@justeattakeaway/pie-notification": 0.10.1
+    "@justeattakeaway/pie-radio": 0.0.0
     "@justeattakeaway/pie-spinner": 0.6.7
     "@justeattakeaway/pie-switch": 0.30.1
     "@justeattakeaway/pie-tag": 0.9.10

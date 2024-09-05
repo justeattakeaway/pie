@@ -109,6 +109,9 @@ pie-textarea:
 pie-toast:
 - 'packages/components/pie-toast/**/*'
 
+pie-radio:
+  - 'packages/components/pie-radio/**/*'
+
 pie-webc:
 - 'packages/components/pie-webc/**/*'
 
