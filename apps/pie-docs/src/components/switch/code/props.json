@@ -7,7 +7,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "Same as the HTML <code>checked</code> attribute; indicates whether the switch is on or off.",
+            "Same as the HTML `checked` attribute; indicates whether the switch is on or off.",
             {
                 "type": "code",
                 "item": ["false"]
@@ -19,7 +19,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "Same as the HTML <code>disabled</code> attribute; indicates whether the switch is disabled or not.",
+            "Same as the HTML `disabled` attribute; indicates whether the switch is disabled or not.",
             {
                 "type": "code",
                 "item": ["false"]
@@ -31,7 +31,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "Same as the HTML <code>required</code> attribute; indicates whether the switch must be turned on when submitted as part of a form.",
+            "Same as the HTML `required` attribute; indicates whether the switch must be turned on when submitted as part of a form.",
             {
                 "type": "code",
                 "item": ["false"]
@@ -49,7 +49,7 @@
                 "type": "code",
                 "item": ["\"leading\"", "\"trailing\""]
             },
-            "Set the placement of the label.",
+            "Set the placement of the label. Leading will have the label before the switch, taking writing direction into account.",
             {
                 "type": "code",
                 "item": ["\"leading\""]

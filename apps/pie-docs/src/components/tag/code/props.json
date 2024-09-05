@@ -17,7 +17,7 @@
             "variant",
             {
                 "type": "code",
-                "item": ["\"neutral-alternative\"", "\"neutral\"", "\"outline\"", "\"ghost\"", "\"blue\"", "\"green\"", "\"yellow\"", "\"red\"", "\"brand\""]
+                "item": ["\"neutral\"", "\"neutral-alternative\"", "\"outline\"", "\"ghost\"", "\"blue\"", "\"green\"", "\"yellow\"", "\"red\"", "\"brand\""]
             },
             "Sets the variant of the tag.",
             {
@@ -31,7 +31,32 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "If true, displays strong tag styles for `\"green\"`, `\"yellow\"`, `\"red\"`, `\"blue\"` and `\"neutral\"` variants.",
+            "If true, displays strong tag styles for `\"green\"`, `\"yellow\"`, `\"red\"`, `\"blue\"` and `\"neutral\"` variants. Has no effect for other variants.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "isInteractive",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+
+            },
+            "When true, the tag will be rendered as a button and can be interacted with.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "disabled",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "For an interactive tag, this applies the disabled attribute to the button and styles it appropriately. For a non-interactive tag, this only applies the disabled styling.",
             {
                 "type": "code",
                 "item": ["false"]

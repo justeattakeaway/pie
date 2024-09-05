@@ -40,7 +40,7 @@
         [
             "href",
             null,
-            "The <code>href</code> attribute to apply.<br>Cannot be used if <code>tag</code> is set to <code>\"button\"</code>.",
+            "The `href` attribute to apply.<br>Cannot be used if `tag` is set to `\"button\"`.",
             {
                 "type": "code",
                 "item": ["undefined"]
@@ -49,7 +49,7 @@
         [
             "target",
             null,
-            "The <code>target</code> attribute to apply.<br>Cannot be used if <code>tag</code> is set to <code>\"button\"</code>.",
+            "The `target` attribute to apply.<br>Cannot be used if `tag` is set to `\"button\"`.",
             {
                 "type": "code",
                 "item": ["undefined"]
@@ -58,7 +58,7 @@
         [
             "rel",
             null,
-            "The <code>rel</code> attribute to apply.<br>Cannot be used if <code>tag</code> is set to <code>\"button\"</code>.",
+            "The `rel` attribute to apply.<br>Cannot be used if `tag` is set to `\"button\"`.",
             {
                 "type": "code",
                 "item": ["undefined"]
@@ -70,7 +70,7 @@
                 "type": "code",
                 "item": ["\"button\"", "\"reset\"", "\"submit\""]
             },
-            "The <code>type</code> attribute to apply when <code>tag</code> is set to <code>\"button\"</code>.",
+            "The `type` attribute to apply when `tag` is set to `\"button\"`.",
             {
                 "type": "code",
                 "item": ["\"submit\""]
@@ -82,7 +82,7 @@
                 "type": "code",
                 "item": ["\"default\"", "\"reversed\""]
             },
-            "The underline behaviour of the link. The <code>\"reversed\"</code> value can only be used if <code>isStandalone</code> is set to true.",
+            "The underline behaviour of the link. The default behaviour has the link text underlined, with the underline disappearing on hover. `\"reversed\"` will only take effect if `isStandalone` is set to `true`.",
             {
                 "type": "code",
                 "item": ["\"default\""]

@@ -31,7 +31,7 @@
                 "type": "code",
                 "item": ["\"productive\"", "\"expressive\""]
             },
-            "Sets which \"small-\" size an <code>xsmall</code> button should grow to when <code>isResponsive</code> is <code>true</code>.",
+            "Sets which \"small-\" size an `xsmall` button should grow to when `isResponsive`> is `true`.",
             {
                 "type": "code",
                 "item": ["\"productive\""]
@@ -142,7 +142,7 @@
                 "type": "code",
                 "item": ["application/x-www-form-urlencoded", "multipart/form-data", "text/plain"]
             },
-            "If the button is a submit button (i.e., it's inside a form or is associated with one and doesn't have <code>type=\"button\"</code>), specifies how to encode the form data that is submitted",
+            "If the button is a submit button (i.e., it's inside a form, or is associated with one and `type` is not `\"button\"`), specifies how to encode the form data that is submitted",
             {
                 "type": "code",
                 "item": ["undefined"]
@@ -154,7 +154,7 @@
                 "type": "code",
                 "item": ["\"post\"", "\"get\"", "\"dialog\""]
             },
-            "If the button is a submit button (i.e., it's inside a form or is associated with one and doesn't have <code>type=\"button\"</code>), this attribute specifies the HTTP method used to submit the form.",
+            "If the button is a submit button (i.e., it's inside a form, or is associated with one and `type` is not `\"button\"`), this attribute specifies the HTTP method used to submit the form.",
             {
                 "type": "code",
                 "item": ["undefined"]

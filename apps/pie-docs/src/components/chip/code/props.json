@@ -19,7 +19,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "if <code>true</code>, disables the chip.",
+            "If true, disables the chip.",
             {
                 "type": "code",
                 "item": ["false"]
