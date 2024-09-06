@@ -28,21 +28,9 @@ describe('indexPageDisplay.js', () => {
                     url: '/second-sub-item/',
                 },
             },
-        },
-        {
-            data: {
-                title: 'Third Sub Item without image',
-                eleventyNavigation: {
-                    key: 'Third Sub Item without image',
-                    parent: 'Test Menu Item',
-                },
-                page: {
-                    url: '/second-sub-item/',
-                },
-            },
         }];
 
-    it('should return the expected HTML for an index page and render default image and warning when image is not provided', () => {
+    it('should return the expected HTML for an index page', () => {
         // act
         const result = indexPageDisplay({
             collection: collectionAll,
@@ -56,12 +44,36 @@ describe('indexPageDisplay.js', () => {
             .toMatchSnapshot();
     });
 
+    it('should throw when image is not provided', () => {
+        // setup
+        const collectionsWithMissingImage = [...collectionAll];
+        collectionsWithMissingImage.push({
+            data: {
+                title: 'Third Sub Item without image',
+                eleventyNavigation: {
+                    key: 'Third Sub Item without image',
+                    parent: 'Test Menu Item',
+                },
+                page: {
+                    url: '/second-sub-item/',
+                },
+            },
+        });
+        // act & assert
+        expect(() => indexPageDisplay({
+            collection: collectionsWithMissingImage,
+            itemKey: 'Test Menu Item',
+            excludedElements: [],
+            imageSrcDirectory: testImageDirectory,
+        })).toThrow('Image not provided for third-sub-item-without-image. Please ensure image is provided or add this item to ExcludedElements.');
+    });
+
     it('should return the expected HTML for an index page with excluded items', () => {
         // act
         const result = indexPageDisplay({
             collection: collectionAll,
             itemKey: 'Test Menu Item',
-            excludedElements: ['Third Sub Item without image'],
+            excludedElements: ['Second Sub Item'],
             imageSrcDirectory: testImageDirectory,
         });
 

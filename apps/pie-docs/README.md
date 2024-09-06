@@ -66,7 +66,7 @@ excludedElements: ['Component Status', 'Banner', 'Checkbox Group']
 `itemKey` is the section name that the navigation plugin will search for.
 `excludedElements` is a list of elements we would like to exclude from the list. Both for the key name and excluded items, names must follow the `key` attribute use in each page, including casing and white spaces when is 2 or more words.
 
-When adding new index page content, just remember to add images in the right directory and exclude any items we don't wish to link in that page.
+When adding new index page content, just remember to add images in the right directory and exclude any items we don't wish to link in that page. Images for mobile will be automatically selected when available. For more information on how to name images and its directory, visit the jsdocs in the indexPageDisplay shortcode.
 
 ## Drafts
 

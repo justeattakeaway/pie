@@ -6,9 +6,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
     @include f.media('>=mid') {
         justify-content: flex-start;
     }
+
+    // reduce image size for smaller screens - we support 320px min
+    @include f.media('<tiny') {
+        img {
+            width: 280px;
+        }
+    }
+
     gap: var(--dt-spacing-g) var(--dt-spacing-e);
 
     .c-indexPage-menu-item {

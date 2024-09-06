@@ -45,23 +45,19 @@ module.exports = function ({
             const imageDirectory = imageSrcDirectory || defaultImageDirectory;
             const imgSrc = `${imageDirectory}/${itemKeySlug}/${menuItemSlug}.svg`;
             const imgMobileSrc = `${imageDirectory}/${itemKeySlug}/${menuItemSlug}-mobile.svg`;
-            const fallbackImage = `${imageDirectory}/${itemKeySlug}/default.svg`;
 
             const hasSource = fs.existsSync(path.join(__dirname, imgSrc));
             const hasMobileSource = fs.existsSync(path.join(__dirname, imgMobileSrc));
 
-            const renderFallbackImage = () => {
-                console.warn(`Fallback image used for ${menuItemSlug}. Please ensure image is provided.`);
-                return `<img src="${fallbackImage}">`;
+            const throwOnMissingImage = () => {
+                throw new Error(`Image not provided for ${menuItemSlug}. Please ensure image is provided or add this item to ExcludedElements.`);
             };
 
             return `
                 <a class="c-indexPage-link" href="${element.url}">
                     <picture>
-                    ${hasMobileSource ? `<source media="(max-width: 600px)" srcset="${imgMobileSrc}">` : ''}
-                    ${hasSource
-                ? `<img src="${imgSrc}">`
-                : renderFallbackImage()}
+                        ${hasMobileSource ? `<source media="(max-width: 600px)" srcset="${imgMobileSrc}">` : ''}
+                        ${hasSource ? `<img src="${imgSrc}">` : throwOnMissingImage()}
                     </picture>
                     ${element.title}
                     <div class="c-indexPage-background"></div>
