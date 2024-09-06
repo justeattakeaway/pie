@@ -91,6 +91,9 @@ pie-modal:
 pie-notification:
 - 'packages/components/pie-notification/**/*'
 
+pie-radio:
+- 'packages/components/pie-radio/**/*'
+
 pie-spinner:
 - 'packages/components/pie-spinner/**/*'
 
