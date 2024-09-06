@@ -33,14 +33,6 @@
 
     @include link-interactive-states('default');
 
-    &button {
-        outline: none;
-        border: none;
-        user-select: none;
-        background: transparent;
-        padding: 0;
-    }
-
     &.c-link--default {
         /* Same as default styles */
     }
@@ -91,6 +83,14 @@
         border-radius: 2px;
         box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
     }
+}
+
+button.c-link {
+    outline: none;
+    border: none;
+    user-select: none;
+    background: transparent;
+    padding: 0;
 }
 
 .c-link-content {
