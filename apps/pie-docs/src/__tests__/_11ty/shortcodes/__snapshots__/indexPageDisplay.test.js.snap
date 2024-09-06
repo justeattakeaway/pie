@@ -43,3 +43,23 @@ exports[`indexPageDisplay.js > should return the expected HTML for an index page
                     <div class=\\"c-indexPage-background\\"></div>
                 </a></div>"
 `;
+
+exports[`indexPageDisplay.js > should use child url for subpage dropdown when it does not have an index page 1`] = `
+"<div class=\\"c-indexPage\\">
+                <a class=\\"c-indexPage-link\\" href=\\"/second-sub-item/\\">
+                    <picture>
+                        
+                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/second-sub-item.svg\\">
+                    </picture>
+                    Second Sub Item
+                    <div class=\\"c-indexPage-background\\"></div>
+                </a>
+                <a class=\\"c-indexPage-link\\" href=\\"subpage-dropdown-child\\">
+                    <picture>
+                        
+                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/subpage-dropdown.svg\\">
+                    </picture>
+                    Subpage dropdown
+                    <div class=\\"c-indexPage-background\\"></div>
+                </a></div>"
+`;

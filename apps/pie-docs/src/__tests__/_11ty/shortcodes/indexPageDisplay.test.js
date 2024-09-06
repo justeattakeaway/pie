@@ -99,4 +99,49 @@ describe('indexPageDisplay.js', () => {
         expect(result)
             .toMatchSnapshot();
     });
+
+    it('should use child url for subpage dropdown when it does not have an index page', () => {
+        // setup
+        const collectionsWithMissingImage = [...collectionAll];
+        collectionsWithMissingImage.push(
+            {
+                data: {
+                    title: 'Subpage dropdown',
+                    eleventyNavigation: {
+                        key: 'Subpage dropdown',
+                        parent: 'Test Menu Item',
+                        subPageDropdown: true,
+                        hasIndexPage: undefined,
+                    },
+                    page: {
+                        url: 'subpage-dropdown',
+                    },
+                },
+            },
+            {
+                data: {
+                    title: 'Subpage dropdown child',
+                    eleventyNavigation: {
+                        key: 'Subpage dropdown child',
+                        parent: 'Subpage dropdown',
+                    },
+                    page: {
+                        url: 'subpage-dropdown-child',
+                    },
+                },
+            },
+        );
+
+        // act
+        const result = indexPageDisplay({
+            collection: collectionsWithMissingImage,
+            itemKey: 'Test Menu Item',
+            excludedElements: [],
+            imageSrcDirectory: testImageDirectory,
+        });
+
+        // assert
+        expect(result)
+            .toMatchSnapshot();
+    });
 });

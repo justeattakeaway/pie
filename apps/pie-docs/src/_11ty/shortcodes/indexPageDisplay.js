@@ -29,6 +29,15 @@ const getDraftPagesList = (collection) => {
     return draftPages;
 };
 
+// Subpage Items navigate to first child if index page does not exist
+const getUrl = (element) => {
+    if (element.subPageDropdown) {
+        if (element.hasIndexPage) return element.url;
+        return element.children[0].url;
+    }
+    return element.url;
+};
+
 module.exports = function ({
     collection,
     itemKey,
@@ -54,7 +63,7 @@ module.exports = function ({
             };
 
             return `
-                <a class="c-indexPage-link" href="${element.url}">
+                <a class="c-indexPage-link" href="${getUrl(element)}">
                     <picture>
                         ${hasMobileSource ? `<source media="(max-width: 600px)" srcset="${imgMobileSrc}">` : ''}
                         ${hasSource ? `<img src="${imgSrc}">` : throwOnMissingImage()}
