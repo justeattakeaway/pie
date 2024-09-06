@@ -28,7 +28,7 @@
         [
             "href",
             null,
-            "The <code>href</code> attribute to apply when the card has <code>tag=\"button\"</code>.",
+            "The `href` attribute to apply when `tag` is set to `\"button\"`.",
             {
                 "type": "code",
                 "item": ["undefined"]
@@ -37,7 +37,7 @@
         [
             "target",
             null,
-            "The <code>target</code> attribute to apply when the card has <code>tag=\"button\"</code>`.",
+            "The `target` attribute to apply when `tag` is set to `\"button\"`.",
             {
                 "type": "code",
                 "item": ["undefined"]
@@ -46,7 +46,7 @@
         [
             "rel",
             null,
-            "The <code>rel</code> attribute to apply when the card has <code>tag=\"button\"</code>.",
+            "The `rel` attribute to apply when `tag` is set to `\"button\"`.",
             {
                 "type": "code",
                 "item": ["undefined"]
@@ -94,7 +94,7 @@
                 "type": "code",
                 "item": ["a-g"]
             },
-            "Which spacing token to use for the card's padding. Pass two (comma-separated) values for vertical and horizontal padding, or one value to pad all sides evenly.",
+            "Which spacing token(s) to use for the card's padding. Pass two (comma-separated) values for different vertical and horizontal padding, or one value to pad all sides evenly, e.g., `\"a\"` or `\"a,b\"`.",
             {
                 "type": "code",
                 "item": ["undefined"]

@@ -1,5 +1,24 @@
 # @justeattakeaway/pie-tag
 
+## 0.10.0
+
+### Minor Changes
+
+- [Changed] - Rename `isDimmed` prop to `disabled` ([#1765](https://github.com/justeattakeaway/pie/pull/1765)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - `isInteractive` prop which renders the tag as a button
+  [Added] - Interactive styling
+
+### Patch Changes
+
+- [Changed] - small type updates ([#1762](https://github.com/justeattakeaway/pie/pull/1762)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.9.10
+
+### Patch Changes
+
+- [Changed] - use classes instead of attributes for styling ([#1749](https://github.com/justeattakeaway/pie/pull/1749)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.9.9
 
 ### Patch Changes

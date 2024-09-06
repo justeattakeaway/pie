@@ -2,13 +2,13 @@ import {
     LitElement, html, nothing, unsafeCSS,
 } from 'lit';
 import { property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './spinner.scss?inline';
 import {
-    SpinnerProps,
+    type SpinnerProps,
     sizes,
     variants,
-    type AriaProps,
     defaultProps,
 } from './defs';
 
@@ -22,29 +22,42 @@ const componentSelector = 'pie-spinner';
  */
 export class PieSpinner extends LitElement implements SpinnerProps {
     @property({ type: Object })
-    public aria?: AriaProps;
+    public aria: SpinnerProps['aria'];
 
     @property()
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
-    public size?: SpinnerProps['size'] = defaultProps.size;
+    public size = defaultProps.size;
 
     @property()
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
-    public variant?: SpinnerProps['variant'] = defaultProps.variant;
+    public variant = defaultProps.variant;
 
     render () {
-        const { variant, size, aria } = this;
+        const { variant, size } = this;
+
+        const classes = {
+            'c-spinner': true,
+            [`c-spinner--${size}`]: true,
+            [`c-spinner--${variant}`]: true,
+        };
 
         return html`
             <div
                 data-test-id="pie-spinner"
-                class="c-spinner"
+                class="${classMap(classes)}"
                 role="status"
-                aria-live="polite"
-                size="${size}"
-                variant="${variant}">
-                   ${aria?.label ? html`<span class="c-spinner-label">${aria.label}</span>` : nothing}
-                </div>`;
+                aria-live="polite">
+                ${this.renderAriaLabel()}
+            </div>`;
+    }
+
+    private renderAriaLabel () {
+        if (!this.aria?.label) return nothing;
+
+        return html`
+        <span class="c-spinner-label">
+            ${this.aria.label}
+        </span>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

@@ -38,8 +38,8 @@
     "@custom-elements-manifest/analyzer": "0.9.0",
     "@justeattakeaway/pie-components-config": "0.18.0",
     "@justeattakeaway/pie-css": "0.12.1",
-    "@justeattakeaway/pie-switch": "0.30.0",
-    "@justeattakeaway/pie-text-input": "0.23.4",
+    "@justeattakeaway/pie-switch": "0.30.1",
+    "@justeattakeaway/pie-text-input": "0.23.6",
     "@justeattakeaway/pie-wrapper-react": "0.14.1",
     "cem-plugin-module-file-extensions": "0.0.5"
   },

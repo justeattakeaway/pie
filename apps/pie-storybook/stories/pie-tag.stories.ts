@@ -1,15 +1,13 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-tag';
 import {
-    TagProps as TagBaseProps, variants, sizes, defaultProps,
+    type TagProps as TagBaseProps, variants, sizes, defaultProps,
 } from '@justeattakeaway/pie-tag';
-/* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
-import type { StoryMeta, SlottedComponentProps } from '../types';
+import { type StoryMeta, type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type TagProps = SlottedComponentProps<TagBaseProps> & { showIcon: boolean };
@@ -48,11 +46,11 @@ const tagStoryMeta: TagStoryMeta = {
                 summary: defaultProps.isStrong,
             },
         },
-        isDimmed: {
-            description: 'If `true`, lowers the tag opacity.',
+        disabled: {
+            description: 'For an interactive tag, this applies the disabled attribute to the button and styles it appropriately.<br>For a non-interactive tag, this only applies the disabled styling.',
             control: 'boolean',
             defaultValue: {
-                summary: defaultProps.isDimmed,
+                summary: defaultProps.disabled,
             },
         },
         showIcon: {
@@ -82,16 +80,18 @@ export default tagStoryMeta;
 const Template : TemplateFunction<TagProps> = ({
     variant,
     size,
+    isInteractive,
     isStrong,
-    isDimmed,
+    disabled,
     showIcon,
     slot,
 }) => html`
     <pie-tag
         variant="${ifDefined(variant)}"
         size="${ifDefined(size)}"
+        ?isInteractive="${isInteractive}"
         ?isStrong="${isStrong}"
-        ?isDimmed="${isDimmed}">
+        ?disabled="${disabled}">
         ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
         ${sanitizeAndRenderHTML(slot)}
     </pie-tag>

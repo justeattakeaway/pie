@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.25.1
+
+### Patch Changes
+
+- [Changed] - use latest webpack for security fixes ([#1743](https://github.com/justeattakeaway/pie/pull/1743)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.25.0
 
 ### Minor Changes

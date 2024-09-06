@@ -10,14 +10,20 @@ export interface TagProps {
     variant?: typeof variants[number];
 
     /**
-     * When true, the 'green', "yellow", "red", "blue" and "neutral" variants change their styles and become bolder
+     * When true, the "green", "yellow", "red", "blue" and "neutral" variants change their styles and become bolder
      */
     isStrong?: boolean;
 
     /**
-     * When `true`, lowers the tag opacity.
+     * When `true`, the tag will be rendered as a button and can be interacted with.
      */
-    isDimmed?: boolean;
+    isInteractive?: boolean;
+
+    /**
+     * For an interactive tag, this applies the disabled attribute to the button and styles it appropriately.
+     * For a non-interactive tag, this only applies the disabled styling.
+     */
+    disabled?: boolean;
 
     /**
      * What size the tag should be.
@@ -30,6 +36,7 @@ export type DefaultProps = ComponentDefaultProps<TagProps>;
 export const defaultProps: DefaultProps = {
     variant: 'neutral',
     isStrong: false,
-    isDimmed: false,
+    isInteractive: false,
+    disabled: false,
     size: 'large',
 };

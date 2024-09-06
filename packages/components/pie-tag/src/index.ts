@@ -2,10 +2,11 @@ import {
     LitElement, html, unsafeCSS, nothing,
 } from 'lit';
 import { property } from 'lit/decorators.js';
+import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './tag.scss?inline';
 import {
-    TagProps, variants, sizes, defaultProps,
+    type TagProps, variants, sizes, defaultProps,
 } from './defs';
 
 // Valid values available to consumers
@@ -21,37 +22,72 @@ const componentSelector = 'pie-tag';
 export class PieTag extends LitElement implements TagProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
-    public variant: TagProps['variant'] = defaultProps.variant;
+    public variant = defaultProps.variant;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
-    public size : TagProps['size'] = defaultProps.size;
+    public size = defaultProps.size;
 
     @property({ type: Boolean })
     public isStrong = defaultProps.isStrong;
 
     @property({ type: Boolean })
-    public isDimmed = defaultProps.isDimmed;
+    public disabled = defaultProps.disabled;
+
+    @property({ type: Boolean })
+    public isInteractive = defaultProps.isInteractive;
 
     render () {
         const {
-            variant,
-            size,
+            disabled,
+            isInteractive,
             isStrong,
-            isDimmed,
+            size,
+            variant,
         } = this;
+
+        const classes = {
+            'c-tag': true,
+            [`c-tag--${size}`]: true,
+            [`c-tag--${variant}`]: true,
+            'c-tag--disabled': disabled,
+            'c-tag--strong': isStrong,
+            'c-tag--interactive': isInteractive,
+        };
+
+        if (isInteractive) {
+            return this.renderButtonTag(classes);
+        }
+
+        return this.renderTag(classes);
+    }
+
+    private renderIconSlot () {
+        if (this.size !== 'large') return nothing;
+
+        return html`<slot name="icon"></slot>`;
+    }
+
+    private renderTag (classes: ClassInfo) {
         return html`
-            <div
-                class="c-tag"
-                variant=${variant}
-                size=${size}
-                ?isStrong=${isStrong}
-                ?isDimmed=${isDimmed}
-                data-test-id="pie-tag"
-            >
-                ${size === 'large' ? html`<slot name="icon"></slot>` : nothing}
-                <slot></slot>
-            </div>`;
+        <div
+            class="${classMap(classes)}"
+            data-test-id="pie-tag">
+            ${this.renderIconSlot()}
+            <slot></slot>
+        </div>`;
+    }
+
+    private renderButtonTag (classes: ClassInfo) {
+        return html`
+        <button
+            type="button"
+            ?disabled="${this.disabled}"
+            class="${classMap(classes)}"
+            data-test-id="pie-tag">
+            ${this.renderIconSlot()}
+            <slot></slot>
+        </button>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

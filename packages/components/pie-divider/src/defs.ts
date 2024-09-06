@@ -12,6 +12,10 @@ export interface DividerProps {
      * What orientation the divider should be such as horizontal or vertical.
      */
    orientation?: typeof orientations[number];
+    /**
+     * The label text for the divider.
+     */
+    label?: string;
 }
 
 export type DefaultProps = ComponentDefaultProps<DividerProps>;
@@ -19,4 +23,5 @@ export type DefaultProps = ComponentDefaultProps<DividerProps>;
 export const defaultProps: DefaultProps = {
     variant: 'default',
     orientation: 'horizontal',
+    label: '',
 };
