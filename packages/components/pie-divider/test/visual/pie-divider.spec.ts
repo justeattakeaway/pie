@@ -20,18 +20,19 @@ import { PieDivider } from '../../src/index.ts';
 const props: PropObject<DividerProps> = {
     variant: variants,
     orientation: orientations,
+    label: ['', 'Label', 'Lorem ipsum dolor sit amet consectetur'],
 };
 
 const renderTestPieDivider = (propVals: WebComponentPropValues) => {
-    const { variant, orientation } = propVals;
+    const { variant, orientation, label } = propVals;
     if (orientation === 'vertical') {
         return `
             <div style="height: 250px">
-                <pie-divider variant="${variant}" orientation="${orientation}" />
+                <pie-divider variant="${variant}" orientation="${orientation}" label="${label}"></pie-divider>
             </div>
         `;
     }
-    return `<pie-divider variant="${variant}" orientation="${orientation}"></pie-divider>`;
+    return `<pie-divider variant="${variant}" orientation="${orientation}" label="${label}"></pie-divider>`;
 };
 
 const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
@@ -43,10 +44,13 @@ test.beforeEach(async ({ mount }) => {
     await component.unmount();
 });
 
-componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+componentVariants.forEach((variant) => test(`should render all prop variations for variant: ${variant} `, async ({
+    page,
+    mount,
+}) => {
     for (const combo of componentPropsMatrixByVariant[variant]) {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieDivider);
-        const propKeyValues = `orientation: ${testComponent.propValues.orientation}`;
+        const propKeyValues = `orientation: ${testComponent.propValues.orientation}, label: ${testComponent.propValues.label || '-'}`;
 
         await mount(
             WebComponentTestWrapper,
@@ -56,9 +60,8 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
                     component: testComponent.renderedString.trim(),
                 },
             },
-
         );
     }
 
-    await percySnapshot(page, `PIE Divider - Variant: ${variant}`, percyWidths);
+    await percySnapshot(page, `PIE Divider - variant: ${variant}`, percyWidths);
 }));

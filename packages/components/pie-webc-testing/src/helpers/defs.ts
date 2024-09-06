@@ -14,7 +14,7 @@
  *     bar: [1, 2, 3],
  * };
  */
-export type PropObject<T = unknown> = {
+export type PropObject<T = Record<string, unknown>> = {
     [K in keyof T]: T[K] | Readonly<T[K][]>;
 };
 

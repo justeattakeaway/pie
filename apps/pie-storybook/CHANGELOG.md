@@ -1,5 +1,44 @@
 # Changelog
 
+## 1.3.1
+
+### Patch Changes
+
+- [Changed] - Rename `isDimmed` prop to `disabled` ([#1765](https://github.com/justeattakeaway/pie/pull/1765)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - `isInteractive` prop which renders the tag as a button
+  [Added] - Interactive styling
+
+- Updated dependencies [[`e99674628`](https://github.com/justeattakeaway/pie/commit/e99674628547f4603663e36634c8f04a4757bdc7), [`61c372964`](https://github.com/justeattakeaway/pie/commit/61c37296475b870eec3c54b2fad8fa6b19e31ced), [`e99674628`](https://github.com/justeattakeaway/pie/commit/e99674628547f4603663e36634c8f04a4757bdc7)]:
+  - @justeattakeaway/pie-spinner@0.7.0
+  - @justeattakeaway/pie-tag@0.10.0
+  - @justeattakeaway/pie-button@0.49.1
+  - @justeattakeaway/pie-chip@0.8.2
+  - @justeattakeaway/pie-icon-button@0.28.12
+  - @justeattakeaway/pie-modal@0.46.2
+  - @justeattakeaway/pie-cookie-banner@0.26.3
+  - @justeattakeaway/pie-toast@0.3.3
+  - @justeattakeaway/pie-notification@0.10.2
+
+## 1.3.0
+
+### Minor Changes
+
+- [Added] - `Labelled` story and a storybook control for the `label` property ([#1746](https://github.com/justeattakeaway/pie/pull/1746)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- [Added] - support `placeholder` and `readonly` props ([#1747](https://github.com/justeattakeaway/pie/pull/1747)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - use classes instead of attributes for styling ([#1749](https://github.com/justeattakeaway/pie/pull/1749)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`8566e9062`](https://github.com/justeattakeaway/pie/commit/8566e9062b3fbf1d7283ce7663a377acea4be8cc), [`ba44e6df8`](https://github.com/justeattakeaway/pie/commit/ba44e6df8756e3b827b99b528b88487a5cee4cc6), [`1108446ab`](https://github.com/justeattakeaway/pie/commit/1108446ab5bae36f35892d0c190a9648c40c88f4), [`ba44e6df8`](https://github.com/justeattakeaway/pie/commit/ba44e6df8756e3b827b99b528b88487a5cee4cc6)]:
+  - @justeattakeaway/pie-divider@0.14.0
+  - @justeattakeaway/pie-text-input@0.23.6
+  - @justeattakeaway/pie-tag@0.9.10
+  - @justeattakeaway/pie-textarea@0.9.0
+  - @justeattakeaway/pie-cookie-banner@0.26.2
+
 ## 1.2.2
 
 ### Patch Changes

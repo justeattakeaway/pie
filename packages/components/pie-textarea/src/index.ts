@@ -77,6 +77,9 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     @property({ type: String })
     public autocomplete: TextareaProps['autocomplete'];
 
+    @property({ type: String })
+    public placeholder: TextareaProps['placeholder'];
+
     @query('textarea')
     private _textarea!: HTMLTextAreaElement;
 
@@ -216,6 +219,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
             autoFocus,
             name,
             readonly,
+            placeholder,
             value,
             required,
             label,
@@ -227,6 +231,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         const classes = {
             'c-textareaWrapper': true,
             'c-textarea--disabled': disabled,
+            'c-textarea--readonly': readonly,
             'c-textarea--error': status === 'error',
             [`c-textarea--resize-${resize}`]: true,
             [`c-textarea--${size}`]: true,
@@ -242,6 +247,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
                     data-test-id="${componentSelector}"
                     name=${ifDefined(name)}
                     autocomplete=${ifDefined(autocomplete)}
+                    placeholder=${ifDefined(placeholder)}
                     .value=${live(value)}
                     ?autofocus=${autoFocus}
                     ?readonly=${readonly}

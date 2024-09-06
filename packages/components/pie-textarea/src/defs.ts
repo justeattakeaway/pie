@@ -81,6 +81,11 @@ export interface TextareaProps {
      * If the `label` property is not set, this property will have no effect.
      */
     maxLength?: number;
+
+    /**
+     * The placeholder text to display when the textarea is empty.
+     */
+    placeholder?: string;
 }
 
 /**
@@ -97,6 +102,7 @@ export const defaultProps: DefaultProps = {
     resize: 'auto',
     label: '',
     value: '',
+    placeholder: '',
     status: 'default',
     autoFocus: false,
     readonly: false,
