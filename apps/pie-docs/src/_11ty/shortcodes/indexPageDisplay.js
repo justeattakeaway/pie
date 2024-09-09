@@ -10,7 +10,7 @@ const path = require('path');
  * A default image will be rendered if desktop image is not provided and a warning is printed to the server console.
  * Images must be added:
  *  - within a folder with the main menu item name, for example 'components/' 'foundations/'
- *  - image should have the name of the sub-menu in snakecase, for example Checkbox Group is called 'checkbox-group'
+ *  - image should have the name of the sub-menu in kebab-case, for example Checkbox Group is called 'checkbox-group'
  *  - mobile images will use the same name with a mobile keyword, for example 'checkbox-group-mobile'
  * @param {string} collection - It is the object from 11y collections.all https://www.11ty.dev/docs/collections/
  * @param {string} itemKey - Is the key of the element in the main menu, and the page we will be rendering e.g. components

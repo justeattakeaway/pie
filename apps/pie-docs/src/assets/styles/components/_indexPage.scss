@@ -35,6 +35,11 @@
         @include p.line-height(--dt-font-interactive-l-line-height);
         font-weight: var(--dt-font-interactive-l-weight);
 
+        picture {
+            line-height: initial;
+            margin-bottom: var(--dt-spacing-d);
+        }
+
         &:visited {
             color: initial;
         }
