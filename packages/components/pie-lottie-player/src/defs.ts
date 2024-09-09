@@ -44,5 +44,5 @@ export const defaultProps: DefaultProps = {
     loopDisabled: false,
     autoPlayDisabled: false,
     speed: 1,
-    direction: directions[0],
+    direction: 'forward',
 };

@@ -5,7 +5,7 @@ import { property, query } from 'lit/decorators.js';
 import { LottiePlayer, AnimationItem } from 'lottie-web';
 
 import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
-import { LottiePlayerProps, defaultProps, AnimationDirection } from './defs';
+import { LottiePlayerProps, defaultProps } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -142,7 +142,7 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
     }
 
     @property({ type: String, reflect: true })
-    get direction ():AnimationDirection {
+    get direction ():LottiePlayerProps['direction'] {
         return this._direction;
     }
 
@@ -169,7 +169,7 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
     }
 
     /**
-     * Plays the animation
+     * Plays the animation from the beginning
      */
     public play (): void {
         if (!this._animationInstance) return;
