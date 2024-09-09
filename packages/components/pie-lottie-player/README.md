@@ -63,6 +63,22 @@ import { PieLottiePlayer } from '@justeattakeaway/pie-lottie-player/dist/react';
 > When using the React version of the component, please make sure to also
 > include React as a [peer dependency](#peer-dependencies) in your project.
 
+#### Nuxt and SSR
+
+When adding this component to a Nuxt application in combination with SSR settings, it might happen to receive the error "500 customElements.get(...) is not a constructor" during the preview of the built application.
+
+That is likely due [a known issue](https://github.com/prashantpalikhe/nuxt-ssr-lit/issues/137) with the module that enables using Lit components in Nuxt with SSR, `nuxt-ssr-lit`.
+
+To solve the issue, update or add the `nitro.moduleSideEffects` array in `nuxt.config.ts`:
+
+```
+  nitro: {
+      moduleSideEffects: [
+          '@justeattakeaway/pie-lottie-player',
+      ],
+  },
+```
+
 ## Peer Dependencies
 
 > [!IMPORTANT]
