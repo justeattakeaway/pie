@@ -33,9 +33,14 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
         // Check if the code is running in a browser environment
         if (isServer) return;
 
-        const { default: lottieModule } = await import('lottie-web/build/player/lottie_light_canvas.min.js'); // Dynamically import the 'lottie-web' library to avoid SSR issues
-        this._lottie = lottieModule;
-        this._loadAnimation();
+        // Dynamically import the 'lottie-web' library to avoid SSR issues
+        const lottieModule = await import('lottie-web/build/player/lottie_light_canvas.min.js');
+
+        // Added so Nuxt apps can properly have access to "default" without crashing
+        if (lottieModule && lottieModule.default) {
+            this._lottie = lottieModule.default;
+            this._loadAnimation();
+        }
     }
 
     disconnectedCallback () {
