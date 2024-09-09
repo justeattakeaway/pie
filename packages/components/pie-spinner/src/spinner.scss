@@ -37,35 +37,32 @@
 
     @include spinner-base-colors('--dt-color-content-brand');
 
-    &[variant='brand'] {
+    &.c-spinner--medium,
+    &.c-spinner--brand {
         /* Same as default styles */
     }
 
-    &[variant='secondary'] {
+    &.c-spinner--secondary {
         @include spinner-base-colors('--dt-color-content-interactive-secondary');
     }
 
-    &[variant='inverse'] {
+    &.c-spinner--inverse {
         @include spinner-base-colors('--dt-color-content-inverse');
     }
 
-    &[size='xsmall'] {
+    &.c-spinner--xsmall {
         --spinner-size: 16px;
     }
 
-    &[size='small'] {
+    &.c-spinner--small {
         --spinner-size: 20px;
     }
 
-    &[size='medium'] {
-        /* Same as default styles */
-    }
-
-    &[size='large'] {
+    &.c-spinner--large {
         --spinner-size: 32px;
     }
 
-    &[size='xlarge'] {
+    &.c-spinner--xlarge {
         --spinner-size: 48px;
     }
 }

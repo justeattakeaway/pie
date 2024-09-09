@@ -1,5 +1,37 @@
 # Changelog
 
+## 4.3.2
+
+### Patch Changes
+
+- [Changed] - Update code page for pie-tag ([#1765](https://github.com/justeattakeaway/pie/pull/1765)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 4.3.1
+
+### Patch Changes
+
+- [Added] - documentation for when buttons and links act like one another ([#1703](https://github.com/justeattakeaway/pie/pull/1703)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] Update android component status ([#1604](https://github.com/justeattakeaway/pie/pull/1604)) by [@fmontesino](https://github.com/fmontesino)
+
+- Updated dependencies [[`2f8c8be9d`](https://github.com/justeattakeaway/pie/commit/2f8c8be9d8c90a2e2be2e58d7d2bec99cbac9792)]:
+  - @justeattakeaway/pie-icons@4.19.1
+
+## 4.3.0
+
+### Minor Changes
+
+- [Added] - a new contentWrapper shortcode to visually combine different items into a visual container. So far it has only one design (white background with 2px rounded border and 24px padding). ([#1723](https://github.com/justeattakeaway/pie/pull/1723)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Added] - a new motion tab for pie-checkbox.
+  [Changed] - moved code section to its own folder under pie-checkbox.
+
+### Patch Changes
+
+- [Changed] - structure of checkbox group docs folder ([#1725](https://github.com/justeattakeaway/pie/pull/1725)) by [@dandel10n](https://github.com/dandel10n)
+
+- [Updated] - checkbox and checkbox-group components status from `alpha` to `beta` ([#1729](https://github.com/justeattakeaway/pie/pull/1729)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 4.2.0
 
 ### Minor Changes

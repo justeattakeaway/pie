@@ -1,15 +1,11 @@
 import { expect, test } from '@sand4rt/experimental-ct-web';
-import {
-    getFormDataObject,
-    setupFormDataExtraction,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
+import { getFormDataObject, setupFormDataExtraction } from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
 import { PieFormLabel } from '@justeattakeaway/pie-form-label';
-import { PieTextarea, TextareaProps } from '../../src/index.ts';
+import { PieTextarea, type TextareaProps } from '../../src/index.ts';
 
 import { statusTypes } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-textarea"]';
-const componentWrapperSelector = '[data-test-id="pie-textarea-wrapper"]';
 const assistiveTextSelector = '[data-test-id="pie-textarea-assistive-text"]';
 
 test.describe('PieTextarea - Component tests', () => {
@@ -25,9 +21,7 @@ test.describe('PieTextarea - Component tests', () => {
 
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
-        await mount(PieTextarea, {
-            props: {} as TextareaProps,
-        });
+        await mount(PieTextarea);
 
         // Act
         const textarea = page.locator(componentSelector);
@@ -90,92 +84,6 @@ test.describe('PieTextarea - Component tests', () => {
                     // Assert
                     expect(textarea).toBeFocused();
                 });
-            });
-        });
-
-        test.describe('size', () => {
-            test('should apply `medium` size prop by default if no size prop provided', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieTextarea, {});
-
-                // Act
-                const textareaWrapper = component.locator(componentWrapperSelector);
-
-                // Assert
-                expect(textareaWrapper).toHaveAttribute('data-pie-size', 'medium');
-            });
-
-            test('should apply `large` size attribute to the textarea wrapper', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        size: 'large',
-                    } as TextareaProps,
-                });
-
-                // Act
-                const textareaWrapper = component.locator(componentWrapperSelector);
-
-                // Assert
-                expect(textareaWrapper).toHaveAttribute('data-pie-size', 'large');
-            });
-
-            test('should apply `small` size attribute to the textarea wrapper', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        size: 'small',
-                    } as TextareaProps,
-                });
-
-                // Act
-                const textareaWrapper = component.locator(componentWrapperSelector);
-
-                // Assert
-                expect(textareaWrapper).toHaveAttribute('data-pie-size', 'small');
-            });
-        });
-
-        test.describe('resize', () => {
-            test('should apply `auto` resize prop by default if no resize prop provided', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieTextarea, {});
-
-                // Act
-                const textareaWrapper = component.locator(componentWrapperSelector);
-
-                // Assert
-                expect(textareaWrapper).toHaveAttribute('data-pie-resize', 'auto');
-            });
-
-            test('should apply `manual` resize attribute to the textarea wrapper', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        resize: 'manual',
-                    } as TextareaProps,
-                });
-
-                // Act
-                const textareaWrapper = component.locator(componentWrapperSelector);
-
-                // Assert
-                expect(textareaWrapper).toHaveAttribute('data-pie-resize', 'manual');
-            });
-
-            test('should apply `auto` resize attribute to the textarea wrapper', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        resize: 'auto',
-                    } as TextareaProps,
-                });
-
-                // Act
-                const textareaWrapper = component.locator(componentWrapperSelector);
-
-                // Assert
-                expect(textareaWrapper).toHaveAttribute('data-pie-resize', 'auto');
             });
         });
 
@@ -670,6 +578,34 @@ test.describe('PieTextarea - Component tests', () => {
                 });
             });
         });
+
+        test.describe('placeholder', () => {
+            test('should not render a placeholder attribute on the textarea element if no placeholder provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {});
+
+                // Act
+                const textarea = component.locator('textarea');
+
+                // Assert
+                expect((await textarea.getAttribute('placeholder'))).toBe(null);
+            });
+
+            test('should apply the placeholder prop to the HTML textarea rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieTextarea, {
+                    props: {
+                        placeholder: 'Test Placeholder',
+                    } as TextareaProps,
+                });
+
+                // Act
+                const textarea = component.locator('textarea');
+
+                // Assert
+                expect((await textarea.getAttribute('placeholder'))).toBe('Test Placeholder');
+            });
+        });
     });
 
     test.describe('Form integration', () => {
@@ -833,7 +769,6 @@ test.describe('PieTextarea - Component tests', () => {
                 const expectedMessagesLength = 10;
 
                 const component = await mount(PieTextarea, {
-                    props: {} as PieTextarea,
                     on: {
                         input: (data: InputEvent) => {
                             messages.push(data);

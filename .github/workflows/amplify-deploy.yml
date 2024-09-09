@@ -50,7 +50,7 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       # Setup Repo
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
@@ -65,7 +65,7 @@ jobs:
       # Create Github Deployment
       - name: Create Docs GitHub deployment
         if: ${{ github.event_name == 'pull_request' }}
-        uses: chrnorm/deployment-action@v2
+        uses: chrnorm/deployment-action@55729fcebec3d284f60f5bcabbd8376437d696b1 # v2.0.0
         id: deploy
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -79,7 +79,7 @@ jobs:
       # Upload zip to S3
       - name: Upload to S3
         id: upload-s3
-        uses: hkusu/s3-upload-action@v2
+        uses: hkusu/s3-upload-action@df0d0d688ce4593c477be764d08f63566dfd968e # v2.1.0
         with:
           aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
@@ -138,7 +138,6 @@ jobs:
             --domain-name pie.design \
             --sub-domain-settings '${{ env.DOMAIN_ASSOCIATIONS }}'
 
-
       - name: Wait for Amplify deployment
         if: github.event_name == 'pull_request'
         run: |
@@ -184,7 +183,7 @@ jobs:
       # If successful
       - name: Update deployment status (success)
         if: ${{ github.event_name == 'pull_request' && success() }}
-        uses: chrnorm/deployment-status@v2
+        uses: chrnorm/deployment-status@9a72af4586197112e0491ea843682b5dc280d806 # v2.0.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
@@ -194,7 +193,7 @@ jobs:
       # If it failed
       - name: Update deployment status (failure)
         if: ${{ github.event_name == 'pull_request' && failure() }}
-        uses: chrnorm/deployment-status@v2
+        uses: chrnorm/deployment-status@9a72af4586197112e0491ea843682b5dc280d806 # v2.0.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/

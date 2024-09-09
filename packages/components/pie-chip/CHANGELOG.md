@@ -1,5 +1,25 @@
 # @justeattakeaway/pie-chip
 
+## 0.8.2
+
+### Patch Changes
+
+- Updated dependencies [[`e99674628`](https://github.com/justeattakeaway/pie/commit/e99674628547f4603663e36634c8f04a4757bdc7)]:
+  - @justeattakeaway/pie-spinner@0.7.0
+
+## 0.8.1
+
+### Patch Changes
+
+- Updated dependencies [[`2f8c8be9d`](https://github.com/justeattakeaway/pie/commit/2f8c8be9d8c90a2e2be2e58d7d2bec99cbac9792)]:
+  - @justeattakeaway/pie-icons-webc@0.25.1
+
+## 0.8.0
+
+### Minor Changes
+
+- [Changed] - Use classmap instead of custom attributes for styling component ([#1716](https://github.com/justeattakeaway/pie/pull/1716)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.7.2
 
 ### Patch Changes

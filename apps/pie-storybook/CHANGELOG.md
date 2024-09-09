@@ -1,5 +1,91 @@
 # Changelog
 
+## 1.3.1
+
+### Patch Changes
+
+- [Changed] - Rename `isDimmed` prop to `disabled` ([#1765](https://github.com/justeattakeaway/pie/pull/1765)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - `isInteractive` prop which renders the tag as a button
+  [Added] - Interactive styling
+
+- Updated dependencies [[`e99674628`](https://github.com/justeattakeaway/pie/commit/e99674628547f4603663e36634c8f04a4757bdc7), [`61c372964`](https://github.com/justeattakeaway/pie/commit/61c37296475b870eec3c54b2fad8fa6b19e31ced), [`e99674628`](https://github.com/justeattakeaway/pie/commit/e99674628547f4603663e36634c8f04a4757bdc7)]:
+  - @justeattakeaway/pie-spinner@0.7.0
+  - @justeattakeaway/pie-tag@0.10.0
+  - @justeattakeaway/pie-button@0.49.1
+  - @justeattakeaway/pie-chip@0.8.2
+  - @justeattakeaway/pie-icon-button@0.28.12
+  - @justeattakeaway/pie-modal@0.46.2
+  - @justeattakeaway/pie-cookie-banner@0.26.3
+  - @justeattakeaway/pie-toast@0.3.3
+  - @justeattakeaway/pie-notification@0.10.2
+
+## 1.3.0
+
+### Minor Changes
+
+- [Added] - `Labelled` story and a storybook control for the `label` property ([#1746](https://github.com/justeattakeaway/pie/pull/1746)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- [Added] - support `placeholder` and `readonly` props ([#1747](https://github.com/justeattakeaway/pie/pull/1747)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - use classes instead of attributes for styling ([#1749](https://github.com/justeattakeaway/pie/pull/1749)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`8566e9062`](https://github.com/justeattakeaway/pie/commit/8566e9062b3fbf1d7283ce7663a377acea4be8cc), [`ba44e6df8`](https://github.com/justeattakeaway/pie/commit/ba44e6df8756e3b827b99b528b88487a5cee4cc6), [`1108446ab`](https://github.com/justeattakeaway/pie/commit/1108446ab5bae36f35892d0c190a9648c40c88f4), [`ba44e6df8`](https://github.com/justeattakeaway/pie/commit/ba44e6df8756e3b827b99b528b88487a5cee4cc6)]:
+  - @justeattakeaway/pie-divider@0.14.0
+  - @justeattakeaway/pie-text-input@0.23.6
+  - @justeattakeaway/pie-tag@0.9.10
+  - @justeattakeaway/pie-textarea@0.9.0
+  - @justeattakeaway/pie-cookie-banner@0.26.2
+
+## 1.2.2
+
+### Patch Changes
+
+- [Added] - anchor story for pie-button ([#1703](https://github.com/justeattakeaway/pie/pull/1703)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - new props to button stories
+  [Changed] - exclude some button props from stories where they aren't relevant
+
+- Updated dependencies [[`7de240b2d`](https://github.com/justeattakeaway/pie/commit/7de240b2d00df37493f4d29d9a7baac10ebc90ee), [`2f8c8be9d`](https://github.com/justeattakeaway/pie/commit/2f8c8be9d8c90a2e2be2e58d7d2bec99cbac9792)]:
+  - @justeattakeaway/pie-button@0.49.0
+  - @justeattakeaway/pie-icons-webc@0.25.1
+  - @justeattakeaway/pie-cookie-banner@0.26.1
+  - @justeattakeaway/pie-modal@0.46.1
+  - @justeattakeaway/pie-toast@0.3.2
+  - @justeattakeaway/pie-assistive-text@0.7.1
+  - @justeattakeaway/pie-chip@0.8.1
+  - @justeattakeaway/pie-icon-button@0.28.11
+  - @justeattakeaway/pie-notification@0.10.1
+  - @justeattakeaway/pie-switch@0.30.1
+  - @justeattakeaway/pie-text-input@0.23.5
+  - @justeattakeaway/pie-checkbox@0.12.3
+  - @justeattakeaway/pie-checkbox-group@0.6.3
+
+## 1.2.1
+
+### Patch Changes
+
+- [Added] - Catalan locale ([#1731](https://github.com/justeattakeaway/pie/pull/1731)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`415046470`](https://github.com/justeattakeaway/pie/commit/41504647009fa672b1d7e8309a4188fcd3d24a55)]:
+  - @justeattakeaway/pie-cookie-banner@0.26.0
+
+## 1.2.0
+
+### Minor Changes
+
+- [Added] - storybook controls for the `assistiveText` and `status` properties ([#1717](https://github.com/justeattakeaway/pie/pull/1717)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+### Patch Changes
+
+- Updated dependencies [[`af1eb5eb2`](https://github.com/justeattakeaway/pie/commit/af1eb5eb22552ffcd604589173986cee77bfb5f1), [`54daf4fb4`](https://github.com/justeattakeaway/pie/commit/54daf4fb47659c996ad525139c9ad8db99a125c7), [`54daf4fb4`](https://github.com/justeattakeaway/pie/commit/54daf4fb47659c996ad525139c9ad8db99a125c7), [`339be3140`](https://github.com/justeattakeaway/pie/commit/339be314031e9121c40127820cbb7105d7a76a42), [`00688a2a9`](https://github.com/justeattakeaway/pie/commit/00688a2a92916225c676e3937814b21d12052056)]:
+  - @justeattakeaway/pie-textarea@0.8.0
+  - @justeattakeaway/pie-chip@0.8.0
+  - @justeattakeaway/pie-checkbox-group@0.6.2
+  - @justeattakeaway/pie-checkbox@0.12.2
+
 ## 1.1.6
 
 ### Patch Changes

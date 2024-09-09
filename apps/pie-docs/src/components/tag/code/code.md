@@ -46,7 +46,7 @@ yarn add @justeattakeaway/pie-webc
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide.](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
+  message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
 } %}
 
 ## Props
@@ -55,7 +55,7 @@ yarn add @justeattakeaway/pie-webc
   tableData: props
 } %}
 
-Since the component is not interactive, it doesn't have a disabled property. To give the Tag a disabled look, please set the `--tag-opacity` css variable. Recommended opacity level for disabled tag is 0.5.
+You can customise the disabled appearance by setting the `--tag-opacity` css variable. The default opacity level for the disabled state is 0.5.
 
 ## Slots
 

@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.12.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.7.1
+
+## 0.12.2
+
+### Patch Changes
+
+- [Updated] - checkbox and checkbox-group components status from `alpha` to `beta` ([#1729](https://github.com/justeattakeaway/pie/pull/1729)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.12.1
 
 ### Patch Changes

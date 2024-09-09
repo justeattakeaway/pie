@@ -19,7 +19,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "If <code>true</code>, uses the next larger size on wide viewports.",
+            "If true, uses the next larger size on wide viewports.",
             {
                 "type": "code",
                 "item": ["false"]
@@ -31,7 +31,7 @@
                 "type": "code",
                 "item": ["\"productive\"", "\"expressive\""]
             },
-            "Sets which \"small\" size an <code>xsmall</code> button should grow to when <code>isResponsive</code> is <code>true</code>.",
+            "Sets which \"small-\" size an `xsmall` button should grow to when `isResponsive`> is `true`.",
             {
                 "type": "code",
                 "item": ["\"productive\""]
@@ -67,7 +67,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "if <code>true</code>, disables the button.",
+            "If true, disables the button.",
             {
                 "type": "code",
                 "item": ["false"]
@@ -79,7 +79,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "if <code>true</code>, sets the button's width to 100% of its container.",
+            "If true, sets the button's width to 100% of its container.",
             {
                 "type": "code",
                 "item": ["false"]
@@ -91,7 +91,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "if <code>true</code>, displays a loading indicator inside the button.",
+            "If true, displays a loading indicator inside the button.",
             {
                 "type": "code",
                 "item": ["false"]
@@ -103,10 +103,10 @@
                 "type": "code",
                 "item": ["\"leading\"", "\"trailing\""]
             },
-            "Show a leading/trailing icon. Leading comes before the text and trailing comes after, taking writing direction into account. To use this with pie-button, you can pass an icon into the icon slot.",
+            "Sets the position of the icon relative to the text. Leading comes before the text and trailing comes after, taking writing direction into account. To use this, you must pass an icon into the <a href=\"#slots\">icon slot</a>.",
             {
                 "type": "code",
-                "item": ["undefined"]
+                "item": ["\"leading\""]
             }
         ],
         [
@@ -142,7 +142,7 @@
                 "type": "code",
                 "item": ["application/x-www-form-urlencoded", "multipart/form-data", "text/plain"]
             },
-            "If the button is a submit button (i.e., it's inside a form or is associated with one and doesn't have <code>type=\"button\"</code>), specifies how to encode the form data that is submitted",
+            "If the button is a submit button (i.e., it's inside a form, or is associated with one and `type` is not `\"button\"`), specifies how to encode the form data that is submitted.",
             {
                 "type": "code",
                 "item": ["undefined"]
@@ -154,7 +154,7 @@
                 "type": "code",
                 "item": ["\"post\"", "\"get\"", "\"dialog\""]
             },
-            "If the button is a submit button (i.e., it's inside a form or is associated with one and doesn't have <code>type=\"button\"</code>), this attribute specifies the HTTP method used to submit the form.",
+            "If the button is a submit button (i.e., it's inside a form, or is associated with one and `type` is not `\"button\"`), this attribute specifies the HTTP method used to submit the form.",
             {
                 "type": "code",
                 "item": ["undefined"]
