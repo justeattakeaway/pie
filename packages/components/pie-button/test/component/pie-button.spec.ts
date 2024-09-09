@@ -15,7 +15,7 @@ const sizes: Array<SizeResponsiveSize> = [
     { sizeName: 'large', responsiveSize: '--btn-height--large' },
 ];
 
-test('should correctly work with native click events', async ({ mount }) => {
+test('should correctly work with native click event', async ({ mount }) => {
     const messages: string[] = [];
     const expectedEventMessage = 'Native event dispatched';
     const component = await mount(
