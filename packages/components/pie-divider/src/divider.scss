@@ -1,22 +1,54 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 .c-divider {
-    --divider-bg-color: var(--dt-color-divider-default);
-    --divider-width: 100%;
-    --divider-height: 1px;
+  --divider-bg-color: var(--dt-color-divider-default);
+  --divider-width: 100%;
+  --divider-min-width: 16px;
+  --divider-height: 1px;
+  --divider-label-max-width: 90%;
 
+  width: var(--divider-width);
+
+  &,
+  hr {
     margin: 0;
     border: 0;
-    width: var(--divider-width);
-    height: var(--divider-height);
     background-color: var(--divider-bg-color);
+  }
+
+  &:not(.c-divider--labelled) {
+    height: var(--divider-height);
+  }
+
+  &.c-divider--labelled {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: var(--dt-spacing-b);
+    background-color: transparent;
+
+    .c-divider-label {
+      max-width: var(--divider-label-max-width);
+      word-wrap: break-word;
+    }
+
+    hr {
+      flex-grow: 1;
+      height: var(--divider-height);
+      min-width: var(--divider-min-width);
+    }
 
     &.c-divider--inverse {
-        --divider-bg-color: var(--dt-color-divider-inverse);
+      color: var(--dt-color-content-inverse);
     }
+  }
 
-    &.c-divider--vertical {
-        --divider-width: 1px;
-        --divider-height: 100%;
-    }
+  &.c-divider--inverse {
+    --divider-bg-color: var(--dt-color-divider-inverse);
+  }
+
+  &.c-divider--vertical {
+    --divider-width: 1px;
+    --divider-height: 100%;
+  }
 }

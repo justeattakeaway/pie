@@ -38,6 +38,7 @@ env:
   PERCY_TOKEN_PIE_LINK: ${{ secrets.PERCY_TOKEN_PIE_LINK }}
   PERCY_TOKEN_PIE_MODAL: ${{ secrets.PERCY_TOKEN_PIE_MODAL }}
   PERCY_TOKEN_PIE_NOTIFICATION: ${{ secrets.PERCY_TOKEN_PIE_NOTIFICATION }}
+  PERCY_TOKEN_PIE_RADIO: ${{ secrets.PERCY_TOKEN_PIE_RADIO }}
   PERCY_TOKEN_PIE_SPINNER: ${{ secrets.PERCY_TOKEN_PIE_SPINNER }}
   PERCY_TOKEN_PIE_SWITCH: ${{ secrets.PERCY_TOKEN_PIE_SWITCH }}
   PERCY_TOKEN_PIE_TAG: ${{ secrets.PERCY_TOKEN_PIE_TAG }}
@@ -66,7 +67,7 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           fetch-depth: 0
       # Setup Repo
@@ -99,7 +100,7 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       # Setup Repo
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
@@ -118,7 +119,7 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       # Setup Repo
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
@@ -159,7 +160,7 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       # Setup Repo
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
@@ -185,7 +186,7 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           fetch-depth: 0
       # Setup Repo
@@ -202,7 +203,8 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: "test:browsers:ci --filter='./packages/components/*'"
-      - uses: actions/upload-artifact@v3
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 # v4.4.0
         if: always()
         with:
           name: browsers-report
@@ -221,7 +223,8 @@ jobs:
         with:
           script-name: "test:visual:ci --filter='{./packages/components/*}...[origin/main]'"
           concurrency: 1
-      - uses: actions/upload-artifact@v3
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 # v4.4.0
         if: always()
         with:
           name: visual-report
@@ -262,7 +265,7 @@ jobs:
     steps:
       # Checkout the Repo
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           fetch-depth: 0
       # Setup Repo
@@ -279,7 +282,8 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: "test:browsers:ci --filter=pie-docs"
-      - uses: actions/upload-artifact@v3
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 # v4.4.0
         if: always()
         with:
           name: browsers-report
@@ -298,7 +302,8 @@ jobs:
         with:
           script-name: "test:visual:ci --filter=pie-docs"
           concurrency: 1
-      - uses: actions/upload-artifact@v3
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
         if: always()
         with:
           name: visual-report
@@ -336,7 +341,7 @@ jobs:
 
     steps:
     - name: Verify if the required jobs succeeded
-      uses: re-actors/alls-green@release/v1
+      uses: re-actors/alls-green@05ac9388f0aebcb5727afa17fcccfecd6f8ec5fe # v1.2.2
       with:
         # "allowed-skips" lists jobs that are optional but should not fail
         allowed-skips: browser-tests-components, deploy-docs, deploy-storybook, browser-tests-docs

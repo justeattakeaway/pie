@@ -4,6 +4,9 @@
 apps:
 - 'apps/**/*'
 
+ci:
+- '.github/**/*'
+
 pie-docs:
 - 'apps/pie-docs/**/*'
 
@@ -87,6 +90,9 @@ pie-modal:
 
 pie-notification:
 - 'packages/components/pie-notification/**/*'
+
+pie-radio:
+- 'packages/components/pie-radio/**/*'
 
 pie-spinner:
 - 'packages/components/pie-spinner/**/*'
