@@ -55,7 +55,7 @@
     "@justeattakeaway/pie-icons": "4.19.1",
     "@justeattakeaway/pie-icons-configs": "4.5.1",
     "@rollup/plugin-typescript": "11.1.6",
-    "@web/test-runner": "0.16.1",
+    "@web/test-runner": "0.19.0",
     "just-kebab-case": "4.2.0",
     "just-pascal-case": "3.2.0",
     "react": "18.3.1",
