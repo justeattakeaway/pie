@@ -4,19 +4,16 @@
     position: fixed;
     inset-block-end: var(--dt-spacing-d);
     inset-inline-end: var(--dt-spacing-d);
-
-    @include f.media('>=wide') {
-        inset-block-end: var(--dt-spacing-f);
-        inset-inline-end: var(--dt-spacing-e);
-    }
-
     z-index: var(--dt-z-index-fab);
-
     display: none; // Hidden by default, will be set to flex by scroll-to-top.js
     flex-direction: row;
     gap: var(--dt-spacing-b);
     justify-content: space-between;
     align-items: center;
-
     box-shadow: f.$elevation-03;
+
+    @include f.media('>=wide') {
+        inset-block-end: var(--dt-spacing-f);
+        inset-inline-end: var(--dt-spacing-e);
+    }
 }

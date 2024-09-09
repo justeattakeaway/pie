@@ -28,7 +28,7 @@ jobs:
     steps:
     # Checkout the Repo
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       with:
         fetch-depth: 0
         persist-credentials: false
@@ -52,7 +52,7 @@ jobs:
         script-name: "build"
     - name: Check for pre.json file existence
       id: check_files
-      uses: andstor/file-existence-action@v2.0.0
+      uses: andstor/file-existence-action@076e0072799f4942c8bc574a82233e1e4d13e9d6 # v3.0.0
       with:
         files: ".changeset/pre.json"
     - name: exit prerelease mode
@@ -63,7 +63,7 @@ jobs:
     - name: Create latest release PR
       id: changesets-main
       if: contains(github.ref_name, 'main')
-      uses: changesets/action@v1
+      uses: changesets/action@3de3850952bec538fde60aac71731376e57b9b57 # v1.4.8
       with:
         version: yarn changeset:version
         publish: yarn changeset:publish
@@ -78,7 +78,7 @@ jobs:
       run: npx changeset pre enter beta
     - name: Create beta release PR
       if: contains(github.ref_name, 'beta')
-      uses: changesets/action@v1
+      uses: changesets/action@3de3850952bec538fde60aac71731376e57b9b57 # v1.4.8
       with:
         version: yarn changeset:version
         publish: yarn changeset:publish
@@ -91,7 +91,7 @@ jobs:
       run: npx changeset pre enter next
     - name: Create feature release PR
       if: contains(github.ref_name, 'feature')
-      uses: changesets/action@v1
+      uses: changesets/action@3de3850952bec538fde60aac71731376e57b9b57 # v1.4.8
       with:
         version: yarn changeset:version
         publish: yarn changeset:publish
@@ -187,7 +187,7 @@ jobs:
 
     - name: Send a Slack notification on publish
       if: steps.changesets-main.outputs.published == 'true'
-      uses: slackapi/slack-github-action@v1.24.0
+      uses: slackapi/slack-github-action@37ebaef184d7626c5f204ab8d3baff4262dd30f0 # v1.27.0
       with:
         channel-id: ${{ secrets.RELEASE_SLACK_CHANNEL_ID }}
         payload: |

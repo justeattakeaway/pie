@@ -1,8 +1,5 @@
+import { type TemplateResult } from 'lit';
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
-
-import {
-    TemplateResult,
-} from 'lit';
 
 import defaultLocale from '../locales/en-gb.json' assert { type: 'json' };
 

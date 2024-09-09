@@ -84,7 +84,7 @@
     }
 
     &[data-pie-readonly] {
-        --input-container-color: var(--dt-color-disabled-01);
+        --input-container-color: var(--dt-color-container-subtle);
         --input-border-color: var(--dt-color-interactive-form);
     }
 
@@ -121,6 +121,8 @@ input {
 
     &::placeholder {
         color: var(--input-text-color-placeholder);
+
+        opacity: 1; // normalize opacity for all browsers
     }
 
     &:disabled {

@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons",
-  "version": "4.19.0",
+  "version": "4.19.1",
   "description": "Common icons for use for PIE Project",
   "main": "dist/pie-icons.js",
   "types": "./index.d.ts",
@@ -34,7 +34,7 @@
   "devDependencies": {
     "lint-staged": "12.5.0",
     "svgo": "3.0.2",
-    "webpack": "5.77.0",
+    "webpack": "5.94.0",
     "webpack-cli": "4.10.0"
   },
   "volta": {

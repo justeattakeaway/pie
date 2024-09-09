@@ -11,17 +11,17 @@
             {
                 "type": "code",
                 "item": [
-                    "xsmall",
-                    "small",
-                    "medium",
-                    "large"
+                    "\"xsmall\"",
+                    "\"small\"",
+                    "\"medium\"",
+                    "\"large\""
                 ]
             },
             "Set the size of the icon button.",
             {
                 "type": "code",
                 "item": [
-                    "medium"
+                    "\"medium\""
                 ]
             }
         ],
@@ -30,20 +30,20 @@
             {
                 "type": "code",
                 "item": [
-                    "primary",
-                    "secondary",
-                    "outline",
-                    "ghost",
-                    "ghost-secondary",
-                    "inverse",
-                    "ghost-inverse"
+                    "\"primary\"",
+                    "\"secondary\"",
+                    "\"outline\"",
+                    "\"ghost\"",
+                    "\"ghost-secondary\"",
+                    "\"inverse\"",
+                    "\"ghost-inverse\""
                 ]
             },
             "Set the variant of the icon button.",
             {
                 "type": "code",
                 "item": [
-                    "primary"
+                    "\"primary\""
                 ]
             }
         ],
@@ -56,7 +56,7 @@
                     "false"
                 ]
             },
-            "if <b>true</b>, disables the icon button.",
+            "If true, disables the icon button.",
             {
                 "type": "code",
                 "item": [
@@ -73,7 +73,7 @@
                     "false"
                 ]
             },
-            "if <b>true</b>, displays a loading indicator inside the icon button.",
+            "If true, displays a loading indicator inside the icon button.",
             {
                 "type": "code",
                 "item": [

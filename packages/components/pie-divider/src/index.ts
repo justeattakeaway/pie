@@ -1,4 +1,6 @@
-import { LitElement, html, unsafeCSS } from 'lit';
+import {
+    html, LitElement, unsafeCSS,
+} from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
@@ -24,20 +26,38 @@ export class PieDivider extends LitElement implements DividerProps {
     @validPropertyValues(componentSelector, orientations, defaultProps.orientation)
     public orientation = defaultProps.orientation;
 
-    render () {
-        const { variant, orientation } = this;
+    @property({ type: String })
+    public label = defaultProps.label;
 
+    render () {
+        const { variant, orientation, label } = this;
+
+        const showLabel = label.length > 0 && orientation === 'horizontal';
         const classes = {
             'c-divider': true,
             'c-divider--inverse': variant === 'inverse',
             'c-divider--vertical': orientation === 'vertical',
+            'c-divider--labelled': showLabel,
         };
 
         return html`
-            <hr
-                data-test-id="pie-divider"
-                aria-hidden="true"
-                class="${classMap(classes)}" />`;
+            ${showLabel ? html`
+                <div
+                    id="${componentSelector}"
+                    data-test-id="${componentSelector}"
+                    class="${classMap(classes)}"
+                    aria-labelledby="${componentSelector}-label">
+                        <hr aria-hidden="true"/>
+                        <span id="${componentSelector}-label" class="c-divider-label">${label}</span>
+                        <hr aria-hidden="true"/>
+                </div>`
+            : html`
+                <hr id="${componentSelector}"
+                    data-test-id="${componentSelector}"
+                    class="${classMap(classes)}"
+                    aria-hidden="true"
+                />`
+            }`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

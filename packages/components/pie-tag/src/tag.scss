@@ -1,5 +1,39 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+@mixin tag-interactive-states($bg-color, $mode: 'default') {
+    &.c-tag--interactive {
+        &:hover:not(.c-tag--disabled) {
+            @if $mode == 'inverse' {
+                --hover-modifier: var(--dt-color-hover-02);
+            } @else {
+                --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+            }
+
+            @if $mode == 'transparent' {
+                --hover-modifier: var(--dt-color-hover-01);
+                --tag-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--hover-modifier));
+            } @else {
+                --tag-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
+            }
+        }
+
+        &:active:not(.c-tag--disabled) {
+            @if $mode == 'inverse' {
+                --active-modifier: var(--dt-color-active-02);
+            } @else {
+                --active-modifier: calc(-1 * var(--dt-color-active-01));
+            }
+
+            @if $mode == 'transparent' {
+                --active-modifier: var(--dt-color-active-01);
+                --tag-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--active-modifier));
+            } @else {
+                --tag-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
+            }
+        }
+    }
+}
+
 // Base tag styles
 .c-tag {
     --tag-bg-color: var(--dt-color-container-strong);
@@ -33,8 +67,16 @@
     font-size: var(--tag-font-size);
     line-height: var(--tag-line-height);
 
+    &.c-tag--interactive {
+        border: none;
+
+        &:focus-visible {
+            @include p.focus;
+        }
+    }
+
     // Size
-    &[size='small'] {
+    &.c-tag--small {
         --tag-padding-block: 0;
         --tag-padding-inline: var(--dt-spacing-a);
         --tag-border-radius: var(--dt-radius-rounded-a);
@@ -42,73 +84,85 @@
         --tag-line-height: #{p.line-height(--dt-font-caption-line-height)};
     }
 
-    &[size='large'] {
+    &.c-tag--large {
         // same as default styles
     }
 
     // Variant
-    &[variant='neutral'] {
-        // same as default styles
+    &.c-tag--neutral {
+        @include tag-interactive-states('--dt-color-container-strong');
 
-        &[isStrong] {
+        &.c-tag--strong {
             --tag-bg-color: var(--dt-color-container-inverse);
             --tag-color: var(--dt-color-content-inverse);
+            @include tag-interactive-states('--dt-color-container-inverse', 'inverse');
         }
     }
 
-    &[variant='blue'] {
+    &.c-tag--blue {
         --tag-bg-color: var(--dt-color-support-info-02);
         --tag-color: var(--dt-color-content-default);
+        @include tag-interactive-states('--dt-color-support-info-02');
 
-        &[isStrong] {
+        &.c-tag--strong {
             --tag-bg-color: var(--dt-color-support-info);
             --tag-color: var(--dt-color-content-inverse);
+            @include tag-interactive-states('--dt-color-support-info');
         }
     }
 
-    &[variant='green'] {
+    &.c-tag--green {
         --tag-bg-color: var(--dt-color-support-positive-02);
         --tag-color: var(--dt-color-content-default);
+        @include tag-interactive-states('--dt-color-support-positive-02');
 
-        &[isStrong] {
+        &.c-tag--strong {
             --tag-bg-color: var(--dt-color-support-positive);
             --tag-color: var(--dt-color-content-inverse);
+            @include tag-interactive-states('--dt-color-support-positive');
         }
     }
 
-    &[variant='yellow'] {
+    &.c-tag--yellow {
         --tag-bg-color: var(--dt-color-support-warning-02);
         --tag-color: var(--dt-color-content-default);
+        @include tag-interactive-states('--dt-color-support-warning-02');
 
-        &[isStrong] {
+        &.c-tag--strong {
             --tag-bg-color: var(--dt-color-support-warning);
             --tag-color: var(--dt-color-content-dark);
+            @include tag-interactive-states('--dt-color-support-warning');
         }
     }
 
-    &[variant='red'] {
+    &.c-tag--red {
         --tag-bg-color: var(--dt-color-support-error-02);
         --tag-color: var(--dt-color-content-default);
+        @include tag-interactive-states('--dt-color-support-error-02');
 
-        &[isStrong] {
+        &.c-tag--strong {
             --tag-bg-color: var(--dt-color-support-error);
             --tag-color: var(--dt-color-content-light);
+            @include tag-interactive-states('--dt-color-support-error');
         }
     }
 
-    &[variant='brand'] {
+    &.c-tag--brand {
         --tag-bg-color: var(--dt-color-support-brand-02);
         --tag-color: var(--dt-color-content-default);
+        @include tag-interactive-states('--dt-color-support-brand-02');
     }
 
-    &[variant='neutral-alternative'] {
+    &.c-tag--neutral-alternative {
         --tag-bg-color: var(--dt-color-container-default);
         --tag-color: var(--dt-color-content-default);
+        @include tag-interactive-states('--dt-color-container-default');
     }
 
-    &[variant='outline'] {
+    &.c-tag--outline {
         --tag-bg-color: var(--tag-transparent-bg-color);
         --tag-color: var(--dt-color-content-default);
+        @include tag-interactive-states('--dt-color-black', 'transparent');
 
         // the outline in design specs is part of the total component
         // height calculation, thus, we use box-shadow to mimic borders
@@ -116,13 +170,18 @@
         box-shadow: 0 0 0 1px var(--dt-color-border-strong);
     }
 
-    &[variant='ghost'] {
+    &.c-tag--ghost {
         --tag-bg-color: var(--tag-transparent-bg-color);
         --tag-color: var(--dt-color-content-default);
+        @include tag-interactive-states('--dt-color-black', 'transparent');
     }
 
-    &[isDimmed] {
+    &.c-tag--disabled {
         opacity: 0.5;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
     }
 }
 
