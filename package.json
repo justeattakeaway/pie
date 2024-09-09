@@ -76,7 +76,7 @@
     "@justeattakeaway/browserslist-config-pie": "0.2.0",
     "@justeattakeaway/generator-pie-component": "0.21.1",
     "@justeattakeaway/pie-icons": "4.19.1",
-    "@justeattakeaway/pie-webc-testing": "0.13.2",
+    "@justeattakeaway/pie-webc-testing": "0.13.3",
     "@justeattakeaway/pie-wrapper-react": "0.14.1",
     "@justeattakeaway/stylelint-config-pie": "0.7.0",
     "@percy/cli": "1.29.3",

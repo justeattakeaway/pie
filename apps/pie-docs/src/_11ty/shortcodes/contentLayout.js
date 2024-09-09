@@ -19,12 +19,19 @@ const contentItem = (content) => `<div class="c-columns-item">
     </div>`;
 
 /**
- * Creates a container that displays contents in two columns.
- * @param {object} content - content to be displayed in columns
+ * Creates a container that displays contents in a specified number of columns.
+ * @param {object} content - content to be displayed in columns.
+ * @param {object} options - object with layout properties
+ * @param {object} options.columns - number of columns (2 or 3).
  */
-const contentLayout = (content) => `<div class="c-columns">
-    ${headingAnchor(markdownFilter(deindentHTML(content)))}
-    </div>`;
+const contentLayout = (content, options) => {
+    const columns = options?.columns || 2;
+    const columnClass = columns === 3 ? 'c-columns c-columns--three' : 'c-columns';
+
+    return `<div class="${columnClass}">
+                ${headingAnchor(markdownFilter(deindentHTML(content)))}
+            </div>`;
+};
 
 module.exports = {
     contentLayout,

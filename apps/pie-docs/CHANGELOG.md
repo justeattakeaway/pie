@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.3.2
+
+### Patch Changes
+
+- [Changed] - Update code page for pie-tag ([#1765](https://github.com/justeattakeaway/pie/pull/1765)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 4.3.1
 
 ### Patch Changes

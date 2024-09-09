@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-divider
 
+## 0.14.0
+
+### Minor Changes
+
+- [Added] - `label` property to `pie-divider` ([#1746](https://github.com/justeattakeaway/pie/pull/1746)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
 ## 0.13.9
 
 ### Patch Changes
