@@ -1,5 +1,4 @@
 version: 2
 discovery:
   disallowedHostnames:
-    - ​unpkg.com
-    - â€‹unpkg.com
+    - unpkg.com
