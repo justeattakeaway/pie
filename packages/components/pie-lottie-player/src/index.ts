@@ -57,16 +57,18 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
 
         if (!this.animationSrc && !this.animationData) return;
 
-        try {
-            const prefersReducedMotion:boolean = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        // If the system has "prefers-reduced-motion" set, it overrides "autoPlayDisabled"
+        const prefersReducedMotion:boolean = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const autoplay = prefersReducedMotion === true ? !prefersReducedMotion : !this.autoPlayDisabled;
 
+        try {
             this._animationInstance = this._lottie.loadAnimation({
                 container: this._hostElement, // the dom element that will contain the animation
                 renderer: 'canvas',
                 loop: !this.loopDisabled,
-                autoplay: !this.autoPlayDisabled || !prefersReducedMotion,
                 animationData: this.animationData,
                 path: this.animationSrc,
+                autoplay,
             });
             this._animationInstance.setSpeed(this.speed);
             this._updateDirection();
