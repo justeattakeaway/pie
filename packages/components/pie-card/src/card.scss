@@ -1,7 +1,7 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 @mixin card-interactive-states($bg-color, $mode: 'default') {
-    &:hover:not([disabled]) {
+    &:hover:not(.c-card--disabled) {
         @if $mode == 'inverse' {
             --hover-modifier: var(--dt-color-hover-01);
         } @else {
@@ -11,7 +11,7 @@
         --card-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
     }
 
-    &:active:not([disabled]) {
+    &:active:not(.c-card--disabled) {
         @if $mode == 'inverse' {
             --active-modifier: var(--dt-color-active-01);
         } @else {
@@ -43,7 +43,7 @@
         @include p.focus;
     }
 
-    &[disabled] {
+    &.c-card--disabled {
         --card-bg-color: var(--dt-color-disabled-01);
 
         cursor: not-allowed;
@@ -87,8 +87,8 @@
         @include card-interactive-states('--dt-color-container-dark', 'inverse');
     }
 
-    &.c-card--inverse[disabled],
-    &.c-card--outline-inverse[disabled] {
+    &.c-card--inverse.c-card--disabled,
+    &.c-card--outline-inverse.c-card--disabled {
         --card-bg-color: var(--dt-color-disabled-01-inverse);
     }
 
