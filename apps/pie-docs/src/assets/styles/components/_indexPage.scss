@@ -1,0 +1,64 @@
+@use '../fozzie-config' as f;
+@use '../variables' as v;
+@use '@justeattakeaway/pie-css/scss' as p;
+
+.c-indexPage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include f.media('>=mid') {
+        justify-content: flex-start;
+    }
+
+    // reduce image size for smaller screens - we support 320px min
+    @include f.media('<tiny') {
+        img {
+            width: 280px;
+        }
+    }
+
+    gap: var(--dt-spacing-g) var(--dt-spacing-e);
+
+    .c-indexPage-menu-item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .c-indexPage-link {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: inherit;
+        @include p.font-size(--dt-font-interactive-l-size);
+        @include p.line-height(--dt-font-interactive-l-line-height);
+        font-weight: var(--dt-font-interactive-l-weight);
+
+        picture {
+            line-height: initial;
+            margin-bottom: var(--dt-spacing-d);
+        }
+
+        &:visited {
+            color: initial;
+        }
+    }
+
+    .c-indexPage-background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        inset: 0;
+        background: rgba(0,0,0,.05);
+        opacity: 0;
+        border-radius: var(--dt-radius-rounded-b);
+        transition: opacity 0.4s cubic-bezier(.31, 1, .34, 1),
+        transform 0.4s cubic-bezier(.31, 1, .34, 1);
+    }
+
+    .c-indexPage-link:hover .c-indexPage-background {
+        opacity: 1;
+        transform: scale(1.05, 1.1);
+    }
+}
