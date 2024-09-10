@@ -30,9 +30,6 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
     private _direction = defaultProps.direction;
 
     protected async firstUpdated (): Promise<void> {
-        // Check if the code is running in a browser environment
-        if (isServer) return;
-
         // Dynamically import the 'lottie-web' library to avoid SSR issues
         const lottieModule = await import('lottie-web/build/player/lottie_light_canvas.min.js');
 
