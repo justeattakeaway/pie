@@ -118,6 +118,16 @@
       "require": "./react/link.js",
       "types": "./react/link.d.ts"
     },
+    "./components/lottie-player.js": {
+      "import": "./components/lottie-player.js",
+      "require": "./components/lottie-player.js",
+      "types": "./components/lottie-player.d.ts"
+    },
+    "./react/lottie-player.js": {
+      "import": "./react/lottie-player.js",
+      "require": "./react/lottie-player.js",
+      "types": "./react/lottie-player.d.ts"
+    },
     "./components/modal.js": {
       "import": "./components/modal.js",
       "require": "./components/modal.js",
@@ -248,6 +258,7 @@
     "@justeattakeaway/pie-form-label": "0.14.1",
     "@justeattakeaway/pie-icon-button": "0.28.12",
     "@justeattakeaway/pie-link": "0.18.0",
+    "@justeattakeaway/pie-lottie-player": "0.0.0",
     "@justeattakeaway/pie-modal": "0.46.2",
     "@justeattakeaway/pie-notification": "0.10.2",
     "@justeattakeaway/pie-radio": "0.0.0",
