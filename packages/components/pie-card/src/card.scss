@@ -39,34 +39,8 @@
     outline: none;
     text-decoration: none;
 
-    &--default {
-        box-shadow: var(--dt-elevation-card);
-
-        @include card-interactive-states('--dt-color-container-default');
-    }
-
-    &--outline {
-        border-color: var(--dt-color-border-strong);
-
-        @include card-interactive-states('--dt-color-container-default');
-    }
-
-    &--inverse {
-        --card-bg-color: var(--dt-color-container-dark);
-        --card-color: var(--dt-color-content-inverse);
-
-        box-shadow: var(--dt-elevation-dark-card);
-
-        @include card-interactive-states('--dt-color-container-dark', 'inverse');
-    }
-
-    &--outline-inverse {
-        --card-bg-color: var(--dt-color-container-dark);
-        --card-color: var(--dt-color-content-inverse);
-
-        border-color: var(--dt-color-border-inverse);
-
-        @include card-interactive-states('--dt-color-container-dark', 'inverse');
+    &:focus-visible {
+        @include p.focus;
     }
 
     &[disabled] {
@@ -82,19 +56,43 @@
             opacity: 0.5;
         }
     }
+}
 
-    &--inverse,
-    &--outline-inverse {
-        &[disabled] {
-            --card-bg-color: var(--dt-color-disabled-01-inverse);
-        }
-    }
+.c-card--default {
+    box-shadow: var(--dt-elevation-card);
 
-    &:focus-visible {
-        @include p.focus;
-    }
+    @include card-interactive-states('--dt-color-container-default');
+}
 
-    &--draggable {
-        @extend %has-grab-cursor;
-    }
+.c-card--outline {
+    border-color: var(--dt-color-border-strong);
+
+    @include card-interactive-states('--dt-color-container-default');
+}
+
+.c-card--inverse {
+    --card-bg-color: var(--dt-color-container-dark);
+    --card-color: var(--dt-color-content-inverse);
+
+    box-shadow: var(--dt-elevation-dark-card);
+
+    @include card-interactive-states('--dt-color-container-dark', 'inverse');
+}
+
+.c-card--outline-inverse {
+    --card-bg-color: var(--dt-color-container-dark);
+    --card-color: var(--dt-color-content-inverse);
+
+    border-color: var(--dt-color-border-inverse);
+
+    @include card-interactive-states('--dt-color-container-dark', 'inverse');
+}
+
+.c-card--inverse[disabled],
+.c-card--outline-inverse[disabled] {
+    --card-bg-color: var(--dt-color-disabled-01-inverse);
+}
+
+.c-card--draggable {
+    @extend %has-grab-cursor;
 }
