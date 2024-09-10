@@ -1,5 +1,21 @@
 # Changelog
 
+## 4.4.0
+
+### Minor Changes
+
+- [Updated] - the contentLayout container to display the content of the specified number of columns ([#1767](https://github.com/justeattakeaway/pie/pull/1767)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- [Changed] - Disable word breaks in table code snippets ([#1796](https://github.com/justeattakeaway/pie/pull/1796)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Small changes to prop tables to improve accuracy and consistency
+  [Fixed] - rule ordering in `_scrollToTop.scss` to resolve warning
+  [Removed] - Duplicate full-stops in "Getting Started Guide" links
+
+### Patch Changes
+
+- [Updated] - Textarea overview page layout for "Behaviours" section ([#1767](https://github.com/justeattakeaway/pie/pull/1767)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
 ## 4.3.2
 
 ### Patch Changes
