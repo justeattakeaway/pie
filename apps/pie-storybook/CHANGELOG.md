@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.3.2
+
+### Patch Changes
+
+- [Changed] - use classes instead of attributes for styling ([#1797](https://github.com/justeattakeaway/pie/pull/1797)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - initial `pie-radio` files from component generator ([#1795](https://github.com/justeattakeaway/pie/pull/1795)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- Updated dependencies [[`d2629cce7`](https://github.com/justeattakeaway/pie/commit/d2629cce769458e1eca0fcf68bca3215c93d6bd4), [`c46fceb99`](https://github.com/justeattakeaway/pie/commit/c46fceb99429784155fb016c687d9692e350715c), [`4435d0aee`](https://github.com/justeattakeaway/pie/commit/4435d0aee2115b8ec8b916c387711e1288e55540)]:
+  - @justeattakeaway/pie-link@0.18.0
+  - @justeattakeaway/pie-cookie-banner@0.26.4
+  - @justeattakeaway/pie-checkbox-group@0.7.0
+
 ## 1.3.1
 
 ### Patch Changes
