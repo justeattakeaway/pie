@@ -5,7 +5,7 @@ exports[`indexPageDisplay.js > should not render items if the page is a draft 1`
                 <a class=\\"c-indexPage-link\\" href=\\"/second-sub-item/\\">
                     <picture>
                         
-                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/second-sub-item.svg\\">
+                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/second-sub-item.svg\\" alt=\\"\\">
                     </picture>
                     Second Sub Item
                     <div class=\\"c-indexPage-background\\"></div>
@@ -17,7 +17,7 @@ exports[`indexPageDisplay.js > should return the expected HTML for an index page
                 <a class=\\"c-indexPage-link\\" href=\\"/first-sub-item/\\">
                     <picture>
                         
-                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/first-sub-item.svg\\">
+                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/first-sub-item.svg\\" alt=\\"\\">
                     </picture>
                     First Sub Item
                     <div class=\\"c-indexPage-background\\"></div>
@@ -25,7 +25,7 @@ exports[`indexPageDisplay.js > should return the expected HTML for an index page
                 <a class=\\"c-indexPage-link\\" href=\\"/second-sub-item/\\">
                     <picture>
                         
-                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/second-sub-item.svg\\">
+                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/second-sub-item.svg\\" alt=\\"\\">
                     </picture>
                     Second Sub Item
                     <div class=\\"c-indexPage-background\\"></div>
@@ -37,7 +37,7 @@ exports[`indexPageDisplay.js > should return the expected HTML for an index page
                 <a class=\\"c-indexPage-link\\" href=\\"/first-sub-item/\\">
                     <picture>
                         
-                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/first-sub-item.svg\\">
+                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/first-sub-item.svg\\" alt=\\"\\">
                     </picture>
                     First Sub Item
                     <div class=\\"c-indexPage-background\\"></div>
@@ -49,7 +49,7 @@ exports[`indexPageDisplay.js > should use child url for subpage dropdown when it
                 <a class=\\"c-indexPage-link\\" href=\\"/second-sub-item/\\">
                     <picture>
                         
-                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/second-sub-item.svg\\">
+                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/second-sub-item.svg\\" alt=\\"\\">
                     </picture>
                     Second Sub Item
                     <div class=\\"c-indexPage-background\\"></div>
@@ -57,7 +57,7 @@ exports[`indexPageDisplay.js > should use child url for subpage dropdown when it
                 <a class=\\"c-indexPage-link\\" href=\\"subpage-dropdown-child\\">
                     <picture>
                         
-                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/subpage-dropdown.svg\\">
+                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/subpage-dropdown.svg\\" alt=\\"\\">
                     </picture>
                     Subpage dropdown
                     <div class=\\"c-indexPage-background\\"></div>

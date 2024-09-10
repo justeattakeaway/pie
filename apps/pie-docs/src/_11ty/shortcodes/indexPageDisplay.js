@@ -66,7 +66,7 @@ module.exports = function ({
                 <a class="c-indexPage-link" href="${getUrl(element)}">
                     <picture>
                         ${hasMobileSource ? `<source media="(max-width: 600px)" srcset="${imgMobileSrc}">` : ''}
-                        ${hasSource ? `<img src="${imgSrc}">` : throwOnMissingImage()}
+                        ${hasSource ? `<img src="${imgSrc}" alt="">` : throwOnMissingImage()}
                     </picture>
                     ${element.title}
                     <div class="c-indexPage-background"></div>
