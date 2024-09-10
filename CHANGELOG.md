@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.65.1
+
+### Patch Changes
+
+- [Changed] - update gitHub workflows for new `pie-radio` component ([#1795](https://github.com/justeattakeaway/pie/pull/1795)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
 ## 2.65.0
 
 ### Minor Changes
