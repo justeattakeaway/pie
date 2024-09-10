@@ -94,6 +94,9 @@ pie-notification:
 pie-radio:
 - 'packages/components/pie-radio/**/*'
 
+pie-radio-group:
+- 'packages/components/pie-radio-group/**/*'
+
 pie-spinner:
 - 'packages/components/pie-spinner/**/*'
 

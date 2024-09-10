@@ -48,6 +48,16 @@
       "require": "./react/checkbox.js",
       "types": "./react/checkbox.d.ts"
     },
+    "./components/checkbox-group.js": {
+      "import": "./components/checkbox-group.js",
+      "require": "./components/checkbox-group.js",
+      "types": "./components/checkbox-group.d.ts"
+    },
+    "./react/checkbox-group.js": {
+      "import": "./react/checkbox-group.js",
+      "require": "./react/checkbox-group.js",
+      "types": "./react/checkbox-group.d.ts"
+    },
     "./components/chip.js": {
       "import": "./components/chip.js",
       "require": "./components/chip.js",
@@ -128,6 +138,26 @@
       "require": "./react/notification.js",
       "types": "./react/notification.d.ts"
     },
+    "./components/radio.js": {
+      "import": "./components/radio.js",
+      "require": "./components/radio.js",
+      "types": "./components/radio.d.ts"
+    },
+    "./react/radio.js": {
+      "import": "./react/radio.js",
+      "require": "./react/radio.js",
+      "types": "./react/radio.d.ts"
+    },
+    "./components/radio-group.js": {
+      "import": "./components/radio-group.js",
+      "require": "./components/radio-group.js",
+      "types": "./components/radio-group.d.ts"
+    },
+    "./react/radio-group.js": {
+      "import": "./react/radio-group.js",
+      "require": "./react/radio-group.js",
+      "types": "./react/radio-group.d.ts"
+    },
     "./components/spinner.js": {
       "import": "./components/spinner.js",
       "require": "./components/spinner.js",
@@ -187,16 +217,6 @@
       "import": "./react/toast.js",
       "require": "./react/toast.js",
       "types": "./react/toast.d.ts"
-    },
-    "./components/checkbox-group.js": {
-      "import": "./components/checkbox-group.js",
-      "require": "./components/checkbox-group.js",
-      "types": "./components/checkbox-group.d.ts"
-    },
-    "./react/checkbox-group.js": {
-      "import": "./react/checkbox-group.js",
-      "require": "./react/checkbox-group.js",
-      "types": "./react/checkbox-group.d.ts"
     }
   },
   "bin": {
@@ -231,6 +251,7 @@
     "@justeattakeaway/pie-modal": "0.46.2",
     "@justeattakeaway/pie-notification": "0.10.2",
     "@justeattakeaway/pie-radio": "0.0.0",
+    "@justeattakeaway/pie-radio-group": "0.0.0",
     "@justeattakeaway/pie-spinner": "0.7.0",
     "@justeattakeaway/pie-switch": "0.30.1",
     "@justeattakeaway/pie-tag": "0.10.0",
