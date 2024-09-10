@@ -39,19 +39,19 @@
     outline: none;
     text-decoration: none;
 
-    &[variant='default'] {
+    &--default {
         box-shadow: var(--dt-elevation-card);
 
         @include card-interactive-states('--dt-color-container-default');
     }
 
-    &[variant='outline'] {
+    &--outline {
         border-color: var(--dt-color-border-strong);
 
         @include card-interactive-states('--dt-color-container-default');
     }
 
-    &[variant='inverse'] {
+    &--inverse {
         --card-bg-color: var(--dt-color-container-dark);
         --card-color: var(--dt-color-content-inverse);
 
@@ -60,7 +60,7 @@
         @include card-interactive-states('--dt-color-container-dark', 'inverse');
     }
 
-    &[variant='outline-inverse'] {
+    &--outline-inverse {
         --card-bg-color: var(--dt-color-container-dark);
         --card-color: var(--dt-color-content-inverse);
 
@@ -81,9 +81,11 @@
         img {
             opacity: 0.5;
         }
+    }
 
-        &[variant='inverse'],
-        &[variant='outline-inverse'] {
+    &--inverse,
+    &--outline-inverse {
+        &[disabled] {
             --card-bg-color: var(--dt-color-disabled-01-inverse);
         }
     }
@@ -92,7 +94,7 @@
         @include p.focus;
     }
 
-    &[isdraggable] {
+    &--draggable {
         @extend %has-grab-cursor;
     }
 }
