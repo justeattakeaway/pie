@@ -156,8 +156,6 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
         if (!value) return;
         this._direction = value;
 
-        if (!this._animationInstance) return;
-
         this._updateDirection();
     }
 
