@@ -66,8 +66,39 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     @property({ type: String })
     public cookieTechnologiesLink = defaultProps.cookieTechnologiesLink;
 
+    @property({ type: String })
+    public tenant = 'gb';
+
+    @property({ type: String })
+    public language = 'en';
+
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;
+
+    connectedCallback () {
+        console.log('connectedCallback'); // eslint-disable-line no-console
+
+        super.connectedCallback();
+        // Call the method to load the locale when the component is connected
+        this._getLocaleBasedOnTenantAndLanguage();
+    }
+
+    // Method to dynamically import locale JSON based on tenant and language
+    private async _getLocaleBasedOnTenantAndLanguage (): Promise<void> {
+        try {
+            // Dynamically construct the import path based on tenant and language
+            const localeModule = await import(`../locales/${this.language}-${this.tenant}.json`, { assert: { type: 'json' } });
+
+            console.log('_getLocaleBasedOnTenantAndLanguage', localeModule, this.tenant, this.language, this.locale); // eslint-disable-line no-console
+
+            // Use the imported locale as your locale
+            this.locale = localeModule.default;
+        } catch (error) {
+            console.error(`Error loading locale for ${this.language}-${this.tenant}:`, error);
+            // Fallback to default locale if there's an error loading the dynamic locale
+            this.locale = defaultProps.locale;
+        }
+    }
 
     private _customTagEnhancers: CustomTagEnhancers = {
         linkStatement: (tagContent: string) => html`<pie-link href="${this.cookieStatementLink}" variant="inverse" target="_blank" data-test-id="cookie-statement-link">${tagContent}</pie-link>`,

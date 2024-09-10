@@ -49,6 +49,7 @@ export interface CookieBannerProps {
      * When true, sets the variant to "primary" for the button which accepts necessary cookies only.
      */
     hasPrimaryActionsOnly: boolean;
+
     /**
      * Assigns the data for localising the component strings
      */
@@ -63,6 +64,16 @@ export interface CookieBannerProps {
      * The URL for the cookie technology link.
      */
     cookieTechnologiesLink: string;
+
+    /**
+     * Assigns the tenant used for dynamically localising the component strings
+     */
+    tenant: string;
+
+    /**
+     * Assigns the language used for dynamically localising the component strings
+     */
+    language: string;
 
     /**
      * Allows consumers to pass in specific preference(s) to the component which will toggle
@@ -148,6 +159,8 @@ export const defaultProps: DefaultProps = {
     hasPrimaryActionsOnly: false,
     defaultPreferences: {},
     locale: defaultLocale,
+    tenant: 'gb',
+    language: 'en',
     cookieStatementLink: '',
     cookieTechnologiesLink: '',
 };
