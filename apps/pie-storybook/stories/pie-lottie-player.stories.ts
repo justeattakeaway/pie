@@ -111,8 +111,8 @@ const Template = ({
         .animationSrc="${animationSrc === undefined ? animationSrcOptions[0] : animationSrc}"
         ?loopDisabled="${loopDisabled}"
         ?autoPlayDisabled="${autoPlayDisabled}"
-        .speed="${speed || 1}"
-        .direction="${direction || directions[0]}"
+        .speed="${speed}"
+        .direction="${direction}"
     ></pie-lottie-player>
 `;
 

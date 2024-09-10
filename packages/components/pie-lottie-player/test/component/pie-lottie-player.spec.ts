@@ -53,7 +53,7 @@ test.describe('PieLottiePlayer - Component tests', () => {
             // Act
             const component = page.locator(componentSelector);
             const autoPlayDisabled = await component.evaluate((el:PieLottiePlayer) => el.autoPlayDisabled);
-            const loopDisabled = await component.evaluate((el:PieLottiePlayer) => el.autoPlayDisabled);
+            const loopDisabled = await component.evaluate((el:PieLottiePlayer) => el.loopDisabled);
 
             // Assert
             expect(autoPlayDisabled).toBe(false);
@@ -76,7 +76,7 @@ test.describe('PieLottiePlayer - Component tests', () => {
             // Act
             const component = page.locator(componentSelector);
             const autoPlayDisabled = await component.evaluate((el:PieLottiePlayer) => el.autoPlayDisabled);
-            const loopDisabled = await component.evaluate((el:PieLottiePlayer) => el.autoPlayDisabled);
+            const loopDisabled = await component.evaluate((el:PieLottiePlayer) => el.loopDisabled);
 
             // Assert
             expect(autoPlayDisabled).toBe(true);
