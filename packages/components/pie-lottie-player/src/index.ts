@@ -58,11 +58,13 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
         if (!this.animationSrc && !this.animationData) return;
 
         try {
+            const prefersReducedMotion:boolean = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
             this._animationInstance = this._lottie.loadAnimation({
                 container: this._hostElement, // the dom element that will contain the animation
                 renderer: 'canvas',
                 loop: !this.loopDisabled,
-                autoplay: !this.autoPlayDisabled,
+                autoplay: !this.autoPlayDisabled || !prefersReducedMotion,
                 animationData: this.animationData,
                 path: this.animationSrc,
             });
@@ -193,7 +195,7 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
     }
 
     render () {
-        return html`<div data-test-id="pie-lottie-player"></div>`;
+        return html`<div aria-hidden="true" data-test-id="pie-lottie-player"></div>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

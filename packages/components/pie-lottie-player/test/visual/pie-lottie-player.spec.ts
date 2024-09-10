@@ -10,12 +10,9 @@ test.describe('PieLottiePlayer - Visual tests`', () => {
         await mount(PieLottiePlayer, {
             props: {
                 animationData,
+                autoPlayDisabled: true, // Ensure to always snapshot the same frame
             } as LottiePlayerProps,
         });
-
-        // Ensure to snapshot always the first frame
-        page.locator('pie-lottie-player')
-            .evaluate((el:PieLottiePlayer) => el.stop());
 
         await percySnapshot(page, 'PieLottiePlayer - Visual Test');
     });

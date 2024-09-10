@@ -15,6 +15,7 @@
 3. [Importing the component](#importing-the-component)
 4. [Peer Dependencies](#peer-dependencies)
 5. [Props](#props)
+5. [Acessibility](#acessibility)
 6. [Contributing](#contributing)
 
 ## pie-lottie-player
@@ -104,6 +105,12 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 <!-- JSX -->
 <PieLottiePlayer animationSrc="./animation-file.json"></PieLottiePlayer>
 ```
+
+## Acessibility
+
+Currently the component is always hidden from screen readers because animations should only be decorative and supplementary. Any important meaning and context should be presented alongside the animation as text.
+
+For the users with the "Reduce motion" setting enabled, the animation will be paused on the first frame.
 
 ## Contributing
 
