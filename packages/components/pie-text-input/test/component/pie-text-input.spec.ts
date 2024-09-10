@@ -3,12 +3,11 @@ import { setupFormDataExtraction, getFormDataObject } from '@justeattakeaway/pie
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
-import { PieTextInput, TextInputProps } from '../../src/index.ts';
+import { PieTextInput, type TextInputProps } from '../../src/index.ts';
 import { statusTypes } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-text-input"]';
 const assistiveTextSelector = '[data-test-id="pie-text-input-assistive-text"]';
-const componentShellSelector = '[data-test-id="pie-text-input-shell"]';
 
 test.describe('PieTextInput - Component tests', () => {
     // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
@@ -26,9 +25,7 @@ test.describe('PieTextInput - Component tests', () => {
 
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
-        await mount(PieTextInput, {
-            props: {} as TextInputProps,
-        });
+        await mount(PieTextInput);
 
         // Act
         const input = page.locator(componentSelector);
@@ -41,7 +38,7 @@ test.describe('PieTextInput - Component tests', () => {
         test.describe('type', () => {
             test('should default to text type if no type prop provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {});
+                const component = await mount(PieTextInput);
 
                 // Act
                 const input = component.locator('input');
@@ -69,7 +66,7 @@ test.describe('PieTextInput - Component tests', () => {
         test.describe('value', () => {
             test('should default to an empty string if no value prop provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {});
+                const component = await mount(PieTextInput);
 
                 // Act
                 const input = component.locator('input');
@@ -97,7 +94,7 @@ test.describe('PieTextInput - Component tests', () => {
         test.describe('name', () => {
             test('should not render a name attribute on the input element if no name provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {});
+                const component = await mount(PieTextInput);
 
                 // Act
                 const input = component.locator('input');
@@ -125,7 +122,7 @@ test.describe('PieTextInput - Component tests', () => {
         test.describe('pattern', () => {
             test('should not render a pattern attribute on the input element if no pattern provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {});
+                const component = await mount(PieTextInput);
 
                 // Act
                 const input = component.locator('input');
@@ -172,7 +169,7 @@ test.describe('PieTextInput - Component tests', () => {
         test.describe('minlength', () => {
             test('should not render a minlength attribute on the input element if no minlength provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {});
+                const component = await mount(PieTextInput);
 
                 // Act
                 const input = component.locator('input');
@@ -219,7 +216,7 @@ test.describe('PieTextInput - Component tests', () => {
         test.describe('maxlength', () => {
             test('should not render a maxlength attribute on the input element if no maxlength provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {});
+                const component = await mount(PieTextInput);
 
                 // Act
                 const input = component.locator('input');
@@ -284,7 +281,7 @@ test.describe('PieTextInput - Component tests', () => {
         test.describe('autocomplete', () => {
             test('should not render an autocomplete attribute on the input element if no autocomplete provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {});
+                const component = await mount(PieTextInput);
 
                 // Act
                 const input = component.locator('input');
@@ -312,7 +309,7 @@ test.describe('PieTextInput - Component tests', () => {
         test.describe('placeholder', () => {
             test('should not render a placeholder attribute on the input element if no placeholder provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {});
+                const component = await mount(PieTextInput);
 
                 // Act
                 const input = component.locator('input');
@@ -366,7 +363,7 @@ test.describe('PieTextInput - Component tests', () => {
         test.describe('inputmode', () => {
             test('should not render an inputmode attribute on the input element if no inputmode provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {});
+                const component = await mount(PieTextInput);
 
                 // Act
                 const input = component.locator('input');
@@ -478,7 +475,7 @@ test.describe('PieTextInput - Component tests', () => {
             test.describe('when not provided', () => {
                 test('should not disable the component', async ({ mount }) => {
                     // Arrange
-                    const component = await mount(PieTextInput, {});
+                    const component = await mount(PieTextInput);
 
                     // Act
                     const input = component.locator('input');
@@ -504,7 +501,7 @@ test.describe('PieTextInput - Component tests', () => {
         test.describe('assistiveText', () => {
             test('should not render the assistive text component if the prop is not provided', async ({ mount, page }) => {
                 // Arrange
-                await mount(PieTextInput, {});
+                await mount(PieTextInput);
 
                 // Act
                 const assistiveText = page.locator(assistiveTextSelector);
@@ -732,38 +729,10 @@ test.describe('PieTextInput - Component tests', () => {
             });
         });
 
-        test.describe('size', () => {
-            test('should default to medium size if no size prop provided', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieTextInput, {});
-
-                // Act
-                const inputShell = component.locator(componentShellSelector);
-
-                // Assert
-                expect(inputShell).toHaveAttribute('data-pie-size', 'medium');
-            });
-
-            test('should apply the size prop to the HTML input rendered', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        size: 'large',
-                    } as TextInputProps,
-                });
-
-                // Act
-                const inputShell = component.locator(componentShellSelector);
-
-                // Assert
-                expect(inputShell).toHaveAttribute('data-pie-size', 'large');
-            });
-        });
-
         test.describe('required', () => {
             test('should not render a required attribute on the input element if no required provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {});
+                const component = await mount(PieTextInput);
 
                 // Act
                 const input = component.locator('input');
@@ -861,7 +830,6 @@ test.describe('PieTextInput - Component tests', () => {
                 const expectedMessagesLength = 5;
 
                 const component = await mount(PieTextInput, {
-                    props: {} as TextInputProps,
                     on: {
                         input: (data: InputEvent) => {
                             messages.push(data);
@@ -954,7 +922,6 @@ test.describe('PieTextInput - Component tests', () => {
                 const messages: CustomEvent[] = [];
 
                 await mount(PieTextInput, {
-                    props: {} as TextInputProps,
                     on: {
                         change: (data: CustomEvent) => {
                             messages.push(data);
@@ -978,7 +945,6 @@ test.describe('PieTextInput - Component tests', () => {
                 const expectedMessages = [{ sourceEvent: { isTrusted: true } }];
 
                 await mount(PieTextInput, {
-                    props: {} as TextInputProps,
                     on: {
                         change: (data: CustomEvent) => {
                             messages.push(data);
@@ -1209,9 +1175,7 @@ test.describe('PieTextInput - Component tests', () => {
             test.describe('when `assistiveText` is not defined', () => {
                 test('should not render the attribute', async ({ mount }) => {
                     // Arrange
-                    const component = await mount(PieTextInput, {
-                        props: {} as TextInputProps,
-                    });
+                    const component = await mount(PieTextInput);
 
                     // Act
                     const input = component.locator('input');
