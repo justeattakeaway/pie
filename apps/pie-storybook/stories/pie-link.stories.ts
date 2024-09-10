@@ -1,16 +1,14 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-link';
 import {
-    LinkProps as LinkBaseProps, sizes, variants,
+    type LinkProps as LinkBaseProps, sizes, variants,
     iconPlacements, tags, buttonTypes, underlineTypes, defaultProps,
 } from '@justeattakeaway/pie-link';
-/* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 
-import type { StoryMeta, SlottedComponentProps } from '../types';
+import { type StoryMeta, type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type LinkProps = SlottedComponentProps<LinkBaseProps>;
@@ -151,12 +149,12 @@ const Template : TemplateFunction<LinkProps> = ({
             tag="${ifDefined(tag)}"
             variant="${ifDefined(variant)}"
             size="${ifDefined(size)}"
-            underline="${underline || nothing}"
-            iconPlacement="${iconPlacement || nothing}"
-            href="${href || nothing}"
-            target="${target || nothing}"
-            rel="${rel || nothing}"
-            type="${type || nothing}"
+            underline="${ifDefined(underline)}"
+            iconPlacement="${ifDefined(iconPlacement)}"
+            href="${ifDefined(href)}"
+            target="${ifDefined(target)}"
+            rel="${ifDefined(rel)}"
+            type="${ifDefined(type)}"
             ?isBold="${isBold}"
             ?isStandalone="${isStandalone}"
             ?hasVisited="${hasVisited}">

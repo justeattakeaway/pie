@@ -7,7 +7,7 @@ export const tags = ['a', 'button'] as const;
 export const buttonTypes = ['submit', 'button', 'reset', 'menu'] as const;
 export const underlineTypes = ['default', 'reversed'] as const;
 
-export type AriaProps = {
+type AriaProps = {
     label?: string;
 };
 
