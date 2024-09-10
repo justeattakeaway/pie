@@ -20,7 +20,7 @@
 2. [Generate the component](#generating-a-new-component)
 3. [Add the component to storybook](#setting-up-storybook)
 4. [Set up Percy visual regression testing](#setting-up-visual-regression-testing)
-5. [Set up the project label for Github](#setting-up-the-project-label-for-github)
+5. [Set up the project label for GitHub](#setting-up-the-project-label-for-github)
 
 ### Installation
 
@@ -74,11 +74,11 @@ _Note: If this step fails, ensure you have installed the repository dependencies
   PERCY_TOKEN_PIE_COMPONENT_NAME: ${{ secrets.PERCY_TOKEN_PIE_COMPONENT_NAME }}
 ```
 
-- Now you need to add this token as a repository secret in Github. It must be named `PERCY_TOKEN_PIE_COMPONENT_NAME` and the value should be the Percy token for the component. Visual tests will not work/run if this is not set up correctly.
+- Now you need to add this token as a repository secret in GitHub. It must be named `PERCY_TOKEN_PIE_COMPONENT_NAME` and the value should be the Percy token for the component. Visual tests will not work/run if this is not set up correctly.
 
-### Setting up the project label for Github:
+### Setting up the project label for GitHub:
 
-- Create a label for the component in the GitHub UI
+- Create a label for the component [on GitHub](https://github.com/justeattakeaway/pie/issues/labels).
 - Add the new label to `project-labeler.yml` under the `Component projects` section
 
 ## Local development
