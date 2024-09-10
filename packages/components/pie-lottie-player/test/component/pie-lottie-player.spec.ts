@@ -62,12 +62,15 @@ test.describe('PieLottiePlayer - Component tests', () => {
     });
 
     test.describe('when extra props are provided"', () => {
-        test('should render the extra default props', async ({ mount, page }) => {
+        test('should render the extra props', async ({ mount, page }) => {
             // Arrange
             const props = {
                 animationData,
                 autoPlayDisabled: true,
                 loopDisabled: true,
+                aria: {
+                    describedBy: 'another-element',
+                },
             } as LottiePlayerProps;
             await mount(PieLottiePlayer, {
                 props,
@@ -77,10 +80,12 @@ test.describe('PieLottiePlayer - Component tests', () => {
             const component = page.locator(componentSelector);
             const autoPlayDisabled = await component.evaluate((el:PieLottiePlayer) => el.autoPlayDisabled);
             const loopDisabled = await component.evaluate((el:PieLottiePlayer) => el.autoPlayDisabled);
+            const ariaDescribedby = await component.evaluate((el:PieLottiePlayer) => el.shadowRoot && el.shadowRoot.children[0].getAttribute('aria-describedby'));
 
             // Assert
             expect(autoPlayDisabled).toBe(true);
             expect(loopDisabled).toBe(true);
+            expect(ariaDescribedby).toBe('another-element');
         });
     });
 });

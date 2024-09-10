@@ -2,6 +2,7 @@ import {
     LitElement, html, isServer, unsafeCSS,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { LottiePlayer, AnimationItem } from 'lottie-web';
 
 import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
@@ -92,6 +93,9 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
         this._animationData = undefined;
         this._loadAnimation();
     }
+
+    @property({ type: Object })
+    public aria: LottiePlayerProps['aria'];
 
     // Getter and Setter for animationData
     @property({ type: Object })
@@ -193,7 +197,9 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
     }
 
     render () {
-        return html`<div data-test-id="pie-lottie-player"></div>`;
+        const { aria } = this;
+
+        return html`<div data-test-id="pie-lottie-player" aria-describedby="${ifDefined(aria?.describedBy)}"></div>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
