@@ -12,12 +12,7 @@ import { createStory } from '../utilities';
 type LottiePlayerProps = Omit<LottiePlayerBaseProps, 'play' | 'stop'>
 type LottiePlayerStoryMeta = StoryMeta<LottiePlayerProps>;
 
-const defaultArgs: LottiePlayerProps = {
-    ...defaultProps,
-    aria: {
-        describedBy: 'another-element',
-    },
-};
+const defaultArgs: LottiePlayerProps = { ...defaultProps };
 
 const animationSrcOptions: string[] = [
     './static/animations/courier.json',
@@ -45,10 +40,6 @@ const lottiePlayerStoryMeta: LottiePlayerStoryMeta = {
             defaultValue: {
                 summary: defaultArgs.animationSrc,
             },
-        },
-        aria: {
-            description: 'The ARIA settings used for the component.',
-            control: 'object',
         },
         loopDisabled: {
             description: 'By the default animations loop, setting this prop as true will prevent such behaviour.',
@@ -107,7 +98,6 @@ function handleStartAnimationClick () {
 
 const Template = ({
     animationSrc,
-    aria,
     loopDisabled,
     autoPlayDisabled,
     speed,
@@ -119,7 +109,6 @@ const Template = ({
     </div>
     <pie-lottie-player
         .animationSrc="${animationSrc === undefined ? animationSrcOptions[0] : animationSrc}"
-        .aria="${aria}"
         ?loopDisabled="${loopDisabled}"
         ?autoPlayDisabled="${autoPlayDisabled}"
         .speed="${speed || 1}"

@@ -3,10 +3,6 @@ import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 export const directions = ['forward', 'reverse'] as const;
 export type AnimationDirection = typeof directions[number];
 
-type AriaProps = {
-    describedBy?: string
-};
-
 export interface LottiePlayerProps {
     /**
      * Lottie animation JSON file URL or relative path
@@ -19,11 +15,6 @@ export interface LottiePlayerProps {
      * animationSrc and animationData are mutually exclusive
      */
     animationData?: object;
-
-    /**
-     * The ARIA props used for the component.
-     */
-    aria?: AriaProps;
 
     /**
      * By the default animations loop, setting this prop as true will prevent such behaviour
@@ -47,7 +38,7 @@ export interface LottiePlayerProps {
     direction?:AnimationDirection;
 }
 
-export type DefaultProps = ComponentDefaultProps<LottiePlayerProps, keyof Omit<LottiePlayerProps, 'animationSrc' | 'animationData' | 'aria'>>;
+export type DefaultProps = ComponentDefaultProps<LottiePlayerProps, keyof Omit<LottiePlayerProps, 'animationSrc' | 'animationData'>>;
 
 export const defaultProps: DefaultProps = {
     loopDisabled: false,

@@ -90,7 +90,6 @@ To solve the issue, update or add the `nitro.moduleSideEffects` array in `nuxt.c
 | ---------------- | --------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | animationSrc | `String` | - | Lottie animation JSON file URL or relative path. animationSrc and animationData are mutually exclusive. |
 | animationData | `Object` | - | Object with Lottie animation data. animationSrc and animationData are mutually exclusive. |
-| aria | `Object` | - | Object with the ARIA props used for the component. |
 | loopDisabled | `Boolean` | false | By the default animations loop, setting this prop as true will prevent such behaviour. |
 | autoPlayDisabled | `Boolean` | false | By default animations start playing as soon as its data is available, setting this prop as true will prevent such behaviour. |
 | speed | `Number` | 1 | Determines the animation reproduction speed. 1 is the regular speed, 2 is twice as fast. |
