@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`stylelint-full-nested-class-modifiers > when given invalid CSS > when autofix is true > provides the expected autofixed code 1`] = `
+"
+            .component-element {
+                &.component-element--active {
+                    display: block;
+                }
+            }
+        "
+`;
+
+exports[`stylelint-full-nested-class-modifiers > when given more complicated invalid css > when autofix is true > provides the expected autofixed code 1`] = `
+"
+                .c-block-item {
+                    &.c-block-item--modifier-one {
+                        color: purple;
+                    }
+
+                    &.c-block-item--modifier-two {
+                        font-size: 12px;
+                    }
+                }
+
+                .component-element {
+                    &.component-element--active {
+                        display: block;
+                    }
+                }
+        "
+`;

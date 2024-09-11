@@ -23,7 +23,8 @@ export const fullNestedClassModifiers = stylelint.createPlugin(ruleName, (primar
 
             if (parentSelector) {
                 // Ensure parentSelector starts with a valid class name and doesn't include '&'
-                const normalizedParentSelector = parentSelector.replace(/^&/, '').replace(/^(\.)*/, '.');
+                // Use a stricter replacement to avoid leading spaces or extraneous characters
+                const normalizedParentSelector = parentSelector.replace(/^&/, '').trim();
 
                 // Suggest the corrected syntax (e.g., '&.foo--modifier')
                 const suggestedSelector = `&${normalizedParentSelector}--${rule.selector.replace(/^&--/, '')}`;

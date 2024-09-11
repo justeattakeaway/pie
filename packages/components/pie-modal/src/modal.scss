@@ -257,7 +257,7 @@
           min-block-size: var(--modal-content-min-block-size);
         }
 
-        &--scrollable {
+        &.c-modal-content--scrollable {
             background:
                 // Scroll shadow cover
                 // A top-to-bottom opacity gradient from transparent to the component background colour
