@@ -3,15 +3,10 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { useArgs as UseArgs } from '@storybook/preview-api';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-text-input';
 import {
-    types, inputModes, statusTypes, TextInputProps as TextInputPropsBase, sizes, defaultProps,
+    type TextInputProps as TextInputPropsBase, types, inputModes, statusTypes, sizes, defaultProps,
 } from '@justeattakeaway/pie-text-input';
-/* eslint-enable import/no-duplicates */
-
-import { type StoryMeta } from '../types';
-import { createStory, type TemplateFunction } from '../utilities';
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-form-label';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
@@ -21,6 +16,9 @@ import '@justeattakeaway/pie-icons-webc/dist/IconPhone.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconUser.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconNumberSymbol.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconKey.js';
+
+import { type StoryMeta } from '../types';
+import { createStory, type TemplateFunction } from '../utilities';
 
 // Extending the props type definition to include storybook specific properties for controls
 type TextInputProps = TextInputPropsBase & {
@@ -304,7 +302,7 @@ const Template = ({
 
 const WithLabelTemplate: TemplateFunction<TextInputProps> = (props: TextInputProps) => html`
         <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-field</pie-link>.</p>
-        <pie-form-label for="${props.name}">Label</pie-form-label>
+        <pie-form-label for="${ifDefined(props.name)}">Label</pie-form-label>
         ${Template(props)}
     `;
 
