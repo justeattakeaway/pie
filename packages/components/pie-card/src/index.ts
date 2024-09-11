@@ -141,7 +141,6 @@ export class PieCard extends LitElement implements CardProps {
                 <div
                     class="${classMap(classes)}"
                     data-test-id="pie-card"
-                    ?disabled=${disabled}
                     role="button"
                     tabindex="0"
                     aria-label=${aria?.label || nothing}
