@@ -36,6 +36,7 @@ env:
   PERCY_TOKEN_PIE_ICON_BUTTON: ${{ secrets.PERCY_TOKEN_PIE_ICON_BUTTON }}
   PERCY_TOKEN_PIE_ICONS_WEBC: ${{ secrets.PERCY_TOKEN_PIE_ICONS_WEBC }}
   PERCY_TOKEN_PIE_LINK: ${{ secrets.PERCY_TOKEN_PIE_LINK }}
+  PERCY_TOKEN_PIE_LOTTIE_PLAYER: ${{ secrets.PERCY_TOKEN_PIE_LOTTIE_PLAYER }}
   PERCY_TOKEN_PIE_MODAL: ${{ secrets.PERCY_TOKEN_PIE_MODAL }}
   PERCY_TOKEN_PIE_NOTIFICATION: ${{ secrets.PERCY_TOKEN_PIE_NOTIFICATION }}
   PERCY_TOKEN_PIE_RADIO: ${{ secrets.PERCY_TOKEN_PIE_RADIO }}
@@ -221,8 +222,8 @@ jobs:
         uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 # v4.4.0
         if: always()
         with:
-          name: browsers-report
-          path: browsers-report/
+          name: lit-browsers-report
+          path: lit-browsers-report/
           retention-days: 7
       # Run Visual Tests
       - name: Run All Visual Tests
@@ -241,8 +242,8 @@ jobs:
         uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 # v4.4.0
         if: always()
         with:
-          name: visual-report
-          path: visual-report/
+          name: lit-visual-report
+          path: lit-visual-report/
           retention-days: 7
     env:
       STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
