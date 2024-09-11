@@ -56,9 +56,12 @@
       ]
     },
     "generate:component-statuses": {
-      "cache": false,
+      "cache": true,
+      "inputs": [
+        "packages/components/**/package.json"
+      ],
       "outputs": [
-        "**/component-statuses.json"
+        "component-statuses.json"
       ]
     },
     "watch": {

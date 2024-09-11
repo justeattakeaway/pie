@@ -17,6 +17,15 @@
         "^build",
         "generate:component-statuses"
       ]
+    },
+    "generate:component-statuses": {
+      "inputs": [
+        "../../packages/components/**/package.json"
+      ],
+      "cache": true,
+      "outputs": [
+        "component-statuses.json"
+      ]
     }
   }
 }

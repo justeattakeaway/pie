@@ -32,6 +32,15 @@
         "build:dev"
       ]
     },
+    "generate:component-statuses": {
+      "inputs": [
+        "../../packages/components/**/package.json"
+      ],
+      "cache": true,
+      "outputs": [
+        "component-statuses.json"
+      ]
+    },
     "test:generate-routes": {
       "cache": true,
       "dependsOn": [
