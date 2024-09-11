@@ -23,6 +23,7 @@
     "stylelint-order": "6.x"
   },
   "dependencies": {
+    "@justeattakeaway/stylelint-full-nested-class-modifiers": "0.0.0",
     "@justeattakeaway/stylelint-no-logical-props-shorthands": "0.3.0"
   },
   "scripts": {

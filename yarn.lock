@@ -5943,11 +5943,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/stylelint-config-pie@workspace:packages/tools/stylelint-config-pie"
   dependencies:
+    "@justeattakeaway/stylelint-full-nested-class-modifiers": 0.0.0
     "@justeattakeaway/stylelint-no-logical-props-shorthands": 0.3.0
   peerDependencies:
     stylelint: 16.x
     stylelint-config-standard-scss: 13.x
     stylelint-order: 6.x
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/stylelint-full-nested-class-modifiers@0.0.0, @justeattakeaway/stylelint-full-nested-class-modifiers@workspace:packages/tools/stylelint-full-nested-class-modifiers":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/stylelint-full-nested-class-modifiers@workspace:packages/tools/stylelint-full-nested-class-modifiers"
+  dependencies:
+    query-ast: 1.0.5
+    scss-parser: 1.0.6
   languageName: unknown
   linkType: soft
 
