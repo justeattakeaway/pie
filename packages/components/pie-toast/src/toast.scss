@@ -25,7 +25,21 @@
   color: var(--toast-font-color);
   font-size: var(--toast-font-size);
   line-height: var(--toast-line-height);
+  transition: all 200ms cubic-bezier(0, 0, 0.18, 0.99);
+  transform: translateX(100%);  
 }
+
+.c-toast--animate-in {
+  animation: 200ms animate-in cubic-bezier(0, 0, 0.18, 0.99);
+  transform: translateX(0); 
+}
+
+.c-toast--animate-out {
+  animation: 100ms animate-out cubic-bezier(0.8, 0, 1, 1);
+  transform: translateX(100%); 
+  opacity: 0;
+}
+
 
 .c-toast--info {
   --toast-icon-fill: var(--dt-color-support-info-inverse);
@@ -114,3 +128,23 @@
   color: var(--toast-icon-fill);
 }
 
+@keyframes animate-in {
+  from { 
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1;
+  }
+}
+
+@keyframes animate-out {
+  from { 
+    transform: translateX(0); 
+  }
+  to { 
+    transform: translateX(100%); 
+    
+  }
+}

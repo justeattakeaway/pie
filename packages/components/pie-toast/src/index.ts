@@ -371,14 +371,12 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
             _messageAreaMaxWidth,
         } = this;
 
-        if (!isOpen) {
-            return nothing;
-        }
-
         const componentWrapperClasses = {
             [componentClass]: true,
             [`${componentClass}--${variant}`]: true,
             [`${componentClass}--strong`]: isStrong,
+            [`${componentClass}--animate-in`]: isOpen,
+            [`${componentClass}--animate-out`]: !isOpen,
         };
 
         const messageAreaClasses = {
