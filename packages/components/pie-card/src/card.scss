@@ -1,7 +1,7 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 @mixin card-interactive-states($bg-color, $mode: 'default') {
-    &:hover:not([disabled]) {
+    &:hover:not(.c-card--disabled) {
         @if $mode == 'inverse' {
             --hover-modifier: var(--dt-color-hover-01);
         } @else {
@@ -11,7 +11,7 @@
         --card-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
     }
 
-    &:active:not([disabled]) {
+    &:active:not(.c-card--disabled) {
         @if $mode == 'inverse' {
             --active-modifier: var(--dt-color-active-01);
         } @else {
@@ -39,37 +39,11 @@
     outline: none;
     text-decoration: none;
 
-    &[variant='default'] {
-        box-shadow: var(--dt-elevation-card);
-
-        @include card-interactive-states('--dt-color-container-default');
+    &:focus-visible {
+        @include p.focus;
     }
 
-    &[variant='outline'] {
-        border-color: var(--dt-color-border-strong);
-
-        @include card-interactive-states('--dt-color-container-default');
-    }
-
-    &[variant='inverse'] {
-        --card-bg-color: var(--dt-color-container-dark);
-        --card-color: var(--dt-color-content-inverse);
-
-        box-shadow: var(--dt-elevation-dark-card);
-
-        @include card-interactive-states('--dt-color-container-dark', 'inverse');
-    }
-
-    &[variant='outline-inverse'] {
-        --card-bg-color: var(--dt-color-container-dark);
-        --card-color: var(--dt-color-content-inverse);
-
-        border-color: var(--dt-color-border-inverse);
-
-        @include card-interactive-states('--dt-color-container-dark', 'inverse');
-    }
-
-    &[disabled] {
+    &.c-card--disabled {
         --card-bg-color: var(--dt-color-disabled-01);
 
         cursor: not-allowed;
@@ -81,18 +55,44 @@
         img {
             opacity: 0.5;
         }
-
-        &[variant='inverse'],
-        &[variant='outline-inverse'] {
-            --card-bg-color: var(--dt-color-disabled-01-inverse);
-        }
     }
 
-    &:focus-visible {
-        @include p.focus;
+    &.c-card--default {
+        box-shadow: var(--dt-elevation-card);
+
+        @include card-interactive-states('--dt-color-container-default');
     }
 
-    &[isdraggable] {
+    &.c-card--outline {
+        border-color: var(--dt-color-border-strong);
+
+        @include card-interactive-states('--dt-color-container-default');
+    }
+
+    &.c-card--inverse {
+        --card-bg-color: var(--dt-color-container-dark);
+        --card-color: var(--dt-color-content-inverse);
+
+        box-shadow: var(--dt-elevation-dark-card);
+
+        @include card-interactive-states('--dt-color-container-dark', 'inverse');
+    }
+
+    &.c-card--outline-inverse {
+        --card-bg-color: var(--dt-color-container-dark);
+        --card-color: var(--dt-color-content-inverse);
+
+        border-color: var(--dt-color-border-inverse);
+
+        @include card-interactive-states('--dt-color-container-dark', 'inverse');
+    }
+
+    &.c-card--inverse.c-card--disabled,
+    &.c-card--outline-inverse.c-card--disabled {
+        --card-bg-color: var(--dt-color-disabled-01-inverse);
+    }
+
+    &.c-card--draggable {
         @extend %has-grab-cursor;
     }
 }
