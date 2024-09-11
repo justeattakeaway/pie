@@ -12,7 +12,7 @@ jobs:
       - uses: morrisoncole/pr-lint-action@51f3cfabaf5d46f94e54524214e45685f0401b2a # v1.7.1
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          title-regex: "^[a-z]+?\\([a-z0-9-]+?\\): [A-Za-z]+?-\\d+? \\w.*|^Version Packages|^\\[Snyk\\].*"
+          title-regex: "^[a-z]+?\\([a-z0-9-]+?\\): [A-Za-z]+?-\\d+? \\w.*|^Version Packages].*"
           on-failed-regex-fail-action: true
           on-failed-regex-create-review: true
           on-failed-regex-request-changes: true
