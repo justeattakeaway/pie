@@ -19,6 +19,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-charcoal-30: #d7d9da;
     --dt-color-charcoal-40: #b7bdbe;
     --dt-color-charcoal-50: #8c999b;
+    --dt-color-charcoal-57: #68797d;
     --dt-color-charcoal-60: #5d7074;
     --dt-color-charcoal-70: #3c4c4f;
     --dt-color-charcoal-75: #303d3f;
@@ -144,6 +145,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-content-link-visited: var(--dt-color-system-purple);
     --dt-color-content-link-visited-inverse: var(--dt-color-system-purple-10);
     --dt-color-content-error: var(--dt-color-red);
+    --dt-color-content-placeholder: var(--dt-color-charcoal-57);
     --dt-color-content-positive: var(--dt-color-green);
     --dt-color-content-disabled: var(--dt-color-charcoal-50);
     --dt-color-content-brand: var(--dt-color-orange);
@@ -239,6 +241,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-content-link-visited: var(--dt-color-system-purple);
     --dt-color-highcontrast-content-link-visited-inverse: var(--dt-color-system-purple-10);
     --dt-color-highcontrast-content-error: var(--dt-color-red-dark-hc);
+    --dt-color-highcontrast-content-placeholder: var(--dt-color-charcoal-57);
     --dt-color-highcontrast-content-positive: var(--dt-color-green-dark-hc);
     --dt-color-highcontrast-content-disabled: var(--dt-color-charcoal-50);
     --dt-color-highcontrast-content-brand: var(--dt-color-orange-dark-hc);
@@ -334,6 +337,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-dark-content-link-visited: var(--dt-color-system-purple-10);
     --dt-color-dark-content-link-visited-inverse: var(--dt-color-system-purple);
     --dt-color-dark-content-error: var(--dt-color-red-30);
+    --dt-color-dark-content-placeholder: var(--dt-color-charcoal-50);
     --dt-color-dark-content-positive: var(--dt-color-green-30);
     --dt-color-dark-content-disabled: var(--dt-color-charcoal-50);
     --dt-color-dark-content-brand: var(--dt-color-orange-30);
@@ -429,6 +433,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-dark-content-link-visited: var(--dt-color-system-purple-10);
     --dt-color-highcontrast-dark-content-link-visited-inverse: var(--dt-color-system-purple);
     --dt-color-highcontrast-dark-content-error: var(--dt-color-red-light-hc);
+    --dt-color-highcontrast-dark-content-placeholder: var(--dt-color-charcoal-50);
     --dt-color-highcontrast-dark-content-positive: var(--dt-color-green-light-hc);
     --dt-color-highcontrast-dark-content-disabled: var(--dt-color-charcoal-50);
     --dt-color-highcontrast-dark-content-brand: var(--dt-color-orange-30);
@@ -766,6 +771,9 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-charcoal-50-h: 188;
     --dt-color-charcoal-50-s: 7%;
     --dt-color-charcoal-50-l: 57.8%;
+    --dt-color-charcoal-57-h: 191;
+    --dt-color-charcoal-57-s: 9.2%;
+    --dt-color-charcoal-57-l: 44.9%;
     --dt-color-charcoal-60-h: 190;
     --dt-color-charcoal-60-s: 11%;
     --dt-color-charcoal-60-l: 41%;
@@ -1126,6 +1134,9 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-content-error-h: var(--dt-color-red-h);
     --dt-color-content-error-s: var(--dt-color-red-s);
     --dt-color-content-error-l: var(--dt-color-red-l);
+    --dt-color-content-placeholder-h: var(--dt-color-charcoal-57-h);
+    --dt-color-content-placeholder-s: var(--dt-color-charcoal-57-s);
+    --dt-color-content-placeholder-l: var(--dt-color-charcoal-57-l);
     --dt-color-content-positive-h: var(--dt-color-green-h);
     --dt-color-content-positive-s: var(--dt-color-green-s);
     --dt-color-content-positive-l: var(--dt-color-green-l);
