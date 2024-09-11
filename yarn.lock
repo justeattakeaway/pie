@@ -5423,6 +5423,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@justeat/pie-design-tokens@npm:6.4.0":
+  version: 6.4.0
+  resolution: "@justeat/pie-design-tokens@npm:6.4.0"
+  dependencies:
+    jsonc-parser: 3.2.0
+    lodash.merge: 4.6.2
+    mkdirp: 1.0.4
+  checksum: f22842a5bf9d64f0a2273b462e5f8f2a51044993a09a4aa4c950d7f84ed0ba4d0ed01421741c4b5066ae13094cb2db3c8a73bfa2927737ef5deebcc6a0f14e4f
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/browserslist-config-pie@0.2.0, @justeattakeaway/browserslist-config-pie@workspace:packages/tools/browserslist-config-pie":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/browserslist-config-pie@workspace:packages/tools/browserslist-config-pie"
@@ -26148,7 +26159,7 @@ __metadata:
     "@changesets/cli": 2.26.2
     "@commitlint/cli": 17.5.1
     "@commitlint/config-conventional": 17.4.4
-    "@justeat/pie-design-tokens": 6.3.1
+    "@justeat/pie-design-tokens": 6.4.0
     "@justeattakeaway/browserslist-config-pie": 0.2.0
     "@justeattakeaway/generator-pie-component": 0.22.0
     "@justeattakeaway/pie-icons": 4.19.1
