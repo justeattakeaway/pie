@@ -126,11 +126,12 @@
     }
 
     &[disabled] {
-        &:not(.c-chip--ghost) {
-            --chip-bg-color: var(--dt-color-disabled-01);
-        }
-
+        --chip-bg-color: var(--dt-color-disabled-01);
         --chip-color: var(--dt-color-content-disabled);
+
+        &.c-chip--ghost {
+            --chip-bg-color: transparent;
+        }
 
         cursor: not-allowed;
     }
