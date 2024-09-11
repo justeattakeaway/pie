@@ -37,6 +37,7 @@ const initialValues: ToastProps = {
     isMultiline: false,
     message: 'Item has been created',
     leadingAction: mainAction,
+    duration: null,
 };
 
 export const screenWidths = {
