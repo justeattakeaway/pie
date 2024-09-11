@@ -13,7 +13,7 @@
       "dependsOn": [
         "^build",
         "clean",
-        "generate:component-statuses"
+        "copy:component-statuses"
       ],
       "outputs": [
         "dist/**"
@@ -23,7 +23,7 @@
       "cache": true,
       "dependsOn": [
         "^build",
-        "generate:component-statuses"
+        "copy:component-statuses"
       ]
     },
     "dev": {
@@ -32,14 +32,11 @@
         "build:dev"
       ]
     },
-    "generate:component-statuses": {
-      "inputs": [
-        "../../packages/components/**/package.json"
+    "copy:component-statuses": {
+      "dependsOn": [
+        "//#generate:component-statuses"
       ],
-      "cache": true,
-      "outputs": [
-        "component-statuses.json"
-      ]
+      "cache": false
     },
     "test:generate-routes": {
       "cache": true,

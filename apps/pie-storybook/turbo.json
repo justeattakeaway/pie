@@ -8,24 +8,21 @@
       "cache": false,
       "dependsOn": [
         "^build",
-        "generate:component-statuses"
+        "copy:component-statuses"
       ]
     },
     "build": {
       "cache": true,
       "dependsOn": [
         "^build",
-        "generate:component-statuses"
+        "copy:component-statuses"
       ]
     },
-    "generate:component-statuses": {
-      "inputs": [
-        "../../packages/components/**/package.json"
+    "copy:component-statuses": {
+      "dependsOn": [
+        "//#generate:component-statuses"
       ],
-      "cache": true,
-      "outputs": [
-        "component-statuses.json"
-      ]
+      "cache": false
     }
   }
 }

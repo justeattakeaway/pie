@@ -6,7 +6,7 @@
       "dependsOn": [
         "^build",
         "build:react-wrapper",
-        "generate:component-statuses"
+        "//#generate:component-statuses"
       ],
       "outputs": [
         "dist/**"
@@ -55,7 +55,7 @@
         ".output/**"
       ]
     },
-    "generate:component-statuses": {
+    "//#generate:component-statuses": {
       "cache": true,
       "inputs": [
         "packages/components/**/package.json"
@@ -64,6 +64,7 @@
         "component-statuses.json"
       ]
     },
+    "copy:component-statuses": {},
     "watch": {
       "cache": true,
       "dependsOn": []
@@ -170,7 +171,7 @@
       "cache": false,
       "dependsOn": [
         "^build",
-        "generate:component-statuses"
+        "//#generate:component-statuses"
       ]
     }
   }
