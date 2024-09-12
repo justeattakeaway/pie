@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.5.0
+
+### Minor Changes
+
+- [Added] - Adds the Components index page using a shortcode that will dynamically generate a card for each component in the navigation menu ([#1708](https://github.com/justeattakeaway/pie/pull/1708)) by [@maledr5](https://github.com/maledr5)
+
+- [Changed] - updates side navigation to be able to navigate to index pages for main content ([#1708](https://github.com/justeattakeaway/pie/pull/1708)) by [@maledr5](https://github.com/maledr5)
+
 ## 4.4.0
 
 ### Minor Changes

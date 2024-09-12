@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-webc
 
+## 0.5.31
+
+### Patch Changes
+
+- Updated dependencies [[`8478fee23`](https://github.com/justeattakeaway/pie/commit/8478fee2338f0fe1d724fe79662d883763e501e2), [`ce0ea6f0d`](https://github.com/justeattakeaway/pie/commit/ce0ea6f0dd3210b21a08e945d90e0be945485fb4), [`2989a05be`](https://github.com/justeattakeaway/pie/commit/2989a05be1f04d738a0dd35081aba0adb1e52e86), [`f9e6c541c`](https://github.com/justeattakeaway/pie/commit/f9e6c541c90d55b45a18e1fb43091c0ed4eb5e8b)]:
+  - @justeattakeaway/pie-text-input@0.24.0
+  - @justeattakeaway/pie-card@0.20.0
+  - @justeattakeaway/pie-lottie-player@0.0.1
+  - @justeattakeaway/pie-textarea@0.10.0
+
 ## 0.5.30
 
 ### Patch Changes
