@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-text-input
 
+## 0.24.0
+
+### Minor Changes
+
+- [Changed] - use classes instead of attributes for styling ([#1825](https://github.com/justeattakeaway/pie/pull/1825)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - Default values of `false` for `disabled` and `readonly` props. No change in behaviour expected.
+
+- [Added] - New color token for placeholders ([#1820](https://github.com/justeattakeaway/pie/pull/1820)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.23.6
 
 ### Patch Changes
