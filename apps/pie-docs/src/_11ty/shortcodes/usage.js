@@ -27,9 +27,9 @@ const buildImage = ({
     const mobileImageMaxWidth = '600px';
 
     return `<picture class="c-usage-img">
-            ${mobileSrc ? `<source ${imageStyles} media="(max-width: ${mobileImageMaxWidth})" srcset="${mobileSrc}">` : ''}
-            <img src="${src}" ${imageStyles} ${imageAlt}>
-          </picture>`;
+          ${mobileSrc ? `<source ${imageStyles} media="(max-width: ${mobileImageMaxWidth})" srcset="${mobileSrc}">` : ''}
+          <img src="${src}" ${imageStyles} ${imageAlt}>
+        </picture>`;
 };
 
 const buildUsageCard = (usageType, { type, items, hasPadding = true }) => {
@@ -56,18 +56,17 @@ const buildUsageCard = (usageType, { type, items, hasPadding = true }) => {
         ? items.map((i) => buildImage(i)).join(' ')
         : list({ type: 'bullet', items });
 
-    return `
-    <article class="c-usage" style="--style-colour: ${styleColourValue};">
-      <figure>
-        <figcaption class="c-usage-heading">
-          ${svg}
-          ${displayName}
-        </figcaption>
-        <div class="${backdropClasses.join(' ')}">
-          ${content}
-        </div>
-      </figure>
-    </article>`;
+    return `<article class="c-usage" style="--style-colour: ${styleColourValue};">
+    <figure>
+      <figcaption class="c-usage-heading">
+        ${svg}
+        ${displayName}
+      </figcaption>
+      <div class="${backdropClasses.join(' ')}">
+        ${content}
+      </div>
+    </figure>
+  </article>`;
 };
 
 /**
