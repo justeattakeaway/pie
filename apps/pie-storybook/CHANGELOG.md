@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.3.3
+
+### Patch Changes
+
+- [Added] - story and controls for pie-lottie-player ([#1763](https://github.com/justeattakeaway/pie/pull/1763)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Changed] - use classes instead of attributes for styling ([#1825](https://github.com/justeattakeaway/pie/pull/1825)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - Default values of `false` for `disabled` and `readonly` props. No change in behaviour expected.
+
+- Updated dependencies [[`8478fee23`](https://github.com/justeattakeaway/pie/commit/8478fee2338f0fe1d724fe79662d883763e501e2), [`ce0ea6f0d`](https://github.com/justeattakeaway/pie/commit/ce0ea6f0dd3210b21a08e945d90e0be945485fb4), [`f9e6c541c`](https://github.com/justeattakeaway/pie/commit/f9e6c541c90d55b45a18e1fb43091c0ed4eb5e8b)]:
+  - @justeattakeaway/pie-text-input@0.24.0
+  - @justeattakeaway/pie-card@0.20.0
+  - @justeattakeaway/pie-textarea@0.10.0
+
 ## 1.3.2
 
 ### Patch Changes

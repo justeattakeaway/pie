@@ -177,7 +177,7 @@ const textareaStoryMeta: TextareaStoryMeta = {
             },
         },
         maxLength: {
-            description: 'The maximum number of characters allowed in the textarea field.',
+            description: 'The maximum number of characters allowed in the textarea field. To apply a length restriction, you must also provide label text.',
             control: 'number',
             defaultValue: {
                 summary: 0,

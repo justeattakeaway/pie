@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-webc",
   "description": "Component bundle containing all PIE web components",
-  "version": "0.5.30",
+  "version": "0.5.31",
   "type": "module",
   "files": [
     "**/*.js",
@@ -47,6 +47,16 @@
       "import": "./react/checkbox.js",
       "require": "./react/checkbox.js",
       "types": "./react/checkbox.d.ts"
+    },
+    "./components/checkbox-group.js": {
+      "import": "./components/checkbox-group.js",
+      "require": "./components/checkbox-group.js",
+      "types": "./components/checkbox-group.d.ts"
+    },
+    "./react/checkbox-group.js": {
+      "import": "./react/checkbox-group.js",
+      "require": "./react/checkbox-group.js",
+      "types": "./react/checkbox-group.d.ts"
     },
     "./components/chip.js": {
       "import": "./components/chip.js",
@@ -108,6 +118,16 @@
       "require": "./react/link.js",
       "types": "./react/link.d.ts"
     },
+    "./components/lottie-player.js": {
+      "import": "./components/lottie-player.js",
+      "require": "./components/lottie-player.js",
+      "types": "./components/lottie-player.d.ts"
+    },
+    "./react/lottie-player.js": {
+      "import": "./react/lottie-player.js",
+      "require": "./react/lottie-player.js",
+      "types": "./react/lottie-player.d.ts"
+    },
     "./components/modal.js": {
       "import": "./components/modal.js",
       "require": "./components/modal.js",
@@ -127,6 +147,26 @@
       "import": "./react/notification.js",
       "require": "./react/notification.js",
       "types": "./react/notification.d.ts"
+    },
+    "./components/radio.js": {
+      "import": "./components/radio.js",
+      "require": "./components/radio.js",
+      "types": "./components/radio.d.ts"
+    },
+    "./react/radio.js": {
+      "import": "./react/radio.js",
+      "require": "./react/radio.js",
+      "types": "./react/radio.d.ts"
+    },
+    "./components/radio-group.js": {
+      "import": "./components/radio-group.js",
+      "require": "./components/radio-group.js",
+      "types": "./components/radio-group.d.ts"
+    },
+    "./react/radio-group.js": {
+      "import": "./react/radio-group.js",
+      "require": "./react/radio-group.js",
+      "types": "./react/radio-group.d.ts"
     },
     "./components/spinner.js": {
       "import": "./components/spinner.js",
@@ -187,26 +227,6 @@
       "import": "./react/toast.js",
       "require": "./react/toast.js",
       "types": "./react/toast.d.ts"
-    },
-    "./components/checkbox-group.js": {
-      "import": "./components/checkbox-group.js",
-      "require": "./components/checkbox-group.js",
-      "types": "./components/checkbox-group.d.ts"
-    },
-    "./react/checkbox-group.js": {
-      "import": "./react/checkbox-group.js",
-      "require": "./react/checkbox-group.js",
-      "types": "./react/checkbox-group.d.ts"
-    },
-    "./components/lottie-player.js": {
-      "import": "./components/lottie-player.js",
-      "require": "./components/lottie-player.js",
-      "types": "./components/lottie-player.d.ts"
-    },
-    "./react/lottie-player.js": {
-      "import": "./react/lottie-player.js",
-      "require": "./react/lottie-player.js",
-      "types": "./react/lottie-player.d.ts"
     }
   },
   "bin": {
@@ -229,7 +249,7 @@
   "dependencies": {
     "@justeattakeaway/pie-assistive-text": "0.7.1",
     "@justeattakeaway/pie-button": "0.49.1",
-    "@justeattakeaway/pie-card": "0.19.8",
+    "@justeattakeaway/pie-card": "0.20.0",
     "@justeattakeaway/pie-checkbox": "0.12.3",
     "@justeattakeaway/pie-checkbox-group": "0.7.0",
     "@justeattakeaway/pie-chip": "0.8.2",
@@ -238,15 +258,16 @@
     "@justeattakeaway/pie-form-label": "0.14.1",
     "@justeattakeaway/pie-icon-button": "0.28.12",
     "@justeattakeaway/pie-link": "0.18.0",
-    "@justeattakeaway/pie-lottie-player": "0.0.0",
+    "@justeattakeaway/pie-lottie-player": "0.0.1",
     "@justeattakeaway/pie-modal": "0.46.2",
     "@justeattakeaway/pie-notification": "0.10.2",
     "@justeattakeaway/pie-radio": "0.0.0",
+    "@justeattakeaway/pie-radio-group": "0.0.0",
     "@justeattakeaway/pie-spinner": "0.7.0",
     "@justeattakeaway/pie-switch": "0.30.1",
     "@justeattakeaway/pie-tag": "0.10.0",
-    "@justeattakeaway/pie-text-input": "0.23.6",
-    "@justeattakeaway/pie-textarea": "0.9.0",
+    "@justeattakeaway/pie-text-input": "0.24.0",
+    "@justeattakeaway/pie-textarea": "0.10.0",
     "@justeattakeaway/pie-toast": "0.3.3"
   },
   "volta": {
