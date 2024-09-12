@@ -38,12 +38,12 @@ const getUrl = (element) => {
     return element.url;
 };
 
-module.exports = function ({
+module.exports = ({
     collection,
     itemKey,
     excludedElements,
     imageSrcDirectory,
-}) {
+}) => {
     const menuItems = find(collection, itemKey);
     const draftPages = getDraftPagesList(collection);
 
