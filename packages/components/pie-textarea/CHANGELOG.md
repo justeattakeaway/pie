@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-textarea
 
+## 0.10.0
+
+### Minor Changes
+
+- [Added] - New color token for placeholders ([#1820](https://github.com/justeattakeaway/pie/pull/1820)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.9.0
 
 ### Minor Changes
