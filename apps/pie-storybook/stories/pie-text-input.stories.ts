@@ -301,7 +301,7 @@ const Template = ({
 };
 
 const WithLabelTemplate: TemplateFunction<TextInputProps> = (props: TextInputProps) => html`
-        <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-field</pie-link>.</p>
+        <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-label</pie-link>.</p>
         <pie-form-label for="${ifDefined(props.name)}">Label</pie-form-label>
         ${Template(props)}
     `;
