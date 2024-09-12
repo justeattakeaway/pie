@@ -5,6 +5,7 @@ import {
     type TemplateResult,
     type PropertyValues,
 } from 'lit';
+import { classMap } from 'lit/directives/class-map.js';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { defineCustomElement, validPropertyValues, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
 import { property, queryAssignedElements } from 'lit/decorators.js';
@@ -107,13 +108,18 @@ export class PieNotification extends LitElement implements NotificationProps {
      * @private
      */
     private renderFooter () {
-        const { leadingAction, supportingAction } = this;
+        const {
+            leadingAction, supportingAction, isCompact, hasStackedActions,
+        } = this;
+        const classes = {
+            [`${componentClass}-footer`]: true,
+            [`${componentClass}-footer--compact`]: isCompact,
+            [`${componentClass}-footer--stacked`]: hasStackedActions && !isCompact,
+        };
         return html`
-            <footer    
-                class="${componentClass}-footer" 
-                data-test-id="${componentSelector}-footer" 
-                ?isCompact="${this.isCompact}" 
-                ?isStacked="${this.hasStackedActions && !this.isCompact}">
+            <footer
+                class="${classMap(classes)}"
+                data-test-id="${componentSelector}-footer">
                     ${supportingAction ? this.renderActionButton(supportingAction, 'supporting') : nothing}
                     ${leadingAction ? this.renderActionButton(leadingAction, 'leading') : nothing}
             </footer>
@@ -264,20 +270,29 @@ export class PieNotification extends LitElement implements NotificationProps {
 
         const showCloseButton = isDismissible && !isCompact;
 
+        const classes = {
+            [componentClass]: true,
+            [`${componentClass}--${variant}`]: true,
+            [`${componentClass}--${position}`]: true,
+            [`${componentClass}--compact`]: isCompact,
+        };
+
+        const contentSectionClasses = {
+            [`${componentClass}-content-section`]: true,
+            [`${componentClass}-content-section--dismissible`]: showCloseButton,
+        };
+
         return html`
             <div
                 data-test-id="${componentSelector}"
-                class="${componentClass}"
-                variant="${variant}"
-                position="${position}"
-                ?isCompact="${isCompact}"
+                class="${classMap(classes)}"
                 role="region"
                 aria-live="${variant === 'error' ? 'assertive' : 'polite'}"
                 aria-labelledby="${heading ? `${componentSelector}-heading` : nothing}"
                 aria-label="${!heading && ifDefined(aria?.label)}">
                 ${showCloseButton ? this.renderCloseButton() : nothing}
 
-                <section class="${componentClass}-content-section" ?isDismissible="${showCloseButton}">
+                <section class="${classMap(contentSectionClasses)}">
                     ${!hideIcon ? this.renderIcon() : nothing}
                     <article>
                         ${heading ? this.renderNotificationHeading() : nothing}
