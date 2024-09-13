@@ -7,7 +7,9 @@
  * yellow, red, brand, neutral-alternative, outline, ghost
  * @returns {string}
  */
-module.exports = ({
+const tag = ({
     label,
     variant,
 }) => `<span class="c-tag" variant="${variant}">${label}</span>`;
+
+module.exports = tag;
