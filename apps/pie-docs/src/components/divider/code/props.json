@@ -1,5 +1,5 @@
 {
-  "headings": ["Prop", "Options", "Description", "Default"],
+  "headings": ["Prop", "Type", "Description", "Default"],
   "rows": [
       [
           "variant",
@@ -7,11 +7,25 @@
               "type": "code",
               "item": ["\"default\"", "\"inverse\""]
           },
-          "Which variant of the divider to use.",
+          "Sets the variant of the divider.",
           {
               "type": "code",
               "item": ["\"default\""]
           }
+      ],
+      [
+        "label",
+        {
+          "type": "code",
+          "item":  [
+            "string"
+          ]
+        },
+        "The label text for the divider. Label is only available for the horizontal variant.",
+        {
+          "type": "code",
+          "item": ["\"\""]
+        }
       ],
       [
         "orientation",
@@ -19,7 +33,7 @@
             "type": "code",
             "item": ["\"horizontal\"", "\"vertical\""]
         },
-        "Which orientation of the divider to use.",
+        "Set the orientation of the divider.",
         {
             "type": "code",
             "item": ["\"horizontal\""]
