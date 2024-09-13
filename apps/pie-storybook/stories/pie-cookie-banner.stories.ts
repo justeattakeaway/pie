@@ -74,14 +74,18 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
             options: Object.keys(pieCookieBannerLocales),
             mapping: pieCookieBannerLocales,
             description: 'Assigns the data for localising the component strings',
-            defaultValue: defaultProps.locale,
+            defaultValue: {
+                summary: defaultProps.locale,
+            },
         },
         tenant: {
             options: Object.values(tenantOptions),
             mapping: tenantOptions,
             control: 'select',
             description: 'Assigns the country for the component',
-            defaultValue: tenantOptions.UnitedKingdom,
+            defaultValue: {
+                summary: defaultProps.tenant,
+            },
         },
         language: {
             options: Object.values(languageOptions),
@@ -89,7 +93,7 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
             control: 'select',
             description: 'Assigns the language for the component',
             defaultValue: {
-                summary: languageOptions.English,
+                summary: defaultProps.language,
             },
         },
         defaultPreferences: {

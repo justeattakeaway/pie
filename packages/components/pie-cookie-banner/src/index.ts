@@ -80,9 +80,10 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;
 
-    updated (changedProperties: Map<string, unknown>) {
+    async updated (changedProperties: Map<string, unknown>) {
+        // Re-fetch locale when tenant or language changes
         if (changedProperties.has(TENANT_PROPERTY) || changedProperties.has(LANGUAGE_PROPERTY)) {
-            this._getLocaleBasedOnTenantAndLanguage();
+            await this._getLocaleBasedOnTenantAndLanguage();
         }
     }
 
@@ -92,12 +93,10 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             // Dynamically construct the import path based on tenant and language
             const localeModule = await import(`../locales/${this.language}-${this.tenant}.json`, { assert: { type: 'json' } });
 
-            console.log('_getLocaleBasedOnTenantAndLanguage', localeModule, this.tenant, this.language, this.locale); // eslint-disable-line no-console
-
-            // Use the imported locale as your locale
+            // Use the imported locale as the current locale
             this.locale = localeModule.default;
         } catch (error) {
-            console.error(`Error loading locale for ${this.language}-${this.tenant}:`, error);
+            console.error(`Error loading locale for ${this.language}-${this.tenant}:`, error); // TODO - decide how to handle this error
 
             // Fallback to default locale if there's an error loading the dynamic locale
             this.locale = defaultProps.locale;
