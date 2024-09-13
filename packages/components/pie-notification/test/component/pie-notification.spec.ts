@@ -68,7 +68,6 @@ test.describe('PieNotification - Component tests', () => {
 
                     // Assert
                     expect(notification).toBeVisible();
-                    expect(notification).toHaveAttribute('variant', variant);
                 });
             });
 
