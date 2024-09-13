@@ -1,5 +1,46 @@
 # @justeattakeaway/pie-textarea
 
+## 0.10.0
+
+### Minor Changes
+
+- [Added] - New color token for placeholders ([#1820](https://github.com/justeattakeaway/pie/pull/1820)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - support `placeholder` and `readonly` props ([#1747](https://github.com/justeattakeaway/pie/pull/1747)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - `assistiveText` property, `status` property with the possible values `default`, `success` and `error` ([#1717](https://github.com/justeattakeaway/pie/pull/1717)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- [Changed] - Position of resize handle ([#1719](https://github.com/justeattakeaway/pie/pull/1719)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- [Changed] - use classes for styling instead of attributes ([#1719](https://github.com/justeattakeaway/pie/pull/1719)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.7.0
+
+### Minor Changes
+
+- [Added] - new `defaultValue` prop has been added. ([#1697](https://github.com/justeattakeaway/pie/pull/1697)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+## 0.6.1
+
+### Patch Changes
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
+- Updated dependencies [[`b32bf5d25`](https://github.com/justeattakeaway/pie/commit/b32bf5d257bb87da130194a9fe2ddf3ec93bced9)]:
+  - @justeattakeaway/pie-form-label@0.14.1
+
 ## 0.6.0
 
 ### Minor Changes

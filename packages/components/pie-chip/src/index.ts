@@ -3,6 +3,7 @@ import {
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { classMap } from 'lit/directives/class-map.js';
 
 import {
     validPropertyValues, defineCustomElement, dispatchCustomEvent,
@@ -97,6 +98,14 @@ export class PieChip extends LitElement implements ChipProps {
             isDismissible,
         } = this;
 
+        const classes = {
+            'c-chip': true,
+            [`c-chip--${variant}`]: true,
+            'c-chip--selected': isSelected,
+            'c-chip--dismissible': isDismissible,
+            'is-loading': isLoading,
+        };
+
         return html`
             <div
                 aria-atomic="true"
@@ -104,15 +113,11 @@ export class PieChip extends LitElement implements ChipProps {
                 aria-current="${isSelected}"
                 aria-label="${ifDefined(this.aria?.label)}"
                 aria-live="polite"
-                class="c-chip"
+                class=${classMap(classes)}
                 data-test-id="pie-chip"
                 tabindex="0"
                 role="button"
-                variant="${variant}"
-                ?disabled="${disabled}"
-                ?isSelected="${isSelected}"
-                ?isLoading="${isLoading}"
-                ?isDismissible="${isDismissible}">
+                ?disabled="${disabled}">
                     <slot name="icon"></slot>
                     ${isLoading ? this.renderSpinner() : nothing}
                     <slot></slot>

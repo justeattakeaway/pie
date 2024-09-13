@@ -1,5 +1,5 @@
 import {
-    LitElement, nothing, TemplateResult, unsafeCSS, PropertyValues,
+    LitElement, nothing, type TemplateResult, unsafeCSS, type PropertyValues,
 } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js';
@@ -86,28 +86,22 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: Boolean })
     public isOpen = defaultProps.isOpen;
 
-    @property({ type: String })
-    public leadingActionText: ModalProps['leadingActionText'];
-
-    @property({ type: String })
-    public leadingActionVariant = defaultProps.leadingActionVariant;
+    @property({ type: Object })
+    public leadingAction: ModalProps['leadingAction'];
 
     @property()
     @validPropertyValues(componentSelector, positions, defaultProps.position)
     public position = defaultProps.position;
 
     @property()
-    public returnFocusAfterCloseSelector?: ModalProps['returnFocusAfterCloseSelector'];
+    public returnFocusAfterCloseSelector: ModalProps['returnFocusAfterCloseSelector'];
 
     @property()
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
     public size = defaultProps.size;
 
-    @property({ type: String })
-    public supportingActionText: ModalProps['supportingActionText'];
-
-    @property({ type: String })
-    public supportingActionVariant = defaultProps.supportingActionVariant;
+    @property({ type: Object })
+    public supportingAction: ModalProps['supportingAction'];
 
     @query('dialog')
     private _dialog?: HTMLDialogElement;
@@ -307,26 +301,26 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     /**
      * Renders the "leadingAction" button if the text is provided.
      *
-     * If `leadingActionText` is not provided, the button is not rendered.
-     * If `leadingActionVariant` is not provided, the default value is used.
-     * The (optional) aria-label is read from the `aria` prop's `leadingActionLabel` property.
+     * If `leadingAction.text` is not provided, the button is not rendered.
+     * If `leadingAction.variant` is not provided, the default value of "primary" is used.
+     * The (optional) aria-label is read from `leadingAction.ariaLabel`.
      *
      * @private
      */
     private renderLeadingAction () : TemplateResult | typeof nothing {
-        if (!this.leadingActionText) {
-            return nothing;
-        }
+        const { ariaLabel, text, variant = 'primary' } = this.leadingAction || {};
+
+        if (!text) return nothing;
 
         return html`
             <pie-button
-                variant="${this.leadingActionVariant}"
-                aria-label="${ifDefined(this.aria?.leadingActionLabel)}"
+                variant="${variant}"
+                aria-label="${ifDefined(ariaLabel)}"
                 type="submit"
                 ?isFullWidth="${this.hasStackedActions}"
                 @click="${() => this._handleActionClick('leading')}"
                 data-test-id="modal-leading-action">
-                ${this.leadingActionText}
+                ${text}
             </pie-button>
         `;
     }
@@ -335,96 +329,117 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * Renders the "supportingAction" button if the text is provided.
      * You cannot have a supporting action without a leading action.
      *
-     * If `supportingActionText` or `leadingActionText` are not provided, the button is not rendered.
-     * If `supportingActionVariant` is not provided, the default value is used.
+     * If either `supportingAction.text` or `leadingAction.text` are not provided, the button is not rendered.
+     * If `supportingAction.variant` is not provided, the default value of "ghost" is used.
+     * The (optional) aria-label is read from `supportingAction.ariaLabel`.
      *
      * @private
      */
     private renderSupportingAction (): TemplateResult | typeof nothing {
-        if (!this.supportingActionText) {
-            return nothing;
-        }
+        const { ariaLabel, text, variant = 'ghost' } = this.supportingAction || {};
 
-        if (!this.leadingActionText) {
-            console.warn('You cannot have a supporting action without a leading action. If you only need one button then use a leading action instead.');
+        if (!text || !this.leadingAction?.text) {
             return nothing;
         }
 
         return html`
             <pie-button
-                variant="${this.supportingActionVariant}"
-                aria-label="${ifDefined(this.aria?.supportingActionLabel)}"
+                variant="${variant}"
+                aria-label="${ifDefined(ariaLabel)}"
                 type="reset"
                 ?isFullWidth="${this.hasStackedActions}"
                 @click="${() => this._handleActionClick('supporting')}"
                 data-test-id="modal-supporting-action">
-                ${this.supportingActionText}
+                ${text}
             </pie-button>
         `;
+    }
+
+    /**
+     * Renders the modal footer if a leading action is provided.
+     * Additionally renders the supporting action if it is provided.
+     *
+     * @private
+     */
+    private renderModalFooter () : TemplateResult | typeof nothing {
+        if (!this.leadingAction?.text) {
+            if (this.supportingAction?.text) {
+                console.warn('You cannot have a supporting action without a leading action. If you only need one button then use a leading action instead.');
+            }
+            return nothing;
+        }
+
+        const footerClasses = {
+            'c-modal-footer': true,
+            'c-modal-footer--stackedActions': this.hasStackedActions,
+        };
+
+        return html`
+            <footer class="${classMap(footerClasses)}" data-test-id="pie-modal-footer">
+                ${this.renderLeadingAction()}
+                ${this.renderSupportingAction()}
+            </footer>`;
+    }
+
+    /**
+     * Renders the loading spinner if `isLoading` is true.
+     * @private
+     */
+    private renderLoadingSpinner () : TemplateResult | typeof nothing {
+        if (!this.isLoading) {
+            return nothing;
+        }
+
+        return html`<pie-spinner size="xlarge" variant="secondary"></pie-spinner>`;
     }
 
     /**
      * Renders the modal inner content and footer of the modal.
      * @private
      */
-    private renderModalContentAndFooter (): TemplateResult {
-        const hasFooterLeadingAction = Boolean(this.leadingActionText);
-
-        const scrollContainerClasses = {
-            'c-modal-scrollContainer': true,
-            'c-modal-content': true,
-            'c-modal-content--scrollable': true,
-            'c-modal-hasFooterActions': hasFooterLeadingAction,
-        };
-
+    private renderModalContentAndFooter () : TemplateResult {
         return html`
-            <article class=${classMap(scrollContainerClasses)}>
+            <article class="c-modal-scrollContainer c-modal-content c-modal-content--scrollable">
                 <div class="c-modal-contentInner" data-test-id="modal-content-inner">
                     <slot></slot>
                 </div>
-                ${this.isLoading ? html`<pie-spinner size="xlarge" variant="secondary"></pie-spinner>` : nothing}
+                ${this.renderLoadingSpinner()}
             </article>
-            ${hasFooterLeadingAction ? html`
-                <footer class="c-modal-footer" data-test-id="pie-modal-footer">
-                    ${this.renderLeadingAction()}
-                    ${this.renderSupportingAction()}
-                </footer>` : nothing}`;
+            ${this.renderModalFooter()}`;
     }
 
-    public render () {
+    render () {
         const {
             aria,
-            hasBackButton,
-            hasStackedActions,
             heading,
             headingLevel,
             isDismissible,
             isFooterPinned,
             isFullWidthBelowMid,
             isLoading,
-            leadingActionText,
             position,
             size,
-            supportingActionText,
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
+        const ariaLabel = (isLoading && aria?.loading) || undefined;
+
+        const modalClasses = {
+            'c-modal': true,
+            [`c-modal--${size}`]: true,
+            'c-modal--top': position === 'top',
+            'c-modal--dismissible': isDismissible,
+            'c-modal--loading': isLoading,
+            'c-modal--pinnedFooter': isFooterPinned,
+            'c-modal--fullWidthBelowMid': isFullWidthBelowMid,
+        };
 
         return html`
         <dialog
             id="dialog"
-            class="c-modal"
-            size="${size}"
-            position="${position}"
-            ?hasActions=${leadingActionText || supportingActionText}
-            ?hasBackButton=${hasBackButton}
-            ?hasStackedActions=${hasStackedActions}
-            ?isDismissible=${isDismissible}
-            ?isFooterPinned=${isFooterPinned}
-            ?isFullWidthBelowMid=${isFullWidthBelowMid}
-            ?isLoading=${isLoading}
+            class="${classMap(modalClasses)}"
             aria-busy="${isLoading ? 'true' : 'false'}"
-            aria-label="${(isLoading && aria?.loading) || nothing}"
+            aria-label="${ifDefined(ariaLabel)}"
             data-test-id="pie-modal">
             <header class="c-modal-header"
             data-test-id="modal-header">
@@ -439,10 +454,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             isFooterPinned
                 ? this.renderModalContentAndFooter()
                 : html`
-                        <div class="c-modal-scrollContainer">
-                            ${this.renderModalContentAndFooter()}
-                        </div>
-                        `
+                    <div class="c-modal-scrollContainer">
+                        ${this.renderModalContentAndFooter()}
+                    </div>`
             }
         </dialog>`;
     }

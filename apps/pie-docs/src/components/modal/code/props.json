@@ -7,7 +7,7 @@
                 "type": "code",
                 "item": []
             },
-            "An object representing the aria labels for the `close`, `back`, `leadingAction` and `supportingAction` buttons within the modal as well as the `isLoading` state labels (`aria-label` & `aria-busy`)."
+            "An object representing the aria labels for the `close` and `back` buttons within the modal as well as the `isLoading` state labels (`aria-label` & `aria-busy`)."
         ],
         [
             "hasBackButton",
@@ -47,7 +47,7 @@
                 "type": "code",
                 "item": ["h1", "h2", "h3", "h4", "h5", "h6"]
             },
-            "The HTML tag to use for the modal's heading",
+            "The HTML tag to use for the modal's heading.",
             {
                 "type": "code",
                 "item": ["h2"]
@@ -95,7 +95,7 @@
               "type": "code",
               "item": ["true", "false"]
             },
-            "When true, displays a loading spinner in the modal",
+            "When true, displays a loading spinner in the modal.",
             {
               "type": "code",
               "item": ["false"]
@@ -107,22 +107,25 @@
               "type": "code",
               "item": ["true", "false"]
             },
-            "Controls if the modal element is open or closed",
+            "Controls if the modal element is open or closed.",
             {
               "type": "code",
               "item": ["false"]
             }
         ],
         [
-            "leadingActionText",
             {
                 "type": "code",
-                "item": []
+                "item": ["leadingAction.text"]
             },
-            "The text to display inside the leading action button."
+            "-",
+            "The text to display inside the leading action button. The button won't render without this."
         ],
         [
-            "leadingActionVariant",
+            {
+                "type": "code",
+                "item": ["leadingAction.variant"]
+            },
             "See pie-button's variants",
             "The variant of the leading action button.",
             {
@@ -131,15 +134,18 @@
             }
         ],
         [
-          "supportingActionText",
-          {
-              "type": "code",
-              "item": []
-          },
-          "The text to display inside the supporting action button."
+            {
+                "type": "code",
+                "item": ["supportingAction.text"]
+            },
+          "-",
+          "The text to display inside the supporting action button. The button won't render without this."
         ],
         [
-          "supportingActionVariant",
+            {
+                "type": "code",
+                "item": ["supportingAction.variant"]
+            },
           "See pie-button's variants",
           "The variant of the supporting action button.",
           {
@@ -151,7 +157,7 @@
             "position",
             {
                 "type": "code",
-                "item": ["\"top\"", "\"center\""]
+                "item": ["\"center\"", "\"top\""]
             },
             "The position of the modal; this controls where it will appear on the page.",
             {

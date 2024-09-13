@@ -41,24 +41,8 @@ $ yarn add @justeattakeaway/{component}
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide.](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
+  message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
 } %}
-
-## Playground
-
-<!-- storybook playground link e.g. for Pie Button: https://webc.pie.design/?path=/story/button--primary -->
- <iframe
-  src="https://webc.pie.design/?path=/story/button--primary&viewMode=story&shortcuts=false&singleStory=true"
-  style="border: none; margin-top: 24px;"
-></iframe>
-
-## Variants
-
-<!-- storybook docs link e.g. for Pie Button: https://webc.pie.design/?path=/docs/button--variants -->
- <iframe
-  src="https://webc.pie.design/?path=/docs/button--variants&viewMode=story&shortcuts=false&singleStory=true"
-  style="border: none; background-color: #fcfcfc; margin-top: 24px;"
-></iframe>
 
 ## Props
 

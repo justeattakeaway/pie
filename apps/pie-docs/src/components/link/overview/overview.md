@@ -33,8 +33,7 @@ Links are often used to connect various pages, sections, or external resources, 
     dont: {
         type: usageTypes.text,
         items: [
-            "Don’t use standalone links as calls to action. Use buttons instead.",
-            "Don’t use standalone links for actions that will change elements in a screen. Use buttons instead."
+            "Don't use the reversed styling when surrounded by regular text, as it will get lost."
         ]
     }
 } %}
@@ -201,11 +200,21 @@ You can use icons to reinforce the action that will take place when the user int
 
 ---
 
+## Behaviours
+
+### Links that act as buttons
+
+This is available when a link needs to be used as a call to action that triggers an action for the users.
+
+Use these with caution - dictation software users may not be able to properly identify these actions, since they are semantically buttons, even though they may look like links.
+
+---
+
 ## Content
 
 - Be mindful of which words in a paragraph you use for your links. Make sure the words you convert into links are directly related to the content that the link will lead you to.
 
-- Use sentence-style capitalization (only the first word in a phrase and any proper nouns capitalized).
+- Use sentence-style capitalisation (only the first word in a phrase and any proper nouns capitalised).
 
 ---
 
@@ -371,11 +380,6 @@ Here are some examples of links in right-to-left context:
 ---
 
 ## Resources
-
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Link documentation, please see the resources below."
-} %}
 
 {% resourceTable {
     componentName: 'Link'

@@ -1,9 +1,7 @@
 import { html } from 'lit';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-<%= fileName %>';
-import { <%= componentName %>Props } from '@justeattakeaway/pie-<%= fileName %>';
-/* eslint-enable import/no-duplicates */
+import { type <%= componentName %>Props } from '@justeattakeaway/pie-<%= fileName %>';
 
 import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';

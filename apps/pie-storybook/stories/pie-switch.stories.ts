@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-switch';
-import { SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-switch';
+import { type SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-switch';
 /* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
@@ -177,5 +177,19 @@ const createSwitchStory = createStory(Template, defaultArgs);
 
 const createSwitchStoryWithForm = createStory<SwitchProps>(FormTemplate, defaultArgs);
 
-export const Default = createSwitchStory();
+const formIntegrationOnly = {
+    description: 'This prop is only used when the switch is used inside a form. You can try it out in the Form Integration story.',
+    table: {
+        readonly: true,
+    },
+};
+
+export const Default = createSwitchStory({}, {
+    argTypes: {
+        name: formIntegrationOnly,
+        required: formIntegrationOnly,
+        value: formIntegrationOnly,
+    },
+});
+
 export const FormIntegration = createSwitchStoryWithForm({ label: 'Click me' });

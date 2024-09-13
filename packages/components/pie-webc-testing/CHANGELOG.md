@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.13.3
+
+### Patch Changes
+
+- [Changed] - small type updates ([#1762](https://github.com/justeattakeaway/pie/pull/1762)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.13.2
+
+### Patch Changes
+
+- [Changed] - update PropObject type to adhere more closely to component interface ([#1703](https://github.com/justeattakeaway/pie/pull/1703)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.13.1
+
+### Patch Changes
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
 ## 0.13.0
 
 ### Minor Changes

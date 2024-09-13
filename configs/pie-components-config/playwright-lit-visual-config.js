@@ -17,7 +17,7 @@ export function getPlaywrightVisualConfig () {
         /* Opt out of parallel tests on CI. */
         workers: '50%',
         /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-        reporter: [['html', { outputFolder: 'lit-visual-report' }]],
+        reporter: [['html', { outputFolder: '../../../lit-visual-report' }]],
         /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
         use: {
             ctViteConfig: {
@@ -51,7 +51,7 @@ export function getPlaywrightVisualConfig () {
                 name: 'visual:mobile',
                 grep: /@mobile/,
                 use: {
-                    ...devices['Pixel 5'],
+                    ...devices['Galaxy S8'],
                 },
                 testMatch: ['**/test/visual/*.spec.ts'],
             },

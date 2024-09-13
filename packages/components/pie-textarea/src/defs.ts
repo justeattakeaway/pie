@@ -2,6 +2,7 @@ import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const sizes = ['small', 'medium', 'large'] as const;
 export const resizeModes = ['auto', 'manual'] as const;
+export const statusTypes = ['default', 'success', 'error'] as const;
 
 export interface TextareaProps {
     /**
@@ -25,6 +26,21 @@ export interface TextareaProps {
      * The value of the textarea (used as a key/value pair in HTML forms with `name`).
      */
     value: string;
+
+    /**
+     * An optional default value to use when the textarea is reset.
+     */
+    defaultValue?: string;
+
+    /**
+     * An optional assistive text to display below the textarea element. Must be provided when the status is success or error.
+     */
+    assistiveText?: string;
+
+    /**
+     * The status of the textarea component / assistive text. Can be default, success or error.
+     */
+    status?: typeof statusTypes[number];
 
     /**
      * The name of the textarea (used as a key/value pair with `value`). This is required in order to work properly with forms.
@@ -65,12 +81,17 @@ export interface TextareaProps {
      * If the `label` property is not set, this property will have no effect.
      */
     maxLength?: number;
+
+    /**
+     * The placeholder text to display when the textarea is empty.
+     */
+    placeholder?: string;
 }
 
 /**
  * The default values for the `TextareaProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'maxLength'>>;
+type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'maxLength' | 'assistiveText' | 'defaultValue'>>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
@@ -81,6 +102,8 @@ export const defaultProps: DefaultProps = {
     resize: 'auto',
     label: '',
     value: '',
+    placeholder: '',
+    status: 'default',
     autoFocus: false,
     readonly: false,
     required: false,

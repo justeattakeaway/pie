@@ -20,7 +20,7 @@ export function getPlaywrightConfig () {
         /* Opt out of parallel tests on CI. */
         workers: '50%',
         /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-        reporter: [['html', { outputFolder: 'lit-browsers-report' }]],
+        reporter: [['html', { outputFolder: '../../../lit-browsers-report' }]],
         /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
         use: {
             ctViteConfig: {
@@ -52,5 +52,11 @@ export function getPlaywrightConfig () {
                 testMatch: ['**/test/accessibility/*.spec.{js,ts}'],
             },
         ],
+        webServer: !process.env.CI ? {
+            command: 'npx turbo dev --filter=pie-storybook',
+            url: 'http://localhost:6006',
+            timeout: 120 * 10000,
+            reuseExistingServer: !process.env.CI,
+        } : undefined,
     };
 }

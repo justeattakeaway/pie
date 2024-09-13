@@ -21,9 +21,15 @@ eleventyComputed:
   </a>
 </p>
 
-`pie-notification` is a Web Component built using the Lit library. It offers a simple and accessible notification component for web applications.
+`pie-notification` is a Web Component built using [Lit](https://lit.dev/). It offers a simple and accessible notification component for web applications.
 
-This component can be easily integrated into various frontend frameworks and customized through a set of properties.
+This component can be easily integrated into various frontend frameworks and customised through a set of properties.
+
+{% notification {
+  type: "information",
+  iconName: "engineers",
+  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/docs/notification) instance!"
+} %}
 
 ## Installation
 
@@ -40,26 +46,8 @@ yarn add @justeattakeaway/pie-webc
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide.](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
+  message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
 } %}
-
-## Playground
-
- <iframe
-  src="https://webc.pie.design/?path=/story/notification--neutral&viewMode=story&shortcuts=true&singleStory=true"
-  width="100%"
-  height="600px"
-  style="border: none; margin-top: var(--dt-spacing-f);"
-></iframe>
-
-## Variants
-
- <iframe
-  src="https://webc.pie.design/?path=/docs/notification--variants&viewMode=story&shortcuts=true&singleStory=true"
-  width="100%"
-  height="600px"
-  style="border: none; margin-top: var(--dt-spacing-f);"
-></iframe>
 
 ## Props
 
@@ -120,7 +108,7 @@ For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 // Vue templates (using Nuxt 3)
-import { PieNotification } from '@justeattakeaway/pie-webc/components/notification.js';
+import '@justeattakeaway/pie-webc/components/notification.js';
 
 <pie-notification title="Heading">Content</pie-notification>
 ```

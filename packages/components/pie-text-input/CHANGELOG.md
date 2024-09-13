@@ -1,5 +1,48 @@
 # @justeattakeaway/pie-text-input
 
+## 0.24.0
+
+### Minor Changes
+
+- [Changed] - use classes instead of attributes for styling ([#1825](https://github.com/justeattakeaway/pie/pull/1825)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - Default values of `false` for `disabled` and `readonly` props. No change in behaviour expected.
+
+- [Added] - New color token for placeholders ([#1820](https://github.com/justeattakeaway/pie/pull/1820)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+## 0.23.6
+
+### Patch Changes
+
+- [Changed] - ensure the placeholder text isn't obscured by opacity in firefox ([#1747](https://github.com/justeattakeaway/pie/pull/1747)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - updated the readonly background to use the subtle token
+
+## 0.23.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.7.1
+
+## 0.23.4
+
+### Patch Changes
+
+- Updated dependencies [[`e2274aaac`](https://github.com/justeattakeaway/pie/commit/e2274aaac986fcc288760a22a09e9b4d3b7822b3)]:
+  - @justeattakeaway/pie-assistive-text@0.7.0
+
+## 0.23.3
+
+### Patch Changes
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
+- Updated dependencies [[`b32bf5d25`](https://github.com/justeattakeaway/pie/commit/b32bf5d257bb87da130194a9fe2ddf3ec93bced9)]:
+  - @justeattakeaway/pie-assistive-text@0.6.1
+
 ## 0.23.2
 
 ### Patch Changes

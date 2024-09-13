@@ -21,9 +21,15 @@ eleventyComputed:
   </a>
 </p>
 
-`pie-assistive-text` is a Web Component built using the Lit library.
+`pie-assistive-text` is a Web Component built using [Lit](https://lit.dev/).
 
-This component can be easily integrated into various frontend frameworks and customized through a set of properties.
+This component can be easily integrated into various frontend frameworks and customised through a set of properties.
+
+{% notification {
+  type: "information",
+  iconName: "engineers",
+  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/story/assistive-text) instance!"
+} %}
 
 ## Installation
 
@@ -37,44 +43,15 @@ npm i @justeattakeaway/pie-webc
 yarn add @justeattakeaway/pie-webc
 ```
 
-## Peer Dependencies
+### Peer Dependencies
 
 When using `pie-assistive-text`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
 
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide.](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
+  message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
 } %}
-
-## Playground
-
- <iframe
-  src="https://webc.pie.design/?path=/story/assistive-text--default&viewMode=story&shortcuts=true&singleStory=true"
-  width="100%"
-  height="600px"
-  style="border: none; margin-top: var(--dt-spacing-f);"
-></iframe>
-
-## Variants
-
-### Success
-
-<iframe
-src="https://webc.pie.design/?path=/docs/assistive-text--success&viewMode=story&shortcuts=true&singleStory=true"
-width="100%"
-height="600px"
-style="border: none; margin-top: var(--dt-spacing-f);"
-></iframe>
-
-### Error
-
-<iframe
-src="https://webc.pie.design/?path=/docs/assistive-text--error&viewMode=story&shortcuts=true&singleStory=true"
-width="100%"
-height="600px"
-style="border: none; margin-top: var(--dt-spacing-f);"
-></iframe>
 
 ## Props
 

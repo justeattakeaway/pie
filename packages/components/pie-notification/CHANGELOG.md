@@ -1,5 +1,44 @@
 # @justeattakeaway/pie-notification
 
+## 0.11.0
+
+### Minor Changes
+
+- [Changed] - Replace custom html attributes used for styling with ClassMap ([#1846](https://github.com/justeattakeaway/pie/pull/1846)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.10.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@0.28.12
+
+## 0.10.1
+
+### Patch Changes
+
+- Updated dependencies [[`2f8c8be9d`](https://github.com/justeattakeaway/pie/commit/2f8c8be9d8c90a2e2be2e58d7d2bec99cbac9792)]:
+  - @justeattakeaway/pie-icons-webc@0.25.1
+  - @justeattakeaway/pie-icon-button@0.28.11
+
+## 0.10.0
+
+### Minor Changes
+
+- [Fixed] - make `isDismissible` false by default ([#1668](https://github.com/justeattakeaway/pie/pull/1668)) by [@dandel10n](https://github.com/dandel10n)
+
+- [Fixed] - make sure custom and default icons work as expected. ([#1668](https://github.com/justeattakeaway/pie/pull/1668)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
+- Updated dependencies [[`b32bf5d25`](https://github.com/justeattakeaway/pie/commit/b32bf5d257bb87da130194a9fe2ddf3ec93bced9), [`ccfe4583c`](https://github.com/justeattakeaway/pie/commit/ccfe4583c274531d879b9c877f4c5c08dc9418cd)]:
+  - @justeattakeaway/pie-icon-button@0.28.10
+  - @justeattakeaway/pie-icons-webc@0.25.0
+
 ## 0.9.3
 
 ### Patch Changes

@@ -1,5 +1,25 @@
 # @justeattakeaway/pie-divider
 
+## 0.14.0
+
+### Minor Changes
+
+- [Added] - `label` property to `pie-divider` ([#1746](https://github.com/justeattakeaway/pie/pull/1746)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+## 0.13.9
+
+### Patch Changes
+
+- [Changed] - use classes for styling instead of attributes ([#1704](https://github.com/justeattakeaway/pie/pull/1704)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.13.8
+
+### Patch Changes
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
 ## 0.13.7
 
 ### Patch Changes

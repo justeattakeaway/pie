@@ -1,5 +1,100 @@
 # Changelog
 
+## 4.6.0
+
+### Minor Changes
+
+- [Added] - code page for `pie-textarea` component ([#1818](https://github.com/justeattakeaway/pie/pull/1818)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+## 4.5.0
+
+### Minor Changes
+
+- [Added] - Adds the Components index page using a shortcode that will dynamically generate a card for each component in the navigation menu ([#1708](https://github.com/justeattakeaway/pie/pull/1708)) by [@maledr5](https://github.com/maledr5)
+
+- [Changed] - updates side navigation to be able to navigate to index pages for main content ([#1708](https://github.com/justeattakeaway/pie/pull/1708)) by [@maledr5](https://github.com/maledr5)
+
+## 4.4.0
+
+### Minor Changes
+
+- [Updated] - the contentLayout container to display the content of the specified number of columns ([#1767](https://github.com/justeattakeaway/pie/pull/1767)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- [Changed] - Disable word breaks in table code snippets ([#1796](https://github.com/justeattakeaway/pie/pull/1796)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Small changes to prop tables to improve accuracy and consistency
+  [Fixed] - rule ordering in `_scrollToTop.scss` to resolve warning
+  [Removed] - Duplicate full-stops in "Getting Started Guide" links
+
+### Patch Changes
+
+- [Updated] - Textarea overview page layout for "Behaviours" section ([#1767](https://github.com/justeattakeaway/pie/pull/1767)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+## 4.3.2
+
+### Patch Changes
+
+- [Changed] - Update code page for pie-tag ([#1765](https://github.com/justeattakeaway/pie/pull/1765)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 4.3.1
+
+### Patch Changes
+
+- [Added] - documentation for when buttons and links act like one another ([#1703](https://github.com/justeattakeaway/pie/pull/1703)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] Update android component status ([#1604](https://github.com/justeattakeaway/pie/pull/1604)) by [@fmontesino](https://github.com/fmontesino)
+
+- Updated dependencies [[`2f8c8be9d`](https://github.com/justeattakeaway/pie/commit/2f8c8be9d8c90a2e2be2e58d7d2bec99cbac9792)]:
+  - @justeattakeaway/pie-icons@4.19.1
+
+## 4.3.0
+
+### Minor Changes
+
+- [Added] - a new contentWrapper shortcode to visually combine different items into a visual container. So far it has only one design (white background with 2px rounded border and 24px padding). ([#1723](https://github.com/justeattakeaway/pie/pull/1723)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Added] - a new motion tab for pie-checkbox.
+  [Changed] - moved code section to its own folder under pie-checkbox.
+
+### Patch Changes
+
+- [Changed] - structure of checkbox group docs folder ([#1725](https://github.com/justeattakeaway/pie/pull/1725)) by [@dandel10n](https://github.com/dandel10n)
+
+- [Updated] - checkbox and checkbox-group components status from `alpha` to `beta` ([#1729](https://github.com/justeattakeaway/pie/pull/1729)) by [@dandel10n](https://github.com/dandel10n)
+
+## 4.2.0
+
+### Minor Changes
+
+- [Removed] - Storybook previews from component code pages ([#1711](https://github.com/justeattakeaway/pie/pull/1711)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - Storybook link to component code pages
+
+## 4.1.0
+
+### Minor Changes
+
+- [Changed] - `contentLayout` and `contentItem` shortcodes styles ([#1706](https://github.com/justeattakeaway/pie/pull/1706)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+## 4.0.0
+
+### Major Changes
+
+- [Added] - pie-textarea overview page ([#1670](https://github.com/justeattakeaway/pie/pull/1670)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+### Minor Changes
+
+- [Updated] - Icons to follow alphabetical order. ([#1682](https://github.com/justeattakeaway/pie/pull/1682)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+### Patch Changes
+
+- [Changed] - Recombine modal's leading and supporting action props ([#1685](https://github.com/justeattakeaway/pie/pull/1685)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Fixed] - make `isDismissible` false by default ([#1668](https://github.com/justeattakeaway/pie/pull/1668)) by [@dandel10n](https://github.com/dandel10n)
+
+- Updated dependencies [[`ccfe4583c`](https://github.com/justeattakeaway/pie/commit/ccfe4583c274531d879b9c877f4c5c08dc9418cd)]:
+  - @justeattakeaway/pie-icons@4.19.0
+
 ## 3.48.0
 
 ### Minor Changes

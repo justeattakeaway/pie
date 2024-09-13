@@ -1,5 +1,25 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.22.1
+
+### Patch Changes
+
+- [Changed] - Updated README ([#1821](https://github.com/justeattakeaway/pie/pull/1821)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.22.0
+
+### Minor Changes
+
+- [Changed] - Add type keyword where appropriate and remove unnecessary whitespace ([#1797](https://github.com/justeattakeaway/pie/pull/1797)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.21.1
+
+### Patch Changes
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
 ## 0.21.0
 
 ### Minor Changes

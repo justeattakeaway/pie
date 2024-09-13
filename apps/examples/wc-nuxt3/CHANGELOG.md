@@ -1,5 +1,103 @@
 # wc-nuxt3
 
+## 0.6.19
+
+### Patch Changes
+
+- Updated dependencies [[`e35c49aff`](https://github.com/justeattakeaway/pie/commit/e35c49aff02a36c1374572291835066c8d59fc63)]:
+  - @justeattakeaway/pie-webc@0.5.32
+
+## 0.6.18
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.31
+
+## 0.6.17
+
+### Patch Changes
+
+- Updated dependencies [[`4435d0aee`](https://github.com/justeattakeaway/pie/commit/4435d0aee2115b8ec8b916c387711e1288e55540)]:
+  - @justeattakeaway/pie-webc@0.5.30
+
+## 0.6.16
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.29
+
+## 0.6.15
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.28
+
+## 0.6.14
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.27
+
+## 0.6.13
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.26
+
+## 0.6.12
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.25
+
+## 0.6.11
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.24
+
+## 0.6.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.23
+
+## 0.6.9
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.22
+
+## 0.6.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.21
+
+## 0.6.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.20
+
+## 0.6.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.19
+
 ## 0.6.5
 
 ### Patch Changes

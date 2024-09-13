@@ -1,5 +1,63 @@
 # Changelog
 
+## 4.19.1
+
+### Patch Changes
+
+- [Changed] - use latest webpack for security fixes ([#1743](https://github.com/justeattakeaway/pie/pull/1743)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 4.19.0
+
+### Minor Changes
+
+- [Added] - Icons ([#1682](https://github.com/justeattakeaway/pie/pull/1682)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+  ## Benefits
+
+  - offer-filled
+  - offer-filled-large
+
+  ## Currency
+
+  - krone
+  - krone-large
+
+  ## Functionality
+
+  - archive
+  - archive-large
+
+  ## Pay
+
+  - account-credit-filled
+  - account-credit-filled-large
+
+  ## People
+
+  - user-cancelled
+  - user-cancelled-large
+  - user-move
+  - user-move-large
+
+  ## Restaurant
+
+  - restaurant-cancelled
+  - restaurant-cancelled-large
+
+  ## Travel & Transport
+
+  - ebike
+  - ebike-large
+  - ebike-filled
+  - ebike-filled-large
+
+  [Updated] - Icons
+
+  ## Pay
+
+  - account-credit
+  - account-credit-large
+
 ## 4.18.1
 
 ### Patch Changes

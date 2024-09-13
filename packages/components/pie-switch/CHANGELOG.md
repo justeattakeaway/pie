@@ -1,5 +1,29 @@
 # @justeattakeaway/pie-switch
 
+## 0.30.1
+
+### Patch Changes
+
+- Updated dependencies [[`2f8c8be9d`](https://github.com/justeattakeaway/pie/commit/2f8c8be9d8c90a2e2be2e58d7d2bec99cbac9792)]:
+  - @justeattakeaway/pie-icons-webc@0.25.1
+
+## 0.30.0
+
+### Minor Changes
+
+- [Changed] - use classes instead of attributes for styling ([#1715](https://github.com/justeattakeaway/pie/pull/1715)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.29.12
+
+### Patch Changes
+
+- [Added] - pie-css as a dev dependency ([#1667](https://github.com/justeattakeaway/pie/pull/1667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - updated component generator
+
+- Updated dependencies [[`ccfe4583c`](https://github.com/justeattakeaway/pie/commit/ccfe4583c274531d879b9c877f4c5c08dc9418cd)]:
+  - @justeattakeaway/pie-icons-webc@0.25.0
+
 ## 0.29.11
 
 ### Patch Changes

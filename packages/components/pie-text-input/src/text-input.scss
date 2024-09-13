@@ -6,7 +6,7 @@
     --input-gap: var(--dt-spacing-d);
     --input-text-color: var(--dt-color-content-default);
     --input-text-color-leading-trailing-content: var(--dt-color-content-default);
-    --input-text-color-placeholder: var(--dt-color-content-subdued);
+    --input-text-color-placeholder: var(--dt-color-content-placeholder);
     --input-border-color: var(--dt-color-interactive-form);
     --input-container-color: var(--dt-color-container-default);
     --input-radius: var(--dt-radius-rounded-c);
@@ -34,17 +34,17 @@
     color: var(--input-text-color-leading-trailing-content); // Applies to the leadingText and trailingText slot content
     cursor: var(--input-cursor);
 
-    &[data-pie-size="large"] {
+    &.c-textInput--large {
         --input-padding-block: var(--dt-spacing-d);
         --input-height: 56px;
     }
 
-    &[data-pie-size="small"] {
+    &.c-textInput--small {
         --input-padding-block: var(--dt-spacing-b);
         --input-height: 40px;
     }
 
-    &[data-pie-status="error"] {
+    &.c-textInput--error {
         --input-border-color: var(--dt-color-support-error);
     }
 
@@ -72,8 +72,8 @@
         }
     }
 
-    &:not([data-pie-disabled]) ::slotted([slot="leadingIcon"]),
-    &:not([data-pie-disabled]) ::slotted([slot="trailingIcon"]) {
+    &:not(.c-textInput--disabled) ::slotted([slot="leadingIcon"]),
+    &:not(.c-textInput--disabled) ::slotted([slot="trailingIcon"]) {
         color: var(--dt-color-content-subdued);
     }
 
@@ -83,14 +83,14 @@
         }
     }
 
-    &[data-pie-readonly] {
-        --input-container-color: var(--dt-color-disabled-01);
+    &.c-textInput--readonly {
+        --input-container-color: var(--dt-color-container-subtle);
         --input-border-color: var(--dt-color-interactive-form);
     }
 
     // Ensure that if an input is readonly and disabled, the disabled styles take precedence
-    &[data-pie-disabled][data-pie-readonly],
-    &[data-pie-disabled]{
+    &.c-textInput--disabled.c-textInput--readonly,
+    &.c-textInput--disabled {
         --input-container-color: var(--dt-color-disabled-01);
         --input-border-color: var(--dt-color-disabled-01);
         --input-text-color: var(--dt-color-content-disabled);
@@ -121,6 +121,8 @@ input {
 
     &::placeholder {
         color: var(--input-text-color-placeholder);
+
+        opacity: 1; // normalize opacity for all browsers
     }
 
     &:disabled {

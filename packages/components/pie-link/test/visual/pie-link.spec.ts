@@ -1,9 +1,8 @@
-
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import type {
-    PropObject, WebComponentPropValues, WebComponentTestInput,
+import {
+    type PropObject, type WebComponentPropValues,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
 import {
     getAllPropCombinations, splitCombinationsByPropertyValue,
@@ -14,13 +13,13 @@ import {
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
-import { IconHeartFilled } from '@justeattakeaway/pie-icons-webc';
+import { IconHeartFilled } from '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled';
 import {
-    variants, sizes, iconPlacements, tags, underlineTypes,
+    type LinkProps, variants, sizes, iconPlacements, tags, underlineTypes,
 } from '../../src/defs.ts';
 import { PieLink } from '../../src/index.ts';
 
-const props: PropObject = {
+const props: PropObject<LinkProps> = {
     tag: tags,
     variant: variants,
     size: sizes,
@@ -34,9 +33,9 @@ const props: PropObject = {
 
 const renderTestPieLink = (propVals: WebComponentPropValues) => `<pie-link tag="${propVals.tag}" variant="${propVals.variant}" size="${propVals.size}" underline="${propVals.underline}" iconPlacement="${propVals.iconPlacement}" href="${propVals.href}" ${propVals.isBold ? 'isBold' : ''} ${propVals.hasVisited ? 'hasVisited' : ''} ${propVals.isStandalone ? 'isStandalone' : ''}>${propVals.iconPlacement ? '<icon-heart-filled slot="icon"></icon-heart-filled>' : ''} Link</pie-link>`;
 
-const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
-const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
-const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
+const componentPropsMatrix = getAllPropCombinations(props);
+const componentPropsMatrixByVariant = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
+const componentVariants = Object.keys(componentPropsMatrixByVariant);
 
 test.beforeEach(async ({ mount }, testInfo) => {
     testInfo.setTimeout(testInfo.timeout + 40000);
@@ -51,7 +50,7 @@ test.beforeEach(async ({ mount }, testInfo) => {
 
 componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
     for (const combo of componentPropsMatrixByVariant[variant]) {
-        const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieLink);
+        const testComponent = createTestWebComponent(combo, renderTestPieLink);
         const propKeyValues = `
             tag: ${testComponent.propValues.tag},
             size: ${testComponent.propValues.size},
@@ -60,15 +59,12 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
             isStandalone: ${testComponent.propValues.isStandalone},
             href: ${testComponent.propValues.href}`;
 
-        await mount(
-            WebComponentTestWrapper,
-            {
-                props: { propKeyValues, darkMode: variant === 'inverse' },
-                slots: {
-                    component: testComponent.renderedString.trim(),
-                },
+        await mount(WebComponentTestWrapper, {
+            props: { propKeyValues, darkMode: variant === 'inverse' },
+            slots: {
+                component: testComponent.renderedString.trim(),
             },
-        );
+        });
     }
 
     await percySnapshot(page, `PIE Link - Variant: ${variant}`, percyWidths);
