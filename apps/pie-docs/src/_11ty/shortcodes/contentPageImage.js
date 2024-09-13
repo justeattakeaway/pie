@@ -24,7 +24,8 @@ const createCaption = (config) => (config.caption
  * @param {string} config.variant - Sets the variant of the shortcut. Valid values are default, secondary and inverse. Defaults to "default"
  * @returns {string} a <figure> element containing the image(s) provided with the config settings applied.
  */
-module.exports = (config) => {
+// eslint-disable-next-line func-names
+module.exports = function (config) {
     const context = config.context ?? 'contentPage';
     const contextClass = `c-${context}-img`;
     const isImageFullContainerWidth = !config.width;

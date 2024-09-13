@@ -45,7 +45,8 @@ const notificationSettings = {
  * @param {string} config.iconName - The name of the icon to use for the Notification".
  * @returns {string}
  */
-module.exports = (config) => {
+// eslint-disable-next-line func-names
+module.exports = function (config) {
     const context = config.context ?? 'contentPage';
     const contextClass = `c-${context}-notification`;
     const iconFill = getNotificationColour(notificationSettings[config.type].iconFill);
