@@ -1,8 +1,11 @@
 import { LitElement, html, unsafeCSS } from 'lit';
-import { RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { property, query } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { live } from 'lit/directives/live.js';
+import { defineCustomElement, FormControlMixin, RtlMixin } from '@justeattakeaway/pie-webc-core';
 
 import styles from './radio.scss?inline';
-import { RadioProps } from './defs';
+import { type RadioProps, defaultProps } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -12,9 +15,49 @@ const componentSelector = 'pie-radio';
 /**
  * @tagname pie-radio
  */
-export class PieRadio extends RtlMixin(LitElement) implements RadioProps {
+export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements RadioProps {
+    @property({ type: Boolean })
+    public checked = defaultProps.checked;
+
+    @property({ type: Boolean })
+    public defaultChecked = defaultProps.defaultChecked;
+
+    @property({ type: Boolean })
+    public disabled = defaultProps.disabled;
+
+    @property({ type: String })
+    public name: RadioProps['name'];
+
+    @property({ type: Boolean })
+    public required = defaultProps.required;
+
+    @property({ type: String })
+    public value = defaultProps.value;
+
+    @query('input[type="radio"]')
+    private radio!: HTMLInputElement;
+
     render () {
-        return html`<h1 data-test-id="pie-radio">Hello world!</h1>`;
+        const {
+            checked, disabled, name, required, value,
+        } = this;
+
+        return html`
+        <input
+            type="radio"
+            id="radioId"
+            .checked="${live(checked)}"
+            .value="${value}"
+            name="${ifDefined(name)}"
+            ?disabled="${disabled}"
+            ?required="${required}">
+        <label for="radioId">
+            <slot></slot>
+        </label>`;
+    }
+
+    public get validity () : ValidityState {
+        return this.radio.validity;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
