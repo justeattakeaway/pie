@@ -12,7 +12,7 @@ permalink: patterns/overlay-patterns/
 
 Overlay patterns in UI design involve the presentation of additional content or functionality on top of existing elements within the user interface. These overlays can be temporary or permanent and serve various purposes, such as providing contextually relevant information, enabling interactions, or offering supplementary options.
 
-By overlaying content, designers can optimise screen real estate and enhance user experience by reducing the need for users to navigate away from the current context.
+By overlaying content, designers can optimise screen space and enhance user experience by reducing the need for users to navigate away from the current context.
 
 {% contentPageImage {
   src:"../../../assets/img/patterns/haptic-feedback/overview-desktop.svg",

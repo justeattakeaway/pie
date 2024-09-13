@@ -21,9 +21,9 @@ You can follow this decision tree to choose the most appropriate UI component ba
 
 ---
 
-## Full width notification
+## Full-width notification
 
-A full width notification is a visual element that appears at the top of the screen. It's commonly used to display important messages, announcements or alerts.
+A full-width notification is a visual element that appears at the top of the screen. It's commonly used to display important messages, announcements or alerts.
 
 {% notification {
   type: "information",
@@ -130,9 +130,9 @@ A modal is a surface that overlays the page’s main content and is used to disp
 
 ---
 
-## Full page modal
+## Full-page modal
 
-Also known as Modal View (iOS) or Scaffold View (Android) are a surface that overlays the page’s main content entirely and is used to display information, gather input or confirm actions.
+This - also known as a Modal View (iOS) or a Scaffold View (Android) - is a surface that overlays the page’s main content entirely and is used to display information, gather input or confirm actions.
 
 {% notification {
   type: "information",
@@ -325,7 +325,7 @@ A toast show short updates about app processes at the bottom of the screen.
         type: usageTypes.text,
         items: [
             "Use them for quick, succinct messaging.",
-            "They can are triggered by the system as a response to a user’s action."
+            "They can be triggered by the system as a response to a user’s action."
         ]
     },
     dont: {
