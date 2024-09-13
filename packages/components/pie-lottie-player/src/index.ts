@@ -116,7 +116,7 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
         this._autoPlayDisabled = value;
         if (!this._animationInstance) return;
 
-        this._animationInstance.autoplay = value;
+        this._animationInstance.autoplay = !value;
     }
 
     @property({ type: Boolean })
