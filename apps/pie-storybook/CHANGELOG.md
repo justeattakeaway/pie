@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.3.4
+
+### Patch Changes
+
+- [Changed] - `pie-textarea` `maxLength` prop description and fixed typo ([#1818](https://github.com/justeattakeaway/pie/pull/1818)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- Updated dependencies [[`179dc6f49`](https://github.com/justeattakeaway/pie/commit/179dc6f49b3958983e3ff774a75a479554da5997), [`e35c49aff`](https://github.com/justeattakeaway/pie/commit/e35c49aff02a36c1374572291835066c8d59fc63)]:
+  - @justeattakeaway/pie-notification@0.11.0
+  - @justeattakeaway/pie-radio-group@0.1.0
+
 ## 1.3.3
 
 ### Patch Changes

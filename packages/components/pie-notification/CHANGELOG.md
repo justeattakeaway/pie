@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-notification
 
+## 0.11.0
+
+### Minor Changes
+
+- [Changed] - Replace custom html attributes used for styling with ClassMap ([#1846](https://github.com/justeattakeaway/pie/pull/1846)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.10.2
 
 ### Patch Changes

@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-webc",
   "description": "Component bundle containing all PIE web components",
-  "version": "0.5.31",
+  "version": "0.5.32",
   "type": "module",
   "files": [
     "**/*.js",
@@ -258,11 +258,11 @@
     "@justeattakeaway/pie-form-label": "0.14.1",
     "@justeattakeaway/pie-icon-button": "0.28.12",
     "@justeattakeaway/pie-link": "0.18.0",
-    "@justeattakeaway/pie-lottie-player": "0.0.1",
+    "@justeattakeaway/pie-lottie-player": "0.0.2",
     "@justeattakeaway/pie-modal": "0.46.2",
-    "@justeattakeaway/pie-notification": "0.10.2",
+    "@justeattakeaway/pie-notification": "0.11.0",
     "@justeattakeaway/pie-radio": "0.0.0",
-    "@justeattakeaway/pie-radio-group": "0.0.0",
+    "@justeattakeaway/pie-radio-group": "0.1.0",
     "@justeattakeaway/pie-spinner": "0.7.0",
     "@justeattakeaway/pie-switch": "0.30.1",
     "@justeattakeaway/pie-tag": "0.10.0",
