@@ -1,19 +1,14 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import type {
-    WebComponentPropValues, WebComponentTestInput,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
 
-import {
-    createTestWebComponent,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
-import {
-    WebComponentTestWrapper,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+import { type WebComponentPropValues } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
+import { createTestWebComponent } from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
+import { WebComponentTestWrapper } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
 import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-direction.ts';
+
 import { PieTextInput } from '../../src/index.ts';
 
 // Renders a <pie-text-input> HTML string with the given prop values
@@ -73,7 +68,7 @@ test('Size variants with value and placeholder', async ({ mount, page }) => {
     const placeholder = 'Placeholder';
 
     for (const size of sizeVariants) {
-        let testComponent: WebComponentTestInput = createTestWebComponent({ size, value }, renderTestPieTextInput);
+        let testComponent = createTestWebComponent({ size, value }, renderTestPieTextInput);
         let propKeyValues = `size: ${testComponent.propValues.size}, value: ${testComponent.propValues.value}`;
 
         await mount(
@@ -112,7 +107,7 @@ for (const dir of readingDirections) {
         }
 
         // Assistive text with no status
-        let testComponent: WebComponentTestInput = createTestWebComponent({ assistiveText: 'Assistive text', value: 'String' }, renderTestPieTextInput);
+        let testComponent = createTestWebComponent({ assistiveText: 'Assistive text', value: 'String' }, renderTestPieTextInput);
         let propKeyValues = `assistiveText: ${testComponent.propValues.value}, value: ${testComponent.propValues.value}`;
 
         await mount(
@@ -178,7 +173,7 @@ for (const dir of readingDirections) {
         }
 
         // Trailing + leading icon
-        let testComponent: WebComponentTestInput = createTestWebComponent({ value: 'String' }, renderTestPieTextInput);
+        let testComponent = createTestWebComponent({ value: 'String' }, renderTestPieTextInput);
         let componentStringWithSlots = addSlotsToComponent(testComponent.renderedString, { leadingIcon: true, trailingIcon: true });
 
         let propKeyValues = `slots: Trailing + Leading Icon, value: ${testComponent.propValues.value}`;

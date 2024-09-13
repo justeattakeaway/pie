@@ -115,7 +115,7 @@ export interface TextInputProps {
 /**
  * The default values for the `TextInputProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultProps<TextInputProps, 'type' | 'value' | 'size' | 'status'>;
+type DefaultProps = ComponentDefaultProps<TextInputProps, 'type' | 'value' | 'size' | 'status' | 'disabled' | 'readonly'>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
@@ -125,4 +125,6 @@ export const defaultProps: DefaultProps = {
     value: '',
     size: 'medium',
     status: 'default',
+    disabled: false,
+    readonly: false,
 };

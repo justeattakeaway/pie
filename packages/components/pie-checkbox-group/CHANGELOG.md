@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-checkbox-group
 
+## 0.7.0
+
+### Minor Changes
+
+- [Added] - initial `pie-radio` files from component generator ([#1795](https://github.com/justeattakeaway/pie/pull/1795)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
 ## 0.6.3
 
 ### Patch Changes

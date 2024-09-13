@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-card
 
+## 0.20.0
+
+### Minor Changes
+
+- [Changed] - Use classMap rather than custom HTML attributes for card styling ([#1819](https://github.com/justeattakeaway/pie/pull/1819)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.19.8
 
 ### Patch Changes
