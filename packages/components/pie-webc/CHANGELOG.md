@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-webc
 
+## 0.5.32
+
+### Patch Changes
+
+- [Added] - pie-radio-group skeleton from component generator ([#1821](https://github.com/justeattakeaway/pie/pull/1821)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`984455d07`](https://github.com/justeattakeaway/pie/commit/984455d07790ddd44956476d50fcb306df2c3c24), [`179dc6f49`](https://github.com/justeattakeaway/pie/commit/179dc6f49b3958983e3ff774a75a479554da5997), [`e35c49aff`](https://github.com/justeattakeaway/pie/commit/e35c49aff02a36c1374572291835066c8d59fc63)]:
+  - @justeattakeaway/pie-lottie-player@0.0.2
+  - @justeattakeaway/pie-notification@0.11.0
+  - @justeattakeaway/pie-radio-group@0.1.0
+
 ## 0.5.31
 
 ### Patch Changes
