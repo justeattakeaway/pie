@@ -70,6 +70,8 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
 
     @query('pie-button') actionButton?: HTMLElement;
 
+    @query('pie-icon-button') closeButton?: HTMLElement;
+
     private _actionButtonOffset = 0;
 
     private _messageAreaMaxWidth = 0;
@@ -163,6 +165,34 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     }
 
     /**
+     * Adds event listeners to the specified element for handling the auto dismiss behavior.
+     *
+     * @param {typeof this | HTMLElement | undefined} element - The element to which the listeners will be added. It can be the current instance, an HTMLElement, or undefined.
+     * @param {keyof HTMLElementEventMap} inEvent - The event type to listen for when entering the element. (e.g., 'mouseenter', 'focusin').
+     * @param {keyof HTMLElementEventMap} outEvent - The event type to listen for when leaving the element. (e.g., 'mouseleave', 'focusout').
+     * @param {AddEventListenerOptions['signal']} abortSignal - An AbortSignal that can be used to remove the event listeners.
+     *
+     * @private
+     */
+    private addListenersToElement (
+        element: typeof this | HTMLElement | undefined,
+        inEvent: keyof HTMLElementEventMap,
+        outEvent: keyof HTMLElementEventMap,
+        abortSignal: AddEventListenerOptions['signal'],
+    ) {
+        if (element) {
+            element.addEventListener(inEvent, () => {
+                if (this._timeoutId) {
+                    clearTimeout(this._timeoutId);
+                }
+            }, { signal: abortSignal });
+            element.addEventListener(outEvent, () => {
+                this.setAutoDismiss();
+            }, { signal: abortSignal });
+        }
+    }
+
+    /**
      * It created all event listeners to handle the auto-dismiss capability
      * as well the controller responsible to remove the events when needed.
      *
@@ -174,14 +204,10 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
         this.setAutoDismiss();
 
         const { signal } = this._abortController;
-        this.addEventListener('mouseover', () => {
-            if (this._timeoutId) {
-                clearTimeout(this._timeoutId);
-            }
-        }, { signal });
-        this.addEventListener('mouseout', () => {
-            this.setAutoDismiss();
-        }, { signal });
+
+        this.addListenersToElement(this.actionButton, 'focus', 'focusout', signal);
+        this.addListenersToElement(this.closeButton, 'focus', 'focusout', signal);
+        this.addListenersToElement(this, 'mouseover', 'mouseout', signal);
     }
 
     /**
@@ -385,7 +411,11 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
         };
 
         return html`
-            <div data-test-id="${componentSelector}" class="${classMap(componentWrapperClasses)}">
+            <div 
+                data-test-id="${componentSelector}" 
+                class="${classMap(componentWrapperClasses)}" 
+                aria-live="${variant === 'error' ? 'assertive' : 'polite'}"
+            >
                 <div class="${componentClass}-contentArea">
                     <div class="${classMap(messageAreaClasses)}">
                         ${this.variantHasIcon(variant) ? this.getVariantIcon() : nothing}
