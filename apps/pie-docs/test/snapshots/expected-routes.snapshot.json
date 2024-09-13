@@ -78,6 +78,7 @@
     "components/text-input",
     "components/text-input/code",
     "components/textarea",
+    "components/textarea/code",
     "components/thumbnail",
     "components/toast",
     "components/tooltip",

@@ -31,6 +31,43 @@
 - Our unit tests are written using [Jest](https://jestjs.io/)
 - Our accessibility tests are written using [Axe with Playwright](https://playwright.dev/docs/accessibility-testing)
 
+## Creating docsite pages
+
+Please follow our [Wiki documentation](https://github.com/justeattakeaway/pie/wiki/Creating-docsite-pages) for reference on how to create new pages and set eleventyNavigation.
+
+### Adding Index pages
+An index page represents content for one of our main navigation items, for example: Foundations or Components.
+When a main navigation item does not have an index page, it will navigate to the first page under it. When it has content, it will navigate to that content. In both cases the accordion will be opened, as well when clicking the right caret.
+
+To set content for a main navigation item, in the item `.md` page, please add to the eleventyNavigation section at the top `hasIndexPage` like so:
+
+```json
+---
+eleventyNavigation:
+    ...
+    hasIndexPage: true
+---
+```
+
+Content needs to be added after this. If no content is added, it will navigate to a 404.
+
+Index pages will have the same format, as such, we developed a mechanism to render link-card items for each navigation item under the Section.
+The shortcode `indexPageDisplay` will automatically render each card and look for a matching image in `assets/images/index/<section-name>`. It can be configured like this:
+
+```njk
+{% indexPageDisplay {
+collection: collections.all,
+itemKey: "Components",
+excludedElements: ['Component Status', 'Banner', 'Checkbox Group']
+} %}
+```
+
+`collections.all` is an eleventy object that is used by the `eleventy-navigation`plugin to return a list of navigation items.
+`itemKey` is the section name that the navigation plugin will search for.
+`excludedElements` is a list of elements we would like to exclude from the list. Both for the key name and excluded items, names must follow the `key` attribute use in each page, including casing and white spaces when is 2 or more words.
+
+When adding new index page content, just remember to add images in the right directory and exclude any items we don't wish to link in that page. Images for mobile will be automatically selected when available. For more information on how to name images and its directory, visit the jsdocs in the indexPageDisplay shortcode.
+
 ## Drafts
 
 When building a page that is not yet ready for production we can mark the page as a `draft` by adding `draft: true` to the page front matter. This will allow 11ty to build the page during development mode but will exclude the page from builds during production.
@@ -63,9 +100,9 @@ Our primary concerns are:
 We have route navigation tests that ensure all existing pages can be correctly navigated to. When you add new pages, these tests will fail as there are new unexpected pages (this is by design).
 
 Route tests need a production build so that they do not fail with `draft` page routes. For this, we recommend to:
-1. Stop any local instance of the doc site 
-2. Delete your `dist` folder 
-3. Create a production build with `yarn build --filter=pie-docs` 
+1. Stop any local instance of the doc site
+2. Delete your `dist` folder
+3. Create a production build with `yarn build --filter=pie-docs`
 
 Once this is done, you can run the route tests with `yarn test --filter=pie-docs`.
 From here, we run navigation, accessibility and visual tests against each route.

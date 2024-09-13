@@ -36,9 +36,11 @@ env:
   PERCY_TOKEN_PIE_ICON_BUTTON: ${{ secrets.PERCY_TOKEN_PIE_ICON_BUTTON }}
   PERCY_TOKEN_PIE_ICONS_WEBC: ${{ secrets.PERCY_TOKEN_PIE_ICONS_WEBC }}
   PERCY_TOKEN_PIE_LINK: ${{ secrets.PERCY_TOKEN_PIE_LINK }}
+  PERCY_TOKEN_PIE_LOTTIE_PLAYER: ${{ secrets.PERCY_TOKEN_PIE_LOTTIE_PLAYER }}
   PERCY_TOKEN_PIE_MODAL: ${{ secrets.PERCY_TOKEN_PIE_MODAL }}
   PERCY_TOKEN_PIE_NOTIFICATION: ${{ secrets.PERCY_TOKEN_PIE_NOTIFICATION }}
   PERCY_TOKEN_PIE_RADIO: ${{ secrets.PERCY_TOKEN_PIE_RADIO }}
+  PERCY_TOKEN_PIE_RADIO_GROUP: ${{ secrets.PERCY_TOKEN_PIE_RADIO_GROUP }}
   PERCY_TOKEN_PIE_SPINNER: ${{ secrets.PERCY_TOKEN_PIE_SPINNER }}
   PERCY_TOKEN_PIE_SWITCH: ${{ secrets.PERCY_TOKEN_PIE_SWITCH }}
   PERCY_TOKEN_PIE_TAG: ${{ secrets.PERCY_TOKEN_PIE_TAG }}
@@ -46,13 +48,15 @@ env:
   PERCY_TOKEN_PIE_TEXTAREA: ${{ secrets.PERCY_TOKEN_PIE_TEXTAREA }}
   PERCY_TOKEN_PIE_TOAST: ${{ secrets.PERCY_TOKEN_PIE_TOAST }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  PERCY_DEBUG: "*"
+  LOG_LEVEL: debug
   PERCY_DO_NOT_CAPTURE_RESPONSIVE_ASSETS: true
-  PERCY_PAGE_LOAD_TIMEOUT: 60000
-  PERCY_NETWORK_IDLE_WAIT_TIMEOUT: 60000
+  PERCY_PAGE_LOAD_TIMEOUT: ${{ vars.PERCY_PAGE_LOAD_TIMEOUT }}
+  PERCY_NETWORK_IDLE_WAIT_TIMEOUT: ${{ vars.PERCY_NETWORK_IDLE_WAIT_TIMEOUT }}
 
 jobs:
   dependency-changeset:
-    if: github.actor == 'renovate-bot' || github.actor == 'renovate[bot]' || contains(github.ref_name, 'snyk-fix-')
+    if: github.actor == 'renovate-bot' || github.actor == 'renovate[bot]'
     uses: the-guild-org/shared-config/.github/workflows/changesets-dependencies.yaml@main
     secrets:
       githubToken: ${{ secrets.GITHUB_TOKEN }}

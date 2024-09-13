@@ -1,5 +1,19 @@
 # wc-next10
 
+## 0.6.17
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.31
+
+## 0.6.16
+
+### Patch Changes
+
+- Updated dependencies [[`4435d0aee`](https://github.com/justeattakeaway/pie/commit/4435d0aee2115b8ec8b916c387711e1288e55540)]:
+  - @justeattakeaway/pie-webc@0.5.30
+
 ## 0.6.15
 
 ### Patch Changes

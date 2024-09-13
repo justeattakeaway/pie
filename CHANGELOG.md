@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.66.0
+
+### Minor Changes
+
+- [Removed] - snyk because of deprecation ([#1813](https://github.com/justeattakeaway/pie/pull/1813)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- [Changed] - Remove spare ']' from PR title linter regex to ensure Version Packages pull requests are not penalised by the Linter ([#1839](https://github.com/justeattakeaway/pie/pull/1839)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 2.65.1
+
+### Patch Changes
+
+- [Changed] - update gitHub workflows for new `pie-radio` component ([#1795](https://github.com/justeattakeaway/pie/pull/1795)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
 ## 2.65.0
 
 ### Minor Changes
