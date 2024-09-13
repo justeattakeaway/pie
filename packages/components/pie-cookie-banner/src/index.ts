@@ -36,6 +36,8 @@ import { localiseText, localiseRichText } from './localisation-utils';
 export * from './defs';
 
 const componentSelector = 'pie-cookie-banner';
+const TENANT_PROPERTY = 'tenant';
+const LANGUAGE_PROPERTY = 'language';
 
 /**
  * @tagname pie-cookie-banner
@@ -58,7 +60,10 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     public defaultPreferences: CookieBannerProps['defaultPreferences'] = defaultProps.defaultPreferences;
 
     @property({ type: Object })
-    public locale:CookieBannerLocale = defaultProps.locale;
+    /**
+     * @deprecated This property is deprecated. Please use the `Tenant & Language` properties instead.
+     */
+    public locale: CookieBannerLocale = defaultProps.locale;
 
     @property({ type: String })
     public cookieStatementLink = defaultProps.cookieStatementLink;
@@ -67,20 +72,18 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     public cookieTechnologiesLink = defaultProps.cookieTechnologiesLink;
 
     @property({ type: String })
-    public tenant = 'gb';
+    public [TENANT_PROPERTY] = defaultProps.tenant;
 
     @property({ type: String })
-    public language = 'en';
+    public [LANGUAGE_PROPERTY] = defaultProps.language;
 
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;
 
-    connectedCallback () {
-        console.log('connectedCallback'); // eslint-disable-line no-console
-
-        super.connectedCallback();
-        // Call the method to load the locale when the component is connected
-        this._getLocaleBasedOnTenantAndLanguage();
+    updated (changedProperties: Map<string, unknown>) {
+        if (changedProperties.has(TENANT_PROPERTY) || changedProperties.has(LANGUAGE_PROPERTY)) {
+            this._getLocaleBasedOnTenantAndLanguage();
+        }
     }
 
     // Method to dynamically import locale JSON based on tenant and language
@@ -95,6 +98,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             this.locale = localeModule.default;
         } catch (error) {
             console.error(`Error loading locale for ${this.language}-${this.tenant}:`, error);
+
             // Fallback to default locale if there's an error loading the dynamic locale
             this.locale = defaultProps.locale;
         }

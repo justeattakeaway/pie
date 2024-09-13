@@ -8,13 +8,12 @@ import {
     preferences,
 } from '../../src/defs.ts';
 
-const englishLocale = JSON.parse(await readFile(new URL('../../locales/en-gb.json', import.meta.url), { encoding: 'utf-8' }));
-const spanishLocale = JSON.parse(await readFile(new URL('../../locales/es-es.json', import.meta.url), { encoding: 'utf-8' }));
-
 function stripTags (str: string) {
     return str.replace(/<\/?[^>]+(>|$)/g, '');
 }
 
+const englishLocale = JSON.parse(await readFile(new URL('../../locales/en-gb.json', import.meta.url), { encoding: 'utf-8' }));
+const spanishLocale = JSON.parse(await readFile(new URL('../../locales/es-es.json', import.meta.url), { encoding: 'utf-8' }));
 let pieCookieBannerComponent: CookieBannerComponent;
 let pieModalComponent: ModalComponent;
 

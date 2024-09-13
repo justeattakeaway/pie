@@ -297,4 +297,20 @@ export class CookieBannerComponent extends BasePage {
         }));
         return Promise.all(elements);
     }
+
+    async setProperty (property: string, value: string) {
+        await this.page.evaluate(([prop, val]) => {
+            const component = document.querySelector('pie-cookie-banner');
+            if (component) {
+                component[prop] = val;
+            }
+        }, [property, value]);
+    }
+
+    async waitForLocaleUpdate () {
+        await this.page.waitForFunction(() => {
+            const component = document.querySelector('pie-cookie-banner');
+            return component && component.locale && Object.keys(component.locale).length > 0;
+        });
+    }
 }

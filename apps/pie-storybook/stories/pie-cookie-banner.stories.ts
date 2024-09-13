@@ -53,8 +53,6 @@ type CookieBannerStoryMeta = StoryMeta<CookieBannerProps>;
 
 const defaultArgs: CookieBannerProps = {
     ...defaultProps,
-    tenant: tenantOptions.UnitedKingdom,
-    language: languageOptions.English,
     cookieTechnologiesLink: 'en/technologies',
     cookieStatementLink: 'en/cookiestatement',
     defaultPreferences: {
@@ -76,18 +74,14 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
             options: Object.keys(pieCookieBannerLocales),
             mapping: pieCookieBannerLocales,
             description: 'Assigns the data for localising the component strings',
-            defaultValue: {
-                summary: defaultProps.locale,
-            },
+            defaultValue: defaultProps.locale,
         },
         tenant: {
             options: Object.values(tenantOptions),
             mapping: tenantOptions,
             control: 'select',
             description: 'Assigns the country for the component',
-            defaultValue: {
-                summary: tenantOptions.UnitedKingdom,
-            },
+            defaultValue: tenantOptions.UnitedKingdom,
         },
         language: {
             options: Object.values(languageOptions),
