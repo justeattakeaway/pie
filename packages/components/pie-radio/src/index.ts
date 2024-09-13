@@ -46,6 +46,7 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
         <input
             type="radio"
             id="radioId"
+            data-test-id="pie-radio"
             .checked="${live(checked)}"
             .value="${value}"
             name="${ifDefined(name)}"
