@@ -33,7 +33,7 @@
             "type": "code",
             "item": ["\"horizontal\"", "\"vertical\""]
         },
-        "Set the orientation of the divider.",
+        "Sets the orientation of the divider.",
         {
             "type": "code",
             "item": ["\"horizontal\""]
