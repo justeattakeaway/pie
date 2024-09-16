@@ -34,7 +34,7 @@
     "clean": "turbo run clean --filter=!pie-monorepo",
     "cz": "./packages/tools/pie-git-hooks-scripts/check-branch-name.js $(git symbolic-ref --short HEAD) && ./node_modules/cz-customizable/standalone.js",
     "dev": "turbo run dev --filter=!pie-monorepo",
-    "copy:component-statuses": "cross-env-shell turbo run copy:component-statuses --filter=!pie-monorepo --token=${TURBO_TOKEN}",
+    "copy:component-statuses": "cross-env-shell turbo run copy:component-statuses --filter=!pie-monorepo",
     "generate:component-statuses": "npx generate-component-statuses",
     "generate:examples": "cross-env-shell turbo run generate:examples --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "lint:config:fix": "eslint --fix turbo.json (packages|apps)/**/turbo.json",
