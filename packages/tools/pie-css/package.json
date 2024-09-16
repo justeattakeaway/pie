@@ -27,6 +27,7 @@
   "repository": "https://github.com/justeattakeaway/pie.git",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@justeat/pie-design-tokens": "6.5.0",
     "@types/postcss-import": "14.0.3",
     "include-media": "2.0.0",
     "postcss": "8.4.32",
