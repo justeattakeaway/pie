@@ -1,7 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieRadio } from '../../src/index.ts';
-import { defaultProps, RadioProps } from '../../src/defs.ts';
+import { defaultProps, type RadioProps } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-radio"]';
 const inputSelector = 'input[type="radio"]';
