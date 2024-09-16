@@ -5,7 +5,6 @@ import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { live } from 'lit/directives/live.js';
-import 'element-internals-polyfill';
 
 import {
     validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent, type PIEInputElement,
@@ -14,8 +13,9 @@ import '@justeattakeaway/pie-assistive-text';
 
 import styles from './text-input.scss?inline';
 import {
-    type TextInputProps, defaultProps, statusTypes, types,
+    type TextInputProps, types, statusTypes, defaultProps,
 } from './defs';
+import 'element-internals-polyfill';
 
 // Valid values available to consumers
 export * from './defs';

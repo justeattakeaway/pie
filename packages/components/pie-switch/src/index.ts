@@ -1,19 +1,18 @@
-import 'element-internals-polyfill';
 import {
     LitElement, html, unsafeCSS, nothing,
 } from 'lit';
-
 import { property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import 'element-internals-polyfill';
 
-import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 import {
     RtlMixin, validPropertyValues, defineCustomElement, FormControlMixin, wrapNativeEvent, type PIEInputElement,
 } from '@justeattakeaway/pie-webc-core';
+import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
-import { type SwitchProps, labelPlacements, defaultProps } from './defs';
 import styles from './switch.scss?inline';
+import { type SwitchProps, labelPlacements, defaultProps } from './defs';
 
 // Valid values available to consumers
 export * from './defs';

@@ -1,14 +1,21 @@
+
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-
-import {
-    type PropObject, type WebComponentPropValues, type WebComponentTestInput,
+import type {
+    PropObject, WebComponentPropValues, WebComponentTestInput,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
-import { getAllPropCombinations, splitCombinationsByPropertyValue } from '@justeattakeaway/pie-webc-testing/src/helpers/get-all-prop-combos.ts';
-import { createTestWebComponent } from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
-import { WebComponentTestWrapper } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+import {
+    getAllPropCombinations, splitCombinationsByPropertyValue,
+} from '@justeattakeaway/pie-webc-testing/src/helpers/get-all-prop-combos.ts';
+import {
+    createTestWebComponent,
+} from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
+import {
+    WebComponentTestWrapper,
+} from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 
-import { PieToast, type ToastProps, variants } from '../../src/index.ts';
+import { variants } from '../../src/defs.ts';
+import { PieToast, type ToastProps } from '../../src/index.ts';
 
 test.describe('PieToast - Visual tests`', () => {
     test('should display the PieToast component successfully', async ({ page, mount }) => {

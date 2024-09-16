@@ -9,11 +9,9 @@ import '@justeattakeaway/pie-divider';
 import '@justeattakeaway/pie-icon-button';
 import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-modal';
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-switch';
 import { type PieSwitch } from '@justeattakeaway/pie-switch';
 import { defineCustomElement, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
-/* eslint-enable import/no-duplicates */
 
 import styles from './cookie-banner.scss?inline';
 import {
