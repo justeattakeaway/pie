@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-card
 
+## 0.20.1
+
+### Patch Changes
+
+- [Changed] - Update the background color of the inverse card from `$color-container-dark` to `$color-container-inverse` ([#1844](https://github.com/justeattakeaway/pie/pull/1844)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.20.0
 
 ### Minor Changes
