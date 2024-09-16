@@ -70,21 +70,21 @@
     }
 
     &.c-card--inverse {
-        --card-bg-color: var(--dt-color-container-dark);
+        --card-bg-color: var(--dt-color-container-inverse);
         --card-color: var(--dt-color-content-inverse);
 
         box-shadow: var(--dt-elevation-dark-card);
 
-        @include card-interactive-states('--dt-color-container-dark', 'inverse');
+        @include card-interactive-states('--dt-color-container-inverse', 'inverse');
     }
 
     &.c-card--outline-inverse {
-        --card-bg-color: var(--dt-color-container-dark);
+        --card-bg-color: var(--dt-color-container-inverse);
         --card-color: var(--dt-color-content-inverse);
 
         border-color: var(--dt-color-border-inverse);
 
-        @include card-interactive-states('--dt-color-container-dark', 'inverse');
+        @include card-interactive-states('--dt-color-container-inverse', 'inverse');
     }
 
     &.c-card--inverse.c-card--disabled,
