@@ -51,7 +51,8 @@ ___
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Divider:** 1px line."
+        "**Divider:** 1px line.",
+        "**Label:** Text that describes the content split by the divider."
     ]
 } %}
 
@@ -103,11 +104,45 @@ ___
   {% endcontentItem %}
 {% endcontentLayout %}
 
+### Label
+
+Label is only available for the horizontal variant.
+
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Without label</h4>
+    <p><br/></p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/divider/modifier-type-default.svg",
+      width: 1,
+      alt: "A default divider without label."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>With label</h4>
+    <p>Dividers on both sides have a minimum width of 16px.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/divider/modifier-type-default-label.svg",
+      width: 1,
+      alt: "A default divider with label."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
+## Content
+
+- Ensure the label is clear and concise, giving users immediate understanding of the separated content.
+- Use sentence case.
+
 ---
 
 ## Examples
 
-Outlines the atomic level interactive elements for the component.
+### LTR examples
+
+Here are some examples of the component in a left-to-right context:
 
 {% contentLayout %}
   {% contentItem %}
@@ -126,14 +161,16 @@ Outlines the atomic level interactive elements for the component.
   {% endcontentItem %}
 {% endcontentLayout %}
 
+### RTL examples
+
+{% notification {
+  type: "information",
+  message: "Divider stays the same in RTL."
+} %}
+
 ---
 
 ## Resources
-
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Divider documentation, please see the resources below."
-} %}
 
 {% resourceTable {
     componentName: 'Divider'
