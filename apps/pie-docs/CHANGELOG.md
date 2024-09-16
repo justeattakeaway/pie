@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.6.1
+
+### Patch Changes
+
+- [Changed] - updated `pie-divider` overview and code documentation ([#1860](https://github.com/justeattakeaway/pie/pull/1860)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
 ## 4.6.0
 
 ### Minor Changes
