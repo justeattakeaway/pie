@@ -111,6 +111,7 @@ Label is only available for the horizontal variant.
 {% contentLayout %}
   {% contentItem %}
     <h4>Without label</h4>
+    <p><br/></p>
     {% contentPageImage {
       src: "../../../assets/img/components/divider/modifier-type-default.svg",
       width: 1,
@@ -119,6 +120,7 @@ Label is only available for the horizontal variant.
   {% endcontentItem %}
   {% contentItem %}
     <h4>With label</h4>
+    <p>Dividers on both sides have a minimum width of 16px.</p>
     {% contentPageImage {
       src: "../../../assets/img/components/divider/modifier-type-default-label.svg",
       width: 1,
