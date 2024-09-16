@@ -142,7 +142,7 @@ Label is only available for the horizontal variant.
 
 ### LTR examples
 
-Here are some examples of the component in left to right context:
+Here are some examples of the component in a left-to-right context:
 
 {% contentLayout %}
   {% contentItem %}
