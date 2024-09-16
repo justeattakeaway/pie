@@ -1,7 +1,7 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import type {
-    PropObject, WebComponentPropValues, WebComponentTestInput,
+import {
+    type PropObject, type WebComponentPropValues, type WebComponentTestInput,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
 import {
     getAllPropCombinations, splitCombinationsByPropertyValue,
@@ -13,11 +13,13 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { IconHeartFilled } from '@justeattakeaway/pie-icons-webc';
+import { IconHeartFilled } from '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled';
 import { PieButton } from '../../src/index.ts';
-import { sizes, variants, iconPlacements } from '../../src/defs.ts';
+import {
+    type ButtonProps, sizes, variants, iconPlacements,
+} from '../../src/defs.ts';
 
-const props: PropObject = {
+const props: PropObject<ButtonProps> = {
     variant: variants,
     size: sizes,
     type: 'button', // Changing the type does not affect the appearance of the button

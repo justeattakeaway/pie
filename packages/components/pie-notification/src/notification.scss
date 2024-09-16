@@ -25,33 +25,33 @@ $breakpoint-wide: 768px;
     font-size: var(--notification-font-size);
     line-height: var(--notification-line-height);
 
-    &[isCompact] {
+    &.c-notification--compact {
         --notification-direction: row;
     }
 
-    &[position='full-width'] {
+    &.c-notification--full-width {
         --notification-border-radius: var(--dt-radius-rounded-none);
     }
 
-    &[variant='neutral-alternative'] {
+    &.c-notification--neutral-alternative {
         --notification-background-color: var(--dt-color-container-default);
     }
 
-    &[variant='info'] {
+    &.c-notification--info {
         --notification-background-color: var(--dt-color-support-info-02);
         --notification-icon-fill: var(--dt-color-blue);
     }
 
-    &[variant='success'] {
+    &.c-notification--success {
         --notification-background-color: var(--dt-color-support-positive-02);
         --notification-icon-fill: var(--dt-color-content-positive);
     }
 
-    &[variant='warning'] {
+    &.c-notification--warning {
         --notification-background-color: var(--dt-color-support-warning-02);
     }
 
-    &[variant='error'] {
+    &.c-notification--error {
         --notification-background-color: var(--dt-color-support-error-02);
         --notification-icon-fill: var(--dt-color-support-error);
     }
@@ -74,7 +74,7 @@ $breakpoint-wide: 768px;
         flex-direction: row;
         gap: var(--dt-spacing-c);
 
-        &[isDismissible] {
+        &.c-notification-content-section--dismissible {
             max-width: calc(100% - var(--notification-close-icon-offset) - 40px); // 40px is the size of the medium icon button
         }
     }
@@ -91,12 +91,12 @@ $breakpoint-wide: 768px;
         justify-content: flex-end;
         gap: var(--dt-spacing-d);
 
-        &[isCompact] {
+        &.c-notification-footer--compact {
             align-self: flex-end;
         }
 
         @media (max-width: $breakpoint-wide) {
-            &[isStacked] {
+            &.c-notification-footer--stacked {
                 flex-direction: column-reverse;
             }
         }

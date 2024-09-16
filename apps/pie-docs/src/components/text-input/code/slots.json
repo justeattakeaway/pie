@@ -11,7 +11,7 @@
           "leadingIcon"
         ]
       },
-      "An icon to display at the start of the input. Do not use with `leadingText` at the same time."
+      "An icon to display at the start of the input.<br>Do not use at the same time as `leadingText`."
     ],
     [
       {
@@ -20,7 +20,7 @@
           "leadingText"
         ]
       },
-      "Short text to display at the start of the input. Wrap the text in a `<span>`. Do not use with `leadingIcon` at the same time."
+      "Short text to display at the start of the input.<br>Wrap the text in a `<span>`.<br>Do not use at the same time as `leadingIcon`."
     ],
     [
       {
@@ -29,7 +29,7 @@
           "trailingIcon"
         ]
       },
-      "An icon to display at the end of the input. Do not use with `trailingText` at the same time."
+      "An icon to display at the end of the input.<br>Do not use at the same time as `trailingText`."
     ],
     [
       {
@@ -38,7 +38,7 @@
           "trailingText"
         ]
       },
-      "Short text to display at the end of the input. Wrap the text in a `<span>`. Do not use with `trailingIcon` at the same time."
+      "Short text to display at the end of the input.<br>Wrap the text in a `<span>`.<br>Do not use at the same time as `trailingIcon`."
     ]
   ]
 }

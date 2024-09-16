@@ -3,7 +3,9 @@ import {
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { live } from 'lit/directives/live.js';
+import 'element-internals-polyfill';
 
 import {
     validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent, type PIEInputElement,
@@ -12,9 +14,8 @@ import '@justeattakeaway/pie-assistive-text';
 
 import styles from './text-input.scss?inline';
 import {
-    types, statusTypes, type TextInputProps, defaultProps,
+    type TextInputProps, defaultProps, statusTypes, types,
 } from './defs';
-import 'element-internals-polyfill';
 
 // Valid values available to consumers
 export * from './defs';
@@ -36,68 +37,68 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
 
     @property({ type: String, reflect: true })
     @validPropertyValues(componentSelector, types, defaultProps.type)
-    public type? = defaultProps.type;
+    public type = defaultProps.type;
 
     @property({ type: String })
     public value = defaultProps.value;
 
     @property({ type: String })
-    public name?: TextInputProps['name'];
+    public name: TextInputProps['name'];
 
     @property({ type: Boolean, reflect: true })
-    public disabled?: TextInputProps['disabled'];
+    public disabled = defaultProps.disabled;
 
     @property({ type: String })
-    public pattern?: TextInputProps['pattern'];
+    public pattern: TextInputProps['pattern'];
 
     @property({ type: Number })
-    public minlength?: TextInputProps['minlength'];
+    public minlength: TextInputProps['minlength'];
 
     @property({ type: Number })
-    public maxlength?: TextInputProps['maxlength'];
+    public maxlength: TextInputProps['maxlength'];
 
     @property({ type: String })
-    public autocomplete?: TextInputProps['autocomplete'];
+    public autocomplete: TextInputProps['autocomplete'];
 
     @property({ type: String })
-    public placeholder?: TextInputProps['placeholder'];
+    public placeholder: TextInputProps['placeholder'];
 
     @property({ type: Boolean })
-    public autoFocus?: TextInputProps['autoFocus'];
+    public autoFocus: TextInputProps['autoFocus'];
 
     @property({ type: String })
-    public inputmode?: TextInputProps['inputmode'];
+    public inputmode: TextInputProps['inputmode'];
 
     @property({ type: Boolean })
-    public readonly?: TextInputProps['readonly'];
+    public readonly = defaultProps.readonly;
 
     @property({ type: String })
-    public defaultValue?: TextInputProps['defaultValue'];
+    public defaultValue: TextInputProps['defaultValue'];
 
     @property({ type: String })
-    public assistiveText?: TextInputProps['assistiveText'];
+    public assistiveText: TextInputProps['assistiveText'];
 
     @property({ type: String })
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
-    public status?: TextInputProps['status'] = defaultProps.status;
+    public status = defaultProps.status;
 
     @property({ type: Number })
-    public step?: TextInputProps['step'];
+    public step: TextInputProps['step'];
 
     @property({ type: Number })
-    public min?: TextInputProps['min'];
+    public min: TextInputProps['min'];
 
     @property({ type: Number })
-    public max?: TextInputProps['max'];
+    public max: TextInputProps['max'];
 
     @property({ type: String })
-    public size?: TextInputProps['size'] = defaultProps.size;
+    public size = defaultProps.size;
 
     @property({ type: Boolean })
-    public required?: TextInputProps['required'] = false;
+    public required = false;
 
     @query('input')
-    private input?: HTMLInputElement;
+    private input!: HTMLInputElement;
 
     @query('input')
     public focusTarget!: HTMLElement;
@@ -107,7 +108,7 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
      * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
      */
     public get validity (): ValidityState {
-        return (this.input as HTMLInputElement).validity;
+        return this.input.validity;
     }
 
     /**
@@ -129,21 +130,16 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
 
         // This ensures the input value is updated when the form is reset.
         // Otherwise there is a bug where values like 'e1212' for number inputs do not correctly reset.
-        if (this.input) {
-            this.input.value = this.value;
-        }
+        this.input.value = this.value;
 
         this._internals.setFormValue(this.value);
     }
 
-    protected firstUpdated (_changedProperties: PropertyValues<this>): void {
-        super.firstUpdated(_changedProperties);
+    protected firstUpdated (): void {
         this._internals.setFormValue(this.value);
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {
-        super.updated(_changedProperties);
-
         if (_changedProperties.has('value')) {
             this._internals.setFormValue(this.value);
         }
@@ -195,14 +191,18 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
             required,
         } = this;
 
+        const classes : ClassInfo = {
+            'c-textInput': true,
+            [`c-textInput--${size}`]: true,
+            [`c-textInput--${status}`]: true,
+            'c-textInput--disabled': disabled,
+            'c-textInput--readonly': readonly,
+        };
+
         return html`
             <div
-                class="c-textInput"
-                data-test-id="pie-text-input-shell"
-                data-pie-size=${ifDefined(size)}
-                data-pie-status=${ifDefined(status)}
-                ?data-pie-disabled=${live(disabled)}
-                ?data-pie-readonly=${readonly}>
+                class="${classMap(classes)}"
+                data-test-id="pie-text-input-shell">
                 <!-- The reason for separate slots for icons and text is that we cannot programmatically be aware of the
                 HTML used inside of the slot without breaking SSR in consuming applications (icons need to use different colours than text content)
                 Therefore, we provide two slots and advise consumers do not attempt to use both leading/trailing at the same time

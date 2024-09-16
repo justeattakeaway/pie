@@ -1,5 +1,23 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.26.4
+
+### Patch Changes
+
+- - [Fixed] - TypeScript issue when reading JSON files ([#1814](https://github.com/justeattakeaway/pie/pull/1814)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`d2629cce7`](https://github.com/justeattakeaway/pie/commit/d2629cce769458e1eca0fcf68bca3215c93d6bd4)]:
+  - @justeattakeaway/pie-link@0.18.0
+
+## 0.26.3
+
+### Patch Changes
+
+- Updated dependencies [[`e99674628`](https://github.com/justeattakeaway/pie/commit/e99674628547f4603663e36634c8f04a4757bdc7)]:
+  - @justeattakeaway/pie-button@0.49.1
+  - @justeattakeaway/pie-icon-button@0.28.12
+  - @justeattakeaway/pie-modal@0.46.2
+
 ## 0.26.2
 
 ### Patch Changes

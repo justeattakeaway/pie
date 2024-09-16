@@ -1,4 +1,3 @@
-
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieDivider, type DividerProps } from '../../src/index.ts';
 
@@ -48,4 +47,3 @@ test.describe('PieDivider - Component tests', () => {
         expect(label).not.toBeVisible();
     });
 });
-

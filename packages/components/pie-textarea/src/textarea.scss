@@ -15,7 +15,7 @@
   --textarea-background-color: var(--dt-color-container-default);
   --textarea-border-color: var(--dt-color-interactive-form);
   --textarea-content-color: var(--dt-color-content-default);
-  --textarea-placeholder-color: var(--dt-color-content-subdued);
+  --textarea-placeholder-color: var(--dt-color-content-placeholder);
 
   // Default height is two lines of text
   --textarea-height: calc((var(--textarea-line-height) * 2) + (var(--textarea-padding-block) * 2));

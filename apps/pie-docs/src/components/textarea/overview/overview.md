@@ -216,7 +216,7 @@ When typing into a textarea and reaching the end of the field, the cursor should
   message: "The scroll function within auto-resize is active across all states, including disabled and read-only."
 } %}
 
-{% contentLayout %}
+{% contentLayout { columns: 3 } %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/textarea/auto-resize-focused-small.svg",
@@ -238,19 +238,18 @@ When typing into a textarea and reaching the end of the field, the cursor should
       alt: "A large-sized textarea component with auto-resize functionality is focused and has text inside it."
     } %}
   {% endcontentItem %}
-  {% contentItem %}
-  {% endcontentItem %}
-  {% contentItem %}
-    <h4>Manual-resize</h4>
-  {% endcontentItem %}
 {% endcontentLayout %}
+
+{% contentItem %}
+  <h4>Manual-resize</h4>
+{% endcontentItem %}
 
 {% notification {
   type: "information",
   message: "The manual-resize function is active across all states, including disabled and read-only."
 } %}
 
-{% contentLayout %}
+{% contentLayout { columns: 3 } %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/textarea/manual-resize-focused-small.svg",

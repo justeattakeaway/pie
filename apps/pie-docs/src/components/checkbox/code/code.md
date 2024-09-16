@@ -51,7 +51,7 @@ When using `pie-checkbox`, you will also need to include a couple of dependencie
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide.](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
+  message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
 } %}
 
 ## Props

@@ -27,6 +27,10 @@
         vertical-align: top;
         padding: var(--dt-spacing-b);
         min-width: fit-content;
+
+        code {
+            word-break: keep-all;
+        }
     }
 
     .c-componentDetailsTable-cellHasMinWidth {

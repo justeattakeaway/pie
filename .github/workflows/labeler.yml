@@ -7,8 +7,11 @@ jobs:
   categorise:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/labeler@v4
+    - name: Checkout
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+
+    - name: Labeler
+      uses: actions/labeler@ac9175f8a1f3625fd0d4fb234536d26811351594 # v4.3.0
       with:
         configuration-path: '.github/project-labeler.yml'
         repo-token: '${{ secrets.GITHUB_TOKEN }}'

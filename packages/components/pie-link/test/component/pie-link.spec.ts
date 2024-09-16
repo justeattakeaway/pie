@@ -1,29 +1,20 @@
-
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieLink, type LinkProps } from '../../src/index.ts';
 import { tags } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-link"]';
 
-const props: Partial<LinkProps> = {
-    // common props
-    variant: 'default',
-    size: 'medium',
-    isBold: false,
-    isStandalone: false,
-    // valid anchor props
+const anchorProps: LinkProps = {
+    tag: 'a',
     href: '#',
     target: '_blank',
     rel: 'nofollow',
-    // valid button props
-    type: 'submit',
 };
 
 test.describe('PieLink - Component tests', () => {
     test('should be visible', async ({ mount, page }) => {
         // Arrange
         await mount(PieLink, {
-            props,
             slots: { default: 'Link!' },
         });
 
@@ -38,8 +29,7 @@ test.describe('PieLink - Component tests', () => {
         // Arrange
         await mount(PieLink, {
             props: {
-                ...props,
-                tag: 'a',
+                ...anchorProps,
             },
             slots: { default: 'Anchor Link!' },
         });
@@ -59,7 +49,6 @@ test.describe('PieLink - Component tests', () => {
         // Arrange
         await mount(PieLink, {
             props: {
-                ...props,
                 tag: 'button',
             },
             slots: { default: 'Button Link!' },
@@ -83,12 +72,10 @@ test.describe('PieLink - Component tests', () => {
 
             await mount(PieLink, {
                 props: {
-                    ...props,
                     tag,
                     aria: { label },
                 },
                 slots: { default: 'Anchor Link!' },
-
             });
 
             // Act

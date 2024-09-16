@@ -1,4 +1,3 @@
-
 import { expect, test } from '@sand4rt/experimental-ct-web';
 import { getFormDataObject, setupFormDataExtraction } from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
 import { PieFormLabel } from '@justeattakeaway/pie-form-label';

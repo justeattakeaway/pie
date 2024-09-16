@@ -1,19 +1,13 @@
 import {
-    html, LitElement, unsafeCSS, nothing, type TemplateResult,
+    html, LitElement, unsafeCSS, nothing,
 } from 'lit';
 import { property } from 'lit/decorators.js';
+import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './link.scss?inline';
 import {
-    type LinkProps,
-    variants,
-    sizes,
-    iconPlacements,
-    tags,
-    buttonTypes,
-    underlineTypes,
-    type AriaProps,
-    defaultProps,
+    type LinkProps, buttonTypes, defaultProps, iconPlacements, sizes, tags, underlineTypes, variants,
 } from './defs';
 
 // Valid values available to consumers
@@ -30,32 +24,32 @@ const componentSelector = 'pie-link';
 export class PieLink extends LitElement implements LinkProps {
     @property()
     @validPropertyValues(componentSelector, tags, defaultProps.tag)
-    public tag: LinkProps['tag'] = defaultProps.tag;
+    public tag = defaultProps.tag;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
-    public variant: LinkProps['variant'] = defaultProps.variant;
+    public variant = defaultProps.variant;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
-    public size: LinkProps['size'] = defaultProps.size;
+    public size = defaultProps.size;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, underlineTypes, defaultProps.underline)
-    public underline: LinkProps['underline'] = defaultProps.underline;
+    public underline = defaultProps.underline;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, iconPlacements, defaultProps.iconPlacement)
-    public iconPlacement: LinkProps['iconPlacement'] = defaultProps.iconPlacement;
+    public iconPlacement = defaultProps.iconPlacement;
 
     @property({ type: String, reflect: true })
-    public href?: string;
+    public href: LinkProps['href'];
 
     @property({ type: String, reflect: true })
-    public target?: string;
+    public target: LinkProps['target'];
 
     @property({ type: String, reflect: true })
-    public rel?: string;
+    public rel: LinkProps['rel'];
 
     @property({ type: Boolean })
     public isBold = defaultProps.isBold;
@@ -66,26 +60,26 @@ export class PieLink extends LitElement implements LinkProps {
     @property({ type: Boolean })
     public hasVisited = defaultProps.hasVisited;
 
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, buttonTypes, defaultProps.type)
-    public type: LinkProps['type'] = defaultProps.type;
+    public type = defaultProps.type;
 
     @property({ type: Object })
-    public aria!: AriaProps;
+    public aria: LinkProps['aria'];
 
     /**
      * Renders the link content.
      * Icons are only shown in block elements
      * @private
      */
-    private renderContent (): TemplateResult {
+    private renderContent () {
         const { iconPlacement, isStandalone } = this;
         return html`
-                <span class="c-link-content">
-                    ${isStandalone && iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
-                    <slot></slot>
-                    ${isStandalone && iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
-                </span>`;
+            <span class="c-link-content">
+                ${isStandalone && iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
+                <slot></slot>
+                ${isStandalone && iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
+            </span>`;
     }
 
     /**
@@ -93,21 +87,14 @@ export class PieLink extends LitElement implements LinkProps {
      *
      * @private
      */
-    private renderButton (): TemplateResult {
+    private renderButton (classes: ClassInfo) {
         return html`
             <button
                 data-test-id="pie-link"
-                class="c-link"
-                tag=${this.tag || 'button'}
-                variant=${this.variant || 'default'}
-                size=${this.size || 'medium'}
-                underline=${this.underline || 'default'}
-                ?isBold=${this.isBold}
-                ?isStandalone=${this.isStandalone}
-                ?hasVisited=${this.hasVisited}
-                type=${this.type || 'submit'}
-                aria-label=${this.aria?.label || nothing}>
-                    ${this.renderContent()}
+                class="${classMap(classes)}"
+                type=${this.type}
+                aria-label=${ifDefined(this.aria?.label)}>
+                ${this.renderContent()}
             </button>`;
     }
 
@@ -116,30 +103,35 @@ export class PieLink extends LitElement implements LinkProps {
      *
      * @private
      */
-    private renderAnchor (): TemplateResult {
+    private renderAnchor (classes: ClassInfo) {
         return html`
             <a
                 data-test-id="pie-link"
-                class="c-link"
-                tag=${this.tag || 'a'}
-                variant=${this.variant || 'default'}
-                size=${this.size || 'medium'}
-                underline=${this.underline || 'default'}
-                ?isBold=${this.isBold}
-                ?isStandalone=${this.isStandalone}
-                ?hasVisited=${this.hasVisited}
-                href=${this.href || ''}
-                target=${this.target || nothing}
-                rel=${this.rel || nothing}
-                aria-label=${this.aria?.label || nothing}>
-                    ${this.renderContent()}
+                class="${classMap(classes)}"
+                href=${ifDefined(this.href)}
+                target=${ifDefined(this.target)}
+                rel=${ifDefined(this.rel)}
+                aria-label=${ifDefined(this.aria?.label)}>
+                ${this.renderContent()}
             </a>`;
     }
 
     render () {
-        const isButton = this.tag === 'button';
+        const classes: ClassInfo = {
+            'c-link': true,
+            [`c-link--${this.variant}`]: true,
+            [`c-link--${this.size}`]: true,
+            'c-link--underline-reversed': this.underline === 'reversed',
+            'c-link--bold': this.isBold,
+            'c-link--standalone': this.isStandalone,
+            'c-link--hasVisited': this.hasVisited,
+        };
 
-        return isButton ? this.renderButton() : this.renderAnchor();
+        if (this.tag === 'button') {
+            return this.renderButton(classes);
+        }
+
+        return this.renderAnchor(classes);
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

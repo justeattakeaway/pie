@@ -1,5 +1,63 @@
 # Changelog
 
+## 1.3.4
+
+### Patch Changes
+
+- [Changed] - `pie-textarea` `maxLength` prop description and fixed typo ([#1818](https://github.com/justeattakeaway/pie/pull/1818)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- Updated dependencies [[`179dc6f49`](https://github.com/justeattakeaway/pie/commit/179dc6f49b3958983e3ff774a75a479554da5997), [`e35c49aff`](https://github.com/justeattakeaway/pie/commit/e35c49aff02a36c1374572291835066c8d59fc63)]:
+  - @justeattakeaway/pie-notification@0.11.0
+  - @justeattakeaway/pie-radio-group@0.1.0
+
+## 1.3.3
+
+### Patch Changes
+
+- [Added] - story and controls for pie-lottie-player ([#1763](https://github.com/justeattakeaway/pie/pull/1763)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Changed] - use classes instead of attributes for styling ([#1825](https://github.com/justeattakeaway/pie/pull/1825)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - Default values of `false` for `disabled` and `readonly` props. No change in behaviour expected.
+
+- Updated dependencies [[`8478fee23`](https://github.com/justeattakeaway/pie/commit/8478fee2338f0fe1d724fe79662d883763e501e2), [`ce0ea6f0d`](https://github.com/justeattakeaway/pie/commit/ce0ea6f0dd3210b21a08e945d90e0be945485fb4), [`f9e6c541c`](https://github.com/justeattakeaway/pie/commit/f9e6c541c90d55b45a18e1fb43091c0ed4eb5e8b)]:
+  - @justeattakeaway/pie-text-input@0.24.0
+  - @justeattakeaway/pie-card@0.20.0
+  - @justeattakeaway/pie-textarea@0.10.0
+
+## 1.3.2
+
+### Patch Changes
+
+- [Changed] - use classes instead of attributes for styling ([#1797](https://github.com/justeattakeaway/pie/pull/1797)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - initial `pie-radio` files from component generator ([#1795](https://github.com/justeattakeaway/pie/pull/1795)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- Updated dependencies [[`d2629cce7`](https://github.com/justeattakeaway/pie/commit/d2629cce769458e1eca0fcf68bca3215c93d6bd4), [`c46fceb99`](https://github.com/justeattakeaway/pie/commit/c46fceb99429784155fb016c687d9692e350715c), [`4435d0aee`](https://github.com/justeattakeaway/pie/commit/4435d0aee2115b8ec8b916c387711e1288e55540)]:
+  - @justeattakeaway/pie-link@0.18.0
+  - @justeattakeaway/pie-cookie-banner@0.26.4
+  - @justeattakeaway/pie-checkbox-group@0.7.0
+
+## 1.3.1
+
+### Patch Changes
+
+- [Changed] - Rename `isDimmed` prop to `disabled` ([#1765](https://github.com/justeattakeaway/pie/pull/1765)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - `isInteractive` prop which renders the tag as a button
+  [Added] - Interactive styling
+
+- Updated dependencies [[`e99674628`](https://github.com/justeattakeaway/pie/commit/e99674628547f4603663e36634c8f04a4757bdc7), [`61c372964`](https://github.com/justeattakeaway/pie/commit/61c37296475b870eec3c54b2fad8fa6b19e31ced), [`e99674628`](https://github.com/justeattakeaway/pie/commit/e99674628547f4603663e36634c8f04a4757bdc7)]:
+  - @justeattakeaway/pie-spinner@0.7.0
+  - @justeattakeaway/pie-tag@0.10.0
+  - @justeattakeaway/pie-button@0.49.1
+  - @justeattakeaway/pie-chip@0.8.2
+  - @justeattakeaway/pie-icon-button@0.28.12
+  - @justeattakeaway/pie-modal@0.46.2
+  - @justeattakeaway/pie-cookie-banner@0.26.3
+  - @justeattakeaway/pie-toast@0.3.3
+  - @justeattakeaway/pie-notification@0.10.2
+
 ## 1.3.0
 
 ### Minor Changes

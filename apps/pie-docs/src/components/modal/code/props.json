@@ -47,7 +47,7 @@
                 "type": "code",
                 "item": ["h1", "h2", "h3", "h4", "h5", "h6"]
             },
-            "The HTML tag to use for the modal's heading",
+            "The HTML tag to use for the modal's heading.",
             {
                 "type": "code",
                 "item": ["h2"]
@@ -95,7 +95,7 @@
               "type": "code",
               "item": ["true", "false"]
             },
-            "When true, displays a loading spinner in the modal",
+            "When true, displays a loading spinner in the modal.",
             {
               "type": "code",
               "item": ["false"]
@@ -107,7 +107,7 @@
               "type": "code",
               "item": ["true", "false"]
             },
-            "Controls if the modal element is open or closed",
+            "Controls if the modal element is open or closed.",
             {
               "type": "code",
               "item": ["false"]
@@ -157,7 +157,7 @@
             "position",
             {
                 "type": "code",
-                "item": ["\"top\"", "\"center\""]
+                "item": ["\"center\"", "\"top\""]
             },
             "The position of the modal; this controls where it will appear on the page.",
             {

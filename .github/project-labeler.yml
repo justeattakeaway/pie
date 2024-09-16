@@ -4,6 +4,9 @@
 apps:
 - 'apps/**/*'
 
+ci:
+- '.github/**/*'
+
 pie-docs:
 - 'apps/pie-docs/**/*'
 
@@ -82,11 +85,20 @@ pie-icon-button:
 pie-link:
 - 'packages/components/pie-link/**/*'
 
+pie-lottie-player:
+- 'packages/components/pie-lottie-player/**/*'
+
 pie-modal:
 - 'packages/components/pie-modal/**/*'
 
 pie-notification:
 - 'packages/components/pie-notification/**/*'
+
+pie-radio:
+- 'packages/components/pie-radio/**/*'
+
+pie-radio-group:
+- 'packages/components/pie-radio-group/**/*'
 
 pie-spinner:
 - 'packages/components/pie-spinner/**/*'

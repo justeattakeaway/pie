@@ -1,6 +1,7 @@
 import {
     html, LitElement, unsafeCSS, nothing, type TemplateResult,
 } from 'lit';
+import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
@@ -57,16 +58,13 @@ export class PieCard extends LitElement implements CardProps {
      *
      * @private
      */
-    private renderAnchor (): TemplateResult {
+    private renderAnchor (classes: ClassInfo): TemplateResult {
         const paddingCSS = this.generatePaddingCSS();
 
         return html`
             <a
-                class="c-card"
+                class="${classMap(classes)}"
                 data-test-id="pie-card"
-                tag=${this.tag || 'a'}
-                ?isDraggable="${this.isDraggable}"
-                variant=${this.variant || 'default'}
                 ?disabled=${this.disabled}
                 href=${this.href || ''}
                 target=${this.target || nothing}
@@ -130,16 +128,19 @@ export class PieCard extends LitElement implements CardProps {
 
         const paddingCSS = this.generatePaddingCSS();
 
-        if (tag === 'a') return this.renderAnchor();
+        const classes = {
+            'c-card': true,
+            [`c-card--${variant}`]: true,
+            'c-card--draggable': isDraggable,
+            'c-card--disabled': disabled,
+        };
+
+        if (tag === 'a') return this.renderAnchor(classes);
 
         return html`
                 <div
-                    class="c-card"
+                    class="${classMap(classes)}"
                     data-test-id="pie-card"
-                    tag=${tag || 'button'}
-                    ?isDraggable="${isDraggable}"
-                    variant=${variant || 'default'}
-                    ?disabled=${disabled}
                     role="button"
                     tabindex="0"
                     aria-label=${aria?.label || nothing}

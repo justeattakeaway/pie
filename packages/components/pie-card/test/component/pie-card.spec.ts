@@ -1,4 +1,3 @@
-
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieCard, type CardProps } from '../../src/index.ts';
 import { tags, paddingValues } from '../../src/defs.ts';
@@ -137,29 +136,9 @@ test.describe('PieCard - Component tests', () => {
         });
     });
 
-    test('should add a variant attribute that matches the variant prop provided', async ({ mount, page }) => {
-        // Arrange
-        const variant = 'default';
-
-        await mount(PieCard, {
-            props: {
-                variant,
-            } as CardProps,
-            slots: {
-                default: slotContent,
-            },
-        });
-
-        // Act
-        const component = page.locator(componentSelector);
-
-        // Assert
-        await expect(component).toHaveAttribute('variant', variant);
-    });
-
     test.describe('Prop: `isDraggable`', () => {
         test.describe('when set to true', () => {
-            test('should set an attribute of `isDraggable`', async ({ mount, page }) => {
+            test('should set a class of `c-card--draggable`', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieCard, {
                     props: {
@@ -171,15 +150,14 @@ test.describe('PieCard - Component tests', () => {
                 });
 
                 const component = page.locator(componentSelector);
-                const componentAttribute = await component.getAttribute('isDraggable');
 
                 // Assert
-                expect(componentAttribute).toBeDefined();
+                expect(component).toHaveClass(/c-card--draggable/);
             });
         });
 
         test.describe('when set to false', () => {
-            test('should not set an attribute of `isDraggable`', async ({ mount, page }) => {
+            test('should not set a class of `c-card--draggable`', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieCard, {
                     props: {
@@ -192,10 +170,9 @@ test.describe('PieCard - Component tests', () => {
 
                 // Act
                 const component = page.locator(componentSelector);
-                const componentAttribute = await component.getAttribute('isDraggable');
 
                 // Assert
-                expect(componentAttribute).toBeNull();
+                expect(component).not.toHaveClass(/c-card--draggable/);
             });
         });
     });

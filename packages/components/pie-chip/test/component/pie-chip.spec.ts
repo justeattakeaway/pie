@@ -1,4 +1,3 @@
-
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieChip, type ChipProps } from '../../src/index.ts';
 import { ON_CHIP_CLOSE_EVENT } from '../../src/defs.ts';

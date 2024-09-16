@@ -2,9 +2,9 @@ import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/w
 import { getAllPropCombinations, splitCombinationsByPropertyValue } from '@justeattakeaway/pie-webc-testing/src/helpers/get-all-prop-combos.ts';
 import { type PropObject, type WebComponentPropValues } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
 import { PieButton } from '../../src/index.ts';
-import { sizes, variants } from '../../src/defs.ts';
+import { type ButtonProps, sizes, variants } from '../../src/defs.ts';
 
-const props: PropObject = {
+const props: PropObject<ButtonProps> = {
     variant: variants,
     size: sizes,
     type: 'button', // Changing the type does not affect the appearance of the button
