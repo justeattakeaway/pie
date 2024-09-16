@@ -4,12 +4,7 @@ import { action } from '@storybook/addon-actions';
 
 import '@justeattakeaway/pie-modal';
 import {
-    type PieModal,
-    type ModalProps as ModalPropsBase,
-    headingLevels,
-    sizes,
-    positions,
-    defaultProps,
+    type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, positions, defaultProps,
 } from '@justeattakeaway/pie-modal';
 
 import { type StoryMeta, type SlottedComponentProps } from '../types';

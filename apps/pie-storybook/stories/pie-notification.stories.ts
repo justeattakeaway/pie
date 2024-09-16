@@ -1,14 +1,11 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-
-/* eslint-disable import/no-duplicates */
-import '@justeattakeaway/pie-notification';
 import { action } from '@storybook/addon-actions';
+
+import '@justeattakeaway/pie-notification';
 import {
     type NotificationProps as NotificationBaseProps, variants, headingLevels, positions, defaultProps,
 } from '@justeattakeaway/pie-notification';
-/* eslint-enable import/no-duplicates */
-
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
 import { type StoryMeta } from '../types';

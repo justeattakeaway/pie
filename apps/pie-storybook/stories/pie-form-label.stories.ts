@@ -1,10 +1,8 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-form-label';
 import { type FormLabelProps as FormLabelPropsBase } from '@justeattakeaway/pie-form-label';
-/* eslint-enable import/no-duplicates */
 
 import { type SlottedComponentProps, type StoryMeta } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';

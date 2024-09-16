@@ -7,11 +7,11 @@ import '@justeattakeaway/pie-textarea';
 import {
     type TextareaProps, defaultProps, resizeModes, sizes, statusTypes,
 } from '@justeattakeaway/pie-textarea';
+import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-form-label';
 
 import { type StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
-import '@justeattakeaway/pie-button';
-import '@justeattakeaway/pie-form-label';
 
 type TextareaStoryMeta = StoryMeta<TextareaProps>;
 

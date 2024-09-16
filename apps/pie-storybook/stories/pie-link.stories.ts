@@ -3,8 +3,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 
 import '@justeattakeaway/pie-link';
 import {
-    type LinkProps as LinkBaseProps, sizes, variants,
-    iconPlacements, tags, buttonTypes, underlineTypes, defaultProps,
+    type LinkProps as LinkBaseProps, sizes, variants, iconPlacements, tags, buttonTypes, underlineTypes, defaultProps,
 } from '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 

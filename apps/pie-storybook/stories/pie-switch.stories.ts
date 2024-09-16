@@ -1,10 +1,8 @@
 import { html, nothing } from 'lit';
 import { action } from '@storybook/addon-actions';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-switch';
 import { type SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-switch';
-/* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
 import { type StoryMeta } from '../types';

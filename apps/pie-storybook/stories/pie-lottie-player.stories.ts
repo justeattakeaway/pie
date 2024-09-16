@@ -1,10 +1,9 @@
 import { html } from 'lit';
-/* eslint-disable import/no-duplicates */
+
 import '@justeattakeaway/pie-lottie-player';
 import {
     type LottiePlayerProps as LottiePlayerBaseProps, type PieLottiePlayer, defaultProps, directions,
 } from '@justeattakeaway/pie-lottie-player';
-/* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';

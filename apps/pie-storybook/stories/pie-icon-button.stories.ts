@@ -1,12 +1,10 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-icon-button';
 import {
     type IconButtonProps, sizes, variants, defaultProps,
 } from '@justeattakeaway/pie-icon-button';
-/* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 
 import { type StoryMeta } from '../types';
