@@ -34,12 +34,11 @@ export interface RadioProps {
     value: string;
 }
 
-export type DefaultProps = ComponentDefaultProps<RadioProps, keyof Omit<RadioProps, 'name'>>;
+export type DefaultProps = ComponentDefaultProps<RadioProps, keyof Omit<RadioProps, 'name' | 'value'>>;
 
 export const defaultProps: DefaultProps = {
     checked: false,
     defaultChecked: false,
     disabled: false,
     required: false,
-    value: 'on',
 };

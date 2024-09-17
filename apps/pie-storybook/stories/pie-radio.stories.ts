@@ -15,6 +15,7 @@ type RadioStoryMeta = Meta<RadioProps>;
 const defaultArgs: RadioProps = {
     ...defaultProps,
     slot: 'Label',
+    value: 'value',
 };
 
 const radioStoryMeta: RadioStoryMeta = {
@@ -69,6 +70,9 @@ const radioStoryMeta: RadioStoryMeta = {
         value: {
             description: 'The value of the radio (used as a key/value pair in HTML forms with `name`).',
             control: 'text',
+            defaultValue: {
+                summary: defaultArgs.value,
+            },
         },
     },
     args: defaultArgs,

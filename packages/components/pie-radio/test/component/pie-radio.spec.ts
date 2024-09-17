@@ -1,7 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieRadio } from '../../src/index.ts';
-import { defaultProps, type RadioProps } from '../../src/defs.ts';
+import { type RadioProps } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-radio"]';
 const inputSelector = 'input[type="radio"]';
@@ -19,7 +19,9 @@ test.describe('PieRadio - Component tests', () => {
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
         await mount(PieRadio, {
-            props: defaultProps,
+            props: {
+                value: 'value',
+            } as RadioProps,
             slots,
         });
 
@@ -35,7 +37,10 @@ test.describe('PieRadio - Component tests', () => {
             test('should check the radio when true', async ({ page, mount }) => {
                 // Arrange
                 await mount(PieRadio, {
-                    props: { checked: true },
+                    props: {
+                        checked: true,
+                        value: 'value',
+                    } as RadioProps,
                     slots,
                 });
 
@@ -49,7 +54,10 @@ test.describe('PieRadio - Component tests', () => {
             test('should not check the radio when false', async ({ page, mount }) => {
                 // Arrange
                 await mount(PieRadio, {
-                    props: { checked: false },
+                    props: {
+                        checked: false,
+                        value: 'value',
+                    } as RadioProps,
                     slots,
                 });
 
@@ -65,7 +73,10 @@ test.describe('PieRadio - Component tests', () => {
             test('should enable the radio when false', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieRadio, {
-                    props: { disabled: false },
+                    props: {
+                        disabled: false,
+                        value: 'value',
+                    } as RadioProps,
                     slots,
                 });
 
@@ -79,7 +90,10 @@ test.describe('PieRadio - Component tests', () => {
             test('should disable the radio when true', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieRadio, {
-                    props: { disabled: true },
+                    props: {
+                        disabled: true,
+                        value: 'value',
+                    } as RadioProps,
                     slots,
                 });
 
@@ -94,7 +108,11 @@ test.describe('PieRadio - Component tests', () => {
         test.describe('required', () => {
             test('should not add a required attribute if the prop is not provided', async ({ mount }) => {
                 // Arrange
-                const component = await mount(PieRadio);
+                const component = await mount(PieRadio, {
+                    props: {
+                        value: 'value',
+                    } as RadioProps,
+                });
 
                 // Act
                 const radio = component.locator(inputSelector);
@@ -106,7 +124,10 @@ test.describe('PieRadio - Component tests', () => {
             test('should apply the required attribute to the input element', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieRadio, {
-                    props: { required: true },
+                    props: {
+                        required: true,
+                        value: 'value',
+                    } as RadioProps,
                 });
 
                 // Act
