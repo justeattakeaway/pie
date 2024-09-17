@@ -1,14 +1,12 @@
 import { html } from 'lit';
+import { type Meta } from '@storybook/web-components';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-radio';
-import { RadioProps } from '@justeattakeaway/pie-radio';
-/* eslint-enable import/no-duplicates */
+import { type RadioProps } from '@justeattakeaway/pie-radio';
 
-import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
 
-type RadioStoryMeta = StoryMeta<RadioProps>;
+type RadioStoryMeta = Meta<RadioProps>;
 
 const defaultArgs: RadioProps = {};
 

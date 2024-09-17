@@ -2,6 +2,7 @@ import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { useArgs as UseArgs } from '@storybook/preview-api';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-text-input';
 import {
@@ -17,7 +18,6 @@ import '@justeattakeaway/pie-icons-webc/dist/IconUser.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconNumberSymbol.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconKey.js';
 
-import { type StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
 // Extending the props type definition to include storybook specific properties for controls
@@ -26,7 +26,7 @@ type TextInputProps = TextInputPropsBase & {
     trailingSlot: keyof typeof trailingSlotOptions;
 };
 
-type TextInputStoryMeta = StoryMeta<TextInputProps>;
+type TextInputStoryMeta = Meta<TextInputProps>;
 
 const defaultArgs: TextInputProps = {
     ...defaultProps,
