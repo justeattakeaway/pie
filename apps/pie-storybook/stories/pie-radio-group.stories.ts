@@ -3,10 +3,10 @@ import { html } from 'lit';
 import '@justeattakeaway/pie-radio-group';
 import { type RadioGroupProps } from '@justeattakeaway/pie-radio-group';
 
-import { type StoryMeta } from '../types';
+import { type Meta } from '../types';
 import { createStory } from '../utilities';
 
-type RadioGroupStoryMeta = StoryMeta<RadioGroupProps>;
+type RadioGroupStoryMeta = Meta<RadioGroupProps>;
 
 const defaultArgs: RadioGroupProps = {};
 

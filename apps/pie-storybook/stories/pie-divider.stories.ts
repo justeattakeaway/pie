@@ -1,17 +1,15 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-divider';
 import {
     type DividerProps, variants, orientations, defaultProps,
 } from '@justeattakeaway/pie-divider';
-/* eslint-enable import/no-duplicates */
 
-import { type StoryMeta } from '../types';
+import { type Meta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
-type DividerStoryMeta = StoryMeta<DividerProps>;
+type DividerStoryMeta = Meta<DividerProps>;
 
 const defaultArgs: DividerProps = { ...defaultProps };
 
@@ -68,4 +66,3 @@ export const Default = createDividerStory();
 export const Inverse = createDividerStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
 export const Labelled = createDividerStory({ label: 'Label' });
 export const LargeTextContent = createDividerStory({ label: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quas inventore quasi ullam, sed ab odio dicta, tempore' });
-

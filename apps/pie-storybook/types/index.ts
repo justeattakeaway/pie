@@ -1,2 +1,2 @@
 export * from './SlottedComponentProps';
-export * from './StoryMeta';
+export { Meta } from '@storybook/web-components';

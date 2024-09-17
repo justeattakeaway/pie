@@ -2,18 +2,16 @@ import { nothing } from 'lit';
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-card';
 import {
-    CardProps as CardPropsBase, variants, tags, paddingValues, defaultProps,
+    type CardProps as CardPropsBase, variants, tags, paddingValues, defaultProps,
 } from '@justeattakeaway/pie-card';
-/* eslint-enable import/no-duplicates */
 
-import type { StoryMeta, SlottedComponentProps } from '../types';
+import { type Meta, type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type CardProps = SlottedComponentProps<CardPropsBase>;
-type CardStoryMeta = StoryMeta<CardProps>;
+type CardStoryMeta = Meta<CardProps>;
 
 const defaultArgs: CardProps = {
     ...defaultProps,

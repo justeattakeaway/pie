@@ -1,11 +1,10 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-/* eslint-disable import/no-duplicates */
-import '@justeattakeaway/pie-checkbox-group';
-import { CheckboxGroupProps as CheckboxGroupBase, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox-group';
-/* eslint-enable import/no-duplicates */
 
-import { type StoryMeta } from '../types';
+import '@justeattakeaway/pie-checkbox-group';
+import { type CheckboxGroupProps as CheckboxGroupBase, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox-group';
+
+import { type Meta } from '../types';
 import { createStory } from '../utilities';
 
 import '@justeattakeaway/pie-link';
@@ -17,7 +16,7 @@ type CheckboxGroupProps = CheckboxGroupBase & {
     labelSlot: keyof typeof labelSlotOptions;
 };
 
-type CheckboxGroupStoryMeta = StoryMeta<CheckboxGroupProps>;
+type CheckboxGroupStoryMeta = Meta<CheckboxGroupProps>;
 
 const defaultArgs: CheckboxGroupProps = {
     ...defaultProps,

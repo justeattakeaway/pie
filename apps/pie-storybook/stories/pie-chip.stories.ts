@@ -2,17 +2,15 @@ import { html, nothing } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-chip';
-import { ChipProps as ChipPropsBase, variants, defaultProps } from '@justeattakeaway/pie-chip';
-/* eslint-enable import/no-duplicates */
+import { type ChipProps as ChipPropsBase, variants, defaultProps } from '@justeattakeaway/pie-chip';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
-import type { StoryMeta, SlottedComponentProps } from '../types';
+import { type Meta, type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type ChipProps = SlottedComponentProps<ChipPropsBase> & { showIcon: boolean };
-type ChipStoryMeta = StoryMeta<ChipProps>;
+type ChipStoryMeta = Meta<ChipProps>;
 
 const defaultArgs: ChipProps = {
     ...defaultProps,

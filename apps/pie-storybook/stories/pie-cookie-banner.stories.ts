@@ -5,10 +5,10 @@ import '@justeattakeaway/pie-cookie-banner';
 import { type CookieBannerProps, defaultProps } from '@justeattakeaway/pie-cookie-banner';
 import pieCookieBannerLocales from '@justeattakeaway/pie-cookie-banner/locales';
 
-import { type StoryMeta } from '../types';
+import { type Meta } from '../types';
 import { createStory } from '../utilities';
 
-type CookieBannerStoryMeta = StoryMeta<CookieBannerProps>;
+type CookieBannerStoryMeta = Meta<CookieBannerProps>;
 
 const defaultArgs: CookieBannerProps = {
     ...defaultProps,

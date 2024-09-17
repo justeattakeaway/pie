@@ -17,7 +17,7 @@ import '@justeattakeaway/pie-icons-webc/dist/IconUser.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconNumberSymbol.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconKey.js';
 
-import { type StoryMeta } from '../types';
+import { type Meta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
 // Extending the props type definition to include storybook specific properties for controls
@@ -26,7 +26,7 @@ type TextInputProps = TextInputPropsBase & {
     trailingSlot: keyof typeof trailingSlotOptions;
 };
 
-type TextInputStoryMeta = StoryMeta<TextInputProps>;
+type TextInputStoryMeta = Meta<TextInputProps>;
 
 const defaultArgs: TextInputProps = {
     ...defaultProps,

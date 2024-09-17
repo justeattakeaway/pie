@@ -1,16 +1,15 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-/* eslint-disable import/no-duplicates */
+
 import '@justeattakeaway/pie-checkbox';
 import { type CheckboxProps as CheckboxBaseProps, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox';
-/* eslint-enable import/no-duplicates */
 
 import { action } from '@storybook/addon-actions';
-import { type StoryMeta, type SlottedComponentProps } from '../types';
+import { type Meta, type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type CheckboxProps = SlottedComponentProps<CheckboxBaseProps>;
-type CheckboxStoryMeta = StoryMeta<CheckboxProps>;
+type CheckboxStoryMeta = Meta<CheckboxProps>;
 
 const defaultArgs: CheckboxProps = {
     ...defaultProps,

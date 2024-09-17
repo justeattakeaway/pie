@@ -1,16 +1,15 @@
 import { html } from 'lit';
-/* eslint-disable import/no-duplicates */
+
 import '@justeattakeaway/pie-lottie-player';
 import {
     type LottiePlayerProps as LottiePlayerBaseProps, PieLottiePlayer, defaultProps, directions,
 } from '@justeattakeaway/pie-lottie-player';
-/* eslint-enable import/no-duplicates */
 
-import { type StoryMeta } from '../types';
+import { type Meta } from '../types';
 import { createStory } from '../utilities';
 
 type LottiePlayerProps = Omit<LottiePlayerBaseProps, 'play' | 'stop'>
-type LottiePlayerStoryMeta = StoryMeta<LottiePlayerProps>;
+type LottiePlayerStoryMeta = Meta<LottiePlayerProps>;
 
 const defaultArgs: LottiePlayerProps = { ...defaultProps };
 

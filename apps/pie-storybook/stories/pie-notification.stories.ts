@@ -1,17 +1,15 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-notification';
 import { action } from '@storybook/addon-actions';
 import {
-    NotificationProps as NotificationBaseProps, variants, headingLevels, positions, defaultProps,
+    type NotificationProps as NotificationBaseProps, variants, headingLevels, positions, defaultProps,
 } from '@justeattakeaway/pie-notification';
-/* eslint-enable import/no-duplicates */
 
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
-import { type StoryMeta } from '../types';
+import { type Meta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
 // Extending the props type definition to include storybook specific properties for controls
@@ -20,7 +18,7 @@ type NotificationProps = NotificationBaseProps & {
     iconSlot: keyof typeof slotOptions;
 };
 
-type NotificationStoryMeta = StoryMeta<NotificationProps>;
+type NotificationStoryMeta = Meta<NotificationProps>;
 
 const defaultArgs: NotificationProps = {
     ...defaultProps,
@@ -189,4 +187,3 @@ export const Info = createNotificationStory({ variant: 'info' });
 export const Success = createNotificationStory({ variant: 'success' });
 export const Error = createNotificationStory({ variant: 'error' });
 export const Warning = createNotificationStory({ variant: 'warning' });
-

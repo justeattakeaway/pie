@@ -7,11 +7,11 @@ import {
 } from '@justeattakeaway/pie-tag';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
-import { type StoryMeta, type SlottedComponentProps } from '../types';
+import { type Meta, type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type TagProps = SlottedComponentProps<TagBaseProps> & { showIcon: boolean };
-type TagStoryMeta = StoryMeta<TagProps>;
+type TagStoryMeta = Meta<TagProps>;
 
 const defaultArgs: TagProps = {
     ...defaultProps,

@@ -1,15 +1,13 @@
 import { html, nothing } from 'lit';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-form-label';
-import { FormLabelProps as FormLabelPropsBase } from '@justeattakeaway/pie-form-label';
-/* eslint-enable import/no-duplicates */
+import { type FormLabelProps as FormLabelPropsBase } from '@justeattakeaway/pie-form-label';
 
-import { SlottedComponentProps, type StoryMeta } from '../types';
+import { type Meta, type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type FormLabelProps = SlottedComponentProps<FormLabelPropsBase>;
-type FormLabelStoryMeta = StoryMeta<FormLabelProps>;
+type FormLabelStoryMeta = Meta<FormLabelProps>;
 
 const defaultArgs: FormLabelProps = {
     for: 'form-label',

@@ -3,19 +3,17 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { useArgs as UseArgs } from '@storybook/preview-api';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-textarea';
 import {
     type TextareaProps, defaultProps, resizeModes, sizes, statusTypes,
 } from '@justeattakeaway/pie-textarea';
-/* eslint-enable import/no-duplicates */
 
-import { type StoryMeta } from '../types';
+import { type Meta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-form-label';
 
-type TextareaStoryMeta = StoryMeta<TextareaProps>;
+type TextareaStoryMeta = Meta<TextareaProps>;
 
 const defaultArgs: TextareaProps = { ...defaultProps, name: 'testName' };
 
