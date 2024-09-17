@@ -1,15 +1,15 @@
 import { html } from 'lit';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-lottie-player';
 import {
     type LottiePlayerProps as LottiePlayerBaseProps, type PieLottiePlayer, defaultProps, directions,
 } from '@justeattakeaway/pie-lottie-player';
 
-import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
 
 type LottiePlayerProps = Omit<LottiePlayerBaseProps, 'play' | 'stop'>
-type LottiePlayerStoryMeta = StoryMeta<LottiePlayerProps>;
+type LottiePlayerStoryMeta = Meta<LottiePlayerProps>;
 
 const defaultArgs: LottiePlayerProps = { ...defaultProps };
 

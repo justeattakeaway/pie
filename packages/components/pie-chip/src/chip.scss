@@ -75,7 +75,7 @@
         // same as default styles
     }
 
-    &.c-chip--outline:not([disabled], .c-chip--selected, .is-loading) {
+    &.c-chip--outline:not([disabled], .c-chip--selected) {
         --chip-border-color: var(--dt-color-border-strong);
     }
 
@@ -128,6 +128,10 @@
     &[disabled] {
         --chip-bg-color: var(--dt-color-disabled-01);
         --chip-color: var(--dt-color-content-disabled);
+
+        &.c-chip--ghost {
+            --chip-bg-color: transparent;
+        }
 
         cursor: not-allowed;
     }

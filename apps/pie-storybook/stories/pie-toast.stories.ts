@@ -1,13 +1,13 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
+import { type Meta } from '@storybook/web-components';
 
 import { type ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
 
-import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
 
-type ToastStoryMeta = StoryMeta<ToastProps>;
+type ToastStoryMeta = Meta<ToastProps>;
 
 const defaultArgs: ToastProps = {
     ...defaultProps,

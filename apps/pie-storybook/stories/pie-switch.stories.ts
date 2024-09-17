@@ -1,14 +1,14 @@
 import { html, nothing } from 'lit';
 import { action } from '@storybook/addon-actions';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-switch';
 import { type SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-switch';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
-import { type StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
-type SwitchStoryMeta = StoryMeta<SwitchProps>;
+type SwitchStoryMeta = Meta<SwitchProps>;
 
 const defaultArgs: SwitchProps = {
     ...defaultProps,

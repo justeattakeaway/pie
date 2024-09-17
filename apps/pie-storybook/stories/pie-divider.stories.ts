@@ -1,15 +1,15 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-divider';
 import {
     type DividerProps, variants, orientations, defaultProps,
 } from '@justeattakeaway/pie-divider';
 
-import { type StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
-type DividerStoryMeta = StoryMeta<DividerProps>;
+type DividerStoryMeta = Meta<DividerProps>;
 
 const defaultArgs: DividerProps = { ...defaultProps };
 
