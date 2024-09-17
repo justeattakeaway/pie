@@ -49,6 +49,7 @@ export interface CookieBannerProps {
      * When true, sets the variant to "primary" for the button which accepts necessary cookies only.
      */
     hasPrimaryActionsOnly: boolean;
+
     /**
      * Assigns the data for localising the component strings
      */

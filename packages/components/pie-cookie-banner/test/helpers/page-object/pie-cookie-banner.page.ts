@@ -1,11 +1,8 @@
 import { type Locator, type Page } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
-import {
-    cookieBanner,
-} from './selectors.ts';
-import {
-    PreferenceIds,
-} from '../../../src/defs.ts';
+
+import { cookieBanner } from './selectors.ts';
+import { type PreferenceIds } from '../../../src/defs.ts';
 
 const getPreferenceItemSelector = (id: PreferenceIds) => `#${id} [data-test-id="switch-component"]`;
 
