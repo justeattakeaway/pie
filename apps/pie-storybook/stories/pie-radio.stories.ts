@@ -1,14 +1,16 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-radio';
 import { type RadioProps as RadioBaseProps, defaultProps } from '@justeattakeaway/pie-radio';
 
-import { type StoryMeta, type SlottedComponentProps } from '../types';
+import { type SlottedComponentProps } from '../types';
+
 import { createStory } from '../utilities';
 
 type RadioProps = SlottedComponentProps<RadioBaseProps>;
-type RadioStoryMeta = StoryMeta<RadioProps>;
+type RadioStoryMeta = Meta<RadioProps>;
 
 const defaultArgs: RadioProps = {
     ...defaultProps,

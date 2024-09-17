@@ -14,6 +14,4 @@ window.addEventListener('DOMContentLoaded', () => {
             item.setAttribute('data-title', textContent);
         }
     });
-
-    list[0].style.setProperty('--column-count', columns);
 });

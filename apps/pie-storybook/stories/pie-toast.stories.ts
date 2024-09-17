@@ -1,10 +1,12 @@
 import { html } from 'lit';
-import { ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
 import { action } from '@storybook/addon-actions';
-import { type StoryMeta } from '../types';
+import { type Meta } from '@storybook/web-components';
+
+import { type ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
+
 import { createStory } from '../utilities';
 
-type ToastStoryMeta = StoryMeta<ToastProps>;
+type ToastStoryMeta = Meta<ToastProps>;
 
 const defaultArgs: ToastProps = {
     ...defaultProps,
@@ -91,12 +93,12 @@ const Template = ({
     isStrong,
     variant,
 }: ToastProps) => html`
-    <pie-toast 
-        ?isOpen="${isOpen}" 
-        ?isDismissible="${isDismissible}" 
+    <pie-toast
+        ?isOpen="${isOpen}"
+        ?isDismissible="${isDismissible}"
         ?isStrong="${isStrong}"
         variant="${variant}"
-        message="${message}" 
+        message="${message}"
         ?isMultiline="${isMultiline}"
         .leadingAction="${leadingAction}"
         @pie-toast-leading-action-click="${pieToastLeadingActionClick}"

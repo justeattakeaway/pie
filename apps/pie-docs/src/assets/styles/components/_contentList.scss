@@ -13,14 +13,14 @@ $tooltip-border-radius: 100px;
     max-width: $contentList-maxWidth;
 
     ol {
-        column-width: $contentList-column-width 1;
         column-gap: var(--dt-spacing-f);
         padding: 0;
         column-fill: auto;
+        column-count: 1;
 
         @include f.media('>=mid') {
             max-height: $contentList-maxHeight;
-            column-count: var(--column-count);
+            column-count: 3;
         }
     }
 
