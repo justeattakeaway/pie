@@ -1,15 +1,15 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { action } from '@storybook/addon-actions';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-notification';
-import { action } from '@storybook/addon-actions';
 import {
     type NotificationProps as NotificationBaseProps, variants, headingLevels, positions, defaultProps,
 } from '@justeattakeaway/pie-notification';
 
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
-import { type Meta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
 // Extending the props type definition to include storybook specific properties for controls

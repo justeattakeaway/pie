@@ -1,9 +1,9 @@
 import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
+import { type Meta } from '@storybook/web-components';
 
 import { type ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
 
-import { type Meta } from '../types';
 import { createStory } from '../utilities';
 
 type ToastStoryMeta = Meta<ToastProps>;

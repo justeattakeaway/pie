@@ -1,12 +1,12 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-spinner';
 import {
     type SpinnerProps, sizes, variants, defaultProps,
 } from '@justeattakeaway/pie-spinner';
 
-import { type Meta } from '../types';
 import { type TemplateFunction, createStory } from '../utilities';
 
 type SpinnerStoryMeta = Meta<SpinnerProps>;

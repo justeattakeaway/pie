@@ -1,9 +1,11 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { type Meta } from '@storybook/web-components';
+
 import '@justeattakeaway/pie-assistive-text';
 import { type AssistiveTextProps as AssistiveTextBaseProps, variants, defaultProps } from '@justeattakeaway/pie-assistive-text';
 
-import { type Meta, type SlottedComponentProps } from '../types';
+import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type AssistiveTextProps = SlottedComponentProps<AssistiveTextBaseProps>;

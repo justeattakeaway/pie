@@ -1,5 +1,6 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-icon-button';
 import {
@@ -7,7 +8,6 @@ import {
 } from '@justeattakeaway/pie-icon-button';
 import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 
-import { type Meta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
 type IconButtonStoryMeta = Meta<IconButtonProps>;

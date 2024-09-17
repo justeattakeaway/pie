@@ -1,13 +1,14 @@
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-modal';
 import {
     type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, positions, defaultProps,
 } from '@justeattakeaway/pie-modal';
 
-import { type Meta, type SlottedComponentProps } from '../types';
+import { type SlottedComponentProps } from '../types';
 import { createStory, sanitizeAndRenderHTML } from '../utilities';
 
 type ModalProps = SlottedComponentProps<ModalPropsBase>;

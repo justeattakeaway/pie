@@ -1,15 +1,14 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-checkbox-group';
 import { type CheckboxGroupProps as CheckboxGroupBase, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox-group';
-
-import { type Meta } from '../types';
-import { createStory } from '../utilities';
-
 import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-checkbox';
 import '@justeattakeaway/pie-form-label';
+
+import { createStory } from '../utilities';
 
 // Extending the props type definition to include storybook specific properties for controls
 type CheckboxGroupProps = CheckboxGroupBase & {

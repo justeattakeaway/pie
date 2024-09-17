@@ -1,9 +1,9 @@
 import { html } from 'lit';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-radio';
 import { type RadioProps } from '@justeattakeaway/pie-radio';
 
-import { type Meta } from '../types';
 import { createStory } from '../utilities';
 
 type RadioStoryMeta = Meta<RadioProps>;
