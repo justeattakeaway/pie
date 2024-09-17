@@ -1,6 +1,4 @@
-@use '@justeattakeaway/pie-css/scss' as p;
 @use '@justeattakeaway/pie-css/scss/settings' as *;
-@use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
 @use 'dialog-polyfill/dist/dialog-polyfill.css';
 
 .c-modal {
@@ -22,7 +20,6 @@
 
     // We need to override the icon sizes at different screen sizes regardless of size prop passed in
     pie-icon-button {
-
         @include media('<md') {
             --btn-dimension: 40px;
         }
@@ -117,10 +114,8 @@
         }
     }
 
-    // We need to pull in the token directly here because the
-    // pseudo element `::backdrop` doesn't seem to pick up custom css properties.
     &::backdrop {
-        background: #{dt.$color-overlay};
+        background: var(--dt-color-overlay);
     }
 
     & .c-modal-footer {
