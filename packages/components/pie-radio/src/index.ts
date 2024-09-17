@@ -37,6 +37,14 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
     @query('input[type="radio"]')
     private radio!: HTMLInputElement;
 
+    /**
+     * (Read-only) returns a ValidityState with the validity states that this element is in.
+     * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
+     */
+    public get validity () : ValidityState {
+        return this.radio.validity;
+    }
+
     render () {
         const {
             checked, disabled, name, required, value,
@@ -55,10 +63,6 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
         <label for="radioId">
             <slot></slot>
         </label>`;
-    }
-
-    public get validity () : ValidityState {
-        return this.radio.validity;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
