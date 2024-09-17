@@ -42,8 +42,8 @@
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-icon-button": "0.28.12",
-    "@justeattakeaway/pie-icons-webc": "0.25.1",
+    "@justeattakeaway/pie-icon-button": "0.1.0",
+    "@justeattakeaway/pie-icons-webc": "0.11.1",
     "@justeattakeaway/pie-webc-core": "0.24.0"
   },
   "volta": {
