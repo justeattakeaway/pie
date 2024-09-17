@@ -2,7 +2,9 @@ import { LitElement, html, unsafeCSS } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
-import { defineCustomElement, FormControlMixin, RtlMixin } from '@justeattakeaway/pie-webc-core';
+import {
+    defineCustomElement, FormControlMixin, requiredProperty, RtlMixin,
+} from '@justeattakeaway/pie-webc-core';
 
 import styles from './radio.scss?inline';
 import { type RadioProps, defaultProps } from './defs';
@@ -32,7 +34,8 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
     public required = defaultProps.required;
 
     @property({ type: String })
-    public value = defaultProps.value;
+    @requiredProperty(componentSelector)
+    public value!: RadioProps['value'];
 
     @query('input[type="radio"]')
     private radio!: HTMLInputElement;
