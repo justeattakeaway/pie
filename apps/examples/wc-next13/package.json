@@ -1,7 +1,7 @@
 {
   "name": "wc-next13",
   "private": true,
-  "version": "0.4.19",
+  "version": "0.4.20",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-css": "0.12.1",
-    "@justeattakeaway/pie-webc": "0.5.33",
+    "@justeattakeaway/pie-webc": "0.5.34",
     "@lit-labs/nextjs": "0.2.0",
     "@lit/react": "1.0.5",
     "next": "13.5.5",

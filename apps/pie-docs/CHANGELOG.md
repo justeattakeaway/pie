@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.8.0
+
+### Minor Changes
+
+- [Removed] - Banner component from pie docs ([#1899](https://github.com/justeattakeaway/pie/pull/1899)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 4.7.0
 
 ### Minor Changes

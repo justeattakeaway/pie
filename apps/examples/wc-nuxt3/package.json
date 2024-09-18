@@ -1,6 +1,6 @@
 {
   "name": "wc-nuxt3",
-  "version": "0.6.20",
+  "version": "0.6.21",
   "private": true,
   "scripts": {
     "build:examples": "nuxt build",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-css": "0.12.1",
-    "@justeattakeaway/pie-webc": "0.5.33",
+    "@justeattakeaway/pie-webc": "0.5.34",
     "nuxt-ssr-lit": "1.6.5"
   },
   "devDependencies": {
