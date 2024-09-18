@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-css": "0.12.1",
-    "@justeattakeaway/pie-webc": "0.5.33",
+    "@justeattakeaway/pie-webc": "0.1.0",
     "@lit/react": "1.0.2",
     "next": "10.2.3",
-    "next-transpile-modules": "4.1.0",
+    "next-transpile-modules": "5.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
