@@ -7,7 +7,7 @@ import { type RadioProps as RadioBaseProps, defaultProps } from '@justeattakeawa
 
 import { type SlottedComponentProps } from '../types';
 
-import { createStory } from '../utilities';
+import { createStory, sanitizeAndRenderHTML } from '../utilities';
 
 type RadioProps = SlottedComponentProps<RadioBaseProps>;
 type RadioStoryMeta = Meta<RadioProps>;
@@ -96,7 +96,7 @@ const Template = ({
         ?required="${required}"
         name="${ifDefined(name)}"
         .value="${value}">
-        ${slot}
+        ${sanitizeAndRenderHTML(slot)}
     </pie-radio>
 `;
 

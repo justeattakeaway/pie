@@ -1,4 +1,3 @@
-
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieRadio } from '../../src/index.ts';
 import { type RadioProps } from '../../src/defs.ts';
@@ -167,9 +166,11 @@ test.describe('PieRadio - Component tests', () => {
                 // Act
                 await component.locator(inputSelector).click();
                 const isValid = await page.evaluate(() => document.querySelector('pie-radio')?.validity.valid);
+                const isValueMissing = await page.evaluate(() => document.querySelector('pie-radio')?.validity.valueMissing);
 
                 // Assert
                 expect(isValid).toBe(true);
+                expect(isValueMissing).toBe(false);
             });
 
             test('should be in an invalid state if the radio is required but unchecked', async ({ mount, page }) => {
@@ -184,9 +185,11 @@ test.describe('PieRadio - Component tests', () => {
 
                 // Act
                 const isValid = await page.evaluate(() => document.querySelector('pie-radio')?.validity.valid);
+                const isValueMissing = await page.evaluate(() => document.querySelector('pie-radio')?.validity.valueMissing);
 
                 // Assert
                 expect(isValid).toBe(false);
+                expect(isValueMissing).toBe(true);
             });
 
             test('should be in a valid state if the radio is checked but not required', async ({ mount, page }) => {
@@ -201,9 +204,11 @@ test.describe('PieRadio - Component tests', () => {
 
                 // Act
                 const isValid = await page.evaluate(() => document.querySelector('pie-radio')?.validity.valid);
+                const isValueMissing = await page.evaluate(() => document.querySelector('pie-radio')?.validity.valueMissing);
 
                 // Assert
                 expect(isValid).toBe(true);
+                expect(isValueMissing).toBe(false);
             });
 
             test('should be in a valid state if the radio is unchecked and not required', async ({ mount, page }) => {
@@ -218,9 +223,11 @@ test.describe('PieRadio - Component tests', () => {
 
                 // Act
                 const isValid = await page.evaluate(() => document.querySelector('pie-radio')?.validity.valid);
+                const isValueMissing = await page.evaluate(() => document.querySelector('pie-radio')?.validity.valueMissing);
 
                 // Assert
                 expect(isValid).toBe(true);
+                expect(isValueMissing).toBe(false);
             });
         });
     });
