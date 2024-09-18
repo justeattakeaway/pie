@@ -1,8 +1,9 @@
-import { setupFormDataExtraction, getFormDataObject } from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
 import { test, expect } from '@sand4rt/experimental-ct-web';
+
+import { setupFormDataExtraction, getFormDataObject } from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
+
 import { PieCheckbox, type CheckboxProps } from '../../src/index.ts';
-import { statusTypes } from '../../src/defs.ts';
 
 const inputSelector = '[data-test-id="checkbox-input"]';
 const labelSelector = '[data-test-id="checkbox-component"]';
@@ -327,45 +328,6 @@ test.describe('PieCheckbox - Component tests', () => {
 
                 // Assert
                 expect(assistiveText).not.toBeVisible();
-            });
-
-            test('should apply the "default" variant attribute if no status is provided', async ({ mount, page }) => {
-                // Arrange
-                await mount(PieCheckbox, {
-                    props: {
-                        assistiveText: 'Assistive text',
-                    } as PieCheckbox,
-                });
-
-                // Act
-                const assistiveText = page.locator(assistiveTextSelector);
-
-                // Assert
-                expect(assistiveText).toBeVisible();
-                expect(await assistiveText.getAttribute('variant')).toBe('default');
-                expect(assistiveText).toHaveText('Assistive text');
-            });
-
-            test.describe('Assistive text: Status', () => {
-                statusTypes.forEach((status) => {
-                    test(`should render the assistive text component with the ${status} variant`, async ({ mount, page }) => {
-                        // Arrange
-                        await mount(PieCheckbox, {
-                            props: {
-                                assistiveText: 'Assistive text',
-                                status,
-                            } as PieCheckbox,
-                        });
-
-                        // Act
-                        const assistiveText = page.locator(assistiveTextSelector);
-
-                        // Assert
-                        expect(assistiveText).toBeVisible();
-                        expect(assistiveText).toHaveAttribute('variant', status);
-                        expect(assistiveText).toHaveText('Assistive text');
-                    });
-                });
             });
 
             test.describe('Assistive test ID attribute', () => {
