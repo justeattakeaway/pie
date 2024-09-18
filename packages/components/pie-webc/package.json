@@ -253,9 +253,9 @@
     "@justeattakeaway/pie-checkbox": "0.12.3",
     "@justeattakeaway/pie-checkbox-group": "0.7.0",
     "@justeattakeaway/pie-chip": "0.8.3",
-    "@justeattakeaway/pie-cookie-banner": "0.26.4",
+    "@justeattakeaway/pie-cookie-banner": "0.1.0",
     "@justeattakeaway/pie-divider": "0.14.0",
-    "@justeattakeaway/pie-form-label": "0.14.1",
+    "@justeattakeaway/pie-form-label": "0.0.0",
     "@justeattakeaway/pie-icon-button": "0.28.12",
     "@justeattakeaway/pie-link": "0.18.0",
     "@justeattakeaway/pie-lottie-player": "0.0.2",
@@ -265,10 +265,10 @@
     "@justeattakeaway/pie-radio-group": "0.1.0",
     "@justeattakeaway/pie-spinner": "0.7.0",
     "@justeattakeaway/pie-switch": "0.30.1",
-    "@justeattakeaway/pie-tag": "0.10.0",
+    "@justeattakeaway/pie-tag": "0.0.0",
     "@justeattakeaway/pie-text-input": "0.24.0",
-    "@justeattakeaway/pie-textarea": "0.10.0",
-    "@justeattakeaway/pie-toast": "0.3.3"
+    "@justeattakeaway/pie-textarea": "0.0.0",
+    "@justeattakeaway/pie-toast": "0.0.0"
   },
   "volta": {
     "extends": "../../../package.json"
