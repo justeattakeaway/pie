@@ -6,7 +6,7 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-text-input';
 import {
-    type TextInputProps as TextInputPropsBase, defaultProps, inputModes, sizes, statusTypes, types,
+    type TextInputProps as TextInputPropsBase, types, inputModes, statusTypes, sizes, defaultProps,
 } from '@justeattakeaway/pie-text-input';
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-form-label';

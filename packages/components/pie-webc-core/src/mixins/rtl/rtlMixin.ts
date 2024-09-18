@@ -1,6 +1,5 @@
-/* eslint-disable max-classes-per-file */
 import { type LitElement, isServer } from 'lit';
-import type { GenericConstructor } from '../types/GenericConstructor';
+import { type GenericConstructor } from '../types/GenericConstructor';
 
 /**
  * An interface representing the structure of RTL related class.

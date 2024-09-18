@@ -7,6 +7,7 @@ import '@justeattakeaway/pie-notification';
 import {
     type NotificationProps as NotificationBaseProps, variants, headingLevels, positions, defaultProps,
 } from '@justeattakeaway/pie-notification';
+
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
 import { createStory, type TemplateFunction } from '../utilities';

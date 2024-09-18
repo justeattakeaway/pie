@@ -15,17 +15,17 @@ import { defineCustomElement, dispatchCustomEvent } from '@justeattakeaway/pie-w
 
 import styles from './cookie-banner.scss?inline';
 import {
+    type CookieBannerProps,
     ON_COOKIE_BANNER_ACCEPT_ALL,
     ON_COOKIE_BANNER_NECESSARY_ONLY,
     ON_COOKIE_BANNER_MANAGE_PREFS,
     ON_COOKIE_BANNER_PREFS_SAVED,
     defaultProps,
     preferences,
-    type CookieBannerLocale,
-    type CookieBannerProps,
-    type CustomTagEnhancers,
     type Preference,
     type PreferenceIds,
+    type CookieBannerLocale,
+    type CustomTagEnhancers,
 } from './defs';
 
 import { localiseText, localiseRichText } from './localisation-utils';

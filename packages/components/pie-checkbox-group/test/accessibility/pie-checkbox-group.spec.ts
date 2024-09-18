@@ -1,4 +1,3 @@
-
 import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/webc-fixtures.ts';
 import { PieCheckboxGroup, type CheckboxGroupProps } from '../../src/index.ts';
 

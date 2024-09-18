@@ -1,4 +1,3 @@
-
 import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/webc-fixtures.ts';
 import { PieNotification, type NotificationProps } from '../../src/index.ts';
 

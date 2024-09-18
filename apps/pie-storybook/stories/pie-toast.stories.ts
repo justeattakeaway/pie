@@ -1,5 +1,4 @@
 import { html } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { type Meta } from '@storybook/web-components';
 
@@ -83,6 +82,8 @@ const pieToastSupportingActionClick = action('pie-toast-supporting-action-click'
 const pieToastClose = action('pie-toast-close');
 const pieToastOpen = action('pie-toast-open');
 
+// TODO: remove the eslint-disable rule when props are added
+// eslint-disable-next-line no-empty-pattern
 const Template = ({
     isOpen,
     isDismissible,
@@ -96,7 +97,7 @@ const Template = ({
         ?isOpen="${isOpen}"
         ?isDismissible="${isDismissible}"
         ?isStrong="${isStrong}"
-        variant="${ifDefined(variant)}"
+        variant="${variant}"
         message="${message}"
         ?isMultiline="${isMultiline}"
         .leadingAction="${leadingAction}"

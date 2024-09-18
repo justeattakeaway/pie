@@ -12,11 +12,11 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
 import styles from './checkbox-group.scss?inline';
 import {
+    ON_CHECKBOX_GROUP_DISABLED,
+    ON_CHECKBOX_GROUP_ERROR,
     type CheckboxGroupProps,
     defaultProps,
     statusTypes,
-    ON_CHECKBOX_GROUP_DISABLED,
-    ON_CHECKBOX_GROUP_ERROR,
 } from './defs';
 import '@justeattakeaway/pie-assistive-text';
 

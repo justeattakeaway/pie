@@ -7,7 +7,14 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './link.scss?inline';
 import {
-    type LinkProps, buttonTypes, defaultProps, iconPlacements, sizes, tags, underlineTypes, variants,
+    type LinkProps,
+    variants,
+    sizes,
+    iconPlacements,
+    tags,
+    buttonTypes,
+    underlineTypes,
+    defaultProps,
 } from './defs';
 
 // Valid values available to consumers

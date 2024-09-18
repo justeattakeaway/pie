@@ -1,8 +1,6 @@
-import { test, expect } from '@sand4rt/experimental-ct-web';
-
 import { setupFormDataExtraction, getFormDataObject } from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
+import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
-
 import { PieCheckbox, type CheckboxProps } from '../../src/index.ts';
 
 const inputSelector = '[data-test-id="checkbox-input"]';

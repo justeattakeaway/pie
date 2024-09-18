@@ -1,4 +1,3 @@
-
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieRadio, type RadioProps } from '../../src/index.ts';
 

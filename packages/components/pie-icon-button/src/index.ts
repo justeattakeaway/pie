@@ -1,15 +1,13 @@
 import {
-    LitElement, type TemplateResult, html, unsafeCSS,
+    LitElement, html, unsafeCSS,
 } from 'lit';
 import { property } from 'lit/decorators.js';
-
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
-import '@justeattakeaway/pie-spinner';
-
 import styles from './iconButton.scss?inline';
 import {
     type IconButtonProps, sizes, variants, defaultProps,
 } from './defs';
+import '@justeattakeaway/pie-spinner';
 
 // Valid values available to consumers
 export * from './defs';
@@ -39,7 +37,7 @@ export class PieIconButton extends LitElement implements IconButtonProps {
      *
      * @private
      */
-    private renderSpinner (): TemplateResult {
+    private renderSpinner () {
         const { variant, size, disabled } = this;
         const spinnerSize = size === 'xsmall' ? 'small' : 'medium';
         let spinnerVariant = 'brand';

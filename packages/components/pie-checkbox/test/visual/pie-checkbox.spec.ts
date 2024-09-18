@@ -12,10 +12,11 @@ import {
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-direction.ts';
-import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
 
+import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
 import { PieCheckbox } from '../../src/index.ts';
 import { type CheckboxProps, statusTypes } from '../../src/defs.ts';
 

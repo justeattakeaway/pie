@@ -24,14 +24,14 @@ import '@justeattakeaway/pie-button';
 
 import styles from './toast.scss?inline';
 import {
-    type ActionProps,
     type ToastProps,
-    componentClass,
     componentSelector,
-    defaultProps,
+    componentClass,
+    type ActionProps,
     ON_TOAST_CLOSE_EVENT,
-    ON_TOAST_LEADING_ACTION_CLICK_EVENT,
     ON_TOAST_OPEN_EVENT,
+    ON_TOAST_LEADING_ACTION_CLICK_EVENT,
+    defaultProps,
     variants,
 } from './defs';
 

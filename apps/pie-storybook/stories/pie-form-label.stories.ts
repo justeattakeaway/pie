@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-form-label';
@@ -65,9 +65,9 @@ const Template: TemplateFunction<FormLabelProps> = ({
     ...props
 }) => html`
         <pie-form-label
-            for="${ifDefined(props.for)}"
-            optional="${ifDefined(optional)}"
-            trailing="${ifDefined(trailing)}">
+            for="${props.for || nothing}"
+            optional="${optional || nothing}"
+            trailing="${trailing || nothing}">
             ${sanitizeAndRenderHTML(slot)}
         </pie-form-label>`;
 
