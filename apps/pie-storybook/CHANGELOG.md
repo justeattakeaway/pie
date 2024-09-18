@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.4.0
+
+### Minor Changes
+
+- [Changed] - use storybook's Meta type instead of custom StoryMeta type ([#1878](https://github.com/justeattakeaway/pie/pull/1878)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- [Changed] - Add caching for `generate:component-statuses` build. ([#1838](https://github.com/justeattakeaway/pie/pull/1838)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - New `copy:component-statuses` script for `pie-docs` and `pie-storybook` which copies the status file from the root.
+
 ## 1.3.5
 
 ### Patch Changes
