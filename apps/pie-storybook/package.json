@@ -1,6 +1,6 @@
 {
   "name": "pie-storybook",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
@@ -30,7 +30,7 @@
     "@justeattakeaway/pie-lottie-player": "0.0.2",
     "@justeattakeaway/pie-modal": "0.46.2",
     "@justeattakeaway/pie-notification": "0.11.0",
-    "@justeattakeaway/pie-radio": "0.0.0",
+    "@justeattakeaway/pie-radio": "0.1.0",
     "@justeattakeaway/pie-radio-group": "0.1.0",
     "@justeattakeaway/pie-spinner": "0.7.0",
     "@justeattakeaway/pie-switch": "0.30.1",
