@@ -1,4 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 
 .c-notification {
     --notification-border-radius: var(--dt-radius-rounded-c);
