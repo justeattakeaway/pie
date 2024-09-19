@@ -108,21 +108,36 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
 
     private _backButtonClicked = false;
 
+    private _eventsListenerController : AbortController | null = null;
+
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 
     connectedCallback () : void {
         super.connectedCallback();
-        this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
-        document.addEventListener(ON_MODAL_OPEN_EVENT, (event) => this._handleModalOpened(<CustomEvent>event));
-        document.addEventListener(ON_MODAL_CLOSE_EVENT, (event) => this._handleModalClosed(<CustomEvent>event));
-        document.addEventListener(ON_MODAL_BACK_EVENT, (event) => this._handleModalClosed(<CustomEvent>event));
+        this._eventsListenerController = new AbortController();
+
+        this.addEventListener('click', (event) => this._handleDialogLightDismiss(event), {
+            signal: this._eventsListenerController.signal,
+        });
+
+        document.addEventListener(ON_MODAL_OPEN_EVENT, (event) => this._handleModalOpened(<CustomEvent>event), {
+            signal: this._eventsListenerController.signal,
+        });
+
+        document.addEventListener(ON_MODAL_CLOSE_EVENT, (event) => this._handleModalClosed(<CustomEvent>event), {
+            signal: this._eventsListenerController.signal,
+        });
+
+        document.addEventListener(ON_MODAL_BACK_EVENT, (event) => this._handleModalClosed(<CustomEvent>event), {
+            signal: this._eventsListenerController.signal,
+        });
     }
 
     disconnectedCallback () : void {
-        document.removeEventListener(ON_MODAL_OPEN_EVENT, (event) => this._handleModalOpened(<CustomEvent>event));
-        document.removeEventListener(ON_MODAL_CLOSE_EVENT, (event) => this._handleModalClosed(<CustomEvent>event));
-        document.removeEventListener(ON_MODAL_BACK_EVENT, (event) => this._handleModalClosed(<CustomEvent>event));
+        this._eventsListenerController?.abort(); // Cleans up all added event listeners
+        this._eventsListenerController = null;
+
         super.disconnectedCallback();
     }
 
@@ -132,9 +147,15 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         if (this._dialog) {
             const dialogPolyfill = await import('dialog-polyfill').then((module) => module.default);
             dialogPolyfill.registerDialog(this._dialog);
-            this._dialog.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
+
+            this._dialog.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event), {
+                signal: this._eventsListenerController?.signal,
+            });
+
             this._dialog.addEventListener('close', () => {
                 this.isOpen = false;
+            }, {
+                signal: this._eventsListenerController?.signal,
             });
         }
 
