@@ -1,4 +1,7 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
+
+import { setupFormDataExtraction, getFormDataObject } from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
+
 import { PieRadio } from '../../src/index.ts';
 import { type RadioProps } from '../../src/defs.ts';
 
@@ -19,7 +22,7 @@ test.describe('PieRadio - Component tests', () => {
         // Arrange
         await mount(PieRadio, {
             props: {
-                value: 'value',
+                value: 'testValue',
             } as RadioProps,
             slots,
         });
@@ -32,13 +35,63 @@ test.describe('PieRadio - Component tests', () => {
     });
 
     test.describe('props', () => {
+        test.describe('value', () => {
+            test('should apply the value attribute to the input', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieRadio, {
+                    props: {
+                        value: 'testValue',
+                    } as RadioProps,
+                });
+
+                // Act
+                const radio = component.locator(inputSelector);
+
+                // Assert
+                expect((await radio.inputValue())).toBe('testValue');
+            });
+        });
+
+        test.describe('name', () => {
+            test('should not render a name attr on the radio element if no name provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieRadio, {
+                    props: {
+                        value: 'testValue',
+                    },
+                });
+
+                // Act
+                const radio = component.locator(inputSelector);
+
+                // Assert
+                expect((await radio.getAttribute('name'))).toBe(null);
+            });
+
+            test('should apply the name attr to the radio', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieRadio, {
+                    props: {
+                        name: 'test',
+                        value: 'testValue',
+                    } as RadioProps,
+                });
+
+                // Act
+                const radio = component.locator(inputSelector);
+
+                // Assert
+                expect((await radio.getAttribute('name'))).toBe('test');
+            });
+        });
+
         test.describe('checked', () => {
             test('should check the radio when true', async ({ page, mount }) => {
                 // Arrange
                 await mount(PieRadio, {
                     props: {
                         checked: true,
-                        value: 'value',
+                        value: 'testValue',
                     } as RadioProps,
                     slots,
                 });
@@ -55,7 +108,7 @@ test.describe('PieRadio - Component tests', () => {
                 await mount(PieRadio, {
                     props: {
                         checked: false,
-                        value: 'value',
+                        value: 'testValue',
                     } as RadioProps,
                     slots,
                 });
@@ -74,7 +127,7 @@ test.describe('PieRadio - Component tests', () => {
                 await mount(PieRadio, {
                     props: {
                         disabled: false,
-                        value: 'value',
+                        value: 'testValue',
                     } as RadioProps,
                     slots,
                 });
@@ -91,7 +144,7 @@ test.describe('PieRadio - Component tests', () => {
                 await mount(PieRadio, {
                     props: {
                         disabled: true,
-                        value: 'value',
+                        value: 'testValue',
                     } as RadioProps,
                     slots,
                 });
@@ -109,7 +162,7 @@ test.describe('PieRadio - Component tests', () => {
                 // Arrange
                 const component = await mount(PieRadio, {
                     props: {
-                        value: 'value',
+                        value: 'testValue',
                     } as RadioProps,
                 });
 
@@ -125,7 +178,7 @@ test.describe('PieRadio - Component tests', () => {
                 const component = await mount(PieRadio, {
                     props: {
                         required: true,
-                        value: 'value',
+                        value: 'testValue',
                     } as RadioProps,
                 });
 
@@ -143,6 +196,7 @@ test.describe('PieRadio - Component tests', () => {
                         checked: true,
                         required: true,
                         name: 'radio',
+                        value: 'testValue',
                     } as RadioProps,
                 });
 
@@ -160,6 +214,7 @@ test.describe('PieRadio - Component tests', () => {
                         required: true,
                         checked: false,
                         name: 'radio',
+                        value: 'testValue',
                     } as RadioProps,
                 });
 
@@ -180,6 +235,7 @@ test.describe('PieRadio - Component tests', () => {
                         checked: false,
                         required: true,
                         name: 'radio',
+                        value: 'testValue',
                     } as RadioProps,
                 });
 
@@ -199,6 +255,7 @@ test.describe('PieRadio - Component tests', () => {
                         checked: true,
                         required: false,
                         name: 'radio',
+                        value: 'testValue',
                     } as RadioProps,
                 });
 
@@ -218,6 +275,7 @@ test.describe('PieRadio - Component tests', () => {
                         required: false,
                         checked: false,
                         name: 'radio',
+                        value: 'testValue',
                     } as RadioProps,
                 });
 
@@ -228,6 +286,240 @@ test.describe('PieRadio - Component tests', () => {
                 // Assert
                 expect(isValid).toBe(true);
                 expect(isValueMissing).toBe(false);
+            });
+        });
+    });
+
+    test.describe('Events', () => {
+        test.describe('change', () => {
+            test('should dispatch a change event when radio is clicked that contains the original native event', async ({ mount }) => {
+                // Arrange
+                const messages: CustomEvent[] = [];
+                const expectedMessages = [{ sourceEvent: { isTrusted: true } }];
+
+                const component = await mount(PieRadio, {
+                    props: {
+                        value: 'testValue',
+                    } as RadioProps,
+                    on: {
+                        change: (data: CustomEvent) => {
+                            messages.push(data);
+                        },
+                    },
+                });
+
+                // Act
+                await component.locator(inputSelector).click();
+
+                // Assert
+                expect(messages.length).toEqual(1);
+                expect(messages).toStrictEqual(expectedMessages);
+            });
+
+            test('should dispatch a change event when inside a form which is reset', async ({ page }) => {
+                // Arrange
+                await page.setContent(`
+                    <form id="testForm" action="/foo" method="POST">
+                        <pie-radio name="testName" value="testValue" checked></pie-radio>
+                        <button type="reset">Reset</button>
+                    </form>
+                    <div id="eventsContainer"></div>
+                `);
+
+                await page.evaluate(() => {
+                    const radio = document.querySelector('pie-radio') as PieRadio;
+                    const eventsContainer = document.querySelector('#eventsContainer') as HTMLDivElement;
+
+                    radio.addEventListener('change', () => {
+                        const el = document.createElement('div');
+                        el.innerText = 'change event fired';
+                        eventsContainer.appendChild(el);
+                    });
+                });
+
+                // Act
+                await page.click('button[type="reset"]');
+
+                const eventElements = await page.evaluate(() => {
+                    const events = document.querySelectorAll('#eventsContainer > div');
+                    return Array.from(events).map((el) => el.innerHTML);
+                });
+
+                // Assert
+                expect(eventElements).toHaveLength(1);
+                expect(eventElements[0]).toBe('change event fired');
+            });
+
+            test('should not dispatch a change event when inside a form which is reset if the value has not changed', async ({ page }) => {
+                // Arrange
+                await page.setContent(`
+                    <form id="testForm" action="/foo" method="POST">
+                        <pie-radio name="testName" value="testValue" checked defaultChecked></pie-radio>
+                        <button type="reset">Reset</button>
+                    </form>
+                    <div id="eventsContainer"></div>
+                `);
+
+                await page.evaluate(() => {
+                    const radio = document.querySelector('pie-radio') as PieRadio;
+                    const eventsContainer = document.querySelector('#eventsContainer') as HTMLDivElement;
+
+                    radio.addEventListener('change', () => {
+                        const el = document.createElement('div');
+                        el.innerText = 'change event fired';
+                        eventsContainer.appendChild(el);
+                    });
+                });
+
+                // Act
+                await page.click('button[type="reset"]');
+
+                const eventElements = await page.evaluate(() => {
+                    const events = document.querySelectorAll('#eventsContainer > div');
+                    return Array.from(events).map((el) => el.innerHTML);
+                });
+
+                // Assert
+                expect(eventElements).toHaveLength(0);
+            });
+        });
+    });
+
+    test.describe('Form integration', () => {
+        test('should correctly set the name and value of the radio in the FormData object when submitted', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                <form id="testForm" action="/foo" method="POST">
+                    <pie-radio name="testName" value="testValue"></pie-radio>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="formDataJson""></div>
+            `);
+
+            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+            // Act
+            await page.locator('pie-radio').click();
+            await page.click('button[type="submit"]');
+            const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+            // Assert
+            expect(formDataObj).toStrictEqual({ testName: 'testValue' });
+        });
+
+        test('should submit the updated checked state if the checked attribute is changed programmatically', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                <form id="testForm" action="/foo" method="POST">
+                <pie-radio name="testName" value="testValue"></pie-radio>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="formDataJson""></div>
+            `);
+
+            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+            // Act
+            await page.locator('pie-radio').click();
+
+            await page.evaluate(() => {
+                const radio = document.querySelector('pie-radio') as PieRadio;
+                radio.checked = false;
+                return radio;
+            });
+
+            await page.click('button[type="submit"]');
+
+            const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+            // Assert
+            expect(formDataObj).toStrictEqual({});
+        });
+
+        [true, false].forEach((checked) => {
+            test(`should not submit the value if the input is disabled when checked is ${checked}`, async ({ page }) => {
+                // Arrange
+                await page.setContent(`
+                    <form id="testForm" action="/foo" method="POST">
+                        <pie-radio
+                            name="testName"
+                            value="testValue"
+                            disabled
+                            ${checked ? 'checked' : ''}>
+                        </pie-radio>
+                        <button type="submit">Submit</button>
+                    </form>
+                    <div id="formDataJson""></div>
+                `);
+                await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+                // Act
+                await page.click('button[type="submit"]');
+                const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+                // Assert
+                expect(formDataObj).toStrictEqual({});
+            });
+        });
+
+        [true, false].forEach((checked) => {
+            test(`should not submit the value inside a disabled fieldset when checked is ${checked}`, async ({ page }) => {
+                // Arrange
+                await page.setContent(`
+                    <form id="testForm" action="/foo" method="POST">
+                        <fieldset disabled>
+                            <pie-radio
+                                name="testName"
+                                value="testValue"
+                                ${checked ? 'checked' : ''}>
+                            </pie-radio>
+                        </fieldset>
+                        <button type="submit">Submit</button>
+                    </form>
+                    <div id="formDataJson""></div>
+                `);
+
+                await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+                // Act
+                await page.click('button[type="submit"]');
+
+                const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+                // Assert
+                expect(formDataObj).toStrictEqual({});
+            });
+        });
+
+        test.describe('when the form is reset', () => {
+            test.describe('and defaultChecked is true', () => {
+                [true, false].forEach((defaultChecked) => {
+                    const checked = !defaultChecked;
+
+                    test(`should reset the radio to its default state when defaultChecked is ${defaultChecked} and checked is ${checked}`, async ({ page }) => {
+                        // Arrange
+                        await page.setContent(`
+                            <form id="testForm" action="/foo" method="POST">
+                                <pie-radio
+                                    name="testName"
+                                    value="testValue"
+                                    ${defaultChecked ? 'defaultChecked' : ''}
+                                    ${checked ? 'checked' : ''}>
+                                </pie-radio>
+                                <button type="reset">Reset</button>
+                            </form>`);
+
+                        let isChecked = await page.evaluate(() => document.querySelector('pie-radio')?.checked);
+                        expect.soft(isChecked).toBe(checked);
+
+                        // Act
+                        await page.click('button[type="reset"]');
+
+                        // Assert
+                        isChecked = await page.evaluate(() => document.querySelector('pie-radio')?.checked);
+                        expect(isChecked).toBe(defaultChecked);
+                    });
+                });
             });
         });
     });
