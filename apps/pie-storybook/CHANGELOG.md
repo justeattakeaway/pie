@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.4.2
+
+### Patch Changes
+
+- [Added] - checked, defaultChecked, disabled, name, required and value props ([#1859](https://github.com/justeattakeaway/pie/pull/1859)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - dependency of pie-lottie-player to storybook to fix resolution error when running yarn dev ([#1915](https://github.com/justeattakeaway/pie/pull/1915)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`3450fbb55`](https://github.com/justeattakeaway/pie/commit/3450fbb55c6902b23b554f5d023329c12a60af37)]:
+  - @justeattakeaway/pie-radio@0.1.0
+
 ## 1.4.1
 
 ### Patch Changes
