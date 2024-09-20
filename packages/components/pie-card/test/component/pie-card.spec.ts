@@ -69,6 +69,7 @@ test.describe('PieCard - Component tests', () => {
         await expect(component).toHaveAttribute('href', href);
         await expect(component).toHaveAttribute('rel', rel);
         await expect(component).toHaveAttribute('target', target);
+        await expect(component).toHaveAttribute('aria-disabled', 'false');
         await expect(component).not.toHaveAttribute('role', 'button');
         await expect(component).not.toHaveAttribute('tabindex', '0');
     });
@@ -76,6 +77,8 @@ test.describe('PieCard - Component tests', () => {
     test('should render the card as a div that behaves like a button if tag = "button"', async ({ mount, page }) => {
         // Arrange
         const tag = 'button';
+        const messages: string[] = [];
+        const expectedEventMessage = 'Native event dispatched';
 
         await mount(PieCard, {
             props: {
@@ -84,34 +87,22 @@ test.describe('PieCard - Component tests', () => {
             slots: {
                 default: slotContent,
             },
+            on: {
+                click: () => {
+                    messages.push(expectedEventMessage);
+                },
+            },
         });
 
         // Act
         const component = page.locator(componentSelector);
+        await component.click();
 
         // Assert
         await expect(component).toHaveAttribute('role', 'button');
         await expect(component).toHaveAttribute('tabindex', '0');
-    });
-
-    [true, false].forEach((disabled) => {
-        test(`should add an aria-disabled attribute that matches the value of the disabled prop (${disabled})`, async ({ mount, page }) => {
-            // Arrange
-            await mount(PieCard, {
-                props: {
-                    disabled,
-                } as CardProps,
-                slots: {
-                    default: slotContent,
-                },
-            });
-
-            // Act
-            const component = page.locator(componentSelector);
-
-            // Assert
-            await expect(component).toHaveAttribute('aria-disabled', disabled.toString());
-        });
+        await expect(component).toHaveAttribute('aria-disabled', 'false');
+        expect(messages).toEqual([expectedEventMessage]);
     });
 
     tags.forEach((tag) => {
