@@ -15,7 +15,7 @@
     "@justeat/pie-design-tokens": "6.3.1",
     "@justeattakeaway/pie-css": "0.12.1",
     "@justeattakeaway/pie-icons-webc": "0.25.1",
-    "@justeattakeaway/pie-webc": "0.5.35"
+    "@justeattakeaway/pie-webc": "0.1.0"
   },
   "installConfig": {
     "hoistingLimits": "workspaces"
