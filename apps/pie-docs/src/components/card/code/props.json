@@ -58,7 +58,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "Whether or not the card should be disabled. This applies disabled styles and turns off interactivity. <br /> If the card is used as a link, the `href` attribute will be removed so the link can no longer be activated.",
+            "Whether or not the card should be disabled. This applies disabled styles and turns off interactivity. <br /> If the card is used as a link, the `href` attribute will be removed so the link can no longer be navigated.",
             {
                 "type": "code",
                 "item": ["false"]
