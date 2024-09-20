@@ -38,7 +38,7 @@
     "@justeattakeaway/pie-text-input": "0.24.0",
     "@justeattakeaway/pie-textarea": "0.10.0",
     "@justeattakeaway/pie-toast": "0.3.3",
-    "dompurify": "3.0.11"
+    "dompurify": "3.1.3"
   },
   "devDependencies": {
     "@justeattakeaway/pie-icons-configs": "4.5.1",
