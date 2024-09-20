@@ -25,21 +25,25 @@
   color: var(--toast-font-color);
   font-size: var(--toast-font-size);
   line-height: var(--toast-line-height);
-  transition: all 200ms cubic-bezier(0, 0, 0.18, 0.99);
-  transform: translateX(100%);  
+  transition-property: all;
+  transition-duration: var(--dt-motion-timing-100);
+  transition-timing-function: var(-dt-motion-easing-in);
 }
 
 .c-toast--animate-in {
-  animation: 200ms animate-in cubic-bezier(0, 0, 0.18, 0.99);
+  animation-duration: var(--dt-motion-timing-200);
+  animation-name: animate-in;
+  animation-timing-function: var(-dt-motion-easing-in);
   transform: translateX(0); 
 }
 
-.c-toast--animate-out {
-  animation: 100ms animate-out cubic-bezier(0.8, 0, 1, 1);
+.c-toast--animate-out {  
+  animation-duration: var(--dt-motion-timing-100);
+  animation-name: animate-out;
+  animation-timing-function: var(--dt-motion-easing-out);
   transform: translateX(100%); 
   opacity: 0;
 }
-
 
 .c-toast--info {
   --toast-icon-fill: var(--dt-color-support-info-inverse);
@@ -131,12 +135,10 @@
 @keyframes animate-in {
   from { 
     transform: translateX(100%);
-    opacity: 0;
   }
 
   to { 
     transform: translateX(0); 
-    opacity: 1;
   }
 }
 
@@ -147,6 +149,5 @@
 
   to { 
     transform: translateX(100%); 
-    
   }
 }
