@@ -1,6 +1,5 @@
 ---
-"@justeattakeaway/pie-cookie-banner": minor
-"@justeattakeaway/pie-modal": minor
+"@justeattakeaway/pie-cookie-banner": patch
 ---
 
 [Removed] - pie-design-tokens dependency.
