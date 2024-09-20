@@ -193,7 +193,7 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     }
 
     /**
-     * It created all event listeners to handle the auto-dismiss capability
+     * It creates all event listeners to handle the auto-dismiss capability
      * as well the controller responsible to remove the events when needed.
      *
      * @private

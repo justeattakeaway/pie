@@ -48,9 +48,9 @@ export interface ToastProps {
   leadingAction?: ActionProps;
 
   /**
-   * It set the duration of the toast in milliseconds before it auto-dismiss
+   * It sets the duration of the toast in milliseconds before it auto-dismisses.
    * If the value is null auto-dismiss is disabled
-   * If the value is not provided it auto-dismiss after 5 seconds (5000 milliseconds)
+   * If the value is not provided it auto-dismisses after 5 seconds (5000 milliseconds)
    */
   duration?: number | null;
 }
