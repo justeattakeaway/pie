@@ -1,5 +1,26 @@
 # wc-vanilla
 
+## 0.5.22
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.35
+
+## 0.5.21
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.34
+
+## 0.5.20
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.33
+
 ## 0.5.19
 
 ### Patch Changes

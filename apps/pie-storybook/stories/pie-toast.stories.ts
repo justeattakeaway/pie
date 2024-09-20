@@ -1,10 +1,11 @@
 import { html } from 'lit';
-import { ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
 import { action } from '@storybook/addon-actions';
-import { type StoryMeta } from '../types';
-import { createStory, TemplateFunction } from '../utilities';
+import { type Meta } from '@storybook/web-components';
+import { type ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
 
-type ToastStoryMeta = StoryMeta<ToastProps>;
+import { type TemplateFunction, createStory } from '../utilities';
+
+type ToastStoryMeta = Meta<ToastProps>;
 
 const defaultArgs: ToastProps = {
     ...defaultProps,
@@ -65,7 +66,7 @@ const toastStoryMeta: ToastStoryMeta = {
             control: 'object',
         },
         duration: {
-            description: 'It set the duration of the toast in milliseconds before it auto-dismiss.',
+            description: 'It sets the duration of the toast in milliseconds before it auto-dismisses.',
             control: 'number',
         },
     },
@@ -94,9 +95,9 @@ const Template : TemplateFunction<ToastProps> = ({
     variant,
     duration,
 }: ToastProps) => html`
-    <pie-toast 
-        ?isOpen="${isOpen}" 
-        ?isDismissible="${isDismissible}" 
+    <pie-toast
+        ?isOpen="${isOpen}"
+        ?isDismissible="${isDismissible}"
         ?isStrong="${isStrong}"
         variant="${variant}"
         message="${message}" 

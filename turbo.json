@@ -6,7 +6,7 @@
       "dependsOn": [
         "^build",
         "build:react-wrapper",
-        "generate:component-statuses"
+        "//#generate:component-statuses"
       ],
       "outputs": [
         "dist/**"
@@ -55,12 +55,19 @@
         ".output/**"
       ]
     },
-    "generate:component-statuses": {
-      "cache": false,
+    "//#generate:component-statuses": {
+      "cache": true,
+      "inputs": [
+        "packages/components/**/package.json",
+        "!packages/components/pie-webc",
+        "!packages/components/pie-webc-core",
+        "!packages/components/pie-webc-testing"
+      ],
       "outputs": [
-        "**/component-statuses.json"
+        "component-statuses.json"
       ]
     },
+    "copy:component-statuses": {},
     "watch": {
       "cache": true,
       "dependsOn": []
@@ -167,7 +174,7 @@
       "cache": false,
       "dependsOn": [
         "^build",
-        "generate:component-statuses"
+        "//#generate:component-statuses"
       ]
     }
   }

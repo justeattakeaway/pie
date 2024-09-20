@@ -1,18 +1,18 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-link';
 import {
-    type LinkProps as LinkBaseProps, sizes, variants,
-    iconPlacements, tags, buttonTypes, underlineTypes, defaultProps,
+    type LinkProps as LinkBaseProps, sizes, variants, iconPlacements, tags, buttonTypes, underlineTypes, defaultProps,
 } from '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 
-import { type StoryMeta, type SlottedComponentProps } from '../types';
+import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type LinkProps = SlottedComponentProps<LinkBaseProps>;
-type LinkStoryMeta = StoryMeta<LinkProps>;
+type LinkStoryMeta = Meta<LinkProps>;
 
 const defaultArgs: LinkProps = {
     ...defaultProps,
