@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.26.5
+
+### Patch Changes
+
+- [Removed] - pie-design-tokens dependency. ([#1861](https://github.com/justeattakeaway/pie/pull/1861)) by [@dandel10n](https://github.com/dandel10n)
+
+- Updated dependencies [[`77dea2fc1`](https://github.com/justeattakeaway/pie/commit/77dea2fc10942df226a33dbd3a8ac86a33955f5b)]:
+  - @justeattakeaway/pie-modal@0.47.0
+
 ## 0.26.4
 
 ### Patch Changes
