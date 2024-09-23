@@ -117,6 +117,62 @@ export class PieCard extends LitElement implements CardProps {
         return `padding: ${paddingCSS}`;
     }
 
+    /**
+     * Handles the slot change event and applies/removes opacity to images based on the `disabled` state.
+     *
+     * @private
+     */
+    private handleSlotChange () {
+        this.updateImagesOpacity();
+    }
+
+    /**
+     * Updates opacity of all images (slotted and non-slotted) based on the `disabled` property.
+     */
+    private updateImagesOpacity () {
+        // Handle slotted images
+        const slot = this.shadowRoot?.querySelector('slot');
+
+        if (slot) {
+            const slottedElements = slot.assignedElements({ flatten: true });
+
+            slottedElements.forEach((element) => {
+                const images = element.querySelectorAll('img');
+                this.applyOpacityToImages(images);
+            });
+        }
+
+        // Handle non-slotted direct content images
+        const directImages = this.querySelectorAll('img');
+        this.applyOpacityToImages(directImages);
+    }
+
+    /**
+     * Applies or removes opacity from the given images based on the `disabled` property.
+     *
+     * @param {NodeListOf<HTMLImageElement>} images - The images to apply opacity to.
+     */
+    private applyOpacityToImages (images: NodeListOf<HTMLImageElement>) {
+        images.forEach((img) => {
+            if (this.disabled) {
+                img.style.opacity = '50%';
+            } else {
+                img.style.opacity = '';
+            }
+        });
+    }
+
+    /**
+     * Observes changes in the `disabled` property and triggers the update of images' opacity.
+     *
+     * @param changedProperties
+     */
+    updated (changedProperties: Map<string, unknown>) {
+        if (changedProperties.has('disabled')) {
+            this.updateImagesOpacity(); // Re-apply styles when disabled state changes
+        }
+    }
+
     render () {
         const {
             variant,
@@ -146,7 +202,7 @@ export class PieCard extends LitElement implements CardProps {
                     aria-label=${aria?.label || nothing}
                     aria-disabled=${disabled ? 'true' : 'false'}
                     style=${paddingCSS || ''}>
-                        <slot></slot>
+                        <slot @slotchange=${this.handleSlotChange}></slot>
                     </div>
                 </div>`;
     }
