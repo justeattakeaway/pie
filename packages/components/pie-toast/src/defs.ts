@@ -2,7 +2,7 @@ import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const variants = ['neutral', 'info', 'warning', 'success', 'error'] as const;
 
-export const defaultDuration = 5000;
+const defaultDuration = 5000;
 
 export type ActionProps = {
   /**
@@ -79,7 +79,7 @@ export const ON_TOAST_OPEN_EVENT = `${componentSelector}-open`;
  */
 export const ON_TOAST_LEADING_ACTION_CLICK_EVENT = `${componentSelector}-leading-action-click`;
 
-export type DefaultProps = ComponentDefaultProps<ToastProps, keyof Omit<ToastProps, 'message' | 'leadingAction' | 'duration'>>;
+export type DefaultProps = ComponentDefaultProps<ToastProps, keyof Omit<ToastProps, 'message' | 'leadingAction'>>;
 
 export const defaultProps: DefaultProps = {
     isOpen: true,
@@ -87,4 +87,5 @@ export const defaultProps: DefaultProps = {
     isStrong: false,
     isDismissible: true,
     isMultiline: false,
+    duration: defaultDuration,
 };
