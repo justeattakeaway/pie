@@ -5208,25 +5208,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:6.3.1":
-  version: 6.3.1
-  resolution: "@justeat/pie-design-tokens@npm:6.3.1"
+"@justeat/pie-design-tokens@npm:6.5.0":
+  version: 6.5.0
+  resolution: "@justeat/pie-design-tokens@npm:6.5.0"
   dependencies:
     jsonc-parser: 3.2.0
     lodash.merge: 4.6.2
     mkdirp: 1.0.4
-  checksum: 8d856fe3bcd5a78c8a514dc7533e9ba97f2a6107f65662ace21a962ea857be62c3541e28bb423592842e561ed1f90160e06b3dae5ed27a72e31f2d8ed6541739
-  languageName: node
-  linkType: hard
-
-"@justeat/pie-design-tokens@npm:6.4.0":
-  version: 6.4.0
-  resolution: "@justeat/pie-design-tokens@npm:6.4.0"
-  dependencies:
-    jsonc-parser: 3.2.0
-    lodash.merge: 4.6.2
-    mkdirp: 1.0.4
-  checksum: f22842a5bf9d64f0a2273b462e5f8f2a51044993a09a4aa4c950d7f84ed0ba4d0ed01421741c4b5066ae13094cb2db3c8a73bfa2927737ef5deebcc6a0f14e4f
+  checksum: 0103db3c3bbef462da917292a950396af151a4b591ed7b3e50771b8e8c4a13535f2bf32411c1c716bd2f6cfb6192cb9383f3f586fe07ac346564e77c8f6abea7
   languageName: node
   linkType: hard
 
@@ -5359,7 +5348,6 @@ __metadata:
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeat/pie-design-tokens": 6.3.1
     "@justeattakeaway/pie-button": 0.49.1
     "@justeattakeaway/pie-components-config": 0.18.0
     "@justeattakeaway/pie-css": 0.12.1
@@ -5550,7 +5538,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeat/pie-design-tokens": 6.3.1
+    "@justeat/pie-design-tokens": 6.5.0
     "@justeattakeaway/pie-button": 0.49.1
     "@justeattakeaway/pie-components-config": 0.18.0
     "@justeattakeaway/pie-css": 0.12.1
@@ -25968,7 +25956,7 @@ __metadata:
     "@docsearch/css": 3.5.2
     "@docsearch/js": 3.5.2
     "@justeat/fozzie": 11.0.2
-    "@justeat/pie-design-tokens": 6.3.1
+    "@justeat/pie-design-tokens": 6.5.0
     "@justeattakeaway/browserslist-config-pie": 0.2.0
     "@justeattakeaway/pie-css": 0.12.1
     "@justeattakeaway/pie-icons": 4.19.1
@@ -26000,7 +25988,7 @@ __metadata:
     "@changesets/cli": 2.26.2
     "@commitlint/cli": 17.5.1
     "@commitlint/config-conventional": 17.4.4
-    "@justeat/pie-design-tokens": 6.4.0
+    "@justeat/pie-design-tokens": 6.5.0
     "@justeattakeaway/browserslist-config-pie": 0.2.0
     "@justeattakeaway/generator-pie-component": 0.22.2
     "@justeattakeaway/pie-icons": 4.19.1
@@ -26061,7 +26049,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
-    "@justeat/pie-design-tokens": 6.3.1
+    "@justeat/pie-design-tokens": 6.5.0
     "@justeattakeaway/pie-assistive-text": 0.7.1
     "@justeattakeaway/pie-button": 0.49.1
     "@justeattakeaway/pie-card": 0.20.1
@@ -34053,7 +34041,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-vanilla@workspace:apps/examples/wc-vanilla"
   dependencies:
-    "@justeat/pie-design-tokens": 6.3.1
+    "@justeat/pie-design-tokens": 6.5.0
     "@justeattakeaway/pie-css": 0.12.1
     "@justeattakeaway/pie-icons-webc": 0.25.1
     "@justeattakeaway/pie-webc": 0.5.35

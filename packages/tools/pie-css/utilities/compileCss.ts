@@ -15,7 +15,8 @@ import sass from 'sass';
  */
 export function compileCss (scss: string): string {
     const result = sass.compileString(scss, {
-        loadPaths: ['scss'],
+        // root level node_modules are here for external dependencies imports like pie-design-tokens
+        loadPaths: ['scss', '../../../node_modules'],
     });
 
     return result.css;
