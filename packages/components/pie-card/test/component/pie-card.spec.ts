@@ -323,7 +323,7 @@ test.describe('PieCard - Component tests', () => {
                 });
 
                 // Act
-                const component = page.locator(`[data-test-id="slot-content"]`);
+                const component = page.locator('[data-test-id="slot-content"]');
                 const image = component.locator('img');
 
                 // Assert the image has the correct opacity
