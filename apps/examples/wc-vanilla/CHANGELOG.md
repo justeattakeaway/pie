@@ -1,5 +1,31 @@
 # wc-vanilla
 
+## 0.6.0
+
+### Minor Changes
+
+- [Changed] - pie-design-tokens version bump to 6.5.0. ([#1861](https://github.com/justeattakeaway/pie/pull/1861)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- Updated dependencies [[`eaaeba93a`](https://github.com/justeattakeaway/pie/commit/eaaeba93a7267de290fea39726b59e472e2db3a7), [`77dea2fc1`](https://github.com/justeattakeaway/pie/commit/77dea2fc10942df226a33dbd3a8ac86a33955f5b)]:
+  - @justeattakeaway/pie-css@0.13.0
+  - @justeattakeaway/pie-webc@0.5.36
+
+## 0.5.22
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.35
+
+## 0.5.21
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.34
+
 ## 0.5.20
 
 ### Patch Changes

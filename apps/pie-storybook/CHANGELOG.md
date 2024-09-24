@@ -1,5 +1,51 @@
 # Changelog
 
+## 1.5.0
+
+### Minor Changes
+
+- [Changed] - pie-design-tokens version bump to 6.5.0. ([#1861](https://github.com/justeattakeaway/pie/pull/1861)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- [Changed] - Version bumps for renovate/snyk/dependabot ([#1929](https://github.com/justeattakeaway/pie/pull/1929)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`eaaeba93a`](https://github.com/justeattakeaway/pie/commit/eaaeba93a7267de290fea39726b59e472e2db3a7), [`77dea2fc1`](https://github.com/justeattakeaway/pie/commit/77dea2fc10942df226a33dbd3a8ac86a33955f5b), [`77dea2fc1`](https://github.com/justeattakeaway/pie/commit/77dea2fc10942df226a33dbd3a8ac86a33955f5b), [`77dea2fc1`](https://github.com/justeattakeaway/pie/commit/77dea2fc10942df226a33dbd3a8ac86a33955f5b)]:
+  - @justeattakeaway/pie-css@0.13.0
+  - @justeattakeaway/pie-cookie-banner@0.26.5
+  - @justeattakeaway/pie-notification@0.12.0
+  - @justeattakeaway/pie-modal@0.47.0
+
+## 1.4.2
+
+### Patch Changes
+
+- [Added] - checked, defaultChecked, disabled, name, required and value props ([#1859](https://github.com/justeattakeaway/pie/pull/1859)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - dependency of pie-lottie-player to storybook to fix resolution error when running yarn dev ([#1915](https://github.com/justeattakeaway/pie/pull/1915)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`3450fbb55`](https://github.com/justeattakeaway/pie/commit/3450fbb55c6902b23b554f5d023329c12a60af37)]:
+  - @justeattakeaway/pie-radio@0.1.0
+
+## 1.4.1
+
+### Patch Changes
+
+- Updated dependencies [[`602ca5366`](https://github.com/justeattakeaway/pie/commit/602ca5366a19197dadbbdba59def27ed091233b4)]:
+  - @justeattakeaway/pie-checkbox@0.13.0
+
+## 1.4.0
+
+### Minor Changes
+
+- [Changed] - use storybook's Meta type instead of custom StoryMeta type ([#1878](https://github.com/justeattakeaway/pie/pull/1878)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- [Changed] - Add caching for `generate:component-statuses` build. ([#1838](https://github.com/justeattakeaway/pie/pull/1838)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - New `copy:component-statuses` script for `pie-docs` and `pie-storybook` which copies the status file from the root.
+
 ## 1.3.5
 
 ### Patch Changes

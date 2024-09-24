@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.67.0
+
+### Minor Changes
+
+- [Changed] - pie-design-tokens version bump to 6.5.0. ([#1861](https://github.com/justeattakeaway/pie/pull/1861)) by [@dandel10n](https://github.com/dandel10n)
+
+## 2.66.1
+
+### Patch Changes
+
+- [Changed] - Add caching for `generate:component-statuses` build. ([#1838](https://github.com/justeattakeaway/pie/pull/1838)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - New `copy:component-statuses` script for `pie-docs` and `pie-storybook` which copies the status file from the root.
+
 ## 2.66.0
 
 ### Minor Changes
