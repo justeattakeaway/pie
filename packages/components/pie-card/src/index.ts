@@ -1,5 +1,5 @@
 import {
-    html, LitElement, unsafeCSS, nothing, TemplateResult,
+    html, LitElement, unsafeCSS, nothing, TemplateResult, type PropertyValues,
 } from 'lit';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -167,8 +167,8 @@ export class PieCard extends LitElement implements CardProps {
      *
      * @param changedProperties
      */
-    updated (changedProperties: Map<string, unknown>) {
-        if (changedProperties.has('disabled')) {
+    updated(changedProperties: PropertyValues<this>): void {
+        if (changedProperties.has('disabled' as any)) {
             this.updateImagesOpacity(); // Re-apply styles when disabled state changes
         }
     }
