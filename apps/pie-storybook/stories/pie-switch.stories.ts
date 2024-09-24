@@ -143,13 +143,14 @@ const FormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html
     <button type="submit">Submit</button>
     </form>
     <script>
-        // Display a success message to the user when they submit the form
+        // var is used to prevent storybook from erroring when the script is re-run
         var form = document.querySelector('#testForm');
         var formLog = document.querySelector('#formLog');
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
+            // Display a success message to the user when they submit the form
             formLog.innerHTML = 'Form submitted!';
             formLog.style.display = 'block';
 
