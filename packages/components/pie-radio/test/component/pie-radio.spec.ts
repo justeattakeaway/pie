@@ -292,95 +292,99 @@ test.describe('PieRadio - Component tests', () => {
 
     test.describe('Events', () => {
         test.describe('change', () => {
-            test('should dispatch a change event when radio is clicked that contains the original native event', async ({ mount }) => {
-                // Arrange
-                const messages: CustomEvent[] = [];
-                const expectedMessages = [{ sourceEvent: { isTrusted: true } }];
+            test.describe('when radio is clicked', () => {
+                test('should dispatch a change event that contains the original native event', async ({ mount }) => {
+                    // Arrange
+                    const messages: CustomEvent[] = [];
+                    const expectedMessages = [{ sourceEvent: { isTrusted: true } }];
 
-                const component = await mount(PieRadio, {
-                    props: {
-                        value: 'testValue',
-                    } as RadioProps,
-                    on: {
-                        change: (data: CustomEvent) => {
-                            messages.push(data);
+                    const component = await mount(PieRadio, {
+                        props: {
+                            value: 'testValue',
+                        } as RadioProps,
+                        on: {
+                            change: (data: CustomEvent) => {
+                                messages.push(data);
+                            },
                         },
-                    },
+                    });
+
+                    // Act
+                    await component.locator(inputSelector).click();
+
+                    // Assert
+                    expect(messages.length).toEqual(1);
+                    expect(messages).toStrictEqual(expectedMessages);
                 });
-
-                // Act
-                await component.locator(inputSelector).click();
-
-                // Assert
-                expect(messages.length).toEqual(1);
-                expect(messages).toStrictEqual(expectedMessages);
             });
 
-            test('should dispatch a change event when inside a form which is reset', async ({ page }) => {
-                // Arrange
-                await page.setContent(`
-                    <form id="testForm" action="/foo" method="POST">
-                        <pie-radio name="testName" value="testValue" checked></pie-radio>
-                        <button type="reset">Reset</button>
-                    </form>
-                    <div id="eventsContainer"></div>
-                `);
+            test.describe('when inside a form which is reset', () => {
+                test('should dispatch a change event', async ({ page }) => {
+                    // Arrange
+                    await page.setContent(`
+                        <form id="testForm" action="/foo" method="POST">
+                            <pie-radio name="testName" value="testValue" checked></pie-radio>
+                            <button type="reset">Reset</button>
+                        </form>
+                        <div id="eventsContainer"></div>
+                    `);
 
-                await page.evaluate(() => {
-                    const radio = document.querySelector('pie-radio') as PieRadio;
-                    const eventsContainer = document.querySelector('#eventsContainer') as HTMLDivElement;
+                    await page.evaluate(() => {
+                        const radio = document.querySelector('pie-radio') as PieRadio;
+                        const eventsContainer = document.querySelector('#eventsContainer') as HTMLDivElement;
 
-                    radio.addEventListener('change', () => {
-                        const el = document.createElement('div');
-                        el.innerText = 'change event fired';
-                        eventsContainer.appendChild(el);
+                        radio.addEventListener('change', () => {
+                            const el = document.createElement('div');
+                            el.innerText = 'change event fired';
+                            eventsContainer.appendChild(el);
+                        });
                     });
-                });
 
-                // Act
-                await page.click('button[type="reset"]');
+                    // Act
+                    await page.click('button[type="reset"]');
 
-                const eventElements = await page.evaluate(() => {
-                    const events = document.querySelectorAll('#eventsContainer > div');
-                    return Array.from(events).map((el) => el.innerHTML);
-                });
-
-                // Assert
-                expect(eventElements).toHaveLength(1);
-                expect(eventElements[0]).toBe('change event fired');
-            });
-
-            test('should not dispatch a change event when inside a form which is reset if the value has not changed', async ({ page }) => {
-                // Arrange
-                await page.setContent(`
-                    <form id="testForm" action="/foo" method="POST">
-                        <pie-radio name="testName" value="testValue" checked defaultChecked></pie-radio>
-                        <button type="reset">Reset</button>
-                    </form>
-                    <div id="eventsContainer"></div>
-                `);
-
-                await page.evaluate(() => {
-                    const radio = document.querySelector('pie-radio') as PieRadio;
-                    const eventsContainer = document.querySelector('#eventsContainer') as HTMLDivElement;
-
-                    radio.addEventListener('change', () => {
-                        const el = document.createElement('div');
-                        el.innerText = 'change event fired';
-                        eventsContainer.appendChild(el);
+                    const eventElements = await page.evaluate(() => {
+                        const events = document.querySelectorAll('#eventsContainer > div');
+                        return Array.from(events).map((el) => el.innerHTML);
                     });
+
+                    // Assert
+                    expect(eventElements).toHaveLength(1);
+                    expect(eventElements[0]).toBe('change event fired');
                 });
 
-                // Act
-                await page.click('button[type="reset"]');
+                test('should not dispatch a change event if the value has not changed', async ({ page }) => {
+                    // Arrange
+                    await page.setContent(`
+                        <form id="testForm" action="/foo" method="POST">
+                            <pie-radio name="testName" value="testValue" checked defaultChecked></pie-radio>
+                            <button type="reset">Reset</button>
+                        </form>
+                        <div id="eventsContainer"></div>
+                    `);
 
-                const eventElements = await page.evaluate(() => {
-                    const events = document.querySelectorAll('#eventsContainer > div');
-                    return Array.from(events).map((el) => el.innerHTML);
+                    await page.evaluate(() => {
+                        const radio = document.querySelector('pie-radio') as PieRadio;
+                        const eventsContainer = document.querySelector('#eventsContainer') as HTMLDivElement;
+
+                        radio.addEventListener('change', () => {
+                            const el = document.createElement('div');
+                            el.innerText = 'change event fired';
+                            eventsContainer.appendChild(el);
+                        });
+                    });
+
+                    // Act
+                    await page.click('button[type="reset"]');
+
+                    const eventElements = await page.evaluate(() => {
+                        const events = document.querySelectorAll('#eventsContainer > div');
+                        return Array.from(events).map((el) => el.innerHTML);
+                    });
+
+                    // Assert
+                    expect(eventElements).toHaveLength(0);
                 });
-
-                // Assert
-                expect(eventElements).toHaveLength(0);
             });
         });
     });
