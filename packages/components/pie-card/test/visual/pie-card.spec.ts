@@ -122,7 +122,7 @@ test.describe('PieCard - Disabled Prop Visual Tests', () => {
         );
 
         const image = page.locator('img');
-        const opacity = await image.evaluate(img => getComputedStyle(img).opacity);
+        const opacity = await image.evaluate((img) => getComputedStyle(img).opacity);
 
         expect(opacity).toBe('0.5');
 
@@ -142,7 +142,7 @@ test.describe('PieCard - Disabled Prop Visual Tests', () => {
         );
 
         const image = page.locator('img');
-        const opacity = await image.evaluate(img => getComputedStyle(img).opacity);
+        const opacity = await image.evaluate((img) => getComputedStyle(img).opacity);
 
         expect(opacity).not.toBe('0.5');
 
