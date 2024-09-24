@@ -179,7 +179,8 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
         <button type="reset">Reset</button>
         <button type="submit">Submit</button>
         <script>
-            const form = document.querySelector('#testForm');
+            // var is used to prevent storybook from erroring when the script is re-run
+            var form = document.querySelector('#testForm');
 
             form.addEventListener('submit', (e) => {
                 e.preventDefault();

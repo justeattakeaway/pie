@@ -1,4 +1,3 @@
-
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 import { PieRadio, type RadioProps } from '../../src/index.ts';
