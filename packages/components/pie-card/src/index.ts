@@ -58,6 +58,7 @@ export class PieCard extends LitElement implements CardProps {
 
     private onClickHandler (event: Event) {
         if (this.disabled) {
+            // needed to intercept/prevent click events when the card is disabled.
             event.preventDefault();
             event.stopPropagation();
         }
