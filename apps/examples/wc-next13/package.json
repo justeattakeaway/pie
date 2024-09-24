@@ -1,7 +1,7 @@
 {
   "name": "wc-next13",
   "private": true,
-  "version": "0.4.21",
+  "version": "0.4.22",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@justeattakeaway/pie-css": "0.12.1",
-    "@justeattakeaway/pie-webc": "0.5.35",
+    "@justeattakeaway/pie-css": "0.13.0",
+    "@justeattakeaway/pie-webc": "0.5.36",
     "@lit-labs/nextjs": "0.2.0",
     "@lit/react": "1.0.5",
     "next": "13.5.5",
@@ -26,7 +26,7 @@
     "eslint-plugin-react": "7.34.3",
     "eslint-plugin-react-hooks": "4.6.2",
     "eslint-plugin-react-refresh": "0.4.7",
-    "vite": "5.3.4"
+    "vite": "5.3.6"
   },
   "volta": {
     "extends": "../../../package.json"

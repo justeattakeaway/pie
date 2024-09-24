@@ -1,6 +1,6 @@
 {
   "name": "wc-next10",
-  "version": "0.6.21",
+  "version": "0.6.22",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,8 +10,8 @@
     "lint:examples": "eslint ."
   },
   "dependencies": {
-    "@justeattakeaway/pie-css": "0.12.1",
-    "@justeattakeaway/pie-webc": "0.5.35",
+    "@justeattakeaway/pie-css": "0.13.0",
+    "@justeattakeaway/pie-webc": "0.5.36",
     "@lit/react": "1.0.2",
     "next": "10.2.3",
     "next-transpile-modules": "4.1.0",
