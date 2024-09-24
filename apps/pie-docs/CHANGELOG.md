@@ -1,5 +1,22 @@
 # Changelog
 
+## 4.9.0
+
+### Minor Changes
+
+- [Changed] - pie-design-tokens version bump to 6.5.0. ([#1861](https://github.com/justeattakeaway/pie/pull/1861)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- Updated dependencies [[`eaaeba93a`](https://github.com/justeattakeaway/pie/commit/eaaeba93a7267de290fea39726b59e472e2db3a7), [`77dea2fc1`](https://github.com/justeattakeaway/pie/commit/77dea2fc10942df226a33dbd3a8ac86a33955f5b)]:
+  - @justeattakeaway/pie-css@0.13.0
+
+## 4.8.0
+
+### Minor Changes
+
+- [Removed] - Banner component from pie docs ([#1899](https://github.com/justeattakeaway/pie/pull/1899)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 4.7.0
 
 ### Minor Changes
