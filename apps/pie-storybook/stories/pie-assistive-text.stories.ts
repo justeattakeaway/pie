@@ -1,15 +1,15 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-/* eslint-disable import/no-duplicates */
-import '@justeattakeaway/pie-assistive-text';
-import { AssistiveTextProps as AssistiveTextBaseProps, variants, defaultProps } from '@justeattakeaway/pie-assistive-text';
-/* eslint-enable import/no-duplicates */
+import { type Meta } from '@storybook/web-components';
 
-import { type StoryMeta, SlottedComponentProps } from '../types';
+import '@justeattakeaway/pie-assistive-text';
+import { type AssistiveTextProps as AssistiveTextBaseProps, variants, defaultProps } from '@justeattakeaway/pie-assistive-text';
+
+import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type AssistiveTextProps = SlottedComponentProps<AssistiveTextBaseProps>;
-type AssistiveTextStoryMeta = StoryMeta<AssistiveTextProps>;
+type AssistiveTextStoryMeta = Meta<AssistiveTextProps>;
 
 const defaultArgs: AssistiveTextProps = {
     ...defaultProps,

@@ -1,6 +1,6 @@
 {
   "name": "wc-vue3",
-  "version": "0.5.18",
+  "version": "0.5.22",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -11,9 +11,9 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-css": "0.12.1",
-    "@justeattakeaway/pie-webc": "0.5.31",
+    "@justeattakeaway/pie-webc": "0.5.35",
     "@vitejs/plugin-vue": "4.0.0",
-    "vite": "4.5.3",
+    "vite": "5.3.6",
     "vue": "3.2.47"
   },
   "devDependencies": {

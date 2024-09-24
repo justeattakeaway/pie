@@ -1,5 +1,17 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.22.2
+
+### Patch Changes
+
+- [Changed] - use storybook's Meta type instead of custom StoryMeta type ([#1878](https://github.com/justeattakeaway/pie/pull/1878)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.22.1
+
+### Patch Changes
+
+- [Changed] - Updated README ([#1821](https://github.com/justeattakeaway/pie/pull/1821)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.22.0
 
 ### Minor Changes

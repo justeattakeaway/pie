@@ -683,6 +683,20 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-spacing-h: var(--dt-spacing-08);
     --dt-spacing-i: var(--dt-spacing-09);
     --dt-spacing-j: var(--dt-spacing-10);
+    /* Global tokens - Breakpoint */
+    --dt-breakpoint-size-1024: 1024px;
+    --dt-breakpoint-size-1280: 1280px;
+    --dt-breakpoint-size-1440: 1440px;
+    --dt-breakpoint-size-320: 320px;
+    --dt-breakpoint-size-600: 600px;
+    --dt-breakpoint-size-768: 768px;
+    /* Alias tokens - Breakpoint */
+    --dt-breakpoint-xs: var(--dt-breakpoint-size-320);
+    --dt-breakpoint-sm: var(--dt-breakpoint-size-600);
+    --dt-breakpoint-md: var(--dt-breakpoint-size-768);
+    --dt-breakpoint-lg: var(--dt-breakpoint-size-1024);
+    --dt-breakpoint-xl: var(--dt-breakpoint-size-1280);
+    --dt-breakpoint-xxl: var(--dt-breakpoint-size-1440);
     /* Global tokens - Elevation */
     --dt-elevation-box-shadow-01: 0px 2px 2px 0px rgba(0, 0, 0, 0.03),0px 3px 1px -2px rgba(0, 0, 0, 0.07),0px 1px 5px 0px rgba(0, 0, 0, 0.06);
     --dt-elevation-box-shadow-02: 0px 4px 6px 0px rgba(0, 0, 0, 0.02),0px 2px 12px -2px rgba(0, 0, 0, 0.08),0px 3px 6px 0px rgba(0, 0, 0, 0.06);

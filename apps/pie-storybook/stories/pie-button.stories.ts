@@ -1,20 +1,18 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { type Meta } from '@storybook/web-components';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-button';
 import {
-    type ButtonProps as ButtonPropsBase,
-    defaultProps, iconPlacements, responsiveSizes, sizes, types, variants,
+    type ButtonProps as ButtonPropsBase, defaultProps, iconPlacements, responsiveSizes, sizes, types, variants,
 } from '@justeattakeaway/pie-button';
-/* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
-import { type StoryMeta, type SlottedComponentProps } from '../types';
+import { type SlottedComponentProps } from '../types';
 
 type ButtonProps = SlottedComponentProps<ButtonPropsBase>;
-type ButtonStoryMeta = StoryMeta<ButtonProps>;
+type ButtonStoryMeta = Meta<ButtonProps>;
 
 const defaultArgs: ButtonProps = {
     ...defaultProps,

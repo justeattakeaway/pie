@@ -1,17 +1,15 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { type Meta } from '@storybook/web-components';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-spinner';
 import {
-    SpinnerProps, sizes, variants, defaultProps,
+    type SpinnerProps, sizes, variants, defaultProps,
 } from '@justeattakeaway/pie-spinner';
-/* eslint-enable import/no-duplicates */
 
-import { type StoryMeta } from '../types';
-import { TemplateFunction, createStory } from '../utilities';
+import { type TemplateFunction, createStory } from '../utilities';
 
-type SpinnerStoryMeta = StoryMeta<SpinnerProps>;
+type SpinnerStoryMeta = Meta<SpinnerProps>;
 
 const defaultArgs: SpinnerProps = {
     ...defaultProps,

@@ -1,6 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
-
-$breakpoint-wide: 768px;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 
 .c-notification {
     --notification-border-radius: var(--dt-radius-rounded-c);
@@ -25,33 +24,33 @@ $breakpoint-wide: 768px;
     font-size: var(--notification-font-size);
     line-height: var(--notification-line-height);
 
-    &[isCompact] {
+    &.c-notification--compact {
         --notification-direction: row;
     }
 
-    &[position='full-width'] {
+    &.c-notification--full-width {
         --notification-border-radius: var(--dt-radius-rounded-none);
     }
 
-    &[variant='neutral-alternative'] {
+    &.c-notification--neutral-alternative {
         --notification-background-color: var(--dt-color-container-default);
     }
 
-    &[variant='info'] {
+    &.c-notification--info {
         --notification-background-color: var(--dt-color-support-info-02);
         --notification-icon-fill: var(--dt-color-blue);
     }
 
-    &[variant='success'] {
+    &.c-notification--success {
         --notification-background-color: var(--dt-color-support-positive-02);
         --notification-icon-fill: var(--dt-color-content-positive);
     }
 
-    &[variant='warning'] {
+    &.c-notification--warning {
         --notification-background-color: var(--dt-color-support-warning-02);
     }
 
-    &[variant='error'] {
+    &.c-notification--error {
         --notification-background-color: var(--dt-color-support-error-02);
         --notification-icon-fill: var(--dt-color-support-error);
     }
@@ -63,7 +62,7 @@ $breakpoint-wide: 768px;
         font-size: var(--notification-heading-font-size);
         line-height: var(--notification-heading-line-height);
 
-        @media (min-width: $breakpoint-wide) {
+        @include media('>md') {
             --notification-heading-font-size: #{p.font-size(--dt-font-heading-s-size--wide)};
             --notification-heading-line-height: #{p.line-height(--dt-font-heading-s-line-height--wide)};
         }
@@ -74,7 +73,7 @@ $breakpoint-wide: 768px;
         flex-direction: row;
         gap: var(--dt-spacing-c);
 
-        &[isDismissible] {
+        &.c-notification-content-section--dismissible {
             max-width: calc(100% - var(--notification-close-icon-offset) - 40px); // 40px is the size of the medium icon button
         }
     }
@@ -91,12 +90,12 @@ $breakpoint-wide: 768px;
         justify-content: flex-end;
         gap: var(--dt-spacing-d);
 
-        &[isCompact] {
+        &.c-notification-footer--compact {
             align-self: flex-end;
         }
 
-        @media (max-width: $breakpoint-wide) {
-            &[isStacked] {
+        @include media('<md') {
+            &.c-notification-footer--stacked {
                 flex-direction: column-reverse;
             }
         }
@@ -109,7 +108,7 @@ $breakpoint-wide: 768px;
     color: var(--notification-icon-fill);
     margin-block-start: var(--notification-icon-offset);
 
-    @media (max-width: $breakpoint-wide) {
+    @include media('<md') {
         margin-block-start: 0;
     }
 }
