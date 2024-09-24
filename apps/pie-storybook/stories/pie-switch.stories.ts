@@ -144,8 +144,8 @@ const FormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html
     </form>
     <script>
         // Display a success message to the user when they submit the form
-        const form = document.querySelector('#testForm');
-        const formLog = document.querySelector('#formLog');
+        var form = document.querySelector('#testForm');
+        var formLog = document.querySelector('#formLog');
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
