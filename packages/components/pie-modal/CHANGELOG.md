@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.47.0
+
+### Minor Changes
+
+- [Changed] - replaces media with include-media with pie breakpoints tokens. ([#1861](https://github.com/justeattakeaway/pie/pull/1861)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.46.2
 
 ### Patch Changes
