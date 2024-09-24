@@ -134,7 +134,7 @@ export class PieCard extends LitElement implements CardProps {
      *
      * @private
      */
-    private updateImagesOpacity(): void {
+    private updateImagesOpacity (): void {
         // Handle slotted images
         this.assignedElements.forEach((element) => {
             const images = element.querySelectorAll('img');
@@ -152,7 +152,7 @@ export class PieCard extends LitElement implements CardProps {
      * @param images
      * @private
      */
-    private applyOpacityToImages(images: NodeListOf<HTMLImageElement>): void {
+    private applyOpacityToImages (images: NodeListOf<HTMLImageElement>): void {
         images.forEach((img) => {
             img.style.opacity = this.disabled ? '0.5' : '';
         });
@@ -163,7 +163,7 @@ export class PieCard extends LitElement implements CardProps {
      *
      * @param changedProperties
      */
-    updated(changedProperties: PropertyValues<this>) : void {
+    updated (changedProperties: PropertyValues<this>) : void {
         if (changedProperties.has('disabled')) {
             this.updateImagesOpacity(); // Re-apply styles when disabled state changes
         }
