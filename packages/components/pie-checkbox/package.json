@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-checkbox",
   "description": "PIE Design System Checkbox built using Web Components",
-  "version": "0.12.3",
+  "version": "0.13.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

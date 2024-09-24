@@ -1,12 +1,12 @@
 import { html } from 'lit';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-<%= fileName %>';
 import { type <%= componentName %>Props } from '@justeattakeaway/pie-<%= fileName %>';
 
-import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
 
-type <%= componentName %>StoryMeta = StoryMeta<<%= componentName %>Props>;
+type <%= componentName %>StoryMeta = Meta<<%= componentName %>Props>;
 
 const defaultArgs: <%= componentName %>Props = {};
 

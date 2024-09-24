@@ -1,6 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
-
-$breakpoint-wide: 768px;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 
 .c-notification {
     --notification-border-radius: var(--dt-radius-rounded-c);
@@ -63,7 +62,7 @@ $breakpoint-wide: 768px;
         font-size: var(--notification-heading-font-size);
         line-height: var(--notification-heading-line-height);
 
-        @media (min-width: $breakpoint-wide) {
+        @include media('>md') {
             --notification-heading-font-size: #{p.font-size(--dt-font-heading-s-size--wide)};
             --notification-heading-line-height: #{p.line-height(--dt-font-heading-s-line-height--wide)};
         }
@@ -95,7 +94,7 @@ $breakpoint-wide: 768px;
             align-self: flex-end;
         }
 
-        @media (max-width: $breakpoint-wide) {
+        @include media('<md') {
             &.c-notification-footer--stacked {
                 flex-direction: column-reverse;
             }
@@ -109,7 +108,7 @@ $breakpoint-wide: 768px;
     color: var(--notification-icon-fill);
     margin-block-start: var(--notification-icon-offset);
 
-    @media (max-width: $breakpoint-wide) {
+    @include media('<md') {
         margin-block-start: 0;
     }
 }

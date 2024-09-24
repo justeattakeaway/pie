@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-chip
 
+## 0.8.3
+
+### Patch Changes
+
+- [Changed] - The loading state of the `Outline` variant should have a border. ([#1826](https://github.com/justeattakeaway/pie/pull/1826)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - The disabled state of the `Ghost` variant should have a transparent background.
+
 ## 0.8.2
 
 ### Patch Changes

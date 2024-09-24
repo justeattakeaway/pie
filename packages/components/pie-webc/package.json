@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-webc",
   "description": "Component bundle containing all PIE web components",
-  "version": "0.5.32",
+  "version": "0.5.35",
   "type": "module",
   "files": [
     "**/*.js",
@@ -249,10 +249,10 @@
   "dependencies": {
     "@justeattakeaway/pie-assistive-text": "0.7.1",
     "@justeattakeaway/pie-button": "0.49.1",
-    "@justeattakeaway/pie-card": "0.20.0",
-    "@justeattakeaway/pie-checkbox": "0.12.3",
+    "@justeattakeaway/pie-card": "0.20.1",
+    "@justeattakeaway/pie-checkbox": "0.13.0",
     "@justeattakeaway/pie-checkbox-group": "0.7.0",
-    "@justeattakeaway/pie-chip": "0.8.2",
+    "@justeattakeaway/pie-chip": "0.8.3",
     "@justeattakeaway/pie-cookie-banner": "0.26.4",
     "@justeattakeaway/pie-divider": "0.14.0",
     "@justeattakeaway/pie-form-label": "0.14.1",
@@ -261,7 +261,7 @@
     "@justeattakeaway/pie-lottie-player": "0.0.2",
     "@justeattakeaway/pie-modal": "0.46.2",
     "@justeattakeaway/pie-notification": "0.11.0",
-    "@justeattakeaway/pie-radio": "0.0.0",
+    "@justeattakeaway/pie-radio": "0.1.0",
     "@justeattakeaway/pie-radio-group": "0.1.0",
     "@justeattakeaway/pie-spinner": "0.7.0",
     "@justeattakeaway/pie-switch": "0.30.1",

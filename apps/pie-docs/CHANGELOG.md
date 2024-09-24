@@ -1,5 +1,29 @@
 # Changelog
 
+## 4.8.0
+
+### Minor Changes
+
+- [Removed] - Banner component from pie docs ([#1899](https://github.com/justeattakeaway/pie/pull/1899)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+## 4.7.0
+
+### Minor Changes
+
+- [Changed] - Use only css to apply columns to docs site contents tables ([#1858](https://github.com/justeattakeaway/pie/pull/1858)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Changed] - Add caching for `generate:component-statuses` build. ([#1838](https://github.com/justeattakeaway/pie/pull/1838)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - New `copy:component-statuses` script for `pie-docs` and `pie-storybook` which copies the status file from the root.
+
+## 4.6.1
+
+### Patch Changes
+
+- [Changed] - updated `pie-divider` overview and code documentation ([#1860](https://github.com/justeattakeaway/pie/pull/1860)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
 ## 4.6.0
 
 ### Minor Changes

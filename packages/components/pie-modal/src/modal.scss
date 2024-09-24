@@ -1,12 +1,11 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 @use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 @use 'dialog-polyfill/dist/dialog-polyfill.css';
 
 .c-modal {
     // Custom Property Declarations
     // These are defined here instead of :host to encapsulate them inside Shadow DOM
-    $breakpoint-wide: 768px;
-
     --modal-size-s: 450px;
     --modal-size-m: 600px;
     --modal-size-l: 1080px;
@@ -23,7 +22,7 @@
 
     // We need to override the icon sizes at different screen sizes regardless of size prop passed in
     pie-icon-button {
-        @media (width < $breakpoint-wide) {
+        @include media('<md') {
             --btn-dimension: 40px;
         }
     }
@@ -50,7 +49,7 @@
     --modal-margin-large: var(--dt-spacing-j);
     --modal-margin-block: var(--modal-margin-small);
 
-    @media (min-width: $breakpoint-wide) {
+    @include media('>md') {
         --modal-margin-block: var(--modal-margin-large);
     }
 
@@ -69,7 +68,7 @@
     &.c-modal--small {
         --modal-max-inline-size: var(--modal-size-s);
 
-        @media (min-width: $breakpoint-wide) {
+        @include media('>md') {
             --modal-margin-block: var(--modal-margin-large);
         }
     }
@@ -87,7 +86,7 @@
     // Fullscreen styles
     &.c-modal--large,
     &.c-modal--medium.c-modal--fullWidthBelowMid {
-        @media (width < $breakpoint-wide) {
+        @include media('<md') {
             --modal-margin-block: var(--modal-margin-none);
             --modal-border-radius: var(--dt-radius-rounded-none);
             --modal-block-size: 100%;
@@ -110,17 +109,25 @@
 
         &.c-modal--large,
         &.c-modal--fullWidthBelowMid.c-modal--medium {
-            @media (width < $breakpoint-wide) {
+            @include media('<md') {
                 margin-block-start: var(--dt-spacing-none);
                 max-block-size: 100%;
             }
         }
     }
 
-    // We need to pull in the token directly here because the
-    // pseudo element `::backdrop` doesn't seem to pick up custom css properties.
     &::backdrop {
-        background: #{dt.$color-overlay};
+        background: var(--dt-color-overlay);
+    }
+
+    // TODO: Can be removed along with pie-design-tokens dependency
+    // after v17.6 becomes the last we support, currently it is v16+
+    // where css vars are not working on ::backdrop
+    // Safari >= 16
+    @supports (hanging-punctuation: first) and (font: -apple-system-body) and (-webkit-appearance: none) {
+        &::backdrop {
+            background: #{dt.$color-overlay};
+        }
     }
 
     & .c-modal-footer {
@@ -133,13 +140,13 @@
         gap: var(--modal-button-spacing);
         padding: var(--modal-footer-padding);
 
-        @media (min-width: $breakpoint-wide) {
+        @include media('>md') {
             --modal-footer-padding: var(--dt-spacing-e);
         }
 
         &.c-modal-footer--stackedActions {
             // TODO: Move breakpoint sizes into shared CSS component utilities
-            @media (width < $breakpoint-wide) {
+            @include media('<md') {
                 flex-direction: column;
             }
         }
@@ -167,7 +174,7 @@
         margin-inline-end: var(--dt-spacing-d);
         margin-block: 14px; // This is deliberately not a custom property
 
-        @media (min-width: $breakpoint-wide) {
+        @include media('>md') {
             --modal-header-font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
             --modal-header-font-line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
             margin-inline-start: var(--dt-spacing-e);
@@ -180,7 +187,7 @@
     .c-modal-backBtn + .c-modal-heading {
         margin-inline-start: var(--dt-spacing-b);
 
-        @media (min-width: $breakpoint-wide) {
+        @include media('>md') {
             margin-inline-start: var(--dt-spacing-c);
         }
     }
@@ -188,7 +195,7 @@
     &.c-modal--dismissible .c-modal-heading {
         margin-inline-end: var(--dt-spacing-d);
 
-        @media (min-width: $breakpoint-wide) {
+        @include media('>md') {
             margin-inline-end: var(--dt-spacing-e);
         }
     }
@@ -200,7 +207,7 @@
         margin-inline-start: var(--dt-spacing-b);
         margin-inline-end: var(--dt-spacing-none);
 
-        @media (min-width: $breakpoint-wide) {
+        @include media('>md') {
             margin-block-start: var(--dt-spacing-c);
             margin-block-end: var(--dt-spacing-c);
             margin-inline-start: var(--dt-spacing-c);
@@ -215,7 +222,7 @@
         margin-inline-start: var(--dt-spacing-none);
         margin-inline-end: var(--dt-spacing-b);
 
-        @media (min-width: $breakpoint-wide) {
+        @include media('>md') {
             margin-block-start: var(--dt-spacing-c);
             margin-block-end: var(--dt-spacing-c);
             margin-inline-start: var(--dt-spacing-none);
@@ -234,7 +241,7 @@
         --modal-content-min-block-size: var(--dt-spacing-j);
 
 
-        @media (min-width: $breakpoint-wide) {
+        @include media('>md') {
             --modal-content-padding-inline: var(--dt-spacing-e);
         }
 
