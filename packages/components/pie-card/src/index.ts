@@ -54,7 +54,7 @@ export class PieCard extends LitElement implements CardProps {
     public padding?: CardProps['padding'];
 
     @queryAssignedElements({ flatten: true })
-    private assignedElements!: HTMLElement[];
+    private assignedElements?: HTMLElement[];
 
     /**
      * Renders the card as an anchor element.
@@ -135,11 +135,13 @@ export class PieCard extends LitElement implements CardProps {
      * @private
      */
     private updateImagesOpacity (): void {
-        // Handle slotted images
-        this.assignedElements.forEach((element) => {
-            const images = element.querySelectorAll('img');
-            this.applyOpacityToImages(images);
-        });
+        if (this.assignedElements) {
+            // Handle slotted images
+            this.assignedElements.forEach((element) => {
+                const images = element.querySelectorAll('img');
+                this.applyOpacityToImages(images);
+            });
+        }
 
         // Handle non-slotted direct content images
         const directImages = this.querySelectorAll('img');
