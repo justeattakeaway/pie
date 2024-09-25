@@ -1,13 +1,13 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { useArgs as UseArgs } from '@storybook/preview-api';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-radio';
 import { type RadioProps as RadioBaseProps, defaultProps } from '@justeattakeaway/pie-radio';
 
 import { type SlottedComponentProps } from '../types';
-
-import { createStory, sanitizeAndRenderHTML } from '../utilities';
+import { createStory, sanitizeAndRenderHTML, type TemplateFunction } from '../utilities';
 
 type RadioProps = SlottedComponentProps<RadioBaseProps>;
 type RadioStoryMeta = Meta<RadioProps>;
@@ -88,16 +88,76 @@ export default radioStoryMeta;
 
 const Template = ({
     checked, disabled, defaultChecked, name, required, slot, value,
-}: RadioProps) => html`
-    <pie-radio
-        ?checked="${checked}"
-        ?disabled="${disabled}"
-        ?defaultChecked="${defaultChecked}"
-        ?required="${required}"
-        name="${ifDefined(name)}"
-        .value="${value}">
-        ${sanitizeAndRenderHTML(slot)}
-    </pie-radio>
-`;
+}: RadioProps) => {
+    const [, updateArgs] = UseArgs();
+
+    const onChange = (event: InputEvent) => {
+        const radioElement = event.target as HTMLInputElement;
+        updateArgs({ checked: radioElement.checked });
+    };
+
+    return html`
+        <pie-radio
+            ?checked="${checked}"
+            ?disabled="${disabled}"
+            ?defaultChecked="${defaultChecked}"
+            ?required="${required}"
+            name="${ifDefined(name)}"
+            .value="${value}"
+            @change="${onChange}">
+            ${sanitizeAndRenderHTML(slot)}
+        </pie-radio>`;
+};
+
+const ExampleFormTemplate: TemplateFunction<RadioProps> = ({
+    value,
+    name,
+    checked,
+    defaultChecked,
+    disabled,
+    required,
+    slot,
+}: RadioProps) => {
+    const [, updateArgs] = UseArgs();
+
+    const onChange = (event: InputEvent) => {
+        const radioElement = event.target as HTMLInputElement;
+        updateArgs({ checked: radioElement.checked });
+    };
+
+    return html`
+        <form id="testForm">
+            <pie-radio
+                .value="${value}"
+                name="${ifDefined(name)}"
+                ?checked="${checked}"
+                ?defaultChecked="${defaultChecked}"
+                ?disabled="${disabled}"
+                ?required="${required}"
+                @change="${onChange}">
+                ${sanitizeAndRenderHTML(slot)}
+            </pie-radio>
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+            <script>
+                // var is used to prevent storybook from erroring when the script is re-run
+                var form = document.querySelector('#testForm');
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    // log out all form input values
+                    const formData = new FormData(form);
+                    console.log('All form elements:', form.elements);
+                    console.log('All form element data keys and values submitted:');
+
+                    for (const entry of formData.entries()) {
+                        console.table(entry);
+                    };
+                });
+            </script>
+        </form>`;
+};
 
 export const Default = createStory<RadioProps>(Template, defaultArgs)();
+export const ExampleForm = createStory<RadioProps>(ExampleFormTemplate, defaultArgs)();

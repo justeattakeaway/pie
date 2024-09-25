@@ -1,6 +1,6 @@
 const markdownFilter = require('../filters/markdown');
 
-module.exports = ({ data }) => {
+const mediaElementList = ({ data }) => {
     const listItems = JSON.parse(data).items;
     const imgBreakpoint = '600px';
 
@@ -22,3 +22,5 @@ module.exports = ({ data }) => {
     }).join('<hr>')}
     </div>`;
 };
+
+module.exports = mediaElementList;
