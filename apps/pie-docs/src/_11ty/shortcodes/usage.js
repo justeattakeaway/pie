@@ -83,9 +83,8 @@ const buildUsageCard = (usageType, { type, items, hasPadding = true }) => {
  * @param {UsageItem} usage.dont - Information for the "dont" section.
  * @returns {string} - The HTML representation of the usage component.
 */
-// eslint-disable-next-line func-names
-module.exports = function (props) {
-    return `<div class="c-usage-container">
-    ${Object.keys(metadata).map((usageType) => buildUsageCard(usageType, props[usageType])).join(' ')}
-  </div>`;
-};
+const usage = (props) => `<div class="c-usage-container">
+  ${Object.keys(metadata).map((usageType) => buildUsageCard(usageType, props[usageType])).join(' ')}
+</div>`;
+
+module.exports = usage;

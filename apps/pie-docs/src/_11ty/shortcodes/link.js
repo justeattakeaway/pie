@@ -39,7 +39,6 @@ const createLink = (link, ariaLabel) => {
     </div>`;
 };
 
-// eslint-disable-next-line func-names
-module.exports = function (links) {
-    return `<div class="c-link-container">${links.map((element) => createLink(element.link, element.ariaLabel)).join('')}</div>`;
-};
+const link = (links) => `<div class="c-link-container">${links.map((element) => createLink(element.link, element.ariaLabel)).join('')}</div>`;
+
+module.exports = link;
