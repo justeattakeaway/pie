@@ -71,8 +71,7 @@ const buildCardContent = ({
  * @param {boolean} shouldFillContainer - If true card wrapper will fill the container width and cards will expand to fill container when wrapped
  * @returns {string}
  */
-// eslint-disable-next-line func-names
-module.exports = function ({ items, shouldFillContainer = false }) {
+const card = ({ items, shouldFillContainer = false }) => {
     const buildCard = ({
         content,
         heading,
@@ -117,3 +116,5 @@ module.exports = function ({ items, shouldFillContainer = false }) {
 
     return `${buildCard(items[0])}`;
 };
+
+module.exports = card;
