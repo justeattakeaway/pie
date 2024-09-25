@@ -136,14 +136,14 @@ export class PieCard extends LitElement implements CardProps {
      */
     private updateImagesOpacity (): void {
         if (this.assignedElements) {
-            // Handle slotted images
+            // Handle images nested inside slotted elements
             this.assignedElements.forEach((element) => {
                 const images = element.querySelectorAll('img');
                 this.applyOpacityToImages(images);
             });
         }
 
-        // Handle non-slotted direct content images
+        // Handle directly slotted images
         const directImages = this.querySelectorAll('img');
         this.applyOpacityToImages(directImages);
     }
