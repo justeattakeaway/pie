@@ -36,7 +36,7 @@ A modal is a surface that overlays the page’s main content and is used to disp
 {% contentPageImage {
   src:"../../../../assets/img/patterns/overlay-patterns/modal.svg",
   mobileSrc:"../../../../assets/img/patterns/overlay-patterns/modal-narrow.svg",
-  alt: "A modal containing a heading, multiple lines of text ant two buttons placed below the modal heading.",
+  alt: "A modal containing a heading, multiple lines of text and two buttons placed below the modal heading.",
   width: "600px"
 } %}
 
@@ -45,7 +45,7 @@ A modal is a surface that overlays the page’s main content and is used to disp
         type: usageTypes.text,
         items: [
             "Use for multi-step or single-step flows.",
-            "Use them to display important information that needs user’s action or dismissal.",
+            "Use them to display important information that needs the user’s action or dismissal.",
             "Use them when the user needs to perform one specific task.",
             "They are triggered by the user."
         ]
