@@ -15,9 +15,8 @@ Overlay patterns in UI design involve the presentation of additional content or 
 By overlaying content, designers can optimise screen space and enhance user experience by reducing the need for users to navigate away from the current context.
 
 {% contentPageImage {
-  src:"../../../assets/img/patterns/haptic-feedback/overview-desktop.svg",
-  mobileSrc: "../../../assets/img/patterns/haptic-feedback/overview-mobile.svg",
-  alt: "Illustration of a mobile device surrounded by shapes that indicate vibration."
+  src:"../../../assets/img/patterns/overlay-patterns/overview.svg",
+  alt: "Illustration of a mobile device and a laptop using different types of overlays."
 } %}
 
 ---

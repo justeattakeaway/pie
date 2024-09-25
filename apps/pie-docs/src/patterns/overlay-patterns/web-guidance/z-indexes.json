@@ -1,0 +1,24 @@
+{
+  "headings": [
+    "Component",
+    "Z-index"
+  ],
+  "rows": [
+    [
+      "Tooltip",
+      "2"
+    ],
+    [
+      "Popover",
+      "3"
+    ],
+    [
+      "Modal",
+      "4"
+    ],
+    [
+      "Toast",
+      "6"
+    ]
+  ]
+}
