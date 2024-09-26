@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-card
 
+## 0.21.0
+
+### Minor Changes
+
+- [Added] Ability to set images to 50% opacity when disabled ([#1946](https://github.com/justeattakeaway/pie/pull/1946)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.20.1
 
 ### Patch Changes
