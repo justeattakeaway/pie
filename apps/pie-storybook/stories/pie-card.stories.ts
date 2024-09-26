@@ -156,5 +156,5 @@ export const CardWithImage = createCardStory({
         dicta consequuntur commodi officiis
         tempora asperiores aspernatur atque quas.</p>
         <img src="https://picsum.photos/200/300?image=0" alt="Sample image" />
-    </div>`
+    </div>`,
 });
