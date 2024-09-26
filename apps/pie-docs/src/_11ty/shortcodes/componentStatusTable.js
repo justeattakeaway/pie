@@ -29,7 +29,7 @@ const buildRow = (cells, headings) => cells.map((cell) => {
  * @param {string} dataType - string containing 'web' or 'app' depending on status table
  * @returns {string} - The HTML representation of the table component.
  */
-module.exports = ({
+const componentStatusTable = ({
     dataType,
 }) => {
     const headings = dataType === 'apps' ? appHeadings : webHeadings;
@@ -46,3 +46,5 @@ module.exports = ({
     </table>
 </div>`;
 };
+
+module.exports = componentStatusTable;

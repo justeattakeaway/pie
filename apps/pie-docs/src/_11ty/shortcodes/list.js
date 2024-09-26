@@ -32,13 +32,12 @@ const getHighlightIndicator = (highlightColour, index) => {
  * @param {string} type - Type of list: ordered, pill, icon
  * @param {string} iconName - icon name such as "close-circle-filled" if type is icon
  * @param {string} iconFill - fill token name such as "support-positive" if type is icon
- * @param {string[] items - An array of list items
+ * @param {string[]} items - An array of list items
  * @returns {string}
  */
-// eslint-disable-next-line func-names
-module.exports = function ({
+const list = ({
     type, items, iconName, iconFill, highlightColour,
-}) {
+}) => {
     if (!type || !listTypes[type]) {
         throw new Error(`List 'type = ${type}' not recognised. Try ${Object.values(listTypes).join(', ')}`);
     }
@@ -63,3 +62,5 @@ module.exports = function ({
         ${listItems}
     </${listTag}>`;
 };
+
+module.exports = list;
