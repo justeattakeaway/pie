@@ -29,8 +29,10 @@ const buildRow = (row) => {
  * @param {string} heading - The heading for the resource table (Web/Apps) - can be left empty
  * @param {object[]} rows - An array of row objects. Row contains a `resource` (e.g. documnentation/vue/ios) a status (e.g. planned/beta/n/a) an optional link and an optional note
  */
-module.exports = ({
+const resourceTable = ({
     componentName,
 }) => `<table class="c-resourceTable">
         ${rows.map((row) => `${row[0].componentName === componentName ? row.map((r) => buildRow(r)).join('') : ''}`).join('')}
     </table>`;
+
+module.exports = resourceTable;
