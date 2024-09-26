@@ -1,4 +1,3 @@
-
 /**
  * Builds the example radius swatch to show on the token list item
  * @param {string} token - the token value in pixels
