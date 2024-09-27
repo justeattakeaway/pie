@@ -2,8 +2,6 @@ import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const variants = ['neutral', 'info', 'warning', 'success', 'error'] as const;
 
-const defaultDuration = 5000;
-
 export type ActionProps = {
   /**
    * The text to display inside the button.
@@ -87,5 +85,5 @@ export const defaultProps: DefaultProps = {
     isStrong: false,
     isDismissible: true,
     isMultiline: false,
-    duration: defaultDuration,
+    duration: 5000,
 };

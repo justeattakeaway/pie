@@ -27,13 +27,13 @@
   line-height: var(--toast-line-height);
   transition-property: all;
   transition-duration: var(--dt-motion-timing-100);
-  transition-timing-function: var(-dt-motion-easing-in);
+  transition-timing-function: var(--dt-motion-easing-in);
 }
 
 .c-toast--animate-in {
   animation-duration: var(--dt-motion-timing-200);
   animation-name: animate-in;
-  animation-timing-function: var(-dt-motion-easing-in);
+  animation-timing-function: var(--dt-motion-easing-in);
   transform: translateX(0); 
 }
 
