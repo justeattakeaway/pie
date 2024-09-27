@@ -1,4 +1,4 @@
-import { test } from '@sand4rt/experimental-ct-web';
+import { test, expect } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 import type {
     PropObject, WebComponentPropValues, WebComponentTestInput,
@@ -94,4 +94,58 @@ test.describe('PieCard - `padding` prop', async () => {
 
         await percySnapshot(page, `PIE Card - Padding values | batch number: ${index}`, percyWidths);
     }));
+});
+
+test.describe('PieCard - Disabled Prop Visual Tests', () => {
+    const slotContent = `
+        <div style="padding: 16px;">
+            <h2> Card title </h2>
+            <img src="https://picsum.photos/200/300?image=0" alt="Sample image" />
+            <p> Card content </p>
+        </div>`;
+
+    const renderTestPieCard = (disabled: boolean) => `
+        <pie-card ${disabled ? 'disabled' : ''}>
+            ${slotContent}
+        </pie-card>`;
+
+    test('should set image opacity to 50% when disabled is true', async ({ page, mount }) => {
+        const testComponent = renderTestPieCard(true);
+
+        await mount(
+            WebComponentTestWrapper,
+            {
+                slots: {
+                    component: testComponent.trim(),
+                },
+            },
+        );
+
+        const image = page.locator('img');
+        const opacity = await image.evaluate((img) => getComputedStyle(img).opacity);
+
+        expect(opacity).toBe('0.5');
+
+        await percySnapshot(page, 'PIE Card - Disabled State & image set to opacity of 50%');
+    });
+
+    test('should not set image opacity style when disabled is false', async ({ page, mount }) => {
+        const testComponent = renderTestPieCard(false);
+
+        await mount(
+            WebComponentTestWrapper,
+            {
+                slots: {
+                    component: testComponent.trim(),
+                },
+            },
+        );
+
+        const image = page.locator('img');
+        const opacity = await image.evaluate((img) => getComputedStyle(img).opacity);
+
+        expect(opacity).not.toBe('0.5');
+
+        await percySnapshot(page, 'PIE Card - Enabled State & image opacity not set');
+    });
 });

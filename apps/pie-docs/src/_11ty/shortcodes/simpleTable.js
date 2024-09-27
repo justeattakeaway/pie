@@ -82,7 +82,7 @@ const buildCategorisedTables = (tableData, useMonospace, isFullWidth, tokenType)
  * @param {boolean} useMonospace - Should the table use a monospace font
  * @param {object} tokens - An object of token information - path:  tokenType - the type of token
  */
-module.exports = ({
+const simpleTable = ({
     isFullWidth = false,
     tableData,
     useMonospace = false,
@@ -98,3 +98,5 @@ module.exports = ({
         ? `${buildCategorisedTables(data, useMonospace, isFullWidth, tokens?.tokenType)}`
         : `${buildTable(data, useMonospace, isFullWidth, tokens?.tokenType)}`;
 };
+
+module.exports = simpleTable;
