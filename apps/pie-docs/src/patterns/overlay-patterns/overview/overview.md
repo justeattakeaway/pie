@@ -43,4 +43,4 @@ Overlay patterns need to be responsive and adaptable to different screen sizes a
 
 ### Consistency
 
-Maintain consistency in the design and behaviour of overlays throughout the your webs and apps. Use our consistent styling, interactions and placement to create a cohesive user experience.
+Maintain consistency in the design and behaviour of overlays throughout your website and apps. Use our consistent styling, interactions and placement to create a cohesive user experience.
