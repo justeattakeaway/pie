@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.5.1
+
+### Patch Changes
+
+- [Added] - Form functionality, missing prop tests and form story ([#1927](https://github.com/justeattakeaway/pie/pull/1927)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`db1d4c890`](https://github.com/justeattakeaway/pie/commit/db1d4c8901bb4c4b6776dd1c33b9fa149561da5c), [`3f3e1d4ca`](https://github.com/justeattakeaway/pie/commit/3f3e1d4caebe0aa5c654c5d7d4620c72aa5d065d)]:
+  - @justeattakeaway/pie-card@0.21.0
+  - @justeattakeaway/pie-radio@0.2.0
+
 ## 1.5.0
 
 ### Minor Changes

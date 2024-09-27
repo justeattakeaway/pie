@@ -1,5 +1,12 @@
 # wc-next13
 
+## 0.4.23
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.37
+
 ## 0.4.22
 
 ### Patch Changes
