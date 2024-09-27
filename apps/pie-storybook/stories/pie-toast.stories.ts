@@ -66,7 +66,7 @@ const toastStoryMeta: ToastStoryMeta = {
             control: 'object',
         },
         duration: {
-            description: 'It sets the duration of the toast in milliseconds before it auto-dismisses.',
+            description: 'Sets the duration of the toast in milliseconds before it auto-dismisses.',
             control: 'number',
         },
     },
