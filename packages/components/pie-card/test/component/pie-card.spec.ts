@@ -304,4 +304,56 @@ test.describe('PieCard - Component tests', () => {
             });
         });
     });
+
+    test.describe('Prop: disabled', () => {
+        test.describe('when an image exists and the prop `disabled` is set to `true`', () => {
+            test('should set the opacity to 50%', async ({ mount, page }) => {
+                // Arrange
+                const slottedImageContent = `<div data-test-id="slot-content">
+                    <img alt="Sample Image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBA==" />
+                </div>`;
+
+                await mount(PieCard, {
+                    props: {
+                        disabled: true,
+                    } as CardProps,
+                    slots: {
+                        default: slottedImageContent,
+                    },
+                });
+
+                // Act
+                const component = page.locator('[data-test-id="slot-content"]');
+                const image = component.locator('img');
+
+                // Assert the image has the correct opacity
+                await expect(image).toHaveCSS('opacity', '0.5');
+            });
+        });
+
+        test.describe('when an image exists and the prop `disabled` is set to `false`', () => {
+            test('should not set the opacity style on the image element', async ({ mount, page }) => {
+                // Arrange
+                const slottedImageContent = `<div data-test-id="slot-content">
+                    <img alt="Sample Image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBA==" />
+                </div>`;
+
+                await mount(PieCard, {
+                    props: {
+                        disabled: false,
+                    } as CardProps,
+                    slots: {
+                        default: slottedImageContent,
+                    },
+                });
+
+                // Act
+                const component = page.locator('[data-test-id="slot-content"]');
+                const image = component.locator('img');
+
+                // Assert the image has the correct opacity
+                await expect(image).not.toHaveCSS('opacity', '0.5');
+            });
+        });
+    });
 });

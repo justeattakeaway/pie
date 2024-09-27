@@ -143,3 +143,18 @@ export const Default = createCardStory();
 export const Outline = createCardStory({ variant: 'outline' });
 export const Inverse = createCardStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
 export const OutlineInverse = createCardStory({ variant: 'outline-inverse' }, { bgColor: 'dark (container-dark)' });
+export const CardWithImage = createCardStory({
+    ...defaultArgs,
+    slot: `<div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-l-family);">
+        <h2 style="margin-top: 0"> Card title </h2>
+        <p> Card content </p>
+        <p style="margin-bottom: 0"> Lorem ipsum dolor sit amet
+        consectetur adipisicing elit.
+        Fugiat dolore dolorem maxime,
+        quod, in minima esse fugit
+        distinctio, officia et soluta
+        dicta consequuntur commodi officiis
+        tempora asperiores aspernatur atque quas.</p>
+        <img src="https://picsum.photos/200/300?image=0" alt="Sample image" />
+    </div>`,
+});
