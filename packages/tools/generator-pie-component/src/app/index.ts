@@ -5,6 +5,9 @@ import prompts from './prompts';
 import { transformName } from './utils';
 import type { Props } from './types';
 
+// Regex as string used to restrict package upgrades after scaffolding
+const packagesToUpgrade = '/^@justeattakeaway\//';
+
 export default class extends Generator {
     props: Props;
 
@@ -48,8 +51,12 @@ export default class extends Generator {
     }
 
     async end () {
+        const { componentPath } = this.props;
+
         this.log(chalk('Updating pie-webc...'));
         this.spawnCommandSync('npx', ['add-components']);
+        this.spawnCommandSync('npx', ['npm-check-updates', '-u', packagesToUpgrade], { cwd: this.destinationPath(componentPath) });
+        this.spawnCommandSync('yarn', [], { cwd: this.destinationPath() });
         this.log(chalk.greenBright('Your new component has been created!'));
     }
 }
