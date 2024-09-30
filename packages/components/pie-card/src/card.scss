@@ -39,10 +39,6 @@
     outline: none;
     text-decoration: none;
 
-    &:focus-visible {
-        @include p.focus;
-    }
-
     &.c-card--disabled {
         --card-bg-color: var(--dt-color-disabled-01);
 
@@ -94,5 +90,9 @@
 
     &.c-card--draggable {
         @extend %has-grab-cursor;
+    }
+
+    &:focus-visible {
+        @include p.focus;
     }
 }
