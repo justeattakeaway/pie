@@ -2,6 +2,7 @@ import { nothing } from 'lit';
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
+import { action } from '@storybook/addon-actions';
 
 import '@justeattakeaway/pie-card';
 import {
@@ -112,6 +113,8 @@ const cardStoryMeta: CardStoryMeta = {
 
 export default cardStoryMeta;
 
+const clickAction = action('clicked');
+
 const Template: TemplateFunction<CardProps> = ({
     tag,
     href,
@@ -123,7 +126,10 @@ const Template: TemplateFunction<CardProps> = ({
     variant,
     padding,
     isDraggable,
-}) => html`
+}) => {
+    const isButton = tag === 'button';
+
+    return html`
         <pie-card
             tag="${ifDefined(tag)}"
             variant="${ifDefined(variant)}"
@@ -133,9 +139,11 @@ const Template: TemplateFunction<CardProps> = ({
             ?disabled="${disabled}"
             .aria="${aria}"
             padding="${padding || nothing}"
-            ?isDraggable="${isDraggable}">
+            ?isDraggable="${isDraggable}"
+            @click="${isButton ? clickAction : nothing}">
                 ${sanitizeAndRenderHTML(slot)}
             </pie-card>`;
+};
 
 const createCardStory = createStory<CardProps>(Template, defaultArgs);
 

@@ -56,6 +56,14 @@ export class PieCard extends LitElement implements CardProps {
     @queryAssignedElements({ flatten: true })
     private assignedElements?: HTMLElement[];
 
+    private onClickHandler (event: Event) {
+        if (this.disabled) {
+            // needed to intercept/prevent click events when the card is disabled.
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    }
+
     /**
      * Renders the card as an anchor element.
      *
@@ -63,21 +71,22 @@ export class PieCard extends LitElement implements CardProps {
      */
     private renderAnchor (classes: ClassInfo): TemplateResult {
         const paddingCSS = this.generatePaddingCSS();
+        const {
+            href, rel, target, disabled, aria,
+        } = this;
 
         return html`
             <a
                 class="${classMap(classes)}"
                 data-test-id="pie-card"
-                ?disabled=${this.disabled}
-                href=${this.href || ''}
-                target=${this.target || nothing}
-                rel=${this.rel || nothing}
+                href=${ifDefined(href && !disabled ? href : undefined)}
+                target=${target || nothing}
+                rel=${rel || nothing}
                 role="link"
-                aria-label=${this.aria?.label || nothing}
-                aria-disabled=${this.disabled ? 'true' : 'false'}
+                aria-label=${aria?.label || nothing}
+                aria-disabled=${disabled ? 'true' : 'false'}
                 style=${ifDefined(paddingCSS)}>
-                    <slot></slot>
-                </div>
+                    <slot  @slotchange=${this.handleSlotChange}></slot>
             </a>`;
     }
 
@@ -196,10 +205,11 @@ export class PieCard extends LitElement implements CardProps {
                     class="${classMap(classes)}"
                     data-test-id="pie-card"
                     role="button"
-                    tabindex="0"
+                    tabindex=${disabled ? '-1' : '0'}
                     aria-label=${aria?.label || nothing}
                     aria-disabled=${disabled ? 'true' : 'false'}
-                    style=${paddingCSS || ''}>
+                    style=${paddingCSS || ''}
+                    @click=${this.onClickHandler}>
                         <slot @slotchange=${this.handleSlotChange}></slot>
                     </div>
                 </div>`;
