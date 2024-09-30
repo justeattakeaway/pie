@@ -43,41 +43,63 @@ test.describe('PieCard - Component tests', () => {
         await expect(renderedSlotContent).toBeVisible();
     });
 
-    test.describe('PieCard with tag = "button"', () => {
-        test('should handle click events', async ({ mount }) => {
-            // Arrange
-            const tag = 'button';
-            const messages: string[] = [];
-            const expectedEventMessage = 'Native event dispatched';
+    test('should render the card as an anchor tag with the provided href, target and rel attributes if tag = a', async ({ mount, page }) => {
+        // Arrange
+        const tag = 'a';
+        const href = 'foo.com';
+        const rel = 'noopener noreferrer';
+        const target = '_blank';
 
-            const component = await mount(PieCard, {
-                props: {
-                    tag,
-                } as CardProps,
-                slots: {
-                    default: slotContent,
-                },
-                on: {
-                    click: () => {
-                        messages.push(expectedEventMessage);
-                    },
-                },
-            });
-
-            // Act
-            await component.click();
-
-            // Assert
-            expect(messages).toEqual([expectedEventMessage]);
+        await mount(PieCard, {
+            props: {
+                tag,
+                href,
+                rel,
+                target,
+            } as CardProps,
+            slots: {
+                default: slotContent,
+            },
         });
 
-        test('should have the correct attributes', async ({ mount, page }) => {
-            // Arrange
-            const tag = 'button';
+        // Act
+        const component = page.locator(componentSelector);
 
+        // Assert
+        await expect(component).toHaveAttribute('href', href);
+        await expect(component).toHaveAttribute('rel', rel);
+        await expect(component).toHaveAttribute('target', target);
+        await expect(component).not.toHaveAttribute('role', 'button');
+        await expect(component).not.toHaveAttribute('tabindex', '0');
+    });
+
+    test('should render the card as a div that behaves like a button if tag = "button"', async ({ mount, page }) => {
+        // Arrange
+        const tag = 'button';
+
+        await mount(PieCard, {
+            props: {
+                tag,
+            } as CardProps,
+            slots: {
+                default: slotContent,
+            },
+        });
+
+        // Act
+        const component = page.locator(componentSelector);
+
+        // Assert
+        await expect(component).toHaveAttribute('role', 'button');
+        await expect(component).toHaveAttribute('tabindex', '0');
+    });
+
+    [true, false].forEach((disabled) => {
+        test(`should add an aria-disabled attribute that matches the value of the disabled prop (${disabled})`, async ({ mount, page }) => {
+            // Arrange
             await mount(PieCard, {
                 props: {
-                    tag,
+                    disabled,
                 } as CardProps,
                 slots: {
                     default: slotContent,
@@ -88,9 +110,7 @@ test.describe('PieCard - Component tests', () => {
             const component = page.locator(componentSelector);
 
             // Assert
-            await expect(component).toHaveAttribute('role', 'button');
-            await expect(component).toHaveAttribute('tabindex', '0');
-            await expect(component).toHaveAttribute('aria-disabled', 'false');
+            await expect(component).toHaveAttribute('aria-disabled', disabled.toString());
         });
     });
 
