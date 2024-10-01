@@ -1,9 +1,6 @@
 import { type TemplateResult } from 'lit';
 
-import {
-    type CookieBannerLocale,
-    type CustomTagEnhancers,
-} from './defs';
+import { type CookieBannerLocale, type CustomTagEnhancers } from './defs';
 
 function logError (message:string):void {
     console.error(`[localisation-utils]: ${message}`);

@@ -1,5 +1,46 @@
 # Changelog
 
+## 1.5.2
+
+### Patch Changes
+
+- [Fixed] - Ensure the card is not interactive when `disabled` is passed ([#1930](https://github.com/justeattakeaway/pie/pull/1930)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`e34c9c5dc`](https://github.com/justeattakeaway/pie/commit/e34c9c5dcb272fbc970fa64f65426d8c51f1093a)]:
+  - @justeattakeaway/pie-card@0.21.1
+  - @justeattakeaway/pie-assistive-text@0.7.2
+  - @justeattakeaway/pie-button@0.49.2
+  - @justeattakeaway/pie-checkbox@0.13.1
+  - @justeattakeaway/pie-checkbox-group@0.7.1
+  - @justeattakeaway/pie-chip@0.8.4
+  - @justeattakeaway/pie-cookie-banner@0.26.6
+  - @justeattakeaway/pie-divider@0.14.1
+  - @justeattakeaway/pie-form-label@0.14.2
+  - @justeattakeaway/pie-icon-button@0.28.13
+  - @justeattakeaway/pie-link@0.18.1
+  - @justeattakeaway/pie-lottie-player@0.0.3
+  - @justeattakeaway/pie-modal@0.47.1
+  - @justeattakeaway/pie-notification@0.12.1
+  - @justeattakeaway/pie-radio@0.2.1
+  - @justeattakeaway/pie-radio-group@0.1.1
+  - @justeattakeaway/pie-spinner@0.7.1
+  - @justeattakeaway/pie-switch@0.30.2
+  - @justeattakeaway/pie-tag@0.10.1
+  - @justeattakeaway/pie-text-input@0.24.1
+  - @justeattakeaway/pie-textarea@0.10.1
+  - @justeattakeaway/pie-toast@0.3.4
+  - @justeattakeaway/pie-icons-webc@0.25.2
+
+## 1.5.1
+
+### Patch Changes
+
+- [Added] - Form functionality, missing prop tests and form story ([#1927](https://github.com/justeattakeaway/pie/pull/1927)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`db1d4c890`](https://github.com/justeattakeaway/pie/commit/db1d4c8901bb4c4b6776dd1c33b9fa149561da5c), [`3f3e1d4ca`](https://github.com/justeattakeaway/pie/commit/3f3e1d4caebe0aa5c654c5d7d4620c72aa5d065d)]:
+  - @justeattakeaway/pie-card@0.21.0
+  - @justeattakeaway/pie-radio@0.2.0
+
 ## 1.5.0
 
 ### Minor Changes

@@ -3,8 +3,10 @@ import { readFile } from 'fs/promises';
 import { CookieBannerComponent, type Level } from 'test/helpers/page-object/pie-cookie-banner.page.ts';
 import { ModalComponent } from '@justeattakeaway/pie-modal/test/helpers/page-object/pie-modal.page.ts';
 import {
-    ON_COOKIE_BANNER_ACCEPT_ALL, ON_COOKIE_BANNER_NECESSARY_ONLY,
-    ON_COOKIE_BANNER_MANAGE_PREFS, ON_COOKIE_BANNER_PREFS_SAVED,
+    ON_COOKIE_BANNER_ACCEPT_ALL,
+    ON_COOKIE_BANNER_NECESSARY_ONLY,
+    ON_COOKIE_BANNER_MANAGE_PREFS,
+    ON_COOKIE_BANNER_PREFS_SAVED,
     preferences,
 } from '../../src/defs.ts';
 
