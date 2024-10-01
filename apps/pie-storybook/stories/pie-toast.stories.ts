@@ -1,4 +1,5 @@
 import { html } from 'lit';
+import { useArgs } from '@storybook/preview-api';
 import { action } from '@storybook/addon-actions';
 import { type Meta } from '@storybook/web-components';
 import { type ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
@@ -94,21 +95,34 @@ const Template : TemplateFunction<ToastProps> = ({
     isStrong,
     variant,
     duration,
-}: ToastProps) => html`
-    <pie-toast
-        ?isOpen="${isOpen}"
-        ?isDismissible="${isDismissible}"
-        ?isStrong="${isStrong}"
-        variant="${variant}"
-        message="${message}" 
-        .duration="${duration}"
-        ?isMultiline="${isMultiline}"
-        .leadingAction="${leadingAction}"
-        @pie-toast-leading-action-click="${pieToastLeadingActionClick}"
-        @pie-toast-close="${pieToastClose}"
-        @pie-toast-open="${pieToastOpen}"
-    /></pie-toast>
-`;
+}: ToastProps) => {
+    const [, updateArgs] = useArgs();
+
+    const pieToastCloseHandle = () => {
+        updateArgs({ isOpen: false });
+        pieToastClose();
+    };
+
+    const pieToastOpenHandle = () => {
+        updateArgs({ isOpen: true });
+        pieToastOpen();
+    };
+
+    return html`
+        <pie-toast
+            ?isOpen="${isOpen}"
+            ?isDismissible="${isDismissible}"
+            ?isStrong="${isStrong}"
+            variant="${variant}"
+            message="${message}" 
+            .duration="${duration}"
+            ?isMultiline="${isMultiline}"
+            .leadingAction="${leadingAction}"
+            @pie-toast-leading-action-click="${pieToastLeadingActionClick}"
+            @pie-toast-close="${pieToastCloseHandle}"
+            @pie-toast-open="${pieToastOpenHandle}"/>
+        </pie-toast>`;
+};
 
 const createToastStory = createStory<ToastProps>(Template, defaultArgs);
 
