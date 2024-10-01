@@ -88,9 +88,13 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
      * @private
      */
     private setAutoDismiss () {
+        if (this.duration === null) {
+            return;
+        }
+
         this._timeoutId = setTimeout(() => {
             this.closeToastComponent();
-        }, this.duration || 0 as never);
+        }, this.duration);
     }
 
     /**
