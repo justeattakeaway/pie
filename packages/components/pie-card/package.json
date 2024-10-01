@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-card",
-  "version": "0.20.1",
+  "version": "0.21.1",
   "description": "PIE Design System Card built using Web Components",
   "type": "module",
   "main": "dist/index.js",
@@ -42,7 +42,7 @@
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "0.24.0"
+    "@justeattakeaway/pie-webc-core": "0.24.1"
   },
   "volta": {
     "extends": "../../../package.json"
