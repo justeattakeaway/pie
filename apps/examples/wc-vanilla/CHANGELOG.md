@@ -1,5 +1,13 @@
 # wc-vanilla
 
+## 0.6.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icons-webc@0.25.2
+  - @justeattakeaway/pie-webc@0.5.38
+
 ## 0.6.1
 
 ### Patch Changes

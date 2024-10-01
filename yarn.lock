@@ -5442,7 +5442,7 @@ __metadata:
     pascal-case: 3.1.2
     react: 18.3.1
     react-test-renderer: 18.3.1
-    rollup: 3.20.2
+    rollup: 3.29.5
     rollup-plugin-typescript2: 0.34.1
     typescript: 5.4.5
   languageName: unknown
@@ -5465,7 +5465,7 @@ __metadata:
     marked: 4.0.10
     pascal-case: 3.1.2
     prismjs: 1.29.0
-    rollup: 3.20.2
+    rollup: 3.29.5
     vue: 2.7.14
     vue-template-compiler: 2.7.14
   languageName: unknown
@@ -5485,7 +5485,7 @@ __metadata:
     just-pascal-case: 3.2.0
     react: 18.3.1
     react-dom: 18.3.1
-    rollup: 3.20.2
+    rollup: 3.29.5
     rollup-plugin-multi-input: 1.4.1
     typescript: 5.4.5
   languageName: unknown
@@ -5686,7 +5686,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
   dependencies:
     "@justeattakeaway/pie-components-config": 0.18.0
-    lit: 3.1.3
+    lit: 3.2.0
   languageName: unknown
   linkType: soft
 
@@ -22254,6 +22254,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lit-element@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "lit-element@npm:4.1.0"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": ^1.2.0
+    "@lit/reactive-element": ^2.0.4
+    lit-html: ^3.2.0
+  checksum: 16cc7e343fc7f872a0f6a468bb9d7f3697cd9c3c020fd66e1f29f81e15300dc8d091559a1fd2d4cb6f2eb99b76e3fbeea1991f74dd5ca77bfaadb5b6af3d85b3
+  languageName: node
+  linkType: hard
+
 "lit-html@npm:^3.1.2":
   version: 3.1.4
   resolution: "lit-html@npm:3.1.4"
@@ -22263,14 +22274,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit@npm:3.1.2":
-  version: 3.1.2
-  resolution: "lit@npm:3.1.2"
+"lit-html@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "lit-html@npm:3.2.0"
+  dependencies:
+    "@types/trusted-types": ^2.0.2
+  checksum: fa566878efab2492f2dc359216bc5ccd5164466f6760984b9f9b7122c4932be19891ddf10a611bc88718e59c49f83f18e9b9e32fe193dcdc37df28f9fe05630c
+  languageName: node
+  linkType: hard
+
+"lit@npm:3.2.0":
+  version: 3.2.0
+  resolution: "lit@npm:3.2.0"
   dependencies:
     "@lit/reactive-element": ^2.0.4
-    lit-element: ^4.0.4
-    lit-html: ^3.1.2
-  checksum: 7776fc5f17a093aafa8d2194725692be2e233d893909722e2fc86ef0bd167f60846fa24054bbca40028bb71262dfa12947e39cb46ad1d0f949dbf0298c7754d1
+    lit-element: ^4.1.0
+    lit-html: ^3.2.0
+  checksum: b34e667481e1360f9d99a939e00238c1aff5ba9ffc43ebcb0e9f24db6c8226cf6f5c3e2b0e7c1a8de70e28e4697059c25742d0744377f0d5037b876b25266898
   languageName: node
   linkType: hard
 
@@ -29237,9 +29257,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:3.20.2":
-  version: 3.20.2
-  resolution: "rollup@npm:3.20.2"
+"rollup@npm:3.29.5":
+  version: 3.29.5
+  resolution: "rollup@npm:3.29.5"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -29247,7 +29267,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 34b0932839b7c2a5d1742fb21ce95a47e0b49a0849f4abee2dccf25833187aa7babb898ca90d4fc761cffa4102b9ed0ac6ad7f6f6b96c8b8e2d67305abc5da65
+  checksum: 6f8304e58ac8170a715e61e46c4aa674b2ae2587ed2a712dab58f72e5e54803ae40b485fbe6b3e6a694f4c8f7a59ab936ccf9f6b686c7cfd1f1970fa9ecadf1a
   languageName: node
   linkType: hard
 

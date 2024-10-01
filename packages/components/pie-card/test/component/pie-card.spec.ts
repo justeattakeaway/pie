@@ -355,5 +355,114 @@ test.describe('PieCard - Component tests', () => {
                 await expect(image).not.toHaveCSS('opacity', '0.5');
             });
         });
+
+        test.describe('when the prop `tag` is set to `button`', () => {
+            test('should set `aria-disabled` to `true` when disabled', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieCard, {
+                    props: {
+                        tag: 'button',
+                        disabled: true,
+                    } as CardProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                });
+
+                // Act
+                const component = page.locator(componentSelector);
+
+                // Assert
+                await expect(component).toHaveAttribute('aria-disabled', 'true');
+            });
+
+            test('should set `tabindex` to `-1` when disabled', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieCard, {
+                    props: {
+                        tag: 'button',
+                        disabled: true,
+                    } as CardProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                });
+
+                // Act
+                const component = page.locator(componentSelector);
+
+                // Assert
+                await expect(component).toHaveAttribute('tabindex', '-1');
+            });
+
+            test('should not trigger the click event when the tag prop is set to `button` and is `disabled`', async ({ mount, page }) => {
+                // Arrange
+                const messages: string[] = [];
+
+                await mount(PieCard, {
+                    props: {
+                        tag: 'button',
+                        disabled: true,
+                    } as CardProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                    on: {
+                        click: () => messages.push('1'),
+                    },
+                });
+
+                // Act
+                const component = page.locator(componentSelector);
+                await page.evaluate(() => {
+                    const card = document.querySelector('pie-card');
+                    card?.shadowRoot?.querySelector('div')?.click();
+                });
+
+                // Assert
+                await expect(component).toBeDisabled();
+                expect(messages).toHaveLength(0);
+            });
+        });
+
+        test.describe('when the prop `tag` is set to `a`', () => {
+            test('should set `aria-disabled` to `true` when disabled', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieCard, {
+                    props: {
+                        tag: 'a',
+                        disabled: true,
+                    } as CardProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                });
+
+                // Act
+                const component = page.locator(componentSelector);
+
+                // Assert
+                await expect(component).toHaveAttribute('aria-disabled', 'true');
+            });
+
+            test('should not set the href attribute when disabled', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieCard, {
+                    props: {
+                        tag: 'a',
+                        disabled: true,
+                    } as CardProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                });
+
+                // Act
+                const component = page.locator(componentSelector);
+
+                // Assert
+                await expect(component).not.toHaveAttribute('href');
+            });
+        });
     });
 });

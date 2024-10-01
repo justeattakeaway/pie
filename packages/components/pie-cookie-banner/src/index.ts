@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, TemplateResult, nothing,
+    LitElement, html, unsafeCSS, nothing,
 } from 'lit';
 import { property, state, queryAll } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
@@ -9,21 +9,19 @@ import '@justeattakeaway/pie-divider';
 import '@justeattakeaway/pie-icon-button';
 import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-modal';
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-switch';
-import { PieSwitch } from '@justeattakeaway/pie-switch';
+import { type PieSwitch } from '@justeattakeaway/pie-switch';
 import { defineCustomElement, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
-/* eslint-enable import/no-duplicates */
 
 import styles from './cookie-banner.scss?inline';
 import {
-    CookieBannerProps,
     ON_COOKIE_BANNER_ACCEPT_ALL,
     ON_COOKIE_BANNER_NECESSARY_ONLY,
     ON_COOKIE_BANNER_MANAGE_PREFS,
     ON_COOKIE_BANNER_PREFS_SAVED,
     defaultProps,
     preferences,
+    type CookieBannerProps,
     type Preference,
     type PreferenceIds,
     type CookieBannerLocale,
@@ -55,7 +53,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     public hasPrimaryActionsOnly = defaultProps.hasPrimaryActionsOnly;
 
     @property({ type: Object })
-    public defaultPreferences: CookieBannerProps['defaultPreferences'] = defaultProps.defaultPreferences;
+    public defaultPreferences = defaultProps.defaultPreferences;
 
     @property({ type: Object })
     public locale:CookieBannerLocale = defaultProps.locale;
@@ -78,11 +76,11 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         linkCookieTechList: (tagContent: string) => html`<pie-link href="${this.cookieTechnologiesLink}" size="small" target="_blank" data-test-id="cookie-technology-link">${tagContent}</pie-link>`,
     };
 
-    private _localiseText (key:string):string {
+    private _localiseText (key: string) {
         return localiseText(this.locale, key);
     }
 
-    private _localiseRichText (key:string):Array<string|TemplateResult> {
+    private _localiseRichText (key: string) {
         return localiseRichText(this.locale, key, this._customTagEnhancers);
     }
 
@@ -173,7 +171,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      */
     private renderPreference ({
         id, checked, disabled, hasDivider, hasDescription,
-    }: Preference): TemplateResult {
+    }: Preference) {
         const title = this._localiseText(`preferencesManagement.${id}.title`);
         const descriptionLocaleKey = `preferencesManagement.${id}.description`;
         // Ensure not to display fallback text as description as its expected that some items might not have its own description
@@ -203,7 +201,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      * Renders the modal content.
      * @private
      */
-    private renderModalContent (): TemplateResult {
+    private renderModalContent () {
         return html`
             <p class="c-cookieBanner-description" data-test-id="modal-description">
                 ${this._localiseRichText('preferencesManagement.description')}
@@ -261,7 +259,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     @click="${this._openManagePreferencesModal}"
                     tag="button"
                     variant="inverse"
-                    isBold="true">
+                    isBold>
                     ${this._localiseText('banner.cta.managePreferences')}
                 </pie-link>
             </div>

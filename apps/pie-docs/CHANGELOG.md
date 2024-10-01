@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.9.1
+
+### Patch Changes
+
+- [Fixed] - Ensure the card is not interactive when `disabled` is passed ([#1930](https://github.com/justeattakeaway/pie/pull/1930)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 4.9.0
 
 ### Minor Changes

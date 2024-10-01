@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-card
 
+## 0.21.1
+
+### Patch Changes
+
+- [Fixed] - Ensure the card is not interactive when `disabled` is passed ([#1930](https://github.com/justeattakeaway/pie/pull/1930)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`b14535438`](https://github.com/justeattakeaway/pie/commit/b14535438da533aeb9a5520c2a239203dafb0c9a)]:
+  - @justeattakeaway/pie-webc-core@0.24.1
+
 ## 0.21.0
 
 ### Minor Changes
