@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.10.0
+
+### Minor Changes
+
+- [Added] - 'Overlay patterns' guidance page ([#1843](https://github.com/justeattakeaway/pie/pull/1843)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- [Added] - 'Overlay patterns' patterns page ([#1843](https://github.com/justeattakeaway/pie/pull/1843)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
 ## 4.9.1
 
 ### Patch Changes
