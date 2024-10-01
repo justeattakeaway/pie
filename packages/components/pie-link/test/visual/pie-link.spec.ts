@@ -28,7 +28,7 @@ const props: PropObject<LinkProps> = {
     isBold: [true, false],
     isStandalone: [true, false],
     hasVisited: [true, false],
-    iconPlacement: [undefined, ...iconPlacements],
+    iconPlacement: iconPlacements,
 };
 
 const renderTestPieLink = (propVals: WebComponentPropValues) => `<pie-link tag="${propVals.tag}" variant="${propVals.variant}" size="${propVals.size}" underline="${propVals.underline}" iconPlacement="${propVals.iconPlacement}" href="${propVals.href}" ${propVals.isBold ? 'isBold' : ''} ${propVals.hasVisited ? 'hasVisited' : ''} ${propVals.isStandalone ? 'isStandalone' : ''}>${propVals.iconPlacement ? '<icon-heart-filled slot="icon"></icon-heart-filled>' : ''} Link</pie-link>`;
@@ -48,24 +48,36 @@ test.beforeEach(async ({ mount }, testInfo) => {
     await iconComponent.unmount();
 });
 
-componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    for (const combo of componentPropsMatrixByVariant[variant]) {
-        const testComponent = createTestWebComponent(combo, renderTestPieLink);
-        const propKeyValues = `
-            tag: ${testComponent.propValues.tag},
-            size: ${testComponent.propValues.size},
-            iconPlacement: ${testComponent.propValues.iconPlacement},
-            isBold: ${testComponent.propValues.isBold},
-            isStandalone: ${testComponent.propValues.isStandalone},
-            href: ${testComponent.propValues.href}`;
+componentVariants.forEach((variant) => {
+    const componentPropsMatrixBySize = splitCombinationsByPropertyValue(componentPropsMatrixByVariant[variant], 'size');
+    const componentSizes: string[] = Object.keys(componentPropsMatrixBySize);
 
-        await mount(WebComponentTestWrapper, {
-            props: { propKeyValues, darkMode: variant === 'inverse' },
-            slots: {
-                component: testComponent.renderedString.trim(),
-            },
+    componentSizes.forEach((size) => {
+        test(`should render all prop variations for Variant: ${variant} and Size: ${size}`, async ({ page, mount }) => {
+            const combos = componentPropsMatrixBySize[size];
+
+            for (const combo of combos) {
+                const testComponent = createTestWebComponent(combo, renderTestPieLink);
+                const propKeyValues = `
+                    tag: ${testComponent.propValues.tag},
+                    size: ${testComponent.propValues.size},
+                    iconPlacement: ${testComponent.propValues.iconPlacement},
+                    isBold: ${testComponent.propValues.isBold},
+                    isStandalone: ${testComponent.propValues.isStandalone},
+                    href: ${testComponent.propValues.href}`;
+
+                await mount(WebComponentTestWrapper, {
+                    props: { propKeyValues, darkMode: variant === 'inverse' },
+                    slots: {
+                        component: testComponent.renderedString.trim(),
+                    },
+                });
+            }
+
+            await page.waitForLoadState('domcontentloaded');
+
+            const snapshotName = `PIE Link - Variant: ${variant} - Size: ${size}`;
+            await percySnapshot(page, snapshotName, percyWidths);
         });
-    }
-
-    await percySnapshot(page, `PIE Link - Variant: ${variant}`, percyWidths);
-}));
+    });
+});
