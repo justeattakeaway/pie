@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-notification",
   "description": "PIE Design System Notification built using Web Components",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -42,9 +42,9 @@
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-icon-button": "0.28.12",
-    "@justeattakeaway/pie-icons-webc": "0.25.1",
-    "@justeattakeaway/pie-webc-core": "0.24.0"
+    "@justeattakeaway/pie-icon-button": "0.28.13",
+    "@justeattakeaway/pie-icons-webc": "0.25.2",
+    "@justeattakeaway/pie-webc-core": "0.24.1"
   },
   "volta": {
     "extends": "../../../package.json"

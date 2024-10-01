@@ -1,5 +1,20 @@
 # @justeattakeaway/pie-card
 
+## 0.21.1
+
+### Patch Changes
+
+- [Fixed] - Ensure the card is not interactive when `disabled` is passed ([#1930](https://github.com/justeattakeaway/pie/pull/1930)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`b14535438`](https://github.com/justeattakeaway/pie/commit/b14535438da533aeb9a5520c2a239203dafb0c9a)]:
+  - @justeattakeaway/pie-webc-core@0.24.1
+
+## 0.21.0
+
+### Minor Changes
+
+- [Added] Ability to set images to 50% opacity when disabled ([#1946](https://github.com/justeattakeaway/pie/pull/1946)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.20.1
 
 ### Patch Changes
