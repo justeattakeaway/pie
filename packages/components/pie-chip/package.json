@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-chip",
   "description": "PIE Design System Chip built using Web Components",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -41,9 +41,9 @@
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-icons-webc": "0.25.1",
-    "@justeattakeaway/pie-spinner": "0.7.0",
-    "@justeattakeaway/pie-webc-core": "0.24.0"
+    "@justeattakeaway/pie-icons-webc": "0.25.2",
+    "@justeattakeaway/pie-spinner": "0.7.1",
+    "@justeattakeaway/pie-webc-core": "0.24.1"
   },
   "volta": {
     "extends": "../../../package.json"
