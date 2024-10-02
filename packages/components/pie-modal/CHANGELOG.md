@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.48.0
+
+### Minor Changes
+
+- [Fixed] - Ensure modals always remove any page scroll-locks when disconnected ([#1961](https://github.com/justeattakeaway/pie/pull/1961)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.47.1
 
 ### Patch Changes

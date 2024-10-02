@@ -1,5 +1,5 @@
 import {
-    html, LitElement, unsafeCSS, nothing, TemplateResult, type PropertyValues,
+    html, LitElement, unsafeCSS, nothing, type TemplateResult, type PropertyValues,
 } from 'lit';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -9,7 +9,7 @@ import styles from './card.scss?inline';
 import {
     variants,
     tags,
-    CardProps,
+    type CardProps,
     defaultProps,
     paddingValues,
 } from './defs';

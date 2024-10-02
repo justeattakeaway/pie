@@ -1,9 +1,9 @@
-import { TemplateResult, html } from 'lit';
+import { type TemplateResult, html } from 'lit';
 import '@justeattakeaway/pie-tag';
 import '@justeattakeaway/pie-icons-webc/dist/IconHelpCircle.js';
 import componentStatusesJson from '../component-statuses.json';
-import { StorybookContext } from '../interfaces/storybook-context';
-import { ComponentStatuses } from '../interfaces/component-status';
+import { type StorybookContext } from '../interfaces/storybook-context';
+import { type ComponentStatuses } from '../interfaces/component-status';
 import { tagVariantToStatusMap } from '../data/tag-variants-to-statuses-map';
 
 const componentStatuses: ComponentStatuses = componentStatusesJson;

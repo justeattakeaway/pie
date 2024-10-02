@@ -1,7 +1,7 @@
-import { test, expect, MountOptions } from '@sand4rt/experimental-ct-web';
+import { test, expect, type MountOptions } from '@sand4rt/experimental-ct-web';
 import { PieTextInput } from '@justeattakeaway/pie-text-input';
 import { PieSwitch } from '@justeattakeaway/pie-switch';
-import { PieFormLabel, FormLabelProps } from '../../src/index.ts';
+import { PieFormLabel, type FormLabelProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-form-label"]';
 
