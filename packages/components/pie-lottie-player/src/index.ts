@@ -2,10 +2,10 @@ import {
     LitElement, html, isServer, unsafeCSS,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import { LottiePlayer, AnimationItem } from 'lottie-web';
+import { type LottiePlayer, type AnimationItem } from 'lottie-web';
 
 import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
-import { LottiePlayerProps, defaultProps } from './defs';
+import { type LottiePlayerProps, defaultProps } from './defs';
 
 // Valid values available to consumers
 export * from './defs';

@@ -3,7 +3,7 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-lottie-player';
 import {
-    type LottiePlayerProps as LottiePlayerBaseProps, PieLottiePlayer, defaultProps, directions,
+    type LottiePlayerProps as LottiePlayerBaseProps, type PieLottiePlayer, defaultProps, directions,
 } from '@justeattakeaway/pie-lottie-player';
 
 import { createStory } from '../utilities';

@@ -1,4 +1,3 @@
-
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieToast } from '../../src/index.ts';
 import { type ToastProps, variants } from '../../src/defs.ts';

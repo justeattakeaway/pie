@@ -1,5 +1,5 @@
-import { TemplateResult } from 'lit';
-import { StorybookContext } from '../interfaces/storybook-context';
+import { type TemplateResult } from 'lit';
+import { type StorybookContext } from '../interfaces/storybook-context';
 
 export const WritingDirection = (story: () => TemplateResult, storybookContext: StorybookContext) => {
     const { globals } = storybookContext;

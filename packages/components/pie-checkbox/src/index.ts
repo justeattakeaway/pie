@@ -16,7 +16,7 @@ import {
 import '@justeattakeaway/pie-assistive-text';
 
 import styles from './checkbox.scss?inline';
-import { CheckboxProps, defaultProps, statusTypes } from './defs';
+import { type CheckboxProps, defaultProps, statusTypes } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
