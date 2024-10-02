@@ -197,6 +197,8 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     /**
      * Lifecycle method executed when component is updated.
      * It dispatches an event if toast is opened.
+     * It adds event listeners when toast is opened and if the duration is not null
+     * It aborts all event listeners when toast is closed.
      * It calculates _messageAreaMaxWidth
      */
     protected async updated (_changedProperties: PropertyValues<this>) {
@@ -212,6 +214,10 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
             this.abortAndCleanEventListeners();
         }
 
+        // This lifecycle method is async on purpose because we
+        // need to wait for the component to complete its rendering
+        // so we can calculate _messageAreaMaxWidth based on
+        // existing components such as icons and action buttons.
         await this.updateComplete;
 
         if (this.actionButton) {
@@ -222,6 +228,11 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
 
         this._messageAreaMaxWidth = this.getMessageMaxWidth(hasIcon, this.isMultiline, !!this.leadingAction?.text, this.isDismissible);
 
+        // It checks if there are changes on one of the properties
+        // below and requests a new update in order to repeat the
+        // lifecycle and perform new calculations.
+        // This will make sure that all components will re-render
+        // properly on Storybook.
         if (
             _changedProperties.has('variant') ||
             _changedProperties.has('isStrong') ||
