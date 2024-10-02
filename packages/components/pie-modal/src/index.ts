@@ -104,44 +104,56 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     public supportingAction: ModalProps['supportingAction'];
 
     @query('dialog')
-    private _dialog?: HTMLDialogElement;
+    private _dialog!: HTMLDialogElement;
 
     private _backButtonClicked = false;
+
+    private _abortController!: AbortController;
+
+    private get _modalScrollContainer (): Element | null {
+        return this._dialog.querySelector('.c-modal-scrollContainer');
+    }
 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 
-    connectedCallback () : void {
+    connectedCallback (): void {
         super.connectedCallback();
+        this._abortController = new AbortController();
+        const { signal } = this._abortController;
+
         this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
-        document.addEventListener(ON_MODAL_OPEN_EVENT, (event) => this._handleModalOpened(<CustomEvent>event));
-        document.addEventListener(ON_MODAL_CLOSE_EVENT, (event) => this._handleModalClosed(<CustomEvent>event));
-        document.addEventListener(ON_MODAL_BACK_EVENT, (event) => this._handleModalClosed(<CustomEvent>event));
+        document.addEventListener(ON_MODAL_OPEN_EVENT, (event) => this._handleModalOpened(<CustomEvent>event), { signal });
+        document.addEventListener(ON_MODAL_CLOSE_EVENT, (event) => this._handleModalClosed(<CustomEvent>event), { signal });
+        document.addEventListener(ON_MODAL_BACK_EVENT, (event) => this._handleModalClosed(<CustomEvent>event), { signal });
     }
 
-    disconnectedCallback () : void {
-        document.removeEventListener(ON_MODAL_OPEN_EVENT, (event) => this._handleModalOpened(<CustomEvent>event));
-        document.removeEventListener(ON_MODAL_CLOSE_EVENT, (event) => this._handleModalClosed(<CustomEvent>event));
-        document.removeEventListener(ON_MODAL_BACK_EVENT, (event) => this._handleModalClosed(<CustomEvent>event));
+    disconnectedCallback (): void {
+        // Aborts all event listeners
+        this._abortController.abort();
+
+        this._enableBodyScroll();
         super.disconnectedCallback();
     }
 
-    async firstUpdated (changedProperties: PropertyValues<this>) : Promise<void> {
+    async firstUpdated (changedProperties: PropertyValues<this>): Promise<void> {
         super.firstUpdated(changedProperties);
 
         if (this._dialog) {
             const dialogPolyfill = await import('dialog-polyfill').then((module) => module.default);
             dialogPolyfill.registerDialog(this._dialog);
-            this._dialog.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
+            const { signal } = this._abortController;
+
+            this._dialog.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event), { signal });
             this._dialog.addEventListener('close', () => {
                 this.isOpen = false;
-            });
+            }, { signal });
         }
 
         this._handleModalOpenStateOnFirstRender(changedProperties);
     }
 
-    updated (changedProperties: PropertyValues<this>) : void {
+    updated (changedProperties: PropertyValues<this>): void {
         super.updated(changedProperties);
         this._handleModalOpenStateChanged(changedProperties);
     }
@@ -153,22 +165,14 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         const { targetModal } = event.detail;
 
         if (targetModal === this) {
-            const modalScrollContainer = this._dialog?.querySelector('.c-modal-scrollContainer');
+            this._disableBodyScroll();
 
-            if (modalScrollContainer) {
-                // Hack to prevent Safari rendering the modal outside the viewport
-                // when the body scroll lock is active
-                if ('scrollTo' in window) window.scrollTo(0, 0);
-
-                disableBodyScroll(modalScrollContainer);
-            }
-
-            if (this._dialog?.hasAttribute('open') || !this._dialog?.isConnected) {
+            if (this._dialog.hasAttribute('open') || !this._dialog.isConnected) {
                 return;
             }
 
             // The ::backdrop pseudoelement is only shown if the modal is opened via JS
-            this._dialog?.showModal();
+            this._dialog.showModal();
         }
     }
 
@@ -179,13 +183,8 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         const { targetModal } = event.detail;
 
         if (targetModal === this) {
-            const modalScrollContainer = this._dialog?.querySelector('.c-modal-scrollContainer');
-
-            if (modalScrollContainer) {
-                enableBodyScroll(modalScrollContainer);
-            }
-
-            this._dialog?.close();
+            this._enableBodyScroll();
+            this._dialog.close();
             this._returnFocus();
         }
     }
@@ -196,14 +195,14 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      *
      * @param {Event} event - The event object.
      */
-    private _handleDialogCancelEvent = (event: Event) : void => {
+    private _handleDialogCancelEvent = (event: Event): void => {
         if (!this.isDismissible) {
             event.preventDefault();
         }
     };
 
     // Handles the value of the isOpen property on first render of the component
-    private _handleModalOpenStateOnFirstRender (changedProperties: PropertyValues<this>) : void {
+    private _handleModalOpenStateOnFirstRender (changedProperties: PropertyValues<this>): void {
         // This ensures if the modal is open on first render, the scroll lock and backdrop are applied
         const previousValue = changedProperties.get('isOpen');
 
@@ -213,7 +212,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     }
 
     // Handles changes to the modal isOpen property by dispatching any appropriate events
-    private _handleModalOpenStateChanged (changedProperties: PropertyValues<this>) : void {
+    private _handleModalOpenStateChanged (changedProperties: PropertyValues<this>): void {
         const wasPreviouslyOpen = changedProperties.get('isOpen');
 
         if (wasPreviouslyOpen !== undefined) {
@@ -231,12 +230,12 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         }
     }
 
-    private _handleActionClick (actionType: ModalActionType) : void {
+    private _handleActionClick (actionType: ModalActionType): void {
         if (actionType === 'leading') {
-            this._dialog?.close('leading');
+            this._dialog.close('leading');
             dispatchCustomEvent(this, ON_MODAL_LEADING_ACTION_CLICK, { targetModal: this });
         } else if (actionType === 'supporting') {
-            this._dialog?.close('supporting');
+            this._dialog.close('supporting');
             dispatchCustomEvent(this, ON_MODAL_SUPPORTING_ACTION_CLICK, { targetModal: this });
         }
     }
@@ -245,11 +244,33 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * Return focus to the specified element, providing the selector is valid
      * and the chosen element can be found.
      */
-    private _returnFocus () : void {
+    private _returnFocus (): void {
         const selector = this.returnFocusAfterCloseSelector?.trim();
 
         if (selector) {
             (document.querySelector(selector) as HTMLElement)?.focus();
+        }
+    }
+
+    /**
+     * Enables body scroll by unlocking the scroll container.
+     */
+    private _enableBodyScroll (): void {
+        if (this._modalScrollContainer) {
+            enableBodyScroll(this._modalScrollContainer);
+        }
+    }
+
+    /**
+     * Disables body scroll by locking the scroll container.
+     */
+    private _disableBodyScroll (): void {
+        if (this._modalScrollContainer) {
+            // Hack to prevent Safari rendering the modal outside the viewport
+            // when the body scroll lock is active
+            if ('scrollTo' in window) window.scrollTo(0, 0);
+
+            disableBodyScroll(this._modalScrollContainer);
         }
     }
 
@@ -281,7 +302,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      *
      * @private
      */
-    private renderBackButton () : TemplateResult | typeof nothing {
+    private renderBackButton (): TemplateResult | typeof nothing {
         if (!this.hasBackButton) {
             return nothing;
         }
@@ -307,7 +328,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      *
      * @private
      */
-    private renderLeadingAction () : TemplateResult | typeof nothing {
+    private renderLeadingAction (): TemplateResult | typeof nothing {
         const { ariaLabel, text, variant = 'primary' } = this.leadingAction || {};
 
         if (!text) return nothing;
@@ -361,7 +382,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      *
      * @private
      */
-    private renderModalFooter () : TemplateResult | typeof nothing {
+    private renderModalFooter (): TemplateResult | typeof nothing {
         if (!this.leadingAction?.text) {
             if (this.supportingAction?.text) {
                 console.warn('You cannot have a supporting action without a leading action. If you only need one button then use a leading action instead.');
@@ -385,7 +406,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * Renders the loading spinner if `isLoading` is true.
      * @private
      */
-    private renderLoadingSpinner () : TemplateResult | typeof nothing {
+    private renderLoadingSpinner (): TemplateResult | typeof nothing {
         if (!this.isLoading) {
             return nothing;
         }
@@ -397,7 +418,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * Renders the modal inner content and footer of the modal.
      * @private
      */
-    private renderModalContentAndFooter () : TemplateResult {
+    private renderModalContentAndFooter (): TemplateResult {
         return html`
             <article class="c-modal-scrollContainer c-modal-content c-modal-content--scrollable">
                 <div class="c-modal-contentInner" data-test-id="modal-content-inner">
@@ -465,12 +486,12 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * Dismisses the modal on backdrop click if `isDismissible` is `true`.
      * @param {MouseEvent} event - the click event targetting the modal/backdrop
      */
-    private _handleDialogLightDismiss = (event: MouseEvent) : void => {
+    private _handleDialogLightDismiss = (event: MouseEvent): void => {
         if (!this.isDismissible) {
             return;
         }
 
-        const rect = this._dialog?.getBoundingClientRect();
+        const rect = this._dialog.getBoundingClientRect();
 
         const {
             top = 0, bottom = 0, left = 0, right = 0,
