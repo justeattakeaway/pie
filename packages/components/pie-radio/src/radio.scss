@@ -1,1 +1,97 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+.c-radio {
+    --radio-dot-bg-color: var(--dt-color-content-interactive-primary);
+    --radio-bg-color: transparent;
+    --radio-border-color: var(--dt-color-interactive-form);
+    --radio-font-size: p.font-size(--dt-font-body-l-size);
+    --radio-font-weight: var(--dt-font-weight-regular);
+    --radio-text-color: var(--dt-color-content-default);
+    --radio-size: 24px;
+    --radio-dot-size: 8px;
+    --radio-cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    cursor: var(--radio-cursor);
+    gap: 8px;
+    font-size: var(--radio-font-size);
+    font-weight: var(--radio-font-weight);
+    color: var(--radio-text-color);
+
+    &.c-radio--disabled {
+        --radio-cursor: not-allowed;
+    }
+
+    input[type="radio"] {
+        appearance: none;
+        display: block;
+        position: relative;
+        width: var(--radio-size);
+        height: var(--radio-size);
+        border: 1px solid var(--radio-border-color);
+        border-radius: 50%;
+        margin: 0;
+        cursor: var(--radio-cursor);
+        background-color: var(--radio-bg-color);
+
+        &:focus {
+            @include p.focus;
+        }
+
+        &:checked {
+            // The dot in the middle
+            &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: var(--radio-dot-size);
+                height: var(--radio-dot-size);
+                background-color: var(--radio-dot-bg-color);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        &:disabled {
+            --radio-bg-color: var(--dt-color-disabled-01);
+            --radio-border-color: var(--dt-color-border-default);
+        }
+
+        &:checked:not(:disabled) {
+            --radio-bg-color: var(--dt-color-interactive-brand);
+            --radio-border-color: var(--dt-color-interactive-brand);
+        }
+
+        &:checked:disabled {
+            --radio-dot-bg-color: var(--dt-color-content-disabled);
+        }
+
+        &:hover:not(:checked, :disabled) {
+            --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
+        }
+
+        &:active:not(:checked, :disabled) {
+            --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
+        }
+
+        &:hover:checked:not(:disabled) {
+            --radio-bg-color: hsl(var(--dt-color-interactive-brand-h),
+                    var(--dt-color-interactive-brand-s),
+                    calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
+            --radio-border-color: hsl(var(--dt-color-interactive-brand-h),
+                    var(--dt-color-interactive-brand-s),
+                    calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
+        }
+
+        &:active:checked:not(:disabled) {
+            --radio-bg-color: hsl(var(--dt-color-interactive-brand-h),
+                    var(--dt-color-interactive-brand-s),
+                    calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
+            --radio-border-color: hsl(var(--dt-color-interactive-brand-h),
+                    var(--dt-color-interactive-brand-s),
+                    calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
+        }
+    }
+}
