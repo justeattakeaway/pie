@@ -74,12 +74,6 @@
             transform: translate(-50%, -50%) scale(0);
         }
 
-        &:not(:disabled):after {
-            @media (prefers-reduced-motion: no-preference) {
-                transition: all var(--dt-motion-timing-150) var(--radio-motion-easing);
-            }
-        }
-
         &:checked {
             // The dot in the middle after checking the radio
             &:after {
@@ -89,6 +83,20 @@
             // The filled circle after checking the radio
             &:before {
                 transform: scale(1);
+            }
+        }
+
+        // Scales down at 100ms when unchecked
+        &:not(:disabled):after {
+            @media (prefers-reduced-motion: no-preference) {
+                transition: all var(--dt-motion-timing-100) var(--radio-motion-easing);
+            }
+        }
+
+        // Scales up at 150ms when checked
+        &:not(:disabled):checked:after {
+            @media (prefers-reduced-motion: no-preference) {
+                transition: all var(--dt-motion-timing-150) var(--radio-motion-easing);
             }
         }
 
