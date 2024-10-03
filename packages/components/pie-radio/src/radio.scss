@@ -3,6 +3,7 @@
 .c-radio {
     --radio-dot-bg-color: var(--dt-color-content-interactive-primary);
     --radio-bg-color: transparent;
+    --radio-bg-color--checked: var(--dt-color-interactive-brand);
     --radio-border-color: var(--dt-color-interactive-form);
     --radio-font-size: p.font-size(--dt-font-body-l-size);
     --radio-font-weight: var(--dt-font-weight-regular);
@@ -10,6 +11,8 @@
     --radio-size: 24px;
     --radio-dot-size: 8px;
     --radio-cursor: pointer;
+    --radio-motion-easing: var(--dt-motion-easing-persistent-functional);
+    --radio-border-width: 1px;
 
     display: flex;
     align-items: center;
@@ -33,63 +36,92 @@
         border-radius: 50%;
         margin: 0;
         cursor: var(--radio-cursor);
-        background-color: var(--radio-bg-color);
+        background-color: transparent;
 
         &:focus {
             @include p.focus;
         }
 
+        // The filled check circle before input is checked
+        &:before {
+            content: '';
+            display: block;
+            inset: -1px;
+            border-radius: inherit;
+            background-color: var(--radio-bg-color--checked);
+            position: absolute;
+            transform: scale(0);
+        }
+
+        &:not(:disabled):before {
+            @media (prefers-reduced-motion: no-preference) {
+                transition: all var(--dt-motion-timing-100) var(--radio-motion-easing);
+            }
+        }
+
+        // The dot in the middle before selection
+        &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: var(--radio-dot-size);
+            height: var(--radio-dot-size);
+            background-color: var(--radio-dot-bg-color);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+        }
+
+        &:not(:disabled):after {
+            @media (prefers-reduced-motion: no-preference) {
+                transition: all var(--dt-motion-timing-150) var(--radio-motion-easing);
+            }
+        }
+
         &:checked {
             // The dot in the middle
+            &:after {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            // The filled check circle after input is checked
             &:before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: var(--radio-dot-size);
-                height: var(--radio-dot-size);
-                background-color: var(--radio-dot-bg-color);
-                border-radius: 50%;
-                transform: translate(-50%, -50%);
+                transform: scale(1);
             }
         }
 
         &:disabled {
-            --radio-bg-color: var(--dt-color-disabled-01);
-            --radio-border-color: var(--dt-color-border-default);
-        }
-
-        &:checked:not(:disabled) {
-            --radio-bg-color: var(--dt-color-interactive-brand);
-            --radio-border-color: var(--dt-color-interactive-brand);
+            background-color: var(--dt-color-disabled-01);
+            border-color: var(--dt-color-border-default);
         }
 
         &:checked:disabled {
             --radio-dot-bg-color: var(--dt-color-content-disabled);
+            --radio-bg-color--checked: var(--dt-color-disabled-01);
         }
 
         &:hover:not(:checked, :disabled) {
-            --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
+            background-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
         }
 
         &:active:not(:checked, :disabled) {
-            --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
+            background-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
         }
 
         &:hover:checked:not(:disabled) {
-            --radio-bg-color: hsl(var(--dt-color-interactive-brand-h),
+            background-color: hsl(var(--dt-color-interactive-brand-h),
                     var(--dt-color-interactive-brand-s),
                     calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
-            --radio-border-color: hsl(var(--dt-color-interactive-brand-h),
+            border-color: hsl(var(--dt-color-interactive-brand-h),
                     var(--dt-color-interactive-brand-s),
                     calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
         }
 
         &:active:checked:not(:disabled) {
-            --radio-bg-color: hsl(var(--dt-color-interactive-brand-h),
+            background-color: hsl(var(--dt-color-interactive-brand-h),
                     var(--dt-color-interactive-brand-s),
                     calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
-            --radio-border-color: hsl(var(--dt-color-interactive-brand-h),
+            border-color: hsl(var(--dt-color-interactive-brand-h),
                     var(--dt-color-interactive-brand-s),
                     calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
         }
