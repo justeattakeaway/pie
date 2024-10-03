@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-switch
 
+## 0.30.3
+
+### Patch Changes
+
+- [Fixed] - Imports to align with new linting rule ([#1622](https://github.com/justeattakeaway/pie/pull/1622)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Removed] - Empty lines at the start of some files
+
+- Updated dependencies [[`efb35af66`](https://github.com/justeattakeaway/pie/commit/efb35af6604ca86d0b39ec01421a376050698edf)]:
+  - @justeattakeaway/pie-webc-core@0.24.2
+  - @justeattakeaway/pie-wrapper-react@0.14.2
+  - @justeattakeaway/pie-icons-webc@0.25.3
+
 ## 0.30.2
 
 ### Patch Changes
