@@ -25,6 +25,24 @@
   color: var(--toast-font-color);
   font-size: var(--toast-font-size);
   line-height: var(--toast-line-height);
+  transition-property: all;
+  transition-duration: var(--dt-motion-timing-100);
+  transition-timing-function: var(--dt-motion-easing-in);
+}
+
+.c-toast--animate-in {
+  animation-duration: var(--dt-motion-timing-200);
+  animation-name: animate-in;
+  animation-timing-function: var(--dt-motion-easing-in);
+  transform: translateX(0); 
+}
+
+.c-toast--animate-out {  
+  animation-duration: var(--dt-motion-timing-100);
+  animation-name: animate-out;
+  animation-timing-function: var(--dt-motion-easing-out);
+  transform: translateX(100%); 
+  opacity: 0;
 }
 
 .c-toast--info {
@@ -114,3 +132,22 @@
   color: var(--toast-icon-fill);
 }
 
+@keyframes animate-in {
+  from { 
+    transform: translateX(100%);
+  }
+
+  to { 
+    transform: translateX(0); 
+  }
+}
+
+@keyframes animate-out {
+  from { 
+    transform: translateX(0); 
+  }
+
+  to { 
+    transform: translateX(100%); 
+  }
+}

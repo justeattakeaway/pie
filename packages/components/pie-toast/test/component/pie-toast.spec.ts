@@ -32,6 +32,9 @@ test.describe('PieToast - Component tests', () => {
             props: {} as ToastProps,
         });
 
+        // Wait for the component to render alongside its animations
+        await page.waitForTimeout(250);
+
         // Act
         const toast = page.locator(componentSelector);
 
@@ -41,7 +44,7 @@ test.describe('PieToast - Component tests', () => {
 
     test.describe('Props', () => {
         test.describe('isOpen', () => {
-            test('should not render component if isOpen is false', async ({ mount, page }) => {
+            test('should have c-toast--animate-out class if isOpen is false', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieToast, {
                     props: {
@@ -49,11 +52,15 @@ test.describe('PieToast - Component tests', () => {
                     } as ToastProps,
                 });
 
+                // Wait for the component to render alongside its animations
+                await page.waitForTimeout(250);
+
                 // Act
                 const toast = page.locator(componentSelector);
 
                 // Assert
-                expect(toast).not.toBeVisible();
+                expect(toast).toBeVisible();
+                expect(toast).toHaveClass(' c-toast c-toast--neutral c-toast--animate-out ');
             });
         });
 
@@ -66,6 +73,9 @@ test.describe('PieToast - Component tests', () => {
                         message: confirmMessage,
                     } as ToastProps,
                 });
+
+                // Wait for the component to render alongside its animations
+                await page.waitForTimeout(250);
 
                 // Act
                 const toast = page.locator(componentSelector);
@@ -84,6 +94,9 @@ test.describe('PieToast - Component tests', () => {
                         message: '',
                     } as ToastProps,
                 });
+
+                // Wait for the component to render alongside its animations
+                await page.waitForTimeout(250);
 
                 // Act
                 const toast = page.locator(componentSelector);
@@ -104,6 +117,9 @@ test.describe('PieToast - Component tests', () => {
                     },
                 });
 
+                // Wait for the component to render alongside its animations
+                await page.waitForTimeout(250);
+
                 // Act
                 const toast = page.locator(componentSelector);
                 const iconClose = page.locator(closeSelector);
@@ -123,6 +139,9 @@ test.describe('PieToast - Component tests', () => {
                         leadingAction: mainAction,
                     } as ToastProps,
                 });
+
+                // Wait for the component to render alongside its animations
+                await page.waitForTimeout(250);
 
                 // Act
                 const toast = page.locator(componentSelector);
@@ -146,6 +165,9 @@ test.describe('PieToast - Component tests', () => {
                     } as ToastProps,
                 });
 
+                // Wait for the component to render alongside its animations
+                await page.waitForTimeout(250);
+
                 // Act
                 const toast = page.locator(componentSelector);
                 const leadingAction = page.locator(leadingActionSelector);
@@ -162,6 +184,9 @@ test.describe('PieToast - Component tests', () => {
                         isMultiline: true,
                     } as ToastProps,
                 });
+
+                // Wait for the component to render alongside its animations
+                await page.waitForTimeout(250);
 
                 // Act
                 const toast = page.locator(componentSelector);
@@ -183,6 +208,9 @@ test.describe('PieToast - Component tests', () => {
                         leadingAction: mainAction,
                     } as ToastProps,
                 });
+
+                // Wait for the component to render alongside its animations
+                await page.waitForTimeout(250);
 
                 // Act
                 const toast = page.locator(componentSelector);
@@ -207,6 +235,9 @@ test.describe('PieToast - Component tests', () => {
                             } as ToastProps,
                         });
 
+                        // Wait for the component to render alongside its animations
+                        await await page.waitForTimeout(250);
+
                         // Act
                         const toast = page.locator(componentSelector);
                         const icon = page.locator(getToastIconSelectors(variant));
@@ -223,6 +254,9 @@ test.describe('PieToast - Component tests', () => {
                                 variant: variant as ToastProps['variant'],
                             } as ToastProps,
                         });
+
+                        // Wait for the component to render alongside its animations
+                        await page.waitForTimeout(250);
 
                         // Act
                         const toast = page.locator(componentSelector);

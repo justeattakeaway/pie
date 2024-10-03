@@ -64,14 +64,51 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     @property({ type: Object })
     public leadingAction: ToastProps['leadingAction'];
 
+    @property({ type: Number })
+    public duration = defaultProps.duration;
+
     @query('pie-button') actionButton?: HTMLElement;
+
+    @query('pie-icon-button') closeButton?: HTMLElement;
 
     private _actionButtonOffset = 0;
 
     private _messageAreaMaxWidth = 0;
 
+    private _timeoutId: NodeJS.Timeout | null = null;
+
+    private _abortController: AbortController | null = null;
+
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
+
+    /**
+     * Create a timeout function and set its id into a private attribute.
+     *
+     * @private
+     */
+    private setAutoDismiss () {
+        if (this.duration === null) {
+            return;
+        }
+
+        this._timeoutId = setTimeout(() => {
+            this.closeToastComponent();
+        }, this.duration);
+    }
+
+    /**
+     * If the _abortController is set, it aborts all event
+     * listeners in this controller and the controller turns into null.
+     *
+     * @private
+     */
+    private abortAndCleanEventListeners () {
+        if (this._abortController) {
+            this._abortController.abort();
+            this._abortController = null;
+        }
+    }
 
     /**
      * Calculates and returns the width of the message based on the toast properties.
@@ -112,15 +149,75 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     }
 
     /**
+     * Adds event listeners to the specified element for handling the auto dismiss behavior.
+     *
+     * @param {typeof this | HTMLElement | undefined} element - The element to which the listeners will be added. It can be the current instance, an HTMLElement, or undefined.
+     * @param {keyof HTMLElementEventMap} inEvent - The event type to listen for when entering the element. (e.g., 'mouseenter', 'focusin').
+     * @param {keyof HTMLElementEventMap} outEvent - The event type to listen for when leaving the element. (e.g., 'mouseleave', 'focusout').
+     * @param {AddEventListenerOptions['signal']} abortSignal - An AbortSignal that can be used to remove the event listeners.
+     *
+     * @private
+     */
+    private addListenersToElement (
+        element: typeof this | HTMLElement | undefined,
+        inEvent: keyof HTMLElementEventMap,
+        outEvent: keyof HTMLElementEventMap,
+        abortSignal: AddEventListenerOptions['signal'],
+    ) {
+        if (element) {
+            element.addEventListener(inEvent, () => {
+                if (this._timeoutId) {
+                    clearTimeout(this._timeoutId);
+                }
+            }, { signal: abortSignal });
+            element.addEventListener(outEvent, () => {
+                this.setAutoDismiss();
+            }, { signal: abortSignal });
+        }
+    }
+
+    /**
+     * It creates all event listeners to handle the auto-dismiss capability
+     * as well the controller responsible to remove the events when needed.
+     *
+     * @private
+     */
+    private createAutoDismissEventListeners () {
+        this._abortController = new AbortController();
+
+        this.setAutoDismiss();
+
+        const { signal } = this._abortController;
+
+        this.addListenersToElement(this.actionButton, 'focus', 'focusout', signal);
+        this.addListenersToElement(this.closeButton, 'focus', 'focusout', signal);
+        this.addListenersToElement(this, 'mouseover', 'mouseout', signal);
+    }
+
+    /**
      * Lifecycle method executed when component is updated.
      * It dispatches an event if toast is opened.
+     * It adds event listeners when toast is opened and if the duration is not null
+     * It aborts all event listeners when toast is closed.
      * It calculates _messageAreaMaxWidth
      */
     protected async updated (_changedProperties: PropertyValues<this>) {
         if (_changedProperties.has('isOpen') && this.isOpen) {
             dispatchCustomEvent(this, ON_TOAST_OPEN_EVENT, { targetNotification: this });
+
+            if (this.duration !== null) {
+                this.createAutoDismissEventListeners();
+            }
         }
 
+        if (_changedProperties.has('isOpen') && !this.isOpen) {
+            this.abortAndCleanEventListeners();
+        }
+
+        // This lifecycle method is async on purpose because we
+        // need to wait for the component to complete its rendering
+        // so we can calculate _messageAreaMaxWidth based on
+        // existing components such as icons and action buttons.
         await this.updateComplete;
 
         if (this.actionButton) {
@@ -131,13 +228,19 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
 
         this._messageAreaMaxWidth = this.getMessageMaxWidth(hasIcon, this.isMultiline, !!this.leadingAction?.text, this.isDismissible);
 
+        // It checks if there are changes on one of the properties
+        // below and requests a new update in order to repeat the
+        // lifecycle and perform new calculations.
+        // This will make sure that all components will re-render
+        // properly on Storybook.
         if (
             _changedProperties.has('variant') ||
             _changedProperties.has('isStrong') ||
             _changedProperties.has('message') ||
             _changedProperties.has('isDismissible') ||
             _changedProperties.has('isMultiline') ||
-            _changedProperties.has('leadingAction')) {
+            _changedProperties.has('leadingAction') ||
+            _changedProperties.has('duration')) {
             this.requestUpdate();
         }
     }
@@ -234,6 +337,7 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     private closeToastComponent () {
         this.isOpen = false;
         dispatchCustomEvent(this, ON_TOAST_CLOSE_EVENT, { targetNotification: this });
+        this.abortAndCleanEventListeners();
     }
 
     /**
@@ -288,14 +392,12 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
             _messageAreaMaxWidth,
         } = this;
 
-        if (!isOpen) {
-            return nothing;
-        }
-
         const componentWrapperClasses = {
             [componentClass]: true,
             [`${componentClass}--${variant}`]: true,
             [`${componentClass}--strong`]: isStrong,
+            [`${componentClass}--animate-in`]: isOpen,
+            [`${componentClass}--animate-out`]: !isOpen,
         };
 
         const messageAreaClasses = {
@@ -304,7 +406,11 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
         };
 
         return html`
-            <div data-test-id="${componentSelector}" class="${classMap(componentWrapperClasses)}">
+            <div 
+                data-test-id="${componentSelector}" 
+                class="${classMap(componentWrapperClasses)}" 
+                aria-live="${variant === 'error' ? 'assertive' : 'polite'}"
+            >
                 <div class="${componentClass}-contentArea">
                     <div class="${classMap(messageAreaClasses)}">
                         ${this.variantHasIcon(variant) ? this.getVariantIcon() : nothing}
