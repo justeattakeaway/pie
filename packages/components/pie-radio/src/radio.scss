@@ -16,8 +16,8 @@
 
     display: flex;
     align-items: center;
-    cursor: var(--radio-cursor);
     gap: 8px;
+    cursor: var(--radio-cursor);
     font-size: var(--radio-font-size);
     font-weight: var(--radio-font-weight);
     color: var(--radio-text-color);
@@ -32,7 +32,7 @@
         position: relative;
         width: var(--radio-size);
         height: var(--radio-size);
-        border: 1px solid var(--radio-border-color);
+        border: var(--radio-border-width) solid var(--radio-border-color);
         border-radius: 50%;
         margin: 0;
         cursor: var(--radio-cursor);
@@ -42,11 +42,13 @@
             @include p.focus;
         }
 
-        // The filled check circle before input is checked
+        // The filled circle before checking the radio
         &:before {
+            --circle-size: calc(var(--radio-border-width) * -1);
+
             content: '';
             display: block;
-            inset: -1px;
+            inset: var(--circle-size);
             border-radius: inherit;
             background-color: var(--radio-bg-color--checked);
             position: absolute;
@@ -59,7 +61,7 @@
             }
         }
 
-        // The dot in the middle before selection
+        // The dot in the middle before checking the radio
         &:after {
             content: '';
             position: absolute;
@@ -79,12 +81,12 @@
         }
 
         &:checked {
-            // The dot in the middle
+            // The dot in the middle after checking the radio
             &:after {
                 transform: translate(-50%, -50%) scale(1);
             }
 
-            // The filled check circle after input is checked
+            // The filled circle after checking the radio
             &:before {
                 transform: scale(1);
             }
