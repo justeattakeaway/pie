@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.13.4
+
+### Patch Changes
+
+- [Fixed] - Imports to align with new linting rule ([#1622](https://github.com/justeattakeaway/pie/pull/1622)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Removed] - Empty lines at the start of some files
+
 ## 0.13.3
 
 ### Patch Changes

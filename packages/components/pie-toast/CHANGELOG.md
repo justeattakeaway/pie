@@ -1,5 +1,25 @@
 # @justeattakeaway/pie-toast
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - `duration` property into pie-toast ([#1862](https://github.com/justeattakeaway/pie/pull/1862)) by [@thejfreitas](https://github.com/thejfreitas)
+
+  [Added] - Auto-dismiss functionality into pie-toast with default duration of 5 seconds
+
+### Patch Changes
+
+- [Fixed] - Imports to align with new linting rule ([#1622](https://github.com/justeattakeaway/pie/pull/1622)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Removed] - Empty lines at the start of some files
+
+- Updated dependencies [[`efb35af66`](https://github.com/justeattakeaway/pie/commit/efb35af6604ca86d0b39ec01421a376050698edf)]:
+  - @justeattakeaway/pie-button@0.49.3
+  - @justeattakeaway/pie-icon-button@0.28.14
+  - @justeattakeaway/pie-webc-core@0.24.2
+  - @justeattakeaway/pie-icons-webc@0.25.3
+
 ## 0.3.4
 
 ### Patch Changes
