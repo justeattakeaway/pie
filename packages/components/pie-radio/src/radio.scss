@@ -37,6 +37,7 @@
         margin: 0;
         cursor: var(--radio-cursor);
         background-color: transparent;
+        transition: background-color var(--dt-motion-timing-100) var(--radio-motion-easing);
 
         &:focus {
             @include p.focus;
@@ -119,21 +120,25 @@
         }
 
         &:hover:checked:not(:disabled) {
-            background-color: hsl(var(--dt-color-interactive-brand-h),
-                    var(--dt-color-interactive-brand-s),
-                    calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
-            border-color: hsl(var(--dt-color-interactive-brand-h),
-                    var(--dt-color-interactive-brand-s),
-                    calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
+            &:before {
+                background-color: hsl(var(--dt-color-interactive-brand-h),
+                        var(--dt-color-interactive-brand-s),
+                        calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
+                border-color: hsl(var(--dt-color-interactive-brand-h),
+                        var(--dt-color-interactive-brand-s),
+                        calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
+            }
         }
 
         &:active:checked:not(:disabled) {
-            background-color: hsl(var(--dt-color-interactive-brand-h),
-                    var(--dt-color-interactive-brand-s),
-                    calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
-            border-color: hsl(var(--dt-color-interactive-brand-h),
-                    var(--dt-color-interactive-brand-s),
-                    calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
+            &:before {
+                background-color: hsl(var(--dt-color-interactive-brand-h),
+                        var(--dt-color-interactive-brand-s),
+                        calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
+                border-color: hsl(var(--dt-color-interactive-brand-h),
+                        var(--dt-color-interactive-brand-s),
+                        calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
+            }
         }
     }
 }
