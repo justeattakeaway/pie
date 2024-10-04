@@ -106,7 +106,7 @@ Use of locales in Vue:
 
 <pie-cookie-banner
   hasPrimaryActionsOnly
-  :langauge='en'
+  :language='en'
   :tenant='GB'
   cookieTechnologiesLink='https://justeattakeaway.com';
   cookieStatementLink='https://justeattakeaway.com'>
