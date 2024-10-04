@@ -1,7 +1,35 @@
 import { type TemplateResult } from 'lit';
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-import defaultLocale from '../locales/en-gb.json' assert { type: 'json' };
+export enum Language {
+    BULGARIAN = 'bg',
+    CATALAN = 'ca',
+    DANISH = 'da',
+    DUTCH = 'nl',
+    ENGLISH = 'en',
+    FRENCH = 'fr',
+    GERMAN = 'de',
+    HEBREW = 'he',
+    ITALIAN = 'it',
+    POLISH = 'pl',
+    SLOVAK = 'sk',
+    SPANISH = 'es',
+}
+
+export enum Tenant {
+    BULGARIA = 'bg',
+    DENMARK = 'dk',
+    FRANCE = 'fr',
+    GERMANY = 'de',
+    GREAT_BRITAIN = 'gb',
+    ISRAEL = 'il',
+    ITALY = 'it',
+    NETHERLANDS = 'nl',
+    POLAND = 'pl',
+    SLOVAKIA = 'sk',
+    SPAIN = 'es',
+    UK = 'gb',
+}
 
 export interface CookieBannerLocale {
     banner: {
@@ -51,11 +79,6 @@ export interface CookieBannerProps {
     hasPrimaryActionsOnly: boolean;
 
     /**
-     * Assigns the data for localising the component strings
-     */
-    locale: CookieBannerLocale;
-
-    /**
      * The URL of the cookie statement page the banner should link to.
      */
     cookieStatementLink: string;
@@ -68,12 +91,12 @@ export interface CookieBannerProps {
     /**
      * Assigns the tenant used for dynamically localising the component strings
      */
-    tenant: string;
+    tenant: Tenant;
 
     /**
      * Assigns the language used for dynamically localising the component strings
      */
-    language: string;
+    language: Language;
 
     /**
      * Allows consumers to pass in specific preference(s) to the component which will toggle
@@ -158,9 +181,37 @@ export type DefaultProps = ComponentDefaultProps<CookieBannerProps>;
 export const defaultProps: DefaultProps = {
     hasPrimaryActionsOnly: false,
     defaultPreferences: {},
-    locale: defaultLocale,
-    tenant: 'gb',
-    language: 'en',
+    tenant: Tenant.GREAT_BRITAIN,
+    language: Language.ENGLISH,
     cookieStatementLink: '',
     cookieTechnologiesLink: '',
+};
+
+export const getDefaultLanguageForTenant = (tenant: Tenant): Language => {
+    switch (tenant) {
+        case Tenant.GREAT_BRITAIN:
+            return Language.ENGLISH;
+        case Tenant.FRANCE:
+            return Language.FRENCH;
+        case Tenant.DENMARK:
+            return Language.DANISH;
+        case Tenant.SPAIN:
+            return Language.SPANISH;
+        case Tenant.ITALY:
+            return Language.ITALIAN;
+        case Tenant.NETHERLANDS:
+            return Language.DUTCH;
+        case Tenant.POLAND:
+            return Language.POLISH;
+        case Tenant.SLOVAKIA:
+            return Language.SLOVAK;
+        case Tenant.BULGARIA:
+            return Language.BULGARIAN;
+        case Tenant.GERMANY:
+            return Language.GERMAN;
+        case Tenant.ISRAEL:
+            return Language.HEBREW;
+        default:
+            return defaultProps.language;
+    }
 };

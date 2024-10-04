@@ -3,51 +3,13 @@ import { action } from '@storybook/addon-actions';
 
 import '@justeattakeaway/pie-cookie-banner';
 import { type CookieBannerProps, defaultProps } from '@justeattakeaway/pie-cookie-banner';
-import pieCookieBannerLocales from '@justeattakeaway/pie-cookie-banner/locales';
 
+import {
+    Tenant,
+    Language,
+} from '@justeattakeaway/pie-cookie-banner/src/defs';
 import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
-
-const tenantOptions = {
-    Australia: 'au',
-    Austria: 'at',
-    Belgium: 'be',
-    Bulgaria: 'bg',
-    Canada: 'ca',
-    Denmark: 'dk',
-    France: 'fr',
-    Germany: 'de',
-    Ireland: 'ie',
-    Israel: 'il',
-    Italy: 'it',
-    Luxembourg: 'lu',
-    Netherlands: 'nl',
-    Norway: 'no',
-    Poland: 'pl',
-    Portugal: 'pt',
-    Romania: 'ro',
-    Slovakia: 'sk',
-    Spain: 'es',
-    Switzerland: 'ch',
-    UnitedKingdom: 'gb',
-};
-
-const languageOptions = {
-    Bulgarian: 'bg',
-    Danish: 'da',
-    Dutch: 'nl',
-    English: 'en',
-    French: 'fr',
-    German: 'de',
-    Hebrew: 'he',
-    Italian: 'it',
-    Norwegian: 'no',
-    Polish: 'pl',
-    Portuguese: 'pt',
-    Romanian: 'ro',
-    Slovak: 'sk',
-    Spanish: 'es',
-};
 
 type CookieBannerStoryMeta = StoryMeta<CookieBannerProps>;
 
@@ -62,6 +24,10 @@ const defaultArgs: CookieBannerProps = {
     },
 };
 
+const TenantReverseMapping = Object.fromEntries(Object.entries(Tenant).map(([key, value]) => [value, key]));
+
+const LanguageReverseMapping = Object.fromEntries(Object.entries(Language).map(([key, value]) => [value, key]));
+
 const cookieBannerStoryMeta: CookieBannerStoryMeta = {
     title: 'Cookie Banner',
     component: 'pie-cookie-banner',
@@ -70,30 +36,20 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
             description: 'When true, sets the variant to "primary" for the button which accepts necessary cookies only.',
             control: 'boolean',
         },
-        locale: {
-            options: Object.keys(pieCookieBannerLocales),
-            mapping: pieCookieBannerLocales,
-            description: 'Assigns the data for localising the component strings',
-            defaultValue: {
-                summary: defaultProps.locale,
-            },
-        },
         tenant: {
-            options: Object.values(tenantOptions),
-            mapping: tenantOptions,
+            options: Tenant,
             control: 'select',
             description: 'Assigns the country for the component',
             defaultValue: {
-                summary: defaultProps.tenant,
+                summary: TenantReverseMapping[defaultProps.tenant],
             },
         },
         language: {
-            options: Object.values(languageOptions),
-            mapping: languageOptions,
+            options: Language,
             control: 'select',
             description: 'Assigns the language for the component',
             defaultValue: {
-                summary: defaultProps.language,
+                summary: LanguageReverseMapping[defaultProps.language],
             },
         },
         defaultPreferences: {
@@ -120,7 +76,6 @@ const prefsSavedAction = action('prefs-saved');
 const BaseStoryTemplate = (props: CookieBannerProps) => {
     const {
         hasPrimaryActionsOnly,
-        locale,
         tenant,
         language,
         cookieStatementLink,
@@ -130,7 +85,6 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
 
     return html`
         <pie-cookie-banner
-            .locale=${locale}
             .tenant=${tenant}
             .language=${language}
             .cookieStatementLink=${cookieStatementLink}

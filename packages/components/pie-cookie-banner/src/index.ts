@@ -28,9 +28,13 @@ import {
     type PreferenceIds,
     type CookieBannerLocale,
     type CustomTagEnhancers,
+    Tenant,
+    Language,
+    getDefaultLanguageForTenant,
 } from './defs';
 
 import { localiseText, localiseRichText } from './localisation-utils';
+import defaultLocale from '../locales/en-gb.json' assert { type: 'json' };
 
 // Valid values available to consumers
 export * from './defs';
@@ -53,17 +57,14 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     @state()
     private _isModalOpen = false;
 
+    @state()
+    private locale: CookieBannerLocale = defaultLocale;
+
     @property({ type: Boolean })
     public hasPrimaryActionsOnly = defaultProps.hasPrimaryActionsOnly;
 
     @property({ type: Object })
     public defaultPreferences: CookieBannerProps['defaultPreferences'] = defaultProps.defaultPreferences;
-
-    @property({ type: Object })
-    /**
-     * @deprecated This property is deprecated. Please use the `Tenant & Language` properties instead.
-     */
-    public locale: CookieBannerLocale = defaultProps.locale;
 
     @property({ type: String })
     public cookieStatementLink = defaultProps.cookieStatementLink;
@@ -71,11 +72,11 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     @property({ type: String })
     public cookieTechnologiesLink = defaultProps.cookieTechnologiesLink;
 
-    @property({ type: String })
-    public [TENANT_PROPERTY] = '';
+    @property({ type: Tenant })
+    public [TENANT_PROPERTY] = defaultProps.tenant;
 
-    @property({ type: String })
-    public [LANGUAGE_PROPERTY] = '';
+    @property({ type: Language })
+    public [LANGUAGE_PROPERTY] = defaultProps.language;
 
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;
@@ -83,37 +84,21 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     async updated (changedProperties: Map<string, unknown>) {
         // Re-fetch locale when tenant or language changes
         if (changedProperties.has(TENANT_PROPERTY) || changedProperties.has(LANGUAGE_PROPERTY)) {
-            await this._getLocaleBasedOnTenantAndLanguage();
+            await this._setLocaleBasedOnTenantAndLanguage(this.tenant, this.language);
         }
     }
 
-    // Method to dynamically import locale JSON based on tenant and language
-    private async _getLocaleBasedOnTenantAndLanguage (): Promise<void> {
-        // [Backward compatibility] Check if tenant or language properties are unset if so
-        // do not attempt to use them and fallback to using the current this.locale property
-        if (!this[TENANT_PROPERTY] || !this[LANGUAGE_PROPERTY]) {
-            return;
-        }
-
-        // Check if tenant or language properties are unset and assign defaults if necessary
-        if (!this[TENANT_PROPERTY]) {
-            this[TENANT_PROPERTY] = defaultProps.tenant;
-        }
-        if (!this[LANGUAGE_PROPERTY]) {
-            this[LANGUAGE_PROPERTY] = defaultProps.language;
-        }
-
+    // Dynamically import locale JSON based on tenant and language
+    private async _setLocaleBasedOnTenantAndLanguage(tenant: Tenant, language: Language, fallback = false): Promise<void> {
         try {
-            // Dynamically construct the import path based on tenant and language
-            const localeModule = await import(`../locales/${this.language}-${this.tenant}.json`, { assert: { type: 'json' } });
-
-            // Use the dynamically imported locale as the current locale
-            this.locale = localeModule.default;
-        } catch (error) {
-            console.error(`Error loading locale for ${this.language}-${this.tenant}:`, error); // TODO - decide how to handle this error
-
-            // Fallback to default locale if there's an error loading the dynamic locale
-            this.locale = defaultProps.locale;
+            this.locale = (await import(`../locales/${language}-${tenant}.json`, { assert: { type: 'json' } })).default;
+        } catch {
+            // If loading fails, try using the default language, if that fails fall back to the global default locale
+            if (!fallback) {
+                await this._setLocaleBasedOnTenantAndLanguage(tenant, getDefaultLanguageForTenant(tenant), true);
+            } else {
+                this.locale = defaultLocale;
+            }
         }
     }
 

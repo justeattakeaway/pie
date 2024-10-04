@@ -1,5 +1,4 @@
 import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/playwright-fixtures.ts';
-import { readFile } from 'fs/promises';
 import { CookieBannerComponent, Level } from 'test/helpers/page-object/pie-cookie-banner.page.ts';
 import { ModalComponent } from '@justeattakeaway/pie-modal/test/helpers/page-object/pie-modal.page.ts';
 import {
@@ -8,12 +7,6 @@ import {
     preferences,
 } from '../../src/defs.ts';
 
-function stripTags (str: string) {
-    return str.replace(/<\/?[^>]+(>|$)/g, '');
-}
-
-const englishLocale = JSON.parse(await readFile(new URL('../../locales/en-gb.json', import.meta.url), { encoding: 'utf-8' }));
-const spanishLocale = JSON.parse(await readFile(new URL('../../locales/es-es.json', import.meta.url), { encoding: 'utf-8' }));
 let pieCookieBannerComponent: CookieBannerComponent;
 let pieModalComponent: ModalComponent;
 
@@ -75,7 +68,7 @@ test.describe('PieCookieBanner - Component tests', () => {
     [{ name: 'action' }, { name: 'body' }].forEach((elementLevel) => {
         const level = elementLevel.name as Level;
         test(`should emit the correct event, open the modal and hide the cookie banner when "Manage preferences" is clicked via element ${elementLevel.name}`, async () => {
-        // Arrange
+            // Arrange
             await pieCookieBannerComponent.load();
             await pieCookieBannerComponent.listenForEvent(ON_COOKIE_BANNER_MANAGE_PREFS);
 
@@ -204,64 +197,6 @@ test.describe('PieCookieBanner - Component tests', () => {
 
         // Assert
         expect(isToggleAllSelectorChecked).toBe(false);
-    });
-
-    test.describe('`locale` prop', () => {
-        test('should render text in the default (English) language when the locale is not set', async () => {
-            // Arrange
-            await pieCookieBannerComponent.load();
-
-            // Act
-            const acceptAllButtonText = await pieCookieBannerComponent.getAcceptAllTextContent();
-            const necessaryOnlyButtonText = await pieCookieBannerComponent.getNecessaryOnlyTextContent();
-            const managePreferencesButtonText = await pieCookieBannerComponent.getManagePreferencesTextContent();
-            const componentDescriptionText = await pieCookieBannerComponent.getComponentDescriptionTextContent();
-            const modalDescriptionText = await pieModalComponent.getDescriptionTextContent();
-
-            // Assert
-            expect(acceptAllButtonText)
-                .toBe(englishLocale.banner.cta.acceptAll);
-
-            expect(necessaryOnlyButtonText)
-                .toBe(englishLocale.banner.cta.necessaryOnly);
-
-            expect(managePreferencesButtonText)
-                .toBe(englishLocale.banner.cta.managePreferences);
-
-            expect(componentDescriptionText)
-                .toBe(stripTags(englishLocale.banner.description));
-
-            expect(modalDescriptionText)
-                .toBe(stripTags(englishLocale.preferencesManagement.description));
-        });
-
-        test('should render the expected text when the locale prop is set', async () => {
-            // Arrange
-            await pieCookieBannerComponent.load({ locale: 'esES', tenant: 'es', language: 'es' });
-
-            // Act
-            const acceptAllButtonText = await pieCookieBannerComponent.getAcceptAllTextContent();
-            const necessaryOnlyButtonText = await pieCookieBannerComponent.getNecessaryOnlyTextContent();
-            const managePreferencesButtonText = await pieCookieBannerComponent.getManagePreferencesTextContent();
-            const componentDescriptionText = await pieCookieBannerComponent.getComponentDescriptionTextContent();
-            const modalDescriptionText = await pieModalComponent.getDescriptionTextContent();
-
-            // Assert
-            expect(acceptAllButtonText)
-                .toBe(spanishLocale.banner.cta.acceptAll);
-
-            expect(necessaryOnlyButtonText)
-                .toBe(spanishLocale.banner.cta.necessaryOnly);
-
-            expect(managePreferencesButtonText)
-                .toBe(spanishLocale.banner.cta.managePreferences);
-
-            expect(componentDescriptionText)
-                .toBe(stripTags(spanishLocale.banner.description));
-
-            expect(modalDescriptionText)
-                .toBe(stripTags(spanishLocale.preferencesManagement.description));
-        });
     });
 
     test.describe('`hasPrimaryActionsOnly` prop', () => {
