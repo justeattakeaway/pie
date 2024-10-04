@@ -360,7 +360,7 @@ When using the payment method, the specific card icon will appear as soon as the
 
 {% contentPageImage {
     src:"../../../assets/img/components/text-input/behaviour-payment-method.svg",
-    alt: "Example of payment method behavior.",
+    alt: "Example of payment method behaviour.",
     width: "884px"
 } %}
 
