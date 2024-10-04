@@ -16,7 +16,7 @@
 
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--dt-spacing-b);
     cursor: var(--radio-cursor);
     font-size: var(--radio-font-size);
     font-weight: var(--radio-font-weight);
@@ -30,8 +30,8 @@
         appearance: none;
         display: block;
         position: relative;
-        width: var(--radio-size);
-        height: var(--radio-size);
+        inline-size: var(--radio-size);
+        block-size: var(--radio-size);
         border: var(--radio-border-width) solid var(--radio-border-color);
         border-radius: 50%;
         margin: 0;
@@ -66,8 +66,8 @@
         &:after {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
+            inset-block-start: 50%;
+            inset-inline-start: 50%;
             width: var(--radio-dot-size);
             height: var(--radio-dot-size);
             background-color: var(--radio-dot-bg-color);
