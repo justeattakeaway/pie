@@ -307,7 +307,7 @@ Specifically for card number entry, the card number is displayed in groups of 4 
 The user can enter a maximum of 19 digits.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/text-input/content-formatting-cardnumber.svg",
+    src:"../../../assets/img/components/text-input/content-formatting-card-number.svg",
     alt: "Text input with date formatting.",
     width: "790px"
 } %}
@@ -359,7 +359,7 @@ If space is limited, long assistive text may wrap to multiple lines, especially 
 When using the payment method, the specific card icon will appear as soon as the system detects the type of card entered by the user.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/text-input/behaviour-paymentmethod.svg",
+    src:"../../../assets/img/components/text-input/behaviour-payment-method.svg",
     alt: "Example of payment method behavior.",
     width: "884px"
 } %}
