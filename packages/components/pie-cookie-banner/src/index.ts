@@ -89,7 +89,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     }
 
     // Dynamically import locale JSON based on tenant and language
-    private async _setLocaleBasedOnTenantAndLanguage(tenant: Tenant, language: Language, fallback = false): Promise<void> {
+    private async _setLocaleBasedOnTenantAndLanguage (tenant: Tenant, language: Language, fallback = false): Promise<void> {
         try {
             this.locale = (await import(`../locales/${language}-${tenant}.json`, { assert: { type: 'json' } })).default;
         } catch {

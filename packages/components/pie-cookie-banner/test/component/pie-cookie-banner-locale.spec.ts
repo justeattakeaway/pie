@@ -2,7 +2,7 @@ import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/p
 import { readFile } from 'fs/promises';
 import { CookieBannerComponent } from 'test/helpers/page-object/pie-cookie-banner.page.ts';
 import { ModalComponent } from '@justeattakeaway/pie-modal/test/helpers/page-object/pie-modal.page.ts';
-import { Language, Tenant } from 'C:/GitHub/pie/packages/components/pie-cookie-banner/src/defs.ts';
+import { Language, Tenant } from '@justeattakeaway/pie-cookie-banner/src/defs.ts';
 
 function stripTags (str: string) {
     return str.replace(/<\/?[^>]+(>|$)/g, '');
