@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, PropertyValues, nothing, type TemplateResult,
+    LitElement, html, unsafeCSS, type PropertyValues, type nothing, type TemplateResult,
 } from 'lit';
 import { property, queryAssignedElements, state } from 'lit/decorators.js';
 import {
@@ -14,7 +14,7 @@ import styles from './checkbox-group.scss?inline';
 import {
     ON_CHECKBOX_GROUP_DISABLED,
     ON_CHECKBOX_GROUP_ERROR,
-    CheckboxGroupProps,
+    type CheckboxGroupProps,
     defaultProps,
     statusTypes,
 } from './defs';

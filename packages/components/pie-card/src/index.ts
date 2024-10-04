@@ -1,15 +1,15 @@
 import {
-    html, LitElement, unsafeCSS, nothing, TemplateResult,
+    html, LitElement, unsafeCSS, nothing, type TemplateResult, type PropertyValues,
 } from 'lit';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { property } from 'lit/decorators.js';
+import { property, queryAssignedElements } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './card.scss?inline';
 import {
     variants,
     tags,
-    CardProps,
+    type CardProps,
     defaultProps,
     paddingValues,
 } from './defs';
@@ -53,6 +53,17 @@ export class PieCard extends LitElement implements CardProps {
     @validPropertyValues(componentSelector, paddingValues, undefined)
     public padding?: CardProps['padding'];
 
+    @queryAssignedElements({ flatten: true })
+    private assignedElements?: HTMLElement[];
+
+    private onClickHandler (event: Event) {
+        if (this.disabled) {
+            // needed to intercept/prevent click events when the card is disabled.
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    }
+
     /**
      * Renders the card as an anchor element.
      *
@@ -60,21 +71,22 @@ export class PieCard extends LitElement implements CardProps {
      */
     private renderAnchor (classes: ClassInfo): TemplateResult {
         const paddingCSS = this.generatePaddingCSS();
+        const {
+            href, rel, target, disabled, aria,
+        } = this;
 
         return html`
             <a
                 class="${classMap(classes)}"
                 data-test-id="pie-card"
-                ?disabled=${this.disabled}
-                href=${this.href || ''}
-                target=${this.target || nothing}
-                rel=${this.rel || nothing}
+                href=${ifDefined(href && !disabled ? href : undefined)}
+                target=${target || nothing}
+                rel=${rel || nothing}
                 role="link"
-                aria-label=${this.aria?.label || nothing}
-                aria-disabled=${this.disabled ? 'true' : 'false'}
+                aria-label=${aria?.label || nothing}
+                aria-disabled=${disabled ? 'true' : 'false'}
                 style=${ifDefined(paddingCSS)}>
-                    <slot></slot>
-                </div>
+                    <slot  @slotchange=${this.handleSlotChange}></slot>
             </a>`;
     }
 
@@ -117,6 +129,57 @@ export class PieCard extends LitElement implements CardProps {
         return `padding: ${paddingCSS}`;
     }
 
+    /**
+     * Handles the slot change event and applies/removes opacity to images based on the `disabled` state.
+     *
+     * @private
+     */
+    private handleSlotChange () {
+        this.updateImagesOpacity();
+    }
+
+    /**
+     * Updates opacity of all images (slotted and non-slotted) based on the `disabled` property.
+     *
+     * @private
+     */
+    private updateImagesOpacity (): void {
+        if (this.assignedElements) {
+            // Handle images nested inside slotted elements
+            this.assignedElements.forEach((element) => {
+                const images = element.querySelectorAll('img');
+                this.applyOpacityToImages(images);
+            });
+        }
+
+        // Handle directly slotted images
+        const directImages = this.querySelectorAll('img');
+        this.applyOpacityToImages(directImages);
+    }
+
+    /**
+     * Applies or removes opacity from the given images based on the `disabled` property.
+     *
+     * @param images
+     * @private
+     */
+    private applyOpacityToImages (images: NodeListOf<HTMLImageElement>): void {
+        images.forEach((img) => {
+            img.style.opacity = this.disabled ? '0.5' : '';
+        });
+    }
+
+    /**
+     * Observes changes in the `disabled` property and triggers the update of images' opacity.
+     *
+     * @param changedProperties
+     */
+    updated (changedProperties: PropertyValues<this>) : void {
+        if (changedProperties.has('disabled')) {
+            this.updateImagesOpacity(); // Re-apply styles when disabled state changes
+        }
+    }
+
     render () {
         const {
             variant,
@@ -142,11 +205,12 @@ export class PieCard extends LitElement implements CardProps {
                     class="${classMap(classes)}"
                     data-test-id="pie-card"
                     role="button"
-                    tabindex="0"
+                    tabindex=${disabled ? '-1' : '0'}
                     aria-label=${aria?.label || nothing}
                     aria-disabled=${disabled ? 'true' : 'false'}
-                    style=${paddingCSS || ''}>
-                        <slot></slot>
+                    style=${paddingCSS || ''}
+                    @click=${this.onClickHandler}>
+                        <slot @slotchange=${this.handleSlotChange}></slot>
                     </div>
                 </div>`;
     }

@@ -1,5 +1,70 @@
 # wc-next13
 
+## 0.4.27
+
+### Patch Changes
+
+- Updated dependencies [[`efb35af66`](https://github.com/justeattakeaway/pie/commit/efb35af6604ca86d0b39ec01421a376050698edf)]:
+  - @justeattakeaway/pie-css@0.13.1
+  - @justeattakeaway/pie-webc@0.5.41
+
+## 0.4.26
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.40
+
+## 0.4.25
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.39
+
+## 0.4.24
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.38
+
+## 0.4.23
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.37
+
+## 0.4.22
+
+### Patch Changes
+
+- Updated dependencies [[`eaaeba93a`](https://github.com/justeattakeaway/pie/commit/eaaeba93a7267de290fea39726b59e472e2db3a7), [`77dea2fc1`](https://github.com/justeattakeaway/pie/commit/77dea2fc10942df226a33dbd3a8ac86a33955f5b)]:
+  - @justeattakeaway/pie-css@0.13.0
+  - @justeattakeaway/pie-webc@0.5.36
+
+## 0.4.21
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.35
+
+## 0.4.20
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.34
+
+## 0.4.19
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.33
+
 ## 0.4.18
 
 ### Patch Changes

@@ -13,9 +13,7 @@ const buildRow = (cells, headings) => cells.map((cell) => {
     headings.map((heading) => {
         if ('componentName' in cell) {
             content = `<a class="c-componentStatus-link" href="/components/${cell.componentName.toLowerCase().replace(' ', '-')}">${cell.componentName}</a>`;
-        } else
-
-        if (heading.title === cell.resource) {
+        } else if (heading.title === cell.resource) {
             const { bgColor, status } = statusSettings[cell.status];
             content = `<span class="c-componentStatus-status" style="--bg-colour: ${bgColor}; margin-inline-start: 30px;">${status}</span>`;
         }
@@ -31,7 +29,7 @@ const buildRow = (cells, headings) => cells.map((cell) => {
  * @param {string} dataType - string containing 'web' or 'app' depending on status table
  * @returns {string} - The HTML representation of the table component.
  */
-module.exports = ({
+const componentStatusTable = ({
     dataType,
 }) => {
     const headings = dataType === 'apps' ? appHeadings : webHeadings;
@@ -48,3 +46,5 @@ module.exports = ({
     </table>
 </div>`;
 };
+
+module.exports = componentStatusTable;

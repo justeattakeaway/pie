@@ -1,5 +1,31 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.13.2
+
+### Patch Changes
+
+- [Fixed] - Imports to align with new linting rule ([#1622](https://github.com/justeattakeaway/pie/pull/1622)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Removed] - Empty lines at the start of some files
+
+- Updated dependencies [[`efb35af66`](https://github.com/justeattakeaway/pie/commit/efb35af6604ca86d0b39ec01421a376050698edf)]:
+  - @justeattakeaway/pie-assistive-text@0.7.3
+  - @justeattakeaway/pie-webc-core@0.24.2
+
+## 0.13.1
+
+### Patch Changes
+
+- Updated dependencies [[`b14535438`](https://github.com/justeattakeaway/pie/commit/b14535438da533aeb9a5520c2a239203dafb0c9a)]:
+  - @justeattakeaway/pie-webc-core@0.24.1
+  - @justeattakeaway/pie-assistive-text@0.7.2
+
+## 0.13.0
+
+### Minor Changes
+
+- [Changed] - use ClassMap for styling with CSS classes rather than data attributes ([#1877](https://github.com/justeattakeaway/pie/pull/1877)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.12.3
 
 ### Patch Changes

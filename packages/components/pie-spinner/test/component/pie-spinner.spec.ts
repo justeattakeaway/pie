@@ -1,4 +1,3 @@
-
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieSpinner, type SpinnerProps } from '../../src/index.ts';
 

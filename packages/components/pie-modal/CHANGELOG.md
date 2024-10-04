@@ -1,5 +1,43 @@
 # @justeattakeaway/pie-modal
 
+## 0.48.1
+
+### Patch Changes
+
+- [Fixed] - Imports to align with new linting rule ([#1622](https://github.com/justeattakeaway/pie/pull/1622)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Removed] - Empty lines at the start of some files
+
+- Updated dependencies [[`efb35af66`](https://github.com/justeattakeaway/pie/commit/efb35af6604ca86d0b39ec01421a376050698edf)]:
+  - @justeattakeaway/pie-button@0.49.3
+  - @justeattakeaway/pie-icon-button@0.28.14
+  - @justeattakeaway/pie-webc-core@0.24.2
+  - @justeattakeaway/pie-spinner@0.7.2
+  - @justeattakeaway/pie-icons-webc@0.25.3
+
+## 0.48.0
+
+### Minor Changes
+
+- [Fixed] - Ensure modals always remove any page scroll-locks when disconnected ([#1961](https://github.com/justeattakeaway/pie/pull/1961)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.47.1
+
+### Patch Changes
+
+- Updated dependencies [[`b14535438`](https://github.com/justeattakeaway/pie/commit/b14535438da533aeb9a5520c2a239203dafb0c9a)]:
+  - @justeattakeaway/pie-webc-core@0.24.1
+  - @justeattakeaway/pie-button@0.49.2
+  - @justeattakeaway/pie-icon-button@0.28.13
+  - @justeattakeaway/pie-spinner@0.7.1
+  - @justeattakeaway/pie-icons-webc@0.25.2
+
+## 0.47.0
+
+### Minor Changes
+
+- [Changed] - replaces media with include-media with pie breakpoints tokens. ([#1861](https://github.com/justeattakeaway/pie/pull/1861)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.46.2
 
 ### Patch Changes

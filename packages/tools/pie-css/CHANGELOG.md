@@ -1,5 +1,23 @@
 # @justeattakeaway/pie-css
 
+## 0.13.1
+
+### Patch Changes
+
+- [Fixed] - Imports to align with new linting rule ([#1622](https://github.com/justeattakeaway/pie/pull/1622)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Removed] - Empty lines at the start of some files
+
+## 0.13.0
+
+### Minor Changes
+
+- [Changed] - replaces hardcoded breakpoint values with PIE tokens. ([#1861](https://github.com/justeattakeaway/pie/pull/1861)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- [Changed] - Version bumps for renovate/snyk/dependabot ([#1929](https://github.com/justeattakeaway/pie/pull/1929)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.12.1
 
 ### Patch Changes

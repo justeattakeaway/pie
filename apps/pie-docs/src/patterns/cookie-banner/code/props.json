@@ -14,10 +14,16 @@
             }
         ],
         [
-            "locale",
-            "Any locale from [this list](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-cookie-banner/locales)",
-            "Assigns the localisation data for the component strings.",
-            "English language locale"
+            "tenant",
+            "Any supported tenant (country), that is paired with the language [(see these supported locales)](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-cookie-banner/locales)",
+            "Used (with the language property) to load the localisation data for the component strings. If not provided or unsupported, the default language-tenant of en-gb will be used.",
+            "GB"
+        ],
+        [
+            "language",
+            "Any supported language, that is paired with the tenant [(see these supported locales)](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-cookie-banner/locales)",
+            "Used (with the tenant property) to load the localisation data for the component strings. If not provided or unsupported, the default language of the country will be used.",
+            "en"
         ],
         [
             "cookieStatementLink",

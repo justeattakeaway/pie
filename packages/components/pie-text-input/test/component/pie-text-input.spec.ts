@@ -1,4 +1,3 @@
-
 import { setupFormDataExtraction, getFormDataObject } from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';

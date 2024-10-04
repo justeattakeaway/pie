@@ -1,17 +1,13 @@
 import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-cookie-banner';
 import { type CookieBannerProps, defaultProps } from '@justeattakeaway/pie-cookie-banner';
-
-import {
-    Tenant,
-    Language,
-} from '@justeattakeaway/pie-cookie-banner/src/defs';
-import { type StoryMeta } from '../types';
+import { Tenant, Language } from '@justeattakeaway/pie-cookie-banner/src/defs';
 import { createStory } from '../utilities';
 
-type CookieBannerStoryMeta = StoryMeta<CookieBannerProps>;
+type CookieBannerStoryMeta = Meta<CookieBannerProps>;
 
 const defaultArgs: CookieBannerProps = {
     ...defaultProps,

@@ -1,19 +1,19 @@
 import { nothing } from 'lit';
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { type Meta } from '@storybook/web-components';
+import { action } from '@storybook/addon-actions';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-card';
 import {
-    CardProps as CardPropsBase, variants, tags, paddingValues, defaultProps,
+    type CardProps as CardPropsBase, variants, tags, paddingValues, defaultProps,
 } from '@justeattakeaway/pie-card';
-/* eslint-enable import/no-duplicates */
 
-import type { StoryMeta, SlottedComponentProps } from '../types';
+import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type CardProps = SlottedComponentProps<CardPropsBase>;
-type CardStoryMeta = StoryMeta<CardProps>;
+type CardStoryMeta = Meta<CardProps>;
 
 const defaultArgs: CardProps = {
     ...defaultProps,
@@ -113,6 +113,8 @@ const cardStoryMeta: CardStoryMeta = {
 
 export default cardStoryMeta;
 
+const clickAction = action('clicked');
+
 const Template: TemplateFunction<CardProps> = ({
     tag,
     href,
@@ -124,7 +126,10 @@ const Template: TemplateFunction<CardProps> = ({
     variant,
     padding,
     isDraggable,
-}) => html`
+}) => {
+    const isButton = tag === 'button';
+
+    return html`
         <pie-card
             tag="${ifDefined(tag)}"
             variant="${ifDefined(variant)}"
@@ -134,9 +139,11 @@ const Template: TemplateFunction<CardProps> = ({
             ?disabled="${disabled}"
             .aria="${aria}"
             padding="${padding || nothing}"
-            ?isDraggable="${isDraggable}">
+            ?isDraggable="${isDraggable}"
+            @click="${isButton ? clickAction : nothing}">
                 ${sanitizeAndRenderHTML(slot)}
             </pie-card>`;
+};
 
 const createCardStory = createStory<CardProps>(Template, defaultArgs);
 
@@ -144,3 +151,18 @@ export const Default = createCardStory();
 export const Outline = createCardStory({ variant: 'outline' });
 export const Inverse = createCardStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
 export const OutlineInverse = createCardStory({ variant: 'outline-inverse' }, { bgColor: 'dark (container-dark)' });
+export const CardWithImage = createCardStory({
+    ...defaultArgs,
+    slot: `<div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-l-family);">
+        <h2 style="margin-top: 0"> Card title </h2>
+        <p> Card content </p>
+        <p style="margin-bottom: 0"> Lorem ipsum dolor sit amet
+        consectetur adipisicing elit.
+        Fugiat dolore dolorem maxime,
+        quod, in minima esse fugit
+        distinctio, officia et soluta
+        dicta consequuntur commodi officiis
+        tempora asperiores aspernatur atque quas.</p>
+        <img src="https://picsum.photos/200/300?image=0" alt="Sample image" />
+    </div>`,
+});

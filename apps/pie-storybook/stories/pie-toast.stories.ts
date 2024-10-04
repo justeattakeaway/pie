@@ -1,10 +1,12 @@
 import { html } from 'lit';
-import { ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
+import { useArgs } from '@storybook/preview-api';
 import { action } from '@storybook/addon-actions';
-import { type StoryMeta } from '../types';
-import { createStory } from '../utilities';
+import { type Meta } from '@storybook/web-components';
+import { type ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
 
-type ToastStoryMeta = StoryMeta<ToastProps>;
+import { type TemplateFunction, createStory } from '../utilities';
+
+type ToastStoryMeta = Meta<ToastProps>;
 
 const defaultArgs: ToastProps = {
     ...defaultProps,
@@ -13,6 +15,7 @@ const defaultArgs: ToastProps = {
         text: 'Confirm',
         ariaLabel: 'Descriptive confirmation text',
     },
+    duration: null,
 };
 
 const toastStoryMeta: ToastStoryMeta = {
@@ -27,7 +30,7 @@ const toastStoryMeta: ToastStoryMeta = {
             },
         },
         variant: {
-            description: 'Set the variant of the notification.',
+            description: 'Set the variant of the toast.',
             control: 'select',
             options: variants,
             defaultValue: {
@@ -63,6 +66,10 @@ const toastStoryMeta: ToastStoryMeta = {
             description: 'The leading action configuration for the toast.',
             control: 'object',
         },
+        duration: {
+            description: 'Sets the duration of the toast in milliseconds before it auto-dismisses.',
+            control: 'number',
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -76,13 +83,10 @@ const toastStoryMeta: ToastStoryMeta = {
 export default toastStoryMeta;
 
 const pieToastLeadingActionClick = action('pie-toast-leading-action-click');
-const pieToastSupportingActionClick = action('pie-toast-supporting-action-click');
 const pieToastClose = action('pie-toast-close');
 const pieToastOpen = action('pie-toast-open');
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
-const Template = ({
+const Template : TemplateFunction<ToastProps> = ({
     isOpen,
     isDismissible,
     message,
@@ -90,20 +94,45 @@ const Template = ({
     isMultiline,
     isStrong,
     variant,
-}: ToastProps) => html`
-    <pie-toast 
-        ?isOpen="${isOpen}" 
-        ?isDismissible="${isDismissible}" 
-        ?isStrong="${isStrong}"
-        variant="${variant}"
-        message="${message}" 
-        ?isMultiline="${isMultiline}"
-        .leadingAction="${leadingAction}"
-        @pie-toast-leading-action-click="${pieToastLeadingActionClick}"
-        @pie-toast-supporting-action-click="${pieToastSupportingActionClick}"
-        @pie-toast-close="${pieToastClose}"
-        @pie-toast-open="${pieToastOpen}"
-    /></pie-toast>
-`;
+    duration,
+}: ToastProps) => {
+    const [, updateArgs] = useArgs();
 
-export const Default = createStory<ToastProps>(Template, defaultArgs)();
+    const pieToastCloseHandle = () => {
+        updateArgs({ isOpen: false });
+        pieToastClose();
+    };
+
+    const pieToastOpenHandle = () => {
+        updateArgs({ isOpen: true });
+        pieToastOpen();
+    };
+
+    return html`
+        <pie-toast
+            ?isOpen="${isOpen}"
+            ?isDismissible="${isDismissible}"
+            ?isStrong="${isStrong}"
+            variant="${variant}"
+            message="${message}" 
+            .duration="${duration}"
+            ?isMultiline="${isMultiline}"
+            .leadingAction="${leadingAction}"
+            @pie-toast-leading-action-click="${pieToastLeadingActionClick}"
+            @pie-toast-close="${pieToastCloseHandle}"
+            @pie-toast-open="${pieToastOpenHandle}"/>
+        </pie-toast>`;
+};
+
+const createToastStory = createStory<ToastProps>(Template, defaultArgs);
+
+export const Neutral = createToastStory();
+export const Info = createToastStory({ variant: 'info' });
+export const InfoStrong = createToastStory({ variant: 'info', isStrong: true });
+export const Warning = createToastStory({ variant: 'warning' });
+export const WarningStrong = createToastStory({ variant: 'warning', isStrong: true });
+export const Success = createToastStory({ variant: 'success' });
+export const SuccessStrong = createToastStory({ variant: 'success', isStrong: true });
+export const Error = createToastStory({ variant: 'error' });
+export const ErrorStrong = createToastStory({ variant: 'error', isStrong: true });
+export const AutoDismiss = createToastStory({ duration: 3000, message: 'Closing in three seconds' });

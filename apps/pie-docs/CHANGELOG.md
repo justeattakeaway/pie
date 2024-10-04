@@ -1,5 +1,65 @@
 # Changelog
 
+## 4.10.1
+
+### Patch Changes
+
+- [Fixed] - Imports to align with new linting rule ([#1622](https://github.com/justeattakeaway/pie/pull/1622)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Removed] - Empty lines at the start of some files
+
+- Updated dependencies [[`efb35af66`](https://github.com/justeattakeaway/pie/commit/efb35af6604ca86d0b39ec01421a376050698edf)]:
+  - @justeattakeaway/pie-css@0.13.1
+
+## 4.10.0
+
+### Minor Changes
+
+- [Added] - 'Overlay patterns' guidance page ([#1843](https://github.com/justeattakeaway/pie/pull/1843)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+- [Added] - 'Overlay patterns' patterns page ([#1843](https://github.com/justeattakeaway/pie/pull/1843)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+## 4.9.1
+
+### Patch Changes
+
+- [Fixed] - Ensure the card is not interactive when `disabled` is passed ([#1930](https://github.com/justeattakeaway/pie/pull/1930)) by [@raoufswe](https://github.com/raoufswe)
+
+## 4.9.0
+
+### Minor Changes
+
+- [Changed] - pie-design-tokens version bump to 6.5.0. ([#1861](https://github.com/justeattakeaway/pie/pull/1861)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- Updated dependencies [[`eaaeba93a`](https://github.com/justeattakeaway/pie/commit/eaaeba93a7267de290fea39726b59e472e2db3a7), [`77dea2fc1`](https://github.com/justeattakeaway/pie/commit/77dea2fc10942df226a33dbd3a8ac86a33955f5b)]:
+  - @justeattakeaway/pie-css@0.13.0
+
+## 4.8.0
+
+### Minor Changes
+
+- [Removed] - Banner component from pie docs ([#1899](https://github.com/justeattakeaway/pie/pull/1899)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+## 4.7.0
+
+### Minor Changes
+
+- [Changed] - Use only css to apply columns to docs site contents tables ([#1858](https://github.com/justeattakeaway/pie/pull/1858)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Changed] - Add caching for `generate:component-statuses` build. ([#1838](https://github.com/justeattakeaway/pie/pull/1838)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - New `copy:component-statuses` script for `pie-docs` and `pie-storybook` which copies the status file from the root.
+
+## 4.6.1
+
+### Patch Changes
+
+- [Changed] - updated `pie-divider` overview and code documentation ([#1860](https://github.com/justeattakeaway/pie/pull/1860)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
 ## 4.6.0
 
 ### Minor Changes

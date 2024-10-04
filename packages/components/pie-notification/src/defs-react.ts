@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 /**
  * TODO: Update the React base type as soon as the notification component markup is defined
  * Use the React IntrinsicElements interface to find how to map standard HTML elements to existing React Interfaces

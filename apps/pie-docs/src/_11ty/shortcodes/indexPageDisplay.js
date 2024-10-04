@@ -38,12 +38,12 @@ const getUrl = (element) => {
     return element.url;
 };
 
-module.exports = function ({
+const indexPageDisplay = ({
     collection,
     itemKey,
     excludedElements,
     imageSrcDirectory,
-}) {
+}) => {
     const menuItems = find(collection, itemKey);
     const draftPages = getDraftPagesList(collection);
 
@@ -76,3 +76,5 @@ module.exports = function ({
     });
     return `<div class="c-indexPage">${indexElements.join('')}</div>`;
 };
+
+module.exports = indexPageDisplay;

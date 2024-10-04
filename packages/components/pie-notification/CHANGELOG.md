@@ -1,5 +1,33 @@
 # @justeattakeaway/pie-notification
 
+## 0.12.2
+
+### Patch Changes
+
+- [Fixed] - Imports to align with new linting rule ([#1622](https://github.com/justeattakeaway/pie/pull/1622)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Removed] - Empty lines at the start of some files
+
+- Updated dependencies [[`efb35af66`](https://github.com/justeattakeaway/pie/commit/efb35af6604ca86d0b39ec01421a376050698edf)]:
+  - @justeattakeaway/pie-icon-button@0.28.14
+  - @justeattakeaway/pie-webc-core@0.24.2
+  - @justeattakeaway/pie-icons-webc@0.25.3
+
+## 0.12.1
+
+### Patch Changes
+
+- Updated dependencies [[`b14535438`](https://github.com/justeattakeaway/pie/commit/b14535438da533aeb9a5520c2a239203dafb0c9a)]:
+  - @justeattakeaway/pie-webc-core@0.24.1
+  - @justeattakeaway/pie-icon-button@0.28.13
+  - @justeattakeaway/pie-icons-webc@0.25.2
+
+## 0.12.0
+
+### Minor Changes
+
+- [Changed] - replaces media with include-media with pie breakpoints tokens. ([#1861](https://github.com/justeattakeaway/pie/pull/1861)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.11.0
 
 ### Minor Changes

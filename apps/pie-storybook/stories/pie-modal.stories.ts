@@ -1,25 +1,18 @@
-import { type TemplateResult } from 'lit';
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
+import { type Meta } from '@storybook/web-components';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-modal';
 import {
-    type PieModal,
-    type ModalProps as ModalPropsBase,
-    headingLevels,
-    sizes,
-    positions,
-    defaultProps,
+    type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, positions, defaultProps,
 } from '@justeattakeaway/pie-modal';
-/* eslint-enable import/no-duplicates */
 
-import { StoryMeta, SlottedComponentProps } from '../types';
+import { type SlottedComponentProps } from '../types';
 import { createStory, sanitizeAndRenderHTML } from '../utilities';
 
 type ModalProps = SlottedComponentProps<ModalPropsBase>;
-type ModalStoryMeta = StoryMeta<ModalProps>;
+type ModalStoryMeta = Meta<ModalProps>;
 
 const defaultArgs: ModalProps = {
     ...defaultProps,
@@ -143,7 +136,7 @@ const toggleModal = () => {
     }
 };
 
-const createFocusableElementsPageHTML = () : TemplateResult => html`
+const createFocusableElementsPageHTML = () => html`
     <pie-button id="focus-1">#focus-1</pie-button>
     <pie-button id="focus-2">#focus-2</pie-button>
     <pie-button id="focus-3">#focus-3</pie-button>
@@ -163,7 +156,7 @@ const createFocusableElementsPageHTML = () : TemplateResult => html`
         }
     </style>`;
 
-const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
+const BaseStoryTemplate = (props: ModalProps) => {
     const {
         aria,
         hasBackButton,
@@ -221,11 +214,11 @@ const createScrollablePageHTML = () => {
         <ul>${items}</ul>`;
 };
 
-const ScrollablePageStoryTemplate = (props: ModalProps) : TemplateResult => html`
+const ScrollablePageStoryTemplate = (props: ModalProps) => html`
     ${BaseStoryTemplate(props)}
     ${createScrollablePageHTML()}`;
 
-const FocusableElementsPageStoryTemplate = (props: ModalProps) : TemplateResult => html`
+const FocusableElementsPageStoryTemplate = (props: ModalProps) => html`
     ${BaseStoryTemplate(props)}
     ${createFocusableElementsPageHTML()}`;
 

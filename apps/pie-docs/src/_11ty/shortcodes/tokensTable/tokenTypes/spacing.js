@@ -1,4 +1,3 @@
-
 /**
  * Builds the example spacing swatch to show on the token list item
  * @param {string} token - the token value i.e. 24, 80

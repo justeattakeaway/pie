@@ -65,7 +65,7 @@ const buildRow = (cells) => cells.map((cell) => {
  * @param {string} tableData - JSON string containing table data.
  * @returns {string} - The HTML representation of the table component.
  */
-module.exports = ({
+const componentDetailsTable = ({
     tableData,
 }) => {
     const { headings, rows } = JSON.parse(tableData);
@@ -85,3 +85,5 @@ module.exports = ({
     </table>
 </div>`;
 };
+
+module.exports = componentDetailsTable;

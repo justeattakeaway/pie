@@ -1,16 +1,14 @@
 import { html, nothing } from 'lit';
 import { action } from '@storybook/addon-actions';
+import { type Meta } from '@storybook/web-components';
 
-/* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-switch';
 import { type SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-switch';
-/* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
-import { StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
-type SwitchStoryMeta = StoryMeta<SwitchProps>;
+type SwitchStoryMeta = Meta<SwitchProps>;
 
 const defaultArgs: SwitchProps = {
     ...defaultProps,
@@ -145,13 +143,14 @@ const FormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html
     <button type="submit">Submit</button>
     </form>
     <script>
-        // Display a success message to the user when they submit the form
-        const form = document.querySelector('#testForm');
-        const formLog = document.querySelector('#formLog');
+        // var is used to prevent storybook from erroring when the script is re-run
+        var form = document.querySelector('#testForm');
+        var formLog = document.querySelector('#formLog');
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
+            // Display a success message to the user when they submit the form
             formLog.innerHTML = 'Form submitted!';
             formLog.style.display = 'block';
 

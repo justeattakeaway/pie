@@ -1,12 +1,12 @@
 import { html } from 'lit';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-radio-group';
 import { type RadioGroupProps } from '@justeattakeaway/pie-radio-group';
 
-import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
 
-type RadioGroupStoryMeta = StoryMeta<RadioGroupProps>;
+type RadioGroupStoryMeta = Meta<RadioGroupProps>;
 
 const defaultArgs: RadioGroupProps = {};
 

@@ -1,6 +1,7 @@
 import {
     LitElement, html, unsafeCSS, nothing,
 } from 'lit';
+import { classMap } from 'lit/directives/class-map.js';
 import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
@@ -15,7 +16,7 @@ import {
 import '@justeattakeaway/pie-assistive-text';
 
 import styles from './checkbox.scss?inline';
-import { CheckboxProps, defaultProps, statusTypes } from './defs';
+import { type CheckboxProps, defaultProps, statusTypes } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -164,13 +165,26 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
 
         const componentDisabled = disabled || disabledByParent;
 
+        const checkboxClasses = {
+            'c-checkbox': true,
+            [`c-checkbox--status-${status}`]: !componentDisabled,
+            'c-checkbox--disabled': componentDisabled,
+            'c-checkbox--checked': checked,
+            'c-checkbox--indeterminate': indeterminate && !checked,
+        };
+
+        const labelClasses = {
+            'c-checkbox-tick': true,
+            [`c-checkbox-tick--status-${status}`]: !componentDisabled,
+            'c-checkbox-tick--disabled': componentDisabled,
+            'c-checkbox-tick--checked': checked,
+            'c-checkbox-tick--indeterminate': indeterminate && !checked,
+            'c-checkbox-tick--rtl': isRTL,
+        };
+
         return html`
         <div
-            class="c-checkbox"
-            data-pie-status=${!componentDisabled && status}
-            ?data-pie-disabled=${componentDisabled}
-            ?data-pie-checked=${checked}
-            ?data-pie-indeterminate=${indeterminate && !checked}>
+            class="${classMap(checkboxClasses)}">
             <input
                 type="checkbox"
                 id="inputId"
@@ -187,12 +201,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             />
             <label for="inputId" data-test-id="checkbox-component">
                 <span
-                    class="c-checkbox-tick"
-                    ?data-is-rtl=${isRTL}
-                    ?data-pie-checked=${checked}
-                    ?data-pie-disabled=${componentDisabled}
-                    data-pie-status=${!componentDisabled && status}
-                    ?data-pie-indeterminate=${indeterminate && !checked}></span>
+                    class="${classMap(labelClasses)}"></span>
                 <span class="c-checkbox-text">
                     <slot></slot>
                 </span>
