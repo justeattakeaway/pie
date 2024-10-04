@@ -143,7 +143,7 @@ Use when a text input requires a card number to be entered, and reflect the card
 {% contentLayout %}
   {% contentItem %}
     <h4>Placeholder</h4>
-    <p>Placeholder text in the text input offers the user suggestions or examples for what to enter.</p>
+    <p>Placeholder text should not contain crucial information, and only displayed if beneficial to the user.</p>
     {% contentPageImage {
       src: "../../../assets/img/components/text-input/modifiers-type-placeholder.svg",
       width: "256px",
