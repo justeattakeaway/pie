@@ -65,7 +65,7 @@ const Template: TemplateFunction<FormLabelProps> = ({
     ...props
 }) => html`
         <pie-form-label
-            for="${props.for}"
+            for="${props.for || nothing}"
             optional="${optional || nothing}"
             trailing="${trailing || nothing}">
             ${sanitizeAndRenderHTML(slot)}

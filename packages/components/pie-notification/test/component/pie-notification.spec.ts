@@ -1,11 +1,6 @@
-
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieNotification } from '../../src/index.ts';
-import {
-    variants,
-    headingLevels,
-    type NotificationProps,
-} from '../../src/defs.ts';
+import { type NotificationProps, headingLevels, variants } from '../../src/defs.ts';
 
 const rootSelector = 'pie-notification';
 const componentSelector = `[data-test-id="${rootSelector}"]`;
@@ -161,7 +156,7 @@ test.describe('PieNotification - Component tests', () => {
             test('should render the header when heading is provided', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieNotification, {
-                    props: { heading: 'Title' },
+                    props: { heading: 'Title' } as NotificationProps,
                 });
 
                 // Act
@@ -184,7 +179,7 @@ test.describe('PieNotification - Component tests', () => {
                             props: {
                                 headingLevel,
                                 heading: `Title using ${headingLevel}`,
-                            },
+                            } as NotificationProps,
                         });
 
                         // Act

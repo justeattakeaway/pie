@@ -1,5 +1,5 @@
 import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/webc-fixtures.ts';
-import { PieAssistiveText, AssistiveTextProps } from '../../src/index.ts';
+import { PieAssistiveText, type AssistiveTextProps } from '../../src/index.ts';
 import { variants } from '../../src/defs.ts';
 
 test.describe('PieAssistiveText - Accessibility tests', () => {

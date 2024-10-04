@@ -2,6 +2,7 @@ import { LitElement, html, unsafeCSS } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
+import { classMap } from 'lit/directives/class-map.js';
 
 import {
     defineCustomElement, FormControlMixin, requiredProperty, RtlMixin, wrapNativeEvent,
@@ -100,18 +101,23 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
             checked, disabled, name, required, value,
         } = this;
 
+        const classes = {
+            'c-radio': true,
+            'c-radio--disabled': disabled,
+        };
+
         return html`
-        <input
-            type="radio"
-            id="radioId"
-            data-test-id="pie-radio"
-            .checked="${live(checked)}"
-            .value="${value}"
-            name="${ifDefined(name)}"
-            ?disabled="${disabled}"
-            ?required="${required}"
-            @change="${this.handleChange}">
-        <label for="radioId">
+        <label class=${classMap(classes)} for="radioId">
+            <input
+                type="radio"
+                id="radioId"
+                data-test-id="pie-radio"
+                .checked="${live(checked)}"
+                .value="${value}"
+                name="${ifDefined(name)}"
+                ?disabled="${disabled}"
+                ?required="${required}"
+                @change="${this.handleChange}">
             <slot></slot>
         </label>`;
     }

@@ -44,6 +44,13 @@ export interface ToastProps {
    * The leading action for the toast.
    */
   leadingAction?: ActionProps;
+
+  /**
+   * Sets the duration of the toast in milliseconds before it auto-dismisses.
+   * If the value is null auto-dismiss is disabled
+   * If the value is not provided it auto-dismisses after 5 seconds (5000 milliseconds)
+   */
+  duration?: number | null;
 }
 
 export const componentSelector = 'pie-toast';
@@ -78,4 +85,5 @@ export const defaultProps: DefaultProps = {
     isStrong: false,
     isDismissible: true,
     isMultiline: false,
+    duration: 5000,
 };

@@ -1,6 +1,6 @@
 {
   "name": "wc-next10",
-  "version": "0.6.26",
+  "version": "0.6.27",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,8 +10,8 @@
     "lint:examples": "eslint ."
   },
   "dependencies": {
-    "@justeattakeaway/pie-css": "0.13.0",
-    "@justeattakeaway/pie-webc": "0.5.40",
+    "@justeattakeaway/pie-css": "0.13.1",
+    "@justeattakeaway/pie-webc": "0.5.41",
     "@lit/react": "1.0.2",
     "next": "10.2.3",
     "next-transpile-modules": "4.1.0",
@@ -24,7 +24,7 @@
     "@babel/preset-env": "7.24.5",
     "@babel/preset-react": "7.24.1",
     "babel-loader": "8",
-    "eslint": "8.37.0",
+    "eslint": "8.57.0",
     "eslint-config-next": "13.2.4"
   },
   "engines": {

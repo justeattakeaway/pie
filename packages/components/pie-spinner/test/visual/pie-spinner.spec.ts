@@ -1,8 +1,6 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import {
-    type PropObject, WebComponentPropValues,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
+import { type PropObject, type WebComponentPropValues } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
 import {
     getAllPropCombinations, splitCombinationsByPropertyValue,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/get-all-prop-combos.ts';

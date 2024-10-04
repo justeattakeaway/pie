@@ -1,6 +1,5 @@
-
 import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/webc-fixtures.ts';
-import { PieChip, ChipProps } from '../../src/index.ts';
+import { PieChip, type ChipProps } from '../../src/index.ts';
 
 test.describe('PieChip - Accessibility tests', () => {
     test('a11y - should test the PieChip component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
