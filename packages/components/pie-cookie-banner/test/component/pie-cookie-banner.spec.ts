@@ -237,7 +237,7 @@ test.describe('PieCookieBanner - Component tests', () => {
 
         test('should render the expected text when the locale prop is set', async () => {
             // Arrange
-            await pieCookieBannerComponent.load({ locale: 'esES' });
+            await pieCookieBannerComponent.load({ locale: 'esES', tenant: 'es', language: 'es' });
 
             // Act
             const acceptAllButtonText = await pieCookieBannerComponent.getAcceptAllTextContent();

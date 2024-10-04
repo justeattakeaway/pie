@@ -72,10 +72,10 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     public cookieTechnologiesLink = defaultProps.cookieTechnologiesLink;
 
     @property({ type: String })
-    public [TENANT_PROPERTY] = defaultProps.tenant;
+    public [TENANT_PROPERTY] = '';
 
     @property({ type: String })
-    public [LANGUAGE_PROPERTY] = defaultProps.language;
+    public [LANGUAGE_PROPERTY] = '';
 
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;
@@ -89,11 +89,25 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
 
     // Method to dynamically import locale JSON based on tenant and language
     private async _getLocaleBasedOnTenantAndLanguage (): Promise<void> {
+        // [Backward compatibility] Check if tenant or language properties are unset if so
+        // do not attempt to use them and fallback to using the current this.locale property
+        if (!this[TENANT_PROPERTY] || !this[LANGUAGE_PROPERTY]) {
+            return;
+        }
+
+        // Check if tenant or language properties are unset and assign defaults if necessary
+        if (!this[TENANT_PROPERTY]) {
+            this[TENANT_PROPERTY] = defaultProps.tenant;
+        }
+        if (!this[LANGUAGE_PROPERTY]) {
+            this[LANGUAGE_PROPERTY] = defaultProps.language;
+        }
+
         try {
             // Dynamically construct the import path based on tenant and language
             const localeModule = await import(`../locales/${this.language}-${this.tenant}.json`, { assert: { type: 'json' } });
 
-            // Use the imported locale as the current locale
+            // Use the dynamically imported locale as the current locale
             this.locale = localeModule.default;
         } catch (error) {
             console.error(`Error loading locale for ${this.language}-${this.tenant}:`, error); // TODO - decide how to handle this error
