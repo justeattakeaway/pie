@@ -122,7 +122,7 @@ import { PieCookieBanner } from "@justeattakeaway/pie-cookie-banner/dist/react";
 const defaultPreferences= {functional: true, personalized: true, analytical: true}
 
 <PieCookieBanner
-    langauge='en'
+    language='en'
     tenant='GB'
     defaultPreferences={defaultPreferences}
 />
