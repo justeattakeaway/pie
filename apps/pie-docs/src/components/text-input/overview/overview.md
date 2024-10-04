@@ -129,11 +129,11 @@ Use when a text input requires a card number to be entered, and reflect the card
 
 {% notification {
   type: "warning",
-  message: "This modifier only exists in design, not in development. The functionality is handled by pillar engineers' if required."
+  message: "This modifier only exists in design, not in development. The functionality can be handled by consumers if required."
 } %}
 
 {% contentPageImage {
-    src:"../../../assets/img/components/text-input/modifiers-paymentmethod.svg",
+    src:"../../../assets/img/components/text-input/modifiers-payment-method.svg",
     alt: "Text input with payment method modifier.",
     width: "256px"
 } %}
@@ -287,7 +287,7 @@ Placeholder text is optional, it should not contain important information, and s
 
 {% notification {
   type: "warning",
-  message: "This is the suggested pattern for development, this functionality, if required is handled by pillar engineers'"
+  message: "This is the suggested pattern for development. The functionality can be handled by consumers if required."
 } %}
 
 #### Date
@@ -353,7 +353,7 @@ If space is limited, long assistive text may wrap to multiple lines, especially 
 
 {% notification {
   type: "warning",
-  message: "This is the suggested pattern for development. This functionality, if required, is handled by pillar engineers."
+  message: "This is the suggested pattern for development. The functionality can be handled by consumers if required."
 } %}
 
 When using the payment method, the specific card icon will appear as soon as the system detects the type of card entered by the user.
