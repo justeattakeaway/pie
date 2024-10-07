@@ -17,9 +17,8 @@ jobs:
       with:
         github-token: ${{ secrets.CHANGESETS_TOKEN }}
         script: |
-          const execa = require('execa');
           const script = require('./.github/workflows/add-missing-labels/add-missing-labels.js')
-          await script({ github, context }, execa);
+          await script({ github, context });
 
     - name: Labeler
       uses: actions/labeler@ac9175f8a1f3625fd0d4fb234536d26811351594 # v4.3.0

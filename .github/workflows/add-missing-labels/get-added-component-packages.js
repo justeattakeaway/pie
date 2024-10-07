@@ -1,3 +1,5 @@
+const { execSync } = require('child_process')
+
 const scriptPrefix = 'check-added-packages:';
 
 /**
@@ -6,13 +8,13 @@ const scriptPrefix = 'check-added-packages:';
  * @param {string} filePath path to the desired file
  * @returns string with the file content
  */
-async function getPackageJsonAtRef (ref, filePath, execa) {
+async function getPackageJsonAtRef (ref, filePath) {
     try {
-        const { stdout: fileContent } = await execa.command(`git show ${ref}:${filePath}`);
+        const fileContent = execSync(`git show ${ref}:${filePath}`).toString();
 
         return JSON.parse(fileContent);
     } catch (err) {
-        throw new Error(`${scriptPrefix} Failed to fetch package.json from ${ref}:`, {cause: err})
+        throw new Error(`${scriptPrefix} Failed to fetch package.json from ${ref}. "${err.message}"`)
     }
 }
 
@@ -37,17 +39,17 @@ function getNewDependencies (baseObj = {}, currentObj = {}) {
  * @param {string} filePath Path to the file that will be compared
  * @returns Array with the names of added dependencies, or empty array if none are found
  */
-async function getAddedComponentPackages (filePath, packagePrefix = '@justeattakeaway/', execa) {
+async function getAddedComponentPackages (filePath, packagePrefix = '@justeattakeaway/') {
     // Get package.json from the base branch (main)
-    const basePackageJson = await getPackageJsonAtRef('main', filePath, execa);
+    const basePackageJson = await getPackageJsonAtRef('main', filePath);
     if (!basePackageJson) {
-        throw new Error(`${scriptPrefix} Failed to retrieve package.json from main branch.`, {cause: err})
+        throw new Error(`${scriptPrefix} Failed to retrieve package.json from main branch. "${err.message}"`)
     }
 
     // Get package.json from the current branch (HEAD)
-    const currentPackageJson = await getPackageJsonAtRef('HEAD', filePath, execa);
+    const currentPackageJson = await getPackageJsonAtRef('HEAD', filePath);
     if (!currentPackageJson) {
-        throw new Error(`${scriptPrefix} Failed to retrieve package.json from the current branch.`, {cause: err})
+        throw new Error(`${scriptPrefix} Failed to retrieve package.json from the current branch. "${err.message}"`)
     }
 
     // Compare dependencies
