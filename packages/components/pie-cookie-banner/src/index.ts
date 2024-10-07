@@ -26,9 +26,7 @@ import {
     type PreferenceIds,
     type CookieBannerLocale,
     type CustomTagEnhancers,
-    Tenant,
-    Language,
-    getDefaultLanguageForTenant,
+    getDefaultLanguageForCountry,
 } from './defs';
 
 import { localiseText, localiseRichText } from './localisation-utils';
@@ -38,8 +36,6 @@ import defaultLocale from '../locales/en-gb.json' assert { type: 'json' };
 export * from './defs';
 
 const componentSelector = 'pie-cookie-banner';
-const TENANT_PROPERTY = 'tenant';
-const LANGUAGE_PROPERTY = 'language';
 
 /**
  * @tagname pie-cookie-banner
@@ -70,30 +66,31 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     @property({ type: String })
     public cookieTechnologiesLink = defaultProps.cookieTechnologiesLink;
 
-    @property({ type: Tenant })
-    public [TENANT_PROPERTY] = defaultProps.tenant;
+    @property({ type: String })
+    public country = defaultProps.country;
 
-    @property({ type: Language })
-    public [LANGUAGE_PROPERTY] = defaultProps.language;
+    @property({ type: String })
+    public language = defaultProps.language;
 
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;
 
     async updated (changedProperties: Map<string, unknown>) {
-        // Re-fetch locale when tenant or language changes
-        if (changedProperties.has(TENANT_PROPERTY) || changedProperties.has(LANGUAGE_PROPERTY)) {
-            await this._setLocaleBasedOnTenantAndLanguage(this.tenant, this.language);
+        console.log('updated.changedProperties');
+        // Re-fetch locale when country or language changes
+        if (changedProperties.has('country') || changedProperties.has('language')) {
+            await this._setLocaleBasedOnCountryAndLanguage(this.country, this.language);
         }
     }
 
-    // Dynamically import locale JSON based on tenant and language
-    private async _setLocaleBasedOnTenantAndLanguage (tenant: Tenant, language: Language, fallback = false): Promise<void> {
+    // Dynamically import locale JSON based on country and language
+    private async _setLocaleBasedOnCountryAndLanguage (country: string, language: string, fallback = false): Promise<void> {
         try {
-            this.locale = (await import(`../locales/${language}-${tenant}.json`, { assert: { type: 'json' } })).default;
+            this.locale = (await import(`../locales/${language}-${country}.json`, { assert: { type: 'json' } })).default;
         } catch {
             // If loading fails, try using the default language, if that fails fall back to the global default locale
             if (!fallback) {
-                await this._setLocaleBasedOnTenantAndLanguage(tenant, getDefaultLanguageForTenant(tenant), true);
+                await this._setLocaleBasedOnCountryAndLanguage(country, getDefaultLanguageForCountry(country), true);
             } else {
                 this.locale = defaultLocale;
             }

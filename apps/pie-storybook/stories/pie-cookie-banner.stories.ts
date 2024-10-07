@@ -4,25 +4,21 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-cookie-banner';
 import { type CookieBannerProps, defaultProps } from '@justeattakeaway/pie-cookie-banner';
-import { Tenant, Language } from '@justeattakeaway/pie-cookie-banner/src/defs';
+import { Country, Language } from '@justeattakeaway/pie-cookie-banner/src/defs';
 import { createStory } from '../utilities';
 
 type CookieBannerStoryMeta = Meta<CookieBannerProps>;
 
 const defaultArgs: CookieBannerProps = {
     ...defaultProps,
-    cookieTechnologiesLink: 'en/technologies',
-    cookieStatementLink: 'en/cookiestatement',
+    cookieTechnologiesLink: `${Language.ENGLISH}/technologies`,
+    cookieStatementLink: `${Language.ENGLISH}/cookiestatement`,
     defaultPreferences: {
         functional: true,
         personalized: true,
         analytical: true,
     },
 };
-
-const TenantReverseMapping = Object.fromEntries(Object.entries(Tenant).map(([key, value]) => [value, key]));
-
-const LanguageReverseMapping = Object.fromEntries(Object.entries(Language).map(([key, value]) => [value, key]));
 
 const cookieBannerStoryMeta: CookieBannerStoryMeta = {
     title: 'Cookie Banner',
@@ -32,20 +28,20 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
             description: 'When true, sets the variant to "primary" for the button which accepts necessary cookies only.',
             control: 'boolean',
         },
-        tenant: {
-            options: Tenant,
+        country: {
+            options: Object.values(Country),
             control: 'select',
             description: 'Assigns the country for the component',
             defaultValue: {
-                summary: TenantReverseMapping[defaultProps.tenant],
+                summary: defaultProps.country,
             },
         },
         language: {
-            options: Language,
+            options: Object.values(Language),
             control: 'select',
             description: 'Assigns the language for the component',
             defaultValue: {
-                summary: LanguageReverseMapping[defaultProps.language],
+                summary: defaultProps.language,
             },
         },
         defaultPreferences: {
@@ -72,7 +68,7 @@ const prefsSavedAction = action('prefs-saved');
 const BaseStoryTemplate = (props: CookieBannerProps) => {
     const {
         hasPrimaryActionsOnly,
-        tenant,
+        country,
         language,
         cookieStatementLink,
         cookieTechnologiesLink,
@@ -81,7 +77,7 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
 
     return html`
         <pie-cookie-banner
-            .tenant=${tenant}
+            .country=${country}
             .language=${language}
             .cookieStatementLink=${cookieStatementLink}
             .cookieTechnologiesLink=${cookieTechnologiesLink}

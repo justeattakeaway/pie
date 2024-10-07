@@ -65,7 +65,7 @@ tableData: events
 
 ## Localisation
 
-By default, the component displays its content in GB English. To display the content in another language, you need to supply a supported language and tenant pairing to the `language` and `tenant` props. You can see the currently supported locale pairings here:
+By default, the component displays its content in GB English. To display the content in another language, you need to supply a supported language and country pairing to the `language` and `country` props. You can see the currently supported locale pairings here:
 
 ```js
 import allLocales from '@justeattakeaway/pie-cookie-banner/locales';
@@ -107,7 +107,7 @@ Use of locales in Vue:
 <pie-cookie-banner
   hasPrimaryActionsOnly
   :language='en'
-  :tenant='GB'
+  :country='GB'
   cookieTechnologiesLink='https://justeattakeaway.com';
   cookieStatementLink='https://justeattakeaway.com'>
 </pie-cookie-banner>;
@@ -123,7 +123,7 @@ const defaultPreferences= {functional: true, personalized: true, analytical: tru
 
 <PieCookieBanner
     language='en'
-    tenant='GB'
+    country='GB'
     defaultPreferences={defaultPreferences}
 />
 ```

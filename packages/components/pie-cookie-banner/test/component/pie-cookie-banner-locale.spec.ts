@@ -2,7 +2,7 @@ import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/p
 import { readFile } from 'fs/promises';
 import { CookieBannerComponent } from 'test/helpers/page-object/pie-cookie-banner.page.ts';
 import { ModalComponent } from '@justeattakeaway/pie-modal/test/helpers/page-object/pie-modal.page.ts';
-import { Language, Tenant } from '@justeattakeaway/pie-cookie-banner/src/defs.ts';
+import { Language, Country } from '@justeattakeaway/pie-cookie-banner/src/defs.ts';
 
 function stripTags (str: string) {
     return str.replace(/<\/?[^>]+(>|$)/g, '');
@@ -12,7 +12,7 @@ const englishLocale = JSON.parse(await readFile(new URL('../../locales/en-gb.jso
 let pieCookieBannerComponent: CookieBannerComponent;
 let pieModalComponent: ModalComponent;
 
-test.describe('PieCookieBanner - Tenant and Language Properties', () => {
+test.describe('PieCookieBanner - Country and Language Properties', () => {
     test.beforeEach(async ({ page }) => {
         pieCookieBannerComponent = new CookieBannerComponent(page);
         pieModalComponent = new ModalComponent(page);
@@ -48,20 +48,20 @@ test.describe('PieCookieBanner - Tenant and Language Properties', () => {
     });
 
     [
-        { tenant: Tenant.UK, language: Language.ENGLISH },
-        { tenant: Tenant.FRANCE, language: Language.ENGLISH },
-        { tenant: Tenant.FRANCE, language: Language.FRENCH },
-        { tenant: Tenant.DENMARK, language: Language.DANISH },
-        { tenant: Tenant.SPAIN, language: Language.SPANISH },
-        { tenant: Tenant.ITALY, language: Language.ITALIAN },
-    ].forEach(({ tenant, language }) => {
-        test(`should 'dynamically' update the locale when we reset the language-tenant 'en-gb' to ${language}-${tenant}`, async () => {
+        { country: Country.GREAT_BRITAIN, language: Language.ENGLISH },
+        { country: Country.FRANCE, language: Language.ENGLISH },
+        { country: Country.FRANCE, language: Language.FRENCH },
+        { country: Country.DENMARK, language: Language.DANISH },
+        { country: Country.SPAIN, language: Language.SPANISH },
+        { country: Country.ITALY, language: Language.ITALIAN },
+    ].forEach(({ country, language }) => {
+        test(`should 'dynamically' update the locale when we reset the language-country 'en-gb' to ${language}-${country}`, async () => {
             // Arrange
-            const locale = JSON.parse(await readFile(new URL(`../../locales/${language}-${tenant}.json`, import.meta.url), { encoding: 'utf-8' }));
+            const locale = JSON.parse(await readFile(new URL(`../../locales/${language}-${country}.json`, import.meta.url), { encoding: 'utf-8' }));
             await pieCookieBannerComponent.load(); // en-gb is the default locale
 
             // Act
-            await pieCookieBannerComponent.setProperty('tenant', tenant);
+            await pieCookieBannerComponent.setProperty('country', country);
             await pieCookieBannerComponent.setProperty('language', language);
             await pieCookieBannerComponent.waitForLocaleUpdate();
 
@@ -80,12 +80,12 @@ test.describe('PieCookieBanner - Tenant and Language Properties', () => {
         });
     });
 
-    test('should not update the locale if tenant and language properties are unchanged', async () => {
+    test('should not update the locale if country and language properties are unchanged', async () => {
         // Arrange
         await pieCookieBannerComponent.load();
 
         // Act
-        await pieCookieBannerComponent.setProperty('tenant', Tenant.UK);
+        await pieCookieBannerComponent.setProperty('country', Country.GREAT_BRITAIN);
         await pieCookieBannerComponent.setProperty('language', Language.ENGLISH);
         await pieCookieBannerComponent.waitForLocaleUpdate();
 
@@ -103,9 +103,9 @@ test.describe('PieCookieBanner - Tenant and Language Properties', () => {
         expect(modalDescriptionText).toBe(stripTags(englishLocale.preferencesManagement.description));
     });
 
-    test('should fallback to the global default language-tenant \'en-gb\' if the language and/or tenant is unsupported/invalid', async () => {
+    test('should fallback to the global default language-country \'en-gb\' if the language and/or country is unsupported/invalid', async () => {
         // Arrange
-        await pieCookieBannerComponent.load({ tenant: 'invalid', language: 'invalid' });
+        await pieCookieBannerComponent.load({ country: 'invalid', language: 'invalid' });
 
         // Act
         const acceptAllButtonText = await pieCookieBannerComponent.getAcceptAllTextContent();
@@ -123,14 +123,14 @@ test.describe('PieCookieBanner - Tenant and Language Properties', () => {
     });
 
     [
-        { tenant: Tenant.SPAIN, unsupportedLang: Language.ENGLISH, fallbackLang: Language.SPANISH },
-        { tenant: Tenant.FRANCE, unsupportedLang: Language.SPANISH, fallbackLang: Language.FRENCH },
-        { tenant: Tenant.UK, unsupportedLang: Language.SPANISH, fallbackLang: Language.ENGLISH },
+        { country: Country.SPAIN, unsupportedLang: Language.ENGLISH, fallbackLang: Language.SPANISH },
+        { country: Country.FRANCE, unsupportedLang: Language.SPANISH, fallbackLang: Language.FRENCH },
+        { country: Country.GREAT_BRITAIN, unsupportedLang: Language.SPANISH, fallbackLang: Language.ENGLISH },
     ].forEach((obj) => {
-        test(`should fallback to the default language-tenant '${obj.fallbackLang}-${obj.tenant}' if the supplied language '${obj.unsupportedLang}' is unsupported`, async () => {
+        test(`should fallback to the default language-country '${obj.fallbackLang}-${obj.country}' if the supplied language '${obj.unsupportedLang}' is unsupported`, async () => {
             // Arrange
-            const fallbackLocale = JSON.parse(await readFile(new URL(`../../locales/${obj.fallbackLang}-${obj.tenant}.json`, import.meta.url), { encoding: 'utf-8' }));
-            await pieCookieBannerComponent.load({ tenant: obj.tenant, language: obj.unsupportedLang }); // supply an unsupported language
+            const fallbackLocale = JSON.parse(await readFile(new URL(`../../locales/${obj.fallbackLang}-${obj.country}.json`, import.meta.url), { encoding: 'utf-8' }));
+            await pieCookieBannerComponent.load({ country: obj.country, language: obj.unsupportedLang }); // supply an unsupported language
 
             // Act
             const acceptAllButtonText = await pieCookieBannerComponent.getAcceptAllTextContent();

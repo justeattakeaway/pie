@@ -1,6 +1,6 @@
 ---
-'@justeattakeaway/pie-cookie-banner': minor
+'@justeattakeaway/pie-cookie-banner': major
 'pie-storybook': minor
 ---
 
-[Added] - Tenant/Language props
+[Added] - Replaced Locale with Tenant/Language props

@@ -1,35 +1,34 @@
 import { type TemplateResult } from 'lit';
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-export enum Language {
-    BULGARIAN = 'bg',
-    CATALAN = 'ca',
-    DANISH = 'da',
-    DUTCH = 'nl',
-    ENGLISH = 'en',
-    FRENCH = 'fr',
-    GERMAN = 'de',
-    HEBREW = 'he',
-    ITALIAN = 'it',
-    POLISH = 'pl',
-    SLOVAK = 'sk',
-    SPANISH = 'es',
-}
+export const Language = {
+    BULGARIAN: 'bg',
+    CATALAN: 'ca',
+    DANISH: 'da',
+    DUTCH: 'nl',
+    ENGLISH: 'en',
+    FRENCH: 'fr',
+    GERMAN: 'de',
+    HEBREW: 'he',
+    ITALIAN: 'it',
+    POLISH: 'pl',
+    SLOVAK: 'sk',
+    SPANISH: 'es',
+} as const;
 
-export enum Tenant {
-    BULGARIA = 'bg',
-    DENMARK = 'dk',
-    FRANCE = 'fr',
-    GERMANY = 'de',
-    GREAT_BRITAIN = 'gb',
-    ISRAEL = 'il',
-    ITALY = 'it',
-    NETHERLANDS = 'nl',
-    POLAND = 'pl',
-    SLOVAKIA = 'sk',
-    SPAIN = 'es',
-    UK = 'gb',
-}
+export const Country = {
+    BULGARIA: 'bg',
+    DENMARK: 'dk',
+    FRANCE: 'fr',
+    GERMANY: 'de',
+    GREAT_BRITAIN: 'gb',
+    ISRAEL: 'il',
+    ITALY: 'it',
+    NETHERLANDS: 'nl',
+    POLAND: 'pl',
+    SLOVAKIA: 'sk',
+    SPAIN: 'es',
+} as const;
 
 export interface CookieBannerLocale {
     banner: {
@@ -89,14 +88,14 @@ export interface CookieBannerProps {
     cookieTechnologiesLink: string;
 
     /**
-     * Assigns the tenant used for dynamically localising the component strings
+     * Assigns the country used for dynamically localising the component strings
      */
-    tenant: Tenant;
+    country: string;
 
     /**
      * Assigns the language used for dynamically localising the component strings
      */
-    language: Language;
+    language: string;
 
     /**
      * Allows consumers to pass in specific preference(s) to the component which will toggle
@@ -181,35 +180,35 @@ export type DefaultProps = ComponentDefaultProps<CookieBannerProps>;
 export const defaultProps: DefaultProps = {
     hasPrimaryActionsOnly: false,
     defaultPreferences: {},
-    tenant: Tenant.GREAT_BRITAIN,
+    country: Country.GREAT_BRITAIN,
     language: Language.ENGLISH,
     cookieStatementLink: '',
     cookieTechnologiesLink: '',
 };
 
-export const getDefaultLanguageForTenant = (tenant: Tenant): Language => {
-    switch (tenant) {
-        case Tenant.GREAT_BRITAIN:
+export const getDefaultLanguageForCountry = (country: string): string => {
+    switch (country) {
+        case Country.GREAT_BRITAIN:
             return Language.ENGLISH;
-        case Tenant.FRANCE:
+        case Country.FRANCE:
             return Language.FRENCH;
-        case Tenant.DENMARK:
+        case Country.DENMARK:
             return Language.DANISH;
-        case Tenant.SPAIN:
+        case Country.SPAIN:
             return Language.SPANISH;
-        case Tenant.ITALY:
+        case Country.ITALY:
             return Language.ITALIAN;
-        case Tenant.NETHERLANDS:
+        case Country.NETHERLANDS:
             return Language.DUTCH;
-        case Tenant.POLAND:
+        case Country.POLAND:
             return Language.POLISH;
-        case Tenant.SLOVAKIA:
+        case Country.SLOVAKIA:
             return Language.SLOVAK;
-        case Tenant.BULGARIA:
+        case Country.BULGARIA:
             return Language.BULGARIAN;
-        case Tenant.GERMANY:
+        case Country.GERMANY:
             return Language.GERMAN;
-        case Tenant.ISRAEL:
+        case Country.ISRAEL:
             return Language.HEBREW;
         default:
             return defaultProps.language;
