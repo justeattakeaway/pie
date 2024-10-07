@@ -76,7 +76,6 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         _preferencesNodes!: NodeListOf<PieSwitch>;
 
     async updated (changedProperties: Map<string, unknown>) {
-        console.log('updated.changedProperties');
         // Re-fetch locale when country or language changes
         if (changedProperties.has('country') || changedProperties.has('language')) {
             await this._setLocaleBasedOnCountryAndLanguage(this.country, this.language);
