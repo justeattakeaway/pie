@@ -88,6 +88,16 @@
       "require": "./react/divider.js",
       "types": "./react/divider.d.ts"
     },
+    "./components/foo.js": {
+      "import": "./components/foo.js",
+      "require": "./components/foo.js",
+      "types": "./components/foo.d.ts"
+    },
+    "./react/foo.js": {
+      "import": "./react/foo.js",
+      "require": "./react/foo.js",
+      "types": "./react/foo.d.ts"
+    },
     "./components/form-label.js": {
       "import": "./components/form-label.js",
       "require": "./components/form-label.js",
@@ -255,6 +265,7 @@
     "@justeattakeaway/pie-chip": "0.8.5",
     "@justeattakeaway/pie-cookie-banner": "0.26.9",
     "@justeattakeaway/pie-divider": "0.14.2",
+    "@justeattakeaway/pie-foo": "0.0.0",
     "@justeattakeaway/pie-form-label": "0.14.3",
     "@justeattakeaway/pie-icon-button": "0.28.14",
     "@justeattakeaway/pie-link": "0.18.2",
