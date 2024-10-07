@@ -41,7 +41,7 @@ const getUrl = (element) => {
 const indexPageDisplay = ({
     collection,
     itemKey,
-    excludedElements,
+    excludedElements = [],
     imageSrcDirectory,
 }) => {
     const menuItems = find(collection, itemKey);
