@@ -13,6 +13,12 @@ jobs:
     - name: Fetch main branch
       run: git fetch origin main
 
+    - name: List local branches
+      run: git branch
+
+    - name: Git Show
+      run: git show main:packages/components/pie-webc/package.json
+
     - name: Add Missing Labels
       uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
       env:
