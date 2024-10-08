@@ -186,31 +186,16 @@ export const defaultProps: DefaultProps = {
     cookieTechnologiesLink: '',
 };
 
-export const getDefaultLanguageForCountry = (country: string): string => {
-    switch (country) {
-        case Country.GREAT_BRITAIN:
-            return Language.ENGLISH;
-        case Country.FRANCE:
-            return Language.FRENCH;
-        case Country.DENMARK:
-            return Language.DANISH;
-        case Country.SPAIN:
-            return Language.SPANISH;
-        case Country.ITALY:
-            return Language.ITALIAN;
-        case Country.NETHERLANDS:
-            return Language.DUTCH;
-        case Country.POLAND:
-            return Language.POLISH;
-        case Country.SLOVAKIA:
-            return Language.SLOVAK;
-        case Country.BULGARIA:
-            return Language.BULGARIAN;
-        case Country.GERMANY:
-            return Language.GERMAN;
-        case Country.ISRAEL:
-            return Language.HEBREW;
-        default:
-            return defaultProps.language;
-    }
-};
+export const defaultLanguage = new Map<string, string>([
+    [Country.GREAT_BRITAIN, Language.ENGLISH], 
+    [Country.FRANCE, Language.FRENCH], 
+    [Country.DENMARK, Language.DANISH], 
+    [Country.SPAIN, Language.SPANISH], 
+    [Country.ITALY, Language.ITALIAN], 
+    [Country.NETHERLANDS, Language.DUTCH], 
+    [Country.POLAND, Language.POLISH], 
+    [Country.SLOVAKIA, Language.SLOVAK], 
+    [Country.BULGARIA, Language.BULGARIAN], 
+    [Country.GERMANY, Language.GERMAN], 
+    [Country.ISRAEL, Language.HEBREW],
+]);

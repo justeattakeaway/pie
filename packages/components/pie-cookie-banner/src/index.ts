@@ -26,7 +26,7 @@ import {
     type PreferenceIds,
     type CookieBannerLocale,
     type CustomTagEnhancers,
-    getDefaultLanguageForCountry,
+    defaultLanguage,
 } from './defs';
 
 import { localiseText, localiseRichText } from './localisation-utils';
@@ -89,7 +89,8 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         } catch {
             // If loading fails, try using the default language, if that fails fall back to the global default locale
             if (!fallback) {
-                await this._setLocaleBasedOnCountryAndLanguage(country, getDefaultLanguageForCountry(country), true);
+                const fallbackLang = defaultLanguage.get(country) || defaultProps.language;
+                await this._setLocaleBasedOnCountryAndLanguage(country, fallbackLang, true);
             } else {
                 this.locale = defaultLocale;
             }
