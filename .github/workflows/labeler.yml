@@ -11,10 +11,10 @@ jobs:
       uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
     - name: Fetch main branch
-      run: git fetch origin main
+      run: git fetch origin main:main
 
-    - name: Create and checkout main branch
-      run: git checkout -b main origin/main
+    # - name: Create and checkout main branch
+      # run: git checkout -b main origin/main
 
     - name: List local branches
       run: git branch
