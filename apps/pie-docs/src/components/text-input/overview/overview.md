@@ -96,7 +96,7 @@ An icon, text, or symbol can be added to visually support the input. Leading and
 
 #### Alphanumeric
 
-Use when text input requires clarification of the input format, such as a symbol or unit of measure.
+Use when text input requires clarification of the input format, such as a symbol or unit of measure. It is recommended to use less than 4 characters in leading or trailing content.
 
 {% contentLayout %}
   {% contentItem %}
@@ -127,8 +127,13 @@ Use when text input requires clarification of the input format, such as a symbol
 Payment method is only available in trailing content.
 Use when a text input requires a card number to be entered, and reflect the card  entered by the user.
 
+{% notification {
+  type: "warning",
+  message: "This modifier only exists in design, not in development. The functionality can be handled by consumers if required."
+} %}
+
 {% contentPageImage {
-    src:"../../../assets/img/components/text-input/modifiers-paymentmethod.svg",
+    src:"../../../assets/img/components/text-input/modifiers-payment-method.svg",
     alt: "Text input with payment method modifier.",
     width: "256px"
 } %}
@@ -222,12 +227,28 @@ In forms, aim to standardise widths for text inputs to enhance readability for u
 
 ### Placeholder
 
-Use clear placeholder text for the text input trigger so that users understand the purpose.
+Placeholder text is optional, it should not contain important information, and should only be displayed if it is useful to the user.
+  - Use clear placeholder text for the text input trigger so that users understand its purpose, e.g. example of the input data. 
+  - Placeholder text should not be used as a label 
+  - For additional information or instruction, use [assistive text](/components/assistive-text/) instead. 
 
-{% contentPageImage {
-    src:"../../../assets/img/components/text-input/content-placeholder.svg",
-    alt: "Text input with placeholder content.",
-    width: "256px"
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/text-input/content-placeholder-do.svg",
+            width: "176px",
+            alt: "Example of a properly used placeholder: 'MM/YY' for an expiry date field."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/text-input/content-placeholder-dont.svg",
+            width: "234px",
+            alt: "Example of an incorrectly used placeholder: 'Username' and 'Must contain 8 characters' as labels for input fields"
+        }]
+    }
 } %}
 
 ### Input types
@@ -237,16 +258,16 @@ Use clear placeholder text for the text input trigger so that users understand t
     <h4>Alphanumeric</h4>
     <p>Both letters, numbers and certain special characters are allowed, for the majority of use-cases this will be used.</p>
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/content-inputtypes-alphanumeric.svg",
+      src: "../../../assets/img/components/text-input/content-input-types-alphanumeric.svg",
       width: "256px",
       alt: "Text input with alphanumeric content."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     <h4>Numeric</h4>
-    <p>Only numeric values can be entered, for use-cases such as zip code, phone number, card number.</p>
+    <p>Only numeric values can be entered, for use-cases such as zip code, phone number, card number. However, some browsers accept dots, commas and the letter 'e' in numeric input.</p>
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/content-inputtypes-numeric.svg",
+      src: "../../../assets/img/components/text-input/content-input-types-numeric.svg",
       width: "135px",
       alt: "Text input with numeric content."
     } %}
@@ -255,7 +276,7 @@ Use clear placeholder text for the text input trigger so that users understand t
     <h4>Password</h4>
     <p>Characters are replaced with dots that hide the password text by default.</p>
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/content-inputtypes-password.svg",
+      src: "../../../assets/img/components/text-input/content-input-types-password.svg",
       width: "256px",
       alt: "Text input with password content."
     } %}
@@ -263,6 +284,11 @@ Use clear placeholder text for the text input trigger so that users understand t
 {% endcontentLayout %}
 
 ### Formatting
+
+{% notification {
+  type: "warning",
+  message: "This is the suggested pattern for development. The functionality can be handled by consumers if required."
+} %}
 
 #### Date
 
@@ -281,7 +307,7 @@ Specifically for card number entry, the card number is displayed in groups of 4 
 The user can enter a maximum of 19 digits.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/text-input/content-formatting-cardnumber.svg",
+    src:"../../../assets/img/components/text-input/content-formatting-card-number.svg",
     alt: "Text input with date formatting.",
     width: "790px"
 } %}
@@ -311,15 +337,15 @@ If the string exceeds its available visible bound, the content overflows to the 
 
 ---
 
-## Behavior
+## Behaviour
 
 ### Assistive text
 
 If space is limited, long assistive text may wrap to multiple lines, especially if there are multiple text inputs sitting side by side. Every text input should have its own assistive text, even if the content is identical.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/text-input/behaviour-assistivetext.svg",
-    alt: "Example of assistive text behavior.",
+    src:"../../../assets/img/components/text-input/behaviour-assistive-text.svg",
+    alt: "Example of assistive text behaviour.",
     width: "300px"
 } %}
 
@@ -327,14 +353,14 @@ If space is limited, long assistive text may wrap to multiple lines, especially 
 
 {% notification {
   type: "warning",
-  message: "This is the suggested pattern for development. This functionality, if required, is handled by pillar engineers."
+  message: "This is the suggested pattern for development. The functionality can be handled by consumers if required."
 } %}
 
 When using the payment method, the specific card icon will appear as soon as the system detects the type of card entered by the user.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/text-input/behaviour-paymentmethod.svg",
-    alt: "Example of payment method behavior.",
+    src:"../../../assets/img/components/text-input/behaviour-payment-method.svg",
+    alt: "Example of payment method behaviour.",
     width: "884px"
 } %}
 
@@ -348,7 +374,7 @@ Outlines the atomic level interactive elements for the component.
   {% contentItem %}
     <h4>Default</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/interactivestates-default.svg",
+      src: "../../../assets/img/components/text-input/interactive-states-default.svg",
       width: "256px",
       alt: "Default interactive state example."
     } %}
@@ -356,7 +382,7 @@ Outlines the atomic level interactive elements for the component.
   {% contentItem %}
     <h4>Hover</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/interactivestates-hover.svg",
+      src: "../../../assets/img/components/text-input/interactive-states-hover.svg",
       width: "256px",
       alt: "Interactive state example when input is hovered over."
     } %}
@@ -364,7 +390,7 @@ Outlines the atomic level interactive elements for the component.
   {% contentItem %}
     <h4>Focus</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/interactivestates-focus.svg",
+      src: "../../../assets/img/components/text-input/interactive-states-focus.svg",
       width: "256px",
       alt: "Interactive state example when input is focused."
     } %}
@@ -372,7 +398,7 @@ Outlines the atomic level interactive elements for the component.
   {% contentItem %}
     <h4>Disabled</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/interactivestates-disabled.svg",
+      src: "../../../assets/img/components/text-input/interactive-states-disabled.svg",
       width: "256px",
       alt: "Interactive state example when input is disabled.",
       variant: "secondary"
@@ -381,7 +407,7 @@ Outlines the atomic level interactive elements for the component.
   {% contentItem %}
     <h4>Read only</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/interactivestates-readonly.svg",
+      src: "../../../assets/img/components/text-input/interactive-states-readonly.svg",
       width: "256px",
       alt: "Interactive state example in read only mode."
     } %}
@@ -389,7 +415,7 @@ Outlines the atomic level interactive elements for the component.
   {% contentItem %}
     <h4>Error</h4>
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/interactivestates-error.svg",
+      src: "../../../assets/img/components/text-input/interactive-states-error.svg",
       width: "256px",
       alt: "Interactive state example showing an error."
     } %}
@@ -399,8 +425,6 @@ Outlines the atomic level interactive elements for the component.
 ---
 
 ## Examples
-
-Outlines the atomic level interactive elements for the component.
 
 ### LTR examples
 
