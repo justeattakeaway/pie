@@ -187,15 +187,15 @@ export const defaultProps: DefaultProps = {
 };
 
 export const defaultLanguage = new Map<string, string>([
-    [Country.GREAT_BRITAIN, Language.ENGLISH], 
-    [Country.FRANCE, Language.FRENCH], 
-    [Country.DENMARK, Language.DANISH], 
-    [Country.SPAIN, Language.SPANISH], 
-    [Country.ITALY, Language.ITALIAN], 
-    [Country.NETHERLANDS, Language.DUTCH], 
-    [Country.POLAND, Language.POLISH], 
-    [Country.SLOVAKIA, Language.SLOVAK], 
-    [Country.BULGARIA, Language.BULGARIAN], 
-    [Country.GERMANY, Language.GERMAN], 
+    [Country.GREAT_BRITAIN, Language.ENGLISH],
+    [Country.FRANCE, Language.FRENCH],
+    [Country.DENMARK, Language.DANISH],
+    [Country.SPAIN, Language.SPANISH],
+    [Country.ITALY, Language.ITALIAN],
+    [Country.NETHERLANDS, Language.DUTCH],
+    [Country.POLAND, Language.POLISH],
+    [Country.SLOVAKIA, Language.SLOVAK],
+    [Country.BULGARIA, Language.BULGARIAN],
+    [Country.GERMANY, Language.GERMAN],
     [Country.ISRAEL, Language.HEBREW],
 ]);
