@@ -52,13 +52,13 @@ eleventyNavigation:
 Content needs to be added after this. If no content is added, it will navigate to a 404.
 
 Index pages will have the same format, as such, we developed a mechanism to render link-card items for each navigation item under the Section.
-The shortcode `indexPageDisplay` will automatically render each card and look for a matching image in `assets/images/index/<section-name>`. It can be configured like this:
+The shortcode `indexPageDisplay` will automatically render each card and look for a matching image in `assets/img/index/<section-name>`. It can be configured like this:
 
 ```njk
 {% indexPageDisplay {
 collection: collections.all,
 itemKey: "Components",
-excludedElements: ['Component Status', 'Banner', 'Checkbox Group']
+excludedElements: ['Component Status', 'Checkbox Group']
 } %}
 ```
 
