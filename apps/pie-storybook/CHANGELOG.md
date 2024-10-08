@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.6.1
+
+### Patch Changes
+
+- Updated dependencies [[`a58702b6f`](https://github.com/justeattakeaway/pie/commit/a58702b6ffb1dbf8d82faf1b6307643859a8283d)]:
+  - @justeattakeaway/pie-radio@0.3.0
+
 ## 1.6.0
 
 ### Minor Changes

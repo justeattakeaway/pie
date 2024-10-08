@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.11.0
+
+### Minor Changes
+
+- [Added] - an index page for the foundations section ([#1972](https://github.com/justeattakeaway/pie/pull/1972)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Fixed] - Content update changes in the text input documentation ([#1962](https://github.com/justeattakeaway/pie/pull/1962)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 4.10.1
 
 ### Patch Changes

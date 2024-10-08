@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-radio
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - Basic radio styling ([#1965](https://github.com/justeattakeaway/pie/pull/1965)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.2.2
 
 ### Patch Changes
