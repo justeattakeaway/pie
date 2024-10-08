@@ -265,7 +265,7 @@ Placeholder text is optional, it should not contain important information, and s
   {% endcontentItem %}
   {% contentItem %}
     <h4>Numeric</h4>
-    <p>Only numeric values can be entered, for use-cases such as zip code, phone number, card number.</p>
+    <p>Only numeric values can be entered, for use-cases such as zip code, phone number, card number. However, some browsers accept dots, commas and the letter 'e' in numeric input.</p>
     {% contentPageImage {
       src: "../../../assets/img/components/text-input/content-input-types-numeric.svg",
       width: "135px",
