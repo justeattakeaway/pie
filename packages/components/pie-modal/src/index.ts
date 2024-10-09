@@ -144,8 +144,6 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     }
 
     async firstUpdated (changedProperties: PropertyValues<this>): Promise<void> {
-        super.firstUpdated(changedProperties);
-
         const dialogPolyfill = await import('dialog-polyfill').then((module) => module.default);
         dialogPolyfill.registerDialog(this._dialog);
         const { signal } = this._abortController;
@@ -158,7 +156,6 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     }
 
     updated (changedProperties: PropertyValues<this>): void {
-        super.updated(changedProperties);
         this._handleModalOpenStateChanged(changedProperties);
         this._handleIsDismissibleChanged(changedProperties);
     }
