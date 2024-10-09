@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-webc",
   "description": "Component bundle containing all PIE web components",
-  "version": "0.5.41",
+  "version": "0.5.42",
   "type": "module",
   "files": [
     "**/*.js",
@@ -261,7 +261,7 @@
     "@justeattakeaway/pie-lottie-player": "0.0.4",
     "@justeattakeaway/pie-modal": "0.48.1",
     "@justeattakeaway/pie-notification": "0.12.2",
-    "@justeattakeaway/pie-radio": "0.2.2",
+    "@justeattakeaway/pie-radio": "0.3.0",
     "@justeattakeaway/pie-radio-group": "0.1.2",
     "@justeattakeaway/pie-spinner": "0.7.2",
     "@justeattakeaway/pie-switch": "0.30.3",
