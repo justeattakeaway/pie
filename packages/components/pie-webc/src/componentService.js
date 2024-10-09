@@ -1,4 +1,3 @@
-import path from 'path';
 import chalk from 'chalk';
 
 export class ComponentService {
@@ -180,8 +179,8 @@ export class ComponentService {
             const sortedExports = Object.keys(exportsObj)
                 .sort((a, b) => {
                     // Extract path parts
-                    const { dir: dirA, name: nameA } = path.parse(a);
-                    const { dir: dirB, name: nameB } = path.parse(b);
+                    const { dir: dirA, name: nameA } = this.path.parse(a);
+                    const { dir: dirB, name: nameB } = this.path.parse(b);
 
                     // Compare by file names
                     const nameComparison = nameA.localeCompare(nameB);
