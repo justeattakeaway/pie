@@ -45,13 +45,8 @@ Once you have completed all the prompts, your scaffolded component will be gener
 ### Setting up Visual Regression Testing:
 
 - Create a Percy project for the component on the Percy website.
-- Update the component token environment variable in `github/workflows/ci.yml` as follows:
-
-```sh
-  PERCY_TOKEN_PIE_COMPONENT_NAME: ${{ secrets.PERCY_TOKEN_PIE_COMPONENT_NAME }}
-```
-
-- Now you need to add this token as a repository secret in GitHub. It must be named `PERCY_TOKEN_PIE_COMPONENT_NAME` and the value should be the Percy token for the component. Visual tests will not work/run if this is not set up correctly.
+- From the "Project settings" page, copy the project token value.
+- You need to add the new token value as a repository secret in GitHub. It must be named `PERCY_TOKEN_PIE_COMPONENT_NAME`. Visual tests will not work/run if this is not set up correctly.
 
 ## Local development
 
