@@ -27,6 +27,7 @@ async function getPackageJsonAtRef (ref, filePath) {
 function getNewDependencies (baseObj = {}, currentObj = {}) {
     const newDeps = [];
 
+    // TODO: This can be simplified with Set.difference(), so far the GitHub Node version doesn't supports it
     Object.keys(currentObj).forEach((key) => {
         if (!baseObj[key]) newDeps.push(key);
     });
