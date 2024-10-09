@@ -473,11 +473,24 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             ${this.renderModalFooter()}`;
     }
 
+    /**
+     * Renders the modal heading content in the correct heading tag
+     * @private
+     */
+    private renderHeading (): TemplateResult {
+        const { heading, headingLevel } = this;
+        const headingTag = unsafeStatic(headingLevel);
+
+        return html`
+            <${headingTag} class="c-modal-heading">
+                ${heading}
+            </${headingTag}>
+        `;
+    }
+
     render () {
         const {
             aria,
-            heading,
-            headingLevel,
             isDismissible,
             isFooterPinned,
             isFullWidthBelowMid,
@@ -486,7 +499,6 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             size,
         } = this;
 
-        const headingTag = unsafeStatic(headingLevel);
         const ariaLabel = (isLoading && aria?.loading) || undefined;
 
         const modalClasses = {
@@ -506,12 +518,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             aria-busy="${isLoading ? 'true' : 'false'}"
             aria-label="${ifDefined(ariaLabel)}"
             data-test-id="pie-modal">
-            <header class="c-modal-header"
-            data-test-id="modal-header">
+            <header class="c-modal-header" data-test-id="modal-header">
                 ${this.renderBackButton()}
-                <${headingTag} class="c-modal-heading">
-                    ${heading}
-                </${headingTag}>
+                ${this.renderHeading()}
                 ${this.renderCloseButton()}
             </header>
             ${
