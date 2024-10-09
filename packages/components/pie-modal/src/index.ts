@@ -110,6 +110,10 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
 
     private _abortController!: AbortController;
 
+    // We are using a separate controller for this event because it needs
+    // to be aborted / reinstantiated on modal open/close
+    private _escKeyAbortController: AbortController | null = null;
+
     private get _modalScrollContainer (): Element | null {
         return this._dialog.querySelector('.c-modal-scrollContainer');
     }
@@ -123,32 +127,32 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         const { signal } = this._abortController;
 
         this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
+
+        this._setupEscKeyListener();
+
         document.addEventListener(ON_MODAL_OPEN_EVENT, (event) => this._handleModalOpened(<CustomEvent>event), { signal });
         document.addEventListener(ON_MODAL_CLOSE_EVENT, (event) => this._handleModalClosed(<CustomEvent>event), { signal });
         document.addEventListener(ON_MODAL_BACK_EVENT, (event) => this._handleModalClosed(<CustomEvent>event), { signal });
     }
 
     disconnectedCallback (): void {
-        // Aborts all event listeners
-        this._abortController.abort();
-
-        this._enableBodyScroll();
         super.disconnectedCallback();
+
+        this._abortController.abort();
+        this._enableBodyScroll();
+        this._removeEscKeyEventListener();
     }
 
     async firstUpdated (changedProperties: PropertyValues<this>): Promise<void> {
         super.firstUpdated(changedProperties);
 
-        if (this._dialog) {
-            const dialogPolyfill = await import('dialog-polyfill').then((module) => module.default);
-            dialogPolyfill.registerDialog(this._dialog);
-            const { signal } = this._abortController;
+        const dialogPolyfill = await import('dialog-polyfill').then((module) => module.default);
+        dialogPolyfill.registerDialog(this._dialog);
+        const { signal } = this._abortController;
 
-            this._dialog.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event), { signal });
-            this._dialog.addEventListener('close', () => {
-                this.isOpen = false;
-            }, { signal });
-        }
+        this._dialog.addEventListener('close', () => {
+            this.isOpen = false;
+        }, { signal });
 
         this._handleModalOpenStateOnFirstRender(changedProperties);
     }
@@ -156,6 +160,22 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     updated (changedProperties: PropertyValues<this>): void {
         super.updated(changedProperties);
         this._handleModalOpenStateChanged(changedProperties);
+        this._handleIsDismissibleChanged(changedProperties);
+    }
+
+    private _handleIsDismissibleChanged (changedProperties: PropertyValues<this>) {
+        const oldValue = changedProperties.get('isDismissible');
+        const newValue = this.isDismissible;
+
+        // if the modal is being set to dismissible, remove any esc key listener
+        if (!oldValue && newValue) {
+            this._removeEscKeyEventListener();
+        }
+
+        // if the modal is being set to NOT dismissible, add the esc key listener
+        if (oldValue && !newValue) {
+            this._setupEscKeyListener();
+        }
     }
 
     /**
@@ -170,6 +190,8 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             if (this._dialog.hasAttribute('open') || !this._dialog.isConnected) {
                 return;
             }
+
+            this._setupEscKeyListener();
 
             // The ::backdrop pseudoelement is only shown if the modal is opened via JS
             this._dialog.showModal();
@@ -186,7 +208,32 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             this._enableBodyScroll();
             this._dialog.close();
             this._returnFocus();
+            this._removeEscKeyEventListener();
         }
+    }
+
+    /**
+     * Sets up an event listener on the Escape key to prevent dismissing the modal if isDismissible is false
+     */
+    private _setupEscKeyListener () : void {
+        // AbortControllers are single-use. Meaning if we have already aborted this controller,
+        // we need to create a new one for setting up subsequent event listeners.
+        // We only perform this if the controller does not exist to prevent multiple listeners being set up
+        if (!this._escKeyAbortController && !this.isDismissible) {
+            this._escKeyAbortController = new AbortController();
+            const { signal } = this._escKeyAbortController;
+
+            document.addEventListener('keydown', (event: KeyboardEvent) => this._preventModalKeyboardDismissal(event), { signal });
+        }
+    }
+
+    /**
+     * Removes any event listeners set up that are listening to keyboard events and nulls the existing AbortController.
+     */
+    private _removeEscKeyEventListener () {
+        this._escKeyAbortController?.abort();
+        // This is so we can create a new AbortController for any subsequent event listener setup in the future
+        this._escKeyAbortController = null;
     }
 
     /**
@@ -195,8 +242,8 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      *
      * @param {Event} event - The event object.
      */
-    private _handleDialogCancelEvent = (event: Event): void => {
-        if (!this.isDismissible) {
+    private _preventModalKeyboardDismissal = (event: KeyboardEvent): void => {
+        if (event.key === 'Escape') {
             event.preventDefault();
         }
     };
