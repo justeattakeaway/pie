@@ -78,7 +78,7 @@ export default class extends Generator {
         const yamlFilePath = this.destinationPath('.github/workflows/ci.yml');
 
         // Read file
-        const yamlDoc:any = this._readAndParseYaml(yamlFilePath);
+        const yamlDoc:Document = this._readAndParseYaml(yamlFilePath);
 
         // Add env value
         const key = `PERCY_TOKEN_PIE_${percyComponentName}`;
