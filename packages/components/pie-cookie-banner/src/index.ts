@@ -26,9 +26,11 @@ import {
     type PreferenceIds,
     type CookieBannerLocale,
     type CustomTagEnhancers,
+    defaultLanguage,
 } from './defs';
 
 import { localiseText, localiseRichText } from './localisation-utils';
+import defaultLocale from '../locales/en-gb.json' assert { type: 'json' };
 
 // Valid values available to consumers
 export * from './defs';
@@ -49,14 +51,14 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     @state()
     private _isModalOpen = false;
 
+    @state()
+    private locale: CookieBannerLocale = defaultLocale;
+
     @property({ type: Boolean })
     public hasPrimaryActionsOnly = defaultProps.hasPrimaryActionsOnly;
 
     @property({ type: Object })
     public defaultPreferences = defaultProps.defaultPreferences;
-
-    @property({ type: Object })
-    public locale:CookieBannerLocale = defaultProps.locale;
 
     @property({ type: String })
     public cookieStatementLink = defaultProps.cookieStatementLink;
@@ -64,8 +66,36 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     @property({ type: String })
     public cookieTechnologiesLink = defaultProps.cookieTechnologiesLink;
 
+    @property({ type: String })
+    public country = defaultProps.country;
+
+    @property({ type: String })
+    public language = defaultProps.language;
+
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;
+
+    async updated (changedProperties: Map<string, unknown>) {
+        // Re-fetch locale when country or language changes
+        if (changedProperties.has('country') || changedProperties.has('language')) {
+            await this._setLocaleBasedOnCountryAndLanguage(this.country, this.language);
+        }
+    }
+
+    // Dynamically import locale JSON based on country and language
+    private async _setLocaleBasedOnCountryAndLanguage (country: string, language: string, fallback = false): Promise<void> {
+        try {
+            this.locale = (await import(`../locales/${language}-${country}.json`, { assert: { type: 'json' } })).default;
+        } catch {
+            // If loading fails, try using the default language, if that fails fall back to the global default locale
+            if (!fallback) {
+                const fallbackLang = defaultLanguage.get(country) || defaultProps.language;
+                await this._setLocaleBasedOnCountryAndLanguage(country, fallbackLang, true);
+            } else {
+                this.locale = defaultLocale;
+            }
+        }
+    }
 
     private _customTagEnhancers: CustomTagEnhancers = {
         linkStatement: (tagContent: string) => html`<pie-link href="${this.cookieStatementLink}" variant="inverse" target="_blank" data-test-id="cookie-statement-link">${tagContent}</pie-link>`,
