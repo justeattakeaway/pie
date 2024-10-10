@@ -15,7 +15,7 @@ export default defineConfig({
             name: 'generator-pie-component',
         },
         rollupOptions: {
-            external: ['yeoman-generator', 'chalk'],
+            external: ['yeoman-generator', 'chalk', 'fs'],
             input: {
                 app: path.resolve(__dirname, 'src/app/index.ts'),
             },
