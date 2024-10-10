@@ -37,7 +37,6 @@
         margin: 0;
         cursor: var(--radio-cursor);
         background-color: transparent;
-        transition: background-color var(--dt-motion-timing-100) var(--radio-motion-easing);
 
         &:focus {
             @include p.focus;
@@ -54,12 +53,6 @@
             background-color: var(--radio-bg-color--checked);
             position: absolute;
             transform: scale(0);
-        }
-
-        &:not(:disabled):before {
-            @media (prefers-reduced-motion: no-preference) {
-                transition: all var(--dt-motion-timing-100) var(--radio-motion-easing);
-            }
         }
 
         // The dot in the middle before checking the radio
@@ -84,20 +77,6 @@
             // The filled circle after checking the radio
             &:before {
                 transform: scale(1);
-            }
-        }
-
-        // Scales down at 100ms when unchecked
-        &:not(:disabled):after {
-            @media (prefers-reduced-motion: no-preference) {
-                transition: all var(--dt-motion-timing-100) var(--radio-motion-easing);
-            }
-        }
-
-        // Scales up at 150ms when checked
-        &:not(:disabled):checked:after {
-            @media (prefers-reduced-motion: no-preference) {
-                transition: all var(--dt-motion-timing-150) var(--radio-motion-easing);
             }
         }
 
@@ -141,4 +120,33 @@
             }
         }
     }
+
+    // Motion styles
+    /* stylelint-disable no-descending-specificity */
+    &.is-loaded {
+        input[type="radio"] {
+            transition: background-color var(--dt-motion-timing-100) var(--radio-motion-easing);
+
+            &:not(:disabled):before {
+                @media (prefers-reduced-motion: no-preference) {
+                    transition: all var(--dt-motion-timing-100) var(--radio-motion-easing);
+                }
+            }
+
+            // Scales down at 100ms when unchecked
+            &:not(:disabled):after {
+                @media (prefers-reduced-motion: no-preference) {
+                    transition: all var(--dt-motion-timing-100) var(--radio-motion-easing);
+                }
+            }
+
+            // Scales up at 150ms when checked
+            &:not(:disabled):checked:after {
+                @media (prefers-reduced-motion: no-preference) {
+                    transition: all var(--dt-motion-timing-150) var(--radio-motion-easing);
+                }
+            }
+        }
+    }
+    /* stylelint-enable no-descending-specificity */
 }

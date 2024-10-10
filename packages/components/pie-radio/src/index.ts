@@ -1,5 +1,5 @@
 import { LitElement, html, unsafeCSS } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -41,6 +41,10 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     @query('input[type="radio"]')
     private radio!: HTMLInputElement;
+
+    // Used to decide when to apply CSS transitions to the component (prevents transition flashes on load)
+    @state()
+    private _isLoaded = false;
 
     /**
      * Ensures that the form value is in sync with the component.
@@ -92,6 +96,10 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
         this.handleFormAssociation();
     }
 
+    firstUpdated () {
+        this._isLoaded = true;
+    }
+
     updated () {
         this.handleFormAssociation();
     }
@@ -104,6 +112,7 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
         const classes = {
             'c-radio': true,
             'c-radio--disabled': disabled,
+            'is-loaded': this._isLoaded,
         };
 
         return html`
