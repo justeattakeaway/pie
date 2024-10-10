@@ -2,6 +2,7 @@ import {
     LitElement, html, unsafeCSS,
 } from 'lit';
 import { property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './iconButton.scss?inline';
 import {
@@ -18,6 +19,9 @@ const componentSelector = 'pie-icon-button';
  * @tagname pie-icon-button
  */
 export class PieIconButton extends LitElement implements IconButtonProps {
+    @property({ type: Object })
+    public aria?: IconButtonProps['aria'];
+
     @property()
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
     public size?: IconButtonProps['size'] = defaultProps.size;
@@ -53,17 +57,23 @@ export class PieIconButton extends LitElement implements IconButtonProps {
 
     render () {
         const {
-            disabled, size, variant, isLoading,
+            disabled, size, variant, isLoading, aria,
         } = this;
 
         // The inline SVG is temporary until we have a proper icon integration
         return html`
             <button
                 class="o-iconBtn"
+                data-test-id="pie-icon-button"
                 size="${size || 'medium'}"
                 variant="${variant || 'primary'}"
                 ?disabled="${disabled}"
-                ?isLoading="${isLoading}">
+                ?isLoading="${isLoading}"
+                aria-label="${ifDefined(aria?.label)}"
+                aria-labelledby="${ifDefined(aria?.labelledby)}"
+                aria-describedby="${ifDefined(aria?.describedby)}"
+                aria-expanded="${ifDefined(aria?.expanded)}"
+                aria-controls="${ifDefined(aria?.controls)}">
                 ${isLoading ? this.renderSpinner() : html`<slot></slot>`}
             </button>`;
     }
