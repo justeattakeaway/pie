@@ -145,8 +145,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
 
     protected updated (changedProperties: PropertyValues<this>) {
         if (changedProperties.has('value')) {
-            this.restrictInputLength();
-            this._internals.setFormValue(this.value);
+            this.handleInput(null, this.value);
         }
 
         if (this.resize === 'auto' && (changedProperties.has('resize') || changedProperties.has('size'))) {
@@ -158,8 +157,13 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
      * Handles data processing in response to the input event. The native input event is left to bubble up.
      * @param event - The input event.
      */
-    private handleInput = (event: InputEvent) => {
-        this.value = (event.target as HTMLTextAreaElement).value;
+    private handleInput = (event: InputEvent | null, newValue?: string) => {
+        if (event) {
+            this.value = (event.target as HTMLTextAreaElement).value;
+        } else if (newValue) {
+            this.value = newValue;
+        }
+
         this.restrictInputLength();
         this._internals.setFormValue(this.value);
 
