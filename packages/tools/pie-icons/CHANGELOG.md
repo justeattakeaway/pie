@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.0
+
+### Major Changes
+
+- [Changed] - Renamed `abn-amro` icon to `abn` to keep consistency between DS repos ([#1977](https://github.com/justeattakeaway/pie/pull/1977)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 4.19.1
 
 ### Patch Changes
