@@ -23,7 +23,7 @@
   "devDependencies": {
     "@babel/preset-react": "7.24.7",
     "@lit/react": "1.0.5",
-    "@types/react": "18.3.3"
+    "@types/react": "18.3.11"
   },
   "dependencies": {
     "fs-extra": "9.1.0"
