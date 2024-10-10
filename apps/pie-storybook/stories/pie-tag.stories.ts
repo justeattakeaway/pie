@@ -112,18 +112,39 @@ export const Brand = createTagStory({ variant: 'brand' }, {
         exclude: ['isStrong'],
     },
 });
+
 export const NeutralAlternative = createTagStory({ variant: 'neutral-alternative' }, {
     bgColor: 'dark (container-dark)',
     controls: {
         exclude: ['isStrong'],
     },
 });
+
 export const Outline = createTagStory({ variant: 'outline' }, {
     controls: {
         exclude: ['isStrong'],
     },
 });
+
 export const Ghost = createTagStory({ variant: 'ghost' }, {
+    controls: {
+        exclude: ['isStrong'],
+    },
+});
+
+export const aubergine = createTagStory({ variant: 'aubergine' }, {
+    controls: {
+        exclude: ['isStrong'],
+    },
+});
+
+export const cupcake = createTagStory({ variant: 'cupcake' }, {
+    controls: {
+        exclude: ['isStrong'],
+    },
+});
+
+export const berry = createTagStory({ variant: 'berry' }, {
     controls: {
         exclude: ['isStrong'],
     },
