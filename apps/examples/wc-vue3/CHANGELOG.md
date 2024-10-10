@@ -1,5 +1,19 @@
 # wc-vue3
 
+## 0.5.30
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.43
+
+## 0.5.29
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.5.42
+
 ## 0.5.28
 
 ### Patch Changes

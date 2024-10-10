@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-modal
 
+## 0.49.0
+
+### Minor Changes
+
+- [Fixed] - Prevent esc key from closing modal when isDismissible is false ([#1975](https://github.com/justeattakeaway/pie/pull/1975)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Fixed] - Prevent entire modal from re-rendering when the headingLevel property is changed ([#1975](https://github.com/justeattakeaway/pie/pull/1975)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.48.1
 
 ### Patch Changes
