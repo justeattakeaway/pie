@@ -306,7 +306,7 @@ export class CookieBannerComponent extends BasePage {
     async waitForLocaleUpdate () {
         await this.page.waitForFunction(() => {
             const component = document.querySelector('pie-cookie-banner');
-            return component && component.locale && Object.keys(component.locale).length > 0;
+            return component && component._locale && Object.keys(component._locale).length > 0;
         });
     }
 }

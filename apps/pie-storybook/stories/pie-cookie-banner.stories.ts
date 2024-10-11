@@ -4,7 +4,10 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-cookie-banner';
 import { type CookieBannerProps, defaultProps } from '@justeattakeaway/pie-cookie-banner';
-import { Country, Language } from '@justeattakeaway/pie-cookie-banner/src/defs';
+import {
+    Country,
+    Language,
+} from '@justeattakeaway/pie-cookie-banner/src/defs';
 import { createStory } from '../utilities';
 
 type CookieBannerStoryMeta = Meta<CookieBannerProps>;
@@ -77,8 +80,8 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
 
     return html`
         <pie-cookie-banner
-            .country=${country}
-            .language=${language}
+            country=${country}
+            language=${language}
             .cookieStatementLink=${cookieStatementLink}
             .cookieTechnologiesLink=${cookieTechnologiesLink}
             ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"

@@ -1,5 +1,9 @@
 import {
-    LitElement, html, unsafeCSS, nothing,
+    LitElement,
+    html,
+    unsafeCSS,
+    nothing,
+    type PropertyValues,
 } from 'lit';
 import { property, state, queryAll } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
@@ -27,6 +31,8 @@ import {
     type CookieBannerLocale,
     type CustomTagEnhancers,
     defaultLanguage,
+    type CountryCode,
+    type LanguageCode,
 } from './defs';
 
 import { localiseText, localiseRichText } from './localisation-utils';
@@ -52,7 +58,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     private _isModalOpen = false;
 
     @state()
-    private locale: CookieBannerLocale = defaultLocale;
+    private _locale: CookieBannerLocale = defaultLocale;
 
     @property({ type: Boolean })
     public hasPrimaryActionsOnly = defaultProps.hasPrimaryActionsOnly;
@@ -75,7 +81,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;
 
-    async updated (changedProperties: Map<string, unknown>) {
+    async updated (changedProperties: PropertyValues<this>) {
         // Re-fetch locale when country or language changes
         if (changedProperties.has('country') || changedProperties.has('language')) {
             await this._setLocaleBasedOnCountryAndLanguage(this.country, this.language);
@@ -83,16 +89,16 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     }
 
     // Dynamically import locale JSON based on country and language
-    private async _setLocaleBasedOnCountryAndLanguage (country: string, language: string, fallback = false): Promise<void> {
+    private async _setLocaleBasedOnCountryAndLanguage (country: CountryCode, language: LanguageCode, fallback = false): Promise<void> {
         try {
-            this.locale = (await import(`../locales/${language}-${country}.json`, { assert: { type: 'json' } })).default;
+            this._locale = (await import(`../locales/${language}-${country}.json`, { assert: { type: 'json' } })).default;
         } catch {
             // If loading fails, try using the default language, if that fails fall back to the global default locale
             if (!fallback) {
                 const fallbackLang = defaultLanguage.get(country) || defaultProps.language;
                 await this._setLocaleBasedOnCountryAndLanguage(country, fallbackLang, true);
             } else {
-                this.locale = defaultLocale;
+                this._locale = defaultLocale;
             }
         }
     }
@@ -107,11 +113,11 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     };
 
     private _localiseText (key: string) {
-        return localiseText(this.locale, key);
+        return localiseText(this._locale, key);
     }
 
     private _localiseRichText (key: string) {
-        return localiseRichText(this.locale, key, this._customTagEnhancers);
+        return localiseRichText(this._locale, key, this._customTagEnhancers);
     }
 
     /**

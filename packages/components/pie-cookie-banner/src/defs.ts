@@ -30,6 +30,10 @@ export const Country = {
     SPAIN: 'es',
 } as const;
 
+export type LanguageCode = typeof Language[keyof typeof Language];
+
+export type CountryCode = typeof Country[keyof typeof Country];
+
 export interface CookieBannerLocale {
     banner: {
         title: string;
@@ -90,12 +94,12 @@ export interface CookieBannerProps {
     /**
      * Assigns the country used for dynamically localising the component strings
      */
-    country: string;
+    country: CountryCode;
 
     /**
      * Assigns the language used for dynamically localising the component strings
      */
-    language: string;
+    language: LanguageCode;
 
     /**
      * Allows consumers to pass in specific preference(s) to the component which will toggle
@@ -186,7 +190,7 @@ export const defaultProps: DefaultProps = {
     cookieTechnologiesLink: '',
 };
 
-export const defaultLanguage = new Map<string, string>([
+export const defaultLanguage = new Map<CountryCode, LanguageCode>([
     [Country.GREAT_BRITAIN, Language.ENGLISH],
     [Country.FRANCE, Language.FRENCH],
     [Country.DENMARK, Language.DANISH],
