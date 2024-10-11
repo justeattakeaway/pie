@@ -126,3 +126,5 @@ pie-webc-core:
 
 pie-webc-testing:
   - 'packages/components/pie-webc-testing/**/*'
+pie-foo:
+  - packages/components/pie-foo/**/*
