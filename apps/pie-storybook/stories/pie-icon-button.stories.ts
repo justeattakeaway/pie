@@ -12,12 +12,16 @@ import { createStory, type TemplateFunction } from '../utilities';
 
 type IconButtonStoryMeta = Meta<IconButtonProps>;
 
-const defaultArgs: IconButtonProps = { ...defaultProps };
+const defaultArgs: IconButtonProps = { ...defaultProps, aria: { label: 'Test Label ' } };
 
 const iconButtonStoryMeta: IconButtonStoryMeta = {
     title: 'Icon Button',
     component: 'pie-icon-button',
     argTypes: {
+        aria: {
+            description: 'The ARIA attributes available to use on the icon button. Offers `label`, `labelledby`, `describedby`, `expanded` and `controls`.',
+            control: 'object',
+        },
         size: {
             description: 'Set the size of the icon button.',
             control: 'select',
@@ -65,12 +69,14 @@ const Template : TemplateFunction<IconButtonProps> = ({
     variant,
     disabled,
     isLoading,
+    aria,
 }) => html`
         <pie-icon-button
             size="${ifDefined(size)}"
             variant="${ifDefined(variant)}"
             ?disabled="${disabled}"
-            ?isLoading="${isLoading}">
+            ?isLoading="${isLoading}"
+            .aria="${aria}">
             <icon-close></icon-close>
         </pie-icon-button>
         `;
