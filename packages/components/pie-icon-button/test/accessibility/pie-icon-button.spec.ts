@@ -13,10 +13,6 @@ const props: PropObject = {
     variant: variants,
     disabled: [true, false],
     aria: {
-        labelledby: 'foo',
-        describedby: 'bar',
-        controls: 'baz',
-        expanded: false,
         label: 'qux',
     },
 };
