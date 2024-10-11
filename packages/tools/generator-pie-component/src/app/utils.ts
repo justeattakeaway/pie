@@ -37,7 +37,7 @@ export function transformName (name: string): TransformedName {
         componentName: getComponentNameStartCase(normalisedName), // e.g IconButton,
         componentNameCamelCase: getComponentNameCamelCase(normalisedName), // e.g iconButton,
         defaultName: name, // e.g. button
-        fileName: getComponentFilename(normalisedName), // e.g. button.scss
+        fileName: getComponentFilename(normalisedName), // e.g. button
         displayName: getDisplayName(normalisedName), // e.g. Icon Button
         percyComponentName: getPercyComponentName(normalisedName), // e.g. ICON_BUTTON
     };
