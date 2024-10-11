@@ -171,10 +171,33 @@ export class ComponentService {
                 this.writeFilesForComponent(componentName, target);
             });
 
-            newPackageJson.exports = {
+            const exportsObj = {
                 ...newPackageJson.exports,
                 ...this.createPackageJsonExports(componentName),
             };
+
+            const sortedExports = Object.keys(exportsObj)
+                .sort((a, b) => {
+                    // Extract path parts
+                    const { dir: dirA, name: nameA } = this.path.parse(a);
+                    const { dir: dirB, name: nameB } = this.path.parse(b);
+
+                    // Compare by file names
+                    const nameComparison = nameA.localeCompare(nameB);
+
+                    // If the base names are the same, compare the paths
+                    if (nameComparison === 0) return dirA.localeCompare(dirB);
+
+                    // Otherwise, use the file name comparison
+                    return nameComparison;
+                })
+                .reduce((acc, key) => {
+                    // Use the sorted keys to build a new object
+                    acc[key] = exportsObj[key];
+                    return acc;
+                }, {});
+
+            newPackageJson.exports = sortedExports;
         });
 
         return newPackageJson;

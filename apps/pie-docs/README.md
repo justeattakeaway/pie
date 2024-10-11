@@ -52,13 +52,13 @@ eleventyNavigation:
 Content needs to be added after this. If no content is added, it will navigate to a 404.
 
 Index pages will have the same format, as such, we developed a mechanism to render link-card items for each navigation item under the Section.
-The shortcode `indexPageDisplay` will automatically render each card and look for a matching image in `assets/images/index/<section-name>`. It can be configured like this:
+The shortcode `indexPageDisplay` will automatically render each card and look for a matching image in `assets/img/index/<section-name>`. It can be configured like this:
 
 ```njk
 {% indexPageDisplay {
 collection: collections.all,
 itemKey: "Components",
-excludedElements: ['Component Status', 'Banner', 'Checkbox Group']
+excludedElements: ['Component Status', 'Checkbox Group']
 } %}
 ```
 
@@ -122,7 +122,7 @@ Our unit testing is quite light. We generally write unit tests for `Javascript` 
 
 For testing snapshots you can run from the root of the monorepo `yarn test --filter=pie-docs`
 
-If you would like to update snapshots because the changes are expected, you can run from the root of the monorepo `yarn test:update --filter=pie-docs`
+If you would like to update snapshots because the changes are expected, you can run from the root of the monorepo `yarn test --filter=pie-docs -- -u`
 
 ## Conventions
 - If you want to create some reusable/shared content, you can add it to a markdown file using the following naming format: `**.content.md`. Eleventy knows to ignore these file types during build, so they will not turn into their own pages. Because we use Nunjucks as our markdown rendering engine, we are able to use includes in our markdown files like so: `{% include 'some/path/to/reusable-stuff.content.md' %}`. This allows us to reuse copy if needed.

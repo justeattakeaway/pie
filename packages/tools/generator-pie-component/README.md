@@ -42,44 +42,11 @@ An interactive prompt should now be displayed asking for a component name.
 
 Once you have completed all the prompts, your scaffolded component will be generated! 🎉
 
-The newly generated `package.json` file will most likely contain references to the local monorepo packages. Please replace its versions with the latest published version:
-
-```sh
-cd packages/components/pie-{{COMPONENT_NAME}}
-npx npm-check-updates "@justeattakeaway/*" -u
-```
-
-_Note: If this step fails, ensure you have installed the repository dependencies with `yarn`. Otherwise, this (and any other commands) will fail._
-
-### Setting up Storybook:
-
-- Add the component to the storybook package.json dependencies:
-
-```json
-"@justeattakeaway/pie-{{COMPONENT_NAME}}": "0.0.0",
-```
-
 ### Setting up Visual Regression Testing:
 
 - Create a Percy project for the component on the Percy website.
-- Update the `test:visual` command in package.json to the following:
-
-```sh
-"test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_COMPONENT_NAME} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
-```
-
-- Add the token environment variable to `github/workflows/ci.yml` as follows:
-
-```sh
-  PERCY_TOKEN_PIE_COMPONENT_NAME: ${{ secrets.PERCY_TOKEN_PIE_COMPONENT_NAME }}
-```
-
-- Now you need to add this token as a repository secret in GitHub. It must be named `PERCY_TOKEN_PIE_COMPONENT_NAME` and the value should be the Percy token for the component. Visual tests will not work/run if this is not set up correctly.
-
-### Setting up the project label for GitHub:
-
-- Create a label for the component [on GitHub](https://github.com/justeattakeaway/pie/issues/labels).
-- Add the new label to `project-labeler.yml` under the `Component projects` section
+- From the "Project settings" page, copy the project token value.
+- You need to add the new token value as a repository secret in GitHub. It must be named `PERCY_TOKEN_PIE_COMPONENT_NAME`. Visual tests will not work/run if this is not set up correctly.
 
 ## Local development
 
@@ -107,4 +74,4 @@ In order to contribute to the `generator-pie-component`, it's advised to link yo
 
 To do this, run `yarn link` from the root of the `generator-pie-component` folder in the mono-repo.
 
-Once you have done this, running `yo @justeattakeaway/generator-pie-component` will run your local copy of the generator (rather than the version installed globally via NPM/Yarn).
+Once you have done this, running `npx yo @justeattakeaway/pie-component` will run your local copy of the generator (rather than the version installed globally via NPM/Yarn).

@@ -1,5 +1,39 @@
 # @justeattakeaway/pie-webc
 
+## 0.5.44
+
+### Patch Changes
+
+- [Changed] - Ensure to update `package.json` exports in alphabetical order ([#1970](https://github.com/justeattakeaway/pie/pull/1970)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`c55581f90`](https://github.com/justeattakeaway/pie/commit/c55581f9033395645ba59947a76bfbe6f17cd904)]:
+  - @justeattakeaway/pie-icon-button@0.29.0
+  - @justeattakeaway/pie-assistive-text@0.7.4
+  - @justeattakeaway/pie-chip@0.8.6
+  - @justeattakeaway/pie-modal@0.49.1
+  - @justeattakeaway/pie-notification@0.12.3
+  - @justeattakeaway/pie-switch@0.30.4
+  - @justeattakeaway/pie-text-input@0.24.3
+  - @justeattakeaway/pie-toast@0.4.1
+  - @justeattakeaway/pie-cookie-banner@0.26.11
+  - @justeattakeaway/pie-checkbox@0.13.3
+  - @justeattakeaway/pie-checkbox-group@0.7.3
+
+## 0.5.43
+
+### Patch Changes
+
+- Updated dependencies [[`e921c5efa`](https://github.com/justeattakeaway/pie/commit/e921c5efadee57ac8f1eec326d317da42bf48db1), [`e921c5efa`](https://github.com/justeattakeaway/pie/commit/e921c5efadee57ac8f1eec326d317da42bf48db1)]:
+  - @justeattakeaway/pie-modal@0.49.0
+  - @justeattakeaway/pie-cookie-banner@0.26.10
+
+## 0.5.42
+
+### Patch Changes
+
+- Updated dependencies [[`a58702b6f`](https://github.com/justeattakeaway/pie/commit/a58702b6ffb1dbf8d82faf1b6307643859a8283d)]:
+  - @justeattakeaway/pie-radio@0.3.0
+
 ## 0.5.41
 
 ### Patch Changes

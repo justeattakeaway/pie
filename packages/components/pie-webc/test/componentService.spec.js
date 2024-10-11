@@ -1,3 +1,4 @@
+import path from 'path';
 import { ComponentService } from '../src/componentService';
 
 describe('ComponentService', () => {
@@ -17,10 +18,12 @@ describe('ComponentService', () => {
         pathMock = {
             join: vi.fn(),
             resolve: vi.fn(),
+            parse: vi.fn(),
         };
 
         pathMock.join.mockImplementation((...args) => args.join('/'));
         pathMock.resolve.mockImplementation((...args) => args.join('/'));
+        pathMock.parse.mockImplementation(path.parse);
 
         // Suppress console output
         vi.spyOn(console, 'info').mockImplementation(() => {}); // eslint-disable-line @typescript-eslint/no-empty-function
