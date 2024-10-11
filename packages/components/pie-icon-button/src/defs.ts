@@ -4,7 +4,20 @@ export const sizes = ['xsmall', 'small', 'medium', 'large'] as const;
 export const variants = ['primary', 'secondary', 'outline', 'ghost',
     'ghost-secondary', 'inverse', 'ghost-inverse'] as const;
 
+export type AriaProps = {
+    label?: string;
+    labelledby?: string;
+    describedby?: string;
+    expanded?: boolean;
+    controls?: string;
+};
+
 export interface IconButtonProps {
+    /**
+     * The ARIA attributes available to use on the icon button. Offers label, labelledby, describedby, expanded and controls.
+     */
+    aria?: AriaProps;
+
     /**
      * (Optional) What size the button should be.
      * @default "medium"

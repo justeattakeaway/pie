@@ -1,5 +1,432 @@
 # Changelog
 
+## 5.0.0
+
+### Major Changes
+
+- [Changed] - Renamed `abn-amro` icon to `abn` to keep consistency between DS repos ([#1977](https://github.com/justeattakeaway/pie/pull/1977)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Minor Changes
+
+- [Changed] - Synchronize icons with small visual updates with the upstream repo `pie-iconography` ([#1974](https://github.com/justeattakeaway/pie/pull/1974)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  ## Dietary
+
+  - crustaceans
+  - soybeans
+  - sulphites
+
+  ## Fullscreen
+
+  - fullscreen-exit-large
+  - fullscreen-exit
+  - fullscreen-expand-large
+  - fullscreen-expand
+
+  ## Miscellaneous
+
+  - pet-supplies
+
+  ## Payment method
+
+  - braintree-paypal
+
+  ## Restaurant
+
+  - prepare
+
+### Patch Changes
+
+- [Changed] - Synchronize icons with the upstream repo `pie-iconography` (no visual changes) ([#1973](https://github.com/justeattakeaway/pie/pull/1973)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  ## Benefits
+
+  - gift-filled-large
+  - gift-filled
+  - meal-voucher-filled-large
+  - meal-voucher-filled
+  - meal-voucher-large
+  - meal-voucher
+  - offer-large
+  - offer
+  - voucher-filled-large
+
+  ## Chat
+
+  - chat-bot
+  - chat-heart-large
+  - chat-heart
+  - chat-help-large
+  - chat-help
+
+  ## Communication
+
+  - copy-filled-large
+  - copy-large
+  - email-filled-large
+  - email
+  - send-large
+  - send
+  - share-large
+  - share
+
+  ## Corporate
+
+  - hand-heart-large
+  - hand-heart
+  - id-card
+  - vision-large
+  - vision
+
+  ## Currency
+
+  - conversion-rate-large
+  - conversion-rate
+  - dollar
+  - euro
+  - lei
+  - swiss-franc
+
+  ## Dietary
+
+  - celery-large
+  - crustaceans-large
+  - eggs-large
+  - eggs
+  - fish-large
+  - fish
+  - gluten-large
+  - gluten
+  - kosher-large
+  - kosher
+  - lupin-large
+  - lupin
+  - milk-large
+  - milk
+  - molluscs-large
+  - mustard-large
+  - mustard
+  - nuts-large
+  - peanuts-large
+  - peanuts
+  - sesame-seeds-large
+  - soybeans-large
+  - spicy-large
+  - spicy
+  - sulphites-large
+  - vegan-large
+  - vegan
+  - vegetarian-filled-large
+  - vegetarian-filled
+  - vegetarian-large
+  - vegetarian
+
+  ## Documents
+
+  - consent-large
+  - consent
+  - cookie-policy-large
+  - terms-and-conditions-large
+
+  ## Flags
+
+  - belgium
+  - portugal
+
+  ## Food
+
+  - pizza
+  - alcohol-filled-large
+  - alcohol-filled
+  - alcohol-large
+  - alcohol
+  - curry-large
+  - curry
+  - drink-large
+  - drink
+  - food-filled-large
+  - food-large
+  - food
+  - fried-chicken-large
+  - fries-large
+  - fries
+  - ice-cream-large
+  - ice-cream
+  - kebab-bowl
+  - nachos-large
+  - nachos
+  - noodles-large
+  - noodles
+  - pizza-large
+  - salad-large
+  - salad
+  - sandwich-large
+  - sandwich
+  - sushi-large
+  - taco-large
+  - taco
+  - wrap-large
+  - wrap
+
+  ## Functionality
+
+  - bookmark-filled-large
+  - bookmark-large
+  - close-large
+  - close
+  - edit-filled-large
+  - edit-filled
+  - edit-large
+  - edit
+  - image-flip-horizontal-large
+  - image-flip-vertical-large
+  - layers-large
+  - layers
+  - list-large
+  - minus-circle-filled
+  - minus-circle-large
+  - minus-circle
+  - more-horizontal-large
+  - navigation-collapse-large
+  - navigation-collapse
+  - navigation-expand-large
+  - navigation-expand
+  - plus-circle-filled
+  - plus-circle-large
+  - plus-circle
+  - refresh-large
+  - resize-large
+  - resize
+  - search-large
+  - search
+  - settings-filled-large
+  - settings-large
+  - sort-descending
+  - switch-product-large
+  - switch-product
+  - trash-filled
+  - trash-large
+  - trash
+
+  ## Home
+
+  - house-large
+
+  ## Link
+
+  - link-external-large
+  - link-external
+  - link
+
+  ## Location
+
+  - geolocation-circle-filled-large
+  - geolocation-circle-filled
+  - geolocation-circle
+  - geolocation-filled-large
+  - geolocation-filled
+  - location-pin-filled-large
+  - location-pin-food-filled-large
+  - location-pin-food-large
+  - location-pin-food
+  - location-pin-user-large
+  - location-pin-user
+  - location-pin
+  - location-restaurant
+  - route-pin-large
+
+  ## Miscellaneous
+
+  - bakery
+  - building-blocks
+  - bulb-lightning-large
+  - bulb-lightning
+  - cannabis
+  - cleaning-large
+  - cleaning
+  - clothing-large
+  - clothing
+  - convenience-large
+  - convenience
+  - directions-large
+  - diy-large
+  - diy
+  - flowers-large
+  - fresh-food-large
+  - fresh-food
+  - gifts-large
+  - gifts
+  - grocery-large
+  - grocery
+  - high-contrast-large
+  - law-large
+  - paintbrush-large
+  - paintbrush
+  - pet-supplies-alt-large
+  - pet-supplies-large
+  - pharmacy-alt-large
+  - pharmacy-alt
+  - pharmacy-large
+  - pharmacy
+  - recycle-large
+  - shops-large
+  - stationery-large
+  - stationery
+  - toys-games
+
+  ## Online
+
+  - cloud-large
+  - cloud-success-large
+  - rss-large
+  - rss
+  - wifi-alert-large
+  - wifi-alert
+  - wifi-large
+
+  ## PIE
+
+  - components-large
+  - engineers-large
+  - engineers
+  - foundations-large
+  - patterns-large
+  - pie-large
+  - pie
+
+  ## Pay
+
+  - budget-add
+  - cash-card-filled-large
+  - cash-card-filled
+  - cash-card-large
+  - cash-card
+  - cash-filled-large
+  - cash-filled
+  - cash-large
+  - cash
+  - cheque-filled-large
+  - cheque-filled
+  - cheque-large
+  - credit-card-home-filled
+  - credit-card-home
+  - instant-bank-large
+  - pin-at-home-filled-large
+  - pin-at-home-filled
+  - pin-at-home-large
+  - pin-at-home
+  - service-charge-large
+  - service-charge
+  - takeaway-pay-filled-large
+  - takeaway-pay-filled
+  - takeaway-pay-large
+  - takeaway-pay
+  - unpaid-large
+  - unpaid
+  - wallet-filled-large
+  - wallet-filled
+  - wallet-large
+
+  ## Payment methods
+
+  - yandex
+
+  ## People
+
+  - user-circle-filled-large
+  - user-circle-filled
+  - user-circle
+  - user-community-large
+  - user-community
+  - user-filled
+  - user-group
+  - user-highlight
+  - user-large
+  - user-partnership
+  - user-shield-large
+  - user-shield
+  - user
+  - users-large
+  - users
+
+  ## Restaurant
+
+  - cutlery-circle-filled
+  - cutlery-filled-large
+  - cutlery-large
+  - dish-large
+  - food-ready-large
+  - food-ready
+  - management-large
+  - prepare-pause-large
+  - receipt-error-large
+  - receipt-error
+  - receipt-success-large
+  - receipt-success
+  - receipt
+  - restaurant-filled-large
+  - restaurant-filled
+  - restaurant-menu
+  - restaurant
+  - review-large
+  - sign-closed-large
+  - sign-closed
+
+  ## Social
+
+  - android-static-large
+  - apple
+  - facebook-circle-filled-large
+  - facebook-circle-large
+  - google-circle-large
+  - google-static-large
+  - linkedin-circle-filled-large
+  - twitter-static
+  - youtube-circle-filled-large
+  - youtube-static-large
+  - youtube-static
+
+  ## StampCard
+
+  - percentage-large
+  - stampcard-filled-large
+  - stampcard-large
+  - stampcard
+
+  ## Technology
+
+  - bug-large
+  - fingerprint-large
+  - fingerprint
+  - laptop-error-large
+  - laptop-error
+  - laptop-highlight-large
+  - phone-filled-large
+  - phone-filled
+  - phone-large
+  - phone-off
+  - phone
+  - printer-filled-large
+
+  ## Travel & Transport
+
+  - bike-filled
+  - bike
+  - car-clock-large
+  - car-clock
+  - car
+  - dashboard-large
+  - dashboard
+  - driver-car-large
+  - driver-car
+  - helmet-large
+  - moped
+  - plane-large
+  - rocket-ship-large
+  - rocket-ship
+  - world-large
+  - world
+
 ## 4.19.1
 
 ### Patch Changes
