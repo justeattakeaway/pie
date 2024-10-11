@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.68.0
+
+### Minor Changes
+
+- [Added] - github action for automating component labels ([#1970](https://github.com/justeattakeaway/pie/pull/1970)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Changed] - update ci.yml syntax to match the one the "yaml" package writes ([#1970](https://github.com/justeattakeaway/pie/pull/1970)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 2.67.1
 
 ### Patch Changes

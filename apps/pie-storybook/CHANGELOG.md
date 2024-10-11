@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.7.0
+
+### Minor Changes
+
+- [Added] - Aria property to icon button ([#1982](https://github.com/justeattakeaway/pie/pull/1982)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`8bfafc270`](https://github.com/justeattakeaway/pie/commit/8bfafc2707f7d01a64c313d23c1a4e490dc16d56), [`f46774b84`](https://github.com/justeattakeaway/pie/commit/f46774b84f05d04a7769d2ce1a0d52d2717c09c0), [`c55581f90`](https://github.com/justeattakeaway/pie/commit/c55581f9033395645ba59947a76bfbe6f17cd904), [`956afc8b9`](https://github.com/justeattakeaway/pie/commit/956afc8b9bfef9f4aff5070c44f6064da04b943d)]:
+  - @justeattakeaway/pie-icons-webc@1.0.0
+  - @justeattakeaway/pie-icon-button@0.29.0
+  - @justeattakeaway/pie-assistive-text@0.7.4
+  - @justeattakeaway/pie-chip@0.8.6
+  - @justeattakeaway/pie-modal@0.49.1
+  - @justeattakeaway/pie-notification@0.12.3
+  - @justeattakeaway/pie-switch@0.30.4
+  - @justeattakeaway/pie-text-input@0.24.3
+  - @justeattakeaway/pie-toast@0.4.1
+  - @justeattakeaway/pie-cookie-banner@0.26.11
+  - @justeattakeaway/pie-checkbox@0.13.3
+  - @justeattakeaway/pie-checkbox-group@0.7.3
+
 ## 1.6.2
 
 ### Patch Changes
