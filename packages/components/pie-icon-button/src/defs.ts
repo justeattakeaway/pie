@@ -40,7 +40,7 @@ export interface IconButtonProps {
     isLoading?: boolean;
 }
 
-export type DefaultProps = ComponentDefaultProps<IconButtonProps>;
+export type DefaultProps = ComponentDefaultProps<IconButtonProps, keyof Omit<IconButtonProps, 'aria'>>;
 
 export const defaultProps: DefaultProps = {
     size: 'medium',
