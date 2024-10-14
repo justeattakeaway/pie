@@ -1,7 +1,38 @@
 import { type TemplateResult } from 'lit';
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-import defaultLocale from '../locales/en-gb.json' assert { type: 'json' };
+export const Language = {
+    BULGARIAN: 'bg',
+    CATALAN: 'ca',
+    DANISH: 'da',
+    DUTCH: 'nl',
+    ENGLISH: 'en',
+    FRENCH: 'fr',
+    GERMAN: 'de',
+    HEBREW: 'he',
+    ITALIAN: 'it',
+    POLISH: 'pl',
+    SLOVAK: 'sk',
+    SPANISH: 'es',
+} as const;
+
+export const Country = {
+    BULGARIA: 'bg',
+    DENMARK: 'dk',
+    FRANCE: 'fr',
+    GERMANY: 'de',
+    GREAT_BRITAIN: 'gb',
+    ISRAEL: 'il',
+    ITALY: 'it',
+    NETHERLANDS: 'nl',
+    POLAND: 'pl',
+    SLOVAKIA: 'sk',
+    SPAIN: 'es',
+} as const;
+
+export type LanguageCode = typeof Language[keyof typeof Language];
+
+export type CountryCode = typeof Country[keyof typeof Country];
 
 export interface CookieBannerLocale {
     banner: {
@@ -51,11 +82,6 @@ export interface CookieBannerProps {
     hasPrimaryActionsOnly: boolean;
 
     /**
-     * Assigns the data for localising the component strings
-     */
-    locale: CookieBannerLocale;
-
-    /**
      * The URL of the cookie statement page the banner should link to.
      */
     cookieStatementLink: string;
@@ -64,6 +90,16 @@ export interface CookieBannerProps {
      * The URL for the cookie technology link.
      */
     cookieTechnologiesLink: string;
+
+    /**
+     * Assigns the country used for dynamically localising the component strings
+     */
+    country: CountryCode;
+
+    /**
+     * Assigns the language used for dynamically localising the component strings
+     */
+    language: LanguageCode;
 
     /**
      * Allows consumers to pass in specific preference(s) to the component which will toggle
@@ -148,7 +184,22 @@ export type DefaultProps = ComponentDefaultProps<CookieBannerProps>;
 export const defaultProps: DefaultProps = {
     hasPrimaryActionsOnly: false,
     defaultPreferences: {},
-    locale: defaultLocale,
+    country: Country.GREAT_BRITAIN,
+    language: Language.ENGLISH,
     cookieStatementLink: '',
     cookieTechnologiesLink: '',
 };
+
+export const defaultLanguage = new Map<CountryCode, LanguageCode>([
+    [Country.GREAT_BRITAIN, Language.ENGLISH],
+    [Country.FRANCE, Language.FRENCH],
+    [Country.DENMARK, Language.DANISH],
+    [Country.SPAIN, Language.SPANISH],
+    [Country.ITALY, Language.ITALIAN],
+    [Country.NETHERLANDS, Language.DUTCH],
+    [Country.POLAND, Language.POLISH],
+    [Country.SLOVAKIA, Language.SLOVAK],
+    [Country.BULGARIA, Language.BULGARIAN],
+    [Country.GERMANY, Language.GERMAN],
+    [Country.ISRAEL, Language.HEBREW],
+]);
