@@ -40,7 +40,7 @@ function getNewDependencies (baseObj = {}, currentObj = {}) {
  * @param {string} filePath Path to the file that will be compared
  * @returns Array with the names of added dependencies, or empty array if none are found
  */
-async function getAddedComponentPackages (filePath, packagePrefix = '@justeattakeaway/') {
+async function getAddedComponentPackages (filePath, packagePrefix = '@justeattakeaway/', currentBranchName) {
     // Get package.json from the base branch (main)
     const basePackageJson = await getPackageJsonAtRef('main', filePath);
     if (!basePackageJson) {
@@ -48,7 +48,7 @@ async function getAddedComponentPackages (filePath, packagePrefix = '@justeattak
     }
 
     // Get package.json from the current branch (HEAD)
-    const currentPackageJson = await getPackageJsonAtRef('HEAD', filePath);
+    const currentPackageJson = await getPackageJsonAtRef(currentBranchName, filePath);
     if (!currentPackageJson) {
         throw new Error(`${scriptPrefix} Failed to retrieve package.json from the current branch. "${err.message}"`)
     }

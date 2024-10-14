@@ -1,13 +1,14 @@
 const { getAddedComponentPackages, scriptPrefix } = require('./get-added-component-packages');
 
-module.exports = async ({ github, context }) => {
+module.exports = async ({ github, context, prBranchName }) => {
     const packagePrefix = '@justeattakeaway/';
+    const packageFilePath = 'packages/components/pie-webc/package.json';
 
     try {
-        const addedComponentPackages = await getAddedComponentPackages('packages/components/pie-webc/package.json', packagePrefix);
+        const addedComponentPackages = await getAddedComponentPackages(packageFilePath, packagePrefix, prBranchName);
 
         if (addedComponentPackages.length===0) {
-            console.error(`${scriptPrefix} No components were added, nothing to update.`);
+            console.info(`${scriptPrefix} No components were added, nothing to update.`);
         } else {
             for await (const componentName of addedComponentPackages) {
                 const name = componentName.replace(packagePrefix, '');
