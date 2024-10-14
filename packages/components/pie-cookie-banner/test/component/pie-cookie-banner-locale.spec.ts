@@ -54,11 +54,15 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
         { country: Country.DENMARK, language: Language.DANISH },
         { country: Country.SPAIN, language: Language.SPANISH },
         { country: Country.ITALY, language: Language.ITALIAN },
+        { country: 'es', language: 'CA' }, // Test case-insensitivity,
+        { country: 'ES', language: 'ca' },
+        { country: 'es', language: 'ca' },
+        { country: 'ES', language: 'CA' },
     ].forEach(({ country, language }) => {
-        test(`should 'dynamically' update the locale when we reset the language-country 'en-gb' to ${language}-${country}`, async () => {
+        test(`should 'dynamically' update the locale when we reset the language-country from 'en-gb' to ${language}-${country}`, async () => {
             // Arrange
-            const locale = JSON.parse(await readFile(new URL(`../../locales/${language}-${country}.json`, import.meta.url), { encoding: 'utf-8' }));
             await pieCookieBannerComponent.load(); // en-gb is the default locale
+            const locale = JSON.parse(await readFile(new URL(`../../locales/${language.toLowerCase()}-${country.toLowerCase()}.json`, import.meta.url), { encoding: 'utf-8' }));
 
             // Act
             await pieCookieBannerComponent.setProperty('country', country);
@@ -129,7 +133,7 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
     ].forEach((obj) => {
         test(`should fallback to the default language-country '${obj.fallbackLang}-${obj.country}' if the supplied language '${obj.unsupportedLang}' is unsupported`, async () => {
             // Arrange
-            const fallbackLocale = JSON.parse(await readFile(new URL(`../../locales/${obj.fallbackLang}-${obj.country}.json`, import.meta.url), { encoding: 'utf-8' }));
+            const fallbackLocale = JSON.parse(await readFile(new URL(`../../locales/${obj.fallbackLang.toLowerCase()}-${obj.country.toLowerCase()}.json`, import.meta.url), { encoding: 'utf-8' }));
             await pieCookieBannerComponent.load({ country: obj.country, language: obj.unsupportedLang }); // supply an unsupported language
 
             // Act

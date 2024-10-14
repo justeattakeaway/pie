@@ -91,7 +91,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     // Dynamically import locale JSON based on country and language
     private async _setLocaleBasedOnCountryAndLanguage (country: CountryCode, language: LanguageCode, fallback = false): Promise<void> {
         try {
-            this._locale = (await import(`../locales/${language}-${country}.json`, { assert: { type: 'json' } })).default;
+            this._locale = (await import(`../locales/${language.toLowerCase()}-${country.toLowerCase()}.json`, { assert: { type: 'json' } })).default;
         } catch {
             // If loading fails, try using the default language, if that fails fall back to the global default locale
             if (!fallback) {
