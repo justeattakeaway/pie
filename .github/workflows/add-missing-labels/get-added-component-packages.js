@@ -47,7 +47,7 @@ async function getAddedComponentPackages (filePath, packagePrefix = '@justeattak
         throw new Error(`${scriptPrefix} Failed to retrieve package.json from main branch. "${err.message}"`)
     }
 
-    // Get package.json from the current branch (HEAD)
+    // Get package.json from the current PR branch
     const currentPackageJson = await getPackageJsonAtRef(currentBranchName, filePath);
     if (!currentPackageJson) {
         throw new Error(`${scriptPrefix} Failed to retrieve package.json from the current branch. "${err.message}"`)
