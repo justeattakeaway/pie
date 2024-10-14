@@ -20,9 +20,9 @@ const variantsToIsStrongStyle: Array<VariantToBgStyle> = [
     { variantName: 'brand', bgStyle: '--dt-color-support-brand-02' },
     { variantName: 'ghost', bgStyle: '--tag-transparent-bg-color' },
     { variantName: 'outline', bgStyle: '--tag-transparent-bg-color' },
-    { variantName: 'aubergine', bgStyle: '--dt-color-support-brand-06' },
-    { variantName: 'cupcake', bgStyle: '--dt-color-support-brand-03' },
-    { variantName: 'berry', bgStyle: '--dt-color-support-brand-04' },
+    { variantName: 'brand-03', bgStyle: '--dt-color-support-brand-03' },
+    { variantName: 'brand-04', bgStyle: '--dt-color-support-brand-04' },
+    { variantName: 'brand-06', bgStyle: '--dt-color-support-brand-06' },
 
 ];
 

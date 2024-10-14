@@ -132,19 +132,19 @@ export const Ghost = createTagStory({ variant: 'ghost' }, {
     },
 });
 
-export const aubergine = createTagStory({ variant: 'aubergine' }, {
+export const Brand03 = createTagStory({ variant: 'brand-03' }, {
     controls: {
         exclude: ['isStrong'],
     },
 });
 
-export const cupcake = createTagStory({ variant: 'cupcake' }, {
+export const Brand04 = createTagStory({ variant: 'brand-04' }, {
     controls: {
         exclude: ['isStrong'],
     },
 });
 
-export const berry = createTagStory({ variant: 'berry' }, {
+export const Brand06 = createTagStory({ variant: 'brand-06' }, {
     controls: {
         exclude: ['isStrong'],
     },

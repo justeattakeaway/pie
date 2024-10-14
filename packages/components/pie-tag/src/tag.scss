@@ -147,22 +147,22 @@
         }
     }
 
-    &.c-tag--aubergine {
-        --tag-bg-color: var(--dt-color-support-brand-06);
-        --tag-color: var(--dt-color-content-light);
-        @include tag-interactive-states('--dt-color-support-brand-06');
-    }
-
-    &.c-tag--cupcake {
+    &.c-tag--brand-03 {
         --tag-bg-color: var(--dt-color-support-brand-03);
         --tag-color: var(--dt-color-content-default);
         @include tag-interactive-states('--dt-color-support-brand-03');
     }
 
-    &.c-tag--berry {
+    &.c-tag--brand-04 {
         --tag-bg-color: var(--dt-color-support-brand-04);
         --tag-color: var(--dt-color-content-default);
         @include tag-interactive-states('--dt-color-support-brand-04');
+    }
+
+    &.c-tag--brand-06 {
+        --tag-bg-color: var(--dt-color-support-brand-06);
+        --tag-color: var(--dt-color-content-light);
+        @include tag-interactive-states('--dt-color-support-brand-06');
     }
 
     &.c-tag--brand {

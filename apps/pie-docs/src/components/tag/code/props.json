@@ -17,7 +17,7 @@
             "variant",
             {
                 "type": "code",
-                "item": ["\"neutral\"", "\"neutral-alternative\"", "\"outline\"", "\"ghost\"", "\"blue\"", "\"green\"", "\"yellow\"", "\"red\"", "\"brand\"", "\"aubergine\"", "\"cupcake\"", "\"berry\""]
+                "item": ["\"neutral\"", "\"neutral-alternative\"", "\"outline\"", "\"ghost\"", "\"blue\"", "\"green\"", "\"yellow\"", "\"red\"", "\"brand\"", "\"brand-03\"", "\"brand-04\"", "\"brand-06\""]
             },
             "Sets the variant of the tag.",
             {
