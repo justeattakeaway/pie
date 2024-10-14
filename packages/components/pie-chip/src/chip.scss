@@ -65,7 +65,6 @@
     border: 1px solid;
     border-color: var(--chip-border-color);
     cursor: var(--chip-cursor);
-    user-select: none;
     min-width: var(--chip-min-width);
 
     @include p.font-size(--dt-font-interactive-xs-size);
@@ -101,7 +100,6 @@
         padding-inline-end: var(--chip-padding-dismissible);
         padding-block-start: var(--chip-padding-dismissible);
         padding-block-end: var(--chip-padding-dismissible);
-        user-select: auto;
 
         .c-chip-closeBtn {
             display: inline-flex;
@@ -139,7 +137,6 @@
         --chip-color: var(--dt-color-content-disabled);
         --chip-cursor: not-allowed;
         --chip-close-btn-cursor: not-allowed;
-        user-select: none;
 
         &.c-chip--ghost {
             --chip-bg-color: transparent;
