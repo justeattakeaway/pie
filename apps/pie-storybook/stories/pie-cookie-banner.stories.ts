@@ -4,16 +4,18 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-cookie-banner';
 import { type CookieBannerProps, defaultProps } from '@justeattakeaway/pie-cookie-banner';
-import pieCookieBannerLocales from '@justeattakeaway/pie-cookie-banner/locales';
-
+import {
+    Country,
+    Language,
+} from '@justeattakeaway/pie-cookie-banner/src/defs';
 import { createStory } from '../utilities';
 
 type CookieBannerStoryMeta = Meta<CookieBannerProps>;
 
 const defaultArgs: CookieBannerProps = {
     ...defaultProps,
-    cookieTechnologiesLink: 'en/technologies',
-    cookieStatementLink: 'en/cookiestatement',
+    cookieTechnologiesLink: `${Language.ENGLISH}/technologies`,
+    cookieStatementLink: `${Language.ENGLISH}/cookiestatement`,
     defaultPreferences: {
         functional: true,
         personalized: true,
@@ -29,12 +31,20 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
             description: 'When true, sets the variant to "primary" for the button which accepts necessary cookies only.',
             control: 'boolean',
         },
-        locale: {
-            options: Object.keys(pieCookieBannerLocales),
-            mapping: pieCookieBannerLocales,
-            description: 'Assigns the data for localising the component strings',
+        country: {
+            options: Object.values(Country),
+            control: 'select',
+            description: 'Assigns the country for the component',
             defaultValue: {
-                summary: defaultProps.locale,
+                summary: defaultProps.country,
+            },
+        },
+        language: {
+            options: Object.values(Language),
+            control: 'select',
+            description: 'Assigns the language for the component',
+            defaultValue: {
+                summary: defaultProps.language,
             },
         },
         defaultPreferences: {
@@ -61,7 +71,8 @@ const prefsSavedAction = action('prefs-saved');
 const BaseStoryTemplate = (props: CookieBannerProps) => {
     const {
         hasPrimaryActionsOnly,
-        locale,
+        country,
+        language,
         cookieStatementLink,
         cookieTechnologiesLink,
         defaultPreferences,
@@ -69,7 +80,8 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
 
     return html`
         <pie-cookie-banner
-            .locale=${locale}
+            country=${country}
+            language=${language}
             .cookieStatementLink=${cookieStatementLink}
             .cookieTechnologiesLink=${cookieTechnologiesLink}
             ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"

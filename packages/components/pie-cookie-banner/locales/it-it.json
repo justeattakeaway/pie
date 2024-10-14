@@ -4,7 +4,7 @@
     "description": "Usiamo cookie nostri e di terze parti e altre tecnologie per migliorare e personalizzare la tua esperienza utente, ottimizzare l’analisi dei dati e mostrare annunci pubblicitari in collaborazione con terze parti (leggi la nostra <linkStatement>Informativa</linkStatement>). I cookie necessari sono sempre attivi. Premi Solo <linkNecessaryOnly>necessari</linkNecessaryOnly> per proseguire senza accettare altri cookie. Apri <linkManagePreferences>Gestisci preferenze</linkManagePreferences> per scegliere quali cookie attivare, oppure premi <linkAcceptAll>Accetta tutti</linkAcceptAll> per attivare tutti i cookie.",
     "cta": {
       "managePreferences": "Gestisci preferenze",
-      "necessaryOnly": " Solo necessari",
+      "necessaryOnly": "Solo necessari",
       "acceptAll": "Accetta tutti"
     }
   },

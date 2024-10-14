@@ -65,16 +65,7 @@ tableData: events
 
 ## Localisation
 
-By default, the component displays its content in English. To display the content in another language, you need to import the locale data for that language and pass it in the `locale` prop. For example, to display the content in Dutch, you need to import the Dutch locale data:
-
-```js
-import locale from '@justeattakeaway/pie-cookie-banner/locales/nl-nl.json';
-
-<!-- JSX -->
-<PieCookieBanner locale={locale}></PieCookieBanner>
-```
-
-It's possible to import all locales at once, if necessary:
+By default, the component displays its content in GB English. To display the content in another language, you need to supply a supported language and country pairing to the `language` and `country` props. You can see the currently supported locale pairings here:
 
 ```js
 import allLocales from '@justeattakeaway/pie-cookie-banner/locales';
@@ -111,12 +102,12 @@ Use of locales in Vue:
 // Vue templates (using Nuxt 3)
 <script setup lang="ts">
   import '@justeattakeaway/pie-cookie-banner';
-  import enGB from "@justeattakeaway/pie-cookie-banner/locales/en-gb.json";
 </script>
 
 <pie-cookie-banner
   hasPrimaryActionsOnly
-  :locale='enGB'
+  :language='en'
+  :country='gb'
   cookieTechnologiesLink='https://justeattakeaway.com';
   cookieStatementLink='https://justeattakeaway.com'>
 </pie-cookie-banner>;
@@ -127,12 +118,12 @@ Default preferences can be configured and passed to the component:
 ```jsx
 // React templates (using Next 13)
 import { PieCookieBanner } from "@justeattakeaway/pie-cookie-banner/dist/react";
-import locales from "@justeattakeaway/pie-cookie-banner/locales";
 
 const defaultPreferences= {functional: true, personalized: true, analytical: true}
 
 <PieCookieBanner
-    locale={locales.enGB}
+    language='en'
+    country='gb'
     defaultPreferences={defaultPreferences}
 />
 ```
