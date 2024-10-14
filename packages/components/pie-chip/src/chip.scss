@@ -65,6 +65,7 @@
     border: 1px solid;
     border-color: var(--chip-border-color);
     cursor: var(--chip-cursor);
+    user-select: none;
     min-width: var(--chip-min-width);
 
     @include p.font-size(--dt-font-interactive-xs-size);
@@ -95,30 +96,6 @@
         @include chip-interactive-states('--dt-color-interactive-primary', 'inverse');
     }
 
-    &.c-chip--dismissible {
-        --chip-cursor: text;
-        padding-inline-end: var(--chip-padding-dismissible);
-        padding-block-start: var(--chip-padding-dismissible);
-        padding-block-end: var(--chip-padding-dismissible);
-
-        .c-chip-closeBtn {
-            display: inline-flex;
-            user-select: none;
-            outline: none;
-            border: none;
-            color: inherit;
-            background-color: inherit;
-            border-radius: inherit;
-            cursor: var(--chip-close-btn-cursor);
-            padding: 0;
-            margin-inline-start: var(--chip-dismissible-offset);
-
-            &:focus-visible {
-                @include p.focus;
-            }
-        }
-    }
-
     &.is-loading {
         & > *:not(.c-chip-spinner) {
             visibility: hidden;
@@ -140,6 +117,31 @@
 
         &.c-chip--ghost {
             --chip-bg-color: transparent;
+        }
+    }
+
+    &.c-chip--dismissible {
+        --chip-cursor: text;
+        padding-inline-end: var(--chip-padding-dismissible);
+        padding-block-start: var(--chip-padding-dismissible);
+        padding-block-end: var(--chip-padding-dismissible);
+        user-select: auto;
+
+        .c-chip-closeBtn {
+            display: inline-flex;
+            user-select: none;
+            outline: none;
+            border: none;
+            color: inherit;
+            background-color: inherit;
+            border-radius: inherit;
+            cursor: var(--chip-close-btn-cursor);
+            padding: 0;
+            margin-inline-start: var(--chip-dismissible-offset);
+
+            &:focus-visible {
+                @include p.focus;
+            }
         }
     }
 
