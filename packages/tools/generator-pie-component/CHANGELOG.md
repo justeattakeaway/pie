@@ -1,5 +1,21 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.23.0
+
+### Minor Changes
+
+- [Added] - automation to update project-labeler.yml ([#1970](https://github.com/justeattakeaway/pie/pull/1970)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - automation to update Storybook with new package ([#1970](https://github.com/justeattakeaway/pie/pull/1970)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - automation to update new package dependencies automatically ([#1970](https://github.com/justeattakeaway/pie/pull/1970)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - automation to add placeholder Percy token to ci.yml ([#1970](https://github.com/justeattakeaway/pie/pull/1970)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- [Changed] - Updated documentation instructions ([#1970](https://github.com/justeattakeaway/pie/pull/1970)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.22.3
 
 ### Patch Changes
