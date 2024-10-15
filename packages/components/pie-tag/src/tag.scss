@@ -162,7 +162,7 @@
     &.c-tag--brand-06 {
         --tag-bg-color: var(--dt-color-support-brand-06);
         --tag-color: var(--dt-color-content-light);
-        @include tag-interactive-states('--dt-color-support-brand-06');
+        @include tag-interactive-states('--dt-color-support-brand-06', 'inverse');
     }
 
     &.c-tag--brand {
