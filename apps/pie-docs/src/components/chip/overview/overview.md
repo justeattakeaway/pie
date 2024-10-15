@@ -220,7 +220,7 @@ The whole chip is interactive, except when the close icon appears, in which case
     {% contentPageImage {
       src: "../../../assets/img/components/chip/interactions-whole-chip-interactive.svg",
       width: 63,
-      alt: "A chip component where the entire container is interactive."
+      alt: "A chip component where the entire component is interactive."
     } %}
   {% endcontentItem %}
   {% contentItem %}
