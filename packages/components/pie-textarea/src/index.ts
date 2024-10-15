@@ -154,8 +154,13 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     }
 
     /**
-     * Handles data processing in response to the input event. The native input event is left to bubble up.
-     * @param event - The input event.
+     * Handles input events and updates the component's value based on the input event or a provided new value.
+     *
+     * @param {InputEvent | null} event - The input event triggered by user interaction. If null, the `newValue` is used.
+     * @param {string} [newValue] - An optional new value to set if the event is not provided.
+     *
+     * @private
+     * @returns {void}
      */
     private handleInput = (event: InputEvent | null, newValue?: string) => {
         if (event) {
