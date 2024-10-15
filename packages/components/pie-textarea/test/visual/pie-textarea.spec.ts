@@ -159,6 +159,23 @@ test.describe('Resize mode:', () => {
             await percySnapshot(page, 'Textarea - resize: "auto" (multiline content)', percyWidths);
         });
 
+        test('should resize the textarea vertically when value updated programmatically - @mobile', async ({ page, mount }) => {
+            await mount(PieTextarea, {
+                props: {
+                    resize: 'auto',
+                } as PieTextarea,
+            });
+
+            await page.evaluate(() => {
+                const textarea = document.querySelector('pie-textarea') as PieTextarea;
+                textarea.value = 'The default height is enough for two lines of text, but it should grow if you type more.';
+            });
+
+            await page.waitForTimeout(250); // Wait for throttled resize event to fire.
+
+            await percySnapshot(page, 'Textarea - resize: "auto programmatic" (multiline content)', percyWidths);
+        });
+
         test('should overflow when content exceeds maximum height - @mobile', async ({ page, mount }) => {
             await mount(PieTextarea, {
                 props: {
