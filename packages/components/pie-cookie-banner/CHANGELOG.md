@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.0.0
+
+### Major Changes
+
+- [Added] - Replaced Locale with Tenant/Language props ([#1823](https://github.com/justeattakeaway/pie/pull/1823)) by [@oliversweb](https://github.com/oliversweb)
+
 ## 0.26.11
 
 ### Patch Changes
