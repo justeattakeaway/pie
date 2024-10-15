@@ -91,7 +91,7 @@ const chipStoryMeta: ChipStoryMeta = {
 
 export default chipStoryMeta;
 
-const clickAction = action('pie-chip-click');
+const clickAction = action('clicked');
 const closeAction = action('pie-chip-close');
 
 const Template: TemplateFunction<ChipProps> = ({

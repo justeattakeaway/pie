@@ -53,7 +53,7 @@ test.describe('PieChip - Component tests', () => {
     });
 
     test.describe('if disabled', () => {
-        test('should not trigger click events when the chip is `disabled`', async ({ mount, page }) => {
+        test('should not trigger click events when the chip is `disabled`', async ({ mount }) => {
             // Arrange
             const messages: string[] = [];
             const expectedEventMessage = 'Native event dispatched';
