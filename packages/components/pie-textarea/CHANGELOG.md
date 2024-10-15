@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-textarea
 
+## 0.11.0
+
+### Minor Changes
+
+- [Fixed] - Ensure textarea resizing is triggered when value is programmatically updated ([#1990](https://github.com/justeattakeaway/pie/pull/1990)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.10.2
 
 ### Patch Changes

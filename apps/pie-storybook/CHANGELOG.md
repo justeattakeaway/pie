@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.8.0
+
+### Minor Changes
+
+- [Added] - Replaced Locale with Tenant/Language props ([#1823](https://github.com/justeattakeaway/pie/pull/1823)) by [@oliversweb](https://github.com/oliversweb)
+
+### Patch Changes
+
+- [Added] - new variants `brand-03`, `brand-04` and `brand-06` to the tag component ([#1967](https://github.com/justeattakeaway/pie/pull/1967)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`0aca04661`](https://github.com/justeattakeaway/pie/commit/0aca04661b4e559632b4562cbd5c87e1b2aa2c19), [`427e613e1`](https://github.com/justeattakeaway/pie/commit/427e613e1c049b9e81996f4f45d22c3ea61ec289), [`7c92877e4`](https://github.com/justeattakeaway/pie/commit/7c92877e48807a70ff2a515cd389d90ca6482af0), [`b4fe49ed5`](https://github.com/justeattakeaway/pie/commit/b4fe49ed53ddbe0f8fdb25e80d344506e1803715)]:
+  - @justeattakeaway/pie-tag@0.11.0
+  - @justeattakeaway/pie-cookie-banner@1.0.0
+  - @justeattakeaway/pie-textarea@0.11.0
+
 ## 1.7.0
 
 ### Minor Changes
