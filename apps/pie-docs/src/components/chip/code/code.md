@@ -81,7 +81,7 @@ We recommend using `pie-icons-webc` when using the `icon` slot. Here is an examp
 
 When the chip component is not dismissible, it does not use any custom event handlers. In order to add event listening to this component, you can treat it like a native HTML element in your application.
 
-If the component is dismissible, you will need to listen to the close event listed in the table below.
+When the component is dismissible, you will need to listen to the close event listed in the table below.
 
 {% componentDetailsTable {
   tableData: events
