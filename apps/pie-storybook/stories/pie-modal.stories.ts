@@ -8,6 +8,9 @@ import {
     type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, positions, defaultProps,
 } from '@justeattakeaway/pie-modal';
 
+import '@justeattakeaway/pie-text-input';
+import '@justeattakeaway/pie-form-label';
+
 import { type SlottedComponentProps } from '../types';
 import { createStory, sanitizeAndRenderHTML } from '../utilities';
 
@@ -214,6 +217,60 @@ const createScrollablePageHTML = () => {
         <ul>${items}</ul>`;
 };
 
+const FormStoryTemplate = (props: ModalProps) => {
+    const {
+        aria,
+        hasBackButton,
+        hasStackedActions,
+        heading,
+        headingLevel,
+        isDismissible,
+        isFooterPinned,
+        isFullWidthBelowMid,
+        isLoading,
+        isOpen,
+        position,
+        returnFocusAfterCloseSelector,
+        size,
+    } = props;
+    return html`
+        <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
+        <pie-modal
+            .aria="${aria}"
+            heading="${heading}"
+            headingLevel="${ifDefined(headingLevel)}"
+            ?hasBackButton="${hasBackButton}"
+            ?hasStackedActions="${hasStackedActions}"
+            ?isDismissible="${isDismissible}"
+            ?isFooterPinned="${isFooterPinned}"
+            ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+            ?isLoading="${isLoading}"
+            ?isOpen="${isOpen}"
+            position="${ifDefined(position)}"
+            returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
+            size="${ifDefined(size)}"
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}"
+            @pie-modal-back="${backClickAction}">
+                <form id="testForm">
+                    <pie-form-label for="name">Name</pie-form-label>
+                    <pie-text-input id="name" name="name"></pie-text-input>
+
+                    <pie-form-label for="age">Age</pie-form-label>
+                    <pie-text-input id="age" name="age"></pie-text-input>
+
+                    <pie-button>Submit</pie-button>
+                </form>
+            </pie-modal>
+
+            <script>
+                document.querySelector('#testForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    console.log('submitted');
+                })
+            </script>`;
+};
+
 const ScrollablePageStoryTemplate = (props: ModalProps) => html`
     ${BaseStoryTemplate(props)}
     ${createScrollablePageHTML()}`;
@@ -225,6 +282,7 @@ const FocusableElementsPageStoryTemplate = (props: ModalProps) => html`
 const createBaseModalStory = createStory<ModalProps>(BaseStoryTemplate, defaultArgs);
 
 export const Default = createBaseModalStory();
+export const EmbeddedForm = createStory<ModalProps>(FormStoryTemplate, defaultArgs)();
 export const ScrollLocking = createStory<ModalProps>(ScrollablePageStoryTemplate, defaultArgs)();
 export const FocusManagement = createStory<ModalProps>(FocusableElementsPageStoryTemplate, defaultArgs)({
     returnFocusAfterCloseSelector: '#focus-3',
