@@ -28,6 +28,13 @@ const assistiveTextStoryMeta: AssistiveTextStoryMeta = {
                 summary: defaultProps.variant,
             },
         },
+        isVisuallyHidden: {
+            description: 'If true, hides the component visually but leaves it accessible for a11y technologies.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.isVisuallyHidden,
+            },
+        },
         slot: {
             description: 'Content to place within the assistive-text',
             control: 'text',
@@ -46,10 +53,12 @@ export default assistiveTextStoryMeta;
 
 const Template : TemplateFunction<AssistiveTextProps> = ({
     variant,
+    isVisuallyHidden,
     slot,
 }) => html`
     <pie-assistive-text
-        variant="${ifDefined(variant)}">
+        variant="${ifDefined(variant)}"
+        ?isVisuallyHidden="${isVisuallyHidden}">
         ${sanitizeAndRenderHTML(slot)}
     </pie-assistive-text>
 `;
