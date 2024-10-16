@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.12.2
+
+### Patch Changes
+
+- [Updated] - Add an interactions section to the chip docs ([#1987](https://github.com/justeattakeaway/pie/pull/1987)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 4.12.1
 
 ### Patch Changes
