@@ -9,6 +9,11 @@ const closeSelector = `[data-test-id="${rootSelector}-close"]`;
 const footerSelector = `[data-test-id="${rootSelector}-footer"]`;
 const leadingActionSelector = `[data-test-id="${rootSelector}-leading-action"]`;
 
+/**
+ * A small amount of time in milliseconds to wait in order to allow the component to have rendered and its animations to have completed.
+ */
+const COMPONENT_RENDER_DURATION_MS = 250;
+
 function getToastIconSelectors (variant: string): string {
     return `[data-test-id="${rootSelector}-heading-icon-${variant}"]`;
 }
@@ -33,7 +38,7 @@ test.describe('PieToast - Component tests', () => {
         });
 
         // Wait for the component to render alongside its animations
-        await page.waitForTimeout(250);
+        await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
 
         // Act
         const toast = page.locator(componentSelector);
@@ -53,7 +58,7 @@ test.describe('PieToast - Component tests', () => {
                 });
 
                 // Wait for the component to render alongside its animations
-                await page.waitForTimeout(250);
+                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
 
                 // Act
                 const toast = page.locator(componentSelector);
@@ -75,7 +80,7 @@ test.describe('PieToast - Component tests', () => {
                 });
 
                 // Wait for the component to render alongside its animations
-                await page.waitForTimeout(250);
+                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
 
                 // Act
                 const toast = page.locator(componentSelector);
@@ -96,7 +101,7 @@ test.describe('PieToast - Component tests', () => {
                 });
 
                 // Wait for the component to render alongside its animations
-                await page.waitForTimeout(250);
+                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
 
                 // Act
                 const toast = page.locator(componentSelector);
@@ -118,7 +123,7 @@ test.describe('PieToast - Component tests', () => {
                 });
 
                 // Wait for the component to render alongside its animations
-                await page.waitForTimeout(250);
+                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
 
                 // Act
                 const toast = page.locator(componentSelector);
@@ -141,7 +146,7 @@ test.describe('PieToast - Component tests', () => {
                 });
 
                 // Wait for the component to render alongside its animations
-                await page.waitForTimeout(250);
+                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
 
                 // Act
                 const toast = page.locator(componentSelector);
@@ -166,7 +171,7 @@ test.describe('PieToast - Component tests', () => {
                 });
 
                 // Wait for the component to render alongside its animations
-                await page.waitForTimeout(250);
+                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
 
                 // Act
                 const toast = page.locator(componentSelector);
@@ -186,7 +191,7 @@ test.describe('PieToast - Component tests', () => {
                 });
 
                 // Wait for the component to render alongside its animations
-                await page.waitForTimeout(250);
+                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
 
                 // Act
                 const toast = page.locator(componentSelector);
@@ -210,7 +215,7 @@ test.describe('PieToast - Component tests', () => {
                 });
 
                 // Wait for the component to render alongside its animations
-                await page.waitForTimeout(250);
+                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
 
                 // Act
                 const toast = page.locator(componentSelector);
@@ -236,7 +241,7 @@ test.describe('PieToast - Component tests', () => {
                         });
 
                         // Wait for the component to render alongside its animations
-                        await await page.waitForTimeout(250);
+                        await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
 
                         // Act
                         const toast = page.locator(componentSelector);
@@ -256,7 +261,7 @@ test.describe('PieToast - Component tests', () => {
                         });
 
                         // Wait for the component to render alongside its animations
-                        await page.waitForTimeout(250);
+                        await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
 
                         // Act
                         const toast = page.locator(componentSelector);
