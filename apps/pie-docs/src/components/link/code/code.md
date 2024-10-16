@@ -78,7 +78,7 @@ We recommend using `pie-icons-webc` when using the `icon` slot. Here is an examp
 
 ## Events
 
-This component does not use any custom event handlers. However, in order to use event listeners such as `onclick` to this component, you should pass the `tag="button"` prop to the component so it's treated like a native button element while maintaining the link look.
+This component does not emit any custom events. However, in order to use event listeners such as `onclick` to this component, you should pass the `tag="button"` prop to the component so it's treated like a native button element while maintaining the link look.
 
 ## Examples
 

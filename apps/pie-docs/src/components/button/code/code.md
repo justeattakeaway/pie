@@ -63,7 +63,7 @@ yarn add @justeattakeaway/pie-webc
 
 ## Events
 
-This component does not use any custom event handlers. In order to add event listening to this component, you can treat it like a native HTML element in your application.
+This component does not emit any custom events. In order to add event listening to this component, you can treat it like a native HTML element in your application.
 
 ## Forms Usage
 

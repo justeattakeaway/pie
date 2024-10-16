@@ -91,6 +91,7 @@ const chipStoryMeta: ChipStoryMeta = {
 
 export default chipStoryMeta;
 
+const clickAction = action('clicked');
 const closeAction = action('pie-chip-close');
 
 const Template: TemplateFunction<ChipProps> = ({
@@ -110,7 +111,8 @@ const Template: TemplateFunction<ChipProps> = ({
                 ?isLoading="${isLoading}"
                 ?isDismissible="${isDismissible}"
                 variant="${ifDefined(variant)}"
-                @pie-chip-close="${closeAction}">
+                @pie-chip-close="${closeAction}"
+                @click="${clickAction}">
                     ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
                     ${sanitizeAndRenderHTML(slot)}
            </pie-chip>`;

@@ -7,6 +7,7 @@ shouldShowContents: true
 eleventyComputed:
     props: "{% include './props.json' %}"
     slots: "{% include './slots.json' %}"
+    events: "{% include './events.json' %}"
 ---
 
 ## Overview
@@ -75,6 +76,16 @@ We recommend using `pie-icons-webc` when using the `icon` slot. Here is an examp
     String
 </pie-chip>
 ```
+
+## Events
+
+When the chip component is not dismissible, it does not emit any custom events. In order to add event listening to this component, you can treat it like a native HTML element in your application.
+
+When the component is dismissible, you will need to listen to the close event listed in the table below.
+
+{% componentDetailsTable {
+  tableData: events
+} %}
 
 ## Examples
 
