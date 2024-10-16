@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.12.1
+
+### Patch Changes
+
+- [Added] - new variants `brand-03`, `brand-04` and `brand-06` to the tag component ([#1967](https://github.com/justeattakeaway/pie/pull/1967)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 4.12.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-tag
 
+## 0.11.0
+
+### Minor Changes
+
+- [Added] - new variants `brand-03`, `brand-04` and `brand-06` to the tag component ([#1967](https://github.com/justeattakeaway/pie/pull/1967)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Fixed] - hover and active state of brand-06 should use hover-02 and active-02 tokens ([#1991](https://github.com/justeattakeaway/pie/pull/1991)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.10.2
 
 ### Patch Changes
