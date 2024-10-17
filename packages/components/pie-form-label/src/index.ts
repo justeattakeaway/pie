@@ -17,13 +17,13 @@ const componentSelector = 'pie-form-label';
  */
 export class PieFormLabel extends RtlMixin(LitElement) implements FormLabelProps {
     @property({ type: String, reflect: true })
-    public for?: string;
+    public for: FormLabelProps['for'];
 
     @property({ type: String })
-    public optional?: string;
+    public optional: FormLabelProps['optional'];
 
     @property({ type: String })
-    public trailing?: string;
+    public trailing: FormLabelProps['trailing'];
 
     private _renderOptionalLabel (): TemplateResult | typeof nothing {
         const { optional } = this;

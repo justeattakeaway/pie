@@ -61,7 +61,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @requiredProperty(componentSelector)
     public heading!: string;
 
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, headingLevels, defaultProps.headingLevel)
     public headingLevel = defaultProps.headingLevel;
 
@@ -89,14 +89,14 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: Object })
     public leadingAction: ModalProps['leadingAction'];
 
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, positions, defaultProps.position)
     public position = defaultProps.position;
 
-    @property()
+    @property({ type: String })
     public returnFocusAfterCloseSelector: ModalProps['returnFocusAfterCloseSelector'];
 
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
     public size = defaultProps.size;
 

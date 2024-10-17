@@ -20,21 +20,21 @@ const componentSelector = 'pie-icon-button';
  */
 export class PieIconButton extends LitElement implements IconButtonProps {
     @property({ type: Object })
-    public aria?: IconButtonProps['aria'];
+    public aria: IconButtonProps['aria'];
 
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
-    public size?: IconButtonProps['size'] = defaultProps.size;
+    public size = defaultProps.size;
 
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
-    public variant?: IconButtonProps['variant'] = defaultProps.variant;
+    public variant = defaultProps.variant;
 
     @property({ type: Boolean })
-    public disabled? = defaultProps.disabled;
+    public disabled = defaultProps.disabled;
 
     @property({ type: Boolean })
-    public isLoading? = defaultProps.isLoading;
+    public isLoading = defaultProps.isLoading;
 
     /**
      * Template for the loading state

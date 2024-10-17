@@ -6,7 +6,7 @@ export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const sizes = ['small', 'medium', 'large'] as const;
 export const positions = ['top', 'center'] as const;
 
-export type AriaProps = {
+type AriaProps = {
     close?: string;
     back?: string;
     loading?: string;
