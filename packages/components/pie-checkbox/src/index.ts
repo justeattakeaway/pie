@@ -42,7 +42,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     public value = defaultProps.value;
 
     @property({ type: String })
-    public name?: CheckboxProps['name'];
+    public name: CheckboxProps['name'];
 
     @property({ type: Boolean, reflect: true })
     public checked = defaultProps.checked;
@@ -63,7 +63,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     private checkbox!: HTMLInputElement;
 
     @property({ type: String })
-    public assistiveText?: CheckboxProps['assistiveText'];
+    public assistiveText: CheckboxProps['assistiveText'];
 
     @property({ type: String })
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)

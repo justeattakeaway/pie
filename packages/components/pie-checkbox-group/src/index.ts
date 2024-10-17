@@ -35,13 +35,13 @@ const assistiveTextId = 'assistive-text';
  */
 export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxGroupProps {
     @state()
-        hasLabel = false;
+    private _hasLabel = false;
 
     @property({ type: String })
-    public name?: CheckboxGroupProps['name'];
+    public name: CheckboxGroupProps['name'];
 
     @property({ type: String })
-    public assistiveText?: CheckboxGroupProps['assistiveText'];
+    public assistiveText: CheckboxGroupProps['assistiveText'];
 
     @property({ type: Boolean })
     public isInline = defaultProps.isInline;
@@ -75,13 +75,13 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
     }
 
     /**
-     * Function that updates the local `hasLabel` state in case
+     * Function that updates the local `_hasLabel` state in case
      * when the label slot receives content.
      * @private
      */
     private handleSlotChange (e: { target: HTMLSlotElement; }) {
         const childNodes = e.target.assignedNodes({ flatten: true });
-        this.hasLabel = childNodes.length > 0;
+        this._hasLabel = childNodes.length > 0;
     }
 
     /**
@@ -90,7 +90,7 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
      * @private
      */
     private renderWrappedLabel (): TemplateResult | typeof nothing {
-        return this.hasLabel ? html`<legend><slot name='label' @slotchange=${this.handleSlotChange}></slot></legend>` : html`<slot name='label' @slotchange=${this.handleSlotChange}></slot>`;
+        return this._hasLabel ? html`<legend><slot name='label' @slotchange=${this.handleSlotChange}></slot></legend>` : html`<slot name='label' @slotchange=${this.handleSlotChange}></slot>`;
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {

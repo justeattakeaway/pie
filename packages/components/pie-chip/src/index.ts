@@ -27,9 +27,9 @@ const componentSelector = 'pie-chip';
  * @event {CustomEvent} pie-chip-close - when a user clicks close button.
  */
 export class PieChip extends LitElement implements ChipProps {
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
-    public variant: ChipProps['variant'] = defaultProps.variant;
+    public variant = defaultProps.variant;
 
     @property({ type: Boolean })
     public disabled = defaultProps.disabled;
