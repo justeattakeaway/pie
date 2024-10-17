@@ -18,6 +18,7 @@
   },
   "scripts": {
     "build": "run -T vite build",
+    "build:cdn": "run -T vite build --config './cdn.vite.confg.js'",
     "build:react-wrapper": "npx build-react-wrapper",
     "create:manifest": "yarn cem analyze --litelement",
     "lint:scripts": "run -T eslint .",
