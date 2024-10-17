@@ -48,7 +48,7 @@ export interface NotificationProps {
   heading?: string;
 
   /**
-   * The HTML heading tag to use for the notification's heading. Can be h1-h6.
+   * The HTML heading tag to use for the notification's heading. Can be h2-h6.
    */
   headingLevel?: typeof headingLevels[number];
 
