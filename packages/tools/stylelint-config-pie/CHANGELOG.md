@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.0
+
+### Minor Changes
+
+- [Changed] - Add file extensions to rule imports ([#2001](https://github.com/justeattakeaway/pie/pull/2001)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.7.0
 
 ### Minor Changes
