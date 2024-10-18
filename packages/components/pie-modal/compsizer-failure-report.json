@@ -1,0 +1,17 @@
+[
+  {
+    "component": "pie-modal/index.js",
+    "expectedThreshold": "1 KB",
+    "actualSizeKB": "24.49"
+  },
+  {
+    "component": "pie-modal/index.js + react.js + other JS",
+    "expectedThreshold": "1 KB",
+    "actualSizeKB": "41.02"
+  },
+  {
+    "component": "pie-modal/index.js + other JS",
+    "expectedThreshold": "1 KB",
+    "actualSizeKB": "39.82"
+  }
+]

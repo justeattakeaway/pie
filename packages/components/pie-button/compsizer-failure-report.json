@@ -1,0 +1,12 @@
+[
+  {
+    "component": "pie-button/index.js",
+    "expectedThreshold": "1 KB",
+    "actualSizeKB": "39.99"
+  },
+  {
+    "component": "pie-button/index.js + react.js",
+    "expectedThreshold": "1 KB",
+    "actualSizeKB": "40.66"
+  }
+]
