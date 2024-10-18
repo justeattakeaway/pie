@@ -47,7 +47,7 @@
       "description": "Group Vitest devDependencies from package.json within pie-monorepo",
       "matchFiles": ["./package.json"],
       "matchDepTypes": ["devDependencies"],
-      "matchPackagePatterns": ["viest-*", "@vitest"],
+      "matchPackagePatterns": ["vitest-*", "@vitest"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "vitest",
       "groupSlug": "root-vitest-devDeps",

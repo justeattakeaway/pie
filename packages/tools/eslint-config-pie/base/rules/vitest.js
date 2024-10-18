@@ -1,13 +1,17 @@
-const vitest = require('eslint-plugin-vitest');
+import vitest from 'eslint-plugin-vitest';
 
-module.exports = {
-    plugins: [
-        'vitest',
-    ],
-    rules: {
-        ...vitest.configs.recommended.rules,
+export default [
+    {
+        plugins: {
+            vitest,
+        },
+        rules: {
+            ...vitest.configs.recommended.rules,
+        },
+        languageOptions: {
+            globals: {
+                ...vitest.environments.env.globals,
+            }
+        },
     },
-    globals: {
-        ...vitest.environments.env.globals,
-    },
-};
+];

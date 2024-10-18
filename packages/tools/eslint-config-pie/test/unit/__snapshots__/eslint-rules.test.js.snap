@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ESLint > base > should find the expected errors 1`] = `
+[
+  {
+    "column": 9,
+    "endColumn": 10,
+    "endLine": 8,
+    "line": 7,
+    "message": "The update clause in this loop moves the variable in the wrong direction.",
+    "messageId": "incorrectDirection",
+    "nodeType": "ForStatement",
+    "ruleId": "for-direction",
+    "severity": 2,
+  },
+]
+`;

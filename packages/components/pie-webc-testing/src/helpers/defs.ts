@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable typescript-eslint/no-explicit-any */
 
 /**
  * This test helper type contains the same keys as the component prop interface.

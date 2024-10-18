@@ -1,5 +1,0 @@
-.turbo
-dist
-node_modules
-test-results
-lit-browsers-report

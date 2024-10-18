@@ -7,14 +7,14 @@
     "./strict": "./strict/index.js",
     "./frameworks": "./frameworks/index.js"
   },
+  "type": "module",
   "scripts": {
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "check-rules": "eslint-find-rules --unused",
     "pretest": "yarn lint:scripts && yarn check-rules",
-    "test": "yarn tests-only",
-    "test:ci": "yarn test",
-    "tests-only": "run -T vitest run"
+    "test": "run -T vitest --config=../../../vite.config.js",
+    "test:ci": "yarn test"
   },
   "license": "Apache-2.0",
   "author": "Just Eat Takeaway.com - Design System Team",
@@ -28,12 +28,13 @@
     "eslint-config-airbnb-base": "15.0.0"
   },
   "devDependencies": {
-    "eslint-find-rules": "4.1.0"
+    "eslint-find-rules": "4.1.0",
+    "globals": "15.11.0"
   },
   "peerDependencies": {
-    "eslint": "7.x || 8.x",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-vitest": "^0.3.20"
+    "eslint": "9.x",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-vitest": "^0.5.4"
   },
   "volta": {
     "extends": "../../../package.json"

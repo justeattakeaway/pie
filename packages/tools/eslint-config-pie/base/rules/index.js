@@ -1,17 +1,19 @@
-const bestPractices = require('./best-practices');
-const classes = require('./classes');
-const errors = require('./errors');
-const es6 = require('./es6');
-const imports = require('./imports');
-const node = require('./node');
-const style = require('./style');
+import bestPractices from './best-practices.js';
+import classes from './classes.js';
+import errors from './errors.js';
+import es6 from './es6.js';
+import imports from './imports.js';
+import node from './node.js';
+import style from './style.js';
+import vitest from './vitest.js';
 
-module.exports = {
-    bestPractices,
-    classes,
-    errors,
-    es6,
-    imports,
-    node,
-    style,
-};
+export default [
+    ...bestPractices,
+    ...classes,
+    ...errors,
+    ...es6,
+    ...imports,
+    ...node,
+    ...style,
+    ...vitest,
+];

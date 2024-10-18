@@ -1,5 +1,7 @@
-module.exports = {
-    rules: {
-        'no-console': ['warn', { allow: ['info', 'warn', 'error'] }],
+export default [
+    {
+        rules: {
+            'no-console': ['warn', { allow: ['info', 'warn', 'error'] }],
+        },
     },
-};
+];
