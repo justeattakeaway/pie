@@ -1,7 +1,7 @@
-const vue = require('./vue');
-const vue3 = require('./vue3');
+import vue from './vue.js';
+import vue3 from './vue3.js';
 
-module.exports = {
+export default {
     vue,
     vue3,
 };

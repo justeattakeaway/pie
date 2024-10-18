@@ -1,19 +1,26 @@
-module.exports = {
-    rules: {
-        'import/no-import-module-exports': 'off',
-        'import/no-named-export': 'off',
+import importPlugin from 'eslint-plugin-import';
 
-        'import/no-relative-packages': 'error',
-        'import/no-relative-parent-imports': 'off',
+export default [
+    {
+        plugins: {
+            import: importPlugin,
+        },
+        rules: {
+            'import/no-import-module-exports': 'off',
+            'import/no-named-export': 'off',
 
-        'import/no-unresolved': [
-            'error',
-            {
-                caseSensitive: false,
-                commonjs: true,
-            }
-        ],
+            'import/no-relative-packages': 'error',
+            'import/no-relative-parent-imports': 'off',
 
-        'import/no-unused-modules': 'off',
+            'import/no-unresolved': [
+                'error',
+                {
+                    caseSensitive: false,
+                    commonjs: true,
+                }
+            ],
+
+            'import/no-unused-modules': 'off',
+        },
     },
-};
+];
