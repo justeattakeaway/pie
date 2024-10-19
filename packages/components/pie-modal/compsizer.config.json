@@ -8,19 +8,10 @@
   },
   "baselineFile": "component-bundle-sizes.json",
   "components": {
-    "button": {
+    "pie-modal": {
       "maxSize": "50 KB",
       "warnOnIncrease": "10%",
-      "include": [
-        "./packages/components/pie-button/dist/**/*.js"
-      ]
-    },
-    "modal": {
-      "maxSize": "50 KB",
-      "warnOnIncrease": "10%",
-      "include": [
-        "./packages/components/pie-modal/dist/**/*.js"
-      ]
+      "distFolderLocation": "./dist"
     }
   },
   "defaults": {
