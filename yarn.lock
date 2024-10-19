@@ -11193,15 +11193,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"brotli-size@npm:4.0.0":
-  version: 4.0.0
-  resolution: "brotli-size@npm:4.0.0"
-  dependencies:
-    duplexer: 0.1.1
-  checksum: 2a9e08347668f97e8a0e6edfff8860468b4705cf2e18d072c3e849d24db24bc0946fdbab204f6085c3565b047cfc988104500f0f7b5ff77e987feab0f04fc52f
-  languageName: node
-  linkType: hard
-
 "browser-assert@npm:^1.2.1":
   version: 1.2.1
   resolution: "browser-assert@npm:1.2.1"
@@ -12524,18 +12515,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compsizer@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "compsizer@npm:0.2.0"
+"compsizer@npm:0.4.0":
+  version: 0.4.0
+  resolution: "compsizer@npm:0.4.0"
   dependencies:
-    brotli-size: 4.0.0
     chalk: 5.3.0
     commander: 12.1.0
     glob: 11.0.0
-    gzip-size: 7.0.0
   bin:
     compsizer: index.js
-  checksum: 9ea24eb89f13415b4ec5fad7a8e7fe354f46438dc7f0607671c1c7425bb06e77cf7d8daa6d05889cf2cc0e75344c7fd92f5ae8ce0a2785bdd71e28b46ff72d6a
+  checksum: aed6003ed56a28400d9b29135fc2a53c180cec3c1e0d64abf4908f57c899f9d9d2c83a624935c1b8cb8ba0ad375e363d51f53ff1a7e63650c2230a8b3706dcb9
   languageName: node
   linkType: hard
 
@@ -14248,13 +14237,6 @@ __metadata:
   bin:
     dree: bundled/bin/index.js
   checksum: 921c4b165195606699767d3eebe6dbb38c9462a19d9d86b034a4399ef29b4e0ab111c1568463273f093d84c4f1847dc8462176bafccbe191339bdd2fbef4884e
-  languageName: node
-  linkType: hard
-
-"duplexer@npm:0.1.1":
-  version: 0.1.1
-  resolution: "duplexer@npm:0.1.1"
-  checksum: fc7937c4a43808493cd63dfa59f4deb6cf02beea783cb17f39677b53ccacb9fba48f87731b8944048dd6dfa8f456d0725f86f3fd587ab780532d9a8e2914e8b7
   languageName: node
   linkType: hard
 
@@ -16918,15 +16900,6 @@ __metadata:
     section-matter: ^1.0.0
     strip-bom-string: ^1.0.0
   checksum: 37717bd424344487d655392251ce8d8878a1275ee087003e61208fba3bfd59cbb73a85b2159abf742ae95e23db04964813fdc33ae18b074208428b2528205222
-  languageName: node
-  linkType: hard
-
-"gzip-size@npm:7.0.0":
-  version: 7.0.0
-  resolution: "gzip-size@npm:7.0.0"
-  dependencies:
-    duplexer: ^0.1.2
-  checksum: 52d0bf586307082428b99f7b04d56d756d640e1f84d4a56debf9fb8c972d9db679143b067dd4024ebef42e9f6787e9dc8b9dcad344372b9dc87e55d942276f49
   languageName: node
   linkType: hard
 
@@ -22733,7 +22706,7 @@ __metadata:
     autoprefixer: 10.4.20
     babel-loader: 8.3.0
     commitizen: 4.3.0
-    compsizer: ^0.2.0
+    compsizer: 0.4.0
     cross-env: 7.0.3
     cssnano: 5.1.15
     cz-customizable: 7.2.1
