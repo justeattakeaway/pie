@@ -103,9 +103,9 @@ const Template = ({
                     <pie-radio value="radio-two">radio 2</pie-radio>
                     <pie-radio value="radio-three">radio 3 longer label</pie-radio>
                     <pie-radio value="radio-four">radio 4</pie-radio>
-                    <pie-radio name="radio-five">radio 5 even longer label: Lorem ipsum dolor sit amet,
+                    <pie-radio value="radio-five">radio 5 even longer label: Lorem ipsum dolor sit amet,
                     consectetur adipiscing elit.</pie-radio>
-                <pie-radio name="radio-six">radio 6</pie-radio>
+                <pie-radio value="radio-six">radio 6</pie-radio>
             </pie-radio-group>
         </div>
     `;
