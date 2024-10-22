@@ -99,16 +99,15 @@ const Template = ({
                 assistiveText="${ifDefined(assistiveText)}"
                 ?isInline=${isInline}
                 status=${ifDefined(status)}
-                ?disabled="${disabled}"
-            >
+                ?disabled="${disabled}">
                 ${labelSlot}
                 <pie-checkbox name="checkbox-one">checkbox 1</pie-checkbox>
                 <pie-checkbox name="checkbox-two">checkbox 2</pie-checkbox>
                 <pie-checkbox name="checkbox-three">checkbox 3 longer label</pie-checkbox>
-                <pie-checkbox name="checkbox-three">checkbox 4</pie-checkbox>
-                <pie-checkbox name="checkbox-three">checkbox 5 even longer label: Lorem ipsum dolor sit amet,
+                <pie-checkbox name="checkbox-four">checkbox 4</pie-checkbox>
+                <pie-checkbox name="checkbox-five">checkbox 5 even longer label: Lorem ipsum dolor sit amet,
                 consectetur adipiscing elit.</pie-checkbox>
-                <pie-checkbox name="checkbox-three">checkbox 6</pie-checkbox>
+                <pie-checkbox name="checkbox-six">checkbox 6</pie-checkbox>
             </pie-checkbox-group>
         </div>
     `;

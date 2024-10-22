@@ -38,6 +38,7 @@
         cursor: var(--radio-cursor);
         background-color: transparent;
         transition: background-color var(--dt-motion-timing-100) var(--radio-motion-easing);
+        flex-shrink: 0;
 
         &:focus {
             @include p.focus;
