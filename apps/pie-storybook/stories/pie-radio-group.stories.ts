@@ -51,7 +51,7 @@ const radioGroupStoryMeta: RadioGroupStoryMeta = {
             },
         },
         disabled: {
-            description: 'If true, disables the whole radio group. If you need to disable only one radio pass the disabled prop to the needed radio.',
+            description: 'If true, disables the whole radio group. If you need to disable only one radio, pass the disabled prop to the needed radio.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultArgs.disabled,
