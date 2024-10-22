@@ -12515,16 +12515,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compsizer@npm:0.4.1":
-  version: 0.4.1
-  resolution: "compsizer@npm:0.4.1"
+"compsizer@npm:0.4.2":
+  version: 0.4.2
+  resolution: "compsizer@npm:0.4.2"
   dependencies:
     chalk: 5.3.0
     commander: 12.1.0
     glob: 11.0.0
   bin:
     compsizer: index.js
-  checksum: b5fcc7c8951ce602597eb9d96efb7747069d5fffa835d09a8fdb0ddf3d40d1e6369f4dae8ee18d6e8d02a40039db06d72601bfaeabe76527e92d6a76bea138a7
+  checksum: 9b41139adeb58aea3fda5f77aae711b85be14f9dc939d7646790eedc987e52208f002de19836be868a4c2c25bdf629b294ac615b1af06abb42de795e038a08e2
   languageName: node
   linkType: hard
 
@@ -22706,7 +22706,7 @@ __metadata:
     autoprefixer: 10.4.20
     babel-loader: 8.3.0
     commitizen: 4.3.0
-    compsizer: 0.4.1
+    compsizer: 0.4.2
     cross-env: 7.0.3
     cssnano: 5.1.15
     cz-customizable: 7.2.1
