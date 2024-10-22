@@ -67,7 +67,10 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
     private handleRadioSelection (selectedValue: string): void {
         this._slottedChildren?.filter((radio) => !radio.disabled)
         .forEach((radio) => {
-            if (radio.value !== selectedValue) {
+            if (radio.value === selectedValue) {
+                this.value = selectedValue;
+                radio.checked = true;
+            } else {
                 radio.checked = false;
             }
         });
@@ -81,7 +84,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
     private _handleRadioChange (event: Event): void {
         event.stopPropagation();
         const target = event.target as HTMLInputElement;
-        this.value = target.value;
         this.handleRadioSelection(target.value);
         const changedEvent = wrapNativeEvent(event);
         this.dispatchEvent(changedEvent);
@@ -111,6 +113,10 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
     protected updated (_changedProperties: PropertyValues<this>): void {
         if (_changedProperties.has('disabled')) {
             this._handleDisabled();
+        }
+
+        if (_changedProperties.has('value')) {
+            this.handleRadioSelection(this.value);
         }
     }
 

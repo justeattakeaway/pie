@@ -94,7 +94,7 @@ const Template = ({
             <pie-link href="/?path=/story/radio--default">pie-radio</pie-link>.</p>
             <pie-radio-group
                 name="${ifDefined(name)}"
-                .value=${value || ''}
+                value=${ifDefined(value)}
                 ?isInline=${isInline}
                 ?disabled=${disabled}
                 @change=${onChange}>
