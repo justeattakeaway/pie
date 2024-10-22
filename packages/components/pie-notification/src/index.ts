@@ -50,13 +50,13 @@ export class PieNotification extends LitElement implements NotificationProps {
     @property({ type: Boolean })
     public isOpen = defaultProps.isOpen;
 
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
-    public variant: NonNullable<NotificationProps['variant']> = defaultProps.variant;
+    public variant = defaultProps.variant;
 
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, positions, defaultProps.position)
-    public position: NonNullable<NotificationProps['position']> = defaultProps.position;
+    public position = defaultProps.position;
 
     @property({ type: Boolean })
     public isDismissible = defaultProps.isDismissible;
@@ -65,11 +65,11 @@ export class PieNotification extends LitElement implements NotificationProps {
     public isCompact = defaultProps.isCompact;
 
     @property({ type: String })
-    public heading?: string;
+    public heading: NotificationProps['heading'];
 
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, headingLevels, defaultProps.headingLevel)
-    public headingLevel: NonNullable<NotificationProps['headingLevel']> = defaultProps.headingLevel;
+    public headingLevel = defaultProps.headingLevel;
 
     @property({ type: Boolean })
     public hideIcon = defaultProps.hideIcon;

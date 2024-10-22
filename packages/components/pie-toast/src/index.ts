@@ -42,13 +42,13 @@ export * from './defs';
  * @tagname pie-toast
  */
 export class PieToast extends RtlMixin(LitElement) implements ToastProps {
-    @property()
-    public message: ToastProps['message'] = '';
+    @property({ type: String })
+    public message = defaultProps.message;
 
     @property({ type: Boolean })
     public isOpen = defaultProps.isOpen;
 
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
     public variant = defaultProps.variant;
 
@@ -67,9 +67,11 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     @property({ type: Number })
     public duration = defaultProps.duration;
 
-    @query('pie-button') actionButton?: HTMLElement;
+    @query('pie-button')
+    private actionButton?: HTMLElement;
 
-    @query('pie-icon-button') closeButton?: HTMLElement;
+    @query('pie-icon-button')
+    private closeButton?: HTMLElement;
 
     private _actionButtonOffset = 0;
 
@@ -406,9 +408,9 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
         };
 
         return html`
-            <div 
-                data-test-id="${componentSelector}" 
-                class="${classMap(componentWrapperClasses)}" 
+            <div
+                data-test-id="${componentSelector}"
+                class="${classMap(componentWrapperClasses)}"
                 aria-live="${variant === 'error' ? 'assertive' : 'polite'}"
             >
                 <div class="${componentClass}-contentArea">

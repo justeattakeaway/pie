@@ -4,7 +4,7 @@ export const sizes = ['xsmall', 'small', 'medium', 'large'] as const;
 export const variants = ['primary', 'secondary', 'outline', 'ghost',
     'ghost-secondary', 'inverse', 'ghost-inverse'] as const;
 
-export type AriaProps = {
+type AriaProps = {
     label?: string;
     labelledby?: string;
     describedby?: string;
@@ -40,7 +40,7 @@ export interface IconButtonProps {
     isLoading?: boolean;
 }
 
-export type DefaultProps = ComponentDefaultProps<IconButtonProps>;
+export type DefaultProps = ComponentDefaultProps<IconButtonProps, keyof Omit<IconButtonProps, 'aria'>>;
 
 export const defaultProps: DefaultProps = {
     size: 'medium',
