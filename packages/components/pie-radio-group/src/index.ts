@@ -65,7 +65,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
      * @private
      */
     private handleRadioSelection (selectedValue: string): void {
-        console.log('am i here');
         this._slottedChildren?.filter((radio) => !radio.disabled)
         .forEach((radio) => {
             if (radio.value !== selectedValue) {
@@ -80,7 +79,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
      * @private
      */
     private _handleRadioChange (event: Event): void {
-        console.log('me?');
         event.stopPropagation();
         const target = event.target as HTMLInputElement;
         this.value = target.value;
