@@ -1,11 +1,15 @@
 import { LitElement, html, unsafeCSS } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { classMap } from 'lit/directives/class-map.js';
 
 import {
-    defineCustomElement, FormControlMixin, requiredProperty, RtlMixin, wrapNativeEvent,
+    defineCustomElement,
+    FormControlMixin,
+    requiredProperty,
+    RtlMixin,
+    wrapNativeEvent,
 } from '@justeattakeaway/pie-webc-core';
 
 import { type RadioProps, defaultProps } from './defs';
@@ -18,8 +22,12 @@ const componentSelector = 'pie-radio';
 
 /**
  * @tagname pie-radio
+ * @event {CustomEvent} change - when the radio state is changed.
  */
 export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements RadioProps {
+    @state()
+    private disabledByParent = false;
+
     @property({ type: Boolean, reflect: true })
     public checked = defaultProps.checked;
 
@@ -41,6 +49,18 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     @query('input[type="radio"]')
     private radio!: HTMLInputElement;
+
+    connectedCallback () : void {
+        super.connectedCallback();
+
+        this.addEventListener('pie-radio-group-disabled', (e: CustomEventInit) => { this.disabledByParent = e.detail.disabled; });
+    }
+
+    disconnectedCallback () : void {
+        super.disconnectedCallback();
+
+        this.removeEventListener('pie-radio-group-disabled', (e: CustomEventInit) => { this.disabledByParent = e.detail.disabled; });
+    }
 
     /**
      * Ensures that the form value is in sync with the component.
@@ -98,12 +118,19 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     render () {
         const {
-            checked, disabled, name, required, value,
+            checked,
+            disabled,
+            disabledByParent,
+            name,
+            required,
+            value,
         } = this;
+
+        const componentDisabled = disabled || disabledByParent;
 
         const classes = {
             'c-radio': true,
-            'c-radio--disabled': disabled,
+            'c-radio--disabled': componentDisabled,
         };
 
         return html`
@@ -115,7 +142,7 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
                 .checked="${live(checked)}"
                 .value="${value}"
                 name="${ifDefined(name)}"
-                ?disabled="${disabled}"
+                ?disabled="${componentDisabled}"
                 ?required="${required}"
                 @change="${this.handleChange}">
             <slot></slot>
