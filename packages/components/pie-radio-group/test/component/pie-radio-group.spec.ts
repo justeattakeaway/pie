@@ -4,6 +4,10 @@ import { PieRadioGroup, type RadioGroupProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-radio-group"]';
 const radioSelector = 'input[type="radio"]';
+const radioElements = [
+    '<pie-radio value="radio-one" data-test-id="pie-radio-one">radio 1</pie-radio>',
+    '<pie-radio value="radio-two" data-test-id="pie-radio-two">radio 2</pie-radio>'
+];
 
 test.describe('PieRadioGroup - Component tests', () => {
     test.beforeEach(async ({ mount }) => {
@@ -75,16 +79,13 @@ test.describe('PieRadioGroup - Component tests', () => {
             });
         });
 
-        test.describe('Radio group behaviour', () => {
-            const radioElements = [
-                '<pie-radio value="radio-one" data-test-id="pie-radio-one">radio 1</pie-radio>',
-                '<pie-radio value="radio-two" data-test-id="pie-radio-two">radio 2</pie-radio>'
-            ];
-
-            test('should only allow one radio to be selected at a time', async ({ mount }) => {
+        test.describe('value', () => {
+            test('should select the radio matching the `value` prop', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieRadioGroup, {
-                    props: {} as RadioGroupProps,
+                    props: {
+                        value: 'radio-two',
+                    } as RadioGroupProps,
                     slots: {
                         default: radioElements,
                     },
@@ -94,37 +95,57 @@ test.describe('PieRadioGroup - Component tests', () => {
                 const firstRadio = component.locator('[data-test-id="pie-radio-one"] input');
                 const secondRadio = component.locator('[data-test-id="pie-radio-two"] input');
 
-                await firstRadio.click();
-
                 // Assert
-                expect(await firstRadio.isChecked()).toBe(true);
-                expect(await secondRadio.isChecked()).toBe(false);
+                expect(await firstRadio.isChecked()).toBe(false);
+                expect(await secondRadio.isChecked()).toBe(true);
+            });
+        });
+    });
+
+    test.describe('Radio group behaviour', () => {
+        test('should only allow one radio to be selected at a time', async ({ mount }) => {
+            // Arrange
+            const component = await mount(PieRadioGroup, {
+                props: {} as RadioGroupProps,
+                slots: {
+                    default: radioElements,
+                },
             });
 
-            test('should trigger change event when a radio is selected', async ({ mount }) => {
-                // Arrange
-                const messages: string[] = [];
-                const expectedEventMessage = 'Change event dispatched';
+            // Act
+            const firstRadio = component.locator('[data-test-id="pie-radio-one"] input');
+            const secondRadio = component.locator('[data-test-id="pie-radio-two"] input');
 
-                const component = await mount(PieRadioGroup, {
-                    props: {} as RadioGroupProps,
-                    slots: {
-                        default: radioElements,
+            await firstRadio.click();
+
+            // Assert
+            expect(await firstRadio.isChecked()).toBe(true);
+            expect(await secondRadio.isChecked()).toBe(false);
+        });
+
+        test('should trigger change event when a radio is selected', async ({ mount }) => {
+            // Arrange
+            const messages: string[] = [];
+            const expectedEventMessage = 'Change event dispatched';
+
+            const component = await mount(PieRadioGroup, {
+                props: {} as RadioGroupProps,
+                slots: {
+                    default: radioElements,
+                },
+                on: {
+                    change: () => {
+                        messages.push(expectedEventMessage);
                     },
-                    on: {
-                        change: () => {
-                            messages.push(expectedEventMessage);
-                        },
-                    },
-                });
-
-                // Act
-                const firstRadio = component.locator(`${radioSelector}[value="radio-one"]`);
-                await firstRadio.click();
-
-                // Assert
-                expect(messages).toEqual([expectedEventMessage]);
+                },
             });
+
+            // Act
+            const firstRadio = component.locator(`${radioSelector}[value="radio-one"]`);
+            await firstRadio.click();
+
+            // Assert
+            expect(messages).toEqual([expectedEventMessage]);
         });
     });
 });
