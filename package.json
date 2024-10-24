@@ -22,7 +22,7 @@
     "generate-component-statuses": "./utilities/component-statuses/generate-component-statuses.js"
   },
   "scripts": {
-    "analyse-component-bundles": "turbo run analyse-component-bundles --filter=\"./packages/components/**\" --filter=!pie-webc --filter=!pie-webc-testing --filter=!pie-webc-core",
+    "analyse-component-bundles": "turbo run analyse-component-bundles --filter=!pie-monorepo",
     "watch": "turbo run watch --filter=!pie-monorepo",
     "build": "cross-env-shell turbo run build --filter=!'./apps/examples/*' --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "build:dev": "cross-env-shell turbo run build:dev --filter=!'./apps/examples/*' --filter=!pie-monorepo --token=${TURBO_TOKEN}",
