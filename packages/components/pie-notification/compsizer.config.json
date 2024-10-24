@@ -1,0 +1,20 @@
+{
+  "exclude": [
+    "**/*.d.ts"
+  ],
+  "compression": {
+    "gzip": true,
+    "brotli": true
+  },
+  "baselineFile": "component-bundle-sizes.json",
+  "components": {
+    "pie-notification": {
+      "maxSize": "50 KB",
+      "warnOnIncrease": "10%",
+      "distFolderLocation": "./dist"
+    }
+  },
+  "defaults": {
+    "warnOnIncrease": "5%"
+  }
+}
