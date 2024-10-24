@@ -562,7 +562,6 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             event.clientX < left ||
             event.clientX > right;
 
-        console.log({ isClickOutsideDialog });
         if (isClickOutsideDialog) {
             this.isOpen = false;
         }
