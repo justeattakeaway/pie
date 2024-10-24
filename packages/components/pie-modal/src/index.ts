@@ -540,7 +540,8 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * @param {MouseEvent} event - the click event targetting the modal/backdrop
      */
     private _handleDialogLightDismiss = (event: MouseEvent): void => {
-        if (!this.isDismissible) {
+        // Early return if the dialog isn't dismissible or the clicked element isn't the dialog itself
+        if (!this.isDismissible || event.target !== event.currentTarget) {
             return;
         }
 
@@ -561,6 +562,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             event.clientX < left ||
             event.clientX > right;
 
+        console.log({ isClickOutsideDialog });
         if (isClickOutsideDialog) {
             this.isOpen = false;
         }
