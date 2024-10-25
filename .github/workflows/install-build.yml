@@ -40,4 +40,4 @@ jobs:
           script-name: ${{ inputs.build-script }}
       - name: Analyse Component Bundle Sizes
         if: inputs.analyse-component-bundles
-        run: yarn analyse-component-bundles
+        run: yarn analyse-component-bundles --only
