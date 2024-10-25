@@ -13,6 +13,10 @@ on:
         required: false
         type: string
         default: 'build'
+      analyse-component-bundles:
+        type: boolean
+        required: false
+        default: false
 
 env:
     TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
@@ -34,3 +38,6 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: ${{ inputs.build-script }}
+      - name: Analyse Component Bundle Sizes
+        if: inputs.analyse-component-bundles
+        run: yarn analyse-component-bundles

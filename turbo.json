@@ -7,6 +7,9 @@
         "^build"
       ]
     },
+    "analyse-component-bundles:ci": {
+      "cache": false
+    },
     "build": {
       "cache": true,
       "dependsOn": [
