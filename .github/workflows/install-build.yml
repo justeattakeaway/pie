@@ -41,3 +41,12 @@ jobs:
       - name: Analyse Component Bundle Sizes
         if: inputs.analyse-component-bundles
         run: yarn analyse-component-bundles --only
+      - name: Post Component Size Report
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
+        with:
+          github-token: ${{ secrets.CHANGESETS_TOKEN }}
+          script: |
+            const script = require('./.github/scripts/post-component-size-report.js');
+            await script({ github, context });
