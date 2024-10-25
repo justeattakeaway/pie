@@ -38,6 +38,18 @@
             }
         ],
         [
+            "isDismissible",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "If true, displays a close icon. Can be only used if `isSelected` is set to true",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
             "isLoading",
             {
                 "type": "code",

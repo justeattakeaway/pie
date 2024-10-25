@@ -27,7 +27,7 @@ test.describe('PieChip - Component tests', () => {
     });
 
     test.describe('if NOT disabled', () => {
-        test('closeBtnSelector should emit the close event', async ({ mount, page }) => {
+        test('close button should emit the close event', async ({ mount, page }) => {
             // Arrange
             const events : Array<Event> = [];
 
@@ -53,7 +53,26 @@ test.describe('PieChip - Component tests', () => {
     });
 
     test.describe('if disabled', () => {
-        test('closeBtnSelector should be disabled', async ({ mount, page }) => {
+        test('should not trigger click events when the chip is `disabled`', async ({ mount }) => {
+            // Arrange
+            const messages: string[] = [];
+            const expectedEventMessage = 'Native event dispatched';
+
+            const component = await mount(PieChip, {
+                props: {
+                    disabled: true,
+                },
+                on: {
+                    click: () => messages.push(expectedEventMessage),
+                },
+            });
+
+            await component.click();
+
+            expect(messages).toEqual([expectedEventMessage]);
+        });
+
+        test('close button should be disabled', async ({ mount, page }) => {
             // Arrange
             await mount(PieChip, {
                 props: {

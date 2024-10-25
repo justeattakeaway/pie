@@ -211,6 +211,30 @@ Action chips trigger actions related to primary content.
 
 ___
 
+## Interactions
+
+The whole chip is interactive, except when the close icon appears, in which case only the close icon is clickable to perform the action.
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/chip/interactions-whole-chip-interactive.svg",
+      width: 63,
+      alt: "A chip component where the entire component is interactive."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/chip/interactions-close-icon-interactive.svg",
+      width: 83,
+      alt: "A chip component with a close icon, where only the close icon is interactive."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+
+___
+
 ## Interactive states
 
 Outlines the atomic level interactive elements for the component.

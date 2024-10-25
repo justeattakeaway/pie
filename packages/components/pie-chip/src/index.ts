@@ -47,6 +47,19 @@ export class PieChip extends LitElement implements ChipProps {
     public aria: ChipProps['aria'];
 
     /**
+     * Hander to prevent click events
+     * when the chip is disabled or dismissible
+     *
+     * @private
+     */
+    private onClickHandler (event: Event) {
+        if (this.disabled || this.isDismissible) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    }
+
+    /**
      * Template for the loading state
      *
      * @private
@@ -97,17 +110,21 @@ export class PieChip extends LitElement implements ChipProps {
             isLoading,
             isDismissible,
         } = this;
+        const showCloseButton = isDismissible && isSelected;
 
         const classes = {
             'c-chip': true,
             [`c-chip--${variant}`]: true,
             'c-chip--selected': isSelected,
-            'c-chip--dismissible': isDismissible,
+            'c-chip--dismissible': showCloseButton,
+            'c-chip--disabled': disabled,
             'is-loading': isLoading,
         };
 
         return html`
             <div
+                role="${ifDefined(showCloseButton ? undefined : 'button')}"
+                tabindex="${ifDefined(showCloseButton ? undefined : '0')}"
                 aria-atomic="true"
                 aria-busy="${isLoading}"
                 aria-current="${isSelected}"
@@ -115,13 +132,11 @@ export class PieChip extends LitElement implements ChipProps {
                 aria-live="polite"
                 class=${classMap(classes)}
                 data-test-id="pie-chip"
-                tabindex="0"
-                role="button"
-                ?disabled="${disabled}">
+                @click="${this.onClickHandler}">
                     <slot name="icon"></slot>
                     ${isLoading ? this.renderSpinner() : nothing}
                     <slot></slot>
-                    ${isDismissible && isSelected ? this.renderCloseButton() : nothing}
+                    ${showCloseButton ? this.renderCloseButton() : nothing}
             </div>`;
     }
 
