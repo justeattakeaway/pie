@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, type PropertyValues, type nothing, type TemplateResult,
+    LitElement, html, unsafeCSS, type PropertyValues, type TemplateResult,
 } from 'lit';
 import { property, queryAssignedElements, state } from 'lit/decorators.js';
 import {
@@ -31,10 +31,10 @@ const componentSelector = 'pie-radio-group';
  */
 export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implements RadioGroupProps {
     @state()
-        hasLabel = false;
+    private _hasLabel = false;
 
     @property({ type: String })
-    public name?: RadioGroupProps['name'];
+    public name: RadioGroupProps['name'];
 
     @property({ type: String })
     public value = defaultProps.value;
@@ -46,7 +46,9 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
     public disabled = defaultProps.disabled;
 
     @queryAssignedElements({ selector: 'pie-radio' })
-        _slottedChildren: Array<HTMLInputElement> | undefined;
+        _slottedChildren!: Array<HTMLInputElement>;
+
+    private _abortController!: AbortController;
 
     /**
      * Dispatches a custom event to notify each slotted child radio element
@@ -54,7 +56,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
      * @private
      */
     private _handleDisabled (): void {
-        this._slottedChildren?.forEach((child) => child.dispatchEvent(new CustomEvent(ON_RADIO_GROUP_DISABLED, {
+        this._slottedChildren.forEach((child) => child.dispatchEvent(new CustomEvent(ON_RADIO_GROUP_DISABLED, {
             bubbles: false, composed: false, detail: { disabled: this.disabled },
         })));
     }
@@ -64,14 +66,11 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
      * @param {string} selectedValue - The value of the currently selected radio.
      * @private
      */
-    private handleRadioSelection (selectedValue: string): void {
-        this._slottedChildren?.filter((radio) => !radio.disabled)
-        .forEach((radio) => {
-            if (radio.value === selectedValue) {
-                this.value = selectedValue;
-                radio.checked = true;
-            } else {
-                radio.checked = false;
+    private _handleRadioSelection (selectedValue: string): void {
+        this.value = selectedValue;
+        this._slottedChildren.forEach((radio) => {
+            if (!radio.disabled) {
+                radio.checked = radio.value === selectedValue;
             }
         });
     }
@@ -84,30 +83,30 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
     private _handleRadioChange (event: Event): void {
         event.stopPropagation();
         const target = event.target as HTMLInputElement;
-        this.handleRadioSelection(target.value);
+        this._handleRadioSelection(target.value);
         const changedEvent = wrapNativeEvent(event);
         this.dispatchEvent(changedEvent);
     }
 
     /**
-     * Updates the `hasLabel` state when content is added to the label slot.
+     * Updates the `_hasLabel` state when content is added to the label slot.
      * @param {Event} e - The slotchange event.
      * @private
      */
-    private handleSlotChange (e: { target: HTMLSlotElement }): void {
+    private _handleSlotChange (e: { target: HTMLSlotElement }): void {
         const childNodes = e.target.assignedNodes({ flatten: true });
-        this.hasLabel = childNodes.length > 0;
+        this._hasLabel = childNodes.length > 0;
     }
 
     /**
      * Renders the label element inside a legend, wrapping the slot content.
-     * @returns {TemplateResult | typeof nothing} The template for the label slot.
+     * @returns {TemplateResult } The template for the label slot.
      * @private
      */
-    private renderWrappedLabel (): TemplateResult | typeof nothing {
-        return this.hasLabel
-            ? html`<legend><slot name='label' @slotchange=${this.handleSlotChange}></slot></legend>`
-            : html`<slot name='label' @slotchange=${this.handleSlotChange}></slot>`;
+    private _renderWrappedLabel (): TemplateResult {
+        return this._hasLabel
+            ? html`<legend><slot name='label' @slotchange=${this._handleSlotChange}></slot></legend>`
+            : html`<slot name='label' @slotchange=${this._handleSlotChange}></slot>`;
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {
@@ -116,18 +115,21 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
         }
 
         if (_changedProperties.has('value')) {
-            this.handleRadioSelection(this.value);
+            this._handleRadioSelection(this.value);
         }
     }
 
     connectedCallback (): void {
         super.connectedCallback();
-        this.shadowRoot?.addEventListener('change', this._handleRadioChange.bind(this));
+        this._abortController = new AbortController();
+        const { signal } = this._abortController;
+
+        this.shadowRoot?.addEventListener('change', this._handleRadioChange.bind(this), { signal });
     }
 
     disconnectedCallback (): void {
         super.disconnectedCallback();
-        this.shadowRoot?.removeEventListener('change', this._handleRadioChange);
+        this._abortController.abort();
     }
 
     render () {
@@ -148,7 +150,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
                 ?disabled=${disabled}
                 data-test-id="pie-radio-group"
                 class="${classMap(classes)}">
-                    ${this.renderWrappedLabel()}
+                    ${this._renderWrappedLabel()}
                 <slot></slot>
             </fieldset>
         `;

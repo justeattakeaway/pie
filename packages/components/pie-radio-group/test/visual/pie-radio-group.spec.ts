@@ -34,9 +34,9 @@ const renderTestPieRadioGroup = (propVals: WebComponentPropValues) => {
     </pie-radio-group>`;
 };
 
-const componentPropsMatrix: WebComponentPropValues[] = getAllPropCombinations(props);
-const componentPropsMatrixByInlineState: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'isInline');
-const componentVariants: string[] = Object.keys(componentPropsMatrixByInlineState);
+const componentPropsMatrix = getAllPropCombinations(props);
+const componentPropsMatrixByInlineState = splitCombinationsByPropertyValue(componentPropsMatrix, 'isInline');
+const componentVariants = Object.keys(componentPropsMatrixByInlineState);
 
 test.beforeEach(async ({ mount }, testInfo) => {
     testInfo.setTimeout(testInfo.timeout + 40000);

@@ -26,7 +26,7 @@ const componentSelector = 'pie-radio';
  */
 export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements RadioProps {
     @state()
-    private disabledByParent = false;
+    private _disabledByParent = false;
 
     @property({ type: Boolean, reflect: true })
     public checked = defaultProps.checked;
@@ -48,24 +48,27 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
     public value!: RadioProps['value'];
 
     @query('input[type="radio"]')
-    private radio!: HTMLInputElement;
+    private _radio!: HTMLInputElement;
+
+    private _abortController!: AbortController;
 
     connectedCallback () : void {
         super.connectedCallback();
+        this._abortController = new AbortController();
+        const { signal } = this._abortController;
 
-        this.addEventListener('pie-radio-group-disabled', (e: CustomEventInit) => { this.disabledByParent = e.detail.disabled; });
+        this.addEventListener('pie-radio-group-disabled', (e: CustomEventInit) => { this._disabledByParent = e.detail.disabled; }, { signal });
     }
 
     disconnectedCallback () : void {
         super.disconnectedCallback();
-
-        this.removeEventListener('pie-radio-group-disabled', (e: CustomEventInit) => { this.disabledByParent = e.detail.disabled; });
+        this._abortController.abort();
     }
 
     /**
      * Ensures that the form value is in sync with the component.
      */
-    private handleFormAssociation () {
+    private _handleFormAssociation () {
         if (this.form && this.name) {
             this._internals.setFormValue(this.checked ? this.value : null);
         }
@@ -75,7 +78,7 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
      * Captures the native change event and wraps it in a custom event.
      * @param {Event} event - This should be the change event that was listened for on an input element with `type="radio"`.
      */
-    private handleChange (event: Event) {
+    private _handleChange (event: Event) {
         const { checked } = event?.currentTarget as HTMLInputElement;
         this.checked = checked;
         // This is because some events set `composed` to `false`.
@@ -83,7 +86,7 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
         const customChangeEvent = wrapNativeEvent(event);
         this.dispatchEvent(customChangeEvent);
 
-        this.handleFormAssociation();
+        this._handleFormAssociation();
     }
 
     /**
@@ -91,7 +94,7 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
      * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
      */
     public get validity () : ValidityState {
-        return this.radio.validity;
+        return this._radio.validity;
     }
 
     /**
@@ -109,24 +112,24 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
         const changeEvent = new Event('change', { bubbles: true, composed: true });
         this.dispatchEvent(changeEvent);
 
-        this.handleFormAssociation();
+        this._handleFormAssociation();
     }
 
     updated () {
-        this.handleFormAssociation();
+        this._handleFormAssociation();
     }
 
     render () {
         const {
             checked,
             disabled,
-            disabledByParent,
+            _disabledByParent,
             name,
             required,
             value,
         } = this;
 
-        const componentDisabled = disabled || disabledByParent;
+        const componentDisabled = disabled || _disabledByParent;
 
         const classes = {
             'c-radio': true,
@@ -144,7 +147,7 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
                 name="${ifDefined(name)}"
                 ?disabled="${componentDisabled}"
                 ?required="${required}"
-                @change="${this.handleChange}">
+                @change="${this._handleChange}">
             <slot></slot>
         </label>`;
     }

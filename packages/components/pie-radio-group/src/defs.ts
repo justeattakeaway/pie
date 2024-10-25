@@ -29,7 +29,7 @@ export interface RadioGroupProps {
  */
 export const ON_RADIO_GROUP_DISABLED = 'pie-radio-group-disabled';
 
-export type DefaultProps = ComponentDefaultProps<RadioGroupProps, 'value' | 'disabled' | 'isInline'>;
+export type DefaultProps = ComponentDefaultProps<RadioGroupProps, keyof Omit<RadioGroupProps, 'name'>>;
 
 export const defaultProps: DefaultProps = {
     disabled: false,

@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, type PropertyValues, type nothing, type TemplateResult,
+    LitElement, html, unsafeCSS, type PropertyValues, type TemplateResult,
 } from 'lit';
 import { property, queryAssignedElements, state } from 'lit/decorators.js';
 import {
@@ -35,10 +35,10 @@ const assistiveTextId = 'assistive-text';
  */
 export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxGroupProps {
     @state()
-        hasLabel = false;
+    private _hasLabel = false;
 
     @property({ type: String })
-    public name?: CheckboxGroupProps['name'];
+    public name: CheckboxGroupProps['name'];
 
     @property({ type: String })
     public assistiveText?: CheckboxGroupProps['assistiveText'];
@@ -53,18 +53,16 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
 
-    @queryAssignedElements({ selector: 'pie-checkbox' }) _slottedChildren: Array<HTMLElement> | undefined;
-
-    @queryAssignedElements({ slot: 'label' }) _labelSlot!: Array<HTMLElement>;
+    @queryAssignedElements({ selector: 'pie-checkbox' }) _slottedChildren!: Array<HTMLElement>;
 
     private _handleDisabled () : void {
-        this._slottedChildren?.forEach((child) => child.dispatchEvent(new CustomEvent(ON_CHECKBOX_GROUP_DISABLED, {
+        this._slottedChildren.forEach((child) => child.dispatchEvent(new CustomEvent(ON_CHECKBOX_GROUP_DISABLED, {
             bubbles: false, composed: false, detail: { disabled: this.disabled },
         })));
     }
 
     private _handleStatus () : void {
-        this._slottedChildren?.forEach((child) => {
+        this._slottedChildren.forEach((child) => {
             child.setAttribute('status', this.status);
 
             if (this.status === 'error' && this.assistiveText) {
@@ -75,13 +73,13 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
     }
 
     /**
-     * Function that updates the local `hasLabel` state in case
+     * Function that updates the local `_hasLabel` state in case
      * when the label slot receives content.
      * @private
      */
     private handleSlotChange (e: { target: HTMLSlotElement; }) {
         const childNodes = e.target.assignedNodes({ flatten: true });
-        this.hasLabel = childNodes.length > 0;
+        this._hasLabel = childNodes.length > 0;
     }
 
     /**
@@ -89,8 +87,8 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
      * Called within the main render function.
      * @private
      */
-    private renderWrappedLabel (): TemplateResult | typeof nothing {
-        return this.hasLabel ? html`<legend><slot name='label' @slotchange=${this.handleSlotChange}></slot></legend>` : html`<slot name='label' @slotchange=${this.handleSlotChange}></slot>`;
+    private renderWrappedLabel (): TemplateResult {
+        return this._hasLabel ? html`<legend><slot name='label' @slotchange=${this.handleSlotChange}></slot></legend>` : html`<slot name='label' @slotchange=${this.handleSlotChange}></slot>`;
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {
