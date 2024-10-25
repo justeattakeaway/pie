@@ -26,10 +26,10 @@ const renderTestPieRadioGroup = (propVals: WebComponentPropValues) => {
     if (propVals.disabled) attributes += ` disabled="${propVals.disabled}"`;
 
     return `
-    <pie-radio-group ${attributes}>
+    <pie-radio-group ${attributes} value="radio-two">
         ${propVals.hasGroupLabel ? '<pie-form-label slot="label">Group Label</pie-form-label>' : ''}
         <pie-radio value="radio-one">radio 1</pie-radio>
-        <pie-radio value="radio-two" checked>radio 2</pie-radio>
+        <pie-radio value="radio-two">radio 2</pie-radio>
         <pie-radio value="radio-three">radio 3</pie-radio>
     </pie-radio-group>`;
 };
