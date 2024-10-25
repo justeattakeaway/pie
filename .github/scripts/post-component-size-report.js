@@ -10,13 +10,30 @@ module.exports = async ({ github, context }) => {
     // Find all compsizer-failure-report.json files
     const reportFiles = getAllReportFiles('packages/components');
 
+    // Log the files found to verify
+    console.log("Found report files:", reportFiles);
+
+    // If no files are found, log and exit to prevent an empty comment
+    if (reportFiles.length === 0) {
+        console.log("No compsizer-failure-report.json files found. Exiting without comment.");
+        return;
+    }
+
     // Build the markdown table from JSON data in each file
     for (const file of reportFiles) {
-        const data = JSON.parse(fs.readFileSync(file, 'utf-8'));
-        data.forEach(({ component, expectedThreshold, actualSizeKB }) => {
-            summary += `| ${component} | ${expectedThreshold} | ${actualSizeKB} |\n`;
-        });
+        try {
+            const data = JSON.parse(fs.readFileSync(file, 'utf-8'));
+
+            data.forEach(({ component, expectedThreshold, actualSizeKB }) => {
+                summary += `| ${component} | ${expectedThreshold} | ${actualSizeKB} |\n`;
+            });
+        } catch (error) {
+            console.error(`Failed to parse JSON in file ${file}:`, error);
+        }
     }
+
+    // Check if summary was populated
+    console.log("Generated summary:", summary);
 
     const commentBody = `${watermark}\n### Component Size Report\n${summary}`;
     const { owner, repo } = context.repo;
