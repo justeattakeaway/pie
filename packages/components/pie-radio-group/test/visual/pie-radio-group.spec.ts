@@ -11,9 +11,9 @@ import { WebComponentTestWrapper } from '@justeattakeaway/pie-webc-testing/src/h
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { PieRadio } from '@justeattakeaway/pie-radio';
 import { PieFormLabel } from '@justeattakeaway/pie-form-label';
-import { PieRadioGroup } from '../../src/index.ts';
+import { PieRadioGroup, type RadioGroupProps } from '../../src/index.ts';
 
-const props: PropObject = {
+const props: PropObject<RadioGroupProps & { hasGroupLabel: boolean }> = {
     isInline: [true, false],
     disabled: [true, false],
     hasGroupLabel: [true, false],
