@@ -4,6 +4,8 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { ModalComponent } from 'test/helpers/page-object/pie-modal.page.ts';
+import { PieButton } from '@justeattakeaway/pie-button';
+import { PieTextInput } from '@justeattakeaway/pie-text-input';
 import { createScrollablePageHTML, renderTestPieModal } from '../helpers/index.ts';
 
 import { PieModal } from '../../src/index.ts';
@@ -22,6 +24,12 @@ test.describe('modal', () => {
         modalComponent = new ModalComponent(page);
         const component = await mount(PieModal);
         await component.unmount();
+
+        const pieButtonComponent = await mount(PieButton);
+        await pieButtonComponent.unmount();
+
+        const PieTextInputComponent = await mount(PieTextInput);
+        await PieTextInputComponent.unmount();
     });
 
     test('should be visible when opened', async ({ mount }) => {
@@ -803,5 +811,39 @@ test.describe('modal', () => {
                 expect(ariaLoadingBusy).toBe('false');
             });
         });
+    });
+
+    test.only('should not close the modal when a form is submitted', async ({ mount, page }) => {
+        // Arrange
+        const slotContent = `<form id="testForm" action="/foo" method="POST">
+                    <pie-form-label for="age">Age</pie-form-label>
+                    <pie-text-input id="age" name="age"></pie-text-input>
+                    <pie-button data-test-id="submit-button">Submit</pie-button>
+                </form>`;
+
+        await mount(PieModal, {
+            props: {
+                heading: 'Modal heading',
+                isOpen: true,
+            },
+            slots: {
+                default: slotContent,
+            },
+
+        });
+
+        await page.evaluate(() => {
+            const form = document.querySelector('#testForm') as HTMLFormElement;
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+            });
+        });
+
+        // Act
+        await page.locator('[data-test-id="submit-button"]').click();
+        const isModalVisible = await modalComponent.isModalVisible();
+
+        // Assert
+        expect(isModalVisible).toBe(true);
     });
 });
