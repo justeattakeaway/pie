@@ -180,3 +180,6 @@ custom-elements.json
 # Yalc
 .yalc
 yalc.lock
+
+# Compsizer
+**/compsizer-failure-report.json
