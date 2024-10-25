@@ -8,6 +8,7 @@ import {
     type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, positions, defaultProps,
 } from '@justeattakeaway/pie-modal';
 
+import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-text-input';
 import '@justeattakeaway/pie-form-label';
 
