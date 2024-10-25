@@ -172,7 +172,7 @@ jobs:
           os: ubuntu-latest
       # Analyse Component Bundles
       - name: Analyse Component Bundle Sizes
-        run: npx -y turbo run analyse-component-bundles
+        run: yarn analyse-component-bundles
 
   unit-tests:
     needs: 'build-ubuntu-node-20'
