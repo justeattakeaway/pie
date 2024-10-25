@@ -156,6 +156,24 @@ jobs:
       node-version: 20
     secrets: inherit
 
+  analyse-component-bundles:
+    name: Analyse Component Bundles
+    needs: build-ubuntu-node-20
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 20
+          os: ubuntu-latest
+      # Analyse Component Bundles
+      - name: Analyse Component Bundle Sizes
+        run: turbo run analyse-component-bundles
+
   unit-tests:
     needs: 'build-ubuntu-node-20'
     runs-on: ubuntu-latest
