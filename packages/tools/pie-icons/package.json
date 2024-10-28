@@ -13,6 +13,7 @@
     "dist"
   ],
   "scripts": {
+    "update-icons": "node ./bin/update-icons.mjs",
     "build": "node ./bin/build.js",
     "prepare": "yarn build && yarn test:coverage",
     "clean": "run -T rimraf -rf ./dist/",
