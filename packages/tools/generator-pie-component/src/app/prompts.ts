@@ -2,6 +2,15 @@ export default [{
     message: "What is the name of your new component? (Without the 'pie-' prefix e.g. 'form-label')",
     name: 'name',
     type: 'input',
+    validate: (input: string) => {
+        if (!input || input.trim() === '') {
+            return 'Please enter a component name';
+        }
+        if (input.startsWith('pie-')) {
+            return 'Please enter a component name without the "pie-" prefix';
+        }
+        return true;
+    },
 },
 {
     message: 'Does your web component need to be aware of text direction to render different markup or styles to support right-to-left languages?',
