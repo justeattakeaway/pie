@@ -1,4 +1,7 @@
 version: 2
+snapshot:
+  percyCSS: |
+    percyCSS: { display:none }
 discovery:
   disallowedHostnames:
     - unpkg.com

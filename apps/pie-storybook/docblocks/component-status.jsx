@@ -10,7 +10,7 @@ export const ComponentStatus = ({ component }) => {
 
     return (
         <div className="pie-sb-status-wrapper">
-            <pie-tag variant={tagVariant} class="c-componentStatus">
+            <pie-tag variant={tagVariant} class="c-componentStatus percyCSS">
                 Status: {componentStatus}
                 <a
                     href="https://pie.design/components/component-status/#status-descriptions"
