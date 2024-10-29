@@ -77,9 +77,10 @@ jobs:
         shell: bash
         env:
           PACKAGE_DIST_DIRECTORY: ${{ inputs.package-dist-directory }}
+          ZIP_NAME: ${{ env.ZIP_NAME }}
         run: |
           cd "$PACKAGE_DIST_DIRECTORY"
-          zip -r ./"${{ env.ZIP_NAME }}" .
+          zip -r "./$ZIP_NAME" .
       # Upload zip to S3
       - name: Upload to S3
         id: upload-s3
