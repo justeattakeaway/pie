@@ -16,6 +16,8 @@ env:
 
 jobs:
   build-example-apps:
+    permissions:
+      contents: read
     strategy:
       matrix:
         include:

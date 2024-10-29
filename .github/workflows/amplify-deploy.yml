@@ -46,6 +46,8 @@ env:
 
 jobs:
   deploy:
+    permissions:
+      contents: read
     runs-on: ${{ inputs.os }}
     steps:
       # Checkout the Repo

@@ -19,6 +19,8 @@ env:
 
 jobs:
   install-build:
+    permissions:
+      contents: read
     runs-on: ${{ inputs.os }}
     steps:
       - name: Checkout
