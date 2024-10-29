@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-chip",
   "description": "PIE Design System Chip built using Web Components",
-  "version": "0.8.6",
+  "version": "0.9.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

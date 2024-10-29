@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-chip
 
+## 0.9.0
+
+### Minor Changes
+
+- - [Fixed] - Prevent emitting events when the chip is disabled ([#1987](https://github.com/justeattakeaway/pie/pull/1987)) by [@raoufswe](https://github.com/raoufswe)
+
+  - [Updated] - When `isDismissible` is set to true, only the close icon can be interactive
+
 ## 0.8.6
 
 ### Patch Changes
