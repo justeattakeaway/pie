@@ -24,4 +24,4 @@ runs:
           CONCURRENCY_FLAG="--concurrency=$CONCURRENCY"
         fi
 
-        yarn "$SCRIPT_NAME" "$CONCURRENCY_FLAG"
+        "yarn $SCRIPT_NAME $CONCURRENCY_FLAG"
