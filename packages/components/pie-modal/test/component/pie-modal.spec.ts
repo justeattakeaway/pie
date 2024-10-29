@@ -813,7 +813,7 @@ test.describe('modal', () => {
         });
     });
 
-    test.only('should not close the modal when a form is submitted', async ({ mount, page }) => {
+    test('should not close the modal when a form is submitted', async ({ mount, page }) => {
         // Arrange
         const slotContent = `<form id="testForm" action="/foo" method="POST">
                     <pie-form-label for="age">Age</pie-form-label>
