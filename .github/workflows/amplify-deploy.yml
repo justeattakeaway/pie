@@ -148,7 +148,7 @@ jobs:
           aws amplify update-domain-association \
             --app-id "$AMPLIFY_ID" \
             --domain-name pie.design \
-            --sub-domain-settings "$DOMAIN_ASSOCIATIONS"
+            --sub-domain-settings '$DOMAIN_ASSOCIATIONS'
 
       - name: Wait for Amplify deployment
         if: github.event_name == 'pull_request'
