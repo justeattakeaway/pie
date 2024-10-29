@@ -33,16 +33,16 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @state()
-    private disabledByParent = false;
+    private _disabledByParent = false;
 
     @state()
-    private visuallyHiddenError = false;
+    private _visuallyHiddenError = false;
 
     @property({ type: String })
     public value = defaultProps.value;
 
     @property({ type: String })
-    public name?: CheckboxProps['name'];
+    public name: CheckboxProps['name'];
 
     @property({ type: Boolean, reflect: true })
     public checked = defaultProps.checked;
@@ -60,7 +60,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     public indeterminate = defaultProps.indeterminate;
 
     @query('input[type="checkbox"]')
-    private checkbox!: HTMLInputElement;
+    private _checkbox!: HTMLInputElement;
 
     @property({ type: String })
     public assistiveText?: CheckboxProps['assistiveText'];
@@ -69,18 +69,21 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
     public status = defaultProps.status;
 
+    private _abortController!: AbortController;
+
     connectedCallback () : void {
         super.connectedCallback();
 
-        this.addEventListener('pie-checkbox-group-disabled', (e: CustomEventInit) => { this.disabledByParent = e.detail.disabled; });
-        this.addEventListener('pie-checkbox-group-error', (e: CustomEventInit) => { this.visuallyHiddenError = e.detail.error; });
+        this._abortController = new AbortController();
+        const { signal } = this._abortController;
+
+        this.addEventListener('pie-checkbox-group-disabled', (e: CustomEventInit) => { this._disabledByParent = e.detail.disabled; }, { signal });
+        this.addEventListener('pie-checkbox-group-error', (e: CustomEventInit) => { this._visuallyHiddenError = e.detail.error; }, { signal });
     }
 
     disconnectedCallback () : void {
         super.disconnectedCallback();
-
-        this.removeEventListener('pie-checkbox-group-disabled', (e: CustomEventInit) => { this.disabledByParent = e.detail.disabled; });
-        this.removeEventListener('pie-checkbox-group-error', (e: CustomEventInit) => { this.visuallyHiddenError = e.detail.error; });
+        this._abortController.abort();
     }
 
     /**
@@ -88,13 +91,13 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
      * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
      */
     public get validity (): ValidityState {
-        return (this.checkbox as HTMLInputElement).validity;
+        return (this._checkbox as HTMLInputElement).validity;
     }
 
     /**
      * Ensures that the form value is in sync with the component.
      */
-    private handleFormAssociation () : void {
+    private _handleFormAssociation () : void {
         const isFormAssociated = !!this.form && !!this.name;
         if (isFormAssociated) {
             this._internals.setFormValue(this.checked ? this.value : null);
@@ -112,14 +115,14 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     }
 
     protected updated (): void {
-        this.handleFormAssociation();
+        this._handleFormAssociation();
     }
 
     /**
      * Captures the native change event and wraps it in a custom event.
      * @param {Event} event - This should be the change event that was listened for on an input element with `type="checkbox"`.
      */
-    private handleChange (event: Event) {
+    private _handleChange (event: Event) {
         const { checked } = event?.currentTarget as HTMLInputElement;
         this.checked = checked;
         // This is because some events set `composed` to `false`.
@@ -127,7 +130,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
         const customChangeEvent = wrapNativeEvent(event);
         this.dispatchEvent(customChangeEvent);
 
-        this.handleFormAssociation();
+        this._handleFormAssociation();
     }
 
     /**
@@ -145,7 +148,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
         const changeEvent = new Event('change', { bubbles: true, composed: true });
         this.dispatchEvent(changeEvent);
 
-        this.handleFormAssociation();
+        this._handleFormAssociation();
     }
 
     render () {
@@ -154,8 +157,8 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             value,
             name,
             disabled,
-            disabledByParent,
-            visuallyHiddenError,
+            _disabledByParent,
+            _visuallyHiddenError,
             required,
             indeterminate,
             assistiveText,
@@ -163,7 +166,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
             isRTL,
         } = this;
 
-        const componentDisabled = disabled || disabledByParent;
+        const componentDisabled = disabled || _disabledByParent;
 
         const checkboxClasses = {
             'c-checkbox': true,
@@ -196,7 +199,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
                 .indeterminate=${indeterminate}
                 aria-invalid=${status === 'error' ? 'true' : 'false'}
                 aria-describedby=${ifDefined(assistiveText ? assistiveTextId : undefined)}
-                @change=${this.handleChange}
+                @change=${this._handleChange}
                 data-test-id="checkbox-input"
             />
             <label for="inputId" data-test-id="checkbox-component">
@@ -210,7 +213,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
                 <pie-assistive-text
                     id="${assistiveTextId}"
                     variant=${status}
-                    ?isVisuallyHidden=${visuallyHiddenError}
+                    ?isVisuallyHidden=${_visuallyHiddenError}
                     data-test-id="pie-checkbox-assistive-text">
                         ${assistiveText}
                 </pie-assistive-text>` : nothing}
