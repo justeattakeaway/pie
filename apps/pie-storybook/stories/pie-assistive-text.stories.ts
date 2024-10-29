@@ -29,7 +29,7 @@ const assistiveTextStoryMeta: AssistiveTextStoryMeta = {
             },
         },
         isVisuallyHidden: {
-            description: 'If true, hides the component visually but leaves it accessible for a11y technologies.',
+            description: 'If true, hides the component visually but leaves it accessible for screen readers.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isVisuallyHidden,
