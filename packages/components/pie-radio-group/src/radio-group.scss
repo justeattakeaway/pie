@@ -16,4 +16,8 @@
         flex-flow: row wrap;
         gap: var(--radio-group-gap--inline);
     }
+
+    &.c-radioGroup--hasAssistiveText {
+        margin-block-end: var(--dt-spacing-a);
+    }
 }

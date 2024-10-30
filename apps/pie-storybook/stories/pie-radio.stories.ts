@@ -4,7 +4,11 @@ import { useArgs as UseArgs } from '@storybook/preview-api';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-radio';
-import { type RadioProps as RadioBaseProps, defaultProps } from '@justeattakeaway/pie-radio';
+import {
+    type RadioProps as RadioBaseProps,
+    defaultProps,
+    statusTypes,
+} from '@justeattakeaway/pie-radio';
 
 import { type SlottedComponentProps } from '../types';
 import { createStory, sanitizeAndRenderHTML, type TemplateFunction } from '../utilities';
@@ -66,12 +70,19 @@ const radioStoryMeta: RadioStoryMeta = {
             description: 'Content to set as the radio label.',
             control: 'text',
         },
-
         value: {
             description: 'The value of the radio (used as a key/value pair in HTML forms with `name`).',
             control: 'text',
             defaultValue: {
                 summary: defaultArgs.value,
+            },
+        },
+        status: {
+            description: 'The status of the radio component. Can be default or error.',
+            control: 'select',
+            options: statusTypes,
+            defaultValue: {
+                summary: defaultProps.status,
             },
         },
     },
@@ -87,7 +98,14 @@ const radioStoryMeta: RadioStoryMeta = {
 export default radioStoryMeta;
 
 const Template = ({
-    checked, disabled, defaultChecked, name, required, slot, value,
+    checked,
+    disabled,
+    defaultChecked,
+    name,
+    required,
+    slot,
+    value,
+    status,
 }: RadioProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -104,6 +122,7 @@ const Template = ({
             ?required="${required}"
             name="${ifDefined(name)}"
             .value="${value}"
+            status="${status}"
             @change="${onChange}">
             ${sanitizeAndRenderHTML(slot)}
         </pie-radio>`;

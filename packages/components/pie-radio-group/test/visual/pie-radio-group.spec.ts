@@ -11,12 +11,15 @@ import { WebComponentTestWrapper } from '@justeattakeaway/pie-webc-testing/src/h
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { PieRadio } from '@justeattakeaway/pie-radio';
 import { PieFormLabel } from '@justeattakeaway/pie-form-label';
-import { PieRadioGroup, type RadioGroupProps } from '../../src/index.ts';
+import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
+import { PieRadioGroup, type RadioGroupProps, statusTypes } from '../../src/index.ts';
 
 const props: PropObject<RadioGroupProps & { hasGroupLabel: boolean }> = {
     isInline: [true, false],
     disabled: [true, false],
     hasGroupLabel: [true, false],
+    status: statusTypes,
+    assistiveText: ['', 'Assistive Text'],
 };
 
 const renderTestPieRadioGroup = (propVals: WebComponentPropValues) => {
@@ -24,6 +27,8 @@ const renderTestPieRadioGroup = (propVals: WebComponentPropValues) => {
 
     if (propVals.isInline) attributes += ` isInline="${propVals.isInline}"`;
     if (propVals.disabled) attributes += ` disabled="${propVals.disabled}"`;
+    if (propVals.status) attributes += ` status="${propVals.status}"`;
+    if (propVals.assistiveText) attributes += ` assistiveText="${propVals.assistiveText}"`;
 
     return `
     <pie-radio-group ${attributes} value="radio-two">
@@ -51,6 +56,9 @@ test.beforeEach(async ({ mount }, testInfo) => {
 
     const formLabelComponent = await mount(PieFormLabel);
     await formLabelComponent.unmount();
+
+    const assistiveTextComponent = await mount(PieAssistiveText);
+    await assistiveTextComponent.unmount();
 });
 
 componentVariants.forEach((variant) => test(`should render all prop variations for the isInline state: ${variant}`, async ({ page, mount }) => {
@@ -59,6 +67,8 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
         const propKeyValues = `
             isInline: ${testComponent.propValues.isInline},
             disabled: ${testComponent.propValues.disabled},
+            status: ${testComponent.propValues.status},
+            assistiveText: ${testComponent.propValues.assistiveText},
             hasGroupLabel: ${testComponent.propValues.hasGroupLabel}`;
 
         await mount(

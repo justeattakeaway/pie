@@ -1,5 +1,10 @@
 import {
-    LitElement, html, unsafeCSS, type PropertyValues, type TemplateResult,
+    LitElement,
+    html,
+    unsafeCSS,
+    nothing,
+    type PropertyValues,
+    type TemplateResult,
 } from 'lit';
 import { property, queryAssignedElements, state } from 'lit/decorators.js';
 import {
@@ -7,6 +12,7 @@ import {
     defineCustomElement,
     FormControlMixin,
     wrapNativeEvent,
+    validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -14,6 +20,7 @@ import styles from './radio-group.scss?inline';
 import {
     type RadioGroupProps,
     defaultProps,
+    statusTypes,
     ON_RADIO_GROUP_DISABLED,
 } from './defs';
 import '@justeattakeaway/pie-assistive-text';
@@ -22,6 +29,7 @@ import '@justeattakeaway/pie-assistive-text';
 export * from './defs';
 
 const componentSelector = 'pie-radio-group';
+const assistiveTextId = 'assistive-text';
 
 /**
  * @tagname pie-radio-group
@@ -45,6 +53,13 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
 
+    @property({ type: String })
+    public assistiveText?: RadioGroupProps['assistiveText'];
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
+    public status = defaultProps.status;
+
     @queryAssignedElements({ selector: 'pie-radio' })
         _slottedChildren!: Array<HTMLInputElement>;
 
@@ -59,6 +74,16 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
         this._slottedChildren.forEach((child) => child.dispatchEvent(new CustomEvent(ON_RADIO_GROUP_DISABLED, {
             bubbles: false, composed: false, detail: { disabled: this.disabled },
         })));
+    }
+
+    /**
+     * Updates the `status` attribute of all slotted children.
+     * @private
+     * @returns {void}
+     */
+    private _handleStatus (): void {
+        if (this.status !== 'error') return;
+        this._slottedChildren.forEach((child) => child.setAttribute('status', this.status));
     }
 
     /**
@@ -117,6 +142,10 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
         if (_changedProperties.has('value')) {
             this._handleRadioSelection(this.value);
         }
+
+        if (_changedProperties.has('status')) {
+            this._handleStatus();
+        }
     }
 
     connectedCallback (): void {
@@ -137,11 +166,16 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
             name,
             isInline,
             disabled,
+            status,
+            assistiveText,
         } = this;
+
+        const hasAssistiveText = Boolean(assistiveText?.length);
 
         const classes = {
             'c-radioGroup': true,
             'c-radioGroup--inline': isInline,
+            'c-radioGroup--hasAssistiveText': hasAssistiveText,
         };
 
         return html`
@@ -149,10 +183,19 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
                 name=${ifDefined(name)}
                 ?disabled=${disabled}
                 data-test-id="pie-radio-group"
+                aria-describedby=${hasAssistiveText ? assistiveTextId : nothing}
                 class="${classMap(classes)}">
                     ${this._renderWrappedLabel()}
                 <slot></slot>
             </fieldset>
+            ${hasAssistiveText ? html`
+                <pie-assistive-text
+                    id=${assistiveTextId}
+                    variant=${status}
+                    data-test-id="pie-radio-group-assistive-text">
+                        ${assistiveText}
+                    </pie-assistive-text>`
+            : nothing}
         `;
     }
 
