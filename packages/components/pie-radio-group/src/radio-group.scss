@@ -1,1 +1,19 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+.c-radioGroup {
+    --radio-group-gap: var(--dt-spacing-c);
+    --radio-group-gap--inline: var(--dt-spacing-c) var(--dt-spacing-e);
+
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0;
+    display: flex;
+    flex-flow: column wrap;
+    gap: var(--radio-group-gap);
+
+    &.c-radioGroup--inline { 
+        flex-flow: row wrap;
+        gap: var(--radio-group-gap--inline);
+    }
+}
