@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-checkbox-group
 
+## 0.7.4
+
+### Patch Changes
+
+- [Updated] - prefix private methods and states with an underscore ([#2006](https://github.com/justeattakeaway/pie/pull/2006)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.7.3
 
 ### Patch Changes
