@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-radio-group
 
+## 0.2.0
+
+### Minor Changes
+
+- [Added] - basic functionality of the radio group component ([#2006](https://github.com/justeattakeaway/pie/pull/2006)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.1.2
 
 ### Patch Changes

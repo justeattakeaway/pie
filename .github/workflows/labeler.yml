@@ -13,8 +13,11 @@ jobs:
     # Since this action runs on "pull_request_target", the current context is the "main" branch
     # We need to pull the branch PR before performing the comparison in the "Add Missing Labels" step
     - name: Fetch branch PR
+      env:
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+        PR_BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
       run: |
-        git fetch origin pull/${{ github.event.pull_request.number }}/head:${{ github.event.pull_request.head.ref }}
+        git fetch origin pull/"$PR_NUMBER"/head:"$PR_BRANCH_NAME"
 
     - name: Add Missing Labels
       uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1

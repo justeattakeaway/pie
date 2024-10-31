@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.68.1
+
+### Patch Changes
+
+- [Fixed] - pie-button in form slot closes the modal on form submit ([#2008](https://github.com/justeattakeaway/pie/pull/2008)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 2.68.0
 
 ### Minor Changes

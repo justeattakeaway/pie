@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-radio
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - basic functionality of the radio group component ([#2006](https://github.com/justeattakeaway/pie/pull/2006)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Updated] - prefix private methods and states with an underscore ([#2006](https://github.com/justeattakeaway/pie/pull/2006)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.3.0
 
 ### Minor Changes

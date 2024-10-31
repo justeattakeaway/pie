@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.24.0
+
+### Minor Changes
+
+- Add prompt validators for package names ([#2009](https://github.com/justeattakeaway/pie/pull/2009)) by [@marc-lewis](https://github.com/marc-lewis)
+
 ## 0.23.0
 
 ### Minor Changes
