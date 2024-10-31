@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { useArgs as UseArgs } from '@storybook/preview-api';
@@ -28,7 +28,6 @@ const Template = ({
     name,
     autocomplete,
     autoFocus,
-    label,
     maxLength,
     assistiveText,
     status,
@@ -67,7 +66,6 @@ const Template = ({
             ?readonly="${readonly}"
             ?required="${required}"
             maxLength="${ifDefined(maxLength)}"
-            label="${ifDefined(label)}"
             @input="${onInput}"
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
@@ -167,15 +165,8 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: 'off',
             },
         },
-        label: {
-            description: 'The label for the textarea field.',
-            control: 'text',
-            defaultValue: {
-                summary: defaultProps.label,
-            },
-        },
         maxLength: {
-            description: 'The maximum number of characters allowed in the textarea field. To apply a length restriction, you must also provide label text.',
+            description: 'The maximum number of characters allowed in the textarea field.',
             control: 'number',
             defaultValue: {
                 summary: 0,
@@ -234,14 +225,23 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps> = () => html`
     </form>
 `;
 
+const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => html`
+        <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-label</pie-link>.</p>
+        <pie-form-label for="${ifDefined(props.name)}" trailing="${props.maxLength ? `${props.value.length}/${props.maxLength}` : nothing}">Label</pie-form-label>
+        ${Template(props)}
+    `;
+
 const CreateTextareaStory = createStory<TextareaProps>(Template, defaultArgs);
 const CreateTextareaStoryWithForm = createStory<TextareaProps>(ExampleFormTemplate, defaultArgs);
+const createStoryWithLabel = (props: TextareaProps) => createStory<TextareaProps>(WithLabelTemplate, props);
 
 export const Default = CreateTextareaStory({}, {
     argTypes: {
         defaultValue: { table: { readonly: true }, description: 'This prop only works when the textarea is inside a form. To interact with this, view the Example Form story.' },
     },
 });
+
+export const WithLabel = createStoryWithLabel(defaultArgs)();
 
 export const ExampleForm = CreateTextareaStoryWithForm();
 

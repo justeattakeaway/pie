@@ -8,7 +8,6 @@ import { live } from 'lit/directives/live.js';
 import throttle from 'lodash.throttle';
 
 import '@justeattakeaway/pie-assistive-text';
-import '@justeattakeaway/pie-form-label';
 import {
     validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent, type PIEInputElement,
 } from '@justeattakeaway/pie-webc-core';
@@ -48,9 +47,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     @property({ type: String })
     @validPropertyValues(componentSelector, resizeModes, defaultProps.resize)
     public resize = defaultProps.resize;
-
-    @property({ type: String })
-    public label = defaultProps.label;
 
     @property({ type: Number })
     public maxLength: TextareaProps['maxLength'];
@@ -122,7 +118,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     }
 
     protected firstUpdated (): void {
-        this.restrictInputLength();
         this._internals.setFormValue(this.value);
 
         window.addEventListener('resize', () => this.handleResize());
@@ -131,16 +126,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
 
     private handleResize () {
         this._throttledResize();
-    }
-
-    private restrictInputLength () {
-        if (this.label.length && this.maxLength && this.value.length > this.maxLength) {
-            const trimmedValue = this.value.slice(0, this.maxLength);
-            // Ensures that the internal text area is correctly trimmed and synced with our value.
-            // The live() directive does not solve this for us.
-            this._textarea.value = trimmedValue;
-            this.value = trimmedValue;
-        }
     }
 
     protected updated (changedProperties: PropertyValues<this>) {
@@ -169,7 +154,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
             this.value = newValue;
         }
 
-        this.restrictInputLength();
         this._internals.setFormValue(this.value);
 
         this.handleResize();
@@ -194,14 +178,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     public disconnectedCallback (): void {
         this._textarea.removeEventListener('keydown', this.handleKeyDown);
         window.removeEventListener('resize', () => this.handleResize());
-    }
-
-    renderLabel (label: string, maxLength?: number) {
-        const characterCount = maxLength ? `${this.value.length}/${maxLength}` : undefined;
-
-        return label?.length
-            ? html`<pie-form-label for="${componentSelector}" trailing=${ifDefined(characterCount)}>${label}</pie-form-label>`
-            : nothing;
     }
 
     renderAssistiveText () {
@@ -231,7 +207,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
             placeholder,
             value,
             required,
-            label,
             maxLength,
             status,
             assistiveText,
@@ -247,8 +222,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         };
 
         return html`<div>
-            ${this.renderLabel(label, maxLength)}
-            <div
+                <div
                 class="${classMap(classes)}"
                 data-test-id="pie-textarea-wrapper">
                 <textarea
@@ -262,13 +236,14 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
                     ?readonly=${readonly}
                     ?required=${required}
                     ?disabled=${disabled}
+                    maxlength=${ifDefined(maxLength)}
                     aria-describedby=${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}
                     aria-invalid=${status === 'error' ? 'true' : 'false'}
                     aria-errormessage="${ifDefined(status === 'error' ? assistiveTextIdValue : undefined)}"
                     @input=${this.handleInput}
                     @change=${this.handleChange}
                 ></textarea>
-            </div>
+                </div>
             ${this.renderAssistiveText()}
         </div>`;
     }

@@ -72,13 +72,7 @@ export interface TextareaProps {
     required?: boolean;
 
     /**
-    * The label text for the textarea field.
-    */
-    label?: string;
-
-    /**
      * The maximum number of characters allowed in the textarea field.
-     * If the `label` property is not set, this property will have no effect.
      */
     maxLength?: number;
 
@@ -100,7 +94,6 @@ export const defaultProps: DefaultProps = {
     disabled: false,
     size: 'medium',
     resize: 'auto',
-    label: '',
     value: '',
     placeholder: '',
     status: 'default',
