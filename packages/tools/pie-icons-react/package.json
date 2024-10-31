@@ -50,6 +50,7 @@
     "lint:scripts:fix": "run -T eslint . --fix",
     "prepublishOnly": "yarn lint:scripts && yarn build",
     "test": "run -T vitest run",
+    "test:update": "run -T vitest -u run",
     "test:watch": "run -T vitest"
   },
   "devDependencies": {
