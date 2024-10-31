@@ -1,4 +1,5 @@
 {
   "metaTitlePrefix": "Components — ",
-  "ogImage": "landing_components.png"
+  "ogImage": "landing_components.png",
+  "description": "Components are the reusable building blocks of our design system. Each component meets a specific interaction or UI need, and has been specifically created to work together to create patterns and intuitive user experiences."
 }
