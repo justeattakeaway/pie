@@ -183,3 +183,4 @@ yalc.lock
 
 # Compsizer
 **/compsizer-failure-report.json
+**/component-bundle-sizes.json
