@@ -82,8 +82,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
      * @returns {void}
      */
     private _handleStatus (): void {
-        if (this.status !== 'error') return;
-        this._slottedChildren.forEach((child) => child.setAttribute('status', this.status));
+        this._slottedChildren.forEach((child) => child.setAttribute('status', this.status === 'error' ? 'error' : 'default'));
     }
 
     /**
