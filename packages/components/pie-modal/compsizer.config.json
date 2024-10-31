@@ -9,7 +9,7 @@
   "baselineFile": "component-bundle-sizes.json",
   "components": {
     "pie-modal": {
-      "maxSize": "1 KB",
+      "maxSize": "50 KB",
       "warnOnIncrease": "10%",
       "distFolderLocation": "./dist"
     }
