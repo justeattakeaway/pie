@@ -45,6 +45,7 @@
     --tag-font-weight: var(--dt-font-body-s-weight);
     --tag-font-size: #{p.font-size(--dt-font-body-s-size)};
     --tag-line-height: #{p.line-height(--dt-font-body-s-line-height)};
+    --tag-cursor: text;
 
     // transparent to variable to function properly in component tests
     --tag-transparent-bg-color: transparent;
@@ -66,9 +67,13 @@
     font-weight: var(--tag-font-weight);
     font-size: var(--tag-font-size);
     line-height: var(--tag-line-height);
+    cursor: var(--tag-cursor);
 
     &.c-tag--interactive {
+        --tag-cursor: pointer;
+
         border: none;
+        user-select: none;
 
         &:focus-visible {
             @include p.focus;
@@ -199,7 +204,7 @@
     }
 
     &[disabled] {
-        cursor: not-allowed;
+        --tag-cursor: not-allowed;
     }
 }
 
