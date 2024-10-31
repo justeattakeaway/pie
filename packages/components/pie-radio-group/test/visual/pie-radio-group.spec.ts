@@ -12,7 +12,8 @@ import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpo
 import { PieRadio } from '@justeattakeaway/pie-radio';
 import { PieFormLabel } from '@justeattakeaway/pie-form-label';
 import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
-import { PieRadioGroup, type RadioGroupProps, statusTypes } from '../../src/index.ts';
+import { PieRadioGroup, type RadioGroupProps } from '../../src/index.ts';
+import { statusTypes } from '../../src/defs.ts';
 
 const props: PropObject<RadioGroupProps & { hasGroupLabel: boolean }> = {
     isInline: [true, false],

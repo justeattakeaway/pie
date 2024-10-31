@@ -5,9 +5,9 @@ import { action } from '@storybook/addon-actions';
 
 import '@justeattakeaway/pie-radio-group';
 import {
-    type RadioGroupProps as RadioGroupPropsBase,
     defaultProps,
     statusTypes,
+    type RadioGroupProps as RadioGroupPropsBase,
 } from '@justeattakeaway/pie-radio-group';
 import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-radio';

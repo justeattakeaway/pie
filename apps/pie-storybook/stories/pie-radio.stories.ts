@@ -5,9 +5,9 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-radio';
 import {
-    type RadioProps as RadioBaseProps,
     defaultProps,
     statusTypes,
+    type RadioProps as RadioBaseProps,
 } from '@justeattakeaway/pie-radio';
 
 import { type SlottedComponentProps } from '../types';
