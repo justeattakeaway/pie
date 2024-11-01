@@ -6,7 +6,6 @@
     "gzip": true,
     "brotli": true
   },
-  "baselineFile": "component-bundle-sizes.json",
   "components": {
     "pie-form-label": {
       "maxSize": "50 KB",

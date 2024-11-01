@@ -6,7 +6,6 @@
     "gzip": true,
     "brotli": true
   },
-  "baselineFile": "component-bundle-sizes.json",
   "components": {
     "pie-switch": {
       "maxSize": "50 KB",
