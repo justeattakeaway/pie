@@ -52,8 +52,12 @@
   ],
   "bundlesize": [
     {
-      "path": "./dist/*.js",
-      "maxSize": "300 KB"
+      "path": "./dist/!(lottie_light_canvas)*.js",
+      "maxSize": "50 kB"
+    },
+    {
+      "path": "./dist/lottie_light_canvas.*.js",
+      "maxSize": "60 kB"
     }
   ]
 }
