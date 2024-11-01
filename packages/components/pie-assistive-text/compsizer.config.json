@@ -9,7 +9,7 @@
   "baselineFile": "component-bundle-sizes.json",
   "components": {
     "pie-assistive-text": {
-      "maxSize": "50 KB",
+      "maxSize": "1 KB",
       "distFolderLocation": "./dist"
     }
   }
