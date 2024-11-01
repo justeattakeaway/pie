@@ -89,8 +89,20 @@ async function updateIcons () {
         const changedFilesGroups = getChangedFilesGroups();
         const changesetFilePath = await createChangeset(changedFilesGroups);
 
+        // check if is running on GHA and setup the git user
+        if (process.env.GITHUB_ACTIONS) {
+            // configure git and push
+            execSync('git config --global user.name "Continuous Integration"');
+            execSync('git config --global user.email "username@users.noreply.github.com"');
+        }
+
         // commit icons and changeset file
         execSync(`git add ${changesetFilePath} && git commit -m "feat(pie-icons): DSW-000 update icons"`);
+
+        // push if is running on GHA
+        if (process.env.GITHUB_ACTIONS) {
+            execSync('git push');
+        }
     }
 
     // clean-up
