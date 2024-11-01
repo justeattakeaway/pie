@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = async ({ github, context }) => {
+    const watermark = '<!-- COMPONENT_SIZE_REPORT -->';
     const { owner, repo } = context.repo;
     const issueNumber = context.payload.pull_request.number;
 
