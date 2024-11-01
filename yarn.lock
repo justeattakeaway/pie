@@ -12515,16 +12515,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compsizer@npm:0.5.2":
-  version: 0.5.2
-  resolution: "compsizer@npm:0.5.2"
+"compsizer@npm:next":
+  version: 0.6.0-beta.0
+  resolution: "compsizer@npm:0.6.0-beta.0"
   dependencies:
     chalk: 5.3.0
     commander: 12.1.0
     glob: 11.0.0
   bin:
     compsizer: index.js
-  checksum: ea72b1002a21bb110f512a52925868311bb82e9b3031e0b3584a669a5f2e14b2464109b0714b7d3a3ffa3f0bc039afa27bd92c4dedf4eb3cf184a3d4acf8966b
+  checksum: ea259bc83a3155fe8a00cb9571cf92959b0930b94e0839af9c7be96dbd3f37426e272109410ad08fc54ca583d1f0fee8ed29b944fdb9548cd4cbc59535cb0bd6
   languageName: node
   linkType: hard
 
@@ -19977,9 +19977,9 @@ __metadata:
   linkType: hard
 
 "lru-cache@npm:^11.0.0":
-  version: 11.0.1
-  resolution: "lru-cache@npm:11.0.1"
-  checksum: 6056230a99fb399234e82368b99586bd4740079e80649102f681b19337b7d8c6bc8dd7f8b8c59377c31d26deb89f548b717ae932e139b4b795879d920fccf820
+  version: 11.0.2
+  resolution: "lru-cache@npm:11.0.2"
+  checksum: f9c27c58919a30f42834de9444de9f75bcbbb802c459239f96dd449ad880d8f9a42f51556d13659864dc94ab2dbded9c4a4f42a3e25a45b6da01bb86111224df
   languageName: node
   linkType: hard
 
@@ -22706,7 +22706,7 @@ __metadata:
     autoprefixer: 10.4.20
     babel-loader: 8.3.0
     commitizen: 4.3.0
-    compsizer: 0.5.2
+    compsizer: next
     cross-env: 7.0.3
     cssnano: 5.1.15
     cz-customizable: 7.2.1

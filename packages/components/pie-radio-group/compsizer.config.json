@@ -2,10 +2,6 @@
   "exclude": [
     "**/*.d.ts"
   ],
-  "compression": {
-    "gzip": true,
-    "brotli": true
-  },
   "components": {
     "pie-radio-group": {
       "maxSize": "50 KB",

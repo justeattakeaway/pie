@@ -2,10 +2,6 @@
   "exclude": [
     "**/*.d.ts"
   ],
-  "compression": {
-    "gzip": true,
-    "brotli": true
-  },
   "components": {
     "pie-modal": {
       "maxSize": "50 KB",
