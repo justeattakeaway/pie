@@ -1,5 +1,3 @@
-// .github/scripts/post-component-size-report.js
-
 const fs = require('fs');
 const path = require('path');
 
@@ -13,9 +11,32 @@ module.exports = async ({ github, context }) => {
     // Log the files found to verify
     console.log("Found report files:", reportFiles);
 
-    // If no files are found, log and exit to prevent an empty comment
+    const { owner, repo } = context.repo;
+    const issueNumber = context.payload.pull_request.number;
+
+    // Fetch existing comments and find the one with the watermark
+    const { data: comments } = await github.rest.issues.listComments({
+        owner,
+        repo,
+        issue_number: issueNumber,
+    });
+
+    const existingComment = comments.find(comment => comment.body.startsWith(watermark));
+
+    // If no files are found, delete any existing comment and exit
     if (reportFiles.length === 0) {
-        console.log("No compsizer-failure-report.json files found. Exiting without comment.");
+        console.log("No compsizer-failure-report.json files found. Checking for existing comment to delete.");
+
+        if (existingComment) {
+            console.log("Existing comment found, deleting.");
+            await github.rest.issues.deleteComment({
+                owner,
+                repo,
+                comment_id: existingComment.id,
+            });
+        } else {
+            console.log("No existing comment to delete.");
+        }
         return;
     }
 
@@ -36,17 +57,6 @@ module.exports = async ({ github, context }) => {
     console.log("Generated summary:", summary);
 
     const commentBody = `${watermark}\n### Component Size Report\n${summary}`;
-    const { owner, repo } = context.repo;
-    const issueNumber = context.payload.pull_request.number;
-
-    // Fetch existing comments and find the one with the watermark
-    const { data: comments } = await github.rest.issues.listComments({
-        owner,
-        repo,
-        issue_number: issueNumber,
-    });
-
-    const existingComment = comments.find(comment => comment.body.startsWith(watermark));
 
     if (existingComment) {
         // Update the existing comment
