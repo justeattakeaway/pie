@@ -16,7 +16,7 @@
     "componentStatus": "beta"
   },
   "scripts": {
-    "analyse-component-bundles": "run -T bundlesize",
+    "analyse-component-bundles": "run -T bundlewatch",
     "build": "run -T vite build",
     "build:react-wrapper": "npx build-react-wrapper",
     "create:manifest": "yarn cem analyze --litelement",
@@ -54,10 +54,12 @@
     "@justeattakeaway/pie-webc-core": "0.24.2",
     "element-internals-polyfill": "1.3.11"
   },
-  "bundlesize": [
-    {
-      "path": "./dist/*.js",
-      "maxSize": "50 KB"
-    }
-  ]
+  "bundlewatch": {
+    "files": [
+      {
+        "path": "./dist/*.js",
+        "maxSize": "50 KB"
+      }
+    ]
+  }
 }

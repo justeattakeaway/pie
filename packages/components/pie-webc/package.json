@@ -275,5 +275,8 @@
   },
   "sideEffects": [
     "**/*.js"
-  ]
+  ],
+  "bundlewatch": {
+    "files": null
+  }
 }
