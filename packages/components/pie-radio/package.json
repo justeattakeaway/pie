@@ -50,5 +50,16 @@
   "customElements": "custom-elements.json",
   "sideEffects": [
     "dist/*.js"
-  ]
+  ],
+  "compsizer": {
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "components": {
+      "pie-radio": {
+        "maxSize": "50 KB",
+        "distFolderLocation": "./dist"
+      }
+    }
+  }
 }

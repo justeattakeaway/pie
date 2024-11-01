@@ -12516,15 +12516,15 @@ __metadata:
   linkType: hard
 
 "compsizer@npm:next":
-  version: 0.6.0-beta.0
-  resolution: "compsizer@npm:0.6.0-beta.0"
+  version: 0.6.0-beta.1
+  resolution: "compsizer@npm:0.6.0-beta.1"
   dependencies:
     chalk: 5.3.0
     commander: 12.1.0
     glob: 11.0.0
   bin:
     compsizer: index.js
-  checksum: ea259bc83a3155fe8a00cb9571cf92959b0930b94e0839af9c7be96dbd3f37426e272109410ad08fc54ca583d1f0fee8ed29b944fdb9548cd4cbc59535cb0bd6
+  checksum: b9badce0226e603d5bfba20bce0d8a3153d39db50eb5aebe0a7d3070d98daa7b931e2e3090903476878400421f763993b55e3497fd05e4d4d97ae50ff5b376d8
   languageName: node
   linkType: hard
 

@@ -49,5 +49,16 @@
   "customElements": "custom-elements.json",
   "sideEffects": [
     "dist/*.js"
-  ]
+  ],
+  "compsizer": {
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "components": {
+      "pie-lottie-player": {
+        "maxSize": "300 KB",
+        "distFolderLocation": "./dist"
+      }
+    }
+  }
 }

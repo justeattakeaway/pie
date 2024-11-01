@@ -53,5 +53,16 @@
   "customElements": "custom-elements.json",
   "sideEffects": [
     "dist/*.js"
-  ]
+  ],
+  "compsizer": {
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "components": {
+      "pie-switch": {
+        "maxSize": "50 KB",
+        "distFolderLocation": "./dist"
+      }
+    }
+  }
 }
