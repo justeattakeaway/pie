@@ -9,7 +9,7 @@
   "baselineFile": "component-bundle-sizes.json",
   "components": {
     "pie-card": {
-      "maxSize": "50 KB",
+      "maxSize": "2 KB",
       "distFolderLocation": "./dist"
     }
   }
