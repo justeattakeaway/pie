@@ -49,7 +49,7 @@ jobs:
         if: inputs.analyse-component-bundles
         run: yarn analyse-component-bundles --only --continue
       - name: Post Component Size Report
-        if: always()
+        if: inputs.analyse-component-bundles && failure()
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
