@@ -39,18 +39,12 @@ jobs:
         with:
           script-name: ${{ inputs.build-script }}
       - name: Clean Up Old Component Size Failure Reports
+        if: inputs.analyse-component-bundles
         run: |
-          if [ "$(uname)" = "Linux" ]; then
-            echo "Cleaning up and verifying on Linux..."
-            find packages/components -type f -name 'compsizer-failure-report.json' -delete
-            echo "Remaining failure reports (if any):"
-            find packages/components -type f -name 'compsizer-failure-report.json'
-          else
-            echo "Cleaning up and verifying on Windows..."
-            Get-ChildItem -Path packages/components -Recurse -Filter 'compsizer-failure-report.json' | Remove-Item -Force
-            echo "Remaining failure reports (if any):"
-            Get-ChildItem -Path packages/components -Recurse -Filter 'compsizer-failure-report.json'
-          fi
+          echo "Cleaning up and verifying..."
+          find packages/components -type f -name 'compsizer-failure-report.json' -delete
+          echo "Remaining failure reports (if any):"
+          find packages/components -type f -name 'compsizer-failure-report.json'
       - name: Analyse Component Bundle Sizes
         if: inputs.analyse-component-bundles
         run: yarn analyse-component-bundles --only --continue
