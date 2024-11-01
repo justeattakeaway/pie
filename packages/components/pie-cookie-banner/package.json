@@ -17,7 +17,7 @@
     "componentStatus": "stable"
   },
   "scripts": {
-    "analyse-component-bundles": "run -T compsizer",
+    "analyse-component-bundles": "run -T bundlesize",
     "build": "run -T vite build",
     "build:react-wrapper": "npx build-react-wrapper",
     "create:manifest": "yarn cem analyze --litelement",
@@ -58,5 +58,11 @@
   "customElements": "custom-elements.json",
   "sideEffects": [
     "dist/*.js"
+  ],
+  "bundlesize": [
+    {
+      "path": "./dist/*.js",
+      "maxSize": "50 KB"
+    }
   ]
 }
