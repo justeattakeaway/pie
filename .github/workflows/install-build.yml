@@ -26,8 +26,6 @@ jobs:
     permissions:
       contents: read
     runs-on: ${{ inputs.os }}
-    env:
-      BUNDLESIZE_GITHUB_TOKEN: ${{ secrets.BUNDLESIZE_GITHUB_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
@@ -43,3 +41,5 @@ jobs:
       - name: Analyse Component Bundle Sizes
         if: inputs.analyse-component-bundles
         run: yarn analyse-component-bundles --only --continue
+        env:
+          BUNDLESIZE_GITHUB_TOKEN: ${{ secrets.BUNDLESIZE_GITHUB_TOKEN }}
