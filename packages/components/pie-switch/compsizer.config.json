@@ -10,11 +10,7 @@
   "components": {
     "pie-switch": {
       "maxSize": "50 KB",
-      "warnOnIncrease": "10%",
       "distFolderLocation": "./dist"
     }
-  },
-  "defaults": {
-    "warnOnIncrease": "5%"
   }
 }

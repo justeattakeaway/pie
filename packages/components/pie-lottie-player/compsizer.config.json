@@ -10,11 +10,7 @@
   "components": {
     "pie-lottie-player": {
       "maxSize": "300 KB",
-      "warnOnIncrease": "10%",
       "distFolderLocation": "./dist"
     }
-  },
-  "defaults": {
-    "warnOnIncrease": "5%"
   }
 }

@@ -10,11 +10,7 @@
   "components": {
     "pie-modal": {
       "maxSize": "1 KB",
-      "warnOnIncrease": "10%",
       "distFolderLocation": "./dist"
     }
-  },
-  "defaults": {
-    "warnOnIncrease": "5%"
   }
 }
