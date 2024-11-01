@@ -24,6 +24,7 @@ module.exports = async ({ github, context }) => {
     const existingComment = comments.find(comment => comment.body.startsWith(watermark));
 
     // If no files are found, delete any existing comment and exit
+    // There is a separate action to do this in cleanup-component-size-report.js. But this is a fallback in case that step fails.
     if (reportFiles.length === 0) {
         console.log("No compsizer-failure-report.json files found. Checking for existing comment to delete.");
 
