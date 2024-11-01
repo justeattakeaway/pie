@@ -9,7 +9,7 @@
   "baselineFile": "component-bundle-sizes.json",
   "components": {
     "pie-cookie-banner": {
-      "maxSize": "50 KB",
+      "maxSize": "5 KB",
       "distFolderLocation": "./dist"
     }
   }
