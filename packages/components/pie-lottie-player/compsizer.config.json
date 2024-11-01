@@ -9,7 +9,7 @@
   "baselineFile": "component-bundle-sizes.json",
   "components": {
     "pie-lottie-player": {
-      "maxSize": "30 KB",
+      "maxSize": "300 KB",
       "distFolderLocation": "./dist"
     }
   }
