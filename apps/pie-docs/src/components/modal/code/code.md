@@ -6,6 +6,7 @@ eleventyNavigation:
 shouldShowContents: true
 eleventyComputed:
     props: "{% include './props.json' %}"
+    events: "{% include './events.json' %}"
 ---
 
 ## Overview
@@ -52,6 +53,12 @@ yarn add @justeattakeaway/pie-webc
 
 {% componentDetailsTable {
   tableData: props
+} %}
+
+## Events
+
+{% componentDetailsTable {
+  tableData: events
 } %}
 
 ## Legacy browser support
