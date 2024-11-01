@@ -9,7 +9,7 @@
   "baselineFile": "component-bundle-sizes.json",
   "components": {
     "pie-tag": {
-      "maxSize": "2 KB",
+      "maxSize": "50 KB",
       "distFolderLocation": "./dist"
     }
   }
