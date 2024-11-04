@@ -41,7 +41,7 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
     public name: CheckboxGroupProps['name'];
 
     @property({ type: String })
-    public assistiveText?: CheckboxGroupProps['assistiveText'];
+    public assistiveText: CheckboxGroupProps['assistiveText'];
 
     @property({ type: Boolean })
     public isInline = defaultProps.isInline;

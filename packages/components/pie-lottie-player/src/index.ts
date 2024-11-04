@@ -19,11 +19,11 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
     @query('div')
     private _hostElement!: HTMLDivElement;
 
-    private _lottie?:LottiePlayer;
+    private _lottie?: LottiePlayer;
     private _animationInstance?: AnimationItem;
 
     private _animationSrc = '';
-    private _animationData?:object;
+    private _animationData?: object;
     private _autoPlayDisabled = defaultProps.autoPlayDisabled;
     private _loopDisabled = defaultProps.loopDisabled;
     private _speed = defaultProps.speed;
@@ -148,7 +148,7 @@ export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
     }
 
     @property({ type: String, reflect: true })
-    get direction ():LottiePlayerProps['direction'] {
+    get direction (): LottiePlayerProps['direction'] {
         return this._direction;
     }
 

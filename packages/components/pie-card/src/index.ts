@@ -23,35 +23,35 @@ const componentSelector = 'pie-card';
  * @tagname pie-card
  */
 export class PieCard extends LitElement implements CardProps {
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, tags, defaultProps.tag)
-    public tag: CardProps['tag'] = defaultProps.tag;
+    public tag = defaultProps.tag;
 
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
-    public variant: CardProps['variant'] = defaultProps.variant;
+    public variant = defaultProps.variant;
 
     @property({ type: String, reflect: true })
-    public href?: string;
+    public href: CardProps['href'];
 
     @property({ type: String, reflect: true })
-    public target?: string;
+    public target: CardProps['target'];
 
     @property({ type: String, reflect: true })
-    public rel?: string;
+    public rel: CardProps['rel'];
 
     @property({ type: Boolean })
     public disabled = defaultProps.disabled;
 
     @property({ type: Object })
-    public aria?: CardProps['aria'];
+    public aria: CardProps['aria'];
 
     @property({ type: Boolean })
     public isDraggable = defaultProps.isDraggable;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, paddingValues, undefined)
-    public padding?: CardProps['padding'];
+    public padding: CardProps['padding'];
 
     @queryAssignedElements({ flatten: true })
     private assignedElements?: HTMLElement[];

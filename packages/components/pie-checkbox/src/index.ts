@@ -63,7 +63,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
     private _checkbox!: HTMLInputElement;
 
     @property({ type: String })
-    public assistiveText?: CheckboxProps['assistiveText'];
+    public assistiveText: CheckboxProps['assistiveText'];
 
     @property({ type: String })
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
