@@ -14,16 +14,15 @@ const variantsToIsStrongStyle: Array<VariantToBgStyle> = [
     { variantName: 'neutral', bgStyle: '--dt-color-container-inverse' },
     { variantName: 'success', bgStyle: '--dt-color-support-positive' },
     { variantName: 'error', bgStyle: '--dt-color-support-error' },
-    { variantName: 'brand-05', bgStyle: '--dt-color-support-warning' },
     { variantName: 'information', bgStyle: '--dt-color-support-info' },
     { variantName: 'neutral-alternative', bgStyle: '--dt-color-container-default' },
-    { variantName: 'brand-02', bgStyle: '--dt-color-support-brand-02' },
     { variantName: 'ghost', bgStyle: '--tag-transparent-bg-color' },
     { variantName: 'outline', bgStyle: '--tag-transparent-bg-color' },
+    { variantName: 'brand-02', bgStyle: '--dt-color-support-brand-02' },
     { variantName: 'brand-03', bgStyle: '--dt-color-support-brand-03' },
     { variantName: 'brand-04', bgStyle: '--dt-color-support-brand-04' },
+    { variantName: 'brand-05', bgStyle: '--dt-color-support-warning' },
     { variantName: 'brand-06', bgStyle: '--dt-color-support-brand-06' },
-
 ];
 
 const icon = '<svg slot="icon" data-test-id="tag-icon" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--plusCircle"><path d="M8.656 4.596H7.344v2.748H4.596v1.312h2.748v2.748h1.312V8.656h2.748V7.344H8.656V4.596Z"></path><path d="M12.795 3.205a6.781 6.781 0 1 0 0 9.625 6.79 6.79 0 0 0 0-9.625Zm-.927 8.662a5.469 5.469 0 1 1-7.734-7.735 5.469 5.469 0 0 1 7.734 7.736Z"></path></svg>';
