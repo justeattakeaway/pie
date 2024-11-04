@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-tag
 
+## 0.11.1
+
+### Patch Changes
+
+- [Fixed] - use pointer cursor for interactive tags ([#2017](https://github.com/justeattakeaway/pie/pull/2017)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.11.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.1.0
+
+### Minor Changes
+
+- [Updated] - Update takeaway-pay icon ([#2016](https://github.com/justeattakeaway/pie/pull/2016)) by [@maledr5](https://github.com/maledr5)
+
 ## 5.0.0
 
 ### Major Changes
