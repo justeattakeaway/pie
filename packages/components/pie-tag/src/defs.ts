@@ -1,6 +1,6 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-export const variants = ['neutral-alternative', 'neutral', 'outline', 'ghost', 'blue', 'green', 'yellow', 'red', 'brand', 'brand-03', 'brand-04', 'brand-06'] as const;
+export const variants = ['neutral-alternative', 'neutral', 'outline', 'ghost', 'information', 'success', 'error', 'brand-02', 'brand-03', 'brand-04', 'brand-05', 'brand-06'] as const;
 export const sizes = ['small', 'large'] as const;
 
 export interface TagProps {
@@ -10,7 +10,7 @@ export interface TagProps {
     variant?: typeof variants[number];
 
     /**
-     * When true, the "green", "yellow", "red", "blue" and "neutral" variants change their styles and become bolder
+     * When true, the "information", "success", "error","brand-05", and "neutral" variants change their styles and become bolder
      */
     isStrong?: boolean;
 

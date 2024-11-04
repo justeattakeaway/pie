@@ -12,12 +12,12 @@ type VariantToBgStyle = {
 
 const variantsToIsStrongStyle: Array<VariantToBgStyle> = [
     { variantName: 'neutral', bgStyle: '--dt-color-container-inverse' },
-    { variantName: 'green', bgStyle: '--dt-color-support-positive' },
-    { variantName: 'red', bgStyle: '--dt-color-support-error' },
-    { variantName: 'yellow', bgStyle: '--dt-color-support-warning' },
-    { variantName: 'blue', bgStyle: '--dt-color-support-info' },
+    { variantName: 'success', bgStyle: '--dt-color-support-positive' },
+    { variantName: 'error', bgStyle: '--dt-color-support-error' },
+    { variantName: 'brand-05', bgStyle: '--dt-color-support-warning' },
+    { variantName: 'information', bgStyle: '--dt-color-support-info' },
     { variantName: 'neutral-alternative', bgStyle: '--dt-color-container-default' },
-    { variantName: 'brand', bgStyle: '--dt-color-support-brand-02' },
+    { variantName: 'brand-02', bgStyle: '--dt-color-support-brand-02' },
     { variantName: 'ghost', bgStyle: '--tag-transparent-bg-color' },
     { variantName: 'outline', bgStyle: '--tag-transparent-bg-color' },
     { variantName: 'brand-03', bgStyle: '--dt-color-support-brand-03' },

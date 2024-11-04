@@ -104,7 +104,7 @@
         }
     }
 
-    &.c-tag--blue {
+    &.c-tag--information {
         --tag-bg-color: var(--dt-color-support-info-02);
         --tag-color: var(--dt-color-content-default);
         @include tag-interactive-states('--dt-color-support-info-02');
@@ -116,7 +116,7 @@
         }
     }
 
-    &.c-tag--green {
+    &.c-tag--success {
         --tag-bg-color: var(--dt-color-support-positive-02);
         --tag-color: var(--dt-color-content-default);
         @include tag-interactive-states('--dt-color-support-positive-02');
@@ -128,7 +128,7 @@
         }
     }
 
-    &.c-tag--yellow {
+    &.c-tag--brand-05 {
         --tag-bg-color: var(--dt-color-support-warning-02);
         --tag-color: var(--dt-color-content-default);
         @include tag-interactive-states('--dt-color-support-warning-02');
@@ -140,7 +140,7 @@
         }
     }
 
-    &.c-tag--red {
+    &.c-tag--error {
         --tag-bg-color: var(--dt-color-support-error-02);
         --tag-color: var(--dt-color-content-default);
         @include tag-interactive-states('--dt-color-support-error-02');
@@ -170,7 +170,7 @@
         @include tag-interactive-states('--dt-color-support-brand-06', 'inverse');
     }
 
-    &.c-tag--brand {
+    &.c-tag--brand-02 {
         --tag-bg-color: var(--dt-color-support-brand-02);
         --tag-color: var(--dt-color-content-default);
         @include tag-interactive-states('--dt-color-support-brand-02');
