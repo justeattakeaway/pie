@@ -235,8 +235,6 @@
   "scripts": {
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
-    "lint:style": "echo \"Error: no scss / css to lint\" && exit 0",
-    "lint:style:fix": "yarn lint:style --fix",
     "test": "run -T vitest run --config ./vite.config.js",
     "test:ci": "yarn test"
   },

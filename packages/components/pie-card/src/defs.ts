@@ -8,7 +8,7 @@ export const paddingValues = spacingTokens.flatMap((first) => [first, ...spacing
 
 type PaddingValue = typeof spacingTokens[number];
 
-export type AriaProps = {
+type AriaProps = {
     label?: string;
 };
 

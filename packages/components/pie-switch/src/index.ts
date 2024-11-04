@@ -50,7 +50,7 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
     public disabled = defaultProps.disabled;
 
     @query('input[type="checkbox"]')
-    private input?: HTMLInputElement;
+    private input!: HTMLInputElement;
 
     @query('label')
     public focusTarget!: HTMLElement;
@@ -59,7 +59,7 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
         this.handleFormAssociation();
         // This ensures that invalid events triggered by checkValidity() are propagated to the custom element
         // for consumers to listen to: https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/checkValidity
-        this.input?.addEventListener('invalid', (event) => {
+        this.input.addEventListener('invalid', (event) => {
             this.dispatchEvent(new Event('invalid', event));
         });
     }
@@ -108,7 +108,7 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
      * @returns boolean
      */
     public checkValidity (): boolean {
-        return (this.input as HTMLInputElement).checkValidity();
+        return this.input.checkValidity();
     }
 
     /**
@@ -117,7 +117,7 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
      * @returns boolean
      */
     public reportValidity (): boolean {
-        return (this.input as HTMLInputElement).reportValidity();
+        return this.input.reportValidity();
     }
 
     /**
@@ -125,7 +125,7 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
      * https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/setCustomValidity
      */
     public setCustomValidity (message: string): void {
-        this.input?.setCustomValidity(message);
+        this.input.setCustomValidity(message);
         this._internals.setValidity(this.validity, this.validationMessage, this.input);
     }
 
@@ -134,7 +134,7 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
      * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
      */
     public get validity (): ValidityState {
-        return (this.input as HTMLInputElement).validity;
+        return this.input.validity;
     }
 
     /**
@@ -143,7 +143,7 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
      * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validationMessage
      */
     public get validationMessage (): string {
-        return (this.input as HTMLInputElement).validationMessage;
+        return this.input.validationMessage;
     }
 
     /**

@@ -4,7 +4,7 @@ export const variants = ['neutral', 'neutral-alternative', 'info', 'success', 'w
 export const headingLevels = ['h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const positions = ['inline-content', 'full-width'] as const;
 
-export type AriaProps = {
+type AriaProps = {
   close?: string;
   label?: string;
 };
@@ -48,7 +48,7 @@ export interface NotificationProps {
   heading?: string;
 
   /**
-   * The HTML heading tag to use for the notification's heading. Can be h1-h6.
+   * The HTML heading tag to use for the notification's heading. Can be h2-h6.
    */
   headingLevel?: typeof headingLevels[number];
 

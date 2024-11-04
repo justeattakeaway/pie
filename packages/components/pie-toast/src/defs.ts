@@ -77,9 +77,10 @@ export const ON_TOAST_OPEN_EVENT = `${componentSelector}-open`;
  */
 export const ON_TOAST_LEADING_ACTION_CLICK_EVENT = `${componentSelector}-leading-action-click`;
 
-export type DefaultProps = ComponentDefaultProps<ToastProps, keyof Omit<ToastProps, 'message' | 'leadingAction'>>;
+export type DefaultProps = ComponentDefaultProps<ToastProps, keyof Omit<ToastProps, 'leadingAction'>>;
 
 export const defaultProps: DefaultProps = {
+    message: '',
     isOpen: true,
     variant: 'neutral',
     isStrong: false,
