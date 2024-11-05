@@ -1,5 +1,7 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
+export const statusTypes = ['default', 'error'] as const;
+
 export interface RadioProps {
     /**
      * The checked state of the radio.
@@ -32,6 +34,11 @@ export interface RadioProps {
      * The value of the radio (used as a key/value pair in HTML forms with `name`).
      */
     value: string;
+
+    /**
+     * The status of the radio component. Can be default or error.
+     */
+    status?: typeof statusTypes[number];
 }
 
 export type DefaultProps = ComponentDefaultProps<RadioProps, keyof Omit<RadioProps, 'name' | 'value'>>;
@@ -41,4 +48,5 @@ export const defaultProps: DefaultProps = {
     defaultChecked: false,
     disabled: false,
     required: false,
+    status: 'default',
 };
