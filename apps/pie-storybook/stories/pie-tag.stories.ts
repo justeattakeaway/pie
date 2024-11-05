@@ -71,11 +71,11 @@ const tagStoryMeta: TagStoryMeta = {
             control: 'text',
         },
         iconPlacement: {
-            description: 'The placement of the icon slot, if provided, such as leading or trailing. Available only if the tag is interactive.',
+            description: 'The placement of the icon slot such as leading or trailing. <br /><br /> Can be only used if `isInteractive` is set to true',
             control: 'select',
             options: iconPlacements,
             defaultValue: {
-                summary: defaultArgs.showIcon,
+                summary: defaultArgs.iconPlacement,
             },
             if: { arg: 'isInteractive', eq: true },
         },
@@ -117,17 +117,12 @@ const Template : TemplateFunction<TagProps> = ({
 const createTagStory = createStory<TagProps>(Template, defaultArgs);
 
 export const Neutral = createTagStory({ variant: 'neutral' });
-export const Blue = createTagStory({ variant: 'blue' });
-export const Green = createTagStory({ variant: 'green' });
-export const Yellow = createTagStory({ variant: 'yellow' });
-export const Red = createTagStory({ variant: 'red' });
+export const Information = createTagStory({ variant: 'information' });
+export const Success = createTagStory({ variant: 'success' });
+export const Error = createTagStory({ variant: 'error' });
+export const Brand05 = createTagStory({ variant: 'brand-05' });
 
 // For the following stories isStrong prop won't have any effect so it is excluded
-export const Brand = createTagStory({ variant: 'brand' }, {
-    controls: {
-        exclude: ['isStrong'],
-    },
-});
 
 export const NeutralAlternative = createTagStory({ variant: 'neutral-alternative' }, {
     bgColor: 'dark (container-dark)',
@@ -143,6 +138,12 @@ export const Outline = createTagStory({ variant: 'outline' }, {
 });
 
 export const Ghost = createTagStory({ variant: 'ghost' }, {
+    controls: {
+        exclude: ['isStrong'],
+    },
+});
+
+export const Brand02 = createTagStory({ variant: 'brand-02' }, {
     controls: {
         exclude: ['isStrong'],
     },

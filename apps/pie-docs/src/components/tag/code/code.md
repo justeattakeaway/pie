@@ -65,7 +65,7 @@ You can customise the disabled appearance by setting the `--tag-opacity` css var
 
 ## Events
 
-Interactive tags do not emit any custom events. In order to add event listening to this component, you can treat it like a native HTML element in your application.
+The interactive tag component does not emit any custom events. In order to add event listening to it, you can treat the component like a native HTML element in your application.
 
 ### Using `pie-icons-webc` with the `pie-tag` icon slot
 

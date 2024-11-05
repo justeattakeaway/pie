@@ -32,7 +32,7 @@ export interface TagProps {
     size?: typeof sizes[number];
 
     /**
-     * The placement of the icon slot such as leading (default) or trailing. Available only if the tag is interactive
+     * The placement of the icon slot such as leading (default) or trailing. Available only if `isInteractive` is set to true.
      */
     iconPlacement?: typeof iconPlacements[number];
 }
