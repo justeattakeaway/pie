@@ -1,0 +1,96 @@
+{
+  "files": [
+    {
+      "path": "./packages/components/pie-assistive-text/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-button/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-card/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-checkbox/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-checkbox-group/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-chip/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-cookie-banner/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-divider/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-form-label/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-icon-button/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-link/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-lottie-player/dist/!(lottie_light_canvas)*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-lottie-player/dist/lottie_light_canvas.*.js",
+      "maxSize": "60 kB"
+    },
+    {
+      "path": "./packages/components/pie-modal/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-notification/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-radio/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-radio-group/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-spinner/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-switch/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-tag/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-text-input/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-textarea/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-toast/dist/*.js",
+      "maxSize": "3 KB"
+    }
+  ]
+}

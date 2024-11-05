@@ -40,7 +40,7 @@ jobs:
           script-name: ${{ inputs.build-script }}
       - name: Analyse Component Bundle Sizes
         if: inputs.analyse-component-bundles
-        run: yarn analyse-component-bundles --only --continue
+        run: yarn analyse-component-bundles
         env:
           BUNDLEWATCH_GITHUB_TOKEN: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
           CI_COMMIT_SHA: ${{ github.event.pull_request.head.sha }}

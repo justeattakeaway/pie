@@ -24,8 +24,5 @@
   },
   "volta": {
     "extends": "../../../package.json"
-  },
-  "bundlewatch": {
-    "files": null
   }
 }

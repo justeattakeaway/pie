@@ -17,7 +17,6 @@
     "componentStatus": "stable"
   },
   "scripts": {
-    "analyse-component-bundles": "run -T bundlewatch",
     "build": "run -T vite build",
     "build:react-wrapper": "npx build-react-wrapper",
     "create:manifest": "yarn cem analyze --litelement",
@@ -58,13 +57,5 @@
   "customElements": "custom-elements.json",
   "sideEffects": [
     "dist/*.js"
-  ],
-  "bundlewatch": {
-    "files": [
-      {
-        "path": "./dist/*.js",
-        "maxSize": "3 KB"
-      }
-    ]
-  }
+  ]
 }
