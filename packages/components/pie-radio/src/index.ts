@@ -10,9 +10,10 @@ import {
     requiredProperty,
     RtlMixin,
     wrapNativeEvent,
+    validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
 
-import { type RadioProps, defaultProps } from './defs';
+import { type RadioProps, defaultProps, statusTypes } from './defs';
 import styles from './radio.scss?inline';
 
 // Valid values available to consumers
@@ -46,6 +47,10 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
     @property({ type: String })
     @requiredProperty(componentSelector)
     public value!: RadioProps['value'];
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
+    public status = defaultProps.status;
 
     @query('input[type="radio"]')
     private _radio!: HTMLInputElement;
@@ -127,6 +132,7 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
             name,
             required,
             value,
+            status,
         } = this;
 
         const componentDisabled = disabled || _disabledByParent;
@@ -134,11 +140,13 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
         const classes = {
             'c-radio': true,
             'c-radio--disabled': componentDisabled,
+            [`c-radio--status-${status}`]: !componentDisabled,
         };
 
         return html`
         <label class=${classMap(classes)} for="radioId">
             <input
+                class="c-radio-input"
                 type="radio"
                 id="radioId"
                 data-test-id="pie-radio"
@@ -147,6 +155,7 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
                 name="${ifDefined(name)}"
                 ?disabled="${componentDisabled}"
                 ?required="${required}"
+                aria-invalid=${status === 'error' ? 'true' : 'false'}
                 @change="${this._handleChange}">
             <slot></slot>
         </label>`;
