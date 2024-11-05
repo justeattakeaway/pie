@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.14.0
+
+### Minor Changes
+
+- [Added] - assistive text and status to the pie radio group ([#2013](https://github.com/justeattakeaway/pie/pull/2013)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 4.13.0
 
 ### Minor Changes
