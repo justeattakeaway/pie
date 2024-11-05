@@ -54,7 +54,7 @@
     "files": [
       {
         "path": "./dist/!(lottie_light_canvas)*.js",
-        "maxSize": "50 kB"
+        "maxSize": "3 KB"
       },
       {
         "path": "./dist/lottie_light_canvas.*.js",

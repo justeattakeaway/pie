@@ -57,7 +57,7 @@
     "files": [
       {
         "path": "./dist/*.js",
-        "maxSize": "50 KB"
+        "maxSize": "3 KB"
       }
     ]
   }
