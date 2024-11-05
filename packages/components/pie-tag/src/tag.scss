@@ -55,6 +55,7 @@
     --icon-size-override: 16px;
 
     display: inline-flex;
+    flex-direction: row;
     vertical-align: middle;
     align-items: center;
     justify-content: center;
@@ -78,6 +79,14 @@
         &:focus-visible {
             @include p.focus;
         }
+    }
+
+    &.c-tag--icon-placement--leading {
+        // same as default styles
+    }
+
+    &.c-tag--icon-placement--trailing {
+        flex-direction: row-reverse;
     }
 
     // Size

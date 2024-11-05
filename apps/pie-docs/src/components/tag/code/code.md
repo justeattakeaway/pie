@@ -63,6 +63,10 @@ You can customise the disabled appearance by setting the `--tag-opacity` css var
   tableData: slots
 } %}
 
+## Events
+
+Interactive tags do not emit any custom events. In order to add event listening to this component, you can treat it like a native HTML element in your application.
+
 ### Using `pie-icons-webc` with the `pie-tag` icon slot
 
 We recommend using `pie-icons-webc` when using the `icon` slot. Here is an example of how you would do this:

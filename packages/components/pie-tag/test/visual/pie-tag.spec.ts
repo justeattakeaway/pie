@@ -14,12 +14,15 @@ import {
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { IconHeartFilled } from '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled';
-import { type TagProps, sizes, variants } from '../../src/defs.ts';
+import {
+    type TagProps, sizes, variants, iconPlacements,
+} from '../../src/defs.ts';
 import { PieTag } from '../../src/index.ts';
 
 const props: PropObject<TagProps & { iconSlot: string }> = {
     variant: variants,
     size: sizes,
+    iconPlacement: iconPlacements,
     isStrong: [true, false],
     disabled: [true, false],
     iconSlot: ['', '<icon-heart-filled slot="icon"></icon-heart-filled>'],

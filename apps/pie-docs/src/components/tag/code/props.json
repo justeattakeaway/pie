@@ -61,6 +61,18 @@
                 "type": "code",
                 "item": ["false"]
             }
+        ],
+        [
+            "iconPlacement",
+            {
+                "type": "code",
+                "item": ["\"leading\"", "\"trailing\""]
+            },
+            "Sets the position of the icon relative to the text. Leading comes before the text and trailing comes after, taking writing direction into account. To use this, you must pass an icon into the <a href=\"#slots\">icon slot</a>. Can be only used if `isInteractive` is set to true",
+            {
+                "type": "code",
+                "item": ["\"leading\""]
+            }
         ]
     ]
 }

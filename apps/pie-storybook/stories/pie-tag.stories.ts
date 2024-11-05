@@ -4,7 +4,11 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-tag';
 import {
-    type TagProps as TagBaseProps, variants, sizes, defaultProps,
+    type TagProps as TagBaseProps,
+    variants,
+    sizes,
+    defaultProps,
+    iconPlacements,
 } from '@justeattakeaway/pie-tag';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
@@ -55,7 +59,7 @@ const tagStoryMeta: TagStoryMeta = {
             },
         },
         showIcon: {
-            description: 'Enable to see the example of Tag with icon. Available only for large tag size.',
+            description: '<b>**Not a component prop</b><br><br>Use the `icon` slot to pass a PIE icon component. Available only for large tag size.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultArgs.showIcon,
@@ -66,6 +70,16 @@ const tagStoryMeta: TagStoryMeta = {
             description: 'Content to place within the tag',
             control: 'text',
         },
+        iconPlacement: {
+            description: 'The placement of the icon slot, if provided, such as leading or trailing. Available only if the tag is interactive.',
+            control: 'select',
+            options: iconPlacements,
+            defaultValue: {
+                summary: defaultArgs.showIcon,
+            },
+            if: { arg: 'isInteractive', eq: true },
+        },
+
     },
     args: defaultArgs,
     parameters: {
@@ -86,10 +100,12 @@ const Template : TemplateFunction<TagProps> = ({
     disabled,
     showIcon,
     slot,
+    iconPlacement,
 }) => html`
     <pie-tag
         variant="${ifDefined(variant)}"
         size="${ifDefined(size)}"
+        iconPlacement="${ifDefined(iconPlacement)}"
         ?isInteractive="${isInteractive}"
         ?isStrong="${isStrong}"
         ?disabled="${disabled}">
