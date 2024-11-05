@@ -1,5 +1,7 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
+export const statusTypes = ['default', 'success', 'error'] as const;
+
 export interface RadioGroupProps {
     /**
     * The name associated with the group.
@@ -20,6 +22,16 @@ export interface RadioGroupProps {
      * The value of the radio group (used as a key/value pair in HTML forms with `name`).
      */
     value?: string;
+
+    /**
+     * The status of the radio group component / assistive text. Can be default, success or error.
+     */
+    status?: typeof statusTypes[number];
+
+    /**
+     * An optional assistive text to display below the checkbox group.
+     */
+    assistiveText?: string;
 }
 
 /**
@@ -29,9 +41,10 @@ export interface RadioGroupProps {
  */
 export const ON_RADIO_GROUP_DISABLED = 'pie-radio-group-disabled';
 
-export type DefaultProps = ComponentDefaultProps<RadioGroupProps, keyof Omit<RadioGroupProps, 'name'>>;
+export type DefaultProps = ComponentDefaultProps<RadioGroupProps, keyof Omit<RadioGroupProps, 'assistiveText' | 'name'>>;
 
 export const defaultProps: DefaultProps = {
+    status: 'default',
     disabled: false,
     isInline: false,
     value: '',
