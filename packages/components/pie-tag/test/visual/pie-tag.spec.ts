@@ -23,13 +23,14 @@ const props: PropObject<TagProps & { iconSlot: string }> = {
     variant: variants,
     size: sizes,
     iconPlacement: iconPlacements,
+    isInteractive: [true, false],
     isStrong: [true, false],
     disabled: [true, false],
     iconSlot: ['', '<icon-heart-filled slot="icon"></icon-heart-filled>'],
 };
 
 // Renders a <pie-tag> HTML string with the given prop values
-const renderTestPieTag = (propVals: WebComponentPropValues) => `<pie-tag variant="${propVals.variant}" size="${propVals.size}" ${propVals.isStrong ? 'isStrong' : ''} ${propVals.disabled ? 'disabled' : ''}>${propVals.iconSlot} Hello world</pie-tag>`;
+const renderTestPieTag = (propVals: WebComponentPropValues) => `<pie-tag variant="${propVals.variant}" size="${propVals.size}" iconPlacement="${propVals.iconPlacement}" ${propVals.isStrong ? 'isStrong' : ''} ${propVals.disabled ? 'disabled' : ''} ${propVals.isInteractive ? 'isInteractive' : ''}>${propVals.iconSlot} Hello world</pie-tag>`;
 
 const componentPropsMatrix = getAllPropCombinations(props);
 const componentPropsMatrixByVariant = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
@@ -52,7 +53,9 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
         const propKeyValues = `
             size: ${testComponent.propValues.size},
             variant: ${testComponent.propValues.variant},
+            iconPlacement: ${testComponent.propValues.iconPlacement},
             isStrong: ${testComponent.propValues.isStrong},
+            isInteractive: ${testComponent.propValues.isInteractive},
             disabled: ${testComponent.propValues.disabled},
             iconSlot: ${testComponent.propValues.iconSlot ? 'with icon' : 'no icon'}`;
         const darkMode = ['neutral-alternative'].includes(variant);
