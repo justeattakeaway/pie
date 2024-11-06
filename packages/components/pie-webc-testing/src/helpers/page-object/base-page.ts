@@ -20,13 +20,16 @@ export class BasePage {
         this.args = '';
     }
 
-    async load (queries: Record<string, unknown> = {}) {
-        const pageUrl = buildUrl(this.componentName, this.composePath(queries), this.args);
+    async load (queries: Record<string, unknown> = {}, variant?: string) {
+        const path = variant ? `-visual-test--${variant}` : this.composePath(queries);
+
+        const pageUrl = buildUrl(this.componentName, path, this.args);
         await this.open(pageUrl);
     }
 
     async open (url: string) {
         await this.page.goto(url, { waitUntil: 'networkidle' });
+        await this.page.evaluate(() => document.fonts.ready);
         return this;
     }
 
