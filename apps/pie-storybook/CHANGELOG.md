@@ -1,5 +1,35 @@
 # Changelog
 
+## 1.11.0
+
+### Minor Changes
+
+- [Added] - assistive text and status to the pie radio group ([#2013](https://github.com/justeattakeaway/pie/pull/2013)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`8d03ebaae`](https://github.com/justeattakeaway/pie/commit/8d03ebaae477b6a68a7d2af53224c05e787c7f4f), [`92f9965d3`](https://github.com/justeattakeaway/pie/commit/92f9965d3b48d7ad7765a25ce7304c0cbcaac072)]:
+  - @justeattakeaway/pie-checkbox-group@0.7.6
+  - @justeattakeaway/pie-lottie-player@0.0.5
+  - @justeattakeaway/pie-notification@0.12.5
+  - @justeattakeaway/pie-icon-button@0.29.2
+  - @justeattakeaway/pie-form-label@0.14.4
+  - @justeattakeaway/pie-checkbox@0.13.6
+  - @justeattakeaway/pie-spinner@0.7.3
+  - @justeattakeaway/pie-switch@0.30.6
+  - @justeattakeaway/pie-modal@0.49.4
+  - @justeattakeaway/pie-toast@0.4.3
+  - @justeattakeaway/pie-card@0.21.3
+  - @justeattakeaway/pie-chip@0.9.2
+  - @justeattakeaway/pie-link@0.18.3
+  - @justeattakeaway/pie-assistive-text@0.8.0
+  - @justeattakeaway/pie-radio-group@0.3.0
+  - @justeattakeaway/pie-radio@0.5.0
+  - @justeattakeaway/pie-cookie-banner@1.0.3
+  - @justeattakeaway/pie-textarea@0.11.1
+  - @justeattakeaway/pie-button@0.49.4
+  - @justeattakeaway/pie-text-input@0.24.5
+
 ## 1.10.1
 
 ### Patch Changes
