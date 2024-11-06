@@ -68,10 +68,10 @@ function renderChangelogText (groupedChanges) {
 
 /**
  * Generates a changeset file with specified changelog text
- * @param changelogText - Summary of the changes
- * @param versionBumpType - Version bump type: "major", "minor", or "patch"
- * @param packagesArr - Array containing the names of packages for which the release information needs to be generated
- * @param changesetPath - Path where the changeset file will be created
+ * @param changelogText Summary of the changes
+ * @param versionBumpType Version bump type: "major", "minor", or "patch"
+ * @param packagesArr Array containing the names of packages for which the release information needs to be generated
+ * @param changesetPath Path where the changeset file will be created
  * @returns The path to the changeset file that was created
  */
 async function createChangeSetFile (changelogText, versionBumpType, packagesArr, changesetPath) {
@@ -87,6 +87,11 @@ async function createChangeSetFile (changelogText, versionBumpType, packagesArr,
     return path.join(changesetPath, '.changeset', `${changesetFileName}.md`);
 }
 
+/**
+ * Creates a changeset file based on the list files and the type of modifications
+ * @param {Object} - changedFilesGroups
+ * @returns File path for the generated changeset file
+ */
 export async function createChangeset (changedFilesGroups) {
     // define modification type
     const hasRenamedOrMovedFiles = changedFilesGroups.renamed || changedFilesGroups.removed;

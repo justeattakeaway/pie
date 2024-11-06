@@ -57,8 +57,12 @@ function getChangedFilesGroups () {
 
 /**
  * Script for synchronizing icons from pie-iconography.
- * It also validates the file names and content and generates a changeset file.
- * Potential icon files issues are stored in the .issues folder.
+ * As long as there are icon files differences between this repo and pie-iconography, it will:
+ * - pull the new and modified icons
+ * - create and push a new dedicated branch
+ * - create a changeset file
+ * - validate the files and create a JSON file describing potential issues
+ * - set environment variables so the GitHub workflow can resume its job based on what this script yields
  */
 async function updateIcons () {
     // empty ".issues" folder to avoid leftovers from the previous run

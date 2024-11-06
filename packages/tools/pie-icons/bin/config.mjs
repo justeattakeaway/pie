@@ -1,5 +1,8 @@
 import path from 'path';
 
+/**
+ * @returns Internal config for the update-icons script
+ */
 export function getConfig () {
     const assetsPath = path.join(process.cwd(), '/src/assets');
 

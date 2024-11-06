@@ -8,6 +8,11 @@ import { ensureDirSync, readJSONSync, writeJsonSync } from 'fs-extra/esm';
 
 import { getIconCategory, findMonorepoRoot } from './helpers.mjs';
 
+/**
+ * Checks if the files do already exist in pie-docs iconData.json
+ * @param {Array} files Array of file paths
+ * @returns Array with messages describing the issues
+ */
 function validateFileIsInIconsData (files) {
     const iconsData = readJSONSync(path.join(findMonorepoRoot(), 'apps/pie-docs/src/iconData.json'));
 
@@ -86,11 +91,10 @@ function validateSVGs (files) {
 function validateFileNames (files) {
     const issues = files
         .map((filePath) => {
-            // Perform file name validation
             const { base } = path.parse(filePath);
 
-            // Ensure file doesnt start with a number
-            const startsWithNumber = base.match(/^[0-9]/gm); //
+            // Ensure file name doesnt start with a number
+            const startsWithNumber = base.match(/^[0-9]/gm);
 
             return startsWithNumber ? `The file "${base}" starts with a number and it's encouraged to avoid such pattern` : null;
         })
