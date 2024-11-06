@@ -82,7 +82,8 @@ async function updateIcons () {
         if (issuesFilePath) console.info(`🚨🚨🚨 Issues were stored at "${issuesFilePath}"`);
 
         // create and checkout branch
-        execSync(`git checkout -b dsw-000-update-icons-${Math.floor(Date.now() / 1000)}`);
+        const branchName = `dsw-000-update-icons-${Math.floor(Date.now() / 1000)}`;
+        execSync(`git checkout -b ${branchName}`);
 
         // create changeset file
         console.info('create icons changeset');
@@ -101,7 +102,9 @@ async function updateIcons () {
 
         // push if is running on GHA
         if (process.env.GITHUB_ACTIONS) {
-            execSync('git push');
+            execSync(`git push --set-upstream origin ${branchName}`);
+            execSync(`echo "BRANCH_NAME=${branchName}" >> $GITHUB_ENV`);
+            execSync(`echo "CHANGESET_FILE_PATH=${changesetFilePath}" >> $GITHUB_ENV`);
         }
     }
 
