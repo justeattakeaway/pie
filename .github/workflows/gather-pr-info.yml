@@ -1,0 +1,21 @@
+name: Gather PR Info
+on: pull_request
+
+jobs:
+  gather-info:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    # Gather necessary information and save it as an artifact
+    - name: Gather Information
+      run: |
+        # Example: Gather branch name or other necessary info
+        echo "PR_BRANCH_NAME=${{ github.event.pull_request.head.ref }}" > pr-info.txt
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: pr-info
+        path: pr-info.txt

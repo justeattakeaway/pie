@@ -1,40 +1,32 @@
 name: Pull Request Labeler
-on: pull_request_target
-# By default, pull_request_target runs when the activity type is opened, synchronize, or reopened
-# https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#pull_request_target
+on:
+  workflow_run:
+    workflows: ["Gather PR Info"]
+    types:
+      - completed
 
 jobs:
-  categorise:
+  process-info:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      uses: actions/checkout@v4
 
-    # Since this action runs on "pull_request_target", the current context is the "main" branch
-    # We need to pull the branch PR before performing the comparison in the "Add Missing Labels" step
-    - name: Fetch branch PR
-      env:
-        PR_NUMBER: ${{ github.event.pull_request.number }}
-        PR_BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
-      run: |
-        git fetch origin pull/"$PR_NUMBER"/head:"$PR_BRANCH_NAME"
+    - name: Download Artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: pr-info
 
+    # Process the information and perform actions that require secrets
     - name: Add Missing Labels
-      uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+      uses: actions/github-script@v7
       env:
         GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
-        PR_BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
       with:
         github-token: ${{ secrets.CHANGESETS_TOKEN }}
         script: |
-          const { PR_BRANCH_NAME } = process.env
-          const script = require('./.github/workflows/add-missing-labels/add-missing-labels.js')
-          await script({ github, context, prBranchName: PR_BRANCH_NAME });
-
-    - name: Labeler
-      uses: actions/labeler@ac9175f8a1f3625fd0d4fb234536d26811351594 # v4.3.0
-      with:
-        configuration-path: '.github/project-labeler.yml'
-        repo-token: '${{ secrets.GITHUB_TOKEN }}'
-        # Category labels will be removed if they no longer apply
-        sync-labels: true
+          const fs = require('fs');
+          const prInfo = fs.readFileSync('pr-info.txt', 'utf8');
+          const prBranchName = prInfo.match(/PR_BRANCH_NAME=(.*)/)[1];
+          const script = require('./.github/workflows/add-missing-labels/add-missing-labels.js');
+          await script({ github, context, prBranchName });
