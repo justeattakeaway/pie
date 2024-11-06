@@ -1,5 +1,21 @@
 # @justeattakeaway/pie-notification
 
+## 0.12.5
+
+### Patch Changes
+
+- [Changed] - Update prop definitions to align with conventions ([#2000](https://github.com/justeattakeaway/pie/pull/2000)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  - Use component props interface for all prop type definitions (e.g., `CardProps['href']` instead of just `string`).
+    - Don't use `?` when declaring props, this comes from the interface anyway.
+  - If the prop has a default value, use that from `defaultProps`, and let TS infer the type.
+  - Make sure all uses of `@property()` have a `type`.
+  - `@state` properties should be private and prefixed with an underscore.
+  - Use `!` when a `@query` property is guaranteed to exist, reducing the complexity of the code.
+
+- Updated dependencies [[`8d03ebaae`](https://github.com/justeattakeaway/pie/commit/8d03ebaae477b6a68a7d2af53224c05e787c7f4f)]:
+  - @justeattakeaway/pie-icon-button@0.29.2
+
 ## 0.12.4
 
 ### Patch Changes
