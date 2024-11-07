@@ -8,7 +8,7 @@ function stripTags (str: string) {
     return str.replace(/<\/?[^>]+(>|$)/g, '');
 }
 
-const englishLocale = JSON.parse(await readFile(new URL('../../locales/en-gb.json', import.meta.url), { encoding: 'utf-8' }));
+const englishLocale = JSON.parse(await readFile(new URL('../../dist/locales/en-gb.json', import.meta.url), { encoding: 'utf-8' }));
 let pieCookieBannerComponent: CookieBannerComponent;
 let pieModalComponent: ModalComponent;
 
@@ -20,7 +20,7 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
 
     test('should render text in the default (uk - english) language when unset', async () => {
         // Arrange
-        const englishLocale = JSON.parse(await readFile(new URL('../../locales/en-gb.json', import.meta.url), { encoding: 'utf-8' }));
+        const englishLocale = JSON.parse(await readFile(new URL('../../dist/locales/en-gb.json', import.meta.url), { encoding: 'utf-8' }));
         await pieCookieBannerComponent.load();
 
         // Act
@@ -62,7 +62,7 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
         test(`should 'dynamically' update the locale when we reset the language-country from 'en-gb' to ${language}-${country}`, async () => {
             // Arrange
             await pieCookieBannerComponent.load(); // en-gb is the default locale
-            const locale = JSON.parse(await readFile(new URL(`../../locales/${language.toLowerCase()}-${country.toLowerCase()}.json`, import.meta.url), { encoding: 'utf-8' }));
+            const locale = JSON.parse(await readFile(new URL(`../../dist/locales/${language.toLowerCase()}-${country.toLowerCase()}.json`, import.meta.url), { encoding: 'utf-8' }));
 
             // Act
             await pieCookieBannerComponent.setProperty('country', country);
@@ -133,7 +133,7 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
     ].forEach((obj) => {
         test(`should fallback to the default language-country '${obj.fallbackLang}-${obj.country}' if the supplied language '${obj.unsupportedLang}' is unsupported`, async () => {
             // Arrange
-            const fallbackLocale = JSON.parse(await readFile(new URL(`../../locales/${obj.fallbackLang.toLowerCase()}-${obj.country.toLowerCase()}.json`, import.meta.url), { encoding: 'utf-8' }));
+            const fallbackLocale = JSON.parse(await readFile(new URL(`../../dist/locales/${obj.fallbackLang.toLowerCase()}-${obj.country.toLowerCase()}.json`, import.meta.url), { encoding: 'utf-8' }));
             await pieCookieBannerComponent.load({ country: obj.country, language: obj.unsupportedLang }); // supply an unsupported language
 
             // Act

@@ -10,7 +10,6 @@
     "custom-elements.json",
     "src",
     "dist",
-    "locales",
     "**/*.d.ts"
   ],
   "pieMetadata": {
@@ -40,7 +39,8 @@
     "@justeattakeaway/pie-components-config": "0.18.0",
     "@justeattakeaway/pie-css": "0.13.1",
     "@justeattakeaway/pie-wrapper-react": "0.14.2",
-    "cem-plugin-module-file-extensions": "0.0.5"
+    "cem-plugin-module-file-extensions": "0.0.5",
+    "vite-plugin-static-copy": "2.0.0"
   },
   "dependencies": {
     "@justeattakeaway/pie-button": "0.49.4",
