@@ -36,7 +36,7 @@ import {
 } from './defs';
 
 import { localiseText, localiseRichText } from './localisation-utils';
-import defaultLocale from '../dist/locales/en-gb.json' assert { type: 'json' };
+import defaultLocale from '../locales/en-gb.json' assert { type: 'json' };
 
 // Valid values available to consumers
 export * from './defs';
@@ -91,7 +91,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     // Dynamically import locale JSON based on country and language
     private async _setLocaleBasedOnCountryAndLanguage (country: CountryCode, language: LanguageCode, fallback = false): Promise<void> {
         try {
-            this._locale = (await import(`../dist/locales/${language.toLowerCase()}-${country.toLowerCase()}.json`, { assert: { type: 'json' } })).default;
+            this._locale = (await import(`../locales/${language.toLowerCase()}-${country.toLowerCase()}.json`, { assert: { type: 'json' } })).default;
         } catch {
             // If loading fails, try using the default language, if that fails fall back to the global default locale
             if (!fallback) {
