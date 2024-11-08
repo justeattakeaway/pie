@@ -97,12 +97,10 @@ All content should use sentence case.
 
 ### Label
 - Always use clear and concise labels for radio buttons.
-- Labels appear to the right of radio buttons.
 
 ---
 
 ## Overflow
-### Multiple words overflow
 When the label exceeds the available width, it will wrap onto a new line.
 
 {% contentPageImage {
