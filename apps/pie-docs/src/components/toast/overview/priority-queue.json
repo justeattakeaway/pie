@@ -1,0 +1,59 @@
+{
+  "headings": [
+    "Priority",
+    "Variant",
+    "Behaviour"
+  ],
+  "rows": [
+    [
+      "1",
+      "Error - actionable",
+      "Takes precedence over lower priority ones, queuing alongside same priority toasts"
+    ],
+    [
+      "2",
+      "Error",
+      "Second level priority, and takes precedence over lower priority ones, queuing alongside same priority toasts and yielding to higher priority ones."
+    ],
+    [
+      "3",
+      "Warning - actionable",
+      "Third level priority, and takes precedence over lower priority ones, queuing alongside same priority toasts and yielding to higher priority ones."
+    ],
+    [
+      "4",
+      "Positive - actionable",
+      "Fourth level priority, and takes precedence over lower priority ones, queuing alongside same priority toasts and yielding to higher priority ones."
+    ],
+    [
+      "5",
+      "Info - actionable",
+      "Fifth level priority, and takes precedence over lower priority ones, queuing alongside same priority toasts and yielding to higher priority ones."
+    ],
+    [
+      "6",
+      "Neutral - actionable",
+      "Sixth level priority, and takes precedence over lower priority ones, queuing alongside same priority toasts and yielding to higher priority ones."
+    ],
+    [
+      "7",
+      "Warning",
+      "Seventh level priority, and takes precedence over lower priority ones, queuing alongside same priority toasts and yielding to higher priority ones."
+    ],
+    [
+      "8",
+      "Positive",
+      "Eighth level priority, and takes precedence over lower priority ones, queuing alongside same priority toasts and yielding to higher priority ones."
+    ],
+    [
+      "9",
+      "Info",
+      "Ninth level priority, and takes precedence over lower priority ones, queuing alongside same priority toasts and yielding to higher priority ones."
+    ],
+    [
+      "10",
+      "Neutral",
+      "Tenth level priority, queuing alongside same priority toasts and yielding to higher priority ones."
+    ]
+  ]
+}
