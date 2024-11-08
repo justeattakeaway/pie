@@ -236,7 +236,7 @@ Here are some examples of the component in a left-to-right context:
 {% endcontentLayout %}
 
 ### RTL examples
-Here are some examples of the component in right-to-left context:
+Here are some examples of the component in a right-to-left context:
 
 {% contentLayout %}
   {% contentItem %}
