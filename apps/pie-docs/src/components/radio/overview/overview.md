@@ -216,7 +216,7 @@ Outlines the atomic level interactive elements for the component.
 
 ## Examples
 ### LTR examples
-Here are some examples of the component in left-to-right context:
+Here are some examples of the component in a left-to-right context:
 
 {% contentLayout %}
   {% contentItem %}
