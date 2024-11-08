@@ -5,7 +5,7 @@
   ],
   "pipeline": {
     "generate:component-statuses": {
-      "cache": "false",
+      "cache": false,
       "outputs": [
         "./dist/component-statuses.json"
       ]
