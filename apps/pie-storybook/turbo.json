@@ -7,13 +7,15 @@
     "dev": {
       "cache": false,
       "dependsOn": [
-        "^build"
+        "^build",
+        "^generate:component-statuses"
       ]
     },
     "build": {
       "cache": true,
       "dependsOn": [
-        "^build"
+        "^build",
+        "^generate:component-statuses"
       ]
     }
   }
