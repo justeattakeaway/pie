@@ -115,7 +115,7 @@ When the label exceeds the available width, it will wrap onto a new line.
 
 ## Behaviours
 ### States
-The radio button allows for a series of two states: unselected, and selected. The default state for a radio is unselected.
+The radio button can be in one of two states: selected or unselected. The default state is unselected.
 
 {% contentLayout %}
   {% contentItem %}
