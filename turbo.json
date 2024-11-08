@@ -63,10 +63,9 @@
         "!packages/components/pie-webc-testing"
       ],
       "outputs": [
-        "component-statuses.json"
+        "./component-statuses.json"
       ]
     },
-    "copy:component-statuses": {},
     "watch": {
       "cache": true,
       "dependsOn": []

@@ -7,8 +7,7 @@
     "dev": "storybook dev -p 6006",
     "build": "storybook build --output-dir dist && cp -R ./static ./dist",
     "lint:scripts": "run -T eslint .",
-    "lint:scripts:fix": "run -T eslint . --fix",
-    "copy:component-statuses": "cp -v ../../component-statuses.json ."
+    "lint:scripts:fix": "run -T eslint . --fix"
   },
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
