@@ -223,7 +223,7 @@ Here are some examples of the component in a left-to-right context:
     {% contentPageImage {
         src: "../../../assets/img/components/radio/ltr-1.svg",
         width: 416,
-        alt: "Left-to-right ordered radio button selection for delivery options. The input selection circle is positioned to the right of the text for each option. The first option, 'Just Eat delivery services,' is selected, while the second option, 'Own delivery services,' is unselected."
+        alt: "A left-to-right example of radio buttons being used within cards. The input circles are positioned on the right-hand side of each card. The radio buttons show that the options are mutually exclusive, while the cards allow for more detailed information than a standard label, such as an icon, heading, and description."
       } %}
   {% endcontentItem %}
     {% contentItem %}
