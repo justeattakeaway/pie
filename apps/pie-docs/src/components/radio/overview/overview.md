@@ -103,7 +103,7 @@ All content should use sentence case.
 
 ## Overflow
 ### Multiple words overflow
-When the label exceeds the available width, the label will wrap onto a new line.
+When the label exceeds the available width, it will wrap onto a new line.
 
 {% contentPageImage {
     src:"../../../assets/img/components/radio/overflow.svg",
