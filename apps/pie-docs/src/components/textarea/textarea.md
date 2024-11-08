@@ -3,7 +3,7 @@ eleventyNavigation:
     key: 'Textarea'
     parent: Components
     url: /components/textarea/
-    order: 46
+    order: 47
 permalink: false
 ---
 

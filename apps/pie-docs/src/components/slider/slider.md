@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Slider'
     parent: Components
-    order: 39
+    order: 40
 ---
 
 ## Overview
