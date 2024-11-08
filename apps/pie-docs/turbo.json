@@ -13,7 +13,11 @@
       "dependsOn": [
         "^build",
         "clean",
-        "copy:component-statuses"
+        "//#generate:component-statuses"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "../../component-statuses.json"
       ],
       "outputs": [
         "dist/**"
@@ -23,7 +27,7 @@
       "cache": true,
       "dependsOn": [
         "^build",
-        "copy:component-statuses"
+        "//#generate:component-statuses"
       ]
     },
     "dev": {
@@ -31,12 +35,6 @@
       "dependsOn": [
         "build:dev"
       ]
-    },
-    "copy:component-statuses": {
-      "dependsOn": [
-        "//#generate:component-statuses"
-      ],
-      "cache": false
     },
     "test:generate-routes": {
       "cache": true,
