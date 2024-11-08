@@ -54,18 +54,7 @@
         ".output/**"
       ]
     },
-    "//#generate:component-statuses": {
-      "cache": true,
-      "inputs": [
-        "packages/components/**/package.json",
-        "!packages/components/pie-webc",
-        "!packages/components/pie-webc-core",
-        "!packages/components/pie-webc-testing"
-      ],
-      "outputs": [
-        "./component-statuses.json"
-      ]
-    },
+    "generate:component-statuses": {},
     "watch": {
       "cache": true,
       "dependsOn": []

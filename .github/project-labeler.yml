@@ -24,6 +24,9 @@ pie-components-config:
 tools:
   - 'packages/tools/**/*'
 
+pie-monorepo-utils:
+  - 'packages/tools/pie-monorepo-utils/**/*'
+
 pie-icons:
   - 'packages/tools/pie-icons/**/*'
 

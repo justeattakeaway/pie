@@ -7,19 +7,13 @@
     "dev": {
       "cache": false,
       "dependsOn": [
-        "^build",
-        "//#generate:component-statuses"
+        "^build"
       ]
     },
     "build": {
       "cache": true,
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "../../component-statuses.json"
-      ],
       "dependsOn": [
-        "^build",
-        "//#generate:component-statuses"
+        "^build"
       ]
     }
   }
