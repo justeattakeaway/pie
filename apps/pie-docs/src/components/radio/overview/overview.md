@@ -8,7 +8,7 @@ permalink: components/radio/
 ---
 
 ## Overview
-Radio buttons offer a single-selection mechanism where users can choose one option from a predefined set of parent components.
+Radio buttons offer a mechanism for users to choose only one option from a predefined set of mutually-exclusive options.
 
 They are commonly used in forms, settings panels, and various interfaces requiring users to make a single selection from multiple options.
 
