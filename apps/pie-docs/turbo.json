@@ -13,7 +13,7 @@
       "dependsOn": [
         "^build",
         "clean",
-        "@justeattakeaway/pie-monorepo-utils#generate:component-statuses"
+        "^generate:component-statuses"
       ],
       "outputs": [
         "dist/**"
@@ -23,7 +23,7 @@
       "cache": true,
       "dependsOn": [
         "^build",
-        "@justeattakeaway/pie-monorepo-utils#generate:component-statuses"
+        "^generate:component-statuses"
       ]
     },
     "dev": {
