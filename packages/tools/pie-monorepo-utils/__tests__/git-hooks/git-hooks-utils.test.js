@@ -3,7 +3,7 @@ import {
 } from 'vitest';
 import {
     getTicketIdFromBranchName, validateBranchName, verifyCommitMessage,
-} from '../git-hooks/git-hooks-utils';
+} from '../../git-hooks/git-hooks-utils';
 
 describe('getTicketIdFromBranchName', () => {
     describe('when called with an incompatible argument', () => {

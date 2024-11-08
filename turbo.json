@@ -56,7 +56,7 @@
     },
     "generate:component-statuses": {},
     "watch": {
-      "cache": true,
+      "cache": false,
       "dependsOn": []
     },
     "clean": {
