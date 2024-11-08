@@ -230,7 +230,7 @@ Here are some examples of the component in a left-to-right context:
       {% contentPageImage {
         src: "../../../assets/img/components/radio/ltr-2.svg",
         width: 360,
-        alt: "Left-to-right ordered radio button selection for food options. Each option has an input circle on the left, followed by the text. The first option, 'Medium fries' (1410 kJ / 337 kcal), is selected, and the second option, 'Side salad' (77 kJ / 18 kcal), is unselected."
+        alt: "A left-to-right example of radio buttons being used to select food options. Each option has an input circle on the left, followed by the item's name and description."
       } %}
   {% endcontentItem %}
 {% endcontentLayout %}
