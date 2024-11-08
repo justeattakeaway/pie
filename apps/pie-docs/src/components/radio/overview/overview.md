@@ -70,7 +70,7 @@ They are commonly used in forms, settings panels, and various interfaces requiri
 ## Modifiers
 ### Label
 
-A label should always be present unless being utilised as a nested component and an alternative label is present.
+A label should always be present unless being used as a nested component and an alternative label is given.
 
 {% contentLayout %}
   {% contentItem %}
