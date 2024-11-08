@@ -1,5 +1,23 @@
 # @justeattakeaway/pie-radio-group
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - assistive text and status to the pie radio group ([#2013](https://github.com/justeattakeaway/pie/pull/2013)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`92f9965d3`](https://github.com/justeattakeaway/pie/commit/92f9965d3b48d7ad7765a25ce7304c0cbcaac072)]:
+  - @justeattakeaway/pie-assistive-text@0.8.0
+
+## 0.2.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.7.5
+
 ## 0.2.0
 
 ### Minor Changes

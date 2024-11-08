@@ -2,7 +2,7 @@ import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const variants = ['default', 'outline', 'ghost'] as const;
 
-export type AriaProps = {
+type AriaProps = {
     close?: string;
     label?: string;
 };

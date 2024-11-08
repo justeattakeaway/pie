@@ -1,5 +1,52 @@
 # @justeattakeaway/pie-webc
 
+## 0.5.49
+
+### Patch Changes
+
+- [Removed] - unused lint:style scripts ([#2000](https://github.com/justeattakeaway/pie/pull/2000)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`8d03ebaae`](https://github.com/justeattakeaway/pie/commit/8d03ebaae477b6a68a7d2af53224c05e787c7f4f), [`92f9965d3`](https://github.com/justeattakeaway/pie/commit/92f9965d3b48d7ad7765a25ce7304c0cbcaac072)]:
+  - @justeattakeaway/pie-checkbox-group@0.7.6
+  - @justeattakeaway/pie-lottie-player@0.0.5
+  - @justeattakeaway/pie-notification@0.12.5
+  - @justeattakeaway/pie-icon-button@0.29.2
+  - @justeattakeaway/pie-form-label@0.14.4
+  - @justeattakeaway/pie-checkbox@0.13.6
+  - @justeattakeaway/pie-spinner@0.7.3
+  - @justeattakeaway/pie-switch@0.30.6
+  - @justeattakeaway/pie-modal@0.49.4
+  - @justeattakeaway/pie-toast@0.4.3
+  - @justeattakeaway/pie-card@0.21.3
+  - @justeattakeaway/pie-chip@0.9.2
+  - @justeattakeaway/pie-link@0.18.3
+  - @justeattakeaway/pie-assistive-text@0.8.0
+  - @justeattakeaway/pie-radio-group@0.3.0
+  - @justeattakeaway/pie-radio@0.5.0
+  - @justeattakeaway/pie-cookie-banner@1.0.3
+  - @justeattakeaway/pie-textarea@0.11.1
+  - @justeattakeaway/pie-button@0.49.4
+  - @justeattakeaway/pie-text-input@0.24.5
+
+## 0.5.48
+
+### Patch Changes
+
+- Updated dependencies [[`f2672091f`](https://github.com/justeattakeaway/pie/commit/f2672091f08995751a4aceaf2c4aa8f333764fee)]:
+  - @justeattakeaway/pie-tag@0.11.1
+  - @justeattakeaway/pie-assistive-text@0.7.5
+  - @justeattakeaway/pie-chip@0.9.1
+  - @justeattakeaway/pie-icon-button@0.29.1
+  - @justeattakeaway/pie-modal@0.49.3
+  - @justeattakeaway/pie-notification@0.12.4
+  - @justeattakeaway/pie-switch@0.30.5
+  - @justeattakeaway/pie-text-input@0.24.4
+  - @justeattakeaway/pie-toast@0.4.2
+  - @justeattakeaway/pie-checkbox@0.13.5
+  - @justeattakeaway/pie-checkbox-group@0.7.5
+  - @justeattakeaway/pie-radio-group@0.2.1
+  - @justeattakeaway/pie-cookie-banner@1.0.2
+
 ## 0.5.47
 
 ### Patch Changes

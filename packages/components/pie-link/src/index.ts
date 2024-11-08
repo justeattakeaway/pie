@@ -29,7 +29,7 @@ const componentSelector = 'pie-link';
  */
 
 export class PieLink extends LitElement implements LinkProps {
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, tags, defaultProps.tag)
     public tag = defaultProps.tag;
 

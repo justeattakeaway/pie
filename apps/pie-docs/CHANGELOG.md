@@ -1,5 +1,24 @@
 # Changelog
 
+## 4.14.0
+
+### Minor Changes
+
+- [Added] - assistive text and status to the pie radio group ([#2013](https://github.com/justeattakeaway/pie/pull/2013)) by [@raoufswe](https://github.com/raoufswe)
+
+## 4.13.0
+
+### Minor Changes
+
+- [Updated] - Adds missing description on index pages files ([#2012](https://github.com/justeattakeaway/pie/pull/2012)) by [@maledr5](https://github.com/maledr5)
+
+### Patch Changes
+
+- [Added] - events section for the modal component ([#2015](https://github.com/justeattakeaway/pie/pull/2015)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`88d9d42ff`](https://github.com/justeattakeaway/pie/commit/88d9d42ff5652fb8de49c2fdffab0220f32b6f5a)]:
+  - @justeattakeaway/pie-icons@5.1.0
+
 ## 4.12.2
 
 ### Patch Changes

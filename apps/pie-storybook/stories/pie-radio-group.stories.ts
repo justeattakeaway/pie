@@ -4,7 +4,11 @@ import { type Meta } from '@storybook/web-components';
 import { action } from '@storybook/addon-actions';
 
 import '@justeattakeaway/pie-radio-group';
-import { type RadioGroupProps as RadioGroupPropsBase, defaultProps } from '@justeattakeaway/pie-radio-group';
+import {
+    defaultProps,
+    statusTypes,
+    type RadioGroupProps as RadioGroupPropsBase,
+} from '@justeattakeaway/pie-radio-group';
 import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-radio';
 import '@justeattakeaway/pie-form-label';
@@ -64,12 +68,27 @@ const radioGroupStoryMeta: RadioGroupStoryMeta = {
                 summary: defaultArgs.value,
             },
         },
+        status: {
+            description: 'The status of the radio group component / assistive text. Can be default, success or error.',
+            control: 'select',
+            options: statusTypes,
+            defaultValue: {
+                summary: defaultProps.status,
+            },
+        },
+        assistiveText: {
+            description: 'An optional assistive text to display below the radio group.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
         design: {
             type: 'figma',
-            url: '',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/branch/6u3sopt3trAp9wdJi7lUfY/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?node-id=6369-3799&node-type=frame&t=pbk7ibGYRutGCO3z-0',
         },
     },
 };
@@ -82,6 +101,8 @@ const Template = ({
     isInline,
     disabled,
     labelSlot,
+    assistiveText,
+    status,
 }: RadioGroupProps) => {
     function onChange (event: CustomEvent) {
         const selectedRadioElement = event.target as HTMLInputElement;
@@ -97,6 +118,8 @@ const Template = ({
                 value=${ifDefined(value)}
                 ?isInline=${isInline}
                 ?disabled=${disabled}
+                assistiveText="${ifDefined(assistiveText)}"
+                status=${ifDefined(status)}
                 @change=${onChange}>
                     ${labelSlot}
                     <pie-radio value="radio-one">radio 1</pie-radio>

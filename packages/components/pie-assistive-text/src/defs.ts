@@ -9,7 +9,7 @@ export interface AssistiveTextProps {
     variant?: typeof variants[number];
 
      /**
-     * If true, hides the component visually but leaves it accessible for a11y technologies.
+     * If true, hides the component visually but leaves it accessible for screen readers.
      */
     isVisuallyHidden?: boolean;
 }

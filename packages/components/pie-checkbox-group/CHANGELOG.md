@@ -1,5 +1,28 @@
 # @justeattakeaway/pie-checkbox-group
 
+## 0.7.6
+
+### Patch Changes
+
+- [Changed] - Update prop definitions to align with conventions ([#2000](https://github.com/justeattakeaway/pie/pull/2000)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  - Use component props interface for all prop type definitions (e.g., `CardProps['href']` instead of just `string`).
+    - Don't use `?` when declaring props, this comes from the interface anyway.
+  - If the prop has a default value, use that from `defaultProps`, and let TS infer the type.
+  - Make sure all uses of `@property()` have a `type`.
+  - `@state` properties should be private and prefixed with an underscore.
+  - Use `!` when a `@query` property is guaranteed to exist, reducing the complexity of the code.
+
+- Updated dependencies [[`92f9965d3`](https://github.com/justeattakeaway/pie/commit/92f9965d3b48d7ad7765a25ce7304c0cbcaac072)]:
+  - @justeattakeaway/pie-assistive-text@0.8.0
+
+## 0.7.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.7.5
+
 ## 0.7.4
 
 ### Patch Changes
