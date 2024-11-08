@@ -1,4 +1,4 @@
-# @justeattakeaway/git-hooks-scripts
+# @justeattakeaway/pie-monorepo-utils
 
 ## 0.2.0
 

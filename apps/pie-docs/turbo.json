@@ -13,11 +13,7 @@
       "dependsOn": [
         "^build",
         "clean",
-        "//#generate:component-statuses"
-      ],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "../../component-statuses.json"
+        "@justeattakeaway/pie-monorepo-utils#generate:component-statuses"
       ],
       "outputs": [
         "dist/**"
@@ -27,7 +23,7 @@
       "cache": true,
       "dependsOn": [
         "^build",
-        "//#generate:component-statuses"
+        "@justeattakeaway/pie-monorepo-utils#generate:component-statuses"
       ]
     },
     "dev": {

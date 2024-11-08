@@ -1,6 +1,6 @@
 import React from 'react';
 import '@justeattakeaway/pie-tag';
-import componentStatusesJson from '../../../component-statuses.json';
+import componentStatusesJson from '@justeattakeaway/pie-monorepo-utils/dist/component-statuses.json';
 import { tagVariantToStatusMap } from '../data/tag-variants-to-statuses-map';
 import '@justeattakeaway/pie-icons-webc/dist/IconHelpCircle.js';
 
