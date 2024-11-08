@@ -195,6 +195,21 @@ jobs:
       bucket-name-main: 'pie-storybook'
     secrets: inherit
 
+  deploy-storybook-testing:
+    needs: unit-tests
+    if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/amplify-deploy.yml
+    with:
+      os: ubuntu-latest
+      node-version: 20
+      amplify-app-id: d17ja0ul7nrdy0
+      package-name: 'pie-storybook'
+      package-dist-directory: ./apps/pie-storybook/dist
+      bucket-name-preview: 'pie-storybook-preview/testing'
+      bucket-name-main: 'pie-storybook'
+      build-script: 'build:testing'
+    secrets: inherit
+
   # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
   browser-tests-components:
     needs: [ build-ubuntu-node-20, deploy-storybook ]
