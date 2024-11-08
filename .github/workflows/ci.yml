@@ -154,6 +154,7 @@ jobs:
     with:
       os: ubuntu-latest
       node-version: 20
+      analyse-component-bundles: true
     secrets: inherit
 
   unit-tests:
