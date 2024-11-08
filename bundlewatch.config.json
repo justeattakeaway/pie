@@ -2,7 +2,7 @@
   "files": [
     {
       "path": "./packages/components/pie-assistive-text/dist/index.js",
-      "maxSize": "2.75 KB"
+      "maxSize": "1.3 KB"
     },
     {
       "path": "./packages/components/pie-assistive-text/dist/react.js",
@@ -178,7 +178,7 @@
     },
     {
       "path": "./packages/components/pie-toast/dist/index.js",
-      "maxSize": "6.25 KB"
+      "maxSize": "4.5 KB"
     },
     {
       "path": "./packages/components/pie-toast/dist/react.js",
