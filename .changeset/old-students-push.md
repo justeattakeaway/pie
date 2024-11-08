@@ -1,5 +1,5 @@
 ---
-"@justeattakeaway/pie-tag": minor
+"@justeattakeaway/pie-tag": major
 "pie-storybook": minor
 "pie-docs": minor
 ---
