@@ -22,10 +22,11 @@
     "generate-component-statuses": "./utilities/component-statuses/generate-component-statuses.js"
   },
   "scripts": {
+    "analyse-component-bundles": "bundlewatch --config bundlewatch.config.json",
     "watch": "turbo run watch --filter=!pie-monorepo",
     "build": "cross-env-shell turbo run build --filter=!'./apps/examples/*' --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "build:dev": "cross-env-shell turbo run build:dev --filter=!'./apps/examples/*' --filter=!pie-monorepo --token=${TURBO_TOKEN}",
-    "build:examples": "cross-env-shell turbo run build:examples --token=${TURBO_TOKEN}",
+    "build:examples": "cross-env-shell turbo run build:examples --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "build:react-wrapper": "cross-env-shell turbo run build:react-wrapper --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "create:manifest": "cross-env-shell turbo run create:manifest --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "changeset": "changeset",
@@ -93,6 +94,7 @@
     "@vitest/coverage-c8": "0.29.8",
     "autoprefixer": "10.4.20",
     "babel-loader": "8.3.0",
+    "bundlewatch": "0.4.0",
     "commitizen": "4.3.0",
     "cross-env": "7.0.3",
     "cssnano": "5.1.15",

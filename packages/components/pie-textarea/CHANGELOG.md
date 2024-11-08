@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-textarea
 
+## 0.11.1
+
+### Patch Changes
+
+- Updated dependencies [[`8d03ebaae`](https://github.com/justeattakeaway/pie/commit/8d03ebaae477b6a68a7d2af53224c05e787c7f4f)]:
+  - @justeattakeaway/pie-form-label@0.14.4
+
 ## 0.11.0
 
 ### Minor Changes

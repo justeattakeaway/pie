@@ -5,8 +5,7 @@
       "cache": true,
       "dependsOn": [
         "^build",
-        "build:react-wrapper",
-        "//#generate:component-statuses"
+        "build:react-wrapper"
       ],
       "outputs": [
         "dist/**"
@@ -173,8 +172,7 @@
     "dev": {
       "cache": false,
       "dependsOn": [
-        "^build",
-        "//#generate:component-statuses"
+        "^build"
       ]
     }
   }
