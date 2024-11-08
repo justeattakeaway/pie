@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "Scripts and utilities used by the PIE monorepo",
   "main": "index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "generate:component-statuses": "node ./component-statuses/generate-component-statuses.js",
     "lint:scripts": "run -T eslint .",
