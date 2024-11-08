@@ -185,5 +185,8 @@
       "maxSize": "0.41 KB"
     }
   ],
-  "defaultCompression": "gzip"
+  "defaultCompression": "gzip",
+  "ci": {
+    "trackBranches": ["main"]
+  }
 }
