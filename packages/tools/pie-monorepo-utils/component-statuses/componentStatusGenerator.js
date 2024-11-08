@@ -42,7 +42,6 @@ class ComponentStatusGenerator {
 
         try {
             const workingDir = process.cwd();
-            this.console.info('Working directory:', workingDir);
             const monorepoRoot = this.findMonorepoRootSync(workingDir);
 
             // Find components base dir
