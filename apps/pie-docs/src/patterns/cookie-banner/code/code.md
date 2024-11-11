@@ -86,7 +86,7 @@ sk-sk
 ```
 (*) If we don't have a specific locale for a given language/country combination then we would attempt the following fallbacks;
 
-If you supply an unsupported country in the language/country combination then we would attempt to use the locale file based on the language supplied, e.g. if you supplied `de` & `ch` we would fallback to `de-de`, if you supplied `fr` & `ca` then we would fallback to `fr-fr`, etc. (_In the case that we have multiple languages matches then we use the default locale for the country based on the langauge supplied, e.g. if you supplied `en` & `ch` then we would fallback to_ `en-gb` _and not_ `en-fr`).
+If you supply an unsupported country in the language/country combination then we would attempt to use the locale file based on the language supplied, e.g. if you supplied `de` & `ch` we would fallback to `de-de`, if you supplied `fr` & `ca` then we would fallback to `fr-fr`, etc. (_In the case that we have multiple languages matches then we use the default locale for the country based on the language supplied, e.g. if you supplied `en` & `ch` then we would fallback to_ `en-gb` _and not_ `en-fr`).
 
 If you supply an unsupported lanaguage in the language/country combination then we would attempt to use the locale file based on the country supplied, e.g. if you supplied `pt` & `es` we would fallback to `es-es`, if you supplied `ru` & `fr` then we would fallback to `fr-fr`, etc. 
 

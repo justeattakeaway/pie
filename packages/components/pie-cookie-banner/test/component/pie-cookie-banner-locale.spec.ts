@@ -130,7 +130,7 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
         { country: Country.SPAIN, unsupportedLang: 'pt', fallbackLang: Language.SPANISH },
         { country: Country.FRANCE, unsupportedLang: 'ru', fallbackLang: Language.FRENCH },
     ].forEach((obj) => {
-        test(`should fallback to the default language-country '${obj.fallbackLang}-${obj.country}' if the supplied langauge '${obj.unsupportedLang} is unupported`, async () => {
+        test(`should fallback to the default language-country '${obj.fallbackLang}-${obj.country}' if the supplied language '${obj.unsupportedLang} is unupported`, async () => {
             // Arrange
             const fallbackLocale = JSON.parse(await readFile(new URL(`../../locales/${obj.fallbackLang.toLowerCase()}-${obj.country.toLowerCase()}.json`, import.meta.url), { encoding: 'utf-8' }));
             // eslint-disable-next-line no-console
