@@ -275,4 +275,42 @@ test.describe('PieToast - Component tests', () => {
             });
         });
     });
+
+    test.describe('role attribute', () => {
+        test('should set role to "alert" when variant is "error"', async ({ mount, page }) => {
+            // Arrange
+            await mount(PieToast, {
+                props: {
+                    variant: 'error',
+                } as ToastProps,
+            });
+
+            // Wait for the component to render alongside its animations
+            await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
+
+            // Act
+            const toast = page.locator(componentSelector);
+
+            // Assert
+            await expect(toast).toHaveAttribute('role', 'alert');
+        });
+
+        test('should set role to "status" when variant is not "error"', async ({ mount, page }) => {
+            // Arrange
+            await mount(PieToast, {
+                props: {
+                    variant: 'info',
+                } as ToastProps,
+            });
+
+            // Wait for the component to render alongside its animations
+            await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
+
+            // Act
+            const toast = page.locator(componentSelector);
+
+            // Assert
+            await expect(toast).toHaveAttribute('role', 'status');
+        });
+    });
 });

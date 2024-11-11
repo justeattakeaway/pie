@@ -409,7 +409,7 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
 
         return html`
             <div
-                role="${variant === 'error' ? 'alert' : 'status'}">    
+                role="${variant === 'error' ? 'alert' : 'status'}"   
                 data-test-id="${componentSelector}"
                 class="${classMap(componentWrapperClasses)}">
                 <div class="${componentClass}-contentArea">
