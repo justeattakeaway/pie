@@ -208,6 +208,7 @@ jobs:
       bucket-name-preview: 'pie-storybook-preview/testing'
       bucket-name-main: 'pie-storybook'
       build-script: 'build:testing'
+      destination-dir: 'testing'
     secrets: inherit
 
   # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
