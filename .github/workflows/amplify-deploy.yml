@@ -94,6 +94,7 @@ jobs:
           file-path: "${{inputs.package-dist-directory}}/${{ env.ZIP_NAME }}"
           content-type: "application/zip"
           public: true
+          output-file-url: 'true'
       # Create branch on Amplify
       - name: Create Amplify branch
         shell: bash
