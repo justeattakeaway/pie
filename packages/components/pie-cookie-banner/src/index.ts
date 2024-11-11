@@ -25,12 +25,14 @@ import {
     ON_COOKIE_BANNER_PREFS_SAVED,
     defaultProps,
     preferences,
+    availableLocales,
+    preferredLocaleForLanguage,
+    preferredLocaleForCountry,
     type CookieBannerProps,
     type Preference,
     type PreferenceIds,
     type CookieBannerLocale,
     type CustomTagEnhancers,
-    defaultLanguage,
     type CountryCode,
     type LanguageCode,
 } from './defs';
@@ -83,25 +85,50 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
 
     async updated (changedProperties: PropertyValues<this>) {
         // Re-fetch locale when country or language changes
-        if (changedProperties.has('country') || changedProperties.has('language')) {
-            await this._setLocaleBasedOnCountryAndLanguage(this.country, this.language);
+        if (changedProperties.has('language') || changedProperties.has('country')) {
+            await this._setLocaleBasedOnCountryAndLanguage(this.language, this.country);
         }
     }
 
     // Dynamically import locale JSON based on country and language
-    private async _setLocaleBasedOnCountryAndLanguage (country: CountryCode, language: LanguageCode, fallback = false): Promise<void> {
+    private async _setLocaleBasedOnCountryAndLanguage (language: LanguageCode, country: CountryCode): Promise<void> {
         try {
-            this._locale = (await import(`../locales/${language.toLowerCase()}-${country.toLowerCase()}.json`, { assert: { type: 'json' } })).default;
+            const localeString = this._getLocaleString(language, country);
+            this._locale = (await import(`../locales/${localeString}.json`, { assert: { type: 'json' } })).default;
         } catch {
-            // If loading fails, try using the default language, if that fails fall back to the global default locale
-            if (!fallback) {
-                const fallbackLang = defaultLanguage.get(country) || defaultProps.language;
-                await this._setLocaleBasedOnCountryAndLanguage(country, fallbackLang, true);
-            } else {
-                this._locale = defaultLocale;
-            }
+            this._locale = defaultLocale;
         }
     }
+
+    /**
+     * Gets the locale string for the requested language and country.
+     *
+     * @param languageCode - The requested language code (e.g., 'es').
+     * @param countryCode - The requested country code (e.g., 'ch').
+     * @returns - The best matching locale string in the format "language-country".
+     */
+    private _getLocaleString = (languageCode: LanguageCode, countryCode: CountryCode): string => {
+        // 1. Check for the exact locale
+        const requestedLocale = `${languageCode}-${countryCode}`.toLowerCase();
+        if (availableLocales.has(requestedLocale)) {
+            return requestedLocale;
+        }
+
+        // 2. Check the requested language in the locales
+        const preferredLocaleForLang = preferredLocaleForLanguage.get(languageCode.toLowerCase());
+        if (preferredLocaleForLang && availableLocales.has(preferredLocaleForLang)) {
+            return preferredLocaleForLang;
+        }
+
+        // 3. Check the requested country in the locales
+        const preferredLocaleForCountryCode = preferredLocaleForCountry.get(countryCode.toLowerCase());
+        if (preferredLocaleForCountryCode && availableLocales.has(preferredLocaleForCountryCode)) {
+            return preferredLocaleForCountryCode;
+        }
+
+        // 4. Fallback (e.g. 'en-gb')
+        return `${defaultProps.language}-${defaultProps.country}`;
+    };
 
     private _customTagEnhancers: CustomTagEnhancers = {
         linkStatement: (tagContent: string) => html`<pie-link href="${this.cookieStatementLink}" variant="inverse" target="_blank" data-test-id="cookie-statement-link">${tagContent}</pie-link>`,

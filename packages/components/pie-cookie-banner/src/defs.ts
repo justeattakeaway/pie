@@ -1,7 +1,9 @@
 import { type TemplateResult } from 'lit';
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-export const Language = {
+export const Language: {
+    readonly [key: string]: string;
+} = {
     BULGARIAN: 'bg',
     CATALAN: 'ca',
     DANISH: 'da',
@@ -14,21 +16,30 @@ export const Language = {
     POLISH: 'pl',
     SLOVAK: 'sk',
     SPANISH: 'es',
-} as const;
+};
 
-export const Country = {
+export const Country: {
+    readonly [key: string]: string;
+} = {
+    AUSTRALIA: 'au',
+    AUSTRIA: 'at',
+    BELGIUM: 'be',
     BULGARIA: 'bg',
+    CANADA: 'ca',
     DENMARK: 'dk',
     FRANCE: 'fr',
     GERMANY: 'de',
     GREAT_BRITAIN: 'gb',
+    IRELAND: 'ie',
     ISRAEL: 'il',
     ITALY: 'it',
+    LUXEMBOURG: 'lu',
     NETHERLANDS: 'nl',
     POLAND: 'pl',
     SLOVAKIA: 'sk',
     SPAIN: 'es',
-} as const;
+    SWITZERLAND: 'ch',
+};
 
 export type LanguageCode = typeof Language[keyof typeof Language];
 
@@ -190,16 +201,57 @@ export const defaultProps: DefaultProps = {
     cookieTechnologiesLink: '',
 };
 
-export const defaultLanguage = new Map<CountryCode, LanguageCode>([
-    [Country.GREAT_BRITAIN, Language.ENGLISH],
-    [Country.FRANCE, Language.FRENCH],
-    [Country.DENMARK, Language.DANISH],
-    [Country.SPAIN, Language.SPANISH],
-    [Country.ITALY, Language.ITALIAN],
-    [Country.NETHERLANDS, Language.DUTCH],
-    [Country.POLAND, Language.POLISH],
-    [Country.SLOVAKIA, Language.SLOVAK],
-    [Country.BULGARIA, Language.BULGARIAN],
-    [Country.GERMANY, Language.GERMAN],
-    [Country.ISRAEL, Language.HEBREW],
+// Available locale files
+export const availableLocales = new Set([
+    `${Language.BULGARIAN}-${Country.BULGARIA}`,
+    `${Language.DANISH}-${Country.DENMARK}`,
+    `${Language.ENGLISH}-${Country.FRANCE}`,
+    `${Language.FRENCH}-${Country.FRANCE}`,
+    `${Language.GERMAN}-${Country.GERMANY}`,
+    `${Language.ENGLISH}-${Country.GREAT_BRITAIN}`,
+    `${Language.HEBREW}-${Country.ISRAEL}`,
+    `${Language.ITALIAN}-${Country.ITALY}`,
+    `${Language.DUTCH}-${Country.NETHERLANDS}`,
+    `${Language.POLISH}-${Country.POLAND}`,
+    `${Language.SLOVAK}-${Country.SLOVAKIA}`,
+    `${Language.CATALAN}-${Country.SPAIN}`,
+    `${Language.SPANISH}-${Country.SPAIN}`,
+]);
+
+// Map of preferred default locales for each language
+export const preferredLocaleForLanguage = new Map<LanguageCode, string>([
+    [Language.BULGARIAN, `${Language.BULGARIAN}-${Country.BULGARIA}`],
+    [Language.CATALAN, `${Language.CATALAN}-${Country.SPAIN}`],
+    [Language.DANISH, `${Language.DANISH}-${Country.DENMARK}`],
+    [Language.DUTCH, `${Language.DUTCH}-${Country.NETHERLANDS}`],
+    [Language.ENGLISH, `${Language.ENGLISH}-${Country.GREAT_BRITAIN}`],
+    [Language.FRENCH, `${Language.FRENCH}-${Country.FRANCE}`],
+    [Language.GERMAN, `${Language.GERMAN}-${Country.GERMANY}`],
+    [Language.HEBREW, `${Language.HEBREW}-${Country.ISRAEL}`],
+    [Language.ITALIAN, `${Language.ITALIAN}-${Country.ITALY}`],
+    [Language.POLISH, `${Language.POLISH}-${Country.POLAND}`],
+    [Language.SLOVAK, `${Language.SLOVAK}-${Country.SLOVAKIA}`],
+    [Language.SPANISH, `${Language.SPANISH}-${Country.SPAIN}`],
+]);
+
+// Map of preferred default locales for each Country
+export const preferredLocaleForCountry = new Map<CountryCode, string>([
+    [Country.AUSTRALIA, `${Language.ENGLISH}-${Country.GREAT_BRITAIN}`],
+    [Country.AUSTRIA, `${Language.GERMAN}-${Country.GERMANY}`],
+    [Country.BELGIUM, `${Language.FRENCH}-${Country.FRANCE}`],
+    [Country.BULGARIA, `${Language.BULGARIAN}-${Country.BULGARIA}`],
+    [Country.CANADA, `${Language.ENGLISH}-${Country.GREAT_BRITAIN}`],
+    [Country.DENMARK, `${Language.DANISH}-${Country.DENMARK}`],
+    [Country.FRANCE, `${Language.FRENCH}-${Country.FRANCE}`],
+    [Country.GERMANY, `${Language.GERMAN}-${Country.GERMANY}`],
+    [Country.GREAT_BRITAIN, `${Language.ENGLISH}-${Country.GREAT_BRITAIN}`],
+    [Country.IRELAND, `${Language.ENGLISH}-${Country.GREAT_BRITAIN}`],
+    [Country.ISRAEL, `${Language.HEBREW}-${Country.ISRAEL}`],
+    [Country.ITALY, `${Language.ITALIAN}-${Country.ITALY}`],
+    [Country.LUXEMBOURG, `${Language.FRENCH}-${Country.FRANCE}`],
+    [Country.NETHERLANDS, `${Language.DUTCH}-${Country.NETHERLANDS}`],
+    [Country.POLAND, `${Language.POLISH}-${Country.POLAND}`],
+    [Country.SLOVAKIA, `${Language.SLOVAK}-${Country.SLOVAKIA}`],
+    [Country.SPAIN, `${Language.SPANISH}-${Country.SPAIN}`],
+    [Country.SWITZERLAND, `${Language.GERMAN}-${Country.GERMANY}`],
 ]);

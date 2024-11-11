@@ -65,11 +65,32 @@ tableData: events
 
 ## Localisation
 
-By default, the component displays its content in GB English. To display the content in another language, you need to supply a supported language and country pairing to the `language` and `country` props. You can see the currently supported locale pairings here:
+By default, the component displays its content in GB English. To display the content in another language, you need to supply a supported language and country pairing to the `language` and `country` props(*).
+
+Currently the following locale files are supported:
 
 ```js
-import allLocales from '@justeattakeaway/pie-cookie-banner/locales';
+bg-bg
+ca-es
+da-dk
+de-de
+en-fr
+en-gb
+es-es
+fr-fr
+he-il
+it-it
+nl-nl
+pl-pl
+sk-sk
 ```
+(*) If we don't have a specific locale for a given language/country combination then we would attempt the following fallbacks;
+
+If you supply an unsupported country in the language/country combination then we would attempt to use the locale file based on the language supplied, e.g. if you supplied `de` & `ch` we would fallback to `de-de`, if you supplied `fr` & `ca` then we would fallback to `fr-fr`, etc. (_In the case that we have multiple languages matches then we use the default locale for the country based on the langauge supplied, e.g. if you supplied `en` & `ch` then we would fallback to_ `en-gb` _and not_ `en-fr`).
+
+If you supply an unsupported lanaguage in the language/country combination then we would attempt to use the locale file based on the country supplied, e.g. if you supplied `pt` & `es` we would fallback to `es-es`, if you supplied `ru` & `fr` then we would fallback to `fr-fr`, etc. 
+
+Supporting new locales - If you wish to have a bespoke locale for a given combination then add a new locale translation file and extend the code to support this new lanaguage/country.
 
 ## Examples
 
