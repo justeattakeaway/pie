@@ -8,6 +8,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
+    - name: Fetch main branch # This is necessary for comparing the current branch changes against main
+      run: git fetch origin main:main
+
     - name: Get Missing Labels
       uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
       env:
@@ -27,5 +30,6 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
       with:
-        path: ./
+        path: ./tmp-labels.json
         name: tmp-labels.json
+        retention-days: 1
