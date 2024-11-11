@@ -14,14 +14,11 @@ runs:
   steps:
     - name: Run ${{ inputs.script-name }}
       shell: bash
-      env:
-        SCRIPT_NAME: ${{ inputs.script-name }}
-        CONCURRENCY: ${{ inputs.concurrency }}
       run: |
         CONCURRENCY_FLAG=""
 
-        if [ ! -z "$CONCURRENCY" ]; then
-          CONCURRENCY_FLAG="--concurrency=$CONCURRENCY"
+        if [ ! -z "${{ inputs.concurrency }}" ]; then
+          CONCURRENCY_FLAG="--concurrency=${{ inputs.concurrency }}"
         fi
 
-        yarn $SCRIPT_NAME $CONCURRENCY_FLAG
+        yarn ${{ inputs.script-name }} $CONCURRENCY_FLAG
