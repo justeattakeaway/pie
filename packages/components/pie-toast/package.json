@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-toast",
   "description": "PIE Design System Toast built using Web Components",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -41,8 +41,8 @@
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "0.49.4",
-    "@justeattakeaway/pie-icon-button": "0.29.2",
+    "@justeattakeaway/pie-button": "1.0.0",
+    "@justeattakeaway/pie-icon-button": "1.0.0",
     "@justeattakeaway/pie-icons-webc": "1.1.0",
     "@justeattakeaway/pie-webc-core": "0.24.2"
   },
