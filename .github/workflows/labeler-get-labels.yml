@@ -29,3 +29,4 @@ jobs:
       with:
         path: ./tmp-labels.json
         name: tmp-labels.json
+        retention-days: 1
