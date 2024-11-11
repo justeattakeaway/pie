@@ -3,4 +3,4 @@
 "pie-storybook": patch
 ---
 
-[Added] - role status to the toast component
+[Added] - the role attribute to the toast component
