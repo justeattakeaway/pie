@@ -18,6 +18,16 @@
       "require": "./react/assistive-text.js",
       "types": "./react/assistive-text.d.ts"
     },
+    "./components/bar-foo.js": {
+      "import": "./components/bar-foo.js",
+      "require": "./components/bar-foo.js",
+      "types": "./components/bar-foo.d.ts"
+    },
+    "./react/bar-foo.js": {
+      "import": "./react/bar-foo.js",
+      "require": "./react/bar-foo.js",
+      "types": "./react/bar-foo.d.ts"
+    },
     "./components/button.js": {
       "import": "./components/button.js",
       "require": "./components/button.js",
@@ -246,6 +256,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-assistive-text": "0.8.0",
+    "@justeattakeaway/pie-bar-foo": "0.0.0",
     "@justeattakeaway/pie-button": "0.49.4",
     "@justeattakeaway/pie-card": "0.21.3",
     "@justeattakeaway/pie-checkbox": "0.13.6",
