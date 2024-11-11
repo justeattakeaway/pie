@@ -193,6 +193,7 @@ jobs:
       package-dist-directory: ./apps/pie-storybook/dist
       bucket-name-preview: 'pie-storybook-preview'
       bucket-name-main: 'pie-storybook'
+      sub-domain-suffix: 'storybook'
     secrets: inherit
 
   deploy-storybook-testing:
@@ -209,6 +210,7 @@ jobs:
       bucket-name-main: 'pie-storybook'
       build-script: 'build:testing'
       destination-dir: 'testing'
+      sub-domain-suffix: 'storybook-testing'
     secrets: inherit
 
   # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
@@ -279,6 +281,7 @@ jobs:
       package-dist-directory: ./apps/pie-docs/dist
       bucket-name-preview: 'pie-docs-preview'
       bucket-name-main: 'pie-docs'
+      sub-domain-suffix: 'docs'
     secrets: inherit
 
   browser-tests-docs:

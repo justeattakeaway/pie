@@ -37,6 +37,9 @@ on:
         required: false
         type: string
         default: '/'
+      sub-domain-suffix:
+        required: true
+        type: string
 
 env:
   AMPLIFY_ID: ${{ inputs.amplify-app-id }}
@@ -115,9 +118,10 @@ jobs:
       # Set env vars for domain name association
       - name: Set environment variables for domain name association
         if: github.event_name == 'pull_request'
+        env:
+          SUB_DOMAIN_SUFFIX: ${{ inputs.sub-domain-suffix }}
         run: |
-          PACKAGE_NAME_SUFFIX=$(echo "${{ inputs.package-name }}" | sed -e 's/^pie-//')
-          echo "SUB_DOMAIN=pr${{ github.event.number }}-$PACKAGE_NAME_SUFFIX" >> $GITHUB_ENV
+          echo "SUB_DOMAIN=pr${{ github.event.number }}-$SUB_DOMAIN_SUFFIX" >> $GITHUB_ENV
 
       - name: Get existing domain associations
         if: github.event_name == 'pull_request'
