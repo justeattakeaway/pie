@@ -202,10 +202,10 @@ jobs:
     with:
       os: ubuntu-latest
       node-version: 20
-      amplify-app-id: d17ja0ul7nrdy0
+      amplify-app-id: d3eyargno6okyn
       package-name: 'pie-storybook'
       package-dist-directory: ./apps/pie-storybook/dist
-      bucket-name-preview: 'pie-storybook-preview/testing'
+      bucket-name-preview: 'pie-storybook-preview'
       bucket-name-main: 'pie-storybook'
       build-script: 'build:testing'
       destination-dir: 'testing'
