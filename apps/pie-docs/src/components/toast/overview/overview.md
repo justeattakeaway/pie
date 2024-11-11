@@ -62,6 +62,7 @@ Toasts are used to inform users about processes within a system. They can also p
 } %}
 
 ---
+
 ## Variations
 
 ### Default
@@ -85,6 +86,7 @@ If you require additional text for your message, please use the multi-line compo
 } %}
 
 ---
+
 ## Modifiers
 
 ### Strong
@@ -175,6 +177,7 @@ If you are using actions, only use the pre-built button in the toast.
 } %}
 
 ---
+
 ## Sizes
 
 ### Height
@@ -210,6 +213,7 @@ If the body copy extends beyond one line, it should automatically wrap to multip
 } %}
 
 ---
+
 ## Priority queue
 
 Only one toast is displayed at a time. When toasts are consecutively or simultaneously triggered, their display order is defined by the priority queue.
@@ -221,6 +225,7 @@ Each level takes priority over those below it, queues alongside toasts of the sa
 } %}
 
 ---
+
 ## Behaviours
 
 ### Auto-dismiss
@@ -298,6 +303,7 @@ If the toast includes either a close icon button or a dismiss button, either can
 {% endcontentLayout %}
 
 ---
+
 ## Layout
 
 ### LTR position
