@@ -70,13 +70,13 @@ jobs:
         with:
           script-name: "${{inputs.build-script }} --filter=${{ inputs.package-name }}"
       # Create Github Deployment
-      - name: Create Docs GitHub deployment
+      - name: Create GitHub deployment
         if: ${{ github.event_name == 'pull_request' }}
         uses: chrnorm/deployment-action@55729fcebec3d284f60f5bcabbd8376437d696b1 # v2.0.7
         id: deploy
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment: "${{ inputs.package-name}}-pr-${{ github.event.number }}"
+          environment: "${{ inputs.sub-domain-suffix }}-pr-${{ github.event.number }}"
       # Zip dist folder
       - name: Zip build output
         shell: bash
