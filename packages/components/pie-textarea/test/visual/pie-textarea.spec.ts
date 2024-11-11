@@ -249,7 +249,6 @@ test.describe('Label and Character count:', () => {
         await mount(PieTextarea, {
             props: {
                 label: 'Label',
-                maxLength: 250,
                 value: 'This is a test value',
             } as PieTextarea,
         });
@@ -263,7 +262,6 @@ test.describe('Label and Character count:', () => {
         await mount(PieTextarea, {
             props: {
                 label: 'Label',
-                maxLength: 250,
                 value: 'This is a test value',
             } as PieTextarea,
         });
