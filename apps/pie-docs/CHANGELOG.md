@@ -1,5 +1,19 @@
 # Changelog
 
+## 4.15.0
+
+### Minor Changes
+
+- [Updated] - (Breaking change) rename the following variants: ([#2023](https://github.com/justeattakeaway/pie/pull/2023)) by [@raoufswe](https://github.com/raoufswe)
+
+      - blue to information
+      - green to success
+      - red to error
+      - yellow to brand-05
+      - brand to brand-02
+
+- [Added] - Implement trailing icon for interactive variants ([#2025](https://github.com/justeattakeaway/pie/pull/2025)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 4.14.0
 
 ### Minor Changes

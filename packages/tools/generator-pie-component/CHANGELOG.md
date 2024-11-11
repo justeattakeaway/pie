@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.25.0
+
+### Minor Changes
+
+- [Added] - Bundlewatch size limits to components with CI integration ([#2020](https://github.com/justeattakeaway/pie/pull/2020)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.24.0
 
 ### Minor Changes
