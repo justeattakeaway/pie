@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.69.0
+
+### Minor Changes
+
+- [Added] - Bundlewatch size limits to components with CI integration ([#2020](https://github.com/justeattakeaway/pie/pull/2020)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Fixed] - Bundlewatch base branch diff tracking ([#2038](https://github.com/justeattakeaway/pie/pull/2038)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.68.1
 
 ### Patch Changes
