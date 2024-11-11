@@ -10,6 +10,7 @@ permalink: components/toast/
 ---
 
 ## Overview
+
 Toasts are used to inform users about processes within a system. They can also provide contextual feedback. They appear temporarily at the bottom-left of the screen and disappear after a certain time period or when the user performs an action to remove them.
 
 {% contentPageImage {
@@ -55,13 +56,14 @@ Toasts are used to inform users about processes within a system. They can also p
     type: listTypes.ordered,
     items: [
         "**Icon:** Leading icon that visually supports the label.",
-        "**Message:** Informs the user of the action they have performed",
+        "**Message:** Informs the user of the action they have performed.",
         "**Action (optional):** [Button](/components/button/) action to either dismiss the toast or to undo the action.",
         "**Close (optional):** [Icon button](/components/icon-button/) to close the Toast."
     ]
 } %}
 
 ---
+
 ## Variations
 
 ### Default
@@ -85,6 +87,7 @@ If you require additional text for your message, please use the multi-line compo
 } %}
 
 ---
+
 ## Modifiers
 
 ### Strong
@@ -175,6 +178,7 @@ If you are using actions, only use the pre-built button in the toast.
 } %}
 
 ---
+
 ## Sizes
 
 ### Height
@@ -198,6 +202,7 @@ The toast has a minimum width of 300px and a maximum width of 420px.
 } %}
 
 ---
+
 ## Overflow
 
 If the body copy extends beyond one line, it should automatically wrap to multiple lines. Yet, ensure that multi-line text is truncated to a maximum of three lines. For longer text content, consider utilising a pop-up component.
@@ -209,6 +214,7 @@ If the body copy extends beyond one line, it should automatically wrap to multip
 } %}
 
 ---
+
 ## Priority queue
 
 Only one toast is displayed at a time. When toasts are consecutively or simultaneously triggered, their display order is defined by the priority queue.
@@ -218,6 +224,7 @@ Only one toast is displayed at a time. When toasts are consecutively or simultan
 } %}
 
 ---
+
 ## Behaviours
 
 ### Auto-dismiss
@@ -272,6 +279,7 @@ If the toast includes a close icon button or button with a dismissing purpose, t
 {% endcontentLayout %}
 
 ---
+
 ## Interactions
 
 If the toast includes a close option, the user can select either option to automatically dismiss the toast.
@@ -294,6 +302,7 @@ If the toast includes a close option, the user can select either option to autom
 {% endcontentLayout %}
 
 ---
+
 ## Layout
 
 ### LTR position
@@ -308,8 +317,7 @@ A toast should be located at the bottom left of the page’s content are; exclud
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Wide:** 24px padding",
-        "**Narrow:** 16px padding"
+        "**Wide:** 24px padding <br /> **Narrow:** 16px padding"
     ]
 } %}
 
@@ -325,8 +333,7 @@ A toast should be located at the bottom right of the page’s content are; exclu
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Wide:** 24px padding",
-        "**Narrow:** 16px padding"
+        "**Wide:** 24px padding <br /> **Narrow:** 16px padding"
     ]
 } %}
 
