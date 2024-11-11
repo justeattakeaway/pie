@@ -8,7 +8,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
-    - name: Fetch main branch # This is necessary for comparing the current branch changes against main
+    - name: Fetch branches # This is necessary for comparing the current branch changes against main
       run: |
         git fetch origin main:main
         git fetch origin ${{ github.head_ref }}:refs/remotes/origin/${{ github.head_ref }}
