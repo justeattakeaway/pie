@@ -196,6 +196,7 @@ jobs:
       sub-domain-suffix: 'storybook'
     secrets: inherit
 
+  # Workflow task that deploys an instance of storybook used for test suites to run against
   deploy-storybook-testing:
     needs: unit-tests
     if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
