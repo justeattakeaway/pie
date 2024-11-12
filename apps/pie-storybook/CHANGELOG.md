@@ -1,5 +1,35 @@
 # Changelog
 
+## 1.12.0
+
+### Minor Changes
+
+- [Updated] - (Breaking change) rename the following variants: ([#2023](https://github.com/justeattakeaway/pie/pull/2023)) by [@raoufswe](https://github.com/raoufswe)
+
+      - blue to information
+      - green to success
+      - red to error
+      - yellow to brand-05
+      - brand to brand-02
+
+- [Added] - Implement trailing icon for interactive variants ([#2025](https://github.com/justeattakeaway/pie/pull/2025)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`f78d77ae1`](https://github.com/justeattakeaway/pie/commit/f78d77ae10c9856f801e48dcaed55f2e670a20b2), [`7df4bd2ff`](https://github.com/justeattakeaway/pie/commit/7df4bd2ffd332dcd8c01f1825beb22bd316ec13f), [`50ebed5e7`](https://github.com/justeattakeaway/pie/commit/50ebed5e71da97b44f1952e1b5b1e100a311cc5b)]:
+  - @justeattakeaway/pie-tag@0.12.0
+  - @justeattakeaway/pie-icon-button@1.0.0
+  - @justeattakeaway/pie-divider@1.0.0
+  - @justeattakeaway/pie-spinner@1.0.0
+  - @justeattakeaway/pie-switch@1.0.0
+  - @justeattakeaway/pie-button@1.0.0
+  - @justeattakeaway/pie-modal@1.0.0
+  - @justeattakeaway/pie-link@1.0.0
+  - @justeattakeaway/pie-cookie-banner@1.0.4
+  - @justeattakeaway/pie-notification@0.12.6
+  - @justeattakeaway/pie-toast@0.4.4
+  - @justeattakeaway/pie-chip@0.9.3
+
 ## 1.11.0
 
 ### Minor Changes
