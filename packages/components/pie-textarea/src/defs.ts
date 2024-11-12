@@ -77,12 +77,6 @@ export interface TextareaProps {
     label?: string;
 
     /**
-     * The maximum number of characters allowed in the textarea field.
-     * If the `label` property is not set, this property will have no effect.
-     */
-    maxLength?: number;
-
-    /**
      * The placeholder text to display when the textarea is empty.
      */
     placeholder?: string;
@@ -91,7 +85,7 @@ export interface TextareaProps {
 /**
  * The default values for the `TextareaProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'maxLength' | 'assistiveText' | 'defaultValue'>>;
+type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'assistiveText' | 'defaultValue'>>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.

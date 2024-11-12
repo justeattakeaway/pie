@@ -75,7 +75,6 @@ import '@justeattakeaway/pie-webc/components/textarea.js';
     placeholder="Please enter a value"
     autocomplete="on"
     label="Label"
-    maxLength="50"
     value=""
     autoFocus
     readonly>
@@ -92,7 +91,6 @@ import { PieTextarea } from '@justeattakeaway/pie-webc/react/textarea.js';
     placeholder="Please enter a value"
     autocomplete="on"
     label="Label"
-    maxLength="50"
     value=""
     autoFocus
     readonly>
@@ -108,7 +106,6 @@ import { PieTextarea } from '@justeattakeaway/pie-textarea/dist/react';
     placeholder="Please enter a value"
     autocomplete="on"
     label="Label"
-    maxLength="50"
     value=""
     autoFocus
     readonly>

@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-chip
 
+## 0.9.3
+
+### Patch Changes
+
+- Updated dependencies [[`7df4bd2ff`](https://github.com/justeattakeaway/pie/commit/7df4bd2ffd332dcd8c01f1825beb22bd316ec13f)]:
+  - @justeattakeaway/pie-spinner@1.0.0
+
 ## 0.9.2
 
 ### Patch Changes

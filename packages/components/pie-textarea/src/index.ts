@@ -52,9 +52,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     @property({ type: String })
     public label = defaultProps.label;
 
-    @property({ type: Number })
-    public maxLength: TextareaProps['maxLength'];
-
     @property({ type: Boolean })
     public readonly = defaultProps.readonly;
 
@@ -122,7 +119,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     }
 
     protected firstUpdated (): void {
-        this.restrictInputLength();
         this._internals.setFormValue(this.value);
 
         window.addEventListener('resize', () => this.handleResize());
@@ -131,16 +127,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
 
     private handleResize () {
         this._throttledResize();
-    }
-
-    private restrictInputLength () {
-        if (this.label.length && this.maxLength && this.value.length > this.maxLength) {
-            const trimmedValue = this.value.slice(0, this.maxLength);
-            // Ensures that the internal text area is correctly trimmed and synced with our value.
-            // The live() directive does not solve this for us.
-            this._textarea.value = trimmedValue;
-            this.value = trimmedValue;
-        }
     }
 
     protected updated (changedProperties: PropertyValues<this>) {
@@ -169,7 +155,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
             this.value = newValue;
         }
 
-        this.restrictInputLength();
         this._internals.setFormValue(this.value);
 
         this.handleResize();
@@ -196,11 +181,9 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         window.removeEventListener('resize', () => this.handleResize());
     }
 
-    renderLabel (label: string, maxLength?: number) {
-        const characterCount = maxLength ? `${this.value.length}/${maxLength}` : undefined;
-
+    renderLabel (label: string) {
         return label?.length
-            ? html`<pie-form-label for="${componentSelector}" trailing=${ifDefined(characterCount)}>${label}</pie-form-label>`
+            ? html`<pie-form-label for="${componentSelector}">${label}</pie-form-label>`
             : nothing;
     }
 
@@ -232,7 +215,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
             value,
             required,
             label,
-            maxLength,
             status,
             assistiveText,
         } = this;
@@ -247,7 +229,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         };
 
         return html`<div>
-            ${this.renderLabel(label, maxLength)}
+            ${this.renderLabel(label)}
             <div
                 class="${classMap(classes)}"
                 data-test-id="pie-textarea-wrapper">
