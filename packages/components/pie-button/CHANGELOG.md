@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - Set package version to stable/first major version ([#2030](https://github.com/justeattakeaway/pie/pull/2030)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`7df4bd2ff`](https://github.com/justeattakeaway/pie/commit/7df4bd2ffd332dcd8c01f1825beb22bd316ec13f)]:
+  - @justeattakeaway/pie-spinner@1.0.0
+
 ## 0.49.4
 
 ### Patch Changes

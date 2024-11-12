@@ -6,7 +6,11 @@ import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './tag.scss?inline';
 import {
-    type TagProps, variants, sizes, defaultProps,
+    variants,
+    sizes,
+    defaultProps,
+    iconPlacements,
+    type TagProps,
 } from './defs';
 
 // Valid values available to consumers
@@ -37,30 +41,9 @@ export class PieTag extends LitElement implements TagProps {
     @property({ type: Boolean })
     public isInteractive = defaultProps.isInteractive;
 
-    render () {
-        const {
-            disabled,
-            isInteractive,
-            isStrong,
-            size,
-            variant,
-        } = this;
-
-        const classes = {
-            'c-tag': true,
-            [`c-tag--${size}`]: true,
-            [`c-tag--${variant}`]: true,
-            'c-tag--disabled': disabled,
-            'c-tag--strong': isStrong,
-            'c-tag--interactive': isInteractive,
-        };
-
-        if (isInteractive) {
-            return this.renderButtonTag(classes);
-        }
-
-        return this.renderTag(classes);
-    }
+    @property({ type: String })
+    @validPropertyValues(componentSelector, iconPlacements, defaultProps.iconPlacement)
+    public iconPlacement = defaultProps.iconPlacement;
 
     private renderIconSlot () {
         if (this.size !== 'large') return nothing;
@@ -88,6 +71,33 @@ export class PieTag extends LitElement implements TagProps {
             ${this.renderIconSlot()}
             <slot></slot>
         </button>`;
+    }
+
+    render () {
+        const {
+            disabled,
+            isInteractive,
+            isStrong,
+            size,
+            variant,
+            iconPlacement,
+        } = this;
+
+        const classes = {
+            'c-tag': true,
+            [`c-tag--${size}`]: true,
+            [`c-tag--${variant}`]: true,
+            'c-tag--disabled': disabled,
+            'c-tag--strong': isStrong,
+            'c-tag--interactive': isInteractive,
+            [`c-tag--icon-placement--${iconPlacement}`]: isInteractive && iconPlacement,
+        };
+
+        if (isInteractive) {
+            return this.renderButtonTag(classes);
+        }
+
+        return this.renderTag(classes);
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
