@@ -12,11 +12,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
-      # Setup node
-      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # 4.1.0
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
         with:
           node-version: 20
-          cache: "yarn"
+          os: ubuntu-latest
 
       - name: Install dependencies
         shell: bash
