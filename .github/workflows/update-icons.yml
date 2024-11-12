@@ -7,8 +7,6 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    env:
-      CI_COMMIT_AUTHOR: Continuous Integration
     steps:
       # Checkout the Repo
       - name: Checkout
