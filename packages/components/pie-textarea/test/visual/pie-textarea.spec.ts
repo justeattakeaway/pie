@@ -244,8 +244,8 @@ test.describe('Resize mode:', () => {
     });
 });
 
-test.describe('Label and Character count:', () => {
-    test('Renders the label and character count correctly', async ({ page, mount }) => {
+test.describe('Label:', () => {
+    test('Renders the label correctly', async ({ page, mount }) => {
         await mount(PieTextarea, {
             props: {
                 label: 'Label',
@@ -253,10 +253,10 @@ test.describe('Label and Character count:', () => {
             } as PieTextarea,
         });
 
-        await percySnapshot(page, 'Textarea - with label and character count', percyWidths);
+        await percySnapshot(page, 'Textarea - with label', percyWidths);
     });
 
-    test('RTL - Renders the label and character count correctly', async ({ page, mount }) => {
+    test('RTL - Renders the label correctly', async ({ page, mount }) => {
         setRTL(page);
 
         await mount(PieTextarea, {
@@ -266,7 +266,7 @@ test.describe('Label and Character count:', () => {
             } as PieTextarea,
         });
 
-        await percySnapshot(page, 'Textarea RTL - with label and character count', percyWidths);
+        await percySnapshot(page, 'Textarea RTL - with label', percyWidths);
     });
 });
 
