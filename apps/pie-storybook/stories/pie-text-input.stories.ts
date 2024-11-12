@@ -9,6 +9,7 @@ import {
     type TextInputProps as TextInputPropsBase, types, inputModes, statusTypes, sizes, defaultProps,
 } from '@justeattakeaway/pie-text-input';
 import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-form-label';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconEmail.js';
