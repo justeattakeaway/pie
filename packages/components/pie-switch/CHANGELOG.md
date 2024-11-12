@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-switch
 
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - Set package version to stable/first major version ([#2030](https://github.com/justeattakeaway/pie/pull/2030)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.30.6
 
 ### Patch Changes
