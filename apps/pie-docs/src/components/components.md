@@ -11,6 +11,6 @@ title: Components
 {% indexPageDisplay {
 collection: collections.all,
 itemKey: "Components",
-excludedElements: ['Component status', 'Checkbox Group']
+excludedElements: ['Component status']
 } %}
 
