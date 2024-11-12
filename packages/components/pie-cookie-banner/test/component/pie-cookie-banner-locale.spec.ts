@@ -90,8 +90,8 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
         { language: 'CA', country: 'ES', expectedLocale: 'ca' }, // Test case-insensitivity
         { language: 'pt', country: Country.SPAIN, expectedLocale: 'es' }, // Test for unsupported language
         { language: 'ru', country: Country.FRANCE, expectedLocale: 'fr-fr' }, // Test for unsupported language
-        { language: 'es', country: 'portugal', expectedLocale: 'es' }, // Test for unspported country
-        { language: 'fr', country: 'russia', expectedLocale: 'fr' }, // Test for unspported country
+        { language: 'es', country: 'pt', expectedLocale: 'es' }, // Test for unspported country
+        { language: 'fr', country: 'ru', expectedLocale: 'fr' }, // Test for unspported country
     ].forEach((obj) => {
         test(`should load the correct locale [${obj.expectedLocale}] given language [${obj.language}] & country [${obj.country}]`, async () => {
             // Arrange
