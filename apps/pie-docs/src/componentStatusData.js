@@ -1435,7 +1435,8 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            link: 'https://webc.pie.design/?path=/story/radio--default',
+            status: webComponentStatuses['pie-radio'],
         },
         {
             resource: resourceTypes.VUE,
