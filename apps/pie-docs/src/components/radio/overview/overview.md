@@ -176,7 +176,7 @@ Outlines the atomic level interactive elements for the component.
       alt: "A radio button that is hovered."
     } %}
   {% endcontentItem %}
-    {% contentItem %}
+  {% contentItem %}
     <h3>Active</h3>
     {% contentPageImage {
       src: "../../../assets/img/components/radio/interactive-active.svg",
@@ -184,7 +184,7 @@ Outlines the atomic level interactive elements for the component.
       alt: "A radio button that is active."
     } %}
   {% endcontentItem %}
-    {% contentItem %}
+  {% contentItem %}
     <h3>Focus</h3>
     {% contentPageImage {
       src: "../../../assets/img/components/radio/interactive-focus.svg",
@@ -192,7 +192,7 @@ Outlines the atomic level interactive elements for the component.
       alt: "A radio button that is focused."
     } %}
   {% endcontentItem %}
-    {% contentItem %}
+  {% contentItem %}
     <h3>Disabled</h3>
     {% contentPageImage {
       src: "../../../assets/img/components/radio/interactive-disabled.svg",
@@ -200,7 +200,7 @@ Outlines the atomic level interactive elements for the component.
       alt: "A radio button that is disabled."
     } %}
   {% endcontentItem %}
-      {% contentItem %}
+  {% contentItem %}
     <h3>Error</h3>
     {% contentPageImage {
       src: "../../../assets/img/components/radio/interactive-error.svg",
