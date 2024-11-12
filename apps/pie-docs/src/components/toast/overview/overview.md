@@ -82,7 +82,7 @@ If you require additional text for your message, please use the multi-line compo
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/variations-multi-line.svg",
-    alt: "A toast component on its multi-line variation.",
+    alt: "A toast component with multiple lines of text. The text is truncated so that a maximum of three lines are shown.",
     width: 300
 } %}
 
@@ -96,7 +96,7 @@ To create a stronger impact with your message, you can use strong variant. This 
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/modifiers-strong.svg",
-    alt: "Multiple toasts with strong modifier.",
+    alt: "The info, warning, success and error toast variants with the strong modifier applied.",
     width: 866
 } %}
 
@@ -116,7 +116,7 @@ To create a message with less prominence you can use the subtle variant.
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/modifiers-subtle.svg",
-    alt: "Multiple toasts with strong modifier.",
+    alt: "Multiple toasts with the subtle modifier.",
     width: 788
 } %}
 
@@ -141,7 +141,7 @@ When incorporating an icon into a Toast, it is essential to ensure that the icon
         items: [{
             src: "../../../assets/img/components/toast/modifiers-icons-do.svg",
             width: "456px",
-            alt: "Two toast components with close icon button"
+            alt: "Two toast components using approved icons for the error and info states."
         }]
     },
     dont: {
@@ -149,7 +149,7 @@ When incorporating an icon into a Toast, it is essential to ensure that the icon
         items: [{
             src: "../../../assets/img/components/toast/modifiers-icons-dont.svg",
             width: "280px",
-            alt: "A toast without close icon button nor dismiss button"
+            alt: "An error toast using an unapproved icon"
         }]
     }
 } %}
@@ -172,7 +172,7 @@ If you are using actions, only use the pre-built button in the toast.
         items: [{
             src: "../../../assets/img/components/toast/modifiers-actions-dont.svg",
             width: "280px",
-            alt: "A toast with a wrong dismiss button variation"
+            alt: "A toast incorrectly using a custom dismiss button."
         }]
     }
 } %}
@@ -197,7 +197,7 @@ The toast has a minimum width of 300px and a maximum width of 420px.
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/sizes-width.svg",
-    alt: "A regular toast and a multi-line toast.",
+    alt: "A 420px wide toast",
     width: 420
 } %}
 
@@ -235,14 +235,14 @@ By default the toast automatically disappears after 5 seconds. However, the user
     {% contentPageImage {
       src: "../../../assets/img/components/toast/behaviours-toast.svg",
       width: 300,
-      alt: "A toast without close icon button nor dismiss button."
+      alt: "A toast without a close icon button nor a dismiss button."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/toast/behaviours-toast-with-close-icon-button.svg",
       width: 300,
-      alt: "A toast without with a close icon button."
+      alt: "A toast with a close icon button."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -252,7 +252,7 @@ By default the toast automatically disappears after 5 seconds. However, the user
     {% contentPageImage {
       src: "../../../assets/img/components/toast/behaviours-toast-with-dismiss-button.svg",
       width: 300,
-      alt: "A toast without a dismiss button."
+      alt: "A toast with a dismiss button."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -266,14 +266,14 @@ If the toast includes a close icon button or button with a dismissing purpose, t
     {% contentPageImage {
       src: "../../../assets/img/components/toast/behaviours-toast-with-close-icon-button.svg",
       width: 300,
-      alt: "A toast without with a close icon button."
+      alt: "A toast with a close icon button."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/toast/behaviours-toast-with-dismiss-button.svg",
       width: 300,
-      alt: "A toast without a dismiss button."
+      alt: "A toast with a dismiss button."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -289,14 +289,14 @@ If the toast includes a close option, the user can select either option to autom
     {% contentPageImage {
       src: "../../../assets/img/components/toast/interactions-close-icon-button.svg",
       width: 300,
-      alt: "A toast without with a close icon button."
+      alt: "A toast with a close icon button."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/toast/interactions-dismiss-button.svg",
       width: 300,
-      alt: "A toast without a dismiss button."
+      alt: "A toast with a dismiss button."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -311,7 +311,7 @@ A toast should be located at the bottom left of the page’s content are; exclud
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/layout-ltr-position.svg",
-    alt: "A toast placed at the bottom of the page in LTR position."
+    alt: "A toast placed at the bottom-left of a page with a left-to-right direction."
 } %}
 
 {% list {
@@ -327,7 +327,7 @@ A toast should be located at the bottom right of the page’s content are; exclu
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/layout-rtl-position.svg",
-    alt: "A toast placed at the bottom of the page in RTL position."
+    alt: "A toast placed at the bottom-left of a page with a right-to-left direction."
 } %}
 
 {% list {
@@ -347,7 +347,7 @@ Here are some examples of Toast in left-to-right context:
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/example-ltr-toast.svg",
-    alt: "A Toast in left-to-right context.",
+    alt: "A toast component in a left-to-right context.",
     width: 272
 } %}
 
@@ -358,18 +358,13 @@ Here are some examples of Toast in right-to-left context:
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/example-rtl-toast.svg",
-    alt: "A Toast in right-to-left context.",
+    alt: "A toast component in a right-to-left context.",
     width: 272
 } %}
 
 ---
 
 ## Resources
-
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Toast documentation, please see the resources below."
-} %}
 
 {% resourceTable {
     componentName: 'Toast'
