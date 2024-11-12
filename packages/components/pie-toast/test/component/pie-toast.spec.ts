@@ -295,22 +295,24 @@ test.describe('PieToast - Component tests', () => {
             await expect(toast).toHaveAttribute('role', 'alert');
         });
 
-        test('should set role to "status" when variant is not "error"', async ({ mount, page }) => {
-            // Arrange
-            await mount(PieToast, {
-                props: {
-                    variant: 'info',
-                } as ToastProps,
+        variants.filter((variant) => variant !== 'error').forEach((variant) => {
+            test(`should set role to "status" when variant is "${variant}"`, async ({ mount, page }) => {
+                // Arrange
+                await mount(PieToast, {
+                    props: {
+                        variant,
+                    } as ToastProps,
+                });
+
+                // Wait for the component to render alongside its animations
+                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
+
+                // Act
+                const toast = page.locator(componentSelector);
+
+                // Assert
+                await expect(toast).toHaveAttribute('role', 'status');
             });
-
-            // Wait for the component to render alongside its animations
-            await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
-
-            // Act
-            const toast = page.locator(componentSelector);
-
-            // Assert
-            await expect(toast).toHaveAttribute('role', 'status');
         });
     });
 });
