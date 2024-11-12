@@ -8,7 +8,7 @@ function stripTags (str: string) {
     return str.replace(/<\/?[^>]+(>|$)/g, '');
 }
 
-const englishLocale = JSON.parse(await readFile(new URL('../../locales/en-gb.json', import.meta.url), { encoding: 'utf-8' }));
+const englishLocale = JSON.parse(await readFile(new URL('../../locales/en.json', import.meta.url), { encoding: 'utf-8' }));
 let pieCookieBannerComponent: CookieBannerComponent;
 let pieModalComponent: ModalComponent;
 
@@ -18,9 +18,9 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
         pieModalComponent = new ModalComponent(page);
     });
 
-    test('should render text in the default (uk - english) language when unset', async () => {
+    test('should render text in the default language-country \'en-gb\' when unset', async () => {
         // Arrange
-        const englishLocale = JSON.parse(await readFile(new URL('../../locales/en-gb.json', import.meta.url), { encoding: 'utf-8' }));
+        const englishLocale = JSON.parse(await readFile(new URL('../../locales/en.json', import.meta.url), { encoding: 'utf-8' }));
         await pieCookieBannerComponent.load();
 
         // Act
@@ -47,43 +47,6 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
             .toBe(stripTags(englishLocale.preferencesManagement.description));
     });
 
-    [
-        { country: Country.GREAT_BRITAIN, language: Language.ENGLISH },
-        { country: Country.FRANCE, language: Language.ENGLISH },
-        { country: Country.FRANCE, language: Language.FRENCH },
-        { country: Country.DENMARK, language: Language.DANISH },
-        { country: Country.SPAIN, language: Language.SPANISH },
-        { country: Country.ITALY, language: Language.ITALIAN },
-        { country: 'es', language: 'CA' }, // Test case-insensitivity,
-        { country: 'ES', language: 'ca' },
-        { country: 'es', language: 'ca' },
-        { country: 'ES', language: 'CA' },
-    ].forEach(({ country, language }) => {
-        test(`should 'dynamically' update the locale when we reset the language-country from 'en-gb' to ${language}-${country}`, async () => {
-            // Arrange
-            await pieCookieBannerComponent.load(); // en-gb is the default locale
-            const locale = JSON.parse(await readFile(new URL(`../../locales/${language.toLowerCase()}-${country.toLowerCase()}.json`, import.meta.url), { encoding: 'utf-8' }));
-
-            // Act
-            await pieCookieBannerComponent.setProperty('country', country);
-            await pieCookieBannerComponent.setProperty('language', language);
-            await pieCookieBannerComponent.waitForLocaleUpdate();
-
-            const acceptAllButtonText = await pieCookieBannerComponent.getAcceptAllTextContent();
-            const necessaryOnlyButtonText = await pieCookieBannerComponent.getNecessaryOnlyTextContent();
-            const managePreferencesButtonText = await pieCookieBannerComponent.getManagePreferencesTextContent();
-            const componentDescriptionText = await pieCookieBannerComponent.getComponentDescriptionTextContent();
-            const modalDescriptionText = await pieModalComponent.getDescriptionTextContent();
-
-            // Assert
-            expect(acceptAllButtonText).toBe(locale.banner.cta.acceptAll);
-            expect(necessaryOnlyButtonText).toBe(locale.banner.cta.necessaryOnly);
-            expect(managePreferencesButtonText).toBe(locale.banner.cta.managePreferences);
-            expect(componentDescriptionText).toBe(stripTags(locale.banner.description));
-            expect(modalDescriptionText).toBe(stripTags(locale.preferencesManagement.description));
-        });
-    });
-
     test('should not update the locale if country and language properties are unchanged', async () => {
         // Arrange
         await pieCookieBannerComponent.load();
@@ -107,31 +70,30 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
         expect(modalDescriptionText).toBe(stripTags(englishLocale.preferencesManagement.description));
     });
 
-    test('should fallback to the global default language-country \'en-gb\' if the language and/or country is unsupported/invalid', async () => {
-        // Arrange
-        await pieCookieBannerComponent.load({ country: 'invalid', language: 'invalid' });
-
-        // Act
-        const acceptAllButtonText = await pieCookieBannerComponent.getAcceptAllTextContent();
-        const necessaryOnlyButtonText = await pieCookieBannerComponent.getNecessaryOnlyTextContent();
-        const managePreferencesButtonText = await pieCookieBannerComponent.getManagePreferencesTextContent();
-        const componentDescriptionText = await pieCookieBannerComponent.getComponentDescriptionTextContent();
-        const modalDescriptionText = await pieModalComponent.getDescriptionTextContent();
-
-        // Assert
-        expect(acceptAllButtonText).toBe(englishLocale.banner.cta.acceptAll);
-        expect(necessaryOnlyButtonText).toBe(englishLocale.banner.cta.necessaryOnly);
-        expect(managePreferencesButtonText).toBe(englishLocale.banner.cta.managePreferences);
-        expect(componentDescriptionText).toBe(stripTags(englishLocale.banner.description));
-        expect(modalDescriptionText).toBe(stripTags(englishLocale.preferencesManagement.description));
-    });
-
     [
-        { country: Country.SPAIN, language: Language.SPANISH, expectedLocale: 'es-es' },
-        { country: Country.FRANCE, language: Language.FRENCH, expectedLocale: 'fr-fr' },
-        { country: Country.FRANCE, language: Language.ENGLISH, expectedLocale: 'en-fr' },
+        { language: Language.FRENCH, country: Country.FRANCE, expectedLocale: 'fr-fr' }, // Test for exact/bespoke translations
+        { language: Language.ENGLISH, country: Country.FRANCE, expectedLocale: 'en-fr' }, // Test for exact/bespoke translations
+        { language: 'invalid', country: 'invalid', expectedLocale: 'en' }, // Test for invalid settings
+        { language: Language.SPANISH, country: 'invalid', expectedLocale: 'es' }, // Test for invalid settings
+        { language: 'invalid', country: Country.SPAIN, expectedLocale: 'es' }, // Test for invalid settings
+        { language: Language.SLOVAK, country: Country.SLOVAKIA, expectedLocale: 'sk' },
+        { language: Language.ENGLISH, country: Country.GERMANY, expectedLocale: 'en' }, // Test for alternative language in country
+        { language: Language.GERMAN, country: Country.GERMANY, expectedLocale: 'de' },
+        { language: Language.DANISH, country: Country.DENMARK, expectedLocale: 'da' },
+        { language: Language.ENGLISH, country: Country.CANADA, expectedLocale: 'en' }, // Test for alternative language in country
+        { language: Language.FRENCH, country: Country.CANADA, expectedLocale: 'fr' }, // Test for alternative language in country
+        { language: Language.ITALIAN, country: Country.ITALY, expectedLocale: 'it' },
+        { language: Language.SPANISH, country: Country.SPAIN, expectedLocale: 'es' },
+        { language: 'CA', country: 'es', expectedLocale: 'ca' }, // Test case-insensitivity
+        { language: 'ca', country: 'ES', expectedLocale: 'ca' }, // Test case-insensitivity
+        { language: 'ca', country: 'es', expectedLocale: 'ca' }, // Test case-insensitivity
+        { language: 'CA', country: 'ES', expectedLocale: 'ca' }, // Test case-insensitivity
+        { language: 'pt', country: Country.SPAIN, expectedLocale: 'es' }, // Test for unsupported language
+        { language: 'ru', country: Country.FRANCE, expectedLocale: 'fr-fr' }, // Test for unsupported language
+        { language: 'es', country: 'portugal', expectedLocale: 'es' }, // Test for unspported country
+        { language: 'fr', country: 'russia', expectedLocale: 'fr' }, // Test for unspported country
     ].forEach((obj) => {
-        test(`should load the correct locale '${obj.expectedLocale}' if given the exact language-country '${obj.language}-${obj.country}'`, async () => {
+        test(`should load the correct locale [${obj.expectedLocale}] given language [${obj.language}] & country [${obj.country}]`, async () => {
             // Arrange
             const expectedLocaleJson = JSON.parse(await readFile(new URL(`../../locales/${obj.expectedLocale}.json`, import.meta.url), { encoding: 'utf-8' }));
             await pieCookieBannerComponent.load({ country: obj.country, language: obj.language });
@@ -158,74 +120,6 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
 
             expect(modalDescriptionText)
                 .toBe(stripTags(expectedLocaleJson.preferencesManagement.description));
-        });
-    });
-
-    [
-        { country: Country.SPAIN, unsupportedLang: 'pt', fallbackLang: Language.SPANISH },
-        { country: Country.FRANCE, unsupportedLang: 'ru', fallbackLang: Language.FRENCH },
-    ].forEach((obj) => {
-        test(`should fallback to the default language-country '${obj.fallbackLang}-${obj.country}' if the supplied language '${obj.unsupportedLang} is unupported`, async () => {
-            // Arrange
-            const fallbackLocale = JSON.parse(await readFile(new URL(`../../locales/${obj.fallbackLang.toLowerCase()}-${obj.country.toLowerCase()}.json`, import.meta.url), { encoding: 'utf-8' }));
-            await pieCookieBannerComponent.load({ country: obj.country, language: obj.unsupportedLang }); // supply an unsupported language
-
-            // Act
-            const acceptAllButtonText = await pieCookieBannerComponent.getAcceptAllTextContent();
-            const necessaryOnlyButtonText = await pieCookieBannerComponent.getNecessaryOnlyTextContent();
-            const managePreferencesButtonText = await pieCookieBannerComponent.getManagePreferencesTextContent();
-            const componentDescriptionText = await pieCookieBannerComponent.getComponentDescriptionTextContent();
-            const modalDescriptionText = await pieModalComponent.getDescriptionTextContent();
-
-            // Assert
-            expect(acceptAllButtonText)
-                .toBe(fallbackLocale.banner.cta.acceptAll);
-
-            expect(necessaryOnlyButtonText)
-                .toBe(fallbackLocale.banner.cta.necessaryOnly);
-
-            expect(managePreferencesButtonText)
-                .toBe(fallbackLocale.banner.cta.managePreferences);
-
-            expect(componentDescriptionText)
-                .toBe(stripTags(fallbackLocale.banner.description));
-
-            expect(modalDescriptionText)
-                .toBe(stripTags(fallbackLocale.preferencesManagement.description));
-        });
-    });
-
-    [
-        { language: Language.SPANISH, unsupportedCountry: 'pt', fallbackCountry: Country.SPAIN },
-        { language: Language.FRENCH, unsupportedCountry: 'ru', fallbackCountry: Country.FRANCE },
-    ].forEach((obj) => {
-        test(`should fallback to the default language-country '${obj.language}-${obj.fallbackCountry}' if the supplied country '${obj.unsupportedCountry} is unupported`, async () => {
-            // Arrange
-            const fallbackLocale = JSON.parse(await readFile(new URL(`../../locales/${obj.language.toLowerCase()}-${obj.fallbackCountry.toLowerCase()}.json`, import.meta.url), { encoding: 'utf-8' }));
-            await pieCookieBannerComponent.load({ country: obj.unsupportedCountry, language: obj.language }); // supply an unsupported country
-
-            // Act
-            const acceptAllButtonText = await pieCookieBannerComponent.getAcceptAllTextContent();
-            const necessaryOnlyButtonText = await pieCookieBannerComponent.getNecessaryOnlyTextContent();
-            const managePreferencesButtonText = await pieCookieBannerComponent.getManagePreferencesTextContent();
-            const componentDescriptionText = await pieCookieBannerComponent.getComponentDescriptionTextContent();
-            const modalDescriptionText = await pieModalComponent.getDescriptionTextContent();
-
-            // Assert
-            expect(acceptAllButtonText)
-                .toBe(fallbackLocale.banner.cta.acceptAll);
-
-            expect(necessaryOnlyButtonText)
-                .toBe(fallbackLocale.banner.cta.necessaryOnly);
-
-            expect(managePreferencesButtonText)
-                .toBe(fallbackLocale.banner.cta.managePreferences);
-
-            expect(componentDescriptionText)
-                .toBe(stripTags(fallbackLocale.banner.description));
-
-            expect(modalDescriptionText)
-                .toBe(stripTags(fallbackLocale.preferencesManagement.description));
         });
     });
 });

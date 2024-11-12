@@ -26,8 +26,7 @@ import {
     defaultProps,
     preferences,
     availableLocales,
-    preferredLocaleForLanguage,
-    preferredLocaleForCountry,
+    defaultLocaleForCountry,
     type CookieBannerProps,
     type Preference,
     type PreferenceIds,
@@ -38,7 +37,7 @@ import {
 } from './defs';
 
 import { localiseText, localiseRichText } from './localisation-utils';
-import defaultLocale from '../locales/en-gb.json' assert { type: 'json' };
+import defaultLocale from '../locales/en.json' assert { type: 'json' };
 
 // Valid values available to consumers
 export * from './defs';
@@ -105,29 +104,29 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      *
      * @param languageCode - The requested language code (e.g., 'es').
      * @param countryCode - The requested country code (e.g., 'ch').
-     * @returns - The best matching locale string in the format "language-country".
+     * @returns - The best matching/supported locale string".
      */
     private _getLocaleString = (languageCode: LanguageCode, countryCode: CountryCode): string => {
         // 1. Check for the exact locale
-        const requestedLocale = `${languageCode}-${countryCode}`.toLowerCase();
+        let requestedLocale = `${languageCode}-${countryCode}`.toLowerCase();
         if (availableLocales.has(requestedLocale)) {
             return requestedLocale;
         }
 
-        // 2. Check the requested language in the locales
-        const preferredLocaleForLang = preferredLocaleForLanguage.get(languageCode.toLowerCase());
-        if (preferredLocaleForLang && availableLocales.has(preferredLocaleForLang)) {
-            return preferredLocaleForLang;
+        // 2. Check for the requested language in the available locales
+        requestedLocale = `${languageCode}`.toLowerCase();
+        if (availableLocales.has(requestedLocale)) {
+            return requestedLocale;
         }
 
-        // 3. Check the requested country in the locales
-        const preferredLocaleForCountryCode = preferredLocaleForCountry.get(countryCode.toLowerCase());
+        // 3. Check for the requested country's default locale in the available locales
+        const preferredLocaleForCountryCode = defaultLocaleForCountry.get(countryCode.toLowerCase());
         if (preferredLocaleForCountryCode && availableLocales.has(preferredLocaleForCountryCode)) {
             return preferredLocaleForCountryCode;
         }
 
-        // 4. Fallback (e.g. 'en-gb')
-        return `${defaultProps.language}-${defaultProps.country}`;
+        // 4. Fallback (e.g. 'en')
+        return `${defaultProps.language}`;
     };
 
     private _customTagEnhancers: CustomTagEnhancers = {

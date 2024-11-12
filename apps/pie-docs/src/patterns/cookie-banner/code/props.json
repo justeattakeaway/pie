@@ -15,8 +15,8 @@
         ],
         [
             "country",
-            "Any supported country, that is paired with the language [(see these supported locales)](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-cookie-banner/locales)",
-            "Used (with the language property) to load the localisation data for the component strings. If not provided or unsupported, the default language-country of en-gb will be used. Note this value is case-insensitive",
+            "Any supported 2 character country code",
+            "Used to load the localisation data for the component strings. If not provided or unsupported, the default country of 'gb' will be used. Note this value is case-insensitive",
             {
               "type": "code",
               "item": ["\"gb\""]
@@ -24,8 +24,8 @@
         ],
         [
             "language",
-            "Any supported language, that is paired with the country [(see these supported locales)](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-cookie-banner/locales)",
-            "Used (with the country property) to load the localisation data for the component strings. If not provided or unsupported, the default language of the country will be used. Note this value is case-insensitive",
+            "Any supported 2 character language code",
+            "Used to load the localisation data for the component strings. If not provided or unsupported, the default language of the country will be used. Note this value is case-insensitive",
             {
               "type": "code",
               "item": ["\"en\""]
