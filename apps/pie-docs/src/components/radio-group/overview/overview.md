@@ -52,9 +52,9 @@ They are commonly used in forms, settings panels, and other interfaces where use
     type: listTypes.ordered,
     items: [
         "**Form label (Optional):** The [form label](/components/form-label/) provides a clear and accessible description of the form element it is associated with.",
-        "**Radio input:** A radio input indicates the appropriate state. By default it is unselected.",
-        "**Radio label:** Describes the information you want to select or unselect.",
-        "**Assistive text (Optional):** The [assistive text](/components/assistive-text/) provides additional instructional information / error / success messaging for the whole radio group."
+        "**Radio input:** A radio input indicates the current selected state for the option. By default it is unselected.",
+        "**Radio label:** Describes the option that can be selected.",
+        "**Assistive text (Optional):** The [assistive text](/components/assistive-text/) provides additional instructions and error or success messaging for the entire radio group."
     ]
 } %}
 
