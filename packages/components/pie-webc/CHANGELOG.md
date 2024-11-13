@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-webc
 
+## 0.5.51
+
+### Patch Changes
+
+- Updated dependencies [[`9696d0088`](https://github.com/justeattakeaway/pie/commit/9696d00884a4705c5ea9f264a7ac5e280e7f6f22)]:
+  - @justeattakeaway/pie-textarea@0.12.0
+
 ## 0.5.50
 
 ### Patch Changes
