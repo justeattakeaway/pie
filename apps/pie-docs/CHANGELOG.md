@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.16.0
+
+### Minor Changes
+
+- [Removed] - deprecate the maxLength prop ([#2050](https://github.com/justeattakeaway/pie/pull/2050)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 4.15.0
 
 ### Minor Changes
