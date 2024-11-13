@@ -82,7 +82,7 @@ Radio groups can be laid out either vertically or horizontally depending on the 
 ## Modifiers
 
 ### Form label
-A form label is recommended to provide the user context of the form element and it’s content.
+A form label is recommended to provide the user context of the form element and its content.
 
 {% contentLayout %}
   {% contentItem %}
