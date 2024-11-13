@@ -51,7 +51,7 @@ They are commonly used in forms, settings panels, and other interfaces where use
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Form label (Optional):** The [form label](/components/form-label/) provides necessary content / information to a form.",
+        "**Form label (Optional):** The [form label](/components/form-label/) provides a clear and accessible description of the form element it is associated with.",
         "**Radio input:** A radio input indicates the appropriate state. By default it is unselected.",
         "**Radio label:** Describes the information you want to select or unselect.",
         "**Assistive text (Optional):** The [assistive text](/components/assistive-text/) provides additional instructional information / error / success messaging for the whole radio group."
