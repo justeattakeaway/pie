@@ -17,55 +17,51 @@ import {
 import { variants } from '../../src/defs.ts';
 import { PieToast, type ToastProps } from '../../src/index.ts';
 
-test.describe('PieToast - Visual tests`', () => {
-    test('should display the PieToast component successfully', async ({ page, mount }) => {
-        await mount(PieToast, {
-            props: {} as ToastProps,
-        });
-
-        await percySnapshot(page, 'PieToast - Visual Test');
-    });
-});
-
-const mainAction = {
-    text: 'Confirm',
-    ariaLabel: 'Button that confirm the action',
-};
-
-const initialValues: ToastProps = {
-    isOpen: true,
-    isMultiline: false,
-    message: 'Item has been created',
-    leadingAction: mainAction,
-    duration: null,
-};
-
 export const screenWidths = {
     widths: [1450, 375],
 };
 
+const longMessage = 'Donec pulvinar porta tempus. Sed ac ex ac libero pulvinar tincidunt eget non orci. Curabitur leo quam, commodo sit amet dolor eu, molestie molestie eros. Nulla rutrum vehicula sodales. Duis quis lobortis tortor. In hac habitasse platea dictumst. Vestibulum efficitur, orci at interdum eleifend, nulla nunc luctus urna, sit amet commodo libero lacus scelerisque enim. In eleifend ex ut nulla cursus, eu efficitur ligula pharetra.';
+
 const variantProps: PropObject = {
+    message: ['Item has been created', longMessage],
     variant: variants,
     isStrong: [false, true],
+    isDismissible: [false, true],
+    isMultiline: [false, true],
 };
 
 // Renders a <pie-toast> HTML string with the given prop values
 const renderTestPieToast = (propVals: WebComponentPropValues) => `<pie-toast
+        message="${propVals.message}"
         variant="${propVals.variant}"
-        ${propVals.isCompact ? 'isStrong' : ''}
-        "></pie-toast>`;
+        ${propVals.isStrong ? 'isStrong' : ''}
+        ${propVals.isDismissible ? 'isDismissible' : ''}
+        ${propVals.isMultiline ? 'isMultiline' : ''}></pie-toast>`;
 
 const componentPropsMatrix: WebComponentPropValues[] = getAllPropCombinations(variantProps);
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
 const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
+
+test.beforeEach(async ({ mount }, testInfo) => {
+    testInfo.setTimeout(testInfo.timeout + 40000);
+
+    // This ensures the toast is registered in the DOM for each test.
+    // It appears to add them to a Playwright cache which we understand is required for the tests to work correctly.
+    const toastComponent = await mount(PieToast);
+    await toastComponent.unmount();
+});
 
 componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
     for (const combo of componentPropsMatrixByVariant[variant]) {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieToast);
 
         const propKeyValues = `
+            message: ${testComponent.propValues.message.length === longMessage.length ? 'With long message' : 'With short message'},
             variant: ${testComponent.propValues.variant},
-            isStrong: ${testComponent.propValues.isStrong}
+            isStrong: ${testComponent.propValues.isStrong},
+            isDismissible: ${testComponent.propValues.isDismissible},
+            isMultiline: ${testComponent.propValues.isMultiline},
         `;
 
         const darkMode = ['neutral-alternative'].includes(variant);
@@ -81,108 +77,39 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
         );
     }
 
-    // Follow up to remove in Jan
-    await page.waitForTimeout(5000);
-
     await percySnapshot(page, `PIE Toast - Variant: ${variant}`, screenWidths);
 }));
 
 test.describe('Props', () => {
-    test.describe('isDismissible', () => {
-        test('Should show close icon if isDismissible is true', async ({ page, mount }) => {
-            await mount(PieToast, {
-                props: {
-                    ...initialValues,
-                    isDismissible: true,
-                } as ToastProps,
-            });
-
-            await percySnapshot(page, 'PieToast - isDismissible - Should show close icon if isDismissible is true');
-        });
-
-        test('Should not show close icon if isDismissible is false', async ({ page, mount }) => {
-            await mount(PieToast, {
-                props: {
-                    ...initialValues,
-                    isDismissible: false,
-                } as ToastProps,
-            });
-
-            await percySnapshot(page, 'PieToast - isDismissible - Should not show close icon if isDismissible is false');
-        });
-    });
-
-    test.describe('message', () => {
-        test('Should show ellipsis when message is too big and isMultiline is false', async ({ page, mount }) => {
-            await mount(PieToast, {
-                props: {
-                    ...initialValues,
-                    isMultiline: false,
-                    message: 'Donec pulvinar porta tempus. Sed ac ex ac libero pulvinar tincidunt eget non orci. Curabitur leo quam, commodo sit amet dolor eu, molestie molestie eros. Nulla rutrum vehicula sodales. Duis quis lobortis tortor. In hac habitasse platea dictumst. Vestibulum efficitur, orci at interdum eleifend, nulla nunc luctus urna, sit amet commodo libero lacus scelerisque enim. In eleifend ex ut nulla cursus, eu efficitur ligula pharetra.',
-                } as ToastProps,
-            });
-
-            await percySnapshot(page, 'PieToast - message - Should show ellipsis when message is too big and isMultiline is false');
-        });
-
-        test('Should show ellipsis when message is too big and isMultiline is true and message is limited to three lines', async ({ page, mount }) => {
-            await mount(PieToast, {
-                props: {
-                    ...initialValues,
-                    isMultiline: true,
-                    message: 'Donec pulvinar porta tempus. Sed ac ex ac libero pulvinar tincidunt eget non orci. Curabitur leo quam, commodo sit amet dolor eu, molestie molestie eros. Nulla rutrum vehicula sodales. Duis quis lobortis tortor. In hac habitasse platea dictumst. Vestibulum efficitur, orci at interdum eleifend, nulla nunc luctus urna, sit amet commodo libero lacus scelerisque enim. In eleifend ex ut nulla cursus, eu efficitur ligula pharetra.',
-                } as ToastProps,
-            });
-
-            await percySnapshot(page, 'PieToast - message - Should show ellipsis when message is too big and isMultiline is true and message is limited to three lines');
-        });
-    });
-
-    test.describe('isMultiline', () => {
-        test('Should show close icon if isDismissible is true', async ({ page, mount }) => {
-            await mount(PieToast, {
-                props: {
-                    ...initialValues,
-                    isDismissible: true,
-                } as ToastProps,
-            });
-
-            await percySnapshot(page, 'PieToast - isMultiline - Should show close icon if isDismissible is true');
-        });
-
-        test('Should not show close icon if isDismissible is false', async ({ page, mount }) => {
-            await mount(PieToast, {
-                props: {
-                    ...initialValues,
-                    isDismissible: false,
-                } as ToastProps,
-            });
-
-            await percySnapshot(page, 'PieToast - isMultiline - Should not show close icon if isDismissible is false');
-        });
-    });
-
     test.describe('leadingAction', () => {
-        test('Should show leadingAction in the footer if isMultiline is true', async ({ page, mount }) => {
+        const props = {
+            message: 'Item was added',
+            leadingAction: {
+                text: 'Confirm',
+                ariaLabel: 'Button to confirm the action',
+            },
+        };
+        test('Displays leadingAction in footer if isMultiline is true', async ({ page, mount }) => {
             await mount(PieToast, {
                 props: {
-                    ...initialValues,
+                    ...props,
                     isMultiline: true,
                 } as ToastProps,
             });
 
-            await percySnapshot(page, 'PieToast - isMultiline - Should show leadingAction in the footer if isMultiline is true');
+            await percySnapshot(page, 'PieToast - isMultiline - Displays leadingAction in footer if isMultiline is true');
         });
 
-        test('Should show leadingAction inline if isMultiline is false', async ({ page, mount }) => {
+        test('Displays leadingAction inline if isMultiline is false', async ({ page, mount }) => {
             await mount(PieToast, {
                 props: {
-                    ...initialValues,
+                    ...props,
                     isMultiline: false,
                 } as ToastProps,
             });
 
-            await percySnapshot(page, 'PieToast - isMultiline - Should show leadingAction inline if isMultiline is false');
+            await percySnapshot(page, 'PieToast - isMultiline - Displays leadingAction inline if isMultiline is false');
         });
     });
 });
+
