@@ -1,4 +1,5 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { useArgs } from '@storybook/preview-api';
 import { action } from '@storybook/addon-actions';
 import { type Meta } from '@storybook/web-components';
@@ -113,7 +114,7 @@ const Template : TemplateFunction<ToastProps> = ({
             ?isOpen="${isOpen}"
             ?isDismissible="${isDismissible}"
             ?isStrong="${isStrong}"
-            variant="${variant}"
+            variant="${ifDefined(variant)}"
             message="${message}" 
             .duration="${duration}"
             ?isMultiline="${isMultiline}"
