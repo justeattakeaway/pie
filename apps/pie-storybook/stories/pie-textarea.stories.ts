@@ -29,7 +29,6 @@ const Template = ({
     autocomplete,
     autoFocus,
     label,
-    maxLength,
     assistiveText,
     status,
     placeholder,
@@ -66,7 +65,6 @@ const Template = ({
             ?autoFocus="${autoFocus}"
             ?readonly="${readonly}"
             ?required="${required}"
-            maxLength="${ifDefined(maxLength)}"
             label="${ifDefined(label)}"
             @input="${onInput}"
             @change="${onChange}"
@@ -172,13 +170,6 @@ const textareaStoryMeta: TextareaStoryMeta = {
             control: 'text',
             defaultValue: {
                 summary: defaultProps.label,
-            },
-        },
-        maxLength: {
-            description: 'The maximum number of characters allowed in the textarea field. To apply a length restriction, you must also provide label text.',
-            control: 'number',
-            defaultValue: {
-                summary: 0,
             },
         },
         placeholder: {

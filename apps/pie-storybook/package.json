@@ -5,7 +5,9 @@
   "description": "Storybook for PIE Design System components",
   "scripts": {
     "dev": "storybook dev -p 6006",
+    "dev:testing": "BROWSER_TESTING=true storybook dev -p 6006",
     "build": "storybook build --output-dir dist && cp -R ./static ./dist",
+    "build:testing": "BROWSER_TESTING=true storybook build --output-dir dist && cp -R ./static ./dist",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "copy:component-statuses": "cp -v ../../component-statuses.json ."
