@@ -32,7 +32,7 @@ They are commonly used in forms, settings panels, and other interfaces where use
     dont: {
         type: usageTypes.text,
         items: [
-            "If the user can select multiple option from a group, checkboxes should be used instead of radio buttons.",
+            "If the user can select multiple options from a group, checkboxes should be used instead of radio buttons.",
             "Limit the number of radio buttons presented to users to avoid overwhelming them with choices."
         ]
     }
