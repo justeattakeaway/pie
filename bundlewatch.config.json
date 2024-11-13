@@ -1,0 +1,192 @@
+{
+  "files": [
+    {
+      "path": "./packages/components/pie-assistive-text/dist/index.js",
+      "maxSize": "1.3 KB"
+    },
+    {
+      "path": "./packages/components/pie-assistive-text/dist/react.js",
+      "maxSize": "0.3 KB"
+    },
+    {
+      "path": "./packages/components/pie-button/dist/index.js",
+      "maxSize": "11.25 KB"
+    },
+    {
+      "path": "./packages/components/pie-button/dist/react.js",
+      "maxSize": "0.43 KB"
+    },
+    {
+      "path": "./packages/components/pie-card/dist/index.js",
+      "maxSize": "2.96 KB"
+    },
+    {
+      "path": "./packages/components/pie-card/dist/react.js",
+      "maxSize": "0.31 KB"
+    },
+    {
+      "path": "./packages/components/pie-checkbox/dist/index.js",
+      "maxSize": "4.32 KB"
+    },
+    {
+      "path": "./packages/components/pie-checkbox/dist/react.js",
+      "maxSize": "0.33 KB"
+    },
+    {
+      "path": "./packages/components/pie-checkbox-group/dist/index.js",
+      "maxSize": "2.18 KB"
+    },
+    {
+      "path": "./packages/components/pie-checkbox-group/dist/react.js",
+      "maxSize": "0.47 KB"
+    },
+    {
+      "path": "./packages/components/pie-chip/dist/index.js",
+      "maxSize": "2.88 KB"
+    },
+    {
+      "path": "./packages/components/pie-chip/dist/react.js",
+      "maxSize": "0.37 KB"
+    },
+    {
+      "path": "./packages/components/pie-cookie-banner/dist/index.js",
+      "maxSize": "6.45 KB"
+    },
+    {
+      "path": "./packages/components/pie-cookie-banner/dist/react.js",
+      "maxSize": "0.63 KB"
+    },
+    {
+      "path": "./packages/components/pie-divider/dist/index.js",
+      "maxSize": "1.35 KB"
+    },
+    {
+      "path": "./packages/components/pie-divider/dist/react.js",
+      "maxSize": "0.3 KB"
+    },
+    {
+      "path": "./packages/components/pie-form-label/dist/index.js",
+      "maxSize": "1.28 KB"
+    },
+    {
+      "path": "./packages/components/pie-form-label/dist/react.js",
+      "maxSize": "0.25 KB"
+    },
+    {
+      "path": "./packages/components/pie-icon-button/dist/index.js",
+      "maxSize": "2.29 KB"
+    },
+    {
+      "path": "./packages/components/pie-icon-button/dist/react.js",
+      "maxSize": "0.3 KB"
+    },
+    {
+      "path": "./packages/components/pie-link/dist/index.js",
+      "maxSize": "2.3 KB"
+    },
+    {
+      "path": "./packages/components/pie-link/dist/react.js",
+      "maxSize": "0.37 KB"
+    },
+    {
+      "path": "./packages/components/pie-lottie-player/dist/index.js",
+      "maxSize": "1.86 KB"
+    },
+    {
+      "path": "./packages/components/pie-lottie-player/dist/react.js",
+      "maxSize": "0.29 KB"
+    },
+    {
+      "path": "./packages/components/pie-lottie-player/dist/lottie_light_canvas.min-C0TZgtte.js",
+      "maxSize": "81.7 KB"
+    },
+    {
+      "path": "./packages/components/pie-modal/dist/dialog-polyfill.esm-CbjBMXAG.js",
+      "maxSize": "5.83 KB"
+    },
+    {
+      "path": "./packages/components/pie-modal/dist/index.js",
+      "maxSize": "7.87 KB"
+    },
+    {
+      "path": "./packages/components/pie-modal/dist/react.js",
+      "maxSize": "0.61 KB"
+    },
+    {
+      "path": "./packages/components/pie-notification/dist/index.js",
+      "maxSize": "3.97 KB"
+    },
+    {
+      "path": "./packages/components/pie-notification/dist/react.js",
+      "maxSize": "0.62 KB"
+    },
+    {
+      "path": "./packages/components/pie-radio/dist/index.js",
+      "maxSize": "2.91 KB"
+    },
+    {
+      "path": "./packages/components/pie-radio/dist/react.js",
+      "maxSize": "0.31 KB"
+    },
+    {
+      "path": "./packages/components/pie-radio-group/dist/index.js",
+      "maxSize": "2.5 KB"
+    },
+    {
+      "path": "./packages/components/pie-radio-group/dist/react.js",
+      "maxSize": "0.37 KB"
+    },
+    {
+      "path": "./packages/components/pie-spinner/dist/index.js",
+      "maxSize": "1.5 KB"
+    },
+    {
+      "path": "./packages/components/pie-spinner/dist/react.js",
+      "maxSize": "0.3 KB"
+    },
+    {
+      "path": "./packages/components/pie-switch/dist/index.js",
+      "maxSize": "11.25 KB"
+    },
+    {
+      "path": "./packages/components/pie-switch/dist/react.js",
+      "maxSize": "0.4 KB"
+    },
+    {
+      "path": "./packages/components/pie-tag/dist/index.js",
+      "maxSize": "2.7 KB"
+    },
+    {
+      "path": "./packages/components/pie-tag/dist/react.js",
+      "maxSize": "0.29 KB"
+    },
+    {
+      "path": "./packages/components/pie-text-input/dist/index.js",
+      "maxSize": "11.25 KB"
+    },
+    {
+      "path": "./packages/components/pie-text-input/dist/react.js",
+      "maxSize": "0.4 KB"
+    },
+    {
+      "path": "./packages/components/pie-textarea/dist/index.js",
+      "maxSize": "5 KB"
+    },
+    {
+      "path": "./packages/components/pie-textarea/dist/react.js",
+      "maxSize": "0.38 KB"
+    },
+    {
+      "path": "./packages/components/pie-toast/dist/index.js",
+      "maxSize": "4.5 KB"
+    },
+    {
+      "path": "./packages/components/pie-toast/dist/react.js",
+      "maxSize": "0.41 KB"
+    }
+  ],
+  "defaultCompression": "gzip",
+  "ci": {
+    "trackBranches": ["main"]
+  }
+}

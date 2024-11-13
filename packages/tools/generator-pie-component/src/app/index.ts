@@ -52,12 +52,13 @@ export default class extends Generator {
             { processDestinationPath },
         );
 
-        // Update YAML files
+        // Update YAML and config files
         this._addPercyTokenEnvVar();
         this._addGithubLabel();
+        this._addBundlewatchConfigEntry(); // New method to add bundlewatch config entry
     }
 
-    _readAndParseYaml (filePath:string): Document {
+    _readAndParseYaml (filePath: string): Document {
         const yamlSrc = this.fs.read(filePath);
         return YAML.parseDocument(yamlSrc);
     }
@@ -109,6 +110,36 @@ export default class extends Generator {
         // For convenience sake, in this particular update, we opt out of yeoman fs implementation
         // as the udate is part of the automation
         this._stringifyYamlAndWriteFile(yamlFilePath, yamlDoc);
+    }
+
+    _addBundlewatchConfigEntry () {
+        const { fileName } = this.props;
+        const configPath = this.destinationPath('bundlewatch.config.json');
+
+        // Read and parse the existing config
+        let bundlewatchConfig;
+        try {
+            const configContent = fs.readFileSync(configPath, 'utf-8');
+            bundlewatchConfig = JSON.parse(configContent);
+        } catch (error) {
+            this.log(chalk.red(`Error reading bundlewatch config: ${error.message}`));
+            return;
+        }
+
+        // Add the new component entry
+        const newEntry = {
+            path: `./packages/components/pie-${fileName}/dist/*.js`,
+            maxSize: '3 KB',
+        };
+        bundlewatchConfig.files.push(newEntry);
+
+        // Write the updated config back to the file
+        try {
+            fs.writeFileSync(configPath, JSON.stringify(bundlewatchConfig, null, 2), 'utf-8');
+            this.log(chalk.green('Updated bundlewatch.config.json with new component.'));
+        } catch (error) {
+            this.log(chalk.red(`Error writing to bundlewatch config: ${error.message}`));
+        }
     }
 
     async end () {
