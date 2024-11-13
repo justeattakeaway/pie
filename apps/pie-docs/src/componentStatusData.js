@@ -1435,11 +1435,12 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            link: 'https://webc.pie.design/?path=/story/radio--default',
+            status: webComponentStatuses['pie-radio'],
         },
         {
             resource: resourceTypes.VUE,
-            link: 'https://vue.pie.design/?path=/story/components-molecules--alert-component',
+            link: 'https://vue.pie.design/?path=/story/components-atoms-f-form-field--radio-component',
             status: statusTypes.STABLE,
         },
         {
