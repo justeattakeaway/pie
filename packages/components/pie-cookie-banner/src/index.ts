@@ -16,6 +16,7 @@ import '@justeattakeaway/pie-modal';
 import '@justeattakeaway/pie-switch';
 import { type PieSwitch } from '@justeattakeaway/pie-switch';
 import { defineCustomElement, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
+import defaultLocale from '@justeattakeaway/pie-cookie-banner/locales/en.js';
 
 import styles from './cookie-banner.scss?inline';
 import {
@@ -37,7 +38,6 @@ import {
 } from './defs';
 
 import { localiseText, localiseRichText } from './localisation-utils';
-import defaultLocale from '../locales/en.json' assert { type: 'json' };
 
 // Valid values available to consumers
 export * from './defs';
@@ -93,7 +93,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     private async _setLocaleBasedOnCountryAndLanguage (language: LanguageCode, country: CountryCode): Promise<void> {
         try {
             const localeString = this._getLocaleString(language, country);
-            this._locale = (await import(`../locales/${localeString}.json`, { assert: { type: 'json' } })).default;
+            this._locale = (await import(`../locales/${localeString}.js`)).default;
         } catch {
             this._locale = defaultLocale;
         }

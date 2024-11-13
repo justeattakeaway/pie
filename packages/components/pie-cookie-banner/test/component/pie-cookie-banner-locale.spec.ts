@@ -1,5 +1,4 @@
 import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/playwright-fixtures.ts';
-import { readFile } from 'fs/promises';
 import { CookieBannerComponent } from 'test/helpers/page-object/pie-cookie-banner.page.ts';
 import { ModalComponent } from '@justeattakeaway/pie-modal/test/helpers/page-object/pie-modal.page.ts';
 import { Language, Country } from '@justeattakeaway/pie-cookie-banner/src/defs.ts';
@@ -8,7 +7,7 @@ function stripTags (str: string) {
     return str.replace(/<\/?[^>]+(>|$)/g, '');
 }
 
-const englishLocale = JSON.parse(await readFile(new URL('../../locales/en.json', import.meta.url), { encoding: 'utf-8' }));
+const defaultLocale = 'en';
 let pieCookieBannerComponent: CookieBannerComponent;
 let pieModalComponent: ModalComponent;
 
@@ -20,7 +19,7 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
 
     test('should render text in the default language-country \'en-gb\' when unset', async () => {
         // Arrange
-        const englishLocale = JSON.parse(await readFile(new URL('../../locales/en.json', import.meta.url), { encoding: 'utf-8' }));
+        const expectedLocale = (await import(`@justeattakeaway/pie-cookie-banner/locales/${defaultLocale}.js`)).default;
         await pieCookieBannerComponent.load();
 
         // Act
@@ -31,24 +30,16 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
         const modalDescriptionText = await pieModalComponent.getDescriptionTextContent();
 
         // Assert
-        expect(acceptAllButtonText)
-            .toBe(englishLocale.banner.cta.acceptAll);
-
-        expect(necessaryOnlyButtonText)
-            .toBe(englishLocale.banner.cta.necessaryOnly);
-
-        expect(managePreferencesButtonText)
-            .toBe(englishLocale.banner.cta.managePreferences);
-
-        expect(componentDescriptionText)
-            .toBe(stripTags(englishLocale.banner.description));
-
-        expect(modalDescriptionText)
-            .toBe(stripTags(englishLocale.preferencesManagement.description));
+        expect(acceptAllButtonText).toBe(expectedLocale.banner.cta.acceptAll);
+        expect(necessaryOnlyButtonText).toBe(expectedLocale.banner.cta.necessaryOnly);
+        expect(managePreferencesButtonText).toBe(expectedLocale.banner.cta.managePreferences);
+        expect(componentDescriptionText).toBe(stripTags(expectedLocale.banner.description));
+        expect(modalDescriptionText).toBe(stripTags(expectedLocale.preferencesManagement.description));
     });
 
     test('should not update the locale if country and language properties are unchanged', async () => {
         // Arrange
+        const expectedLocale = (await import(`@justeattakeaway/pie-cookie-banner/locales/${defaultLocale}.js`)).default;
         await pieCookieBannerComponent.load();
 
         // Act
@@ -63,11 +54,11 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
         const modalDescriptionText = await pieModalComponent.getDescriptionTextContent();
 
         // Assert
-        expect(acceptAllButtonText).toBe(englishLocale.banner.cta.acceptAll);
-        expect(necessaryOnlyButtonText).toBe(englishLocale.banner.cta.necessaryOnly);
-        expect(managePreferencesButtonText).toBe(englishLocale.banner.cta.managePreferences);
-        expect(componentDescriptionText).toBe(stripTags(englishLocale.banner.description));
-        expect(modalDescriptionText).toBe(stripTags(englishLocale.preferencesManagement.description));
+        expect(acceptAllButtonText).toBe(expectedLocale.banner.cta.acceptAll);
+        expect(necessaryOnlyButtonText).toBe(expectedLocale.banner.cta.necessaryOnly);
+        expect(managePreferencesButtonText).toBe(expectedLocale.banner.cta.managePreferences);
+        expect(componentDescriptionText).toBe(stripTags(expectedLocale.banner.description));
+        expect(modalDescriptionText).toBe(stripTags(expectedLocale.preferencesManagement.description));
     });
 
     [
@@ -95,7 +86,7 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
     ].forEach((obj) => {
         test(`should load the correct locale [${obj.expectedLocale}] given language [${obj.language}] & country [${obj.country}]`, async () => {
             // Arrange
-            const expectedLocaleJson = JSON.parse(await readFile(new URL(`../../locales/${obj.expectedLocale}.json`, import.meta.url), { encoding: 'utf-8' }));
+            const expectedLocale = (await import(`@justeattakeaway/pie-cookie-banner/locales/${obj.expectedLocale}.js`)).default;
             await pieCookieBannerComponent.load({ country: obj.country, language: obj.language });
 
             // Act
@@ -106,20 +97,11 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
             const modalDescriptionText = await pieModalComponent.getDescriptionTextContent();
 
             // Assert
-            expect(acceptAllButtonText)
-                .toBe(expectedLocaleJson.banner.cta.acceptAll);
-
-            expect(necessaryOnlyButtonText)
-                .toBe(expectedLocaleJson.banner.cta.necessaryOnly);
-
-            expect(managePreferencesButtonText)
-                .toBe(expectedLocaleJson.banner.cta.managePreferences);
-
-            expect(componentDescriptionText)
-                .toBe(stripTags(expectedLocaleJson.banner.description));
-
-            expect(modalDescriptionText)
-                .toBe(stripTags(expectedLocaleJson.preferencesManagement.description));
+            expect(acceptAllButtonText).toBe(expectedLocale.banner.cta.acceptAll);
+            expect(necessaryOnlyButtonText).toBe(expectedLocale.banner.cta.necessaryOnly);
+            expect(managePreferencesButtonText).toBe(expectedLocale.banner.cta.managePreferences);
+            expect(componentDescriptionText).toBe(stripTags(expectedLocale.banner.description));
+            expect(modalDescriptionText).toBe(stripTags(expectedLocale.preferencesManagement.description));
         });
     });
 });
