@@ -175,7 +175,7 @@ Here are some examples of the component in a left-to-right context:
 } %}
 
 ### RTL examples
-Here are some examples of the component in right-to-left context:
+Here are some examples of the component in a right-to-left context:
 
 {% contentPageImage {
   src:"../../../assets/img/components/radio-group/rtl.svg",
