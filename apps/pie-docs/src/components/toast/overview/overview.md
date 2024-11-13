@@ -102,10 +102,10 @@ Use strong colour variants to increase the visual impact of your message.
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Info:** Providing contextual information about the progress of an action",
-        "**Warning:** Providing non-critical information about the progress of an action",
-        "**Success:** Providing positive information about the progress of an action",
-        "**Error:** Providing critical information about the progress of an action. Please review if Toast is correct to use it might be better to use a dialogue, notification or banner"
+        "**Info:** Providing contextual information about the progress of an action.",
+        "**Warning:** Providing non-critical information about the progress of an action.",
+        "**Success:** Providing positive information about the progress of an action.",
+        "**Error:** Providing critical information about the progress of an action. Please review if toast is the correct component to use. It may be better to use a dialogue, notification or banner."
     ]
 } %}
 
@@ -122,17 +122,17 @@ To create a message with less prominence you can use the subtle variant.
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Info:** Providing contextual information about the progress of an action",
-        "**Warning:** Providing non-critical information about the progress of an action",
-        "**Success:** Providing positive information about the progress of an action",
-        "**Error:** Providing critical information about the progress of an action. Please review if Toast is correct to use it might be better to use a dialogue, notification or banner",
-        "**Neutral:** Providing critical information about the progress of an action. Please review if Toast is correct to use it might be better to use a dialogue, notification or banner"
+        "**Info:** Providing contextual information about the progress of an action.",
+        "**Warning:** Providing non-critical information about the progress of an action.",
+        "**Success:** Providing positive information about the progress of an action.",
+        "**Error:** Providing critical information about the progress of an action. Please review if toast is the correct component to use. It may be better to use a dialogue, notification or banner.",
+        "**Neutral:** Neutral: Providing non-urgent general information about the progress of an action."
     ]
 } %}
 
 ### Icons
 
-When incorporating an icon into a Toast, it is essential to ensure that the icon clearly conveys the intended feedback. You should only use the icons built into the component and not use a different icon.
+When using an icon inside the toast component, you should make sure that the icon clearly conveys the intended meaning. Only use the icons that have been built into the component - do not supply your own.
 
 {% usage {
     do: {
