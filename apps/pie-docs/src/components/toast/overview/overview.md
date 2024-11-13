@@ -11,7 +11,7 @@ permalink: components/toast/
 
 ## Overview
 
-Toasts are used to inform users about processes within a system. They can also provide contextual feedback. They appear temporarily at the bottom-left of the screen and disappear after a certain time period or when the user performs an action to remove them.
+Toasts are used to inform users about processes within a system. They can also provide contextual feedback. They appear temporarily at the bottom of the screen and disappear after a certain time period or when the user performs an action to remove them.
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/overview.svg",
@@ -26,8 +26,8 @@ Toasts are used to inform users about processes within a system. They can also p
     do: {
         type: usageTypes.text,
         items: [
-            "Only one toast at a time.",
-            "Limit your message to 35 characters (abbr) for one line toast or 90 characters (abbr) for multi-line toast.",
+            "Display only one toast at a time.",
+            "Limit your message to 35 characters for a single-line toast or 90 characters for a multi-line toast.",
             "Be mindful of how often you trigger toasts.",
             "Use for short messages that confirm an action taken by a user."
         ]
@@ -68,7 +68,7 @@ Toasts are used to inform users about processes within a system. They can also p
 
 ### Default
 
-A default one-line toast, this can be used with or without an icon or action.
+A default single-line toast; this can be used with or without an icon or action.
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/variations-default.svg",
@@ -92,7 +92,7 @@ If you require additional text for your message, please use the multi-line compo
 
 ### Strong
 
-To create a stronger impact with your message, you can use strong variant. This uses colour to back-up your message
+Use strong colour variants to increase the visual impact of your message.
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/modifiers-strong.svg",
@@ -183,7 +183,7 @@ If you are using actions, only use the pre-built button in the toast.
 
 ### Height
 
-The toast has a minimum height of 48px when displaying one line of body copy, and it should not exceed 122px in height to accommodate up to three lines of multi-line body copy.
+The toast has a minimum height of 48px when displaying one line of text. It should not exceed 122px in height, which is enough to accommodate up to three lines of text.
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/sizes-height.svg",
@@ -205,7 +205,7 @@ The toast has a minimum width of 300px and a maximum width of 420px.
 
 ## Overflow
 
-If the body copy extends beyond one line, it should automatically wrap to multiple lines. Yet, ensure that multi-line text is truncated to a maximum of three lines. For longer text content, consider utilising a pop-up component.
+If the body copy extends beyond one line, it should automatically wrap to multiple lines. Multi-line text will be truncated so that it does not exceed three lines. For longer text content, consider utilising a pop-up component.
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/overflow.svg",
@@ -259,7 +259,7 @@ By default the toast automatically disappears after 5 seconds. However, the user
 
 ### Persistent
 
-If the toast includes a close icon button or button with a dismissing purpose, the toast can remain persistent until the user manually dismisses it using either of these actions.
+If the toast has a close icon button or a dismiss button, the toast can be persisted until the user manually dismisses it.
 
 {% contentLayout %}
   {% contentItem %}
@@ -282,7 +282,7 @@ If the toast includes a close icon button or button with a dismissing purpose, t
 
 ## Interactions
 
-If the toast includes a close option, the user can select either option to automatically dismiss the toast.
+If the toast includes either a close icon button or a dismiss button, either can be used to dismiss the toast.
 
 {% contentLayout %}
   {% contentItem %}
@@ -307,7 +307,7 @@ If the toast includes a close option, the user can select either option to autom
 
 ### LTR position
 
-A toast should be located at the bottom left of the page’s content are; excluding any navigation.
+A toast should be located at the bottom left of the page’s content area, excluding any navigation.
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/layout-ltr-position.svg",
@@ -323,7 +323,7 @@ A toast should be located at the bottom left of the page’s content are; exclud
 
 ### RTL position
 
-A toast should be located at the bottom right of the page’s content are; excluding any navigation.
+A toast should be located at the bottom right of the page’s content area, excluding any navigation.
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/layout-rtl-position.svg",
@@ -343,7 +343,7 @@ A toast should be located at the bottom right of the page’s content are; exclu
 
 ### LTR examples
 
-Here are some examples of Toast in left-to-right context:
+Here are some examples of the toast component in a left-to-right context:
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/example-ltr-toast.svg",
@@ -354,7 +354,7 @@ Here are some examples of Toast in left-to-right context:
 
 ### RTL examples
 
-Here are some examples of Toast in right-to-left context:
+Here are some examples of the toast component in a right-to-left context:
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/example-rtl-toast.svg",
