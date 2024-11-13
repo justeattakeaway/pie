@@ -1462,6 +1462,45 @@ const rows = [
         }
     ],
     [
+        { componentName: 'Radio Group' },
+        {
+            resource: resourceTypes.COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?node-id=198-33663',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/%5BCore%5D-Web-Component-Documentation-%5BPIE-3%5D?node-id=29-22',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.WEB_COMPONENTS,
+            link: 'https://webc.pie.design/?path=/story/radio-group--default',
+            status: webComponentStatuses['pie-radio-group'],
+        },
+        {
+            resource: resourceTypes.VUE,
+            status: statusTypes.NOT_APPLICABLE,
+        },
+        {
+            resource: resourceTypes.REACT,
+            link: 'https://snacks.takeaway.com/portal/components/radio-group/',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.IOS_JUST_UI,
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.IOS_PIE,
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.ANDROID_PIE,
+            status: statusTypes.STABLE,
+        }
+    ],
+    [
         { componentName: 'Rating' },
         {
             resource: resourceTypes.COMPONENT,

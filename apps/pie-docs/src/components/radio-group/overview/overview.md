@@ -103,7 +103,7 @@ A form label is recommended to provide the user context of the form element and 
 
 
 ### Assistive text
-Assistive text is used where needed to provide additional information or error / success messaging regarding the whole form element, and never to individual checkboxes. The assistive text is always used for an error state to provide the user with the information required to complete the form element.
+Assistive text is used where needed to provide additional information or error / success messaging regarding the whole form element, and never to individual radios. The assistive text is always used for an error state to provide the user with the information required to complete the form element.
 
 {% contentPageImage {
   src:"../../../assets/img/components/radio-group/modifiers-assistive-text.svg",
@@ -124,8 +124,8 @@ All content should use sentence case.
 } %}
 
 ### Label
-- Always use clear and concise labels for checkboxes.
-- Labels appear to the right of checkbox input.
+- Always use clear and concise labels for radio buttons.
+- Labels appear to the right of radio buttons.
 
 ---
 
@@ -188,5 +188,5 @@ Here are some examples of the component in a right-to-left context:
 ## Resources
 
 {% resourceTable {
-    componentName: 'Radio'
+    componentName: 'Radio Group'
 } %}
