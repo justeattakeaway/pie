@@ -166,7 +166,7 @@ Individual radios have their own interactive states: default, hover, active, and
 ## Examples
 
 ### LTR examples
-Here are some examples of the component in left-to-right context:
+Here are some examples of the component in a left-to-right context:
 
 {% contentPageImage {
   src:"../../../assets/img/components/radio-group/ltr.svg",
