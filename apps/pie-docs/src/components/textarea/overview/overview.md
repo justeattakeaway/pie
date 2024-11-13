@@ -294,7 +294,7 @@ The character limit and counter is used to let users know how long their entry c
     {% contentPageImage {
       src: "../../../assets/img/components/textarea/character-counter.svg",
       width: "256px",
-      alt: "A textarea component with a label and text inside it. The character counter at the top right shows 50 out of 50 characters. At the bottom, assistive text in an error state indicates that the character limit has been exceeded by 43 characters."
+      alt: "A textarea component with a label and text inside it. The character counter at the top right shows 93 out of 50 characters. At the bottom, assistive text in an error state indicates that the character limit has been exceeded by 43 characters."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
