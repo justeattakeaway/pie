@@ -84,7 +84,7 @@ export const defaultProps: DefaultProps = {
     isOpen: true,
     variant: 'neutral',
     isStrong: false,
-    isDismissible: true,
+    isDismissible: false,
     isMultiline: false,
     duration: 5000,
 };
