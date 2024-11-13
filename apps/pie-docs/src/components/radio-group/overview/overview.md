@@ -25,7 +25,7 @@ They are commonly used in forms, settings panels, and other interfaces where use
     do: {
         type: usageTypes.text,
         items: [
-            "Ensure each radio button has a concise and descriptive label that clearly indicates what selecting it will entail.",
+            "Make sure each radio button has a label which is clear, concise and accurate.",
             "Use a minimum of 2 radio buttons within a group."
         ]
     },
