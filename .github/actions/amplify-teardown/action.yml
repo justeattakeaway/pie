@@ -49,11 +49,11 @@ runs:
     env:
       APP_ID: ${{ inputs.amplify-app-id }}
       BRANCH_NAME: ${{ inputs.branch-name }}
+      AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
+      AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
+      AWS_REGION: ${{ inputs.aws-region }}
     run: |
       aws amplify delete-branch \
         --app-id "$APP_ID" \
         --branch-name "$BRANCH_NAME"
-    env:
-      AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
-      AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
-      AWS_REGION: ${{ inputs.aws-region }}
+      
