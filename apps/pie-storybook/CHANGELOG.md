@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.13.0
+
+### Minor Changes
+
+- [Removed] - deprecate the maxLength prop ([#2050](https://github.com/justeattakeaway/pie/pull/2050)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`9696d0088`](https://github.com/justeattakeaway/pie/commit/9696d00884a4705c5ea9f264a7ac5e280e7f6f22)]:
+  - @justeattakeaway/pie-textarea@0.12.0
+
 ## 1.12.0
 
 ### Minor Changes
