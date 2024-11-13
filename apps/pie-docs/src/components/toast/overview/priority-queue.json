@@ -1,59 +1,48 @@
 {
   "headings": [
     "Priority",
-    "Variant",
-    "Behaviour"
+    "Variant"
   ],
   "rows": [
     [
       "1",
-      "Error - actionable",
-      "Takes precedence over lower priority ones, queuing alongside same priority toasts"
+      "Error - actionable"
     ],
     [
       "2",
-      "Error",
-      "Second level priority, and takes precedence over lower priority ones, queuing alongside same priority toasts and yielding to higher priority ones."
+      "Error"
     ],
     [
       "3",
-      "Warning - actionable",
-      "Third level priority, and takes precedence over lower priority ones, queuing alongside same priority toasts and yielding to higher priority ones."
+      "Warning - actionable"
     ],
     [
       "4",
-      "Positive - actionable",
-      "Fourth level priority, and takes precedence over lower priority ones, queuing alongside same priority toasts and yielding to higher priority ones."
+      "Positive - actionable"
     ],
     [
       "5",
-      "Info - actionable",
-      "Fifth level priority, and takes precedence over lower priority ones, queuing alongside same priority toasts and yielding to higher priority ones."
+      "Info - actionable"
     ],
     [
       "6",
-      "Neutral - actionable",
-      "Sixth level priority, and takes precedence over lower priority ones, queuing alongside same priority toasts and yielding to higher priority ones."
+      "Neutral - actionable"
     ],
     [
       "7",
-      "Warning",
-      "Seventh level priority, and takes precedence over lower priority ones, queuing alongside same priority toasts and yielding to higher priority ones."
+      "Warning"
     ],
     [
       "8",
-      "Positive",
-      "Eighth level priority, and takes precedence over lower priority ones, queuing alongside same priority toasts and yielding to higher priority ones."
+      "Positive"
     ],
     [
       "9",
-      "Info",
-      "Ninth level priority, and takes precedence over lower priority ones, queuing alongside same priority toasts and yielding to higher priority ones."
+      "Info"
     ],
     [
       "10",
-      "Neutral",
-      "Tenth level priority, queuing alongside same priority toasts and yielding to higher priority ones."
+      "Neutral"
     ]
   ]
 }

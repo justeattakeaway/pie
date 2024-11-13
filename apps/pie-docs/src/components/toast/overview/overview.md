@@ -35,9 +35,8 @@ Toasts are used to inform users about processes within a system. They can also p
     dont: {
         type: usageTypes.text,
         items: [
-            "Interrupt the user experience.",
-            "Use a toast of critical information that user needs to action   consider using a pop-alert instead.",
-            "Place the toast over any navigation."
+            "Don’t use toasts for critical information.",
+            "Don’t place the toast over any navigational elements."
         ]
     }
 } %}
@@ -205,7 +204,7 @@ The toast has a minimum width of 300px and a maximum width of 420px.
 
 ## Overflow
 
-If the body copy extends beyond one line, it should automatically wrap to multiple lines. Multi-line text will be truncated so that it does not exceed three lines. For longer text content, consider utilising a pop-up component.
+If the body copy extends beyond one line, it should automatically wrap to multiple lines. Multi-line text will be truncated so that it does not exceed three lines. For longer text content, consider an alternative component.
 
 {% contentPageImage {
     src:"../../../assets/img/components/toast/overflow.svg",
@@ -218,6 +217,8 @@ If the body copy extends beyond one line, it should automatically wrap to multip
 ## Priority queue
 
 Only one toast is displayed at a time. When toasts are consecutively or simultaneously triggered, their display order is defined by the priority queue.
+
+Each level takes priority over those below it, queues alongside toasts of the same priority, and yields to higher priority levels.
 
 {% componentDetailsTable {
   tableData: priorityQueue
