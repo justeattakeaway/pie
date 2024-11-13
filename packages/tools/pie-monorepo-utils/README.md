@@ -4,4 +4,4 @@
 
 # pie-monorepo-utils
 
-This package contains scripts and utilities employed by the PIE monorepo.
+This package contains scripts and utilities used by the PIE monorepo.
