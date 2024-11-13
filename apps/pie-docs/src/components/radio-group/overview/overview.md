@@ -8,9 +8,9 @@ permalink: components/radio-group/
 ---
 
 ## Overview
-Radio groups offer users a single selection method,  Each radio button functions independently, providing immediate feedback through its selected or unselected state.
+Radio groups present a set of mutually exclusive options, allowing users to select only one option from a predefined list.
 
-These groups are frequently utilised in forms, settings panels, and various interfaces requiring users to make a single selection or provide input from predefined options.
+They are commonly used in forms, settings panels, and other interfaces where users need to make a single selection from multiple options.
 
 {% contentPageImage {
     src:"../../../assets/img/components/radio-group/overview.svg",
