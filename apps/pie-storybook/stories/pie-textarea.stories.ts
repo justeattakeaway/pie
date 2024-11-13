@@ -225,14 +225,14 @@ const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps
 
 const CreateTextareaStory = createStory<TextareaProps>(Template, defaultArgs);
 const CreateTextareaStoryWithForm = createStory<TextareaProps>(ExampleFormTemplate, defaultArgs);
-const createStoryWithLabel = (props: TextareaProps) => createStory<TextareaProps>(WithLabelTemplate, props);
+const createTextareaStoryWithLabel = (props: TextareaProps) => createStory<TextareaProps>(WithLabelTemplate, props);
 
 export const Default = CreateTextareaStory({}, {
     argTypes: {
         defaultValue: { table: { readonly: true }, description: 'This prop only works when the textarea is inside a form. To interact with this, view the Example Form story.' },
     },
 });
-export const WithLabel = createStoryWithLabel(defaultArgs)();
+export const WithLabel = createTextareaStoryWithLabel(defaultArgs)();
 export const ExampleForm = CreateTextareaStoryWithForm();
 
 export default textareaStoryMeta;
