@@ -409,10 +409,9 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
 
         return html`
             <div
+                role="${variant === 'error' ? 'alert' : 'status'}"
                 data-test-id="${componentSelector}"
-                class="${classMap(componentWrapperClasses)}"
-                aria-live="${variant === 'error' ? 'assertive' : 'polite'}"
-            >
+                class="${classMap(componentWrapperClasses)}">
                 <div class="${componentClass}-contentArea">
                     <div class="${classMap(messageAreaClasses)}">
                         ${this.variantHasIcon(variant) ? this.getVariantIcon() : nothing}

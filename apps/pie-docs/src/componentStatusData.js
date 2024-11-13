@@ -1440,7 +1440,7 @@ const rows = [
         },
         {
             resource: resourceTypes.VUE,
-            link: 'https://vue.pie.design/?path=/story/components-molecules--alert-component',
+            link: 'https://vue.pie.design/?path=/story/components-atoms-f-form-field--radio-component',
             status: statusTypes.STABLE,
         },
         {
