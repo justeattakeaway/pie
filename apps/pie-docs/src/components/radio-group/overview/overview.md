@@ -61,7 +61,7 @@ They are commonly used in forms, settings panels, and other interfaces where use
 ---
 
 ## Variations
-Radio groups can be laid out both horizontally and vertically depending on the use cas and the structure of the UI. Where possible, arrange the radio group vertically for easier reading.
+Radio groups can be laid out either vertically or horizontally depending on the use-case and the structure of the user interface. The default layout is vertical, and this is recommended for easier reading.
 
 ### Horizontal
 {% contentPageImage {
