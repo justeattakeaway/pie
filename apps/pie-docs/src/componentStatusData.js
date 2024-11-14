@@ -1,4 +1,4 @@
-const webComponentStatuses = require('../component-statuses.json');
+const webComponentStatuses = require('@justeattakeaway/pie-monorepo-utils/dist/component-statuses.json');
 const resourceTypes = require('./_data/resourceTypes');
 const statusTypes = require('./_data/statusTypes');
 
