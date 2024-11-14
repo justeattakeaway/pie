@@ -80,6 +80,7 @@
     "components/textarea/code",
     "components/thumbnail",
     "components/toast",
+    "components/toast/motion",
     "components/tooltip",
     "components/uploader",
     "designers",
