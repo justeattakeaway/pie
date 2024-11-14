@@ -20,7 +20,7 @@ yarn add @lit-labs/nextjs @lit/react
 ## Setup
 
 ### CSS and Design Token variables
-You should import `pie-css` into your root component file (or wherever you prefer) so that the variables it provides are globally available (some of these variables are used by the component styles):
+You should import [@justeattakeaway/pie-css](https://www.npmjs.com/package/@justeattakeaway/pie-css) into your root component file (or wherever you prefer) so that the variables it provides are globally available (some of these variables are used by the component styles):
 
 ```js
 // Example - /src/app/layout.tsx
@@ -53,9 +53,12 @@ module.exports = withLitSSR(nextConfig);
 
 ## Usage
 
-*Note:* If you are using the app router structure, please ensure you add `"use client"` to the top of the files that directly import the PIE components. This does NOT prevent SSR, it just means that PIE components cannot be used directly in React server-components. These client components can then be imported into RSCs.
+{% notification {
+  type: "information",
+  message: "If you are using the app router structure, please ensure you add `\"use client\"` to the top of the files that directly import the PIE components. This does NOT prevent SSR, it just means that PIE components cannot be used directly in React server-components. These client components can then be imported into RSCs."
+} %}
 
-It is recommended to import all components from `pie-webc`. For React-based applications, there is a `/react/` entry point as shown in the example code below:
+It is recommended to import all components from [@justeattakeaway/pie-webc](https://www.npmjs.com/package/@justeattakeaway/pie-webc). For React-based applications, there is a `/react/` entry point as shown in the example code below:
 
 ```jsx
 "use client"
