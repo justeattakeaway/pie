@@ -8,7 +8,6 @@ import { live } from 'lit/directives/live.js';
 import throttle from 'lodash.throttle';
 
 import '@justeattakeaway/pie-assistive-text';
-import '@justeattakeaway/pie-form-label';
 import {
     validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent, type PIEInputElement,
 } from '@justeattakeaway/pie-webc-core';
@@ -48,9 +47,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     @property({ type: String })
     @validPropertyValues(componentSelector, resizeModes, defaultProps.resize)
     public resize = defaultProps.resize;
-
-    @property({ type: String })
-    public label = defaultProps.label;
 
     @property({ type: Boolean })
     public readonly = defaultProps.readonly;
@@ -181,12 +177,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         window.removeEventListener('resize', () => this.handleResize());
     }
 
-    renderLabel (label: string) {
-        return label?.length
-            ? html`<pie-form-label for="${componentSelector}">${label}</pie-form-label>`
-            : nothing;
-    }
-
     renderAssistiveText () {
         if (!this.assistiveText) {
             return nothing;
@@ -214,7 +204,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
             placeholder,
             value,
             required,
-            label,
             status,
             assistiveText,
         } = this;
@@ -229,7 +218,6 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         };
 
         return html`<div>
-            ${this.renderLabel(label)}
             <div
                 class="${classMap(classes)}"
                 data-test-id="pie-textarea-wrapper">
