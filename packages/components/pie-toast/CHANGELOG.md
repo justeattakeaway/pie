@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-toast
 
+## 0.4.5
+
+### Patch Changes
+
+- [Added] - the role attribute to the toast component ([#2051](https://github.com/justeattakeaway/pie/pull/2051)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.4.4
 
 ### Patch Changes
