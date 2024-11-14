@@ -1,0 +1,16 @@
+{
+    "headings": [
+        "Property",
+        "Cubic Bezier",
+        "Easing token",
+        "Notes"
+    ],
+    "rows": [
+        [
+            "X Translate",
+            "(0.8, 0, 1, 1)",
+            "$easing-in",
+            "Exits from view to the left, gently accelerates from stationary."
+        ]
+    ]
+}
