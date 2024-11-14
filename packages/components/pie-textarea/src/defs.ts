@@ -72,11 +72,6 @@ export interface TextareaProps {
     required?: boolean;
 
     /**
-    * The label text for the textarea field.
-    */
-    label?: string;
-
-    /**
      * The placeholder text to display when the textarea is empty.
      */
     placeholder?: string;
@@ -94,7 +89,6 @@ export const defaultProps: DefaultProps = {
     disabled: false,
     size: 'medium',
     resize: 'auto',
-    label: '',
     value: '',
     placeholder: '',
     status: 'default',
