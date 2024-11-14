@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.71.0
+
+### Minor Changes
+
+- [Removed] - @babel/traverse resolution to fix issue with pie-icons-webc build ([#2034](https://github.com/justeattakeaway/pie/pull/2034)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.70.0
 
 ### Minor Changes
