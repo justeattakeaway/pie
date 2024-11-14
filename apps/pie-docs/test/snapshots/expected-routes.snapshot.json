@@ -95,6 +95,7 @@
     "engineers/guidelines",
     "engineers/guidelines/browser-support",
     "engineers/web-components",
+    "engineers/web-components/nextjs-14-integration",
     "foundations",
     "foundations/colour",
     "foundations/colour/tokens/alias/dark",
