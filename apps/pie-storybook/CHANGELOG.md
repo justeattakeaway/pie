@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.14.0
+
+### Minor Changes
+
+- [Updated] - remove the `label` prop and use the pie-form-label component instead. ([#2054](https://github.com/justeattakeaway/pie/pull/2054)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Added] - the role attribute to the toast component ([#2051](https://github.com/justeattakeaway/pie/pull/2051)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`b55f6837c`](https://github.com/justeattakeaway/pie/commit/b55f6837c9c51ac1011fb9a2d4864470c1018fac), [`64544570e`](https://github.com/justeattakeaway/pie/commit/64544570e992a58c1dc37935bd6b04a95fc51037)]:
+  - @justeattakeaway/pie-toast@0.4.5
+  - @justeattakeaway/pie-textarea@0.13.0
+
 ## 1.13.0
 
 ### Minor Changes
