@@ -1977,7 +1977,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            status: webComponentStatuses['pie-textarea'],
         },
         {
             resource: resourceTypes.VUE,

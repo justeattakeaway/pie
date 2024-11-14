@@ -1,6 +1,5 @@
 import { expect, test } from '@sand4rt/experimental-ct-web';
 import { getFormDataObject, setupFormDataExtraction } from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
-import { PieFormLabel } from '@justeattakeaway/pie-form-label';
 import { PieTextarea, type TextareaProps } from '../../src/index.ts';
 
 import { statusTypes } from '../../src/defs.ts';
@@ -14,9 +13,6 @@ test.describe('PieTextarea - Component tests', () => {
     test.beforeEach(async ({ mount }) => {
         const component = await mount(PieTextarea);
         await component.unmount();
-
-        const label = await mount(PieFormLabel);
-        await label.unmount();
     });
 
     test('should render successfully', async ({ mount, page }) => {
@@ -333,34 +329,6 @@ test.describe('PieTextarea - Component tests', () => {
 
                 // Assert
                 expect(isValid).toBe(true);
-            });
-        });
-
-        test.describe('label', () => {
-            test('should not render a label when the label is absent', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieTextarea, {});
-
-                // Act
-                const labelNodes = component.locator('pie-form-label');
-
-                // Assert
-                await expect(labelNodes).toHaveCount(0);
-            });
-
-            test('should render a label when the label is present', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        label: 'foo label',
-                    } as TextareaProps,
-                });
-
-                // Act
-                const label = component.getByText('foo label');
-
-                // Assert
-                await expect(label).toBeVisible();
             });
         });
 

@@ -9,11 +9,12 @@ jobs:
       uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
     - name: Fetch branches # This is necessary for comparing the current branch changes against main
+      env:
+        BRANCH_NAME: ${{github.head_ref}}
       run: |
         git fetch origin main:main
-        git fetch origin ${{ github.head_ref }}:refs/remotes/origin/${{ github.head_ref }}
-        git checkout -b ${{ github.head_ref }} origin/${{ github.head_ref }}
-
+        git fetch origin "$BRANCH_NAME":refs/remotes/origin/"$BRANCH_NAME"
+        git checkout -b "$BRANCH_NAME" origin/"$BRANCH_NAME"
     - name: Get Missing Labels
       uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
       env:
