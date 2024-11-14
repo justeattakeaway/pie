@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.17.0
+
+### Minor Changes
+
+- [Changed] - Complete the radio button overview page ([#2033](https://github.com/justeattakeaway/pie/pull/2033)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Updated] - remove the `label` prop and use the pie-form-label component instead. ([#2054](https://github.com/justeattakeaway/pie/pull/2054)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`fdf7a820a`](https://github.com/justeattakeaway/pie/commit/fdf7a820a157c31b5bf535990e185725107a1c81)]:
+  - @justeattakeaway/pie-icons@5.2.0
+
 ## 4.16.0
 
 ### Minor Changes

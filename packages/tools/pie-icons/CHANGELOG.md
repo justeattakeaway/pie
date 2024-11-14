@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.2.0
+
+### Minor Changes
+
+- [Added] - Implement scripts for fetching, renaming and validating icons, as well as creating PRs and their respective changesets ([#2019](https://github.com/justeattakeaway/pie/pull/2019)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 5.1.0
 
 ### Minor Changes
