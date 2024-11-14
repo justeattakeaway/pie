@@ -2015,6 +2015,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
+            link: 'https://webc.pie.design/?path=/story/toast--neutral',
             status: webComponentStatuses['pie-toast'],
         },
         {
