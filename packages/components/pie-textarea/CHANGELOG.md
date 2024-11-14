@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-textarea
 
+## 0.13.0
+
+### Minor Changes
+
+- [Updated] - remove the `label` prop and use the pie-form-label component instead. ([#2054](https://github.com/justeattakeaway/pie/pull/2054)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.12.0
 
 ### Minor Changes
