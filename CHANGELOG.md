@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.70.0
+
+### Minor Changes
+
+- [Added] - Implement manual workflow for fetching and updating icons from `pie-iconography` ([#2019](https://github.com/justeattakeaway/pie/pull/2019)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 2.69.0
 
 ### Minor Changes
