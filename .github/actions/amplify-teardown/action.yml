@@ -56,4 +56,3 @@ runs:
       aws amplify delete-branch \
         --app-id "$APP_ID" \
         --branch-name "$BRANCH_NAME"
-      
