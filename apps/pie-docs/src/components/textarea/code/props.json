@@ -87,22 +87,6 @@
       }
     ],
     [
-      "label",
-      {
-        "type": "code",
-        "item": [
-          "string"
-        ]
-      },
-      "The label of the textarea field.",
-      {
-        "type": "code",
-        "item": [
-          "\"\""
-        ]
-      }
-    ],
-    [
       "name",
       {
         "type": "code",
