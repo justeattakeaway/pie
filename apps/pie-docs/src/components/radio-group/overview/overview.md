@@ -63,18 +63,18 @@ They are commonly used in forms, settings panels, and other interfaces where use
 ## Variations
 Radio groups can be laid out either vertically or horizontally depending on the use-case and the structure of the user interface. The default layout is vertical, and this is recommended for easier reading.
 
-### Horizontal
-{% contentPageImage {
-    src:"../../../assets/img/components/radio-group/variations-horizontal.svg",
-    alt: "A row of radio buttons grouped together by a single label above them.",
-    width: 258
-} %}
-
 ### Vertical
 {% contentPageImage {
     src:"../../../assets/img/components/radio-group/variations-vertical.svg",
     alt: "A vertical stack of radio buttons grouped together by a single label above them.",
     width: 257
+} %}
+
+### Horizontal
+{% contentPageImage {
+    src:"../../../assets/img/components/radio-group/variations-horizontal.svg",
+    alt: "A row of radio buttons grouped together by a single label above them.",
+    width: 258
 } %}
 
 ---
