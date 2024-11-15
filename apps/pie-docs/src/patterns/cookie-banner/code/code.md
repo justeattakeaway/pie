@@ -95,7 +95,10 @@ fr-fr (FRENCH-FRANCE)
 3. If you supply an unsupported language in the language/country combination then we would attempt to use the default locale file based on the country supplied, e.g. if you supplied language `pt` & country `es` we would use the locale file `es`, if you supplied language `ru` & country `fr` then we would use the locale file `fr`, etc.
 4. If both the language and country are unsupported then we would use the default of `en`.
 
-Note, if you wish to support a new language or combination then create a new locale file and then extend the code to support this new lanaguage/country.
+{% notification {
+  type: "information",
+  message: "If you wish to support a new language or combination, then create a new locale file and then extend the code to support this new language/country."
+} %}
 
 ## Examples
 
