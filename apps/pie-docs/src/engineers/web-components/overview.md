@@ -8,7 +8,7 @@ permalink: engineers/web-components/
 
 ## Introduction
 
-[Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) are a set of native browser technologies that allow us to build custom components. In other words, create custom HTML elements native to browsers. 
+[Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) are a set of native browser technologies that allow us to build custom components. In other words, create custom HTML elements native to browsers.
 
 Currently, this technology is supported by all browsers, making it possible to have one central library that will work with most frontend frameworks.
 
@@ -35,6 +35,8 @@ For specific framework versions, please follow these guides:
 [Nuxt 3 Integration Guide](https://github.com/justeattakeaway/pie/wiki/PIE-Web-Components-%E2%80%90-Nuxt-3)
 
 [Vue & Nuxt ‐ Known gotchas](https://github.com/justeattakeaway/pie/wiki/Vue-Nuxt-%E2%80%90-Known-gotchas)
+
+[NextJS 14](/engineers/web-components/nextjs-14-integration/)
 
 For existing users, you may be interested in our [Migration guide of Web Components to Lit 3](https://github.com/justeattakeaway/pie/wiki/PIE-Web-Components-%E2%80%90-Nuxt-2---Next-10---Vue-2-Integration). This guide also details some specific configurations for React, Next and Vue2.
 
