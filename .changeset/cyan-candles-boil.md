@@ -3,4 +3,4 @@
 'pie-docs': minor
 ---
 
-Refactored the locale fallback logic so we can cater for more combinations
+[Updated] - refactored the locale fallback logic so we can cater for more combinations
