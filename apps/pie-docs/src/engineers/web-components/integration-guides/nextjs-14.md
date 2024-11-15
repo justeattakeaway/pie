@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: NextJS 14 Integration
     parent: engineers-web-components
-    order: 2
+    order: 3
 ---
 
 ## Installation
@@ -16,6 +16,7 @@ And the following third party dependencies:
 ```bash
 yarn add @lit-labs/nextjs @lit/react
 ```
+---
 
 ## Setup
 
@@ -51,6 +52,8 @@ const nextConfig = {
 module.exports = withLitSSR(nextConfig);
 ```
 
+---
+
 ## Usage
 
 {% notification {
@@ -78,6 +81,11 @@ export default function SomeComponent() {
     );
 }
 ```
+
+{% notification {
+  type: "information",
+  message: "Check individual component `code` pages on this website to see how to use them specifically in your application. Such as [PIE Button](/components/button/code/)."
+} %}
 
 You should now be able to use any components you need in your NextJS application!
 
