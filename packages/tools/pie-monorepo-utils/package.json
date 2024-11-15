@@ -1,9 +1,13 @@
 {
-  "name": "@justeattakeaway/pie-git-hooks-scripts",
-  "version": "0.2.0",
-  "description": "Scripts and utilities used by the Pie monorepo git hooks",
+  "name": "@justeattakeaway/pie-monorepo-utils",
+  "version": "0.1.0",
+  "description": "Scripts and utilities used by the PIE monorepo",
   "main": "index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "generate:component-statuses": "node ./component-statuses/generate-component-statuses.js",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run",

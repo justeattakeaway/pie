@@ -1,4 +1,4 @@
-const webComponentStatuses = require('../component-statuses.json');
+const webComponentStatuses = require('@justeattakeaway/pie-monorepo-utils/dist/component-statuses.json');
 const resourceTypes = require('./_data/resourceTypes');
 const statusTypes = require('./_data/statusTypes');
 
@@ -2010,11 +2010,13 @@ const rows = [
         },
         {
             resource: resourceTypes.DOCUMENTATION,
-            status: statusTypes.PLANNED,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/branch/sjkhCbCcv7t4QkDrz7g0Xx/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?node-id=7934-11960&node-type=frame&t=SxRV1mF3FT7S4lAP-0',
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            link: 'https://webc.pie.design/?path=/story/toast--neutral',
+            status: webComponentStatuses['pie-toast'],
         },
         {
             resource: resourceTypes.VUE,

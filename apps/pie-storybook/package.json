@@ -1,14 +1,13 @@
 {
   "name": "pie-storybook",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "storybook build --output-dir dist && cp -R ./static ./dist",
     "lint:scripts": "run -T eslint .",
-    "lint:scripts:fix": "run -T eslint . --fix",
-    "copy:component-statuses": "cp -v ../../component-statuses.json ."
+    "lint:scripts:fix": "run -T eslint . --fix"
   },
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
@@ -42,6 +41,7 @@
   },
   "devDependencies": {
     "@justeattakeaway/pie-icons-configs": "4.5.1",
+    "@justeattakeaway/pie-monorepo-utils": "0.1.0",
     "@storybook/addon-a11y": "8.3.0",
     "@storybook/addon-designs": "8.0.3",
     "@storybook/addon-essentials": "8.3.0",

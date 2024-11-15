@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "The home of Just Eat Takeaway.com's PIE Design System.",
-  "version": "2.70.0",
+  "version": "2.71.0",
   "keywords": [],
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
@@ -18,9 +18,6 @@
       "./"
     ]
   },
-  "bin": {
-    "generate-component-statuses": "./utilities/component-statuses/generate-component-statuses.js"
-  },
   "scripts": {
     "analyse-component-bundles": "bundlewatch --config bundlewatch.config.json",
     "watch": "turbo run watch --filter=!pie-monorepo",
@@ -33,10 +30,9 @@
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
     "clean": "turbo run clean --filter=!pie-monorepo",
-    "cz": "./packages/tools/pie-git-hooks-scripts/check-branch-name.js $(git symbolic-ref --short HEAD) && ./node_modules/cz-customizable/standalone.js",
+    "cz": "./packages/tools/pie-monorepo-utils/git-hooks/check-branch-name.js $(git symbolic-ref --short HEAD) && ./node_modules/cz-customizable/standalone.js",
     "dev": "turbo run dev --filter=!pie-monorepo",
-    "copy:component-statuses": "cross-env-shell turbo run copy:component-statuses --filter=!pie-monorepo",
-    "generate:component-statuses": "npx generate-component-statuses",
+    "generate:component-statuses": "turbo run generate:component-statuses --filter=!pie-monorepo",
     "generate:examples": "cross-env-shell turbo run generate:examples --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "lint:config:fix": "eslint --fix turbo.json (packages|apps)/**/turbo.json",
     "lint:examples": "cross-env-shell turbo run lint:examples --filter=!pie-monorepo --token=${TURBO_TOKEN}",
@@ -141,7 +137,6 @@
     "yarn": "3.8.1"
   },
   "resolutions": {
-    "@babel/traverse": "7.22.5",
     "lit": "3.2.0",
     "tar": "6.2.1",
     "@playwright/experimental-ct-core": "1.41.0"

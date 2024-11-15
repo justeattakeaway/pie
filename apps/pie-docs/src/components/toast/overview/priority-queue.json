@@ -1,0 +1,48 @@
+{
+  "headings": [
+    "Priority",
+    "Variant"
+  ],
+  "rows": [
+    [
+      "1",
+      "Error - actionable"
+    ],
+    [
+      "2",
+      "Error"
+    ],
+    [
+      "3",
+      "Warning - actionable"
+    ],
+    [
+      "4",
+      "Positive - actionable"
+    ],
+    [
+      "5",
+      "Info - actionable"
+    ],
+    [
+      "6",
+      "Neutral - actionable"
+    ],
+    [
+      "7",
+      "Warning"
+    ],
+    [
+      "8",
+      "Positive"
+    ],
+    [
+      "9",
+      "Info"
+    ],
+    [
+      "10",
+      "Neutral"
+    ]
+  ]
+}

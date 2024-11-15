@@ -8,4 +8,4 @@ const generator = new ComponentStatusGenerator({
     fs, path, promisify, console,
 });
 
-generator.generateStatuses(process.cwd());
+generator.generateStatuses();
