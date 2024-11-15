@@ -28,15 +28,15 @@ ___
 
 For every framework, you can start with our [Prerequisites Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
 
-For specific framework versions, please follow these guides:
+### Integration Guides
+For integrating our components with specific frameworks, please follow these guides:
 
-[Vue 3 Integration Guide](https://github.com/justeattakeaway/pie/wiki/PIE-Web-Components-%E2%80%90-Vue-Integration-Guide)
+- [Nuxt 3](/engineers/web-components/integration-guides/nuxt-3/)
 
-[Nuxt 3 Integration Guide](https://github.com/justeattakeaway/pie/wiki/PIE-Web-Components-%E2%80%90-Nuxt-3)
+- [NextJS 14](/engineers/web-components/integration-guides/nextjs-14/)
 
-[Vue & Nuxt ‐ Known gotchas](https://github.com/justeattakeaway/pie/wiki/Vue-Nuxt-%E2%80%90-Known-gotchas)
-
-[NextJS 14](/engineers/web-components/nextjs-14-integration/)
+### Other guides
+- [Vue & Nuxt ‐ Known gotchas](https://github.com/justeattakeaway/pie/wiki/Vue-Nuxt-%E2%80%90-Known-gotchas)
 
 For existing users, you may be interested in our [Migration guide of Web Components to Lit 3](https://github.com/justeattakeaway/pie/wiki/PIE-Web-Components-%E2%80%90-Nuxt-2---Next-10---Vue-2-Integration). This guide also details some specific configurations for React, Next and Vue2.
 
