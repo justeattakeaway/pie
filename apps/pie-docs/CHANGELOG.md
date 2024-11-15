@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.18.0
+
+### Minor Changes
+
+- [Added] - Refactor to use @justeattakeaway/pie-monorepo-utils to import component statuses ([#2034](https://github.com/justeattakeaway/pie/pull/2034)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 4.17.0
 
 ### Minor Changes
