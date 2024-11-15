@@ -19,10 +19,6 @@
         @include p.line-height(--dt-font-body-l-line-height);
         display: flex;
 
-        @include f.media('>=wide') {
-            align-items: center;
-        }
-
         &:before {
             content: counter(item);
             @include p.font-size(--dt-font-body-s-size);
