@@ -16,7 +16,7 @@ Tags can be embedded in other components such as cards, data tables (among other
 
 {% contentPageImage {
     src:"../../../assets/img/components/tag/overview.svg",
-    alt: "A group of tags."
+    alt: "A group of tags indicating Evening menu only, Spicy and vegetarian."
 } %}
 
 ---
@@ -79,7 +79,7 @@ The interactive variation should be used for non-crucial interactions.
 
 {% contentPageImage {
     src:"../../../assets/img/components/tag/interactive-tag.svg",
-    alt: "Different states of the interactive tag component such as default, hover and active states",
+    alt: "The image shows different states of the interactive tag component such as default, hover and active states",
     width: "224px"
 } %}
 
@@ -98,7 +98,7 @@ When incorporating an icon into a tag, it is essential to ensure that the icon c
     {% contentPageImage {
       src: "../../../assets/img/components/tag/modifier-icon-leading.svg",
       width: "69px",
-      alt: "A tag component with a leading icon and a label text"
+      alt: "A tag component with a leading placeholder icon and a label text"
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -107,7 +107,7 @@ When incorporating an icon into a tag, it is essential to ensure that the icon c
     {% contentPageImage {
       src: "../../../assets/img/components/tag/modifier-icon-trailing.svg",
       width: "69px",
-      alt: "A tag component with a trailing icon and a label text"
+      alt: "A tag component with a trailing placeholder icon and a label text"
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -122,7 +122,7 @@ Depending on the level of visual prominence you want to give to the tag, you can
     {% contentPageImage {
       src: "../../../assets/img/components/tag/modifier-emphasis-strong.svg",
       width: "69px",
-      alt: "A tag component with the strong modifier to indicate emphasis"
+      alt: "A tag component with an icon placeholder and label text. The component has a dark background color to indicate string emphasis."
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -130,7 +130,7 @@ Depending on the level of visual prominence you want to give to the tag, you can
     {% contentPageImage {
       src: "../../../assets/img/components/tag/modifier-emphasis-subtle.svg",
       width: "69px",
-      alt: "A tag component with the subtle modifier"
+      alt: "A tag component with an icon placeholder and label text. The component has a subtle background color (light grey) to indicate subtle emphasis."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -336,14 +336,14 @@ Here are some examples of tags in left-to-right context:
     {% contentPageImage {
       src: "../../../assets/img/components/tag/example-ltr-restaurant-listing.svg",
       width: "343px",
-      alt: "A left-to-right example of a tag used on a restaurant listing card."
+      alt: "A Burger King restaurant listing in a left-to-right language. with two tags in the top left corner, Promoted on the left and Stampcards on the right"
     } %}
   {% endcontentItem %}
   {% contentItem %}
   {% contentPageImage {
       src: "../../../assets/img/components/tag/example-ltr-disabled-menu-item.svg",
       width: "343px",
-      alt: "A left-to-right example of disabled offer tag in a menu item card.",
+      alt: "A menu item listing in a left to right language with a title, Menu item. Below it, an offer tag with 'Offer' and dietary tags indicating Vegan, Vegetarian, and Spicy",
       width: "827px"
     } %}
   {% endcontentItem %}
@@ -359,14 +359,14 @@ Here are some examples of tags in right-to-left context:
     {% contentPageImage {
       src: "../../../assets/img/components/tag/example-rtl-restaurant-listing.svg",
       width: "343px",
-      alt: "A right-to-left example of neutral and brand tags used on a restaurant listing card."
+      alt: "A Burger King restaurant listing in a right-to-left language (hebrew). with two tags in the top left corner, Promoted on the left and Stampcards on the right"
     } %}
   {% endcontentItem %}
   {% contentItem %}
   {% contentPageImage {
       src: "../../../assets/img/components/tag/example-rtl-disabled-menu-item.svg",
       width: "343px",
-      alt: "A right-to-left example of an offer tag used in a price breakdown.",
+      alt: "A menu item listing in a right to left (hebrew) language with a title, Menu item. Below it, an offer tag with 'Offer' and dietary tags indicating Vegan, Vegetarian, and Spicy",
       width: "359px"
     } %}
   {% endcontentItem %}
