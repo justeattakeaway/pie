@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 module.exports = async ({ github, context }, execa) => {
     await execa.command('yarn changeset:version --snapshot snapshot-release', { stdio: 'inherit' });
 
@@ -24,7 +25,7 @@ Test the snapshot${multiple ? 's' : ''} by updating your \`package.json\` with t
             body += `> [!NOTE]
 > If you have more than one of these packages installed, we suggest using the new snapshots for all of them to help avoid version conflicts.
 
-${newTags.map(tag => `\`\`\`sh
+${newTags.map((tag) => `\`\`\`sh
 yarn up ${tag} --mode=update-lockfile
 \`\`\``).join('\n')}
 Then finally:
@@ -37,7 +38,7 @@ yarn up ${newTags[0]}
 \`\`\``;
         }
     } else {
-        body = `No changed packages found! Please make sure you have added a changeset entry for the packages you would like to snapshot.`;
+        body = 'No changed packages found! Please make sure you have added a changeset entry for the packages you would like to snapshot.';
     }
 
     await github.rest.issues.createComment({

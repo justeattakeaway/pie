@@ -1,4 +1,4 @@
-const { execSync } = require('child_process')
+const { execSync } = require('child_process');
 
 const scriptPrefix = 'check-added-packages:';
 
@@ -14,7 +14,7 @@ async function getPackageJsonAtRef (ref, filePath) {
 
         return JSON.parse(fileContent);
     } catch (err) {
-        throw new Error(`${scriptPrefix} Failed to fetch package.json from ${ref}. "${err.message}"`)
+        throw new Error(`${scriptPrefix} Failed to fetch package.json from ${ref}. "${err.message}"`);
     }
 }
 
@@ -44,13 +44,13 @@ async function getAddedComponentPackages (filePath, packagePrefix = '@justeattak
     // Get package.json from the base branch (main)
     const basePackageJson = await getPackageJsonAtRef('main', filePath);
     if (!basePackageJson) {
-        throw new Error(`${scriptPrefix} Failed to retrieve package.json from main branch. "${err.message}"`)
+        throw new Error(`${scriptPrefix} Failed to retrieve package.json from main branch.`);
     }
 
     // Get package.json from the current PR branch
     const currentPackageJson = await getPackageJsonAtRef(currentBranchName, filePath);
     if (!currentPackageJson) {
-        throw new Error(`${scriptPrefix} Failed to retrieve package.json from the current branch. "${err.message}"`)
+        throw new Error(`${scriptPrefix} Failed to retrieve package.json from the current branch.`);
     }
 
     // Compare dependencies
@@ -65,4 +65,4 @@ async function getAddedComponentPackages (filePath, packagePrefix = '@justeattak
 module.exports = {
     scriptPrefix,
     getAddedComponentPackages,
-}
+};
