@@ -148,7 +148,7 @@ jobs:
           github-token: ${{ secrets.CHANGESETS_TOKEN }}
           script: |
             const execa = require('execa');
-            const script = require('./.github/workflows/changeset-snapshot/test-aperture.js')
+            const script = require('./packages/tools/pie-monorepo-utils/changeset-snapshot/test-aperture.js')
             await script({ github, context }, execa);
 
       - name: Add failure comment
