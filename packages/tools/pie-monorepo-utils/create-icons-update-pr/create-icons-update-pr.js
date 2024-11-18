@@ -1,6 +1,7 @@
+/* eslint-disable camelcase */
 const fs = require('fs');
 
-function readFileAsText(filePath) {
+function readFileAsText (filePath) {
     const fileExists = fs.existsSync(filePath);
     if (!fileExists) return null;
 
@@ -8,7 +9,7 @@ function readFileAsText(filePath) {
     return fileContent;
 }
 
-function readChangesetFile(filePath) {
+function readChangesetFile (filePath) {
     const fileContent = readFileAsText(filePath);
 
     const sections = fileContent.split('---')
@@ -16,13 +17,13 @@ function readChangesetFile(filePath) {
         .filter(Boolean);
 
     if (sections.length < 2) {
-        throw new Error("The changeset file content looks incorrect. Ensure there are two `---` sections.");
+        throw new Error('The changeset file content looks incorrect. Ensure there are two `---` sections.');
     }
 
     return sections[1];
 }
 
-function getPrBody(changes) {
+function getPrBody (changes) {
     return `## Changes
 
 This PR updates icons.
@@ -36,7 +37,7 @@ ${changes}
 
 ### Reviewer 2 -
 - [ ] I have reviewed the \`PIE Docs\` PR preview
-- [ ] If there are visual test updates, I have reviewed them`
+- [ ] If there are visual test updates, I have reviewed them`;
 }
 
 /**
@@ -44,7 +45,7 @@ ${changes}
  * @param {string} filePath issues json file path
  * @returns A string containing the issues already formatted as MD
  */
-function readIconsIssues(filePath) {
+function readIconsIssues (filePath) {
     const fileContent = readFileAsText(filePath);
     if (!fileContent) return null;
 
@@ -52,7 +53,7 @@ function readIconsIssues(filePath) {
 
     return `## 🚧🚧🚧 The following issues were found while updating the icons: 🚧🚧🚧
 
-${jsonData.map(item => `- ${item}`).join('\n')}`
+${jsonData.map((item) => `- ${item}`).join('\n')}`;
 }
 
 module.exports = async ({ github, branchName, changesetFilePath }) => {

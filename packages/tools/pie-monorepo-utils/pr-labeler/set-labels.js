@@ -1,17 +1,16 @@
+/* eslint-disable camelcase, no-restricted-syntax, no-await-in-loop */
 const fs = require('fs');
 const { execSync } = require('child_process');
 
 module.exports = async ({ github, context }) => {
-    const { repo : { owner, repo }} = context;
+    const { repo: { owner, repo } } = context;
 
     const allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
         owner,
         repo,
         run_id: context.payload.workflow_run.id,
     });
-    const matchArtifact = allArtifacts.data.artifacts.find((artifact) => {
-        return artifact.name == "tmp-labels.json"
-    });
+    const matchArtifact = allArtifacts.data.artifacts.find((artifact) => artifact.name === 'tmp-labels.json');
 
     // There are no labels to add
     if (!matchArtifact) return;
@@ -35,15 +34,16 @@ module.exports = async ({ github, context }) => {
 
     // Fetch existing labels
     const repoLabelsResponse = await github.rest.issues.listLabelsForRepo({ owner, repo });
-    const repoLabels = repoLabelsResponse.data.map(({name}) => name);
+    const repoLabels = repoLabelsResponse.data.map(({ name }) => name);
 
     // Verify which labels are new and create them
+    /* eslint-disable no-restricted-syntax  */
     for (const newLabel of newLabels) {
-        const labelExists = repoLabels.includes(newLabel)
-        const labelIsValid = newLabel.startsWith('pie-') && newLabel.length <= 32
+        const labelExists = repoLabels.includes(newLabel);
+        const labelIsValid = newLabel.startsWith('pie-') && newLabel.length <= 32;
 
         if (!labelExists && labelIsValid) {
-            console.info(`Creating label`);
+            console.info('Creating label');
             await github.rest.issues.createLabel({
                 name: newLabel,
                 color: 'ededed',
@@ -51,7 +51,7 @@ module.exports = async ({ github, context }) => {
                 repo,
             });
 
-            console.info(`Assigning label to the PR`);
+            console.info('Assigning label to the PR');
             await github.rest.issues.addLabels({
                 issue_number: prNumber,
                 labels: [newLabel],

@@ -1,6 +1,9 @@
-import { beforeEach, describe, expect, test, vi } from 'vitest';
-const workflow = require('../../changeset-snapshot/create-and-publish');
+import {
+    beforeEach, describe, expect, test, vi,
+} from 'vitest';
+
 const { Readable } = require('stream');
+const workflow = require('../../changeset-snapshot/create-and-publish');
 
 let context;
 let execa;
@@ -29,7 +32,7 @@ const mockExecaCommand = () => {
     mockStdoutStream.pipe = vi.fn().mockImplementation((destination) => destination);
 
     return mockProcess;
-  };
+};
 
 describe('create and publish workflow', () => {
     beforeEach(() => {
