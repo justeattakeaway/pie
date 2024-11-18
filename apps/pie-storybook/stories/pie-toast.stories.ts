@@ -57,7 +57,7 @@ const toastStoryMeta: ToastStoryMeta = {
             control: 'text',
         },
         isMultiline: {
-            description: 'It allows the message content being displayed as multiline limited to three rows.',
+            description: 'Allows the message content to be displayed as multiline, limited to three rows.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isOpen,
