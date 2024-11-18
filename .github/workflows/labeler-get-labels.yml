@@ -23,7 +23,7 @@ jobs:
       with:
         script: |
           const { PR_BRANCH_NAME, PR_NUMBER } = process.env;
-          const script = require('./.github/workflows/labeler/get-labels.js');
+          const script = require('./packages/tools/pie-monorepo-utils/pr-labeler/get-labels.js');
           const config = {
             prBranchName: PR_BRANCH_NAME,
             prNumber: PR_NUMBER,
