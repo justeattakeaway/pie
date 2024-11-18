@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-webc",
   "description": "Component bundle containing all PIE web components",
-  "version": "0.5.52",
+  "version": "0.5.53",
   "type": "module",
   "files": [
     "**/*.js",
@@ -251,7 +251,7 @@
     "@justeattakeaway/pie-checkbox": "0.13.6",
     "@justeattakeaway/pie-checkbox-group": "0.7.6",
     "@justeattakeaway/pie-chip": "0.9.3",
-    "@justeattakeaway/pie-cookie-banner": "1.0.4",
+    "@justeattakeaway/pie-cookie-banner": "1.1.0",
     "@justeattakeaway/pie-divider": "1.0.0",
     "@justeattakeaway/pie-form-label": "0.14.4",
     "@justeattakeaway/pie-icon-button": "1.0.0",
@@ -266,7 +266,7 @@
     "@justeattakeaway/pie-tag": "0.12.0",
     "@justeattakeaway/pie-text-input": "0.24.5",
     "@justeattakeaway/pie-textarea": "0.13.0",
-    "@justeattakeaway/pie-toast": "0.4.5"
+    "@justeattakeaway/pie-toast": "0.4.6"
   },
   "volta": {
     "extends": "../../../package.json"
