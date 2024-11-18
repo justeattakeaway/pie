@@ -85,7 +85,7 @@ import '@justeattakeaway/pie-webc/components/toast.js';
 <pie-toast message="Message"></pie-toast>
 ```
 
-By default, the toast will auto-dismiss in five seconds. To disable the auto-dismiss functionality, you must set the duration to null.
+By default, the toast will auto-dismiss in five seconds. To disable the auto-dismiss functionality, you must set the duration to `null`.
 
 ```js
 // Vue templates (using Nuxt 3)
