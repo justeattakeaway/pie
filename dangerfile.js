@@ -3,7 +3,6 @@ import { danger, fail } from 'danger';
 const { pr } = danger.github;
 const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
 
-const isRenovatePR = pr.user.login === 'renovate[bot]';
 const isDependabotPR = pr.user.login === 'dependabot[bot]';
 
 // Check for correct Changeset formatting
@@ -17,7 +16,7 @@ danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') &
             const changesetCategories = diffString.match(changesetCategoryRegex);
             const numberOfCategories = changesetCategories ? changesetCategories.length : 0;
 
-            if (isRenovatePR) {
+            if (isDependabotPR) {
                 // Check if at least one of the valid changeset categories is present
                 if (numberOfCategories === 0) {
                     fail(`:memo: Your changeset doesn't include a category. Please add one of: \`${validChangesetCategories.join(', ')}\`. Filepath: \`${filepath}`);
@@ -39,6 +38,6 @@ danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') &
     });
 
 // Check for empty PR Description checkboxes - but not for automated version PRs
-if (pr.body.includes('- [ ]') && !isDependabotPR && !isRenovatePR) {
+if (pr.body.includes('- [ ]') && !isDependabotPR) {
     fail('You currently have an unchecked checklist item in your PR description.\n\nPlease confirm this check has been carried out – if it\'s not relevant to your PR, delete this line from the PR checklist.');
 }
