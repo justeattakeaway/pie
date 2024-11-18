@@ -37,7 +37,7 @@ export interface ToastProps {
    */
   message: string;
   /**
-   * It allows the message content being displayed as multiline limited to three rows.
+   * Allows the message content to be displayed as multiline, limited to three rows.
    */
   isMultiline?: boolean;
   /**
