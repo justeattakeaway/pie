@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.19.0
+
+### Minor Changes
+
+- [Changed] - Complete the toast overview page ([#2040](https://github.com/justeattakeaway/pie/pull/2040)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- [Added] - NextJS 14 integration guide for web components ([#2063](https://github.com/justeattakeaway/pie/pull/2063)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Nuxt3 integration guide to docs site ([#2066](https://github.com/justeattakeaway/pie/pull/2066)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 4.18.0
 
 ### Minor Changes
