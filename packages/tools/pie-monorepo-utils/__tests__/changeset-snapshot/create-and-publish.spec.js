@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test, vi } from 'vitest';
-const workflow = require('../create-and-publish');
+const workflow = require('../../changeset-snapshot/create-and-publish');
 const { Readable } = require('stream');
 
 let context;
