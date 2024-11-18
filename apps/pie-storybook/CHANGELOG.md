@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.15.1
+
+### Patch Changes
+
+- [Changed] - Complete the toast code page ([#2068](https://github.com/justeattakeaway/pie/pull/2068)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- Updated dependencies [[`2dd4d5378`](https://github.com/justeattakeaway/pie/commit/2dd4d53786ce0582f2436e4dd063b6adbb4485f0), [`d9284517b`](https://github.com/justeattakeaway/pie/commit/d9284517bab53ed0dbcb746829bf26d7fee4376e)]:
+  - @justeattakeaway/pie-cookie-banner@1.1.0
+  - @justeattakeaway/pie-toast@0.4.6
+
 ## 1.15.0
 
 ### Minor Changes

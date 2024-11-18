@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.72.0
+
+### Minor Changes
+
+- [Added] - GitHub Actions JS to pie-monorepo-utils package ([#2070](https://github.com/justeattakeaway/pie/pull/2070)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.71.0
 
 ### Minor Changes
