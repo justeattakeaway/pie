@@ -223,7 +223,7 @@ export const availableLocales = new Set([
 export const defaultLocaleForCountry = new Map<CountryCode, string>([
     [Country.AUSTRALIA, `${Language.ENGLISH}`],
     [Country.AUSTRIA, `${Language.GERMAN}`],
-    [Country.BELGIUM, `${Language.FRENCH}`],
+    [Country.BELGIUM, `${Language.DUTCH}`],
     [Country.BULGARIA, `${Language.BULGARIAN}`],
     [Country.CANADA, `${Language.ENGLISH}`],
     [Country.DENMARK, `${Language.DANISH}`],
