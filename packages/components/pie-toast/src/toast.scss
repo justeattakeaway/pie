@@ -9,7 +9,7 @@
   --toast-line-height: #{p.line-height(--dt-font-body-s-line-height)};
   --toast-icon-fill: var(--dt-color-content-default);
   --toast-message-max-width: 100%;
-  --toast-offset: 16px;
+  --toast-offset: var(--dt-spacing-d);
   --toast-translate-start: -100%;
   --toast-translate-end: 0;
 
@@ -37,7 +37,7 @@
   transition-timing-function: var(--dt-motion-easing-in);
 
   @include media('>md') {
-    --toast-offset: 24px;
+    --toast-offset: var(--dt-spacing-e);
   }
 
   &.c-toast--rtl {
