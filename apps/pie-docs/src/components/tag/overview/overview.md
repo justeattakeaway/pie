@@ -130,7 +130,8 @@ Depending on the level of visual prominence you want to give to the tag, you can
     {% contentPageImage {
       src: "../../../assets/img/components/tag/modifier-emphasis-subtle.svg",
       width: "69px",
-      alt: "A tag component with an icon placeholder and label text. The component has a subtle background color (light grey) to indicate subtle emphasis."
+      alt: "A tag component with an icon placeholder and label text. The component has a subtle background color (light grey) to indicate subtle emphasis.",
+      variant: "secondary"
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -145,7 +146,8 @@ Select from a range of colour options across the two levels of emphasis.
     {% contentPageImage {
       src: "../../../assets/img/components/tag/variation-type-neutral.svg",
       width: "163px",
-      alt: "A pair of strong and subtle neutral tags."
+      alt: "A pair of strong and subtle neutral tags.",
+      variant: "secondary"
     } %}
   {% endcontentItem %}
   {% contentItem %}
