@@ -32,7 +32,7 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
             control: 'boolean',
         },
         country: {
-            options: Object.values(Country),
+            options: [...Object.values(Country), 'ru', 'pt', 'ES', 'invalid'], // Expanded to allow for unsupported value tests
             control: 'select',
             description: 'Assigns the country for the component',
             defaultValue: {
@@ -40,7 +40,7 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
             },
         },
         language: {
-            options: Object.values(Language),
+            options: [...Object.values(Language), 'ru', 'pt', 'CA', 'invalid'], // Expanded to allow for unsupported value tests
             control: 'select',
             description: 'Assigns the language for the component',
             defaultValue: {

@@ -1,6 +1,6 @@
 {
   "name": "pie-storybook",
-  "version": "1.14.0",
+  "version": "1.15.1",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
@@ -9,8 +9,7 @@
     "build": "storybook build --output-dir dist && cp -R ./static ./dist",
     "build:testing": "BROWSER_TESTING=true storybook build --output-dir dist && cp -R ./static ./dist",
     "lint:scripts": "run -T eslint .",
-    "lint:scripts:fix": "run -T eslint . --fix",
-    "copy:component-statuses": "cp -v ../../component-statuses.json ."
+    "lint:scripts:fix": "run -T eslint . --fix"
   },
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
@@ -22,7 +21,7 @@
     "@justeattakeaway/pie-checkbox": "0.13.6",
     "@justeattakeaway/pie-checkbox-group": "0.7.6",
     "@justeattakeaway/pie-chip": "0.9.3",
-    "@justeattakeaway/pie-cookie-banner": "1.0.4",
+    "@justeattakeaway/pie-cookie-banner": "1.1.0",
     "@justeattakeaway/pie-css": "0.13.1",
     "@justeattakeaway/pie-divider": "1.0.0",
     "@justeattakeaway/pie-form-label": "0.14.4",
@@ -39,11 +38,12 @@
     "@justeattakeaway/pie-tag": "0.12.0",
     "@justeattakeaway/pie-text-input": "0.24.5",
     "@justeattakeaway/pie-textarea": "0.13.0",
-    "@justeattakeaway/pie-toast": "0.4.5",
+    "@justeattakeaway/pie-toast": "0.4.6",
     "dompurify": "3.1.3"
   },
   "devDependencies": {
     "@justeattakeaway/pie-icons-configs": "4.5.1",
+    "@justeattakeaway/pie-monorepo-utils": "0.2.0",
     "@storybook/addon-a11y": "8.3.0",
     "@storybook/addon-designs": "8.0.3",
     "@storybook/addon-essentials": "8.3.0",
