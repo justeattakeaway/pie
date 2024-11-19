@@ -65,11 +65,40 @@ tableData: events
 
 ## Localisation
 
-By default, the component displays its content in GB English. To display the content in another language, you need to supply a supported language and country pairing to the `language` and `country` props. You can see the currently supported locale pairings here:
+By default, the component displays its content in English `en`. To display the content in another language, you need to supply a language and country pairing to the `language` and `country` props(*).
+
+Currently the following locale languages are supported:
 
 ```js
-import allLocales from '@justeattakeaway/pie-cookie-banner/locales';
+bg (BULGARIAN)
+ca (CATALAN)
+da (DANISH)
+de (GERMAN)
+en (ENGLISH)
+es (SPANISH)
+he (HEBREW)
+it (ITALIAN)
+nl (DUTCH)
+pl (POLISH)
+sk (SLOVAK)
 ```
+And the following bespoke locales are supported (_sometimes added to accommodate specific legal wording for a particular country_):
+
+```js
+en-fr (ENGLISH-FRANCE)
+fr-fr (FRENCH-FRANCE)
+```
+(*) This is the logic order for loading the locale;
+
+1. We attempt to load the bespoke locale for a given language/country combination, e.g. `fr-fr`.
+2. We would attempt to use the locale file based on the language supplied, e.g. if you supplied language `de` & country `ch` we would use the locale file `de`, if you supplied language `fr` & country `ca` then we would use the locale file `fr`, etc.
+3. If you supply an unsupported language in the language/country combination then we would attempt to use the default locale file based on the country supplied, e.g. if you supplied language `pt` & country `es` we would use the locale file `es`, if you supplied language `ru` & country `fr` then we would use the locale file `fr`, etc.
+4. If both the language and country are unsupported then we would use the default of `en`.
+
+{% notification {
+  type: "information",
+  message: "If you wish to support a new language or combination, then create a new locale file and then extend the code to support this new language/country."
+} %}
 
 ## Examples
 

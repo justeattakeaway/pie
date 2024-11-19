@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.1.0
+
+### Minor Changes
+
+- [Updated] - refactored the locale fallback logic so we can cater for more combinations ([#2043](https://github.com/justeattakeaway/pie/pull/2043)) by [@oliversweb](https://github.com/oliversweb)
+
 ## 1.0.4
 
 ### Patch Changes

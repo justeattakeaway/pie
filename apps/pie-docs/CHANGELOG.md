@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.20.0
+
+### Minor Changes
+
+- [Updated] - refactored the locale fallback logic so we can cater for more combinations ([#2043](https://github.com/justeattakeaway/pie/pull/2043)) by [@oliversweb](https://github.com/oliversweb)
+
+### Patch Changes
+
+- [Changed] - Complete the toast code page ([#2068](https://github.com/justeattakeaway/pie/pull/2068)) by [@thejfreitas](https://github.com/thejfreitas)
+
 ## 4.19.0
 
 ### Minor Changes

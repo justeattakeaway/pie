@@ -138,6 +138,7 @@
     "lint:scripts": {
       "cache": true,
       "inputs": [
+        "$TURBO_DEFAULT$",
         "src/**",
         "src/react.ts"
       ],
