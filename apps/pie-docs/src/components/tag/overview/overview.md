@@ -54,7 +54,7 @@ Tags can be embedded in other components such as cards, data tables (among other
     type: listTypes.ordered,
     items: [
         "**Icon (Optional):** Visually supports the label.",
-        "**Label:** Provides informative information to the user.",
+        "**Label:** Provides information to the user.",
         "**Trailing icon (Optional):** Indicates additional actions or further interactions."
     ]
 } %}
@@ -65,7 +65,7 @@ Tags can be embedded in other components such as cards, data tables (among other
 
 ### Non-interactive 
 
-The non-interactive variation should be used by default, and should be used when the tag doesn’t require any interactive features tied to the instance.
+The non-interactive variation should be used by default, and should be used when the tag doesn’t require any interactivity.
 
 {% contentPageImage {
     src:"../../../assets/img/components/tag/non-interactive-tag.svg",
