@@ -8,7 +8,7 @@ updates:
       - dependency-type: "major"
     open-pull-requests-limit: 3
     commit-message:
-      prefix: "DSW-000 update"
+      prefix: "deps(npm): DSW-000 update"
     groups:
       babel:
         description: "Group Babel devDependencies from package.json within pie-monorepo"
@@ -51,4 +51,4 @@ updates:
       - dependency-type: "major"
     open-pull-requests-limit: 3
     commit-message:
-      prefix: "DSW-000 update"
+      prefix: "deps(github-actions): DSW-000 update"
