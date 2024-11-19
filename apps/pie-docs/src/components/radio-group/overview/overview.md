@@ -67,7 +67,7 @@ Radio groups can be laid out either vertically or horizontally depending on the 
 {% contentPageImage {
     src:"../../../assets/img/components/radio-group/variations-vertical.svg",
     alt: "A vertical stack of radio buttons grouped together by a single label above them.",
-    width: 257
+    width: 72
 } %}
 
 ### Horizontal
@@ -171,7 +171,7 @@ Here are some examples of the component in a left-to-right context:
 {% contentPageImage {
   src:"../../../assets/img/components/radio-group/ltr.svg",
   alt: "A vertical stack of radio buttons. The first one is selected. The radio buttons sit on the left hand side of the label text. This demonstrates a left-to-right reading direction.",
-  width: 257
+  width: 94
 } %}
 
 ### RTL examples
