@@ -6,6 +6,7 @@ updates:
     schedule:
       interval: "weekly"
     ignore:
+      - dependency-name: "*"
       - update-types: ['version-update:semver-major']
     open-pull-requests-limit: 3
     commit-message:
@@ -43,6 +44,7 @@ updates:
     schedule:
       interval: "weekly"
     ignore:
+      - dependency-name: "*"
       - update-types: ['version-update:semver-major']
     open-pull-requests-limit: 3
     commit-message:
