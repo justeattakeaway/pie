@@ -5,40 +5,34 @@ updates:
     schedule:
       interval: "weekly"
     ignore:
-      - dependency-type: "major"
+      - update-types: ['version-update:semver-major']
     open-pull-requests-limit: 3
     commit-message:
       prefix: "deps(npm): DSW-000 update"
     groups:
       babel:
-        description: "Group Babel devDependencies from package.json within pie-monorepo"
         patterns:
           - "@babel/*"
           - "babel-*"
       justeattakeaway:
-        description: "Group JET devDependencies / dependencies from package.json within pie-monorepo"
         patterns:
           - "@justeat/*"
           - "@justeattakeaway/*"
       percy:
-        description: "Group Playwright / other testing related devDependencies from package.json within pie-monorepo"
         patterns:
           - "@axe-core/playwright"
           - "@percy/*"
           - "@playwright/*"
           - "@sand4rt/experimental-ct-web/*"
       vitest:
-        description: "Group Vitest devDependencies from package.json within pie-monorepo"
         patterns:
           - "vitest-*"
           - "@vitest"
       eleventy:
-        description: "Group Eleventy devDependencies from apps/pie-docs/package.json"
         patterns:
           - "@11ty/*"
           - "eleventy-*"
       storybook:
-        description: "Group Storybook dependencies from apps/pie-storybook/package.json"
         patterns:
           - "@storybook/*"
           - "storybook"
@@ -48,7 +42,7 @@ updates:
     schedule:
       interval: "weekly"
     ignore:
-      - dependency-type: "major"
+      - update-types: ['version-update:semver-major']
     open-pull-requests-limit: 3
     commit-message:
       prefix: "deps(github-actions): DSW-000 update"
