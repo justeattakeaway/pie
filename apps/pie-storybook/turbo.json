@@ -33,6 +33,6 @@
         "^generate:component-statuses"
       ],
       "outputs": ["dist/**"]
-    },
+    }
   }
 }
