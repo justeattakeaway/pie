@@ -59,7 +59,7 @@ const indexPageDisplay = ({
             const hasMobileSource = fs.existsSync(path.join(__dirname, imgMobileSrc));
 
             const throwOnMissingImage = () => {
-                throw new Error(`Image not provided for ${menuItemSlug}. Please ensure image is provided or add this item to ExcludedElements.`);
+                throw new Error(`Image not provided for ${menuItemSlug}. Please ensure image is provided or add this item to ExcludedElements. Expected path: ${imgSrc}`);
             };
 
             return `
