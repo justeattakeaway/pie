@@ -3,6 +3,6 @@ eleventyNavigation:
     key: 'Toast'
     parent: Components
     url: /components/toast/
-    order: 48
+    order: 49
 permalink: false
 ---

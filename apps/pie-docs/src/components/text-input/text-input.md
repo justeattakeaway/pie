@@ -3,6 +3,6 @@ eleventyNavigation:
     key: 'Text Input'
     parent: Components
     url: /components/text-input/
-    order: 45
+    order: 46
 permalink: false
 ---
