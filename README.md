@@ -12,9 +12,6 @@
   <a href="https://opensource.org/licenses/Apache-2.0">
     <img alt="Apache 2.0. license" src="https://img.shields.io/badge/License-Apache_2.0-blue.svg">
   </a>
-  <a href="https://renovatebot.com/">
-    <img alt="Renovate status" src="https://img.shields.io/badge/renovate-enabled-brightgreen.svg">
-  </a>
   <img alt="Libraries.io dependency status for GitHub repo" src="https://img.shields.io/librariesio/github/justeattakeaway/pie">
   <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/justeattakeaway/pie?style=social">
   <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/justeattakeaway/pie?style=social">
