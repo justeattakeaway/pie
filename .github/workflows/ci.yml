@@ -65,8 +65,8 @@ jobs:
     - name: Add Changeset to PR
       uses: StafflinePeoplePlus/dependabot-changesets@4844c33bad364143ee39ef4150c60409f306ed21 # v0.1.5
       with:
-        owner: ${{ github.repository_owner }}
-        repo: ${{ github.repository }}
+        owner: justeattakeaway
+        repo: pie
         pr-number: ${{ github.event.pull_request.number }}
         token: ${{ secrets.CHANGESETS_TOKEN }}
 

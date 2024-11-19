@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Side Sheet'
     parent: Components
-    order: 37
+    order: 38
 ---
 
 ## Overview

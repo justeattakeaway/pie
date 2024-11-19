@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Rating'
     parent: Components
-    order: 33
+    order: 34
 ---
 
 ## Overview

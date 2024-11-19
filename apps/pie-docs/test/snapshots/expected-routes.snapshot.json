@@ -61,6 +61,7 @@
     "components/progress-bar",
     "components/progress-stepper",
     "components/radio",
+    "components/radio-group",
     "components/rating",
     "components/segmented-controls",
     "components/select-input",
