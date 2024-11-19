@@ -1,5 +1,31 @@
 # Changelog
 
+## 4.20.0
+
+### Minor Changes
+
+- [Updated] - refactored the locale fallback logic so we can cater for more combinations ([#2043](https://github.com/justeattakeaway/pie/pull/2043)) by [@oliversweb](https://github.com/oliversweb)
+
+### Patch Changes
+
+- [Changed] - Complete the toast code page ([#2068](https://github.com/justeattakeaway/pie/pull/2068)) by [@thejfreitas](https://github.com/thejfreitas)
+
+## 4.19.0
+
+### Minor Changes
+
+- [Changed] - Complete the toast overview page ([#2040](https://github.com/justeattakeaway/pie/pull/2040)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- [Added] - NextJS 14 integration guide for web components ([#2063](https://github.com/justeattakeaway/pie/pull/2063)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Nuxt3 integration guide to docs site ([#2066](https://github.com/justeattakeaway/pie/pull/2066)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 4.18.0
+
+### Minor Changes
+
+- [Added] - Refactor to use @justeattakeaway/pie-monorepo-utils to import component statuses ([#2034](https://github.com/justeattakeaway/pie/pull/2034)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 4.17.0
 
 ### Minor Changes

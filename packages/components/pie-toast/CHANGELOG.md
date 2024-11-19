@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-toast
 
+## 0.4.6
+
+### Patch Changes
+
+- [Changed] - Complete the toast code page ([#2068](https://github.com/justeattakeaway/pie/pull/2068)) by [@thejfreitas](https://github.com/thejfreitas)
+
 ## 0.4.5
 
 ### Patch Changes
