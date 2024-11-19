@@ -392,10 +392,12 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
             isMultiline,
             isStrong,
             _messageAreaMaxWidth,
+            isRTL,
         } = this;
 
         const componentWrapperClasses = {
             [componentClass]: true,
+            [`${componentClass}--rtl`]: isRTL,
             [`${componentClass}--${variant}`]: true,
             [`${componentClass}--strong`]: isStrong,
             [`${componentClass}--animate-in`]: isOpen,

@@ -1,4 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
 
 .c-toast {
   --toast-border-radius: var(--dt-radius-rounded-b);
@@ -8,7 +9,13 @@
   --toast-line-height: #{p.line-height(--dt-font-body-s-line-height)};
   --toast-icon-fill: var(--dt-color-content-default);
   --toast-message-max-width: 100%;
+  --toast-offset: 16px;
+  --toast-translate-start: -100%;
+  --toast-translate-end: 0;
 
+  position: absolute;
+  inset-inline-start: var(--toast-offset);
+  inset-block-end: var(--toast-offset);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,20 +35,28 @@
   transition-property: all;
   transition-duration: var(--dt-motion-timing-100);
   transition-timing-function: var(--dt-motion-easing-in);
+
+  @include media('>md') {
+    --toast-offset: 24px;
+  }
+
+  &.c-toast--rtl {
+    --toast-translate-start: 100%;
+  }
 }
 
 .c-toast--animate-in {
   animation-duration: var(--dt-motion-timing-200);
   animation-name: animate-in;
-  animation-timing-function: var(--dt-motion-easing-in);
-  transform: translateX(0); 
+  animation-timing-function: var(--dt-motion-easing-out);
+  transform: translateX(var(--toast-translate-end));
 }
 
-.c-toast--animate-out {  
+.c-toast--animate-out {
   animation-duration: var(--dt-motion-timing-100);
   animation-name: animate-out;
-  animation-timing-function: var(--dt-motion-easing-out);
-  transform: translateX(100%); 
+  animation-timing-function: var(--dt-motion-easing-in);
+  transform: translateX(var(--toast-translate-start));
   opacity: 0;
 }
 
@@ -134,20 +149,20 @@
 
 @keyframes animate-in {
   from { 
-    transform: translateX(100%);
+    transform: translateX(var(--toast-translate-start));
   }
 
   to { 
-    transform: translateX(0); 
+    transform: translateX(var(--toast-translate-end));
   }
 }
 
 @keyframes animate-out {
   from { 
-    transform: translateX(0); 
+    transform: translateX(var(--toast-translate-end));
   }
 
   to { 
-    transform: translateX(100%); 
+    transform: translateX(var(--toast-translate-start));
   }
 }
