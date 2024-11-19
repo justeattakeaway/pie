@@ -7,7 +7,7 @@ updates:
       interval: "weekly"
     ignore:
       - dependency-name: "*"
-      - update-types: ['version-update:semver-major']
+        update-types: ['version-update:semver-major']
     open-pull-requests-limit: 3
     commit-message:
       prefix: "deps(npm): DSW-000 update"
@@ -45,7 +45,7 @@ updates:
       interval: "weekly"
     ignore:
       - dependency-name: "*"
-      - update-types: ['version-update:semver-major']
+        update-types: ['version-update:semver-major']
     open-pull-requests-limit: 3
     commit-message:
       prefix: "deps(github-actions): DSW-000 update"
