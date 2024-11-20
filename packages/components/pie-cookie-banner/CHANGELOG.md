@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.2.0
+
+### Minor Changes
+
+- [Update] Set the default language for Begium to Dutch ([#2073](https://github.com/justeattakeaway/pie/pull/2073)) by [@oliversweb](https://github.com/oliversweb)
+
 ## 1.1.0
 
 ### Minor Changes
