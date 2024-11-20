@@ -1,11 +1,13 @@
 {
   "name": "pie-storybook",
-  "version": "1.15.1",
+  "version": "1.15.2",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
     "dev": "storybook dev -p 6006",
+    "dev:testing": "BROWSER_TESTING=true storybook dev -p 6006",
     "build": "storybook build --output-dir dist && cp -R ./static ./dist",
+    "build:testing": "BROWSER_TESTING=true storybook build --output-dir dist && cp -R ./static ./dist",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix"
   },
@@ -19,7 +21,7 @@
     "@justeattakeaway/pie-checkbox": "0.13.6",
     "@justeattakeaway/pie-checkbox-group": "0.7.6",
     "@justeattakeaway/pie-chip": "0.9.3",
-    "@justeattakeaway/pie-cookie-banner": "1.1.0",
+    "@justeattakeaway/pie-cookie-banner": "1.2.0",
     "@justeattakeaway/pie-css": "0.13.1",
     "@justeattakeaway/pie-divider": "1.0.0",
     "@justeattakeaway/pie-form-label": "0.14.4",

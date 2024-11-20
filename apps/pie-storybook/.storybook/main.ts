@@ -1,10 +1,17 @@
 import type { StorybookConfig } from '@storybook/web-components-vite';
 
+const isBrowserTesting = process.env.BROWSER_TESTING === 'true';
+
 const config: StorybookConfig = {
-    stories: [
-        "../stories/**/*.mdx",
-        "../stories/**/*.stories.@(js|ts|tsx)"
-    ],
+    stories: isBrowserTesting 
+        ? [
+            "../stories/**/*.test.mdx",
+            "../stories/**/*.test.stories.@(js|ts|tsx)"
+        ] 
+        : [
+            "../stories/**/*.mdx",
+            "../stories/**/!(*.test).stories.@(js|ts|tsx)"
+          ],
     addons: [
         "@storybook/addon-essentials",
         "@storybook/addon-a11y",
@@ -20,6 +27,6 @@ const config: StorybookConfig = {
     docs: {
         autodocs: false
     }
-}
+};
 
 export default config;
