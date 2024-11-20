@@ -11,12 +11,28 @@
         "^generate:component-statuses"
       ]
     },
+    "dev:testing": {
+      "cache": false,
+      "dependsOn": [
+        "^build",
+        "copy:component-statuses"
+      ]
+    },
     "build": {
       "cache": true,
       "dependsOn": [
         "^build",
         "^generate:component-statuses"
-      ]
+      ],
+      "outputs": ["dist/**"]
+    },
+    "build:testing": {
+      "cache": true,
+      "dependsOn": [
+        "^build",
+        "^generate:component-statuses"
+      ],
+      "outputs": ["dist/**"]
     }
   }
 }
