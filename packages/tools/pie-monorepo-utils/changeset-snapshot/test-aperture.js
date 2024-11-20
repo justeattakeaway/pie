@@ -9,10 +9,11 @@ module.exports = async ({ github, context }, execa) => {
 
     const newTags = Array
         .from(stdout.matchAll(/New tag:\s+([^\s\n]+)/g))
-        .map(([_, tag]) => tag)
+        .map(([tag]) => tag)
         .filter((tag) => !/^wc-.+$|pie-(monorepo|docs|storybook)/.test(tag));
 
     // Extract the snapshot version from one of the tags
+    // eslint-disable-next-line prefer-destructuring
     const snapshotVersion = newTags[0].match(/\d{14}$/)[0];
 
     // Extract package names by removing version and scope from the tags
