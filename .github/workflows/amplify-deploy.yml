@@ -38,7 +38,7 @@ on:
         type: string
         default: '/'
       sub-domain-suffix:
-        required: true
+        required: false
         type: string
 
 env:
