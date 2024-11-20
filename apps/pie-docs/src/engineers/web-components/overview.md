@@ -12,15 +12,12 @@ permalink: engineers/web-components/
 
 Currently, this technology is supported by all browsers, making it possible to have one central library that will work with most frontend frameworks.
 
-The long-term aim will be to migrate JET teams over to this Web Component System, so we have one single source of truth for our global PIE components.
+The long-term aim will be to migrate JET teams over to this Web Component system, so we have one single source of truth for our global PIE components.
 
----
-
-## Component status
-
-You can find the documentation for all of our components on this site in the **Components** section.
-
-For a list of which components are supported in each of our libraries, please refer to the [Component Status page](/components/component-status/).
+{% notification {
+  type: "information",
+  message: "Our web components can be used via the [@justeattakeaway/pie-webc](https://npmjs.com/package/@justeattakeaway/pie-webc) library. Individual component packages are also available, but we advise sticking to the single entry point."
+} %}
 
 ___
 
@@ -44,8 +41,17 @@ More guides coming soon! 🚀
 
 ___
 
+## Component status
+
+You can find the documentation for all of our components on this site in the **Components** section.
+
+For a list of which components are supported in each of our libraries, please refer to the [Component Status page](/components/component-status/).
+
+---
+
 ## Usage
 
 The following guides are meant to support you while using our web components.
 
+### Forms
 For information about form elements and how to handle form data and validation, check out our [Form Usage Guide](https://github.com/justeattakeaway/pie/wiki/Form-Controls#pie-forms-usage).

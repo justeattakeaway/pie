@@ -11,11 +11,12 @@ shouldShowContents: true
 
 Currently, JET has several officially supported component systems that implement PIE.
 
-- [Fozzie](https://vue.pie.design/) – a set of **Vue components** created by the legacy Just Eat web team
+- [PIE Web Components](https://webc.pie.design/) – Our flagship **web component library**, designed to work seamlessly with any tech stack.
 - [Snacks](https://snacks.takeaway.com/) – a set of **React components** created by the legacy Takeaway design system team
+- [Fozzie](https://vue.pie.design/) – a set of **Vue components** created by the legacy Just Eat web team
 - [Skip PIE Project](https://react.pie.design/) – a set of **React components** created by the Skip web team
 
-We are also currently building the [PIE Web Component System](https://webc.pie.design/). The long-term aim will be to migrate JET teams over to this Web Component System, so we have **one single source of truth** for our global PIE components.
+The long-term aim is to migrate JET teams over to this Web Component System, so we have **one single source of truth** for our global PIE components.
 
 For more details on Fozzie, Snacks and Skip PIE, please check out the **documentation portals** linked above.
 
@@ -80,7 +81,7 @@ For more details on Fozzie, Snacks and Skip PIE, please check out the **document
 If you are working with latest stack both in React and Vue ecosystems, we recommend to go straight away with
 [PIE Web Components](/engineers/web-components/).
 
-### Next 13 and earlier versions 
+### Next 13 and earlier versions
 
 {% contentLayout %}
     {% tag {
@@ -92,8 +93,8 @@ If you are working with latest stack both in React and Vue ecosystems, we recomm
     variant: "blue"
     } %}
 {% endcontentLayout %}
- 
-You can use [PIE Web Components](/engineers/web-components/) for Next 13 or earlier versions if you don't need SSR. 
+
+You can use [PIE Web Components](/engineers/web-components/) for Next 13 or earlier versions if you don't need SSR.
 If you need to render components on the server (SSR), [Snacks](https://snacks.takeaway.com/portal/) is the best library for you.
 
 We recommend updating to Next 14 if you would like to use SSR with our new Web Components.

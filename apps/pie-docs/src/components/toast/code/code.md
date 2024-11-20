@@ -102,13 +102,6 @@ import { PieToast } from '@justeattakeaway/pie-webc/react/toast.js';
 <PieToast message="Message"></PieToast>
 ```
 
-```jsx
-// React templates (using Next 13 and SSR)
-import { PieToast } from '@justeattakeaway/pie-toast/dist/react';
-
-<PieToast message="Message"></PieToast>
-```
-
 {% notification {
   type: "neutral",
   iconName: "link",

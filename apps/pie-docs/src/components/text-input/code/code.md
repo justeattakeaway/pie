@@ -117,25 +117,6 @@ import { PieTextInput } from '@justeattakeaway/pie-webc/react/text-input.js';
 </PieTextInput>
 ```
 
-```jsx
-// React templates (using Next 13 and SSR)
-import { PieTextInput } from '@justeattakeaway/pie-text-input/dist/react';
-
-<PieTextInput
-  autocomplete="on"
-  autoFocus
-  inputmode="text"
-  maxlength={8}
-  minlength={4}
-  name="myinput"
-  pattern="[a-z]{4,8}"
-  placeholder="Please enter a value"
-  readonly
-  type="text"
-  value="">
-</PieTextInput>
-```
-
 ## Types
 The text input accepts various values for the `type` property, allowing control over input behaviour. These are mostly standard HTML input types. For most use cases, the default type of `text` will suffice. It is important to note that setting the type to `number` does not guarantee the prevention of non-numeric characters being entered. This behaviour, which is consistent with native HTML inputs, allows some non-numeric characters such as `e`,`+`, `-`, and `.`.
 

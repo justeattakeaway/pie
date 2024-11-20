@@ -112,13 +112,6 @@ import { PieLink } from '@justeattakeaway/pie-webc/react/link.js';
 <PieLink href="https://www.pie.design">pie.design</PieLink>
 ```
 
-```jsx
-// React templates (using Next 13 and SSR)
-import { PieLink } from '@justeattakeaway/pie-link/dist/react';
-
-<PieLink href="https://www.pie.design">pie.design</PieLink>
-```
-
 {% notification {
   type: "neutral",
   iconName: "link",

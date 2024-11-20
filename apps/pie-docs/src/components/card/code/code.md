@@ -98,15 +98,6 @@ import { PieCard } from '@justeattakeaway/pie-webc/react/card.js';
 </PieCard>
 ```
 
-```jsx
-// React templates (using Next 13 and SSR)
-import { PieCard } from '@justeattakeaway/pie-card/dist/react';
-
-<PieCard tag="a" href="https://www.example.com" target="_blank" padding="d">
-  Take me to example.com!
-</PieCard>
-```
-
 {% notification {
   type: "neutral",
   iconName: "link",

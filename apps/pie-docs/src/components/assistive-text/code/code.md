@@ -104,16 +104,6 @@ import { PieAssistiveText } from '@justeattakeaway/pie-webc/react/assistive-text
 </PieAssistiveText>
 ```
 
-```jsx
-// React templates (using Next 13 and SSR)
-import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text/dist/react';
-
-<PieAssistiveText
-  variant="success">
-  Your request has been submitted.
-</PieAssistiveText>
-```
-
 ## Changelog
 
 {% notification {

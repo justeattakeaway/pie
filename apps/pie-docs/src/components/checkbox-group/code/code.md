@@ -115,18 +115,6 @@ import { PieCheckbox } from '@justeattakeaway/pie-webc/react/checkbox.js';
 </PieCheckboxGroup>
 ```
 
-```jsx
-// React templates (using Next 13 and SSR)
-import { PieCheckboxGroup } from '@justeattakeaway/pie-checkbox-group/dist/react';
-import { PieCheckbox } from '@justeattakeaway/pie-checkbox/dist/react';
-
-<PieCheckboxGroup>
-  <PieCheckbox name="my-checkbox-one">Checkbox Label 1</PieCheckbox>
-  <PieCheckbox name="my-checkbox-two">Checkbox Label 2</PieCheckbox>
-  <PieCheckbox name="my-checkbox-three">Checkbox Label 3</PieCheckbox>
-</PieCheckboxGroup>
-```
-
 ## Forms Usage
 Please use the [form label](/components/form-label/) component for adding a label to the Checkbox Group component.
 
