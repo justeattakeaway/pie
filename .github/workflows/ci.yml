@@ -204,6 +204,25 @@ jobs:
       package-dist-directory: ./apps/pie-storybook/dist
       bucket-name-preview: 'pie-storybook-preview'
       bucket-name-main: 'pie-storybook'
+      sub-domain-suffix: 'storybook'
+    secrets: inherit
+
+  # Workflow task that deploys an instance of storybook used for test suites to run against
+  deploy-storybook-testing:
+    needs: unit-tests
+    if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/amplify-deploy.yml
+    with:
+      os: ubuntu-latest
+      node-version: 20
+      amplify-app-id: d3eyargno6okyn
+      package-name: 'pie-storybook'
+      package-dist-directory: ./apps/pie-storybook/dist
+      bucket-name-preview: 'pie-storybook-preview'
+      bucket-name-main: 'pie-storybook'
+      destination-dir: 'testing'
+      build-script: 'build:testing'
+      sub-domain-suffix: 'storybook-testing'
     secrets: inherit
 
   # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
@@ -274,6 +293,7 @@ jobs:
       package-dist-directory: ./apps/pie-docs/dist
       bucket-name-preview: 'pie-docs-preview'
       bucket-name-main: 'pie-docs'
+      sub-domain-suffix: 'docs'
     secrets: inherit
 
   browser-tests-docs:
