@@ -9,7 +9,7 @@ module.exports = async ({ github, context }, execa) => {
 
     const newTags = Array
         .from(stdout.matchAll(/New tag:\s+([^\s\n]+)/g))
-        .map(([_, tag]) => tag)
+        .map(([, tag]) => tag)
         .filter((tag) => !/^wc-.+$|pie-(monorepo|docs|storybook)/.test(tag));
 
     let body;
