@@ -54,21 +54,9 @@
         ".output/**"
       ]
     },
-    "//#generate:component-statuses": {
-      "cache": true,
-      "inputs": [
-        "packages/components/**/package.json",
-        "!packages/components/pie-webc",
-        "!packages/components/pie-webc-core",
-        "!packages/components/pie-webc-testing"
-      ],
-      "outputs": [
-        "component-statuses.json"
-      ]
-    },
-    "copy:component-statuses": {},
+    "generate:component-statuses": {},
     "watch": {
-      "cache": true,
+      "cache": false,
       "dependsOn": []
     },
     "clean": {
@@ -150,6 +138,7 @@
     "lint:scripts": {
       "cache": true,
       "inputs": [
+        "$TURBO_DEFAULT$",
         "src/**",
         "src/react.ts"
       ],

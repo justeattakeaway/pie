@@ -1,4 +1,5 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { useArgs } from '@storybook/preview-api';
 import { action } from '@storybook/addon-actions';
 import { type Meta } from '@storybook/web-components';
@@ -56,7 +57,7 @@ const toastStoryMeta: ToastStoryMeta = {
             control: 'text',
         },
         isMultiline: {
-            description: 'It allows the message content being displayed as multiline limited to three rows.',
+            description: 'Allows the message content to be displayed as multiline, limited to three rows.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isOpen,
@@ -113,7 +114,7 @@ const Template : TemplateFunction<ToastProps> = ({
             ?isOpen="${isOpen}"
             ?isDismissible="${isDismissible}"
             ?isStrong="${isStrong}"
-            variant="${variant}"
+            variant="${ifDefined(variant)}"
             message="${message}" 
             .duration="${duration}"
             ?isMultiline="${isMultiline}"

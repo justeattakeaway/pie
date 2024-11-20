@@ -1,0 +1,39 @@
+name: Labeler - Get PR labels
+on: pull_request
+
+jobs:
+  get-missing-labels: # Fetch labels that might need to be created, store in an artifact
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+
+    - name: Fetch branches # This is necessary for comparing the current branch changes against main
+      env:
+        BRANCH_NAME: ${{github.head_ref}}
+      run: |
+        git fetch origin main:main
+        git fetch origin "$BRANCH_NAME":refs/remotes/origin/"$BRANCH_NAME"
+        git checkout -b "$BRANCH_NAME" origin/"$BRANCH_NAME"
+    - name: Get Missing Labels
+      uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+      env:
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+        PR_BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
+      with:
+        script: |
+          const { PR_BRANCH_NAME, PR_NUMBER } = process.env;
+          const script = require('./packages/tools/pie-monorepo-utils/pr-labeler/get-labels.js');
+          const config = {
+            prBranchName: PR_BRANCH_NAME,
+            prNumber: PR_NUMBER,
+            artifactFilePath: './tmp-labels.json'
+          }
+          await script(config);
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+      with:
+        path: ./tmp-labels.json
+        name: tmp-labels.json
+        retention-days: 1

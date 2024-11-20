@@ -1,5 +1,33 @@
 # Changelog
 
+## 2.72.0
+
+### Minor Changes
+
+- [Added] - GitHub Actions JS to pie-monorepo-utils package ([#2070](https://github.com/justeattakeaway/pie/pull/2070)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.71.0
+
+### Minor Changes
+
+- [Removed] - @babel/traverse resolution to fix issue with pie-icons-webc build ([#2034](https://github.com/justeattakeaway/pie/pull/2034)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.70.0
+
+### Minor Changes
+
+- [Added] - Implement manual workflow for fetching and updating icons from `pie-iconography` ([#2019](https://github.com/justeattakeaway/pie/pull/2019)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 2.69.0
+
+### Minor Changes
+
+- [Added] - Bundlewatch size limits to components with CI integration ([#2020](https://github.com/justeattakeaway/pie/pull/2020)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Fixed] - Bundlewatch base branch diff tracking ([#2038](https://github.com/justeattakeaway/pie/pull/2038)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.68.1
 
 ### Patch Changes

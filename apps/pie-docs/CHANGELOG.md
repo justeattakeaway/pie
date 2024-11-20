@@ -1,5 +1,64 @@
 # Changelog
 
+## 4.20.0
+
+### Minor Changes
+
+- [Updated] - refactored the locale fallback logic so we can cater for more combinations ([#2043](https://github.com/justeattakeaway/pie/pull/2043)) by [@oliversweb](https://github.com/oliversweb)
+
+### Patch Changes
+
+- [Changed] - Complete the toast code page ([#2068](https://github.com/justeattakeaway/pie/pull/2068)) by [@thejfreitas](https://github.com/thejfreitas)
+
+## 4.19.0
+
+### Minor Changes
+
+- [Changed] - Complete the toast overview page ([#2040](https://github.com/justeattakeaway/pie/pull/2040)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- [Added] - NextJS 14 integration guide for web components ([#2063](https://github.com/justeattakeaway/pie/pull/2063)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Nuxt3 integration guide to docs site ([#2066](https://github.com/justeattakeaway/pie/pull/2066)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 4.18.0
+
+### Minor Changes
+
+- [Added] - Refactor to use @justeattakeaway/pie-monorepo-utils to import component statuses ([#2034](https://github.com/justeattakeaway/pie/pull/2034)) by [@siggerzz](https://github.com/siggerzz)
+
+## 4.17.0
+
+### Minor Changes
+
+- [Changed] - Complete the radio button overview page ([#2033](https://github.com/justeattakeaway/pie/pull/2033)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Updated] - remove the `label` prop and use the pie-form-label component instead. ([#2054](https://github.com/justeattakeaway/pie/pull/2054)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`fdf7a820a`](https://github.com/justeattakeaway/pie/commit/fdf7a820a157c31b5bf535990e185725107a1c81)]:
+  - @justeattakeaway/pie-icons@5.2.0
+
+## 4.16.0
+
+### Minor Changes
+
+- [Removed] - deprecate the maxLength prop ([#2050](https://github.com/justeattakeaway/pie/pull/2050)) by [@raoufswe](https://github.com/raoufswe)
+
+## 4.15.0
+
+### Minor Changes
+
+- [Updated] - (Breaking change) rename the following variants: ([#2023](https://github.com/justeattakeaway/pie/pull/2023)) by [@raoufswe](https://github.com/raoufswe)
+
+      - blue to information
+      - green to success
+      - red to error
+      - yellow to brand-05
+      - brand to brand-02
+
+- [Added] - Implement trailing icon for interactive variants ([#2025](https://github.com/justeattakeaway/pie/pull/2025)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 4.14.0
 
 ### Minor Changes

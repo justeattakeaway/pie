@@ -87,38 +87,6 @@
       }
     ],
     [
-      "label",
-      {
-        "type": "code",
-        "item": [
-          "string"
-        ]
-      },
-      "The label of the textarea field.",
-      {
-        "type": "code",
-        "item": [
-          "\"\""
-        ]
-      }
-    ],
-    [
-      "maxLength",
-      {
-        "type": "code",
-        "item": [
-          "number"
-        ]
-      },
-      "Maximum length (number of characters) of value. To apply a length restriction, you must also provide label text.",
-      {
-        "type": "code",
-        "item": [
-          "undefined"
-        ]
-      }
-    ],
-    [
       "name",
       {
         "type": "code",

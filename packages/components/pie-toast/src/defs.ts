@@ -37,7 +37,7 @@ export interface ToastProps {
    */
   message: string;
   /**
-   * It allows the message content being displayed as multiline limited to three rows.
+   * Allows the message content to be displayed as multiline, limited to three rows.
    */
   isMultiline?: boolean;
   /**
@@ -48,7 +48,7 @@ export interface ToastProps {
   /**
    * Sets the duration of the toast in milliseconds before it auto-dismisses.
    * If the value is null auto-dismiss is disabled
-   * If the value is not provided it auto-dismisses after 5 seconds (5000 milliseconds)
+   * If the value is not provided it auto-dismisses after 5 seconds
    */
   duration?: number | null;
 }
@@ -84,7 +84,7 @@ export const defaultProps: DefaultProps = {
     isOpen: true,
     variant: 'neutral',
     isStrong: false,
-    isDismissible: true,
+    isDismissible: false,
     isMultiline: false,
     duration: 5000,
 };

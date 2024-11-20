@@ -1,7 +1,9 @@
 import { type TemplateResult } from 'lit';
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-export const Language = {
+export const Language: {
+    readonly [key: string]: string;
+} = {
     BULGARIAN: 'bg',
     CATALAN: 'ca',
     DANISH: 'da',
@@ -14,21 +16,30 @@ export const Language = {
     POLISH: 'pl',
     SLOVAK: 'sk',
     SPANISH: 'es',
-} as const;
+};
 
-export const Country = {
+export const Country: {
+    readonly [key: string]: string;
+} = {
+    AUSTRALIA: 'au',
+    AUSTRIA: 'at',
+    BELGIUM: 'be',
     BULGARIA: 'bg',
+    CANADA: 'ca',
     DENMARK: 'dk',
     FRANCE: 'fr',
     GERMANY: 'de',
     GREAT_BRITAIN: 'gb',
+    IRELAND: 'ie',
     ISRAEL: 'il',
     ITALY: 'it',
+    LUXEMBOURG: 'lu',
     NETHERLANDS: 'nl',
     POLAND: 'pl',
     SLOVAKIA: 'sk',
     SPAIN: 'es',
-} as const;
+    SWITZERLAND: 'ch',
+};
 
 export type LanguageCode = typeof Language[keyof typeof Language];
 
@@ -190,16 +201,42 @@ export const defaultProps: DefaultProps = {
     cookieTechnologiesLink: '',
 };
 
-export const defaultLanguage = new Map<CountryCode, LanguageCode>([
-    [Country.GREAT_BRITAIN, Language.ENGLISH],
-    [Country.FRANCE, Language.FRENCH],
-    [Country.DENMARK, Language.DANISH],
-    [Country.SPAIN, Language.SPANISH],
-    [Country.ITALY, Language.ITALIAN],
-    [Country.NETHERLANDS, Language.DUTCH],
-    [Country.POLAND, Language.POLISH],
-    [Country.SLOVAKIA, Language.SLOVAK],
-    [Country.BULGARIA, Language.BULGARIAN],
-    [Country.GERMANY, Language.GERMAN],
-    [Country.ISRAEL, Language.HEBREW],
+// Available locale files
+export const availableLocales = new Set([
+    `${Language.BULGARIAN}`,
+    `${Language.DANISH}`,
+    `${Language.ENGLISH}-${Country.FRANCE}`,
+    `${Language.FRENCH}-${Country.FRANCE}`,
+    `${Language.FRENCH}`,
+    `${Language.GERMAN}`,
+    `${Language.ENGLISH}`,
+    `${Language.HEBREW}`,
+    `${Language.ITALIAN}`,
+    `${Language.DUTCH}`,
+    `${Language.POLISH}`,
+    `${Language.SLOVAK}`,
+    `${Language.CATALAN}`,
+    `${Language.SPANISH}`,
+]);
+
+// Map the default locale for each Country
+export const defaultLocaleForCountry = new Map<CountryCode, string>([
+    [Country.AUSTRALIA, `${Language.ENGLISH}`],
+    [Country.AUSTRIA, `${Language.GERMAN}`],
+    [Country.BELGIUM, `${Language.DUTCH}`],
+    [Country.BULGARIA, `${Language.BULGARIAN}`],
+    [Country.CANADA, `${Language.ENGLISH}`],
+    [Country.DENMARK, `${Language.DANISH}`],
+    [Country.FRANCE, `${Language.FRENCH}-${Country.FRANCE}`],
+    [Country.GERMANY, `${Language.GERMAN}`],
+    [Country.GREAT_BRITAIN, `${Language.ENGLISH}`],
+    [Country.IRELAND, `${Language.ENGLISH}`],
+    [Country.ISRAEL, `${Language.HEBREW}`],
+    [Country.ITALY, `${Language.ITALIAN}`],
+    [Country.LUXEMBOURG, `${Language.FRENCH}`],
+    [Country.NETHERLANDS, `${Language.DUTCH}`],
+    [Country.POLAND, `${Language.POLISH}`],
+    [Country.SLOVAKIA, `${Language.SLOVAK}`],
+    [Country.SPAIN, `${Language.SPANISH}`],
+    [Country.SWITZERLAND, `${Language.GERMAN}`],
 ]);

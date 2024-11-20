@@ -1,5 +1,25 @@
 # @justeattakeaway/pie-toast
 
+## 0.4.6
+
+### Patch Changes
+
+- [Changed] - Complete the toast code page ([#2068](https://github.com/justeattakeaway/pie/pull/2068)) by [@thejfreitas](https://github.com/thejfreitas)
+
+## 0.4.5
+
+### Patch Changes
+
+- [Added] - the role attribute to the toast component ([#2051](https://github.com/justeattakeaway/pie/pull/2051)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.4.4
+
+### Patch Changes
+
+- Updated dependencies [[`7df4bd2ff`](https://github.com/justeattakeaway/pie/commit/7df4bd2ffd332dcd8c01f1825beb22bd316ec13f)]:
+  - @justeattakeaway/pie-icon-button@1.0.0
+  - @justeattakeaway/pie-button@1.0.0
+
 ## 0.4.3
 
 ### Patch Changes

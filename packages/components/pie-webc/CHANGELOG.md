@@ -1,5 +1,53 @@
 # @justeattakeaway/pie-webc
 
+## 0.5.54
+
+### Patch Changes
+
+- Updated dependencies [[`f903bc078`](https://github.com/justeattakeaway/pie/commit/f903bc0783149f5f59495075521d184fc08b0004)]:
+  - @justeattakeaway/pie-cookie-banner@1.2.0
+
+## 0.5.53
+
+### Patch Changes
+
+- Updated dependencies [[`2dd4d5378`](https://github.com/justeattakeaway/pie/commit/2dd4d53786ce0582f2436e4dd063b6adbb4485f0), [`d9284517b`](https://github.com/justeattakeaway/pie/commit/d9284517bab53ed0dbcb746829bf26d7fee4376e)]:
+  - @justeattakeaway/pie-cookie-banner@1.1.0
+  - @justeattakeaway/pie-toast@0.4.6
+
+## 0.5.52
+
+### Patch Changes
+
+- Updated dependencies [[`b55f6837c`](https://github.com/justeattakeaway/pie/commit/b55f6837c9c51ac1011fb9a2d4864470c1018fac), [`64544570e`](https://github.com/justeattakeaway/pie/commit/64544570e992a58c1dc37935bd6b04a95fc51037)]:
+  - @justeattakeaway/pie-toast@0.4.5
+  - @justeattakeaway/pie-textarea@0.13.0
+
+## 0.5.51
+
+### Patch Changes
+
+- Updated dependencies [[`9696d0088`](https://github.com/justeattakeaway/pie/commit/9696d00884a4705c5ea9f264a7ac5e280e7f6f22)]:
+  - @justeattakeaway/pie-textarea@0.12.0
+
+## 0.5.50
+
+### Patch Changes
+
+- Updated dependencies [[`f78d77ae1`](https://github.com/justeattakeaway/pie/commit/f78d77ae10c9856f801e48dcaed55f2e670a20b2), [`7df4bd2ff`](https://github.com/justeattakeaway/pie/commit/7df4bd2ffd332dcd8c01f1825beb22bd316ec13f), [`50ebed5e7`](https://github.com/justeattakeaway/pie/commit/50ebed5e71da97b44f1952e1b5b1e100a311cc5b)]:
+  - @justeattakeaway/pie-tag@0.12.0
+  - @justeattakeaway/pie-icon-button@1.0.0
+  - @justeattakeaway/pie-divider@1.0.0
+  - @justeattakeaway/pie-spinner@1.0.0
+  - @justeattakeaway/pie-switch@1.0.0
+  - @justeattakeaway/pie-button@1.0.0
+  - @justeattakeaway/pie-modal@1.0.0
+  - @justeattakeaway/pie-link@1.0.0
+  - @justeattakeaway/pie-cookie-banner@1.0.4
+  - @justeattakeaway/pie-notification@0.12.6
+  - @justeattakeaway/pie-toast@0.4.4
+  - @justeattakeaway/pie-chip@0.9.3
+
 ## 0.5.49
 
 ### Patch Changes

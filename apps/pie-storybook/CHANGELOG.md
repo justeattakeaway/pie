@@ -1,5 +1,83 @@
 # Changelog
 
+## 1.15.2
+
+### Patch Changes
+
+- Updated dependencies [[`f903bc078`](https://github.com/justeattakeaway/pie/commit/f903bc0783149f5f59495075521d184fc08b0004)]:
+  - @justeattakeaway/pie-cookie-banner@1.2.0
+
+## 1.15.1
+
+### Patch Changes
+
+- [Changed] - Complete the toast code page ([#2068](https://github.com/justeattakeaway/pie/pull/2068)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- Updated dependencies [[`2dd4d5378`](https://github.com/justeattakeaway/pie/commit/2dd4d53786ce0582f2436e4dd063b6adbb4485f0), [`d9284517b`](https://github.com/justeattakeaway/pie/commit/d9284517bab53ed0dbcb746829bf26d7fee4376e)]:
+  - @justeattakeaway/pie-cookie-banner@1.1.0
+  - @justeattakeaway/pie-toast@0.4.6
+
+## 1.15.0
+
+### Minor Changes
+
+- [Added] - Refactor to use @justeattakeaway/pie-monorepo-utils to import component statuses ([#2034](https://github.com/justeattakeaway/pie/pull/2034)) by [@siggerzz](https://github.com/siggerzz)
+
+## 1.14.0
+
+### Minor Changes
+
+- [Updated] - remove the `label` prop and use the pie-form-label component instead. ([#2054](https://github.com/justeattakeaway/pie/pull/2054)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Added] - the role attribute to the toast component ([#2051](https://github.com/justeattakeaway/pie/pull/2051)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`b55f6837c`](https://github.com/justeattakeaway/pie/commit/b55f6837c9c51ac1011fb9a2d4864470c1018fac), [`64544570e`](https://github.com/justeattakeaway/pie/commit/64544570e992a58c1dc37935bd6b04a95fc51037)]:
+  - @justeattakeaway/pie-toast@0.4.5
+  - @justeattakeaway/pie-textarea@0.13.0
+
+## 1.13.0
+
+### Minor Changes
+
+- [Removed] - deprecate the maxLength prop ([#2050](https://github.com/justeattakeaway/pie/pull/2050)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`9696d0088`](https://github.com/justeattakeaway/pie/commit/9696d00884a4705c5ea9f264a7ac5e280e7f6f22)]:
+  - @justeattakeaway/pie-textarea@0.12.0
+
+## 1.12.0
+
+### Minor Changes
+
+- [Updated] - (Breaking change) rename the following variants: ([#2023](https://github.com/justeattakeaway/pie/pull/2023)) by [@raoufswe](https://github.com/raoufswe)
+
+      - blue to information
+      - green to success
+      - red to error
+      - yellow to brand-05
+      - brand to brand-02
+
+- [Added] - Implement trailing icon for interactive variants ([#2025](https://github.com/justeattakeaway/pie/pull/2025)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`f78d77ae1`](https://github.com/justeattakeaway/pie/commit/f78d77ae10c9856f801e48dcaed55f2e670a20b2), [`7df4bd2ff`](https://github.com/justeattakeaway/pie/commit/7df4bd2ffd332dcd8c01f1825beb22bd316ec13f), [`50ebed5e7`](https://github.com/justeattakeaway/pie/commit/50ebed5e71da97b44f1952e1b5b1e100a311cc5b)]:
+  - @justeattakeaway/pie-tag@0.12.0
+  - @justeattakeaway/pie-icon-button@1.0.0
+  - @justeattakeaway/pie-divider@1.0.0
+  - @justeattakeaway/pie-spinner@1.0.0
+  - @justeattakeaway/pie-switch@1.0.0
+  - @justeattakeaway/pie-button@1.0.0
+  - @justeattakeaway/pie-modal@1.0.0
+  - @justeattakeaway/pie-link@1.0.0
+  - @justeattakeaway/pie-cookie-banner@1.0.4
+  - @justeattakeaway/pie-notification@0.12.6
+  - @justeattakeaway/pie-toast@0.4.4
+  - @justeattakeaway/pie-chip@0.9.3
+
 ## 1.11.0
 
 ### Minor Changes

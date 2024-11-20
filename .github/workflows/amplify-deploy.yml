@@ -33,6 +33,13 @@ on:
         required: false
         type: string
         default: 'build'
+      destination-dir:
+        required: false
+        type: string
+        default: '/'
+      sub-domain-suffix:
+        required: true
+        type: string
 
 env:
   AMPLIFY_ID: ${{ inputs.amplify-app-id }}
@@ -63,13 +70,13 @@ jobs:
         with:
           script-name: "${{inputs.build-script }} --filter=${{ inputs.package-name }}"
       # Create Github Deployment
-      - name: Create Docs GitHub deployment
+      - name: Create GitHub deployment
         if: ${{ github.event_name == 'pull_request' }}
         uses: chrnorm/deployment-action@55729fcebec3d284f60f5bcabbd8376437d696b1 # v2.0.7
         id: deploy
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment: "${{ inputs.package-name}}-pr-${{ github.event.number }}"
+          environment: "${{ inputs.sub-domain-suffix }}-pr-${{ github.event.number }}"
       # Zip dist folder
       - name: Zip build output
         shell: bash
@@ -86,10 +93,11 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
           aws-bucket: ${{ env.BUCKET_NAME }}
           bucket-root: "/"
-          destination-dir: "/"
+          destination-dir: "${{ inputs.destination-dir }}"
           file-path: "${{inputs.package-dist-directory}}/${{ env.ZIP_NAME }}"
           content-type: "application/zip"
           public: true
+          output-file-url: 'true'
       # Create branch on Amplify
       - name: Create Amplify branch
         shell: bash
@@ -106,13 +114,14 @@ jobs:
           aws amplify start-deployment \
             --app-id ${{ env.AMPLIFY_ID }} \
             --branch-name ${{ env.BRANCH_NAME }} \
-            --source-url s3://${{ env.BUCKET_NAME }}/${{ env.ZIP_NAME }}
+            --source-url ${{ steps.upload-s3.outputs.file-url }}
       # Set env vars for domain name association
       - name: Set environment variables for domain name association
         if: github.event_name == 'pull_request'
+        env:
+          SUB_DOMAIN_SUFFIX: ${{ inputs.sub-domain-suffix }}
         run: |
-          PACKAGE_NAME_SUFFIX=$(echo "${{ inputs.package-name }}" | sed -e 's/^pie-//')
-          echo "SUB_DOMAIN=pr${{ github.event.number }}-$PACKAGE_NAME_SUFFIX" >> $GITHUB_ENV
+          echo "SUB_DOMAIN=pr${{ github.event.number }}-$SUB_DOMAIN_SUFFIX" >> $GITHUB_ENV
 
       - name: Get existing domain associations
         if: github.event_name == 'pull_request'

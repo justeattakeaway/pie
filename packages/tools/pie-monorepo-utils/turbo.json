@@ -1,0 +1,14 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "extends": [
+    "//"
+  ],
+  "pipeline": {
+    "generate:component-statuses": {
+      "cache": false,
+      "outputs": [
+        "./dist/component-statuses.json"
+      ]
+    }
+  }
+}

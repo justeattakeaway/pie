@@ -10,71 +10,13 @@ import {
 } from '@justeattakeaway/pie-textarea';
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-form-label';
+import '@justeattakeaway/pie-link';
 
 import { createStory, type TemplateFunction } from '../utilities';
 
 type TextareaStoryMeta = Meta<TextareaProps>;
 
 const defaultArgs: TextareaProps = { ...defaultProps, name: 'testName' };
-
-const Template = ({
-    disabled,
-    resize,
-    size,
-    required,
-    readonly,
-    value,
-    defaultValue,
-    name,
-    autocomplete,
-    autoFocus,
-    label,
-    maxLength,
-    assistiveText,
-    status,
-    placeholder,
-}: TextareaProps) => {
-    const [, updateArgs] = UseArgs();
-
-    function onInput (event: InputEvent) {
-        const textareaElement = event.target as HTMLTextAreaElement;
-        updateArgs({ value: textareaElement?.value });
-
-        action('input')({
-            data: event.data,
-            value: textareaElement.value,
-        });
-    }
-
-    function onChange (event: CustomEvent) {
-        action('change')({
-            detail: event.detail,
-        });
-    }
-
-    return html`
-        <pie-textarea
-            id="${ifDefined(name)}"
-            name="${ifDefined(name)}"
-            .value="${value}"
-            defaultValue="${ifDefined(defaultValue)}"
-            ?disabled="${disabled}"
-            size="${ifDefined(size)}"
-            resize="${ifDefined(resize)}"
-            autocomplete="${ifDefined(autocomplete)}"
-            placeholder="${ifDefined(placeholder)}"
-            ?autoFocus="${autoFocus}"
-            ?readonly="${readonly}"
-            ?required="${required}"
-            maxLength="${ifDefined(maxLength)}"
-            label="${ifDefined(label)}"
-            @input="${onInput}"
-            @change="${onChange}"
-            assistiveText="${ifDefined(assistiveText)}"
-            status=${ifDefined(status)}>
-        </pie-textarea>
-    `;
-};
 
 const textareaStoryMeta: TextareaStoryMeta = {
     title: 'Textarea',
@@ -167,20 +109,6 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: 'off',
             },
         },
-        label: {
-            description: 'The label for the textarea field.',
-            control: 'text',
-            defaultValue: {
-                summary: defaultProps.label,
-            },
-        },
-        maxLength: {
-            description: 'The maximum number of characters allowed in the textarea field. To apply a length restriction, you must also provide label text.',
-            control: 'number',
-            defaultValue: {
-                summary: 0,
-            },
-        },
         placeholder: {
             description: 'The placeholder text to display when the textarea is empty.',
             control: 'text',
@@ -196,6 +124,61 @@ const textareaStoryMeta: TextareaStoryMeta = {
             url: 'https://www.figma.com/file/pPSC73rPin4csb8DiK1CRr/branch/aD4m0j97Ruw8Q4S5lED2Bl/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?m=auto&node-id=1573-114527&t=t5zmveNU4ztOqlCs-1',
         },
     },
+};
+
+const Template = ({
+    disabled,
+    resize,
+    size,
+    required,
+    readonly,
+    value,
+    defaultValue,
+    name,
+    autocomplete,
+    autoFocus,
+    assistiveText,
+    status,
+    placeholder,
+}: TextareaProps) => {
+    const [, updateArgs] = UseArgs();
+
+    function onInput (event: InputEvent) {
+        const textareaElement = event.target as HTMLTextAreaElement;
+        updateArgs({ value: textareaElement?.value });
+
+        action('input')({
+            data: event.data,
+            value: textareaElement.value,
+        });
+    }
+
+    function onChange (event: CustomEvent) {
+        action('change')({
+            detail: event.detail,
+        });
+    }
+
+    return html`
+        <pie-textarea
+            id="${ifDefined(name)}"
+            name="${ifDefined(name)}"
+            .value="${value}"
+            defaultValue="${ifDefined(defaultValue)}"
+            ?disabled="${disabled}"
+            size="${ifDefined(size)}"
+            resize="${ifDefined(resize)}"
+            autocomplete="${ifDefined(autocomplete)}"
+            placeholder="${ifDefined(placeholder)}"
+            ?autoFocus="${autoFocus}"
+            ?readonly="${readonly}"
+            ?required="${required}"
+            @input="${onInput}"
+            @change="${onChange}"
+            assistiveText="${ifDefined(assistiveText)}"
+            status=${ifDefined(status)}>
+        </pie-textarea>
+    `;
 };
 
 const ExampleFormTemplate: TemplateFunction<TextareaProps> = () => html`
@@ -234,15 +217,22 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps> = () => html`
     </form>
 `;
 
+const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => html`
+        <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-label</pie-link>.</p>
+        <pie-form-label for="${ifDefined(props.name)}">Label</pie-form-label>
+        ${Template(props)}
+    `;
+
 const CreateTextareaStory = createStory<TextareaProps>(Template, defaultArgs);
 const CreateTextareaStoryWithForm = createStory<TextareaProps>(ExampleFormTemplate, defaultArgs);
+const CreateTextareaStoryWithLabel = (props: TextareaProps) => createStory<TextareaProps>(WithLabelTemplate, props);
 
 export const Default = CreateTextareaStory({}, {
     argTypes: {
         defaultValue: { table: { readonly: true }, description: 'This prop only works when the textarea is inside a form. To interact with this, view the Example Form story.' },
     },
 });
-
+export const WithLabel = CreateTextareaStoryWithLabel(defaultArgs)();
 export const ExampleForm = CreateTextareaStoryWithForm();
 
 export default textareaStoryMeta;

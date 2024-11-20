@@ -1,0 +1,51 @@
+# yaml-language-server: $schema=https://json.schemastore.org/dependabot-2.0.json
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "*"
+        update-types: ['version-update:semver-major']
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "deps(npm): DSW-000"
+    groups:
+      babel:
+        patterns:
+          - "@babel/*"
+          - "babel-*"
+      justeattakeaway:
+        patterns:
+          - "@justeat/*"
+          - "@justeattakeaway/*"
+      percy:
+        patterns:
+          - "@axe-core/playwright"
+          - "@percy/*"
+          - "@playwright/*"
+          - "@sand4rt/experimental-ct-web/*"
+      vitest:
+        patterns:
+          - "vitest-*"
+          - "@vitest"
+      eleventy:
+        patterns:
+          - "@11ty/*"
+          - "eleventy-*"
+      storybook:
+        patterns:
+          - "@storybook/*"
+          - "storybook"
+
+  - package-ecosystem: "github-actions"
+    directory: ".github/workflows"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "*"
+        update-types: ['version-update:semver-major']
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "deps(github-actions): DSW-000"

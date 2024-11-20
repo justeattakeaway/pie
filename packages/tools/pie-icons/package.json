@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons",
-  "version": "5.1.0",
+  "version": "5.2.0",
   "description": "Common icons for use for PIE Project",
   "main": "dist/pie-icons.js",
   "types": "./index.d.ts",
@@ -13,6 +13,7 @@
     "dist"
   ],
   "scripts": {
+    "update-icons": "node ./bin/update-icons.mjs",
     "build": "node ./bin/build.js",
     "prepare": "yarn build && yarn test:coverage",
     "clean": "run -T rimraf -rf ./dist/",
@@ -32,6 +33,10 @@
     "svgo": "3.0.2"
   },
   "devDependencies": {
+    "@changesets/write": "0.3.2",
+    "fs-extra": "11.2.0",
+    "glob": "11.0.0",
+    "is-svg": "5.1.0",
     "lint-staged": "12.5.0",
     "svgo": "3.0.2",
     "webpack": "5.94.0",
