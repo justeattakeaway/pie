@@ -1,7 +1,7 @@
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
-import { type Meta } from '@storybook/web-components';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-modal';
 import {
@@ -16,7 +16,7 @@ import { type SlottedComponentProps } from '../types';
 import { createStory, sanitizeAndRenderHTML } from '../utilities';
 
 type ModalProps = SlottedComponentProps<ModalPropsBase>;
-type ModalStoryMeta = Meta<ModalProps>;
+type ModalStoryMeta = ExtendedMeta<ModalProps>;
 
 const defaultArgs: ModalProps = {
     ...defaultProps,

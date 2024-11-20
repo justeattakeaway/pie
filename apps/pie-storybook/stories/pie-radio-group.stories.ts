@@ -1,6 +1,6 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { type Meta } from '@storybook/web-components';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { action } from '@storybook/addon-actions';
 
 import '@justeattakeaway/pie-radio-group';
@@ -20,7 +20,7 @@ type RadioGroupProps = RadioGroupPropsBase & {
     labelSlot: keyof typeof labelSlotOptions;
 };
 
-type RadioGroupStoryMeta = Meta<RadioGroupProps>;
+type RadioGroupStoryMeta = ExtendedMeta<RadioGroupProps>;
 
 const defaultArgs: RadioGroupProps = {
     ...defaultProps,

@@ -1,5 +1,5 @@
 import { html, nothing } from 'lit';
-import { type Meta } from '@storybook/web-components';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-form-label';
 import { type FormLabelProps as FormLabelPropsBase } from '@justeattakeaway/pie-form-label';
@@ -8,7 +8,7 @@ import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type FormLabelProps = SlottedComponentProps<FormLabelPropsBase>;
-type FormLabelStoryMeta = Meta<FormLabelProps>;
+type FormLabelStoryMeta = ExtendedMeta<FormLabelProps>;
 
 const defaultArgs: FormLabelProps = {
     for: 'form-label',

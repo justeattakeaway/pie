@@ -1,6 +1,6 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { type Meta } from '@storybook/web-components';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-button';
 import {
@@ -12,7 +12,7 @@ import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../ut
 import { type SlottedComponentProps } from '../types';
 
 type ButtonProps = SlottedComponentProps<ButtonPropsBase>;
-type ButtonStoryMeta = Meta<ButtonProps>;
+type ButtonStoryMeta = ExtendedMeta<ButtonProps>;
 
 const defaultArgs: ButtonProps = {
     ...defaultProps,

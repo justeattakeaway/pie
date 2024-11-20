@@ -1,6 +1,6 @@
 import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
-import { type Meta } from '@storybook/web-components';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-cookie-banner';
 import { type CookieBannerProps, defaultProps } from '@justeattakeaway/pie-cookie-banner';
@@ -10,7 +10,7 @@ import {
 } from '@justeattakeaway/pie-cookie-banner/src/defs';
 import { createStory } from '../utilities';
 
-type CookieBannerStoryMeta = Meta<CookieBannerProps>;
+type CookieBannerStoryMeta = ExtendedMeta<CookieBannerProps>;
 
 const defaultArgs: CookieBannerProps = {
     ...defaultProps,

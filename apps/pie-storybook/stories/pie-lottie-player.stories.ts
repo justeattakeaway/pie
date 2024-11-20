@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import { type Meta } from '@storybook/web-components';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-lottie-player';
 import {
@@ -9,7 +9,7 @@ import {
 import { createStory } from '../utilities';
 
 type LottiePlayerProps = Omit<LottiePlayerBaseProps, 'play' | 'stop'>
-type LottiePlayerStoryMeta = Meta<LottiePlayerProps>;
+type LottiePlayerStoryMeta = ExtendedMeta<LottiePlayerProps>;
 
 const defaultArgs: LottiePlayerProps = { ...defaultProps };
 

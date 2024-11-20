@@ -1,16 +1,14 @@
 import type { StorybookConfig } from '@storybook/web-components-vite';
+import { getTestingStoryFiles } from './story-utils';
 
 const isBrowserTesting = process.env.BROWSER_TESTING === 'true';
 
 const config: StorybookConfig = {
     stories: isBrowserTesting 
-        ? [
-            "../stories/**/*.test.mdx",
-            "../stories/**/*.test.stories.@(js|ts|tsx)"
-        ] 
+        ? getTestingStoryFiles()
         : [
             "../stories/**/*.mdx",
-            "../stories/**/!(*.test).stories.@(js|ts|tsx)"
+            "../stories/**/*.stories.@(js|ts|tsx)"
           ],
     addons: [
         "@storybook/addon-essentials",

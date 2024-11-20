@@ -1,18 +1,19 @@
 import { html } from 'lit';
-import { type Meta } from '@storybook/web-components';
+import { ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-<%= fileName %>';
 import { type <%= componentName %>Props } from '@justeattakeaway/pie-<%= fileName %>';
 
 import { createStory } from '../utilities';
 
-type <%= componentName %>StoryMeta = Meta<<%= componentName %>Props>;
+type <%= componentName %>StoryMeta = ExtendedMeta<<%= componentName %>Props>;
 
 const defaultArgs: <%= componentName %>Props = {};
 
 const <%= componentNameCamelCase %>StoryMeta: <%= componentName %>StoryMeta = {
     title: '<%= displayName %>',
     component: 'pie-<%= fileName %>',
+    showInTestingDeployment: true,
     argTypes: {},
     args: defaultArgs,
     parameters: {

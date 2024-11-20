@@ -1,7 +1,7 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
-import { type Meta } from '@storybook/web-components';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-notification';
 import {
@@ -18,7 +18,7 @@ type NotificationProps = NotificationBaseProps & {
     iconSlot: keyof typeof slotOptions;
 };
 
-type NotificationStoryMeta = Meta<NotificationProps>;
+type NotificationStoryMeta = ExtendedMeta<NotificationProps>;
 
 const defaultArgs: NotificationProps = {
     ...defaultProps,

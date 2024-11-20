@@ -1,6 +1,6 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { type Meta } from '@storybook/web-components';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-checkbox';
 import { type CheckboxProps as CheckboxBaseProps, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox';
@@ -10,7 +10,7 @@ import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type CheckboxProps = SlottedComponentProps<CheckboxBaseProps>;
-type CheckboxStoryMeta = Meta<CheckboxProps>;
+type CheckboxStoryMeta = ExtendedMeta<CheckboxProps>;
 
 const defaultArgs: CheckboxProps = {
     ...defaultProps,
@@ -21,6 +21,7 @@ const defaultArgs: CheckboxProps = {
 const checkboxStoryMeta: CheckboxStoryMeta = {
     title: 'Checkbox',
     component: 'pie-checkbox',
+    showInTestingDeployment: true,
     argTypes: {
         value: {
             description: 'The value of the checkbox (used as a key/value pair in HTML forms with `name`).',

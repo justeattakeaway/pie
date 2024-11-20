@@ -1,6 +1,6 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { type Meta } from '@storybook/web-components';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-checkbox-group';
 import { type CheckboxGroupProps as CheckboxGroupPropsBase, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox-group';
@@ -15,7 +15,7 @@ type CheckboxGroupProps = CheckboxGroupPropsBase & {
     labelSlot: keyof typeof labelSlotOptions;
 };
 
-type CheckboxGroupStoryMeta = Meta<CheckboxGroupProps>;
+type CheckboxGroupStoryMeta = ExtendedMeta<CheckboxGroupProps>;
 
 const defaultArgs: CheckboxGroupProps = {
     ...defaultProps,

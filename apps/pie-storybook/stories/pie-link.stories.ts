@@ -1,6 +1,6 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { type Meta } from '@storybook/web-components';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-link';
 import {
@@ -12,7 +12,7 @@ import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type LinkProps = SlottedComponentProps<LinkBaseProps>;
-type LinkStoryMeta = Meta<LinkProps>;
+type LinkStoryMeta = ExtendedMeta<LinkProps>;
 
 const defaultArgs: LinkProps = {
     ...defaultProps,

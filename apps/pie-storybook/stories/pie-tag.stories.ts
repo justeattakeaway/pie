@@ -1,6 +1,6 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { type Meta } from '@storybook/web-components';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-tag';
 import {
@@ -16,7 +16,7 @@ import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type TagProps = SlottedComponentProps<TagBaseProps> & { showIcon: boolean };
-type TagStoryMeta = Meta<TagProps>;
+type TagStoryMeta = ExtendedMeta<TagProps>;
 
 const defaultArgs: TagProps = {
     ...defaultProps,

@@ -2,7 +2,7 @@ import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { useArgs as UseArgs } from '@storybook/preview-api';
-import { type Meta } from '@storybook/web-components';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-text-input';
 import {
@@ -27,7 +27,7 @@ type TextInputProps = TextInputPropsBase & {
     trailingSlot: keyof typeof trailingSlotOptions;
 };
 
-type TextInputStoryMeta = Meta<TextInputProps>;
+type TextInputStoryMeta = ExtendedMeta<TextInputProps>;
 
 const defaultArgs: TextInputProps = {
     ...defaultProps,

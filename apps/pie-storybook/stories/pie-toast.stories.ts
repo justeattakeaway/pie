@@ -2,12 +2,12 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { useArgs } from '@storybook/preview-api';
 import { action } from '@storybook/addon-actions';
-import { type Meta } from '@storybook/web-components';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { type ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
 
 import { type TemplateFunction, createStory } from '../utilities';
 
-type ToastStoryMeta = Meta<ToastProps>;
+type ToastStoryMeta = ExtendedMeta<ToastProps>;
 
 const defaultArgs: ToastProps = {
     ...defaultProps,
