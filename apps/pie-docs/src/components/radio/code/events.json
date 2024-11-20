@@ -11,7 +11,16 @@
           "change"
         ]
       },
-      "Fires when the radio state is changed."
+      "Fires when the radio is checked (but not when unchecked)."
+    ],
+    [
+      {
+        "type": "code",
+        "item": [
+          "input"
+        ]
+      },
+      "Should fire whenever a user toggles the radio."
     ]
   ]
 }
