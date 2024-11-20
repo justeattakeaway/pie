@@ -1,0 +1,17 @@
+{
+  "headings": [
+    "Event",
+    "Description"
+  ],
+  "rows": [
+    [
+      {
+        "type": "code",
+        "item": [
+          "change"
+        ]
+      },
+      "Fires when the radio state is changed."
+    ]
+  ]
+}
