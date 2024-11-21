@@ -29,6 +29,7 @@ const labelSlotOptions = {
 
 const checkboxGroupStoryMeta: CheckboxGroupStoryMeta = {
     title: 'Checkbox Group',
+    showInTestingDeployment: true,
     component: 'pie-checkbox-group',
     argTypes: {
         name: {

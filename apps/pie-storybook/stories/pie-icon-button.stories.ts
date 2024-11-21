@@ -16,6 +16,7 @@ const defaultArgs: IconButtonProps = { ...defaultProps, aria: { label: 'Test Lab
 
 const iconButtonStoryMeta: IconButtonStoryMeta = {
     title: 'Icon Button',
+    showInTestingDeployment: true,
     component: 'pie-icon-button',
     argTypes: {
         aria: {

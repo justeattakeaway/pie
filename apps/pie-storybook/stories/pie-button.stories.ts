@@ -22,6 +22,7 @@ const defaultArgs: ButtonProps = {
 
 const buttonStoryMeta: ButtonStoryMeta = {
     title: 'Button',
+    showInTestingDeployment: true,
     component: 'pie-button',
     argTypes: {
         tag: {

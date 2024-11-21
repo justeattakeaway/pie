@@ -23,6 +23,7 @@ const defaultArgs: SwitchProps = {
 
 const switchStoryMeta: SwitchStoryMeta = {
     title: 'Switch',
+    showInTestingDeployment: true,
     component: 'pie-switch',
     argTypes: {
         checked: {

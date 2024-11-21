@@ -26,6 +26,7 @@ const defaultArgs: TagProps = {
 
 const tagStoryMeta: TagStoryMeta = {
     title: 'Tag',
+    showInTestingDeployment: true,
     component: 'pie-tag',
     argTypes: {
         variant: {

@@ -42,6 +42,7 @@ const slotOptions = {
 
 const notificationStoryMeta: NotificationStoryMeta = {
     title: 'Notification',
+    showInTestingDeployment: true,
     component: 'pie-notification',
     argTypes: {
         isOpen: {

@@ -24,6 +24,7 @@ const defaultArgs: LinkProps = {
 
 const linkStoryMeta: LinkStoryMeta = {
     title: 'Link',
+    showInTestingDeployment: true,
     component: 'pie-link',
     argTypes: {
         tag: {

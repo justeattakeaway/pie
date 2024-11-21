@@ -44,6 +44,7 @@ const defaultArgs: ModalProps = {
 
 const modalStoryMeta: ModalStoryMeta = {
     title: 'Modal',
+    showInTestingDeployment: true,
     component: 'pie-modal',
     argTypes: {
         isDismissible: {

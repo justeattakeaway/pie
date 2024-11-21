@@ -20,6 +20,7 @@ const defaultArgs: TextareaProps = { ...defaultProps, name: 'testName' };
 
 const textareaStoryMeta: TextareaStoryMeta = {
     title: 'Textarea',
+    showInTestingDeployment: true,
     component: 'pie-textarea',
     argTypes: {
         disabled: {

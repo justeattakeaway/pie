@@ -40,6 +40,7 @@ const defaultArgs: CardProps = {
 
 const cardStoryMeta: CardStoryMeta = {
     title: 'Card',
+    showInTestingDeployment: true,
     component: 'pie-card',
     argTypes: {
         tag: {

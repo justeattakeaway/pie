@@ -21,6 +21,7 @@ const defaultArgs: ToastProps = {
 
 const toastStoryMeta: ToastStoryMeta = {
     title: 'Toast',
+    showInTestingDeployment: true,
     component: 'pie-toast',
     argTypes: {
         isOpen: {

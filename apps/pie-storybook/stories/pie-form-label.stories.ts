@@ -19,6 +19,7 @@ const defaultArgs: FormLabelProps = {
 
 const formLabelStoryMeta: FormLabelStoryMeta = {
     title: 'Form Label',
+    showInTestingDeployment: true,
     component: 'pie-form-label',
     argTypes: {
         for: {

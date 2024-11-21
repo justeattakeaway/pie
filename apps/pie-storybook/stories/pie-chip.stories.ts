@@ -25,6 +25,7 @@ const defaultArgs: ChipProps = {
 
 const chipStoryMeta: ChipStoryMeta = {
     title: 'Chip',
+    showInTestingDeployment: true,
     component: 'pie-chip',
     argTypes: {
         aria: {

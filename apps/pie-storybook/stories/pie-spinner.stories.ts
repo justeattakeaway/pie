@@ -20,6 +20,7 @@ const defaultArgs: SpinnerProps = {
 
 const spinnerStoryMeta: SpinnerStoryMeta = {
     title: 'Spinner',
+    showInTestingDeployment: true,
     component: 'pie-spinner',
     argTypes: {
         size: {

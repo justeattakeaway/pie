@@ -27,6 +27,7 @@ const animationSrcLabels = animationSrcOptions.reduce<Record<string, string>>((a
 
 const lottiePlayerStoryMeta: LottiePlayerStoryMeta = {
     title: 'Lottie Player',
+    showInTestingDeployment: true,
     component: 'pie-lottie-player',
     argTypes: {
         animationSrc:  {

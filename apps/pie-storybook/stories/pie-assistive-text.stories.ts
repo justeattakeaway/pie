@@ -18,6 +18,7 @@ const defaultArgs: AssistiveTextProps = {
 
 const assistiveTextStoryMeta: AssistiveTextStoryMeta = {
     title: 'Assistive Text',
+    showInTestingDeployment: true,
     component: 'pie-assistive-text',
     argTypes: {
         variant: {
