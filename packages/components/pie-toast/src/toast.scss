@@ -26,7 +26,6 @@
 
   padding: var(--dt-spacing-b) var(--dt-spacing-c) var(--dt-spacing-b) var(--dt-spacing-d);
   border-radius: var(--toast-border-radius);
-  gap: 2px;
   background-color: var(--toast-background-color);
   box-shadow: var(--dt-elevation-03);
   color: var(--toast-font-color);
@@ -129,6 +128,8 @@
   }
 
   .c-toast-messageArea {  
+    padding-block-end: var(--dt-spacing-b);
+  
     span {
       max-height: 60px;
       white-space: inherit;
