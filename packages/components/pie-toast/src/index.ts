@@ -408,17 +408,13 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
             [`${componentClass}--animate-out`]: !isOpen,
         };
 
-        const messageAreaClasses = {
-            [`${componentClass}-messageArea`]: true,
-        };
-
         return html`
             <div
                 role="${variant === 'error' ? 'alert' : 'status'}"
                 data-test-id="${componentSelector}"
                 class="${classMap(componentWrapperClasses)}">
                 <div class="${componentClass}-contentArea">
-                    <div class="${classMap(messageAreaClasses)}">
+                    <div class="${componentClass}-messageArea">
                         ${this.variantHasIcon(variant) ? this.getVariantIcon() : nothing}
                         ${message === '' ? nothing : this.renderMessage(message, _messageAreaMaxWidth)}
                     </div>

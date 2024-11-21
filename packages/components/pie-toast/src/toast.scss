@@ -39,10 +39,10 @@
   @include media('>md') {
     --toast-offset: var(--dt-spacing-e);
   }
+}
 
-  &.c-toast--rtl {
-    --toast-translate-start: 100%;
-  }
+.c-toast--rtl {
+  --toast-translate-start: 100%;
 }
 
 .c-toast--animate-in {
@@ -115,12 +115,6 @@
     overflow: hidden;
     max-width: var(--toast-message-max-width);
   }
-}
-
-.c-toast-actionsArea {
-  display: flex;
-  gap: var(--dt-spacing-b);
-  flex-shrink: 0;
 }
 
 .c-toast-actionsArea {
