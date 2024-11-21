@@ -15,24 +15,24 @@ import {
     validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icon-button';
+import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconInfoCircle.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconAlertCircle.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconAlertTriangle.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheckCircle.js';
-import '@justeattakeaway/pie-button';
 
 import styles from './toast.scss?inline';
 import {
-    type ToastProps,
     componentSelector,
     componentClass,
-    type ActionProps,
+    defaultProps,
+    variants,
     ON_TOAST_CLOSE_EVENT,
     ON_TOAST_OPEN_EVENT,
     ON_TOAST_LEADING_ACTION_CLICK_EVENT,
-    defaultProps,
-    variants,
+    type ToastProps,
+    type ActionProps,
 } from './defs';
 
 // Valid values available to consumers
@@ -40,6 +40,9 @@ export * from './defs';
 
 /**
  * @tagname pie-toast
+ * @event {CustomEvent} pie-toast-close - when a user clicks close button or when the toast auto dismiss.
+ * @event {CustomEvent} pie-toast-open - when the toast is opened.
+* @event {CustomEvent} pie-toast-leading-action-click - when the user interacts with the leading action.
  */
 export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     @property({ type: String })
@@ -398,6 +401,7 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
         const componentWrapperClasses = {
             [componentClass]: true,
             [`${componentClass}--rtl`]: isRTL,
+            [`${componentClass}--multiline`]: isMultiline,
             [`${componentClass}--${variant}`]: true,
             [`${componentClass}--strong`]: isStrong,
             [`${componentClass}--animate-in`]: isOpen,
@@ -406,7 +410,6 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
 
         const messageAreaClasses = {
             [`${componentClass}-messageArea`]: true,
-            [`${componentClass}--multiline`]: isMultiline,
         };
 
         return html`
