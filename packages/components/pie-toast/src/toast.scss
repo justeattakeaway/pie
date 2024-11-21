@@ -124,10 +124,12 @@
 
 .c-toast--multiline {
   .c-toast-contentArea {
+    align-items: flex-start;
     gap: 0;
   }
 
   .c-toast-messageArea {  
+    align-items: flex-start;
     padding-block-end: var(--dt-spacing-b);
   
     span {
