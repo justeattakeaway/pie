@@ -42,7 +42,7 @@ export * from './defs';
  * @tagname pie-toast
  * @event {CustomEvent} pie-toast-close - when a user clicks close button or when the toast auto dismiss.
  * @event {CustomEvent} pie-toast-open - when the toast is opened.
-* @event {CustomEvent} pie-toast-leading-action-click - when the user interacts with the leading action.
+ * @event {CustomEvent} pie-toast-leading-action-click - when the user interacts with the leading action.
  */
 export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     @property({ type: String })
