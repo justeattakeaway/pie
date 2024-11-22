@@ -8,7 +8,6 @@
   --toast-font-size: #{p.font-size(--dt-font-body-s-size)};
   --toast-line-height: #{p.line-height(--dt-font-body-s-line-height)};
   --toast-icon-fill: var(--dt-color-content-default);
-  --toast-message-max-width: 100%;
   --toast-offset: var(--dt-spacing-d);
   --toast-translate-start: -100%;
   --toast-translate-end: 0;
@@ -107,12 +106,12 @@
   align-items: center;
   gap: var(--dt-spacing-b);
   padding: 6px var(--dt-spacing-a) 6px 0;
+  overflow: hidden;
 
   span {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    max-width: var(--toast-message-max-width);
   }
 }
 

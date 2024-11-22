@@ -76,10 +76,6 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
     @query('pie-icon-button')
     private closeButton?: HTMLElement;
 
-    private _actionButtonOffset = 0;
-
-    private _messageAreaMaxWidth = 0;
-
     private _timeoutId: NodeJS.Timeout | null = null;
 
     private _abortController: AbortController | null = null;
@@ -113,44 +109,6 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
             this._abortController.abort();
             this._abortController = null;
         }
-    }
-
-    /**
-     * Calculates and returns the width of the message based on the toast properties.
-     *
-     * @param {boolean} hasIcon - Indicates if the toast has an icon.
-     * @param {boolean} isMultiline - Indicates if the message is multiline.
-     * @param {boolean} hasActionButton - Indicates if the toast has an action button.
-     * @param {boolean} hasCloseIcon - Indicates if the toast has a close icon.
-     *
-     * @returns {number} - The width of the message in pixels.
-     */
-    private getMessageMaxWidth (
-        hasIcon: boolean,
-        isMultiline: boolean,
-        hasActionButton: boolean,
-        hasCloseIcon: boolean,
-    ): number {
-        const iconOffset = 20;
-        const closeIconOffset = 32;
-        const gap = 8;
-        const toastMaxWidthWithoutPadding = 392;
-
-        let offset = 0;
-
-        if (hasIcon) {
-            offset += iconOffset + gap;
-        }
-
-        if (!isMultiline && hasActionButton) {
-            offset += this._actionButtonOffset + gap;
-        }
-
-        if (hasCloseIcon) {
-            offset += closeIconOffset + gap;
-        }
-
-        return toastMaxWidthWithoutPadding - offset;
     }
 
     /**
@@ -204,7 +162,6 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
      * It dispatches an event if toast is opened.
      * It adds event listeners when toast is opened and if the duration is not null
      * It aborts all event listeners when toast is closed.
-     * It calculates _messageAreaMaxWidth
      */
     protected async updated (_changedProperties: PropertyValues<this>) {
         if (_changedProperties.has('isOpen') && this.isOpen) {
@@ -217,36 +174,6 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
 
         if (_changedProperties.has('isOpen') && !this.isOpen) {
             this.abortAndCleanEventListeners();
-        }
-
-        // This lifecycle method is async on purpose because we
-        // need to wait for the component to complete its rendering
-        // so we can calculate _messageAreaMaxWidth based on
-        // existing components such as icons and action buttons.
-        await this.updateComplete;
-
-        if (this.actionButton) {
-            this._actionButtonOffset = this.actionButton.offsetWidth;
-        }
-
-        const hasIcon = this.variantHasIcon(this.variant);
-
-        this._messageAreaMaxWidth = this.getMessageMaxWidth(hasIcon, this.isMultiline, !!this.leadingAction?.text, this.isDismissible);
-
-        // It checks if there are changes on one of the properties
-        // below and requests a new update in order to repeat the
-        // lifecycle and perform new calculations.
-        // This will make sure that all components will re-render
-        // properly on Storybook.
-        if (
-            _changedProperties.has('variant') ||
-            _changedProperties.has('isStrong') ||
-            _changedProperties.has('message') ||
-            _changedProperties.has('isDismissible') ||
-            _changedProperties.has('isMultiline') ||
-            _changedProperties.has('leadingAction') ||
-            _changedProperties.has('duration')) {
-            this.requestUpdate();
         }
     }
 
@@ -321,13 +248,12 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
      * main render function.
      *
      * @param {string} message - The message to be displayed.
-     * @param {number} messageAreaMaxWidth - The maximum width of the message area calculated in the lifecycle method.
      *
      * @private
      */
-    private renderMessage (message: string, messageAreaMaxWidth: number): TemplateResult {
+    private renderMessage (message: string): TemplateResult {
         return html`
-            <span style="--toast-message-max-width: ${messageAreaMaxWidth}px" data-test-id="${componentSelector}-message">
+            <span data-test-id="${componentSelector}-message">
                 ${message}
             </span>
         `;
@@ -394,7 +320,6 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
             leadingAction,
             isMultiline,
             isStrong,
-            _messageAreaMaxWidth,
             isRTL,
         } = this;
 
@@ -416,7 +341,7 @@ export class PieToast extends RtlMixin(LitElement) implements ToastProps {
                 <div class="${componentClass}-contentArea">
                     <div class="${componentClass}-messageArea">
                         ${this.variantHasIcon(variant) ? this.getVariantIcon() : nothing}
-                        ${message === '' ? nothing : this.renderMessage(message, _messageAreaMaxWidth)}
+                        ${message === '' ? nothing : this.renderMessage(message)}
                     </div>
                     <div class="${componentClass}-actionsArea">
                         ${!isMultiline && leadingAction?.text ? this.renderActionButton(leadingAction) : nothing}
