@@ -19,6 +19,7 @@ runs:
         with:
           node-version: ${{ inputs.node-version }}
           cache: "yarn"
+          cache-dependency-path: ${{ github.workspace }}/yarn.lock
       # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
       - name: Install Dependencies
         shell: bash
