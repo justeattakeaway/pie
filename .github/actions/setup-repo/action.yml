@@ -17,9 +17,10 @@ runs:
         id: cache-node-modules
         uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
         with:
-          node-version: ${{ inputs.node-version }}
           cache: "yarn"
           cache-dependency-path: ${{ github.workspace }}/yarn.lock
+          node-version: ${{ inputs.node-version }}
+          path: ${{ github.workspace }}/node_modules
       # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
       - name: Install Dependencies
         shell: bash
