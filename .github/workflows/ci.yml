@@ -53,23 +53,6 @@ env:
   PERCY_NETWORK_IDLE_WAIT_TIMEOUT: ${{ vars.PERCY_NETWORK_IDLE_WAIT_TIMEOUT }}
 
 jobs:
-  dependency-changeset:
-    if: github.actor == 'dependabot[bot]'
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-        ref: ${{ github.event.pull_request.head.ref }}
-    - name: Add Changeset to PR
-      uses: StafflinePeoplePlus/dependabot-changesets@4844c33bad364143ee39ef4150c60409f306ed21 # v0.1.5
-      with:
-        owner: justeattakeaway
-        repo: pie
-        pr-number: ${{ github.event.pull_request.number }}
-        token: ${{ secrets.CHANGESETS_TOKEN }}
-
   check-change-type:
     name: Get change type
     runs-on: ubuntu-latest
