@@ -8,7 +8,6 @@ import { type StoryBackgrounds } from '../types/StoryOptions';
 import CUSTOM_VIEWPORTS from './viewports';
 
 export default {
-    tags: ['prod'],
     decorators: [ComponentStatus, WritingDirection],
     globalTypes: {
         writingDirection: {
