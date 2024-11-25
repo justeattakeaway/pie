@@ -34,7 +34,6 @@ export type TemplateFunction<T> = (props: T) => TemplateResult;
 export const createStory = <T>(templateFunc: TemplateFunction<T>, defaultArgs: T) => (
     propOverrides?: Partial<T>,
     storyOpts?: StoryOptions,
-    tags: ['foo'],
 ) => ({
     render: (args: T) => templateFunc(args),
     args: {
@@ -76,7 +75,6 @@ export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sani
  */
 export const createVariantStory = <T>(
     template: TemplateFunction<T>,
-    defaultArgs: T,
     propOptions: Record<keyof T, any[]>,
     slotContent: string
 ) => {

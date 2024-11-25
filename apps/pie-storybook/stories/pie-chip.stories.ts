@@ -134,4 +134,4 @@ const propOptions = {
     showIcon: [true, false]
 };
 
- export const AllPropVariations = createVariantStory(Template, defaultArgs, propOptions, 'Hello world');
+export const AllPropVariations = createVariantStory(Template, propOptions, 'Hello world');
