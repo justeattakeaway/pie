@@ -102,24 +102,27 @@ export const createVariantStory = <T>(
 
     const propCombinations = generateCombinations(propOptions);
 
-    return () => html`
-        <div style="display: block; width: 100%;">
-            ${propCombinations.map(
-                (props) => html`
-                    <div style="border: 1px solid black; padding: 16px; margin-bottom: 16px; width: 100%; box-sizing: border-box;">
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-family: monospace; background-color: #f9f9f9; padding: 8px; border-radius: 4px;">
-                            ${Object.entries(props as Record<string, any>).map(
-                                ([key, value]) => html`
-                                    <div><strong>${key}:</strong> ${JSON.stringify(value)}</div>
-                                `
-                            )}
+    return {
+        render: () => html`
+            <div style="display: block; width: 100%;">
+                ${propCombinations.map(
+                    (props) => html`
+                        <div style="border: 1px solid black; padding: 16px; margin-bottom: 16px; width: 100%; box-sizing: border-box;">
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-family: monospace; background-color: #f9f9f9; padding: 8px; border-radius: 4px;">
+                                ${Object.entries(props as Record<string, any>).map(
+                                    ([key, value]) => html`
+                                        <div><strong>${key}:</strong> ${JSON.stringify(value)}</div>
+                                    `
+                                )}
+                            </div>
+                            <div style="margin-top: 16px; border: 2px dashed #aaa; padding: 8px; border-radius: 4px;">
+                                ${template({ ...props, slot: slotContent })}
+                            </div>
                         </div>
-                        <div style="margin-top: 16px; border: 2px dashed #aaa; padding: 8px; border-radius: 4px;">
-                            ${template({ ...props, slot: slotContent })}
-                        </div>
-                    </div>
-                `
-            )}
-        </div>
-    `;
+                    `
+                )}
+            </div>
+        `,
+        tags: ['!dev'], // Add the default tag here
+    };
 };
