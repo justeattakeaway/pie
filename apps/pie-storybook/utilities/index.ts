@@ -77,48 +77,56 @@ export const createVariantStory = <T>(
     template: TemplateFunction<T>,
     propOptions: Record<keyof T, unknown[]>,
     slotContent: string,
-) => {
-    const generateCombinations = (options: Record<keyof T, unknown[]>): T[] => {
-        const keys = Object.keys(options) as (keyof T)[];
-        const combinations: T[] = [];
+    storyOpts?: StoryOptions,
+) => ({
+        render: () => {
+            const generateCombinations = (options: Record<keyof T, unknown[]>): T[] => {
+                const keys = Object.keys(options) as (keyof T)[];
+                const combinations: T[] = [];
 
-        const buildCombination = (index: number, currentCombination: Partial<T>) => {
-            if (index === keys.length) {
-                combinations.push(currentCombination as T);
-                return;
-            }
+                const buildCombination = (index: number, currentCombination: Partial<T>) => {
+                    if (index === keys.length) {
+                        combinations.push(currentCombination as T);
+                        return;
+                    }
 
-            const key = keys[index];
-            const values = options[key];
+                    const key = keys[index];
+                    const values = options[key];
 
-            values.forEach((value) => {
-                buildCombination(index + 1, { ...currentCombination, [key]: value });
-            });
-        };
+                    values.forEach((value) => {
+                        buildCombination(index + 1, { ...currentCombination, [key]: value });
+                    });
+                };
 
-        buildCombination(0, {});
-        return combinations;
-    };
+                buildCombination(0, {});
+                return combinations;
+            };
 
-    const propCombinations = generateCombinations(propOptions);
+            const propCombinations = generateCombinations(propOptions);
 
-    return {
-        render: () => html`
-            <div style="display: block; width: 100%;">
-                ${propCombinations.map((props) => html`
-                    <div style="border: 1px solid black; padding: 16px; margin-bottom: 16px; width: 100%; box-sizing: border-box;">
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-family: monospace; background-color: #f9f9f9; padding: 8px; border-radius: 4px;">
-                            ${Object.entries(props as Record<keyof T, unknown>).map(([key, value]) => html`
-                                <div><strong>${key}:</strong> ${JSON.stringify(value)}</div>
-                            `)}
-                        </div>
-                        <div style="margin-top: 16px; border: 2px dashed #aaa; padding: 8px; border-radius: 4px;">
-                            ${template({ ...props, slot: slotContent })}
-                        </div>
-                    </div>
-                `)}
-            </div>
-        `,
-        tags: ['!dev'],
-    };
-};
+            return html`
+          <div style="display: block; width: 100%;">
+              ${propCombinations.map((props) => html`
+                      <div style="border: 1px solid black; padding: 16px; margin-bottom: 16px; width: 100%; box-sizing: border-box;">
+                          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-family: monospace; background-color: #f9f9f9; padding: 8px; border-radius: 4px;">
+                              ${Object.entries(props as Record<string, unknown>).map(([key, value]) => html`
+                                      <div><strong>${key}:</strong> ${JSON.stringify(value)}</div>
+                                  `)}
+                          </div>
+                          <div style="margin-top: 16px; border: 2px dashed #aaa; padding: 8px; border-radius: 4px;">
+                              ${template({ ...props, slot: slotContent })}
+                          </div>
+                      </div>
+                  `)}
+          </div>
+        `;
+        },
+        parameters: {
+            backgrounds: {
+                ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
+            },
+            controls: { ...(storyOpts?.controls ? storyOpts.controls : {}) },
+            ...(storyOpts?.layout ? { layout: storyOpts?.layout || 'centered' } : {}),
+        },
+        ...(storyOpts?.argTypes ? { argTypes: storyOpts?.argTypes } : {}),
+    });

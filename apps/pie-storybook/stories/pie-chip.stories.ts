@@ -125,10 +125,7 @@ const createChipStory = createStory<ChipProps>(Template, defaultArgs);
 export const Default = createChipStory();
 export const Outline = createChipStory({ variant: 'outline' });
 
-export const Ghost = {
-    render: createChipStory({ variant: 'ghost' }),
-    tags: ['!dev'],
-};
+export const Ghost = createChipStory({ variant: 'ghost' });
 
 // Define the prop options for the matrix
 const propOptions = {
@@ -140,7 +137,4 @@ const propOptions = {
     showIcon: [true, false],
 };
 
-export const AllPropVariations = {
-    render: createVariantStory(Template, propOptions, 'Hello World'),
-    tags: ['!dev'],
-};
+export const AllPropVariations = createVariantStory(Template, propOptions, 'Hello World');

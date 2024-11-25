@@ -14,7 +14,7 @@ module.exports = async ({ github, context }, execa) => {
 
     // Extract the snapshot version from one of the tags
     // eslint-disable-next-line prefer-destructuring
-    const snapshotVersion = newTags[0].match(/\d{14}$/)[0];
+    const snapshotVersion = newTags[0].match(/\d{14}$/);
 
     // Extract package names by removing version and scope from the tags
     const packageNames = newTags.map((tag) => `@justeattakeaway/${tag.match(/pie-[\w-]+/)[0]}`);
