@@ -1,11 +1,11 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
-
 import '@justeattakeaway/pie-checkbox';
+
 import { type CheckboxProps as CheckboxBaseProps, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox';
 
 import { action } from '@storybook/addon-actions';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 

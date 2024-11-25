@@ -2,8 +2,8 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { useArgs } from '@storybook/preview-api';
 import { action } from '@storybook/addon-actions';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { type ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import { type TemplateFunction, createStory } from '../utilities';
 

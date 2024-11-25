@@ -1,6 +1,5 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-tag';
 import {
@@ -12,6 +11,7 @@ import {
 } from '@justeattakeaway/pie-tag';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 

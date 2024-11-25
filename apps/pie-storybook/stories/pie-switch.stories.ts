@@ -1,11 +1,11 @@
 import { html, nothing } from 'lit';
 import { action } from '@storybook/addon-actions';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-switch';
 import { type SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-switch';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { createStory, type TemplateFunction } from '../utilities';
 
 type SwitchStoryMeta = ExtendedMeta<SwitchProps>;

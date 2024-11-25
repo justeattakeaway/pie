@@ -1,13 +1,14 @@
 import { nothing } from 'lit';
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
+import '@justeattakeaway/pie-card';
+
 import { action } from '@storybook/addon-actions';
 
-import '@justeattakeaway/pie-card';
 import {
     type CardProps as CardPropsBase, variants, tags, paddingValues, defaultProps,
 } from '@justeattakeaway/pie-card';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';

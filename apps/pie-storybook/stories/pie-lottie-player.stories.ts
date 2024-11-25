@@ -1,11 +1,11 @@
 import { html } from 'lit';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-lottie-player';
 import {
     type LottiePlayerProps as LottiePlayerBaseProps, type PieLottiePlayer, defaultProps, directions,
 } from '@justeattakeaway/pie-lottie-player';
 
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { createStory } from '../utilities';
 
 type LottiePlayerProps = Omit<LottiePlayerBaseProps, 'play' | 'stop'>

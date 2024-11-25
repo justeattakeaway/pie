@@ -1,14 +1,16 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
-
 import '@justeattakeaway/pie-chip';
-import { type ChipProps as ChipPropsBase, variants, defaultProps } from '@justeattakeaway/pie-chip';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
+import { type ChipProps as ChipPropsBase, variants, defaultProps } from '@justeattakeaway/pie-chip';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { type SlottedComponentProps } from '../types';
-import { createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
+
+import {
+    createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML,
+} from '../utilities';
 
 type ChipProps = SlottedComponentProps<ChipPropsBase> & { showIcon: boolean };
 type ChipStoryMeta = ExtendedMeta<ChipProps>;
@@ -122,7 +124,11 @@ const createChipStory = createStory<ChipProps>(Template, defaultArgs);
 
 export const Default = createChipStory();
 export const Outline = createChipStory({ variant: 'outline' });
-export const Ghost = createChipStory({ variant: 'ghost' });
+
+export const Ghost = {
+    render: createChipStory({ variant: 'ghost' }),
+    tags: ['!dev'],
+};
 
 // Define the prop options for the matrix
 const propOptions = {
@@ -131,10 +137,10 @@ const propOptions = {
     isSelected: [true, false],
     isLoading: [true, false],
     isDismissible: [true, false],
-    showIcon: [true, false]
+    showIcon: [true, false],
 };
 
 export const AllPropVariations = {
-  render: createVariantStory(Template, propOptions, 'Hello World'),
-  tags: ['!dev'],
+    render: createVariantStory(Template, propOptions, 'Hello World'),
+    tags: ['!dev'],
 };

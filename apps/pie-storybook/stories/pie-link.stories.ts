@@ -1,12 +1,12 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
-
 import '@justeattakeaway/pie-link';
+import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
+
 import {
     type LinkProps as LinkBaseProps, sizes, variants, iconPlacements, tags, buttonTypes, underlineTypes, defaultProps,
 } from '@justeattakeaway/pie-link';
-import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';

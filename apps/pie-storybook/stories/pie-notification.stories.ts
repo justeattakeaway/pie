@@ -1,7 +1,6 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-notification';
 import {
@@ -10,6 +9,7 @@ import {
 
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { createStory, type TemplateFunction } from '../utilities';
 
 // Extending the props type definition to include storybook specific properties for controls

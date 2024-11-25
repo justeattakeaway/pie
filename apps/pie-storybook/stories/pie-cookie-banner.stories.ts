@@ -1,13 +1,13 @@
 import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
-
 import '@justeattakeaway/pie-cookie-banner';
+
 import { type CookieBannerProps, defaultProps } from '@justeattakeaway/pie-cookie-banner';
 import {
     Country,
     Language,
 } from '@justeattakeaway/pie-cookie-banner/src/defs';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { createStory } from '../utilities';
 
 type CookieBannerStoryMeta = ExtendedMeta<CookieBannerProps>;

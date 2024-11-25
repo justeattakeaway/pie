@@ -1,7 +1,6 @@
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-modal';
 import {
@@ -12,6 +11,7 @@ import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-text-input';
 import '@justeattakeaway/pie-form-label';
 
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { type SlottedComponentProps } from '../types';
 import { createStory, sanitizeAndRenderHTML } from '../utilities';
 

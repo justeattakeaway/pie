@@ -1,12 +1,12 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
-
-import '@justeattakeaway/pie-checkbox-group';
-import { type CheckboxGroupProps as CheckboxGroupPropsBase, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox-group';
 import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-checkbox';
 import '@justeattakeaway/pie-form-label';
+import '@justeattakeaway/pie-checkbox-group';
+
+import { type CheckboxGroupProps as CheckboxGroupPropsBase, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox-group';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import { createStory } from '../utilities';
 

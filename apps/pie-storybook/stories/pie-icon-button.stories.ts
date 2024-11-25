@@ -1,12 +1,11 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
-
 import '@justeattakeaway/pie-icon-button';
+import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 import {
     type IconButtonProps, sizes, variants, defaultProps,
 } from '@justeattakeaway/pie-icon-button';
-import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import { createStory, type TemplateFunction } from '../utilities';
 

@@ -1,12 +1,12 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import '@justeattakeaway/pie-spinner';
 import {
     type SpinnerProps, sizes, variants, defaultProps,
 } from '@justeattakeaway/pie-spinner';
 
+import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { type TemplateFunction, createStory } from '../utilities';
 
 type SpinnerStoryMeta = ExtendedMeta<SpinnerProps>;
