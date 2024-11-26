@@ -76,7 +76,6 @@ export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sani
 export const createVariantStory = <T>(
     template: TemplateFunction<T>,
     propOptions: Record<keyof T, unknown[]>,
-    slotContent: string,
     storyOpts?: StoryOptions,
 ) => ({
         render: () => {
@@ -114,7 +113,7 @@ export const createVariantStory = <T>(
                                   `)}
                           </div>
                           <div style="margin-top: 16px; border: 2px dashed #aaa; padding: 8px; border-radius: 4px;">
-                              ${template({ ...props, slot: slotContent })}
+                              ${template({ ...props })}
                           </div>
                       </div>
                   `)}

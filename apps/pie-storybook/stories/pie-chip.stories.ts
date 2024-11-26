@@ -129,12 +129,14 @@ export const Ghost = createChipStory({ variant: 'ghost' });
 
 // Define the prop options for the matrix
 const propOptions = {
-    variant: variants,
+    variant: [...variants],
     disabled: [true, false],
     isSelected: [true, false],
     isLoading: [true, false],
     isDismissible: [true, false],
     showIcon: [true, false],
+    aria: [defaultArgs.aria],
+    slot: ['Hello World'],
 };
 
-export const AllPropVariations = createVariantStory(Template, propOptions, 'Hello World');
+export const AllPropVariations = createVariantStory(Template, propOptions);
