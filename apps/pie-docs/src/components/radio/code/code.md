@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Code
     parent: Radio
-    order: 2
+    order: 3
 shouldShowContents: true
 eleventyComputed:
     props: "{% include './props.json' %}"
