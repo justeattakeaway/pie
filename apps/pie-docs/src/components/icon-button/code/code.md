@@ -126,16 +126,6 @@ import { IconClose } from '@justeattakeaway/pie-icons-webc/dist/react/IconClose.
 </PieIconButton>
 ```
 
-```jsx
-// React templates (using Next 13 and SSR)
-import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react';
-import { IconClose } from '@justeattakeaway/pie-icons-webc/dist/react/IconClose';
-
-<PieIconButton onClick={handleClick}>
-  <IconClose></IconClose>
-</PieIconButton>
-```
-
 {% notification {
   type: "neutral",
   iconName: "link",

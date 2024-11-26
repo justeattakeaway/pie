@@ -121,13 +121,6 @@ import { PieNotification } from '@justeattakeaway/pie-webc/react/notification.js
 <PieNotification title="Heading">Content</PieNotification>
 ```
 
-```jsx
-// React templates (using Next 13 and SSR)
-import { PieNotification } from '@justeattakeaway/pie-notification/dist/react';
-
-<PieNotification title="Heading">Content</PieNotification>
-```
-
 {% notification {
   type: "neutral",
   iconName: "link",

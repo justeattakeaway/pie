@@ -95,20 +95,6 @@ import { PieTextarea } from '@justeattakeaway/pie-webc/react/textarea.js';
 </PieTextarea>
 ```
 
-```jsx
-// React templates (using Next 13 and SSR)
-import { PieTextarea } from '@justeattakeaway/pie-textarea/dist/react';
-
-<PieTextarea
-    name="my-textarea"
-    placeholder="Please enter a value"
-    autocomplete="on"
-    value=""
-    autoFocus
-    readonly>
-</PieTextarea>
-```
-
 ## Forms usage
 {% notification {
   type: "information",
