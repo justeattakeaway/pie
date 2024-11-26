@@ -5,7 +5,7 @@ import '@justeattakeaway/pie-chip';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
 import { type ChipProps as ChipPropsBase, variants, defaultProps } from '@justeattakeaway/pie-chip';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
+import { type Meta } from '@storybook/web-components';
 import { type SlottedComponentProps } from '../types';
 
 import {
@@ -13,7 +13,7 @@ import {
 } from '../utilities';
 
 type ChipProps = SlottedComponentProps<ChipPropsBase> & { showIcon: boolean };
-type ChipStoryMeta = ExtendedMeta<ChipProps>;
+type ChipStoryMeta = Meta<ChipProps>;
 
 const defaultArgs: ChipProps = {
     ...defaultProps,
@@ -27,7 +27,7 @@ const defaultArgs: ChipProps = {
 
 const chipStoryMeta: ChipStoryMeta = {
     title: 'Chip',
-    showInTestingDeployment: true,
+    
     component: 'pie-chip',
     argTypes: {
         aria: {
@@ -126,33 +126,3 @@ export const Default = createChipStory();
 export const Outline = createChipStory({ variant: 'outline' });
 
 export const Ghost = createChipStory({ variant: 'ghost' });
-
-// Define the prop options for the matrix
-const sharedPropOptions = {
-    disabled: [true, false],
-    isSelected: [true, false],
-    isLoading: [true, false],
-    isDismissible: [true, false],
-    showIcon: [true, false],
-    aria: [defaultArgs.aria],
-    slot: ['Hello World'],
-};
-
-const defaultPropOptions = {
-    ...sharedPropOptions,
-    variant: ['default'],
-};
-
-const ghostPropOptions = {
-    ...sharedPropOptions,
-    variant: ['ghost'],
-};
-
-const outlinePropOptions = {
-    ...sharedPropOptions,
-    variant: ['outline'],
-};
-
-export const DefaultPropVariations = createVariantStory<ChipProps>(Template, defaultPropOptions);
-export const GhostPropVariations = createVariantStory<ChipProps>(Template, ghostPropOptions);
-export const OutlinePropVariations = createVariantStory<ChipProps>(Template, outlinePropOptions);

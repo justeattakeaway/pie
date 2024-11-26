@@ -1,14 +1,14 @@
 import { html, nothing } from 'lit';
+import { type Meta } from '@storybook/web-components';
+
 import '@justeattakeaway/pie-form-label';
-
 import { type FormLabelProps as FormLabelPropsBase } from '@justeattakeaway/pie-form-label';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
-import { type SlottedComponentProps } from '../types';
 
+import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type FormLabelProps = SlottedComponentProps<FormLabelPropsBase>;
-type FormLabelStoryMeta = ExtendedMeta<FormLabelProps>;
+type FormLabelStoryMeta = Meta<FormLabelProps>;
 
 const defaultArgs: FormLabelProps = {
     for: 'form-label',
@@ -19,7 +19,6 @@ const defaultArgs: FormLabelProps = {
 
 const formLabelStoryMeta: FormLabelStoryMeta = {
     title: 'Form Label',
-    showInTestingDeployment: true,
     component: 'pie-form-label',
     argTypes: {
         for: {

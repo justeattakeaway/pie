@@ -1,18 +1,18 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import '@justeattakeaway/pie-button';
+import { type Meta } from '@storybook/web-components';
 
+import '@justeattakeaway/pie-button';
 import {
     type ButtonProps as ButtonPropsBase, defaultProps, iconPlacements, responsiveSizes, sizes, types, variants,
 } from '@justeattakeaway/pie-button';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 import { type SlottedComponentProps } from '../types';
 
 type ButtonProps = SlottedComponentProps<ButtonPropsBase>;
-type ButtonStoryMeta = ExtendedMeta<ButtonProps>;
+type ButtonStoryMeta = Meta<ButtonProps>;
 
 const defaultArgs: ButtonProps = {
     ...defaultProps,
@@ -22,7 +22,6 @@ const defaultArgs: ButtonProps = {
 
 const buttonStoryMeta: ButtonStoryMeta = {
     title: 'Button',
-    showInTestingDeployment: true,
     component: 'pie-button',
     argTypes: {
         tag: {

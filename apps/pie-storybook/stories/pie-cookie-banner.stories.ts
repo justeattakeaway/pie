@@ -1,16 +1,16 @@
 import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
-import '@justeattakeaway/pie-cookie-banner';
+import { type Meta } from '@storybook/web-components';
 
+import '@justeattakeaway/pie-cookie-banner';
 import { type CookieBannerProps, defaultProps } from '@justeattakeaway/pie-cookie-banner';
 import {
     Country,
     Language,
 } from '@justeattakeaway/pie-cookie-banner/src/defs';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { createStory } from '../utilities';
 
-type CookieBannerStoryMeta = ExtendedMeta<CookieBannerProps>;
+type CookieBannerStoryMeta = Meta<CookieBannerProps>;
 
 const defaultArgs: CookieBannerProps = {
     ...defaultProps,
@@ -25,7 +25,6 @@ const defaultArgs: CookieBannerProps = {
 
 const cookieBannerStoryMeta: CookieBannerStoryMeta = {
     title: 'Cookie Banner',
-    showInTestingDeployment: true,
     component: 'pie-cookie-banner',
     argTypes: {
         hasPrimaryActionsOnly: {

@@ -1,5 +1,6 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-tag';
 import {
@@ -11,12 +12,11 @@ import {
 } from '@justeattakeaway/pie-tag';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type TagProps = SlottedComponentProps<TagBaseProps> & { showIcon: boolean };
-type TagStoryMeta = ExtendedMeta<TagProps>;
+type TagStoryMeta = Meta<TagProps>;
 
 const defaultArgs: TagProps = {
     ...defaultProps,
@@ -26,7 +26,6 @@ const defaultArgs: TagProps = {
 
 const tagStoryMeta: TagStoryMeta = {
     title: 'Tag',
-    showInTestingDeployment: true,
     component: 'pie-tag',
     argTypes: {
         variant: {

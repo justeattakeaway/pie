@@ -1,15 +1,15 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import '@justeattakeaway/pie-assistive-text';
+import { type Meta } from '@storybook/web-components';
 
+import '@justeattakeaway/pie-assistive-text';
 import { type AssistiveTextProps as AssistiveTextBaseProps, variants, defaultProps } from '@justeattakeaway/pie-assistive-text';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type AssistiveTextProps = SlottedComponentProps<AssistiveTextBaseProps>;
-type AssistiveTextStoryMeta = ExtendedMeta<AssistiveTextProps>;
+type AssistiveTextStoryMeta = Meta<AssistiveTextProps>;
 
 const defaultArgs: AssistiveTextProps = {
     ...defaultProps,
@@ -18,7 +18,6 @@ const defaultArgs: AssistiveTextProps = {
 
 const assistiveTextStoryMeta: AssistiveTextStoryMeta = {
     title: 'Assistive Text',
-    showInTestingDeployment: true,
     component: 'pie-assistive-text',
     argTypes: {
         variant: {

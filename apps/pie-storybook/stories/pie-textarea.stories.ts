@@ -2,6 +2,7 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { useArgs as UseArgs } from '@storybook/preview-api';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-textarea';
 import {
@@ -11,16 +12,14 @@ import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-form-label';
 import '@justeattakeaway/pie-link';
 
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { createStory, type TemplateFunction } from '../utilities';
 
-type TextareaStoryMeta = ExtendedMeta<TextareaProps>;
+type TextareaStoryMeta = Meta<TextareaProps>;
 
 const defaultArgs: TextareaProps = { ...defaultProps, name: 'testName' };
 
 const textareaStoryMeta: TextareaStoryMeta = {
     title: 'Textarea',
-    showInTestingDeployment: true,
     component: 'pie-textarea',
     argTypes: {
         disabled: {

@@ -20,6 +20,8 @@
     inset-block-start: var(--dt-spacing-c);
 }
 
-.percyHidden {
+@media only percy {
+  .percyHidden {
     display: none;
+  }
 }

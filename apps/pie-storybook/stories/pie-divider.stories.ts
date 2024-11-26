@@ -1,22 +1,21 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import '@justeattakeaway/pie-divider';
+import { type Meta } from '@storybook/web-components';
 
+import '@justeattakeaway/pie-divider';
 import {
     type DividerProps, variants, orientations, defaultProps,
 } from '@justeattakeaway/pie-divider';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import { createStory, type TemplateFunction } from '../utilities';
 
-type DividerStoryMeta = ExtendedMeta<DividerProps>;
+type DividerStoryMeta = Meta<DividerProps>;
 
 const defaultArgs: DividerProps = { ...defaultProps };
 
 const dividerStoryMeta: DividerStoryMeta = {
     title: 'Divider',
     component: 'pie-divider',
-    showInTestingDeployment: true,
     argTypes: {
         variant: {
             description: 'Set the variant of the divider. To change this, view the other story.',

@@ -1,6 +1,7 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { useArgs as UseArgs } from '@storybook/preview-api';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-radio';
 import {
@@ -9,12 +10,11 @@ import {
     type RadioProps as RadioBaseProps,
 } from '@justeattakeaway/pie-radio';
 
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { type SlottedComponentProps } from '../types';
 import { createStory, sanitizeAndRenderHTML, type TemplateFunction } from '../utilities';
 
 type RadioProps = SlottedComponentProps<RadioBaseProps>;
-type RadioStoryMeta = ExtendedMeta<RadioProps>;
+type RadioStoryMeta = Meta<RadioProps>;
 
 const defaultArgs: RadioProps = {
     ...defaultProps,
@@ -24,7 +24,6 @@ const defaultArgs: RadioProps = {
 
 const radioStoryMeta: RadioStoryMeta = {
     title: 'Radio',
-    showInTestingDeployment: true,
     component: 'pie-radio',
     argTypes: {
         checked: {

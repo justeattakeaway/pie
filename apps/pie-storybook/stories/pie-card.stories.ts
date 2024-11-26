@@ -1,20 +1,19 @@
 import { nothing } from 'lit';
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import '@justeattakeaway/pie-card';
-
+import { type Meta } from '@storybook/web-components';
 import { action } from '@storybook/addon-actions';
 
+import '@justeattakeaway/pie-card';
 import {
     type CardProps as CardPropsBase, variants, tags, paddingValues, defaultProps,
 } from '@justeattakeaway/pie-card';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type CardProps = SlottedComponentProps<CardPropsBase>;
-type CardStoryMeta = ExtendedMeta<CardProps>;
+type CardStoryMeta = Meta<CardProps>;
 
 const defaultArgs: CardProps = {
     ...defaultProps,
@@ -41,7 +40,6 @@ const defaultArgs: CardProps = {
 
 const cardStoryMeta: CardStoryMeta = {
     title: 'Card',
-    showInTestingDeployment: true,
     component: 'pie-card',
     argTypes: {
         tag: {

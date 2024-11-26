@@ -2,12 +2,12 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { useArgs } from '@storybook/preview-api';
 import { action } from '@storybook/addon-actions';
+import { type Meta } from '@storybook/web-components';
 import { type ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 
 import { type TemplateFunction, createStory } from '../utilities';
 
-type ToastStoryMeta = ExtendedMeta<ToastProps>;
+type ToastStoryMeta = Meta<ToastProps>;
 
 const defaultArgs: ToastProps = {
     ...defaultProps,
@@ -21,7 +21,6 @@ const defaultArgs: ToastProps = {
 
 const toastStoryMeta: ToastStoryMeta = {
     title: 'Toast',
-    showInTestingDeployment: true,
     component: 'pie-toast',
     argTypes: {
         isOpen: {

@@ -1,15 +1,15 @@
 import { html } from 'lit';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-lottie-player';
 import {
     type LottiePlayerProps as LottiePlayerBaseProps, type PieLottiePlayer, defaultProps, directions,
 } from '@justeattakeaway/pie-lottie-player';
 
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { createStory } from '../utilities';
 
 type LottiePlayerProps = Omit<LottiePlayerBaseProps, 'play' | 'stop'>
-type LottiePlayerStoryMeta = ExtendedMeta<LottiePlayerProps>;
+type LottiePlayerStoryMeta = Meta<LottiePlayerProps>;
 
 const defaultArgs: LottiePlayerProps = { ...defaultProps };
 
@@ -27,7 +27,6 @@ const animationSrcLabels = animationSrcOptions.reduce<Record<string, string>>((a
 
 const lottiePlayerStoryMeta: LottiePlayerStoryMeta = {
     title: 'Lottie Player',
-    showInTestingDeployment: true,
     component: 'pie-lottie-player',
     argTypes: {
         animationSrc:  {

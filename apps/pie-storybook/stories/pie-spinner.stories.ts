@@ -1,15 +1,15 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-spinner';
 import {
     type SpinnerProps, sizes, variants, defaultProps,
 } from '@justeattakeaway/pie-spinner';
 
-import { type ExtendedMeta } from '../types/ExtendedMeta';
 import { type TemplateFunction, createStory } from '../utilities';
 
-type SpinnerStoryMeta = ExtendedMeta<SpinnerProps>;
+type SpinnerStoryMeta = Meta<SpinnerProps>;
 
 const defaultArgs: SpinnerProps = {
     ...defaultProps,
@@ -20,7 +20,6 @@ const defaultArgs: SpinnerProps = {
 
 const spinnerStoryMeta: SpinnerStoryMeta = {
     title: 'Spinner',
-    showInTestingDeployment: true,
     component: 'pie-spinner',
     argTypes: {
         size: {
