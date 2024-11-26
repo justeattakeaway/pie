@@ -105,13 +105,6 @@ import { PieCheckbox } from '@justeattakeaway/pie-webc/react/checkbox.js';
 <PieCheckbox name="mycheckbox">Label</PieCheckbox>
 ```
 
-```jsx
-// React templates (using Next 13 and SSR)
-import { PieCheckbox } from '@justeattakeaway/pie-checkbox/dist/react';
-
-<PieCheckbox name="mycheckbox">Label</PieCheckbox>
-```
-
 Examples with and without a label:
 
 ```jsx

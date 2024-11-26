@@ -119,13 +119,6 @@ import { PieChip } from '@justeattakeaway/pie-webc/react/chip.js';
 <PieChip>String</PieChip>
 ```
 
-```jsx
-// React templates (using Next 13 and SSR)
-import { PieChip } from '@justeattakeaway/pie-chip/dist/react';
-
-<PieChip>String</PieChip>
-```
-
 {% notification {
   type: "neutral",
   iconName: "link",

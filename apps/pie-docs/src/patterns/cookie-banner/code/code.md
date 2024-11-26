@@ -145,7 +145,7 @@ Use of locales in Vue:
 Default preferences can be configured and passed to the component:
 
 ```jsx
-// React templates (using Next 13)
+// React templates
 import { PieCookieBanner } from "@justeattakeaway/pie-cookie-banner/dist/react";
 
 const defaultPreferences= {functional: true, personalized: true, analytical: true}

@@ -106,13 +106,6 @@ import { PieModal } from '@justeattakeaway/pie-webc/react/modal.js';
 <PieModal heading='My Awesome Heading' headingLevel='h3'>Click me!</PieModal>
 ```
 
-```jsx
-// React templates (using Next 13 and SSR)
-import { PieModal } from '@justeattakeaway/pie-modal/dist/react';
-
-<PieModal heading='My Awesome Heading' headingLevel='h3'>Click me!</PieModal>
-```
-
 {% notification {
   type: "neutral",
   iconName: "link",

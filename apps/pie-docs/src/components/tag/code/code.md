@@ -114,13 +114,6 @@ import { PieTag } from '@justeattakeaway/pie-webc/react/tag.js';
 <PieTag>Label</PieTag>
 ```
 
-```jsx
-// React templates (using Next 13 and SSR)
-import { PieTag } from '@justeattakeaway/pie-tag/dist/react';
-
-<PieTag>Label</PieTag>
-```
-
 {% notification {
   type: "neutral",
   iconName: "link",
