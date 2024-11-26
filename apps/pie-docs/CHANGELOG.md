@@ -1,5 +1,17 @@
 # Changelog
 
+## 4.22.0
+
+### Minor Changes
+
+- [Updated] - ensure the toast component works on RTL ([#2082](https://github.com/justeattakeaway/pie/pull/2082)) by [@raoufswe](https://github.com/raoufswe)
+
+## 4.21.0
+
+### Minor Changes
+
+- [Updated] - the tag overview section ([#2067](https://github.com/justeattakeaway/pie/pull/2067)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 4.20.0
 
 ### Minor Changes

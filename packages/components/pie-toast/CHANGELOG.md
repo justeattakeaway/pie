@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-toast
 
+## 0.5.0
+
+### Minor Changes
+
+- [Updated] - ensure the toast component works on RTL ([#2082](https://github.com/justeattakeaway/pie/pull/2082)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Updated] - truncate text using css ([#2093](https://github.com/justeattakeaway/pie/pull/2093)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.4.6
 
 ### Patch Changes
