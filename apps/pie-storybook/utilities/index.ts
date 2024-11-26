@@ -67,9 +67,7 @@ export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sani
  * @template T The type representing the properties of the Lit web component.
  *
  * @param {TemplateFunction<T>} template - The function responsible for rendering the Lit web component.
- * @param {T} defaultArgs - A set of default property values to be used for each story.
  * @param {Record<keyof T, any[]>} propOptions - An object defining the possible values for each prop.
- * @param {string} slotContent - The content to be placed within the component's slot.
  *
  * @returns {Function} Returns a function that renders all combinations of the given prop options.
  */
