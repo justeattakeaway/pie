@@ -62,6 +62,7 @@
     "components/progress-stepper",
     "components/radio",
     "components/radio/code",
+    "components/radio/motion",
     "components/radio-group",
     "components/rating",
     "components/segmented-controls",

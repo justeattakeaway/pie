@@ -1,0 +1,16 @@
+{
+    "headings": [
+        "Property",
+        "Cubic Bezier",
+        "Easing token",
+        "Notes"
+    ],
+    "rows": [
+        [
+            "Hover 01",
+            "(.45, 0, .55, 1)",
+            "$easing-functional",
+            "Hover 01 opacity 0-100% at 200ms"
+        ]
+    ]
+}
