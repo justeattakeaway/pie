@@ -23,7 +23,8 @@ const componentSelector = 'pie-radio';
 
 /**
  * @tagname pie-radio
- * @event {CustomEvent} change - when the radio state is changed.
+ * @event {InputEvent} input - Should fire whenever a user toggles the radio.
+ * @event {CustomEvent} change - Fires when the radio is checked (but not when unchecked).
  */
 export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements RadioProps {
     @state()
