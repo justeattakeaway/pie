@@ -12,7 +12,7 @@ permalink: engineers/web-components/
 
 Currently, this technology is supported by all browsers, making it possible to have one central library that will work with most frontend frameworks.
 
-The long-term aim will be to migrate JET teams over to this Web Component system, so we have one single source of truth for our global PIE components.
+The long-term aim is to migrate JET teams over to this Web Component system, so we have one single source of truth for our global PIE components.
 
 {% notification {
   type: "information",
