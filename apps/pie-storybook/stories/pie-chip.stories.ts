@@ -2,10 +2,11 @@ import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import '@justeattakeaway/pie-chip';
-import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
-
 import { type ChipProps as ChipPropsBase, variants, defaultProps } from '@justeattakeaway/pie-chip';
 import { type Meta } from '@storybook/web-components';
+
+import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
+
 import { type SlottedComponentProps } from '../types';
 
 import {
@@ -27,7 +28,6 @@ const defaultArgs: ChipProps = {
 
 const chipStoryMeta: ChipStoryMeta = {
     title: 'Chip',
-    
     component: 'pie-chip',
     argTypes: {
         aria: {

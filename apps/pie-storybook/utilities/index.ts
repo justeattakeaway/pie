@@ -135,5 +135,5 @@ export const createVariantStory = <T>(
                 disable: true,
             },
         },
-        // ...(storyOpts?.argTypes ? { argTypes: storyOpts?.argTypes } : {}),
+        ...(storyOpts?.argTypes ? { argTypes: storyOpts?.argTypes } : {}),
     });
