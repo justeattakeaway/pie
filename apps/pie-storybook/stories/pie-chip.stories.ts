@@ -5,9 +5,7 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-chip';
 import { type ChipProps as ChipPropsBase, variants, defaultProps } from '@justeattakeaway/pie-chip';
-
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
-
 import { type SlottedComponentProps } from '../types';
 
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
