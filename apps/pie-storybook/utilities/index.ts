@@ -122,8 +122,18 @@ export const createVariantStory = <T>(
             backgrounds: {
                 ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
             },
-            controls: { ...(storyOpts?.controls ? storyOpts.controls : {}) },
-            ...(storyOpts?.layout ? { layout: storyOpts?.layout || 'centered' } : {}),
+            controls: {
+                disable: true,
+            },
+            design: {
+                disable: true,
+            },
+            actions: {
+                disable: true,
+            },
+            a11y: {
+                disable: true,
+            },
         },
-        ...(storyOpts?.argTypes ? { argTypes: storyOpts?.argTypes } : {}),
+        // ...(storyOpts?.argTypes ? { argTypes: storyOpts?.argTypes } : {}),
     });

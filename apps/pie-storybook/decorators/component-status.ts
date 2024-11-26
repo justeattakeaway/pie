@@ -26,7 +26,7 @@ export const ComponentStatus = (story: () => TemplateResult, storybookContext: S
         <div class="pie-sb-status-wrapper">
             ${story()}
 
-            <div class="${`c-componentStatus ${positionClass}`}">
+            <div class="${`c-componentStatus ${positionClass} percyHidden`}">
                 <pie-tag variant="${tagVariant}">
                     Status: ${componentStatus}
                     <a

@@ -128,8 +128,7 @@ export const Outline = createChipStory({ variant: 'outline' });
 export const Ghost = createChipStory({ variant: 'ghost' });
 
 // Define the prop options for the matrix
-const propOptions = {
-    variant: [...variants],
+const sharedPropOptions = {
     disabled: [true, false],
     isSelected: [true, false],
     isLoading: [true, false],
@@ -139,4 +138,21 @@ const propOptions = {
     slot: ['Hello World'],
 };
 
-export const AllPropVariations = createVariantStory<ChipProps>(Template, propOptions);
+const defaultPropOptions = {
+    ...sharedPropOptions,
+    variant: ['default'],
+};
+
+const ghostPropOptions = {
+    ...sharedPropOptions,
+    variant: ['ghost'],
+};
+
+const outlinePropOptions = {
+    ...sharedPropOptions,
+    variant: ['outline'],
+};
+
+export const DefaultPropVariations = createVariantStory<ChipProps>(Template, defaultPropOptions);
+export const GhostPropVariations = createVariantStory<ChipProps>(Template, ghostPropOptions);
+export const OutlinePropVariations = createVariantStory<ChipProps>(Template, outlinePropOptions);
