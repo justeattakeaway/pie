@@ -32,12 +32,16 @@ const variantProps: PropObject = {
 };
 
 // Renders a <pie-toast> HTML string with the given prop values
-const renderTestPieToast = (propVals: WebComponentPropValues) => `<pie-toast
-        message="${propVals.message}"
-        variant="${propVals.variant}"
-        ${propVals.isStrong ? 'isStrong' : ''}
-        ${propVals.isDismissible ? 'isDismissible' : ''}
-        ${propVals.isMultiline ? 'isMultiline' : ''}></pie-toast>`;
+const renderTestPieToast = (propVals: WebComponentPropValues) => `
+    <div style="position: relative; width: 420px; height: 122px;">
+        <pie-toast
+            message="${propVals.message}"
+            variant="${propVals.variant}"
+            ${propVals.isStrong ? 'isStrong' : ''}
+            ${propVals.isDismissible ? 'isDismissible' : ''}
+            ${propVals.isMultiline ? 'isMultiline' : ''}>
+        </pie-toast>
+    </div>`;
 
 const componentPropsMatrix: WebComponentPropValues[] = getAllPropCombinations(variantProps);
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');

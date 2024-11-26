@@ -182,7 +182,7 @@
     },
     {
       "path": "./packages/components/pie-toast/dist/react.js",
-      "maxSize": "0.41 KB"
+      "maxSize": "0.45 KB"
     }
   ],
   "defaultCompression": "gzip",

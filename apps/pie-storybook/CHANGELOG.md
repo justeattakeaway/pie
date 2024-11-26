@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.16.0
+
+### Minor Changes
+
+- [Updated] - ensure the toast component works on RTL ([#2082](https://github.com/justeattakeaway/pie/pull/2082)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`fed802c`](https://github.com/justeattakeaway/pie/commit/fed802cfa90afc1bb6e20b91dc80aa655e07ea5c), [`9f666e6`](https://github.com/justeattakeaway/pie/commit/9f666e6660bd23fda54fddbfe00ee134f72959b5)]:
+  - @justeattakeaway/pie-toast@0.5.0
+
 ## 1.15.2
 
 ### Patch Changes
