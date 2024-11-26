@@ -139,4 +139,4 @@ const propOptions = {
     slot: ['Hello World'],
 };
 
-export const AllPropVariations = createVariantStory(Template, propOptions);
+export const AllPropVariations = createVariantStory<ChipProps>(Template, propOptions);
