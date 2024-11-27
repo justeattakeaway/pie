@@ -7,6 +7,7 @@ test.describe('Pie<%= componentName %> - Visual tests`', () => {
       const basePage = new BasePage(page, '<%= fileName %>--default');
 
       basePage.load();
+      await page.waitForTimeout(2500);
 
       await percySnapshot(page, 'Pie<%= componentName %> - Visual Test');
     });
