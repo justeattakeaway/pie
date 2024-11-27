@@ -1,5 +1,4 @@
 import type { StorybookConfig } from '@storybook/web-components-vite';
-import { getTestingStoryFiles } from './story-utils';
 
 const isBrowserTesting = process.env.BROWSER_TESTING === 'true';
 
