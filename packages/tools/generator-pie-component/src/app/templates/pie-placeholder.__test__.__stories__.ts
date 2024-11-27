@@ -4,7 +4,7 @@ import { type Meta } from '@storybook/web-components';
 import '@justeattakeaway/pie-<%= fileName %>';
 import { type <%= componentName %>Props } from '@justeattakeaway/pie-<%= fileName %>';
 
-import { createStory } from '../utilities';
+import { createStory } from '../../utilities';
 
 type <%= componentName %>StoryMeta = Meta<<%= componentName %>Props>;
 
