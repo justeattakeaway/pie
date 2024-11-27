@@ -5,7 +5,9 @@ const isBrowserTesting = process.env.BROWSER_TESTING === 'true';
 
 const config: StorybookConfig = {
     stories: isBrowserTesting 
-        ? getTestingStoryFiles()
+        ? [
+            "../stories/testing/**/*.test.stories.ts"
+        ]
         : [
             "../stories/**/*.mdx",
             "../stories/*.stories.@(js|ts|tsx)",

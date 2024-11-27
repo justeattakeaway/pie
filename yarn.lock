@@ -4876,6 +4876,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-foo@0.0.0, @justeattakeaway/pie-foo@workspace:packages/components/pie-foo":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-foo@workspace:packages/components/pie-foo"
+  dependencies:
+    "@custom-elements-manifest/analyzer": 0.9.0
+    "@justeattakeaway/pie-components-config": 0.18.0
+    "@justeattakeaway/pie-css": 0.13.1
+    "@justeattakeaway/pie-webc-core": 0.24.2
+    cem-plugin-module-file-extensions: 0.0.5
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-form-label@0.14.4, @justeattakeaway/pie-form-label@workspace:packages/components/pie-form-label":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-form-label@workspace:packages/components/pie-form-label"
@@ -5222,6 +5234,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": 0.18.0
     "@justeattakeaway/pie-cookie-banner": 1.2.0
     "@justeattakeaway/pie-divider": 1.0.0
+    "@justeattakeaway/pie-foo": 0.0.0
     "@justeattakeaway/pie-form-label": 0.14.4
     "@justeattakeaway/pie-icon-button": 1.0.0
     "@justeattakeaway/pie-link": 1.0.0
@@ -22827,6 +22840,7 @@ __metadata:
     "@justeattakeaway/pie-cookie-banner": 1.2.0
     "@justeattakeaway/pie-css": 0.13.1
     "@justeattakeaway/pie-divider": 1.0.0
+    "@justeattakeaway/pie-foo": 0.0.0
     "@justeattakeaway/pie-form-label": 0.14.4
     "@justeattakeaway/pie-icon-button": 1.0.0
     "@justeattakeaway/pie-icons-configs": 4.5.1
