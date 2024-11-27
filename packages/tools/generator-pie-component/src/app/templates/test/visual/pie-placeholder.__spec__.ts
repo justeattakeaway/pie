@@ -8,6 +8,6 @@ test.describe('Pie<%= componentName %> - Visual tests`', () => {
 
       basePage.load();
 
-        await percySnapshot(page, 'Pie<%= componentName %> - Visual Test');
+      await percySnapshot(page, 'Pie<%= componentName %> - Visual Test');
     });
 });
