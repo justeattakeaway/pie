@@ -64,6 +64,7 @@
     "components/radio/code",
     "components/radio/motion",
     "components/radio-group",
+    "components/radio-group/code",
     "components/rating",
     "components/segmented-controls",
     "components/select-input",

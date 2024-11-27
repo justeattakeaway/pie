@@ -8,15 +8,6 @@
   </a>
 </p>
 
-# Table of Contents
-
-1. [Introduction](#pie-radio-group)
-2. [Installation](#installation)
-3. [Importing the component](#importing-the-component)
-4. [Peer Dependencies](#peer-dependencies)
-5. [Props](#props)
-6. [Contributing](#contributing)
-
 ## pie-radio-group
 
 `pie-radio-group` is a Web Component built using the Lit library.
@@ -29,62 +20,21 @@ This component can be easily integrated into various frontend frameworks and cus
 To install `pie-radio-group` in your application, run the following on your command line:
 
 ```bash
-# npm
-$ npm i @justeattakeaway/pie-radio-group
-
-# yarn
-$ yarn add @justeattakeaway/pie-radio-group
+npm i @justeattakeaway/pie-radio-group
+```
+```bash
+yarn add @justeattakeaway/pie-radio-group
 ```
 
 For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
 
+## Documentation
 
-### Importing the component
+Visit  [Radio Group | PIE Design System](https://pie.design/components/radio-group/code) to view more information on this component.
 
-#### JavaScript
-```js
-// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
-import { PieRadioGroup } from '@justeattakeaway/pie-radio-group';
+## Questions
 
-// If you don't need to reference the imported object, you can simply
-// import the module which registers the component as a custom element.
-import '@justeattakeaway/pie-radio-group';
-```
-
-#### React
-```js
-// React
-// For React, you will need to import our React-specific component build
-// which wraps the web component using ​@lit/react
-import { PieRadioGroup } from '@justeattakeaway/pie-radio-group/dist/react';
-```
-
-> [!NOTE]
-> When using the React version of the component, please make sure to also
-> include React as a [peer dependency](#peer-dependencies) in your project.
-
-
-## Peer Dependencies
-
-> [!IMPORTANT]
-> When using `pie-radio-group`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
-
-
-## Props
-
-| Property | Type | Default | Description |
-|---|---|---|---|
-| - | - | - | - |
-
-In your markup or JSX, you can then use these to set the properties for the `pie-radio-group` component:
-
-```html
-<!-- Native HTML -->
-<pie-radio-group></pie-radio-group>
-
-<!-- JSX -->
-<PieRadioGroup></PieRadioGroup>
-```
+Please head to [FAQs | PIE Design System](https://pie.design/support/contact-us/) to see our FAQs and get in touch.
 
 ## Contributing
 
