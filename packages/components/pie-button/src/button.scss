@@ -27,36 +27,73 @@
     --btn-text-color: var(--dt-color-content-interactive-primary);
     --icon-display-override: block;
 
+    // Vertical and horizontal padding values for the button
+    --btn-padding-vertical-xsmall: 6px;
+    --btn-padding-vertical-small: 8px;
+    --btn-padding-vertical-medium: 10px;
+    --btn-padding-vertical-large: 14px;
+    --btn-padding-horizontal-small: var(--dt-spacing-b);
+    --btn-padding-horizontal-medium: var(--dt-spacing-d);
+    --btn-padding-horizontal-large: var(--dt-spacing-e);
+
     /**
     * Mixin for updating the button styles based on the size passed in.
     * Takes in the name of the size to be used.
     */
     @mixin button-size($size) {
         @if $size == 'xsmall' {
-            --btn-padding: 6px var(--dt-spacing-b);
             --btn-font-size: #{p.font-size(--dt-font-size-14)};
             --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
             --icon-size-override: 16px;
         } @else if $size == 'small-expressive' {
-            --btn-padding: 6px var(--dt-spacing-d);
             --btn-font-size: #{p.font-size(--dt-font-size-20)};
             --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
             --icon-size-override: 20px;
         } @else if $size == 'small-productive' {
-            --btn-padding: 8px var(--dt-spacing-d);
             --btn-font-size: #{p.font-size(--dt-font-size-16)};
             --btn-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
             --icon-size-override: 20px;
         } @else if $size == 'medium' {
-            --btn-padding: 10px var(--dt-spacing-e);
             --btn-font-size: #{p.font-size(--dt-font-size-20)};
             --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
             --icon-size-override: 24px;
         } @else if $size == 'large' {
-            --btn-padding: 14px var(--dt-spacing-e);
             --btn-font-size: #{p.font-size(--dt-font-size-20)};
             --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
             --icon-size-override: 24px;
+        }
+    }
+
+    /**
+    * Mixin for applying the button padding based on the size passed in.
+    * $size: The name of the size to be used.
+    * $offsetPaddingForBorder: A boolean to specify whether the padding should be offset for a border
+    */
+    @mixin button-padding($size, $offsetPaddingForBorder: false) {
+        $verticalPadding: '';
+        $horizontalPadding: '';
+
+        @if $size == 'xsmall' {
+            $verticalPadding: '--btn-padding-vertical-xsmall';
+            $horizontalPadding: '--btn-padding-horizontal-small';
+        } @else if $size == 'small-expressive' {
+            $verticalPadding: '--btn-padding-vertical-xsmall';
+            $horizontalPadding: '--btn-padding-horizontal-medium';
+        } @else if $size == 'small-productive' {
+            $verticalPadding: '--btn-padding-vertical-small';
+            $horizontalPadding: '--btn-padding-horizontal-medium';
+        } @else if $size == 'medium' {
+            $verticalPadding: '--btn-padding-vertical-medium';
+            $horizontalPadding: '--btn-padding-horizontal-large';
+        } @else if $size == 'large' {
+            $verticalPadding: '--btn-padding-vertical-large';
+            $horizontalPadding: '--btn-padding-horizontal-large';
+        }
+
+        @if $offsetPaddingForBorder {
+            padding: calc(var(#{$verticalPadding}) - 1px) var(#{$horizontalPadding});
+        } @else {
+            padding: var(#{$verticalPadding}) var(#{$horizontalPadding});
         }
     }
 
@@ -65,8 +102,6 @@
     gap: var(--dt-spacing-b);
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
-    padding: var(--btn-padding);
     border: none;
     border-radius: var(--btn-border-radius);
     outline: none;
@@ -156,7 +191,7 @@
         @include p.button-interactive-states('--dt-color-container-default', 'transparent');
     }
 
-    &.o-btn--outline-inverse:not([disabled]) {
+    &.o-btn--outline-inverse {
         border: 1px solid var(--dt-color-border-strong);
     }
 
@@ -180,43 +215,98 @@
     // *********************
     &.o-btn--xsmall {
         @include button-size(xsmall);
+        @include button-padding(xsmall);
 
         @include responsive-wide {
             // productive is the default size when responsive is enabled
             @include button-size(small-productive);
+            @include button-padding(small-productive);
 
             &.o-btn--expressive {
                 @include button-size(small-expressive);
+                @include button-padding(small-expressive);
+            }
+        }
+
+        &.o-btn--outline,
+        &.o-btn--outline-inverse {
+            @include button-padding(xsmall, true);
+
+            @include responsive-wide {
+                @include button-padding(small-productive, true);
+
+                &.o-btn--expressive {
+                    @include button-padding(small-expressive, true);
+                }
             }
         }
     }
 
     &.o-btn--small-expressive {
         @include button-size(small-expressive);
+        @include button-padding(small-expressive);
 
         @include responsive-wide {
             @include button-size(medium);
+            @include button-padding(medium);
+        }
+
+        &.o-btn--outline,
+        &.o-btn--outline-inverse {
+            @include button-padding(small-expressive, true);
+
+            @include responsive-wide {
+                @include button-padding(medium, true);
+            }
         }
     }
 
     &.o-btn--small-productive {
         @include button-size(small-productive);
+        @include button-padding(small-productive);
 
         @include responsive-wide {
             @include button-size(medium);
+            @include button-padding(medium);
+        }
+
+        &.o-btn--outline,
+        &.o-btn--outline-inverse {
+            @include button-padding(small-productive, true);
+
+            @include responsive-wide {
+                @include button-padding(medium, true);
+            }
         }
     }
 
     &.o-btn--medium {
         @include button-size(medium);
+        @include button-padding(medium);
 
         @include responsive-wide {
             @include button-size(large);
+            @include button-padding(large);
+        }
+
+        &.o-btn--outline,
+        &.o-btn--outline-inverse {
+            @include button-padding(medium, true);
+
+            @include responsive-wide {
+                @include button-padding(large, true);
+            }
         }
     }
 
     &.o-btn--large {
         @include button-size(large);
+        @include button-padding(large);
+
+        &.o-btn--outline,
+        &.o-btn--outline-inverse {
+            @include button-padding(large, true);
+        }
     }
 
     // ******************************
@@ -240,7 +330,8 @@
         }
 
         // For outline variants, set the border to the disabled color
-        &.o-btn--outline {
+        &.o-btn--outline,
+        &.o-btn--outline-inverse {
             border-color: var(--dt-color-disabled-01) !important;
         }
     }
