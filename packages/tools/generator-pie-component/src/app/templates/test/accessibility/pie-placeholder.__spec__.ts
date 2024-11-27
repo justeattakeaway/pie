@@ -3,7 +3,7 @@ import { Pie<%= componentName %> } from '../../src/index.ts';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 
 test.describe('Pie<%= componentName %> - Accessibility tests', () => {
-    test('a11y - should test the Pie<%= componentName %> component WCAG compliance', async ({ makeAxeBuilder }) => {
+    test('a11y - should test the Pie<%= componentName %> component WCAG compliance', async ({ page, makeAxeBuilder }) => {
         // Arrange
         const basePage = new BasePage(page, '<%= fileName %>--default');
         
