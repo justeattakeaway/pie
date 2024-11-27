@@ -54,7 +54,7 @@ export default class extends Generator {
         );
 
         this.fs.copyTpl(
-          this.templatePath('**/pie-placeholder.test.__stories__.ts'),
+          this.templatePath('**/pie-placeholder.__test__.__stories__.ts'),
           this.destinationPath(testStoryPath),
           this.props,
           undefined,
