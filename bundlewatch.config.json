@@ -183,10 +183,16 @@
     {
       "path": "./packages/components/pie-toast/dist/react.js",
       "maxSize": "0.45 KB"
+    },
+    {
+      "path": "./packages/components/pie-toast-provider/dist/*.js",
+      "maxSize": "3 KB"
     }
   ],
   "defaultCompression": "gzip",
   "ci": {
-    "trackBranches": ["main"]
+    "trackBranches": [
+      "main"
+    ]
   }
 }
