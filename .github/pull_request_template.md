@@ -8,12 +8,6 @@ Please click the `Preview` tab and select a different PR template if your change
 ## Describe your changes (can list changeset entries if preferable)
 
 
-### PIE Aperture test links (if applicable)
-- PR:
-- NextJS 14 deployment:
-- Nuxt 3 deployment:
-- Vanilla deployment:
-
 ## Author Checklist (complete before requesting a review, do not delete any)
 - [ ] I have performed a self-review of my code.
 - [ ] I have added thorough tests where applicable (unit / component / visual).
@@ -25,13 +19,25 @@ Please click the `Preview` tab and select a different PR template if your change
 ## Not-applicable Checklist items
 Please move any Author checklist items that are not applicable to this pull request
 
+---
+
+## Testing
+| Task                   | Link                             |
+|------------------------|----------------------------------|
+| Aperture PR            | [🔗](#) |
+| NextJS 14 deployment   | [🔗](#) |
+| Nuxt 3 deployment      | [🔗](#) |
+| Vanilla deployment     | [🔗](#) |
+
 ## Reviewer checklists (complete before approving)
 ### Reviewer 1
 - [ ] I have reviewed the `PIE Storybook`/`PIE Docs` PR preview.
 - [ ] I have verified that all acceptance criteria for this ticket have been completed.
+- [ ] I have reviewed the Aperture changes (if added)
 - [ ] If there are visual test updates, I have reviewed them.
 
 ### Reviewer 2
 - [ ] I have reviewed the `PIE Storybook`/`PIE Docs` PR preview.
 - [ ] I have verified that all acceptance criteria for this ticket have been completed.
+- [ ] I have reviewed the Aperture changes (if added)
 - [ ] If there are visual test updates, I have reviewed them.
