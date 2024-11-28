@@ -17,7 +17,7 @@ Please click the `Preview` tab and select a different PR template if your change
 - [ ] If a changeset file has been created, I have tested these changes in [PIE Aperture](https://github.com/justeattakeaway/pie-aperture/) using the `/test-aperture` command.
 
 ## Not-applicable Checklist items
-Please move any Author checklist items that are not applicable to this pull request
+Please move any Author checklist items that do not apply to this pull request here.
 
 ---
 
