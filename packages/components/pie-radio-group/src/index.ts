@@ -152,7 +152,100 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
         this._abortController = new AbortController();
         const { signal } = this._abortController;
 
+        // Add event listener for keydown with explicit type assertion for the event
+        this.shadowRoot?.addEventListener(
+            'keydown',
+            (event: Event) => this._handleKeydown(event as KeyboardEvent), // Explicitly cast to KeyboardEvent
+            { signal },
+        );
+
         this.shadowRoot?.addEventListener('change', this._handleRadioChange.bind(this), { signal });
+    }
+
+    private _handleKeydown (event: KeyboardEvent): void {
+        const radios = this._slottedChildren.filter((child) => !child.disabled);
+        const currentIndex = radios.findIndex((radio) => radio === document.activeElement);
+        if (currentIndex === -1) return;
+
+        const moveFocus = (newIndex: number) => {
+            radios[newIndex].focus();
+            this._handleRadioSelection(radios[newIndex].value);
+            this._updateTabIndex(); // Ensure tabindex reflects the current focus
+        };
+
+        // eslint-disable-next-line default-case
+        switch (event.key) {
+            case 'ArrowRight':
+            case 'ArrowDown':
+                event.preventDefault();
+                moveFocus((currentIndex + 1) % radios.length);
+                break;
+            case 'ArrowLeft':
+            case 'ArrowUp':
+                event.preventDefault();
+                moveFocus((currentIndex - 1 + radios.length) % radios.length);
+                break;
+            case ' ':
+                event.preventDefault();
+                this._handleRadioSelection(radios[currentIndex].value);
+                break;
+            case 'Tab':
+                if (!event.shiftKey && currentIndex === radios.length - 1) {
+                    // Tab out forward from the last button
+                    this._resetTabIndex(); // Prepare for re-entry
+                } else if (event.shiftKey && currentIndex === 0) {
+                    // Shift + Tab out backward from the first button
+                    this._resetTabIndex();
+                }
+                break;
+        }
+    }
+
+    private _resetTabIndex (): void {
+        const radios = this._slottedChildren.filter((child) => !child.disabled);
+        radios.forEach((radio) => radio.setAttribute('tabindex', '-1'));
+
+        // Ensure the checked or first radio remains tabbable for re-entry
+        const checkedRadio = radios.find((radio) => radio.checked);
+        (checkedRadio ?? radios[0])?.setAttribute('tabindex', '0');
+    }
+
+    private _updateTabIndex (): void {
+        const radios = this._slottedChildren.filter((child) => !child.disabled);
+        radios.forEach((radio, index) => {
+            if (radio.checked || (index === 0 && !radios.some((r) => r.checked))) {
+                radio.setAttribute('tabindex', '0'); // Focusable
+            } else {
+                radio.setAttribute('tabindex', '-1'); // Not focusable
+            }
+        });
+    }
+
+    protected firstUpdated (_changedProperties: PropertyValues<this>): void {
+        super.firstUpdated(_changedProperties);
+
+        // Update tabindex on initial render
+        this._updateTabIndex();
+
+        // Handle focus when tabbing into the group
+        this.shadowRoot?.addEventListener(
+            'focus',
+            (event: Event) => {
+                const focusEvent = event as FocusEvent;
+                if (focusEvent.target === this) {
+                    const radios = this._slottedChildren.filter((child) => !child.disabled);
+                    const checkedRadio = radios.find((radio) => radio.checked);
+                    (checkedRadio ?? radios[0])?.focus();
+                    this._updateTabIndex(); // Ensure the correct radio button is focusable
+                }
+            },
+            { capture: true },
+        );
+
+        // Update tabindex dynamically when selection changes
+        this._slottedChildren.forEach((radio) => {
+            radio.addEventListener('change', () => this._updateTabIndex());
+        });
     }
 
     disconnectedCallback (): void {
