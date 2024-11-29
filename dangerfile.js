@@ -17,12 +17,14 @@ danger.git.created_files
             const numberOfCategories = changesetCategories ? changesetCategories.length : 0;
 
             if (isDependabotPR) {
+                // Check if at least one of the valid changeset categories is present
                 if (numberOfCategories === 0) {
                     fail(`:memo: Your changeset doesn't include a category. Please add one of: \`${validChangesetCategories.join(', ')}\`. Filepath: \`${filepath}`);
                 } else if (!validChangesetCategories.some((cat) => changesetCategories.includes(cat))) {
                     fail(`:memo: Your changeset includes an invalid category. Please use one of: \`${validChangesetCategories.join(', ')}\`. Filepath: \`${filepath}`);
                 }
 
+                // Check that categories are followed are in the following format `[Category] - {Description}`
                 const changesetLineFormatRegex = /\[\w+\] - [\S].+/g;
                 const validChangesetEntries = diffString.match(changesetLineFormatRegex);
                 const numberOfValidChangesetEntries = validChangesetEntries ? validChangesetEntries.length : 0;
