@@ -1,11 +1,14 @@
-import { test } from '@sand4rt/experimental-ct-web';
+import { test } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
-import { Pie<%= componentName %> } from '../../src/index.ts';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 
 test.describe('Pie<%= componentName %> - Visual tests`', () => {
-    test('should display the Pie<%= componentName %> component successfully', async ({ page, mount }) => {
-        await mount(Pie<%= componentName %>);
+    test('should display the Pie<%= componentName %> component successfully', async ({ page }) => {
+      const basePage = new BasePage(page, '<%= fileName %>--default');
 
-        await percySnapshot(page, 'Pie<%= componentName %> - Visual Test');
+      basePage.load();
+      await page.waitForTimeout(2500);
+
+      await percySnapshot(page, 'Pie<%= componentName %> - Visual Test');
     });
 });

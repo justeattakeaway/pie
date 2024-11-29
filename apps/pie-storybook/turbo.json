@@ -33,6 +33,10 @@
         "^generate:component-statuses"
       ],
       "outputs": ["dist/**"]
+    },
+    "test": {
+      "cache": true,
+      "dependsOn": []
     }
   }
 }

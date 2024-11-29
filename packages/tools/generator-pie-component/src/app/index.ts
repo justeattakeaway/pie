@@ -26,11 +26,14 @@ export default class extends Generator {
             ...transformedName,
             componentPath: `packages/components/pie-${transformedName.fileName}/`,
             storyPath: 'apps/pie-storybook/stories/',
+            testStoryPath: 'apps/pie-storybook/stories/testing/',
         };
     }
 
     async writing () {
-        const { fileName, componentPath, storyPath } = this.props;
+        const {
+            fileName, componentPath, storyPath, testStoryPath,
+        } = this.props;
         const processDestinationPath = (filePath: string) => filePath.replace(/\b(placeholder)\b/g, fileName).replace(/__/g, '');
 
         this.fs.copyTpl(
@@ -47,6 +50,14 @@ export default class extends Generator {
         this.fs.copyTpl(
             this.templatePath('**/pie-placeholder.__stories__.ts'),
             this.destinationPath(storyPath),
+            this.props,
+            undefined,
+            { processDestinationPath },
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('**/pie-placeholder.__test__.__stories__.ts'),
+            this.destinationPath(testStoryPath),
             this.props,
             undefined,
             { processDestinationPath },

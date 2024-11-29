@@ -19,3 +19,9 @@
 .c-componentStatus--top {
     inset-block-start: var(--dt-spacing-c);
 }
+
+@media only percy {
+  .percyHidden {
+    display: none;
+  }
+}

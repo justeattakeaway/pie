@@ -7,8 +7,10 @@ import '@justeattakeaway/pie-chip';
 import { type ChipProps as ChipPropsBase, variants, defaultProps } from '@justeattakeaway/pie-chip';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
-import { type SlottedComponentProps } from '../types';
-import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
+import { type SlottedComponentProps } from '../../types';
+import {
+    createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML,
+} from '../../utilities';
 
 type ChipProps = SlottedComponentProps<ChipPropsBase> & { showIcon: boolean };
 type ChipStoryMeta = Meta<ChipProps>;
@@ -81,12 +83,6 @@ const chipStoryMeta: ChipStoryMeta = {
         },
     },
     args: defaultArgs,
-    parameters: {
-        design: {
-            type: 'figma',
-            url: 'https://www.figma.com/file/OOgnT2oNMdGFytj5AanYvt/%5BCore%5D-Web-Component-Documentation-%5BPIE-3%5D?type=design&node-id=575-6726&mode=design&t=axoB6cYrus8n0tdC-0',
-        },
-    },
 };
 
 export default chipStoryMeta;
@@ -116,10 +112,37 @@ const Template: TemplateFunction<ChipProps> = ({
                     ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
                     ${sanitizeAndRenderHTML(slot)}
            </pie-chip>`;
-
 const createChipStory = createStory<ChipProps>(Template, defaultArgs);
 
 export const Default = createChipStory();
 export const Outline = createChipStory({ variant: 'outline' });
-
 export const Ghost = createChipStory({ variant: 'ghost' });
+
+// Define the prop options for the matrix
+const sharedPropOptions = {
+    disabled: [true, false],
+    isSelected: [true, false],
+    isLoading: [true, false],
+    isDismissible: [true, false],
+    showIcon: [true, false],
+    slot: ['Hello World'],
+};
+
+const defaultPropOptions = {
+    ...sharedPropOptions,
+    variant: ['default'],
+};
+
+const ghostPropOptions = {
+    ...sharedPropOptions,
+    variant: ['ghost'],
+};
+
+const outlinePropOptions = {
+    ...sharedPropOptions,
+    variant: ['outline'],
+};
+
+export const DefaultPropVariations = createVariantStory<Omit<ChipProps, 'aria'> >(Template, defaultPropOptions);
+export const GhostPropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, ghostPropOptions);
+export const OutlinePropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, outlinePropOptions);

@@ -13,4 +13,5 @@ export type Props = {
   answers: Answers;
   componentPath: string;
   storyPath: string;
+  testStoryPath: string;
 } & TransformedName;
