@@ -32,6 +32,8 @@ Please move any Author checklist items that do not apply to this pull request he
 | Vanilla deployment     | [🔗](#) |
 
 ## Reviewer checklists (complete before approving)
+Mark items as `[-] N/A` if not applicable.
+
 ### Reviewer 1
 - [ ] I have reviewed the `PIE Storybook`/`PIE Docs` PR preview.
 - [ ] I have verified that all acceptance criteria for this ticket have been completed.
