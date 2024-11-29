@@ -265,7 +265,7 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
                 ?disabled=${disabled}>
                     ${isLoading ? this.renderSpinner() : nothing}
                     ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
-                    <slot></slot>
+                    <span class="o-btn-text"><slot></slot></span>
                     ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
             </button>`;
     }
