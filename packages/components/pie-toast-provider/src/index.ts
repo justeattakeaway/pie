@@ -130,7 +130,7 @@ export class PieToastProvider extends RtlMixin(LitElement) implements ToastProvi
                 ?isDismissible="${_currentToast.isDismissible}"
                 ?isMultiline="${_currentToast.isMultiline}"
                 .leadingAction="${_currentToast.leadingAction}"
-                .duration="${_currentToast.duration}"
+                .duration="${typeof _currentToast.duration === 'undefined' ? nothing : _currentToast.duration}"
                 @pie-toast-close="${_dismissToast}"
                 @pie-toast-open="${_currentToast.onPieToastOpen}"
                 @pie-toast-leading-action-click="${_currentToast.onPieToastLeadingActionClick}">
