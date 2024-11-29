@@ -11,14 +11,6 @@ import { createStory } from '../utilities';
 
 type ToastProviderStoryMeta = Meta<ToastProviderProps>;
 
-const onQueueUpdate = (event: CustomEvent) => {
-    action('pie-toast-provider-queue-update')(event.detail);
-
-    const queueLengthTag = document.querySelector('#queue-length-tag') as HTMLElement;
-    if (queueLengthTag) {
-        queueLengthTag.textContent = `Toast Queue Length: ${event.detail.length}`;
-    }
-};
 const defaultArgs: ToastProviderProps = {
     ...defaultProps,
     options: {
@@ -35,7 +27,7 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
     component: 'pie-toast-provider',
     argTypes: {
         options: {
-            description: 'Global options to configure default toast behavior.',
+            description: 'Default options for all toasts; accepts all toast props.',
             control: 'object',
             defaultValue: {
                 summary: defaultProps.options,
@@ -53,7 +45,15 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
 
 export default toastProviderStoryMeta;
 
-const Template = ({ options }: ToastProviderProps) => html`
+const Template = ({ options }: ToastProviderProps) => {
+    const onQueueUpdate = (event: CustomEvent) => {
+        const queueLength = document.querySelector('#queue-length-tag') as HTMLElement;
+        if (queueLength) {
+            queueLength.textContent = `Toast Queue Length: ${event.detail.length}`;
+        }
+    };
+
+    return html`
     <pie-toast-provider 
         .options=${options} 
         @pie-toast-provider-queue-update=${onQueueUpdate}>
@@ -66,57 +66,64 @@ const Template = ({ options }: ToastProviderProps) => html`
     <div style="margin-top: 16px; display: flex; gap: 16px; flex-wrap: wrap;">
         <pie-button 
             @click=${() => {
-    toaster.create({
-        message: 'Low Priority Info Toast',
-        variant: 'info',
-        duration: null,
-        leadingAction: {
-            text: 'Confirm',
-        },
-    });
-}}>
+        toaster.create({
+            message: 'Low Priority Info',
+            variant: 'info',
+        });
+    }}>
             Trigger Info Toast (Low Priority)
         </pie-button>
 
         <pie-button
             @click=${() => {
-    toaster.create({
-        message: 'Medium Priority Warning Toast',
-        variant: 'warning',
-    });
-}}>
+        toaster.create({
+            message: 'Medium Priority Warning Toast',
+            variant: 'warning',
+        });
+    }}>
             Trigger Warning Toast (Medium Priority)
         </pie-button>
 
         <pie-button
             @click=${() => {
-    toaster.create({
-        message: 'High Priority Error Toast',
-        variant: 'error',
-    });
-}}>
+        toaster.create({
+            message: 'High Priority Error Toast',
+            variant: 'error',
+        });
+    }}>
             Trigger Error Toast (High Priority)
         </pie-button>
 
         <pie-button
             @click=${() => {
-    toaster.create({
-        message: 'Actionable Info Toast',
-        variant: 'info',
-        leadingAction: { text: 'Retry' },
-    });
-}}>
+        toaster.create({
+            message: 'Actionable Info Toast',
+            variant: 'info',
+            leadingAction: { text: 'Retry' },
+        });
+    }}>
             Trigger Actionable Info Toast
+        </pie-button>
+
+        <pie-button
+            @click=${() => {
+        toaster.create({
+            message: 'Persistent Toast',
+            duration: null,
+        });
+    }}>
+            Trigger Persistent Toast
         </pie-button>
 
         <pie-button
             variant="secondary"
             @click=${() => {
-    toaster.clearAll();
-}}>
+        toaster.clearAll();
+    }}>
             Clear All Toasts
         </pie-button>
     </div>
 `;
+};
 
 export const Default = createStory<ToastProviderProps>(Template, defaultArgs)();

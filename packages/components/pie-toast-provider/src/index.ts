@@ -12,6 +12,7 @@ import {
     defineCustomElement,
     dispatchCustomEvent,
 } from '@justeattakeaway/pie-webc-core';
+import '@justeattakeaway/pie-toast';
 import styles from './toast-provider.scss?inline';
 import {
     defaultProps,
@@ -23,6 +24,7 @@ import {
 
 // Valid values available to consumers
 export * from './defs';
+export { toaster } from './toaster';
 
 const componentSelector = 'pie-toast-provider';
 
@@ -118,7 +120,7 @@ export class PieToastProvider extends RtlMixin(LitElement) implements ToastProvi
       const { _currentToast, _dismissToast } = this;
 
       return html`
-      <div class="c-toast-provider">
+      <div class="c-toast-provider" data-test-id="pie-toast-provider">
       ${_currentToast
           ? html`
               <pie-toast
@@ -150,32 +152,4 @@ declare global {
     [componentSelector]: PieToastProvider;
   }
 }
-
-/**
- * Singleton toaster interface for global access.
- */
-export const toaster = {
-    _getToastProvider (): PieToastProvider | null {
-        const toastProvider = document.querySelector(componentSelector) as PieToastProvider;
-
-        if (!toastProvider) {
-            console.error('ToastProvider is not initialized.');
-            return null;
-        }
-
-        return toastProvider;
-    },
-    create (toast: ExtendedToastProps) {
-        const toastProvider = this._getToastProvider();
-        if (!toastProvider) return;
-
-        toastProvider.createToast(toast);
-    },
-    clearAll () {
-        const toastProvider = this._getToastProvider();
-        if (!toastProvider) return;
-
-        toastProvider.clearToasts();
-    },
-};
 

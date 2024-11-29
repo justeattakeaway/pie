@@ -1,48 +1,52 @@
 import { type ToastProps } from '@justeattakeaway/pie-toast';
 
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
+
 export const PRIORITY_ORDER: { [x: string]: number } = {
     'error-actionable': 1,
     error: 2,
     'warning-actionable': 3,
-    'positive-actionable': 4,
+    'success-actionable': 4,
     'info-actionable': 5,
     'neutral-actionable': 6,
     warning: 7,
-    positive: 8,
+    success: 8,
     info: 9,
     neutral: 10,
 };
 
 export interface ExtendedToastProps extends ToastProps {
     /**
-     * Callback for when the toast is closed.
+     * Triggered when the user interacts with the close icon or when the toast auto dismiss.
      */
     onPieToastClose?: () => void;
 
     /**
-     * Callback for when the toast is opened.
+     * Triggered when the toast is opened.
      */
     onPieToastOpen?: () => void;
 
     /**
-     * Callback for when the leading action is clicked.
+     * Triggered when the user interacts with the leading action.
      */
     onPieToastLeadingActionClick?: (event: Event) => void;
 }
 
 export interface ToastProviderProps {
     /**
-     * Default options for all toasts.
+     * Default options for all toasts; accepts all toast props.
      */
     options?: Partial<ExtendedToastProps>;
 }
 
-export const defaultProps: ToastProviderProps = {
+export type DefaultProps = ComponentDefaultProps<ToastProviderProps>;
+
+export const defaultProps: DefaultProps = {
     options: {},
 };
 
 /**
- * Event name for when the chip is closed.
+ * Event name for when the toast provider queue is updated.
  *
  * @constant
  */
