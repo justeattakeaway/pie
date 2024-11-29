@@ -227,6 +227,16 @@
       "import": "./react/toast.js",
       "require": "./react/toast.js",
       "types": "./react/toast.d.ts"
+    },
+    "./components/toast-provider.js": {
+      "import": "./components/toast-provider.js",
+      "require": "./components/toast-provider.js",
+      "types": "./components/toast-provider.d.ts"
+    },
+    "./react/toast-provider.js": {
+      "import": "./react/toast-provider.js",
+      "require": "./react/toast-provider.js",
+      "types": "./react/toast-provider.d.ts"
     }
   },
   "bin": {
@@ -266,7 +276,8 @@
     "@justeattakeaway/pie-tag": "0.12.0",
     "@justeattakeaway/pie-text-input": "0.24.5",
     "@justeattakeaway/pie-textarea": "0.13.0",
-    "@justeattakeaway/pie-toast": "0.5.0"
+    "@justeattakeaway/pie-toast": "0.5.0",
+    "@justeattakeaway/pie-toast-provider": "0.0.0"
   },
   "volta": {
     "extends": "../../../package.json"

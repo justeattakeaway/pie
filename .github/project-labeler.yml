@@ -129,3 +129,5 @@ pie-webc-core:
 
 pie-webc-testing:
   - 'packages/components/pie-webc-testing/**/*'
+pie-toast-provider:
+  - packages/components/pie-toast-provider/**/*
