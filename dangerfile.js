@@ -6,9 +6,9 @@ const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
 const isDependabotPR = pr.user.login === 'dependabot[bot]';
 
 // Check for correct Changeset formatting
-danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') && !filepath.includes('.changeset/pre.json'))
+danger.git.created_files
+    .filter((filepath) => filepath.includes('.changeset/') && !filepath.includes('.changeset/pre.json'))
     .forEach((filepath) => {
-        // get the git diff for the changeset file
         const changesetDiff = danger.git.diffForFile(filepath);
         changesetDiff.then((result) => {
             const diffString = result.diff;
@@ -27,7 +27,7 @@ danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') &
                 // Check that categories are followed are in the following format `[Category] - {Description}`
                 const changesetLineFormatRegex = /\[\w+\] - [\S].+/g;
                 const validChangesetEntries = diffString.match(changesetLineFormatRegex);
-                const numberOfValidChangesetEntries = (validChangesetEntries === null ? 0 : validChangesetEntries.length);
+                const numberOfValidChangesetEntries = validChangesetEntries ? validChangesetEntries.length : 0;
                 if (numberOfCategories !== numberOfValidChangesetEntries) {
                     fail(`:memo: Your changeset entries should be in the format: \`[Category] - {Description}\`. One or more of your entries does not follow this format. Filepath: \`${filepath}`);
                 }
@@ -37,7 +37,45 @@ danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') &
         });
     });
 
-// Check for empty PR Description checkboxes - but not for automated version PRs
-if (pr.body.includes('- [ ]') && !isDependabotPR) {
-    fail('You currently have an unchecked checklist item in your PR description.\n\nPlease confirm this check has been carried out – if it\'s not relevant to your PR, delete this line from the PR checklist.');
+// Allow unchecked checkboxes only in "Not-applicable Checklist items"
+if (!isDependabotPR) {
+    const { body } = pr;
+
+    const uncheckedCheckboxRegex = /- \[ \]/g;
+
+    // Split the body into sections
+    const sections = body.split(/## /);
+    const notApplicableSection = sections.find((section) => section.startsWith('Not-applicable Checklist items'));
+
+    // Check for unchecked checkboxes outside the "Not-applicable Checklist items" section
+    const uncheckedOutsideNotApplicableSection = sections.some((section) => {
+        if (section !== notApplicableSection) {
+            return uncheckedCheckboxRegex.test(section);
+        }
+        return false;
+    });
+
+    if (uncheckedOutsideNotApplicableSection) {
+        fail('You have unchecked checklist items outside the "Not-applicable Checklist items" section.\n\nPlease ensure all unchecked checkboxes are moved to the appropriate section.');
+    }
+
+    // Match sections for Reviewer 1 and Reviewer 2
+    const reviewer1Section = body.match(/### Reviewer 1.*?(?=###|$)/s);
+    const reviewer2Section = body.match(/### Reviewer 2.*?(?=###|$)/s);
+
+    // Helper function to check a reviewer's section
+    const checkReviewerSection = (section, reviewerName) => {
+        if (section) {
+            const uncheckedReviewerCheckboxes = section.match(uncheckedCheckboxRegex);
+            if (uncheckedReviewerCheckboxes) {
+                fail(`You have unchecked checklist items in ${reviewerName}'s section.\n\nPlease ensure all items are addressed before approval.`);
+            }
+        }
+    };
+
+    // Check Reviewer 1
+    checkReviewerSection(reviewer1Section ? reviewer1Section[0] : null, 'Reviewer 1');
+
+    // Check Reviewer 2
+    checkReviewerSection(reviewer2Section ? reviewer2Section[0] : null, 'Reviewer 2');
 }
