@@ -1,4 +1,4 @@
-import { type TemplateResult } from 'lit';
+import { html, type TemplateResult } from 'lit';
 import DOMPurify from 'dompurify';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { type StoryOptions } from '../types/StoryOptions';
@@ -34,6 +34,7 @@ export type TemplateFunction<T> = (props: T) => TemplateResult;
 export const createStory = <T>(templateFunc: TemplateFunction<T>, defaultArgs: T) => (
     propOverrides?: Partial<T>,
     storyOpts?: StoryOptions,
+    tags: ['foo'],
 ) => ({
     render: (args: T) => templateFunc(args),
     args: {
@@ -60,3 +61,67 @@ export const createStory = <T>(templateFunc: TemplateFunction<T>, defaultArgs: T
  * @returns {import('lit/directives/unsafe-html.js').UnsafeHTMLDirective} A Lit directive that can be used in a Lit template to render the sanitized content.
  */
 export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sanitize(slot));
+
+/**
+ * Creates a story that renders all combinations of given prop options for a Lit web component.
+ *
+ * @template T The type representing the properties of the Lit web component.
+ *
+ * @param {TemplateFunction<T>} template - The function responsible for rendering the Lit web component.
+ * @param {T} defaultArgs - A set of default property values to be used for each story.
+ * @param {Record<keyof T, any[]>} propOptions - An object defining the possible values for each prop.
+ * @param {string} slotContent - The content to be placed within the component's slot.
+ *
+ * @returns {Function} Returns a function that renders all combinations of the given prop options.
+ */
+export const createVariantStory = <T>(
+    template: TemplateFunction<T>,
+    defaultArgs: T,
+    propOptions: Record<keyof T, any[]>,
+    slotContent: string
+) => {
+    const generateCombinations = (options: Record<keyof T, any[]>): T[] => {
+        const keys = Object.keys(options) as (keyof T)[];
+        const combinations: T[] = [];
+
+        const buildCombination = (index: number, currentCombination: Partial<T>) => {
+            if (index === keys.length) {
+                combinations.push(currentCombination as T);
+                return;
+            }
+
+            const key = keys[index];
+            const values = options[key];
+
+            for (const value of values) {
+                buildCombination(index + 1, { ...currentCombination, [key]: value });
+            }
+        };
+
+        buildCombination(0, {});
+        return combinations;
+    };
+
+    const propCombinations = generateCombinations(propOptions);
+
+    return () => html`
+        <div style="display: block; width: 100%;">
+            ${propCombinations.map(
+                (props) => html`
+                    <div style="border: 1px solid black; padding: 16px; margin-bottom: 16px; width: 100%; box-sizing: border-box;">
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-family: monospace; background-color: #f9f9f9; padding: 8px; border-radius: 4px;">
+                            ${Object.entries(props as Record<string, any>).map(
+                                ([key, value]) => html`
+                                    <div><strong>${key}:</strong> ${JSON.stringify(value)}</div>
+                                `
+                            )}
+                        </div>
+                        <div style="margin-top: 16px; border: 2px dashed #aaa; padding: 8px; border-radius: 4px;">
+                            ${template({ ...props, slot: slotContent })}
+                        </div>
+                    </div>
+                `
+            )}
+        </div>
+    `;
+};

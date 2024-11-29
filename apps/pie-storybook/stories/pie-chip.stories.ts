@@ -8,7 +8,7 @@ import { type ChipProps as ChipPropsBase, variants, defaultProps } from '@justea
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
 import { type SlottedComponentProps } from '../types';
-import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
+import { createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type ChipProps = SlottedComponentProps<ChipPropsBase> & { showIcon: boolean };
 type ChipStoryMeta = ExtendedMeta<ChipProps>;
@@ -118,8 +118,20 @@ const Template: TemplateFunction<ChipProps> = ({
                     ${sanitizeAndRenderHTML(slot)}
            </pie-chip>`;
 
-const createCardStory = createStory<ChipProps>(Template, defaultArgs);
+const createChipStory = createStory<ChipProps>(Template, defaultArgs);
 
-export const Default = createCardStory();
-export const Outline = createCardStory({ variant: 'outline' });
-export const Ghost = createCardStory({ variant: 'ghost' });
+export const Default = createChipStory();
+export const Outline = createChipStory({ variant: 'outline' });
+export const Ghost = createChipStory({ variant: 'ghost' });
+
+// Define the prop options for the matrix
+const propOptions = {
+    variant: variants,
+    disabled: [true, false],
+    isSelected: [true, false],
+    isLoading: [true, false],
+    isDismissible: [true, false],
+    showIcon: [true, false]
+};
+
+ export const AllPropVariations = createVariantStory(Template, defaultArgs, propOptions, 'Hello world');
