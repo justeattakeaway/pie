@@ -22,6 +22,8 @@ Please move any Author checklist items that do not apply to this pull request he
 ---
 
 ## Testing
+[How do I test my changes?](https://github.com/justeattakeaway/pie/wiki/PIE-Aperture)
+
 | Task                   | Link                             |
 |------------------------|----------------------------------|
 | Aperture PR            | [🔗](#) |
