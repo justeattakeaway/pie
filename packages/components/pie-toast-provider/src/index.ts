@@ -121,8 +121,8 @@ export class PieToastProvider extends RtlMixin(LitElement) implements ToastProvi
 
         return html`
       <div class="c-toast-provider" data-test-id="pie-toast-provider">
-      ${_currentToast
-            ? html`
+      ${_currentToast &&
+            html`
               <pie-toast
                 message="${_currentToast.message}"
                 variant="${ifDefined(_currentToast.variant)}"
@@ -135,8 +135,7 @@ export class PieToastProvider extends RtlMixin(LitElement) implements ToastProvi
                 @pie-toast-open="${_currentToast.onPieToastOpen}"
                 @pie-toast-leading-action-click="${_currentToast.onPieToastLeadingActionClick}">
               </pie-toast>
-            `
-            : nothing}
+            `}
       </div>
     `;
     }
