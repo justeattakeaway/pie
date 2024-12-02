@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.26.0
+
+### Minor Changes
+
+- [Updated] - structure to follow new testing best practices via rendering in Storybook ([#2088](https://github.com/justeattakeaway/pie/pull/2088)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.25.0
 
 ### Minor Changes

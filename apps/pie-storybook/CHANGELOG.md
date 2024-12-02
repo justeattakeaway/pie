@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.16.1
+
+### Patch Changes
+
+- Updated dependencies [[`59743d9`](https://github.com/justeattakeaway/pie/commit/59743d9cdfca179d6322c6806402491fc1fe3788), [`59743d9`](https://github.com/justeattakeaway/pie/commit/59743d9cdfca179d6322c6806402491fc1fe3788)]:
+  - @justeattakeaway/pie-button@1.1.0
+  - @justeattakeaway/pie-cookie-banner@1.2.1
+  - @justeattakeaway/pie-modal@1.0.1
+  - @justeattakeaway/pie-toast@0.5.1
+
 ## 1.16.0
 
 ### Minor Changes
