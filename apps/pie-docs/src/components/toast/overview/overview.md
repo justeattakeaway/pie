@@ -224,6 +224,11 @@ Each level takes priority over those below it, queues alongside toasts of the sa
   tableData: priorityQueue
 } %}
 
+{% notification {
+  type: "information",
+  message: "The priority queue is managed by the [Toast Provider](/components/toast/toast-provider/code/) in engineering."
+} %}
+
 ---
 
 ## Behaviours
