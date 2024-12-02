@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0
+
+### Minor Changes
+
+- [Changed] - Styling allowing for text-overflow in buttons ([#1089](https://github.com/justeattakeaway/pie/pull/1089)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - enabled text wrapping onto multiple lines for all button types ([#1089](https://github.com/justeattakeaway/pie/pull/1089)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 1.0.0
 
 ### Major Changes
