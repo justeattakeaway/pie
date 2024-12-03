@@ -11,6 +11,7 @@ export class BasePage {
     componentTag: string;
     path: string;
     args: string;
+    globals: string;
 
     constructor (page: Page, componentName: string, componentTag = 'data-test-id') {
         this.page = page;
@@ -18,10 +19,16 @@ export class BasePage {
         this.componentTag = componentTag;
         this.path = '';
         this.args = '';
+        this.globals = '';
     }
 
-    async load (queries: Record<string, unknown> = {}) {
-        const pageUrl = buildUrl(this.componentName, this.composePath(queries), this.args);
+    async load (queries: Record<string, unknown> = {}, globalSettings: Record<string, unknown> = {}) {
+        const pageUrl = buildUrl(
+            this.componentName,
+            this.composePath(queries),
+            this.args,
+            this.composeGlobals(globalSettings),
+        );
         await this.open(pageUrl);
     }
 
@@ -37,7 +44,7 @@ export class BasePage {
      * Returns them as an interpolated string to be used in the URL.
      *
      * @param {string} queries The name of the attribute to retrieve.
-     * @returns args passed into URL seperated by ;
+     * @returns args passed into URL separated by ;
      *
      */
     composePath (queries: Record<string, unknown>) {
@@ -55,6 +62,22 @@ export class BasePage {
         });
 
         return `&args=${flattenQueries(queries).join(';')}`;
+    }
+
+    /**
+     * Composes the global settings into a string to append to the URL.
+     *
+     * @param {Record<string, unknown>} globals Key-value pairs of global settings.
+     * @returns Globals string to append to the URL.
+     */
+    composeGlobals (globals: Record<string, unknown>) {
+        if (!globals) {
+            return '';
+        }
+
+        const flattenGlobals = (obj: Record<string, unknown>): string[] => Object.entries(obj).map(([key, value]) => `${key}:${value}`);
+
+        return `&globals=${flattenGlobals(globals).join(';')}`;
     }
 
     /**
@@ -77,7 +100,7 @@ export class BasePage {
      *
      * @param {string} attribute The name of the attribute to retrieve.
      * @returns {Promise<string | null>} A Promise that resolves to the value of the specified attribute
-     * on the recieved event array on the page evaluate, or `null` if the attribute does not exist.
+     * on the received event array on the page evaluate, or `null` if the attribute does not exist.
      */
     async getCapturedEvents (): Promise<string[]> {
         return this.page.evaluate(() => window.__eventsArray);
