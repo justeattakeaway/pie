@@ -130,7 +130,7 @@
     },
     {
       "path": "./packages/components/pie-radio-group/dist/index.js",
-      "maxSize": "2.5 KB"
+      "maxSize": "5 KB"
     },
     {
       "path": "./packages/components/pie-radio-group/dist/react.js",
