@@ -1,6 +1,7 @@
 import {
     LitElement, html, unsafeCSS,
 } from 'lit';
+import { classMap } from 'lit/directives/class-map.js';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
@@ -60,15 +61,19 @@ export class PieIconButton extends LitElement implements IconButtonProps {
             disabled, size, variant, isLoading, aria,
         } = this;
 
+        const classes = {
+            'o-iconBtn': true,
+            [`o-iconBtn--${size}`]: true,
+            [`o-iconBtn--${variant}`]: true,
+            'is-loading': isLoading,
+        };
+
         // The inline SVG is temporary until we have a proper icon integration
         return html`
             <button
-                class="o-iconBtn"
+                class="${classMap(classes)}"
                 data-test-id="pie-icon-button"
-                size="${size || 'medium'}"
-                variant="${variant || 'primary'}"
                 ?disabled="${disabled}"
-                ?isLoading="${isLoading}"
                 aria-label="${ifDefined(aria?.label)}"
                 aria-labelledby="${ifDefined(aria?.labelledby)}"
                 aria-describedby="${ifDefined(aria?.describedby)}"
