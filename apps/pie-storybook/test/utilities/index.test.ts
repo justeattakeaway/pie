@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { html, render, type TemplateResult} from 'lit';
+import { html, render, type TemplateResult } from 'lit';
 import { createStory, createVariantStory } from '../../utilities/index';
 import { type StoryOptions } from '../../types/StoryOptions';
 
@@ -23,8 +23,8 @@ describe('createStory', () => {
         const actualTemplateResult = result.render(defaultArgs);
 
         const expectedTemplateResult: Partial<TemplateResult> = {
-          strings: Object.assign(['\n  <pie-component size=', ' variant=', '></pie-component>\n']),
-          values: ['medium', 'primary']
+            strings: Object.assign(['\n  <pie-component size=', ' variant=', '></pie-component>\n']),
+            values: ['medium', 'primary'],
         };
 
         // Compare the key properties of the TemplateResult

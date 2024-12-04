@@ -1,4 +1,4 @@
-import { type Page } from '@playwright/test';
+import { type Page, selectors } from '@playwright/test';
 import { buildUrl } from './storybook-extensions';
 
 declare global {
@@ -13,6 +13,7 @@ export class BasePage {
     args: string;
 
     constructor (page: Page, componentName: string, componentTag = 'data-test-id') {
+        selectors.setTestIdAttribute('data-test-id');
         this.page = page;
         this.componentName = componentName;
         this.componentTag = componentTag;
@@ -22,11 +23,9 @@ export class BasePage {
 
     async load (queries: Record<string, unknown> = {}) {
         const pageUrl = buildUrl(this.componentName, this.composePath(queries), this.args);
-        await this.open(pageUrl);
-    }
+        await this.page.goto(pageUrl);
 
-    async open (url: string) {
-        await this.page.goto(url, { waitUntil: 'networkidle' });
+        await this.page.setDefaultTimeout(5000);
         return this;
     }
 

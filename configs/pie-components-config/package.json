@@ -14,7 +14,9 @@
     "tsconfig.json",
     "playwright/**",
     "playwright-lit-config.js",
-    "playwright-lit-visual-config.js"
+    "playwright-native-lit-config.js",
+    "playwright-lit-visual-config.js",
+    "playwright-native-visual-config.js"
   ],
   "dependencies": {
     "deepmerge-ts": "5.1.0"
