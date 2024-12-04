@@ -68,15 +68,16 @@ export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sani
  * @template T The type representing the properties of the Lit web component.
  *
  * @param {TemplateFunction<T>} template - The function responsible for rendering the Lit web component.
- * @param {Record<keyof T, any[]>} propOptions - An object defining the possible values for each prop.
+ * @param {Record<keyof T, unknown[]>} propOptions - An object defining the possible values for each prop.
+ * @param {StoryOptions & { multiColumn?: boolean }} [storyOpts] - Optional story configuration including background color, controls, layout and whether to display in multiple columns.
  *
- * @returns {Function} Returns a function that renders all combinations of the given prop options.
+ * @returns {Object} Returns an object containing a render function that displays all combinations of the given prop options.
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const createVariantStory = <T extends Record<string, any>>(
     template: TemplateFunction<T>,
     propOptions: Partial<Record<keyof T, unknown[]>>,
-    storyOpts?: StoryOptions,
+    storyOpts?: StoryOptions & { multiColumn?: boolean },
 ) => ({
         render: () => {
             const generateCombinations = (options: Partial<Record<keyof T, unknown[]>>): T[] => {
@@ -105,34 +106,79 @@ export const createVariantStory = <T extends Record<string, any>>(
 
             const backgroundValue = CUSTOM_BACKGROUNDS.values.find((bg: BackgroundValue) => bg.name === storyOpts?.bgColor)?.value || '#ffffff';
 
+            const gridStyle = storyOpts?.multiColumn ? `
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+                width: 100%;
+            ` : `
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                width: 100%;
+            `;
+
             return html`
-        <div style="display: block; width: 100%;">
-            ${propCombinations.map((props) => {
+            <style>
+                .grid {
+                    ${gridStyle}
+                }
+
+                @media (max-width: 768px) {
+                    .grid {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+
+                @media (max-width: 375px) {
+                    .grid {
+                        grid-template-columns: 1fr;
+                    }
+                }
+
+                .grid-item {
+                    border: 1px solid black;
+                    padding: 16px;
+                    box-sizing: border-box;
+                }
+
+                .props-display {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 8px;
+                    font-family: monospace;
+                    background-color: #f9f9f9;
+                    padding: 8px;
+                    border-radius: 4px;
+                }
+
+                .template-container {
+                    margin-top: 16px;
+                    border: 2px dashed #aaa;
+                    padding: 8px;
+                    border-radius: 4px;
+                    background-color: var(--background-color, #ffffff);
+                }
+            </style>
+            <div class="grid">
+                ${propCombinations.map((props) => {
                 const typedProps = props as T;
 
                 return html`
-                    <div style="border: 1px solid black; padding: 16px; margin-bottom: 16px; width: 100%; box-sizing: border-box;">
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-family: monospace; background-color: #f9f9f9; padding: 8px; border-radius: 4px;">
-                            ${Object.entries(typedProps).map(([key, value]) => html`
-                                <div><strong>${key}:</strong> ${JSON.stringify(value)}</div>
-                            `)}
+                        <div class="grid-item">
+                            <div class="props-display">
+                                ${Object.entries(typedProps).map(([key, value]) => html`
+                                    <div><strong>${key}:</strong> ${JSON.stringify(value)}</div>
+                                `)}
+                            </div>
+                            <div class="template-container" style="--background-color: ${backgroundValue};">
+                                ${template({ ...typedProps })}
+                            </div>
                         </div>
-                        <div
-                          style="
-                            margin-top: 16px;
-                            border: 2px dashed #aaa;
-                            padding: 8px;
-                            border-radius: 4px;
-                            background-color: ${backgroundValue};
-                          "
-                        >
-                            ${template({ ...typedProps })}
-                        </div>
-                    </div>
-                  `;
+                    `;
             })}
-        </div>
-      `;
+            </div>
+        `;
         },
         parameters: {
             controls: {
