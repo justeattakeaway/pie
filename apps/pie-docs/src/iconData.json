@@ -447,6 +447,10 @@
                 {
                     "name": "share",
                     "displayName": "Share"
+                },
+                {
+                    "name": "share-2",
+                    "displayName": "Share 2"
                 }
             ]
         },
