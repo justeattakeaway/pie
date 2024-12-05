@@ -20,6 +20,10 @@ test.describe('PieCookieBanner - Visual tests`', () => {
 
         await pieCookieBannerComponent.clickManagePreferencesAction();
 
+        await page.$eval('dialog', (el) => {
+            el.style.top = '20px';
+        });
+
         await percySnapshot(page, 'PieCookieBanner Manage preferences - Visual Test');
     });
 
