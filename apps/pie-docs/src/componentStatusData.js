@@ -1977,6 +1977,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
+            link: 'https://webc.pie.design/?path=/story/textarea--default',
             status: webComponentStatuses['pie-textarea'],
         },
         {
