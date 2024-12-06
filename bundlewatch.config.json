@@ -187,6 +187,10 @@
     {
       "path": "./packages/components/pie-toast-provider/dist/*.js",
       "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-thumbnail/dist/*.js",
+      "maxSize": "3 KB"
     }
   ],
   "defaultCompression": "gzip",
