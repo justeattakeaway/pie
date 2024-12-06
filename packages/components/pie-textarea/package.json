@@ -13,7 +13,7 @@
     "**/*.d.ts"
   ],
   "pieMetadata": {
-    "componentStatus": "alpha"
+    "componentStatus": "beta"
   },
   "scripts": {
     "build": "run -T vite build",
