@@ -1,0 +1,19 @@
+{
+    "headings": ["Prop", "Options", "Description", "Default"],
+    "rows": [
+        [
+            "options",
+            {
+                "type": "code",
+                "item": [["{}"]]
+            },
+            "Default options for all toasts; accepts all toast props.",
+            {
+                "type": "code",
+                "item": [["{}"]]
+            }
+        ]
+    ]
+}
+
+

@@ -1,0 +1,15 @@
+{
+    "headings": [
+      "Event",
+      "Type",
+      "Description"
+    ],
+    "rows": [
+      [
+        "`pie-toast-provider-queue-update`",
+        "`CustomEvent`",
+        "Triggered when a toast is added or removed from the queue."
+      ]
+    ]
+  }
+  
