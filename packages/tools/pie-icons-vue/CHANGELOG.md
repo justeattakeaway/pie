@@ -1,5 +1,25 @@
 # Changelog
 
+## 5.3.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2105](https://github.com/justeattakeaway/pie/pull/2105)) by [@maledr5](https://github.com/maledr5)
+
+  ## Communication
+
+  - share-2
+  - share-2-large
+
+  [Updated] - Icons
+
+  ## Pay
+
+  - takeaway-pay
+  - takeaway-pay-large
+  - takeaway-pay-filled-large
+  - takeaway-pay-filled
+
 ## 5.1.0
 
 ### Minor Changes
