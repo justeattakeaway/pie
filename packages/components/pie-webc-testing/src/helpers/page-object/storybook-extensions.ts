@@ -1,4 +1,9 @@
-export const buildUrl = (componentName: string, path: string, args: string) => {
+export const buildUrl = (
+    componentName: string,
+    path: string,
+    args: string,
+    globals = '',
+) => {
     const prNumber = process.env.PR_NUMBER;
     const branch = process.env.GITHUB_REF;
 
@@ -18,5 +23,10 @@ export const buildUrl = (componentName: string, path: string, args: string) => {
         url += `&args=${args}`;
     }
 
+    if (globals) {
+        url += `&globals=${globals}`;
+    }
+
     return url;
 };
+
