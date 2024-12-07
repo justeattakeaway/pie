@@ -30,6 +30,8 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
     connectedCallback () {
         super.connectedCallback();
 
+        this.setAttribute('data-test-id', `pie-button--${this.type}`);
+
         if (this.type === 'submit') {
             this.form?.addEventListener('keydown', this._handleFormKeyDown);
         }
