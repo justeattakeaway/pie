@@ -1,6 +1,6 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { type Meta } from '@storybook/web-components';
+import { type Meta, StoryObj } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-button';
 import {
@@ -8,7 +8,7 @@ import {
 } from '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 
-import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../../utilities';
+import { createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML } from '../../utilities';
 import { type SlottedComponentProps } from '../../types';
 
 type ButtonProps = SlottedComponentProps<ButtonPropsBase> & {
@@ -200,6 +200,22 @@ const Template: TemplateFunction<ButtonProps> = ({
     ${sanitizeAndRenderHTML(slot)}
 </pie-button>`;
 
+const AnchorTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => html`
+    <pie-button
+        tag="a"
+        size="${ifDefined(props.size)}"
+        variant="${ifDefined(props.variant)}"
+        iconPlacement="${ifDefined(props.iconPlacement)}"
+        ?isFullWidth="${props.isFullWidth}"
+        ?isResponsive="${props.isResponsive}"
+        responsiveSize="${ifDefined(props.responsiveSize)}"
+        href="${ifDefined(props.href)}"
+        rel="${ifDefined(props.rel)}"
+        target="${ifDefined(props.target)}">
+        ${props.iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
+        ${sanitizeAndRenderHTML(props.slot)}
+    </pie-button>`;
+
 const FormTemplate: TemplateFunction<ButtonProps> = ({
     showSubmitButton,
     showNativeResetButton,
@@ -310,10 +326,59 @@ const createButtonStory = createStory<ButtonProps>(Template, defaultArgs);
 
 const createButtonStoryWithForm = createStory<ButtonProps>(FormTemplate, defaultArgs);
 
-const anchorOnlyProps : Array<keyof ButtonProps> = ['href', 'target', 'rel'];
+export const Primary = createButtonStory();
 
-export const Primary = createButtonStory({}, {
-    controls: { exclude: ['variant', ...anchorOnlyProps] },
+export const Anchor = createStory(AnchorTemplate, defaultArgs)({
+  href: '/?path=/story/button--anchor',
+}, {
+  argTypes: {
+      tag: {
+          description: 'Choose the HTML element that will be used to render the button.<br>For this story, the prop has the value of `a`. See the other stories to interact with the component when this prop has a value of `button`.',
+      },
+  }
 });
 
 export const FormIntegration = createButtonStoryWithForm({ type: 'submit' });
+
+const FormSubmissionTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => html`
+    <form id="formSubmissionTestForm" action="/submit-endpoint" method="POST">
+        <input type="text" name="username" placeholder="Enter your username" required>
+        <pie-button
+            id="TestButton"
+            type="submit"
+            name="submitButton"
+            value="submitValue"
+        >
+          Submit
+        </pie-button>
+    </form>
+`;
+
+export const FormSubmission = createStory<ButtonProps>(FormSubmissionTemplate, {
+    ...defaultArgs,
+    type: 'submit',
+})();
+
+// ... existing code ...
+
+const FormWithAllAttributesTemplate: TemplateFunction<ButtonProps> = () => html`
+    <form id="testForm" action="/default-endpoint" method="GET">
+        <input type="text" name="username" required>
+        <pie-button id="testButton"
+                    type="submit"
+                    name="submitButton"
+                    value="submitValue"
+                    formaction="/custom-endpoint"
+                    formenctype="multipart/form-data"
+                    formmethod="POST"
+                    formnovalidate
+                    formtarget="_self">
+            Submit
+        </pie-button>
+    </form>
+`;
+
+export const FormWithAllAttributes = createStory<ButtonProps>(FormWithAllAttributesTemplate, {
+    ...defaultArgs,
+    type: 'submit',
+})();

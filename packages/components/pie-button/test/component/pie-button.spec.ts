@@ -13,16 +13,16 @@ const formInput: FormInput = {
 };
 
 type SizeResponsiveSize = {
-    sizeName: ButtonProps['size'];
-    responsiveSize: string;
+  size: ButtonProps['size'];
+  responsiveSize: string;
 };
 
 const sizes: Array<SizeResponsiveSize> = [
-    { sizeName: 'xsmall', responsiveSize: '--btn-height--small' },
-    { sizeName: 'small-expressive', responsiveSize: '--btn-height--medium' },
-    { sizeName: 'small-productive', responsiveSize: '--btn-height--medium' },
-    { sizeName: 'medium', responsiveSize: '--btn-height--large' },
-    { sizeName: 'large', responsiveSize: '--btn-height--large' },
+    { size: 'xsmall', responsiveSize: '--btn-height--small' },
+    { size: 'small-expressive', responsiveSize: '--btn-height--medium' },
+    { size: 'small-productive', responsiveSize: '--btn-height--medium' },
+    { size: 'medium', responsiveSize: '--btn-height--large' },
+    { size: 'large', responsiveSize: '--btn-height--large' },
 ];
 
 test('should correctly work with native click events', async ({ page }) => {
@@ -62,7 +62,7 @@ test.describe('Form Actions', () => {
         });
 
         test('should trigger native HTML form validation for required fields and submit after correcting when type is `submit`', async ({ page }) => {
-        // Arrange
+            // Arrange
             const formIntegrationPage = new FormIntegrationPage(page, 'button--form-integration');
             await formIntegrationPage.load();
 
@@ -107,77 +107,52 @@ test.describe('Form Actions', () => {
             expect(await formIntegrationPage.formSubmittedFlag).toHaveCount(0);
         });
 
-        /* eslint-disable vitest/no-commented-out-tests */
-        // test('NEED TO REFACTOR should include pie-button\'s name and value in the form submission data when it triggers submission', async ({ page }) => {
-        //     // Arrange
-        //     // Inject the test form into the page with pie-button having name and value attributes
-        //     await page.evaluate(() => {
-        //         const formHTML = `
-        //         <form id="testForm" action="/submit-endpoint" method="POST">
-        //             <input type="text" name="username">
-        //             <pie-button id="testButton" type="submit" name="submitButton" value="submitValue">Submit</pie-button>
-        //         </form>
-        //     `;
-        //         document.body.innerHTML = formHTML;
-        //     });
+        test('should include pie-button\'s name and value in the form submission data when it triggers submission', async ({ page }) => {
+            // Arrange
+            const formSubmissionPage = new FormIntegrationPage(page, 'button--form-submission');
+            await formSubmissionPage.load();
 
-        //     // Intercept form submissions
-        //     const [request] = await Promise.all([
-        //         page.waitForRequest('/submit-endpoint'),
-        //         page.fill('input[name="username"]', 'testUser'),
-        //         page.click('#testButton'),
-        //     ]);
+            // Intercept form submissions
+            const requestPromise = page.waitForRequest(/submit-endpoint/);
+            await page.fill('input[name="username"]', 'testUser');
 
-        //     const formData = request.postData();
+            // Act
+            await page.locator('pie-button').click();
 
-        //     // Assert
-        //     expect(formData).toContain('submitButton=submitValue');
-        // });
+            const request = await requestPromise;
+            const formData = request.postData();
 
-        // test('NEED TO REFACTOR - should respect all form-related attributes on the pie-button', async ({ page }) => {
-        //     // Arrange
-        //     // Inject the test form into the page with pie-button having multiple form attributes
-        //     await page.evaluate(() => {
-        //         const formHTML = `
-        //             <form id="testForm" action="/default-endpoint" method="GET">
-        //                 <input type="text" name="username" required>
-        //                 <pie-button id="testButton"
-        //                             type="submit"
-        //                             name="submitButton"
-        //                             value="submitValue"
-        //                             formaction="/custom-endpoint"
-        //                             formenctype="multipart/form-data"
-        //                             formmethod="POST"
-        //                             formnovalidate
-        //                             formtarget="_self">Submit</pie-button>
-        //             </form>
-        //         `;
-        //         document.body.innerHTML = formHTML;
-        //     });
+            // Assert
+            expect(formData).toContain('submitButton=submitValue');
+        });
 
-        //     // Act
-        //     // Intercept form submissions
-        //     const [request] = await Promise.all([
-        //         page.waitForRequest('/custom-endpoint'),
-        //         page.fill('input[name="username"]', 'testUser'),
-        //         page.click('#testButton'),
-        //     ]);
+        test('should respect all form-related attributes on the pie-button', async ({ page }) => {
+            // Arrange
+            const formAttributesPage = new FormIntegrationPage(page, 'button--form-with-all-attributes');
+            await formAttributesPage.load();
 
-        //     const postData = request.postData();
-        //     const method = request.method();
-        //     const headers = request.headers();
+            // Act
+            // Intercept form submissions
 
-        //     // Assert
-        //     expect(postData).toBeTruthy();
-        //     const submitButtonDisposition = 'Content-Disposition: form-data; name="submitButton"';
-        //     const submitButtonValuePosition = (postData as string).indexOf(submitButtonDisposition) + submitButtonDisposition.length;
-        //     expect((postData as string).includes(submitButtonDisposition)).toBeTruthy();
-        //     expect((postData as string).substring(submitButtonValuePosition)).toContain('submitValue');
-        //     expect(headers['content-type']).toMatch(/^multipart\/form-data;/);
-        //     expect(method).toBe('POST');
-        // });
+            const requestPromise = page.waitForRequest(/custom-endpoint/);
+            await page.fill('input[name="username"]', 'testUser');
+            await page.click('#testButton');
 
-        /* eslint-enable vitest/no-commented-out-tests */
+            const request = await requestPromise;
+
+            const postData = request.postData();
+            const method = request.method();
+            const headers = request.headers();
+
+            // Assert
+            expect(postData).not.toBeNull();
+            const submitButtonDisposition = 'Content-Disposition: form-data; name="submitButton"';
+            const submitButtonValuePosition = (postData as string).indexOf(submitButtonDisposition) + submitButtonDisposition.length;
+            expect((postData as string).includes(submitButtonDisposition)).toBeTruthy();
+            expect((postData as string).substring(submitButtonValuePosition)).toContain('submitValue');
+            expect(headers['content-type']).toMatch(/^multipart\/form-data;/);
+            expect(method).toBe('POST');
+        });
 
         const submitTestCases = [
             { titlePrefix: 'should submit', showSubmitButton: true, expectedFormSubmittedFlagCount: 1 },
@@ -236,7 +211,7 @@ test.describe('Form Actions', () => {
 
     test.describe('Reset', () => {
         test('should reset the form by clicking the reset button when type is `reset`', async ({ page }) => {
-        // Arrange
+            // Arrange
             const formIntegrationPage = new FormIntegrationPage(page, 'button--form-integration');
             await formIntegrationPage.load();
 
@@ -327,12 +302,12 @@ test.describe('props', () => {
                 expect(await buttonComponent.isResponsive()).toBe(true);
             });
 
-            sizes.forEach(({ sizeName, responsiveSize }) => {
-                test(`a "${sizeName}" size button height should be equivalent to "${responsiveSize}"`, async ({ page }) => {
+            sizes.forEach((testCase) => {
+                test(`a "${testCase.size}" size button height should be equivalent to "${testCase.responsiveSize}"`, async ({ page }) => {
                     const buttonComponent = new ButtonComponent(page, 'button--primary');
-                    await buttonComponent.load({ isResponsive: true, size: sizeName });
+                    await buttonComponent.load({ ...testCase });
 
-                    const [currentHeight, expectedHeight] = await buttonComponent.getShadowElementStylePropValues(['--btn-height', responsiveSize]);
+                    const [currentHeight, expectedHeight] = await buttonComponent.getShadowElementStylePropValues(['--btn-height', testCase.responsiveSize]);
 
                     await expect(currentHeight).toBe(expectedHeight);
                 });
@@ -351,19 +326,23 @@ test.describe('props', () => {
         });
 
         const responsiveSizeTestCases = [
-            { size: 'xsmall', responsiveSize: 'expressive', expectedClass: [/o-btn--expressive/] },
-            { size: 'xsmall', responsiveSize: 'productive', expectedClass: [/o-btn--productive/] },
+            {
+                size: 'xsmall', responsiveSize: 'expressive', expectedClass: [/o-btn--expressive/], isResponsive: true,
+            },
+            {
+                size: 'xsmall', responsiveSize: 'productive', expectedClass: [/o-btn--productive/], isResponsive: true,
+            },
         ];
 
-        responsiveSizeTestCases.forEach(({ size, responsiveSize, expectedClass }) => {
+        responsiveSizeTestCases.forEach((testCase) => {
             test.describe('when "isResponsive" is true', () => {
-                test.describe(`when "responsiveSize" is "${responsiveSize}"`, () => {
+                test.describe(`when "responsiveSize" is "${testCase.responsiveSize}"`, () => {
                     test('the button should have the expected attribute', async ({ page }) => {
                         const buttonComponent = new ButtonComponent(page, 'button--primary');
-                        await buttonComponent.load({ size, isResponsive: true, responsiveSize });
+                        await buttonComponent.load({ ...testCase });
 
                         await expect(buttonComponent.componentLocator.locator('button'))
-                        .toHaveClass(expectedClass);
+                        .toHaveClass(testCase.expectedClass);
                     });
                 });
             });
@@ -374,85 +353,80 @@ test.describe('props', () => {
         test.describe('when set to "button"', () => {
             test('should render a button element', async ({ page }) => {
                 // Arrange
+                const props: ButtonProps = {
+                    tag: 'button',
+                };
+
                 const buttonComponent = new ButtonComponent(page, 'button--primary');
-                await buttonComponent.load({ tag: 'button' });
+                await buttonComponent.load({ ...props });
 
                 // Assert
                 expect(buttonComponent.componentLocator.locator('button')).toBeVisible();
             });
 
-            /* eslint-disable vitest/no-commented-out-tests */
+            test('should not render anchor-specific attributes', async ({ page }) => {
+                // Arrange
+                const props: ButtonProps = {
+                    tag: 'button',
+                    // Anchor-specific props
+                    href: '/test',
+                    rel: 'noopener noreferrer',
+                    target: '_blank',
+                };
+                const buttonComponent = new ButtonComponent(page, 'button--primary');
+                await buttonComponent.load({ ...props });
 
-            //     test('should not render anchor-specific attributes', async ({ page }) => {
-            //         // Arrange
-            //         const props: ButtonProps = {
-            //             tag: 'button',
-            //             // Anchor-specific props
-            //             href: '/test',
-            //             rel: 'noopener noreferrer',
-            //             target: '_blank',
-            //         };
-            //         const buttonComponent = new ButtonComponent(page, 'button--primary');
-            //         await buttonComponent.load({...props });
+                const buttonShadowElement = buttonComponent.componentLocator.locator('button');
 
-            //         const buttonShadowElement = buttonComponent.componentLocator.locator('button');
-
-        //         // Assert
-        //         expect(buttonShadowElement).toHaveAttribute('rel', props.rel as string);
-        //         expect(buttonShadowElement).toHaveAttribute('target', props.target as string);
-        //         expect(buttonShadowElement).toHaveAttribute('href', props.href as string);
-        //     });
+                // Assert
+                expect(buttonShadowElement).not.toHaveAttribute('rel', props.rel as string);
+                expect(buttonShadowElement).not.toHaveAttribute('target', props.target as string);
+                expect(buttonShadowElement).not.toHaveAttribute('href', props.href as string);
+            });
         });
 
-        // test.describe('when set to "a"', () => {
-        //     test('should render an anchor element', async ({ page }) => {
-        //         // Arrange
-        //         const props: ButtonProps = {
-        //             tag: 'a',
-        //         };
+        test.describe('when set to "a"', () => {
+            test('should render an anchor element', async ({ page }) => {
+                // Arrange
+                const props: ButtonProps = {
+                    tag: 'a',
+                };
 
-        //         // Act
-        //         const buttonComponent = new ButtonComponent(page, 'button--primary');
-        //         await buttonComponent.load({});
+                // Act
+                const buttonComponent = new ButtonComponent(page, 'button--anchor');
+                await buttonComponent.load({ ...props });
 
-        //         const anchor = buttonComponent.componentLocator.locator('a');
+                const anchor = buttonComponent.componentLocator.locator('a');
 
-        //         // Assert
-        //         expect(anchor).toBeVisible();
-        //     });
+                // Assert
+                expect(anchor).toBeVisible();
+            });
 
-        //     test('should not render button-specific attributes', async ({ mount }) => {
-        //         // Arrange
-        //         const props: ButtonProps = {
-        //             tag: 'a',
-        //             // Button-specific props
-        //             disabled: true,
-        //             isLoading: true,
-        //             type: 'submit',
-        //         };
+            test('should not render button-specific attributes', async ({ page }) => {
+                // Arrange
+                const props: ButtonProps = {
+                    tag: 'a',
+                    // Button-specific props
+                    disabled: true,
+                    isLoading: true,
+                    type: 'submit',
+                };
 
-        //         // Act
-        //         const component = await mount(PieButton, {
-        //             props,
-        //             slots: {
-        //                 default: 'Click me!',
-        //             },
-        //         });
+                // Act
+                const buttonComponent = new ButtonComponent(page, 'button--anchor');
+                await buttonComponent.load({ ...props });
 
-        //         const anchor = component.locator('a');
+                const anchor = buttonComponent.componentLocator.locator('a');
 
-        //         // Assert
-        //         const disabled = await anchor.getAttribute('disabled');
-        //         const type = await anchor.getAttribute('type');
-        //         const spinner = component.locator('pie-spinner');
+                // Assert
 
-        //         expect.soft(anchor).not.toHaveClass(/is-loading/);
-        //         expect.soft(disabled).toBeNull();
-        //         expect.soft(type).toBeNull();
-        //         expect(spinner).not.toBeVisible();
-        //     });
-        // });
+                const spinner = anchor.locator('pie-spinner');
 
-        /* eslint-enable vitest/no-commented-out-tests */
+                expect.soft(anchor).not.toHaveClass(/is-loading/);
+                expect.soft(anchor).not.toHaveAttribute('disabled');
+                expect.soft(anchor).not.toHaveAttribute('type');
+                expect(spinner).not.toBeVisible();
+            });
+        });
     });
 });
