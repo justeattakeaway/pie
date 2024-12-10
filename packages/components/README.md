@@ -57,7 +57,7 @@ const component = await mount(
         {
             props: {
               variant: 'secondary',
-            }
+            },
             slots: {
                 default: 'Click me!',
             },
@@ -132,15 +132,13 @@ Supported statuses are `alpha`, `beta` and `stable`.
 | **NPM Versioning** | Breaking changes should be expected. Component is still in active development and released as v0.x.x (indicating semver prerelease) | Breaking changes will be less likely, but could still occur due to component being integration tested with applications. | Component moves to v1.x.x NPM release. Breaking changes are communicated through version updates and any major feature changes will be tested as beta package releases.                                           | 
 | **Use in production applications is** | Not recommended. Component is still in active development and may have known issues. Is done so at application teams own risk.      | Is encouraged, but with appropriate level of caution for a beta package release. Thorough testing is recommended.        | Is encouraged and we don’t expect any obvious defects being found.  Component has already been tested in other applications and is therefore considered stable. As always, thorough testing is still recommended. | 
 
-
-
 ### What to do as a contributor
 Versioning will happen automatically through our pipeline, and will use each commit description to determine the right version. Remember you can use `yarn cz` when committing any changes. You don't need to change versions manually in the `package.json`.
 
 **When to change a status in `package.json`**
 
-Use `alpha` during development of the firs epic or MVP of the component.
+Use `alpha` during development of the first epic or MVP of the component.
 
-Once the MVP is done, the component will be released as `beta`. This is generally done by the pie team.
+Once the MVP is done, the component will be released as `beta`. This is generally done by the PIE team.
 
-It will move to `stable` after it has been tested in at least 2 production environments. This is generally done by the pie team.
+It will move to `stable` after it has been tested in at least 2 production environments. This is generally done by the PIE team.
