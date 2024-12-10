@@ -6,11 +6,6 @@
   "pipeline": {
     "build": {
       "cache": true,
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "./css/**",
-        "./scss/**"
-    ],
       "dependsOn": [
         "^build"
       ],

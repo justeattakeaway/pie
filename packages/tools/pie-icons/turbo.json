@@ -10,11 +10,6 @@
         "^build",
         "clean"
       ],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "bin/**",
-        "src/**"
-      ],
       "outputs": [
         "dist/**"
       ]
