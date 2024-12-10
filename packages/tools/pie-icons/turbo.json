@@ -11,6 +11,7 @@
         "clean"
       ],
       "inputs": [
+        "$TURBO_DEFAULT$",
         "bin/**",
         "src/**"
       ],

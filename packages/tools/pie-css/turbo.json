@@ -6,10 +6,15 @@
   "pipeline": {
     "build": {
       "cache": true,
-      "inputs": ["./css/**", "./scss/**"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "./css/**",
+        "./scss/**"
+    ],
       "dependsOn": [
         "^build"
-      ]
+      ],
+      "outputs": ["dist/**"]
     }
   }
 }

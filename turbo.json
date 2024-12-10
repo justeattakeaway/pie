@@ -17,6 +17,7 @@
         "create:manifest"
       ],
       "inputs": [
+        "$TURBO_DEFAULT$",
         "src/**",
         "custom-elements.json"
       ],
@@ -98,6 +99,7 @@
     "test:browsers-setup": {
       "cache": true,
       "inputs": [
+        "TURBO_DEFAULT$",
         "./configs/pie-components-config/playwright/index.html",
         "./configs/pie-components-config/playwright/index.ts"
       ],
