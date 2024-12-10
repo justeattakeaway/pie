@@ -112,4 +112,4 @@ As with the browser tests, it is vital that the component to test is mounted and
 When we build a component, we run a plugin for Rollup named `rollup-plugin-visualizer`. This generates a file for each component named `stats.html` in the root of the component package. This file can be viewed in the browser to visualise the bundled Javascript and better understand what contributes to the size of the final build output.
 
 ## Component Status changes
-The `package.json` file of each component is the source of truth for its status. Any change of status in package.json would be automatically reflected in Storybook and the Documentation site after a build step in the components package. There is no need to manually change `component-statuses.json` files.
+The `package.json` file of each component is the source of truth for its status. Any change of status will be automatically reflected in Storybook and the Documentation site. There is no need to manually change the `component-statuses.json` file.
