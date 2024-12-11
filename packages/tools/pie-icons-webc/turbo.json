@@ -21,6 +21,7 @@
         "build:icons"
       ],
       "inputs": [
+        "$TURBO_DEFAULT$",
         "icons/**"
       ],
       "outputs": [
