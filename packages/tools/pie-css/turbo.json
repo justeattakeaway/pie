@@ -6,10 +6,10 @@
   "pipeline": {
     "build": {
       "cache": true,
+      "inputs": ["./css/**", "./scss/**"],
       "dependsOn": [
         "^build"
-      ],
-      "outputs": ["dist/**"]
+      ]
     }
   }
 }
