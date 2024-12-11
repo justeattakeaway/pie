@@ -15,7 +15,7 @@
       "cache": false,
       "dependsOn": [
         "^build",
-        "copy:component-statuses"
+        "generate:component-statuses"
       ]
     },
     "build": {
