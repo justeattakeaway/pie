@@ -142,3 +142,4 @@ Use `alpha` during development of the first epic or MVP of the component.
 Once the MVP is done, the component will be released as `beta`. This is generally done by the PIE team.
 
 It will move to `stable` after it has been tested in at least 2 production environments. This is generally done by the PIE team.
+
