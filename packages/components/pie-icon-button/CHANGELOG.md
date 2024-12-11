@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-icon-button
 
+## 1.1.0
+
+### Minor Changes
+
+- [Changed] - Updated styles to use classmap ([#2106](https://github.com/justeattakeaway/pie/pull/2106)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`78d17bb`](https://github.com/justeattakeaway/pie/commit/78d17bbdb36993c1e158d14aa6f7a6448fe34028)]:
+  - @justeattakeaway/pie-icons-webc@1.2.0
+
 ## 1.0.0
 
 ### Major Changes

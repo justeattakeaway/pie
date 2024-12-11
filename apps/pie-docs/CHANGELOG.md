@@ -1,5 +1,14 @@
 # Changelog
 
+## 4.22.1
+
+### Patch Changes
+
+- [Changed] - update the textarea component status to beta ([#2113](https://github.com/justeattakeaway/pie/pull/2113)) by [@maledr5](https://github.com/maledr5)
+
+- Updated dependencies [[`78d17bb`](https://github.com/justeattakeaway/pie/commit/78d17bbdb36993c1e158d14aa6f7a6448fe34028)]:
+  - @justeattakeaway/pie-icons@5.3.0
+
 ## 4.22.0
 
 ### Minor Changes
