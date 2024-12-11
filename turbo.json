@@ -16,6 +16,10 @@
       "dependsOn": [
         "create:manifest"
       ],
+      "inputs": [
+        "src/**",
+        "custom-elements.json"
+      ],
       "outputs": [
         "src/react.ts"
       ]
@@ -93,6 +97,10 @@
     },
     "test:browsers-setup": {
       "cache": true,
+      "inputs": [
+        "./configs/pie-components-config/playwright/index.html",
+        "./configs/pie-components-config/playwright/index.ts"
+      ],
       "outputs": [
         "**/playwright/index.html",
         "**/playwright/index.ts"
@@ -129,6 +137,11 @@
     },
     "lint:scripts": {
       "cache": true,
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "src/**",
+        "src/react.ts"
+      ],
       "outputs": []
     },
     "lint:scripts:fix": {
