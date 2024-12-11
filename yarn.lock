@@ -4725,7 +4725,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/generator-pie-component@0.25.0, @justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component":
+"@justeattakeaway/generator-pie-component@0.26.0, @justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component"
   dependencies:
@@ -4751,7 +4751,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-button@1.0.0, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
+"@justeattakeaway/pie-button@1.1.0, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
@@ -4832,18 +4832,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-cookie-banner@1.2.0, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
+"@justeattakeaway/pie-cookie-banner@1.2.1, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeattakeaway/pie-button": 1.0.0
+    "@justeattakeaway/pie-button": 1.1.0
     "@justeattakeaway/pie-components-config": 0.18.0
     "@justeattakeaway/pie-css": 0.13.1
     "@justeattakeaway/pie-divider": 1.0.0
     "@justeattakeaway/pie-icon-button": 1.0.0
     "@justeattakeaway/pie-link": 1.0.0
-    "@justeattakeaway/pie-modal": 1.0.0
+    "@justeattakeaway/pie-modal": 1.0.1
     "@justeattakeaway/pie-switch": 1.0.0
     "@justeattakeaway/pie-webc-core": 0.24.2
     "@justeattakeaway/pie-wrapper-react": 0.14.2
@@ -5020,13 +5020,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-modal@1.0.0, @justeattakeaway/pie-modal@workspace:packages/components/pie-modal":
+"@justeattakeaway/pie-modal@1.0.1, @justeattakeaway/pie-modal@workspace:packages/components/pie-modal":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
     "@justeat/pie-design-tokens": 6.5.0
-    "@justeattakeaway/pie-button": 1.0.0
+    "@justeattakeaway/pie-button": 1.1.0
     "@justeattakeaway/pie-components-config": 0.18.0
     "@justeattakeaway/pie-css": 0.13.1
     "@justeattakeaway/pie-icon-button": 1.0.0
@@ -5174,12 +5174,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-toast@0.5.0, @justeattakeaway/pie-toast@workspace:packages/components/pie-toast":
+"@justeattakeaway/pie-toast@0.5.1, @justeattakeaway/pie-toast@workspace:packages/components/pie-toast":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-toast@workspace:packages/components/pie-toast"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeattakeaway/pie-button": 1.0.0
+    "@justeattakeaway/pie-button": 1.1.0
     "@justeattakeaway/pie-components-config": 0.18.0
     "@justeattakeaway/pie-css": 0.13.1
     "@justeattakeaway/pie-icon-button": 1.0.0
@@ -5209,24 +5209,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@0.5.55, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@0.5.56, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
     "@justeattakeaway/pie-assistive-text": 0.8.0
-    "@justeattakeaway/pie-button": 1.0.0
+    "@justeattakeaway/pie-button": 1.1.0
     "@justeattakeaway/pie-card": 0.21.3
     "@justeattakeaway/pie-checkbox": 0.13.6
     "@justeattakeaway/pie-checkbox-group": 0.7.6
     "@justeattakeaway/pie-chip": 0.9.3
     "@justeattakeaway/pie-components-config": 0.18.0
-    "@justeattakeaway/pie-cookie-banner": 1.2.0
+    "@justeattakeaway/pie-cookie-banner": 1.2.1
     "@justeattakeaway/pie-divider": 1.0.0
     "@justeattakeaway/pie-form-label": 0.14.4
     "@justeattakeaway/pie-icon-button": 1.0.0
     "@justeattakeaway/pie-link": 1.0.0
     "@justeattakeaway/pie-lottie-player": 0.0.5
-    "@justeattakeaway/pie-modal": 1.0.0
+    "@justeattakeaway/pie-modal": 1.0.1
     "@justeattakeaway/pie-notification": 0.12.6
     "@justeattakeaway/pie-radio": 0.5.0
     "@justeattakeaway/pie-radio-group": 0.3.0
@@ -5235,7 +5235,7 @@ __metadata:
     "@justeattakeaway/pie-tag": 0.12.0
     "@justeattakeaway/pie-text-input": 0.24.5
     "@justeattakeaway/pie-textarea": 0.13.0
-    "@justeattakeaway/pie-toast": 0.5.0
+    "@justeattakeaway/pie-toast": 0.5.1
     "@justeattakeaway/pie-toast-provider": 0.0.0
     chalk: 5.3.0
   bin:
@@ -22760,7 +22760,7 @@ __metadata:
     "@commitlint/config-conventional": 17.4.4
     "@justeat/pie-design-tokens": 6.5.0
     "@justeattakeaway/browserslist-config-pie": 0.2.0
-    "@justeattakeaway/generator-pie-component": 0.25.0
+    "@justeattakeaway/generator-pie-component": 0.26.0
     "@justeattakeaway/pie-icons": 5.2.0
     "@justeattakeaway/pie-webc-testing": 0.13.4
     "@justeattakeaway/pie-wrapper-react": 0.14.2
@@ -22802,7 +22802,7 @@ __metadata:
     stylelint-config-standard-scss: 13.0.0
     stylelint-order: 6.0.4
     ts-node: 10.9.1
-    turbo: 1.10.16
+    turbo: 1.13.4
     typescript: 5.4.5
     vite: 5.3.6
     vite-plugin-dts: 2.3.0
@@ -22819,12 +22819,12 @@ __metadata:
   dependencies:
     "@justeat/pie-design-tokens": 6.5.0
     "@justeattakeaway/pie-assistive-text": 0.8.0
-    "@justeattakeaway/pie-button": 1.0.0
+    "@justeattakeaway/pie-button": 1.1.0
     "@justeattakeaway/pie-card": 0.21.3
     "@justeattakeaway/pie-checkbox": 0.13.6
     "@justeattakeaway/pie-checkbox-group": 0.7.6
     "@justeattakeaway/pie-chip": 0.9.3
-    "@justeattakeaway/pie-cookie-banner": 1.2.0
+    "@justeattakeaway/pie-cookie-banner": 1.2.1
     "@justeattakeaway/pie-css": 0.13.1
     "@justeattakeaway/pie-divider": 1.0.0
     "@justeattakeaway/pie-form-label": 0.14.4
@@ -22833,7 +22833,7 @@ __metadata:
     "@justeattakeaway/pie-icons-webc": 1.1.0
     "@justeattakeaway/pie-link": 1.0.0
     "@justeattakeaway/pie-lottie-player": 0.0.5
-    "@justeattakeaway/pie-modal": 1.0.0
+    "@justeattakeaway/pie-modal": 1.0.1
     "@justeattakeaway/pie-monorepo-utils": 0.2.0
     "@justeattakeaway/pie-notification": 0.12.6
     "@justeattakeaway/pie-radio": 0.5.0
@@ -22843,7 +22843,7 @@ __metadata:
     "@justeattakeaway/pie-tag": 0.12.0
     "@justeattakeaway/pie-text-input": 0.24.5
     "@justeattakeaway/pie-textarea": 0.13.0
-    "@justeattakeaway/pie-toast": 0.5.0
+    "@justeattakeaway/pie-toast": 0.5.1
     "@justeattakeaway/pie-toast-provider": 0.0.0
     "@storybook/addon-a11y": 8.4.5
     "@storybook/addon-designs": 8.0.4
@@ -28314,58 +28314,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.10.16":
-  version: 1.10.16
-  resolution: "turbo-darwin-64@npm:1.10.16"
+"turbo-darwin-64@npm:1.13.4":
+  version: 1.13.4
+  resolution: "turbo-darwin-64@npm:1.13.4"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.10.16":
-  version: 1.10.16
-  resolution: "turbo-darwin-arm64@npm:1.10.16"
+"turbo-darwin-arm64@npm:1.13.4":
+  version: 1.13.4
+  resolution: "turbo-darwin-arm64@npm:1.13.4"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.10.16":
-  version: 1.10.16
-  resolution: "turbo-linux-64@npm:1.10.16"
+"turbo-linux-64@npm:1.13.4":
+  version: 1.13.4
+  resolution: "turbo-linux-64@npm:1.13.4"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.10.16":
-  version: 1.10.16
-  resolution: "turbo-linux-arm64@npm:1.10.16"
+"turbo-linux-arm64@npm:1.13.4":
+  version: 1.13.4
+  resolution: "turbo-linux-arm64@npm:1.13.4"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.10.16":
-  version: 1.10.16
-  resolution: "turbo-windows-64@npm:1.10.16"
+"turbo-windows-64@npm:1.13.4":
+  version: 1.13.4
+  resolution: "turbo-windows-64@npm:1.13.4"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:1.10.16":
-  version: 1.10.16
-  resolution: "turbo-windows-arm64@npm:1.10.16"
+"turbo-windows-arm64@npm:1.13.4":
+  version: 1.13.4
+  resolution: "turbo-windows-arm64@npm:1.13.4"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:1.10.16":
-  version: 1.10.16
-  resolution: "turbo@npm:1.10.16"
+"turbo@npm:1.13.4":
+  version: 1.13.4
+  resolution: "turbo@npm:1.13.4"
   dependencies:
-    turbo-darwin-64: 1.10.16
-    turbo-darwin-arm64: 1.10.16
-    turbo-linux-64: 1.10.16
-    turbo-linux-arm64: 1.10.16
-    turbo-windows-64: 1.10.16
-    turbo-windows-arm64: 1.10.16
+    turbo-darwin-64: 1.13.4
+    turbo-darwin-arm64: 1.13.4
+    turbo-linux-64: 1.13.4
+    turbo-linux-arm64: 1.13.4
+    turbo-windows-64: 1.13.4
+    turbo-windows-arm64: 1.13.4
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -28381,7 +28381,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 69d1892593449b264e0bd48b851317a743016ab62cf470e7293b2cc3781240e863c48232c89f65a5a4ce97eb791ca550b201593449350da073db07703a19cfa5
+  checksum: 94533f700dbbb7b556a7152ef04500a44b571232daf1eb9bd82bcfebac473d0cf45a78c851325c6867246656cb0b3be7c62a412381b6e85c77c1eddf51302778
   languageName: node
   linkType: hard
 
@@ -29571,7 +29571,7 @@ __metadata:
     "@angular/platform-browser-dynamic": 15.2.0
     "@angular/router": 15.2.0
     "@justeattakeaway/pie-css": 0.13.1
-    "@justeattakeaway/pie-webc": 0.5.55
+    "@justeattakeaway/pie-webc": 0.5.56
     rxjs: 7.8.0
     tslib: 2.3.0
     typescript: 4.9.4
@@ -29585,7 +29585,7 @@ __metadata:
   dependencies:
     "@babel/preset-env": 7.24.5
     "@justeattakeaway/pie-css": 0.13.1
-    "@justeattakeaway/pie-webc": 0.5.55
+    "@justeattakeaway/pie-webc": 0.5.56
     babel-loader: 8
     core-js: 3.30.0
     nuxt: 2.17.0
@@ -29600,7 +29600,7 @@ __metadata:
   resolution: "wc-react17@workspace:apps/examples/wc-react17"
   dependencies:
     "@justeattakeaway/pie-css": 0.13.1
-    "@justeattakeaway/pie-webc": 0.5.55
+    "@justeattakeaway/pie-webc": 0.5.56
     "@lit/react": 1.0.5
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -29620,7 +29620,7 @@ __metadata:
   resolution: "wc-react18@workspace:apps/examples/wc-react18"
   dependencies:
     "@justeattakeaway/pie-css": 0.13.1
-    "@justeattakeaway/pie-webc": 0.5.55
+    "@justeattakeaway/pie-webc": 0.5.56
     "@lit/react": 1.0.5
     "@types/react": 18.3.3
     "@types/react-dom": 18.3.0
@@ -29640,7 +29640,7 @@ __metadata:
   resolution: "wc-vue3@workspace:apps/examples/wc-vue3"
   dependencies:
     "@justeattakeaway/pie-css": 0.13.1
-    "@justeattakeaway/pie-webc": 0.5.55
+    "@justeattakeaway/pie-webc": 0.5.56
     "@types/node": 18.15.11
     "@vitejs/plugin-vue": 4.0.0
     "@vue/tsconfig": 0.1.3
