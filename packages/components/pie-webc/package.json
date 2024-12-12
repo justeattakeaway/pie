@@ -218,6 +218,16 @@
       "require": "./react/textarea.js",
       "types": "./react/textarea.d.ts"
     },
+    "./components/thumbnail.js": {
+      "import": "./components/thumbnail.js",
+      "require": "./components/thumbnail.js",
+      "types": "./components/thumbnail.d.ts"
+    },
+    "./react/thumbnail.js": {
+      "import": "./react/thumbnail.js",
+      "require": "./react/thumbnail.js",
+      "types": "./react/thumbnail.d.ts"
+    },
     "./components/toast.js": {
       "import": "./components/toast.js",
       "require": "./components/toast.js",
@@ -276,6 +286,7 @@
     "@justeattakeaway/pie-tag": "0.12.0",
     "@justeattakeaway/pie-text-input": "0.24.6",
     "@justeattakeaway/pie-textarea": "0.13.1",
+    "@justeattakeaway/pie-thumbnail": "0.0.0",
     "@justeattakeaway/pie-toast": "0.5.2",
     "@justeattakeaway/pie-toast-provider": "0.0.0"
   },
