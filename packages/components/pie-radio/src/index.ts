@@ -27,7 +27,6 @@ const componentSelector = 'pie-radio';
  * @event {CustomEvent} change - Fires when the radio is checked (but not when unchecked).
  */
 export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements RadioProps {
-    static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
     @state()
     private _disabledByParent = false;
 
@@ -94,6 +93,10 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
         this.dispatchEvent(customChangeEvent);
 
         this._handleFormAssociation();
+    }
+
+    public focus () {
+        this._radio.focus();
     }
 
     /**

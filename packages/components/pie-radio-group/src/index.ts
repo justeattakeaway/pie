@@ -224,16 +224,13 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
     private _handleFocusIn (event: FocusEvent): void {
         if (this !== event.target) return;
 
-        console.log('In _handleFocusIn');
         const isShiftTab = PieRadioGroup._wasShiftTabPressed;
         const focusTarget = this._slottedChildren?.find((child) => child.checked) ||
             (isShiftTab ? this._slottedChildren.at(-1) : this._slottedChildren[0]);
 
         if (!focusTarget) return;
 
-        console.log('focusing: ', focusTarget);
         focusTarget.focus();
-        console.log('focused: ', focusTarget);
         this._toggleFieldsetTabindex(false);
     }
 
