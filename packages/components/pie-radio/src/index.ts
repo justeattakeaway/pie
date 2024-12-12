@@ -95,6 +95,10 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
         this._handleFormAssociation();
     }
 
+    public focus () {
+        this._radio.focus();
+    }
+
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.
      * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
