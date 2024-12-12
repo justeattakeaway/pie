@@ -92,24 +92,4 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
             @pie-cookie-banner-prefs-saved="${prefsSavedAction}"></pie-cookie-banner>`;
 };
 
-/**
- * Creates a 'page' of scrollable HTML. Useful for testing scroll behaviours in a Story.
- */
-const createScrollablePageHTML = () => {
-    const items = [];
-    for (let i = 0; i < 200; i++) {
-        items.push(html`<li>Item ${i}</li>`);
-    }
-
-    return html`
-        <h1>Test Page</h1>
-        <p>Test copy</p>
-        <ul>${items}</ul>`;
-};
-
-const ScrollablePageStoryTemplate = (props: CookieBannerProps) => html`
-    ${BaseStoryTemplate(props)}
-    ${createScrollablePageHTML()}`;
-
 export const Default = createStory<CookieBannerProps>(BaseStoryTemplate, defaultArgs)();
-export const ScrollablePage = createStory<CookieBannerProps>(ScrollablePageStoryTemplate, defaultArgs)();
