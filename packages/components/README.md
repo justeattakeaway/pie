@@ -113,8 +113,7 @@ When we build a component, we run a plugin for Rollup named `rollup-plugin-visua
 
 ## Component Status changes
 
-The `package.json` file of each component is the source of truth for its status. Any change of status in package.json
-would be automatically reflected in Storybook and the Documentation site after a build step in the components package.
+The `package.json` file of each component is the source of truth for its status. Any change of status will be automatically reflected in Storybook and the Documentation site.
 
 Supported statuses are `alpha`, `beta` and `stable`.
 
