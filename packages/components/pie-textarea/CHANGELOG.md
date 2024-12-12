@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-textarea
 
+## 0.13.1
+
+### Patch Changes
+
+- [Changed] - update the textarea component status to beta ([#2113](https://github.com/justeattakeaway/pie/pull/2113)) by [@maledr5](https://github.com/maledr5)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.8.1
+
 ## 0.13.0
 
 ### Minor Changes
