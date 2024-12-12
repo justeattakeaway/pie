@@ -6,7 +6,9 @@ import {
     type PropertyValues,
     type TemplateResult,
 } from 'lit';
-import { property, queryAssignedElements, state } from 'lit/decorators.js';
+import {
+    property, query, queryAssignedElements, state,
+} from 'lit/decorators.js';
 import {
     RtlMixin,
     defineCustomElement,
@@ -62,6 +64,9 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
 
     @queryAssignedElements({ selector: 'pie-radio' })
         _slottedChildren!: Array<HTMLInputElement>;
+
+    @query('fieldset')
+    private _fieldset!: HTMLInputElement;
 
     private _abortController!: AbortController;
 
@@ -261,13 +266,10 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
      * @param {boolean} enable - Whether to enable (`true`) or disable (`false`) the `tabindex` on the `fieldset`.
      */
     private _toggleFieldsetTabindex (enable: boolean): void {
-        const fieldset = this.shadowRoot?.querySelector('fieldset');
-
-        if (!fieldset) return;
         if (enable) {
-            fieldset.setAttribute('tabindex', '0');
+            this._fieldset.setAttribute('tabindex', '0');
         } else {
-            fieldset.removeAttribute('tabindex');
+            this._fieldset.removeAttribute('tabindex');
         }
     }
 
