@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-thumbnail": minor
 ---
 
-[Added]-Created skeleton component
+[Added] - Created skeleton component
