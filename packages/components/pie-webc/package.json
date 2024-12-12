@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-webc",
   "description": "Component bundle containing all PIE web components",
-  "version": "0.5.57",
+  "version": "0.5.58",
   "type": "module",
   "files": [
     "**/*.js",
@@ -286,7 +286,7 @@
     "@justeattakeaway/pie-tag": "0.12.0",
     "@justeattakeaway/pie-text-input": "0.24.6",
     "@justeattakeaway/pie-textarea": "0.13.1",
-    "@justeattakeaway/pie-thumbnail": "0.0.0",
+    "@justeattakeaway/pie-thumbnail": "0.1.0",
     "@justeattakeaway/pie-toast": "0.5.2",
     "@justeattakeaway/pie-toast-provider": "0.0.0"
   },
