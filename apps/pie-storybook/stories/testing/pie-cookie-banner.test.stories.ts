@@ -17,9 +17,9 @@ const defaultArgs: CookieBannerProps = {
     cookieTechnologiesLink: `${Language.ENGLISH}/technologies`,
     cookieStatementLink: `${Language.ENGLISH}/cookiestatement`,
     defaultPreferences: {
-        functional: true,
-        personalized: true,
-        analytical: true,
+        functional: false,
+        personalized: false,
+        analytical: false,
     },
 };
 
