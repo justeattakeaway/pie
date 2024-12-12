@@ -134,7 +134,7 @@ Supported statuses are `alpha`, `beta` and `stable`.
 ### What to do as a contributor
 Versioning will happen automatically through our pipeline, and will use each commit description to determine the right version. Remember you can use `yarn cz` when committing any changes. You don't need to change versions manually in the `package.json`.
 
-**When to change a status in `package.json`**
+#### When to change a component's status
 
 Use `alpha` during development of the first epic or MVP of the component.
 
