@@ -112,7 +112,6 @@ As with the browser tests, it is vital that the component to test is mounted and
 When we build a component, we run a plugin for Rollup named `rollup-plugin-visualizer`. This generates a file for each component named `stats.html` in the root of the component package. This file can be viewed in the browser to visualise the bundled Javascript and better understand what contributes to the size of the final build output.
 
 ## Component Status changes
-
 The `package.json` file of each component is the source of truth for its status. Any change of status will be automatically reflected in Storybook and the Documentation site.
 
 Supported statuses are `alpha`, `beta` and `stable`.
@@ -125,7 +124,6 @@ Supported statuses are `alpha`, `beta` and `stable`.
 ```
 
 ### Release Categorisation
-
 |                    | Prerelease/Alpha (v0.x.x)                                                                                                           | Beta (v0.x.x)                                                                                                            | Stable (v1.x.x)                                                                                                                                                                                                   |
 |--------------------|-------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **NPM Versioning** | Breaking changes should be expected. Component is still in active development and released as v0.x.x (indicating semver prerelease) | Breaking changes will be less likely, but could still occur due to component being integration tested with applications. | Component moves to v1.x.x NPM release. Breaking changes are communicated through version updates and any major feature changes will be tested as beta package releases.                                           | 
@@ -135,7 +133,6 @@ Supported statuses are `alpha`, `beta` and `stable`.
 Versioning will happen automatically through our pipeline, and will use each commit description to determine the right version. Remember you can use `yarn cz` when committing any changes. You don't need to change versions manually in the `package.json`.
 
 #### When to change a component's status
-
 Use `alpha` during development of the first epic or MVP of the component.
 
 Once the MVP is done, the component will be released as `beta`. This is generally done by the PIE team.
