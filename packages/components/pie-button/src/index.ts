@@ -77,7 +77,10 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
     @property({ type: Boolean })
     public disabled = defaultProps.disabled;
 
-    @property({ type: Boolean, reflect: true })
+    @property({
+        type: Boolean,
+        reflect: true,
+    })
     public isLoading = defaultProps.isLoading;
 
     @property({ type: Boolean })
@@ -212,7 +215,11 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
      * @private
      */
     private renderSpinner (): TemplateResult {
-        const { size, variant, disabled } = this;
+        const {
+            size,
+            variant,
+            disabled,
+        } = this;
 
         const spinnerSize: SpinnerProps['size'] = size && size.includes('small') ? 'small' : 'medium'; // includes("small") matches for any small size value and xsmall
         let spinnerVariant: SpinnerProps['variant'];
@@ -225,31 +232,39 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
 
         return html`
             <pie-spinner
-                size="${spinnerSize}"
-                variant="${spinnerVariant}">
+                    size="${spinnerSize}"
+                    variant="${spinnerVariant}">
             </pie-spinner>`;
     }
 
     renderAnchor (classes: ClassInfo) {
         const {
-            href, iconPlacement, rel, target,
+            href,
+            iconPlacement,
+            rel,
+            target,
         } = this;
 
         return html`
             <a
-                href="${ifDefined(href)}"
-                rel="${ifDefined(rel)}"
-                target="${ifDefined(target)}"
-                class="${classMap(classes)}">
-                ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
+                    href="${ifDefined(href)}"
+                    rel="${ifDefined(rel)}"
+                    target="${ifDefined(target)}"
+                    class="${classMap(classes)}">
+                ${iconPlacement === 'leading' ? html`
+                    <slot name="icon"></slot>` : nothing}
                 <slot></slot>
-                ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
+                ${iconPlacement === 'trailing' ? html`
+                    <slot name="icon"></slot>` : nothing}
             </a>`;
     }
 
     renderButton (classes: ClassInfo) {
         const {
-            disabled, iconPlacement, isLoading, type,
+            disabled,
+            iconPlacement,
+            isLoading,
+            type,
         } = this;
 
         const buttonClasses = {
@@ -259,14 +274,16 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
 
         return html`
             <button
-                @click=${this._handleClick}
-                class=${classMap(buttonClasses)}
-                type=${type}
-                ?disabled=${disabled}>
-                    ${isLoading ? this.renderSpinner() : nothing}
-                    ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
-                    <span class="o-btn-text"><slot></slot></span>
-                    ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
+                    @click=${this._handleClick}
+                    class=${classMap(buttonClasses)}
+                    type=${type}
+                    ?disabled=${disabled}>
+                ${isLoading ? this.renderSpinner() : nothing}
+                ${iconPlacement === 'leading' ? html`
+                    <slot name="icon"></slot>` : nothing}
+                <span class="o-btn-text"><slot></slot></span>
+                ${iconPlacement === 'trailing' ? html`
+                    <slot name="icon"></slot>` : nothing}
             </button>`;
     }
 
@@ -297,7 +314,8 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
     }
 
     focus () {
-        this.shadowRoot?.querySelector('button')?.focus();
+        this.shadowRoot?.querySelector('button')
+            ?.focus();
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
