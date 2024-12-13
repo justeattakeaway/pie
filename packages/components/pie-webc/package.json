@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-webc",
   "description": "Component bundle containing all PIE web components",
-  "version": "0.5.56",
+  "version": "0.5.57",
   "type": "module",
   "files": [
     "**/*.js",
@@ -218,6 +218,16 @@
       "require": "./react/textarea.js",
       "types": "./react/textarea.d.ts"
     },
+    "./components/thumbnail.js": {
+      "import": "./components/thumbnail.js",
+      "require": "./components/thumbnail.js",
+      "types": "./components/thumbnail.d.ts"
+    },
+    "./react/thumbnail.js": {
+      "import": "./react/thumbnail.js",
+      "require": "./react/thumbnail.js",
+      "types": "./react/thumbnail.d.ts"
+    },
     "./components/toast.js": {
       "import": "./components/toast.js",
       "require": "./components/toast.js",
@@ -255,28 +265,29 @@
     "chalk": "5.3.0"
   },
   "dependencies": {
-    "@justeattakeaway/pie-assistive-text": "0.8.0",
+    "@justeattakeaway/pie-assistive-text": "0.8.1",
     "@justeattakeaway/pie-button": "1.1.0",
     "@justeattakeaway/pie-card": "0.21.3",
-    "@justeattakeaway/pie-checkbox": "0.13.6",
-    "@justeattakeaway/pie-checkbox-group": "0.7.6",
-    "@justeattakeaway/pie-chip": "0.9.3",
-    "@justeattakeaway/pie-cookie-banner": "1.2.1",
+    "@justeattakeaway/pie-checkbox": "0.13.7",
+    "@justeattakeaway/pie-checkbox-group": "0.7.7",
+    "@justeattakeaway/pie-chip": "0.9.4",
+    "@justeattakeaway/pie-cookie-banner": "1.2.2",
     "@justeattakeaway/pie-divider": "1.0.0",
     "@justeattakeaway/pie-form-label": "0.14.4",
-    "@justeattakeaway/pie-icon-button": "1.0.0",
+    "@justeattakeaway/pie-icon-button": "1.1.0",
     "@justeattakeaway/pie-link": "1.0.0",
     "@justeattakeaway/pie-lottie-player": "0.0.5",
-    "@justeattakeaway/pie-modal": "1.0.1",
-    "@justeattakeaway/pie-notification": "0.12.6",
+    "@justeattakeaway/pie-modal": "1.0.2",
+    "@justeattakeaway/pie-notification": "0.12.7",
     "@justeattakeaway/pie-radio": "0.5.0",
-    "@justeattakeaway/pie-radio-group": "0.3.0",
+    "@justeattakeaway/pie-radio-group": "0.3.1",
     "@justeattakeaway/pie-spinner": "1.0.0",
-    "@justeattakeaway/pie-switch": "1.0.0",
+    "@justeattakeaway/pie-switch": "1.0.1",
     "@justeattakeaway/pie-tag": "0.12.0",
-    "@justeattakeaway/pie-text-input": "0.24.5",
-    "@justeattakeaway/pie-textarea": "0.13.0",
-    "@justeattakeaway/pie-toast": "0.5.1",
+    "@justeattakeaway/pie-text-input": "0.24.6",
+    "@justeattakeaway/pie-textarea": "0.13.1",
+    "@justeattakeaway/pie-thumbnail": "0.0.0",
+    "@justeattakeaway/pie-toast": "0.5.2",
     "@justeattakeaway/pie-toast-provider": "0.0.0"
   },
   "volta": {

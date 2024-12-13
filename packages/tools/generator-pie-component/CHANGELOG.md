@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.27.0
+
+### Minor Changes
+
+- [Added] - New exports for native playwright configs ([#2119](https://github.com/justeattakeaway/pie/pull/2119)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.26.0
 
 ### Minor Changes
