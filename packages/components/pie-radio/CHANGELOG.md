@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-radio
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - Ensure focus is correctly delegated to the underlying input element ([#2108](https://github.com/justeattakeaway/pie/pull/2108)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.5.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-webc
 
+## 0.5.59
+
+### Patch Changes
+
+- Updated dependencies [[`c926464`](https://github.com/justeattakeaway/pie/commit/c926464254ff33fdd116435151194bc9e2ed581c), [`c926464`](https://github.com/justeattakeaway/pie/commit/c926464254ff33fdd116435151194bc9e2ed581c)]:
+  - @justeattakeaway/pie-radio@0.6.0
+  - @justeattakeaway/pie-radio-group@0.4.0
+
 ## 0.5.58
 
 ### Patch Changes
