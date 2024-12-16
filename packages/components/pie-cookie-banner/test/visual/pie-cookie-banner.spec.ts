@@ -1,30 +1,36 @@
-import { test } from '@sand4rt/experimental-ct-web';
+import { test } from '@justeattakeaway/pie-webc-testing/src/playwright/playwright-fixtures.ts';
+import { CookieBannerComponent } from 'test/helpers/page-object/pie-cookie-banner.page.ts';
 import percySnapshot from '@percy/playwright';
 
-import { PieCookieBanner, type CookieBannerProps } from '../../src/index.ts';
-
-const managePrefsSelector = '[data-test-id="actions-manage-prefs"]';
+let pieCookieBannerComponent: CookieBannerComponent;
 
 test.describe('PieCookieBanner - Visual tests`', () => {
-    test('should display the PieCookieBanner component successfully', async ({ page, mount }) => {
-        await mount(PieCookieBanner);
+    test.beforeEach(async ({ page }) => {
+        pieCookieBannerComponent = new CookieBannerComponent(page);
+    });
+
+    test('should display the PieCookieBanner component successfully', async ({ page }) => {
+        await pieCookieBannerComponent.load();
 
         await percySnapshot(page, 'PieCookieBanner - Visual Test');
     });
 
-    test('should display the manage preferences modal after clicking `"Manage preferences"`', async ({ page, mount }) => {
-        await mount(PieCookieBanner);
+    test('should display the manage preferences modal after clicking `"Manage preferences"`', async ({ page }) => {
+        await pieCookieBannerComponent.load();
 
-        await page.click(managePrefsSelector);
+        await pieCookieBannerComponent.clickManagePreferencesAction();
+
+        // This fixes modal being pushed down in screenshots
+        await page.$eval('dialog', (el) => {
+            el.style.top = '20px';
+        });
 
         await percySnapshot(page, 'PieCookieBanner Manage preferences - Visual Test');
     });
 
     [true, false].forEach((hasPrimaryActionsOnly) => {
-        test(`should display the correct button variants for hasPrimaryActionsOnly = ${hasPrimaryActionsOnly}`, async ({ mount, page }) => {
-            await mount(PieCookieBanner, {
-                props: { hasPrimaryActionsOnly } as CookieBannerProps,
-            });
+        test(`should display the correct button variants for hasPrimaryActionsOnly = ${hasPrimaryActionsOnly}`, async ({ page }) => {
+            await pieCookieBannerComponent.load({ hasPrimaryActionsOnly });
 
             await percySnapshot(page, `PieCookieBanner hasPrimaryActionsOnly = ${hasPrimaryActionsOnly}`);
         });
