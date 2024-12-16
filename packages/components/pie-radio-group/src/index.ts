@@ -162,6 +162,8 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
 
     protected firstUpdated (): void {
         // Make all radios impossible to tab to
+        // This is because by default, we are able to tab to each individual radio button.
+        // This is not the behaviour we want, so applying -1 tabindex prevents it.
         this._slottedChildren.forEach((radio) => radio.setAttribute('tabindex', '-1'));
     }
 
