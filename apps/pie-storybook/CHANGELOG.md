@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.16.3
+
+### Patch Changes
+
+- Updated dependencies [[`55c347b`](https://github.com/justeattakeaway/pie/commit/55c347bdf0682ffdbe8244149a72029157862668)]:
+  - @justeattakeaway/pie-thumbnail@0.1.0
+
 ## 1.16.2
 
 ### Patch Changes
