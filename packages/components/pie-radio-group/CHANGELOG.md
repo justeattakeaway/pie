@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-radio-group
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - Keyboard navigation and tab/shift + tab focus behaviour ([#2108](https://github.com/justeattakeaway/pie/pull/2108)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.3.1
 
 ### Patch Changes

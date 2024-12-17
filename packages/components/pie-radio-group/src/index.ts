@@ -6,7 +6,9 @@ import {
     type PropertyValues,
     type TemplateResult,
 } from 'lit';
-import { property, queryAssignedElements, state } from 'lit/decorators.js';
+import {
+    property, query, queryAssignedElements, state,
+} from 'lit/decorators.js';
 import {
     RtlMixin,
     defineCustomElement,
@@ -63,7 +65,18 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
     @queryAssignedElements({ selector: 'pie-radio' })
         _slottedChildren!: Array<HTMLInputElement>;
 
+    @query('fieldset')
+    private _fieldset!: HTMLInputElement;
+
     private _abortController!: AbortController;
+
+    /**
+     * Tracks whether the `Shift` key was held during the last `Tab` key press.
+     *
+     * The property is static because it needs to be shared across all instances of the
+     * `PieRadioGroup` component on the same page, ensuring consistent behavior.
+     */
+    private static _wasShiftTabPressed = false;
 
     /**
      * Dispatches a custom event to notify each slotted child radio element
@@ -147,12 +160,154 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
         }
     }
 
+    protected firstUpdated (): void {
+        // Make all radios impossible to tab to
+        // This is because by default, we are able to tab to each individual radio button.
+        // This is not the behaviour we want, so applying -1 tabindex prevents it.
+        this._slottedChildren.forEach((radio) => radio.setAttribute('tabindex', '-1'));
+    }
+
     connectedCallback (): void {
         super.connectedCallback();
         this._abortController = new AbortController();
         const { signal } = this._abortController;
 
         this.shadowRoot?.addEventListener('change', this._handleRadioChange.bind(this), { signal });
+
+        this.addEventListener('focusin', this._handleFocusIn, { signal });
+        this.addEventListener('focusout', this._handleFocusOut, { signal });
+
+        this.addEventListener('keydown', this._handleKeyDown, { signal });
+        document.addEventListener('keydown', this._updateShiftTabState.bind(this), { signal });
+    }
+
+    /**
+     * Updates the state of `_wasShiftTabPressed` based on the last `Tab` key press.
+     */
+    private _updateShiftTabState (event: KeyboardEvent): void {
+        if (event.key === 'Tab') {
+            PieRadioGroup._wasShiftTabPressed = event.shiftKey;
+        }
+    }
+
+    /**
+     * Handles the `focusin` event to manage focus within the radio group.
+     *
+     * This method determines the appropriate element to focus when the radio group
+     * gains focus. It considers the last navigation action (whether `Shift+Tab` was used)
+     * and focuses the checked option, the first option, or the last option as needed.
+     */
+    private _handleFocusIn (event: FocusEvent): void {
+        if (this !== event.target) return;
+
+        const isShiftTab = PieRadioGroup._wasShiftTabPressed;
+        const focusTarget = this._slottedChildren?.find((child) => child.checked) ||
+            (isShiftTab ? this._slottedChildren.at(-1) : this._slottedChildren[0]);
+
+        if (!focusTarget) return;
+
+        focusTarget.focus();
+        this._toggleFieldsetTabindex(false);
+    }
+
+    /**
+     * Handles the `focusout` event to restore the `tabindex` on the radio group's `fieldset`.
+     *
+     * When focus leaves the radio group, this method enables the `tabindex` attribute
+     * on the `fieldset` element. This ensures the radio group remains accessible for
+     * keyboard navigation and can be re-focused when tabbing back into the group.
+     */
+    private _handleFocusOut (): void {
+        this._toggleFieldsetTabindex(true);
+    }
+
+    private _toggleFieldsetTabindex (enable: boolean): void {
+        if (enable) {
+            this._fieldset.setAttribute('tabindex', '0');
+        } else {
+            this._fieldset.removeAttribute('tabindex');
+        }
+    }
+
+    private _moveFocus (currentIndex: number, step: number): void {
+        const newIndex = (currentIndex + step + this._slottedChildren.length) % this._slottedChildren.length;
+        this._focusAndClickOption(this._slottedChildren[newIndex]);
+    }
+
+    /**
+     * Determines if a key press indicates forward navigation within the radio group.
+     *
+     * This method evaluates a keyboard event to check if the pressed key corresponds
+     * to forward navigation based on the current text direction (LTR or RTL).
+     *
+     * **Behaviour:**
+     * - For LTR (Left-to-Right) layouts:
+     *   - `ArrowRight` and `ArrowDown` indicate forward navigation.
+     * - For RTL (Right-to-Left) layouts:
+     *   - `ArrowLeft` and `ArrowDown` indicate forward navigation.
+     */
+    private _isForwardKey (event: KeyboardEvent): boolean {
+        return (event.code === 'ArrowRight' && !this.isRTL) ||
+            (event.code === 'ArrowLeft' && this.isRTL) ||
+            event.code === 'ArrowDown';
+    }
+
+    /**
+     * Determines if a key press indicates backward navigation within the radio group.
+     *
+     * This method evaluates a keyboard event to check if the pressed key corresponds
+     * to backward navigation based on the current text direction (LTR or RTL).
+     *
+     * **Behaviour:**
+     * - For LTR (Left-to-Right) layouts:
+     *   - `ArrowLeft` and `ArrowUp` indicate backward navigation.
+     * - For RTL (Right-to-Left) layouts:
+     *   - `ArrowRight` and `ArrowUp` indicate backward navigation.
+     */
+    private _isBackwardKey (event: KeyboardEvent): boolean {
+        return (event.code === 'ArrowLeft' && !this.isRTL) ||
+            (event.code === 'ArrowRight' && this.isRTL) ||
+            event.code === 'ArrowUp';
+    }
+
+    /**
+     * Handles keyboard navigation within the radio group using arrow keys.
+     *
+     * This method responds to `keydown` events and determines the appropriate navigation
+     * action (forward or backward) based on the pressed key and the current focus. It prevents
+     * the default browser behaviour (e.g., scrolling) when arrow keys are used for navigation.
+     */
+    private _handleKeyDown (event: KeyboardEvent): void {
+        const currentlyFocusedChild = this._slottedChildren.find((child) => child === document.activeElement);
+
+        if (!currentlyFocusedChild) {
+            return;
+        }
+
+        const currentIndex = this._slottedChildren.indexOf(currentlyFocusedChild);
+        if (currentIndex === -1) {
+            return;
+        }
+
+        // Prevent default scrolling behavior when using Arrow keys for Radio Group navigation
+        if (['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp'].includes(event.code)) {
+            event.preventDefault();
+        }
+
+        if (this._isForwardKey(event)) {
+            this._moveFocus(currentIndex, 1);
+        } else if (this._isBackwardKey(event)) {
+            this._moveFocus(currentIndex, -1);
+        }
+    }
+
+    private _focusAndClickOption (option: HTMLInputElement): void {
+        option.focus();
+        // This is quite hacky, but it ensures the radio elements correct emit a real change event.
+        // Simply setting option.checked as true would require re-architecture of both this component and the radio button
+        // to ensure that property changes are observed and correctly propagated up.
+        option.shadowRoot?.querySelector('input')?.click();
+        this._toggleFieldsetTabindex(false);
     }
 
     disconnectedCallback (): void {
@@ -179,6 +334,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
 
         return html`
             <fieldset
+                tabindex="0"
                 name=${ifDefined(name)}
                 ?disabled=${disabled}
                 data-test-id="pie-radio-group"
