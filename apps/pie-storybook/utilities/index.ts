@@ -102,19 +102,33 @@ export const createVariantStory = <T>(
             const propCombinations = generateCombinations(propOptions);
 
             return html`
-          <div style="display: block; width: 100%;">
-              ${propCombinations.map((props) => html`
-                      <div style="border: 1px solid black; padding: 16px; margin-bottom: 16px; width: 100%; box-sizing: border-box;">
-                          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-family: monospace; background-color: #f9f9f9; padding: 8px; border-radius: 4px;">
-                              ${Object.entries(props as Record<string, unknown>).map(([key, value]) => html`
-                                      <div><strong>${key}:</strong> ${JSON.stringify(value)}</div>
-                                  `)}
-                          </div>
-                          <div style="margin-top: 16px; border: 2px dashed #aaa; padding: 8px; border-radius: 4px;">
-                              ${template({ ...props })}
-                          </div>
-                      </div>
-                  `)}
+            <div style="display: block; width: 100%;">
+                ${propCombinations.map((props) => {
+                // Type assertion to ensure darkBackground is recognized
+                const typedProps = props as T & { darkBackground?: boolean };
+
+                return html`
+                    <div style="border: 1px solid black; padding: 16px; margin-bottom: 16px; width: 100%; box-sizing: border-box;">
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-family: monospace; background-color: #f9f9f9; padding: 8px; border-radius: 4px;">
+                            ${Object.entries(typedProps).map(([key, value]) => html`
+                                <div><strong>${key}:</strong> ${JSON.stringify(value)}</div>
+                            `)}
+                        </div>
+                        <div
+                          style="
+                            margin-top: 16px;
+                            border: 2px dashed #aaa;
+                            padding: 8px;
+                            border-radius: 4px;
+                            background-color: ${typedProps.darkBackground ? '#333' : '#fff'};
+                            color: ${typedProps.darkBackground ? '#fff' : '#000'};
+                          "
+                        >
+                            ${template({ ...typedProps })}
+                        </div>
+                    </div>
+                  `;
+            })}
           </div>
         `;
         },
@@ -135,5 +149,5 @@ export const createVariantStory = <T>(
                 disable: true,
             },
         },
-        ...(storyOpts?.argTypes ? { argTypes: storyOpts?.argTypes } : {}),
+        ...(storyOpts?.argTypes ? { argTypes: storyOpts.argTypes } : {}),
     });
