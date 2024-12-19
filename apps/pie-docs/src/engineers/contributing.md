@@ -57,7 +57,23 @@ You can take a look at our Storybook instances:
 
 ### Can I build a new component?
 
-Yes. If the component has been approved by designers then you are more than welcome to contribute. Please [speak to the Design System team](/support/contact-us) about your requirements and we will help by guiding you.
+
+Yes. If the component has been approved by designers then you are more than welcome to contribute. Please [speak to the Design System team](/support/contact-us) about your requirements, and we will help by guiding you.
+
+#### Process
+
+The diagram below outlines the engineering contribution process.
+
+Contributors can reach out to the PIE team and we will support the contributors throughout the process, from requirements analysis through to planning and implementation.
+
+You can take a closer look at this in our [contribution model](https://www.figma.com/design/BRwqw7B4dm4mVPdvfVLSNY/Process?node-id=2696-2121&p=f&t=GFAeUnYAXeT3UhrV-0) process file.
+
+{% contentPageImage {
+  src:"../../assets/img/engineers/contributing/engineer-diagram.png",
+  mobileSrc:"../../assets/img/engineers/contributing/engineer-diagram_narrow.png",
+  width: "880px",
+  caption: "The diagram above shows the process of the contribution model in engineering."
+} %}
 
 ---
 
@@ -71,5 +87,5 @@ Once submitted, we will discuss how they can be met by using (or extending) an e
 src:"../../assets/img/engineers/contributing/slack-request@2x.png",
 mobileSrc:"../../assets/img/engineers/contributing/slack-request_narrow@2x.png",
 width: "466px",
-caption: "The image above shows where you can find the Propose feature workflow in our #help-designsystem Slack channel."
+caption: "The image above shows where you can find the Propose Feature workflow in our #help-designsystem Slack channel."
 } %}
