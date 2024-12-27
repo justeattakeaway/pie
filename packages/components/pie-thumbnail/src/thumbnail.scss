@@ -1,1 +1,41 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+// Base thumbnail styles
+.o-tn {
+  // Custom Property Declarations
+  // These are defined here instead of :host to encapsulate them inside Shadow DOM
+  --tn-border-radius: var(--dt-radius-rounded-b);
+  --tn-size-small: var(--dt-spacing-g);
+  --tn-bg-color: var(--dt-color-container-default);
+  --tn-border-color: var(--dt-color-border-default);
+
+  // ************************
+  // Button Variant Modifiers
+  // ************************
+  &.o-tn--default, &.o-tn--outline {
+    // as default state properties apply for all other states, should we have only sizing classes and
+    // outline class and a outline boolean property instead of variant property on the component?
+
+    background-color: var(--tn-bg-color);
+
+    // Properties concerning sizing
+    box-sizing: border-box;
+    width: var(--tn-size-small);
+    height: var(--tn-size-small);
+    //width: 40px;
+    //height: 40px;
+    border-radius: var(--tn-border-radius);
+  }
+
+  &.o-tn--outline {
+    border: 1px solid var(--tn-border-color);
+  }
+}
+
+.o-tn-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: var(--tn-border-radius);
+}
