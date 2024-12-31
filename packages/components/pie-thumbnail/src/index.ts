@@ -30,12 +30,16 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     @property({ type: Boolean })
     public disabled = defaultProps.disabled;
 
+    @property({ type: Boolean })
+    public hasPadding = defaultProps.hasPadding;
+
     render () {
         const {
             variant,
             src,
             alt,
             disabled,
+            hasPadding,
         } = this;
 
         const wrapperClasses = {
@@ -44,9 +48,14 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
             [`o-tn--${variant}`]: true,
         };
 
+        const imgClasses = {
+            'o-tn-img': true,
+            'o-tn--padding': hasPadding,
+        };
+
         return html`
             <div data-test-id="pie-thumbnail" class="${classMap(wrapperClasses)}">
-                <img data-test-id="pie-thumbnail-img" src="${src}" class="o-tn-img" alt="${alt}">
+                <img data-test-id="pie-thumbnail-img" src="${src}" class="${classMap(imgClasses)}" alt="${alt}">
             </div>
         `;
     }

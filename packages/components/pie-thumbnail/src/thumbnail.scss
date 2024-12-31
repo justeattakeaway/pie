@@ -9,6 +9,7 @@
   --tn-bg-color: var(--dt-color-container-default);
   --tn-border-color: var(--dt-color-border-default);
   --tn-disabled-opacity: 50%;
+  --tn-padding: calc(var(--dt-spacing-a) / 2);
 
   // ************************
   // Button Variant Modifiers
@@ -41,4 +42,8 @@
   object-fit: contain;
   display: block;
   border-radius: var(--tn-border-radius);
+
+  &.o-tn--padding {
+    padding: var(--tn-padding);
+  }
 }

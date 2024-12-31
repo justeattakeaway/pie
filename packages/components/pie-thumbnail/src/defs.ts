@@ -11,13 +11,15 @@ export interface ThumbnailProps {
     src?: string;
     alt?: string;
     disabled?: boolean;
+    hasPadding?: boolean;
 }
 
-export type DefaultProps = ComponentDefaultProps<ThumbnailProps, 'variant' | 'src' | 'alt' | 'disabled'>;
+export type DefaultProps = ComponentDefaultProps<ThumbnailProps, 'variant' | 'src' | 'alt' | 'disabled' | 'hasPadding'>;
 
 export const defaultProps: DefaultProps = {
     variant: 'default',
     src: './assets/placeholder.png',
     alt: 'placeholder',
     disabled: false,
+    hasPadding: false,
 };
