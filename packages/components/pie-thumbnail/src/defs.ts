@@ -20,6 +20,7 @@ export const backgroundColorClassNames: Record<typeof backgroundColors[number], 
 type PlaceholderProps = {
     src?: string;
     alt?: string;
+    disabled?: boolean;
 }
 
 export interface ThumbnailProps {

@@ -75,6 +75,13 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
                 summary: defaultProps.placeholder,
             },
         },
+        disabled: {
+            description: 'Set the disabled attribute of the thumbnail.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.disabled,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
