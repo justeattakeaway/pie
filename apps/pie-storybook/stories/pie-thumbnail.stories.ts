@@ -40,6 +40,13 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
                 summary: defaultArgs.alt,
             },
         },
+        disabled: {
+            description: 'Set the disabled attribute of the thumbnail.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.disabled,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -56,11 +63,13 @@ const Template: TemplateFunction<ThumbnailProps> = ({
     variant,
     src,
     alt,
+    disabled,
 }) => html`
     <pie-thumbnail
         variant="${variant}"
         src="${src}"
-        alt="${alt}">
+        alt="${alt}"
+        ?disabled="${disabled}">
     </pie-thumbnail>`;
 
 const createThumbnailStory = createStory<ThumbnailProps>(Template, defaultArgs);

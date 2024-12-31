@@ -8,11 +8,12 @@
   --tn-size-small: var(--dt-spacing-g);
   --tn-bg-color: var(--dt-color-container-default);
   --tn-border-color: var(--dt-color-border-default);
+  --tn-disabled-opacity: 50%;
 
   // ************************
   // Button Variant Modifiers
   // ************************
-  &.o-tn--default, &.o-tn--outline {
+  &.o-tn--default, &.o-tn--outline, &.o-tn-disabled {
     // as default state properties apply for all other states, should we have only sizing classes and
     // outline class and a outline boolean property instead of variant property on the component?
 
@@ -27,6 +28,10 @@
 
   &.o-tn--outline {
     border: 1px solid var(--tn-border-color);
+  }
+
+  &.o-tn--disabled {
+    opacity: var(--tn-disabled-opacity);
   }
 }
 

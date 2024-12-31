@@ -27,15 +27,20 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     @property({ type: String })
     public alt = defaultProps.alt;
 
+    @property({ type: Boolean })
+    public disabled = defaultProps.disabled;
+
     render () {
         const {
             variant,
             src,
             alt,
+            disabled,
         } = this;
 
         const wrapperClasses = {
             'o-tn': true,
+            'o-tn--disabled': disabled,
             [`o-tn--${variant}`]: true,
         };
 
