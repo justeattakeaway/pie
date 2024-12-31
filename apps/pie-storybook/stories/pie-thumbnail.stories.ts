@@ -20,11 +20,9 @@ const defaultArgs: ThumbnailProps = {
     ...defaultProps,
     src: './static/images/pie-logo.svg',
     alt: 'The PIE design system logo',
-    placeholder: {
-        src: 'https://www.pie.design/assets/img/404_narrow.png',
-        alt: 'Thumbnail placeholder image',
-    },
 };
+
+const brokenSrc = 'uikejrjtie.png';
 
 const thumbnailStoryMeta: ThumbnailStoryMeta = {
     title: 'Thumbnail',
@@ -74,6 +72,13 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
                 summary: defaultProps.hasPadding,
             },
         },
+        hideDefaultPlaceholder: {
+            description: 'Hides the component default placeholder on image load failures.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.hideDefaultPlaceholder,
+            },
+        },
         backgroundColor: {
             description: 'Applies a background color to the thumbnail container.',
             control: 'select',
@@ -91,7 +96,7 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
             },
         },
         placeholder: {
-            description: 'If an image fails to load, the placeholder prop can be used to ensure there is always something visible to users.',
+            description: 'Overrides the component default placeholder with a custom one to display on image load failure.',
             control: 'object',
             defaultValue: {
                 summary: defaultProps.placeholder,
@@ -116,6 +121,7 @@ const Template: TemplateFunction<ThumbnailProps> = ({
     alt,
     disabled,
     hasPadding,
+    hideDefaultPlaceholder,
     backgroundColor,
     placeholder,
     aspectRatio,
@@ -129,6 +135,7 @@ const Template: TemplateFunction<ThumbnailProps> = ({
         backgroundColor="${ifDefined(backgroundColor)}"
         ?disabled="${disabled}"
         ?hasPadding="${hasPadding}"
+        ?hideDefaultPlaceholder="${hideDefaultPlaceholder}"
         .placeholder="${placeholder}"
     </pie-thumbnail>`;
 
@@ -152,4 +159,16 @@ export const AspectRatio16By9 = createThumbnailStory({
     src: './static/images/burger-16by9.png',
     alt: 'Chef assembling a burger in a kitchen.',
     aspectRatio: '16by9',
+}, {});
+
+export const WithInvalidSrcAndDefaultPlaceholder = createThumbnailStory({
+    src: brokenSrc,
+}, {});
+
+export const WithInvalidSrcAndCustomPlaceholder = createThumbnailStory({
+    src: brokenSrc,
+    placeholder: {
+        src: 'https://www.pie.design/assets/img/404_narrow.png',
+        alt: 'Thumbnail placeholder image',
+    },
 }, {});

@@ -5,7 +5,7 @@ import {
 } from 'lit';
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
-import { property, query } from 'lit/decorators.js';
+import { property, query, state } from 'lit/decorators.js';
 import {
     type ThumbnailProps,
     defaultProps,
@@ -16,6 +16,7 @@ import {
     aspectRatios,
 } from './defs';
 import styles from './thumbnail.scss?inline';
+import defaultPlaceholder from './default-placeholder.svg';
 
 // Valid values available to consumers
 export * from './defs';
@@ -50,6 +51,9 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     @property({ type: Boolean })
     public hasPadding = defaultProps.hasPadding;
 
+    @property({ type: Boolean })
+    public hideDefaultPlaceholder = defaultProps.hideDefaultPlaceholder;
+
     @property({ type: String })
     @validPropertyValues(componentSelector, backgroundColors, defaultProps.backgroundColor)
     public backgroundColor = defaultProps.backgroundColor;
@@ -60,6 +64,9 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     @query('img')
     private img!: HTMLImageElement;
 
+    @state()
+    private _isDefaultPlaceholder = false;
+
     /**
      * Assigns the thumbnail size and border radius CSS variables
      * based on the size prop.
@@ -67,25 +74,38 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     private _generateSizeStyles (): string {
         const { size } = this;
         let borderRadius = '--dt-radius-rounded-c';
+        let defaultPlaceholderPadding = '--dt-spacing-d';
         if (size <= 40) {
             borderRadius = '--dt-radius-rounded-a';
+            defaultPlaceholderPadding = '--dt-spacing-a';
         } else if (size <= 56) {
             borderRadius = '--dt-radius-rounded-b';
+            defaultPlaceholderPadding = '--dt-spacing-b';
         }
 
         return `
             --thumbnail-size: ${size}px;
             --thumbnail-border-radius: var(${borderRadius});
+            --thumbnail-default-placeholder-padding: var(${defaultPlaceholderPadding});
         `;
     }
 
     /**
      * Handles image load errors by replacing the src and alt props
-     * with the placeholder props.
+     * with the component default placeholder or the custom placeholder if provided.
      */
     private _handleImageError () {
-        if (this.placeholder?.src) this.setAttribute('src', this.placeholder.src);
-        if (this.placeholder?.alt) this.setAttribute('alt', this.placeholder.alt);
+        if (this.placeholder?.src) {
+            this.setAttribute('src', this.placeholder.src);
+            this.setAttribute('alt', this.placeholder.alt ?? '');
+            return;
+        }
+
+        if (!this.hideDefaultPlaceholder) {
+            this.setAttribute('src', defaultPlaceholder);
+            this.setAttribute('alt', '');
+            this._isDefaultPlaceholder = true;
+        }
     }
 
     /**
@@ -111,6 +131,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
             alt,
             disabled,
             hasPadding,
+            _isDefaultPlaceholder,
             backgroundColor,
             aspectRatio,
         } = this;
@@ -122,6 +143,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
             [backgroundColorClassNames[backgroundColor]]: true,
             'c-thumbnail--disabled': disabled,
             'c-thumbnail--padding': hasPadding,
+            'c-thumbnail--defaultPlaceholder': _isDefaultPlaceholder,
         };
 
         const sizeStyles = this._generateSizeStyles();

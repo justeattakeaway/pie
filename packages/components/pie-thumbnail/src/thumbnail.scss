@@ -3,6 +3,7 @@
   --thumbnail-border-radius: var(--dt-radius-rounded-b);
   --thumbnail-bg-color: var(--dt-color-container-default);
   --thumbnail-padding: calc(var(--dt-spacing-a) / 2);
+  --thumbnail-default-placeholder-padding: var(--dt-spacing-b);
   --thumbnail-img-border-radius: unset;
 
   display: flex;
@@ -61,5 +62,12 @@
     height: 100%;
     border-radius: var(--thumbnail-img-border-radius);
     object-fit: cover;
+  }
+
+  &.c-thumbnail--defaultPlaceholder {
+    --thumbnail-bg-color: var(--dt-color-container-default);
+    padding: var(--thumbnail-default-placeholder-padding);
+    height: var(--thumbnail-size);
+    opacity: 1;
   }
 }
