@@ -21,6 +21,7 @@ type PlaceholderProps = {
     src?: string;
     alt?: string;
     disabled?: boolean;
+    hasPadding?: boolean;
 }
 
 export interface ThumbnailProps {

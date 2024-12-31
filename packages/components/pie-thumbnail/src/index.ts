@@ -94,6 +94,11 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
             'c-thumbnail--padding': hasPadding,
         };
 
+        const imgClasses = {
+            'o-tn-img': true,
+            'o-tn--padding': hasPadding,
+        };
+
         return html`
             <div data-test-id="pie-thumbnail" class="${classMap(wrapperClasses)}">
                 <img
