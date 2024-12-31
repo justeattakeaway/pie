@@ -29,6 +29,7 @@ export const sizes = Object.freeze(Array.from(
 type PlaceholderProps = {
     src?: string;
     alt?: string;
+    disabled?: boolean;
 }
 
 export interface ThumbnailProps {
