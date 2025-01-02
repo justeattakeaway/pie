@@ -4,46 +4,74 @@
 .o-tn {
   // Custom Property Declarations
   // These are defined here instead of :host to encapsulate them inside Shadow DOM
-  --tn-border-radius: var(--dt-radius-rounded-b);
+  --tn-size-xsmall: var(--dt-spacing-f);
+  --tn-border-radius-xsmall: var(--dt-radius-rounded-a);
   --tn-size-small: var(--dt-spacing-g);
-  --tn-bg-color: var(--dt-color-container-default);
-  --tn-border-color: var(--dt-color-border-default);
-  --tn-disabled-opacity: 50%;
+  --tn-border-radius-small: var(--dt-radius-rounded-b);
+  --tn-size-medium: var(--dt-spacing-h);
+  --tn-border-radius-medium: var(--dt-radius-rounded-c);
+  --tn-border-outline: 1px solid var(--dt-color-border-default);
+  --tn-opacity-disabled: 50%;
   --tn-padding: calc(var(--dt-spacing-a) / 2);
+  --tn-bg-color: var(--dt-color-container-default);
 
-  // ************************
-  // Button Variant Modifiers
-  // ************************
-  &.o-tn--default, &.o-tn--outline, &.o-tn-disabled {
-    // as default state properties apply for all other states, should we have only sizing classes and
-    // outline class and a outline boolean property instead of variant property on the component?
+  // *********************
+  // Thumbnail Size Modifiers
+  // *********************
+  &.o-tn--xsmall {
+    --tn-max-width: var(--tn-size-small);
+    --tn-min-width: var(--tn-size-xsmall);
+    --tn-max-height: var(--tn-size-small);
+    --tn-min-height: var(--tn-size-xsmall);
+    --tn-border-radius: var(--tn-border-radius-xsmall);
+  }
 
-    background-color: var(--tn-bg-color);
+  &.o-tn--small {
+    --tn-max-width: var(--tn-size-medium);
+    --tn-min-width: var(--tn-size-small);
+    --tn-max-height: var(--tn-size-medium);
+    --tn-min-height: var(--tn-size-small);
+    --tn-border-radius: var(--tn-border-radius-small);
+  }
 
-    // Properties concerning sizing
-    box-sizing: border-box;
-    width: var(--tn-size-small);
-    height: var(--tn-size-small);
-    border-radius: var(--tn-border-radius);
+  &.o-tn--medium {
+    // --tn-max-width: var(--tn-size-medium);
+    --tn-min-width: var(--tn-size-medium);
+
+    // --tn-max-height: var(--tn-size-medium);
+    --tn-min-height: var(--tn-size-medium);
+    --tn-border-radius: var(--tn-border-radius-medium);
   }
 
   &.o-tn--outline {
-    border: 1px solid var(--tn-border-color);
+    --tn-border: var(--tn-border-outline);
   }
 
   &.o-tn--disabled {
-    opacity: var(--tn-disabled-opacity);
+    --tn-opacity: var(--tn-opacity-disabled);
   }
-}
 
-.o-tn-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
+  box-sizing: border-box;
+  max-width: var(--tn-max-width);
+  min-width: var(--tn-min-width);
+  max-height: var(--tn-max-height);
+  min-height: var(--tn-min-height);
   border-radius: var(--tn-border-radius);
+  border: var(--tn-border);
+  opacity: var(--tn-opacity);
+  background-color: var(--tn-bg-color);
 
-  &.o-tn--padding {
-    padding: var(--tn-padding);
+  .o-tn-img {
+    &.o-tn--padding {
+      --tn-img-padding: var(--tn-padding);
+    }
+
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    aspect-ratio: 1;
+    display: block;
+    border-radius: var(--tn-border-radius);
+    padding: var(--tn-img-padding);
   }
 }

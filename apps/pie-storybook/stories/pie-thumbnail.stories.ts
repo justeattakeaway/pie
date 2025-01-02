@@ -2,7 +2,9 @@ import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-thumbnail';
-import { type ThumbnailProps, defaultProps, variants } from '@justeattakeaway/pie-thumbnail';
+import {
+    type ThumbnailProps, defaultProps, variants, sizes,
+} from '@justeattakeaway/pie-thumbnail';
 
 import { createStory, type TemplateFunction } from '../utilities';
 
@@ -24,6 +26,14 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
             options: variants,
             defaultValue: {
                 summary: defaultArgs.variant,
+            },
+        },
+        size: {
+            description: 'Set the size of the thumbnail.',
+            control: 'select',
+            options: sizes,
+            defaultValue: {
+                summary: defaultArgs.size,
             },
         },
         src: {
@@ -68,6 +78,7 @@ export default thumbnailStoryMeta;
 
 const Template: TemplateFunction<ThumbnailProps> = ({
     variant,
+    size,
     src,
     alt,
     disabled,
@@ -75,6 +86,7 @@ const Template: TemplateFunction<ThumbnailProps> = ({
 }) => html`
     <pie-thumbnail
         variant="${variant}"
+        size="${size}"
         src="${src}"
         alt="${alt}"
         ?disabled="${disabled}"

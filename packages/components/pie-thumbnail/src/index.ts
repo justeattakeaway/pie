@@ -5,7 +5,12 @@ import {
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
 import { property } from 'lit/decorators.js';
-import { type ThumbnailProps, defaultProps, variants } from './defs';
+import type {
+    ThumbnailProps,
+} from './defs';
+import {
+    defaultProps, variants, sizes,
+} from './defs';
 import styles from './thumbnail.scss?inline';
 
 // Valid values available to consumers
@@ -22,6 +27,10 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     public variant = defaultProps.variant;
 
     @property({ type: String })
+    @validPropertyValues(componentSelector, sizes, defaultProps.size)
+    public size = defaultProps.size;
+
+    @property({ type: String })
     public src = defaultProps.src;
 
     @property({ type: String })
@@ -36,6 +45,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     render () {
         const {
             variant,
+            size,
             src,
             alt,
             disabled,
@@ -46,6 +56,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
             'o-tn': true,
             'o-tn--disabled': disabled,
             [`o-tn--${variant}`]: true,
+            [`o-tn--${size}`]: true,
         };
 
         const imgClasses = {
