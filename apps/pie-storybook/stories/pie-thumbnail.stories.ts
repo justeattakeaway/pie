@@ -32,6 +32,14 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
                 summary: defaultProps.variant,
             },
         },
+        size: {
+            description: 'Set the size of the thumbnail.',
+            control: 'select',
+            options: sizes,
+            defaultValue: {
+                summary: defaultArgs.size,
+            },
+        },
         src: {
             description: 'Set the src attribute for the underlying image tag.',
             control: 'text',
@@ -103,6 +111,7 @@ export default thumbnailStoryMeta;
 
 const Template: TemplateFunction<ThumbnailProps> = ({
     variant,
+    size,
     src,
     alt,
     disabled,
@@ -112,6 +121,7 @@ const Template: TemplateFunction<ThumbnailProps> = ({
 }) => html`
     <pie-thumbnail
         variant="${variant}"
+        size="${size}"
         src="${src}"
         alt="${alt}"
         ?disabled="${disabled}"
