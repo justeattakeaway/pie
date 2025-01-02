@@ -88,20 +88,6 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
                 summary: defaultProps.placeholder,
             },
         },
-        disabled: {
-            description: 'Set the disabled attribute of the thumbnail.',
-            control: 'boolean',
-            defaultValue: {
-                summary: defaultProps.disabled,
-            },
-        },
-        hasPadding: {
-            description: 'Set the hasPadding attribute of the thumbnail.',
-            control: 'boolean',
-            defaultValue: {
-                summary: defaultProps.hasPadding,
-            },
-        },
     },
     args: defaultArgs,
     parameters: {
