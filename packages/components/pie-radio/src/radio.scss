@@ -30,22 +30,6 @@
     }
 }
 
-// :host(:focus) {
-//     outline: none;
-//     .c-radio {
-//         .c-radio-input {
-//             @include p.focus;
-//         }
-//     }
-// }
-
-:host(:focus) {
-    outline: none;
-    .c-radio .c-radio-input {
-        @include p.focus;
-    }
-}
-
 .c-radio {
     --radio-dot-bg-color: var(--dt-color-content-interactive-primary);
     --radio-bg-color: transparent;
@@ -172,5 +156,13 @@
             --radio-dot-bg-color: var(--dt-color-content-disabled);
             --radio-bg-color--checked: var(--dt-color-disabled-01);
         }
+    }
+}
+
+:host(:focus) {
+    outline: none;
+
+    .c-radio .c-radio-input {
+        @include p.focus;
     }
 }
