@@ -6,14 +6,19 @@ import { type ExtendedToastProps } from './defs';
  */
 export const toaster = {
     _getToastProvider (): PieToastProvider | null {
-        const toastProvider = document.querySelector('pie-toast-provider') as PieToastProvider;
+        const toastProviders = document.querySelectorAll('pie-toast-provider');
 
-        if (!toastProvider) {
+        if (toastProviders.length === 0) {
             console.error('ToastProvider is not initialized.');
             return null;
         }
 
-        return toastProvider;
+        if (toastProviders.length > 1) {
+            console.error('Multiple PieToastProviders are found in the DOM. Only one provider is supported currently and should be registered at the root of the app.');
+            return null;
+        }
+
+        return toastProviders[0];
     },
     create (toast: ExtendedToastProps) {
         const toastProvider = this._getToastProvider();
