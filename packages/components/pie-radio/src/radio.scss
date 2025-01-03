@@ -1,5 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+// :host(:focus) {
+//     background: red;
+// }
+
 @mixin radio-interactive-state($bg-color) {
     .c-radio-input {
         &:hover:not(:checked, :disabled) {
@@ -50,6 +54,8 @@
 
     @include radio-interactive-state('dt-color-interactive-brand');
 
+
+
     &.c-radio--disabled {
         --radio-cursor: not-allowed;
     }
@@ -60,6 +66,10 @@
 
         @include radio-interactive-state('dt-color-support-error');
     }
+
+    // &:focus .c-radio-input {
+    //     @include p.focus;
+    // }
 
     .c-radio-input {
         appearance: none;
@@ -75,9 +85,9 @@
         transition: background-color var(--dt-motion-timing-100) var(--radio-motion-easing);
         flex-shrink: 0;
 
-        &:focus {
-            @include p.focus;
-        }
+        // &:focus {
+        //     @include p.focus;
+        // }
 
         // The filled circle before checking the radio
         &:before {
@@ -146,5 +156,13 @@
             --radio-dot-bg-color: var(--dt-color-content-disabled);
             --radio-bg-color--checked: var(--dt-color-disabled-01);
         }
+    }
+}
+
+:host(:focus) {
+    outline: none;
+
+    .c-radio .c-radio-input {
+        @include p.focus;
     }
 }
