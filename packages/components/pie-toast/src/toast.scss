@@ -1,5 +1,4 @@
 @use '@justeattakeaway/pie-css/scss' as p;
-@use '@justeattakeaway/pie-css/scss/settings' as *;
 
 .c-toast {
   --toast-border-radius: var(--dt-radius-rounded-b);
@@ -8,13 +7,9 @@
   --toast-font-size: #{p.font-size(--dt-font-body-s-size)};
   --toast-line-height: #{p.line-height(--dt-font-body-s-line-height)};
   --toast-icon-fill: var(--dt-color-content-default);
-  --toast-offset: var(--dt-spacing-d);
   --toast-translate-start: -100%;
   --toast-translate-end: 0;
 
-  position: absolute;
-  inset-inline-start: var(--toast-offset);
-  inset-block-end: var(--toast-offset);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,10 +28,6 @@
   transition-property: all;
   transition-duration: var(--dt-motion-timing-100);
   transition-timing-function: var(--dt-motion-easing-in);
-
-  @include media('>md') {
-    --toast-offset: var(--dt-spacing-e);
-  }
 }
 
 .c-toast--rtl {
