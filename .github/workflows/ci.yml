@@ -214,7 +214,7 @@ jobs:
   browser-tests-components:
     needs: [ build-ubuntu-node-20, deploy-storybook ]
     if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       # Checkout the Repo
       - name: Checkout
@@ -226,7 +226,7 @@ jobs:
         uses: ./.github/actions/setup-repo
         with:
           node-version: 20
-          os: ubuntu-latest
+          os: ubuntu-20.04
       # Setup Playwright
       - name: Setup Playwright
         uses: ./.github/actions/setup-playwright
@@ -283,7 +283,7 @@ jobs:
 
   browser-tests-docs:
     needs: deploy-docs
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       # Checkout the Repo
       - name: Checkout
@@ -295,7 +295,7 @@ jobs:
         uses: ./.github/actions/setup-repo
         with:
           node-version: 20
-          os: ubuntu-latest
+          os: ubuntu-20.04
       # Setup Playwright
       - name: Setup Playwright
         uses: ./.github/actions/setup-playwright
