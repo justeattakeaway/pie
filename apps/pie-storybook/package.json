@@ -1,6 +1,6 @@
 {
   "name": "pie-storybook",
-  "version": "1.16.4",
+  "version": "1.16.5",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {

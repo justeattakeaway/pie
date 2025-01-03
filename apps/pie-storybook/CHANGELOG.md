@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.16.5
+
+### Patch Changes
+
+- [Changed] - Updates Readme information about component status ([#2116](https://github.com/justeattakeaway/pie/pull/2116)) by [@maledr5](https://github.com/maledr5)
+
 ## 1.16.4
 
 ### Patch Changes
