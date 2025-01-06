@@ -10,6 +10,7 @@ import { renderTestPieModal } from '../helpers/index.ts';
 
 import { PieModal } from '../../src/index.ts';
 import { headingLevels } from '../../src/defs.ts';
+
 let modalComponent: ModalComponent;
 
 const createScrollablePageHTML = () => `<div>
