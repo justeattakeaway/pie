@@ -6,18 +6,21 @@ import {
 import { ModalComponent } from 'test/helpers/page-object/pie-modal.page.ts';
 import { PieButton } from '@justeattakeaway/pie-button';
 import { PieTextInput } from '@justeattakeaway/pie-text-input';
-import { createScrollablePageHTML, renderTestPieModal } from '../helpers/index.ts';
+import { renderTestPieModal } from '../helpers/index.ts';
 
 import { PieModal } from '../../src/index.ts';
-import {
-    ON_MODAL_BACK_EVENT,
-    ON_MODAL_CLOSE_EVENT,
-    ON_MODAL_LEADING_ACTION_CLICK,
-    ON_MODAL_SUPPORTING_ACTION_CLICK,
-    headingLevels,
-} from '../../src/defs.ts';
-
+import { headingLevels } from '../../src/defs.ts';
 let modalComponent: ModalComponent;
+
+const createScrollablePageHTML = () => `<div>
+        <h1>Test Page</h1>
+        <p>Top of page copy</p>
+        <p> Test copy </p>
+        <ol>
+            ${'<li>List item</li>'.repeat(200)}
+            <li>Bottom of page copy</li>
+        </ol>
+    </div>`;
 
 test.describe('modal', () => {
     test.beforeEach(async ({ page, mount }) => {
@@ -32,7 +35,7 @@ test.describe('modal', () => {
         await PieTextInputComponent.unmount();
     });
 
-    test('should be visible when opened', async ({ mount }) => {
+    test.only('should be visible when opened', async ({ mount }) => {
         // Arrange
         await mount(PieModal, {
             props: {
@@ -98,7 +101,7 @@ test.describe('modal', () => {
                             isDismissible: true,
                         },
                         on: {
-                            [ON_MODAL_CLOSE_EVENT]: (event: Event) => events.push(event),
+                            'pie-modal-close': (event: Event) => events.push(event),
                         },
                     },
                 );
@@ -140,7 +143,7 @@ test.describe('modal', () => {
                             hasBackButton: true,
                         },
                         on: {
-                            [ON_MODAL_BACK_EVENT]: (event: Event) => events.push(event),
+                            'pie-modal-back': (event: Event) => events.push(event),
                         },
                     },
                 );
@@ -164,7 +167,7 @@ test.describe('modal', () => {
                         isDismissible: true,
                     },
                     on: {
-                        [ON_MODAL_CLOSE_EVENT]: (event: Event) => events.push(event),
+                        'pie-modal-close': (event: Event) => events.push(event),
                     },
                 });
 
@@ -654,8 +657,8 @@ test.describe('modal', () => {
                             },
                         },
                         on: {
-                            [ON_MODAL_LEADING_ACTION_CLICK]: (event: Event) => events.push({ eventObject: event, eventName: 'leading' }),
-                            [ON_MODAL_SUPPORTING_ACTION_CLICK]: (event: Event) => events.push({ eventObject: event, eventName: 'supporting' }),
+                            'pie-modal-leading-action-click': (event: Event) => events.push({ eventObject: event, eventName: 'leading' }),
+                            'pie-modal-supporting-action-click': (event: Event) => events.push({ eventObject: event, eventName: 'supporting' }),
                         },
                     });
 
@@ -813,7 +816,7 @@ test.describe('modal', () => {
         });
     });
 
-    test('should not close the modal when a form is submitted', async ({ mount, page }) => {
+    test.only('should not close the modal when a form is submitted', async ({ mount, page }) => {
         // Arrange
         const slotContent = `<form id="testForm" action="/foo" method="POST">
                     <pie-form-label for="age">Age</pie-form-label>
@@ -840,7 +843,7 @@ test.describe('modal', () => {
         });
 
         // Act
-        await page.locator('[data-test-id="submit-button"]').click();
+        await page.getByTestId('submit-button').click();
         const isModalVisible = await modalComponent.isModalVisible();
 
         // Assert

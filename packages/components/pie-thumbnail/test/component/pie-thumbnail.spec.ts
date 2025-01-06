@@ -15,6 +15,6 @@ test.describe('PieThumbnail - Component tests', () => {
         const thumbnail = page.locator(componentSelector);
 
         // Assert
-        expect(thumbnail).toBeVisible();
+        await expect(thumbnail).toBeVisible();
     });
 });
