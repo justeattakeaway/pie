@@ -79,6 +79,7 @@ test.describe('Component: `Pie switch`', () => {
 
             test('should emit a "Switch clicked" console event when the switch is clicked', async ({ page }) => {
                 // Arrange
+<<<<<<< HEAD
                 const switchPage = new BasePage(page, 'switch');
                 await switchPage.load();
 
@@ -88,6 +89,15 @@ test.describe('Component: `Pie switch`', () => {
                     if (message.type() === 'info') {
                         consoleMessages.push(message.text());
                     }
+=======
+                let eventHeard = false;
+                await mount(PieSwitch, {
+                    on: {
+                        change: () => {
+                            eventHeard = true;
+                        },
+                    },
+>>>>>>> 5c6003b44 (chore(pie-monorepo): WCP-000 update playwright)
                 });
 
                 // Act
@@ -140,6 +150,7 @@ test.describe('Component: `Pie switch`', () => {
 
             test('should emit a "Switch clicked" console event when the switch is clicked', async ({ page }) => {
                 // Arrange
+<<<<<<< HEAD
                 const switchPage = new BasePage(page, 'switch');
                 await switchPage.load();
 
@@ -149,6 +160,15 @@ test.describe('Component: `Pie switch`', () => {
                     if (message.type() === 'info') {
                         consoleMessages.push(message.text());
                     }
+=======
+                let eventHeard = false;
+                await mount(PieSwitch, {
+                    on: {
+                        change: () => {
+                            eventHeard = true;
+                        },
+                    },
+>>>>>>> 5c6003b44 (chore(pie-monorepo): WCP-000 update playwright)
                 });
 
                 // Act

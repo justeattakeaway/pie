@@ -435,7 +435,7 @@ test.describe('PieNotification - Component tests', () => {
                     expect(actionLeading).toBeVisible();
                     expect(actionSupporting).toBeVisible();
 
-                    expect(footer).toHaveCSS('flex-direction', 'row');
+                    await expect(footer).toHaveCSS('flex-direction', 'row');
                 });
             });
         });

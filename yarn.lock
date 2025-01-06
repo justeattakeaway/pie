@@ -6497,39 +6497,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/experimental-ct-core@npm:1.41.0":
-  version: 1.41.0
-  resolution: "@playwright/experimental-ct-core@npm:1.41.0"
+"@playwright/experimental-ct-core@npm:1.49.1":
+  version: 1.49.1
+  resolution: "@playwright/experimental-ct-core@npm:1.49.1"
   dependencies:
-    playwright: 1.41.0
-    playwright-core: 1.41.0
-    vite: ^4.4.12
-  bin:
-    playwright: cli.js
-  checksum: fe602b6e590a18f56b16e3b82b4958e2ff65469f8b1fb461315b19f3cd65d54740506ac7fcea24481c10560f2d1162c762fa8fcef4d6e24eabba8a3247b94cc2
+    playwright: 1.49.1
+    playwright-core: 1.49.1
+    vite: ^5.2.8
+  checksum: 63902b13b5a0f23da6e0141b21e12a4d1892e4a60ff5f71adcb82980b4652a3e4c320d5835c0dadb053ee673a7196dc7f802c6226efbdb66b7f86531bbe437b9
   languageName: node
   linkType: hard
 
-"@playwright/experimental-ct-react@npm:1.41.0":
-  version: 1.41.0
-  resolution: "@playwright/experimental-ct-react@npm:1.41.0"
+"@playwright/experimental-ct-react@npm:1.49.1":
+  version: 1.49.1
+  resolution: "@playwright/experimental-ct-react@npm:1.49.1"
   dependencies:
-    "@playwright/experimental-ct-core": 1.41.0
-    "@vitejs/plugin-react": ^4.0.0
+    "@playwright/experimental-ct-core": 1.49.1
+    "@vitejs/plugin-react": ^4.2.1
   bin:
     playwright: cli.js
-  checksum: 81177e0fc6810f75f1eaa6209817ae14d6cdc5d651127f2f2db10473f9e5ea508bccc9c115862d07225609c5561540c0bb6a13b42635ec24ff26aeb4506775e8
+  checksum: ef8b157b98b752e5acd535517c2b872784bfb8c9423846e99d5c6c97bce1388d7423798b13dd210017c7e98fe121ca9388c004334013b233289b5d9c90292a7b
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.41.0":
-  version: 1.41.0
-  resolution: "@playwright/test@npm:1.41.0"
+"@playwright/test@npm:1.49.1":
+  version: 1.49.1
+  resolution: "@playwright/test@npm:1.49.1"
   dependencies:
-    playwright: 1.41.0
+    playwright: 1.49.1
   bin:
     playwright: cli.js
-  checksum: 3a7039f8cd14dd242154255417c100a99c3254a3c1fd26df2a11be24c10b06ef77d2736336d7743dedc5e1a6a52748e58ced730b6048f8bd75d8867ce81661e0
+  checksum: cdbd16df3d773dc8e522d79b4b961e25c2e1b1d4f3ec45eb711078ab5d11bca47caafe833e2be2f923328fbd012405a9ee31d9b449d184077598546a36847e69
   languageName: node
   linkType: hard
 
@@ -6671,135 +6669,375 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-android-arm64@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-android-arm64@npm:4.30.1"
+=======
+"@rollup/rollup-android-arm-eabi@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-android-arm-eabi@npm:4.30.0"
+  conditions: os=android & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-android-arm64@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-android-arm64@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-darwin-arm64@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-darwin-arm64@npm:4.30.1"
+=======
+"@rollup/rollup-android-arm64@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-android-arm64@npm:4.30.0"
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-darwin-arm64@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-darwin-arm64@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-darwin-x64@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-darwin-x64@npm:4.30.1"
+=======
+"@rollup/rollup-darwin-arm64@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-darwin-arm64@npm:4.30.0"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-darwin-x64@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-darwin-x64@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-freebsd-arm64@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-freebsd-arm64@npm:4.30.1"
+=======
+"@rollup/rollup-darwin-x64@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-darwin-x64@npm:4.30.0"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-freebsd-arm64@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-freebsd-arm64@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=freebsd & cpu=arm64
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-freebsd-x64@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-freebsd-x64@npm:4.30.1"
+=======
+"@rollup/rollup-freebsd-arm64@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-freebsd-arm64@npm:4.30.0"
+  conditions: os=freebsd & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-freebsd-x64@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-freebsd-x64@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-linux-arm-gnueabihf@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-linux-arm-gnueabihf@npm:4.30.1"
+=======
+"@rollup/rollup-freebsd-x64@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-freebsd-x64@npm:4.30.0"
+  conditions: os=freebsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-arm-gnueabihf@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-linux-arm-gnueabihf@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=linux & cpu=arm & libc=glibc
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-linux-arm-musleabihf@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-linux-arm-musleabihf@npm:4.30.1"
+=======
+"@rollup/rollup-linux-arm-gnueabihf@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-linux-arm-gnueabihf@npm:4.30.0"
+  conditions: os=linux & cpu=arm & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-arm-musleabihf@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-linux-arm-musleabihf@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=linux & cpu=arm & libc=musl
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-linux-arm64-gnu@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-linux-arm64-gnu@npm:4.30.1"
+=======
+"@rollup/rollup-linux-arm-musleabihf@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-linux-arm-musleabihf@npm:4.30.0"
+  conditions: os=linux & cpu=arm & libc=musl
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-arm64-gnu@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-linux-arm64-gnu@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-linux-arm64-musl@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-linux-arm64-musl@npm:4.30.1"
+=======
+"@rollup/rollup-linux-arm64-gnu@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-linux-arm64-gnu@npm:4.30.0"
+  conditions: os=linux & cpu=arm64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-arm64-musl@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-linux-arm64-musl@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-linux-loongarch64-gnu@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-linux-loongarch64-gnu@npm:4.30.1"
+=======
+"@rollup/rollup-linux-arm64-musl@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-linux-arm64-musl@npm:4.30.0"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-loongarch64-gnu@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-linux-loongarch64-gnu@npm:4.30.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=linux & cpu=loong64 & libc=glibc
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-linux-powerpc64le-gnu@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-linux-powerpc64le-gnu@npm:4.30.1"
+=======
+"@rollup/rollup-linux-powerpc64le-gnu@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-linux-powerpc64le-gnu@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=linux & cpu=ppc64 & libc=glibc
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-linux-riscv64-gnu@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-linux-riscv64-gnu@npm:4.30.1"
+=======
+"@rollup/rollup-linux-powerpc64le-gnu@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-linux-powerpc64le-gnu@npm:4.30.0"
+  conditions: os=linux & cpu=ppc64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-riscv64-gnu@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-linux-riscv64-gnu@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=linux & cpu=riscv64 & libc=glibc
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-linux-s390x-gnu@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-linux-s390x-gnu@npm:4.30.1"
+=======
+"@rollup/rollup-linux-riscv64-gnu@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-linux-riscv64-gnu@npm:4.30.0"
+  conditions: os=linux & cpu=riscv64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-s390x-gnu@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-linux-s390x-gnu@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=linux & cpu=s390x & libc=glibc
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-linux-x64-gnu@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-linux-x64-gnu@npm:4.30.1"
+=======
+"@rollup/rollup-linux-s390x-gnu@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-linux-s390x-gnu@npm:4.30.0"
+  conditions: os=linux & cpu=s390x & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-x64-gnu@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-linux-x64-gnu@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-linux-x64-musl@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-linux-x64-musl@npm:4.30.1"
+=======
+"@rollup/rollup-linux-x64-gnu@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-linux-x64-gnu@npm:4.30.0"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-linux-x64-musl@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-linux-x64-musl@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-win32-arm64-msvc@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-win32-arm64-msvc@npm:4.30.1"
+=======
+"@rollup/rollup-linux-x64-musl@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-linux-x64-musl@npm:4.30.0"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-win32-arm64-msvc@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-win32-arm64-msvc@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-win32-ia32-msvc@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-win32-ia32-msvc@npm:4.30.1"
+=======
+"@rollup/rollup-win32-arm64-msvc@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-win32-arm64-msvc@npm:4.30.0"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-win32-ia32-msvc@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-win32-ia32-msvc@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rollup/rollup-win32-x64-msvc@npm:4.30.1":
   version: 4.30.1
   resolution: "@rollup/rollup-win32-x64-msvc@npm:4.30.1"
+=======
+"@rollup/rollup-win32-ia32-msvc@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-win32-ia32-msvc@npm:4.30.0"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"@rollup/rollup-win32-x64-msvc@npm:4.26.0":
+  version: 4.26.0
+  resolution: "@rollup/rollup-win32-x64-msvc@npm:4.26.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@rushstack/node-core-library@npm:5.10.2":
   version: 5.10.2
   resolution: "@rushstack/node-core-library@npm:5.10.2"
+=======
+"@rollup/rollup-win32-x64-msvc@npm:4.30.0":
+  version: 4.30.0
+  resolution: "@rollup/rollup-win32-x64-msvc@npm:4.30.0"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@rushstack/node-core-library@npm:5.9.0":
+  version: 5.9.0
+  resolution: "@rushstack/node-core-library@npm:5.9.0"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   dependencies:
     ajv: ~8.13.0
     ajv-draft-04: ~1.0.0
@@ -6875,17 +7113,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sand4rt/experimental-ct-web@npm:1.41.0":
-  version: 1.41.0
-  resolution: "@sand4rt/experimental-ct-web@npm:1.41.0"
+"@sand4rt/experimental-ct-web@npm:1.49.1":
+  version: 1.49.1
+  resolution: "@sand4rt/experimental-ct-web@npm:1.49.1"
   dependencies:
-    "@playwright/experimental-ct-core": ^1.41.0
-    vite: ^4.4.7
-  peerDependencies:
-    "@playwright/test": ">=1.41.0"
+    "@playwright/experimental-ct-core": 1.49.1
   bin:
     playwright: cli.js
-  checksum: f486c0bdd23f31ef1129b239e221d0bd0806be919d1c1a8d45963b51c157be68c8b80f323bc429e2aaea47c03fd3af34bd8367e2c0f787730f3e9eb7210ca8df
+  checksum: def409f463a1b388aa2f1a03df136416c87686eeb613ea4521e89f77b7ce51c970fbf411e4ca963cc347aff110ff945f783b321c5517ec359d452738d7ba056f
   languageName: node
   linkType: hard
 
@@ -8761,7 +8996,11 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@vitejs/plugin-react@npm:^4.0.0":
+=======
+"@vitejs/plugin-react@npm:^4.2.1":
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   version: 4.3.4
   resolution: "@vitejs/plugin-react@npm:4.3.4"
   dependencies:
@@ -22994,10 +23233,10 @@ __metadata:
     "@justeattakeaway/stylelint-config-pie": 0.8.0
     "@percy/cli": 1.29.3
     "@percy/playwright": 1.0.6
-    "@playwright/experimental-ct-react": 1.41.0
-    "@playwright/test": 1.41.0
+    "@playwright/experimental-ct-react": 1.49.1
+    "@playwright/test": 1.49.1
     "@rollup/plugin-node-resolve": 15.1.0
-    "@sand4rt/experimental-ct-web": 1.41.0
+    "@sand4rt/experimental-ct-web": 1.49.1
     "@types/node": 20.4.8
     "@types/react": 18.3.11
     "@typescript-eslint/eslint-plugin": 5.62.0
@@ -23190,27 +23429,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.41.0":
-  version: 1.41.0
-  resolution: "playwright-core@npm:1.41.0"
+"playwright-core@npm:1.49.1":
+  version: 1.49.1
+  resolution: "playwright-core@npm:1.49.1"
   bin:
     playwright-core: cli.js
-  checksum: 14671265916a1fd0c71d94640de19c48bcce3f7dec35530f10e349e97030ea44ffa8ee518cbf811501e3ab2b74874aecf917e46bf40fea0570db1d4bea1fe7ac
+  checksum: a940f4b10ff1de033b4b8594b5104b02849a892d9adda0d42330a872cd3d8d287ffd2b01fc33f33ccd34f8904bb8ae8220b878b62e899f3d9bcd1b0945ab45c7
   languageName: node
   linkType: hard
 
-"playwright@npm:1.41.0":
-  version: 1.41.0
-  resolution: "playwright@npm:1.41.0"
+"playwright@npm:1.49.1":
+  version: 1.49.1
+  resolution: "playwright@npm:1.49.1"
   dependencies:
     fsevents: 2.3.2
-    playwright-core: 1.41.0
+    playwright-core: 1.49.1
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: e7c32136911c58e06b964fe7d33f8b3d8f6a067ae5218662a0811dd6c90e007db1774eb7e161f4aa748d760f404f4c066b7b7303c2b617f7448b6ee4b86c9999
+  checksum: c136d42d625e32614f90e5228a165dc8be48c5bfb52aca9210c6ff04161a409dbe42fe5ae4f05a2653f6a1b836876a04d3b0f24bcbbc053d1509c1d605b7c8d5
   languageName: node
   linkType: hard
 
@@ -24496,9 +24735,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "postcss@npm:^8.0.0, postcss@npm:^8.1.10, postcss@npm:^8.2.1, postcss@npm:^8.2.14, postcss@npm:^8.2.15, postcss@npm:^8.3.7, postcss@npm:^8.4.14, postcss@npm:^8.4.19, postcss@npm:^8.4.24, postcss@npm:^8.4.27, postcss@npm:^8.4.32, postcss@npm:^8.4.33, postcss@npm:^8.4.39":
   version: 8.5.1
   resolution: "postcss@npm:8.5.1"
+=======
+"postcss@npm:^8.0.0, postcss@npm:^8.1.10, postcss@npm:^8.2.1, postcss@npm:^8.2.14, postcss@npm:^8.2.15, postcss@npm:^8.3.7, postcss@npm:^8.4.14, postcss@npm:^8.4.19, postcss@npm:^8.4.24, postcss@npm:^8.4.27, postcss@npm:^8.4.32, postcss@npm:^8.4.33, postcss@npm:^8.4.39, postcss@npm:^8.4.43":
+  version: 8.4.49
+  resolution: "postcss@npm:8.4.49"
+>>>>>>> af7a4a7b8 (chore(pie-monorepo): WCP-000 update playwright)
   dependencies:
     nanoid: ^3.3.8
     picocolors: ^1.1.1
@@ -26106,6 +26351,78 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: 4a3df04dc639f36cb2d7746c829c4957a3df54b449171280a108c32c4f578677207f330e358c48637d7414ef30c1542964641c82bebc0643d5d5baee4044542e
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^4.20.0":
+  version: 4.30.0
+  resolution: "rollup@npm:4.30.0"
+  dependencies:
+    "@rollup/rollup-android-arm-eabi": 4.30.0
+    "@rollup/rollup-android-arm64": 4.30.0
+    "@rollup/rollup-darwin-arm64": 4.30.0
+    "@rollup/rollup-darwin-x64": 4.30.0
+    "@rollup/rollup-freebsd-arm64": 4.30.0
+    "@rollup/rollup-freebsd-x64": 4.30.0
+    "@rollup/rollup-linux-arm-gnueabihf": 4.30.0
+    "@rollup/rollup-linux-arm-musleabihf": 4.30.0
+    "@rollup/rollup-linux-arm64-gnu": 4.30.0
+    "@rollup/rollup-linux-arm64-musl": 4.30.0
+    "@rollup/rollup-linux-loongarch64-gnu": 4.30.0
+    "@rollup/rollup-linux-powerpc64le-gnu": 4.30.0
+    "@rollup/rollup-linux-riscv64-gnu": 4.30.0
+    "@rollup/rollup-linux-s390x-gnu": 4.30.0
+    "@rollup/rollup-linux-x64-gnu": 4.30.0
+    "@rollup/rollup-linux-x64-musl": 4.30.0
+    "@rollup/rollup-win32-arm64-msvc": 4.30.0
+    "@rollup/rollup-win32-ia32-msvc": 4.30.0
+    "@rollup/rollup-win32-x64-msvc": 4.30.0
+    "@types/estree": 1.0.6
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    "@rollup/rollup-android-arm-eabi":
+      optional: true
+    "@rollup/rollup-android-arm64":
+      optional: true
+    "@rollup/rollup-darwin-arm64":
+      optional: true
+    "@rollup/rollup-darwin-x64":
+      optional: true
+    "@rollup/rollup-freebsd-arm64":
+      optional: true
+    "@rollup/rollup-freebsd-x64":
+      optional: true
+    "@rollup/rollup-linux-arm-gnueabihf":
+      optional: true
+    "@rollup/rollup-linux-arm-musleabihf":
+      optional: true
+    "@rollup/rollup-linux-arm64-gnu":
+      optional: true
+    "@rollup/rollup-linux-arm64-musl":
+      optional: true
+    "@rollup/rollup-linux-loongarch64-gnu":
+      optional: true
+    "@rollup/rollup-linux-powerpc64le-gnu":
+      optional: true
+    "@rollup/rollup-linux-riscv64-gnu":
+      optional: true
+    "@rollup/rollup-linux-s390x-gnu":
+      optional: true
+    "@rollup/rollup-linux-x64-gnu":
+      optional: true
+    "@rollup/rollup-linux-x64-musl":
+      optional: true
+    "@rollup/rollup-win32-arm64-msvc":
+      optional: true
+    "@rollup/rollup-win32-ia32-msvc":
+      optional: true
+    "@rollup/rollup-win32-x64-msvc":
+      optional: true
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: f862a20c2f6f2e2c56428f1315eebf255bb29b40baab3ecfebf558aaaa7f00b7544aa2f7a3b89ce3426aa4cfa6e7ec7de02dd250b0a7c1bef8b5c7fd690a052c
   languageName: node
   linkType: hard
 
@@ -29533,7 +29850,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.4.12, vite@npm:^4.4.7":
+"vite@npm:^3.0.0 || ^4.0.0":
   version: 4.5.5
   resolution: "vite@npm:4.5.5"
   dependencies:
@@ -29570,6 +29887,49 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: 300c5f39c83b22413dfdc84f72e9ba979bf4004e4d939409eea1470b116626294495b09e2bd73fae387a254b79988c8d54ceb281f9515120a0eda179c33b216e
+  languageName: node
+  linkType: hard
+
+"vite@npm:^5.2.8":
+  version: 5.4.11
+  resolution: "vite@npm:5.4.11"
+  dependencies:
+    esbuild: ^0.21.3
+    fsevents: ~2.3.3
+    postcss: ^8.4.43
+    rollup: ^4.20.0
+  peerDependencies:
+    "@types/node": ^18.0.0 || >=20.0.0
+    less: "*"
+    lightningcss: ^1.21.0
+    sass: "*"
+    sass-embedded: "*"
+    stylus: "*"
+    sugarss: "*"
+    terser: ^5.4.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    less:
+      optional: true
+    lightningcss:
+      optional: true
+    sass:
+      optional: true
+    sass-embedded:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 8c5b31d17487b69c40a30419dc0ade9f33360eb6893dbfa33a90980271bd74d35ae550b5cbb2a9e640f0df41ea36fd1bb4f222c98f6d02e607080f20832e69e8
   languageName: node
   linkType: hard
 
