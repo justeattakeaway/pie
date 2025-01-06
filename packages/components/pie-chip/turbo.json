@@ -4,6 +4,14 @@
     "//"
   ],
   "pipeline": {
+    "test:browsers": {
+      "cache": true,
+      "dependsOn": []
+    },
+    "test:browsers:ci": {
+      "cache": true,
+      "dependsOn": []
+    },
     "test:visual": {
       "cache": false,
       "dependsOn": []
