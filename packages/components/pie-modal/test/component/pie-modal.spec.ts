@@ -35,7 +35,7 @@ test.describe('modal', () => {
         await PieTextInputComponent.unmount();
     });
 
-    test.only('should be visible when opened', async ({ mount }) => {
+    test('should be visible when opened', async ({ mount }) => {
         // Arrange
         await mount(PieModal, {
             props: {
