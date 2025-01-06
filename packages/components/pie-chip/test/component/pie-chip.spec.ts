@@ -10,7 +10,7 @@ const dismissibleProps: Partial<ChipProps> = {
 
 test.describe('PieChip - Component tests', () => {
     test('should render successfully', async ({ page }) => {
-    // Arrange
+        // Arrange
         const pieChipPage = new BasePage(page, 'chip--default');
         await pieChipPage.load();
 
