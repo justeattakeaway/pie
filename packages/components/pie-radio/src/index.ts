@@ -95,10 +95,6 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
         this._handleFormAssociation();
     }
 
-    // public focus () {
-    //     this._radio.focus();
-    // }
-
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.
      * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
@@ -126,6 +122,9 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
     }
 
     updated () {
+        // Ensure aria-checked reflects the checked state
+        this.setAttribute('aria-checked', String(this.checked));
+
         this._handleFormAssociation();
     }
 
