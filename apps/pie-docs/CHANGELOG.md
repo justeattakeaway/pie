@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.22.3
+
+### Patch Changes
+
+- [Updated] - update focus state of some components ([#2131](https://github.com/justeattakeaway/pie/pull/2131)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
 ## 4.22.2
 
 ### Patch Changes
