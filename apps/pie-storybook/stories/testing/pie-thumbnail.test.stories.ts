@@ -1,34 +1,46 @@
 import { html } from 'lit';
-import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-thumbnail';
 import { type ThumbnailProps } from '@justeattakeaway/pie-thumbnail';
 
-import { createStory } from '../../utilities';
+import { type Meta } from '@storybook/web-components';
+import { createVariantStory, type TemplateFunction } from '../../utilities';
 
 type ThumbnailStoryMeta = Meta<ThumbnailProps>;
-
-const defaultArgs: ThumbnailProps = {};
 
 const thumbnailStoryMeta: ThumbnailStoryMeta = {
     title: 'Thumbnail',
     component: 'pie-thumbnail',
-    argTypes: {},
-    args: defaultArgs,
-    parameters: {
-        design: {
-            type: 'figma',
-            url: '',
-        },
-    },
 };
 
 export default thumbnailStoryMeta;
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
-const Template = ({}: ThumbnailProps) => html`
-    <pie-thumbnail></pie-thumbnail>
-`;
+const Template: TemplateFunction<ThumbnailProps> = ({
+    variant,
+    src,
+    alt,
+}) => html`
+    <pie-thumbnail
+        variant="${variant}"
+        src="${src}"
+        alt="${alt}">
+    </pie-thumbnail>`;
 
-export const Default = createStory<ThumbnailProps>(Template, defaultArgs)();
+// Define the prop options for the matrix
+const sharedPropOptions = {
+    src: ['https://www.takeaway.com/consumer-web/images/takeaway-brand.61e55e0b.svg'],
+    alt: ['JET logo'],
+};
+
+const defaultPropOptions = {
+    ...sharedPropOptions,
+    variant: ['default'],
+};
+
+const outlinePropOptions = {
+    ...sharedPropOptions,
+    variant: ['outline'],
+};
+
+export const DefaultPropVariations = createVariantStory<ThumbnailProps>(Template, defaultPropOptions);
+export const OutlinePropVariations = createVariantStory<ThumbnailProps>(Template, outlinePropOptions);
