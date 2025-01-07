@@ -87,8 +87,12 @@ const chipStoryMeta: ChipStoryMeta = {
 
 export default chipStoryMeta;
 
-const clickAction = action('clicked');
-const closeAction = action('pie-chip-close');
+const clickAction = () => {
+  console.log('pie-chip clicked');
+}
+const closeAction = () => {
+  console.log('pie-chip-close clicked');
+}
 
 const Template: TemplateFunction<ChipProps> = ({
     aria,

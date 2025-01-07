@@ -1,9 +1,7 @@
-import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieChip, type ChipProps } from '../../src/index.ts';
-import { ON_CHIP_CLOSE_EVENT } from '../../src/defs.ts';
-
-const componentSelector = '[data-test-id="pie-chip"]';
-const closeBtnSelector = '[data-test-id="chip-close-button"]';
+import { test, expect } from '@playwright/test';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import type { ChipProps } from '../../src/index.ts';
+import { chip } from '../helpers/page-object/selectors.ts';
 
 const dismissibleProps: Partial<ChipProps> = {
     isSelected: true,
@@ -11,78 +9,73 @@ const dismissibleProps: Partial<ChipProps> = {
 };
 
 test.describe('PieChip - Component tests', () => {
-    test('should render successfully', async ({ mount, page }) => {
+    test('should render successfully', async ({ page }) => {
         // Arrange
-        await mount(PieChip, {
-            slots: {
-                default: 'Label',
-            },
-        });
+        const pieChipPage = new BasePage(page, 'chip--default');
+        await pieChipPage.load();
 
         // Act
-        const chip = page.locator(componentSelector);
+        const chipComponent = page.locator(chip.selectors.container.dataTestId);
 
         // Assert
-        await expect(chip).toBeVisible();
+        await expect(chipComponent).toBeVisible();
     });
 
     test.describe('if NOT disabled', () => {
-        test('close button should emit the close event', async ({ mount, page }) => {
+        test('close button should emit the close event', async ({ page }) => {
             // Arrange
-            const events : Array<Event> = [];
+            const pieChipPage = new BasePage(page, 'chip--default');
+            await pieChipPage.load({ ...dismissibleProps });
 
-            await mount(PieChip, {
-                props: {
-                    ...dismissibleProps,
-                    disabled: false,
-                },
-                on: {
-                    [ON_CHIP_CLOSE_EVENT]: (event: Event) => events.push(event),
-                },
+            const chipComponent = page.locator(chip.selectors.container.dataTestId);
+            const closeButton = chipComponent.getByTestId(chip.selectors.closeButton.dataTestId);
+
+            // Set up a listener for console messages
+            const consoleMessages: string[] = [];
+            page.on('console', (message) => {
+                if (message.type() === 'log') {
+                    consoleMessages.push(message.text());
+                }
             });
-
-            const chip = page.locator(componentSelector);
-            const closeButton = chip.locator(closeBtnSelector);
 
             // Act
             await closeButton.click();
 
             // Assert
-            expect(events).toHaveLength(1);
+            expect(consoleMessages).toContain('pie-chip-close clicked');
         });
     });
 
     test.describe('if disabled', () => {
-        test('should not trigger click events when the chip is `disabled`', async ({ mount }) => {
+        test('should not trigger click events when the chip is `disabled`', async ({ page }) => {
             // Arrange
-            const messages: string[] = [];
-            const expectedEventMessage = 'Native event dispatched';
+            const pieChipPage = new BasePage(page, 'chip--default');
+            await pieChipPage.load({ disabled: true });
 
-            const component = await mount(PieChip, {
-                props: {
-                    disabled: true,
-                },
-                on: {
-                    click: () => messages.push(expectedEventMessage),
-                },
+            const chipComponent = page.locator(chip.selectors.container.dataTestId);
+
+            // Set up a listener for console messages
+            const consoleMessages: string[] = [];
+            page.on('console', (message) => {
+                if (message.type() === 'log') {
+                    consoleMessages.push(message.text());
+                }
             });
 
-            await component.click();
+            // Act
+            await chipComponent.click();
 
-            expect(messages).toEqual([expectedEventMessage]);
+            // Assert
+            expect(consoleMessages).toStrictEqual([]);
         });
 
-        test('close button should be disabled', async ({ mount, page }) => {
+        test('close button should be disabled', async ({ page }) => {
             // Arrange
-            await mount(PieChip, {
-                props: {
-                    ...dismissibleProps,
-                    disabled: true,
-                },
-            });
+            const pieChipPage = new BasePage(page, 'chip--default');
+            await pieChipPage.load({ ...dismissibleProps, disabled: true });
 
-            const chip = page.locator(componentSelector);
-            const closeButton = chip.locator(closeBtnSelector);
+            const chipComponent = page.locator(chip.selectors.container.dataTestId);
+            const closeButton = chipComponent.getByTestId(chip.selectors.closeButton.dataTestId);
 
             // Act && Assert
             await expect(closeButton).toBeDisabled();
@@ -92,161 +85,150 @@ test.describe('PieChip - Component tests', () => {
     test.describe('Chip Close: aria: attribute', () => {
         test.describe('aria-label', () => {
             test.describe('when an aria close value is provided', () => {
-                test('should render on the component with the correct value', async ({ mount, page }) => {
+                test('should render on the component with the correct value', async ({ page }) => {
                     // Arrange
-                    await mount(PieChip, {
-                        props: {
-                            ...dismissibleProps,
-                            aria: {
-                                close: 'Chip Close',
-                            },
-                        } as ChipProps,
-                    });
 
-                    const closeButton = page.locator(closeBtnSelector);
+                    const props: Partial<ChipProps> = { ...dismissibleProps, aria: { close: 'Chip Close' } };
+                    const pieChipPage = new BasePage(page, 'chip--default');
+                    await pieChipPage.load(props);
+
+                    const chipComponent = page.locator(chip.selectors.container.dataTestId);
+                    const closeButton = chipComponent.getByTestId(chip.selectors.closeButton.dataTestId);
 
                     // Act & Assert
                     await expect(closeButton).toHaveAttribute('aria-label', 'Chip Close');
                 });
             });
-
-            test.describe('when an aria close value is not provided', () => {
-                test('should not render on the component', async ({ mount, page }) => {
-                    // Arrange
-                    await mount(PieChip, {
-                        props: {
-                            ...dismissibleProps,
-                            aria: {
-                                close: '',
-                            },
-                        } as ChipProps,
-                    });
-
-                    const chip = page.locator(componentSelector);
-                    const closeButton = chip.locator(closeBtnSelector);
-
-                    // Act & Assert
-                    await expect(closeButton).toHaveAttribute('aria-label', '');
-                });
-            });
         });
-    });
 
-    test.describe('Chip: aria: attributes', () => {
-        test.describe('aria-live', () => {
-            test('should render on the component with the value `polite`', async ({ mount, page }) => {
+        test.describe('when an aria close value is not provided', () => {
+            test('should not render on the component', async ({ page }) => {
                 // Arrange
-                await mount(PieChip, {});
 
-                const chip = page.locator(componentSelector);
+                const props: Partial<ChipProps> = { ...dismissibleProps, aria: { close: '' } };
+                const pieChipPage = new BasePage(page, 'chip--default');
+                await pieChipPage.load(props);
+
+                const chipComponent = page.locator(chip.selectors.container.dataTestId);
+                const closeButton = chipComponent.getByTestId(chip.selectors.closeButton.dataTestId);
 
                 // Act & Assert
-                await expect(chip).toHaveAttribute('aria-live', 'polite');
+                await expect(closeButton).toHaveAttribute('aria-label', '');
             });
         });
 
-        test.describe('aria-atomic', () => {
-            test('should render on the component with the value `true`', async ({ mount, page }) => {
-                // Arrange
-                await mount(PieChip, {});
-
-                const chip = page.locator(componentSelector);
-
-                // Act & Assert
-                await expect(chip).toHaveAttribute('aria-atomic', 'true');
-            });
-        });
-
-        test.describe('aria-label', () => {
-            test.describe('when passed in', () => {
-                test('should render on the component with the correct value', async ({ mount, page }) => {
+        test.describe('Chip: aria: attributes', () => {
+            test.describe('aria-live', () => {
+                test('should render on the component with the value `polite`', async ({ page }) => {
                     // Arrange
-                    await mount(PieChip, {
-                        props: {
-                            aria: {
-                                label: 'Chip Label',
-                            },
-                        } as ChipProps,
-                    });
+                    const pieChipPage = new BasePage(page, 'chip--default');
+                    await pieChipPage.load({ ...dismissibleProps });
 
-                    const chip = page.locator(componentSelector);
+                    const chipComponent = page.locator(chip.selectors.container.dataTestId);
 
                     // Act & Assert
-                    await expect(chip).toHaveAttribute('aria-label', 'Chip Label');
+                    await expect(chipComponent.getByTestId('pie-chip')).toHaveAttribute('aria-live', 'polite');
                 });
             });
 
-            test.describe('when not passed in', () => {
-                test('should not render on the component', async ({ mount, page }) => {
+            test.describe('aria-atomic', () => {
+                test('should render on the component with the value `true`', async ({ page }) => {
                     // Arrange
-                    await mount(PieChip, {
-                        props: {} as ChipProps,
-                    });
+                    const pieChipPage = new BasePage(page, 'chip--default');
+                    await pieChipPage.load({ ...dismissibleProps });
 
-                    const chip = page.locator(componentSelector);
+                    const chipComponent = page.locator(chip.selectors.container.dataTestId);
 
                     // Act & Assert
-                    expect(chip.getAttribute('aria-label')).not.toContain('aria-label');
+                    await expect(chipComponent.getByTestId('pie-chip')).toHaveAttribute('aria-atomic', 'true');
                 });
             });
-        });
 
-        test.describe('aria-busy', () => {
-            test.describe('when the component is in a `isLoading` state', () => {
-                test('should render on the component with the value `true`', async ({ mount, page }) => {
-                    // Arrange
-                    await mount(PieChip, {
-                        props: {
-                            isLoading: true,
-                        },
+            test.describe('aria-label', () => {
+                test.describe('when passed in', () => {
+                    test('should render on the component with the correct value', async ({ page }) => {
+                        // Arrange
+                        const props: Partial<ChipProps> = { ...dismissibleProps, aria: { label: 'Chip Label' } };
+                        const pieChipPage = new BasePage(page, 'chip--default');
+                        await pieChipPage.load(props);
+
+                        const chipComponent = page.locator(chip.selectors.container.dataTestId);
+
+                        // Act & Assert
+                        await expect(chipComponent.getByTestId('pie-chip')).toHaveAttribute('aria-label', 'Chip Label');
                     });
-
-                    const chip = page.locator(componentSelector);
-
-                    // Act & Assert
-                    await expect(chip).toHaveAttribute('aria-busy', 'true');
                 });
-            });
 
-            test.describe('when the component is not in a `isLoading` state', () => {
-                test('should render on the component with the value `false`', async ({ mount, page }) => {
-                    // Arrange
-                    await mount(PieChip, {});
+                test.describe('when not passed in', () => {
+                    test('should not render on the component', async ({ page }) => {
+                        // Arrange
+                        const pieChipPage = new BasePage(page, 'chip--default');
+                        await pieChipPage.load();
 
-                    const chip = page.locator(componentSelector);
+                        const chipComponent = page.locator(chip.selectors.container.dataTestId);
 
-                    // Act && Assert
-                    await expect(chip).toHaveAttribute('aria-busy', 'false');
-                });
-            });
-        });
-
-        test.describe('aria-current', () => {
-            test.describe('when the component is in a `isSelected` state', () => {
-                test('should render on the component with the value `true`', async ({ mount, page }) => {
-                    // Arrange
-                    await mount(PieChip, {
-                        props: {
-                            isSelected: true,
-                        },
+                        // Act & Assert
+                        expect(chipComponent.getByTestId('pie-chip').getAttribute('aria-label')).not.toContain('aria-label');
                     });
-
-                    const chip = page.locator(componentSelector);
-
-                    // Act && Assert
-                    await expect(chip).toHaveAttribute('aria-current', 'true');
                 });
             });
 
-            test.describe('when the component is not in a `isSelected` state', () => {
-                test('should render on the component with the value `false`', async ({ mount, page }) => {
-                    // Arrange
-                    await mount(PieChip, {});
+            test.describe('aria-busy', () => {
+                test.describe('when the component is in a `isLoading` state', () => {
+                    test('should render on the component with the value `true`', async ({ page }) => {
+                        // Arrange
+                        const props: Partial<ChipProps> = { ...dismissibleProps, isLoading: true };
+                        const pieChipPage = new BasePage(page, 'chip--default');
+                        await pieChipPage.load(props);
 
-                    const chip = page.locator(componentSelector);
+                        const chipComponent = page.locator(chip.selectors.container.dataTestId);
 
-                    // Act && Assert
-                    await expect(chip).toHaveAttribute('aria-current', 'false');
+                        // Act & Assert
+                        await expect(chipComponent.getByTestId('pie-chip')).toHaveAttribute('aria-busy', 'true');
+                    });
+                });
+
+                test.describe('when the component is not in a `isLoading` state', () => {
+                    test('should render on the component with the value `false`', async ({ page }) => {
+                        // Arrange
+                        const pieChipPage = new BasePage(page, 'chip--default');
+                        await pieChipPage.load({ isLoading: false });
+
+                        const chipComponent = page.locator(chip.selectors.container.dataTestId);
+
+                        // Act && Assert
+                        await expect(chipComponent.getByTestId('pie-chip')).toHaveAttribute('aria-busy', 'false');
+                    });
+                });
+            });
+
+            test.describe('aria-current', () => {
+                test.describe('when the component is in a `isSelected` state', () => {
+                    test('should render on the component with the value `true`', async ({ page }) => {
+                        // Arrange
+                        const props: Partial<ChipProps> = { isSelected: true };
+                        const pieChipPage = new BasePage(page, 'chip--default');
+                        await pieChipPage.load(props);
+
+                        const chipComponent = page.locator(chip.selectors.container.dataTestId);
+
+                        // Act && Assert
+                        await expect(chipComponent.getByTestId('pie-chip')).toHaveAttribute('aria-current', 'true');
+                    });
+                });
+
+                test.describe('when the component is not in a `isSelected` state', () => {
+                    test('should render on the component with the value `false`', async ({ page }) => {
+                        // Arrange
+                        const props: Partial<ChipProps> = { isSelected: false };
+                        const pieChipPage = new BasePage(page, 'chip--default');
+                        await pieChipPage.load(props);
+
+                        const chipComponent = page.locator(chip.selectors.container.dataTestId);
+
+                        // Act && Assert
+                        await expect(chipComponent.getByTestId('pie-chip')).toHaveAttribute('aria-current', 'false');
+                    });
                 });
             });
         });
