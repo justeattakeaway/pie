@@ -22,6 +22,7 @@ describe('index.css', () => {
         // Act
         const result = await cssValidator.validateText(css);
         const validationErrors = result.errors.filter((error) => !acceptedErrors.includes(error.message));
+        console.log('Errors: ', validationErrors);
 
         // Assert
         expect(validationErrors).toHaveLength(0);
