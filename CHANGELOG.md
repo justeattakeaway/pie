@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.73.0
+
+### Minor Changes
+
+- [Added] - priority order for the toast provider ([#2098](https://github.com/justeattakeaway/pie/pull/2098)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 2.72.1
 
 ### Patch Changes
