@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-toast
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - priority order for the toast provider ([#2098](https://github.com/justeattakeaway/pie/pull/2098)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.5.2
 
 ### Patch Changes
