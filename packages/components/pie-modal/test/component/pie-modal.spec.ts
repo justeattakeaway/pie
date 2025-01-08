@@ -181,7 +181,13 @@ test.describe('modal', () => {
                 test('should return focus to specified element', async ({ page }) => {
                     // Arrange
                     const modalFocusToSpecifiedElementPage = new ModalFocusToSpecifiedElementPage(page);
-                    await modalFocusToSpecifiedElementPage.load();
+
+                    const props: Partial<ModalProps> = {
+                        isOpen: true,
+                        isDismissible: true,
+                    };
+
+                    await modalFocusToSpecifiedElementPage.load({ ...props });
 
                     // Act
                     await modalFocusToSpecifiedElementPage.modalComponent.clickCloseModal();
@@ -192,7 +198,13 @@ test.describe('modal', () => {
                 test('should return focus to first matching element', async ({ page }) => {
                     // Arrange
                     const modalFocusToFirstMatchingElementPage = new ModalFocusToFirstMatchingElementPage(page);
-                    await modalFocusToFirstMatchingElementPage.load();
+
+                    const props: Partial<ModalProps> = {
+                        isOpen: true,
+                        isDismissible: true
+                    };
+
+                    await modalFocusToFirstMatchingElementPage.load({ ...props });
 
                     // Act
                     await modalFocusToFirstMatchingElementPage.modalComponent.clickCloseModal();
@@ -221,6 +233,7 @@ test.describe('modal', () => {
                             const modalDefaultPage = new ModalDefaultPage(page);
                             const props: Partial<ModalProps> = {
                                 isOpen: false,
+                                isDismissible: true,
                             };
 
                             await modalDefaultPage.load({ ...props });
@@ -389,7 +402,12 @@ test.describe('scrolling logic', () => {
     test('Should not be able to scroll when isOpen = true', async ({ page }) => {
     // Arrange
         const modalScrollLockingPage = new ModalScrollLockingPage(page);
-        await modalScrollLockingPage.load();
+
+        const props: Partial<ModalProps> = {
+            isOpen: true,
+        };
+
+        await modalScrollLockingPage.load({ ...props });
 
         // Act
         // Scroll 800 pixels down the page
