@@ -35,13 +35,13 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
         } = this;
 
         const wrapperClasses = {
-            'o-tn': true,
-            [`o-tn--${variant}`]: true,
+            'c-thumbnail': true,
+            [`c-thumbnail--${variant}`]: true,
         };
 
         return html`
             <div data-test-id="pie-thumbnail" class="${classMap(wrapperClasses)}">
-                <img data-test-id="pie-thumbnail-img" src="${src}" class="o-tn-img" alt="${alt}">
+                <img data-test-id="pie-thumbnail-img" src="${src}" class="c-thumbnail-img" alt="${alt}">
             </div>
         `;
     }
