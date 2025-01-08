@@ -25,7 +25,7 @@ eleventyComputed:
 
 This component can be easily integrated into various frontend frameworks and customised through a set of properties.
 
-The `pie-toast-provider` component provides centralized management for toast notifications in an application. It ensures that toasts are displayed in [priority order](/components/toast/#priority-queue) based on their variant and actionable state, using a queueing system. The component handles the lifecycle of each toast, including dismissing the current toast and showing the next one.
+The `pie-toast-provider` component provides centralised management for toast notifications in an application. It ensures that toasts are displayed in [priority order](/components/toast/#priority-queue) based on their variant and actionable state, using a queueing system. The component handles the lifecycle of each toast, including dismissing the current toast and showing the next one.
 
 {% notification {
   type: "information",
