@@ -13,6 +13,9 @@ sizes.forEach((size) => {
             isOpen: true,
             hasStackedActions: false,
             size,
+            leadingAction: {
+                text: 'Confirm',
+            },
         };
         await modalDefaultPage.load(props);
         await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
@@ -50,6 +53,9 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                 isFullWidthBelowMid: true,
                 isOpen: true,
                 size: 'small',
+                leadingAction: {
+                  text: 'Confirm',
+              },
             };
             await modalDefaultPage.load(props);
 
@@ -68,6 +74,9 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                   isFullWidthBelowMid: false,
                   isOpen: true,
                   size,
+                  leadingAction: {
+                    text: 'Confirm',
+                },
               };
 
               await modalDefaultPage.load(props);
@@ -87,6 +96,9 @@ test.describe('Prop: `isDismissible`', () => {
             const props: Partial<ModalProps> = {
                 isDismissible: true,
                 isOpen: true,
+                leadingAction: {
+                    text: 'Confirm',
+                },
             };
 
             await modalDefaultPage.load(props);
@@ -103,6 +115,9 @@ test.describe('Prop: `isDismissible`', () => {
             const props: Partial<ModalProps> = {
                 isDismissible: false,
                 isOpen: true,
+                leadingAction: {
+                  text: 'Confirm',
+              },
             };
 
             await modalDefaultPage.load(props);
@@ -126,6 +141,9 @@ test.describe('Prop: `hasBackButton`', () => {
                     isOpen: true,
                     isDismissible: false,
                     supportingAction: undefined,
+                    leadingAction: {
+                        text: 'Confirm',
+                    },
                 };
 
                 await modalDefaultPage.load(props, { writingDirection: dir });
@@ -165,6 +183,9 @@ test.describe('Prop: `heading`', () => {
             isOpen: true,
             hasBackButton: true,
             isDismissible: true,
+            leadingAction: {
+                text: 'Confirm',
+            },
         };
 
         await modalDefaultPage.load({ ...props });
@@ -183,6 +204,9 @@ test.describe('Prop: `isLoading`', () => {
             isDismissible: true,
             isOpen: true,
             isLoading: true,
+            leadingAction: {
+                text: 'Confirm',
+            },
         };
 
         await modalDefaultPage.load(props);
