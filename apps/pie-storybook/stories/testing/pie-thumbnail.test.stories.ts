@@ -1,16 +1,43 @@
 import { html } from 'lit';
 
 import '@justeattakeaway/pie-thumbnail';
-import { type ThumbnailProps } from '@justeattakeaway/pie-thumbnail';
+import { type ThumbnailProps, defaultProps, variants } from '@justeattakeaway/pie-thumbnail';
 
 import { type Meta } from '@storybook/web-components';
 import { createVariantStory, type TemplateFunction } from '../../utilities';
 
 type ThumbnailStoryMeta = Meta<ThumbnailProps>;
 
+const defaultArgs: ThumbnailProps = { ...defaultProps };
+
 const thumbnailStoryMeta: ThumbnailStoryMeta = {
     title: 'Thumbnail',
     component: 'pie-thumbnail',
+    argTypes: {
+        variant: {
+            description: 'Set the variant of the thumbnail.',
+            control: 'select',
+            options: variants,
+            defaultValue: {
+                summary: defaultArgs.variant,
+            },
+        },
+        src: {
+            description: 'Set the src attribute for the underlying image tag.',
+            control: 'text',
+            defaultValue: {
+                summary: defaultArgs.src,
+            },
+        },
+        alt: {
+            description: 'Set the alt attribute for the underlying image tag.',
+            control: 'text',
+            defaultValue: {
+                summary: defaultArgs.alt,
+            },
+        },
+    },
+    args: defaultArgs,
 };
 
 export default thumbnailStoryMeta;
