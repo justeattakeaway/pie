@@ -7,7 +7,7 @@
                 "type": "code",
                 "item": [["{}"]]
             },
-            "Default options for all toasts; accepts all toast props.",
+            "Default options for all toasts; accepts all toast [props](/components/toast/code/#props).",
             {
                 "type": "code",
                 "item": [["{}"]]

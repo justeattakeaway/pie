@@ -135,5 +135,5 @@ toaster.clearToasts();
 {% notification {
   type: "neutral",
   iconName: "link",
-  message: "See [here](https://github.com/justeattakeaway/pie/blob/main/packages/components/pie-toast/CHANGELOG.md)."
+  message: "See [here](https://github.com/justeattakeaway/pie/blob/main/packages/components/pie-toast-providr/CHANGELOG.md)."
 } %}
