@@ -11,6 +11,14 @@
     "test:browsers:ci": {
       "cache": true,
       "dependsOn": []
+    },
+    "test:visual": {
+      "cache": false,
+      "dependsOn": []
+    },
+    "test:visual:ci": {
+      "cache": false,
+      "dependsOn": []
     }
   }
 }
