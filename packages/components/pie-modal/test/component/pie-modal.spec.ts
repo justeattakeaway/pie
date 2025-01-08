@@ -619,7 +619,7 @@ test.describe('when modal `isLoading` is dynamically changing from `isLoading: t
             if (modal) {
                 modal.isLoading = false;
             } else {
-                console.error('Modal not found');
+                throw new Error('Modal not found');
             }
         });
 

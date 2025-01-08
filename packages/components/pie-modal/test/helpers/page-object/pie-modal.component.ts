@@ -9,6 +9,7 @@ export class ModalComponent {
     readonly closeButtonLocator: Locator;
     private readonly headerLocator: Locator;
     private readonly descriptionLocator: Locator;
+    readonly footerLocator: Locator;
 
     constructor (page: Page) {
         this.componentLocator = page.getByTestId(modal.selectors.container.dataTestId);
@@ -16,6 +17,7 @@ export class ModalComponent {
         this.closeButtonLocator = page.getByTestId(modal.selectors.closeButton.dataTestId);
         this.headerLocator = page.getByTestId(modal.selectors.header.dataTestId);
         this.descriptionLocator = page.getByTestId(modal.selectors.description.dataTestId);
+        this.footerLocator = page.getByTestId(modal.selectors.footer.dataTestId);
     }
 
     /**

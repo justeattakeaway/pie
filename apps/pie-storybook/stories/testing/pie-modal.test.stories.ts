@@ -19,20 +19,21 @@ type ModalStoryMeta = Meta<ModalProps>;
 
 const defaultArgs: ModalProps = {
   ...defaultProps,
-  hasBackButton: true,
-  heading: 'Modal header',
-  isDismissible: true,
+  hasBackButton: false,
+  heading: 'This is a modal heading',
+  isDismissible: false,
+  isFooterPinned: true,
   isOpen: true,
-  slot: '<span>Body copy</span>',
+  slot: '',
   leadingAction: {
-    text: 'Confirm',
-    variant: 'primary',
-    ariaLabel: 'Descriptive confirmation text',
+    text: '',
+    variant: undefined,
+    ariaLabel: '',
   },
   supportingAction: {
-    text: 'Cancel',
-    variant: 'ghost',
-    ariaLabel: 'Descriptive cancellation text',
+    text: '',
+    variant: undefined,
+    ariaLabel: '',
   },
   aria: {
     back: 'Back',
