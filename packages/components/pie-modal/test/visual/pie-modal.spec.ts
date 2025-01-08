@@ -114,7 +114,7 @@ test.describe('Prop: `isDismissible`', () => {
     });
 });
 
-const directions = ['ltr', 'rtl', undefined] as const;
+const directions = ['ltr', 'rtl', 'auto'] as const;
 
 test.describe('Prop: `hasBackButton`', () => {
     directions.forEach((dir) => {
