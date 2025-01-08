@@ -2,8 +2,10 @@ import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 
 import { type PieToastProvider } from 'src/index.ts';
+import { defaultProps as toastDefaultProps } from '@justeattakeaway/pie-toast';
 import {
     PRIORITY_ORDER,
+    type Priority,
     type ExtendedToastProps,
 } from '../../src/defs.ts';
 
@@ -67,7 +69,7 @@ test.describe('PieToastProvider - Component tests', () => {
             });
 
             // Assert
-            const queueVariants = toastsQueue.map((toast: ExtendedToastProps) => `${toast.variant}${toast.leadingAction ? '-actionable' : ''}`);
+            const queueVariants: Priority[] = toastsQueue.map((toast: ExtendedToastProps): Priority => `${toast.variant || toastDefaultProps.variant}${toast.leadingAction ? '-actionable' : ''}`);
             for (let i = 1; i < queueVariants.length; i++) {
                 const prevPriority = PRIORITY_ORDER[queueVariants[i - 1]];
                 const currPriority = PRIORITY_ORDER[queueVariants[i]];
