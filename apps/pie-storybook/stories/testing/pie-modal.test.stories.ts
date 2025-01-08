@@ -124,6 +124,7 @@ const modalStoryMeta: ModalStoryMeta = {
 
 export default modalStoryMeta;
 
+/* eslint-disable no-console */
 const supportingClickAction = () => {
   console.log('supporting-click');
 };
@@ -139,7 +140,7 @@ const openAction = () => {
 const closeAction = () => {
   console.log('close-modal');
 };
-
+/* eslint-enable no-console */
 /**
  * Helper function to toggle the modal open/closed within the actual template (separate to the Storybook controls)
  */

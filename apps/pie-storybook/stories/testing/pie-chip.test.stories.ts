@@ -86,13 +86,14 @@ const chipStoryMeta: ChipStoryMeta = {
 
 export default chipStoryMeta;
 
+/* eslint-disable no-console */
 const clickAction = () => {
     console.log('pie-chip clicked');
 };
 const closeAction = () => {
     console.log('pie-chip-close clicked');
 };
-
+/* eslint-enable no-console */
 const Template: TemplateFunction<ChipProps> = ({
     aria,
     disabled,
