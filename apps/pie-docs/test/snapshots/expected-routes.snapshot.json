@@ -86,6 +86,7 @@
     "components/toast",
     "components/toast/code",
     "components/toast/motion",
+    "components/toast/toast-provider/code",
     "components/tooltip",
     "components/uploader",
     "designers",

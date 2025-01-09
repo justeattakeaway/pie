@@ -12,11 +12,12 @@ import {
     defineCustomElement,
     dispatchCustomEvent,
 } from '@justeattakeaway/pie-webc-core';
-import '@justeattakeaway/pie-toast';
+import { defaultProps as toastDefaultProps } from '@justeattakeaway/pie-toast';
 import styles from './toast-provider.scss?inline';
 import {
     defaultProps,
     PRIORITY_ORDER,
+    type Priority,
     type ToastProviderProps,
     type ExtendedToastProps,
     ON_TOAST_PROVIDER_QUEUE_UPDATE_EVENT,
@@ -61,8 +62,8 @@ export class PieToastProvider extends RtlMixin(LitElement) implements ToastProvi
      * @param {boolean} hasAction - Whether the toast has an action.
      * @returns {number} - The priority based on the variant and action.
      */
-    private getPriority (type: ExtendedToastProps['variant'], hasAction: boolean): number {
-        const key = `${type}${hasAction ? '-actionable' : ''}`;
+    private getPriority (type: ExtendedToastProps['variant'] = toastDefaultProps.variant, hasAction = false): number {
+        const key: Priority = `${type}${hasAction ? '-actionable' : ''}`;
         return PRIORITY_ORDER[key];
     }
 
@@ -93,7 +94,7 @@ export class PieToastProvider extends RtlMixin(LitElement) implements ToastProvi
      * @param {ToastProps} toast - The toast props to display.
      */
     public createToast (toast: ExtendedToastProps) {
-        const newToast = { ...this.options, ...toast };
+        const newToast = { ...toastDefaultProps, ...this.options, ...toast };
 
         this._toasts = [...this._toasts, newToast].sort((a, b) => {
             const priorityB = this.getPriority(b.variant, !!b.leadingAction?.text);

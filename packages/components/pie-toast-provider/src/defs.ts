@@ -2,7 +2,7 @@ import { type ToastProps } from '@justeattakeaway/pie-toast';
 
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-export const PRIORITY_ORDER: { [x: string]: number } = {
+export const PRIORITY_ORDER = {
     'error-actionable': 1,
     error: 2,
     'warning-actionable': 3,
@@ -13,7 +13,9 @@ export const PRIORITY_ORDER: { [x: string]: number } = {
     success: 8,
     info: 9,
     neutral: 10,
-};
+} as const;
+
+export type Priority = keyof typeof PRIORITY_ORDER;
 
 export interface ExtendedToastProps extends ToastProps {
     /**
