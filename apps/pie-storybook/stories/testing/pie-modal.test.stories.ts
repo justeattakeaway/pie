@@ -121,23 +121,26 @@ const modalStoryMeta: ModalStoryMeta = {
 
 export default modalStoryMeta;
 
-/* eslint-disable no-console */
 const supportingClickAction = () => {
+  /* eslint-disable-next-line no-console */
   console.log('supporting-click');
 };
 const leadingClickAction = () => {
+  /* eslint-disable-next-line no-console */
   console.log('leading-click');
 };
 const backClickAction = () => {
   console.log('back-click');
 };
 const openAction = () => {
+  /* eslint-disable-next-line no-console */
   console.log('open-modal');
 };
 const closeAction = () => {
+  /* eslint-disable-next-line no-console */
   console.log('close-modal');
 };
-/* eslint-enable no-console */
+
 /**
  * Helper function to toggle the modal open/closed within the actual template (separate to the Storybook controls)
  */
