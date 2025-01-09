@@ -485,7 +485,7 @@ test.describe('Prop: `hasStackedActions`', () => {
 
               await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
 
-              await percySnapshot(page, `Modal - hasStackedActions = true, size = ${size}`, percyWidths);
+              await percySnapshot(page, `Modal - hasStackedActions = true, size = ${size}`);
           });
       });
     });
