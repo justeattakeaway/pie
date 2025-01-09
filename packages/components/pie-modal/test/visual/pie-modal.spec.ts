@@ -1,12 +1,11 @@
 import { test, expect } from '@playwright/test';
-import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import percySnapshot from '@percy/playwright';
 import { type ModalProps, sizes, positions } from '../../src/defs.ts';
 import { ModalDefaultPage } from '../helpers/page-object/pie-modal-default.page.ts';
 import { ModalLargeTextContentPage } from '../helpers/page-object/pie-modal-large-text-content.page.ts';
 
 const sharedProps: ModalProps = {
-  heading: 'This is a modal heading',
+    heading: 'This is a modal heading',
 };
 
 sizes.forEach((size) => {

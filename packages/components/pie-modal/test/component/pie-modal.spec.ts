@@ -7,7 +7,7 @@ import { ModalEmbeddedFormPage } from 'test/helpers/page-object/pie-modal-embedd
 import { type ModalProps, headingLevels } from '../../src/defs.ts';
 
 const sharedProps: ModalProps = {
-  heading: 'This is a modal heading',
+    heading: 'This is a modal heading',
 };
 
 test.describe('modal', () => {
@@ -397,7 +397,7 @@ test.describe('scrolling logic', () => {
 
         const props: ModalProps = {
             ...sharedProps,
-          isOpen: true,
+            isOpen: true,
         };
 
         await modalScrollLockingPage.load(props);
