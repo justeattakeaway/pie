@@ -44,7 +44,7 @@ test.describe('PieNotification - Component tests', () => {
         const notification = page.locator(componentSelector);
 
         // Assert
-        expect(notification).toBeVisible();
+        await expect(notification).toBeVisible();
     });
 
     test.describe('Props', () => {
@@ -62,7 +62,7 @@ test.describe('PieNotification - Component tests', () => {
                     const notification = page.locator(componentSelector);
 
                     // Assert
-                    expect(notification).toBeVisible();
+                    await expect(notification).toBeVisible();
                 });
             });
 
@@ -79,8 +79,8 @@ test.describe('PieNotification - Component tests', () => {
                 const icon = page.locator(headingIconInfoSelector);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(icon).toBeVisible();
+                await expect(notification).toBeVisible();
+                await expect(icon).toBeVisible();
             });
 
             test('should render icon-success when variant is success', async ({ mount, page }) => {
@@ -96,8 +96,8 @@ test.describe('PieNotification - Component tests', () => {
                 const icon = page.locator(headingIconSuccessSelector);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(icon).toBeVisible();
+                await expect(notification).toBeVisible();
+                await expect(icon).toBeVisible();
             });
 
             test('should render icon-warning when variant is warning', async ({ mount, page }) => {
@@ -113,8 +113,8 @@ test.describe('PieNotification - Component tests', () => {
                 const icon = page.locator(headingIconWarningSelector);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(icon).toBeVisible();
+                await expect(notification).toBeVisible();
+                await expect(icon).toBeVisible();
             });
 
             test('should render icon-error when variant is error', async ({ mount, page }) => {
@@ -130,8 +130,8 @@ test.describe('PieNotification - Component tests', () => {
                 const icon = page.locator(headingIconErrorSelector);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(icon).toBeVisible();
+                await expect(notification).toBeVisible();
+                await expect(icon).toBeVisible();
             });
         });
 
@@ -147,8 +147,8 @@ test.describe('PieNotification - Component tests', () => {
                 const iconClose = page.locator(iconCloseSelector);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(iconClose).not.toBeVisible();
+                await expect(notification).toBeVisible();
+                await expect(iconClose).not.toBeVisible();
             });
         });
 
@@ -164,9 +164,9 @@ test.describe('PieNotification - Component tests', () => {
                 const heading = page.locator(`h2${headingSelector}`);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(heading).toBeVisible();
-                expect(heading).toHaveText('Title');
+                await expect(notification).toBeVisible();
+                await expect(heading).toBeVisible();
+                await expect(heading).toHaveText('Title');
             });
         });
 
@@ -186,8 +186,8 @@ test.describe('PieNotification - Component tests', () => {
                         const heading = page.locator(`${headingLevel}${headingSelector}`);
 
                         // Assert
-                        expect(heading).toBeVisible();
-                        expect(heading).toHaveText(`Title using ${headingLevel}`);
+                        await expect(heading).toBeVisible();
+                        await expect(heading).toHaveText(`Title using ${headingLevel}`);
                     });
                 });
             });
@@ -206,13 +206,16 @@ test.describe('PieNotification - Component tests', () => {
                     });
 
                     // Act
-                    const notification = page.locator(componentSelector);
-                    const iconSelector = page.locator(`[data-test-id="${rootSelector}-heading-icon-${variant}"]`);
+                    const notification = await page.locator(componentSelector);
+                    const iconSelector = await page.locator(`[data-test-id="${rootSelector}-heading-icon-${variant}"]`);
 
                     // Assert
-                    expect(notification).toBeVisible();
-                    expect(notification).toHaveAttribute('variant', variant);
-                    expect(iconSelector).not.toBeVisible();
+                    await expect(notification).toBeVisible();
+
+                    // TODO: DSW-2380 - Refactor back to using toHaveAttribute once we're using native Playwright package
+                    const classNameRegex = new RegExp(`c-notification--${variant}`);
+                    await expect(notification).toHaveClass(classNameRegex);
+                    await expect(iconSelector).not.toBeVisible();
                 });
             });
         });
@@ -231,8 +234,8 @@ test.describe('PieNotification - Component tests', () => {
                 const iconClose = page.locator(iconCloseSelector);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(iconClose).not.toBeVisible();
+                await expect(notification).toBeVisible();
+                await expect(iconClose).not.toBeVisible();
             });
 
             test('should not show the close icon if isDismissible is false and isCompact is false', async ({ mount, page }) => {
@@ -249,8 +252,8 @@ test.describe('PieNotification - Component tests', () => {
                 const iconClose = page.locator(iconCloseSelector);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(iconClose).not.toBeVisible();
+                await expect(notification).toBeVisible();
+                await expect(iconClose).not.toBeVisible();
             });
 
             test('should not show the close icon if isDismissible is true and isCompact is true', async ({ mount, page }) => {
@@ -267,8 +270,8 @@ test.describe('PieNotification - Component tests', () => {
                 const iconClose = page.locator(iconCloseSelector);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(iconClose).not.toBeVisible();
+                await expect(notification).toBeVisible();
+                await expect(iconClose).not.toBeVisible();
             });
 
             test('should show the close icon if isDismissible is true', async ({ mount, page }) => {
@@ -284,8 +287,8 @@ test.describe('PieNotification - Component tests', () => {
                 const iconClose = page.locator(iconCloseSelector);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(iconClose).toBeVisible();
+                await expect(notification).toBeVisible();
+                await expect(iconClose).toBeVisible();
             });
         });
 
@@ -309,8 +312,8 @@ test.describe('PieNotification - Component tests', () => {
                     const footer = page.locator(footerSelector);
 
                     // Assert
-                    expect(notification).toBeVisible();
-                    expect(footer).not.toBeVisible();
+                    await expect(notification).toBeVisible();
+                    await expect(footer).not.toBeVisible();
                 });
 
                 test('should show the footer if leadingAction is provided', async ({ mount, page }) => {
@@ -328,9 +331,9 @@ test.describe('PieNotification - Component tests', () => {
                     const actionLeading = page.locator(leadingActionSelector);
 
                     // Assert
-                    expect(notification).toBeVisible();
-                    expect(footer).toBeVisible();
-                    expect(actionLeading).toBeVisible();
+                    await expect(notification).toBeVisible();
+                    await expect(footer).toBeVisible();
+                    await expect(actionLeading).toBeVisible();
                 });
             });
 
@@ -351,10 +354,10 @@ test.describe('PieNotification - Component tests', () => {
                     const actionSupporting = page.locator(supportingActionSelector);
 
                     // Assert
-                    expect(notification).toBeVisible();
-                    expect(footer).not.toBeVisible();
-                    expect(actionLeading).not.toBeVisible();
-                    expect(actionSupporting).not.toBeVisible();
+                    await expect(notification).toBeVisible();
+                    await expect(footer).not.toBeVisible();
+                    await expect(actionLeading).not.toBeVisible();
+                    await expect(actionSupporting).not.toBeVisible();
                 });
 
                 test('should the leadingAction and supportingAction when both are provided', async ({ mount, page }) => {
@@ -374,10 +377,10 @@ test.describe('PieNotification - Component tests', () => {
                     const actionSupporting = page.locator(supportingActionSelector);
 
                     // Assert
-                    expect(notification).toBeVisible();
-                    expect(footer).toBeVisible();
-                    expect(actionLeading).toBeVisible();
-                    expect(actionSupporting).toBeVisible();
+                    await expect(notification).toBeVisible();
+                    await expect(footer).toBeVisible();
+                    await expect(actionLeading).toBeVisible();
+                    await expect(actionSupporting).toBeVisible();
                 });
             });
 
@@ -401,15 +404,15 @@ test.describe('PieNotification - Component tests', () => {
                     const actionSupporting = page.locator(supportingActionSelector);
 
                     // Assert
-                    expect(notification).toBeVisible();
-                    expect(footer).toBeVisible();
-                    expect(actionLeading).toBeVisible();
-                    expect(actionSupporting).toBeVisible();
+                    await expect(notification).toBeVisible();
+                    await expect(footer).toBeVisible();
+                    await expect(actionLeading).toBeVisible();
+                    await expect(actionSupporting).toBeVisible();
 
-                    expect(footer).toHaveCSS('flex-direction', 'column-reverse');
+                    await expect(footer).toHaveCSS('flex-direction', 'column-reverse');
                     // 295px is the size of the button when the viewport size is 375px
-                    expect(actionLeading).toHaveCSS('width', '295px');
-                    expect(actionSupporting).toHaveCSS('width', '295px');
+                    await expect(actionLeading).toHaveCSS('width', '295px');
+                    await expect(actionSupporting).toHaveCSS('width', '295px');
                 });
 
                 test('should not stack buttons on large screens', async ({ mount, page }) => {
@@ -431,12 +434,12 @@ test.describe('PieNotification - Component tests', () => {
                     const actionSupporting = page.locator(supportingActionSelector);
 
                     // Assert
-                    expect(notification).toBeVisible();
-                    expect(footer).toBeVisible();
-                    expect(actionLeading).toBeVisible();
-                    expect(actionSupporting).toBeVisible();
+                    await expect(notification).toBeVisible();
+                    await expect(footer).toBeVisible();
+                    await expect(actionLeading).toBeVisible();
+                    await expect(actionSupporting).toBeVisible();
 
-                    expect(footer).toHaveCSS('flex-direction', 'row');
+                    await expect(footer).toHaveCSS('flex-direction', 'row');
                 });
             });
         });
@@ -468,8 +471,8 @@ test.describe('PieNotification - Component tests', () => {
                     const heading = await page.locator(`h2${headingSelector}`);
 
                     // Act & Assert
-                    expect(notification).toHaveAttribute('aria-label', ariaLabel);
-                    expect(heading).not.toBeVisible();
+                    await expect(notification).toHaveAttribute('aria-label', ariaLabel);
+                    await expect(heading).not.toBeVisible();
                 });
 
                 test('should be ignored if heading is provided as the title will be used as the region title', async ({ mount, page }) => {
@@ -488,8 +491,8 @@ test.describe('PieNotification - Component tests', () => {
                     const heading = await page.locator(`h2${headingSelector}`);
 
                     // Act & Assert
-                    expect(notification).not.toHaveAttribute('aria-label', ariaLabel);
-                    expect(heading).toBeVisible();
+                    await expect(notification).not.toHaveAttribute('aria-label', ariaLabel);
+                    await expect(heading).toBeVisible();
                 });
             });
 
@@ -509,7 +512,7 @@ test.describe('PieNotification - Component tests', () => {
                     const notification = await page.locator(componentSelector);
 
                     // Act & Assert
-                    expect(notification).toHaveAttribute('aria-labelledby', `${rootSelector}-heading`);
+                    await expect(notification).toHaveAttribute('aria-labelledby', `${rootSelector}-heading`);
                 });
 
                 test('should be ignored if heading is not provided', async ({ mount, page }) => {
@@ -526,7 +529,7 @@ test.describe('PieNotification - Component tests', () => {
                     const notification = await page.locator(componentSelector);
 
                     // Act & Assert
-                    expect(notification).not.toHaveAttribute('aria-labelledby', `${rootSelector}-heading`);
+                    await expect(notification).not.toHaveAttribute('aria-labelledby', `${rootSelector}-heading`);
                 });
             });
 
@@ -538,7 +541,7 @@ test.describe('PieNotification - Component tests', () => {
                     const notification = await page.locator(componentSelector);
 
                     // Act & Assert
-                    expect(notification).toHaveAttribute('aria-live', 'polite');
+                    await expect(notification).toHaveAttribute('aria-live', 'polite');
                 });
 
                 test('should be set to `assertive` for the error variant', async ({ mount, page }) => {
@@ -552,7 +555,7 @@ test.describe('PieNotification - Component tests', () => {
                     const notification = await page.locator(componentSelector);
 
                     // Act & Assert
-                    expect(notification).toHaveAttribute('aria-live', 'assertive');
+                    await expect(notification).toHaveAttribute('aria-live', 'assertive');
                 });
             });
         });
@@ -573,9 +576,9 @@ test.describe('PieNotification - Component tests', () => {
             const slottedIcon = page.locator(slottedIconSelector);
 
             // Assert
-            expect(notification).toBeVisible();
-            expect(slottedIcon).toBeVisible();
-            expect(slottedIcon).toHaveText('Mocked Icon Slot');
+            await expect(notification).toBeVisible();
+            await expect(slottedIcon).toBeVisible();
+            await expect(slottedIcon).toHaveText('Mocked Icon Slot');
         });
     });
 });

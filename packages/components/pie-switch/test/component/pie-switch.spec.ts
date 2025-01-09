@@ -3,7 +3,6 @@ import { PieSwitch } from '../../src/index.ts';
 import {
     type SwitchProps,
     labelPlacements,
-    ON_SWITCH_CHANGED_EVENT,
 } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="switch-component"]';
@@ -101,7 +100,7 @@ test.describe('Component: `Pie switch`', () => {
                 let eventHeard = false;
                 await mount(PieSwitch, {
                     on: {
-                        [ON_SWITCH_CHANGED_EVENT]: () => {
+                        change: () => {
                             eventHeard = true;
                         },
                     },
@@ -158,7 +157,7 @@ test.describe('Component: `Pie switch`', () => {
                 let eventHeard = false;
                 await mount(PieSwitch, {
                     on: {
-                        [ON_SWITCH_CHANGED_EVENT]: () => {
+                        change: () => {
                             eventHeard = true;
                         },
                     },
