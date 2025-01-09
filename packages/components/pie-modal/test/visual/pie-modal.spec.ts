@@ -33,7 +33,6 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
             const props: ModalProps = {
                 ...sharedProps,
                 isFullWidthBelowMid: true,
-                supportingAction: undefined,
                 size: 'medium',
                 isDismissible: false,
                 leadingAction: {
@@ -139,7 +138,6 @@ test.describe('Prop: `hasBackButton`', () => {
                 const props: ModalProps = {
                     ...sharedProps,
                     hasBackButton: true,
-                    supportingAction: undefined,
                     leadingAction: {
                         text: 'Confirm',
                     },
