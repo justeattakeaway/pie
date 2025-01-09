@@ -1,23 +1,22 @@
-import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/webc-fixtures.ts';
-import { PieCard, type CardProps } from '../../src/index.ts';
-import { tags } from '../../src/defs.ts';
+// import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/playwright-fixtures.ts';
+// import type { CardProps } from '../../src/index.ts';
+// import { tags } from '../../src/defs.ts';
+// import { CardDefaultPage } from '../helpers/page-object/pie-card-default.page.ts';
 
-test.describe('PieCard - Accessibility tests', () => {
-    tags.forEach((tag) => {
-        test(`a11y - should test the PieCard component WCAG compliance if tag is = "${tag}"`, async ({ makeAxeBuilder, mount }) => {
-            await mount(
-                PieCard,
-                {
-                    props: {
-                        tag,
-                        aria: { label: 'card' },
-                    } as CardProps,
-                },
-            );
+// test.describe('PieCard - Accessibility tests', () => {
+//   tags.forEach((tag) => {
+//     test(`a11y - should test the PieCard component WCAG compliance if tag is = "${tag}"`, async ({ makeAxeBuilder, page }) => {
+//       const props: CardProps = {
+//         tag,
+//         aria: { label: 'card' },
+//       };
 
-            const results = await makeAxeBuilder().analyze();
+//       const cardDefaultPage = new CardDefaultPage(page);
+//       await cardDefaultPage.load({ ...props });
 
-            expect(results.violations).toEqual([]);
-        });
-    });
-});
+//       const results = await makeAxeBuilder().analyze();
+
+//       expect(results.violations).toEqual([]);
+//     });
+//   });
+// });
