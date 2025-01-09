@@ -201,7 +201,7 @@ test.describe('modal', () => {
 
                     const props: Partial<ModalProps> = {
                         isOpen: true,
-                        isDismissible: true
+                        isDismissible: true,
                     };
 
                     await modalFocusToFirstMatchingElementPage.load({ ...props });

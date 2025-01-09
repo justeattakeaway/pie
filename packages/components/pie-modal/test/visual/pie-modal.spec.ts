@@ -54,8 +54,8 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                 isOpen: true,
                 size: 'small',
                 leadingAction: {
-                  text: 'Confirm',
-              },
+                    text: 'Confirm',
+                },
             };
             await modalDefaultPage.load(props);
 
@@ -75,8 +75,8 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                   isOpen: true,
                   size,
                   leadingAction: {
-                    text: 'Confirm',
-                },
+                      text: 'Confirm',
+                  },
               };
 
               await modalDefaultPage.load(props);
@@ -116,8 +116,8 @@ test.describe('Prop: `isDismissible`', () => {
                 isDismissible: false,
                 isOpen: true,
                 leadingAction: {
-                  text: 'Confirm',
-              },
+                    text: 'Confirm',
+                },
             };
 
             await modalDefaultPage.load(props);

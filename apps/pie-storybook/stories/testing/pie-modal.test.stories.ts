@@ -130,6 +130,7 @@ const leadingClickAction = () => {
   console.log('leading-click');
 };
 const backClickAction = () => {
+  /* eslint-disable-next-line no-console */
   console.log('back-click');
 };
 const openAction = () => {
