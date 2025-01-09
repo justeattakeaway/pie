@@ -226,7 +226,7 @@ Each level takes priority over those below it, queues alongside toasts of the sa
 
 {% notification {
   type: "information",
-  message: "The priority queue is managed by the [Toast Provider](/components/toast/toast-provider/code/)."
+  message: "Refer to the [Toast Provider](/components/toast/toast-provider/code/) documentation for guidance on how to manage the queue priority."
 } %}
 
 ---
