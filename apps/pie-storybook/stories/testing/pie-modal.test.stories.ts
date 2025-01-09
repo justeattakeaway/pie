@@ -19,10 +19,7 @@ type ModalStoryMeta = Meta<ModalProps>;
 
 const defaultArgs: ModalProps = {
   ...defaultProps,
-  hasBackButton: false,
   heading: 'This is a modal heading',
-  isDismissible: false,
-  isFooterPinned: true,
   isOpen: true,
   slot: '',
   leadingAction: {
