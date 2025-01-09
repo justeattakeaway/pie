@@ -8,7 +8,11 @@ import { createVariantStory, type TemplateFunction } from '../../utilities';
 
 type ThumbnailStoryMeta = Meta<ThumbnailProps>;
 
-const defaultArgs: ThumbnailProps = { ...defaultProps };
+const defaultArgs: ThumbnailProps = {
+    ...defaultProps,
+    src: 'https://www.takeaway.com/consumer-web/images/takeaway-brand.61e55e0b.svg',
+    alt: 'JET logo',
+};
 
 const thumbnailStoryMeta: ThumbnailStoryMeta = {
     title: 'Thumbnail',
