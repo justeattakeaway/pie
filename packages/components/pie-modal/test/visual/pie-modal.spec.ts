@@ -5,12 +5,15 @@ import { type ModalProps, sizes, positions } from '../../src/defs.ts';
 import { ModalDefaultPage } from '../helpers/page-object/pie-modal-default.page.ts';
 import { ModalLargeTextContentPage } from '../helpers/page-object/pie-modal-large-text-content.page.ts';
 
+const sharedProps: ModalProps = {
+  heading: 'This is a modal heading',
+};
+
 sizes.forEach((size) => {
     test(`should render correctly with size = ${size}`, async ({ page }) => {
         const modalDefaultPage = new ModalDefaultPage(page);
-        const props: Partial<ModalProps> = {
-            heading: 'This is a modal heading',
-            isOpen: true,
+        const props: ModalProps = {
+            ...sharedProps,
             hasStackedActions: false,
             size,
             leadingAction: {
@@ -28,13 +31,11 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
     test.describe('when true', () => {
         test('should be full width for a modal with size = medium', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
-            const props: Partial<ModalProps> = {
-                heading: 'This is a modal heading',
+            const props: ModalProps = {
+                ...sharedProps,
                 isFullWidthBelowMid: true,
-                hasBackButton: false,
                 supportingAction: undefined,
                 size: 'medium',
-                isOpen: true,
                 isDismissible: false,
                 leadingAction: {
                     text: 'Confirm',
@@ -49,9 +50,9 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
 
         test('should not be full width when size = small', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
-            const props: Partial<ModalProps> = {
+            const props: ModalProps = {
+                ...sharedProps,
                 isFullWidthBelowMid: true,
-                isOpen: true,
                 size: 'small',
                 leadingAction: {
                     text: 'Confirm',
@@ -70,9 +71,9 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
       .forEach((size) => {
           test(`should not be full width for a modal with size = ${size}`, async ({ page }) => {
               const modalDefaultPage = new ModalDefaultPage(page);
-              const props: Partial<ModalProps> = {
+              const props: ModalProps = {
+                  ...sharedProps,
                   isFullWidthBelowMid: false,
-                  isOpen: true,
                   size,
                   leadingAction: {
                       text: 'Confirm',
@@ -93,9 +94,9 @@ test.describe('Prop: `isDismissible`', () => {
     test.describe('when true', () => {
         test('should display a close button within the modal', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
-            const props: Partial<ModalProps> = {
+            const props: ModalProps = {
+                ...sharedProps,
                 isDismissible: true,
-                isOpen: true,
                 leadingAction: {
                     text: 'Confirm',
                 },
@@ -112,9 +113,9 @@ test.describe('Prop: `isDismissible`', () => {
     test.describe('when false', () => {
         test('should not display a close button', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
-            const props: Partial<ModalProps> = {
+            const props: ModalProps = {
+                ...sharedProps,
                 isDismissible: false,
-                isOpen: true,
                 leadingAction: {
                     text: 'Confirm',
                 },
@@ -136,10 +137,9 @@ test.describe('Prop: `hasBackButton`', () => {
         test.describe('when true', () => {
             test(`should display a back button within the modal and dir is ${dir}`, async ({ page }) => {
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
+                const props: ModalProps = {
+                    ...sharedProps,
                     hasBackButton: true,
-                    isOpen: true,
-                    isDismissible: false,
                     supportingAction: undefined,
                     leadingAction: {
                         text: 'Confirm',
@@ -157,9 +157,9 @@ test.describe('Prop: `hasBackButton`', () => {
         test.describe('when false', () => {
             test(`should not display a back button and dir is ${dir}`, async ({ page }) => {
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
+                const props: ModalProps = {
+                    ...sharedProps,
                     hasBackButton: false,
-                    isOpen: true,
                     leadingAction: {
                         text: 'Confirm',
                     },
@@ -178,9 +178,8 @@ test.describe('Prop: `hasBackButton`', () => {
 test.describe('Prop: `heading`', () => {
     test('should display & render long headings correctly', async ({ page }) => {
         const modalDefaultPage = new ModalDefaultPage(page);
-        const props: Partial<ModalProps> = {
+        const props: ModalProps = {
             heading: 'This is a modal heading but super long and should span multiple lines - hopefully this should never happen on production',
-            isOpen: true,
             hasBackButton: true,
             isDismissible: true,
             leadingAction: {
@@ -199,10 +198,10 @@ test.describe('Prop: `heading`', () => {
 test.describe('Prop: `isLoading`', () => {
     test('should display loading spinner when `isLoading` is true', async ({ page }) => {
         const modalDefaultPage = new ModalDefaultPage(page);
-        const props: Partial<ModalProps> = {
+        const props: ModalProps = {
+            ...sharedProps,
             hasBackButton: true,
             isDismissible: true,
-            isOpen: true,
             isLoading: true,
             leadingAction: {
                 text: 'Confirm',
@@ -221,8 +220,8 @@ test.describe('Prop: `leadingAction`', () => {
     test.describe('when prop is passed into component', () => {
         test('should display leading action button', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
-            const props: Partial<ModalProps> = {
-                isOpen: true,
+            const props: ModalProps = {
+                ...sharedProps,
                 leadingAction: {
                     text: 'Confirm',
                 },
@@ -239,8 +238,8 @@ test.describe('Prop: `leadingAction`', () => {
     test.describe('when `leadingAction.variant` is set to "destructive"', () => {
         test('should show a "destructive" button', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
-            const props: Partial<ModalProps> = {
-                isOpen: true,
+            const props: ModalProps = {
+                ...sharedProps,
                 leadingAction: {
                     text: 'Confirm',
                     variant: 'destructive',
@@ -258,8 +257,8 @@ test.describe('Prop: `leadingAction`', () => {
     test.describe('when prop is provided empty', () => {
         test('should not render leading action markup', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
-            const props: Partial<ModalProps> = {
-                isOpen: true,
+            const props: ModalProps = {
+                ...sharedProps,
                 leadingAction: {
                     text: '',
                 },
@@ -276,8 +275,8 @@ test.describe('Prop: `leadingAction`', () => {
     test.describe('when prop is not passed into component', () => {
         test('should not display leading action or footer', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
-            const props: Partial<ModalProps> = {
-                heading: 'This is a modal heading',
+            const props: ModalProps = {
+                ...sharedProps,
                 isOpen: true,
             };
 
@@ -296,9 +295,8 @@ test.describe('Prop: `supportingAction`', () => {
         test.describe('and `supportingAction.text` is provided but `supportingAction.variant` is not', () => {
             test('should fall back to default variant', async ({ page }) => {
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    heading: 'This is a modal heading',
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     leadingAction: {
                         text: 'Confirm',
                     },
@@ -318,9 +316,8 @@ test.describe('Prop: `supportingAction`', () => {
         test.describe('and `supportingAction.text` is provided but empty', () => {
             test('should not render supporting action markup', async ({ page }) => {
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    heading: 'This is a modal heading',
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     leadingAction: {
                         text: 'Confirm',
                     },
@@ -340,8 +337,8 @@ test.describe('Prop: `supportingAction`', () => {
         test.describe('and `supportingAction.text` is not provided', () => {
             test('should not render supporting action markup', async ({ page }) => {
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     leadingAction: {
                         text: 'Confirm',
                     },
@@ -360,9 +357,8 @@ test.describe('Prop: `supportingAction`', () => {
 test.describe('when `supportingAction.text` is supplied but `leadingAction.text` is not', () => {
     test('should not render supporting action markup', async ({ page }) => {
         const modalDefaultPage = new ModalDefaultPage(page);
-        const props: Partial<ModalProps> = {
-            heading: 'This is a modal heading',
-            isOpen: true,
+        const props: ModalProps = {
+            ...sharedProps,
             supportingAction: {
                 text: 'Cancel',
             },
@@ -384,9 +380,8 @@ test.describe('Prop: `position`', () => {
                     [true, false].forEach((isFullWidthBelowMid) => {
                         test(`and isFullWidthBelowMid is ${isFullWidthBelowMid}`, async ({ page }) => {
                             const modalDefaultPage = new ModalDefaultPage(page);
-                            const props: Partial<ModalProps> = {
-                                heading: 'This is a modal heading',
-                                isOpen: true,
+                            const props: ModalProps = {
+                                ...sharedProps,
                                 isFullWidthBelowMid,
                                 position,
                                 size,
@@ -412,8 +407,8 @@ test.describe('Prop: `isFooterPinned`', () => {
     [true, false].forEach((isFooterPinned) => {
         test(`when isFooterPinned is: ${isFooterPinned}`, async ({ page }) => {
             const modalLargeTextContentPage = new ModalLargeTextContentPage(page);
-            const props: Partial<ModalProps> = {
-                isOpen: true,
+            const props: ModalProps = {
+                ...sharedProps,
                 leadingAction: {
                     text: 'Confirm',
                     variant: 'primary',
@@ -437,8 +432,8 @@ test.describe('Prop: `isFooterPinned`', () => {
         (['medium', 'large'] as Array<ModalProps['size']>).forEach((size) => {
             test(`when modal is fullscreen with size: ${size} and isFooterPinned: ${isFooterPinned}`, async ({ page }) => {
                 const modalLargeTextContentPage = new ModalLargeTextContentPage(page);
-                const props: Partial<ModalProps> = {
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     leadingAction: {
                         text: 'Confirm',
                     },
@@ -468,10 +463,9 @@ test.describe('Prop: `hasStackedActions`', () => {
       .forEach((size) => {
           test(`should display actions full width (at narrow viewports – with leading action on top) for a modal with size = ${size}`, async ({ page }) => {
               const modalDefaultPage = new ModalDefaultPage(page);
-              const props: Partial<ModalProps> = {
-                  heading: 'This is a modal heading',
+              const props: ModalProps = {
+                  ...sharedProps,
                   hasStackedActions: true,
-                  isOpen: true,
                   size,
                   leadingAction: {
                       text: 'Confirm',

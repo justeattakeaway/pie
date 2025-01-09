@@ -309,9 +309,11 @@ export const EmbeddedForm = createStory<ModalProps>(FormStoryTemplate, defaultAr
 export const ScrollLocking = createStory<ModalProps>(ScrollablePageStoryTemplate, defaultArgs)();
 export const FocusToSpecifiedElement = createStory<ModalProps>(FocusToSpecifiedElementStoryTemplate, defaultArgs)({
   returnFocusAfterCloseSelector: '#focus-3',
+  isDismissible: true,
 });
 export const FocusToFirstMatchingElement = createStory<ModalProps>(FocusToFirstMatchingElementStoryTemplate, defaultArgs)({
   returnFocusAfterCloseSelector: '[data-test-id="focus-me"]',
+  isDismissible: true,
 });
 export const LargeTextContent = createBaseModalStory({
   slot: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quas inventore quasi ullam, sed ab odio dicta, tempore, ex adipisci atque asperiores suscipit quisquam alias aliquam minus amet ad a?

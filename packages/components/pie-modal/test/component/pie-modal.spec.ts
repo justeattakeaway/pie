@@ -6,17 +6,16 @@ import { ModalScrollLockingPage } from 'test/helpers/page-object/pie-modal-scrol
 import { ModalEmbeddedFormPage } from 'test/helpers/page-object/pie-modal-embedded-form.page.ts';
 import { type ModalProps, headingLevels } from '../../src/defs.ts';
 
+const sharedProps: ModalProps = {
+  heading: 'This is a modal heading',
+};
+
 test.describe('modal', () => {
     test('should be visible when opened', async ({ page }) => {
     // Arrange
         const modalDefaultPage = new ModalDefaultPage(page);
 
-        const props: Partial<ModalProps> = {
-            heading: 'Modal heading',
-            isOpen: true,
-        };
-
-        await modalDefaultPage.load({ ...props });
+        await modalDefaultPage.load();
 
         // Act
         await expect(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
@@ -24,14 +23,13 @@ test.describe('modal', () => {
 
     headingLevels.forEach((headingLevel) => test(`should render the correct heading tag based on the value of headingLevel: ${headingLevel}`, async ({ page }) => {
     // Arrange
-        const props: Partial<ModalProps> = {
-            heading: 'Modal Header',
+        const props: ModalProps = {
+            ...sharedProps,
             headingLevel,
-            isOpen: true,
         };
 
         const modalDefaultPage = new ModalDefaultPage(page);
-        await modalDefaultPage.load({ ...props });
+        await modalDefaultPage.load(props);
 
         // Act
         await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
@@ -45,15 +43,14 @@ test.describe('modal', () => {
     // Arrange
         const modalDefaultPage = new ModalDefaultPage(page);
 
-        const props: Partial<ModalProps> = {
-            heading: 'Modal Header',
-            isOpen: true,
+        const props: ModalProps = {
+            ...sharedProps,
             // Intentionally passing an invalid headingLevel to test the fallback
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             headingLevel: headingLevel as any,
         };
 
-        await modalDefaultPage.load({ ...props });
+        await modalDefaultPage.load(props);
         const fallBackHeadingExists = await modalDefaultPage.modalComponent.headingByTagExists('h2');
 
         // Assert
@@ -65,12 +62,12 @@ test.describe('modal', () => {
             test('should dispatch event `pie-modal-close`', async ({ page }) => {
                 // Arrange
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     isDismissible: true,
                 };
 
-                await modalDefaultPage.load({ ...props });
+                await modalDefaultPage.load(props);
 
                 // Set up a listener for console messages
                 const consoleMessages: string[] = [];
@@ -90,12 +87,12 @@ test.describe('modal', () => {
             test('should close the modal', async ({ page }) => {
                 // Arrange
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     isDismissible: true,
                 };
 
-                await modalDefaultPage.load({ ...props });
+                await modalDefaultPage.load(props);
 
                 // Act
                 await modalDefaultPage.modalComponent.clickCloseModal();
@@ -109,12 +106,12 @@ test.describe('modal', () => {
             test('should dispatch event `pie-modal-back`', async ({ page }) => {
                 // Arrange
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     hasBackButton: true,
                 };
 
-                await modalDefaultPage.load({ ...props });
+                await modalDefaultPage.load(props);
 
                 // Set up a listener for console messages
                 const consoleMessages: string[] = [];
@@ -136,12 +133,12 @@ test.describe('modal', () => {
             test('should dispatch event `pie-modal-close`', async ({ page }) => {
                 // Arrange
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     isDismissible: true,
                 };
 
-                await modalDefaultPage.load({ ...props });
+                await modalDefaultPage.load(props);
 
                 // Set up a listener for console messages
                 const consoleMessages: string[] = [];
@@ -161,12 +158,12 @@ test.describe('modal', () => {
             test('should close the modal', async ({ page }) => {
                 // Arrange
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     isDismissible: true,
                 };
 
-                await modalDefaultPage.load({ ...props });
+                await modalDefaultPage.load(props);
 
                 // Act
                 await modalDefaultPage.modalComponent.clickBackdrop();
@@ -182,12 +179,7 @@ test.describe('modal', () => {
                     // Arrange
                     const modalFocusToSpecifiedElementPage = new ModalFocusToSpecifiedElementPage(page);
 
-                    const props: Partial<ModalProps> = {
-                        isOpen: true,
-                        isDismissible: true,
-                    };
-
-                    await modalFocusToSpecifiedElementPage.load({ ...props });
+                    await modalFocusToSpecifiedElementPage.load();
 
                     // Act
                     await modalFocusToSpecifiedElementPage.modalComponent.clickCloseModal();
@@ -199,12 +191,7 @@ test.describe('modal', () => {
                     // Arrange
                     const modalFocusToFirstMatchingElementPage = new ModalFocusToFirstMatchingElementPage(page);
 
-                    const props: Partial<ModalProps> = {
-                        isOpen: true,
-                        isDismissible: true,
-                    };
-
-                    await modalFocusToFirstMatchingElementPage.load({ ...props });
+                    await modalFocusToFirstMatchingElementPage.load();
 
                     // Act
                     await modalFocusToFirstMatchingElementPage.modalComponent.clickCloseModal();
@@ -230,13 +217,16 @@ test.describe('modal', () => {
                     test.describe(`and closed by the ${mechanism}`, () => {
                         test('should return focus to the element that opens the modal', async ({ page }) => {
                             // Arrange
-                            const modalDefaultPage = new ModalDefaultPage(page);
-                            const props: Partial<ModalProps> = {
+
+                            const props: ModalProps = {
+                                ...sharedProps,
                                 isOpen: false,
                                 isDismissible: true,
                             };
 
-                            await modalDefaultPage.load({ ...props });
+                            const modalDefaultPage = new ModalDefaultPage(page);
+
+                            await modalDefaultPage.load(props);
                             // Act
                             await modalDefaultPage.openModal();
                             await modalCloseFunction(page);
@@ -255,12 +245,12 @@ test.describe('modal', () => {
             test('should make the modal contain a close button', async ({ page }) => {
                 // Arrange
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     isDismissible: true,
                 };
 
-                await modalDefaultPage.load({ ...props });
+                await modalDefaultPage.load(props);
 
                 // Assert
                 await expect(modalDefaultPage.modalComponent.closeButtonLocator).toBeVisible();
@@ -269,12 +259,12 @@ test.describe('modal', () => {
             test('should close the modal when the close button is clicked', async ({ page }) => {
                 // Arrange
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     isDismissible: true,
                 };
 
-                await modalDefaultPage.load({ ...props });
+                await modalDefaultPage.load(props);
 
                 // Act
                 await modalDefaultPage.modalComponent.clickCloseModal();
@@ -286,12 +276,12 @@ test.describe('modal', () => {
             test('should close the modal when the backdrop is clicked', async ({ page }) => {
                 // Arrange
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     isDismissible: true,
                 };
 
-                await modalDefaultPage.load({ ...props });
+                await modalDefaultPage.load(props);
 
                 // Act
                 await modalDefaultPage.modalComponent.clickBackdrop();
@@ -303,12 +293,12 @@ test.describe('modal', () => {
             test('should close the modal when the Escape key is pressed', async ({ page }) => {
                 // Arrange
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     isDismissible: true,
                 };
 
-                await modalDefaultPage.load({ ...props });
+                await modalDefaultPage.load(props);
 
                 // Act
                 await page.keyboard.press('Escape');
@@ -322,12 +312,12 @@ test.describe('modal', () => {
             test('close button should not be visible', async ({ page }) => {
                 // Arrange
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     isDismissible: false,
                 };
 
-                await modalDefaultPage.load({ ...props });
+                await modalDefaultPage.load(props);
 
                 // Act
                 await expect(modalDefaultPage.modalComponent.closeButtonLocator).not.toBeVisible();
@@ -336,12 +326,12 @@ test.describe('modal', () => {
             test('should NOT close the modal when the backdrop is clicked', async ({ page }) => {
                 // Arrange
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     isDismissible: false,
                 };
 
-                await modalDefaultPage.load({ ...props });
+                await modalDefaultPage.load(props);
 
                 // Act
                 await modalDefaultPage.modalComponent.clickBackdrop();
@@ -353,12 +343,12 @@ test.describe('modal', () => {
             test('should NOT close the modal when the Escape key is pressed', async ({ page }) => {
                 // Arrange
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     isDismissible: false,
                 };
 
-                await modalDefaultPage.load({ ...props });
+                await modalDefaultPage.load(props);
 
                 // Act
                 await page.keyboard.press('Escape');
@@ -374,11 +364,12 @@ test.describe('isOpen prop', () => {
     test('should not render open when isOpen = false', async ({ page }) => {
     // Arrange
         const modalDefaultPage = new ModalDefaultPage(page);
-        const props: Partial<ModalProps> = {
+        const props: ModalProps = {
+            ...sharedProps,
             isOpen: false,
         };
 
-        await modalDefaultPage.load({ ...props });
+        await modalDefaultPage.load(props);
 
         // Act
         await expect(modalDefaultPage.modalComponent.componentLocator).not.toBeVisible();
@@ -387,11 +378,12 @@ test.describe('isOpen prop', () => {
     test('should render open when isOpen = true', async ({ page }) => {
     // Arrange
         const modalDefaultPage = new ModalDefaultPage(page);
-        const props: Partial<ModalProps> = {
+        const props: ModalProps = {
+            ...sharedProps,
             isOpen: true,
         };
 
-        await modalDefaultPage.load({ ...props });
+        await modalDefaultPage.load(props);
 
         // Act
         await expect(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
@@ -403,11 +395,12 @@ test.describe('scrolling logic', () => {
     // Arrange
         const modalScrollLockingPage = new ModalScrollLockingPage(page);
 
-        const props: Partial<ModalProps> = {
-            isOpen: true,
+        const props: ModalProps = {
+            ...sharedProps,
+          isOpen: true,
         };
 
-        await modalScrollLockingPage.load({ ...props });
+        await modalScrollLockingPage.load(props);
 
         // Act
         // Scroll 800 pixels down the page
@@ -425,18 +418,19 @@ test.describe('scrolling logic', () => {
     // Arrange
         const modalScrollLockingPage = new ModalScrollLockingPage(page);
 
-        const props: Partial<ModalProps> = {
+        const props: ModalProps = {
+            ...sharedProps,
             isOpen: false,
         };
 
-        await modalScrollLockingPage.load({ ...props });
+        await modalScrollLockingPage.load(props);
 
         // Act
         // Scroll 800 pixels down the page
         await page.mouse.wheel(0, 5000);
 
         // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
-        // await page.waitForTimeout(3000);
+        await page.waitForTimeout(3000);
 
         // Assert
         await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
@@ -449,12 +443,12 @@ test.describe('`hasBackButton` prop', () => {
         test('should make the modal contain a back button', async ({ page }) => {
             // Arrange
             const modalDefaultPage = new ModalDefaultPage(page);
-            const props: Partial<ModalProps> = {
-                isOpen: true,
+            const props: ModalProps = {
+                ...sharedProps,
                 hasBackButton: true,
             };
 
-            await modalDefaultPage.load({ ...props });
+            await modalDefaultPage.load(props);
 
             // Act
             await expect(modalDefaultPage.modalComponent.backButtonLocator).toBeVisible();
@@ -463,12 +457,12 @@ test.describe('`hasBackButton` prop', () => {
         test('should close the modal when the back button is clicked', async ({ page }) => {
             // Arrange
             const modalDefaultPage = new ModalDefaultPage(page);
-            const props: Partial<ModalProps> = {
-                isOpen: true,
+            const props: ModalProps = {
+                ...sharedProps,
                 hasBackButton: true,
             };
 
-            await modalDefaultPage.load({ ...props });
+            await modalDefaultPage.load(props);
 
             // Act
             await modalDefaultPage.modalComponent.clickBackModal();
@@ -484,12 +478,12 @@ test.describe('when `hasBackButton` is `false`', () => {
     test('should make the modal NOT contain a back button', async ({ page }) => {
     // Arrange
         const modalDefaultPage = new ModalDefaultPage(page);
-        const props: Partial<ModalProps> = {
-            isOpen: true,
+        const props: ModalProps = {
+            ...sharedProps,
             hasBackButton: false,
         };
 
-        await modalDefaultPage.load({ ...props });
+        await modalDefaultPage.load(props);
 
         // Assert
         await expect(modalDefaultPage.modalComponent.backButtonLocator).not.toBeVisible();
@@ -502,8 +496,8 @@ test.describe('actions', () => {
             test('should close the modal', async ({ page }) => {
                 // Arrange
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     leadingAction: {
                         text: 'Confirm',
                     },
@@ -512,7 +506,7 @@ test.describe('actions', () => {
                     },
                 };
 
-                await modalDefaultPage.load({ ...props });
+                await modalDefaultPage.load(props);
 
                 // Act
                 await modalDefaultPage.clickButtonWithText(action.buttonText);
@@ -524,9 +518,8 @@ test.describe('actions', () => {
             test('should submit the correct return value', async ({ page }) => {
                 // Arrange
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    heading: 'Modal Header',
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     leadingAction: {
                         text: 'Confirm',
                     },
@@ -534,7 +527,8 @@ test.describe('actions', () => {
                         text: 'Cancel',
                     },
                 };
-                await modalDefaultPage.load({ ...props });
+
+                await modalDefaultPage.load(props);
 
                 // Set up a listener for console messages
                 const consoleMessages: string[] = [];
@@ -560,17 +554,16 @@ test.describe('Props: `aria`', () => {
             // Arrange
             const modalDefaultPage = new ModalDefaultPage(page);
 
-            const props: Partial<ModalProps> = {
-                isOpen: true,
+            const props: ModalProps = {
+                ...sharedProps,
                 isDismissible: true,
-                isLoading: true,
                 hasBackButton: true,
                 aria: {
                     close: 'Close label info',
                     back: 'Back label info',
                 },
             };
-            await modalDefaultPage.load({ ...props });
+            await modalDefaultPage.load(props);
 
             // Act
             // Close button
@@ -588,15 +581,15 @@ test.describe('Props: `aria`', () => {
             test('should render component with the correct aria values: `aria-label` & `aria-busy`', async ({ page }) => {
                 // Arrange
                 const modalDefaultPage = new ModalDefaultPage(page);
-                const props: Partial<ModalProps> = {
-                    isOpen: true,
+                const props: ModalProps = {
+                    ...sharedProps,
                     isLoading: true,
                     aria: {
                         loading: 'Loading label info',
                     },
                 };
 
-                await modalDefaultPage.load({ ...props });
+                await modalDefaultPage.load(props);
 
                 // Act
                 // Loading state
@@ -615,15 +608,15 @@ test.describe('when modal `isLoading` is dynamically changing from `isLoading: t
     test('should dynamically add, remove, and update `arial-label` & `aria-busy` labels', async ({ page }) => {
     // Arrange
         const modalDefaultPage = new ModalDefaultPage(page);
-        const props: Partial<ModalProps> = {
-            isOpen: true,
+        const props: ModalProps = {
+            ...sharedProps,
             isLoading: true,
             aria: {
                 loading: 'Loading label info',
             },
         };
 
-        await modalDefaultPage.load({ ...props });
+        await modalDefaultPage.load(props);
 
         let ariaLoadingLabel = await modalDefaultPage.modalComponent.getModalAriaLabel();
         let ariaLoadingBusy = await modalDefaultPage.modalComponent.getModalAriaBusy();
@@ -654,8 +647,8 @@ test.describe('when aria does not exist', () => {
     test('should not render the aria-labels', async ({ page }) => {
     // Arrange
         const modalDefaultPage = new ModalDefaultPage(page);
-        const props: Partial<ModalProps> = {
-            isOpen: true,
+        const props: ModalProps = {
+            ...sharedProps,
             isDismissible: true,
             hasBackButton: true,
         };
@@ -679,12 +672,12 @@ test.describe('when modal `isloading` is false', () => {
     test('should not render aria-label', async ({ page }) => {
     // Arrange
         const modalDefaultPage = new ModalDefaultPage(page);
-        const props: Partial<ModalProps> = {
-            isOpen: true,
+        const props: ModalProps = {
+            ...sharedProps,
             isLoading: false,
         };
 
-        await modalDefaultPage.load({ ...props });
+        await modalDefaultPage.load(props);
 
         // Loading state
         const ariaLoadingLabel = await modalDefaultPage.modalComponent.getModalAriaLabel();
@@ -696,12 +689,12 @@ test.describe('when modal `isloading` is false', () => {
     test('should set `aria-busy` to `false`', async ({ page }) => {
     // Arrange
         const modalDefaultPage = new ModalDefaultPage(page);
-        const props: Partial<ModalProps> = {
-            isOpen: true,
+        const props: ModalProps = {
+            ...sharedProps,
             isLoading: false,
         };
 
-        await modalDefaultPage.load({ ...props });
+        await modalDefaultPage.load(props);
 
         // Loading state
         const ariaLoadingBusy = await modalDefaultPage.modalComponent.getModalAriaBusy();
@@ -715,12 +708,7 @@ test('should not close the modal when a form is submitted', async ({ page }) => 
     // Arrange
     const modalEmbeddedFormPage = new ModalEmbeddedFormPage(page);
 
-    const props: Partial<ModalProps> = {
-        heading: 'Modal heading',
-        isOpen: true,
-    };
-
-    await modalEmbeddedFormPage.load({ ...props });
+    await modalEmbeddedFormPage.load();
 
     // Act
     await modalEmbeddedFormPage.submitForm();
