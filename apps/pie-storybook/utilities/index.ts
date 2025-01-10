@@ -73,11 +73,11 @@ export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sani
  */
 export const createVariantStory = <T>(
     template: TemplateFunction<T>,
-    propOptions: Record<keyof T, unknown[]>,
+    propOptions: Partial<Record<keyof T, unknown[]>>,
     storyOpts?: StoryOptions,
 ) => ({
         render: () => {
-            const generateCombinations = (options: Record<keyof T, unknown[]>): T[] => {
+            const generateCombinations = (options: Partial<Record<keyof T, unknown[]>>): T[] => {
                 const keys = Object.keys(options) as (keyof T)[];
                 const combinations: T[] = [];
 
@@ -88,7 +88,7 @@ export const createVariantStory = <T>(
                     }
 
                     const key = keys[index];
-                    const values = options[key];
+                    const values = options[key] || [];
 
                     values.forEach((value) => {
                         buildCombination(index + 1, { ...currentCombination, [key]: value });
@@ -102,9 +102,8 @@ export const createVariantStory = <T>(
             const propCombinations = generateCombinations(propOptions);
 
             return html`
-            <div style="display: block; width: 100%;">
-                ${propCombinations.map((props) => {
-                // Type assertion to ensure darkBackground is recognized
+        <div style="display: block; width: 100%;">
+            ${propCombinations.map((props) => {
                 const typedProps = props as T & { darkBackground?: boolean };
 
                 return html`
@@ -129,8 +128,8 @@ export const createVariantStory = <T>(
                     </div>
                   `;
             })}
-          </div>
-        `;
+        </div>
+      `;
         },
         parameters: {
             backgrounds: {
