@@ -30,6 +30,7 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
 export default toastProviderStoryMeta;
 
 const onQueueUpdate = (queue: CustomEvent) => {
+    /* eslint-disable-next-line no-console */
     console.log('toast provider queue:', queue.detail);
 };
 

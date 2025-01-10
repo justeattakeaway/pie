@@ -24,6 +24,10 @@ const modal = {
             description: 'The selector for the modal description',
             dataTestId: 'modal-description',
         },
+        footer: {
+            description: 'The selector for the modal footer',
+            dataTestId: 'pie-modal-footer',
+        },
     },
 };
 export {
