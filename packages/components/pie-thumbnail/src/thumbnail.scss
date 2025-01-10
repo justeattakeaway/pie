@@ -2,20 +2,21 @@
 
 // Base thumbnail styles
 .c-thumbnail {
-  --thumbnail-size-small: var(--dt-spacing-g);
-  --thumbnail-border-radius-small: var(--dt-radius-rounded-b);
+  --thumbnail-size: var(--dt-spacing-g);
+  --thumbnail-border-radius: var(--dt-radius-rounded-b);
   --thumbnail-bg-color: var(--dt-color-container-default);
-  --thumbnail-border-outline: 1px solid var(--dt-color-border-default);
+  --thumbnail-border-color: transparent;
 
   box-sizing: border-box;
-  width: var(--thumbnail-size-small);
-  height: var(--thumbnail-size-small);
-  border-radius: var(--thumbnail-border-radius-small);
-  border: var(--thumbnail-border);
+  overflow: hidden;
+  width: var(--thumbnail-size);
+  height: var(--thumbnail-size);
+  border-radius: var(--thumbnail-border-radius);
+  border: 1px solid var(--thumbnail-border-color);
   background-color: var(--thumbnail-bg-color);
 
   &.c-thumbnail--outline {
-    --thumbnail-border: var(--thumbnail-border-outline);
+    --thumbnail-border-color: var(--dt-color-border-default);
   }
 
   .c-thumbnail-img {
@@ -23,6 +24,5 @@
     height: 100%;
     object-fit: contain;
     display: block;
-    border-radius: var(--thumbnail-border-radius-small);
   }
 }
