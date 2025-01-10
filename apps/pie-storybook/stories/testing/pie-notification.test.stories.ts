@@ -1,4 +1,4 @@
-import { html, nothing } from 'lit';
+import { html, nothing, type TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { type Meta } from '@storybook/web-components';
@@ -9,13 +9,14 @@ import {
 } from '@justeattakeaway/pie-notification';
 
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled';
 
-import { createStory, type TemplateFunction } from '../utilities';
+import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';
 
 // Extending the props type definition to include storybook specific properties for controls
 type NotificationProps = NotificationBaseProps & {
     slot: string;
-    iconSlot: keyof typeof slotOptions;
+    iconSlot: keyof typeof slotOptions | TemplateResult;
 };
 
 type NotificationStoryMeta = Meta<NotificationProps>;
@@ -23,7 +24,7 @@ type NotificationStoryMeta = Meta<NotificationProps>;
 const defaultArgs: NotificationProps = {
     ...defaultProps,
     slot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna.',
-    heading: 'Heading',
+    heading: '',
     leadingAction: {
         text: 'Confirm',
         ariaLabel: 'Descriptive confirmation text',
@@ -42,6 +43,11 @@ const defaultArgs: NotificationProps = {
 const slotOptions = {
     None: nothing,
     Placeholder: html`<icon-placeholder slot="icon"></icon-placeholder>`,
+};
+
+const slotOptionsVisual = {
+    None: nothing,
+    Placeholder: html`<icon-heart-filled slot="icon"></icon-heart-filled>`,
 };
 
 const notificationStoryMeta: NotificationStoryMeta = {
@@ -89,6 +95,7 @@ const notificationStoryMeta: NotificationStoryMeta = {
         heading: {
             description: 'The text to display in the notification\'s heading.',
             control: 'text',
+            ariaLabel: 'FOOBAR',
         },
         headingLevel: {
             description: 'The HTML heading tag to use for the notification\'s heading. Can from h2 to h6. The font size is kept the same for all heading levels.',
@@ -152,6 +159,9 @@ const pieNotificationSupportingActionClick = action('pie-notification-supporting
 const pieNotificationClose = action('pie-notification-close');
 const pieNotificationOpen = action('pie-notification-open');
 
+const slotContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna. Cras fringilla sed ipsum nec dignissim. Aliquam sit amet ullamcorper ligula.';
+const mockSlottedIcon = html`<div slot="icon" data-test-id="pie-notification-icon-slotted">Mocked Icon Slot</div>`;
+
 const Template : TemplateFunction<NotificationProps> = ({
     aria,
     isOpen,
@@ -197,3 +207,58 @@ export const Info = createNotificationStory({ variant: 'info' });
 export const Success = createNotificationStory({ variant: 'success' });
 export const Error = createNotificationStory({ variant: 'error' });
 export const Warning = createNotificationStory({ variant: 'warning' });
+
+export const NotificationWithSlot = createNotificationStory({
+    slot: slotContent,
+    iconSlot: mockSlottedIcon,
+});
+
+const VariantsTemplate = (propVals: NotificationProps) => html`<pie-notification
+        variant="${propVals.variant}"
+        ?isCompact="${propVals.isCompact}"
+        ?isDismissible="${propVals.isDismissible}"
+        ?hideIcon="${propVals.hideIcon}"
+        heading="${propVals.heading}">
+            ${propVals.iconSlot}
+            ${slotContent}
+        </pie-notification>`;
+
+const sharedPropOptions = {
+    isCompact: [true, false],
+    isDismissible: [true, false],
+    hideIcon: [true, false],
+    heading: ['Title', null],
+    iconSlot: [slotOptionsVisual.None, slotOptionsVisual.Placeholder],
+};
+
+const neutralPropOptions = {
+    variant: ['neutral'],
+    ...sharedPropOptions,
+};
+
+const neutralAlternativePropOptions = {
+    ...sharedPropOptions,
+    variant: ['neutral-alternative'],
+};
+
+const infoPropOptions = {
+    ...sharedPropOptions,
+    variant: ['info'],
+};
+
+const successPropOptions = {
+    ...sharedPropOptions,
+    variant: ['success'],
+};
+
+const warningPropOptions = {
+    ...sharedPropOptions,
+    variant: ['warning'],
+};
+
+const errorPropOptions = {
+    ...sharedPropOptions,
+    variant: ['error'],
+};
+
+export const NeutralPropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, neutralPropOptions);
