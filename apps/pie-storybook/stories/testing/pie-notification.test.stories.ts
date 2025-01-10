@@ -227,7 +227,7 @@ const sharedPropOptions = {
     isCompact: [true, false],
     isDismissible: [true, false],
     hideIcon: [true, false],
-    heading: ['Title', null],
+    heading: ['Title', nothing],
     iconSlot: [slotOptionsVisual.None, slotOptionsVisual.Placeholder],
 };
 

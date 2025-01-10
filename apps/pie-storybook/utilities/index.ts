@@ -73,38 +73,37 @@ export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sani
  */
 export const createVariantStory = <T>(
     template: TemplateFunction<T>,
-    propOptions: Record<keyof T, unknown[]>,
+    propOptions: Partial<Record<keyof T, unknown[]>>,
     storyOpts?: StoryOptions,
 ) => ({
-        render: () => {
-            const generateCombinations = (options: Record<keyof T, unknown[]>): T[] => {
-                const keys = Object.keys(options) as (keyof T)[];
-                const combinations: T[] = [];
+    render: () => {
+        const generateCombinations = (options: Partial<Record<keyof T, unknown[]>>): T[] => {
+            const keys = Object.keys(options) as (keyof T)[];
+            const combinations: T[] = [];
 
-                const buildCombination = (index: number, currentCombination: Partial<T>) => {
-                    if (index === keys.length) {
-                        combinations.push(currentCombination as T);
-                        return;
-                    }
+            const buildCombination = (index: number, currentCombination: Partial<T>) => {
+                if (index === keys.length) {
+                    combinations.push(currentCombination as T);
+                    return;
+                }
 
-                    const key = keys[index];
-                    const values = options[key];
+                const key = keys[index];
+                const values = options[key] || [];
 
-                    values.forEach((value) => {
-                        buildCombination(index + 1, { ...currentCombination, [key]: value });
-                    });
-                };
-
-                buildCombination(0, {});
-                return combinations;
+                values.forEach((value) => {
+                    buildCombination(index + 1, { ...currentCombination, [key]: value });
+                });
             };
 
-            const propCombinations = generateCombinations(propOptions);
+            buildCombination(0, {});
+            return combinations;
+        };
 
-            return html`
-            <div style="display: block; width: 100%;">
-                ${propCombinations.map((props) => {
-                // Type assertion to ensure darkBackground is recognized
+        const propCombinations = generateCombinations(propOptions);
+
+        return html`
+        <div style="display: block; width: 100%;">
+            ${propCombinations.map((props) => {
                 const typedProps = props as T & { darkBackground?: boolean };
 
                 return html`
@@ -129,25 +128,25 @@ export const createVariantStory = <T>(
                     </div>
                   `;
             })}
-          </div>
-        `;
+        </div>
+      `;
+    },
+    parameters: {
+        backgrounds: {
+            ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
         },
-        parameters: {
-            backgrounds: {
-                ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
-            },
-            controls: {
-                disable: true,
-            },
-            design: {
-                disable: true,
-            },
-            actions: {
-                disable: true,
-            },
-            a11y: {
-                disable: true,
-            },
+        controls: {
+            disable: true,
         },
-        ...(storyOpts?.argTypes ? { argTypes: storyOpts.argTypes } : {}),
-    });
+        design: {
+            disable: true,
+        },
+        actions: {
+            disable: true,
+        },
+        a11y: {
+            disable: true,
+        },
+    },
+    ...(storyOpts?.argTypes ? { argTypes: storyOpts.argTypes } : {}),
+});
