@@ -76,32 +76,32 @@ export const createVariantStory = <T>(
     propOptions: Partial<Record<keyof T, unknown[]>>,
     storyOpts?: StoryOptions,
 ) => ({
-    render: () => {
-        const generateCombinations = (options: Partial<Record<keyof T, unknown[]>>): T[] => {
-            const keys = Object.keys(options) as (keyof T)[];
-            const combinations: T[] = [];
+        render: () => {
+            const generateCombinations = (options: Partial<Record<keyof T, unknown[]>>): T[] => {
+                const keys = Object.keys(options) as (keyof T)[];
+                const combinations: T[] = [];
 
-            const buildCombination = (index: number, currentCombination: Partial<T>) => {
-                if (index === keys.length) {
-                    combinations.push(currentCombination as T);
-                    return;
-                }
+                const buildCombination = (index: number, currentCombination: Partial<T>) => {
+                    if (index === keys.length) {
+                        combinations.push(currentCombination as T);
+                        return;
+                    }
 
-                const key = keys[index];
-                const values = options[key] || [];
+                    const key = keys[index];
+                    const values = options[key] || [];
 
-                values.forEach((value) => {
-                    buildCombination(index + 1, { ...currentCombination, [key]: value });
-                });
+                    values.forEach((value) => {
+                        buildCombination(index + 1, { ...currentCombination, [key]: value });
+                    });
+                };
+
+                buildCombination(0, {});
+                return combinations;
             };
 
-            buildCombination(0, {});
-            return combinations;
-        };
+            const propCombinations = generateCombinations(propOptions);
 
-        const propCombinations = generateCombinations(propOptions);
-
-        return html`
+            return html`
         <div style="display: block; width: 100%;">
             ${propCombinations.map((props) => {
                 const typedProps = props as T & { darkBackground?: boolean };
@@ -130,23 +130,23 @@ export const createVariantStory = <T>(
             })}
         </div>
       `;
-    },
-    parameters: {
-        backgrounds: {
-            ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
         },
-        controls: {
-            disable: true,
+        parameters: {
+            backgrounds: {
+                ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
+            },
+            controls: {
+                disable: true,
+            },
+            design: {
+                disable: true,
+            },
+            actions: {
+                disable: true,
+            },
+            a11y: {
+                disable: true,
+            },
         },
-        design: {
-            disable: true,
-        },
-        actions: {
-            disable: true,
-        },
-        a11y: {
-            disable: true,
-        },
-    },
-    ...(storyOpts?.argTypes ? { argTypes: storyOpts.argTypes } : {}),
-});
+        ...(storyOpts?.argTypes ? { argTypes: storyOpts.argTypes } : {}),
+    });

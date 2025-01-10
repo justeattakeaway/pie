@@ -162,6 +162,18 @@ const pieNotificationOpen = action('pie-notification-open');
 const slotContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna. Cras fringilla sed ipsum nec dignissim. Aliquam sit amet ullamcorper ligula.';
 const mockSlottedIcon = html`<div slot="icon" data-test-id="pie-notification-icon-slotted">Mocked Icon Slot</div>`;
 
+const slotContentRTL = 'هذه الفقرة باللغة العربية ، لذا يجب الانتقال من اليمين إلى اليسار.';
+const titleRTL = 'عنوان';
+const confirmRTL = 'يتأكد';
+const denyRTL = 'ينكر';
+
+const mainAction = {
+    text: confirmRTL,
+};
+const secondaryAction = {
+    text: denyRTL,
+};
+
 const Template : TemplateFunction<NotificationProps> = ({
     aria,
     isOpen,
@@ -213,6 +225,13 @@ export const NotificationWithSlot = createNotificationStory({
     iconSlot: mockSlottedIcon,
 });
 
+export const NotificationRTL = createNotificationStory({
+    slot: slotContentRTL,
+    heading: titleRTL,
+    leadingAction: mainAction,
+    supportingAction: secondaryAction,
+});
+
 const VariantsTemplate = (propVals: NotificationProps) => html`<pie-notification
         variant="${propVals.variant}"
         ?isCompact="${propVals.isCompact}"
@@ -237,28 +256,33 @@ const neutralPropOptions = {
 };
 
 const neutralAlternativePropOptions = {
-    ...sharedPropOptions,
     variant: ['neutral-alternative'],
+    ...sharedPropOptions,
 };
 
 const infoPropOptions = {
-    ...sharedPropOptions,
     variant: ['info'],
+    ...sharedPropOptions,
 };
 
 const successPropOptions = {
-    ...sharedPropOptions,
     variant: ['success'],
+    ...sharedPropOptions,
 };
 
 const warningPropOptions = {
-    ...sharedPropOptions,
     variant: ['warning'],
+    ...sharedPropOptions,
 };
 
 const errorPropOptions = {
-    ...sharedPropOptions,
     variant: ['error'],
+    ...sharedPropOptions,
 };
 
 export const NeutralPropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, neutralPropOptions);
+export const NeutralAlternativePropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, neutralAlternativePropOptions);
+export const InfoPropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, infoPropOptions);
+export const SuccessPropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, successPropOptions);
+export const WarningPropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, warningPropOptions);
+export const ErrorPropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, errorPropOptions);
