@@ -85,8 +85,8 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
 .c-tokensTable-example--checked {
     background-color: var(--dt-color-container-default);
     background-image:
-        linear-gradient(45deg, var(--dt-color-dark-content-subdued) 25%, transparent 25%, transparent 75%, var(--dt-color-dark-content-subdued) 75%, var(--dt-color-dark-content-subdued)),
-        linear-gradient(45deg, var(--dt-color-dark-content-subdued) 25%, transparent 25%, transparent 75%, var(--dt-color-dark-content-subdued) 75%, var(--dt-color-dark-content-subdued));
+        linear-gradient(45deg, var(--dt-color-charcoal-30) 25%, transparent 25%, transparent 75%, var(--dt-color-charcoal-30) 75%, var(--dt-color-charcoal-30)),
+        linear-gradient(45deg, var(--dt-color-charcoal-30) 25%, transparent 25%, transparent 75%, var(--dt-color-charcoal-30) 75%, var(--dt-color-charcoal-30));
     background-size: 20px 20px;
     background-position: 0 0, 30px 30px;
     position: relative;
@@ -278,7 +278,7 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
 .c-tokensTable-token {
     display: inline-block;
     background-color: var(--dt-color-container-dark);
-    color: var(--dt-color-dark-content-default);
+    color: var(--dt-color-content-light);
     height: min-content;
     border: 1px solid var(--dt-color-border-subtle);
     border-radius: var(--dt-radius-rounded-b);
