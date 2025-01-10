@@ -7,22 +7,22 @@
   --thumbnail-bg-color: var(--dt-color-container-default);
   --thumbnail-border-outline: 1px solid var(--dt-color-border-default);
 
-  &.c-thumbnail--outline {
-    --thumbnail-border: var(--thumbnail-border-outline);
-  }
-
   box-sizing: border-box;
   width: var(--thumbnail-size-small);
   height: var(--thumbnail-size-small);
   border-radius: var(--thumbnail-border-radius-small);
   border: var(--thumbnail-border);
   background-color: var(--thumbnail-bg-color);
-}
 
-.c-thumbnail-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  border-radius: var(--thumbnail-border-radius-small);
+  &.c-thumbnail--outline {
+    --thumbnail-border: var(--thumbnail-border-outline);
+  }
+
+  .c-thumbnail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: var(--thumbnail-border-radius-small);
+  }
 }

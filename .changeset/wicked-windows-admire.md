@@ -3,4 +3,4 @@
 "pie-storybook": minor
 ---
 
-added basic functionality of thumbnail component
+[Added] - basic functionality of thumbnail component
