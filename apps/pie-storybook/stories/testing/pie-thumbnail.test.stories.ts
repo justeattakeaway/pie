@@ -59,7 +59,7 @@ const Template: TemplateFunction<ThumbnailProps> = ({
 
 // Define the prop options for the matrix
 const sharedPropOptions = {
-    src: ['https://www.takeaway.com/consumer-web/images/takeaway-brand.61e55e0b.svg'],
+    src: ['https://www.pie.design/assets/img/jet-logo-narrow.svg'],
     alt: ['JET logo'],
 };
 
