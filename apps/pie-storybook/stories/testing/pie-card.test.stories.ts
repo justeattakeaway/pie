@@ -103,12 +103,6 @@ const cardStoryMeta: CardStoryMeta = {
         },
     },
     args: defaultArgs,
-    parameters: {
-        design: {
-            type: 'figma',
-            url: '',
-        },
-    },
 };
 
 export default cardStoryMeta;
