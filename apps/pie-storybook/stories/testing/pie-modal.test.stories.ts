@@ -122,23 +122,18 @@ const modalStoryMeta: ModalStoryMeta = {
 export default modalStoryMeta;
 
 const supportingClickAction = () => {
-    /* eslint-disable-next-line no-console */
-    console.log('supporting-click');
+    console.info('supporting-click');
 };
 const leadingClickAction = () => {
-    /* eslint-disable-next-line no-console */
-    console.log('leading-click');
+    console.info('leading-click');
 };
 const backClickAction = () => {
-    /* eslint-disable-next-line no-console */
-    console.log('back-click');
+    console.info('back-click');
 };
 const openAction = () => {
-    /* eslint-disable-next-line no-console */
-    console.log('open-modal');
+    console.info('open-modal');
 };
 const closeAction = () => {
-    /* eslint-disable-next-line no-console */
     console.log('close-modal');
 };
 
