@@ -1,6 +1,5 @@
 import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/playwright-fixtures.ts';
 import { CookieBannerComponent, type Level } from 'test/helpers/page-object/pie-cookie-banner.page.ts';
-import { ModalComponent } from '@justeattakeaway/pie-modal/test/helpers/page-object/pie-modal.page.ts';
 import {
     ON_COOKIE_BANNER_ACCEPT_ALL,
     ON_COOKIE_BANNER_NECESSARY_ONLY,
@@ -10,12 +9,10 @@ import {
 } from '../../src/defs.ts';
 
 let pieCookieBannerComponent: CookieBannerComponent;
-let pieModalComponent: ModalComponent;
 
 test.describe('PieCookieBanner - Component tests', () => {
     test.beforeEach(async ({ page }) => {
         pieCookieBannerComponent = new CookieBannerComponent(page);
-        pieModalComponent = new ModalComponent(page);
     });
 
     test('should render successfully', async () => {
