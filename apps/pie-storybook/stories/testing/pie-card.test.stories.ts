@@ -18,7 +18,7 @@ type CardStoryMeta = Meta<CardProps>;
 const defaultArgs: CardProps = {
     ...defaultProps,
     href: '',
-    padding: 'a',
+    padding: '' as CardProps['padding'],
     rel: '',
     target: '',
     aria: {
@@ -153,7 +153,7 @@ export const Inverse = createCardStory({ variant: 'inverse' }, { bgColor: 'dark 
 export const OutlineInverse = createCardStory({ variant: 'outline-inverse' }, { bgColor: 'dark (container-dark)' });
 export const CardWithImage = createCardStory({
     ...defaultArgs,
-    slot: `<div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-l-family);">
+    slot: `<div data-test-id="slot-content" style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-l-family);">
         <h2 style="margin-top: 0"> Card title </h2>
         <p> Card content </p>
         <p style="margin-bottom: 0"> Lorem ipsum dolor sit amet
