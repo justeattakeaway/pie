@@ -10,7 +10,9 @@ import {
 } from '@justeattakeaway/pie-card';
 
 import { type SlottedComponentProps } from '../../types';
-import { createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML } from '../../utilities';
+import {
+    createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML,
+} from '../../utilities';
 
 type CardProps = SlottedComponentProps<CardPropsBase>;
 type CardStoryMeta = Meta<CardProps>;
@@ -164,79 +166,79 @@ export const CardWithImage = createCardStory({
 const variantSlotContent = '<div><h2>Card title</h2><p>Card content</p></div>';
 
 const sharedVariantProps: Partial<Record<keyof CardProps, unknown[]>> = {
-  tag: ['a', 'button'],
-  disabled: [true, false],
-  slot: [variantSlotContent],
-}
+    tag: ['a', 'button'],
+    disabled: [true, false],
+    slot: [variantSlotContent],
+};
 
 const defaultVariantProps: Partial<Record<keyof CardProps, unknown[]>> = {
-  variant: ['default'],
-  ...sharedVariantProps,
-}
+    variant: ['default'],
+    ...sharedVariantProps,
+};
 
 const outlineVariantProps: Partial<Record<keyof CardProps, unknown[]>> = {
-  variant: ['outline'],
-  ...sharedVariantProps,
-}
+    variant: ['outline'],
+    ...sharedVariantProps,
+};
 
 const inverseVariantProps: Partial<Record<keyof CardProps, unknown[]>> = {
-  variant: ['inverse'],
-  ...sharedVariantProps,
-}
+    variant: ['inverse'],
+    ...sharedVariantProps,
+};
 
 const outlineInverseVariantProps: Partial<Record<keyof CardProps, unknown[]>> = {
-  variant: ['outline-inverse'],
-  ...sharedVariantProps,
-}
+    variant: ['outline-inverse'],
+    ...sharedVariantProps,
+};
 
 const paddingAVariantProps: Partial<Record<keyof CardProps, unknown[]>> = {
-  padding: ['a', 'a,a','a,b', 'a,c', 'a,d', 'a,e', 'a,f', 'a,g'],
-  disabled: [false],
-  tag: ['button'],
-  slot: [variantSlotContent],
-}
+    padding: ['a', 'a,a', 'a,b', 'a,c', 'a,d', 'a,e', 'a,f', 'a,g'],
+    disabled: [false],
+    tag: ['button'],
+    slot: [variantSlotContent],
+};
 
 const paddingBVariantProps: Partial<Record<keyof CardProps, unknown[]>> = {
-  padding: ['b', 'b,a','b,b', 'b,c', 'b,d', 'b,e', 'b,f', 'b,g'],
-  disabled: [false],
-  tag: ['button'],
-  slot: [variantSlotContent],
-}
+    padding: ['b', 'b,a', 'b,b', 'b,c', 'b,d', 'b,e', 'b,f', 'b,g'],
+    disabled: [false],
+    tag: ['button'],
+    slot: [variantSlotContent],
+};
 
 const paddingCVariantProps: Partial<Record<keyof CardProps, unknown[]>> = {
-  padding: ['c', 'c,a','c,b', 'c,c', 'c,d', 'c,e', 'c,f', 'c,g'],
-  disabled: [false],
-  tag: ['button'],
-  slot: [variantSlotContent],
-}
+    padding: ['c', 'c,a', 'c,b', 'c,c', 'c,d', 'c,e', 'c,f', 'c,g'],
+    disabled: [false],
+    tag: ['button'],
+    slot: [variantSlotContent],
+};
 
 const paddingDVariantProps: Partial<Record<keyof CardProps, unknown[]>> = {
-  padding: ['d', 'd,a','d,b', 'd,c', 'd,d', 'd,e', 'd,f', 'd,g'],
-  disabled: [false],
-  tag: ['button'],
-  slot: [variantSlotContent],
-}
+    padding: ['d', 'd,a', 'd,b', 'd,c', 'd,d', 'd,e', 'd,f', 'd,g'],
+    disabled: [false],
+    tag: ['button'],
+    slot: [variantSlotContent],
+};
 
 const paddingEVariantProps: Partial<Record<keyof CardProps, unknown[]>> = {
-  padding: ['e', 'e,a','e,b', 'e,c', 'e,d', 'e,e', 'e,f', 'e,g'],
-  disabled: [false],
-  tag: ['button'],
-  slot: [variantSlotContent],
-}
+    padding: ['e', 'e,a', 'e,b', 'e,c', 'e,d', 'e,e', 'e,f', 'e,g'],
+    disabled: [false],
+    tag: ['button'],
+    slot: [variantSlotContent],
+};
 
 const paddingFVariantProps: Partial<Record<keyof CardProps, unknown[]>> = {
-  padding: ['f', 'f,a','f,b', 'f,c', 'f,d', 'f,e', 'f,f', 'f,g'],
-  disabled: [false],
-  tag: ['button'],
-  slot: [variantSlotContent],
-}
+    padding: ['f', 'f,a', 'f,b', 'f,c', 'f,d', 'f,e', 'f,f', 'f,g'],
+    disabled: [false],
+    tag: ['button'],
+    slot: [variantSlotContent],
+};
 
 const paddingGVariantProps: Partial<Record<keyof CardProps, unknown[]>> = {
-  padding: ['g', 'g,a','g,b', 'g,c', 'g,d', 'g,e', 'g,f', 'g,g'],
-  disabled: [false],
-  tag: ['button'],
-  slot: [variantSlotContent],
-}
+    padding: ['g', 'g,a', 'g,b', 'g,c', 'g,d', 'g,e', 'g,f', 'g,g'],
+    disabled: [false],
+    tag: ['button'],
+    slot: [variantSlotContent],
+};
 
 export const DefaultVariants = createVariantStory<Partial<CardProps>>(Template, defaultVariantProps, {});
 export const OutlineVariants = createVariantStory<Partial<CardProps>>(Template, outlineVariantProps, {});

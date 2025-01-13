@@ -104,7 +104,6 @@ export const createVariantStory = <T extends Record<string, unknown>>(
             return html`
         <div style="display: block; width: 100%;">
             ${propCombinations.map((props) => {
-
                 const darkBackground = storyOpts?.bgColor === 'dark (container-dark)' || storyOpts?.bgColor === 'background-dark';
                 const typedProps = props as T;
 
@@ -132,23 +131,23 @@ export const createVariantStory = <T extends Record<string, unknown>>(
             })}
         </div>
       `;
-    },
-    parameters: {
-        backgrounds: {
-            ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
         },
-        controls: {
-            disable: true,
+        parameters: {
+            backgrounds: {
+                ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
+            },
+            controls: {
+                disable: true,
+            },
+            design: {
+                disable: true,
+            },
+            actions: {
+                disable: true,
+            },
+            a11y: {
+                disable: true,
+            },
         },
-        design: {
-            disable: true,
-        },
-        actions: {
-            disable: true,
-        },
-        a11y: {
-            disable: true,
-        },
-    },
-    ...(storyOpts?.argTypes ? { argTypes: storyOpts.argTypes } : {}),
-});
+        ...(storyOpts?.argTypes ? { argTypes: storyOpts.argTypes } : {}),
+    });
