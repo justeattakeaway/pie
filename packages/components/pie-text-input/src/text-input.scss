@@ -10,7 +10,8 @@
     --input-border-color: var(--dt-color-interactive-form);
     --input-container-color: var(--dt-color-container-default);
     --input-radius: var(--dt-radius-rounded-c);
-    --input-font-size: var(--dt-font-body-l-size);
+    --input-font-size: #{p.font-size(--dt-font-body-l-size)};
+    --input-line-height: #{p.font-size(--dt-font-body-l-line-height)};
     --input-height: 48px;
     --input-cursor: text;
 
@@ -25,8 +26,8 @@
     padding-inline-end: var(--input-padding-inline);
     padding-block-start: var(--input-padding-block);
     padding-block-end: var(--input-padding-block);
-    line-height: 24px;
     font-size: var(--input-font-size);
+    line-height: var(--input-line-height);
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
