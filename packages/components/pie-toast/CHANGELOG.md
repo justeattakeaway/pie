@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-toast
 
+## 0.7.0
+
+### Minor Changes
+
+- [Changed] - move the toast and toast provider components to beta ([#2144](https://github.com/justeattakeaway/pie/pull/2144)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.6.0
 
 ### Minor Changes
