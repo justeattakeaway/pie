@@ -75,7 +75,7 @@ test.describe('PieCookieBanner - Component tests', () => {
             await pieCookieBannerComponent.clickManagePreferencesAll(level);
 
             const events = await pieCookieBannerComponent.getCapturedEvents();
-            const isModalVisible = await pieModalComponent.isModalVisible();
+            const isModalVisible = await pieCookieBannerComponent.modalComponent.isModalVisible();
             const isCookieBannerVisible = await pieCookieBannerComponent.isCookieBannerVisible();
 
             // Assert
@@ -91,10 +91,10 @@ test.describe('PieCookieBanner - Component tests', () => {
 
         // Act
         await pieCookieBannerComponent.clickManagePreferencesAction();
-        await pieModalComponent.clickBackModal();
+        await pieCookieBannerComponent.modalComponent.clickBackModal();
 
         const isCookieBannerVisible = await pieCookieBannerComponent.isCookieBannerVisible();
-        const isModalVisible = await pieModalComponent.isModalVisible();
+        const isModalVisible = await pieCookieBannerComponent.modalComponent.isModalVisible();
 
         // Assert
         expect.soft(isModalVisible).toBe(false);
@@ -112,7 +112,7 @@ test.describe('PieCookieBanner - Component tests', () => {
 
         const events = await pieCookieBannerComponent.getCapturedEvents();
         const isCookieBannerVisible = await pieCookieBannerComponent.isCookieBannerVisible();
-        const isModalVisible = await pieModalComponent.isModalVisible();
+        const isModalVisible = await pieCookieBannerComponent.modalComponent.isModalVisible();
 
         // Assert
         expect(isModalVisible).toBe(false);
