@@ -273,8 +273,8 @@ const FormStoryTemplate = (props: ModalProps) => {
 };
 
 const ScrollablePageStoryTemplate = (props: ModalProps) => html`
-    ${BaseStoryTemplate(props)}
-    ${createScrollablePageHTML()}`;
+    ${createScrollablePageHTML()}
+    ${BaseStoryTemplate(props)}`;
 
 const FocusableElementsPageStoryTemplate = (props: ModalProps) => html`
     ${BaseStoryTemplate(props)}

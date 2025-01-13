@@ -4,6 +4,7 @@
 @use 'dialog-polyfill/dist/dialog-polyfill.css';
 
 .c-modal {
+    position: fixed;
     // Custom Property Declarations
     // These are defined here instead of :host to encapsulate them inside Shadow DOM
     --modal-size-s: 450px;
