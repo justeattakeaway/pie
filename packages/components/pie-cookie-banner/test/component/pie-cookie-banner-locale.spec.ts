@@ -1,6 +1,5 @@
 import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/playwright-fixtures.ts';
 import { CookieBannerComponent } from 'test/helpers/page-object/pie-cookie-banner.page.ts';
-import { ModalComponent } from '@justeattakeaway/pie-modal/test/helpers/page-object/pie-modal.page.ts';
 import { Language, Country } from '@justeattakeaway/pie-cookie-banner/src/defs.ts';
 
 function stripTags (str: string) {
@@ -9,12 +8,10 @@ function stripTags (str: string) {
 
 const defaultLocale = 'en';
 let pieCookieBannerComponent: CookieBannerComponent;
-let pieModalComponent: ModalComponent;
 
 test.describe('PieCookieBanner - Country and Language Properties', () => {
     test.beforeEach(async ({ page }) => {
         pieCookieBannerComponent = new CookieBannerComponent(page);
-        pieModalComponent = new ModalComponent(page);
     });
 
     test('should render text in the default language-country \'en-gb\' when unset', async () => {
@@ -27,7 +24,7 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
         const necessaryOnlyButtonText = await pieCookieBannerComponent.getNecessaryOnlyTextContent();
         const managePreferencesButtonText = await pieCookieBannerComponent.getManagePreferencesTextContent();
         const componentDescriptionText = await pieCookieBannerComponent.getComponentDescriptionTextContent();
-        const modalDescriptionText = await pieModalComponent.getDescriptionTextContent();
+        const modalDescriptionText = await pieCookieBannerComponent.modalComponent.getDescriptionTextContent();
 
         // Assert
         expect(acceptAllButtonText).toBe(expectedLocale.banner.cta.acceptAll);
@@ -51,7 +48,7 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
         const necessaryOnlyButtonText = await pieCookieBannerComponent.getNecessaryOnlyTextContent();
         const managePreferencesButtonText = await pieCookieBannerComponent.getManagePreferencesTextContent();
         const componentDescriptionText = await pieCookieBannerComponent.getComponentDescriptionTextContent();
-        const modalDescriptionText = await pieModalComponent.getDescriptionTextContent();
+        const modalDescriptionText = await pieCookieBannerComponent.modalComponent.getDescriptionTextContent();
 
         // Assert
         expect(acceptAllButtonText).toBe(expectedLocale.banner.cta.acceptAll);
@@ -96,7 +93,7 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
             const necessaryOnlyButtonText = await pieCookieBannerComponent.getNecessaryOnlyTextContent();
             const managePreferencesButtonText = await pieCookieBannerComponent.getManagePreferencesTextContent();
             const componentDescriptionText = await pieCookieBannerComponent.getComponentDescriptionTextContent();
-            const modalDescriptionText = await pieModalComponent.getDescriptionTextContent();
+            const modalDescriptionText = await pieCookieBannerComponent.modalComponent.getDescriptionTextContent();
 
             // Assert
             expect(acceptAllButtonText).toBe(expectedLocale.banner.cta.acceptAll);
