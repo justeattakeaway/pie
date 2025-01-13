@@ -95,7 +95,6 @@ const notificationStoryMeta: NotificationStoryMeta = {
         heading: {
             description: 'The text to display in the notification\'s heading.',
             control: 'text',
-            ariaLabel: 'FOOBAR',
         },
         headingLevel: {
             description: 'The HTML heading tag to use for the notification\'s heading. Can from h2 to h6. The font size is kept the same for all heading levels.',
@@ -144,12 +143,6 @@ const notificationStoryMeta: NotificationStoryMeta = {
         },
     },
     args: defaultArgs,
-    parameters: {
-        design: {
-            type: 'figma',
-            url: 'https://www.figma.com/file/pPSC73rPin4csb8DiK1CRr/branch/r96WaDE105zDbe5itnleVv/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?type=design&node-id=1005-30849&mode=design&t=lYLzXOzJIeo6OvAw-0',
-        },
-    },
 };
 
 export default notificationStoryMeta;

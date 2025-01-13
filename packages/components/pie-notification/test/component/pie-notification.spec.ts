@@ -4,13 +4,11 @@ import { type NotificationProps, headingLevels, variants } from '../../src/defs.
 
 import { notification } from '../helpers/page-object/selectors.ts';
 
-const slotContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna. Cras fringilla sed ipsum nec dignissim. Aliquam sit amet ullamcorper ligula.';
-
 test.describe('PieNotification - Component tests', () => {
     test('should render successfully', async ({ page }) => {
         // Arrange
         const notificationPage = new BasePage(page, 'notification');
-        await notificationPage.load({ default: slotContent });
+        await notificationPage.load();
 
         // Act
         const notificationComponent = page.locator(notification.selectors.container.dataTestId);
@@ -25,7 +23,11 @@ test.describe('PieNotification - Component tests', () => {
                 test(`should render when the variant is ${variant}`, async ({ page }) => {
                     // Arrange
                     const notificationPage = new BasePage(page, 'notification');
-                    await notificationPage.load({ variant });
+                    const props: NotificationProps = {
+                        variant,
+                    };
+
+                    await notificationPage.load({ ...props });
 
                     // Act
                     const notificationComponent = page.locator(notification.selectors.container.dataTestId);
@@ -38,7 +40,11 @@ test.describe('PieNotification - Component tests', () => {
             test('should render icon-info when variant is info', async ({ page }) => {
                 // Arrange
                 const notificationPage = new BasePage(page, 'notification');
-                await notificationPage.load({ variant: 'info' });
+                const props: NotificationProps = {
+                    variant: 'info',
+                };
+
+                await notificationPage.load({ ...props });
 
                 // Act
                 const notificationComponent = page.locator(notification.selectors.container.dataTestId);
@@ -52,7 +58,12 @@ test.describe('PieNotification - Component tests', () => {
             test('should render icon-success when variant is success', async ({ page }) => {
                 // Arrange
                 const notificationPage = new BasePage(page, 'notification');
-                await notificationPage.load({ variant: 'success' });
+
+                const props: NotificationProps = {
+                    variant: 'success',
+                };
+
+                await notificationPage.load({ ...props });
 
                 // Act
                 const notificationComponent = page.locator(notification.selectors.container.dataTestId);
@@ -66,7 +77,11 @@ test.describe('PieNotification - Component tests', () => {
             test('should render icon-warning when variant is warning', async ({ page }) => {
                 // Arrange
                 const notificationPage = new BasePage(page, 'notification');
-                await notificationPage.load({ variant: 'warning' });
+                const props: NotificationProps = {
+                    variant: 'warning',
+                };
+
+                await notificationPage.load({ ...props });
 
                 // Act
                 const notificationComponent = page.locator(notification.selectors.container.dataTestId);
@@ -80,7 +95,7 @@ test.describe('PieNotification - Component tests', () => {
             test('should render icon-error when variant is error', async ({ page }) => {
                 // Arrange
                 const notificationPage = new BasePage(page, 'notification');
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     variant: 'error',
                 };
 
@@ -100,10 +115,10 @@ test.describe('PieNotification - Component tests', () => {
             test('should not render the close icon if isCompact is true ', async ({ page }) => {
                 // Arrange
                 const notificationPage = new BasePage(page, 'notification');
-
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     isCompact: true,
                 };
+
                 await notificationPage.load({ ...props });
 
                 // Act
@@ -120,10 +135,10 @@ test.describe('PieNotification - Component tests', () => {
             test('should render the header when heading is provided', async ({ page }) => {
                 // Arrange
                 const notificationPage = new BasePage(page, 'notification');
-
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     heading: 'Title',
                 };
+
                 await notificationPage.load({ ...props });
 
                 // Act
@@ -144,7 +159,7 @@ test.describe('PieNotification - Component tests', () => {
                         // Arrange
                         const notificationPage = new BasePage(page, 'notification');
 
-                        const props: Partial<NotificationProps> = {
+                        const props: NotificationProps = {
                             headingLevel,
                             heading: `Title using ${headingLevel}`,
                         };
@@ -168,8 +183,9 @@ test.describe('PieNotification - Component tests', () => {
                     // Arrange
                     const notificationPage = new BasePage(page, 'notification');
 
-                    const props: Partial<NotificationProps> = {
+                    const props: NotificationProps & { iconSlot: string } = {
                         variant,
+                        iconSlot: 'Placeholder',
                         hideIcon: true,
                     };
                     await notificationPage.load({ ...props });
@@ -191,7 +207,7 @@ test.describe('PieNotification - Component tests', () => {
                 // Arrange
                 const notificationPage = new BasePage(page, 'notification');
 
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     isDismissible: false,
                 };
                 await notificationPage.load({ ...props });
@@ -209,7 +225,7 @@ test.describe('PieNotification - Component tests', () => {
                 // Arrange
                 const notificationPage = new BasePage(page, 'notification');
 
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     isDismissible: false,
                     isCompact: false,
                 };
@@ -228,7 +244,7 @@ test.describe('PieNotification - Component tests', () => {
                 // Arrange
                 const notificationPage = new BasePage(page, 'notification');
 
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     isDismissible: true,
                     isCompact: true,
                 };
@@ -247,7 +263,7 @@ test.describe('PieNotification - Component tests', () => {
                 // Arrange
                 const notificationPage = new BasePage(page, 'notification');
 
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     isDismissible: true,
                 };
                 await notificationPage.load({ ...props });
@@ -277,7 +293,7 @@ test.describe('PieNotification - Component tests', () => {
                     // Arrange
                     const notificationPage = new BasePage(page, 'notification');
 
-                    const props: Partial<NotificationProps> = {
+                    const props: NotificationProps = {
                         leadingAction: undefined,
                     };
                     await notificationPage.load({ ...props });
@@ -295,7 +311,7 @@ test.describe('PieNotification - Component tests', () => {
                     // Arrange
                     const notificationPage = new BasePage(page, 'notification');
 
-                    const props: Partial<NotificationProps> = {
+                    const props: NotificationProps = {
                         isDismissible: true,
                         leadingAction: mainAction,
                     };
@@ -318,7 +334,7 @@ test.describe('PieNotification - Component tests', () => {
                     // Arrange
                     const notificationPage = new BasePage(page, 'notification');
 
-                    const props: Partial<NotificationProps> = {
+                    const props: NotificationProps = {
                         isDismissible: true,
                         leadingAction: undefined,
                         supportingAction: secondaryAction,
@@ -342,7 +358,7 @@ test.describe('PieNotification - Component tests', () => {
                     // Arrange
                     const notificationPage = new BasePage(page, 'notification');
 
-                    const props: Partial<NotificationProps> = {
+                    const props: NotificationProps = {
                         isDismissible: true,
                         leadingAction: mainAction,
                         supportingAction: secondaryAction,
@@ -368,7 +384,7 @@ test.describe('PieNotification - Component tests', () => {
                     // Arrange
                     const notificationPage = new BasePage(page, 'notification');
 
-                    const props: Partial<NotificationProps> = {
+                    const props: NotificationProps = {
                         isDismissible: true,
                         leadingAction: mainAction,
                         supportingAction: secondaryAction,
@@ -397,7 +413,7 @@ test.describe('PieNotification - Component tests', () => {
                     // Arrange
                     const notificationPage = new BasePage(page, 'notification');
 
-                    const props: Partial<NotificationProps> = {
+                    const props: NotificationProps = {
                         isDismissible: true,
                         leadingAction: mainAction,
                         supportingAction: secondaryAction,
@@ -442,7 +458,7 @@ test.describe('PieNotification - Component tests', () => {
                     const notificationPage = new BasePage(page, 'notification');
 
                     const ariaLabel = 'Notification heading';
-                    const props: Partial<NotificationProps> = {
+                    const props: NotificationProps = {
                         aria: {
                             label: ariaLabel,
                         },
@@ -462,7 +478,7 @@ test.describe('PieNotification - Component tests', () => {
                     const notificationPage = new BasePage(page, 'notification');
 
                     const ariaLabel = 'Notification heading';
-                    const props: Partial<NotificationProps> = {
+                    const props: NotificationProps = {
                         aria: {
                             label: ariaLabel,
                         },
@@ -485,7 +501,7 @@ test.describe('PieNotification - Component tests', () => {
                     const notificationPage = new BasePage(page, 'notification');
 
                     const ariaLabel = 'Notification heading';
-                    const props: Partial<NotificationProps> = {
+                    const props: NotificationProps = {
                         aria: {
                             label: ariaLabel,
                         },
@@ -504,7 +520,7 @@ test.describe('PieNotification - Component tests', () => {
                     const notificationPage = new BasePage(page, 'notification');
 
                     const ariaLabel = 'Notification heading';
-                    const props: Partial<NotificationProps> = {
+                    const props: NotificationProps = {
                         aria: {
                             label: ariaLabel,
                         },
@@ -535,7 +551,7 @@ test.describe('PieNotification - Component tests', () => {
                     // Arrange
                     const notificationPage = new BasePage(page, 'notification');
 
-                    const props: Partial<NotificationProps> = {
+                    const props: NotificationProps = {
                         variant: 'error',
                     };
 

@@ -31,10 +31,6 @@ const initialValues: NotificationProps = {
 };
 
 test.describe('Props', () => {
-    const mainAction = {
-        text: 'Confirm',
-        ariaLabel: 'Button that confirm the action',
-    };
     const secondaryAction = {
         text: 'Cancel',
         ariaLabel: 'Button that cancel the action',
@@ -45,9 +41,8 @@ test.describe('Props', () => {
             test(`should render correctly the ${headingLevel} headingLevel`, async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     ...initialValues,
-                    headingLevel,
                 };
 
                 await basePage.load({ ...props });
@@ -63,9 +58,8 @@ test.describe('Props', () => {
             test('should render leadingAction when leadingAction is provided', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     ...initialValues,
-                    leadingAction: mainAction,
                 };
 
                 await basePage.load({ ...props });
@@ -77,7 +71,7 @@ test.describe('Props', () => {
             test('should not render leadingAction when leadingAction not is provided', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     ...initialValues,
                     leadingAction: undefined,
                 };
@@ -93,7 +87,7 @@ test.describe('Props', () => {
             test('should not render supportingAction when leadingAction not is provided', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     ...initialValues,
                     leadingAction: undefined,
                     supportingAction: secondaryAction,
@@ -108,9 +102,8 @@ test.describe('Props', () => {
             test('should render supportingAction when leadingAction and supportingAction is provided', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     ...initialValues,
-                    leadingAction: mainAction,
                     supportingAction: secondaryAction,
                 };
 
@@ -125,9 +118,8 @@ test.describe('Props', () => {
             test('should stack buttons on small screens', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     ...initialValues,
-                    leadingAction: mainAction,
                     supportingAction: secondaryAction,
                     hasStackedActions: true,
                 };
@@ -142,9 +134,8 @@ test.describe('Props', () => {
             test('should not stack buttons on small screens', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     ...initialValues,
-                    leadingAction: mainAction,
                     supportingAction: secondaryAction,
                     hasStackedActions: false,
                 };
@@ -159,9 +150,8 @@ test.describe('Props', () => {
             test('should not stack buttons on large screens when hasStackedActions is true', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     ...initialValues,
-                    leadingAction: mainAction,
                     supportingAction: secondaryAction,
                     hasStackedActions: true,
                 };
@@ -176,9 +166,8 @@ test.describe('Props', () => {
             test('should not stack buttons on large screens when hasStackedActions is false', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     ...initialValues,
-                    leadingAction: mainAction,
                     supportingAction: secondaryAction,
                     hasStackedActions: false,
                 };
@@ -193,9 +182,8 @@ test.describe('Props', () => {
             test('should not stack buttons when hasStackedActions is true and isCompact is true regardless the screen size', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     ...initialValues,
-                    leadingAction: mainAction,
                     supportingAction: secondaryAction,
                     hasStackedActions: true,
                     isCompact: true,
@@ -214,7 +202,7 @@ test.describe('Props', () => {
             test(`should render correctly the ${positionValue} position`, async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'notification');
-                const props: Partial<NotificationProps> = {
+                const props: NotificationProps = {
                     ...initialValues,
                     position: positionValue,
                 };
@@ -231,8 +219,8 @@ test.describe('Props', () => {
 test.describe('Reading direction - RTL - Right to Left', () => {
     test('should slots icons and buttons when the reading direction is RTL', async ({ page }) => {
         // Arrange
-        const basePage = new BasePage(page, 'notification--rtl-visual');
-        const props: Partial<NotificationProps> = {
+        const basePage = new BasePage(page, 'notification--notification-rtl');
+        const props: NotificationProps = {
             isOpen: true,
             isDismissible: true,
         };
