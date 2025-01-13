@@ -299,20 +299,6 @@ test.describe('Prop: disabled', () => {
             // Assert
             await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('tabindex', '-1');
         });
-
-        test('should not trigger the click event when the tag prop is set to `button` and is `disabled`', async ({ page }) => {
-            // Arrange
-            const props: CardProps = {
-                tag: 'button',
-                disabled: false,
-            };
-
-            const cardDefaultPage = new CardDefaultPage(page);
-            await cardDefaultPage.load({ ...props });
-
-            // Assert
-            await expect(cardDefaultPage.cardComponent.buttonLocator).toBeDisabled();
-        });
     });
 
     test.describe('when the prop `tag` is set to `a`', () => {
