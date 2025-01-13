@@ -71,7 +71,7 @@ export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sani
  *
  * @returns {Function} Returns a function that renders all combinations of the given prop options.
  */
-export const createVariantStory = <T>(
+export const createVariantStory = <T extends Record<string, unknown>>(
     template: TemplateFunction<T>,
     propOptions: Partial<Record<keyof T, unknown[]>>,
     storyOpts?: StoryOptions,
@@ -104,7 +104,9 @@ export const createVariantStory = <T>(
             return html`
         <div style="display: block; width: 100%;">
             ${propCombinations.map((props) => {
-                const typedProps = props as T & { darkBackground?: boolean };
+
+                const darkBackground = storyOpts?.bgColor === 'dark (container-dark)' || storyOpts?.bgColor === 'background-dark';
+                const typedProps = props as T;
 
                 return html`
                     <div style="border: 1px solid black; padding: 16px; margin-bottom: 16px; width: 100%; box-sizing: border-box;">
@@ -119,8 +121,8 @@ export const createVariantStory = <T>(
                             border: 2px dashed #aaa;
                             padding: 8px;
                             border-radius: 4px;
-                            background-color: ${typedProps.darkBackground ? '#333' : '#fff'};
-                            color: ${typedProps.darkBackground ? '#fff' : '#000'};
+                            background-color: ${darkBackground ? '#333' : '#fff'};
+                            color: ${darkBackground ? '#fff' : '#000'};
                           "
                         >
                             ${template({ ...typedProps })}
@@ -130,23 +132,23 @@ export const createVariantStory = <T>(
             })}
         </div>
       `;
+    },
+    parameters: {
+        backgrounds: {
+            ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
         },
-        parameters: {
-            backgrounds: {
-                ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
-            },
-            controls: {
-                disable: true,
-            },
-            design: {
-                disable: true,
-            },
-            actions: {
-                disable: true,
-            },
-            a11y: {
-                disable: true,
-            },
+        controls: {
+            disable: true,
         },
-        ...(storyOpts?.argTypes ? { argTypes: storyOpts.argTypes } : {}),
-    });
+        design: {
+            disable: true,
+        },
+        actions: {
+            disable: true,
+        },
+        a11y: {
+            disable: true,
+        },
+    },
+    ...(storyOpts?.argTypes ? { argTypes: storyOpts.argTypes } : {}),
+});
