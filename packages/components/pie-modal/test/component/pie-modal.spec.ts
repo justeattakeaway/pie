@@ -436,6 +436,35 @@ test.describe('scrolling logic', () => {
         await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
         await expect(page.getByText('Bottom of page copy')).toBeInViewport();
     });
+
+    test.only('Should preserve scroll position after opening and closing the modal', async ({ page }) => {
+        // Arrange
+        const modalScrollLockingPage = new ModalScrollLockingPage(page);
+
+        const props: ModalProps = {
+            ...sharedProps,
+            isOpen: false,
+        };
+
+        await modalScrollLockingPage.load(props);
+
+        // Act
+        // Scroll to the bottom of the page
+        await page.mouse.wheel(0, 5000);
+
+        // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
+        await page.waitForTimeout(3000);
+
+        // opens the modal
+        await modalScrollLockingPage.openModalFromPageBottom();
+
+        // closes the modal
+        await page.keyboard.press('Escape');
+
+        // Assert
+        await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
+        await expect(page.getByText('Bottom of page copy')).toBeInViewport();
+    });
 });
 
 test.describe('`hasBackButton` prop', () => {
