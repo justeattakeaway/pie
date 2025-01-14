@@ -437,7 +437,7 @@ test.describe('scrolling logic', () => {
         await expect(page.getByText('Bottom of page copy')).toBeInViewport();
     });
 
-    test.only('Should preserve scroll position after opening and closing the modal', async ({ page }) => {
+    test('Should preserve scroll position after opening and closing the modal', async ({ page }) => {
         // Arrange
         const modalScrollLockingPage = new ModalScrollLockingPage(page);
 
