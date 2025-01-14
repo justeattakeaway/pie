@@ -72,7 +72,7 @@ test.describe('modal', () => {
                 // Set up a listener for console messages
                 const consoleMessages: string[] = [];
                 page.on('console', (message) => {
-                    if (message.type() === 'log') {
+                    if (message.type() === 'info') {
                         consoleMessages.push(message.text());
                     }
                 });
@@ -116,7 +116,7 @@ test.describe('modal', () => {
                 // Set up a listener for console messages
                 const consoleMessages: string[] = [];
                 page.on('console', (message) => {
-                    if (message.type() === 'log') {
+                    if (message.type() === 'info') {
                         consoleMessages.push(message.text());
                     }
                 });
@@ -143,7 +143,7 @@ test.describe('modal', () => {
                 // Set up a listener for console messages
                 const consoleMessages: string[] = [];
                 page.on('console', (message) => {
-                    if (message.type() === 'log') {
+                    if (message.type() === 'info') {
                         consoleMessages.push(message.text());
                     }
                 });
@@ -533,7 +533,7 @@ test.describe('actions', () => {
                 // Set up a listener for console messages
                 const consoleMessages: string[] = [];
                 page.on('console', (message) => {
-                    if (message.type() === 'log') {
+                    if (message.type() === 'info') {
                         consoleMessages.push(message.text());
                     }
                 });

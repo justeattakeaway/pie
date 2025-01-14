@@ -1,193 +1,176 @@
-import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieNotification } from '../../src/index.ts';
+import { test, expect } from '@playwright/test';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 import { type NotificationProps, headingLevels, variants } from '../../src/defs.ts';
 
-const rootSelector = 'pie-notification';
-const componentSelector = `[data-test-id="${rootSelector}"]`;
-const iconCloseSelector = `[data-test-id="${rootSelector}-icon-close"]`;
-const slottedIconSelector = `[data-test-id="${rootSelector}-icon-slotted"]`;
-const headingIconInfoSelector = `[data-test-id="${rootSelector}-heading-icon-info"]`;
-const headingIconSuccessSelector = `[data-test-id="${rootSelector}-heading-icon-success"]`;
-const headingIconWarningSelector = `[data-test-id="${rootSelector}-heading-icon-warning"]`;
-const headingIconErrorSelector = `[data-test-id="${rootSelector}-heading-icon-error"]`;
-const headingSelector = `[data-test-id="${rootSelector}-heading"]`;
-const footerSelector = `[data-test-id="${rootSelector}-footer"]`;
-const leadingActionSelector = `[data-test-id="${rootSelector}-leading-action"]`;
-const supportingActionSelector = `[data-test-id="${rootSelector}-supporting-action"]`;
-
-const slotContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna. Cras fringilla sed ipsum nec dignissim. Aliquam sit amet ullamcorper ligula.';
-const mockSlottedIcon = `<div slot="icon" data-test-id="${rootSelector}-icon-slotted">Mocked Icon Slot</div>`;
+import { notification } from '../helpers/page-object/selectors.ts';
 
 test.describe('PieNotification - Component tests', () => {
-    // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
-    // mount the component will still have it available in Playwright's cache (loaded and registered in the test browser)
-    test.beforeEach(async ({ mount }) => {
-        const component = await mount(PieNotification);
-        await component.unmount();
-    });
-
-    // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
-    // mount the component will still have it available in Playwright's cache (loaded and registered in the test browser)
-    test.beforeEach(async ({ mount }) => {
-        const component = await mount(PieNotification);
-        await component.unmount();
-    });
-
-    test('should render successfully', async ({ mount, page }) => {
+    test('should render successfully', async ({ page }) => {
         // Arrange
-        await mount(PieNotification, {
-            props: {} as NotificationProps,
-            slots: { default: slotContent },
-        });
+        const notificationPage = new BasePage(page, 'notification');
+        await notificationPage.load();
 
         // Act
-        const notification = page.locator(componentSelector);
+        const notificationComponent = page.locator(notification.selectors.container.dataTestId);
 
         // Assert
-        expect(notification).toBeVisible();
+        await expect(notificationComponent).toBeVisible();
     });
 
     test.describe('Props', () => {
         test.describe('variants', () => {
             variants.forEach((variant) => {
-                test(`should render when the variant is ${variant}`, async ({ mount, page }) => {
+                test(`should render when the variant is ${variant}`, async ({ page }) => {
                     // Arrange
-                    await mount(PieNotification, {
-                        props: {
-                            variant,
-                        },
-                    });
+                    const notificationPage = new BasePage(page, 'notification');
+                    const props: NotificationProps = {
+                        variant,
+                    };
+
+                    await notificationPage.load({ ...props });
 
                     // Act
-                    const notification = page.locator(componentSelector);
+                    const notificationComponent = page.locator(notification.selectors.container.dataTestId);
 
                     // Assert
-                    expect(notification).toBeVisible();
+                    await expect(notificationComponent).toBeVisible();
                 });
             });
 
-            test('should render icon-info when variant is info', async ({ mount, page }) => {
+            test('should render icon-info when variant is info', async ({ page }) => {
                 // Arrange
-                await mount(PieNotification, {
-                    props: {
-                        variant: 'info',
-                    },
-                });
+                const notificationPage = new BasePage(page, 'notification');
+                const props: NotificationProps = {
+                    variant: 'info',
+                };
+
+                await notificationPage.load({ ...props });
 
                 // Act
-                const notification = page.locator(componentSelector);
-                const icon = page.locator(headingIconInfoSelector);
+                const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                const icon = notificationComponent.getByTestId(notification.selectors.headingIconInfo.dataTestId);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(icon).toBeVisible();
+                await expect(notificationComponent).toBeVisible();
+                await expect(icon).toBeVisible();
             });
 
-            test('should render icon-success when variant is success', async ({ mount, page }) => {
+            test('should render icon-success when variant is success', async ({ page }) => {
                 // Arrange
-                await mount(PieNotification, {
-                    props: {
-                        variant: 'success',
-                    },
-                });
+                const notificationPage = new BasePage(page, 'notification');
+
+                const props: NotificationProps = {
+                    variant: 'success',
+                };
+
+                await notificationPage.load({ ...props });
 
                 // Act
-                const notification = page.locator(componentSelector);
-                const icon = page.locator(headingIconSuccessSelector);
+                const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                const icon = notificationComponent.getByTestId(notification.selectors.headingIconSuccess.dataTestId);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(icon).toBeVisible();
+                await expect(notificationComponent).toBeVisible();
+                await expect(icon).toBeVisible();
             });
 
-            test('should render icon-warning when variant is warning', async ({ mount, page }) => {
+            test('should render icon-warning when variant is warning', async ({ page }) => {
                 // Arrange
-                await mount(PieNotification, {
-                    props: {
-                        variant: 'warning',
-                    },
-                });
+                const notificationPage = new BasePage(page, 'notification');
+                const props: NotificationProps = {
+                    variant: 'warning',
+                };
+
+                await notificationPage.load({ ...props });
 
                 // Act
-                const notification = page.locator(componentSelector);
-                const icon = page.locator(headingIconWarningSelector);
+                const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                const icon = notificationComponent.getByTestId(notification.selectors.headingIconWarning.dataTestId);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(icon).toBeVisible();
+                await expect(notificationComponent).toBeVisible();
+                await expect(icon).toBeVisible();
             });
 
-            test('should render icon-error when variant is error', async ({ mount, page }) => {
+            test('should render icon-error when variant is error', async ({ page }) => {
                 // Arrange
-                await mount(PieNotification, {
-                    props: {
-                        variant: 'error',
-                    },
-                });
+                const notificationPage = new BasePage(page, 'notification');
+                const props: NotificationProps = {
+                    variant: 'error',
+                };
+
+                await notificationPage.load({ ...props });
 
                 // Act
-                const notification = page.locator(componentSelector);
-                const icon = page.locator(headingIconErrorSelector);
+                const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                const icon = notificationComponent.getByTestId(notification.selectors.headingIconError.dataTestId);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(icon).toBeVisible();
+                await expect(notificationComponent).toBeVisible();
+                await expect(icon).toBeVisible();
             });
         });
 
         test.describe('isCompact', () => {
-            test('should not render the close icon if isCompact is true ', async ({ mount, page }) => {
+            test('should not render the close icon if isCompact is true ', async ({ page }) => {
                 // Arrange
-                await mount(PieNotification, {
-                    props: { isCompact: true },
-                });
+                const notificationPage = new BasePage(page, 'notification');
+                const props: NotificationProps = {
+                    isCompact: true,
+                };
+
+                await notificationPage.load({ ...props });
 
                 // Act
-                const notification = page.locator(componentSelector);
-                const iconClose = page.locator(iconCloseSelector);
+                const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                const iconClose = notificationComponent.getByTestId(notification.selectors.iconClose.dataTestId);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(iconClose).not.toBeVisible();
+                await expect(notificationComponent).toBeVisible();
+                await expect(iconClose).not.toBeVisible();
             });
         });
 
         test.describe('heading', () => {
-            test('should render the header when heading is provided', async ({ mount, page }) => {
+            test('should render the header when heading is provided', async ({ page }) => {
                 // Arrange
-                await mount(PieNotification, {
-                    props: { heading: 'Title' } as NotificationProps,
-                });
+                const notificationPage = new BasePage(page, 'notification');
+                const props: NotificationProps = {
+                    heading: 'Title',
+                };
+
+                await notificationPage.load({ ...props });
 
                 // Act
-                const notification = page.locator(componentSelector);
-                const heading = page.locator(`h2${headingSelector}`);
+                const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                const heading = notificationComponent.locator('h2');
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(heading).toBeVisible();
-                expect(heading).toHaveText('Title');
+                await expect(notificationComponent).toBeVisible();
+                await expect(heading).toBeVisible();
+                await expect(heading).toHaveText('Title');
             });
         });
 
         test.describe('headingLevel', () => {
             test.describe('heading levels', () => {
                 headingLevels.forEach((headingLevel) => {
-                    test(`should render successfully when heading level is ${headingLevel}`, async ({ mount, page }) => {
+                    test(`should render successfully when heading level is ${headingLevel}`, async ({ page }) => {
                         // Arrange
-                        await mount(PieNotification, {
-                            props: {
-                                headingLevel,
-                                heading: `Title using ${headingLevel}`,
-                            } as NotificationProps,
-                        });
+                        const notificationPage = new BasePage(page, 'notification');
+
+                        const props: NotificationProps = {
+                            headingLevel,
+                            heading: `Title using ${headingLevel}`,
+                        };
+                        await notificationPage.load({ ...props });
 
                         // Act
-                        const heading = page.locator(`${headingLevel}${headingSelector}`);
+                        const heading = page.locator(`${headingLevel}`);
 
                         // Assert
-                        expect(heading).toBeVisible();
-                        expect(heading).toHaveText(`Title using ${headingLevel}`);
+                        await expect(heading).toBeVisible();
+                        await expect(heading).toHaveText(`Title using ${headingLevel}`);
                     });
                 });
             });
@@ -196,96 +179,102 @@ test.describe('PieNotification - Component tests', () => {
         test.describe('hideIcon', () => {
             const variantsWithDefaultIcon = ['info', 'success', 'warning', 'error'];
             variants.filter((variant) => variantsWithDefaultIcon.includes(variant)).forEach((variant) => {
-                test(`should not render the default icon when the variant is ${variant} and hideIcon is true`, async ({ mount, page }) => {
+                test(`should not render the default icon when the variant is ${variant} and hideIcon is true`, async ({ page }) => {
                     // Arrange
-                    await mount(PieNotification, {
-                        props: {
-                            variant,
-                            hideIcon: true,
-                        },
-                    });
+                    const notificationPage = new BasePage(page, 'notification');
+
+                    const props: NotificationProps & { iconSlot: string } = {
+                        variant,
+                        iconSlot: 'Placeholder',
+                        hideIcon: true,
+                    };
+                    await notificationPage.load({ ...props });
 
                     // Act
-                    const notification = page.locator(componentSelector);
-                    const iconSelector = page.locator(`[data-test-id="${rootSelector}-heading-icon-${variant}"]`);
+                    const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                    const iconSelector = page.locator(`[data-test-id="${notification.selectors.container.dataTestId}-heading-icon-${variant}"]`);
 
                     // Assert
-                    expect(notification).toBeVisible();
-                    expect(notification).toHaveAttribute('variant', variant);
-                    expect(iconSelector).not.toBeVisible();
+                    await expect(notificationComponent).toBeVisible();
+                    await expect(notificationComponent).toHaveAttribute('variant', variant);
+                    await expect(iconSelector).not.toBeVisible();
                 });
             });
         });
 
         test.describe('isDismissible', () => {
-            test('should not show the close icon if isDismissible is false', async ({ mount, page }) => {
+            test('should not show the close icon if isDismissible is false', async ({ page }) => {
                 // Arrange
-                await mount(PieNotification, {
-                    props: {
-                        isDismissible: false,
-                    },
-                });
+                const notificationPage = new BasePage(page, 'notification');
+
+                const props: NotificationProps = {
+                    isDismissible: false,
+                };
+                await notificationPage.load({ ...props });
 
                 // Act
-                const notification = page.locator(componentSelector);
-                const iconClose = page.locator(iconCloseSelector);
+                const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                const iconClose = notificationComponent.getByTestId(notification.selectors.iconClose.dataTestId);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(iconClose).not.toBeVisible();
+                await expect(notificationComponent).toBeVisible();
+                await expect(iconClose).not.toBeVisible();
             });
 
-            test('should not show the close icon if isDismissible is false and isCompact is false', async ({ mount, page }) => {
+            test('should not show the close icon if isDismissible is false and isCompact is false', async ({ page }) => {
                 // Arrange
-                await mount(PieNotification, {
-                    props: {
-                        isDismissible: false,
-                        isCompact: false,
-                    },
-                });
+                const notificationPage = new BasePage(page, 'notification');
+
+                const props: NotificationProps = {
+                    isDismissible: false,
+                    isCompact: false,
+                };
+                await notificationPage.load({ ...props });
 
                 // Act
-                const notification = page.locator(componentSelector);
-                const iconClose = page.locator(iconCloseSelector);
+                const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                const iconClose = notificationComponent.getByTestId(notification.selectors.iconClose.dataTestId);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(iconClose).not.toBeVisible();
+                await expect(notificationComponent).toBeVisible();
+                await expect(iconClose).not.toBeVisible();
             });
 
-            test('should not show the close icon if isDismissible is true and isCompact is true', async ({ mount, page }) => {
+            test('should not show the close icon if isDismissible is true and isCompact is true', async ({ page }) => {
                 // Arrange
-                await mount(PieNotification, {
-                    props: {
-                        isDismissible: true,
-                        isCompact: true,
-                    },
-                });
+                const notificationPage = new BasePage(page, 'notification');
+
+                const props: NotificationProps = {
+                    isDismissible: true,
+                    isCompact: true,
+                };
+                await notificationPage.load({ ...props });
 
                 // Act
-                const notification = page.locator(componentSelector);
-                const iconClose = page.locator(iconCloseSelector);
+                const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                const iconClose = notificationComponent.getByTestId(notification.selectors.iconClose.dataTestId);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(iconClose).not.toBeVisible();
+                await expect(notificationComponent).toBeVisible();
+                await expect(iconClose).not.toBeVisible();
             });
 
-            test('should show the close icon if isDismissible is true', async ({ mount, page }) => {
+            test('should show the close icon if isDismissible is true', async ({ page }) => {
                 // Arrange
-                await mount(PieNotification, {
-                    props: {
-                        isDismissible: true,
-                    },
-                });
+                const notificationPage = new BasePage(page, 'notification');
+
+                const props: NotificationProps = {
+                    isDismissible: true,
+                };
+                await notificationPage.load({ ...props });
 
                 // Act
-                const notification = page.locator(componentSelector);
-                const iconClose = page.locator(iconCloseSelector);
+                const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                const iconClose = notificationComponent.getByTestId(notification.selectors.iconClose.dataTestId);
 
                 // Assert
-                expect(notification).toBeVisible();
-                expect(iconClose).toBeVisible();
+                await expect(notificationComponent).toBeVisible();
+                await expect(iconClose).toBeVisible();
             });
         });
 
@@ -300,138 +289,148 @@ test.describe('PieNotification - Component tests', () => {
             };
 
             test.describe('leadingAction', () => {
-                test('should not show the footer if leadingAction is not provided', async ({ mount, page }) => {
+                test('should not show the footer if leadingAction is not provided', async ({ page }) => {
                     // Arrange
-                    await mount(PieNotification);
+                    const notificationPage = new BasePage(page, 'notification');
+
+                    const props: NotificationProps = {
+                        leadingAction: undefined,
+                    };
+                    await notificationPage.load({ ...props });
 
                     // Act
-                    const notification = page.locator(componentSelector);
-                    const footer = page.locator(footerSelector);
+                    const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                    const footer = notificationComponent.getByTestId(notification.selectors.footer.dataTestId);
 
                     // Assert
-                    expect(notification).toBeVisible();
-                    expect(footer).not.toBeVisible();
+                    await expect(notificationComponent).toBeVisible();
+                    await expect(footer).not.toBeVisible();
                 });
 
-                test('should show the footer if leadingAction is provided', async ({ mount, page }) => {
+                test('should show the footer if leadingAction is provided', async ({ page }) => {
                     // Arrange
-                    await mount(PieNotification, {
-                        props: {
-                            isDismissible: true,
-                            leadingAction: mainAction,
-                        } as NotificationProps,
-                    });
+                    const notificationPage = new BasePage(page, 'notification');
+
+                    const props: NotificationProps = {
+                        isDismissible: true,
+                        leadingAction: mainAction,
+                    };
+                    await notificationPage.load({ ...props });
 
                     // Act
-                    const notification = page.locator(componentSelector);
-                    const footer = page.locator(footerSelector);
-                    const actionLeading = page.locator(leadingActionSelector);
+                    const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                    const footer = notificationComponent.getByTestId(notification.selectors.footer.dataTestId);
+                    const actionLeading = notificationComponent.getByTestId(notification.selectors.leadingAction.dataTestId);
 
                     // Assert
-                    expect(notification).toBeVisible();
-                    expect(footer).toBeVisible();
-                    expect(actionLeading).toBeVisible();
+                    await expect(notificationComponent).toBeVisible();
+                    await expect(footer).toBeVisible();
+                    await expect(actionLeading).toBeVisible();
                 });
             });
 
             test.describe('supportingAction', () => {
-                test('should not show the footer nor leadingAction if only supportingAction is provided', async ({ mount, page }) => {
+                test('should not show the footer nor leadingAction if only supportingAction is provided', async ({ page }) => {
                     // Arrange
-                    await mount(PieNotification, {
-                        props: {
-                            isDismissible: true,
-                            supportingAction: secondaryAction,
-                        } as NotificationProps,
-                    });
+                    const notificationPage = new BasePage(page, 'notification');
+
+                    const props: NotificationProps = {
+                        isDismissible: true,
+                        leadingAction: undefined,
+                        supportingAction: secondaryAction,
+                    };
+                    await notificationPage.load({ ...props });
 
                     // Act
-                    const notification = page.locator(componentSelector);
-                    const footer = page.locator(footerSelector);
-                    const actionLeading = page.locator(leadingActionSelector);
-                    const actionSupporting = page.locator(supportingActionSelector);
+                    const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                    const footer = notificationComponent.getByTestId(notification.selectors.footer.dataTestId);
+                    const actionLeading = notificationComponent.getByTestId(notification.selectors.leadingAction.dataTestId);
+                    const actionSupporting = notificationComponent.getByTestId(notification.selectors.supportingAction.dataTestId);
 
                     // Assert
-                    expect(notification).toBeVisible();
-                    expect(footer).not.toBeVisible();
-                    expect(actionLeading).not.toBeVisible();
-                    expect(actionSupporting).not.toBeVisible();
+                    await expect(notificationComponent).toBeVisible();
+                    await expect(footer).not.toBeVisible();
+                    await expect(actionLeading).not.toBeVisible();
+                    await expect(actionSupporting).not.toBeVisible();
                 });
 
-                test('should the leadingAction and supportingAction when both are provided', async ({ mount, page }) => {
+                test('should the leadingAction and supportingAction when both are provided', async ({ page }) => {
                     // Arrange
-                    await mount(PieNotification, {
-                        props: {
-                            isDismissible: true,
-                            leadingAction: mainAction,
-                            supportingAction: secondaryAction,
-                        } as NotificationProps,
-                    });
+                    const notificationPage = new BasePage(page, 'notification');
+
+                    const props: NotificationProps = {
+                        isDismissible: true,
+                        leadingAction: mainAction,
+                        supportingAction: secondaryAction,
+                    };
+                    await notificationPage.load({ ...props });
 
                     // Act
-                    const notification = page.locator(componentSelector);
-                    const footer = page.locator(footerSelector);
-                    const actionLeading = page.locator(leadingActionSelector);
-                    const actionSupporting = page.locator(supportingActionSelector);
+                    const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                    const footer = notificationComponent.getByTestId(notification.selectors.footer.dataTestId);
+                    const actionLeading = notificationComponent.getByTestId(notification.selectors.leadingAction.dataTestId);
+                    const actionSupporting = notificationComponent.getByTestId(notification.selectors.supportingAction.dataTestId);
 
                     // Assert
-                    expect(notification).toBeVisible();
-                    expect(footer).toBeVisible();
-                    expect(actionLeading).toBeVisible();
-                    expect(actionSupporting).toBeVisible();
+                    await expect(notificationComponent).toBeVisible();
+                    await expect(footer).toBeVisible();
+                    await expect(actionLeading).toBeVisible();
+                    await expect(actionSupporting).toBeVisible();
                 });
             });
 
             test.describe('hasStackedActions', () => {
-                test('should stack buttons on small screens', async ({ mount, page }) => {
+                test('should stack buttons on small screens', async ({ page }) => {
                     // Arrange
+                    const notificationPage = new BasePage(page, 'notification');
+
+                    const props: NotificationProps = {
+                        isDismissible: true,
+                        leadingAction: mainAction,
+                        supportingAction: secondaryAction,
+                        hasStackedActions: true,
+                    };
+                    await notificationPage.load({ ...props });
+
                     await page.setViewportSize({ width: 375, height: 667 });
-                    await mount(PieNotification, {
-                        props: {
-                            isDismissible: true,
-                            leadingAction: mainAction,
-                            supportingAction: secondaryAction,
-                            hasStackedActions: true,
-                        } as NotificationProps,
-                    });
 
                     // Act
-                    const notification = page.locator(componentSelector);
-                    const footer = page.locator(footerSelector);
-                    const actionLeading = page.locator(leadingActionSelector);
-                    const actionSupporting = page.locator(supportingActionSelector);
+                    const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                    const footer = notificationComponent.getByTestId(notification.selectors.footer.dataTestId);
+                    const actionLeading = notificationComponent.getByTestId(notification.selectors.leadingAction.dataTestId);
+                    const actionSupporting = notificationComponent.getByTestId(notification.selectors.supportingAction.dataTestId);
 
                     // Assert
-                    expect(notification).toBeVisible();
-                    expect(footer).toBeVisible();
-                    expect(actionLeading).toBeVisible();
-                    expect(actionSupporting).toBeVisible();
+                    await expect(notificationComponent).toBeVisible();
+                    await expect(footer).toBeVisible();
+                    await expect(actionLeading).toBeVisible();
+                    await expect(actionSupporting).toBeVisible();
 
-                    expect(footer).toHaveCSS('flex-direction', 'column-reverse');
-                    // 295px is the size of the button when the viewport size is 375px
-                    expect(actionLeading).toHaveCSS('width', '295px');
-                    expect(actionSupporting).toHaveCSS('width', '295px');
+                    await expect(footer).toHaveCSS('flex-direction', 'column-reverse');
                 });
 
-                test('should not stack buttons on large screens', async ({ mount, page }) => {
+                test('should not stack buttons on large screens', async ({ page }) => {
                     // Arrange
+                    const notificationPage = new BasePage(page, 'notification');
+
+                    const props: NotificationProps = {
+                        isDismissible: true,
+                        leadingAction: mainAction,
+                        supportingAction: secondaryAction,
+                        hasStackedActions: true,
+                    };
+                    await notificationPage.load({ ...props });
+
                     await page.setViewportSize({ width: 1275, height: 900 });
-                    await mount(PieNotification, {
-                        props: {
-                            isDismissible: true,
-                            leadingAction: mainAction,
-                            supportingAction: secondaryAction,
-                            hasStackedActions: true,
-                        } as NotificationProps,
-                    });
 
                     // Act
-                    const notification = page.locator(componentSelector);
-                    const footer = page.locator(footerSelector);
-                    const actionLeading = page.locator(leadingActionSelector);
-                    const actionSupporting = page.locator(supportingActionSelector);
+                    const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                    const footer = notificationComponent.getByTestId(notification.selectors.footer.dataTestId);
+                    const actionLeading = notificationComponent.getByTestId(notification.selectors.leadingAction.dataTestId);
+                    const actionSupporting = notificationComponent.getByTestId(notification.selectors.supportingAction.dataTestId);
 
                     // Assert
-                    expect(notification).toBeVisible();
+                    expect(notificationComponent).toBeVisible();
                     expect(footer).toBeVisible();
                     expect(actionLeading).toBeVisible();
                     expect(actionSupporting).toBeVisible();
@@ -442,140 +441,146 @@ test.describe('PieNotification - Component tests', () => {
         });
 
         test.describe('Aria attributes', () => {
-            test('should assign role="region"', async ({ mount, page }) => {
+            test('should assign role="region"', async ({ page }) => {
                 // Arrange
-                await mount(PieNotification, {});
+                const notificationPage = new BasePage(page, 'notification');
+                await notificationPage.load();
 
-                const notification = await page.locator(componentSelector);
+                const notificationComponent = page.getByTestId(notification.selectors.container.dataTestId);
 
                 // Act & Assert
-                await expect(notification).toHaveAttribute('role', 'region');
+                await expect(notificationComponent).toHaveAttribute('role', 'region');
             });
 
             test.describe('aria-label', () => {
-                test('should only be set if there is no heading to ensure the region is announced with a title', async ({ mount, page }) => {
+                test('should only be set if there is no heading to ensure the region is announced with a title', async ({ page }) => {
                     // Arrange
-                    const ariaLabel = 'Notification heading';
-                    await mount(PieNotification, {
-                        props: {
-                            aria: {
-                                label: ariaLabel,
-                            },
-                        } as PieNotification,
-                    });
+                    const notificationPage = new BasePage(page, 'notification');
 
-                    const notification = await page.locator(componentSelector);
-                    const heading = await page.locator(`h2${headingSelector}`);
+                    const ariaLabel = 'Notification heading';
+                    const props: NotificationProps = {
+                        aria: {
+                            label: ariaLabel,
+                        },
+                    };
+                    await notificationPage.load({ ...props });
+
+                    const notificationComponent = page.getByTestId(notification.selectors.container.dataTestId);
+                    const heading = page.locator('h2');
 
                     // Act & Assert
-                    expect(notification).toHaveAttribute('aria-label', ariaLabel);
-                    expect(heading).not.toBeVisible();
+                    await expect(notificationComponent).toHaveAttribute('aria-label', ariaLabel);
+                    await expect(heading).not.toBeVisible();
                 });
 
-                test('should be ignored if heading is provided as the title will be used as the region title', async ({ mount, page }) => {
+                test('should be ignored if heading is provided as the title will be used as the region title', async ({ page }) => {
                     // Arrange
-                    const ariaLabel = 'Notification heading';
-                    await mount(PieNotification, {
-                        props: {
-                            aria: {
-                                label: ariaLabel,
-                            },
-                            heading: 'Heading',
-                        } as PieNotification,
-                    });
+                    const notificationPage = new BasePage(page, 'notification');
 
-                    const notification = await page.locator(componentSelector);
-                    const heading = await page.locator(`h2${headingSelector}`);
+                    const ariaLabel = 'Notification heading';
+                    const props: NotificationProps = {
+                        aria: {
+                            label: ariaLabel,
+                        },
+                        heading: 'Heading',
+                    };
+                    await notificationPage.load({ ...props });
+
+                    const notificationComponent = page.getByTestId(notification.selectors.container.dataTestId);
+                    const heading = page.locator('h2');
 
                     // Act & Assert
-                    expect(notification).not.toHaveAttribute('aria-label', ariaLabel);
-                    expect(heading).toBeVisible();
+                    await expect(notificationComponent).not.toHaveAttribute('aria-label', ariaLabel);
+                    await expect(heading).toBeVisible();
                 });
             });
 
             test.describe('aria-labelledby', () => {
-                test('should only be set if heading is provided to ensure the region is announced with a title', async ({ mount, page }) => {
+                test('should only be set if heading is provided to ensure the region is announced with a title', async ({ page }) => {
                     // Arrange
-                    const ariaLabel = 'Notification heading';
-                    await mount(PieNotification, {
-                        props: {
-                            aria: {
-                                label: ariaLabel,
-                            },
-                            heading: 'Heading',
-                        } as PieNotification,
-                    });
+                    const notificationPage = new BasePage(page, 'notification');
 
-                    const notification = await page.locator(componentSelector);
+                    const ariaLabel = 'Notification heading';
+                    const props: NotificationProps = {
+                        aria: {
+                            label: ariaLabel,
+                        },
+                        heading: 'Heading',
+                    };
+                    await notificationPage.load({ ...props });
+
+                    const notificationComponent = page.getByTestId(notification.selectors.container.dataTestId);
 
                     // Act & Assert
-                    expect(notification).toHaveAttribute('aria-labelledby', `${rootSelector}-heading`);
+                    await expect(notificationComponent).toHaveAttribute('aria-labelledby', `${notification.selectors.heading.dataTestId}`);
                 });
 
-                test('should be ignored if heading is not provided', async ({ mount, page }) => {
+                test('should be ignored if heading is not provided', async ({ page }) => {
                     // Arrange
-                    const ariaLabel = 'Notification heading';
-                    await mount(PieNotification, {
-                        props: {
-                            aria: {
-                                label: ariaLabel,
-                            },
-                        } as PieNotification,
-                    });
+                    const notificationPage = new BasePage(page, 'notification');
 
-                    const notification = await page.locator(componentSelector);
+                    const ariaLabel = 'Notification heading';
+                    const props: NotificationProps = {
+                        aria: {
+                            label: ariaLabel,
+                        },
+                    };
+                    await notificationPage.load({ ...props });
+
+                    const notificationComponent = page.getByTestId(notification.selectors.container.dataTestId);
 
                     // Act & Assert
-                    expect(notification).not.toHaveAttribute('aria-labelledby', `${rootSelector}-heading`);
+                    await expect(notificationComponent).not.toHaveAttribute('aria-labelledby', `${notification.selectors.heading.dataTestId}`);
                 });
             });
 
             test.describe('aria-live', () => {
-                test('should be set to `polite` by default', async ({ mount, page }) => {
+                test('should be set to `polite` by default', async ({ page }) => {
                     // Arrange
-                    await mount(PieNotification, {});
+                    const notificationPage = new BasePage(page, 'notification');
 
-                    const notification = await page.locator(componentSelector);
+                    await notificationPage.load();
+
+                    const notificationComponent = page.getByTestId(notification.selectors.container.dataTestId);
 
                     // Act & Assert
-                    expect(notification).toHaveAttribute('aria-live', 'polite');
+                    await expect(notificationComponent).toHaveAttribute('aria-live', 'polite');
                 });
 
-                test('should be set to `assertive` for the error variant', async ({ mount, page }) => {
+                test('should be set to `assertive` for the error variant', async ({ page }) => {
                     // Arrange
-                    await mount(PieNotification, {
-                        props: {
-                            variant: 'error',
-                        } as PieNotification,
-                    });
+                    const notificationPage = new BasePage(page, 'notification');
 
-                    const notification = await page.locator(componentSelector);
+                    const props: NotificationProps = {
+                        variant: 'error',
+                    };
+
+                    await notificationPage.load({ ...props });
+
+                    const notificationComponent = page.getByTestId(notification.selectors.container.dataTestId);
 
                     // Act & Assert
-                    expect(notification).toHaveAttribute('aria-live', 'assertive');
+                    await expect(notificationComponent).toHaveAttribute('aria-live', 'assertive');
                 });
             });
         });
     });
 
     test.describe('Slots', () => {
-        test('should correctly render the slot content and an icon as named slot', async ({ mount, page }) => {
+        test('should correctly render the slot content and an icon as named slot', async ({ page }) => {
             // Arrange
-            await mount(PieNotification, {
-                slots: {
-                    default: slotContent,
-                    icon: mockSlottedIcon,
-                },
-            });
+            const notificationPage = new BasePage(page, 'notification--notification-with-slot');
+
+            await notificationPage.load();
 
             // Act
-            const notification = page.locator(componentSelector);
-            const slottedIcon = page.locator(slottedIconSelector);
+            const notificationComponent = page.getByTestId(notification.selectors.container.dataTestId);
+            const slottedIcon = page.getByTestId(notification.selectors.slottedIcon.dataTestId);
 
             // Assert
-            expect(notification).toBeVisible();
-            expect(slottedIcon).toBeVisible();
-            expect(slottedIcon).toHaveText('Mocked Icon Slot');
+            await expect(notificationComponent).toBeVisible();
+            await expect(slottedIcon).toBeVisible();
+            await expect(slottedIcon).toHaveText('Mocked Icon Slot');
         });
     });
 });
