@@ -71,7 +71,7 @@ export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sani
  *
  * @returns {Function} Returns a function that renders all combinations of the given prop options.
  */
-export const createVariantStory = <T extends Record<string, unknown>>(
+export const createVariantStory = <T>(
     template: TemplateFunction<T>,
     propOptions: Partial<Record<keyof T, unknown[]>>,
     storyOpts?: StoryOptions,
