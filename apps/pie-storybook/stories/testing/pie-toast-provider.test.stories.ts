@@ -30,12 +30,11 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
 export default toastProviderStoryMeta;
 
 const onQueueUpdate = (queue: CustomEvent) => {
-    /* eslint-disable-next-line no-console */
-    console.log('toast provider queue:', queue.detail);
+    console.info('toast provider queue:', queue.detail);
 };
 
 const Template = ({ options }: ToastProviderProps) => html`
-    <pie-toast-provider 
+    <pie-toast-provider
         .options="${options}"
         @pie-toast-provider-queue-update="${onQueueUpdate}">
     </pie-toast-provider>

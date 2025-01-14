@@ -134,7 +134,7 @@ const openAction = () => {
     console.info('open-modal');
 };
 const closeAction = () => {
-    console.log('close-modal');
+    console.info('close-modal');
 };
 
 /**

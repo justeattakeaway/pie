@@ -9,7 +9,7 @@
       "dependsOn": [],
       "inputs": [
         "$TURBO_DEFAULT$",
-        "../../../apps/pie-storybook/stories/testing/pie-thumbnail.test.stories.ts"
+        "../../../apps/pie-storybook/stories/testing/pie-notification.test.stories.ts"
       ]
     },
     "test:browsers:ci": {
@@ -17,7 +17,7 @@
       "dependsOn": [],
       "inputs": [
         "$TURBO_DEFAULT$",
-        "../../../apps/pie-storybook/stories/testing/pie-thumbnail.test.stories.ts"
+        "../../../apps/pie-storybook/stories/testing/pie-notification.test.stories.ts"
       ]
     },
     "test:visual": {
@@ -25,7 +25,7 @@
       "dependsOn": [],
       "inputs": [
         "$TURBO_DEFAULT$",
-        "../../../apps/pie-storybook/stories/testing/pie-thumbnail.test.stories.ts"
+        "../../../apps/pie-storybook/stories/testing/pie-notification.test.stories.ts"
       ]
     },
     "test:visual:ci": {
@@ -33,7 +33,7 @@
       "dependsOn": [],
       "inputs": [
         "$TURBO_DEFAULT$",
-        "../../../apps/pie-storybook/stories/testing/pie-thumbnail.test.stories.ts"
+        "../../../apps/pie-storybook/stories/testing/pie-notification.test.stories.ts"
       ]
     }
   }
