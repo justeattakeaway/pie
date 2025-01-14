@@ -97,7 +97,7 @@
       "maxSize": "0.29 KB"
     },
     {
-      "path": "./packages/components/pie-lottie-player/dist/lottie_light_canvas.min-C0TZgtte.js",
+      "path": "./packages/components/pie-lottie-player/dist/lottie_light_canvas.min-*.js",
       "maxSize": "81.7 KB"
     },
     {
