@@ -10,7 +10,7 @@ import {
 
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
-import { createStory, type TemplateFunction } from '../utilities';
+import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 // Extending the props type definition to include storybook specific properties for controls
 type NotificationProps = NotificationBaseProps & {
@@ -186,7 +186,7 @@ const Template : TemplateFunction<NotificationProps> = ({
         @pie-notification-close="${pieNotificationClose}"
         @pie-notification-open="${pieNotificationOpen}">
             ${iconSlot}
-            ${slot}
+            ${sanitizeAndRenderHTML(slot)}
     </pie-notification>`;
 
 const createNotificationStory = createStory<NotificationProps>(Template, defaultArgs);

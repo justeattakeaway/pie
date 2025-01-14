@@ -11,7 +11,9 @@ import {
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled';
 
-import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';
+import {
+    createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML,
+} from '../../utilities';
 
 // Extending the props type definition to include storybook specific properties for controls
 type NotificationProps = NotificationBaseProps & {
@@ -201,7 +203,7 @@ const Template : TemplateFunction<NotificationProps> = ({
         @pie-notification-close="${pieNotificationClose}"
         @pie-notification-open="${pieNotificationOpen}">
             ${iconSlot}
-            ${slot}
+            ${sanitizeAndRenderHTML(slot)}
     </pie-notification>`;
 
 const createNotificationStory = createStory<NotificationProps>(Template, defaultArgs);
@@ -232,7 +234,7 @@ const VariantsTemplate = (propVals: NotificationProps) => html`<pie-notification
         ?hideIcon="${propVals.hideIcon}"
         heading="${propVals.heading}">
             ${propVals.iconSlot}
-            ${slotContent}
+            ${sanitizeAndRenderHTML(slotContent)}
         </pie-notification>`;
 
 const sharedPropOptions = {
