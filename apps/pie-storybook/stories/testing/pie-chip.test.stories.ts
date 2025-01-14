@@ -87,12 +87,10 @@ const chipStoryMeta: ChipStoryMeta = {
 export default chipStoryMeta;
 
 const clickAction = () => {
-    /* eslint-disable-next-line no-console */
-    console.log('pie-chip clicked');
+    console.info('pie-chip clicked');
 };
 const closeAction = () => {
-    /* eslint-disable-next-line no-console */
-    console.log('pie-chip-close clicked');
+    console.info('pie-chip-close clicked');
 };
 
 const Template: TemplateFunction<ChipProps> = ({

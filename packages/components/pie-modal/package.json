@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-modal",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "PIE design system modal built using web components",
   "type": "module",
   "main": "dist/index.js",
@@ -39,8 +39,8 @@
     "@justeat/pie-design-tokens": "6.8.1",
     "@justeattakeaway/pie-button": "1.1.0",
     "@justeattakeaway/pie-components-config": "0.18.0",
-    "@justeattakeaway/pie-css": "0.13.1",
-    "@justeattakeaway/pie-text-input": "0.24.6",
+    "@justeattakeaway/pie-css": "0.14.0",
+    "@justeattakeaway/pie-text-input": "0.25.0",
     "@justeattakeaway/pie-wrapper-react": "0.14.2",
     "@types/body-scroll-lock": "3.1.2",
     "cem-plugin-module-file-extensions": "0.0.5"

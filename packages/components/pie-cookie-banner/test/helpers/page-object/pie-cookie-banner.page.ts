@@ -1,4 +1,5 @@
 import { type Locator, type Page } from '@playwright/test';
+import { ModalComponent } from '@justeattakeaway/pie-modal/test/helpers/page-object/pie-modal.component.ts';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 import { cookieBanner } from './selectors.ts';
 import { type PreferenceIds } from '../../../src/defs.ts';
@@ -19,6 +20,7 @@ export class CookieBannerComponent extends BasePage {
     private readonly bodyCookieStatementLinkLocator: Locator;
     private readonly bodyCookieTechnologiesLinkLocator: Locator;
     private readonly modalDescriptionLocator: Locator;
+    readonly modalComponent: ModalComponent;
 
     constructor (page: Page) {
         super(page, 'cookie-banner');
@@ -33,6 +35,7 @@ export class CookieBannerComponent extends BasePage {
         this.bodyCookieStatementLinkLocator = page.getByTestId(cookieBanner.selectors.bodyCookieStatementLink.dataTestId);
         this.bodyCookieTechnologiesLinkLocator = page.getByTestId(cookieBanner.selectors.bodyCookieTechnologiesLink.dataTestId);
         this.modalDescriptionLocator = page.getByTestId(cookieBanner.selectors.modalDescription.dataTestId);
+        this.modalComponent = new ModalComponent(page);
     }
 
     /**

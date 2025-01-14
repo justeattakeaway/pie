@@ -33,7 +33,7 @@ test.describe('PieChip - Component tests', () => {
             // Set up a listener for console messages
             const consoleMessages: string[] = [];
             page.on('console', (message) => {
-                if (message.type() === 'log') {
+                if (message.type() === 'info') {
                     consoleMessages.push(message.text());
                 }
             });
@@ -57,7 +57,7 @@ test.describe('PieChip - Component tests', () => {
             // Set up a listener for console messages
             const consoleMessages: string[] = [];
             page.on('console', (message) => {
-                if (message.type() === 'log') {
+                if (message.type() === 'info') {
                     consoleMessages.push(message.text());
                 }
             });

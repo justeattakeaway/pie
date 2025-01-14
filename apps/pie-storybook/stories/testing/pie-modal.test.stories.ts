@@ -4,7 +4,7 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-modal';
 import {
-  type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, positions, defaultProps,
+    type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, positions, defaultProps,
 } from '@justeattakeaway/pie-modal';
 
 import '@justeattakeaway/pie-button';
@@ -18,138 +18,133 @@ type ModalProps = SlottedComponentProps<ModalPropsBase>;
 type ModalStoryMeta = Meta<ModalProps>;
 
 const defaultArgs: ModalProps = {
-  ...defaultProps,
-  heading: 'This is a modal heading',
-  isOpen: true,
-  slot: '',
-  leadingAction: {
-    text: '',
-    variant: undefined,
-    ariaLabel: '',
-  },
-  supportingAction: {
-    text: '',
-    variant: undefined,
-    ariaLabel: '',
-  },
-  aria: {
-    back: 'Back',
-    close: 'Close',
-    loading: 'Loading',
-  },
+    ...defaultProps,
+    heading: 'This is a modal heading',
+    isOpen: true,
+    slot: '',
+    leadingAction: {
+        text: '',
+        variant: undefined,
+        ariaLabel: '',
+    },
+    supportingAction: {
+        text: '',
+        variant: undefined,
+        ariaLabel: '',
+    },
+    aria: {
+        back: 'Back',
+        close: 'Close',
+        loading: 'Loading',
+    },
 };
 
 const modalStoryMeta: ModalStoryMeta = {
-  title: 'Modal',
-  component: 'pie-modal',
-  argTypes: {
-    isDismissible: {
-      description: 'Allows dismissing the modal by clicking outside of it, using the escape key or close button.',
-      control: 'boolean',
+    title: 'Modal',
+    component: 'pie-modal',
+    argTypes: {
+        isDismissible: {
+            description: 'Allows dismissing the modal by clicking outside of it, using the escape key or close button.',
+            control: 'boolean',
+        },
+        hasBackButton: {
+            description: 'When true, the modal will have a back button. This currently behaves the same as the close button.',
+            control: 'boolean',
+        },
+        hasStackedActions: {
+            control: 'boolean',
+        },
+        isFooterPinned: {
+            description: 'When false, the modal footer will scroll with the content inside the modal body.',
+            control: 'boolean',
+        },
+        isFullWidthBelowMid: {
+            description: 'This controls whether a *medium-sized* modal will cover the full width of the page when below the mid breakpoint.',
+            control: 'boolean',
+        },
+        isOpen: {
+            description: 'When true, the modal will be open.',
+            control: 'boolean',
+        },
+        isLoading: {
+            description: 'When true, displays a loading spinner in the modal.',
+            control: 'boolean',
+        },
+        heading: {
+            description: 'The text to display in the modal\'s heading.',
+            control: 'text',
+        },
+        headingLevel: {
+            description: 'The HTML heading tag to use for the modal\'s heading. Can be h1-h6.',
+            control: 'select',
+            options: headingLevels,
+        },
+        returnFocusAfterCloseSelector: {
+            description: 'The selector for the element that you would like focus to be returned to when the modal is closed, e.g., #skipToMain',
+            control: 'text',
+        },
+        size: {
+            description: 'The size of the modal; this controls how wide it will appear on the page.',
+            control: 'radio',
+            options: sizes,
+        },
+        position: {
+            description: 'The position of the modal; this controls where it will appear on the page.',
+            control: 'radio',
+            options: positions,
+        },
+        slot: {
+            description: 'Content to place within the modal',
+            control: 'text',
+        },
+        leadingAction: {
+            description: 'The leading action configuration for the modal.',
+            control: 'object',
+        },
+        supportingAction: {
+            description: 'The supporting action configuration for the modal. The supporting action will not appear without a leading action.',
+            control: 'object',
+        },
+        aria: {
+            description: 'The ARIA labels used for the modal close and back buttons, as well as for the loading state.',
+            control: 'object',
+        },
     },
-    hasBackButton: {
-      description: 'When true, the modal will have a back button. This currently behaves the same as the close button.',
-      control: 'boolean',
+    args: defaultArgs,
+    parameters: {
+        design: {
+            type: 'figma',
+            url: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%5BPIE-2.0%5D?type=design&node-id=32007-376358&t=HIfzk0Y1IEnAJyUi-0',
+        },
     },
-    hasStackedActions: {
-      control: 'boolean',
-    },
-    isFooterPinned: {
-      description: 'When false, the modal footer will scroll with the content inside the modal body.',
-      control: 'boolean',
-    },
-    isFullWidthBelowMid: {
-      description: 'This controls whether a *medium-sized* modal will cover the full width of the page when below the mid breakpoint.',
-      control: 'boolean',
-    },
-    isOpen: {
-      description: 'When true, the modal will be open.',
-      control: 'boolean',
-    },
-    isLoading: {
-      description: 'When true, displays a loading spinner in the modal.',
-      control: 'boolean',
-    },
-    heading: {
-      description: 'The text to display in the modal\'s heading.',
-      control: 'text',
-    },
-    headingLevel: {
-      description: 'The HTML heading tag to use for the modal\'s heading. Can be h1-h6.',
-      control: 'select',
-      options: headingLevels,
-    },
-    returnFocusAfterCloseSelector: {
-      description: 'The selector for the element that you would like focus to be returned to when the modal is closed, e.g., #skipToMain',
-      control: 'text',
-    },
-    size: {
-      description: 'The size of the modal; this controls how wide it will appear on the page.',
-      control: 'radio',
-      options: sizes,
-    },
-    position: {
-      description: 'The position of the modal; this controls where it will appear on the page.',
-      control: 'radio',
-      options: positions,
-    },
-    slot: {
-      description: 'Content to place within the modal',
-      control: 'text',
-    },
-    leadingAction: {
-      description: 'The leading action configuration for the modal.',
-      control: 'object',
-    },
-    supportingAction: {
-      description: 'The supporting action configuration for the modal. The supporting action will not appear without a leading action.',
-      control: 'object',
-    },
-    aria: {
-      description: 'The ARIA labels used for the modal close and back buttons, as well as for the loading state.',
-      control: 'object',
-    },
-  },
-  args: defaultArgs,
-  parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%5BPIE-2.0%5D?type=design&node-id=32007-376358&t=HIfzk0Y1IEnAJyUi-0',
-    },
-  },
 };
 
 export default modalStoryMeta;
 
 const supportingClickAction = () => {
-  /* eslint-disable-next-line no-console */
-  console.log('supporting-click');
+    console.info('supporting-click');
 };
 const leadingClickAction = () => {
-  /* eslint-disable-next-line no-console */
-  console.log('leading-click');
+    console.info('leading-click');
 };
 const backClickAction = () => {
-  /* eslint-disable-next-line no-console */
-  console.log('back-click');
+    console.info('back-click');
 };
 const openAction = () => {
-  /* eslint-disable-next-line no-console */
-  console.log('open-modal');
+    console.info('open-modal');
 };
 const closeAction = () => {
-  /* eslint-disable-next-line no-console */
-  console.log('close-modal');
+    console.info('close-modal');
 };
 
 /**
  * Helper function to toggle the modal open/closed within the actual template (separate to the Storybook controls)
  */
 const toggleModal = () => {
-  const modal = document.querySelector('pie-modal') as PieModal;
-  if (modal) {
-    modal.isOpen = !modal.isOpen;
-  }
+    const modal = document.querySelector('pie-modal') as PieModal;
+    if (modal) {
+        modal.isOpen = !modal.isOpen;
+    }
 };
 
 const createFocusToSpecifiedElementHTML = () => html`
@@ -165,7 +160,6 @@ const createFocusToSpecifiedElementHTML = () => html`
         }
     </style>`;
 
-
 const createFocusToFirstMatchingElementHTML = () => html`
     <pie-button id="default">Button 1</pie-button>
     <pie-button data-test-id="focus-me" id="actual-focus">Button 2</pie-button>
@@ -178,25 +172,25 @@ const createFocusToFirstMatchingElementHTML = () => html`
     </style>`;
 
 const BaseStoryTemplate = (props: ModalProps) => {
-  const {
-    aria,
-    hasBackButton,
-    hasStackedActions,
-    heading,
-    headingLevel,
-    isDismissible,
-    isFooterPinned,
-    isFullWidthBelowMid,
-    isLoading,
-    isOpen,
-    leadingAction,
-    position,
-    returnFocusAfterCloseSelector,
-    size,
-    slot,
-    supportingAction,
-  } = props;
-  return html`
+    const {
+        aria,
+        hasBackButton,
+        hasStackedActions,
+        heading,
+        headingLevel,
+        isDismissible,
+        isFooterPinned,
+        isFullWidthBelowMid,
+        isLoading,
+        isOpen,
+        leadingAction,
+        position,
+        returnFocusAfterCloseSelector,
+        size,
+        slot,
+        supportingAction,
+    } = props;
+    return html`
         <pie-button id="open-modal" @click=${toggleModal}>Toggle Modal</pie-button>
         <pie-modal
             .aria="${aria}"
@@ -224,12 +218,12 @@ const BaseStoryTemplate = (props: ModalProps) => {
 };
 
 const createScrollablePageHTML = () => {
-  const items = [];
-  for (let i = 0; i < 200; i++) {
-    items.push(html`<li>Item ${i}</li>`);
-  }
+    const items = [];
+    for (let i = 0; i < 200; i++) {
+        items.push(html`<li>Item ${i}</li>`);
+    }
 
-  return html`
+    return html`
         <h1>Test Page</h1>
         <p>Top of page copy</p>
         <ol>
@@ -239,22 +233,22 @@ const createScrollablePageHTML = () => {
 };
 
 const FormStoryTemplate = (props: ModalProps) => {
-  const {
-    aria,
-    hasBackButton,
-    hasStackedActions,
-    heading,
-    headingLevel,
-    isDismissible,
-    isFooterPinned,
-    isFullWidthBelowMid,
-    isLoading,
-    isOpen,
-    position,
-    returnFocusAfterCloseSelector,
-    size,
-  } = props;
-  return html`
+    const {
+        aria,
+        hasBackButton,
+        hasStackedActions,
+        heading,
+        headingLevel,
+        isDismissible,
+        isFooterPinned,
+        isFullWidthBelowMid,
+        isLoading,
+        isOpen,
+        position,
+        returnFocusAfterCloseSelector,
+        size,
+    } = props;
+    return html`
         <pie-button @click=${toggleModal} id="open-modal">Toggle Modal</pie-button>
         <pie-modal
             .aria="${aria}"
@@ -293,7 +287,6 @@ const ScrollablePageStoryTemplate = (props: ModalProps) => html`
     ${BaseStoryTemplate(props)}
     ${createScrollablePageHTML()}`;
 
-
 const FocusToSpecifiedElementStoryTemplate = (props: ModalProps) => html`
     ${BaseStoryTemplate(props)}
     ${createFocusToSpecifiedElementHTML()}`;
@@ -308,15 +301,15 @@ export const Default = createBaseModalStory();
 export const EmbeddedForm = createStory<ModalProps>(FormStoryTemplate, defaultArgs)();
 export const ScrollLocking = createStory<ModalProps>(ScrollablePageStoryTemplate, defaultArgs)();
 export const FocusToSpecifiedElement = createStory<ModalProps>(FocusToSpecifiedElementStoryTemplate, defaultArgs)({
-  returnFocusAfterCloseSelector: '#focus-3',
-  isDismissible: true,
+    returnFocusAfterCloseSelector: '#focus-3',
+    isDismissible: true,
 });
 export const FocusToFirstMatchingElement = createStory<ModalProps>(FocusToFirstMatchingElementStoryTemplate, defaultArgs)({
-  returnFocusAfterCloseSelector: '[data-test-id="focus-me"]',
-  isDismissible: true,
+    returnFocusAfterCloseSelector: '[data-test-id="focus-me"]',
+    isDismissible: true,
 });
 export const LargeTextContent = createBaseModalStory({
-  slot: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quas inventore quasi ullam, sed ab odio dicta, tempore, ex adipisci atque asperiores suscipit quisquam alias aliquam minus amet ad a?
+    slot: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quas inventore quasi ullam, sed ab odio dicta, tempore, ex adipisci atque asperiores suscipit quisquam alias aliquam minus amet ad a?
     Iure consequuntur nihil officia odio, ut dolores reprehenderit tenetur, repellat eveniet dolore, dignissimos aspernatur quo laboriosam eum repellendus ratione libero. Aspernatur in, inventore ratione molestias exercitationem repudiandae omnis nisi illo?
     Laborum, aspernatur labore! Nulla corporis laudantium, odio iure cum maiores veritatis. Facere ullam sequi voluptate ipsa neque? Atque necessitatibus aspernatur quibusdam sit pariatur quo sunt, voluptatem doloribus dolore consequatur temporibus?
     Aspernatur ducimus blanditiis quasi fugit similique. Ullam ea sapiente minima, minus distinctio consequuntur libero nisi tempore in sed corporis officia voluptatem est illum cumque at incidunt fuga magni. Iste, possimus?
