@@ -303,7 +303,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
 
     private _focusAndClickOption (option: HTMLInputElement): void {
         option.focus();
-        console.log(document.activeElement);
         // This is quite hacky, but it ensures the radio elements correct emit a real change event.
         // Simply setting option.checked as true would require re-architecture of both this component and the radio button
         // to ensure that property changes are observed and correctly propagated up.
