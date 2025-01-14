@@ -1,1 +1,25 @@
-@use '@justeattakeaway/pie-css/scss' as p;
+.c-thumbnail {
+  --thumbnail-size: var(--dt-spacing-g);
+  --thumbnail-border-radius: var(--dt-radius-rounded-b);
+  --thumbnail-bg-color: var(--dt-color-container-default);
+  --thumbnail-border-color: transparent;
+
+  box-sizing: border-box;
+  overflow: hidden;
+  width: var(--thumbnail-size);
+  height: var(--thumbnail-size);
+  border-radius: var(--thumbnail-border-radius);
+  border: 1px solid var(--thumbnail-border-color);
+  background-color: var(--thumbnail-bg-color);
+
+  &.c-thumbnail--outline {
+    --thumbnail-border-color: var(--dt-color-border-default);
+  }
+
+  .c-thumbnail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+}
