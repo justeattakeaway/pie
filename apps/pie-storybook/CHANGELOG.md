@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.19.0
+
+### Minor Changes
+
+- [Updated] - pie-design-tokens version bump to 6.8.0 that changes our approach to light/dark colour mode support. Now PIE tokens for each mode have consistent naming. `-dark-`, `-highcontrast-`, `-highcontrast-dark-` prefixes were removed from token naming. ([#2143](https://github.com/justeattakeaway/pie/pull/2143)) by [@dandel10n](https://github.com/dandel10n)
+
+- [Added] - basic functionality of thumbnail component ([#2138](https://github.com/justeattakeaway/pie/pull/2138)) by [@bntsv](https://github.com/bntsv)
+
+### Patch Changes
+
+- Updated dependencies [[`e637001`](https://github.com/justeattakeaway/pie/commit/e637001f2a5adc4ef582941344d76bf1e5fcde77), [`d53513c`](https://github.com/justeattakeaway/pie/commit/d53513c263039ea2cca47e6381716e732c4e6906), [`e637001`](https://github.com/justeattakeaway/pie/commit/e637001f2a5adc4ef582941344d76bf1e5fcde77), [`d53513c`](https://github.com/justeattakeaway/pie/commit/d53513c263039ea2cca47e6381716e732c4e6906), [`7471690`](https://github.com/justeattakeaway/pie/commit/74716905d3ec748fc55ccaa51ac67adf1da44846)]:
+  - @justeattakeaway/pie-card@0.22.0
+  - @justeattakeaway/pie-text-input@0.25.0
+  - @justeattakeaway/pie-modal@1.1.0
+  - @justeattakeaway/pie-css@0.14.0
+  - @justeattakeaway/pie-divider@1.1.0
+  - @justeattakeaway/pie-thumbnail@0.2.0
+  - @justeattakeaway/pie-cookie-banner@1.2.3
+
 ## 1.18.0
 
 ### Minor Changes

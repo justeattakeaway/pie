@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-card
 
+## 0.22.0
+
+### Minor Changes
+
+- [Changed] - `--dt-elevation-inverse-card` instead of `--dt-elevation-dark-card` token for inverse card elevation. ([#2143](https://github.com/justeattakeaway/pie/pull/2143)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.21.3
 
 ### Patch Changes

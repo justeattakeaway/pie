@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.74.0
+
+### Minor Changes
+
+- [Updated] - pie-design-tokens version bump to 6.8.0 that changes our approach to light/dark colour mode support. Now PIE tokens for each mode have consistent naming. `-dark-`, `-highcontrast-`, `-highcontrast-dark-` prefixes were removed from token naming. ([#2143](https://github.com/justeattakeaway/pie/pull/2143)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 2.73.0
 
 ### Minor Changes

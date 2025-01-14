@@ -1,5 +1,19 @@
 # Changelog
 
+## 4.24.0
+
+### Minor Changes
+
+- [Updated] - pie-design-tokens version bump to 6.8.0. ([#2143](https://github.com/justeattakeaway/pie/pull/2143)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Changed] - cleaned up dark mode colour tokens usage in light mode.
+  [Removed] - removed `-dark-` prefix from dark mode PIE colour tokens.
+
+### Patch Changes
+
+- Updated dependencies [[`e637001`](https://github.com/justeattakeaway/pie/commit/e637001f2a5adc4ef582941344d76bf1e5fcde77)]:
+  - @justeattakeaway/pie-css@0.14.0
+
 ## 4.23.0
 
 ### Minor Changes
