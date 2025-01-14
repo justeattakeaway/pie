@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-divider
 
+## 1.1.0
+
+### Minor Changes
+
+- [Fixed] - divider font-size set to 16px ([#2115](https://github.com/justeattakeaway/pie/pull/2115)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 1.0.0
 
 ### Major Changes
