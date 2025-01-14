@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-text-input
 
+## 0.25.0
+
+### Minor Changes
+
+- [Fixed] - font-size for text-input now contains px unit ([#2115](https://github.com/justeattakeaway/pie/pull/2115)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.24.6
 
 ### Patch Changes
