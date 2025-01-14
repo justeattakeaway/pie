@@ -133,9 +133,6 @@ export const createVariantStory = <T>(
       `;
         },
         parameters: {
-            backgrounds: {
-                ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
-            },
             controls: {
                 disable: true,
             },
