@@ -8,28 +8,28 @@
       "cache": true,
       "dependsOn": [
         "$TURBO_DEFAULT$",
-        "../../../apps/pie-storybook/stories/testing/pie-thumbnail.test.stories.ts"
+        "../../../apps/pie-storybook/stories/testing/pie-toast-provider.test.stories.ts"
       ]
     },
     "test:browsers:ci": {
       "cache": true,
       "dependsOn": [
         "$TURBO_DEFAULT$",
-        "../../../apps/pie-storybook/stories/testing/pie-thumbnail.test.stories.ts"
+        "../../../apps/pie-storybook/stories/testing/pie-toast-provider.test.stories.ts"
       ]
     },
     "test:visual": {
       "cache": false,
       "dependsOn": [
         "$TURBO_DEFAULT$",
-        "../../../apps/pie-storybook/stories/testing/pie-thumbnail.test.stories.ts"
+        "../../../apps/pie-storybook/stories/testing/pie-toast-provider.test.stories.ts"
       ]
     },
     "test:visual:ci": {
       "cache": false,
       "dependsOn": [
         "$TURBO_DEFAULT$",
-        "../../../apps/pie-storybook/stories/testing/pie-thumbnail.test.stories.ts"
+        "../../../apps/pie-storybook/stories/testing/pie-toast-provider.test.stories.ts"
       ]
     }
   }
