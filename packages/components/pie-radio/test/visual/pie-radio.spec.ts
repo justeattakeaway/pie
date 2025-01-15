@@ -89,4 +89,24 @@ for (const dir of readingDirections) {
 
         await percySnapshot(page, `PIE Radio - Labelled - ${dir}`, percyWidths);
     });
+
+    test(`Long label text - ${dir}`, async ({ mount, page }) => {
+        if (dir === 'RTL') {
+            setRTL(page);
+        }
+
+        await mount(
+            PieRadio,
+            {
+                props: {
+                    checked: true,
+                } as RadioProps,
+                slots: {
+                    default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pretium quam eget dolor imperdiet placerat. Aliquam sollicitudin erat sed est lobortis sollicitudin. Nam vulputate, mi vel finibus convallis, mi dolor molestie arcu, vel pulvinar urna neque et sapien. Aenean euismod faucibus turpis et efficitur. Sed porttitor dui at justo cursus pulvinar. Sed scelerisque aliquet diam sed feugiat. Fusce id lorem finibus, tempor nulla tempor, tincidunt odio. Mauris consequat lectus ex, eget lacinia dui finibus sit amet. Phasellus maximus posuere sapien eget condimentum. Nunc viverra pharetra blandit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras vel auctor erat, id ultrices ipsum. Suspendisse erat elit, facilisis et mi eget, interdum imperdiet ligula. Donec faucibus, lectus id sollicitudin accumsan, libero erat iaculis metus, vel finibus quam leo at mauris. Etiam pretium vitae est tempor commodo.',
+                },
+            },
+        );
+
+        await percySnapshot(page, `PIE Radio - Long label text - ${dir}`, percyWidths);
+    });
 }
