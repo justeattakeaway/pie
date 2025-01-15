@@ -9,7 +9,7 @@ export class CardComponent {
     readonly buttonLocator: Locator;
 
     constructor (page: Page) {
-        this.componentLocator = page.getByTestId(card.selectors.container.dataTestId);
+        this.componentLocator = page.locator(card.selectors.container.dataTestId);
         this.linkLocator = this.componentLocator.getByTestId(card.selectors.link.dataTestId);
         this.buttonLocator = this.componentLocator.getByTestId(card.selectors.button.dataTestId);
     }

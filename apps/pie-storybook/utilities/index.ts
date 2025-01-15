@@ -118,7 +118,7 @@ export const createVariantStory = <T extends Record<string, any>>(
                             margin-top: 16px;
                             border: 2px dashed #aaa;
                             padding: 8px;
-                            border-radius: 10px;
+                            border-radius: 4px;
                             background-color: inherit;
                           "
                         >

@@ -56,9 +56,6 @@ export class PieCard extends LitElement implements CardProps {
     @queryAssignedElements({ flatten: true })
     private assignedElements?: HTMLElement[];
 
-    @property({ type: String, reflect: true, attribute: 'data-test-id' })
-    public dataTestId = 'pie-card';
-
     private onClickHandler (event: Event) {
         if (this.disabled) {
             // needed to intercept/prevent click events when the card is disabled.
