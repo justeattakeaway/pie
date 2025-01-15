@@ -119,6 +119,41 @@ test.describe('PieRadio - Component tests', () => {
                 // Assert
                 await expect(radio).not.toBeChecked();
             });
+
+            test('should keep aria-checked in sync with the checked prop', async ({ page, mount }) => {
+                // Arrange
+                await mount(PieRadio, {
+                    props: {
+                        checked: false,
+                        value: 'testValue',
+                    } as RadioProps,
+                    slots,
+                });
+
+                // Act
+                const radio = page.locator('pie-radio');
+
+                // Assert initial state
+                await expect(radio).toHaveAttribute('aria-checked', 'false');
+
+                // Update checked prop to true
+                await page.evaluate(() => {
+                    const radioComponent = document.querySelector('pie-radio');
+                    if (radioComponent) radioComponent.checked = true;
+                });
+
+                // Assert updated state
+                await expect(radio).toHaveAttribute('aria-checked', 'true');
+
+                // Update checked prop back to false
+                await page.evaluate(() => {
+                    const radioComponent = document.querySelector('pie-radio');
+                    if (radioComponent) radioComponent.checked = false;
+                });
+
+                // Assert reverted state
+                await expect(radio).toHaveAttribute('aria-checked', 'false');
+            });
         });
 
         test.describe('disabled', () => {
