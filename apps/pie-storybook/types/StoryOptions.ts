@@ -6,7 +6,7 @@ type BackgroundColor = 'light (container-default)' |
     'saddlebrown' |
     'aquamarine';
 
-type BackgroundValue = {
+export type BackgroundValue = {
     name: BackgroundColor,
     value: string,
 };
