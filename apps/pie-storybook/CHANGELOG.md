@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.19.1
+
+### Patch Changes
+
+- [Fixed] - Ensure page doesn't scroll when the modal is opened ([#2152](https://github.com/justeattakeaway/pie/pull/2152)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`9d66d1c`](https://github.com/justeattakeaway/pie/commit/9d66d1cdd23d9f986da3e33c3dd9ad1ac63d4915), [`678283f`](https://github.com/justeattakeaway/pie/commit/678283fbdc0da22c9377e18c55fac2ef4deb66c2), [`210f849`](https://github.com/justeattakeaway/pie/commit/210f849531601f29d4d27f27ce4cbd671d041e86)]:
+  - @justeattakeaway/pie-modal@1.1.1
+  - @justeattakeaway/pie-radio-group@0.5.0
+  - @justeattakeaway/pie-radio@0.7.0
+  - @justeattakeaway/pie-cookie-banner@1.2.4
+
 ## 1.19.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 1.1.1
+
+### Patch Changes
+
+- [Fixed] - Ensure page doesn't scroll when the modal is opened ([#2152](https://github.com/justeattakeaway/pie/pull/2152)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.1.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-radio-group
 
+## 0.5.0
+
+### Minor Changes
+
+- [Fixed] - Ensure screenreaders correctly announce radio index in groups ([#2133](https://github.com/justeattakeaway/pie/pull/2133)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Changed] - Minor styling tweaks to labels to add more spacing and ensure radio inputs are correctly aligned with labels that span multiple lines. ([#2157](https://github.com/justeattakeaway/pie/pull/2157)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.4.0
 
 ### Minor Changes
