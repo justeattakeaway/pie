@@ -1,150 +1,51 @@
-import { test, expect } from '@sand4rt/experimental-ct-web';
+import { test, expect } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
-import type {
-    PropObject, WebComponentPropValues, WebComponentTestInput,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
-import {
-    getAllPropCombinations, splitCombinationsByPropertyValue,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/get-all-prop-combos.ts';
-import {
-    createTestWebComponent,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
-import {
-    WebComponentTestWrapper,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { PieCard } from '../../src/index.ts';
-import { tags, variants, paddingValues } from '../../src/defs.ts';
-
-// This is just an arbitrary example of some markup a user may pass into the card
-const slotContent = `<div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-l-family); padding: var(--dt-spacing-b);">
-    <h2> Card title </h2>
-    <p> Card content </p>
-    <p> Lorem ipsum dolor sit amet
-    consectetur adipisicing elit.
-    Fugiat dolore dolorem maxime,
-    quod, in minima esse fugit
-    distinctio, officia et soluta
-    dicta consequuntur commodi officiis
-    tempora asperiores aspernatur atque quas.</p>
-</div>`;
-
-// Renders a <pie-card> HTML string with the given prop values
-const renderTestPieCard = (propVals: WebComponentPropValues) => `<pie-card tag="${propVals.tag}" padding="${propVals.padding}"  variant="${propVals.variant}" ${propVals.disabled ? 'disabled' : ''} >${slotContent}</pie-card>`;
-
-// This ensures the component is registered in the DOM for each test
-// This is not required if your tests mount the web component directly in the tests
-test.beforeEach(async ({ mount }) => {
-    const component = await mount(PieCard);
-    await component.unmount();
-});
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { CardWithImagePage } from 'test/helpers/page-object/pie-card-with-image.page.ts';
+import { variants, type CardProps } from '../../src/defs.ts';
 
 test.describe('PieCard - Visual tests`', () => {
-    const props: PropObject = {
-        tag: tags,
-        variant: variants,
-        disabled: [true, false],
-    };
-    const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
-    const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
-    const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
-
-    componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-        for (const combo of componentPropsMatrixByVariant[variant]) {
-            const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCard);
-            const propKeyValues = `tag: ${testComponent.propValues.tag}, disabled: ${testComponent.propValues.disabled}`;
-            const darkMode = variant.includes('inverse');
-
-            await mount(
-                WebComponentTestWrapper,
-                {
-                    props: { propKeyValues, darkMode },
-                    slots: {
-                        component: testComponent.renderedString.trim(),
-                    },
-                },
-            );
-        }
+    variants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
+        const variantPage = new BasePage(page, `card--${variant}-variants`);
+        await variantPage.load();
 
         await percySnapshot(page, `PIE Card - Variant: ${variant}`, percyWidths);
     }));
 });
 
 test.describe('PieCard - `padding` prop', async () => {
-    const batchSize = Math.ceil(paddingValues.length / 7);
-    const batches: string[][] = [];
+    const paddingTokens = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+    paddingTokens.forEach((paddingToken) => test(`should render the padding variants for padding token value: ${paddingToken}`, async ({ page }) => {
+        const paddingVariantPage = new BasePage(page, `card--padding-${paddingToken}-variants`);
 
-    for (let i = 0; i < paddingValues.length; i += batchSize) {
-        batches.push(paddingValues.slice(i, i + batchSize));
-    }
-
-    batches.forEach((batch, index) => test(`should render the padding prop value of batch number: ${index}`, async ({ page, mount }) => {
-        for (const padding of batch) {
-            const testComponent: WebComponentTestInput = createTestWebComponent({ padding }, renderTestPieCard);
-            const propKeyValues = `padding: ${testComponent.propValues.padding}`;
-
-            await mount(
-                WebComponentTestWrapper,
-                {
-                    props: { propKeyValues },
-                    slots: { component: testComponent.renderedString.trim() },
-                },
-            );
-        }
-
-        await percySnapshot(page, `PIE Card - Padding values | batch number: ${index}`, percyWidths);
+        await paddingVariantPage.load();
+        await percySnapshot(page, `PIE Card - Padding values: ${paddingToken}`, percyWidths);
     }));
 });
 
 test.describe('PieCard - Disabled Prop Visual Tests', () => {
-    const slotContent = `
-        <div style="padding: 16px;">
-            <h2> Card title </h2>
-            <img src="https://picsum.photos/200/300?image=0" alt="Sample image" />
-            <p> Card content </p>
-        </div>`;
+    test('should set image opacity to 50% when disabled is true', async ({ page }) => {
+        const props: CardProps = {
+            disabled: true,
+        };
 
-    const renderTestPieCard = (disabled: boolean) => `
-        <pie-card ${disabled ? 'disabled' : ''}>
-            ${slotContent}
-        </pie-card>`;
+        const cardWithImagePage = new CardWithImagePage(page);
+        await cardWithImagePage.load({ ...props });
 
-    test('should set image opacity to 50% when disabled is true', async ({ page, mount }) => {
-        const testComponent = renderTestPieCard(true);
-
-        await mount(
-            WebComponentTestWrapper,
-            {
-                slots: {
-                    component: testComponent.trim(),
-                },
-            },
-        );
-
-        const image = page.locator('img');
-        const opacity = await image.evaluate((img) => getComputedStyle(img).opacity);
-
-        expect(opacity).toBe('0.5');
-
+        await expect.soft(cardWithImagePage.cardComponent.componentLocator.locator('img')).toHaveCSS('opacity', '0.5');
         await percySnapshot(page, 'PIE Card - Disabled State & image set to opacity of 50%');
     });
 
-    test('should not set image opacity style when disabled is false', async ({ page, mount }) => {
-        const testComponent = renderTestPieCard(false);
+    test('should not set image opacity style when disabled is false', async ({ page }) => {
+        const props: CardProps = {
+            disabled: false,
+        };
 
-        await mount(
-            WebComponentTestWrapper,
-            {
-                slots: {
-                    component: testComponent.trim(),
-                },
-            },
-        );
+        const cardWithImagePage = new CardWithImagePage(page);
+        await cardWithImagePage.load({ ...props });
 
-        const image = page.locator('img');
-        const opacity = await image.evaluate((img) => getComputedStyle(img).opacity);
-
-        expect(opacity).not.toBe('0.5');
+        await expect.soft(cardWithImagePage.cardComponent.componentLocator.locator('img')).not.toHaveCSS('opacity', '0.5');
 
         await percySnapshot(page, 'PIE Card - Enabled State & image opacity not set');
     });
