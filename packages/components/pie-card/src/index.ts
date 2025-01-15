@@ -78,7 +78,7 @@ export class PieCard extends LitElement implements CardProps {
         return html`
             <a
                 class="${classMap(classes)}"
-                data-test-id="link"
+                data-test-id="pie-card-link"
                 href=${ifDefined(href && !disabled ? href : undefined)}
                 target=${target || nothing}
                 rel=${rel || nothing}
@@ -203,7 +203,7 @@ export class PieCard extends LitElement implements CardProps {
         return html`
                 <div
                     class="${classMap(classes)}"
-                    data-test-id="button"
+                    data-test-id="pie-card-button"
                     role="button"
                     tabindex=${disabled ? '-1' : '0'}
                     aria-label=${aria?.label || nothing}

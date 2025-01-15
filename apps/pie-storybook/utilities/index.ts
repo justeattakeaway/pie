@@ -1,7 +1,8 @@
 import { html, type TemplateResult } from 'lit';
 import DOMPurify from 'dompurify';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-import { type StoryOptions } from '../types/StoryOptions';
+import type { StoryOptions, BackgroundValue } from '../types/StoryOptions';
+import CUSTOM_BACKGROUNDS from '../.storybook/backgrounds';
 
 export type TemplateFunction<T> = (props: T) => TemplateResult;
 
@@ -71,6 +72,7 @@ export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sani
  *
  * @returns {Function} Returns a function that renders all combinations of the given prop options.
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const createVariantStory = <T extends Record<string, any>>(
     template: TemplateFunction<T>,
     propOptions: Partial<Record<keyof T, unknown[]>>,
@@ -101,6 +103,8 @@ export const createVariantStory = <T extends Record<string, any>>(
 
             const propCombinations = generateCombinations(propOptions);
 
+            const backgroundValue = CUSTOM_BACKGROUNDS.values.find((bg: BackgroundValue) => bg.name === storyOpts?.bgColor)?.value || '#ffffff';
+
             return html`
         <div style="display: block; width: 100%;">
             ${propCombinations.map((props) => {
@@ -119,7 +123,7 @@ export const createVariantStory = <T extends Record<string, any>>(
                             border: 2px dashed #aaa;
                             padding: 8px;
                             border-radius: 4px;
-                            background-color: inherit;
+                            background-color: ${backgroundValue};
                           "
                         >
                             ${template({ ...typedProps })}
@@ -131,9 +135,6 @@ export const createVariantStory = <T extends Record<string, any>>(
       `;
         },
         parameters: {
-            backgrounds: {
-                ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
-            },
             controls: {
                 disable: true,
             },

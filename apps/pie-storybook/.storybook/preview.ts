@@ -4,8 +4,8 @@ import './styles/component-status.scss';
 import './styles/icons.scss';
 
 import { WritingDirection, ComponentStatus } from '../decorators';
-import { type StoryBackgrounds } from '../types/StoryOptions';
 import CUSTOM_VIEWPORTS from './viewports';
+import backgrounds from './backgrounds';
 
 export default {
     decorators: [ComponentStatus, WritingDirection],
@@ -50,39 +50,7 @@ export default {
                 ],
             },
         },
-        backgrounds: {
-            default: 'light (container-default)',
-            values: [
-                {
-                    name: 'light (container-default)',
-                    value: '#ffffff',
-                },
-                {
-                    name: 'dark (container-dark)',
-                    value: '#262626',
-                },
-                {
-                    name: 'background-subtle',
-                    value: '#f5f3f1',
-                },
-                {
-                    name: 'background-dark',
-                    value: '#1a1a19',
-                },
-                {
-                    name: 'brand orange',
-                    value: '#f36805',
-                },
-                {
-                    name: 'saddlebrown',
-                    value: 'saddlebrown',
-                },
-                {
-                    name: 'aquamarine',
-                    value: 'aquamarine',
-                },
-            ]
-        } satisfies StoryBackgrounds,
+        backgrounds,
         controls: {
             expanded: true,
             sort: 'alpha',
