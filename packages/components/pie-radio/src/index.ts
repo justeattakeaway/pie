@@ -62,7 +62,7 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
         super.connectedCallback();
         this._abortController = new AbortController();
         const { signal } = this._abortController;
-
+        this.setAttribute('role', 'radio');
         this.addEventListener('pie-radio-group-disabled', (e: CustomEventInit) => { this._disabledByParent = e.detail.disabled; }, { signal });
     }
 
@@ -95,10 +95,6 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
         this._handleFormAssociation();
     }
 
-    public focus () {
-        this._radio.focus();
-    }
-
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.
      * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
@@ -126,6 +122,9 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
     }
 
     updated () {
+        // Ensure aria-checked reflects the checked state
+        this.setAttribute('aria-checked', String(this.checked));
+
         this._handleFormAssociation();
     }
 
@@ -151,6 +150,7 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
         return html`
         <label class=${classMap(classes)} for="radioId">
             <input
+                tabindex="-1"
                 class="c-radio-input"
                 type="radio"
                 id="radioId"
