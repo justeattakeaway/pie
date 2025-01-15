@@ -240,14 +240,14 @@ const paddingGVariantProps: Partial<Record<keyof CardProps, unknown[]>> = {
     slot: [variantSlotContent],
 };
 
-export const DefaultVariants = createVariantStory<Partial<CardProps>>(Template, defaultVariantProps, {});
-export const OutlineVariants = createVariantStory<Partial<CardProps>>(Template, outlineVariantProps, {});
-export const InverseVariants = createVariantStory<Partial<CardProps>>(Template, inverseVariantProps, { bgColor: 'dark (container-dark)' });
-export const OutlineInverseVariants = createVariantStory<Partial<CardProps>>(Template, outlineInverseVariantProps, { bgColor: 'dark (container-dark)' });
-export const PaddingAVariants = createVariantStory<Partial<CardProps>>(Template, paddingAVariantProps, {});
-export const PaddingBVariants = createVariantStory<Partial<CardProps>>(Template, paddingBVariantProps, {});
-export const PaddingCVariants = createVariantStory<Partial<CardProps>>(Template, paddingCVariantProps, {});
-export const PaddingDVariants = createVariantStory<Partial<CardProps>>(Template, paddingDVariantProps, {});
-export const PaddingEVariants = createVariantStory<Partial<CardProps>>(Template, paddingEVariantProps, {});
-export const PaddingFVariants = createVariantStory<Partial<CardProps>>(Template, paddingFVariantProps, {});
-export const PaddingGVariants = createVariantStory<Partial<CardProps>>(Template, paddingGVariantProps, {});
+export const DefaultVariants = createVariantStory<CardProps>(Template, defaultVariantProps, {});
+export const OutlineVariants = createVariantStory<CardProps>(Template, outlineVariantProps, {});
+export const InverseVariants = createVariantStory<CardProps>(Template, inverseVariantProps, { bgColor: 'dark (container-dark)' });
+export const OutlineInverseVariants = createVariantStory<CardProps>(Template, outlineInverseVariantProps, { bgColor: 'dark (container-dark)' });
+export const PaddingAVariants = createVariantStory<CardProps>(Template, paddingAVariantProps, {});
+export const PaddingBVariants = createVariantStory<CardProps>(Template, paddingBVariantProps, {});
+export const PaddingCVariants = createVariantStory<CardProps>(Template, paddingCVariantProps, {});
+export const PaddingDVariants = createVariantStory<CardProps>(Template, paddingDVariantProps, {});
+export const PaddingEVariants = createVariantStory<CardProps>(Template, paddingEVariantProps, {});
+export const PaddingFVariants = createVariantStory<CardProps>(Template, paddingFVariantProps, {});
+export const PaddingGVariants = createVariantStory<CardProps>(Template, paddingGVariantProps, {});

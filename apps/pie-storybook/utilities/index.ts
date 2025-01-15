@@ -71,7 +71,7 @@ export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sani
  *
  * @returns {Function} Returns a function that renders all combinations of the given prop options.
  */
-export const createVariantStory = <T>(
+export const createVariantStory = <T extends Record<string, any>>(
     template: TemplateFunction<T>,
     propOptions: Partial<Record<keyof T, unknown[]>>,
     storyOpts?: StoryOptions,
@@ -104,7 +104,6 @@ export const createVariantStory = <T>(
             return html`
         <div style="display: block; width: 100%;">
             ${propCombinations.map((props) => {
-                const darkBackground = storyOpts?.bgColor === 'dark (container-dark)' || storyOpts?.bgColor === 'background-dark';
                 const typedProps = props as T;
 
                 return html`
@@ -119,9 +118,8 @@ export const createVariantStory = <T>(
                             margin-top: 16px;
                             border: 2px dashed #aaa;
                             padding: 8px;
-                            border-radius: 4px;
-                            background-color: ${darkBackground ? '#333' : '#fff'};
-                            color: ${darkBackground ? '#fff' : '#000'};
+                            border-radius: 10px;
+                            background-color: inherit;
                           "
                         >
                             ${template({ ...typedProps })}
@@ -133,6 +131,9 @@ export const createVariantStory = <T>(
       `;
         },
         parameters: {
+            backgrounds: {
+                ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
+            },
             controls: {
                 disable: true,
             },
