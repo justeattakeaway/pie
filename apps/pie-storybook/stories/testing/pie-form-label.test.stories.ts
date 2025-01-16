@@ -83,6 +83,7 @@ export const WithSwitch = createStory<FormLabelProps>(FormLabelWithSwitchTemplat
 const variantProps: Partial<Record<keyof FormLabelProps, unknown[]>> = {
     optional: ['Optional'],
     trailing: ['X of X'],
+    slot: ['Label'],
 };
 
 export const Variants = createVariantStory<FormLabelProps>(DefaultTemplate, variantProps);
