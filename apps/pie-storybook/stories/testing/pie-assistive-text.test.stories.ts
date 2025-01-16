@@ -63,10 +63,10 @@ const createAssistiveTextStory = createStory<AssistiveTextProps>(Template, defau
 
 export const Default = createAssistiveTextStory();
 
-const props: Partial<Record<keyof AssistiveTextProps, unknown[]>> = {
+const propsMatrix: Partial<Record<keyof AssistiveTextProps, unknown[]>> = {
     variant: ['default', 'error', 'success'],
     slot: ['Hello World'],
     isVisuallyHidden: [true, false],
 };
 
-export const Variants = createVariantStory<AssistiveTextProps>(Template, props);
+export const Variants = createVariantStory<AssistiveTextProps>(Template, propsMatrix);
