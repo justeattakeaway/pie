@@ -7,7 +7,9 @@ import '@justeattakeaway/pie-switch';
 import { type FormLabelProps as FormLabelPropsBase } from '@justeattakeaway/pie-form-label';
 
 import { type SlottedComponentProps } from '../../types';
-import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../../utilities';
+import {
+    createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML,
+} from '../../utilities';
 
 type FormLabelProps = SlottedComponentProps<FormLabelPropsBase>;
 type FormLabelStoryMeta = Meta<FormLabelProps>;
@@ -77,3 +79,10 @@ export const Default = createStory<FormLabelProps>(DefaultTemplate, defaultArgs)
 
 export const WithTextInput = createStory<FormLabelProps>(FormLabelWithTextInputTemplate, defaultArgs)();
 export const WithSwitch = createStory<FormLabelProps>(FormLabelWithSwitchTemplate, defaultArgs)();
+
+const variantProps: Partial<Record<keyof FormLabelProps, unknown[]>> = {
+    optional: ['Optional'],
+    trailing: ['X of X'],
+};
+
+export const Variants = createVariantStory<FormLabelProps>(DefaultTemplate, variantProps);

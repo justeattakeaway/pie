@@ -5,7 +5,7 @@ import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-obj
 
 test.describe('Pie Form Label - Visual tests`', () => {
     test('should display the Pie Form Label component successfully', async ({ page }) => {
-        const formLabelPage = new BasePage(page, 'form-label--default');
+        const formLabelPage = new BasePage(page, 'form-label--variants');
         await formLabelPage.load();
 
         await percySnapshot(page, 'Pie Form Label - Visual Test', percyWidths);
