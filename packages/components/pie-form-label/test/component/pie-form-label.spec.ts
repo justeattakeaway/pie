@@ -5,7 +5,7 @@ import type { FormLabelProps } from '../../src/index.ts';
 
 test.describe('PieFormLabel - Component tests', () => {
     test('should render successfully', async ({ page }) => {
-    // Arrange
+        // Arrange
         const props: FormLabelProps = {
             for: 'form-label',
             optional: 'Optional',
@@ -40,7 +40,7 @@ test.describe('PieFormLabel - Component tests', () => {
         test.describe('when used with a switch', () => {
             test.describe('when clicked once', () => {
                 test('the switch should be focused', async ({ page }) => {
-                // Arrange
+                    // Arrange
                     const formLabelWithSwitchPage = new BasePage(page, 'form-label--with-switch');
                     await formLabelWithSwitchPage.load();
 
@@ -54,7 +54,7 @@ test.describe('PieFormLabel - Component tests', () => {
                     await expect(switchComponent).toBeFocused();
                 });
                 test('the switch "checked" attribute is true', async ({ page }) => {
-                // Arrange
+                    // Arrange
                     const formLabelWithSwitchPage = new BasePage(page, 'form-label--with-switch');
                     await formLabelWithSwitchPage.load();
 
@@ -63,12 +63,13 @@ test.describe('PieFormLabel - Component tests', () => {
                     const label = page.getByTestId(formLabel.selectors.container.dataTestId);
                     await label.click();
 
+                    // Assert
                     await expect(switchComponent).toHaveAttribute('checked', '');
                 });
             });
             test.describe('when clicked twice', () => {
                 test('the switch "checked" attribute is false', async ({ page }) => {
-                // Arrange
+                    // Arrange
                     const formLabelWithSwitchPage = new BasePage(page, 'form-label--with-switch');
                     await formLabelWithSwitchPage.load();
 
