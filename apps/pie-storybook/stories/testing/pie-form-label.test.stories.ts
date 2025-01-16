@@ -80,10 +80,10 @@ export const Default = createStory<FormLabelProps>(DefaultTemplate, defaultArgs)
 export const WithTextInput = createStory<FormLabelProps>(FormLabelWithTextInputTemplate, defaultArgs)();
 export const WithSwitch = createStory<FormLabelProps>(FormLabelWithSwitchTemplate, defaultArgs)();
 
-const variantProps: Partial<Record<keyof FormLabelProps, unknown[]>> = {
+const variantPropsMatrix: Partial<Record<keyof FormLabelProps, unknown[]>> = {
     optional: ['Optional'],
     trailing: ['X of X'],
     slot: ['Label'],
 };
 
-export const Variants = createVariantStory<FormLabelProps>(DefaultTemplate, variantProps);
+export const Variants = createVariantStory<FormLabelProps>(DefaultTemplate, variantPropsMatrix);
