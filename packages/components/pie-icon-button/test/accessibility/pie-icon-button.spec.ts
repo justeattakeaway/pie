@@ -1,22 +1,15 @@
 import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/playwright-fixtures.ts';
-import { PieIconButton } from '../../src/index.ts';
-import type { IconButtonProps } from '../../src/defs.ts';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 import { variants } from '../../src/defs.ts';
-å
-componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ makeAxeBuilder, mount }) => {
-    await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
-        await mount(
-            PieIconButton,
-            {
-                props: { ...combo },
-                slots: {
-                    default: '<icon-close></icon-close>',
-                },
-            },
-        );
-    }));
 
+variants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ makeAxeBuilder, page }) => {
+    // Arrange
+    const iconButtonPage = new BasePage(page, `icon-button--${variant}--variations`);
+    await iconButtonPage.load();
+
+    // Act
     const results = await makeAxeBuilder().analyze();
 
+    // Assert
     expect(results.violations).toEqual([]);
 }));

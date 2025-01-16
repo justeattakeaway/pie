@@ -70,60 +70,65 @@ const Template : TemplateFunction<IconButtonProps> = ({
             variant="${ifDefined(variant)}"
             ?disabled="${disabled}"
             ?isLoading="${isLoading}"
-            .aria="${aria}">
+            .aria="${aria}"
+            @click="${handleClick}">
             <icon-close></icon-close>
         </pie-icon-button>
         `;
+
+const handleClick = () => {
+    console.info('Native event dispatched');
+};
 
 const createIconButtonStory = createStory<IconButtonProps>(Template, defaultArgs);
 
 export const Default = createIconButtonStory();
 
-const sharedVariantProps : Partial<Record<keyof IconButtonProps, unknown[]>> = {
+const sharedPropsMatrix : Partial<Record<keyof IconButtonProps, unknown[]>> = {
     disabled: [true, false],
     isLoading: [true, false],
-    aria: [{ label: 'qux' }],
+    size: [...sizes],
 };
 
-const primaryVariantProps : Partial<Record<keyof IconButtonProps, unknown[]>> = {
-    ...sharedVariantProps,
+const primaryVariantPropsMatrix : Partial<Record<keyof IconButtonProps, unknown[]>> = {
+    ...sharedPropsMatrix,
     variant: ['primary'],
 };
 
-const secondaryVariantProps : Partial<Record<keyof IconButtonProps, unknown[]>> = {
-    ...sharedVariantProps,
+const secondaryVariantPropsMatrix : Partial<Record<keyof IconButtonProps, unknown[]>> = {
+    ...sharedPropsMatrix,
     variant: ['secondary'],
 };
 
-const outlineVariantProps : Partial<Record<keyof IconButtonProps, unknown[]>> = {
-    ...sharedVariantProps,
+const outlineVariantPropsMatrix : Partial<Record<keyof IconButtonProps, unknown[]>> = {
+    ...sharedPropsMatrix,
     variant: ['outline'],
 };
 
-const ghostVariantProps : Partial<Record<keyof IconButtonProps, unknown[]>> = {
-    ...sharedVariantProps,
+const ghostVariantPropsMatrix : Partial<Record<keyof IconButtonProps, unknown[]>> = {
+    ...sharedPropsMatrix,
     variant: ['ghost'],
 };
 
-const ghostSecondaryVariantProps : Partial<Record<keyof IconButtonProps, unknown[]>> = {
-    ...sharedVariantProps,
+const ghostSecondaryVariantPropsMatrix : Partial<Record<keyof IconButtonProps, unknown[]>> = {
+    ...sharedPropsMatrix,
     variant: ['ghost-secondary'],
 };
 
-const inverseVariantProps : Partial<Record<keyof IconButtonProps, unknown[]>> = {
-    ...sharedVariantProps,
+const inverseVariantPropsMatrix : Partial<Record<keyof IconButtonProps, unknown[]>> = {
+    ...sharedPropsMatrix,
     variant: ['inverse'],
 };
 
-const ghostInverseVariantProps : Partial<Record<keyof IconButtonProps, unknown[]>> = {
-    ...sharedVariantProps,
+const ghostInverseVariantPropsMatrix : Partial<Record<keyof IconButtonProps, unknown[]>> = {
+    ...sharedPropsMatrix,
     variant: ['ghost-inverse'],
 };
 
-export const PrimaryVariants = createVariantStory<IconButtonProps>(Template, primaryVariantProps);
-export const SecondaryVariants = createVariantStory<IconButtonProps>(Template, secondaryVariantProps);
-export const OutlineVariants = createVariantStory<IconButtonProps>(Template, outlineVariantProps, { bgColor: 'background-subtle' });
-export const GhostVariants = createVariantStory<IconButtonProps>(Template, ghostVariantProps, { bgColor: 'background-subtle' });
-export const GhostSecondaryVariants = createVariantStory<IconButtonProps>(Template, ghostSecondaryVariantProps, { bgColor: 'background-subtle' });
-export const InverseVariants = createVariantStory<IconButtonProps>(Template, inverseVariantProps, { bgColor: 'dark (container-dark)' });
-export const GhostInverseVariants = createVariantStory<IconButtonProps>(Template, ghostInverseVariantProps, { bgColor: 'dark (container-dark)' });
+export const PrimaryVariations = createVariantStory<IconButtonProps>(Template, primaryVariantPropsMatrix);
+export const SecondaryVariations = createVariantStory<IconButtonProps>(Template, secondaryVariantPropsMatrix);
+export const OutlineVariations = createVariantStory<IconButtonProps>(Template, outlineVariantPropsMatrix, { bgColor: 'background-subtle' });
+export const GhostVariations = createVariantStory<IconButtonProps>(Template, ghostVariantPropsMatrix, { bgColor: 'background-subtle' });
+export const GhostSecondaryVariations = createVariantStory<IconButtonProps>(Template, ghostSecondaryVariantPropsMatrix, { bgColor: 'background-subtle' });
+export const InverseVariations = createVariantStory<IconButtonProps>(Template, inverseVariantPropsMatrix, { bgColor: 'dark (container-dark)' });
+export const GhostInverseVariations = createVariantStory<IconButtonProps>(Template, ghostInverseVariantPropsMatrix, { bgColor: 'dark (container-dark)' });
