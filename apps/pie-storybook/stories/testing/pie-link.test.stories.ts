@@ -194,7 +194,7 @@ const VariantsTemplate: TemplateFunction<LinkProps> = ({
 `;
 
 // Base shared props without variant or size
-const baseSharedProps = {
+const baseSharedPropsMatrix = {
     tag: [...tags],
     isBold: [true, false],
     iconPlacement: [undefined, ...iconPlacements],
@@ -202,49 +202,49 @@ const baseSharedProps = {
 };
 
 // Default variant stories
-const defaultSmallProps = {
-    ...baseSharedProps,
+const defaultSmallPropsMatrix = {
+    ...baseSharedPropsMatrix,
     variant: ['default'],
     size: ['small'],
 };
 
-const defaultMediumProps = {
-    ...baseSharedProps,
+const defaultMediumPropsMatrix = {
+    ...baseSharedPropsMatrix,
     variant: ['default'],
     size: ['medium'],
 };
 
-export const DefaultSmallVariations = createVariantStory(VariantsTemplate, defaultSmallProps);
-export const DefaultMediumVariations = createVariantStory(VariantsTemplate, defaultMediumProps);
+export const DefaultSmallVariations = createVariantStory(VariantsTemplate, defaultSmallPropsMatrix);
+export const DefaultMediumVariations = createVariantStory(VariantsTemplate, defaultMediumPropsMatrix);
 
 // High-visibility variant stories
-const highVisibilitySmallProps = {
-    ...baseSharedProps,
+const highVisibilitySmallPropsMatrix = {
+    ...baseSharedPropsMatrix,
     variant: ['high-visibility'],
     size: ['small'],
 };
 
-const highVisibilityMediumProps = {
-    ...baseSharedProps,
+const highVisibilityMediumPropsMatrix = {
+    ...baseSharedPropsMatrix,
     variant: ['high-visibility'],
     size: ['medium'],
 };
 
-export const HighVisibilitySmallVariations = createVariantStory(VariantsTemplate, highVisibilitySmallProps);
-export const HighVisibilityMediumVariations = createVariantStory(VariantsTemplate, highVisibilityMediumProps);
+export const HighVisibilitySmallVariations = createVariantStory(VariantsTemplate, highVisibilitySmallPropsMatrix);
+export const HighVisibilityMediumVariations = createVariantStory(VariantsTemplate, highVisibilityMediumPropsMatrix);
 
 // Inverse variant stories
-const inverseSmallProps = {
-    ...baseSharedProps,
+const inverseSmallPropsMatrix = {
+    ...baseSharedPropsMatrix,
     variant: ['inverse'],
     size: ['small'],
 };
 
-const inverseMediumProps = {
-    ...baseSharedProps,
+const inverseMediumPropsMatrix = {
+    ...baseSharedPropsMatrix,
     variant: ['inverse'],
     size: ['medium'],
 };
 
-export const InverseSmallVariations = createVariantStory(VariantsTemplate, inverseSmallProps);
-export const InverseMediumVariations = createVariantStory(VariantsTemplate, inverseMediumProps);
+export const InverseSmallVariations = createVariantStory(VariantsTemplate, inverseSmallPropsMatrix);
+export const InverseMediumVariations = createVariantStory(VariantsTemplate, inverseMediumPropsMatrix);
