@@ -8,7 +8,7 @@ import { variants } from '../../src/defs.ts';
 variants.forEach((variant) => {
     test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
     // Arrange
-        const iconButtonPage = new BasePage(page, `icon-button--${variant}--variations`);
+        const iconButtonPage = new BasePage(page, `icon-button--${variant}-variations`);
         await iconButtonPage.load();
 
         const iconButtonComponent = await page.locator(iconButton.selectors.container.dataTestId).first();
