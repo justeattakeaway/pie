@@ -184,12 +184,14 @@ const defaultSmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['default'],
     size: ['small'],
+    slot: ['Link'],
 };
 
 const defaultMediumPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['default'],
     size: ['medium'],
+    slot: ['Link'],
 };
 
 export const DefaultSmallVariations = createVariantStory<LinkProps>(Template, defaultSmallPropsMatrix);
@@ -200,12 +202,14 @@ const highVisibilitySmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>
     ...baseSharedPropsMatrix,
     variant: ['high-visibility'],
     size: ['small'],
+    slot: ['Link'],
 };
 
 const highVisibilityMediumPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['high-visibility'],
     size: ['medium'],
+    slot: ['Link'],
 };
 
 export const HighVisibilitySmallVariations = createVariantStory<LinkProps>(Template, highVisibilitySmallPropsMatrix);
@@ -216,12 +220,14 @@ const inverseSmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['inverse'],
     size: ['small'],
+    slot: ['Link'],
 };
 
 const inverseMediumPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['inverse'],
     size: ['medium'],
+    slot: ['Link'],
 };
 
 export const InverseSmallVariations = createVariantStory<LinkProps>(Template, inverseSmallPropsMatrix, { bgColor: 'dark (container-dark)' });
