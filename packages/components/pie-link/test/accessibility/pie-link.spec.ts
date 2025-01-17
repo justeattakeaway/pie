@@ -5,7 +5,7 @@ test.describe('PieLink - Accessibility tests', () => {
     test('a11y - should test the PieLink component WCAG compliance', async ({ makeAxeBuilder, page }) => {
         const linkPage = new BasePage(page, 'link');
 
-        await dividerPage.load();
+        await linkPage.load();
 
         const results = await makeAxeBuilder().analyze();
 
