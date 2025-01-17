@@ -3,7 +3,7 @@ import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-obj
 
 test.describe('PieLink - Accessibility tests', () => {
     test('a11y - should test the PieLink component WCAG compliance', async ({ makeAxeBuilder, page }) => {
-        const dividerPage = new BasePage(page, 'link');
+        const linkPage = new BasePage(page, 'link');
 
         await dividerPage.load();
 
