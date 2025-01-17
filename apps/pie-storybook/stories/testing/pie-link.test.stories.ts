@@ -171,28 +171,6 @@ export const Default = createLinkStory();
 export const HighVisibility = createLinkStory({ variant:  'high-visibility' });
 export const Inverse = createLinkStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
 
-const VariantsTemplate: TemplateFunction<LinkProps> = ({
-    variant,
-    size,
-    isBold,
-    iconPlacement,
-    isStandalone,
-    tag,
-}) => html`
-    <div style="background-color: ${variant === 'inverse' ? 'var(--dt-color-container-dark)' : 'transparent'}">
-        <pie-link
-            variant="${ifDefined(variant)}"
-            size="${ifDefined(size)}"
-            iconPlacement="${ifDefined(iconPlacement)}"
-            tag="${ifDefined(tag)}"
-            ?isBold="${isBold}"
-            ?isStandalone="${isStandalone}">
-            ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
-            Link Text
-        </pie-link>
-    </div>
-`;
-
 // Base shared props without variant or size
 const baseSharedPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     tag: [...tags],
@@ -214,8 +192,8 @@ const defaultMediumPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     size: ['medium'],
 };
 
-export const DefaultSmallVariations = createVariantStory(VariantsTemplate, defaultSmallPropsMatrix);
-export const DefaultMediumVariations = createVariantStory(VariantsTemplate, defaultMediumPropsMatrix);
+export const DefaultSmallVariations = createVariantStory<LinkProps>(Template, defaultSmallPropsMatrix);
+export const DefaultMediumVariations = createVariantStory<LinkProps>(Template, defaultMediumPropsMatrix);
 
 // High-visibility variant stories
 const highVisibilitySmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
@@ -230,8 +208,8 @@ const highVisibilityMediumPropsMatrix: Partial<Record<keyof LinkProps, unknown[]
     size: ['medium'],
 };
 
-export const HighVisibilitySmallVariations = createVariantStory(VariantsTemplate, highVisibilitySmallPropsMatrix);
-export const HighVisibilityMediumVariations = createVariantStory(VariantsTemplate, highVisibilityMediumPropsMatrix);
+export const HighVisibilitySmallVariations = createVariantStory<LinkProps>(Template, highVisibilitySmallPropsMatrix);
+export const HighVisibilityMediumVariations = createVariantStory<LinkProps>(Template, highVisibilityMediumPropsMatrix);
 
 // Inverse variant stories
 const inverseSmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
@@ -246,5 +224,5 @@ const inverseMediumPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     size: ['medium'],
 };
 
-export const InverseSmallVariations = createVariantStory(VariantsTemplate, inverseSmallPropsMatrix);
-export const InverseMediumVariations = createVariantStory(VariantsTemplate, inverseMediumPropsMatrix);
+export const InverseSmallVariations = createVariantStory<LinkProps>(Template, inverseSmallPropsMatrix, { bgColor: 'dark (container-dark)' });
+export const InverseMediumVariations = createVariantStory<LinkProps>(Template, inverseMediumPropsMatrix, { bgColor: 'dark (container-dark)' });
