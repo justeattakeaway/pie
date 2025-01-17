@@ -1,83 +1,17 @@
-import { test } from '@sand4rt/experimental-ct-web';
+import { test, expect } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
-import type {
-    PropObject, WebComponentPropValues, WebComponentTestInput,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
-
-import {
-    getAllPropCombinations, splitCombinationsByPropertyValue,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/get-all-prop-combos.ts';
-
-import {
-    createTestWebComponent,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
-import {
-    WebComponentTestWrapper,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-direction.ts';
-import { PieAssistiveText } from '../../src/index.ts';
-import { variants } from '../../src/defs.ts';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { assistiveText } from 'test/helpers/page-object/selectors';
 
-const props: PropObject = {
-    variant: variants,
-};
+const directions = ['ltr', 'rtl'];
 
-const renderTestPieAssistiveText = (propVals: WebComponentPropValues) => `<pie-assistive-text variant="${propVals.variant}">Hello world</pie-assistive-text>`;
+directions.forEach((dir) => {
+    test(`should render all prop variations with ${dir} direction`, async ({ page }) => {
+        const assistiveTextVariantsPage = new BasePage(page, 'assistive-text--variants');
+        await assistiveTextVariantsPage.load({}, { writingDirection: dir });
 
-const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
-const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
-const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
-
-test.beforeEach(async ({ mount }, testInfo) => {
-    testInfo.setTimeout(testInfo.timeout + 40000);
-
-    const component = await mount(PieAssistiveText);
-    await component.unmount();
-});
-
-test('should render all prop variations', async ({ page, mount }) => {
-    for (const variant of componentVariants) {
-        for (const combo of componentPropsMatrixByVariant[variant]) {
-            const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieAssistiveText);
-
-            const propKeyValues = `variant: ${variant}`;
-
-            await mount(
-                WebComponentTestWrapper,
-                {
-                    props: { propKeyValues },
-                    slots: {
-                        component: testComponent.renderedString.trim(),
-                    },
-                },
-            );
-        }
-    }
-
-    await percySnapshot(page, 'PIE Assistive Text - Variants', percyWidths);
-});
-
-test('should render all prop variations with RTL set', async ({ page, mount }) => {
-    for (const variant of componentVariants) {
-        for (const combo of componentPropsMatrixByVariant[variant]) {
-            const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieAssistiveText);
-
-            const propKeyValues = `variant: ${variant}, dir: RTL`;
-
-            setRTL(page);
-
-            await mount(
-                WebComponentTestWrapper,
-                {
-                    props: { propKeyValues },
-                    slots: {
-                        component: testComponent.renderedString.trim(),
-                    },
-                },
-            );
-        }
-    }
-
-    await percySnapshot(page, 'PIE Assistive Text - Variants with RTL', percyWidths);
+        await expect.soft(page.getByTestId(assistiveText.selectors.container.dataTestId).first()).toBeVisible();
+        await percySnapshot(page, `PIE Assistive Text - Variants - ${dir}`, percyWidths);
+    });
 });
