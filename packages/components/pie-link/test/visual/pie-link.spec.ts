@@ -10,9 +10,9 @@ import {
 variants.forEach((variant) => {
     sizes.forEach((size) => {
         test(`should render all prop variations for Variant: ${variant} and Size: ${size}`, async ({ page }) => {
-            const basePage = new BasePage(page, `link--${variant}-${size}-variations`);
+            const linkVariationsPage = new BasePage(page, `link--${variant}-${size}-variations`);
 
-            await basePage.load();
+            await linkVariationsPage.load();
 
             await percySnapshot(page, `PIE Link - Variant: ${variant} - Size: ${size}`, percyWidths);
         });
