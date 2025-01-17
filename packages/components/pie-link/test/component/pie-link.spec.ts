@@ -11,7 +11,7 @@ test.describe('PieLink - Component tests', () => {
         await linkPage.load();
 
         // Act
-        const linkComponent = page.getByTestId(link.selectors.container.dataTestId);
+        const linkComponent = page.locator(link.selectors.container.dataTestId);
 
         // Assert
         await expect(linkComponent).toBeVisible();
@@ -75,7 +75,8 @@ test.describe('PieLink - Component tests', () => {
             await linkPage.load({ ...props });
 
             // Act
-            const linkComponent = page.getByTestId(link.selectors.container.dataTestId);
+            const locatorId = tag === 'a' ? link.selectors.anchor.dataTestId : link.selectors.button.dataTestId;
+            const linkComponent = page.getByTestId(locatorId);
 
             // Assert
             await expect(linkComponent).toHaveAttribute('aria-label', mockedLabel);

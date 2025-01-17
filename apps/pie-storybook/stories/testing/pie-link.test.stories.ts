@@ -194,7 +194,7 @@ const VariantsTemplate: TemplateFunction<LinkProps> = ({
 `;
 
 // Base shared props without variant or size
-const baseSharedPropsMatrix = {
+const baseSharedPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     tag: [...tags],
     isBold: [true, false],
     iconPlacement: [undefined, ...iconPlacements],
@@ -202,13 +202,13 @@ const baseSharedPropsMatrix = {
 };
 
 // Default variant stories
-const defaultSmallPropsMatrix = {
+const defaultSmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['default'],
     size: ['small'],
 };
 
-const defaultMediumPropsMatrix = {
+const defaultMediumPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['default'],
     size: ['medium'],
@@ -218,13 +218,13 @@ export const DefaultSmallVariations = createVariantStory(VariantsTemplate, defau
 export const DefaultMediumVariations = createVariantStory(VariantsTemplate, defaultMediumPropsMatrix);
 
 // High-visibility variant stories
-const highVisibilitySmallPropsMatrix = {
+const highVisibilitySmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['high-visibility'],
     size: ['small'],
 };
 
-const highVisibilityMediumPropsMatrix = {
+const highVisibilityMediumPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['high-visibility'],
     size: ['medium'],
@@ -234,13 +234,13 @@ export const HighVisibilitySmallVariations = createVariantStory(VariantsTemplate
 export const HighVisibilityMediumVariations = createVariantStory(VariantsTemplate, highVisibilityMediumPropsMatrix);
 
 // Inverse variant stories
-const inverseSmallPropsMatrix = {
+const inverseSmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['inverse'],
     size: ['small'],
 };
 
-const inverseMediumPropsMatrix = {
+const inverseMediumPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['inverse'],
     size: ['medium'],
