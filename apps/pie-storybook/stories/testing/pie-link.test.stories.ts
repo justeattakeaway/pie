@@ -8,8 +8,10 @@ import {
 } from '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 
-import { type SlottedComponentProps } from '../types';
-import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
+import { type SlottedComponentProps } from '../../types';
+import {
+    createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML,
+} from '../../utilities';
 
 type LinkProps = SlottedComponentProps<LinkBaseProps>;
 type LinkStoryMeta = Meta<LinkProps>;
@@ -20,6 +22,7 @@ const defaultArgs: LinkProps = {
     href: 'https://pie.design',
     target: '_blank',
     slot: 'Link',
+    aria: { label: 'Link' },
 };
 
 const linkStoryMeta: LinkStoryMeta = {
@@ -124,12 +127,6 @@ const linkStoryMeta: LinkStoryMeta = {
         },
     },
     args: defaultArgs,
-    parameters: {
-        design: {
-            type: 'figma',
-            url: 'https://www.figma.com/file/pPSC73rPin4csb8DiK1CRr/Core-Web-Components-%5BDESIGNERS-DO-NOT-USE%5D?type=design&node-id=364-29974&mode=design',
-        },
-    },
 };
 
 export default linkStoryMeta;
@@ -173,3 +170,65 @@ const createLinkStory = createStory<LinkProps>(Template, defaultArgs);
 export const Default = createLinkStory();
 export const HighVisibility = createLinkStory({ variant:  'high-visibility' });
 export const Inverse = createLinkStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
+
+// Base shared props without variant or size
+const baseSharedPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
+    tag: [...tags],
+    isBold: [true, false],
+    iconPlacement: [undefined, ...iconPlacements],
+    isStandalone: [true, false],
+};
+
+// Default variant stories
+const defaultSmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['default'],
+    size: ['small'],
+    slot: ['Link'],
+};
+
+const defaultMediumPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['default'],
+    size: ['medium'],
+    slot: ['Link'],
+};
+
+export const DefaultSmallVariations = createVariantStory<LinkProps>(Template, defaultSmallPropsMatrix);
+export const DefaultMediumVariations = createVariantStory<LinkProps>(Template, defaultMediumPropsMatrix);
+
+// High-visibility variant stories
+const highVisibilitySmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['high-visibility'],
+    size: ['small'],
+    slot: ['Link'],
+};
+
+const highVisibilityMediumPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['high-visibility'],
+    size: ['medium'],
+    slot: ['Link'],
+};
+
+export const HighVisibilitySmallVariations = createVariantStory<LinkProps>(Template, highVisibilitySmallPropsMatrix);
+export const HighVisibilityMediumVariations = createVariantStory<LinkProps>(Template, highVisibilityMediumPropsMatrix);
+
+// Inverse variant stories
+const inverseSmallPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['inverse'],
+    size: ['small'],
+    slot: ['Link'],
+};
+
+const inverseMediumPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['inverse'],
+    size: ['medium'],
+    slot: ['Link'],
+};
+
+export const InverseSmallVariations = createVariantStory<LinkProps>(Template, inverseSmallPropsMatrix, { bgColor: 'dark (container-dark)' });
+export const InverseMediumVariations = createVariantStory<LinkProps>(Template, inverseMediumPropsMatrix, { bgColor: 'dark (container-dark)' });
