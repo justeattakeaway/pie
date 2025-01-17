@@ -1,106 +1,86 @@
-import { test, expect, type MountOptions } from '@sand4rt/experimental-ct-web';
-import { PieTextInput } from '@justeattakeaway/pie-text-input';
-import { PieSwitch } from '@justeattakeaway/pie-switch';
-import { PieFormLabel, type FormLabelProps } from '../../src/index.ts';
-
-const componentSelector = '[data-test-id="pie-form-label"]';
+import { test, expect } from '@playwright/test';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { formLabel } from '../helpers/page-object/selectors.ts';
+import type { FormLabelProps } from '../../src/index.ts';
 
 test.describe('PieFormLabel - Component tests', () => {
-    test('should render successfully', async ({ mount, page }) => {
+    test('should render successfully', async ({ page }) => {
         // Arrange
-        await mount(PieFormLabel, {
-            props: {
-                for: 'form-label',
-                optional: 'Optional',
-                trailing: 'X out X',
-            } as MountOptions<Record<string, never>, PieFormLabel>['props'] & FormLabelProps,
-            slots: {
-                default: 'Label',
-            },
-        });
+        const props: FormLabelProps = {
+            for: 'form-label',
+            optional: 'Optional',
+            trailing: 'X out X',
+        };
+
+        const formLabelPage = new BasePage(page, 'form-label--default');
+
+        await formLabelPage.load({ ...props });
 
         // Act
-        const formLabel = page.locator(componentSelector);
+        const formLabelComponent = page.getByTestId(formLabel.selectors.container.dataTestId);
 
         // Assert
-        expect(formLabel).toBeVisible();
+        await expect(formLabelComponent).toBeVisible();
     });
     test.describe('should behave as expected when it is clicked and the "for" prop is assigned', () => {
-        // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
-        // mount the component will still have it available in Playwright's cache (loaded and registered in the test browser)
-        test.beforeEach(async ({ mount }) => {
-            const pieTextInput = await mount(PieTextInput);
-            await pieTextInput.unmount();
-
-            const pieSwitch = await mount(PieSwitch);
-            await pieSwitch.unmount();
-
-            const pieFormLabel = await mount(PieFormLabel);
-            await pieFormLabel.unmount();
-        });
-
         test('when used with a text input', async ({ page }) => {
             // Arrange
-            await page.setContent('<pie-form-label for="email">Email:</pie-form-label><pie-text-input id="email"></pie-text-input>');
+            const formLabelWithTextInputPage = new BasePage(page, 'form-label--with-text-input');
+            await formLabelWithTextInputPage.load();
 
             // Act
-            const target = page.locator('#email');
-            const label = page.locator('pie-form-label');
+            const textInput = page.getByTestId('email-input');
+            const label = page.getByTestId(formLabel.selectors.container.dataTestId);
             await label.click();
 
             // Assert
-            await expect(target).toBeFocused();
+            await expect(textInput).toBeFocused();
         });
 
         test.describe('when used with a switch', () => {
-            const markup = '<pie-form-label for="approveSettings">Approve settings</pie-form-label><pie-switch id="approveSettings"></pie-switch>';
-
             test.describe('when clicked once', () => {
                 test('the switch should be focused', async ({ page }) => {
                     // Arrange
-                    await page.setContent(markup);
+                    const formLabelWithSwitchPage = new BasePage(page, 'form-label--with-switch');
+                    await formLabelWithSwitchPage.load();
 
                     // Act
-                    const target = page.locator('#approveSettings');
-                    const label = page.locator('pie-form-label');
-                    await expect(target).not.toBeFocused();
+                    const switchComponent = page.getByTestId('approve-settings-switch');
+                    const label = page.getByTestId(formLabel.selectors.container.dataTestId);
+                    await expect(switchComponent).not.toBeFocused();
                     await label.click();
 
                     // Assert
-                    await expect(target).toBeFocused();
+                    await expect(switchComponent).toBeFocused();
                 });
                 test('the switch "checked" attribute is true', async ({ page }) => {
                     // Arrange
-                    await page.setContent(markup);
+                    const formLabelWithSwitchPage = new BasePage(page, 'form-label--with-switch');
+                    await formLabelWithSwitchPage.load();
 
                     // Act
-                    const target = page.locator('#approveSettings');
-                    const label = page.locator('pie-form-label');
+                    const switchComponent = page.getByTestId('approve-settings-switch');
+                    const label = page.getByTestId(formLabel.selectors.container.dataTestId);
                     await label.click();
 
-                    const value = await target.evaluate((el) => (el as PieSwitch).checked);
-                    const expected = true;
-
                     // Assert
-                    expect(value).toBe(expected);
+                    await expect(switchComponent).toHaveAttribute('checked', '');
                 });
             });
             test.describe('when clicked twice', () => {
                 test('the switch "checked" attribute is false', async ({ page }) => {
                     // Arrange
-                    await page.setContent(markup);
+                    const formLabelWithSwitchPage = new BasePage(page, 'form-label--with-switch');
+                    await formLabelWithSwitchPage.load();
 
                     // Act
-                    const target = page.locator('#approveSettings');
-                    const label = page.locator('pie-form-label');
+                    const switchComponent = page.getByTestId('approve-settings-switch');
+                    const label = page.getByTestId(formLabel.selectors.container.dataTestId);
                     await label.click();
                     await label.click();
-
-                    const value = await target.evaluate((el) => (el as PieSwitch).checked);
-                    const expected = false;
 
                     // Assert
-                    expect(value).toBe(expected);
+                    await expect(switchComponent).not.toHaveAttribute('checked', '');
                 });
             });
         });
