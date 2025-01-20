@@ -19,7 +19,7 @@ async function setAnimationSource (page: any, animationSrc: string) {
 
 test.describe('PieLottiePlayer - Component tests', () => {
     test('should render successfully', async ({ page }) => {
-    // Arrange
+        // Arrange
         const lottiePlayerPage = new BasePage(page, 'lottie-player--default');
         await lottiePlayerPage.load();
 
@@ -38,9 +38,8 @@ test.describe('PieLottiePlayer - Component tests', () => {
 
             await setAnimationSource(page, './static/animations/order-confirmed.json');
 
-            const lottiePlayerComponent = page.locator(lottiePlayer.selectors.container.dataTestId);
-
             // Assert
+            const lottiePlayerComponent = page.locator(lottiePlayer.selectors.container.dataTestId);
             await expect(lottiePlayerComponent).toHaveAttribute('speed', '1');
             await expect(lottiePlayerComponent).toHaveAttribute('direction', 'forward');
         });
@@ -52,10 +51,8 @@ test.describe('PieLottiePlayer - Component tests', () => {
 
             await setAnimationSource(page, './static/animations/order-confirmed.json');
 
-            // Act
-            const lottierPlayerComponent = page.locator(lottiePlayer.selectors.container.dataTestId);
-
             // Assert
+            const lottierPlayerComponent = page.locator(lottiePlayer.selectors.container.dataTestId);
             await expect(lottierPlayerComponent).not.toHaveAttribute('autoPlayDisabled');
             await expect(lottierPlayerComponent).not.toHaveAttribute('loopDisabled');
         });
@@ -74,9 +71,8 @@ test.describe('PieLottiePlayer - Component tests', () => {
 
             await setAnimationSource(page, './static/animations/order-confirmed.json');
 
-            const lottiePlayerComponent = page.locator(lottiePlayer.selectors.container.dataTestId);
-
             // Assert
+            const lottiePlayerComponent = page.locator(lottiePlayer.selectors.container.dataTestId);
             await expect(lottiePlayerComponent).toHaveAttribute('autoPlayDisabled');
             await expect(lottiePlayerComponent).toHaveAttribute('loopDisabled');
         });
