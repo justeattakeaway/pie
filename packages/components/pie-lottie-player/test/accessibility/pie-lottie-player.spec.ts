@@ -1,20 +1,18 @@
-import { readFile } from 'fs/promises';
-import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/webc-fixtures.ts';
-import { PieLottiePlayer, type LottiePlayerProps } from '../../src/index.ts';
+import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/playwright-fixtures.ts';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { lottiePlayer } from '../helpers/page-object/selectors.ts';
 
-const animationData = JSON.parse(await readFile(new URL('../courier.json', import.meta.url), { encoding: 'utf-8' }));
+test.describe('PieLottiePlayer - Component tests', () => {
+    test('should render successfully', async ({ page, makeAxeBuilder }) => {
+        // Arrange
+        const lottiePlayerPage = new BasePage(page, 'lottie-player--default');
+        await lottiePlayerPage.load();
 
-test.describe('PieLottiePlayer - Accessibility tests', () => {
-    test('a11y - should test the PieLottiePlayer component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
-        await mount(
-            PieLottiePlayer,
-            {
-                props: { animationData } as LottiePlayerProps,
-            },
-        );
+        // Assert
+        const lottiePlayerComponent = page.locator(lottiePlayer.selectors.container.dataTestId);
+        await expect.soft(lottiePlayerComponent).toBeVisible();
 
         const results = await makeAxeBuilder().analyze();
-
         expect(results.violations).toEqual([]);
     });
 });
