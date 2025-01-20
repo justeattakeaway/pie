@@ -44,13 +44,13 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
 
         const wrapperClasses = {
             'c-thumbnail': true,
-            'o-tn--disabled': disabled,
+            'c-thumbnail--disabled': disabled,
             [`c-thumbnail--${variant}`]: true,
         };
 
         const imgClasses = {
-            'o-tn-img': true,
-            'o-tn--padding': hasPadding,
+            'c-thumbnail-img': true,
+            'c-thumbnail--padding': hasPadding,
         };
 
         return html`

@@ -3,9 +3,8 @@
   --thumbnail-border-radius: var(--dt-radius-rounded-b);
   --thumbnail-bg-color: var(--dt-color-container-default);
   --thumbnail-border-color: transparent;
-
-  --tn-disabled-opacity: 50%;
-  --tn-padding: calc(var(--dt-spacing-a) / 2);
+  --thumbnail-opacity: initial;
+  --thumbnail-img-padding: initial;
 
   box-sizing: border-box;
   overflow: hidden;
@@ -14,23 +13,26 @@
   border-radius: var(--thumbnail-border-radius);
   border: 1px solid var(--thumbnail-border-color);
   background-color: var(--thumbnail-bg-color);
+  opacity: var(--thumbnail-opacity);
 
   &.c-thumbnail--outline {
     --thumbnail-border-color: var(--dt-color-border-default);
   }
 
-  &.o-tn--disabled {
-    opacity: var(--tn-disabled-opacity);
+  &.c-thumbnail--disabled {
+    --thumbnail-opacity: 50%;
   }
 
   .c-thumbnail-img {
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
     object-fit: contain;
     display: block;
+    padding: var(--thumbnail-img-padding);
 
-    &.o-tn--padding {
-      padding: var(--tn-padding);
+    &.c-thumbnail--padding {
+      --thumbnail-img-padding: calc(var(--dt-spacing-a) / 2);
     }
   }
 }
