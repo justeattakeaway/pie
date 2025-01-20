@@ -1,14 +1,15 @@
 import { test } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
+import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { variants } from '../../src/defs.ts';
 
-test.describe('PieThumbnail - Visual tests`', () => {
-    test('should display the PieThumbnail component successfully', async ({ page }) => {
-        const basePage = new BasePage(page, 'thumbnail--default');
+variants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
+    const basePage = new BasePage(page, `thumbnail--${variant}-prop-variations`);
 
-        basePage.load();
-        await page.waitForTimeout(2500);
+    basePage.load();
 
-        await percySnapshot(page, 'PieThumbnail - Visual Test');
-    });
-});
+    await page.waitForTimeout(5000);
+
+    await percySnapshot(page, `PIE Thumbnail - Variant: ${variant}`, percyWidths);
+}));

@@ -72,13 +72,7 @@ const createTokenDisplayName = (tokenKey, tokenType) => {
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
  * @returns {string} the SCSS variable name
  */
-const createScssTokenName = (tokenKey, tokenType, path) => {
-    // TODO: This is a little hacky and we should revisit it as part of a wider refactor
-    // of how token information is generated for the docs site
-    const isDarkToken = path.includes('dark');
-
-    return `$${tokenType}-${isDarkToken ? 'dark-' : ''}${tokenKey}`;
-};
+const createScssTokenName = (tokenKey, tokenType) => `$${tokenType}-${tokenKey}`;
 
 /**
  * If tokens are numbers (spacing / radius), sort and return tokens in ascending order

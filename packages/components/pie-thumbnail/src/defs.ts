@@ -4,10 +4,8 @@ export const variants = [
     'default', 'outline',
 ] as const;
 
-export type Variant = typeof variants[number];
-
 export interface ThumbnailProps {
-    variant?: Variant;
+    variant?: typeof variants[number];
     src?: string;
     alt?: string;
     disabled?: boolean;
@@ -18,8 +16,8 @@ export type DefaultProps = ComponentDefaultProps<ThumbnailProps, 'variant' | 'sr
 
 export const defaultProps: DefaultProps = {
     variant: 'default',
-    src: './assets/placeholder.png',
-    alt: 'placeholder',
+    src: '',
+    alt: '',
     disabled: false,
     hasPadding: false,
 };

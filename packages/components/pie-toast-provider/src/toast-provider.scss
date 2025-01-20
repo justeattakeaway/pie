@@ -1,1 +1,15 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
+
+
+.c-toast-provider {
+    --toast-provider-offset: var(--dt-spacing-d);
+
+    position: absolute;
+    inset-inline-start: var(--toast-provider-offset);
+    inset-block-end: var(--toast-provider-offset);
+
+    @include media('>md') {
+        --toast-offset: var(--dt-spacing-e);
+    }
+}

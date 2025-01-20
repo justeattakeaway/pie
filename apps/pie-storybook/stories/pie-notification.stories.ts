@@ -10,7 +10,7 @@ import {
 
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
-import { createStory, type TemplateFunction } from '../utilities';
+import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 // Extending the props type definition to include storybook specific properties for controls
 type NotificationProps = NotificationBaseProps & {
@@ -33,6 +33,10 @@ const defaultArgs: NotificationProps = {
         ariaLabel: 'Descriptive cancellation text',
     },
     iconSlot: 'None',
+    aria: {
+        close: 'Close',
+        label: '',
+    },
 };
 
 const slotOptions = {
@@ -127,6 +131,10 @@ const notificationStoryMeta: NotificationStoryMeta = {
             control: 'select',
             mapping: slotOptions,
         },
+        aria: {
+            description: 'The ARIA labels used for various parts of the notification',
+            control: 'object',
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -145,6 +153,7 @@ const pieNotificationClose = action('pie-notification-close');
 const pieNotificationOpen = action('pie-notification-open');
 
 const Template : TemplateFunction<NotificationProps> = ({
+    aria,
     isOpen,
     isDismissible,
     isCompact,
@@ -160,6 +169,7 @@ const Template : TemplateFunction<NotificationProps> = ({
     iconSlot,
 }) => html`
     <pie-notification
+        .aria="${aria}"
         ?isOpen="${isOpen}"
         variant="${ifDefined(variant)}"
         position="${ifDefined(position)}"
@@ -176,7 +186,7 @@ const Template : TemplateFunction<NotificationProps> = ({
         @pie-notification-close="${pieNotificationClose}"
         @pie-notification-open="${pieNotificationOpen}">
             ${iconSlot}
-            ${slot}
+            ${sanitizeAndRenderHTML(slot)}
     </pie-notification>`;
 
 const createNotificationStory = createStory<NotificationProps>(Template, defaultArgs);

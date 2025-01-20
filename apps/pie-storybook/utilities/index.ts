@@ -1,7 +1,8 @@
 import { html, type TemplateResult } from 'lit';
 import DOMPurify from 'dompurify';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-import { type StoryOptions } from '../types/StoryOptions';
+import type { StoryOptions, BackgroundValue } from '../types/StoryOptions';
+import CUSTOM_BACKGROUNDS from '../.storybook/backgrounds';
 
 export type TemplateFunction<T> = (props: T) => TemplateResult;
 
@@ -71,13 +72,14 @@ export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sani
  *
  * @returns {Function} Returns a function that renders all combinations of the given prop options.
  */
-export const createVariantStory = <T>(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const createVariantStory = <T extends Record<string, any>>(
     template: TemplateFunction<T>,
-    propOptions: Record<keyof T, unknown[]>,
+    propOptions: Partial<Record<keyof T, unknown[]>>,
     storyOpts?: StoryOptions,
 ) => ({
         render: () => {
-            const generateCombinations = (options: Record<keyof T, unknown[]>): T[] => {
+            const generateCombinations = (options: Partial<Record<keyof T, unknown[]>>): T[] => {
                 const keys = Object.keys(options) as (keyof T)[];
                 const combinations: T[] = [];
 
@@ -88,7 +90,7 @@ export const createVariantStory = <T>(
                     }
 
                     const key = keys[index];
-                    const values = options[key];
+                    const values = options[key] || [];
 
                     values.forEach((value) => {
                         buildCombination(index + 1, { ...currentCombination, [key]: value });
@@ -101,27 +103,38 @@ export const createVariantStory = <T>(
 
             const propCombinations = generateCombinations(propOptions);
 
+            const backgroundValue = CUSTOM_BACKGROUNDS.values.find((bg: BackgroundValue) => bg.name === storyOpts?.bgColor)?.value || '#ffffff';
+
             return html`
-          <div style="display: block; width: 100%;">
-              ${propCombinations.map((props) => html`
-                      <div style="border: 1px solid black; padding: 16px; margin-bottom: 16px; width: 100%; box-sizing: border-box;">
-                          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-family: monospace; background-color: #f9f9f9; padding: 8px; border-radius: 4px;">
-                              ${Object.entries(props as Record<string, unknown>).map(([key, value]) => html`
-                                      <div><strong>${key}:</strong> ${JSON.stringify(value)}</div>
-                                  `)}
-                          </div>
-                          <div style="margin-top: 16px; border: 2px dashed #aaa; padding: 8px; border-radius: 4px;">
-                              ${template({ ...props })}
-                          </div>
-                      </div>
-                  `)}
-          </div>
-        `;
+        <div style="display: block; width: 100%;">
+            ${propCombinations.map((props) => {
+                const typedProps = props as T;
+
+                return html`
+                    <div style="border: 1px solid black; padding: 16px; margin-bottom: 16px; width: 100%; box-sizing: border-box;">
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-family: monospace; background-color: #f9f9f9; padding: 8px; border-radius: 4px;">
+                            ${Object.entries(typedProps).map(([key, value]) => html`
+                                <div><strong>${key}:</strong> ${JSON.stringify(value)}</div>
+                            `)}
+                        </div>
+                        <div
+                          style="
+                            margin-top: 16px;
+                            border: 2px dashed #aaa;
+                            padding: 8px;
+                            border-radius: 4px;
+                            background-color: ${backgroundValue};
+                          "
+                        >
+                            ${template({ ...typedProps })}
+                        </div>
+                    </div>
+                  `;
+            })}
+        </div>
+      `;
         },
         parameters: {
-            backgrounds: {
-                ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
-            },
             controls: {
                 disable: true,
             },
@@ -135,5 +148,5 @@ export const createVariantStory = <T>(
                 disable: true,
             },
         },
-        ...(storyOpts?.argTypes ? { argTypes: storyOpts?.argTypes } : {}),
+        ...(storyOpts?.argTypes ? { argTypes: storyOpts.argTypes } : {}),
     });

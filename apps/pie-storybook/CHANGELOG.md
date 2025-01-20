@@ -1,5 +1,66 @@
 # Changelog
 
+## 1.19.1
+
+### Patch Changes
+
+- [Fixed] - Ensure page doesn't scroll when the modal is opened ([#2152](https://github.com/justeattakeaway/pie/pull/2152)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`9d66d1c`](https://github.com/justeattakeaway/pie/commit/9d66d1cdd23d9f986da3e33c3dd9ad1ac63d4915), [`678283f`](https://github.com/justeattakeaway/pie/commit/678283fbdc0da22c9377e18c55fac2ef4deb66c2), [`210f849`](https://github.com/justeattakeaway/pie/commit/210f849531601f29d4d27f27ce4cbd671d041e86)]:
+  - @justeattakeaway/pie-modal@1.1.1
+  - @justeattakeaway/pie-radio-group@0.5.0
+  - @justeattakeaway/pie-radio@0.7.0
+  - @justeattakeaway/pie-cookie-banner@1.2.4
+
+## 1.19.0
+
+### Minor Changes
+
+- [Updated] - pie-design-tokens version bump to 6.8.0 that changes our approach to light/dark colour mode support. Now PIE tokens for each mode have consistent naming. `-dark-`, `-highcontrast-`, `-highcontrast-dark-` prefixes were removed from token naming. ([#2143](https://github.com/justeattakeaway/pie/pull/2143)) by [@dandel10n](https://github.com/dandel10n)
+
+- [Added] - basic functionality of thumbnail component ([#2138](https://github.com/justeattakeaway/pie/pull/2138)) by [@bntsv](https://github.com/bntsv)
+
+### Patch Changes
+
+- Updated dependencies [[`e637001`](https://github.com/justeattakeaway/pie/commit/e637001f2a5adc4ef582941344d76bf1e5fcde77), [`d53513c`](https://github.com/justeattakeaway/pie/commit/d53513c263039ea2cca47e6381716e732c4e6906), [`e637001`](https://github.com/justeattakeaway/pie/commit/e637001f2a5adc4ef582941344d76bf1e5fcde77), [`d53513c`](https://github.com/justeattakeaway/pie/commit/d53513c263039ea2cca47e6381716e732c4e6906), [`7471690`](https://github.com/justeattakeaway/pie/commit/74716905d3ec748fc55ccaa51ac67adf1da44846)]:
+  - @justeattakeaway/pie-card@0.22.0
+  - @justeattakeaway/pie-text-input@0.25.0
+  - @justeattakeaway/pie-modal@1.1.0
+  - @justeattakeaway/pie-css@0.14.0
+  - @justeattakeaway/pie-divider@1.1.0
+  - @justeattakeaway/pie-thumbnail@0.2.0
+  - @justeattakeaway/pie-cookie-banner@1.2.3
+
+## 1.18.0
+
+### Minor Changes
+
+- [Changed] - move the toast and toast provider components to beta ([#2144](https://github.com/justeattakeaway/pie/pull/2144)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`6820b64`](https://github.com/justeattakeaway/pie/commit/6820b64a2cc4b10653829d3b87228fa1b1758c6d), [`c3fa7c9`](https://github.com/justeattakeaway/pie/commit/c3fa7c9e9ffcea22eff18b0b47a159fd4ee23b22)]:
+  - @justeattakeaway/pie-toast-provider@0.2.0
+  - @justeattakeaway/pie-toast@0.7.0
+
+## 1.17.0
+
+### Minor Changes
+
+- [Added] - priority order for the toast provider ([#2098](https://github.com/justeattakeaway/pie/pull/2098)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`109dd8e`](https://github.com/justeattakeaway/pie/commit/109dd8ec7af3cf9bbacc0af1c7c18a17e62c8fa1)]:
+  - @justeattakeaway/pie-toast-provider@0.1.0
+  - @justeattakeaway/pie-toast@0.6.0
+
+## 1.16.5
+
+### Patch Changes
+
+- [Changed] - Updates Readme information about component status ([#2116](https://github.com/justeattakeaway/pie/pull/2116)) by [@maledr5](https://github.com/maledr5)
+
 ## 1.16.4
 
 ### Patch Changes

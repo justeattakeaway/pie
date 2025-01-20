@@ -1,88 +1,85 @@
-import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieLink, type LinkProps } from '../../src/index.ts';
-import { tags } from '../../src/defs.ts';
+import { test, expect } from '@playwright/test';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { type LinkProps, tags } from '../../src/defs.ts';
 
-const componentSelector = '[data-test-id="pie-link"]';
-
-const anchorProps: LinkProps = {
-    tag: 'a',
-    href: '#',
-    target: '_blank',
-    rel: 'nofollow',
-};
+import { link } from '../helpers/page-object/selectors.ts';
 
 test.describe('PieLink - Component tests', () => {
-    test('should be visible', async ({ mount, page }) => {
+    test('should be visible', async ({ page }) => {
         // Arrange
-        await mount(PieLink, {
-            slots: { default: 'Link!' },
-        });
+        const linkPage = new BasePage(page, 'link');
+        await linkPage.load();
 
         // Act
-        const link = page.locator(componentSelector);
+        const linkComponent = page.locator(link.selectors.container.dataTestId);
 
         // Assert
-        await expect(link).toBeVisible();
+        await expect(linkComponent).toBeVisible();
     });
 
-    test('should render as anchor when tag="a"', async ({ mount, page }) => {
+    test('should render as anchor when tag="a"', async ({ page }) => {
         // Arrange
-        await mount(PieLink, {
-            props: {
-                ...anchorProps,
-            },
-            slots: { default: 'Anchor Link!' },
-        });
+        const linkPage = new BasePage(page, 'link');
+        const props: LinkProps = {
+            tag: 'a',
+            href: 'https://pie.design',
+            target: '_blank',
+            rel: 'nofollow',
+        };
+
+        await linkPage.load({ ...props });
 
         // Act
-        const link = page.locator(`a${componentSelector}`);
+        const linkComponent = page.getByTestId(link.selectors.anchor.dataTestId);
 
         // Assert
-        await expect(link).toBeVisible();
-        await expect(link).toHaveAttribute('href', '#');
-        await expect(link).toHaveAttribute('target', '_blank');
-        await expect(link).toHaveAttribute('rel', 'nofollow');
-        await expect(link).not.toHaveAttribute('type', 'submit');
+        await expect(linkComponent).toBeVisible();
+        await expect(linkComponent).toHaveAttribute('href', 'https://pie.design');
+        await expect(linkComponent).toHaveAttribute('target', '_blank');
+        await expect(linkComponent).toHaveAttribute('rel', 'nofollow');
+        await expect(linkComponent).not.toHaveAttribute('type', 'submit');
     });
 
-    test('should render as button when tag="button"', async ({ mount, page }) => {
+    test('should render as button when tag="button"', async ({ page }) => {
         // Arrange
-        await mount(PieLink, {
-            props: {
-                tag: 'button',
-            },
-            slots: { default: 'Button Link!' },
-        });
+        const linkPage = new BasePage(page, 'link');
+        const props: LinkProps = {
+            tag: 'button',
+        };
+
+        await linkPage.load({ ...props });
 
         // Act
-        const buttonLink = page.locator(`button${componentSelector}`);
+        const linkComponent = page.getByTestId(link.selectors.button.dataTestId);
 
         // Assert
-        await expect(buttonLink).toBeVisible();
-        await expect(buttonLink).toHaveAttribute('type', 'submit');
-        await expect(buttonLink).not.toHaveAttribute('href', '#');
-        await expect(buttonLink).not.toHaveAttribute('target', '_blank');
-        await expect(buttonLink).not.toHaveAttribute('rel', 'nofollow');
+        await expect(linkComponent).toBeVisible();
+        await expect(linkComponent).toHaveAttribute('type', 'submit');
+        await expect(linkComponent).not.toHaveAttribute('href', '#');
+        await expect(linkComponent).not.toHaveAttribute('target', '_blank');
+        await expect(linkComponent).not.toHaveAttribute('rel', 'nofollow');
     });
 
     tags.forEach((tag) => {
-        test(`should add an aria-label attribute that matches the value of the aria.label prop when tag is ${tag}`, async ({ mount, page }) => {
+        test(`should add an aria-label attribute that matches the value of the aria.label prop when tag is ${tag}`, async ({ page }) => {
             // Arrange
-            const label = 'foo';
-
-            await mount(PieLink, {
-                props: {
-                    tag,
-                    aria: { label },
+            const linkPage = new BasePage(page, 'link');
+            const mockedLabel = 'foo';
+            const props: LinkProps = {
+                tag,
+                aria: {
+                    label: mockedLabel,
                 },
-                slots: { default: 'Anchor Link!' },
-            });
+            };
+
+            await linkPage.load({ ...props });
 
             // Act
-            const component = page.locator(componentSelector);
+            const locatorId = tag === 'a' ? link.selectors.anchor.dataTestId : link.selectors.button.dataTestId;
+            const linkComponent = page.getByTestId(locatorId);
 
             // Assert
-            await expect(component).toHaveAttribute('aria-label', label);
+            await expect(linkComponent).toHaveAttribute('aria-label', mockedLabel);
         });
     });
 });

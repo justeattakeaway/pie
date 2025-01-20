@@ -1,5 +1,39 @@
 # Changelog
 
+## 4.24.0
+
+### Minor Changes
+
+- [Updated] - pie-design-tokens version bump to 6.8.0. ([#2143](https://github.com/justeattakeaway/pie/pull/2143)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Changed] - cleaned up dark mode colour tokens usage in light mode.
+  [Removed] - removed `-dark-` prefix from dark mode PIE colour tokens.
+
+### Patch Changes
+
+- Updated dependencies [[`e637001`](https://github.com/justeattakeaway/pie/commit/e637001f2a5adc4ef582941344d76bf1e5fcde77)]:
+  - @justeattakeaway/pie-css@0.14.0
+
+## 4.23.0
+
+### Minor Changes
+
+- [Changed] - move the toast and toast provider components to beta ([#2144](https://github.com/justeattakeaway/pie/pull/2144)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - pie toast provider docs ([#2104](https://github.com/justeattakeaway/pie/pull/2104)) by [@raoufswe](https://github.com/raoufswe)
+
+## 4.22.3
+
+### Patch Changes
+
+- [Updated] - update focus state of some components ([#2131](https://github.com/justeattakeaway/pie/pull/2131)) by [@leksaBoiko](https://github.com/leksaBoiko)
+
+## 4.22.2
+
+### Patch Changes
+
+- [Changed] - Updates Readme information about component status ([#2116](https://github.com/justeattakeaway/pie/pull/2116)) by [@maledr5](https://github.com/maledr5)
+
 ## 4.22.1
 
 ### Patch Changes

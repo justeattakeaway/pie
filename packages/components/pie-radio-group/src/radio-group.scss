@@ -12,7 +12,11 @@
     flex-flow: column wrap;
     gap: var(--radio-group-gap);
 
-    &.c-radioGroup--inline { 
+    > legend {
+        margin-block-end: var(--dt-spacing-b);
+    }
+
+    &.c-radioGroup--inline {
         flex-flow: row wrap;
         gap: var(--radio-group-gap--inline);
     }

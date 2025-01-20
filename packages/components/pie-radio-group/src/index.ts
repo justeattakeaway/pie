@@ -334,6 +334,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
 
         return html`
             <fieldset
+                role="radiogroup"
                 tabindex="0"
                 name=${ifDefined(name)}
                 ?disabled=${disabled}

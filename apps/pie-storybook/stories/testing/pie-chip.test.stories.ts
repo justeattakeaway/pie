@@ -1,6 +1,5 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { action } from '@storybook/addon-actions';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-chip';
@@ -87,8 +86,12 @@ const chipStoryMeta: ChipStoryMeta = {
 
 export default chipStoryMeta;
 
-const clickAction = action('clicked');
-const closeAction = action('pie-chip-close');
+const clickAction = () => {
+    console.info('pie-chip clicked');
+};
+const closeAction = () => {
+    console.info('pie-chip-close clicked');
+};
 
 const Template: TemplateFunction<ChipProps> = ({
     aria,

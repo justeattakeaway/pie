@@ -97,7 +97,7 @@ export class PieLink extends LitElement implements LinkProps {
     private renderButton (classes: ClassInfo) {
         return html`
             <button
-                data-test-id="pie-link"
+                data-test-id="pie-link-button"
                 class="${classMap(classes)}"
                 type=${this.type}
                 aria-label=${ifDefined(this.aria?.label)}>
@@ -113,7 +113,7 @@ export class PieLink extends LitElement implements LinkProps {
     private renderAnchor (classes: ClassInfo) {
         return html`
             <a
-                data-test-id="pie-link"
+                data-test-id="pie-link-anchor"
                 class="${classMap(classes)}"
                 href=${ifDefined(this.href)}
                 target=${ifDefined(this.target)}

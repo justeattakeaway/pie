@@ -118,6 +118,10 @@ const linkStoryMeta: LinkStoryMeta = {
                 summary: '',
             },
         },
+        aria: {
+            description: 'Set the aria-label attribute of the link.',
+            control: 'text',
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -131,6 +135,7 @@ const linkStoryMeta: LinkStoryMeta = {
 export default linkStoryMeta;
 
 const Template : TemplateFunction<LinkProps> = ({
+    aria,
     tag,
     href,
     target,
@@ -146,6 +151,7 @@ const Template : TemplateFunction<LinkProps> = ({
     iconPlacement,
 }) => html`
         <pie-link
+            .aria="${aria}"
             tag="${ifDefined(tag)}"
             variant="${ifDefined(variant)}"
             size="${ifDefined(size)}"

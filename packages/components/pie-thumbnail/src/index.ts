@@ -43,9 +43,9 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
         } = this;
 
         const wrapperClasses = {
-            'o-tn': true,
+            'c-thumbnail': true,
             'o-tn--disabled': disabled,
-            [`o-tn--${variant}`]: true,
+            [`c-thumbnail--${variant}`]: true,
         };
 
         const imgClasses = {

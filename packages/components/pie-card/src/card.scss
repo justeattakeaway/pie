@@ -69,7 +69,7 @@
         --card-bg-color: var(--dt-color-container-inverse);
         --card-color: var(--dt-color-content-inverse);
 
-        box-shadow: var(--dt-elevation-dark-card);
+        box-shadow: var(--dt-elevation-inverse-card);
 
         @include card-interactive-states('--dt-color-container-inverse', 'inverse');
     }

@@ -145,6 +145,12 @@ const ExampleFormTemplate: TemplateFunction<RadioProps> = ({
     };
 
     return html`
+        <style>
+            pie-radio {
+                display: block;
+                margin-bottom: var(--dt-spacing-b);
+            }
+        </style>
         <form id="testForm">
             <pie-radio
                 .value="${value}"
@@ -156,8 +162,8 @@ const ExampleFormTemplate: TemplateFunction<RadioProps> = ({
                 @change="${onChange}">
                 ${sanitizeAndRenderHTML(slot)}
             </pie-radio>
-            <button type="reset">Reset</button>
-            <button type="submit">Submit</button>
+            <pie-button variant="secondary" type="reset">Reset</pie-button>
+            <pie-button type="submit">Submit</pie-button>
             <script>
                 // var is used to prevent storybook from erroring when the script is re-run
                 var form = document.querySelector('#testForm');
