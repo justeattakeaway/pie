@@ -40,6 +40,27 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
                 summary: defaultArgs.alt,
             },
         },
+        disabled: {
+            description: 'Set the disabled attribute of the thumbnail.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultArgs.disabled,
+            },
+        },
+        hasPadding: {
+            description: 'Set the hasPadding attribute of the thumbnail.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultArgs.hasPadding,
+            },
+        },
+        backgroundColor: {
+            description: 'Set the backgroundColor attribute of the thumbnail.',
+            control: 'text',
+            defaultValue: {
+                summary: defaultArgs.backgroundColor,
+            },
+        },
     },
     args: defaultArgs,
 };
@@ -50,17 +71,26 @@ const Template: TemplateFunction<ThumbnailProps> = ({
     variant,
     src,
     alt,
+    disabled,
+    hasPadding,
+    backgroundColor,
 }) => html`
     <pie-thumbnail
         variant="${variant}"
         src="${src}"
-        alt="${alt}">
+        alt="${alt}"
+        ?disabled="${disabled}"
+        ?hasPadding="${hasPadding}"
+        backgroundColor="${backgroundColor}">
     </pie-thumbnail>`;
 
 // Define the prop options for the matrix
 const sharedPropOptions = {
-    src: ['https://www.pie.design/assets/img/jet-logo-narrow.svg'],
-    alt: ['JET logo'],
+    src: [defaultArgs.src],
+    alt: [defaultArgs.alt],
+    disabled: [defaultArgs.disabled],
+    hasPadding: [defaultArgs.hasPadding],
+    backgroundColor: [defaultArgs.backgroundColor],
 };
 
 const defaultPropOptions = {

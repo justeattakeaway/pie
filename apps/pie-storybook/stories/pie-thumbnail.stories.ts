@@ -54,6 +54,13 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
                 summary: defaultProps.hasPadding,
             },
         },
+        backgroundColor: {
+            description: 'Set the backgroundColor attribute of the thumbnail.',
+            control: 'text',
+            defaultValue: {
+                summary: defaultProps.backgroundColor,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -72,13 +79,15 @@ const Template: TemplateFunction<ThumbnailProps> = ({
     alt,
     disabled,
     hasPadding,
+    backgroundColor,
 }) => html`
     <pie-thumbnail
         variant="${variant}"
         src="${src}"
         alt="${alt}"
         ?disabled="${disabled}"
-        ?hasPadding="${hasPadding}">
+        ?hasPadding="${hasPadding}"
+        backgroundColor="${backgroundColor}">
     </pie-thumbnail>`;
 
 const createThumbnailStory = createStory<ThumbnailProps>(Template, defaultArgs);

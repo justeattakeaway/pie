@@ -10,9 +10,10 @@ export interface ThumbnailProps {
     alt?: string;
     disabled?: boolean;
     hasPadding?: boolean;
+    backgroundColor?: string;
 }
 
-export type DefaultProps = ComponentDefaultProps<ThumbnailProps, 'variant' | 'src' | 'alt' | 'disabled' | 'hasPadding'>;
+export type DefaultProps = ComponentDefaultProps<ThumbnailProps, 'variant' | 'src' | 'alt' | 'disabled' | 'hasPadding' | 'backgroundColor'>;
 
 export const defaultProps: DefaultProps = {
     variant: 'default',
@@ -20,4 +21,5 @@ export const defaultProps: DefaultProps = {
     alt: '',
     disabled: false,
     hasPadding: false,
+    backgroundColor: 'var(--dt-color-container-default)',
 };
