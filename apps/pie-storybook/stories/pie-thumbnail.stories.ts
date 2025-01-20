@@ -12,6 +12,10 @@ const defaultArgs: ThumbnailProps = {
     ...defaultProps,
     src: 'https://www.pie.design/assets/img/jet-logo-narrow.svg',
     alt: 'JET logo',
+    placeholder: {
+        src: 'https://fastly.picsum.photos/id/2/200/200.jpg?hmac=isSWZUpv7D1D156XcADPOCZlfCG9mmvb8OlXFdvLdK0',
+        alt: 'Thumbnail placeholder image',
+    },
 };
 
 const thumbnailStoryMeta: ThumbnailStoryMeta = {
@@ -44,21 +48,31 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
             description: 'Set the disabled attribute of the thumbnail.',
             control: 'boolean',
             defaultValue: {
-                summary: defaultProps.disabled,
+                summary: defaultArgs.disabled,
             },
         },
         hasPadding: {
             description: 'Set the hasPadding attribute of the thumbnail.',
             control: 'boolean',
             defaultValue: {
-                summary: defaultProps.hasPadding,
+                summary: defaultArgs.hasPadding,
             },
         },
         backgroundColor: {
             description: 'Set the backgroundColor attribute of the thumbnail.',
             control: 'text',
             defaultValue: {
-                summary: defaultProps.backgroundColor,
+                summary: defaultArgs.backgroundColor,
+            },
+        },
+        placeholder: {
+            description: 'Set the placeholder attribute of the thumbnail.',
+            control: 'object',
+            defaultValue: {
+                summary: {
+                    src: 'https://fastly.picsum.photos/id/2/200/200.jpg?hmac=isSWZUpv7D1D156XcADPOCZlfCG9mmvb8OlXFdvLdK0',
+                    alt: 'Thumbnail placeholder image',
+                },
             },
         },
     },
@@ -80,6 +94,7 @@ const Template: TemplateFunction<ThumbnailProps> = ({
     disabled,
     hasPadding,
     backgroundColor,
+    placeholder,
 }) => html`
     <pie-thumbnail
         variant="${variant}"
@@ -87,7 +102,8 @@ const Template: TemplateFunction<ThumbnailProps> = ({
         alt="${alt}"
         ?disabled="${disabled}"
         ?hasPadding="${hasPadding}"
-        backgroundColor="${backgroundColor}">
+        backgroundColor="${backgroundColor}"
+        .placeholder="${placeholder}"
     </pie-thumbnail>`;
 
 const createThumbnailStory = createStory<ThumbnailProps>(Template, defaultArgs);

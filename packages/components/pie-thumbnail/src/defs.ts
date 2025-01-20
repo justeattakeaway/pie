@@ -4,6 +4,11 @@ export const variants = [
     'default', 'outline',
 ] as const;
 
+type PlaceholderProps = {
+    src?: string;
+    alt?: string;
+}
+
 export interface ThumbnailProps {
     variant?: typeof variants[number];
     src?: string;
@@ -11,9 +16,10 @@ export interface ThumbnailProps {
     disabled?: boolean;
     hasPadding?: boolean;
     backgroundColor?: string;
+    placeholder?: PlaceholderProps;
 }
 
-export type DefaultProps = ComponentDefaultProps<ThumbnailProps, 'variant' | 'src' | 'alt' | 'disabled' | 'hasPadding' | 'backgroundColor'>;
+export type DefaultProps = ComponentDefaultProps<ThumbnailProps, 'variant' | 'src' | 'alt' | 'disabled' | 'hasPadding' | 'backgroundColor' | 'placeholder'>;
 
 export const defaultProps: DefaultProps = {
     variant: 'default',
@@ -22,4 +28,8 @@ export const defaultProps: DefaultProps = {
     disabled: false,
     hasPadding: false,
     backgroundColor: 'var(--dt-color-container-default)',
+    placeholder: {
+        src: '',
+        alt: '',
+    },
 };
