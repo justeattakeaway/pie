@@ -3,7 +3,13 @@ import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-obj
 import { type LottiePlayerProps, type PieLottiePlayer } from '../../src/index.ts';
 import { lottiePlayer } from '../helpers/page-object/selectors.ts';
 
-// Setting this manually due to Storybook limitations - https://storybook.js.org/docs/writing-stories/args#setting-args-through-the-url
+/**
+ * Helper function to set the animation source on a pie-lottie-player element
+ * due to Storybook limitations - https://storybook.js.org/docs/writing-stories/args#setting-args-through-the-url
+ * @param page - The Playwright page object
+ * @param animationSrc - The URL/path of the animation source to set - relative to pie-lottie-player.test.stories.ts
+ */
+
 async function setAnimationSource (page: any, animationSrc: string) {
     await page.evaluate((src: string) => {
         const lottiePlayer = document.querySelector('pie-lottie-player') as PieLottiePlayer;
