@@ -6,7 +6,7 @@ import { statusTypes } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-checkbox-group"]';
 const assistiveTextSelector = '[data-test-id="pie-checkbox-group-assistive-text"]';
-const checkboxSelector = '[data-test-id="checkbox-input"]';
+const checkboxSelector = '[data-test-id="pie-checkbox-input"]';
 
 test.describe('PieCheckboxGroup - Component tests', () => {
     // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
@@ -35,7 +35,7 @@ test.describe('PieCheckboxGroup - Component tests', () => {
         const checkboxGroup = page.locator(componentSelector);
 
         // Assert
-        expect(checkboxGroup).toBeVisible();
+        await expect(checkboxGroup).toBeVisible();
     });
 
     test.describe('assistiveText', () => {
@@ -47,7 +47,7 @@ test.describe('PieCheckboxGroup - Component tests', () => {
             const assistiveText = page.locator(assistiveTextSelector);
 
             // Assert
-            expect(assistiveText).not.toBeVisible();
+            await expect(assistiveText).not.toBeVisible();
         });
 
         test('should apply the "default" variant attribute if no status is provided', async ({ mount, page }) => {
