@@ -69,10 +69,7 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
             description: 'Set the placeholder attribute of the thumbnail.',
             control: 'object',
             defaultValue: {
-                summary: {
-                    src: 'https://fastly.picsum.photos/id/2/200/200.jpg?hmac=isSWZUpv7D1D156XcADPOCZlfCG9mmvb8OlXFdvLdK0',
-                    alt: 'Thumbnail placeholder image',
-                },
+                summary: defaultArgs.placeholder,
             },
         },
     },

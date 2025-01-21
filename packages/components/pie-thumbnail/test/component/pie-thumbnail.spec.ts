@@ -5,6 +5,7 @@ import { getShadowElementStylePropValues } from '@justeattakeaway/pie-webc-testi
 import { PieThumbnail } from '@justeattakeaway/pie-thumbnail/src';
 
 const componentSelector = '[data-test-id="pie-thumbnail"]';
+const componentImgSelector = '[data-test-id="pie-thumbnail-img"]';
 
 type BackgroundColorProp = {
     backgroundColor: ThumbnailProps['backgroundColor'];
@@ -46,5 +47,57 @@ test.describe('PieThumbnail - Component tests', () => {
 
             expect(currentBgStyle).toBe(expectedBgStyle);
         });
+    });
+
+    test('should set placeholder values if a placeholder is provided and img src is NOT valid', async ({ mount }) => {
+        // Arrange
+        const placeholder = {
+            src: 'https://www.pie.design/assets/img/jet-logo-narrow.svg',
+            alt: 'Placeholder',
+        };
+        const src = 'invalid-url.com';
+        const alt = 'Invalid text';
+
+        const component = await mount(PieThumbnail, {
+            props: {
+                src,
+                alt,
+                placeholder,
+            },
+        });
+
+        const thumbnailImg = await component.locator(componentImgSelector);
+
+        // Assert that the src attribute is set correctly
+        await expect(thumbnailImg).toHaveAttribute('src', placeholder.src);
+
+        // Assert that the alt attribute is set correctly
+        await expect(thumbnailImg).toHaveAttribute('alt', placeholder.alt);
+    });
+
+    test('should NOT set placeholder values if a placeholder is provided and img src is valid', async ({ mount }) => {
+        // Arrange
+        const placeholder = {
+            src: 'https://www.pie.design/assets/img/placeholder.svg',
+            alt: 'Placeholder',
+        };
+        const src = 'https://www.pie.design/assets/img/jet-logo-narrow.svg';
+        const alt = 'JET Logo';
+
+        const component = await mount(PieThumbnail, {
+            props: {
+                src,
+                alt,
+                placeholder,
+            },
+        });
+
+        const thumbnailImg = await component.locator(componentImgSelector);
+
+        // Assert that the src attribute is set correctly
+        await expect(thumbnailImg).toHaveAttribute('src', src);
+
+        // Assert that the alt attribute is set correctly
+        await expect(thumbnailImg).toHaveAttribute('alt', alt);
     });
 });

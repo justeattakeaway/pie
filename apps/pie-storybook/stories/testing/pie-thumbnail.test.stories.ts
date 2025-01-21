@@ -12,6 +12,10 @@ const defaultArgs: ThumbnailProps = {
     ...defaultProps,
     src: 'https://www.pie.design/assets/img/jet-logo-narrow.svg',
     alt: 'JET logo',
+    placeholder: {
+        src: 'https://fastly.picsum.photos/id/2/200/200.jpg?hmac=isSWZUpv7D1D156XcADPOCZlfCG9mmvb8OlXFdvLdK0',
+        alt: 'Thumbnail placeholder image',
+    },
 };
 
 const thumbnailStoryMeta: ThumbnailStoryMeta = {
@@ -61,6 +65,13 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
                 summary: defaultArgs.backgroundColor,
             },
         },
+        placeholder: {
+            description: 'Set the placeholder attribute of the thumbnail.',
+            control: 'object',
+            defaultValue: {
+                summary: defaultArgs.placeholder,
+            },
+        },
     },
     args: defaultArgs,
 };
@@ -74,6 +85,7 @@ const Template: TemplateFunction<ThumbnailProps> = ({
     disabled,
     hasPadding,
     backgroundColor,
+    placeholder,
 }) => html`
     <pie-thumbnail
         variant="${variant}"
@@ -81,7 +93,8 @@ const Template: TemplateFunction<ThumbnailProps> = ({
         alt="${alt}"
         ?disabled="${disabled}"
         ?hasPadding="${hasPadding}"
-        backgroundColor="${backgroundColor}">
+        backgroundColor="${backgroundColor}"
+        .placeholder="${placeholder}">
     </pie-thumbnail>`;
 
 // Define the prop options for the matrix
@@ -91,6 +104,7 @@ const sharedPropOptions = {
     disabled: [defaultArgs.disabled],
     hasPadding: [defaultArgs.hasPadding],
     backgroundColor: [defaultArgs.backgroundColor],
+    placeholder: [defaultArgs.placeholder],
 };
 
 const defaultPropOptions = {
