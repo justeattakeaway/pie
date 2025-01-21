@@ -52,7 +52,7 @@ test.describe('PieThumbnail - Component tests', () => {
     test('should set placeholder values if a placeholder is provided and img src is NOT valid', async ({ mount }) => {
         // Arrange
         const placeholder = {
-            src: 'https://www.pie.design/assets/img/jet-logo-narrow.svg',
+            src: 'https://www.pie.design/assets/img/404_narrow.png',
             alt: 'Placeholder',
         };
         const src = 'invalid-url.com';
@@ -78,7 +78,7 @@ test.describe('PieThumbnail - Component tests', () => {
     test('should NOT set placeholder values if a placeholder is provided and img src is valid', async ({ mount }) => {
         // Arrange
         const placeholder = {
-            src: 'https://www.pie.design/assets/img/placeholder.svg',
+            src: 'https://www.pie.design/assets/img/404_narrow.png',
             alt: 'Placeholder',
         };
         const src = 'https://www.pie.design/assets/img/jet-logo-narrow.svg';

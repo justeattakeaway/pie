@@ -13,7 +13,7 @@ const defaultArgs: ThumbnailProps = {
     src: 'https://www.pie.design/assets/img/jet-logo-narrow.svg',
     alt: 'JET logo',
     placeholder: {
-        src: 'https://fastly.picsum.photos/id/2/200/200.jpg?hmac=isSWZUpv7D1D156XcADPOCZlfCG9mmvb8OlXFdvLdK0',
+        src: 'https://www.pie.design/assets/img/404_narrow.png',
         alt: 'Thumbnail placeholder image',
     },
 };
