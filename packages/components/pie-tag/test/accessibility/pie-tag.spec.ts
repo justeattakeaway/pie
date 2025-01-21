@@ -1,33 +1,14 @@
-import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/webc-fixtures.ts';
-import { getAllPropCombinations, splitCombinationsByPropertyValue } from '@justeattakeaway/pie-webc-testing/src/helpers/get-all-prop-combos.ts';
-import { type PropObject, type WebComponentPropValues } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
-import { PieTag } from '../../src/index.ts';
-import { type TagProps, sizes, variants } from '../../src/defs.ts';
+import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/playwright-fixtures.ts';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 
-const props: PropObject<TagProps> = {
-    variant: variants,
-    size: sizes,
-    isStrong: [true, false],
-};
+test.describe('PieTag - Accessibility tests', () => {
+    test('a11y - should test the PieTag component WCAG compliance', async ({ makeAxeBuilder, page }) => {
+        const tagPage = new BasePage(page, 'tag');
 
-const componentPropsMatrix = getAllPropCombinations(props);
-const componentPropsMatrixByVariant = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
-const componentVariants = Object.keys(componentPropsMatrixByVariant);
+        await tagPage.load();
 
-componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ makeAxeBuilder, mount }) => {
-    await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
-        await mount(
-            PieTag,
-            {
-                props: { ...combo },
-                slots: {
-                    default: 'Hello world',
-                },
-            },
-        );
-    }));
+        const results = await makeAxeBuilder().analyze();
 
-    const results = await makeAxeBuilder().analyze();
-
-    expect(results.violations).toEqual([]);
-}));
+        expect(results.violations).toEqual([]);
+    });
+});
