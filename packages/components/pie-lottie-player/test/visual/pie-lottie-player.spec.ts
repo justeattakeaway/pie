@@ -1,18 +1,16 @@
-import { readFile } from 'fs/promises';
-import { test } from '@sand4rt/experimental-ct-web';
+import { test } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
-import { PieLottiePlayer, type LottiePlayerProps } from '../../src/index.ts';
-
-const animationData = JSON.parse(await readFile(new URL('../courier.json', import.meta.url), { encoding: 'utf-8' }));
+import { LottiePlayerDefaultPage } from 'test/helpers/page-object/pie-lottie-player-default.page.ts';
+import { type LottiePlayerProps } from '../../src/index.ts';
 
 test.describe('PieLottiePlayer - Visual tests`', () => {
-    test('should display the PieLottiePlayer component successfully', async ({ page, mount }) => {
-        await mount(PieLottiePlayer, {
-            props: {
-                animationData,
-                autoPlayDisabled: true, // Ensure to always snapshot the same frame
-            } as LottiePlayerProps,
-        });
+    test('should display the PieLottiePlayer component successfully', async ({ page }) => {
+        // Arrange
+        const props: LottiePlayerProps = {
+            autoPlayDisabled: true,
+        };
+        const lottiePlayerPage = new LottiePlayerDefaultPage(page);
+        await lottiePlayerPage.load({ ...props });
 
         await percySnapshot(page, 'PieLottiePlayer - Visual Test');
     });
