@@ -73,7 +73,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
 
         return html`
             <div data-test-id="pie-thumbnail" class="${classMap(wrapperClasses)}" style="${styleMap(wrapperStyles)}">
-                <img id="image" data-test-id="pie-thumbnail-img" src="${src}" class="${classMap(imgClasses)}" alt="${alt}" @error="${handleImageError}">
+                <img data-test-id="pie-thumbnail-img" src="${src}" class="${classMap(imgClasses)}" alt="${alt}" @error="${handleImageError}">
             </div>
         `;
     }
