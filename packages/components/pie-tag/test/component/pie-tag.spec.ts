@@ -44,7 +44,11 @@ test.describe('PieTag - Component tests', () => {
         test('should render icon when size is large', async ({ page }) => {
             // Arrange
             const tagPage = new BasePage(page, 'tag--default-with-icon');
-            await tagPage.load();
+            const props: TagProps = {
+                size: 'large',
+            };
+
+            await tagPage.load({ ...props });
 
             // Act
             const tagIcon = page.getByTestId(tag.selectors.icon.dataTestId);

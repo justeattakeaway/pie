@@ -127,8 +127,9 @@ export const DefaultWithIcon = createTagStory({ slot: `Label ${icon}` });
 // Base shared props matrix
 const baseSharedPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
     size: [...sizes],
-    isInteractive: [true, false],
+    iconPlacement: ['leading', 'trailing'],
     isStrong: [true, false],
+    isInteractive: [true, false],
     disabled: [true, false],
     showIcon: [true, false],
     slot: ['Tag'],
