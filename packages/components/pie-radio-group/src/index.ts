@@ -146,6 +146,15 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
             : html`<slot name='label' @slotchange=${this._handleSlotChange}></slot>`;
     }
 
+    private _applyNameToChildren () : void {
+        console.info('apply name to children');
+        this._slottedChildren.forEach((radio) => {
+            if (this.name) {
+                radio.name = this.name;
+            }
+        });
+    }
+
     protected updated (_changedProperties: PropertyValues<this>): void {
         if (_changedProperties.has('disabled')) {
             this._handleDisabled();
@@ -157,6 +166,10 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
 
         if (_changedProperties.has('status')) {
             this._handleStatus();
+        }
+
+        if (_changedProperties.has('name')) {
+            this._applyNameToChildren();
         }
     }
 
@@ -179,6 +192,8 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
 
         this.addEventListener('keydown', this._handleKeyDown, { signal });
         document.addEventListener('keydown', this._updateShiftTabState.bind(this), { signal });
+
+        this._applyNameToChildren();
     }
 
     /**
