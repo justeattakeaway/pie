@@ -6,7 +6,6 @@ import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-w
 import { classMap } from 'lit/directives/class-map.js';
 import { styleMap } from 'lit-html/directives/style-map.js';
 import { property } from 'lit/decorators.js';
-// import { query } from 'lit/decorators/query.js';
 import { type ThumbnailProps, defaultProps, variants } from './defs';
 import styles from './thumbnail.scss?inline';
 
@@ -42,10 +41,8 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     public placeholder: ThumbnailProps['placeholder'];
 
     private handleImageError = () => {
-        if (this.placeholder) {
-            this.src = this.placeholder.src as string;
-            this.alt = this.placeholder.alt as string;
-        }
+        if (this.placeholder?.src) this.src = this.placeholder.src as string;
+        if (this.placeholder?.alt) this.alt = this.placeholder.alt as string;
     };
 
     render () {
