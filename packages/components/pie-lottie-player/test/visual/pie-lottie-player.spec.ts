@@ -9,9 +9,11 @@ test.describe('PieLottiePlayer - Visual tests`', () => {
         const props: LottiePlayerProps = {
             autoPlayDisabled: true,
         };
+
         const lottiePlayerPage = new LottiePlayerDefaultPage(page);
         await lottiePlayerPage.load({ ...props });
 
+        // Assert
         await percySnapshot(page, 'PieLottiePlayer - Visual Test');
     });
 });
