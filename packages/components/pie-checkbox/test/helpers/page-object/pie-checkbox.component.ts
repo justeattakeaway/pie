@@ -15,6 +15,10 @@ export class CheckboxComponent {
         this.assistiveTextLocator = this.componentLocator.getByTestId(checkbox.selectors.assistiveText.dataTestId);
     }
 
+    /**
+     * Check if the checkbox is valid
+     * @returns {Promise<boolean>}
+     */
     async isValid () {
         return this.page.evaluate(() => {
             const element = document.querySelector('pie-checkbox')?.shadowRoot?.querySelector('input') as HTMLInputElement;

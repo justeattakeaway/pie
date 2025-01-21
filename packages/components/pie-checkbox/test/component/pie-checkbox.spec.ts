@@ -505,7 +505,7 @@ test.describe('PieCheckbox - Component tests', () => {
         });
 
         test('should not submit the value inside a disabled fieldset', async ({ page }) => {
-        // Arrange
+            // Arrange
             const props: CheckboxProps = {
                 name: 'testName',
             };
@@ -523,7 +523,7 @@ test.describe('PieCheckbox - Component tests', () => {
         test.describe('when the form is reset', () => {
             test.describe('and defaultChecked is true', () => {
                 test('should reset the checkbox to a checked state', async ({ page }) => {
-                // Arrange
+                    // Arrange
                     const props: CheckboxProps = {
                         name: 'testName',
                         defaultChecked: true,
@@ -544,7 +544,7 @@ test.describe('PieCheckbox - Component tests', () => {
 
             test.describe('and defaultChecked is false', () => {
                 test('should reset the checkbox to its default state', async ({ page }) => {
-                // Arrange
+                    // Arrange
                     const props: CheckboxProps = {
                         name: 'testName',
                         checked: true,

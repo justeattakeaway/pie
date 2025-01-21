@@ -5,9 +5,10 @@ import { type Meta } from '@storybook/web-components';
 import '@justeattakeaway/pie-checkbox';
 import { type CheckboxProps as CheckboxBaseProps, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox';
 
-import { action } from '@storybook/addon-actions';
 import { type SlottedComponentProps } from '../../types';
-import { createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML } from '../../utilities';
+import {
+    createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML,
+} from '../../utilities';
 
 type CheckboxProps = SlottedComponentProps<CheckboxBaseProps>;
 type CheckboxStoryMeta = Meta<CheckboxProps>;
@@ -209,17 +210,17 @@ const ExampleFieldsetFormTemplate: TemplateFunction<CheckboxProps> = ({
     <form id="testForm">
         <fieldset>
             <pie-checkbox
-                .value="${value}"
-                name="${ifDefined(name)}"
-                ?checked="${checked}"
-                ?defaultChecked="${defaultChecked}"
-                ?disabled="${disabled}"
-            ?indeterminate="${indeterminate}"
-            ?required="${required}"
-            @change="${onChange}"
-            assistiveText="${ifDefined(assistiveText)}"
-            status=${ifDefined(status)}>
-                ${sanitizeAndRenderHTML(slot)}
+              .value="${value}"
+              name="${ifDefined(name)}"
+              ?checked="${checked}"
+              ?defaultChecked="${defaultChecked}"
+              ?disabled="${disabled}"
+              ?indeterminate="${indeterminate}"
+              ?required="${required}"
+              @change="${onChange}"
+              assistiveText="${ifDefined(assistiveText)}"
+              status=${ifDefined(status)}>
+              ${sanitizeAndRenderHTML(slot)}
             </pie-checkbox>
         </fieldset>
         <button type="reset">Reset</button>
@@ -249,14 +250,13 @@ export const Default = createStory<CheckboxProps>(Template, defaultArgs)();
 export const ExampleForm = createStory<CheckboxProps>(ExampleFormTemplate, defaultArgs)();
 export const ExampleFieldsetForm = createStory<CheckboxProps>(ExampleFieldsetFormTemplate, defaultArgs)();
 
-
 const sharedPropsMatrix: Partial<Record<keyof CheckboxProps, unknown[]>> = {
-  checked: [true, false],
-  disabled: [true, false],
-  indeterminate: [true, false],
-  slot: ['Label'],
-  assistiveText: ['Assistive text', ''],
-  status: [...statusTypes],
+    checked: [true, false],
+    disabled: [true, false],
+    indeterminate: [true, false],
+    slot: ['Label'],
+    assistiveText: ['Assistive text', ''],
+    status: [...statusTypes],
 };
 
 const checkedFalsePropsMatrix: Partial<Record<keyof CheckboxProps, unknown[]>> = {
@@ -269,5 +269,5 @@ const checkedTruePropsMatrix: Partial<Record<keyof CheckboxProps, unknown[]>> = 
     checked: [true],
 };
 
-export const CheckedFalseVariations = createVariantStory<CheckboxProps>( Template, checkedFalsePropsMatrix);
-export const CheckedTrueVariations = createVariantStory<CheckboxProps>( Template,checkedTruePropsMatrix);
+export const CheckedFalseVariations = createVariantStory<CheckboxProps>(Template, checkedFalsePropsMatrix);
+export const CheckedTrueVariations = createVariantStory<CheckboxProps>(Template, checkedTruePropsMatrix);
