@@ -130,9 +130,20 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
      * @param {Event} e - The slotchange event.
      * @private
      */
-    private _handleSlotChange (e: { target: HTMLSlotElement }): void {
+    private _handleLabelSlotChange (e: { target: HTMLSlotElement }): void {
         const childNodes = e.target.assignedNodes({ flatten: true });
         this._hasLabel = childNodes.length > 0;
+    }
+
+    /**
+     * Ensures all newly added radio buttons are not tabbable and inherit the name property
+     */
+    private _handleRadioSlotChange (): void {
+        // Make all (including any newly added) radio buttons impossible to tab to
+        // This is because by default, we are able to tab to each individual radio button.
+        // This is not the behaviour we want, so applying -1 tabindex prevents it.
+        this._slottedChildren.forEach((radio) => radio.setAttribute('tabindex', '-1'));
+        this._applyNameToChildren();
     }
 
     /**
@@ -142,15 +153,14 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
      */
     private _renderWrappedLabel (): TemplateResult {
         return this._hasLabel
-            ? html`<legend><slot name='label' @slotchange=${this._handleSlotChange}></slot></legend>`
-            : html`<slot name='label' @slotchange=${this._handleSlotChange}></slot>`;
+            ? html`<legend><slot name='label' @slotchange=${this._handleLabelSlotChange}></slot></legend>`
+            : html`<slot name='label' @slotchange=${this._handleLabelSlotChange}></slot>`;
     }
 
     private _applyNameToChildren () : void {
-        console.info('apply name to children');
         this._slottedChildren.forEach((radio) => {
             if (this.name) {
-                radio.name = this.name;
+                radio.setAttribute('name', this.name);
             }
         });
     }
@@ -171,13 +181,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
         if (_changedProperties.has('name')) {
             this._applyNameToChildren();
         }
-    }
-
-    protected firstUpdated (): void {
-        // Make all radios impossible to tab to
-        // This is because by default, we are able to tab to each individual radio button.
-        // This is not the behaviour we want, so applying -1 tabindex prevents it.
-        this._slottedChildren.forEach((radio) => radio.setAttribute('tabindex', '-1'));
     }
 
     connectedCallback (): void {
@@ -357,7 +360,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
                 aria-describedby=${hasAssistiveText ? assistiveTextId : nothing}
                 class="${classMap(classes)}">
                     ${this._renderWrappedLabel()}
-                <slot></slot>
+                <slot @slotchange=${this._handleRadioSlotChange}></slot>
             </fieldset>
             ${hasAssistiveText ? html`
                 <pie-assistive-text
