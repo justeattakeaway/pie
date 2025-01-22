@@ -200,9 +200,9 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
                 aria-invalid=${status === 'error' ? 'true' : 'false'}
                 aria-describedby=${ifDefined(assistiveText ? assistiveTextId : undefined)}
                 @change=${this._handleChange}
-                data-test-id="checkbox-input"
+                data-test-id="pie-checkbox-input"
             />
-            <label for="inputId" data-test-id="checkbox-component">
+            <label for="inputId" data-test-id="pie-checkbox-label">
                 <span
                     class="${classMap(labelClasses)}"></span>
                 <span class="c-checkbox-text">
