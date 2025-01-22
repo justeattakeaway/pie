@@ -1,85 +1,65 @@
-import { readFile } from 'fs/promises';
-import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieLottiePlayer, type LottiePlayerProps } from '../../src/index.ts';
-
-const animationData = JSON.parse(await readFile(new URL('../courier.json', import.meta.url), { encoding: 'utf-8' }));
-
-const componentSelector = 'pie-lottie-player';
+import { test, expect } from '@playwright/test';
+import { LottiePlayerDefaultPage } from '../helpers/page-object/pie-lottie-player-default.page.ts';
+import { type LottiePlayerProps } from '../../src/index.ts';
 
 test.describe('PieLottiePlayer - Component tests', () => {
-    test('should render successfully', async ({ mount, page }) => {
+    test('should render successfully', async ({ page }) => {
         // Arrange
-        const props = {
-            animationData,
-        } as LottiePlayerProps;
-        await mount(PieLottiePlayer, {
-            props,
-        });
+        const lottiePlayerPage = new LottiePlayerDefaultPage(page);
+        await lottiePlayerPage.load();
 
-        // Act
-        const lottiePlayer = page.locator(componentSelector);
+        await lottiePlayerPage.lottiePlayerComponent.setAnimationSource(page, './static/animations/order-confirmed.json');
 
         // Assert
-        expect(lottiePlayer).toBeVisible();
+        const lottiePlayerComponent = lottiePlayerPage.lottiePlayerComponent.componentLocator;
+        await expect(lottiePlayerComponent).toBeVisible();
     });
 
     test.describe('when props are not provided"', () => {
-        test('should render the expected default props', async ({ mount, page }) => {
+        test('should render the expected default props', async ({ page }) => {
             // Arrange
-            const props = {
-                animationData,
-            } as LottiePlayerProps;
-            await mount(PieLottiePlayer, {
-                props,
-            });
+            const lottiePlayerPage = new LottiePlayerDefaultPage(page);
+            await lottiePlayerPage.load();
 
-            // Act
-            const component = page.locator(componentSelector);
+            await lottiePlayerPage.lottiePlayerComponent.setAnimationSource(page, './static/animations/order-confirmed.json');
 
             // Assert
-            await expect(component).toHaveAttribute('speed', '1');
-            await expect(component).toHaveAttribute('direction', 'forward');
+            const lottiePlayerComponent = lottiePlayerPage.lottiePlayerComponent.componentLocator;
+            await expect(lottiePlayerComponent).toHaveAttribute('speed', '1');
+            await expect(lottiePlayerComponent).toHaveAttribute('direction', 'forward');
         });
-        test('should not render more props than expected', async ({ mount, page }) => {
-            // Arrange
-            const props = {
-                animationData,
-            } as LottiePlayerProps;
-            await mount(PieLottiePlayer, {
-                props,
-            });
 
-            // Act
-            const component = page.locator(componentSelector);
-            const autoPlayDisabled = await component.evaluate((el:PieLottiePlayer) => el.autoPlayDisabled);
-            const loopDisabled = await component.evaluate((el:PieLottiePlayer) => el.loopDisabled);
+        test('should not render more props than expected', async ({ page }) => {
+            // Arrange
+            const lottiePlayerPage = new LottiePlayerDefaultPage(page);
+            await lottiePlayerPage.load();
+
+            await lottiePlayerPage.lottiePlayerComponent.setAnimationSource(page, './static/animations/order-confirmed.json');
 
             // Assert
-            expect(autoPlayDisabled).toBe(false);
-            expect(loopDisabled).toBe(false);
+            const lottierPlayerComponent = lottiePlayerPage.lottiePlayerComponent.componentLocator;
+            await expect(lottierPlayerComponent).not.toHaveAttribute('autoPlayDisabled');
+            await expect(lottierPlayerComponent).not.toHaveAttribute('loopDisabled');
         });
     });
 
     test.describe('when extra props are provided"', () => {
-        test('should render the extra default props', async ({ mount, page }) => {
+        test('should render the extra default props', async ({ page }) => {
             // Arrange
-            const props = {
-                animationData,
+            const props: LottiePlayerProps = {
                 autoPlayDisabled: true,
                 loopDisabled: true,
-            } as LottiePlayerProps;
-            await mount(PieLottiePlayer, {
-                props,
-            });
+            };
 
-            // Act
-            const component = page.locator(componentSelector);
-            const autoPlayDisabled = await component.evaluate((el:PieLottiePlayer) => el.autoPlayDisabled);
-            const loopDisabled = await component.evaluate((el:PieLottiePlayer) => el.loopDisabled);
+            const lottiePlayerPage = new LottiePlayerDefaultPage(page);
+            await lottiePlayerPage.load({ ...props });
+
+            await lottiePlayerPage.lottiePlayerComponent.setAnimationSource(page, './static/animations/order-confirmed.json');
 
             // Assert
-            expect(autoPlayDisabled).toBe(true);
-            expect(loopDisabled).toBe(true);
+            const lottiePlayerComponent = lottiePlayerPage.lottiePlayerComponent.componentLocator;
+            await expect(lottiePlayerComponent).toHaveAttribute('autoPlayDisabled');
+            await expect(lottiePlayerComponent).toHaveAttribute('loopDisabled');
         });
     });
 });

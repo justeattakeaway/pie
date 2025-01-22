@@ -1,20 +1,17 @@
-import { readFile } from 'fs/promises';
-import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/webc-fixtures.ts';
-import { PieLottiePlayer, type LottiePlayerProps } from '../../src/index.ts';
+import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/playwright-fixtures.ts';
+import { LottiePlayerDefaultPage } from 'test/helpers/page-object/pie-lottie-player-default.page.ts';
 
-const animationData = JSON.parse(await readFile(new URL('../courier.json', import.meta.url), { encoding: 'utf-8' }));
+test.describe('PieLottiePlayer - Component tests', () => {
+    test('should render successfully', async ({ page, makeAxeBuilder }) => {
+        // Arrange
+        const lottiePlayerPage = new LottiePlayerDefaultPage(page);
+        await lottiePlayerPage.load();
 
-test.describe('PieLottiePlayer - Accessibility tests', () => {
-    test('a11y - should test the PieLottiePlayer component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
-        await mount(
-            PieLottiePlayer,
-            {
-                props: { animationData } as LottiePlayerProps,
-            },
-        );
+        // Assert
+        const lottiePlayerComponent = lottiePlayerPage.lottiePlayerComponent.componentLocator;
+        await expect.soft(lottiePlayerComponent).toBeVisible();
 
         const results = await makeAxeBuilder().analyze();
-
         expect(results.violations).toEqual([]);
     });
 });

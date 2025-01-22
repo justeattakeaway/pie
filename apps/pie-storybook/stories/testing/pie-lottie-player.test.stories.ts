@@ -7,7 +7,7 @@ import {
     type LottiePlayerProps as LottiePlayerBaseProps, type PieLottiePlayer, defaultProps, directions,
 } from '@justeattakeaway/pie-lottie-player';
 
-import { createStory } from '../utilities';
+import { createStory } from '../../utilities';
 
 type LottiePlayerProps = Omit<LottiePlayerBaseProps, 'play' | 'stop'>
 type LottiePlayerStoryMeta = Meta<LottiePlayerProps>;
@@ -76,12 +76,6 @@ const lottiePlayerStoryMeta: LottiePlayerStoryMeta = {
         },
     },
     args: defaultArgs,
-    parameters: {
-        design: {
-            type: 'figma',
-            url: '',
-        },
-    },
 };
 
 export default lottiePlayerStoryMeta;
