@@ -3,8 +3,7 @@
   --thumbnail-border-radius: var(--dt-radius-rounded-b);
   --thumbnail-bg-color: var(--dt-color-container-default);
   --thumbnail-border-color: transparent;
-  --thumbnail-opacity: initial;
-  --thumbnail-img-padding: initial;
+  --thumbnail-padding: calc(var(--dt-spacing-a) / 2);
 
   box-sizing: border-box;
   overflow: hidden;
@@ -13,14 +12,17 @@
   border-radius: var(--thumbnail-border-radius);
   border: 1px solid var(--thumbnail-border-color);
   background-color: var(--thumbnail-bg-color);
-  opacity: var(--thumbnail-opacity);
 
   &.c-thumbnail--outline {
     --thumbnail-border-color: var(--dt-color-border-default);
   }
 
   &.c-thumbnail--disabled {
-    --thumbnail-opacity: 50%;
+    opacity: 50%;
+  }
+
+  &.c-thumbnail--padding {
+    padding: var(--thumbnail-padding);
   }
 
   .c-thumbnail-img {
@@ -29,10 +31,5 @@
     height: 100%;
     object-fit: contain;
     display: block;
-    padding: var(--thumbnail-img-padding);
-
-    &.c-thumbnail--padding {
-      --thumbnail-img-padding: calc(var(--dt-spacing-a) / 2);
-    }
   }
 }

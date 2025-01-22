@@ -58,22 +58,18 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
 
         const wrapperClasses = {
             'c-thumbnail': true,
-            'c-thumbnail--disabled': disabled,
             [`c-thumbnail--${variant}`]: true,
+            'c-thumbnail--disabled': disabled,
+            'c-thumbnail--padding': hasPadding,
         };
 
         const wrapperStyles = {
             backgroundColor,
         };
 
-        const imgClasses = {
-            'c-thumbnail-img': true,
-            'c-thumbnail--padding': hasPadding,
-        };
-
         return html`
             <div data-test-id="pie-thumbnail" class="${classMap(wrapperClasses)}" style="${styleMap(wrapperStyles)}">
-                <img data-test-id="pie-thumbnail-img" src="${src}" class="${classMap(imgClasses)}" alt="${alt}" @error="${handleImageError}">
+                <img data-test-id="pie-thumbnail-img" src="${src}" class="c-thumbnail-img" alt="${alt}" @error="${handleImageError}">
             </div>
         `;
     }

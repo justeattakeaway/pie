@@ -27,49 +27,49 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
             control: 'select',
             options: variants,
             defaultValue: {
-                summary: defaultArgs.variant,
+                summary: defaultProps.variant,
             },
         },
         src: {
             description: 'Set the src attribute for the underlying image tag.',
             control: 'text',
             defaultValue: {
-                summary: defaultArgs.src,
+                summary: defaultProps.src,
             },
         },
         alt: {
             description: 'Set the alt attribute for the underlying image tag.',
             control: 'text',
             defaultValue: {
-                summary: defaultArgs.alt,
+                summary: defaultProps.alt,
             },
         },
         disabled: {
             description: 'Set the disabled attribute of the thumbnail.',
             control: 'boolean',
             defaultValue: {
-                summary: defaultArgs.disabled,
+                summary: defaultProps.disabled,
             },
         },
         hasPadding: {
             description: 'Set the hasPadding attribute of the thumbnail.',
             control: 'boolean',
             defaultValue: {
-                summary: defaultArgs.hasPadding,
+                summary: defaultProps.hasPadding,
             },
         },
         backgroundColor: {
             description: 'Set the backgroundColor attribute of the thumbnail.',
             control: 'text',
             defaultValue: {
-                summary: defaultArgs.backgroundColor,
+                summary: defaultProps.backgroundColor,
             },
         },
         placeholder: {
             description: 'Set the placeholder attribute of the thumbnail.',
             control: 'object',
             defaultValue: {
-                summary: defaultArgs.placeholder,
+                summary: defaultProps.placeholder,
             },
         },
     },
