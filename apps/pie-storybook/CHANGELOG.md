@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.19.2
+
+### Patch Changes
+
+- Updated dependencies [[`9e75452`](https://github.com/justeattakeaway/pie/commit/9e7545241a4a4e008d918b32d4f3df1daa6f99da), [`4303fef`](https://github.com/justeattakeaway/pie/commit/4303fef22a391101d542e7d08b322c20d160b289)]:
+  - @justeattakeaway/pie-css@0.14.1
+  - @justeattakeaway/pie-radio-group@0.6.0
+
 ## 1.19.1
 
 ### Patch Changes
