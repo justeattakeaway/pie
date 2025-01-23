@@ -194,6 +194,10 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
         this.addEventListener('focusout', this._handleFocusOut, { signal });
 
         this.addEventListener('keydown', this._handleKeyDown, { signal });
+
+        // Warning! One edge case bug we've noticed is if the radio group is the first focusable element in the document,
+        // and you shift + tab out of it, when tabbing back in, it will focus the last radio instead of the first.
+        // Given it is quite an edge case, we will leave it for now.
         document.addEventListener('keydown', this._updateShiftTabState.bind(this), { signal });
 
         this._applyNameToChildren();
