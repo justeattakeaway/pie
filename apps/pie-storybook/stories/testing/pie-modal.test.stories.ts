@@ -285,7 +285,8 @@ const FormStoryTemplate = (props: ModalProps) => {
 
 const ScrollablePageStoryTemplate = (props: ModalProps) => html`
     ${BaseStoryTemplate(props)}
-    ${createScrollablePageHTML()}`;
+    ${createScrollablePageHTML()}
+    <pie-button id="open-modal-bottom" @click=${toggleModal}>Toggle Modal</pie-button>`;
 
 const FocusToSpecifiedElementStoryTemplate = (props: ModalProps) => html`
     ${BaseStoryTemplate(props)}

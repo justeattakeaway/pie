@@ -86,8 +86,7 @@ const defaultPropOptions = {
 const inversePropOptions = {
     ...sharedPropOptions,
     variant: ['inverse'],
-    darkBackground: ['true'],
 };
 
 export const DefaultPropVariations = createVariantStory(VariantsTemplate, defaultPropOptions);
-export const InversePropVariations = createVariantStory(VariantsTemplate, inversePropOptions);
+export const InversePropVariations = createVariantStory(VariantsTemplate, inversePropOptions, { bgColor: 'dark (container-dark)' });
