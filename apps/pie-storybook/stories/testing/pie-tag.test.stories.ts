@@ -14,7 +14,7 @@ import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
 import { type SlottedComponentProps } from '../../types';
 import {
-    createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML
+    createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML,
 } from '../../utilities';
 
 type TagProps = SlottedComponentProps<TagBaseProps> & { showIcon: boolean };
