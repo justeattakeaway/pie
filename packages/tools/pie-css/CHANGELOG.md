@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.14.1
+
+### Patch Changes
+
+- adds TURBO_DEFAULT to invalidate cache for changes in root ([#2169](https://github.com/justeattakeaway/pie/pull/2169)) by [@maledr5](https://github.com/maledr5)
+
 ## 0.14.0
 
 ### Minor Changes
