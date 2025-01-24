@@ -13,7 +13,7 @@ test.describe('PieThumbnail - Component tests', () => {
         await expect(page.getByTestId(thumbnail.selectors.container.dataTestId)).toBeVisible();
     });
 
-    test('should set placeholder values if a placeholder is provided and img src is NOT valid', async ({ page }) => {
+    test('should set placeholder values if a placeholder is provided when an image load throws an error', async ({ page }) => {
         // Arrange
         const expectedPlaceholder = {
             src: 'https://www.pie.design/assets/img/404_narrow.png',
@@ -33,7 +33,7 @@ test.describe('PieThumbnail - Component tests', () => {
         await expect(thumbnailImg).toHaveAttribute('alt', expectedPlaceholder.alt);
     });
 
-    test('should NOT set placeholder values if a placeholder is provided and img src is valid', async ({ page }) => {
+    test('should NOT set placeholder values if a placeholder is provided  when an image load does not throw an error', async ({ page }) => {
         // Arrange
         const expectedValues = {
             src: 'https://www.pie.design/assets/img/jet-logo-narrow.svg',
