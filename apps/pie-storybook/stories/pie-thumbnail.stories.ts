@@ -45,28 +45,28 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
             },
         },
         disabled: {
-            description: 'Set the disabled attribute of the thumbnail.',
+            description: 'Applies the disabled styling to the thumbnail component.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.disabled,
             },
         },
         hasPadding: {
-            description: 'Set the hasPadding attribute of the thumbnail.',
+            description: 'Adds extra space around the thumbnail container.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.hasPadding,
             },
         },
         backgroundColor: {
-            description: 'Set the backgroundColor attribute of the thumbnail.',
+            description: 'Applies a background color to the thumbnail container.',
             control: 'text',
             defaultValue: {
                 summary: defaultProps.backgroundColor,
             },
         },
         placeholder: {
-            description: 'Set the placeholder attribute of the thumbnail.',
+            description: 'If an image is unavailable, the placeholder  prop can be used to ensure there is always something visible to users.',
             control: 'object',
             defaultValue: {
                 summary: defaultProps.placeholder,

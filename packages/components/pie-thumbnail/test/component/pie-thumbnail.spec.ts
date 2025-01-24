@@ -1,10 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
-import { getShadowElementStylePropValues } from '@justeattakeaway/pie-webc-testing';
-import { type ThumbnailProps } from '../../src/index.ts';
-
-const componentSelector = '[data-test-id="pie-thumbnail"]';
-const componentImgSelector = '[data-test-id="pie-thumbnail-img"]';
+import { type ThumbnailProps } from '../../src/defs.ts';
+import { thumbnail } from '../helpers/selectors.ts';
 
 type BackgroundColorProp = {
     backgroundColor: ThumbnailProps['backgroundColor'];
@@ -24,14 +21,14 @@ test.describe('PieThumbnail - Component tests', () => {
         // Arrange
         const basePage = new BasePage(page, 'thumbnail--default');
 
-        basePage.load();
+        await basePage.load();
         await page.waitForTimeout(2500);
 
         // Act
-        const thumbnail = page.locator(componentSelector);
+        const thumbnail = page.locator('[data-test-id="pie-thumbnail"]');
 
         // Assert
-        expect(thumbnail).toBeVisible();
+        await expect(thumbnail).toBeVisible();
     });
 
     backgroundColorPropOptions.forEach(({ backgroundColor }) => {
@@ -42,11 +39,9 @@ test.describe('PieThumbnail - Component tests', () => {
             const pieThumbnailPage = new BasePage(page, 'thumbnail--default');
             await pieThumbnailPage.load(props);
 
-            const thumbnailComponent = page.locator(componentSelector);
+            const thumbnailComponent = page.locator(thumbnail.selectors.container.locator);
 
-            const [currentBgStyle, expectedBgStyle] = await getShadowElementStylePropValues(thumbnailComponent, componentSelector, ['background-color', backgroundColor as string]);
-
-            expect(currentBgStyle).toBe(expectedBgStyle);
+            await expect(thumbnailComponent).toHaveCSS('background-color', backgroundColor as string);
         });
     });
 
@@ -67,8 +62,8 @@ test.describe('PieThumbnail - Component tests', () => {
         const pieThumbnailPage = new BasePage(page, 'thumbnail--default');
         await pieThumbnailPage.load(props);
 
-        const thumbnailComponent = page.locator(componentSelector);
-        const thumbnailImg = thumbnailComponent.getByTestId(componentImgSelector);
+        const thumbnailComponent = page.locator(thumbnail.selectors.container.locator);
+        const thumbnailImg = thumbnailComponent.getByTestId(thumbnail.selectors.img.dataTestId);
 
         // Assert that the src attribute is set correctly
         await expect(thumbnailImg).toHaveAttribute('src', placeholder.src);
@@ -94,8 +89,8 @@ test.describe('PieThumbnail - Component tests', () => {
         const pieThumbnailPage = new BasePage(page, 'thumbnail--default');
         await pieThumbnailPage.load(props);
 
-        const thumbnailComponent = page.locator(componentSelector);
-        const thumbnailImg = thumbnailComponent.getByTestId(componentImgSelector);
+        const thumbnailComponent = page.locator(thumbnail.selectors.container.locator);
+        const thumbnailImg = thumbnailComponent.getByTestId(thumbnail.selectors.img.dataTestId);
 
         // Assert that the src attribute is set correctly
         await expect(thumbnailImg).toHaveAttribute('src', src);
