@@ -1,351 +1,318 @@
-import { setupFormDataExtraction, getFormDataObject } from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
-import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
-import { PieCheckbox, type CheckboxProps } from '../../src/index.ts';
-
-const inputSelector = '[data-test-id="checkbox-input"]';
-const labelSelector = '[data-test-id="checkbox-component"]';
-const assistiveTextSelector = '[data-test-id="pie-checkbox-assistive-text"]';
+import { test, expect } from '@playwright/test';
+import { CheckboxDefaultPage } from '../helpers/page-object/pie-checkbox-default.page.ts';
+import { CheckboxFormPage } from '../helpers/page-object/pie-checkbox-form.page.ts';
+import { CheckboxFieldsetFormPage } from '../helpers/page-object/pie-checkbox-fieldset-form.page.ts';
+import type { PieCheckbox } from '../../src/index.ts';
+import type { CheckboxProps } from '../../src/defs.ts';
 
 test.describe('PieCheckbox - Component tests', () => {
-    // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
-    // mount the component will still have it available in Playwright's cache (loaded and registered in the test browser)
-    test.beforeEach(async ({ mount }) => {
-        const component = await mount(PieCheckbox);
-        await component.unmount();
-
-        const assistiveTextComponent = await mount(PieAssistiveText);
-        await assistiveTextComponent.unmount();
-    });
-
-    test('should render successfully', async ({ mount, page }) => {
+    test('should render successfully', async ({ page }) => {
         // Arrange
-        await mount(PieCheckbox, {
-            props: {} as CheckboxProps,
-        });
-
-        // Act
-        const checkbox = page.locator(inputSelector);
+        const checkboxDefaultPage = new CheckboxDefaultPage(page);
+        await checkboxDefaultPage.load();
 
         // Assert
-        expect(checkbox).toBeVisible();
+        await expect(checkboxDefaultPage.checkboxComponent.componentLocator).toBeVisible();
     });
 
     test.describe('Props', () => {
         test.describe('value', () => {
-            test('should default to "on" string if no value prop provided', async ({ mount }) => {
+            test('should default to "on" string if no value prop provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieCheckbox, {});
-                // expected const is a default value for the html <input type="checkbox" /> value attribute.
-                // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#value
-                const expected = 'on';
-
-                // Act
-                const checkbox = component.locator(inputSelector);
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load();
 
                 // Assert
-                expect((await checkbox.inputValue())).toBe(expected);
+                await expect(checkboxDefaultPage.checkboxComponent.inputLocator).toHaveValue('on');
             });
 
-            test('should apply the value attr to the checkbox', async ({ mount }) => {
+            test('should apply the value attr to the checkbox', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieCheckbox, {
-                    props: {
-                        value: 'test',
-                    } as CheckboxProps,
-                });
+                const props: CheckboxProps = {
+                    value: 'test',
+                };
 
-                // Act
-                const checkbox = component.locator(inputSelector);
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load({ ...props });
 
                 // Assert
-                expect((await checkbox.inputValue())).toBe('test');
+                await expect(checkboxDefaultPage.checkboxComponent.inputLocator).toHaveValue('test');
             });
         });
 
         test.describe('name', () => {
-            test('should not render a name attr on the checkbox element if no name provided', async ({ mount }) => {
+            test('should not render a name attr on the checkbox element if no name provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieCheckbox, {});
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load();
 
-                // Act
-                const checkbox = component.locator(inputSelector);
-
-                // Assert
-                expect((await checkbox.getAttribute('name'))).toBe(null);
-            });
-
-            test('should apply the name attr to the checkbox', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieCheckbox, {
-                    props: {
-                        name: 'test',
-                    } as CheckboxProps,
+                // Act - Manually remove the attribute as Storybook control causes it to be set, even though default value is '';
+                await page.evaluate(async () => {
+                    const checkbox = document.querySelector('pie-checkbox');
+                    if (!checkbox) {
+                        throw new Error('Checkbox not found');
+                    }
+                    return checkbox.removeAttribute('name');
                 });
 
-                // Act
-                const checkbox = component.locator(inputSelector);
+                // Assert
+                await expect(checkboxDefaultPage.checkboxComponent.inputLocator).not.toHaveAttribute('name');
+            });
+
+            test('should apply the name attr to the checkbox', async ({ page }) => {
+                // Arrange
+                const props: CheckboxProps = {
+                    name: 'test',
+                };
+
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load({ ...props });
 
                 // Assert
-                expect((await checkbox.getAttribute('name'))).toBe('test');
+                await expect(checkboxDefaultPage.checkboxComponent.inputLocator).toHaveAttribute('name', 'test');
             });
         });
 
         test.describe('checked', () => {
-            test('should default to false', async ({ mount }) => {
+            test('should default to false', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieCheckbox, {});
-
-                // Act
-                const checkbox = component.locator(inputSelector);
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load();
 
                 // Assert
-                expect(await checkbox.isChecked()).toBe(false);
+                await expect(checkboxDefaultPage.checkboxComponent.inputLocator).not.toBeChecked();
             });
 
-            test('should be unchecked if the checked prop is false', async ({ mount }) => {
+            test('should be unchecked if the checked prop is false', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieCheckbox, {
-                    props: {
-                        checked: false,
-                    } as CheckboxProps,
-                });
+                const props: CheckboxProps = {
+                    checked: false,
+                };
 
-                // Act
-                const checkbox = component.locator(inputSelector);
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load({ ...props });
 
                 // Assert
-                expect(await checkbox.isChecked()).toBe(false);
+                await expect(checkboxDefaultPage.checkboxComponent.inputLocator).not.toBeChecked();
             });
 
-            test('should be checked if the checked prop is true', async ({ mount }) => {
+            test('should be checked if the checked prop is true', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieCheckbox, {
-                    props: {
-                        checked: true,
-                    } as CheckboxProps,
-                });
+                const props: CheckboxProps = {
+                    checked: true,
+                };
 
-                // Act
-                const checkbox = component.locator(inputSelector);
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load({ ...props });
 
                 // Assert
-                expect(await checkbox.isChecked()).toBe(true);
+                await expect(checkboxDefaultPage.checkboxComponent.inputLocator).toBeChecked();
             });
         });
 
         test.describe('disabled', () => {
             test.describe('when true', () => {
-                test('should disable the component', async ({ mount }) => {
+                test('should disable the component', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieCheckbox, {
-                        props: {
-                            disabled: true,
-                        } as CheckboxProps,
-                    });
+                    const props: CheckboxProps = {
+                        disabled: true,
+                    };
 
-                    // Act
-                    const checkbox = component.locator(inputSelector);
+                    const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                    await checkboxDefaultPage.load({ ...props });
 
                     // Assert
-                    expect(checkbox).toBeDisabled();
+                    await expect(checkboxDefaultPage.checkboxComponent.inputLocator).toBeDisabled();
                 });
 
                 test('should not be able to focus the component', async ({ page }) => {
                     // Arrange
-                    await page.setContent('<pie-checkbox disabled></pie-checkbox>');
+                    const props: CheckboxProps = {
+                        disabled: true,
+                    };
+
+                    const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                    await checkboxDefaultPage.load({ ...props });
 
                     // Act
-                    const checkbox = page.locator('pie-checkbox');
-                    await checkbox.focus();
+                    await checkboxDefaultPage.checkboxComponent.inputLocator.focus();
 
                     // Assert
-                    expect(checkbox).not.toBeFocused();
+                    await expect(checkboxDefaultPage.checkboxComponent.inputLocator).not.toBeFocused();
                 });
             });
 
             test.describe('when not provided', () => {
-                test('should not disable the component', async ({ mount }) => {
+                test('should not disable the component', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieCheckbox, {});
-
-                    // Act
-                    const checkbox = component.locator(inputSelector);
+                    const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                    await checkboxDefaultPage.load();
 
                     // Assert
-                    expect(checkbox).not.toBeDisabled();
+                    await expect(checkboxDefaultPage.checkboxComponent.inputLocator).not.toBeDisabled();
                 });
 
                 test('should be able to focus the component', async ({ page }) => {
                     // Arrange
-                    await page.setContent('<pie-checkbox></pie-checkbox>');
+                    const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                    await checkboxDefaultPage.load();
 
                     // Act
-                    const checkbox = page.locator('pie-checkbox');
-                    await checkbox.focus();
+                    await checkboxDefaultPage.checkboxComponent.inputLocator.focus();
 
                     // Assert
-                    expect(checkbox).toBeFocused();
+                    await expect(checkboxDefaultPage.checkboxComponent.inputLocator).toBeFocused();
                 });
             });
         });
 
         test.describe('required', () => {
-            test('should not render a required attribute if the required prop isn’t provided', async ({ mount }) => {
+            test('should not render a required attribute if the required prop isn\'t provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieCheckbox, {});
-
-                // Act
-                const checkbox = component.locator(inputSelector);
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load();
 
                 // Assert
-                expect((await checkbox.getAttribute('required'))).toBe(null);
+                await expect(checkboxDefaultPage.checkboxComponent.inputLocator).not.toHaveAttribute('required');
             });
 
-            test('should apply the required prop to the HTML input rendered', async ({ mount }) => {
+            test('should apply the required prop to the HTML input rendered', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieCheckbox, {
-                    props: {
-                        required: true,
-                    } as CheckboxProps,
-                });
+                const props: CheckboxProps = {
+                    required: true,
+                };
 
-                // Act
-                const checkbox = component.locator(inputSelector);
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load({ ...props });
 
                 // Assert
-                expect((await checkbox.getAttribute('required'))).toBe('');
+                await expect(checkboxDefaultPage.checkboxComponent.inputLocator).toHaveAttribute('required');
             });
 
-            test('should be in a valid state if the checkbox is required and checked', async ({ mount, page }) => {
+            test('should be in a valid state if the checkbox is required and checked', async ({ page }) => {
                 // Arrange
-                await mount(PieCheckbox, {
-                    props: {
-                        checked: true,
-                        required: true,
-                    } as CheckboxProps,
-                });
+                const props: CheckboxProps = {
+                    checked: true,
+                    required: true,
+                };
 
-                // Act
-                const isValid = await page.evaluate(() => document.querySelector('pie-checkbox')?.validity.valid);
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load({ ...props });
 
                 // Assert
+                const isValid = await checkboxDefaultPage.checkboxComponent.isValid();
                 expect(isValid).toBe(true);
             });
 
-            test('should be in a valid state if the checkbox is required and checked manually', async ({ mount, page }) => {
+            test('should be in a valid state if the checkbox is required and checked manually', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieCheckbox, {
-                    props: {
-                        required: true,
-                        checked: false,
-                    } as CheckboxProps,
-                });
+                const props: CheckboxProps = {
+                    required: true,
+                    checked: false,
+                };
+
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load({ ...props });
 
                 // Act
-                await component.locator(labelSelector).click();
-                const isValid = await page.evaluate(() => document.querySelector('pie-checkbox')?.validity.valid);
+                await checkboxDefaultPage.checkboxComponent.labelLocator.click();
 
                 // Assert
+                const isValid = await checkboxDefaultPage.checkboxComponent.isValid();
                 expect(isValid).toBe(true);
             });
 
-            test('should be in an invalid state if the checkbox is required but unchecked', async ({ mount, page }) => {
+            test('should be in an invalid state if the checkbox is required but unchecked', async ({ page }) => {
                 // Arrange
-                await mount(PieCheckbox, {
-                    props: {
-                        required: true,
-                        checked: false,
-                    } as CheckboxProps,
-                });
+                const props: CheckboxProps = {
+                    required: true,
+                    checked: false,
+                };
 
-                // Act
-                const isValid = await page.evaluate(() => document.querySelector('pie-checkbox')?.validity.valid);
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load({ ...props });
 
                 // Assert
+                const isValid = await checkboxDefaultPage.checkboxComponent.isValid();
                 expect(isValid).toBe(false);
             });
 
-            test('should be in an invalid state if the checkbox is required and unchecked manually', async ({ mount, page }) => {
+            test('should be in an invalid state if the checkbox is required and unchecked manually', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieCheckbox, {
-                    props: {
-                        required: true,
-                        checked: true,
-                    } as CheckboxProps,
-                });
+                const props: CheckboxProps = {
+                    required: true,
+                    checked: true,
+                };
+
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load({ ...props });
 
                 // Act
-                await component.locator(labelSelector).click();
-                const isValid = await page.evaluate(() => document.querySelector('pie-checkbox')?.validity.valid);
+                await checkboxDefaultPage.checkboxComponent.labelLocator.click();
 
                 // Assert
+                const isValid = await checkboxDefaultPage.checkboxComponent.isValid();
                 expect(isValid).toBe(false);
             });
 
-            test('should be in a valid state if the checkbox is checked but not required', async ({ mount, page }) => {
+            test('should be in a valid state if the checkbox is checked but not required', async ({ page }) => {
                 // Arrange
-                await mount(PieCheckbox, {
-                    props: {
-                        required: false,
-                        checked: true,
-                    } as CheckboxProps,
-                });
+                const props: CheckboxProps = {
+                    required: false,
+                    checked: true,
+                };
 
-                // Act
-                const isValid = await page.evaluate(() => document.querySelector('pie-checkbox')?.validity.valid);
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load({ ...props });
 
                 // Assert
+                const isValid = await checkboxDefaultPage.checkboxComponent.isValid();
                 expect(isValid).toBe(true);
             });
 
-            test('should be in a valid state if the checkbox is unchecked and not required', async ({ mount, page }) => {
+            test('should be in a valid state if the checkbox is unchecked and not required', async ({ page }) => {
                 // Arrange
-                await mount(PieCheckbox, {
-                    props: {
-                        required: false,
-                        checked: false,
-                    } as CheckboxProps,
-                });
+                const props: CheckboxProps = {
+                    required: false,
+                    checked: false,
+                };
 
-                // Act
-                const isValid = await page.evaluate(() => document.querySelector('pie-checkbox')?.validity.valid);
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load({ ...props });
 
                 // Assert
+                const isValid = await checkboxDefaultPage.checkboxComponent.isValid();
                 expect(isValid).toBe(true);
             });
         });
 
         test.describe('assistiveText', () => {
-            test('should not render the assistive text component if the prop is not provided', async ({ mount, page }) => {
+            test('should not render the assistive text component if the prop is not provided', async ({ page }) => {
                 // Arrange
-                await mount(PieCheckbox, {});
-
-                // Act
-                const assistiveText = page.locator(assistiveTextSelector);
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load();
 
                 // Assert
-                expect(assistiveText).not.toBeVisible();
+                await expect(checkboxDefaultPage.checkboxComponent.assistiveTextLocator).not.toBeVisible();
             });
 
             test.describe('Assistive test ID attribute', () => {
-                test('should contain an ID associated with the checkbox element for a11y', async ({ mount, page }) => {
+                test('should contain an ID associated with the checkbox element for a11y', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieCheckbox, {
-                        props: {
-                            assistiveText: 'Assistive text',
-                        } as PieCheckbox,
-                    });
+                    const props: CheckboxProps = {
+                        assistiveText: 'Assistive text',
+                    };
+
+                    const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                    await checkboxDefaultPage.load({ ...props });
 
                     // Act
-                    const checkbox = component.locator(inputSelector);
-                    const assistiveText = page.locator(assistiveTextSelector);
-
-                    const componentAttribute = await checkbox.getAttribute('aria-describedby');
+                    const checkbox = checkboxDefaultPage.checkboxComponent.inputLocator;
+                    const assistiveText = checkboxDefaultPage.checkboxComponent.assistiveTextLocator;
 
                     // Assert
                     await expect(assistiveText).toHaveAttribute('id', 'assistive-text');
-                    expect(componentAttribute).toBe('assistive-text');
+                    await expect(checkbox).toHaveAttribute('aria-describedby', 'assistive-text');
                 });
             });
         });
@@ -354,38 +321,34 @@ test.describe('PieCheckbox - Component tests', () => {
     test.describe('Attributes:', () => {
         test.describe('aria-describedby', () => {
             test.describe('when `assistiveText` is not defined', () => {
-                test('should not render the attribute', async ({ mount }) => {
+                test('should not render the attribute', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieCheckbox, {
-                        props: {} as CheckboxProps,
-                    });
+                    const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                    await checkboxDefaultPage.load();
 
                     // Act
-                    const checkbox = component.locator(inputSelector);
-
-                    const componentAttribute = await checkbox.getAttribute('aria-describedby');
+                    const checkbox = checkboxDefaultPage.checkboxComponent.inputLocator;
 
                     // Assert
-                    expect(componentAttribute).toBeNull();
+                    await expect(checkbox).not.toHaveAttribute('aria-describedby');
                 });
             });
 
             test.describe('when `assistiveText` is defined', () => {
-                test('should render the attribute correctly with the correct value', async ({ mount }) => {
+                test('should render the attribute correctly with the correct value', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieCheckbox, {
-                        props: {
-                            assistiveText: 'Assistive text',
-                        } as CheckboxProps,
-                    });
+                    const props: CheckboxProps = {
+                        assistiveText: 'Assistive text',
+                    };
+
+                    const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                    await checkboxDefaultPage.load({ ...props });
 
                     // Act
-                    const checkbox = component.locator(inputSelector);
-
-                    const componentAttribute = await checkbox.getAttribute('aria-describedby');
+                    const checkbox = checkboxDefaultPage.checkboxComponent.inputLocator;
 
                     // Assert
-                    expect(componentAttribute).toBe('assistive-text');
+                    await expect(checkbox).toHaveAttribute('aria-describedby', 'assistive-text');
                 });
             });
         });
@@ -393,93 +356,72 @@ test.describe('PieCheckbox - Component tests', () => {
 
     test.describe('Events', () => {
         test.describe('change', () => {
-            test('should dispatch a change event when checkbox is clicked that contains the original native event', async ({ mount }) => {
+            test('should dispatch a change event when checkbox is clicked that contains the original native event', async ({ page }) => {
                 // Arrange
-                const messages: CustomEvent[] = [];
-                const expectedMessages = [{ sourceEvent: { isTrusted: true } }];
+                const expectedMessages = [{ isTrusted: false }];
 
-                const component = await mount(PieCheckbox, {
-                    props: {} as CheckboxProps,
-                    on: {
-                        change: (data: CustomEvent) => {
-                            messages.push(data);
-                        },
-                    },
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load();
+
+                // Set up a listener for console messages
+                const consoleMessages: string[] = [];
+                page.on('console', (message) => {
+                    if (message.type() === 'info') {
+                        consoleMessages.push(message.text());
+                    }
                 });
 
                 // Act
-                await component.locator(labelSelector).click();
+                await checkboxDefaultPage.checkboxComponent.labelLocator.check();
 
                 // Assert
-                expect(messages.length).toEqual(1);
-                expect(messages).toStrictEqual(expectedMessages);
+                expect(consoleMessages.length).toEqual(1);
+                const parsedMessages = consoleMessages.map((msg) => JSON.parse(msg));
+                expect(parsedMessages).toStrictEqual(expectedMessages);
             });
 
             test('should dispatch a change event when inside a form which is reset', async ({ page }) => {
                 // Arrange
-                await page.setContent(`
-                    <form id="testForm" action="/foo" method="POST">
-                        <pie-checkbox name="testName" checked></pie-checkbox>
-                        <button type="reset">Reset</button>
-                    </form>
-                    <div id="eventsContainer"></div>
-                `);
+                const expectedMessage = { isTrusted: false };
+                const checkboxFormPage = new CheckboxFormPage(page);
+                await checkboxFormPage.load();
 
-                await page.evaluate(() => {
-                    const checkbox = document.querySelector('pie-checkbox') as PieCheckbox;
-                    const eventsContainer = document.querySelector('#eventsContainer') as HTMLDivElement;
-
-                    checkbox.addEventListener('change', () => {
-                        const el = document.createElement('div');
-                        el.innerText = 'change event fired';
-                        eventsContainer.appendChild(el);
-                    });
+                // Set up a listener for console messages
+                const consoleMessages: string[] = [];
+                page.on('console', (message) => {
+                    if (message.type() === 'info') {
+                        consoleMessages.push(message.text());
+                    }
                 });
 
                 // Act
-                await page.click('button[type="reset"]');
-
-                const eventElements = await page.evaluate(() => {
-                    const events = document.querySelectorAll('#eventsContainer > div');
-                    return Array.from(events).map((el) => el.innerHTML);
-                });
+                await checkboxFormPage.checkboxComponent.labelLocator.check();
+                await checkboxFormPage.resetButton.click();
 
                 // Assert
-                expect(eventElements).toHaveLength(1);
-                expect(eventElements[0]).toBe('change event fired');
+                expect(consoleMessages).toHaveLength(2);
+                const parsedMessages = consoleMessages.map((msg) => JSON.parse(msg));
+                expect(parsedMessages[0]).toStrictEqual(expectedMessage);
             });
 
             test('should not dispatch a change event when inside a form which is reset if the value has not changed', async ({ page }) => {
                 // Arrange
-                await page.setContent(`
-                    <form id="testForm" action="/foo" method="POST">
-                        <pie-checkbox name="testName" checked defaultChecked></pie-checkbox>
-                        <button type="reset">Reset</button>
-                    </form>
-                    <div id="eventsContainer"></div>
-                `);
+                const checkboxFormPage = new CheckboxFormPage(page);
+                await checkboxFormPage.load();
 
-                await page.evaluate(() => {
-                    const checkbox = document.querySelector('pie-checkbox') as PieCheckbox;
-                    const eventsContainer = document.querySelector('#eventsContainer') as HTMLDivElement;
-
-                    checkbox.addEventListener('change', () => {
-                        const el = document.createElement('div');
-                        el.innerText = 'change event fired';
-                        eventsContainer.appendChild(el);
-                    });
+                // Set up a listener for console messages
+                const consoleMessages: string[] = [];
+                page.on('console', (message) => {
+                    if (message.type() === 'info') {
+                        consoleMessages.push(message.text());
+                    }
                 });
 
                 // Act
-                await page.click('button[type="reset"]');
-
-                const eventElements = await page.evaluate(() => {
-                    const events = document.querySelectorAll('#eventsContainer > div');
-                    return Array.from(events).map((el) => el.innerHTML);
-                });
+                await checkboxFormPage.resetButton.click();
 
                 // Assert
-                expect(eventElements).toHaveLength(0);
+                expect(consoleMessages).toHaveLength(0);
             });
         });
     });
@@ -487,39 +429,33 @@ test.describe('PieCheckbox - Component tests', () => {
     test.describe('Form integration', () => {
         test('should correctly set the name and value of the checkbox in the FormData object when submitted', async ({ page }) => {
             // Arrange
-            await page.setContent(`
-                <form id="testForm" action="/foo" method="POST">
-                    <pie-checkbox name="testName"></pie-checkbox>
-                    <button type="submit">Submit</button>
-                </form>
-                <div id="formDataJson""></div>
-            `);
+            const props: CheckboxProps = {
+                name: 'testName',
+            };
 
-            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+            const checkboxFormPage = new CheckboxFormPage(page);
+            await checkboxFormPage.load({ ...props });
 
             // Act
-            await page.locator('pie-checkbox').click();
-            await page.click('button[type="submit"]');
-            const formDataObj = await getFormDataObject(page, '#formDataJson');
+            await checkboxFormPage.checkboxComponent.labelLocator.check();
+            await checkboxFormPage.submitButton.click();
 
             // Assert
-            expect(formDataObj).toStrictEqual({ testName: 'on' });
+            const expectedFormData = { testName: 'on' };
+            await expect(checkboxFormPage.formData).toHaveText(JSON.stringify(expectedFormData));
         });
 
         test('should submit the updated checked state if the checked attribute is changed programmatically', async ({ page }) => {
             // Arrange
-            await page.setContent(`
-                <form id="testForm" action="/foo" method="POST">
-                <pie-checkbox name="testName"></pie-checkbox>
-                    <button type="submit">Submit</button>
-                </form>
-                <div id="formDataJson""></div>
-            `);
+            const props: CheckboxProps = {
+                name: 'testName',
+            };
 
-            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+            const checkboxFormPage = new CheckboxFormPage(page);
+            await checkboxFormPage.load({ ...props });
 
             // Act
-            await page.locator('pie-checkbox').click();
+            await checkboxFormPage.checkboxComponent.labelLocator.check();
 
             await page.evaluate(() => {
                 const checkbox = document.querySelector('pie-checkbox') as PieCheckbox;
@@ -527,117 +463,104 @@ test.describe('PieCheckbox - Component tests', () => {
                 return checkbox;
             });
 
-            await page.click('button[type="submit"]');
-
-            const formDataObj = await getFormDataObject(page, '#formDataJson');
+            await checkboxFormPage.submitButton.click();
 
             // Assert
-            expect(formDataObj).toStrictEqual({});
+            await expect(checkboxFormPage.formData).toHaveText('{}');
         });
 
         test('should not submit the value if checkbox is disabled', async ({ page }) => {
             // Arrange
-            await page.setContent(`
-                <form id="testForm" action="/foo" method="POST">
-                    <pie-checkbox name="testName" disabled></pie-checkbox>
-                    <button type="submit">Submit</button>
-                </form>
-                <div id="formDataJson""></div>
-            `);
-            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+            const props: CheckboxProps = {
+                name: 'testName',
+                disabled: true,
+            };
+
+            const checkboxFormPage = new CheckboxFormPage(page);
+            await checkboxFormPage.load({ ...props });
 
             // Act
-            await page.click('button[type="submit"]');
-            const formDataObj = await getFormDataObject(page, '#formDataJson');
+            await checkboxFormPage.submitButton.click();
 
             // Assert
-            expect(formDataObj).toStrictEqual({});
+            await expect(checkboxFormPage.formData).toHaveText('{}');
         });
 
         test('should not submit the value if checkbox is disabled, even if checked', async ({ page }) => {
             // Arrange
-            await page.setContent(`
-                <form id="testForm" action="/foo" method="POST">
-                    <pie-checkbox name="testName" checked disabled></pie-checkbox>
-                    <button type="submit">Submit</button>
-                </form>
-                <div id="formDataJson""></div>
-            `);
-            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+            const props: CheckboxProps = {
+                name: 'testName',
+                disabled: true,
+                checked: true,
+            };
+
+            const checkboxFormPage = new CheckboxFormPage(page);
+            await checkboxFormPage.load({ ...props });
 
             // Act
-            await page.click('button[type="submit"]');
-            const formDataObj = await getFormDataObject(page, '#formDataJson');
+            await checkboxFormPage.submitButton.click();
 
             // Assert
-            expect(formDataObj).toStrictEqual({});
+            await expect(checkboxFormPage.formData).toHaveText('{}');
         });
 
         test('should not submit the value inside a disabled fieldset', async ({ page }) => {
             // Arrange
-            await page.setContent(`
-                <form id="testForm" action="/foo" method="POST">
-                    <fieldset disabled>
-                        <pie-checkbox name="testName"></pie-checkbox>
-                    </fieldset>
-                    <button type="submit">Submit</button>
-                </form>
-                <div id="formDataJson""></div>
-            `);
+            const props: CheckboxProps = {
+                name: 'testName',
+            };
 
-            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+            const checkboxFieldsetFormPage = new CheckboxFieldsetFormPage(page);
+            await checkboxFieldsetFormPage.load({ ...props });
 
             // Act
-            await page.click('button[type="submit"]');
-
-            const formDataObj = await getFormDataObject(page, '#formDataJson');
+            await checkboxFieldsetFormPage.submitButton.click();
 
             // Assert
-            expect(formDataObj).toStrictEqual({});
+            await expect(checkboxFieldsetFormPage.formData).toHaveText('{}');
         });
 
         test.describe('when the form is reset', () => {
             test.describe('and defaultChecked is true', () => {
                 test('should reset the checkbox to a checked state', async ({ page }) => {
                     // Arrange
-                    await page.setContent(`
-                        <form id="testForm" action="/foo" method="POST">
-                            <pie-checkbox name="testName" defaultChecked></pie-checkbox>
-                            <button type="reset">Reset</button>
-                        </form>
-                    `);
+                    const props: CheckboxProps = {
+                        name: 'testName',
+                        defaultChecked: true,
+                    };
 
-                    let isChecked = await page.evaluate(() => document.querySelector('pie-checkbox')?.checked);
-                    expect.soft(isChecked).toBe(false);
+                    const checkboxFormPage = new CheckboxFormPage(page);
+                    await checkboxFormPage.load({ ...props });
+
+                    await expect(checkboxFormPage.checkboxComponent.inputLocator).not.toBeChecked();
 
                     // Act
-                    await page.click('button[type="reset"]');
+                    await checkboxFormPage.resetButton.click();
 
                     // Assert
-                    isChecked = await page.evaluate(() => document.querySelector('pie-checkbox')?.checked);
-                    expect(isChecked).toBe(true);
+                    await expect(checkboxFormPage.checkboxComponent.inputLocator).toBeChecked();
                 });
             });
 
             test.describe('and defaultChecked is false', () => {
                 test('should reset the checkbox to its default state', async ({ page }) => {
                     // Arrange
-                    await page.setContent(`
-                        <form id="testForm" action="/foo" method="POST">
-                            <pie-checkbox name="testName" checked></pie-checkbox>
-                            <button type="reset">Reset</button>
-                        </form>
-                    `);
+                    const props: CheckboxProps = {
+                        name: 'testName',
+                        checked: true,
+                        defaultChecked: false,
+                    };
 
-                    let isChecked = await page.evaluate(() => document.querySelector('pie-checkbox')?.checked);
-                    expect.soft(isChecked).toBe(true);
+                    const checkboxFormPage = new CheckboxFormPage(page);
+                    await checkboxFormPage.load({ ...props });
+
+                    await expect(checkboxFormPage.checkboxComponent.inputLocator).toBeChecked();
 
                     // Act
-                    await page.click('button[type="reset"]');
+                    await checkboxFormPage.resetButton.click();
 
                     // Assert
-                    isChecked = await page.evaluate(() => document.querySelector('pie-checkbox')?.checked);
-                    expect(isChecked).toBe(false);
+                    await expect(checkboxFormPage.checkboxComponent.inputLocator).not.toBeChecked();
                 });
             });
         });

@@ -136,7 +136,7 @@ const Template = ({
             ?indeterminate="${indeterminate}"
             ?required="${required}"
             @change="${onChange}"
-            assistiveText="${ifDefined(assistiveText)}"
+            ?assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}>
             ${sanitizeAndRenderHTML(slot)}
         </pie-checkbox>
@@ -165,7 +165,7 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
     <form id="testForm">
         <pie-checkbox
             .value="${value}"
-            name="${ifDefined(name)}"
+            ?name="${ifDefined(name)}"
             ?checked="${checked}"
             ?defaultChecked="${defaultChecked}"
             ?disabled="${disabled}"
