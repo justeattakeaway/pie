@@ -98,7 +98,7 @@ const Template: TemplateFunction<ThumbnailProps> = ({
     </pie-thumbnail>`;
 
 // Define the prop options for the matrix
-const sharedPropOptions = {
+const sharedPropOptions: Partial<Record<keyof ThumbnailProps, unknown[]>> = {
     src: [defaultArgs.src],
     alt: [defaultArgs.alt],
     disabled: [true, false],
@@ -107,14 +107,20 @@ const sharedPropOptions = {
     placeholder: [defaultArgs.placeholder],
 };
 
-const defaultPropOptions = {
+const defaultPropOptions: Partial<Record<keyof ThumbnailProps, unknown[]>> = {
     ...sharedPropOptions,
     variant: ['default'],
 };
 
-const outlinePropOptions = {
+const outlinePropOptions: Partial<Record<keyof ThumbnailProps, unknown[]>> = {
     ...sharedPropOptions,
     variant: ['outline'],
+};
+
+const backgroundPropOptions: Partial<Record<keyof ThumbnailProps, unknown[]>> = {
+    backgroundColor: ['blue', '#5b3d5b', 'rgb(124, 255, 10)', 'transparent', 'inherit', 'var(--dt-color-support-brand-03)'],
+    variant: ['default', 'outline'],
+    src: ['https://www.pie.design/assets/img/404_narrow.png'],
 };
 
 export const Default = createStory<ThumbnailProps>(Template, defaultArgs)();
@@ -139,3 +145,4 @@ export const InvalidPlaceholder = createStory<ThumbnailProps>(Template, {
 
 export const DefaultPropVariations = createVariantStory<ThumbnailProps>(Template, defaultPropOptions);
 export const OutlinePropVariations = createVariantStory<ThumbnailProps>(Template, outlinePropOptions);
+export const BackgroundPropVariations = createVariantStory<ThumbnailProps>(Template, backgroundPropOptions);

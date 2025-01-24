@@ -13,3 +13,13 @@ variants.forEach((variant) => test(`should render all prop variations for Varian
 
     await percySnapshot(page, `PIE Thumbnail - Variant: ${variant}`, { widths: [1280] });
 }));
+
+test('should render all prop variants for background variants', async ({ page }) => {
+    const basePage = new BasePage(page, 'thumbnail--background-prop-variations');
+    await basePage.load();
+
+    const thumbnailComponent = page.getByTestId(thumbnail.selectors.container.dataTestId).first();
+    await expect.soft(thumbnailComponent).toBeVisible();
+
+    await percySnapshot(page, 'PIE Thumbnail - backgroundColor variants', { widths: [1280] });
+});
