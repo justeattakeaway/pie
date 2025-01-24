@@ -4,7 +4,7 @@ import '@justeattakeaway/pie-thumbnail';
 import { type ThumbnailProps, defaultProps, variants } from '@justeattakeaway/pie-thumbnail';
 
 import { type Meta } from '@storybook/web-components';
-import { createVariantStory, type TemplateFunction } from '../../utilities';
+import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';
 
 type ThumbnailStoryMeta = Meta<ThumbnailProps>;
 
@@ -116,6 +116,26 @@ const outlinePropOptions = {
     ...sharedPropOptions,
     variant: ['outline'],
 };
+
+export const Default = createStory<ThumbnailProps>(Template, defaultArgs)();
+
+export const InvalidSrc = createStory<ThumbnailProps>(Template, {
+    placeholder: {
+        src: 'https://www.pie.design/assets/img/404_narrow.png',
+        alt: 'Placeholder Alt',
+    },
+    src: 'invalid-url.com',
+    alt: 'Invalid text',
+})();
+
+export const InvalidPlaceholder = createStory<ThumbnailProps>(Template, {
+    placeholder: {
+        src: 'https://www.pie.design/assets/img/404_narrow.png',
+        alt: 'Placeholder Alt',
+    },
+    src: 'https://www.pie.design/assets/img/jet-logo-narrow.svg',
+    alt: 'JET Logo',
+})();
 
 export const DefaultPropVariations = createVariantStory<ThumbnailProps>(Template, defaultPropOptions);
 export const OutlinePropVariations = createVariantStory<ThumbnailProps>(Template, outlinePropOptions);
