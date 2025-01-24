@@ -2,7 +2,9 @@ import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-thumbnail';
-import { type ThumbnailProps, defaultProps, variants } from '@justeattakeaway/pie-thumbnail';
+import {
+    type ThumbnailProps, defaultProps, variants, backgroundColors,
+} from '@justeattakeaway/pie-thumbnail';
 
 import { createStory, type TemplateFunction } from '../utilities';
 
@@ -60,7 +62,8 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
         },
         backgroundColor: {
             description: 'Applies a background color to the thumbnail container.',
-            control: 'text',
+            control: 'select',
+            options: backgroundColors,
             defaultValue: {
                 summary: defaultProps.backgroundColor,
             },

@@ -1,7 +1,9 @@
 import { html } from 'lit';
 
 import '@justeattakeaway/pie-thumbnail';
-import { type ThumbnailProps, defaultProps, variants } from '@justeattakeaway/pie-thumbnail';
+import {
+    type ThumbnailProps, defaultProps, variants, backgroundColors,
+} from '@justeattakeaway/pie-thumbnail';
 
 import { type Meta } from '@storybook/web-components';
 import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';
@@ -60,7 +62,8 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
         },
         backgroundColor: {
             description: 'Applies a background color to the thumbnail container.',
-            control: 'text',
+            control: 'select',
+            options: backgroundColors,
             defaultValue: {
                 summary: defaultProps.backgroundColor,
             },
@@ -118,8 +121,8 @@ const outlinePropOptions: Partial<Record<keyof ThumbnailProps, unknown[]>> = {
 };
 
 const backgroundPropOptions: Partial<Record<keyof ThumbnailProps, unknown[]>> = {
-    backgroundColor: ['blue', '#5b3d5b', 'rgb(124, 255, 10)', 'transparent', 'inherit', 'var(--dt-color-support-brand-03)'],
-    variant: ['default', 'outline'],
+    backgroundColor: backgroundColors,
+    variant: variants,
     src: ['https://www.pie.design/assets/img/404_narrow.png'],
 };
 

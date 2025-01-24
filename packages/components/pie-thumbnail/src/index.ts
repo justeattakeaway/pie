@@ -4,9 +4,10 @@ import {
 
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
-import { styleMap } from 'lit-html/directives/style-map.js';
 import { property } from 'lit/decorators.js';
-import { type ThumbnailProps, defaultProps, variants } from './defs';
+import {
+    type ThumbnailProps, defaultProps, variants, backgroundColors,
+} from './defs';
 import styles from './thumbnail.scss?inline';
 
 // Valid values available to consumers
@@ -35,6 +36,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     public hasPadding = defaultProps.hasPadding;
 
     @property({ type: String })
+    @validPropertyValues(componentSelector, backgroundColors, defaultProps.backgroundColor)
     public backgroundColor = defaultProps.backgroundColor;
 
     @property({ type: Object })
@@ -59,16 +61,13 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
         const wrapperClasses = {
             'c-thumbnail': true,
             [`c-thumbnail--${variant}`]: true,
+            [`c-thumbnail--background-${backgroundColor}`]: true,
             'c-thumbnail--disabled': disabled,
             'c-thumbnail--padding': hasPadding,
         };
 
-        const wrapperStyles = {
-            backgroundColor,
-        };
-
         return html`
-            <div data-test-id="pie-thumbnail" class="${classMap(wrapperClasses)}" style="${styleMap(wrapperStyles)}">
+            <div data-test-id="pie-thumbnail" class="${classMap(wrapperClasses)}">
                 <img data-test-id="pie-thumbnail-img" src="${src}" class="c-thumbnail-img" alt="${alt}" @error="${handleImageError}">
             </div>
         `;

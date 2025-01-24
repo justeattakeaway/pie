@@ -4,6 +4,10 @@ export const variants = [
     'default', 'outline',
 ] as const;
 
+export const backgroundColors = [
+    'default', 'subtle', 'strong', 'dark', 'inverse', 'inverse-alternative'
+];
+
 type PlaceholderProps = {
     src?: string;
     alt?: string;
@@ -15,7 +19,7 @@ export interface ThumbnailProps {
     alt?: string;
     disabled?: boolean;
     hasPadding?: boolean;
-    backgroundColor?: string;
+    backgroundColor?: typeof backgroundColors[number];
     placeholder?: PlaceholderProps;
 }
 
@@ -27,7 +31,7 @@ export const defaultProps: DefaultProps = {
     alt: '',
     disabled: false,
     hasPadding: false,
-    backgroundColor: 'var(--dt-color-container-default)',
+    backgroundColor: 'default',
     placeholder: {
         src: '',
         alt: '',
