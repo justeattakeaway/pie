@@ -66,7 +66,7 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
             },
         },
         placeholder: {
-            description: 'If an image is unavailable, the placeholder  prop can be used to ensure there is always something visible to users.',
+            description: 'If an image is unavailable, the placeholder prop can be used to ensure there is always something visible to users.',
             control: 'object',
             defaultValue: {
                 summary: defaultProps.placeholder,
