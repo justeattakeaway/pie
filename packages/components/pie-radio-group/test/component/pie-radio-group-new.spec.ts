@@ -5,7 +5,7 @@ import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-obj
 import { type PieRadio } from '@justeattakeaway/pie-radio';
 
 // The structure of this object reflects the structure of our test Story
-const selectors = {
+const keyboardNavigationStorySelectors = {
     button1: 'btn-1',
     radioGroup1: {
         self: 'radio-group-1',
@@ -30,6 +30,13 @@ const selectors = {
         },
     },
     button4: 'btn-4',
+};
+
+const dynamicSlotsStorySelectors = {
+    radioGroup1: {
+        self: 'radio-group-1',
+    },
+    addOptionBtn: 'add-option',
 };
 
 // Returns the checked state of the currently focused pie-radio on the page
@@ -59,19 +66,65 @@ const expectFocusedRadioToBeChecked = async (page: Page, expect: Expect): Promis
 test.describe('PieRadioGroup - Component tests new', () => {
     let pageObject;
 
-    test.describe('Keyboard navigation', () => {
-        test.describe('Tab', () => {
-            test.beforeEach(async ({ page }) => {
+    test.describe('props', () => {
+        test.describe('Name', () => {
+            test('Name prop is passed down to all slotted radio buttons', async ({ page }) => {
+                const expectedName = 'radio-group-1';
                 pageObject = new BasePage(page, 'radio-group');
                 await pageObject.load();
+
+                const radioSelectors = Object.keys(keyboardNavigationStorySelectors.radioGroup1.radios).map(Number) as Array<keyof typeof keyboardNavigationStorySelectors.radioGroup1.radios>;
+
+                await Promise.all(radioSelectors.map(async (radioSelectorKey) => {
+                    const selector = keyboardNavigationStorySelectors.radioGroup1.radios[radioSelectorKey];
+                    const radio = page.getByTestId(selector);
+
+                    await expect(radio).toHaveAttribute('name', expectedName);
+                }));
             });
 
+            test('Name prop is passed down to any dynamically added radio buttons', async ({ page }) => {
+                const expectedName = 'radio-group-1';
+
+                pageObject = new BasePage(page, 'radio-group--dynamic-slots');
+                await pageObject.load();
+
+                const addOptionsBtn = page.getByTestId(dynamicSlotsStorySelectors.addOptionBtn);
+
+                // Create 3 new options
+                await addOptionsBtn.click();
+                await addOptionsBtn.click();
+                await addOptionsBtn.click();
+
+                // Ensure correct number of radios
+                const radioButtons = page.getByTestId(dynamicSlotsStorySelectors.radioGroup1.self).locator('pie-radio');
+                await expect(radioButtons).toHaveCount(4);
+
+                const radioButtonsCount = await radioButtons.count();
+
+                const validateRadioButtonName = async (index: number) => {
+                    const radio = radioButtons.nth(index);
+                    await expect(radio).toHaveAttribute('name', expectedName);
+                };
+
+                await Promise.all(Array.from({ length: radioButtonsCount }, (_, i) => validateRadioButtonName(i)));
+            });
+        });
+    });
+
+    test.describe('Keyboard navigation', () => {
+        test.beforeEach(async ({ page }) => {
+            pageObject = new BasePage(page, 'radio-group');
+            await pageObject.load();
+        });
+
+        test.describe('Tab', () => {
             test('Tab and no option selected focuses the first radio', async ({ page }) => {
                 // Tab 2 times to go button 1 -> Radio group 1
                 await page.keyboard.press('Tab');
                 await page.keyboard.press('Tab');
 
-                const radio = page.getByTestId(selectors.radioGroup1.radios[1]);
+                const radio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[1]);
                 await expect(radio).toBeFocused();
             });
 
@@ -83,7 +136,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 await page.keyboard.press('Tab');
                 await page.keyboard.press('Tab');
 
-                const radio = page.getByTestId(selectors.radioGroup2.radios[4]);
+                const radio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup2.radios[4]);
 
                 await expect(radio).toBeFocused();
             });
@@ -94,7 +147,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 await page.keyboard.press('Tab');
                 await page.keyboard.press('Tab');
 
-                const button = page.getByTestId(selectors.button2);
+                const button = page.getByTestId(keyboardNavigationStorySelectors.button2);
 
                 await expect(button).toBeFocused();
             });
@@ -114,7 +167,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
 
                 await page.keyboard.press('Shift+Tab');
 
-                const radio = page.getByTestId(selectors.radioGroup1.radios[5]);
+                const radio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[5]);
 
                 await expect(radio).toBeFocused();
             });
@@ -130,7 +183,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
 
                 await page.keyboard.press('Shift+Tab');
 
-                const radio = page.getByTestId(selectors.radioGroup2.radios[4]);
+                const radio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup2.radios[4]);
 
                 await expect(radio).toBeFocused();
             });
@@ -144,7 +197,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 await page.keyboard.press('Shift+Tab');
                 await page.keyboard.press('Shift+Tab');
 
-                const button = page.getByTestId(selectors.button1);
+                const button = page.getByTestId(keyboardNavigationStorySelectors.button1);
 
                 await expect(button).toBeFocused();
             });
@@ -164,13 +217,13 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 await page.keyboard.press('ArrowLeft');
 
                 // Ensure it's gone backwards and selected the last radio
-                const lastRadio = page.getByTestId(selectors.radioGroup1.radios[5]);
+                const lastRadio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[5]);
                 await expect(lastRadio).toBeFocused();
                 await expectFocusedRadioToBeChecked(page, expect);
 
                 // Ensure it's gone backwards once more and selected the second to last radio
                 await page.keyboard.press('ArrowLeft');
-                const secondToLastRadio = page.getByTestId(selectors.radioGroup1.radios[4]);
+                const secondToLastRadio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[4]);
                 await expect(secondToLastRadio).toBeFocused();
                 await expectFocusedRadioToBeChecked(page, expect);
             });
@@ -183,13 +236,13 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 await page.keyboard.press('ArrowUp');
 
                 // Ensure it's gone backwards and selected the last radio
-                const lastRadio = page.getByTestId(selectors.radioGroup1.radios[5]);
+                const lastRadio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[5]);
                 await expect(lastRadio).toBeFocused();
                 await expectFocusedRadioToBeChecked(page, expect);
 
                 // Ensure it's gone backwards once more and selected the second to last radio
                 await page.keyboard.press('ArrowUp');
-                const secondToLastRadio = page.getByTestId(selectors.radioGroup1.radios[4]);
+                const secondToLastRadio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[4]);
                 await expect(secondToLastRadio).toBeFocused();
                 await expectFocusedRadioToBeChecked(page, expect);
             });
@@ -206,14 +259,14 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 await page.keyboard.press('ArrowRight');
 
                 // Ensure we are on the last radio
-                const lastRadio = page.getByTestId(selectors.radioGroup1.radios[5]);
+                const lastRadio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[5]);
                 await expect(lastRadio).toBeFocused();
                 await expectFocusedRadioToBeChecked(page, expect);
 
                 // Press Arrow Right 1 more time to get back to the first radio
                 await page.keyboard.press('ArrowRight');
 
-                const firstRadio = page.getByTestId(selectors.radioGroup1.radios[1]);
+                const firstRadio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[1]);
                 await expect(firstRadio).toBeFocused();
                 await expectFocusedRadioToBeChecked(page, expect);
             });
@@ -230,14 +283,14 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 await page.keyboard.press('ArrowDown');
 
                 // Ensure we are on the last radio
-                const lastRadio = page.getByTestId(selectors.radioGroup1.radios[5]);
+                const lastRadio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[5]);
                 await expect(lastRadio).toBeFocused();
                 await expectFocusedRadioToBeChecked(page, expect);
 
                 // Press Arrow Down 1 more time to get back to the first radio
                 await page.keyboard.press('ArrowDown');
 
-                const firstRadio = page.getByTestId(selectors.radioGroup1.radios[1]);
+                const firstRadio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[1]);
                 await expect(firstRadio).toBeFocused();
                 await expectFocusedRadioToBeChecked(page, expect);
             });
@@ -250,7 +303,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
                 await page.keyboard.press('ArrowRight');
 
                 // Ensure it's gone forwards and selected the second radio
-                const secondRadioButtonGroup1 = page.getByTestId(selectors.radioGroup1.radios[2]);
+                const secondRadioButtonGroup1 = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[2]);
                 await expect(secondRadioButtonGroup1).toBeFocused();
                 await expectFocusedRadioToBeChecked(page, expect);
 
@@ -261,7 +314,7 @@ test.describe('PieRadioGroup - Component tests new', () => {
 
                 // Press right to move from the selected radio to the next
                 await page.keyboard.press('ArrowRight');
-                const lastRadioButtonGroup2 = page.getByTestId(selectors.radioGroup2.radios[5]);
+                const lastRadioButtonGroup2 = page.getByTestId(keyboardNavigationStorySelectors.radioGroup2.radios[5]);
                 await expect(lastRadioButtonGroup2).toBeFocused();
                 await expectFocusedRadioToBeChecked(page, expect);
 
@@ -295,14 +348,14 @@ test.describe('PieRadioGroup - Component tests new', () => {
                     await page.keyboard.press('ArrowLeft');
 
                     // Ensure we are on the last radio
-                    const lastRadio = page.getByTestId(selectors.radioGroup1.radios[5]);
+                    const lastRadio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[5]);
                     await expect(lastRadio).toBeFocused();
                     await expectFocusedRadioToBeChecked(page, expect);
 
                     // Press Arrow Left 1 more time to get back to the first radio
                     await page.keyboard.press('ArrowLeft');
 
-                    const firstRadio = page.getByTestId(selectors.radioGroup1.radios[1]);
+                    const firstRadio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[1]);
                     await expect(firstRadio).toBeFocused();
                     await expectFocusedRadioToBeChecked(page, expect);
                 });
@@ -315,13 +368,13 @@ test.describe('PieRadioGroup - Component tests new', () => {
                     await page.keyboard.press('ArrowUp');
 
                     // Ensure it's gone backwards and selected the last radio
-                    const lastRadio = page.getByTestId(selectors.radioGroup1.radios[5]);
+                    const lastRadio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[5]);
                     await expect(lastRadio).toBeFocused();
                     await expectFocusedRadioToBeChecked(page, expect);
 
                     // Ensure it's gone backwards once more and selected the second to last radio
                     await page.keyboard.press('ArrowUp');
-                    const secondToLastRadio = page.getByTestId(selectors.radioGroup1.radios[4]);
+                    const secondToLastRadio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[4]);
                     await expect(secondToLastRadio).toBeFocused();
                     await expectFocusedRadioToBeChecked(page, expect);
                 });
@@ -334,13 +387,13 @@ test.describe('PieRadioGroup - Component tests new', () => {
                     await page.keyboard.press('ArrowRight');
 
                     // Ensure it's gone backwards and selected the last radio
-                    const lastRadio = page.getByTestId(selectors.radioGroup1.radios[5]);
+                    const lastRadio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[5]);
                     await expect(lastRadio).toBeFocused();
                     await expectFocusedRadioToBeChecked(page, expect);
 
                     // Ensure it's gone backwards once more and selected the second to last radio
                     await page.keyboard.press('ArrowRight');
-                    const secondToLastRadio = page.getByTestId(selectors.radioGroup1.radios[4]);
+                    const secondToLastRadio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[4]);
                     await expect(secondToLastRadio).toBeFocused();
                     await expectFocusedRadioToBeChecked(page, expect);
                 });
@@ -357,14 +410,14 @@ test.describe('PieRadioGroup - Component tests new', () => {
                     await page.keyboard.press('ArrowDown');
 
                     // Ensure we are on the last radio
-                    const lastRadio = page.getByTestId(selectors.radioGroup1.radios[5]);
+                    const lastRadio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[5]);
                     await expect(lastRadio).toBeFocused();
                     await expectFocusedRadioToBeChecked(page, expect);
 
                     // Press Arrow Down 1 more time to get back to the first radio
                     await page.keyboard.press('ArrowDown');
 
-                    const firstRadio = page.getByTestId(selectors.radioGroup1.radios[1]);
+                    const firstRadio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[1]);
                     await expect(firstRadio).toBeFocused();
                     await expectFocusedRadioToBeChecked(page, expect);
                 });

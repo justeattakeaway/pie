@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-radio-group
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - Pass name prop down to radio child elements in slot ([#2167](https://github.com/justeattakeaway/pie/pull/2167)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.5.0
 
 ### Minor Changes
