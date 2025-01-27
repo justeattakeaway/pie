@@ -1,8 +1,9 @@
 import { test, expect } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { ButtonComponent } from '../helpers/page-object/pie-button.component.ts';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { ButtonComponent } from '../helpers/page-object/pie-button.component.ts';
+
 test('should render all size variations', async ({ page }) => {
     // Arrange
     const buttonPage = new BasePage(page, 'button--responsive-button-variations');

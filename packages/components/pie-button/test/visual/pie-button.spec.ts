@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
-import { ButtonComponent } from '../helpers/page-object/pie-button.component.ts';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { ButtonComponent } from '../helpers/page-object/pie-button.component.ts';
 import { variants } from '../../src/defs.ts';
 
 variants.forEach((variant) => {
