@@ -40,7 +40,7 @@ test.describe('PieThumbnail - Component tests', () => {
             alt: 'JET Logo',
         };
 
-        const pieThumbnailPage = new BasePage(page, 'thumbnail--valid-src');
+        const pieThumbnailPage = new BasePage(page, 'thumbnail--valid-src-with-placeholder');
         await pieThumbnailPage.load();
 
         const thumbnailComponent = page.getByTestId(thumbnail.selectors.container.dataTestId);
