@@ -42,7 +42,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     @property({ type: Object })
     public placeholder: ThumbnailProps['placeholder'];
 
-    private handleImageError () {
+    private _handleImageError () {
         if (this.placeholder?.src) this.setAttribute('src', this.placeholder.src);
         if (this.placeholder?.alt) this.setAttribute('alt', this.placeholder.alt);
     }
@@ -55,7 +55,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
             disabled,
             hasPadding,
             backgroundColor,
-            handleImageError,
+            _handleImageError,
         } = this;
 
         const wrapperClasses = {
@@ -68,7 +68,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
 
         return html`
             <div data-test-id="pie-thumbnail" class="${classMap(wrapperClasses)}">
-                <img data-test-id="pie-thumbnail-img" src="${src}" class="c-thumbnail-img" alt="${alt}" @error="${handleImageError.bind(this)}">
+                <img data-test-id="pie-thumbnail-img" src="${src}" class="c-thumbnail-img" alt="${alt}" @error="${_handleImageError.bind(this)}">
             </div>
         `;
     }
