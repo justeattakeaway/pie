@@ -4,7 +4,7 @@ import {
 
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
-import { property } from 'lit/decorators.js';
+import { property, state } from 'lit/decorators.js';
 import {
     type ThumbnailProps, defaultProps, variants, backgroundColors,
 } from './defs';
@@ -42,10 +42,16 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     @property({ type: Object })
     public placeholder: ThumbnailProps['placeholder'];
 
-    private handleImageError = () => {
-        if (this.placeholder?.src) this.src = this.placeholder.src as string;
-        if (this.placeholder?.alt) this.alt = this.placeholder.alt as string;
-    };
+    @state()
+    protected _imgData = {
+            src: this.src,
+            alt: this.alt,
+        };
+
+    private handleImageError () {
+        if (this.placeholder?.src) this.setAttribute('src', this.placeholder.src);
+        if (this.placeholder?.alt) this.setAttribute('alt', this.placeholder.alt);
+    }
 
     render () {
         const {
@@ -68,7 +74,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
 
         return html`
             <div data-test-id="pie-thumbnail" class="${classMap(wrapperClasses)}">
-                <img data-test-id="pie-thumbnail-img" src="${src}" class="c-thumbnail-img" alt="${alt}" @error="${handleImageError}">
+                <img data-test-id="pie-thumbnail-img" src="${src}" class="c-thumbnail-img" alt="${alt}" @error="${handleImageError.bind(this)}">
             </div>
         `;
     }
