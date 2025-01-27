@@ -137,7 +137,7 @@ export const InvalidSrc = createStory<ThumbnailProps>(Template, {
     alt: 'Invalid text',
 })();
 
-export const InvalidPlaceholder = createStory<ThumbnailProps>(Template, {
+export const ValidSrc = createStory<ThumbnailProps>(Template, {
     placeholder: {
         src: 'https://www.pie.design/assets/img/404_narrow.png',
         alt: 'Placeholder Alt',

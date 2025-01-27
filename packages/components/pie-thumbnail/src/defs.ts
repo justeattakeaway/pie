@@ -6,7 +6,7 @@ export const variants = [
 
 export const backgroundColors = [
     'default', 'subtle', 'strong', 'dark', 'inverse', 'inverse-alternative'
-]as const;
+] as const;
 
 type PlaceholderProps = {
     src?: string;
