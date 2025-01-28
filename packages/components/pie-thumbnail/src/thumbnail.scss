@@ -21,10 +21,6 @@
     opacity: 0.5;
   }
 
-  &.c-thumbnail--backgroundDefault {
-    --thumbnail-bg-color: var(--dt-color-container-default);
-  }
-
   &.c-thumbnail--backgroundSubtle {
     --thumbnail-bg-color: var(--dt-color-container-subtle);
   }
