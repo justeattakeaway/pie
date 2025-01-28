@@ -1,10 +1,11 @@
 import {
-    LitElement, html, unsafeCSS,
+    LitElement,
+    html,
+    unsafeCSS,
 } from 'lit';
-
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
-import { property } from 'lit/decorators.js';
+import { property, query } from 'lit/decorators.js';
 import {
     type ThumbnailProps,
     defaultProps,
@@ -44,11 +45,34 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     public backgroundColor = defaultProps.backgroundColor;
 
     @property({ type: Object })
-    public placeholder: ThumbnailProps['placeholder'];
+    public placeholder: ThumbnailProps['placeholder'] = defaultProps.placeholder;
 
+    @query('img')
+    private img!: HTMLImageElement;
+
+    /**
+     * Handles image loading errors and sets the placeholder props if provided
+     */
     private _handleImageError () {
         if (this.placeholder?.src) this.setAttribute('src', this.placeholder.src);
         if (this.placeholder?.alt) this.setAttribute('alt', this.placeholder.alt);
+    }
+
+    /**
+     * Checks if the image failed to load before hydration and sets the placeholder
+     * This is needed as the native `onerror` event isn't triggered in SSR
+     */
+    private _checkImageErrorBeforeHydration () {
+        const { img, _handleImageError } = this;
+        if (img) {
+            const { complete, naturalHeight } = img;
+            const hasErrorBeforeHydration = complete && naturalHeight === 0;
+            if (hasErrorBeforeHydration) _handleImageError.call(this);
+        }
+    }
+
+    firstUpdated () {
+        this._checkImageErrorBeforeHydration();
     }
 
     render () {
@@ -72,7 +96,13 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
 
         return html`
             <div data-test-id="pie-thumbnail" class="${classMap(wrapperClasses)}">
-                <img data-test-id="pie-thumbnail-img" src="${src}" class="c-thumbnail-img" alt="${alt}" @error="${_handleImageError.bind(this)}">
+                <img
+                    data-test-id="pie-thumbnail-img"
+                    src="${src}"
+                    class="c-thumbnail-img"
+                    alt="${alt}"
+                    @error="${_handleImageError}"
+                />
             </div>
         `;
     }
