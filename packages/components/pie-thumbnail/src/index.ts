@@ -65,7 +65,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
         const wrapperClasses = {
             'c-thumbnail': true,
             [`c-thumbnail--${variant}`]: true,
-            [`${backgroundColorClassNames[backgroundColor]}`]: true,
+            [backgroundColorClassNames[backgroundColor]]: true,
             'c-thumbnail--disabled': disabled,
             'c-thumbnail--padding': hasPadding,
         };
