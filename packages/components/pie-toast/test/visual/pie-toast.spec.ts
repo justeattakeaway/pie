@@ -1,8 +1,11 @@
 import { test } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
-import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 import { variants } from '../../src/defs.ts';
+
+const percyWidths = {
+    widths: [480],
+};
 
 variants.forEach((variant) => {
     test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
