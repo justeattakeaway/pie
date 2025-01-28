@@ -51,7 +51,8 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     private img!: HTMLImageElement;
 
     /**
-     * Handles image loading errors and sets the placeholder props if provided
+     * Handles image load errors by replacing the src and alt props
+     * with the placeholder props.
      */
     private _handleImageError () {
         if (this.placeholder?.src) this.setAttribute('src', this.placeholder.src);
@@ -59,20 +60,19 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     }
 
     /**
-     * Checks if the image failed to load before hydration and sets the placeholder
-     * This is needed as the native `onerror` event isn't triggered in SSR
+     * Detects image load status and applies the placeholder on failure.
+     * This is needed as the `onerror` event is not triggered in SSR.
      */
-    private _checkImageErrorBeforeHydration () {
-        const { img, _handleImageError } = this;
-        if (img) {
-            const { complete, naturalHeight } = img;
-            const hasErrorBeforeHydration = complete && naturalHeight === 0;
-            if (hasErrorBeforeHydration) _handleImageError.call(this);
+    private _checkImageError () {
+        if (this.img) {
+            const { complete, naturalHeight } = this.img;
+            const hasError = complete && naturalHeight === 0;
+            if (hasError) this._handleImageError.call(this);
         }
     }
 
-    firstUpdated () {
-        this._checkImageErrorBeforeHydration();
+    protected firstUpdated (): void {
+        this._checkImageError();
     }
 
     render () {
