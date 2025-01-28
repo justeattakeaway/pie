@@ -21,23 +21,27 @@
     opacity: 0.5;
   }
 
-  &.c-thumbnail-background--subtle {
+  &.c-thumbnail--backgroundDefault {
+    --thumbnail-bg-color: var(--dt-color-container-default);
+  }
+
+  &.c-thumbnail--backgroundSubtle {
     --thumbnail-bg-color: var(--dt-color-container-subtle);
   }
 
-  &.c-thumbnail-background--strong {
+  &.c-thumbnail--backgroundStrong {
     --thumbnail-bg-color: var(--dt-color-container-strong);
   }
 
-  &.c-thumbnail-background--dark {
+  &.c-thumbnail--backgroundDark {
     --thumbnail-bg-color: var(--dt-color-container-dark);
   }
 
-  &.c-thumbnail-background--inverse {
+  &.c-thumbnail--backgroundInverse {
     --thumbnail-bg-color: var(--dt-color-container-inverse);
   }
 
-  &.c-thumbnail-background--inverse-alternative {
+  &.c-thumbnail--backgroundInverseAlternative {
     --thumbnail-bg-color: var(--dt-color-container-inverse-alternative);
   }
 

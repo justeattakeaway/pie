@@ -6,7 +6,11 @@ import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-w
 import { classMap } from 'lit/directives/class-map.js';
 import { property } from 'lit/decorators.js';
 import {
-    type ThumbnailProps, defaultProps, variants, backgroundColors,
+    type ThumbnailProps,
+    defaultProps,
+    variants,
+    backgroundColors,
+    backgroundColorClassNames,
 } from './defs';
 import styles from './thumbnail.scss?inline';
 
@@ -61,7 +65,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
         const wrapperClasses = {
             'c-thumbnail': true,
             [`c-thumbnail--${variant}`]: true,
-            [`c-thumbnail-background--${backgroundColor}`]: true,
+            [`${backgroundColorClassNames[backgroundColor]}`]: true,
             'c-thumbnail--disabled': disabled,
             'c-thumbnail--padding': hasPadding,
         };

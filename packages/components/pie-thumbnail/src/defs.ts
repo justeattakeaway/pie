@@ -8,6 +8,15 @@ export const backgroundColors = [
     'default', 'subtle', 'strong', 'dark', 'inverse', 'inverse-alternative'
 ] as const;
 
+export const backgroundColorClassNames: Record<typeof backgroundColors[number], string> = {
+    default: 'c-thumbnail--backgroundDefault',
+    subtle: 'c-thumbnail--backgroundSubtle',
+    strong: 'c-thumbnail--backgroundStrong',
+    dark: 'c-thumbnail--backgroundDark',
+    inverse: 'c-thumbnail--backgroundInverse',
+    'inverse-alternative': 'c-thumbnail--backgroundInverseAlternative',
+};
+
 type PlaceholderProps = {
     src?: string;
     alt?: string;
