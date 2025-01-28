@@ -23,7 +23,7 @@ test.describe('PieToast - Component tests', () => {
 
     test.describe('Props', () => {
         test.describe('isOpen', () => {
-            test.only('should have c-toast--animate-out class if isOpen is false', async ({ page }) => {
+            test('should have c-toast--animate-out class if isOpen is false', async ({ page }) => {
                 // Arrange
                 const toastPage = new BasePage(page, 'toast');
                 const props: ToastProps = {
