@@ -23,6 +23,7 @@ export function getPlaywrightConfig () {
         reporter: [['html', { outputFolder: '../../../lit-browsers-report' }]],
         /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
         use: {
+            ctPort: 3100,
             ctViteConfig: {
                 resolve: {
                     alias: {
@@ -42,9 +43,6 @@ export function getPlaywrightConfig () {
                 use: {
                     ...devices['Desktop Chrome'],
                     channel: 'chrome',
-                    connectOptions: {
-                      exposeNetwork: '<loopback>'
-                    }
                 },
                 testMatch: ['**/test/component/*.spec.{js,ts}'],
             },
@@ -53,9 +51,6 @@ export function getPlaywrightConfig () {
                 use: {
                     ...devices['Desktop Chrome'],
                     channel: 'chrome',
-                    connectOptions: {
-                      exposeNetwork: '<loopback>'
-                    }
                 },
                 testMatch: ['**/test/accessibility/*.spec.{js,ts}'],
             },
