@@ -36,6 +36,10 @@ export function getPlaywrightNativeVisualConfig () {
                 grepInvert: /@mobile/,
                 use: {
                     ...devices['Desktop Chrome'],
+                    channel: 'chrome',
+                    connectOptions: {
+                      exposeNetwork: '<loopback>'
+                    }
                 },
                 testMatch: ['**/test/visual/*.spec.ts'],
             },
@@ -44,6 +48,10 @@ export function getPlaywrightNativeVisualConfig () {
                 grep: /@mobile/,
                 use: {
                     ...devices['Galaxy S8'],
+                    channel: 'chrome',
+                    connectOptions: {
+                      exposeNetwork: '<loopback>'
+                    }
                 },
                 testMatch: ['**/test/visual/*.spec.ts'],
             },
