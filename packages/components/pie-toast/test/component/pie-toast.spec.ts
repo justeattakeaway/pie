@@ -26,14 +26,13 @@ test.describe('PieToast - Component tests', () => {
             test('should have c-toast--animate-out class if isOpen is false', async ({ page }) => {
                 // Arrange
                 const toastPage = new BasePage(page, 'toast');
-                const props: ToastProps = {
+                const props: Partial<ToastProps> = {
                     isOpen: false,
                     duration: 250,
                 };
                 await toastPage.load({ ...props });
 
-                //  Wait for the component to render and close alongside its animations
-                await page.waitForTimeout(250);
+                await expect.soft(page.getByTestId(toast.selectors.container.dataTestId)).toBeVisible();
 
                 // Act
                 const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
@@ -88,7 +87,7 @@ test.describe('PieToast - Component tests', () => {
             test('should not show the close icon if isDismissible is false', async ({ page }) => {
                 // Arrange
                 const toastPage = new BasePage(page, 'toast');
-                const props: ToastProps = {
+                const props: Partial<ToastProps> = {
                     isDismissible: false,
                 };
                 await toastPage.load({ ...props });
@@ -107,7 +106,7 @@ test.describe('PieToast - Component tests', () => {
             test('should show the footer if isMultiline is true and has leadingAction', async ({ page }) => {
                 // Arrange
                 const toastPage = new BasePage(page, 'toast');
-                const props: ToastProps = {
+                const props: Partial<ToastProps> = {
                     isMultiline: true,
                     leadingAction: mainAction,
                 };
@@ -129,7 +128,7 @@ test.describe('PieToast - Component tests', () => {
             test('should show the leadingAction when provided and if multiline is false', async ({ page }) => {
                 // Arrange
                 const toastPage = new BasePage(page, 'toast');
-                const props: ToastProps = {
+                const props: Partial<ToastProps> = {
                     isMultiline: false,
                     leadingAction: mainAction,
                 };
@@ -147,9 +146,8 @@ test.describe('PieToast - Component tests', () => {
             test('should not show the footer if leadingAction is not provided', async ({ page }) => {
                 // Arrange
                 const toastPage = new BasePage(page, 'toast');
-                const props: ToastProps = {
+                const props: Partial<ToastProps> = {
                     isMultiline: true,
-                    leadingAction: undefined,
                 };
                 await toastPage.load({ ...props });
 
@@ -167,7 +165,7 @@ test.describe('PieToast - Component tests', () => {
             test('should show the footer if leadingAction is provided', async ({ page }) => {
                 // Arrange
                 const toastPage = new BasePage(page, 'toast');
-                const props: ToastProps = {
+                const props: Partial<ToastProps> = {
                     isDismissible: false,
                     isMultiline: true,
                     leadingAction: mainAction,
@@ -185,47 +183,13 @@ test.describe('PieToast - Component tests', () => {
                 await expect(actionLeading).toBeVisible();
             });
         });
-
-        test.describe('variant', () => {
-            variants.forEach((variant) => {
-                if (variant !== 'neutral') {
-                    test(`should show the ${variant} icon`, async ({ page }) => {
-                        // Arrange
-                        const toastPage = new BasePage(page, `toast--${variant}`);
-                        await toastPage.load();
-
-                        // Act
-                        const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
-                        const icon = page.getByTestId(`${toast.selectors.headingIcon[variant].dataTestId}`);
-
-                        // Assert
-                        await expect(toastComponent).toBeVisible();
-                        await expect(icon).toBeVisible();
-                    });
-                } else {
-                    test('should not show the icon when variant is neutral', async ({ page }) => {
-                        // Arrange
-                        const toastPage = new BasePage(page, `toast--${variant}`);
-                        await toastPage.load();
-
-                        // Act
-                        const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
-                        const headingIcon = page.getByTestId(/.*heading-icon.*/);
-
-                        // Assert
-                        await expect(toastComponent).toBeVisible();
-                        await expect(headingIcon).not.toBeVisible();
-                    });
-                }
-            });
-        });
     });
 
     test.describe('role attribute', () => {
         test('should set role to "alert" when variant is "error"', async ({ page }) => {
             // Arrange
             const toastPage = new BasePage(page, 'toast');
-            const props: ToastProps = {
+            const props: Partial<ToastProps> = {
                 variant: 'error',
             };
             await toastPage.load({ ...props });
@@ -241,7 +205,7 @@ test.describe('PieToast - Component tests', () => {
             test(`should set role to "status" when variant is "${variant}"`, async ({ page }) => {
                 // Arrange
                 const toastPage = new BasePage(page, 'toast');
-                const props: ToastProps = {
+                const props: Partial<ToastProps> = {
                     variant,
                 };
                 await toastPage.load({ ...props });

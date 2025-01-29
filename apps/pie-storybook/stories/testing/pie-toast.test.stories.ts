@@ -18,8 +18,8 @@ const defaultArgs: ToastProps = {
     ...defaultProps,
     message: 'Menu Published',
     leadingAction: {
-        text: 'Confirm',
-        ariaLabel: 'Descriptive confirmation text',
+        text: '',
+        ariaLabel: '',
     },
     duration: null,
 };

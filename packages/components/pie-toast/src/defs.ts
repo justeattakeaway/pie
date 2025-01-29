@@ -35,7 +35,7 @@ export interface ToastProps {
   /**
    * The message content of the toast.
    */
-  message?: string;
+  message: string;
   /**
    * Allows the message content to be displayed as multiline, limited to three rows.
    */
