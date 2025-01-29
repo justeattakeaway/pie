@@ -1,35 +1,21 @@
-import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/webc-fixtures.ts';
-import { getAllPropCombinations, splitCombinationsByPropertyValue } from '@justeattakeaway/pie-webc-testing/src/helpers/get-all-prop-combos.ts';
-import { type PropObject, type WebComponentPropValues } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
-import { PieButton } from '../../src/index.ts';
-import { type ButtonProps, sizes, variants } from '../../src/defs.ts';
+import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/playwright-fixtures.ts';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { ButtonComponent } from '../helpers/page-object/pie-button.component.ts';
+import { variants } from '../../src/defs.ts';
 
-const props: PropObject<ButtonProps> = {
-    variant: variants,
-    size: sizes,
-    type: 'button', // Changing the type does not affect the appearance of the button
-    isFullWidth: [true, false],
-    disabled: [true, false],
-};
+variants.forEach((variant) => {
+    test(`should test a11y for Variant: ${variant}`, async ({ makeAxeBuilder, page }) => {
+        // Arrange
+        const buttonPage = new BasePage(page, `button--${variant}-variations`);
+        const buttonComponent = new ButtonComponent(page);
 
-const componentPropsMatrix: WebComponentPropValues[] = getAllPropCombinations(props);
-const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
-const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
+        await buttonPage.load();
+        await expect.soft(buttonComponent.componentLocator.first()).toBeVisible();
 
-componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ makeAxeBuilder, mount }) => {
-    await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
-        await mount(
-            PieButton,
-            {
-                props: { ...combo },
-                slots: {
-                    default: 'Hello world',
-                },
-            },
-        );
-    }));
+        // Act
+        const results = await makeAxeBuilder().analyze();
 
-    const results = await makeAxeBuilder().analyze();
-
-    expect(results.violations).toEqual([]);
-}));
+        // Assert
+        expect(results.violations).toEqual([]);
+    });
+});
