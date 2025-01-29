@@ -20,6 +20,7 @@ export function getPlaywrightVisualConfig () {
         reporter: [['html', { outputFolder: '../../../lit-visual-report' }]],
         /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
         use: {
+            ctPort: 3100,
             ctViteConfig: {
                 resolve: {
                     alias: {
@@ -45,9 +46,6 @@ export function getPlaywrightVisualConfig () {
                 use: {
                     ...devices['Desktop Chrome'],
                     channel: 'chrome',
-                    connectOptions: {
-                      exposeNetwork: '<loopback>'
-                    }
                 },
                 testMatch: ['**/test/visual/*.spec.ts'],
             },
@@ -57,9 +55,6 @@ export function getPlaywrightVisualConfig () {
                 use: {
                     ...devices['Galaxy S8'],
                     channel: 'chrome',
-                    connectOptions: {
-                      exposeNetwork: '<loopback>'
-                    }
                 },
                 testMatch: ['**/test/visual/*.spec.ts'],
             },
