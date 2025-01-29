@@ -27,17 +27,41 @@ type PlaceholderProps = {
 }
 
 export interface ThumbnailProps {
+    /**
+     * What style variant the thumbnail should be such as default or outline.
+     */
     variant?: typeof variants[number];
+    /**
+     * What size the thumbnail should be.
+     */
     size?: typeof sizes[number];
+    /**
+     * The src attribute for the underlying image tag.
+     */
     src?: string;
+    /**
+     * The alt attribute for the underlying image tag.
+     */
     alt?: string;
+    /**
+     * When true, the disabled styles are applied.
+     */
     disabled?: boolean;
+    /**
+     * When true, an extra spacing around the thumbnail container is applied.
+     */
     hasPadding?: boolean;
+    /**
+     * What background color the thumbnail should be.
+     */
     backgroundColor?: typeof backgroundColors[number];
+    /**
+     * What placeholder should be used when the image fails to load.
+     */
     placeholder?: PlaceholderProps;
 }
 
-export type DefaultProps = ComponentDefaultProps<ThumbnailProps, 'variant' | 'src' | 'alt' | 'disabled' | 'hasPadding' | 'backgroundColor' | 'placeholder' | 'size'>;
+export type DefaultProps = ComponentDefaultProps<ThumbnailProps>;
 
 export const defaultProps: DefaultProps = {
     variant: 'default',

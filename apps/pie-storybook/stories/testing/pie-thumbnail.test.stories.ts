@@ -2,7 +2,11 @@ import { html } from 'lit';
 
 import '@justeattakeaway/pie-thumbnail';
 import {
-    type ThumbnailProps, defaultProps, variants, backgroundColors,
+    type ThumbnailProps,
+    defaultProps,
+    variants,
+    backgroundColors,
+    sizes,
 } from '@justeattakeaway/pie-thumbnail';
 
 import { type Meta } from '@storybook/web-components';
@@ -30,6 +34,14 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
             options: variants,
             defaultValue: {
                 summary: defaultProps.variant,
+            },
+        },
+        size: {
+            description: 'Set the size of the thumbnail.',
+            control: 'select',
+            options: sizes,
+            defaultValue: {
+                summary: defaultArgs.size,
             },
         },
         src: {
@@ -69,7 +81,7 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
             },
         },
         placeholder: {
-            description: 'If an image is unavailable, the placeholder prop can be used to ensure there is always something visible to users.',
+            description: 'If an image fails to load, the placeholder prop can be used to ensure there is always something visible to users.',
             control: 'object',
             defaultValue: {
                 summary: defaultProps.placeholder,
@@ -83,6 +95,7 @@ export default thumbnailStoryMeta;
 
 const Template: TemplateFunction<ThumbnailProps> = ({
     variant,
+    size,
     src,
     alt,
     disabled,
@@ -92,6 +105,7 @@ const Template: TemplateFunction<ThumbnailProps> = ({
 }) => html`
     <pie-thumbnail
         variant="${variant}"
+        sizes="${size}"
         src="${src}"
         alt="${alt}"
         ?disabled="${disabled}"
@@ -104,6 +118,7 @@ const Template: TemplateFunction<ThumbnailProps> = ({
 const sharedPropOptions: Partial<Record<keyof ThumbnailProps, unknown[]>> = {
     src: [defaultArgs.src],
     alt: [defaultArgs.alt],
+    size: sizes,
     disabled: [true, false],
     hasPadding: [true, false],
     backgroundColor: [defaultArgs.backgroundColor],
