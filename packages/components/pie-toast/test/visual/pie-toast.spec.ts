@@ -5,7 +5,7 @@ import { toast } from 'test/helpers/page-object/selectors.ts';
 import { variants } from '../../src/defs.ts';
 
 const percyWidths = {
-    widths: [480],
+    widths: [1475],
 };
 
 variants.forEach((variant) => {
@@ -18,40 +18,3 @@ variants.forEach((variant) => {
         await percySnapshot(page, `PIE Toast - Variant: ${variant}`, percyWidths);
     });
 });
-
-test.describe('Props', () => {
-    test.describe('leadingAction', () => {
-        test('should display leadingAction in footer if isMultiline is true', async ({ page }) => {
-            const toastPage = new BasePage(page, 'toast');
-            const props = {
-                message: 'Item was added',
-                isMultiline: true,
-                leadingAction: {
-                    text: 'Confirm',
-                    ariaLabel: 'Button to confirm the action',
-                },
-            };
-
-            await toastPage.load({ ...props });
-
-            await percySnapshot(page, 'PIE Toast - isMultiline - Displays leadingAction in footer if isMultiline is true', percyWidths);
-        });
-
-        test('should display leadingAction inline if isMultiline is false', async ({ page }) => {
-            const toastPage = new BasePage(page, 'toast');
-            const props = {
-                message: 'Item was added',
-                isMultiline: false,
-                leadingAction: {
-                    text: 'Confirm',
-                    ariaLabel: 'Button to confirm the action',
-                },
-            };
-
-            await toastPage.load({ ...props });
-
-            await percySnapshot(page, 'PIE Toast - isMultiline - Displays leadingAction inline if isMultiline is false', percyWidths);
-        });
-    });
-});
-

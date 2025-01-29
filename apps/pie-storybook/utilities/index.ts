@@ -78,7 +78,8 @@ export type PropDisplayOptions<T> = {
  *
  * @param {TemplateFunction<T>} template - The function responsible for rendering the Lit web component.
  * @param {Record<keyof T, unknown[]>} propOptions - An object defining the possible values for each prop.
- * @param {StoryOptions & { multiColumn?: boolean }} [storyOpts] - Optional story configuration including background color, controls, layout and whether to display in multiple columns.
+ * @param {StoryOptions & PropDisplayOptions & { multiColumn?: boolean }} [storyOpts] - Optional story configuration including background color, controls, layout and whether to 
+ * display in multiple columns.
  *
  * @returns {Object} Returns an object containing a render function that displays all combinations of the given prop options.
  */

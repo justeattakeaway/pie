@@ -89,6 +89,16 @@ const pieToastOpen = action('pie-toast-open');
 const shortMessage = 'Item has been created';
 const longMessage = 'Donec pulvinar porta tempus. Sed ac ex ac libero pulvinar tincidunt eget non orci. Curabitur leo quam, commodo sit amet dolor eu, molestie molestie eros. Nulla rutrum vehicula sodales. Duis quis lobortis tortor. In hac habitasse platea dictumst. Vestibulum efficitur, orci at interdum eleifend, nulla nunc luctus urna, sit amet commodo libero lacus scelerisque enim. In eleifend ex ut nulla cursus, eu efficitur ligula pharetra.';
 
+const leadingActionTrue = {
+    text: 'Confirm',
+    ariaLabel: 'Button to confirm the action',
+};
+
+const leadingActionFalse = {
+    text: '',
+    ariaLabel: '',
+};
+
 const Template : TemplateFunction<ToastProps> = ({
     isOpen,
     isDismissible,
@@ -141,46 +151,6 @@ export const Error = createToastStory({ variant: 'error' });
 export const ErrorStrong = createToastStory({ variant: 'error', isStrong: true });
 export const AutoDismiss = createToastStory({ duration: 3000, message: 'Closing in three seconds' });
 
-const VariantsTemplate : TemplateFunction<ToastProps> = ({
-    isOpen,
-    isDismissible,
-    message,
-    leadingAction,
-    isMultiline,
-    isStrong,
-    variant,
-    duration,
-}: ToastProps) => {
-    const [, updateArgs] = useArgs();
-
-    const pieToastCloseHandle = () => {
-        updateArgs({ isOpen: false });
-        pieToastClose();
-    };
-
-    const pieToastOpenHandle = () => {
-        updateArgs({ isOpen: true });
-        pieToastOpen();
-    };
-
-    return html`
-        <div style="width: 100%;">
-        <pie-toast
-            ?isOpen="${isOpen}"
-            ?isDismissible="${isDismissible}"
-            ?isStrong="${isStrong}"
-            variant="${ifDefined(variant)}"
-                message="${message}" 
-                .duration="${duration}"
-                ?isMultiline="${isMultiline}"
-                .leadingAction="${leadingAction}"
-                @pie-toast-leading-action-click="${pieToastLeadingActionClick}"
-                @pie-toast-close="${pieToastCloseHandle}"
-                @pie-toast-open="${pieToastOpenHandle}"/>
-        </div>
-        `;
-};
-
 // Base shared props matrix
 const baseSharedPropsMatrix: Partial<Record<keyof ToastProps, unknown[]>> = {
     isStrong: [true, false],
@@ -188,6 +158,7 @@ const baseSharedPropsMatrix: Partial<Record<keyof ToastProps, unknown[]>> = {
     isMultiline: [true, false],
     message: [shortMessage, longMessage],
     duration: [null],
+    leadingAction: [leadingActionTrue, leadingActionFalse],
 };
 
 // Neutral variant stories
@@ -231,8 +202,8 @@ const variantPropDisplayOptions: PropDisplayOptions<ToastProps> = {
 };
 
 // Export the variant stories
-export const NeutralVariations = createVariantStory<ToastProps>(VariantsTemplate, neutralPropsMatrix, variantPropDisplayOptions);
-export const InfoVariations = createVariantStory<ToastProps>(Template, infoPropsMatrix, variantPropDisplayOptions);
-export const WarningVariations = createVariantStory<ToastProps>(Template, warningPropsMatrix, variantPropDisplayOptions);
-export const SuccessVariations = createVariantStory<ToastProps>(Template, successPropsMatrix, variantPropDisplayOptions);
-export const ErrorVariations = createVariantStory<ToastProps>(Template, errorPropsMatrix, variantPropDisplayOptions);
+export const NeutralVariations = createVariantStory<ToastProps>(Template, neutralPropsMatrix, { ...variantPropDisplayOptions, multiColumn: true });
+export const InfoVariations = createVariantStory<ToastProps>(Template, infoPropsMatrix, { ...variantPropDisplayOptions, multiColumn: true });
+export const WarningVariations = createVariantStory<ToastProps>(Template, warningPropsMatrix, { ...variantPropDisplayOptions, multiColumn: true });
+export const SuccessVariations = createVariantStory<ToastProps>(Template, successPropsMatrix, { ...variantPropDisplayOptions, multiColumn: true });
+export const ErrorVariations = createVariantStory<ToastProps>(Template, errorPropsMatrix, { ...variantPropDisplayOptions, multiColumn: true });
