@@ -34,10 +34,6 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     public size = defaultProps.size;
 
     @property({ type: String })
-    @validPropertyValues(componentSelector, sizes, defaultProps.size)
-    public size = defaultProps.size;
-
-    @property({ type: String })
     public src = defaultProps.src;
 
     @property({ type: String })
@@ -102,7 +98,6 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     render () {
         const {
             variant,
-            size,
             src,
             alt,
             disabled,

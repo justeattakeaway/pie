@@ -4,10 +4,6 @@ export const variants = [
     'default', 'outline',
 ] as const;
 
-export const sizes = [
-    'xsmall', 'small', 'medium',
-] as const;
-
 export const backgroundColors = [
     'default', 'subtle', 'strong', 'dark', 'inverse', 'inverse-alternative'
 ] as const;
