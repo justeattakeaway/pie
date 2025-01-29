@@ -120,7 +120,7 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) imp
                 name=${ifDefined(name)}
                 ?disabled=${disabled}
                 aria-describedby="${ifDefined(assistiveText ? assistiveTextId : undefined)}"
-                data-test-id="pie-checkbox-group"
+                data-test-id="pie-checkbox-group-fieldset"
                 class="${classMap(classes)}"
             >
                 ${this.renderWrappedLabel()}
