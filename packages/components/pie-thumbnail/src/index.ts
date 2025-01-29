@@ -12,6 +12,7 @@ import {
     variants,
     backgroundColors,
     backgroundColorClassNames,
+    sizes,
 } from './defs';
 import styles from './thumbnail.scss?inline';
 
@@ -28,7 +29,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
     public variant = defaultProps.variant;
 
-    @property({ type: String })
+    @property({ type: Number })
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
     public size = defaultProps.size;
 
@@ -53,6 +54,21 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
 
     @query('img')
     private img!: HTMLImageElement;
+
+    private _generateSizeStyles (): string {
+        const { size } = this;
+        let borderRadius = '--dt-radius-rounded-a';
+        if (size <= 40) {
+            borderRadius = '--dt-radius-rounded-a';
+        } else if (size <= 56) {
+            borderRadius = '--dt-radius-rounded-a';
+        }
+
+        return `
+            --thumbnail-size: ${size}px;
+            --thumbnail-border-radius: var(${borderRadius});
+        `;
+    }
 
     /**
      * Handles image load errors by replacing the src and alt props
@@ -82,13 +98,11 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     render () {
         const {
             variant,
-            size,
             src,
             alt,
             disabled,
             hasPadding,
             backgroundColor,
-            _handleImageError,
         } = this;
 
         const wrapperClasses = {
@@ -99,14 +113,18 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
             'c-thumbnail--padding': hasPadding,
         };
 
+        const sizeStyles = this._generateSizeStyles();
+
         return html`
-            <div data-test-id="pie-thumbnail" class="${classMap(wrapperClasses)}">
+            <div data-test-id="pie-thumbnail"
+             class="${classMap(wrapperClasses)}"
+             style="${sizeStyles}">
                 <img
                     data-test-id="pie-thumbnail-img"
                     src="${src}"
                     class="c-thumbnail-img"
                     alt="${alt}"
-                    @error="${_handleImageError}"
+                    @error="${this._handleImageError}"
                 />
             </div>
         `;

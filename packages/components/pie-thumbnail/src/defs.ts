@@ -5,7 +5,7 @@ export const variants = [
 ] as const;
 
 export const sizes = [
-    'xsmall', 'small', 'medium',
+    24, 32, 40, 48, 56, 64, 72, 80, 88
 ] as const;
 
 export const backgroundColors = [
@@ -28,6 +28,7 @@ type PlaceholderProps = {
 
 export interface ThumbnailProps {
     variant?: typeof variants[number];
+    size?: typeof sizes[number];
     src?: string;
     alt?: string;
     disabled?: boolean;
@@ -36,10 +37,11 @@ export interface ThumbnailProps {
     placeholder?: PlaceholderProps;
 }
 
-export type DefaultProps = ComponentDefaultProps<ThumbnailProps, 'variant' | 'src' | 'alt' | 'disabled' | 'hasPadding' | 'backgroundColor' | 'placeholder'>;
+export type DefaultProps = ComponentDefaultProps<ThumbnailProps, 'variant' | 'src' | 'alt' | 'disabled' | 'hasPadding' | 'backgroundColor' | 'placeholder' | 'size'>;
 
 export const defaultProps: DefaultProps = {
     variant: 'default',
+    size: 48,
     src: '',
     alt: '',
     disabled: false,

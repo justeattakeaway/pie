@@ -1,4 +1,5 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-thumbnail';
@@ -110,13 +111,13 @@ const Template: TemplateFunction<ThumbnailProps> = ({
     placeholder,
 }) => html`
     <pie-thumbnail
-        variant="${variant}"
-        size="${size}"
-        src="${src}"
-        alt="${alt}"
+        variant="${ifDefined(variant)}"
+        size="${ifDefined(size)}"
+        src="${ifDefined(src)}"
+        alt="${ifDefined(alt)}"
+        backgroundColor="${ifDefined(backgroundColor)}"
         ?disabled="${disabled}"
         ?hasPadding="${hasPadding}"
-        backgroundColor="${backgroundColor}"
         .placeholder="${placeholder}"
     </pie-thumbnail>`;
 
