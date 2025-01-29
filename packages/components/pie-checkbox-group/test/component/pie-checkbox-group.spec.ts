@@ -1,112 +1,90 @@
-import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
-import { PieCheckbox } from '@justeattakeaway/pie-checkbox';
-import { PieCheckboxGroup, type CheckboxGroupProps } from '../../src/index.ts';
+import { test, expect } from '@playwright/test';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { checkboxGroup } from '../helpers/page-object/selectors.ts';
 import { statusTypes } from '../../src/defs.ts';
-
-const componentSelector = '[data-test-id="pie-checkbox-group"]';
-const assistiveTextSelector = '[data-test-id="pie-checkbox-group-assistive-text"]';
-const checkboxSelector = '[data-test-id="pie-checkbox-input"]';
+import type { CheckboxGroupProps } from '../../src/defs.ts';
 
 test.describe('PieCheckboxGroup - Component tests', () => {
-    // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
-    // mount the component will still have it available in Playwright's cache (loaded and registered in the test browser)
-    test.beforeEach(async ({ mount }) => {
-        const component = await mount(PieCheckboxGroup);
-        await component.unmount();
-
-        const assistiveTextComponent = await mount(PieAssistiveText);
-        await assistiveTextComponent.unmount();
-
-        const CheckboxComponent = await mount(PieCheckbox);
-        await CheckboxComponent.unmount();
-    });
-
-    test('should render successfully', async ({ mount, page }) => {
+    test('should render successfully', async ({ page }) => {
         // Arrange
-        await mount(PieCheckboxGroup, {
-            props: {} as CheckboxGroupProps,
-            slots: {
-                default: '<pie-checkbox></pie-checkbox>',
-            },
-        });
+        const checkboxGroupPage = new BasePage(page, 'checkbox-group--default');
+        await checkboxGroupPage.load();
 
         // Act
-        const checkboxGroup = page.locator(componentSelector);
+        const checkboxGroupComponent = page.getByTestId(checkboxGroup.selectors.container.dataTestId);
 
         // Assert
-        await expect(checkboxGroup).toBeVisible();
+        await expect(checkboxGroupComponent).toBeVisible();
     });
 
     test.describe('assistiveText', () => {
-        test('should not render the assistive text component if the prop is not provided', async ({ mount, page }) => {
+        test('should not render the assistive text component if the prop is not provided', async ({ page }) => {
             // Arrange
-            await mount(PieCheckboxGroup, {});
+            const checkboxGroupPage = new BasePage(page, 'checkbox-group--default');
+            await checkboxGroupPage.load();
 
             // Act
-            const assistiveText = page.locator(assistiveTextSelector);
+            const assistiveText = page.getByTestId(checkboxGroup.selectors.assistiveText.dataTestId);
 
             // Assert
             await expect(assistiveText).not.toBeVisible();
         });
 
-        test('should apply the "default" variant attribute if no status is provided', async ({ mount, page }) => {
+        test('should apply the "default" variant attribute if no status is provided', async ({ page }) => {
             // Arrange
-            await mount(PieCheckboxGroup, {
-                props: {
-                    assistiveText: 'Assistive text',
-                } as PieCheckboxGroup,
-            });
+            const props : CheckboxGroupProps = {
+                assistiveText: 'Assistive text',
+            };
+            const checkboxGroupPage = new BasePage(page, 'checkbox-group--default');
+            await checkboxGroupPage.load({ ...props });
 
             // Act
-            const assistiveText = page.locator(assistiveTextSelector);
+            const assistiveText = page.getByTestId(checkboxGroup.selectors.assistiveText.dataTestId);
 
             // Assert
-            expect(assistiveText).toBeVisible();
-            expect(await assistiveText.getAttribute('variant')).toBe('default');
-            expect(assistiveText).toHaveText('Assistive text');
+            await expect(assistiveText).toBeVisible();
+            await expect(assistiveText).toHaveAttribute('variant', 'default');
+            await expect(assistiveText).toHaveText('Assistive text');
         });
 
         test.describe('Assistive text: Status', () => {
             statusTypes.forEach((status) => {
-                test(`should render the assistive text component with the ${status} variant`, async ({ mount, page }) => {
+                test(`should render the assistive text component with the ${status} variant`, async ({ page }) => {
                     // Arrange
-                    await mount(PieCheckboxGroup, {
-                        props: {
-                            assistiveText: 'Assistive text',
-                            status,
-                        } as PieCheckboxGroup,
-                    });
+                    const props : CheckboxGroupProps = {
+                        assistiveText: 'Assistive text',
+                        status,
+                    };
+                    const checkboxGroupPage = new BasePage(page, 'checkbox-group--default');
+                    await checkboxGroupPage.load({ ...props });
 
                     // Act
-                    const assistiveText = page.locator(assistiveTextSelector);
+                    const assistiveText = page.getByTestId(checkboxGroup.selectors.assistiveText.dataTestId);
 
                     // Assert
-                    expect(assistiveText).toBeVisible();
-                    expect(assistiveText).toHaveAttribute('variant', status);
-                    expect(assistiveText).toHaveText('Assistive text');
+                    await expect(assistiveText).toBeVisible();
+                    await expect(assistiveText).toHaveAttribute('variant', status);
+                    await expect(assistiveText).toHaveText('Assistive text');
                 });
             });
         });
 
         test.describe('Assistive test ID attribute', () => {
-            test('should contain an ID associated with the checkbox group element for a11y', async ({ mount, page }) => {
+            test('should contain an ID associated with the checkbox group element for a11y', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieCheckboxGroup, {
-                    props: {
-                        assistiveText: 'Assistive text',
-                    } as PieCheckboxGroup,
-                });
+                const props : CheckboxGroupProps = {
+                    assistiveText: 'Assistive text',
+                };
+                const checkboxGroupPage = new BasePage(page, 'checkbox-group--default');
+                await checkboxGroupPage.load({ ...props });
 
                 // Act
-                const checkboxGroup = component.locator(componentSelector);
-                const assistiveText = page.locator(assistiveTextSelector);
-
-                const componentAttribute = await checkboxGroup.getAttribute('aria-describedby');
+                const checkboxGroupFieldset = page.getByTestId(checkboxGroup.selectors.fieldset.dataTestId);
+                const assistiveText = page.getByTestId(checkboxGroup.selectors.assistiveText.dataTestId);
 
                 // Assert
                 await expect(assistiveText).toHaveAttribute('id', 'assistive-text');
-                expect(componentAttribute).toBe('assistive-text');
+                await expect(checkboxGroupFieldset).toHaveAttribute('aria-describedby', 'assistive-text');
             });
         });
     });
@@ -114,59 +92,58 @@ test.describe('PieCheckboxGroup - Component tests', () => {
     test.describe('Props', () => {
         test.describe('disabled', () => {
             test.describe('when true', () => {
-                test('should disable the slotted component', async ({ mount }) => {
+                test('should disable the slotted component', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieCheckboxGroup, {
-                        props: {
-                            disabled: true,
-                        } as CheckboxGroupProps,
-                        slots: {
-                            default: '<pie-checkbox></pie-checkbox>',
-                        },
-                    });
+                    const props : CheckboxGroupProps = {
+                        disabled: true,
+                    };
+                    const checkboxGroupPage = new BasePage(page, 'checkbox-group--default');
+                    await checkboxGroupPage.load({ ...props });
 
                     // Act
-                    const checkbox = component.locator(checkboxSelector);
+                    const checkboxComponents = await page.locator('pie-checkbox').all();
 
                     // Assert
-                    expect(checkbox).toBeDisabled();
+                    checkboxComponents.forEach(async (checkbox) => {
+                        await expect(checkbox.locator('input')).toBeDisabled();
+                    });
                 });
             });
             test.describe('when false', () => {
-                test('the slotted checkbox component should not be disabled if checkbox itself is not disabled', async ({ mount }) => {
+                test('the slotted checkbox component should not be disabled if checkbox itself is not disabled', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieCheckboxGroup, {
-                        props: {
-                            disabled: false,
-                        } as CheckboxGroupProps,
-                        slots: {
-                            default: '<pie-checkbox></pie-checkbox>',
-                        },
-                    });
+                    const props : CheckboxGroupProps = {
+                        disabled: false,
+                    };
+                    const checkboxGroupPage = new BasePage(page, 'checkbox-group--default');
+                    await checkboxGroupPage.load({ ...props });
 
                     // Act
-                    const checkbox = component.locator(checkboxSelector);
+                    const checkboxComponents = await page.locator('pie-checkbox').all();
 
                     // Assert
-                    expect(checkbox).not.toBeDisabled();
-                });
-                test('the slotted checkbox component should be disabled if checkbox itself is disabled', async ({ mount }) => {
-                    // Arrange
-                    const component = await mount(PieCheckboxGroup, {
-                        props: {
-                            disabled: false,
-                        } as CheckboxGroupProps,
-                        slots: {
-                            default: '<pie-checkbox disabled></pie-checkbox>',
-                        },
+                    checkboxComponents.forEach(async (checkbox) => {
+                        await expect(checkbox.locator('input')).not.toBeDisabled();
                     });
-
-                    // Act
-                    const checkbox = component.locator(checkboxSelector);
-
-                    // Assert
-                    expect(checkbox).toBeDisabled();
                 });
+            });
+            test('the slotted checkbox component should be disabled if checkbox itself is disabled', async ({ page }) => {
+                // Arrange
+                const props : CheckboxGroupProps = {
+                    disabled: false,
+                };
+
+                const checkboxGroupPage = new BasePage(page, 'checkbox-group--disabled-slotted-checkbox');
+                await checkboxGroupPage.load({ ...props });
+
+                // Act
+                // Hardcoded `disable` attribute on the first checkbox
+                const checkbox1 = page.locator('pie-checkbox', { hasText: 'checkbox 1' }).locator('input');
+                const checkbox2 = page.locator('pie-checkbox', { hasText: 'checkbox 2' }).locator('input');
+
+                // Assert
+                await expect(checkbox1).toBeDisabled();
+                await expect(checkbox2).not.toBeDisabled();
             });
         });
     });
