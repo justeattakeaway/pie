@@ -5,6 +5,9 @@
   --thumbnail-border-color: transparent;
   --thumbnail-padding: calc(var(--dt-spacing-a) / 2);
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   overflow: hidden;
   width: var(--thumbnail-size);
@@ -47,8 +50,6 @@
 
   .c-thumbnail-img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
+    height: auto;
   }
 }

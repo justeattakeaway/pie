@@ -57,11 +57,11 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
 
     private _generateSizeStyles (): string {
         const { size } = this;
-        let borderRadius = '--dt-radius-rounded-a';
+        let borderRadius = '--dt-radius-rounded-b';
         if (size <= 40) {
             borderRadius = '--dt-radius-rounded-a';
         } else if (size <= 56) {
-            borderRadius = '--dt-radius-rounded-a';
+            borderRadius = '--dt-radius-rounded-c';
         }
 
         return `
