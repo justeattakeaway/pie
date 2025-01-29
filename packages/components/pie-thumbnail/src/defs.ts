@@ -3,6 +3,7 @@ import type { ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 export const variants = [
     'default', 'outline',
 ] as const;
+
 export const sizes = [
     'xsmall', 'small', 'medium',
 ] as const;
@@ -23,8 +24,6 @@ export const backgroundColorClassNames: Record<typeof backgroundColors[number], 
 type PlaceholderProps = {
     src?: string;
     alt?: string;
-    disabled?: boolean;
-    hasPadding?: boolean;
 }
 
 export interface ThumbnailProps {

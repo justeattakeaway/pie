@@ -3,7 +3,11 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-thumbnail';
 import {
-    type ThumbnailProps, defaultProps, variants, backgroundColors,
+    type ThumbnailProps,
+    defaultProps,
+    variants,
+    backgroundColors,
+    sizes,
 } from '@justeattakeaway/pie-thumbnail';
 
 import { createStory, type TemplateFunction } from '../utilities';
@@ -81,20 +85,6 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
             control: 'object',
             defaultValue: {
                 summary: defaultProps.placeholder,
-            },
-        },
-        disabled: {
-            description: 'Set the disabled attribute of the thumbnail.',
-            control: 'boolean',
-            defaultValue: {
-                summary: defaultProps.disabled,
-            },
-        },
-        hasPadding: {
-            description: 'Set the hasPadding attribute of the thumbnail.',
-            control: 'boolean',
-            defaultValue: {
-                summary: defaultProps.hasPadding,
             },
         },
     },
