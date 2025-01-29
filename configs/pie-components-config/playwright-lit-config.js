@@ -41,6 +41,10 @@ export function getPlaywrightConfig () {
                 name: 'component:chrome',
                 use: {
                     ...devices['Desktop Chrome'],
+                    channel: 'chrome',
+                    connectOptions: {
+                      exposeNetwork: '<loopback>'
+                    }
                 },
                 testMatch: ['**/test/component/*.spec.{js,ts}'],
             },
@@ -48,6 +52,10 @@ export function getPlaywrightConfig () {
                 name: 'a11y:chrome',
                 use: {
                     ...devices['Desktop Chrome'],
+                    channel: 'chrome',
+                    connectOptions: {
+                      exposeNetwork: '<loopback>'
+                    }
                 },
                 testMatch: ['**/test/accessibility/*.spec.{js,ts}'],
             },
