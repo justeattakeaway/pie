@@ -45,7 +45,6 @@ const AlcoholFilledRegularIconWithOverrideTemplate: TemplateFunction<RegularIcon
 `;
 
 const AlcoholFilledLargeIconTemplate: TemplateFunction<LargeIconProps> = ({ size }) => html`
-    <p>For large icons, size must be a number greater than or equal to \`${largeIconSizeDefault}\`, and a multiple of \`${largeIconSizeModule}\`.</p>
     <div class="c-iconGrid">
         <icon-alcohol-filled-large size=${size}></icon-alcohol-filled-large>
     </div>
