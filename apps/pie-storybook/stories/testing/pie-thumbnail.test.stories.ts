@@ -137,8 +137,8 @@ const outlinePropOptions = {
 };
 
 const backgroundPropOptions = {
-    backgroundColor: backgroundColors,
-    variant: variants,
+    backgroundColor: [...backgroundColors],
+    variant: [...variants],
     src: ['https://www.pie.design/assets/img/404_narrow.png'],
 };
 
