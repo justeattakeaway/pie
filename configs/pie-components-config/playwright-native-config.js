@@ -8,7 +8,7 @@ export function getPlaywrightNativeConfig () {
         /* The base directory, relative to the config file, for snapshot files created with toMatchSnapshot and toHaveScreenshot. */
         snapshotDir: './__snapshots__',
         /* Maximum time one test can run for. */
-        timeout: 10 * 1000,
+        timeout: 20 * 1000,
         testIgnore: '*-react.spec.js',
         /* Run tests in files in parallel */
         fullyParallel: true,
@@ -33,6 +33,7 @@ export function getPlaywrightNativeConfig () {
                 name: 'component:chrome',
                 use: {
                     ...devices['Desktop Chrome'],
+                    channel: 'chrome',
                 },
                 testMatch: ['**/test/component/*.spec.{js,ts}'],
             },
@@ -40,6 +41,7 @@ export function getPlaywrightNativeConfig () {
                 name: 'a11y:chrome',
                 use: {
                     ...devices['Desktop Chrome'],
+                    channel: 'chrome',
                 },
                 testMatch: ['**/test/accessibility/*.spec.{js,ts}'],
             },
