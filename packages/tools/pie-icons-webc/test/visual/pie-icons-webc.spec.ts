@@ -1,50 +1,46 @@
-import { test } from '@sand4rt/experimental-ct-web';
+import { test, expect } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { IconChatConversation } from '@justeattakeaway/pie-icons-webc/dist/IconChatConversation';
-import { IconChatConversationLarge } from '@justeattakeaway/pie-icons-webc/dist/IconChatConversationLarge';
-
-// This ensures the component is registered in the DOM for each test
-// This is not required if your tests mount the web component directly in the tests
-test.beforeEach(async ({ mount }) => {
-    const iconChatConversation = await mount(IconChatConversation);
-    await iconChatConversation.unmount();
-    const iconChatConversationLarge = await mount(IconChatConversationLarge);
-    await iconChatConversationLarge.unmount();
-});
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { icons } from '../helpers/page-object/selectors.ts';
 
 test.describe('PIE Icons Webc - Visual tests`', () => {
-    test('Regular and Large icons render', async ({ page, mount }) => {
-        await mount(IconChatConversation);
-        await mount(IconChatConversationLarge);
+    test('Regular icon renders', async ({ page }) => {
+        // Arrange
+        const regularIconPage = new BasePage(page, 'icons--alcohol-filled-regular-icon-variations');
+        await regularIconPage.load();
+        await page.waitForSelector(icons.selectors.alcoholFilled.dataTestId, { strict: false});
 
-        await percySnapshot(page, 'PIE Icons Webc - Regular and Large icons render', percyWidths);
+        // Assert
+        await percySnapshot(page, 'PIE Icons Webc - Regular icon renders', percyWidths);
     });
 
-    test('Regular and Large icons resize based on size prop', async ({ page, mount }) => {
-        await mount(IconChatConversation, {
-            props: {
-                size: 'xxl',
-            },
-        });
-
-        await mount(IconChatConversationLarge, {
-            props: {
-                size: 80,
-            },
-        });
-
-        await percySnapshot(page, 'Regular and Large icons resize based on size prop', percyWidths);
+    test('Large icon renders', async ({ page }) => {
+        // Arrange
+        const largeIconPage = new BasePage(page, 'icons--alcohol-filled-large-icon-variations');
+        await largeIconPage.load();
+        await page.waitForSelector(icons.selectors.alcoholFilledLarge.dataTestId, { strict: false});
+        // Assert
+        await percySnapshot(page, 'PIE Icons Webc - Large icon renders', percyWidths);
     });
 
-    test('Regular and Large icons can be sized with the override CSS variable', async ({ page }) => {
-        await page.setContent(`
-            <div style="--icon-size-override: 200px;">
-                <icon-chat-conversation size="m"></icon-chat-conversation>
-                <icon-chat-conversation-large size="80"></icon-chat-conversation-large>
-            </div>
-        `);
+    test('Regular icon can be sized with the override CSS variable', async ({ page }) => {
+        // Arrange
+        const regularIconOverridePage = new BasePage(page, 'icons--alcohol-filled-regular-icon-with-override');
+        await regularIconOverridePage.load({ size: 'm' });
+        await page.waitForSelector(icons.selectors.alcoholFilled.dataTestId, { strict: false});
 
-        await percySnapshot(page, 'Regular and Large icons can be sized with the override CSS variable', percyWidths);
+        // Assert
+        await percySnapshot(page, 'Regular icon can be sized with the override CSS variable', percyWidths);
+    });
+
+    test('Large icon can be sized with the override CSS variable', async ({ page }) => {
+        // Arrange
+        const largeIconOverridePage = new BasePage(page, 'icons--alcohol-filled-large-icon-with-override');
+        await largeIconOverridePage.load({ size: '80' });
+        await page.waitForSelector(icons.selectors.alcoholFilledLarge.dataTestId, { strict: false});
+
+        // Assert
+        await percySnapshot(page, 'Large icon can be sized with the override CSS variable', percyWidths);
     });
 });
