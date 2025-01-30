@@ -1,7 +1,5 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { useArgs } from '@storybook/preview-api';
-import { action } from '@storybook/addon-actions';
 import { type Meta } from '@storybook/web-components';
 import { type ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
 
@@ -82,10 +80,6 @@ const toastStoryMeta: ToastStoryMeta = {
 
 export default toastStoryMeta;
 
-const pieToastLeadingActionClick = action('pie-toast-leading-action-click');
-const pieToastClose = action('pie-toast-close');
-const pieToastOpen = action('pie-toast-open');
-
 const shortMessage = 'Item has been created';
 const longMessage = 'Donec pulvinar porta tempus. Sed ac ex ac libero pulvinar tincidunt eget non orci. Curabitur leo quam, commodo sit amet dolor eu, molestie molestie eros. Nulla rutrum vehicula sodales. Duis quis lobortis tortor. In hac habitasse platea dictumst. Vestibulum efficitur, orci at interdum eleifend, nulla nunc luctus urna, sit amet commodo libero lacus scelerisque enim. In eleifend ex ut nulla cursus, eu efficitur ligula pharetra.';
 
@@ -108,20 +102,7 @@ const Template : TemplateFunction<ToastProps> = ({
     isStrong,
     variant,
     duration,
-}: ToastProps) => {
-    const [, updateArgs] = useArgs();
-
-    const pieToastCloseHandle = () => {
-        updateArgs({ isOpen: false });
-        pieToastClose();
-    };
-
-    const pieToastOpenHandle = () => {
-        updateArgs({ isOpen: true });
-        pieToastOpen();
-    };
-
-    return html`
+}: ToastProps) => html`
         <pie-toast
             ?isOpen="${isOpen}"
             ?isDismissible="${isDismissible}"
@@ -131,12 +112,8 @@ const Template : TemplateFunction<ToastProps> = ({
             .duration="${duration}"
             ?isMultiline="${isMultiline}"
             .leadingAction="${leadingAction}"
-            @pie-toast-leading-action-click="${pieToastLeadingActionClick}"
-            @pie-toast-close="${pieToastCloseHandle}"
-            @pie-toast-open="${pieToastOpenHandle}"/>
         </pie-toast>
     `;
-};
 
 const createToastStory = createStory<ToastProps>(Template, defaultArgs);
 
