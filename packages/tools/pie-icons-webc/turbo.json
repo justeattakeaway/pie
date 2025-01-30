@@ -28,20 +28,44 @@
       ]
     },
     "test:browsers": {
-      "cache": false,
+      "cache": true,
       "dependsOn": [
         "^build",
         "test:browsers-setup"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "../../../apps/pie-storybook/stories/testing/icons.test.stories.ts"
       ],
       "outputs": [
         "__snapshots__/**"
       ]
     },
     "test:browsers:ci": {
-      "cache": false,
+      "cache": true,
       "dependsOn": [
         "^build",
         "test:browsers-setup"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "../../../apps/pie-storybook/stories/testing/icons.test.stories.ts"
+      ]
+    },
+    "test:visual": {
+      "cache": false,
+      "dependsOn": [],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "../../../apps/pie-storybook/stories/testing/icons.test.stories.ts"
+      ]
+    },
+    "test:visual:ci": {
+      "cache": false,
+      "dependsOn": [],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "../../../apps/pie-storybook/stories/testing/icons.test.stories.ts"
       ]
     }
   }
