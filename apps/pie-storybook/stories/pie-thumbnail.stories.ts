@@ -2,7 +2,9 @@ import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-thumbnail';
-import { type ThumbnailProps, defaultProps, variants } from '@justeattakeaway/pie-thumbnail';
+import {
+    type ThumbnailProps, defaultProps, variants, backgroundColors,
+} from '@justeattakeaway/pie-thumbnail';
 
 import { createStory, type TemplateFunction } from '../utilities';
 
@@ -12,6 +14,10 @@ const defaultArgs: ThumbnailProps = {
     ...defaultProps,
     src: 'https://www.pie.design/assets/img/jet-logo-narrow.svg',
     alt: 'JET logo',
+    placeholder: {
+        src: 'https://www.pie.design/assets/img/404_narrow.png',
+        alt: 'Thumbnail placeholder image',
+    },
 };
 
 const thumbnailStoryMeta: ThumbnailStoryMeta = {
@@ -23,21 +29,50 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
             control: 'select',
             options: variants,
             defaultValue: {
-                summary: defaultArgs.variant,
+                summary: defaultProps.variant,
             },
         },
         src: {
             description: 'Set the src attribute for the underlying image tag.',
             control: 'text',
             defaultValue: {
-                summary: defaultArgs.src,
+                summary: defaultProps.src,
             },
         },
         alt: {
             description: 'Set the alt attribute for the underlying image tag.',
             control: 'text',
             defaultValue: {
-                summary: defaultArgs.alt,
+                summary: defaultProps.alt,
+            },
+        },
+        disabled: {
+            description: 'Applies the disabled styling to the thumbnail component.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.disabled,
+            },
+        },
+        hasPadding: {
+            description: 'Adds extra space around the thumbnail container.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.hasPadding,
+            },
+        },
+        backgroundColor: {
+            description: 'Applies a background color to the thumbnail container.',
+            control: 'select',
+            options: backgroundColors,
+            defaultValue: {
+                summary: defaultProps.backgroundColor,
+            },
+        },
+        placeholder: {
+            description: 'If an image is unavailable, the placeholder prop can be used to ensure there is always something visible to users.',
+            control: 'object',
+            defaultValue: {
+                summary: defaultProps.placeholder,
             },
         },
     },
@@ -56,11 +91,19 @@ const Template: TemplateFunction<ThumbnailProps> = ({
     variant,
     src,
     alt,
+    disabled,
+    hasPadding,
+    backgroundColor,
+    placeholder,
 }) => html`
     <pie-thumbnail
         variant="${variant}"
         src="${src}"
-        alt="${alt}">
+        alt="${alt}"
+        ?disabled="${disabled}"
+        ?hasPadding="${hasPadding}"
+        backgroundColor="${backgroundColor}"
+        .placeholder="${placeholder}"
     </pie-thumbnail>`;
 
 const createThumbnailStory = createStory<ThumbnailProps>(Template, defaultArgs);
