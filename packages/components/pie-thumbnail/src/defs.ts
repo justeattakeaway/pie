@@ -4,10 +4,6 @@ export const variants = [
     'default', 'outline',
 ] as const;
 
-export const sizes = [
-    24, 32, 40, 48, 56, 64, 72, 80, 88
-] as const;
-
 export const backgroundColors = [
     'default', 'subtle', 'strong', 'dark', 'inverse', 'inverse-alternative'
 ] as const;
@@ -21,6 +17,15 @@ export const backgroundColorClassNames: Record<typeof backgroundColors[number], 
     'inverse-alternative': 'c-thumbnail--backgroundInverseAlternative',
 };
 
+const SIZE_INCREMENT_BY = 8;
+const SIZE_MIN = 24;
+const SIZE_MAX = 128;
+
+export const sizes = Object.freeze(Array.from(
+    { length: (SIZE_MAX - SIZE_MIN) / SIZE_INCREMENT_BY + 1 },
+    (_, i) => SIZE_MIN + i * SIZE_INCREMENT_BY,
+)) as readonly number[];
+
 type PlaceholderProps = {
     src?: string;
     alt?: string;
@@ -32,7 +37,7 @@ export interface ThumbnailProps {
      */
     variant?: typeof variants[number];
     /**
-     * What size the thumbnail should be.
+     * Specify the size as a number between 24 and 128 (inclusive) and a multiple of 8.
      */
     size?: typeof sizes[number];
     /**
