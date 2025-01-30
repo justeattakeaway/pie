@@ -1,4 +1,5 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 import '@justeattakeaway/pie-thumbnail';
 import {
@@ -104,18 +105,18 @@ const Template: TemplateFunction<ThumbnailProps> = ({
     placeholder,
 }) => html`
     <pie-thumbnail
-        variant="${variant}"
-        sizes="${size}"
-        src="${src}"
-        alt="${alt}"
+        variant="${ifDefined(variant)}"
+        sizes="${ifDefined(size)}"
+        src="${ifDefined(src)}"
+        alt="${ifDefined(alt)}"
+        backgroundColor="${ifDefined(backgroundColor)}"
         ?disabled="${disabled}"
         ?hasPadding="${hasPadding}"
-        backgroundColor="${backgroundColor}"
         .placeholder="${placeholder}">
     </pie-thumbnail>`;
 
 // Define the prop options for the matrix
-const sharedPropOptions: Partial<Record<keyof ThumbnailProps, unknown[]>> = {
+const sharedPropOptions = {
     src: [defaultArgs.src],
     alt: [defaultArgs.alt],
     size: sizes,
@@ -125,17 +126,17 @@ const sharedPropOptions: Partial<Record<keyof ThumbnailProps, unknown[]>> = {
     placeholder: [defaultArgs.placeholder],
 };
 
-const defaultPropOptions: Partial<Record<keyof ThumbnailProps, unknown[]>> = {
+const defaultPropOptions = {
     ...sharedPropOptions,
     variant: ['default'],
 };
 
-const outlinePropOptions: Partial<Record<keyof ThumbnailProps, unknown[]>> = {
+const outlinePropOptions = {
     ...sharedPropOptions,
     variant: ['outline'],
 };
 
-const backgroundPropOptions: Partial<Record<keyof ThumbnailProps, unknown[]>> = {
+const backgroundPropOptions = {
     backgroundColor: backgroundColors,
     variant: variants,
     src: ['https://www.pie.design/assets/img/404_narrow.png'],
