@@ -62,6 +62,15 @@ export const createStory = <T>(templateFunc: TemplateFunction<T>, defaultArgs: T
  */
 export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sanitize(slot));
 
+export type PropDisplayOptions<T> = {
+    hiddenProps?: (keyof T)[];
+    propLabels?: {
+        [K in keyof T]?: {
+            [value: string]: string;
+        };
+    };
+};
+
 /**
  * Creates a story that renders all combinations of given prop options for a Lit web component.
  *
@@ -69,7 +78,8 @@ export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sani
  *
  * @param {TemplateFunction<T>} template - The function responsible for rendering the Lit web component.
  * @param {Record<keyof T, unknown[]>} propOptions - An object defining the possible values for each prop.
- * @param {StoryOptions & { multiColumn?: boolean }} [storyOpts] - Optional story configuration including background color, controls, layout and whether to display in multiple columns.
+ * @param {StoryOptions & PropDisplayOptions & { multiColumn?: boolean }} [storyOpts] - Optional story configuration including background color, controls, layout and whether to 
+ * display in multiple columns.
  *
  * @returns {Object} Returns an object containing a render function that displays all combinations of the given prop options.
  */
@@ -77,7 +87,7 @@ export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sani
 export const createVariantStory = <T extends Record<string, any>>(
     template: TemplateFunction<T>,
     propOptions: Partial<Record<keyof T, unknown[]>>,
-    storyOpts?: StoryOptions & { multiColumn?: boolean },
+    storyOpts?: StoryOptions & PropDisplayOptions<T> & { multiColumn?: boolean },
 ) => ({
         render: () => {
             const generateCombinations = (options: Partial<Record<keyof T, unknown[]>>): T[] => {
@@ -103,7 +113,6 @@ export const createVariantStory = <T extends Record<string, any>>(
             };
 
             const propCombinations = generateCombinations(propOptions);
-
             const backgroundValue = CUSTOM_BACKGROUNDS.values.find((bg: BackgroundValue) => bg.name === storyOpts?.bgColor)?.value || '#ffffff';
 
             const gridStyle = storyOpts?.multiColumn ? `
@@ -167,9 +176,14 @@ export const createVariantStory = <T extends Record<string, any>>(
                 return html`
                         <div class="grid-item">
                             <div class="props-display">
-                                ${Object.entries(typedProps).map(([key, value]) => html`
-                                    <div><strong>${key}:</strong> ${JSON.stringify(value)}</div>
-                                `)}
+                                ${Object.entries(typedProps)
+                                    .filter(([key]) => !storyOpts?.hiddenProps?.includes(key as keyof T))
+                                    .map(([key, value]) => {
+                                        const displayValue = storyOpts?.propLabels?.[key as keyof T]?.[String(value)] || value;
+                                        return html`
+                                        <div><strong>${key}:</strong> ${JSON.stringify(displayValue)}</div>
+                                    `;
+                                    })}
                             </div>
                             <div class="template-container" style="--background-color: ${backgroundValue};">
                                 ${template({ ...typedProps })}
