@@ -106,7 +106,7 @@ const Template: TemplateFunction<ThumbnailProps> = ({
 }) => html`
     <pie-thumbnail
         variant="${ifDefined(variant)}"
-        sizes="${ifDefined(size)}"
+        size="${ifDefined(size)}"
         src="${ifDefined(src)}"
         alt="${ifDefined(alt)}"
         backgroundColor="${ifDefined(backgroundColor)}"
