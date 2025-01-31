@@ -8,6 +8,7 @@ import {
     variants,
     backgroundColors,
     sizes,
+    aspectRatios,
 } from '@justeattakeaway/pie-thumbnail';
 
 import { type Meta } from '@storybook/web-components';
@@ -81,6 +82,14 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
                 summary: defaultProps.backgroundColor,
             },
         },
+        aspectRatio: {
+            description: 'Sets the aspect-ratio of the thumbnail image.',
+            control: 'select',
+            options: aspectRatios,
+            defaultValue: {
+                summary: defaultProps.aspectRatio,
+            },
+        },
         placeholder: {
             description: 'If an image fails to load, the placeholder prop can be used to ensure there is always something visible to users.',
             control: 'object',
@@ -96,6 +105,7 @@ export default thumbnailStoryMeta;
 
 const Template: TemplateFunction<ThumbnailProps> = ({
     variant,
+    aspectRatio,
     size,
     src,
     alt,
@@ -110,6 +120,7 @@ const Template: TemplateFunction<ThumbnailProps> = ({
         src="${ifDefined(src)}"
         alt="${ifDefined(alt)}"
         backgroundColor="${ifDefined(backgroundColor)}"
+        aspectRatio="${ifDefined(aspectRatio)}"
         ?disabled="${disabled}"
         ?hasPadding="${hasPadding}"
         .placeholder="${placeholder}">
@@ -119,11 +130,12 @@ const Template: TemplateFunction<ThumbnailProps> = ({
 const sharedPropOptions = {
     src: [defaultArgs.src],
     alt: [defaultArgs.alt],
-    size: sizes,
+    size: [...sizes],
     disabled: [true, false],
     hasPadding: [true, false],
     backgroundColor: [defaultArgs.backgroundColor],
     placeholder: [defaultArgs.placeholder],
+    aspectRatio: [defaultArgs.aspectRatio],
 };
 
 const defaultPropOptions = {
@@ -140,6 +152,12 @@ const backgroundPropOptions = {
     backgroundColor: [...backgroundColors],
     variant: [...variants],
     src: ['https://www.pie.design/assets/img/404_narrow.png'],
+};
+
+const aspectRatioPropOptions = {
+    aspectRatio: [...aspectRatios],
+    variant: [...variants],
+    src: [defaultArgs.src],
 };
 
 export const Default = createStory<ThumbnailProps>(Template, defaultArgs)();
@@ -165,3 +183,4 @@ export const ValidSrcWithPlaceholder = createStory<ThumbnailProps>(Template, {
 export const DefaultPropVariations = createVariantStory<ThumbnailProps>(Template, defaultPropOptions);
 export const OutlinePropVariations = createVariantStory<ThumbnailProps>(Template, outlinePropOptions);
 export const BackgroundPropVariations = createVariantStory<ThumbnailProps>(Template, backgroundPropOptions);
+export const aspectRatioPropVariations = createVariantStory<ThumbnailProps>(Template, aspectRatioPropOptions);

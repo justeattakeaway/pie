@@ -9,6 +9,7 @@ import {
     variants,
     backgroundColors,
     sizes,
+    aspectRatios,
 } from '@justeattakeaway/pie-thumbnail';
 
 import { createStory, type TemplateFunction } from '../utilities';
@@ -81,6 +82,14 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
                 summary: defaultProps.backgroundColor,
             },
         },
+        aspectRatio: {
+            description: 'Sets the aspect-ratio of the thumbnail image.',
+            control: 'select',
+            options: aspectRatios,
+            defaultValue: {
+                summary: defaultProps.aspectRatio,
+            },
+        },
         placeholder: {
             description: 'If an image fails to load, the placeholder prop can be used to ensure there is always something visible to users.',
             control: 'object',
@@ -109,10 +118,12 @@ const Template: TemplateFunction<ThumbnailProps> = ({
     hasPadding,
     backgroundColor,
     placeholder,
+    aspectRatio,
 }) => html`
     <pie-thumbnail
         variant="${ifDefined(variant)}"
         size="${ifDefined(size)}"
+        aspectRatio="${ifDefined(aspectRatio)}"
         src="${ifDefined(src)}"
         alt="${ifDefined(alt)}"
         backgroundColor="${ifDefined(backgroundColor)}"

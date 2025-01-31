@@ -17,6 +17,8 @@ export const backgroundColorClassNames: Record<typeof backgroundColors[number], 
     'inverse-alternative': 'c-thumbnail--backgroundInverseAlternative',
 };
 
+export const aspectRatios = ['1by1', '4by3', '16by9'] as const;
+
 const SIZE_INCREMENT_BY = 8;
 const SIZE_MIN = 24;
 const SIZE_MAX = 128;
@@ -64,6 +66,10 @@ export interface ThumbnailProps {
      * What placeholder should be used when the image fails to load.
      */
     placeholder?: PlaceholderProps;
+     /**
+     * Sets the aspect-ratio of the thumbnail image.
+     */
+     aspectRatio?: typeof aspectRatios[number];
 }
 
 export type DefaultProps = ComponentDefaultProps<ThumbnailProps>;
@@ -76,6 +82,7 @@ export const defaultProps: DefaultProps = {
     disabled: false,
     hasPadding: false,
     backgroundColor: 'default',
+    aspectRatio: '1by1',
     placeholder: {
         src: '',
         alt: '',
