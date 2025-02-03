@@ -1,10 +1,10 @@
 .c-thumbnail {
   --thumbnail-size: 48px;
   --thumbnail-border-radius: var(--dt-radius-rounded-b);
-  --thumbnail-img-bg-color: var(--dt-color-container-default);
+  --thumbnail-bg-color: var(--dt-color-container-default);
   --thumbnail-border-color: transparent;
   --thumbnail-padding: calc(var(--dt-spacing-a) / 2);
-  --thumbnail-img-aspect-ratio: 1 / 1;
+  --thumbnail-aspect-ratio: 1 / 1;
 
   display: flex;
   justify-content: center;
@@ -25,23 +25,23 @@
   }
 
   &.c-thumbnail--backgroundSubtle {
-    --thumbnail-img-bg-color: var(--dt-color-container-subtle);
+    --thumbnail-bg-color: var(--dt-color-container-subtle);
   }
 
   &.c-thumbnail--backgroundStrong {
-    --thumbnail-img-bg-color: var(--dt-color-container-strong);
+    --thumbnail-bg-color: var(--dt-color-container-strong);
   }
 
   &.c-thumbnail--backgroundDark {
-    --thumbnail-img-bg-color: var(--dt-color-container-dark);
+    --thumbnail-bg-color: var(--dt-color-container-dark);
   }
 
   &.c-thumbnail--backgroundInverse {
-    --thumbnail-img-bg-color: var(--dt-color-container-inverse);
+    --thumbnail-bg-color: var(--dt-color-container-inverse);
   }
 
   &.c-thumbnail--backgroundInverseAlternative {
-    --thumbnail-img-bg-color: var(--dt-color-container-inverse-alternative);
+    --thumbnail-bg-color: var(--dt-color-container-inverse-alternative);
   }
 
   &.c-thumbnail--padding {
@@ -59,7 +59,7 @@
   .c-thumbnail-img {
     width: 100%;
     height: auto;
-    aspect-ratio: var(--thumbnail-img-aspect-ratio);
-    background-color: var(--thumbnail-img-bg-color);
+    aspect-ratio: var(--thumbnail-aspect-ratio);
+    background-color: var(--thumbnail-bg-color);
   }
 }
