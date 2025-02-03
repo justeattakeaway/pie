@@ -75,7 +75,7 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
             },
         },
         backgroundColor: {
-            description: 'Applies a background color to the thumbnail container.',
+            description: 'Applies a background color to the thumbnail image.',
             control: 'select',
             options: backgroundColors,
             defaultValue: {

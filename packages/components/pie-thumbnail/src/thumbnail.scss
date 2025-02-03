@@ -1,7 +1,7 @@
 .c-thumbnail {
   --thumbnail-size: 48px;
   --thumbnail-border-radius: var(--dt-radius-rounded-b);
-  --thumbnail-bg-color: var(--dt-color-container-default);
+  --thumbnail-img-bg-color: var(--dt-color-container-default);
   --thumbnail-border-color: transparent;
   --thumbnail-padding: calc(var(--dt-spacing-a) / 2);
   --thumbnail-img-aspect-ratio: 1 / 1;
@@ -15,7 +15,6 @@
   height: var(--thumbnail-size);
   border-radius: var(--thumbnail-border-radius);
   border: 1px solid var(--thumbnail-border-color);
-  background-color: var(--thumbnail-bg-color);
 
   &.c-thumbnail--outline {
     --thumbnail-border-color: var(--dt-color-border-default);
@@ -26,23 +25,23 @@
   }
 
   &.c-thumbnail--backgroundSubtle {
-    --thumbnail-bg-color: var(--dt-color-container-subtle);
+    --thumbnail-img-bg-color: var(--dt-color-container-subtle);
   }
 
   &.c-thumbnail--backgroundStrong {
-    --thumbnail-bg-color: var(--dt-color-container-strong);
+    --thumbnail-img-bg-color: var(--dt-color-container-strong);
   }
 
   &.c-thumbnail--backgroundDark {
-    --thumbnail-bg-color: var(--dt-color-container-dark);
+    --thumbnail-img-bg-color: var(--dt-color-container-dark);
   }
 
   &.c-thumbnail--backgroundInverse {
-    --thumbnail-bg-color: var(--dt-color-container-inverse);
+    --thumbnail-img-bg-color: var(--dt-color-container-inverse);
   }
 
   &.c-thumbnail--backgroundInverseAlternative {
-    --thumbnail-bg-color: var(--dt-color-container-inverse-alternative);
+    --thumbnail-img-bg-color: var(--dt-color-container-inverse-alternative);
   }
 
   &.c-thumbnail--padding {
@@ -61,5 +60,6 @@
     width: 100%;
     height: auto;
     aspect-ratio: var(--thumbnail-img-aspect-ratio);
+    background-color: var(--thumbnail-img-bg-color);
   }
 }
