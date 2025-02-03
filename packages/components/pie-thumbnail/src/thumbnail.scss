@@ -2,9 +2,8 @@
   --thumbnail-size: 48px;
   --thumbnail-border-radius: var(--dt-radius-rounded-b);
   --thumbnail-bg-color: var(--dt-color-container-default);
-  --thumbnail-border-color: transparent;
   --thumbnail-padding: calc(var(--dt-spacing-a) / 2);
-  --thumbnail-aspect-ratio: 1 / 1;
+  --thumbnail-img-border-radius: unset;
 
   display: flex;
   justify-content: center;
@@ -14,10 +13,9 @@
   width: var(--thumbnail-size);
   height: var(--thumbnail-size);
   border-radius: var(--thumbnail-border-radius);
-  border: 1px solid var(--thumbnail-border-color);
 
   &.c-thumbnail--outline {
-    --thumbnail-border-color: var(--dt-color-border-default);
+    border: 1px solid var(--dt-color-border-default);
   }
 
   &.c-thumbnail--disabled {
@@ -45,21 +43,22 @@
   }
 
   &.c-thumbnail--padding {
+    --thumbnail-img-border-radius: calc(var(--thumbnail-border-radius) - var(--thumbnail-padding));
     padding: var(--thumbnail-padding);
   }
 
   &.c-thumbnail--4by3 {
-    --thumbnail-aspect-ratio: 4 / 3;
+    height: calc(var(--thumbnail-size) * 3 / 4)
   }
 
   &.c-thumbnail--16by9 {
-    --thumbnail-aspect-ratio: 16 / 9;
+    height: calc(var(--thumbnail-size) * 9 / 16)
   }
 
   .c-thumbnail-img {
     width: 100%;
-    height: auto;
-    aspect-ratio: var(--thumbnail-aspect-ratio);
+    height: 100%;
     background-color: var(--thumbnail-bg-color);
+    border-radius: var(--thumbnail-img-border-radius);
   }
 }
