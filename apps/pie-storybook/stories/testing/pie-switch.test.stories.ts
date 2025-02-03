@@ -91,13 +91,7 @@ const switchStoryMeta: SwitchStoryMeta = {
 };
 
 export default switchStoryMeta;
-
-const changeAction = (event: Event) => {
-    action('change')({
-        checked: (event.target as HTMLInputElement).checked,
-    });
-    console.info('Switch clicked');
-};
+const changeAction = () => console.info('Switch clicked');
 
 const Template : TemplateFunction<SwitchProps> = (props) => {
     const {
