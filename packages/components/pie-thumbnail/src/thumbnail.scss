@@ -49,11 +49,11 @@
   }
 
   &.c-thumbnail--4by3 {
-    --thumbnail-img-aspect-ratio: 4 / 3;
+    --thumbnail-aspect-ratio: 4 / 3;
   }
 
   &.c-thumbnail--16by9 {
-    --thumbnail-img-aspect-ratio: 16 / 9;
+    --thumbnail-aspect-ratio: 16 / 9;
   }
 
   .c-thumbnail-img {
