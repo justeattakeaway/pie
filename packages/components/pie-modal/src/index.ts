@@ -182,16 +182,31 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         const { targetModal } = event.detail;
 
         if (targetModal === this) {
-            this._disableBodyScroll();
-
             if (this._dialog.hasAttribute('open') || !this._dialog.isConnected) {
                 return;
             }
 
-            this._setupEscKeyListener();
-
             // The ::backdrop pseudoelement is only shown if the modal is opened via JS
             this._dialog.showModal();
+
+            /*
+                Performance:
+                This has been optimised with the following to help with performance:
+
+                1. Use requestAnimationFrame to defer non-blocking operations.
+                2. Batch non-blocking updates inside requestAnimationFrame
+                3. Call `showModal()` first and defer `_disableBodyScroll` & `_setupEscKeyListener`
+                   to the next `task`.
+            */
+            requestAnimationFrame(() => {
+                // Read styles before writing them to avoid forced layout recalculations (layout trashing).
+                const isOpen = this._dialog.hasAttribute('open');
+
+                if (isOpen) {
+                    this._disableBodyScroll();
+                    this._setupEscKeyListener();
+                }
+            });
         }
     }
 
