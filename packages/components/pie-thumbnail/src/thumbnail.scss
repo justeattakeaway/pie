@@ -13,6 +13,7 @@
   width: var(--thumbnail-size);
   height: var(--thumbnail-size);
   border-radius: var(--thumbnail-border-radius);
+  background-color: var(--thumbnail-bg-color);
 
   &.c-thumbnail--outline {
     border: 1px solid var(--dt-color-border-default);
@@ -58,7 +59,6 @@
   .c-thumbnail-img {
     width: 100%;
     height: 100%;
-    background-color: var(--thumbnail-bg-color);
     border-radius: var(--thumbnail-img-border-radius);
     object-fit: cover;
   }

@@ -59,7 +59,7 @@ export interface ThumbnailProps {
      */
     hasPadding?: boolean;
     /**
-     * What background color the thumbnail image should be.
+     * What background color the thumbnail should be.
      */
     backgroundColor?: typeof backgroundColors[number];
     /**
