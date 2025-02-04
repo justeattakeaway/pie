@@ -19,7 +19,7 @@ type ThumbnailStoryMeta = Meta<ThumbnailProps>;
 const defaultArgs: ThumbnailProps = {
     ...defaultProps,
     src: './static/images/pie-logo.svg',
-    alt: 'JET logo',
+    alt: 'PIE logo',
     placeholder: {
         src: 'https://www.pie.design/assets/img/404_narrow.png',
         alt: 'Thumbnail placeholder image',
@@ -182,8 +182,8 @@ export const ValidSrcWithPlaceholder = createStory<ThumbnailProps>(Template, {
         src: 'https://www.pie.design/assets/img/404_narrow.png',
         alt: 'Placeholder Alt',
     },
-    src: 'https://www.pie.design/assets/img/jet-logo-narrow.svg',
-    alt: 'JET Logo',
+    src: defaultArgs.src,
+    alt: defaultArgs.alt,
 })();
 
 export const DefaultPropVariations = createVariantStory<ThumbnailProps>(Template, defaultPropOptions);
