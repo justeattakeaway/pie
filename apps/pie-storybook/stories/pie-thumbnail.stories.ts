@@ -18,7 +18,7 @@ type ThumbnailStoryMeta = Meta<ThumbnailProps>;
 
 const defaultArgs: ThumbnailProps = {
     ...defaultProps,
-    src: 'https://www.pie.design/assets/img/jet-logo-narrow.svg',
+    src: './static/images/pie-logo.svg',
     alt: 'JET logo',
     placeholder: {
         src: 'https://www.pie.design/assets/img/404_narrow.png',
@@ -138,4 +138,25 @@ export const Default = createThumbnailStory({}, {});
 
 export const Outline = createThumbnailStory({
     variant: 'outline',
+}, {});
+
+export const AspectRatio1by1 = createThumbnailStory({
+    size: 64,
+    src: './static/images/burger-1by1.png',
+    alt: 'Two burgers on a wooden board."',
+    aspectRatio: '1by1',
+}, {});
+
+export const AspectRatio4By3 = createThumbnailStory({
+    size: 120,
+    src: './static/images/burger-4by3.png',
+    alt: 'Burger King meal with a cheeseburger, fries, onion rings, and Coca-Cola.',
+    aspectRatio: '4by3',
+}, {});
+
+export const AspectRatio16By9 = createThumbnailStory({
+    size: 128,
+    src: './static/images/burger-16by9.png',
+    alt: 'Chef assembling a burger in a kitchen.',
+    aspectRatio: '16by9',
 }, {});

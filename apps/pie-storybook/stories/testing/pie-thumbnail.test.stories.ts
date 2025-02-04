@@ -18,7 +18,7 @@ type ThumbnailStoryMeta = Meta<ThumbnailProps>;
 
 const defaultArgs: ThumbnailProps = {
     ...defaultProps,
-    src: 'https://www.pie.design/assets/img/jet-logo-narrow.svg',
+    src: './static/images/pie-logo.svg',
     alt: 'JET logo',
     placeholder: {
         src: 'https://www.pie.design/assets/img/404_narrow.png',
@@ -154,10 +154,22 @@ const backgroundPropOptions = {
     src: ['https://www.pie.design/assets/img/404_narrow.png'],
 };
 
-const aspectRatioPropOptions = {
-    aspectRatio: [...aspectRatios],
-    variant: [...variants],
+const aspectRatio1by1PropOptions = {
+    ...sharedPropOptions,
+    aspectRatio: ['1by1'],
     src: [defaultArgs.src],
+};
+
+const aspectRatio4by3PropOptions = {
+    ...sharedPropOptions,
+    aspectRatio: ['4by3'],
+    src: ['./static/images/burger-4by3.png'],
+};
+
+const aspectRatio16by9PropOptions = {
+    ...sharedPropOptions,
+    aspectRatio: ['16by9'],
+    src: ['./static/images/burger-16by9.png'],
 };
 
 export const Default = createStory<ThumbnailProps>(Template, defaultArgs)();
@@ -183,4 +195,7 @@ export const ValidSrcWithPlaceholder = createStory<ThumbnailProps>(Template, {
 export const DefaultPropVariations = createVariantStory<ThumbnailProps>(Template, defaultPropOptions);
 export const OutlinePropVariations = createVariantStory<ThumbnailProps>(Template, outlinePropOptions);
 export const BackgroundPropVariations = createVariantStory<ThumbnailProps>(Template, backgroundPropOptions);
-export const aspectRatioPropVariations = createVariantStory<ThumbnailProps>(Template, aspectRatioPropOptions);
+export const aspectRatio1by1PropVariations = createVariantStory<ThumbnailProps>(Template, aspectRatio1by1PropOptions);
+export const aspectRatio4by3PropVariations = createVariantStory<ThumbnailProps>(Template, aspectRatio4by3PropOptions);
+export const aspectRatio16by9PropVariations = createVariantStory<ThumbnailProps>(Template, aspectRatio16by9PropOptions);
+
