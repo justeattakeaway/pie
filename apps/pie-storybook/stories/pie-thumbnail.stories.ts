@@ -140,13 +140,6 @@ export const Outline = createThumbnailStory({
     variant: 'outline',
 }, {});
 
-export const AspectRatio1by1 = createThumbnailStory({
-    size: 64,
-    src: './static/images/burger-1by1.png',
-    alt: 'Two burgers on a wooden board."',
-    aspectRatio: '1by1',
-}, {});
-
 export const AspectRatio4By3 = createThumbnailStory({
     size: 120,
     src: './static/images/burger-4by3.png',

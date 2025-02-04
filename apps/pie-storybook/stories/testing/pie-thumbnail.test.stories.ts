@@ -154,12 +154,6 @@ const backgroundPropOptions = {
     src: ['https://www.pie.design/assets/img/404_narrow.png'],
 };
 
-const aspectRatio1by1PropOptions = {
-    ...sharedPropOptions,
-    aspectRatio: ['1by1'],
-    src: [defaultArgs.src],
-};
-
 const aspectRatio4by3PropOptions = {
     ...sharedPropOptions,
     aspectRatio: ['4by3'],
@@ -195,7 +189,6 @@ export const ValidSrcWithPlaceholder = createStory<ThumbnailProps>(Template, {
 export const DefaultPropVariations = createVariantStory<ThumbnailProps>(Template, defaultPropOptions);
 export const OutlinePropVariations = createVariantStory<ThumbnailProps>(Template, outlinePropOptions);
 export const BackgroundPropVariations = createVariantStory<ThumbnailProps>(Template, backgroundPropOptions);
-export const aspectRatio1by1PropVariations = createVariantStory<ThumbnailProps>(Template, aspectRatio1by1PropOptions);
 export const aspectRatio4by3PropVariations = createVariantStory<ThumbnailProps>(Template, aspectRatio4by3PropOptions);
 export const aspectRatio16by9PropVariations = createVariantStory<ThumbnailProps>(Template, aspectRatio16by9PropOptions);
 
