@@ -13,21 +13,17 @@ import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-form-label';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconEmail.js';
-import '@justeattakeaway/pie-icons-webc/dist/IconLaptop.js';
-import '@justeattakeaway/pie-icons-webc/dist/IconPhone.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconUser.js';
-import '@justeattakeaway/pie-icons-webc/dist/IconNumberSymbol.js';
-import '@justeattakeaway/pie-icons-webc/dist/IconKey.js';
 
 import { createStory, type TemplateFunction } from '../../utilities';
 
 // Extending the props type definition to include storybook specific properties for controls
 type TextInputProps = TextInputPropsBase & {
-    leadingSlot: keyof typeof leadingSlotOptions;
-    trailingSlot: keyof typeof trailingSlotOptions;
+  leadingSlot: keyof typeof leadingSlotOptions;
+  trailingSlot: keyof typeof trailingSlotOptions;
 };
 
-type TextInputStoryMeta = Meta<TextInputProps>;
+type TextInputStoryMeta = Meta<TextInputProps & { showEmailField?: boolean }>;
 
 const defaultArgs: TextInputProps = {
     ...defaultProps,
@@ -37,14 +33,14 @@ const defaultArgs: TextInputProps = {
 
 const leadingSlotOptions = {
     None: nothing,
-    'Icon (Placeholder)': html`<icon-placeholder slot="leadingIcon"></icon-placeholder>`,
-    'Short text (#)': html`<span slot="leadingText">#</span>`,
+    'Icon (Placeholder)': html`<icon-placeholder data-test-id="leadingIcon" slot="leadingIcon"></icon-placeholder>`,
+    'Short text (#)': html`<span data-test-id="leadingText" slot="leadingText">#</span>`,
 };
 
 const trailingSlotOptions = {
     None: nothing,
-    'Icon (Placeholder)': html`<icon-placeholder slot="trailingIcon"></icon-placeholder>`,
-    'Short text (#)': html`<span slot="trailingText">#</span>`,
+    'Icon (Placeholder)': html`<icon-placeholder data-test-id="trailingIcon" slot="trailingIcon"></icon-placeholder>`,
+    'Short text (#)': html`<span data-test-id="trailingText" slot="trailingText">#</span>`,
 };
 
 const textInputStoryMeta: TextInputStoryMeta = {
@@ -194,6 +190,12 @@ const textInputStoryMeta: TextInputStoryMeta = {
                 summary: false,
             },
         },
+        showEmailField: {
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
     },
     args: defaultArgs,
 };
@@ -226,18 +228,20 @@ const Template = ({
 
     function onInput (event: InputEvent) {
         const inputElement = event.target as HTMLInputElement;
+        const outputElement = (document.getElementById('output') as HTMLDivElement);
         updateArgs({ value: inputElement?.value });
 
-        action('input')({
-            data: event.data,
-            value: inputElement.value,
-        });
+        console.info('input event recieved', JSON.stringify(event));
+
+        const currentValue = (event.target as HTMLInputElement).value;
+        outputElement.innerText = currentValue;
     }
 
     function onChange (event: CustomEvent) {
         action('change')({
             detail: event.detail,
         });
+        console.info('change event recieved', JSON.stringify(event));
     }
 
     return html`
@@ -269,92 +273,83 @@ const Template = ({
                 ${leadingSlot}
                 ${trailingSlot}
         </pie-text-input>
+        <div id="output"></div>
     `;
 };
 
-const WithLabelTemplate: TemplateFunction<TextInputProps> = (props: TextInputProps) => html`
-        <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-label</pie-link>.</p>
-        <pie-form-label for="${ifDefined(props.name)}">Label</pie-form-label>
-        ${Template(props)}
-    `;
+const onSubmit = (event: Event) => {
+    event.preventDefault();
+    const form = document.querySelector('#testForm') as HTMLFormElement;
+    const output = document.querySelector('#formDataOutput') as HTMLDivElement;
 
-const ExampleFormTemplate: TemplateFunction<TextInputProps> = () => html`
-    <style>
-        .form {
-            display: flex;
-            flex-direction: column;
-            padding: var(--dt-spacing-d);
-        }
+    const formData = new FormData(form);
+    const formDataObj: { [key: string]: FormDataEntryValue } = {};
+    formData.forEach((value, key) => {
+        formDataObj[key] = value;
+    });
 
-        .form-field {
-            display: block;
-            margin-bottom: var(--dt-spacing-d);
-        }
+    output.innerText = JSON.stringify(formDataObj);
+};
 
-        .form-field[type="number"],
-        .form-field[type="tel"] {
-            width: 25ch;
-        }
+const ExampleFormTemplate: TemplateFunction<TextInputProps & { showEmailField?: boolean }> = ({
+    defaultValue,
+    disabled,
+    showEmailField = false,
+}: TextInputProps & { showEmailField?: boolean }) => html`
+  <form id="testForm" @submit="${onSubmit}">
+      <pie-form-label for="username">Username:</pie-form-label>
+      <pie-text-input
+          class="form-field"
+          id="username"
+          name="username"
+          type="text"
+          ?disabled="${disabled}"
+          defaultValue="${ifDefined(defaultValue)}"
+          data-test-id="pie-text-input-container">
+          <icon-user slot="leadingIcon"></icon-user>
+      </pie-text-input>
+      ${showEmailField ? html`
+          <pie-form-label for="email">Email:</pie-form-label>
+          <pie-text-input
+              class="form-field"
+              id="email"
+              name="email"
+              type="text"
+              defaultValue="${ifDefined(defaultValue)}"
+              data-test-id="pie-text-input-container">
+              <icon-email slot="leadingIcon"></icon-email>
+          </pie-text-input>
+      ` : nothing}
 
-        .form-btns {
-            margin-top: var(--dt-spacing-c);
-            display: flex;
-            gap: var(--dt-spacing-a)
-        }
-
-        .form-btns > .form-btn:first-of-type {
-            margin-left: auto;
-        }
-    </style>
-    <form class="form">
-        <pie-form-label for="username">Username:</pie-form-label>
-        <pie-text-input class="form-field" id="username" name="username" type="text">
-            <icon-user slot="leadingIcon"></icon-user>
-        </pie-text-input>
-
-        <pie-form-label for="email">Email:</pie-form-label>
-        <pie-text-input class="form-field" id="email" name="email" type="email">
-            <icon-email slot="leadingIcon"></icon-email>
-        </pie-text-input>
-
-        <pie-form-label for="url">Website:</pie-form-label>
-        <pie-text-input class="form-field" id="url" name="url" type="url">
-            <icon-laptop slot="leadingIcon"></icon-laptop>
-        </pie-text-input>
-
-        <pie-form-label for="password">Password:</pie-form-label>
-        <pie-text-input class="form-field" id="password" name="password" type="password">
-            <icon-key slot="leadingIcon"></icon-key>
-        </pie-text-input>
-
-        <pie-form-label for="favouriteNumber">Favourite Number:</pie-form-label>
-        <pie-text-input class="form-field" id="favouriteNumber" name="favouriteNumber" type="number" min="-5" max="200" assistive-text="" state="">
-            <icon-number-symbol slot="leadingIcon"></icon-number-symbol>
-        </pie-text-input>
-
-        <pie-form-label for="tel">Telephone:</pie-form-label>
-        <pie-text-input class="form-field" id="tel" name="tel" type="tel">
-            <icon-phone slot="leadingIcon"></icon-phone>
-        </pie-text-input>
-
-        <div class="form-btns">
-            <pie-button class="form-btn" variant="secondary" type="reset">Reset</pie-button>
-            <pie-button class="form-btn" type="submit">Submit</pie-button>
-        </div>
-    </form>
+      <div class="form-btns">
+          <pie-button class="form-btn" variant="secondary" type="reset">Reset</pie-button>
+          <pie-button class="form-btn" type="submit">Submit</pie-button>
+      </div>
+  </form>
+  <div id="formDataOutput"></div>
 `;
 
-const createStoryWithLabel = (props: TextInputProps) => createStory<TextInputProps>(WithLabelTemplate, props);
+const DisabledFieldsetTemplate: TemplateFunction<TextInputProps> = () => html`
+    <form id="testForm" @submit="${onSubmit}" action="/foo" method="POST">
+      <fieldset disabled>
+        <pie-text-input type="text" name="username" value="excluded"></pie-text-input>
+      </fieldset>
+      <pie-text-input type="text" name="email" value="included@test.com"></pie-text-input>
+      <pie-button type="submit">Submit</pie-button>
+    </form>
+    <div id="formDataOutput"></div>
+  `;
 
 export const Default = createStory<TextInputProps>(Template, defaultArgs)();
-export const Labelled = createStoryWithLabel(defaultArgs)();
-export const Numeric = createStory<TextInputProps>(Template, { ...defaultArgs, type: 'number', value: '12345' })();
-export const Password = createStory<TextInputProps>(Template, { ...defaultArgs, type: 'password', value: 'password' })();
-export const ErrorText = createStory<TextInputProps>(Template, { ...defaultArgs, status: 'error', assistiveText: 'This is an error message' })();
 export const LeadingIcon = createStory<TextInputProps>(Template, { ...defaultArgs, leadingSlot: 'Icon (Placeholder)' })();
-export const Small = createStory<TextInputProps>(Template, { ...defaultArgs, size: 'small' })();
-export const Medium = createStory<TextInputProps>(Template, { ...defaultArgs, size: 'medium' })();
-export const Large = createStory<TextInputProps>(Template, { ...defaultArgs, size: 'large' })();
+export const LeadingText = createStory<TextInputProps>(Template, { ...defaultArgs, leadingSlot: 'Short text (#)' })();
+export const TrailingIcon = createStory<TextInputProps>(Template, { ...defaultArgs, trailingSlot: 'Icon (Placeholder)' })();
+export const TrailingText = createStory<TextInputProps>(Template, { ...defaultArgs, trailingSlot: 'Short text (#)' })();
 export const ExampleForm = createStory<TextInputProps>(ExampleFormTemplate, defaultArgs)();
+
+export const LeadingAndTrailingIcon = createStory<TextInputProps>(Template, { ...defaultArgs, leadingSlot: 'Icon (Placeholder)', trailingSlot: 'Icon (Placeholder)' })();
+export const LeadingAndTrailingText = createStory<TextInputProps>(Template, { ...defaultArgs, leadingSlot: 'Short text (#)', trailingSlot: 'Short text (#)' })();
+
+export const DisabledFieldset = createStory<TextInputProps>(DisabledFieldsetTemplate, defaultArgs)();
 
 export default textInputStoryMeta;
