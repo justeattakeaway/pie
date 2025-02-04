@@ -19,7 +19,7 @@ type ThumbnailStoryMeta = Meta<ThumbnailProps>;
 const defaultArgs: ThumbnailProps = {
     ...defaultProps,
     src: './static/images/pie-logo.svg',
-    alt: 'PIE logo',
+    alt: 'The PIE design system logo',
     placeholder: {
         src: 'https://www.pie.design/assets/img/404_narrow.png',
         alt: 'Thumbnail placeholder image',
