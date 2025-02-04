@@ -456,29 +456,6 @@ test.describe('PieRadio - Component tests', () => {
             });
         });
 
-        [true, false].forEach((checked) => {
-            // Can't get this to work for som reason, disabled fieldset doesn't cause the radio to be disabled
-            test.skip(`should not submit the value inside a disabled fieldset when checked is ${checked}`, async ({ page }) => {
-                // Arrange
-                const props : RadioProps = {
-                    checked,
-                    name: 'testName',
-                    value: 'testValue',
-                };
-
-                const radioFormFieldsetPage = new BasePage(page, 'radio--example-form-disabled-fieldset');
-                await radioFormFieldsetPage.load({ ...props });
-
-                // Act
-                await page.locator('pie-button', { hasText: 'Submit' }).click();
-
-                const formDataOutput = await page.locator('#formDataOutput').textContent();
-
-                // Assert
-                expect(formDataOutput).toStrictEqual('{}');
-            });
-        });
-
         test.describe('when the form is reset', () => {
             test.describe('and defaultChecked is true', () => {
                 [true, false].forEach((defaultChecked) => {

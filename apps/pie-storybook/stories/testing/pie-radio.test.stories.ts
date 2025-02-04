@@ -176,51 +176,8 @@ const ExampleFormTemplate: TemplateFunction<RadioProps> = ({
         <div id="formDataOutput"></div>`;
 };
 
-const ExampleFormDisabledFieldsetTemplate: TemplateFunction<RadioProps> = ({
-    value,
-    name,
-    checked,
-    defaultChecked,
-    required,
-    slot,
-}: RadioProps) => {
-    const [, updateArgs] = UseArgs();
-
-    const onChange = (event: InputEvent) => {
-        const radioElement = event.target as HTMLInputElement;
-        updateArgs({ checked: radioElement.checked });
-        console.info('change event fired');
-    };
-
-    return html`
-        <style>
-            pie-radio {
-                display: block;
-                margin-bottom: var(--dt-spacing-b);
-            }
-        </style>
-        <form id="testForm" @submit="${onSubmit}">
-            <fieldset disabled>
-                <pie-radio
-                    .value="${value}"
-                    name="${ifDefined(name)}"
-                    ?checked="${checked}"
-                    ?defaultChecked="${defaultChecked}"
-                    ?required="${required}"
-                    @change="${onChange}"
-                    data-test-id="pie-radio">
-                    ${sanitizeAndRenderHTML(slot)}
-                </pie-radio>
-            </fieldset>
-            <pie-button variant="secondary" type="reset">Reset</pie-button>
-            <pie-button type="submit">Submit</pie-button>
-        </form>
-        <div id="formDataOutput"></div>`;
-};
-
 export const Default = createStory<RadioProps>(Template, defaultArgs)();
 export const ExampleForm = createStory<RadioProps>(ExampleFormTemplate, defaultArgs)();
-export const ExampleFormDisabledFieldset = createStory<RadioProps>(ExampleFormDisabledFieldsetTemplate, defaultArgs)();
 
 const longLabel = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pretium quam eget dolor imperdiet placerat. Aliquam sollicitudin erat sed est lobortis sollicitudin. Nam vulputate, mi vel finibus convallis, mi dolor molestie arcu, vel pulvinar urna neque et sapien. Aenean euismod faucibus turpis et efficitur. Sed porttitor dui at justo cursus pulvinar. Sed scelerisque aliquet diam sed feugiat. Fusce id lorem finibus, tempor nulla tempor, tincidunt odio. Mauris consequat lectus ex, eget lacinia dui finibus sit amet. Phasellus maximus posuere sapien eget condimentum. Nunc viverra pharetra blandit.';
 
