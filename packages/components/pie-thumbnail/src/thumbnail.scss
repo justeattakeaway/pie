@@ -60,5 +60,6 @@
     height: 100%;
     background-color: var(--thumbnail-bg-color);
     border-radius: var(--thumbnail-img-border-radius);
+    object-fit: cover;
   }
 }
