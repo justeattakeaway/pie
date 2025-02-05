@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-radio-group
 
+## 0.7.0
+
+### Minor Changes
+
+- [Changed] - Move component status to beta ([#2190](https://github.com/justeattakeaway/pie/pull/2190)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.8.2
+
 ## 0.6.0
 
 ### Minor Changes
