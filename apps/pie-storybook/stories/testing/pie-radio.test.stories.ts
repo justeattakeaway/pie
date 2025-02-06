@@ -192,8 +192,8 @@ const radioPropsMatrix: Partial<Record<keyof RadioProps, unknown[]>> = {
 const variantPropDisplayOptions: PropDisplayOptions<RadioProps> = {
   propLabels: {
       slot: {
-          [longLabel]: 'With long message',
-          [shortLabel]: 'With short message',
+          [longLabel]: 'With long content',
+          [shortLabel]: 'With short content',
       },
   },
 };
