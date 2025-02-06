@@ -15,7 +15,7 @@ import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconEmail.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconUser.js';
 
-import { createStory, type TemplateFunction } from '../../utilities';
+import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';
 
 // Extending the props type definition to include storybook specific properties for controls
 type TextInputProps = TextInputPropsBase & {
@@ -352,4 +352,33 @@ export const LeadingAndTrailingText = createStory<TextInputProps>(Template, { ..
 
 export const DisabledFieldset = createStory<TextInputProps>(DisabledFieldsetTemplate, defaultArgs)();
 
+const sharedTextInputPropsMatrix : Partial<Record<keyof TextInputProps, unknown[]>> = {
+    assistiveText: ['', 'assistive text'],
+    disabled: [true, false],
+    size: [...sizes],
+    readonly: [true, false],
+    value: ['', 'value'],
+    placeholder: ['', 'placeholder'],
+    type: ['text', 'password'],
+};
+
+const defaultTextInputPropsMatrix : Partial<Record<keyof TextInputProps, unknown[]>> = {
+  ...sharedTextInputPropsMatrix,
+  status: [statusTypes[0]],
+};
+
+const successTextInputPropsMatrix : Partial<Record<keyof TextInputProps, unknown[]>> = {
+  ...sharedTextInputPropsMatrix,
+  status: [statusTypes[1]],
+};
+
+const errorTextInputPropsMatrix : Partial<Record<keyof TextInputProps, unknown[]>> = {
+  ...sharedTextInputPropsMatrix,
+  status: [statusTypes[2]],
+};
+
+export const DefaultVariations = createVariantStory<TextInputProps>(Template, defaultTextInputPropsMatrix, { multiColumn: true });
+export const SuccessVariations = createVariantStory<TextInputProps>(Template, successTextInputPropsMatrix, { multiColumn: true });
+export const ErrorVariations = createVariantStory<TextInputProps>(Template, errorTextInputPropsMatrix, { multiColumn: true });
 export default textInputStoryMeta;
+
