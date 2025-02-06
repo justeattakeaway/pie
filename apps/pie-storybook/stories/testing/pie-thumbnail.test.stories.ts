@@ -20,10 +20,6 @@ const defaultArgs: ThumbnailProps = {
     ...defaultProps,
     src: './static/images/pie-logo.svg',
     alt: 'The PIE design system logo',
-    placeholder: {
-        src: 'https://www.pie.design/assets/img/404_narrow.png',
-        alt: 'Thumbnail placeholder image',
-    },
 };
 
 const thumbnailStoryMeta: ThumbnailStoryMeta = {
@@ -74,6 +70,13 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
                 summary: defaultProps.hasPadding,
             },
         },
+        hideDefaultPlaceholder: {
+            description: 'Hides the component default placeholder on image load failures.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.hideDefaultPlaceholder,
+            },
+        },
         backgroundColor: {
             description: 'Applies a background color to the thumbnail container.',
             control: 'select',
@@ -111,6 +114,7 @@ const Template: TemplateFunction<ThumbnailProps> = ({
     alt,
     disabled,
     hasPadding,
+    hideDefaultPlaceholder,
     backgroundColor,
     placeholder,
 }) => html`
@@ -123,6 +127,7 @@ const Template: TemplateFunction<ThumbnailProps> = ({
         aspectRatio="${ifDefined(aspectRatio)}"
         ?disabled="${disabled}"
         ?hasPadding="${hasPadding}"
+        ?hideDefaultPlaceholder="${hideDefaultPlaceholder}"
         .placeholder="${placeholder}">
     </pie-thumbnail>`;
 
@@ -134,7 +139,6 @@ const sharedPropOptions = {
     disabled: [true, false],
     hasPadding: [true, false],
     backgroundColor: [defaultArgs.backgroundColor],
-    placeholder: [defaultArgs.placeholder],
     aspectRatio: [defaultArgs.aspectRatio],
 };
 
@@ -151,44 +155,53 @@ const outlinePropOptions = {
 const backgroundPropOptions = {
     backgroundColor: [...backgroundColors],
     variant: [...variants],
-    src: ['https://www.pie.design/assets/img/404_narrow.png'],
+    src: [defaultArgs.src],
 };
 
 const aspectRatio4by3PropOptions = {
     ...sharedPropOptions,
+    hasPadding: [false],
     aspectRatio: ['4by3'],
     src: ['./static/images/burger-4by3.png'],
 };
 
 const aspectRatio16by9PropOptions = {
     ...sharedPropOptions,
+    hasPadding: [false],
     aspectRatio: ['16by9'],
     src: ['./static/images/burger-16by9.png'],
 };
 
+const defaultPlaceholderPropOptions = {
+    ...sharedPropOptions,
+    src: ['invalid-url.com'],
+    alt: ['Invalid text'],
+    aspectRatio: [...aspectRatios],
+};
+
+const customPlaceholderPropOptions = {
+    ...sharedPropOptions,
+    src: ['invalid-url.com'],
+    alt: ['Invalid text'],
+    placeholder: [{
+        src: 'https://www.pie.design/assets/img/404_narrow.png',
+        alt: 'Thumbnail placeholder image',
+    }],
+};
+
 export const Default = createStory<ThumbnailProps>(Template, defaultArgs)();
-
-export const InvalidSrc = createStory<ThumbnailProps>(Template, {
-    placeholder: {
-        src: 'https://www.pie.design/assets/img/404_narrow.png',
-        alt: 'Placeholder Alt',
-    },
-    src: 'invalid-url.com',
-    alt: 'Invalid text',
-})();
-
-export const ValidSrcWithPlaceholder = createStory<ThumbnailProps>(Template, {
-    placeholder: {
-        src: 'https://www.pie.design/assets/img/404_narrow.png',
-        alt: 'Placeholder Alt',
-    },
-    src: defaultArgs.src,
-    alt: defaultArgs.alt,
-})();
-
 export const DefaultPropVariations = createVariantStory<ThumbnailProps>(Template, defaultPropOptions);
 export const OutlinePropVariations = createVariantStory<ThumbnailProps>(Template, outlinePropOptions);
 export const BackgroundPropVariations = createVariantStory<ThumbnailProps>(Template, backgroundPropOptions);
 export const aspectRatio4by3PropVariations = createVariantStory<ThumbnailProps>(Template, aspectRatio4by3PropOptions);
 export const aspectRatio16by9PropVariations = createVariantStory<ThumbnailProps>(Template, aspectRatio16by9PropOptions);
-
+export const InvalidSrcAndDefaultPlaceholder = createVariantStory<ThumbnailProps>(Template, defaultPlaceholderPropOptions);
+export const InvalidSrcAndCustomPlaceholder = createVariantStory<ThumbnailProps>(Template, customPlaceholderPropOptions);
+export const ValidSrcWithPlaceholder = createStory<ThumbnailProps>(Template, {
+    src: defaultArgs.src,
+    alt: defaultArgs.alt,
+    placeholder: {
+        src: 'https://www.pie.design/assets/img/404_narrow.png',
+        alt: 'Thumbnail placeholder image',
+    },
+})();

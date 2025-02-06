@@ -169,6 +169,6 @@ export const WithInvalidSrcAndCustomPlaceholder = createThumbnailStory({
     src: brokenSrc,
     placeholder: {
         src: 'https://www.pie.design/assets/img/404_narrow.png',
-        alt: 'Thumbnail placeholder image',
+        alt: 'A custom placeholder image',
     },
 }, {});
