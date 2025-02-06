@@ -15,7 +15,7 @@ import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconEmail.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconUser.js';
 
-import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';
+import { createStory, createVariantStory, type PropDisplayOptions, type TemplateFunction } from '../../utilities';
 
 // Extending the props type definition to include storybook specific properties for controls
 type TextInputProps = TextInputPropsBase & {
@@ -352,14 +352,14 @@ export const LeadingAndTrailingText = createStory<TextInputProps>(Template, { ..
 
 export const DisabledFieldset = createStory<TextInputProps>(DisabledFieldsetTemplate, defaultArgs)();
 
-const sharedTextInputPropsMatrix : Partial<Record<keyof TextInputProps, unknown[]>> = {
-    assistiveText: ['', 'assistive text'],
-    disabled: [true, false],
-    size: [...sizes],
-    readonly: [true, false],
-    value: ['', 'value'],
-    placeholder: ['', 'placeholder'],
-    type: ['text', 'password'],
+const sharedTextInputPropsMatrix: Partial<Record<keyof TextInputProps, unknown[]>> = {
+  assistiveText: ['', 'assistive text'],
+  disabled: [true, false],
+  size: [...sizes],
+  readonly: [true, false],
+  value: ['', 'value'],
+  placeholder: ['', 'placeholder'],
+  type: ['text', 'password'],
 };
 
 const defaultTextInputPropsMatrix : Partial<Record<keyof TextInputProps, unknown[]>> = {
@@ -377,8 +377,19 @@ const errorTextInputPropsMatrix : Partial<Record<keyof TextInputProps, unknown[]
   status: [statusTypes[2]],
 };
 
+const slotVariations : Partial<Record<keyof TextInputProps, unknown[]>> = {
+  leadingSlot: Object.values(leadingSlotOptions),
+  trailingSlot: Object.values(trailingSlotOptions),
+  value: ['String']
+};
+
+const slotPropDisplayOptions: PropDisplayOptions<TextInputProps> = {
+  hiddenProps: ['leadingSlot', 'trailingSlot'],
+};
+
 export const DefaultVariations = createVariantStory<TextInputProps>(Template, defaultTextInputPropsMatrix, { multiColumn: true });
 export const SuccessVariations = createVariantStory<TextInputProps>(Template, successTextInputPropsMatrix, { multiColumn: true });
 export const ErrorVariations = createVariantStory<TextInputProps>(Template, errorTextInputPropsMatrix, { multiColumn: true });
+export const SlotVariations = createVariantStory<TextInputProps>(Template, slotVariations, { ...slotPropDisplayOptions, multiColumn: true });
 export default textInputStoryMeta;
 
