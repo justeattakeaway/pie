@@ -1,4 +1,4 @@
-import { defineConfig } from '@sand4rt/experimental-ct-web';
+import { defineConfig } from '@playwright/test';
 import { getPlaywrightNativeConfig } from '@justeattakeaway/pie-components-config';
 
 export default defineConfig(getPlaywrightNativeConfig());
