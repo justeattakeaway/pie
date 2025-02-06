@@ -71,7 +71,7 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
             },
         },
         hideDefaultPlaceholder: {
-            description: 'Hides the component default placeholder on image load failures.',
+            description: 'Hides the component default placeholder on image load failure.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.hideDefaultPlaceholder,
@@ -94,7 +94,7 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
             },
         },
         placeholder: {
-            description: 'If an image fails to load, the placeholder prop can be used to ensure there is always something visible to users.',
+            description: 'Overrides the component default placeholder with a custom one on image load failure.',
             control: 'object',
             defaultValue: {
                 summary: defaultProps.placeholder,

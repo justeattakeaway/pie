@@ -22,8 +22,6 @@ const defaultArgs: ThumbnailProps = {
     alt: 'The PIE design system logo',
 };
 
-const brokenSrc = 'uikejrjtie.png';
-
 const thumbnailStoryMeta: ThumbnailStoryMeta = {
     title: 'Thumbnail',
     component: 'pie-thumbnail',
@@ -73,7 +71,7 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
             },
         },
         hideDefaultPlaceholder: {
-            description: 'Hides the component default placeholder on image load failures.',
+            description: 'Hides the component default placeholder on image load failure.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.hideDefaultPlaceholder,
@@ -96,7 +94,7 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
             },
         },
         placeholder: {
-            description: 'Overrides the component default placeholder with a custom one to display on image load failure.',
+            description: 'Overrides the component default placeholder with a custom one on image load failure.',
             control: 'object',
             defaultValue: {
                 summary: defaultProps.placeholder,
@@ -161,12 +159,12 @@ export const AspectRatio16By9 = createThumbnailStory({
     aspectRatio: '16by9',
 }, {});
 
-export const WithInvalidSrcAndDefaultPlaceholder = createThumbnailStory({
-    src: brokenSrc,
+export const InvalidSrcAndDefaultPlaceholder = createThumbnailStory({
+    src: 'invalid-url.com',
 }, {});
 
-export const WithInvalidSrcAndCustomPlaceholder = createThumbnailStory({
-    src: brokenSrc,
+export const InvalidSrcAndCustomPlaceholder = createThumbnailStory({
+    src: 'invalid-url.com',
     placeholder: {
         src: 'https://www.pie.design/assets/img/404_narrow.png',
         alt: 'A custom placeholder image',

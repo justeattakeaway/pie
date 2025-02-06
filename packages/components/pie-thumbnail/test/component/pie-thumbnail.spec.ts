@@ -13,7 +13,7 @@ test.describe('PieThumbnail - Component tests', () => {
         await expect(page.getByTestId(thumbnail.selectors.container.dataTestId)).toBeVisible();
     });
 
-    test('should set a custom placeholder if the `placeholder` prop is provided on image load failure', async ({ page }) => {
+    test('should set a custom placeholder on image load failure if the `placeholder` prop is provided', async ({ page }) => {
         // Arrange
         const expectedPlaceholder = {
             src: 'https://www.pie.design/assets/img/404_narrow.png',
