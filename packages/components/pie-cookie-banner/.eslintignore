@@ -1,4 +1,5 @@
 .turbo
+cdn_dist
 dist
 node_modules
 lit-browsers-report
