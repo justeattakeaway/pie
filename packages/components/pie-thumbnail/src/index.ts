@@ -13,6 +13,7 @@ import {
     backgroundColors,
     backgroundColorClassNames,
     sizes,
+    aspectRatios,
 } from './defs';
 import styles from './thumbnail.scss?inline';
 
@@ -32,6 +33,10 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     @property({ type: Number })
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
     public size = defaultProps.size;
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, aspectRatios, defaultProps.aspectRatio)
+    public aspectRatio = defaultProps.aspectRatio;
 
     @property({ type: String })
     public src = defaultProps.src;
@@ -55,6 +60,10 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     @query('img')
     private img!: HTMLImageElement;
 
+    /**
+     * Assigns the thumbnail size and border radius CSS variables
+     * based on the size prop.
+     */
     private _generateSizeStyles (): string {
         const { size } = this;
         let borderRadius = '--dt-radius-rounded-c';
@@ -103,11 +112,13 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
             disabled,
             hasPadding,
             backgroundColor,
+            aspectRatio,
         } = this;
 
         const wrapperClasses = {
             'c-thumbnail': true,
             [`c-thumbnail--${variant}`]: true,
+            [`c-thumbnail--${aspectRatio}`]: true,
             [backgroundColorClassNames[backgroundColor]]: true,
             'c-thumbnail--disabled': disabled,
             'c-thumbnail--padding': hasPadding,
