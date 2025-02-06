@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.3.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2187](https://github.com/justeattakeaway/pie/pull/2187)) by [@raoufswe](https://github.com/raoufswe)
+
+  ### Misc
+
+  - drone
+  - drone-large
+
 ## 1.2.0
 
 ### Minor Changes

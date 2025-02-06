@@ -1,5 +1,21 @@
 # Changelog
 
+## 4.25.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2187](https://github.com/justeattakeaway/pie/pull/2187)) by [@raoufswe](https://github.com/raoufswe)
+
+  ### Misc
+
+  - drone
+  - drone-large
+
+### Patch Changes
+
+- Updated dependencies [[`a643b87`](https://github.com/justeattakeaway/pie/commit/a643b876e66d86effc318d0f0bb98b06508ee003)]:
+  - @justeattakeaway/pie-icons@5.4.0
+
 ## 4.24.1
 
 ### Patch Changes
