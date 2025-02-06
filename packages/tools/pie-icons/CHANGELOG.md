@@ -1,5 +1,16 @@
 # Changelog
 
+## 5.4.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2187](https://github.com/justeattakeaway/pie/pull/2187)) by [@raoufswe](https://github.com/raoufswe)
+
+  ### Misc
+
+  - drone
+  - drone-large
+
 ## 5.3.0
 
 ### Minor Changes

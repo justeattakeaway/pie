@@ -3,4 +3,4 @@
 "pie-storybook": minor
 ---
 
-[Added] - the size prop
+[Added] - the aspect ratio prop

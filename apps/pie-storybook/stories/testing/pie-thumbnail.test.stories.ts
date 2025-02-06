@@ -8,6 +8,7 @@ import {
     variants,
     backgroundColors,
     sizes,
+    aspectRatios,
 } from '@justeattakeaway/pie-thumbnail';
 
 import { type Meta } from '@storybook/web-components';
@@ -17,8 +18,8 @@ type ThumbnailStoryMeta = Meta<ThumbnailProps>;
 
 const defaultArgs: ThumbnailProps = {
     ...defaultProps,
-    src: 'https://www.pie.design/assets/img/jet-logo-narrow.svg',
-    alt: 'JET logo',
+    src: './static/images/pie-logo.svg',
+    alt: 'The PIE design system logo',
     placeholder: {
         src: 'https://www.pie.design/assets/img/404_narrow.png',
         alt: 'Thumbnail placeholder image',
@@ -81,6 +82,14 @@ const thumbnailStoryMeta: ThumbnailStoryMeta = {
                 summary: defaultProps.backgroundColor,
             },
         },
+        aspectRatio: {
+            description: 'Sets the aspect-ratio of the thumbnail image.',
+            control: 'select',
+            options: aspectRatios,
+            defaultValue: {
+                summary: defaultProps.aspectRatio,
+            },
+        },
         placeholder: {
             description: 'If an image fails to load, the placeholder prop can be used to ensure there is always something visible to users.',
             control: 'object',
@@ -96,6 +105,7 @@ export default thumbnailStoryMeta;
 
 const Template: TemplateFunction<ThumbnailProps> = ({
     variant,
+    aspectRatio,
     size,
     src,
     alt,
@@ -110,6 +120,7 @@ const Template: TemplateFunction<ThumbnailProps> = ({
         src="${ifDefined(src)}"
         alt="${ifDefined(alt)}"
         backgroundColor="${ifDefined(backgroundColor)}"
+        aspectRatio="${ifDefined(aspectRatio)}"
         ?disabled="${disabled}"
         ?hasPadding="${hasPadding}"
         .placeholder="${placeholder}">
@@ -119,11 +130,12 @@ const Template: TemplateFunction<ThumbnailProps> = ({
 const sharedPropOptions = {
     src: [defaultArgs.src],
     alt: [defaultArgs.alt],
-    size: sizes,
+    size: [...sizes],
     disabled: [true, false],
     hasPadding: [true, false],
     backgroundColor: [defaultArgs.backgroundColor],
     placeholder: [defaultArgs.placeholder],
+    aspectRatio: [defaultArgs.aspectRatio],
 };
 
 const defaultPropOptions = {
@@ -142,6 +154,18 @@ const backgroundPropOptions = {
     src: ['https://www.pie.design/assets/img/404_narrow.png'],
 };
 
+const aspectRatio4by3PropOptions = {
+    ...sharedPropOptions,
+    aspectRatio: ['4by3'],
+    src: ['./static/images/burger-4by3.png'],
+};
+
+const aspectRatio16by9PropOptions = {
+    ...sharedPropOptions,
+    aspectRatio: ['16by9'],
+    src: ['./static/images/burger-16by9.png'],
+};
+
 export const Default = createStory<ThumbnailProps>(Template, defaultArgs)();
 
 export const InvalidSrc = createStory<ThumbnailProps>(Template, {
@@ -158,10 +182,13 @@ export const ValidSrcWithPlaceholder = createStory<ThumbnailProps>(Template, {
         src: 'https://www.pie.design/assets/img/404_narrow.png',
         alt: 'Placeholder Alt',
     },
-    src: 'https://www.pie.design/assets/img/jet-logo-narrow.svg',
-    alt: 'JET Logo',
+    src: defaultArgs.src,
+    alt: defaultArgs.alt,
 })();
 
 export const DefaultPropVariations = createVariantStory<ThumbnailProps>(Template, defaultPropOptions);
 export const OutlinePropVariations = createVariantStory<ThumbnailProps>(Template, outlinePropOptions);
 export const BackgroundPropVariations = createVariantStory<ThumbnailProps>(Template, backgroundPropOptions);
+export const aspectRatio4by3PropVariations = createVariantStory<ThumbnailProps>(Template, aspectRatio4by3PropOptions);
+export const aspectRatio16by9PropVariations = createVariantStory<ThumbnailProps>(Template, aspectRatio16by9PropOptions);
+
