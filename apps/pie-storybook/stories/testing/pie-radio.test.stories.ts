@@ -13,7 +13,7 @@ import {
 
 import { type SlottedComponentProps } from '../../types';
 import {
-    createStory, createVariantStory, sanitizeAndRenderHTML, type TemplateFunction,
+    createStory, createVariantStory, sanitizeAndRenderHTML, type PropDisplayOptions, type TemplateFunction,
 } from '../../utilities';
 
 type RadioProps = SlottedComponentProps<RadioBaseProps>;
@@ -179,6 +179,7 @@ const ExampleFormTemplate: TemplateFunction<RadioProps> = ({
 export const Default = createStory<RadioProps>(Template, defaultArgs)();
 export const ExampleForm = createStory<RadioProps>(ExampleFormTemplate, defaultArgs)();
 
+const shortLabel = 'Short label';
 const longLabel = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pretium quam eget dolor imperdiet placerat. Aliquam sollicitudin erat sed est lobortis sollicitudin. Nam vulputate, mi vel finibus convallis, mi dolor molestie arcu, vel pulvinar urna neque et sapien. Aenean euismod faucibus turpis et efficitur. Sed porttitor dui at justo cursus pulvinar. Sed scelerisque aliquet diam sed feugiat. Fusce id lorem finibus, tempor nulla tempor, tincidunt odio. Mauris consequat lectus ex, eget lacinia dui finibus sit amet. Phasellus maximus posuere sapien eget condimentum. Nunc viverra pharetra blandit.';
 
 const radioPropsMatrix: Partial<Record<keyof RadioProps, unknown[]>> = {
@@ -188,4 +189,13 @@ const radioPropsMatrix: Partial<Record<keyof RadioProps, unknown[]>> = {
     status: ['default', 'error'],
 };
 
-export const Variations = createVariantStory<RadioProps>(Template, radioPropsMatrix, { multiColumn: true });
+const variantPropDisplayOptions: PropDisplayOptions<RadioProps> = {
+  propLabels: {
+      slot: {
+          [longLabel]: 'With long message',
+          [shortLabel]: 'With short message',
+      },
+  },
+};
+
+export const Variations = createVariantStory<RadioProps>(Template, radioPropsMatrix, { ... variantPropDisplayOptions, multiColumn: true });
