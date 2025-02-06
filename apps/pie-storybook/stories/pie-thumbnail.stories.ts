@@ -161,10 +161,12 @@ export const AspectRatio16By9 = createThumbnailStory({
 
 export const InvalidSrcAndDefaultPlaceholder = createThumbnailStory({
     src: 'invalid-url.com',
+    alt: 'Invalid image url',
 }, {});
 
 export const InvalidSrcAndCustomPlaceholder = createThumbnailStory({
     src: 'invalid-url.com',
+    alt: 'Invalid image url',
     placeholder: {
         src: 'https://www.pie.design/assets/img/404_narrow.png',
         alt: 'A custom placeholder image',

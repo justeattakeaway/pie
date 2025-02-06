@@ -175,14 +175,14 @@ const aspectRatio16by9PropOptions = {
 const defaultPlaceholderPropOptions = {
     ...sharedPropOptions,
     src: ['invalid-url.com'],
-    alt: ['Invalid text'],
+    alt: ['Invalid image url'],
     aspectRatio: [...aspectRatios],
 };
 
 const customPlaceholderPropOptions = {
     ...sharedPropOptions,
     src: ['invalid-url.com'],
-    alt: ['Invalid text'],
+    alt: ['Invalid image url'],
     placeholder: [{
         src: 'https://www.pie.design/assets/img/404_narrow.png',
         alt: 'Thumbnail placeholder image',
