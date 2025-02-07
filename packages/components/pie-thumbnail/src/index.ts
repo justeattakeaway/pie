@@ -16,7 +16,7 @@ import {
     aspectRatios,
 } from './defs';
 import styles from './thumbnail.scss?inline';
-// import defaultPlaceholder from './default-placeholder.svg?inline';
+import defaultPlaceholder from './default-placeholder.svg?inline';
 
 // Valid values available to consumers
 export * from './defs';
@@ -65,7 +65,26 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     private img!: HTMLImageElement;
 
     @state()
-    private _isDefaultPlaceholderVisible = false;
+    private _hasError = false;
+
+    private get _hasDefaultPlaceholder (): boolean {
+        const { _hasError, placeholder } = this;
+        return _hasError && !placeholder?.src;
+    }
+
+    private get _controlledSrc (): string {
+        if (!this._hasError) return this.src;
+        if (this.placeholder?.src) return this.placeholder.src;
+        if (!this.hideDefaultPlaceholder) return defaultPlaceholder;
+        return this.src;
+    }
+
+    private get _controlledAlt (): string {
+        if (!this._hasError) return this.alt;
+        if (this.placeholder?.src) return this.placeholder.alt ?? '';
+        if (!this.hideDefaultPlaceholder) return '';
+        return this.alt;
+    }
 
     /**
      * Assigns the thumbnail size and border radius CSS variables
@@ -90,20 +109,12 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
         `;
     }
 
-    private _handleImageError () {
-        if (this.placeholder?.src) {
-            this.setAttribute('src', this.placeholder.src);
-            this.setAttribute('alt', this.placeholder.alt ?? '');
-        } else {
-            const showDefaultPlaceholder = !this.hideDefaultPlaceholder;
-            this.setAttribute('src', showDefaultPlaceholder ? 'https://arthurmillerfoundation.org/wp-content/uploads/2018/06/default-placeholder.png' : this.src);
-            this.setAttribute('alt', showDefaultPlaceholder ? '' : this.alt);
-            this._isDefaultPlaceholderVisible = showDefaultPlaceholder;
-        }
+    private _handleImageError (): void {
+        this._hasError = true;
     }
 
     /**
-     * Detects image load status and applies the placeholder on failure.
+     * Detects image load status and sets the hasError state.
      * This is needed as the `onerror` event is not triggered in SSR.
      */
     private _checkImageError () {
@@ -121,11 +132,11 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     render () {
         const {
             variant,
-            src,
-            alt,
+            _controlledSrc,
+            _controlledAlt,
             disabled,
             hasPadding,
-            _isDefaultPlaceholderVisible,
+            _hasDefaultPlaceholder,
             backgroundColor,
             aspectRatio,
         } = this;
@@ -137,12 +148,10 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
             [backgroundColorClassNames[backgroundColor]]: true,
             'c-thumbnail--disabled': disabled,
             'c-thumbnail--padding': hasPadding,
-            'c-thumbnail--defaultPlaceholder': _isDefaultPlaceholderVisible,
+            'c-thumbnail--defaultPlaceholder': _hasDefaultPlaceholder,
         };
 
         const sizeStyles = this._generateSizeStyles();
-
-        console.log(src);
 
         return html`
             <div data-test-id="pie-thumbnail"
@@ -150,8 +159,8 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
              style="${sizeStyles}">
                 <img
                     data-test-id="pie-thumbnail-img"
-                    src="${src}"
-                    alt="${alt}"
+                    src="${_controlledSrc}"
+                    alt="${_controlledAlt}"
                     class="c-thumbnail-img"
                     @error="${this._handleImageError}"
                 />
