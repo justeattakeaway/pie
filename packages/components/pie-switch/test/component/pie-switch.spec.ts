@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 import { labelPlacements, type SwitchProps } from '../../src/defs';
 import { pieSwitch } from '../helpers/page-objects/selectors';
+import { EXPECTED_EVENT_MESSAGE } from '../helpers/constants';
 
 test.describe('Component: `Pie switch`', () => {
     test('should have a visible input', async ({ page }) => {
@@ -81,8 +82,6 @@ test.describe('Component: `Pie switch`', () => {
                 const switchPage = new BasePage(page, 'switch');
                 await switchPage.load();
 
-                const expectedEventMessage = 'Switch clicked';
-
                 // Set up a listener for console messages
                 const consoleMessages: string[] = [];
                 page.on('console', (message) => {
@@ -95,7 +94,7 @@ test.describe('Component: `Pie switch`', () => {
                 await page.getByTestId(pieSwitch.selectors.container.dataTestId).click();
 
                 // Assert
-                expect(consoleMessages).toEqual([expectedEventMessage]);
+                expect(consoleMessages).toEqual([EXPECTED_EVENT_MESSAGE]);
             });
         });
 
@@ -144,7 +143,6 @@ test.describe('Component: `Pie switch`', () => {
                 const switchPage = new BasePage(page, 'switch');
                 await switchPage.load();
 
-                const expectedEventMessage = 'Switch clicked';
                 const consoleMessages: string[] = [];
 
                 page.on('console', (message) => {
@@ -157,7 +155,7 @@ test.describe('Component: `Pie switch`', () => {
                 await page.getByTestId(pieSwitch.selectors.label.leading.dataTestId).click();
 
                 // Assert
-                expect(consoleMessages).toEqual([expectedEventMessage]);
+                expect(consoleMessages).toEqual([EXPECTED_EVENT_MESSAGE]);
             });
         });
     });

@@ -1,11 +1,11 @@
 import { html, nothing } from 'lit';
-import { action } from '@storybook/addon-actions';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-switch';
 import { type SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-switch';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
+import { EXPECTED_EVENT_MESSAGE } from '@justeattakeaway/pie-switch/test/helpers/constants';
 import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';
 
 type SwitchStoryMeta = Meta<SwitchProps>;
@@ -84,7 +84,7 @@ const switchStoryMeta: SwitchStoryMeta = {
 };
 
 export default switchStoryMeta;
-const changeAction = () => console.info('Switch clicked');
+const changeAction = () => console.info(EXPECTED_EVENT_MESSAGE);
 const submitAction = (event: Event) => {
     event.preventDefault(); // Prevent the actual submission
 
