@@ -185,7 +185,7 @@ const customPlaceholderPropOptions = {
     alt: ['Invalid image url'],
     placeholder: [{
         src: 'https://www.pie.design/assets/img/404_narrow.png',
-        alt: 'Thumbnail placeholder image',
+        alt: 'A custom placeholder image',
     }],
 };
 
@@ -202,6 +202,6 @@ export const ValidSrcWithCustomPlaceholder = createStory<ThumbnailProps>(Templat
     alt: defaultArgs.alt,
     placeholder: {
         src: 'https://www.pie.design/assets/img/404_narrow.png',
-        alt: 'Thumbnail placeholder image',
+        alt: 'A custom placeholder image',
     },
 })();

@@ -25,7 +25,7 @@ test.describe('PieThumbnail - Component tests', () => {
 
         // Act
         const thumbnailComponent = page.getByTestId(thumbnail.selectors.container.dataTestId);
-        const thumbnailImg = thumbnailComponent.getByTestId(thumbnail.selectors.img.dataTestId);
+        const thumbnailImg = thumbnailComponent.getByTestId(thumbnail.selectors.img.dataTestId).first();
 
         // Assert
         await expect(thumbnailImg).toHaveAttribute('src', expectedPlaceholder.src);
