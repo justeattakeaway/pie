@@ -137,6 +137,10 @@
     }
 }
 
+.c-switch-label {
+    color: var(--dt-color-content-default);
+}
+
 // The description is only required for screen readers so we need to visually hide the description
 .c-switch-description {
     @include p.visually-hidden;

@@ -160,7 +160,9 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
         }
 
         return html`
-            <span data-test-id="switch-label-${labelPlacement}">
+            <span
+                data-test-id="switch-label-${labelPlacement}"
+                class="c-switch-label">
                 ${label}
             </span>`;
     }

@@ -3,6 +3,7 @@
 "@justeattakeaway/pie-divider": minor
 "@justeattakeaway/pie-icon-button": minor
 "@justeattakeaway/pie-modal": minor
+"@justeattakeaway/pie-switch": minor
 "@justeattakeaway/pie-tag": minor
 ---
 
