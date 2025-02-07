@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-radio
 
+## 0.8.0
+
+### Minor Changes
+
+- [Changed] - Move component status to beta ([#2190](https://github.com/justeattakeaway/pie/pull/2190)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Fixed] - Ensure focus ring does not appear on click ([#2183](https://github.com/justeattakeaway/pie/pull/2183)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.7.0
 
 ### Minor Changes

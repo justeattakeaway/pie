@@ -36,8 +36,8 @@ test.describe('PieThumbnail - Component tests', () => {
     test('should NOT set placeholder values if a placeholder is provided  when an image load does not throw an error', async ({ page }) => {
         // Arrange
         const expectedValues = {
-            src: 'https://www.pie.design/assets/img/jet-logo-narrow.svg',
-            alt: 'JET Logo',
+            src: './static/images/pie-logo.svg',
+            alt: 'The PIE design system logo',
         };
 
         const pieThumbnailPage = new BasePage(page, 'thumbnail--valid-src-with-placeholder');

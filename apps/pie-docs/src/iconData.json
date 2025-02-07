@@ -1317,6 +1317,10 @@
                     "displayName": "DIY"
                 },
                 {
+                    "name": "drone",
+                    "displayName": "Drone"
+                },
+                {
                     "name": "electronic-accessories",
                     "displayName": "Electronic Accessories"
                 },

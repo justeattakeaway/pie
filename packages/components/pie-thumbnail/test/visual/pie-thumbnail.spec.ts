@@ -23,3 +23,23 @@ test('should render all prop variants for background variants', async ({ page })
 
     await percySnapshot(page, 'PIE Thumbnail - backgroundColor variants', { widths: [1280] });
 });
+
+test('should render all prop variations for the 4by3 aspect ratio', async ({ page }) => {
+    const basePage = new BasePage(page, 'thumbnail--aspect-ratio-4-by-3-prop-variations');
+    await basePage.load();
+
+    const thumbnailComponent = page.getByTestId(thumbnail.selectors.container.dataTestId).first();
+    await expect.soft(thumbnailComponent).toBeVisible();
+
+    await percySnapshot(page, 'PIE Thumbnail - aspectRatio: 4by3', { widths: [1280] });
+});
+
+test('should render all prop variations for the 16by9 aspect ratio', async ({ page }) => {
+    const basePage = new BasePage(page, 'thumbnail--aspect-ratio-16-by-9-prop-variations');
+    await basePage.load();
+
+    const thumbnailComponent = page.getByTestId(thumbnail.selectors.container.dataTestId).first();
+    await expect.soft(thumbnailComponent).toBeVisible();
+
+    await percySnapshot(page, 'PIE Thumbnail - aspectRatio: 16by9', { widths: [1280] });
+});

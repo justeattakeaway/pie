@@ -1,317 +1,220 @@
-import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieToast } from '../../src/index.ts';
+import { test, expect } from '@playwright/test';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { toast } from 'test/helpers/page-object/selectors.ts';
 import { type ToastProps, variants } from '../../src/defs.ts';
 
-const rootSelector = 'pie-toast';
-const componentSelector = `[data-test-id="${rootSelector}"]`;
-const messageSelector = `[data-test-id="${rootSelector}-message"]`;
-const closeSelector = `[data-test-id="${rootSelector}-close"]`;
-const footerSelector = `[data-test-id="${rootSelector}-footer"]`;
-const leadingActionSelector = `[data-test-id="${rootSelector}-leading-action"]`;
-
-/**
- * A small amount of time in milliseconds to wait in order to allow the component to have rendered and its animations to have completed.
- */
-const COMPONENT_RENDER_DURATION_MS = 250;
-
-function getToastIconSelectors (variant: string): string {
-    return `[data-test-id="${rootSelector}-heading-icon-${variant}"]`;
-}
-
 test.describe('PieToast - Component tests', () => {
-    // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
-    // mount the component will still have it available in Playwright's cache (loaded and registered in the test browser)
-    test.beforeEach(async ({ mount }) => {
-        const component = await mount(PieToast);
-        await component.unmount();
-    });
-
     const mainAction = {
         text: 'Confirm',
         ariaLabel: 'Button that confirm the action',
     };
 
-    test('should render successfully', async ({ mount, page }) => {
+    test('should render successfully', async ({ page }) => {
         // Arrange
-        await mount(PieToast, {
-            props: {} as ToastProps,
-        });
-
-        // Wait for the component to render alongside its animations
-        await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
+        const toastPage = new BasePage(page, 'toast');
+        await toastPage.load();
 
         // Act
-        const toast = page.locator(componentSelector);
+        const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
 
         // Assert
-        expect(toast).toBeVisible();
+        await expect(toastComponent).toBeVisible();
     });
 
     test.describe('Props', () => {
         test.describe('isOpen', () => {
-            test('should have c-toast--animate-out class if isOpen is false', async ({ mount, page }) => {
+            test('should have c-toast--animate-out class if isOpen is false', async ({ page }) => {
                 // Arrange
-                await mount(PieToast, {
-                    props: {
-                        isOpen: false,
-                    } as ToastProps,
-                });
+                const toastPage = new BasePage(page, 'toast');
+                const props: Partial<ToastProps> = {
+                    isOpen: false,
+                    duration: 250,
+                };
+                await toastPage.load({ ...props });
 
-                // Wait for the component to render alongside its animations
-                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
+                await expect.soft(page.getByTestId(toast.selectors.container.dataTestId)).toBeVisible();
 
                 // Act
-                const toast = page.locator(componentSelector);
+                const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
 
                 // Assert
-                expect(toast).toBeVisible();
-                expect(toast).toHaveClass(' c-toast c-toast--neutral c-toast--animate-out ');
+                await expect(toastComponent).toBeVisible();
+                await expect(toastComponent).toHaveClass('c-toast c-toast--neutral c-toast--animate-out');
             });
         });
 
         test.describe('message', () => {
-            test('should render the message', async ({ mount, page }) => {
+            test('should render the message', async ({ page }) => {
                 // Arrange
+                const toastPage = new BasePage(page, 'toast');
                 const confirmMessage = 'Item has been created';
-                await mount(PieToast, {
-                    props: {
-                        message: confirmMessage,
-                    } as ToastProps,
-                });
 
-                // Wait for the component to render alongside its animations
-                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
+                const props: ToastProps = {
+                    message: confirmMessage,
+                };
+                await toastPage.load({ ...props });
 
                 // Act
-                const toast = page.locator(componentSelector);
-                const message = page.locator(messageSelector);
+                const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
+                const toastMessage = page.getByTestId(toast.selectors.message.dataTestId);
 
                 // Assert
-                expect(toast).toBeVisible();
-                expect(message).toBeVisible();
-                expect(message).toHaveText(confirmMessage);
+                await expect(toastComponent).toBeVisible();
+                await expect(toastMessage).toBeVisible();
+                await expect(toastMessage).toHaveText(confirmMessage);
             });
 
-            test('should not render the message if is empty string', async ({ mount, page }) => {
+            test('should not render the message if is empty string', async ({ page }) => {
                 // Arrange
-                await mount(PieToast, {
-                    props: {
-                        message: '',
-                    } as ToastProps,
-                });
+                const toastPage = new BasePage(page, 'toast');
+                const props: ToastProps = {
+                    message: '',
+                };
 
-                // Wait for the component to render alongside its animations
-                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
+                await toastPage.load({ ...props });
 
                 // Act
-                const toast = page.locator(componentSelector);
-                const message = page.locator(messageSelector);
+                const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
+                const toastMessage = page.getByTestId(toast.selectors.message.dataTestId);
 
                 // Assert
-                expect(toast).toBeVisible();
-                expect(message).not.toBeVisible();
+                await expect(toastComponent).toBeVisible();
+                await expect(toastMessage).not.toBeVisible();
             });
         });
 
         test.describe('isDismissible', () => {
-            test('should not show the close icon if isDismissible is false', async ({ mount, page }) => {
+            test('should not show the close icon if isDismissible is false', async ({ page }) => {
                 // Arrange
-                await mount(PieToast, {
-                    props: {
-                        isDismissible: false,
-                    },
-                });
-
-                // Wait for the component to render alongside its animations
-                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
+                const toastPage = new BasePage(page, 'toast');
+                const props: Partial<ToastProps> = {
+                    isDismissible: false,
+                };
+                await toastPage.load({ ...props });
 
                 // Act
-                const toast = page.locator(componentSelector);
-                const iconClose = page.locator(closeSelector);
+                const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
+                const iconClose = page.getByTestId(toast.selectors.close.dataTestId);
 
                 // Assert
-                expect(toast).toBeVisible();
-                expect(iconClose).not.toBeVisible();
+                await expect(toastComponent).toBeVisible();
+                await expect(iconClose).not.toBeVisible();
             });
         });
 
         test.describe('isMultiline', () => {
-            test('should show the footer if isMultiline is true and has leadingAction', async ({ mount, page }) => {
+            test('should show the footer if isMultiline is true and has leadingAction', async ({ page }) => {
                 // Arrange
-                await mount(PieToast, {
-                    props: {
-                        isMultiline: true,
-                        leadingAction: mainAction,
-                    } as ToastProps,
-                });
-
-                // Wait for the component to render alongside its animations
-                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
+                const toastPage = new BasePage(page, 'toast');
+                const props: Partial<ToastProps> = {
+                    isMultiline: true,
+                    leadingAction: mainAction,
+                };
+                await toastPage.load({ ...props });
 
                 // Act
-                const toast = page.locator(componentSelector);
-                const footer = page.locator(footerSelector);
-                const leadingAction = page.locator(leadingActionSelector);
+                const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
+                const footer = page.getByTestId(toast.selectors.footer.dataTestId);
+                const leadingAction = page.getByTestId(toast.selectors.leadingAction.dataTestId);
 
                 // Assert
-                expect(toast).toBeVisible();
-                expect(footer).toBeVisible();
-                expect(leadingAction).toBeVisible();
+                await expect(toastComponent).toBeVisible();
+                await expect(footer).toBeVisible();
+                await expect(leadingAction).toBeVisible();
             });
         });
 
         test.describe('leadingAction', () => {
-            test('should show the leadingAction when provided and if multiline is false', async ({ mount, page }) => {
+            test('should show the leadingAction when provided and if multiline is false', async ({ page }) => {
                 // Arrange
-                await mount(PieToast, {
-                    props: {
-                        isMultiline: false,
-                        leadingAction: mainAction,
-                    } as ToastProps,
-                });
-
-                // Wait for the component to render alongside its animations
-                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
+                const toastPage = new BasePage(page, 'toast');
+                const props: Partial<ToastProps> = {
+                    isMultiline: false,
+                    leadingAction: mainAction,
+                };
+                await toastPage.load({ ...props });
 
                 // Act
-                const toast = page.locator(componentSelector);
-                const leadingAction = page.locator(leadingActionSelector);
+                const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
+                const leadingAction = page.getByTestId(toast.selectors.leadingAction.dataTestId);
 
                 // Assert
-                expect(toast).toBeVisible();
-                expect(leadingAction).toBeVisible();
+                await expect(toastComponent).toBeVisible();
+                await expect(leadingAction).toBeVisible();
             });
 
-            test('should not show the footer if leadingAction is not provided', async ({ mount, page }) => {
+            test('should not show the footer if leadingAction is not provided', async ({ page }) => {
                 // Arrange
-                await mount(PieToast, {
-                    props: {
-                        isMultiline: true,
-                    } as ToastProps,
-                });
-
-                // Wait for the component to render alongside its animations
-                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
+                const toastPage = new BasePage(page, 'toast');
+                const props: Partial<ToastProps> = {
+                    isMultiline: true,
+                };
+                await toastPage.load({ ...props });
 
                 // Act
-                const toast = page.locator(componentSelector);
-                const footer = page.locator(footerSelector);
-                const leadingAction = page.locator(leadingActionSelector);
+                const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
+                const footer = page.getByTestId(toast.selectors.footer.dataTestId);
+                const leadingAction = page.getByTestId(toast.selectors.leadingAction.dataTestId);
 
                 // Assert
-                expect(toast).toBeVisible();
-                expect(footer).not.toBeVisible();
-                expect(leadingAction).not.toBeVisible();
+                await expect(toastComponent).toBeVisible();
+                await expect(footer).not.toBeVisible();
+                await expect(leadingAction).not.toBeVisible();
             });
 
-            test('should show the footer if leadingAction is provided', async ({ mount, page }) => {
+            test('should show the footer if leadingAction is provided', async ({ page }) => {
                 // Arrange
-                await mount(PieToast, {
-                    props: {
-                        isDismissible: false,
-                        isMultiline: true,
-                        leadingAction: mainAction,
-                    } as ToastProps,
-                });
-
-                // Wait for the component to render alongside its animations
-                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
+                const toastPage = new BasePage(page, 'toast');
+                const props: Partial<ToastProps> = {
+                    isDismissible: false,
+                    isMultiline: true,
+                    leadingAction: mainAction,
+                };
+                await toastPage.load({ ...props });
 
                 // Act
-                const toast = page.locator(componentSelector);
-                const footer = page.locator(footerSelector);
-                const actionLeading = page.locator(leadingActionSelector);
+                const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
+                const footer = page.getByTestId(toast.selectors.footer.dataTestId);
+                const actionLeading = page.getByTestId(toast.selectors.leadingAction.dataTestId);
 
                 // Assert
-                expect(toast).toBeVisible();
-                expect(footer).toBeVisible();
-                expect(actionLeading).toBeVisible();
-            });
-        });
-
-        test.describe('variant', () => {
-            variants.forEach((variant) => {
-                if (variant !== 'neutral') {
-                    test(`should show the ${variant} icon`, async ({ mount, page }) => {
-                        // Arrange
-                        await mount(PieToast, {
-                            props: {
-                                variant: variant as ToastProps['variant'],
-                            } as ToastProps,
-                        });
-
-                        // Wait for the component to render alongside its animations
-                        await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
-
-                        // Act
-                        const toast = page.locator(componentSelector);
-                        const icon = page.locator(getToastIconSelectors(variant));
-
-                        // Assert
-                        expect(toast).toBeVisible();
-                        expect(icon).toBeVisible();
-                    });
-                } else {
-                    test('should not show the icon when variant is neutral', async ({ mount, page }) => {
-                        // Arrange
-                        await mount(PieToast, {
-                            props: {
-                                variant: variant as ToastProps['variant'],
-                            } as ToastProps,
-                        });
-
-                        // Wait for the component to render alongside its animations
-                        await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
-
-                        // Act
-                        const toast = page.locator(componentSelector);
-                        const icon = page.locator(getToastIconSelectors(variant));
-
-                        // Assert
-                        expect(toast).toBeVisible();
-                        expect(icon).not.toBeVisible();
-                    });
-                }
+                await expect(toastComponent).toBeVisible();
+                await expect(footer).toBeVisible();
+                await expect(actionLeading).toBeVisible();
             });
         });
     });
 
     test.describe('role attribute', () => {
-        test('should set role to "alert" when variant is "error"', async ({ mount, page }) => {
+        test('should set role to "alert" when variant is "error"', async ({ page }) => {
             // Arrange
-            await mount(PieToast, {
-                props: {
-                    variant: 'error',
-                } as ToastProps,
-            });
-
-            // Wait for the component to render alongside its animations
-            await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
+            const toastPage = new BasePage(page, 'toast');
+            const props: Partial<ToastProps> = {
+                variant: 'error',
+            };
+            await toastPage.load({ ...props });
 
             // Act
-            const toast = page.locator(componentSelector);
+            const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
 
             // Assert
-            await expect(toast).toHaveAttribute('role', 'alert');
+            await expect(toastComponent).toHaveAttribute('role', 'alert');
         });
 
         variants.filter((variant) => variant !== 'error').forEach((variant) => {
-            test(`should set role to "status" when variant is "${variant}"`, async ({ mount, page }) => {
+            test(`should set role to "status" when variant is "${variant}"`, async ({ page }) => {
                 // Arrange
-                await mount(PieToast, {
-                    props: {
-                        variant,
-                    } as ToastProps,
-                });
-
-                // Wait for the component to render alongside its animations
-                await page.waitForTimeout(COMPONENT_RENDER_DURATION_MS);
+                const toastPage = new BasePage(page, 'toast');
+                const props: Partial<ToastProps> = {
+                    variant,
+                };
+                await toastPage.load({ ...props });
 
                 // Act
-                const toast = page.locator(componentSelector);
+                const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
 
                 // Assert
-                await expect(toast).toHaveAttribute('role', 'status');
+                await expect(toastComponent).toHaveAttribute('role', 'status');
             });
         });
     });

@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-thumbnail
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - the size prop ([#2180](https://github.com/justeattakeaway/pie/pull/2180)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.3.0
 
 ### Minor Changes

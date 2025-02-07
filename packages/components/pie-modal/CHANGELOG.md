@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-modal
 
+## 1.2.0
+
+### Minor Changes
+
+- [Changed] - handleModalOpen method to help with performance ([#2181](https://github.com/justeattakeaway/pie/pull/2181)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies [[`a643b87`](https://github.com/justeattakeaway/pie/commit/a643b876e66d86effc318d0f0bb98b06508ee003)]:
+  - @justeattakeaway/pie-icons-webc@1.3.0
+  - @justeattakeaway/pie-icon-button@1.1.1
+
 ## 1.1.1
 
 ### Patch Changes

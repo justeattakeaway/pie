@@ -148,7 +148,7 @@
     }
 }
 
-:host(:focus) {
+:host(:focus-visible) {
     outline: none;
 
     .c-radio .c-radio-input {

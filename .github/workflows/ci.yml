@@ -247,13 +247,13 @@ jobs:
         uses: ./.github/actions/run-script
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='{./packages/components/*}[HEAD^1]'"
+          script-name: "test:visual:ci --filter='{./packages/components/*}[HEAD^1]' --filter='{./packages/tools/*}[HEAD^1]'"
           concurrency: 1
       - name: Run Changed Package Visual Tests
         uses: ./.github/actions/run-script
         if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='{./packages/components/*}...[origin/main]'"
+          script-name: "test:visual:ci --filter='{./packages/components/*}...[origin/main]' --filter='{./packages/tools/*}...[origin/main]'"
           concurrency: 1
       - name: Upload Playwright Report
         uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4.6.0
