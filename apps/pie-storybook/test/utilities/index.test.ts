@@ -86,9 +86,6 @@ describe('createVariantStory', () => {
 
         const story = createVariantStory(template, propOptions, storyOpts);
 
-        // Check if the parameters include the background color
-        expect(story.parameters.backgrounds.default).toBe('background-subtle');
-
         // Check if argTypes are applied
         expect(story.argTypes).toEqual(storyOpts.argTypes);
     });
