@@ -1,26 +1,19 @@
-import { expect, test } from '@sand4rt/experimental-ct-web';
-import { getFormDataObject, setupFormDataExtraction } from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
-import { PieTextarea, type TextareaProps } from '../../src/index.ts';
+import { test, expect } from '@playwright/test';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { type PieTextarea, type TextareaProps } from '../../src/index.ts';
+
+import { textArea } from '../helpers/page-objects/selectors.ts';
 
 import { statusTypes } from '../../src/defs.ts';
 
-const componentSelector = '[data-test-id="pie-textarea"]';
-const assistiveTextSelector = '[data-test-id="pie-textarea-assistive-text"]';
-
 test.describe('PieTextarea - Component tests', () => {
-    // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
-    // mount the component will still have it available in Playwright's cache (loaded and registered in the test browser)
-    test.beforeEach(async ({ mount }) => {
-        const component = await mount(PieTextarea);
-        await component.unmount();
-    });
-
-    test('should render successfully', async ({ mount, page }) => {
+    test('should render successfully', async ({ page }) => {
         // Arrange
-        await mount(PieTextarea);
+        const textAreaPage = new BasePage(page, 'textarea');
+        await textAreaPage.load();
 
         // Act
-        const textarea = page.locator(componentSelector);
+        const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
         // Assert
         expect(textarea).toBeVisible();
@@ -29,16 +22,17 @@ test.describe('PieTextarea - Component tests', () => {
     test.describe('Props', () => {
         test.describe('disabled', () => {
             test.describe('when true', () => {
-                test('should disable the component', async ({ mount }) => {
+                test('should disable the component', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieTextarea, {
-                        props: {
-                            disabled: true,
-                        } as PieTextarea,
-                    });
+                    const textAreaPage = new BasePage(page, 'textarea');
+                    const props: Partial<TextareaProps> = {
+                        disabled: true,
+                    };
+
+                    await textAreaPage.load({ ...props });
 
                     // Act
-                    const textarea = component.locator('textarea');
+                    const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                     // Assert
                     expect(textarea).toBeDisabled();
@@ -46,10 +40,15 @@ test.describe('PieTextarea - Component tests', () => {
 
                 test('should not be able to focus the component', async ({ page }) => {
                     // Arrange
-                    await page.setContent('<pie-textarea disabled></pie-textarea>');
+                    const textAreaPage = new BasePage(page, 'textarea');
+                    const props: Partial<TextareaProps> = {
+                        disabled: true,
+                    };
+
+                    await textAreaPage.load({ ...props });
 
                     // Act
-                    const textarea = page.locator('pie-textarea');
+                    const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
                     await textarea.focus();
 
                     // Assert
@@ -58,12 +57,13 @@ test.describe('PieTextarea - Component tests', () => {
             });
 
             test.describe('when false', () => {
-                test('should not disable the component', async ({ mount }) => {
+                test('should not disable the component', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieTextarea, {});
+                    const textAreaPage = new BasePage(page, 'textarea');
+                    await textAreaPage.load();
 
                     // Act
-                    const textarea = component.locator('textarea');
+                    const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                     // Assert
                     expect(textarea).not.toBeDisabled();
@@ -71,10 +71,11 @@ test.describe('PieTextarea - Component tests', () => {
 
                 test('should still be able to focus the component', async ({ page }) => {
                     // Arrange
-                    await page.setContent('<pie-textarea></pie-textarea>');
+                    const textAreaPage = new BasePage(page, 'textarea');
+                    await textAreaPage.load();
 
                     // Act
-                    const textarea = page.locator('pie-textarea');
+                    const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
                     await textarea.focus();
 
                     // Assert
@@ -84,27 +85,29 @@ test.describe('PieTextarea - Component tests', () => {
         });
 
         test.describe('value', () => {
-            test('should default to an empty string if no value property is provided', async ({ mount }) => {
+            test('should default to an empty string if no value property is provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextarea, {});
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load();
 
                 // Act
-                const textarea = component.locator('textarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Assert
                 expect((await textarea.inputValue())).toBe('');
             });
 
-            test('the value property should be applied to the rendered HTML textarea element', async ({ mount }) => {
+            test('the value property should be applied to the rendered HTML textarea element', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        value: 'testValue',
-                    } as TextareaProps,
-                });
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    value: 'testValue',
+                };
+
+                await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = component.locator('textarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Assert
                 expect((await textarea.inputValue())).toBe('testValue');
@@ -112,27 +115,29 @@ test.describe('PieTextarea - Component tests', () => {
         });
 
         test.describe('name', () => {
-            test('textarea element should not include a name attribute if no name is provided', async ({ mount }) => {
+            test('textarea element should not include a name attribute if no name is provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextarea, {});
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load();
 
                 // Act
-                const textarea = component.locator('textarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Assert
                 expect((await textarea.getAttribute('name'))).toBe(null);
             });
 
-            test('should apply the name property to the rendered HTML textarea element', async ({ mount }) => {
+            test('should apply the name property to the rendered HTML textarea element', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        name: 'testName',
-                    } as TextareaProps,
-                });
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    name: 'testName',
+                };
+
+                await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = component.locator('textarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Assert
                 expect((await textarea.getAttribute('name'))).toBe('testName');
@@ -142,10 +147,15 @@ test.describe('PieTextarea - Component tests', () => {
         test.describe('defaultValue', () => {
             test('should apply the `defaultValue` property to the rendered HTML textarea element', async ({ page }) => {
                 // Arrange
-                await page.setContent('<pie-textarea defaultValue="testDefaultValue"></pie-textarea>');
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    defaultValue: 'testDefaultValue',
+                };
+
+                await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = page.locator('pie-textarea');
+                const textarea = page.locator(textArea.selectors.container.dataTestId);
 
                 // Assert
                 expect((await textarea.getAttribute('defaultValue'))).toBe('testDefaultValue');
@@ -153,27 +163,29 @@ test.describe('PieTextarea - Component tests', () => {
         });
 
         test.describe('autocomplete', () => {
-            test('should not render an autocomplete attribute on the textarea element if no autocomplete is provided', async ({ mount }) => {
+            test('should not render an autocomplete attribute on the textarea element if no autocomplete is provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextarea, {});
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load();
 
                 // Act
-                const textarea = component.locator('textarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Assert
                 expect((await textarea.getAttribute('autocomplete'))).toBe(null);
             });
 
-            test('autocomplete property should be applied to the rendered HTML textarea element', async ({ mount }) => {
+            test('autocomplete property should be applied to the rendered HTML textarea element', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        autocomplete: 'on',
-                    } as TextareaProps,
-                });
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    autocomplete: 'on',
+                };
+
+                await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = component.locator('textarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Assert
                 expect((await textarea.getAttribute('autocomplete'))).toBe('on');
@@ -183,97 +195,108 @@ test.describe('PieTextarea - Component tests', () => {
         test.describe('autoFocus', () => {
             test('should focus the component when the autoFocus property is `true`', async ({ page }) => {
                 // Arrange
-                // Setting the content this way rather than a mount call triggers the autofocus behaviour immediately
-                await page.setContent('<pie-textarea data-test-id="testTextarea" autofocus></pie-textarea>');
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    autoFocus: true,
+                };
+
+                await textAreaPage.load({ ...props });
 
                 // Act
-                const textareaLocator = page.getByTestId('testTextarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Assert
-                await expect(textareaLocator).toBeFocused();
+                await expect(textarea).toBeFocused();
             });
 
             test('should not focus the component when the autoFocus property is not provided', async ({ page }) => {
                 // Arrange
-                // Setting the content this way rather than a mount call triggers the autofocus behaviour immediately
-                await page.setContent('<pie-textarea data-test-id="testTextarea"></pie-textarea>');
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load();
 
                 // Act
-                const textareaLocator = page.getByTestId('testTextarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Assert
-                await expect(textareaLocator).not.toBeFocused();
+                await expect(textarea).not.toBeFocused();
             });
         });
 
         test.describe('readonly', () => {
-            test('should be able to edit the component value when readonly property is set to `false`', async ({ mount }) => {
+            test('should be able to edit the component value when readonly property is set to `false`', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        readonly: false,
-                        value: 'testValue',
-                    } as TextareaProps,
-                });
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    readonly: false,
+                    value: 'testValue',
+                };
+
+                await textAreaPage.load({ ...props });
 
                 // Act
-                await component.type(' newValue');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                await textarea.pressSequentially(' newValue');
 
                 // Assert
-                expect((await component.locator('textarea').inputValue())).toBe('testValue newValue');
+                expect((await textarea.inputValue())).toBe('testValue newValue');
             });
 
-            test('should not be able to edit the component value when readonly property is set to `true`', async ({ mount }) => {
+            test('should not be able to edit the component value when readonly property is set to `true`', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        readonly: true,
-                        value: 'testValue',
-                    } as TextareaProps,
-                });
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    readonly: true,
+                    value: 'testValue',
+                };
+
+                await textAreaPage.load({ ...props });
 
                 // Act
-                await component.type('newValue');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                await textarea.pressSequentially('newValue');
 
                 // Assert
-                expect((await component.locator('textarea').inputValue())).toBe('testValue');
+                expect((await textarea.inputValue())).toBe('testValue');
             });
         });
 
         test.describe('required', () => {
-            test('should not render the required property on the textarea element if no required property is provided', async ({ mount }) => {
+            test('should not render the required property on the textarea element if no required property is provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextarea, {});
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load();
 
                 // Act
-                const textarea = component.locator('textarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Assert
                 expect((await textarea.getAttribute('required'))).toBe(null);
             });
 
-            test('should apply the property property to the HTML textarea rendered', async ({ mount }) => {
+            test('should apply the property property to the HTML textarea rendered', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        required: true,
-                    } as TextareaProps,
-                });
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    required: true,
+                };
+
+                await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = component.locator('textarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Assert
                 expect((await textarea.getAttribute('required'))).toBe('');
             });
 
-            test('should be in an invalid `valueMissing` state if the textarea is empty and required property is set to `true`', async ({ mount, page }) => {
+            test('should be in an invalid `valueMissing` state if the textarea is empty and required property is set to `true`', async ({ page }) => {
                 // Arrange
-                await mount(PieTextarea, {
-                    props: {
-                        required: true,
-                    } as TextareaProps,
-                });
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    required: true,
+                };
+
+                await textAreaPage.load({ ...props });
 
                 // Act
                 const isInvalid = await page.evaluate(() => document.querySelector('pie-textarea')?.validity.valueMissing);
@@ -282,16 +305,18 @@ test.describe('PieTextarea - Component tests', () => {
                 expect(isInvalid).toBe(true);
             });
 
-            test('should be in a valid state if the textarea is not empty and required property is set to `true`', async ({ mount, page }) => {
+            test('should be in a valid state if the textarea is not empty and required property is set to `true`', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        required: true,
-                    } as TextareaProps,
-                });
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    required: true,
+                };
+
+                await textAreaPage.load({ ...props });
 
                 // Act
-                await component.type('test');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                await textarea.pressSequentially('test');
 
                 const isValid = await page.evaluate(() => document.querySelector('pie-textarea')?.validity.valid);
 
@@ -299,14 +324,15 @@ test.describe('PieTextarea - Component tests', () => {
                 expect(isValid).toBe(true);
             });
 
-            test('should be in a valid state if the textarea has a value property and required property is set to `true`', async ({ mount, page }) => {
+            test('should be in a valid state if the textarea has a value property and required property is set to `true`', async ({ page }) => {
                 // Arrange
-                await mount(PieTextarea, {
-                    props: {
-                        required: true,
-                        value: 'testValue',
-                    } as TextareaProps,
-                });
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    required: true,
+                    value: 'testValue',
+                };
+
+                await textAreaPage.load({ ...props });
 
                 // Act
                 const isValid = await page.evaluate(() => document.querySelector('pie-textarea')?.validity.valid);
@@ -315,14 +341,15 @@ test.describe('PieTextarea - Component tests', () => {
                 expect(isValid).toBe(true);
             });
 
-            test('should be in a valid state if the textarea is empty and required property is set to `true`, but textarea is disabled', async ({ mount, page }) => {
+            test('should be in a valid state if the textarea is empty and required property is set to `true`, but textarea is disabled', async ({ page }) => {
                 // Arrange
-                await mount(PieTextarea, {
-                    props: {
-                        required: true,
-                        disabled: true,
-                    } as TextareaProps,
-                });
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    required: true,
+                    disabled: true,
+                };
+
+                await textAreaPage.load({ ...props });
 
                 // Act
                 const isValid = await page.evaluate(() => document.querySelector('pie-textarea')?.validity.valid);
@@ -333,27 +360,29 @@ test.describe('PieTextarea - Component tests', () => {
         });
 
         test.describe('assistiveText', () => {
-            test('should NOT render the assistive-text component if this property is not provided', async ({ mount, page }) => {
+            test('should NOT render the assistive-text component if this property is not provided', async ({ page }) => {
                 // Arrange
-                await mount(PieTextarea, {});
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load();
 
                 // Act
-                const assistiveText = page.locator(assistiveTextSelector);
+                const assistiveText = page.getByTestId(textArea.selectors.assistiveText.dataTestId);
 
                 // Assert
                 expect(assistiveText).not.toBeVisible();
             });
 
-            test('should apply the `default` variant attribute if no status is provided', async ({ mount, page }) => {
+            test('should apply the `default` variant attribute if no status is provided', async ({ page }) => {
                 // Arrange
-                await mount(PieTextarea, {
-                    props: {
-                        assistiveText: 'Assistive text',
-                    } as TextareaProps,
-                });
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    assistiveText: 'Assistive text',
+                };
+
+                await textAreaPage.load({ ...props });
 
                 // Act
-                const assistiveText = page.locator(assistiveTextSelector);
+                const assistiveText = page.getByTestId(textArea.selectors.assistiveText.dataTestId);
 
                 // Assert
                 expect(assistiveText).toBeVisible();
@@ -363,17 +392,18 @@ test.describe('PieTextarea - Component tests', () => {
 
             test.describe('Assistive text: Status', () => {
                 statusTypes.forEach((status) => {
-                    test(`should render the assistive-text component with the ${status} variant`, async ({ mount, page }) => {
+                    test(`should render the assistive-text component with the ${status} variant`, async ({ page }) => {
                         // Arrange
-                        await mount(PieTextarea, {
-                            props: {
-                                assistiveText: 'Assistive text',
-                                status,
-                            } as TextareaProps,
-                        });
+                        const textAreaPage = new BasePage(page, 'textarea');
+                        const props: Partial<TextareaProps> = {
+                            assistiveText: 'Assistive text',
+                            status,
+                        };
+
+                        await textAreaPage.load({ ...props });
 
                         // Act
-                        const assistiveText = page.locator(assistiveTextSelector);
+                        const assistiveText = page.getByTestId(textArea.selectors.assistiveText.dataTestId);
 
                         // Assert
                         expect(assistiveText).toBeVisible();
@@ -384,16 +414,17 @@ test.describe('PieTextarea - Component tests', () => {
             });
 
             test.describe('Assistive text: ID attribute', () => {
-                test('should contain an ID associated the textarea element for a11y', async ({ mount, page }) => {
+                test('should contain an ID associated the textarea element for a11y', async ({ page }) => {
                     // Arrange
-                    await mount(PieTextarea, {
-                        props: {
-                            assistiveText: 'Assistive text',
-                        } as TextareaProps,
-                    });
+                    const textAreaPage = new BasePage(page, 'textarea');
+                    const props: Partial<TextareaProps> = {
+                        assistiveText: 'Assistive text',
+                    };
+
+                    await textAreaPage.load({ ...props });
 
                     // Act
-                    const assistiveText = page.locator(assistiveTextSelector);
+                    const assistiveText = page.getByTestId(textArea.selectors.assistiveText.dataTestId);
 
                     // Assert
                     await expect(assistiveText).toHaveAttribute('id', 'assistive-text');
@@ -402,27 +433,29 @@ test.describe('PieTextarea - Component tests', () => {
         });
 
         test.describe('placeholder', () => {
-            test('should not render a placeholder attribute on the textarea element if no placeholder provided', async ({ mount }) => {
+            test('should not render a placeholder attribute on the textarea element if no placeholder provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextarea, {});
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load();
 
                 // Act
-                const textarea = component.locator('textarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Assert
-                expect((await textarea.getAttribute('placeholder'))).toBe(null);
+                expect((await textarea.getAttribute('placeholder'))).toBe('');
             });
 
-            test('should apply the placeholder prop to the HTML textarea rendered', async ({ mount }) => {
+            test('should apply the placeholder prop to the HTML textarea rendered', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextarea, {
-                    props: {
-                        placeholder: 'Test Placeholder',
-                    } as TextareaProps,
-                });
+                const textAreaPage = new BasePage(page, 'textarea');
+                const props: Partial<TextareaProps> = {
+                    placeholder: 'Test Placeholder',
+                };
+
+                await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = component.locator('textarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Assert
                 expect((await textarea.getAttribute('placeholder'))).toBe('Test Placeholder');
@@ -433,64 +466,49 @@ test.describe('PieTextarea - Component tests', () => {
     test.describe('Form integration', () => {
         test('should correctly set the value of a description field in the FormData object when the form is submitted', async ({ page }) => {
             // Arrange
-            await page.setContent(`
-                <form id="testForm" action="/foo" method="POST">
-                    <pie-textarea name="description"></pie-textarea>
-                    <button type="submit">Submit</button>
-                </form>
-                <div id="formDataJson"></div>
-            `);
+            const textAreaPage = new BasePage(page, 'textarea--example-form');
+            const props: Partial<TextareaProps> = {
+                placeholder: 'Test Placeholder',
+            };
 
-            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+            await textAreaPage.load({ ...props });
 
             // Act
-            await page.locator('pie-textarea').type('testValue');
-            await page.click('button[type="submit"]');
-            const formDataObj = await getFormDataObject(page, '#formDataJson');
+            await page.getByTestId(textArea.selectors.container.dataTestId).fill('testValue');
+            await page.locator('pie-button', { hasText: 'Submit' }).click();
 
             // Assert
-            expect(formDataObj.description).toBe('testValue');
+            const output = page.locator('#formDataOutput');
+            await expect(output).toHaveText('{"description":"testValue"}');
         });
 
         test('should submit the updated value if the value property is changed programmatically', async ({ page }) => {
             // Arrange
-            await page.setContent(`
-                <form id="testForm" action="/foo" method="POST">
-                    <pie-textarea name="description"></pie-textarea>
-                    <button type="submit">Submit</button>
-                </form>
-                <div id="formDataJson"></div>
-            `);
-
-            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+            const textAreaPage = new BasePage(page, 'textarea--example-form');
+            await textAreaPage.load();
 
             // Act
-            await page.locator('pie-textarea').type('testValue');
+            await page.getByTestId(textArea.selectors.container.dataTestId).fill('testValue');
 
             await page.evaluate(() => {
                 const textarea = document.querySelector('pie-textarea') as PieTextarea;
                 textarea.value = 'newTestValue';
             });
 
-            await page.click('button[type="submit"]');
-
-            const formDataObj = await getFormDataObject(page, '#formDataJson');
+            await page.locator('pie-button', { hasText: 'Submit' }).click();
 
             // Assert
-            expect(formDataObj.description).toBe('newTestValue');
+            const output = page.locator('#formDataOutput');
+            await expect(output).toHaveText('{"description":"newTestValue"}');
         });
 
         test('should correctly reset the textarea value when the form is reset', async ({ page }) => {
             // Arrange
-            await page.setContent(`
-                <form id="testForm" action="/foo" method="POST">
-                    <pie-textarea name="description"></pie-textarea>
-                    <button type="reset">Reset</button>
-                </form>
-            `);
+            const textAreaPage = new BasePage(page, 'textarea--example-form');
+            await textAreaPage.load();
 
             // Act & Assert
-            await page.locator('pie-textarea').type('testValue');
+            await page.getByTestId(textArea.selectors.container.dataTestId).fill('testValue');
             expect(await page.evaluate(() => document.querySelector('pie-textarea')?.value)).toBe('testValue');
 
             await page.click('button[type="reset"]');
@@ -499,15 +517,15 @@ test.describe('PieTextarea - Component tests', () => {
 
         test('should correctly reset the textarea value to the `defaultValue` if one is provided when the form is reset', async ({ page }) => {
             // Arrange
-            await page.setContent(`
-                    <form id="testForm" action="/foo" method="POST">
-                        <pie-textarea defaultValue="foo"></pie-textarea>
-                        <button type="reset">Submit</button>
-                    </form>
-                `);
+            const textAreaPage = new BasePage(page, 'textarea--example-form');
+            const props: Partial<TextareaProps> = {
+                defaultValue: 'foo',
+            };
+
+            await textAreaPage.load({ ...props });
 
             // Act & Assert
-            await page.locator('pie-textarea').type('test');
+            await page.getByTestId(textArea.selectors.container.dataTestId).fill('test');
 
             await page.click('button[type="reset"]');
             expect(await page.evaluate(() => document.querySelector('pie-textarea')?.value)).toBe('foo');
@@ -515,213 +533,147 @@ test.describe('PieTextarea - Component tests', () => {
 
         test('should NOT submit the value for disabled textarea elements', async ({ page }) => {
             // Arrange
-            await page.setContent(`
-                <form id="testForm" action="/foo" method="POST">
-                    <pie-textarea name="description" value="descriptionTextareaValue" disabled></pie-textarea>
-                    <pie-textarea name="comments" value="commentsTextareaValue"></pie-textarea>
-                    <button type="submit">Submit</button>
-                </form>
-                <div id="formDataJson"></div>
-            `);
+            const textAreaPage = new BasePage(page, 'textarea--example-form');
+            const props: Partial<TextareaProps & { showAdditionalField?: boolean }> = {
+                disabled: true,
+                showAdditionalField: true,
+            };
 
-            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+            await textAreaPage.load({ ...props });
 
             // Act
-            await page.click('button[type="submit"]');
-
-            const formDataObj = await getFormDataObject(page, '#formDataJson');
+            await page.locator('pie-button', { hasText: 'Submit' }).click();
 
             // Assert
-            expect(formDataObj).toStrictEqual({ comments: 'commentsTextareaValue' });
-        });
-
-        test('should NOT submit the value inside a disabled fieldset', async ({ page }) => {
-            // Arrange
-            await page.setContent(`
-                <form id="testForm" action="/foo" method="POST">
-                    <fieldset disabled>
-                        <pie-textarea name="description" value="excluded"></pie-textarea>
-                    </fieldset>
-                    <pie-textarea name="comments" value="included"></pie-textarea>
-                    <button type="submit">Submit</button>
-                </form>
-                <div id="formDataJson"></div>
-            `);
-
-            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
-
-            // Act
-            await page.click('button[type="submit"]');
-
-            const formDataObj = await getFormDataObject(page, '#formDataJson');
-
-            // Assert
-            expect(formDataObj).toStrictEqual({
-                comments: 'included',
-            });
+            const output = page.locator('#formDataOutput');
+            await expect(output).toHaveText('{"comment":"commentsTextareaValue"}');
         });
 
         test('should NOT submit form when pressing Enter on a textarea element', async ({ page }) => {
             // Arrange
-            await page.setContent(`
-                <form id="testForm" action="/foo" method="POST">
-                    <pie-textarea name="description" autofocus></pie-textarea>
-                    <button type="submit">Submit</button>
-                </form>
-                <div id="formDataJson"></div>
-            `);
-
-            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+            const textAreaPage = new BasePage(page, 'textarea--example-form');
+            await textAreaPage.load();
 
             // Act
-            await page.locator('pie-textarea').type('testValue');
+            await page.getByTestId(textArea.selectors.container.dataTestId).pressSequentially('testValue');
             await page.keyboard.press('Enter');
-            const formDataObj = await getFormDataObject(page, '#formDataJson');
 
             // Assert
-            expect(formDataObj).toStrictEqual({});
+            const output = page.locator('#formDataOutput');
+            await expect(output).toBeHidden();
         });
     });
 
     test.describe('Events', () => {
         test.describe('input', () => {
-            test('should emit an event each time the component receives input value', async ({ mount, page }) => {
+            test('should emit an event each time the component receives input value', async ({ page }) => {
                 // Arrange
-                const messages: InputEvent[] = [];
-                const expectedMessagesLength = 10;
+                const consoleMessages: string[] = [];
+                const expectedMessagesLength = 2;
 
-                const component = await mount(PieTextarea, {
-                    on: {
-                        input: (data: InputEvent) => {
-                            messages.push(data);
-                        },
-                    },
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load();
+
+                // Set up a listener for console messages
+                page.on('console', (message) => {
+                    if (message.type() === 'info') {
+                        consoleMessages.push(message.text());
+                    }
                 });
 
-                const textarea = component.locator('textarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Act
-                await textarea.type('testValue');
+                await textarea.fill('testValue');
                 await page.keyboard.press('Backspace');
 
                 // Assert
-                expect(messages.length).toEqual(expectedMessagesLength);
+                expect(consoleMessages.length).toEqual(expectedMessagesLength);
             });
 
             test('should provide the event target value for event listeners', async ({ page }) => {
                 // Arrange
                 const expectedMessage = 'tes';
 
-                await page.setContent(`
-                    <pie-textarea></pie-textarea>
-                    <div id="output"></div>
-                `);
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load();
 
-                await page.evaluate(() => {
-                    const output = (document.getElementById('output') as HTMLDivElement);
-                    const textarea = document.querySelector('pie-textarea');
-
-                    textarea?.addEventListener('input', (event: Event) => {
-                        output.innerText = (event.target as HTMLTextAreaElement).value;
-                    });
-                });
-
-                const textarea = page.locator('pie-textarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Act
-                await textarea.type('test');
+                await textarea.fill('test');
                 await page.keyboard.press('Backspace');
 
-                const output = page.locator('#output');
-
                 // Assert
-                expect(await output.innerText()).toEqual(expectedMessage);
+                const output = page.locator('#output');
+                await expect(output).toHaveText(expectedMessage);
             });
 
             test('should correctly handle textarea including backspaces in the event.data property', async ({ page }) => {
                 // Arrange
                 const expectedMessage = 'tes';
 
-                await page.setContent(`
-                    <pie-textarea></pie-textarea>
-                    <div id="output"></div>
-                `);
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load();
 
-                await page.evaluate(() => {
-                    const output = document.getElementById('output') as HTMLDivElement;
-                    const textarea = document.querySelector('pie-textarea');
-
-                    textarea?.addEventListener('input', (event) => {
-                        const { data } = event as InputEvent;
-                        const currentValue = (event.target as HTMLTextAreaElement).value;
-
-                        // If data is null, it's a deletion, so update the output to match the textarea's value
-                        if (data === null) {
-                            output.innerText = currentValue;
-                        } else {
-                            // For additions, append the data character
-                            output.innerText += data;
-                        }
-                    });
-                });
-
-                const textarea = page.locator('pie-textarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Act
-                await textarea.type('test');
+                await textarea.fill('test');
                 await page.keyboard.press('Backspace');
 
                 // Assert
-                expect(await page.locator('#output').innerText()).toEqual(expectedMessage);
+                const output = page.locator('#output');
+                await expect(output).toHaveText(expectedMessage);
             });
         });
 
         test.describe('change', () => {
-            test('should dispatch a change event when the value of the textarea changes', async ({ mount, page }) => {
+            test('should dispatch a change event when the value of the textarea changes', async ({ page }) => {
                 // Arrange
-                const messages: CustomEvent[] = [];
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load();
 
-                await mount(PieTextarea, {
-                    props: {} as TextareaProps,
-                    on: {
-                        change: (data: CustomEvent) => {
-                            messages.push(data);
-                        },
-                    },
+                // Set up a listener for console messages
+                const consoleMessages: string[] = [];
+                page.on('console', (message) => {
+                    if (message.type() === 'info') {
+                        consoleMessages.push(message.text());
+                    }
                 });
 
-                const textarea = page.locator('pie-textarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Act
-                await textarea.type('testValue');
+                await textarea.fill('testValue');
                 await page.keyboard.press('Tab');
 
                 // Assert
-                expect(messages.length).toEqual(1);
+                expect(consoleMessages).toContain('input event recieved {"isTrusted":true}');
             });
 
-            test('should dispatch a custom event that contains the original native event', async ({ mount, page }) => {
+            test('should dispatch a custom event that contains the original native event', async ({ page }) => {
                 // Arrange
-                const messages: CustomEvent[] = [];
-                const expectedMessages = [{ sourceEvent: { isTrusted: true } }];
+                const textAreaPage = new BasePage(page, 'textarea');
+                await textAreaPage.load();
 
-                await mount(PieTextarea, {
-                    props: {} as TextareaProps,
-                    on: {
-                        change: (data: CustomEvent) => {
-                            messages.push(data);
-                        },
-                    },
+                const consoleMessages: string[] = [];
+
+                // Set up a listener for console messages
+                page.on('console', (message) => {
+                    if (message.type() === 'info') {
+                        consoleMessages.push(message.text());
+                    }
                 });
 
-                const textarea = page.locator('pie-textarea');
+                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                 // Act
-                await textarea.type('testValue');
+                await textarea.fill('testValue');
                 await page.keyboard.press('Tab'); // Change events on inputs are triggered when they lose focus after the value was changed
 
                 // Assert
-                expect(messages).toStrictEqual(expectedMessages);
+                expect(consoleMessages).toContain('input event recieved {"isTrusted":true}');
             });
         });
     });
@@ -729,14 +681,13 @@ test.describe('PieTextarea - Component tests', () => {
     test.describe('Attributes', () => {
         test.describe('aria-describedby', () => {
             test.describe('when `assistiveText` is NOT defined', () => {
-                test('should not render the attribute', async ({ mount }) => {
+                test('should not render the attribute', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieTextarea, {
-                        props: {} as TextareaProps,
-                    });
+                    const textAreaPage = new BasePage(page, 'textarea');
+                    await textAreaPage.load();
 
                     // Act
-                    const textarea = component.locator('textarea');
+                    const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                     const componentAttribute = await textarea.getAttribute('aria-describedby');
 
@@ -746,16 +697,16 @@ test.describe('PieTextarea - Component tests', () => {
             });
 
             test.describe('when `assistiveText` is defined', () => {
-                test('should render the attribute correctly with the correct value', async ({ mount }) => {
+                test('should render the attribute correctly with the correct value', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieTextarea, {
-                        props: {
-                            assistiveText: 'Some useful message',
-                        } as TextareaProps,
-                    });
+                    const textAreaPage = new BasePage(page, 'textarea');
+                    const props: Partial<TextareaProps> = {
+                        assistiveText: 'Some useful message',
+                    };
+                    await textAreaPage.load({ ...props });
 
                     // Act
-                    const textarea = component.locator('textarea');
+                    const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                     const componentAttribute = await textarea.getAttribute('aria-describedby');
 
@@ -767,16 +718,17 @@ test.describe('PieTextarea - Component tests', () => {
 
         test.describe('aria-invalid', () => {
             test.describe('when the component status is set to `error`', () => {
-                test('should render the `aria-invalid` attribute', async ({ mount }) => {
+                test('should render the `aria-invalid` attribute', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieTextarea, {
-                        props: {
-                            status: 'error',
-                        } as TextareaProps,
-                    });
+                    const textAreaPage = new BasePage(page, 'textarea');
+                    const props: Partial<TextareaProps> = {
+                        status: 'error',
+                    };
+
+                    await textAreaPage.load({ ...props });
 
                     // Act
-                    const textarea = component.locator('textarea');
+                    const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                     const componentAttribute = await textarea.getAttribute('aria-invalid');
 
@@ -787,14 +739,17 @@ test.describe('PieTextarea - Component tests', () => {
 
             statusTypes.filter((status) => status !== 'error').forEach((status) => {
                 test.describe(`when the component status is set to "${status}"`, () => {
-                    test('should render the `aria-invalid` with a value of `false`', async ({ mount }) => {
+                    test('should render the `aria-invalid` with a value of `false`', async ({ page }) => {
                         // Arrange
-                        const component = await mount(PieTextarea, {
-                            props: { status } as TextareaProps,
-                        });
+                        const textAreaPage = new BasePage(page, 'textarea');
+                        const props: Partial<TextareaProps> = {
+                            status,
+                        };
+
+                        await textAreaPage.load({ ...props });
 
                         // Act
-                        const textarea = component.locator('textarea');
+                        const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                         const componentAttribute = await textarea.getAttribute('aria-invalid');
 
@@ -807,16 +762,17 @@ test.describe('PieTextarea - Component tests', () => {
 
         test.describe('aria-errormessage', () => {
             test.describe('when the component status is set to `error`', () => {
-                test('should render the `aria-errormessage` attribute', async ({ mount }) => {
+                test('should render the `aria-errormessage` attribute', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieTextarea, {
-                        props: {
-                            status: 'error',
-                        } as TextareaProps,
-                    });
+                    const textAreaPage = new BasePage(page, 'textarea');
+                    const props: Partial<TextareaProps> = {
+                        status: 'error',
+                    };
+
+                    await textAreaPage.load({ ...props });
 
                     // Act
-                    const textarea = component.locator('textarea');
+                    const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                     const componentAttribute = await textarea.getAttribute('aria-errormessage');
 
@@ -827,14 +783,17 @@ test.describe('PieTextarea - Component tests', () => {
 
             statusTypes.filter((status) => status !== 'error').forEach((status) => {
                 test.describe(`when the component status is set to "${status}"`, () => {
-                    test('should not render the `aria-errormessage` attribute', async ({ mount }) => {
+                    test('should not render the `aria-errormessage` attribute', async ({ page }) => {
                         // Arrange
-                        const component = await mount(PieTextarea, {
-                            props: { status } as TextareaProps,
-                        });
+                        const textAreaPage = new BasePage(page, 'textarea');
+                        const props: Partial<TextareaProps> = {
+                            status,
+                        };
+
+                        await textAreaPage.load({ ...props });
 
                         // Act
-                        const textarea = component.locator('textarea');
+                        const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
 
                         const componentAttribute = await textarea.getAttribute('aria-errormessage');
 

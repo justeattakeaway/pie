@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { useArgs as UseArgs } from '@storybook/preview-api';
@@ -12,11 +12,11 @@ import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-form-label';
 import '@justeattakeaway/pie-link';
 
-import { createStory, type TemplateFunction } from '../utilities';
+import { createStory, type TemplateFunction } from '../../utilities';
 
-type TextareaStoryMeta = Meta<TextareaProps>;
+type TextareaStoryMeta = Meta<TextareaProps & { showAdditionalField?: boolean }>;
 
-const defaultArgs: TextareaProps = { ...defaultProps, name: 'testName' };
+const defaultArgs: TextareaProps = { ...defaultProps };
 
 const textareaStoryMeta: TextareaStoryMeta = {
     title: 'Textarea',
@@ -116,14 +116,14 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: '',
             },
         },
-    },
-    args: defaultArgs,
-    parameters: {
-        design: {
-            type: 'figma',
-            url: 'https://www.figma.com/file/pPSC73rPin4csb8DiK1CRr/branch/aD4m0j97Ruw8Q4S5lED2Bl/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?m=auto&node-id=1573-114527&t=t5zmveNU4ztOqlCs-1',
+        showAdditionalField: {
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
         },
     },
+    args: defaultArgs,
 };
 
 const Template = ({
@@ -145,12 +145,18 @@ const Template = ({
 
     function onInput (event: InputEvent) {
         const textareaElement = event.target as HTMLTextAreaElement;
+        const outputElement = (document.getElementById('output') as HTMLDivElement);
         updateArgs({ value: textareaElement?.value });
 
         action('input')({
             data: event.data,
             value: textareaElement.value,
         });
+
+        console.info('input event recieved', JSON.stringify(event));
+
+        const currentValue = (event.target as HTMLInputElement).value;
+        outputElement.innerText = currentValue;
     }
 
     function onChange (event: CustomEvent) {
@@ -178,11 +184,28 @@ const Template = ({
             assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}>
         </pie-textarea>
+        <div id="output"></div>
     `;
 };
 
-const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
+const onSubmit = (event: Event) => {
+    event.preventDefault();
+    const form = document.querySelector('#testForm') as HTMLFormElement;
+    const output = document.querySelector('#formDataOutput') as HTMLDivElement;
+
+    const formData = new FormData(form);
+    const formDataObj: { [key: string]: FormDataEntryValue } = {};
+    formData.forEach((value, key) => {
+        formDataObj[key] = value;
+    });
+
+    output.innerText = JSON.stringify(formDataObj);
+};
+
+const ExampleFormTemplate: TemplateFunction<TextareaProps & { showAdditionalField?: boolean }> = ({
     defaultValue,
+    disabled,
+    showAdditionalField = false,
 }) => html`
     <style>
         .form {
@@ -207,16 +230,25 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
         }
     </style>
 
-    <form class="form">
+    <form id="testForm" class="form" @submit="${onSubmit}" >
         <pie-form-label for="description">Description:</pie-form-label>
-        <pie-textarea class="form-field" id="description" name="description" defaultValue="${ifDefined(defaultValue)}">
+        <pie-textarea class="form-field" id="description" name="description" defaultValue="${ifDefined(defaultValue)}" ?disabled="${disabled}">
         </pie-textarea>
+        ${showAdditionalField ? html`
+            <pie-form-label for="comment">Comment:</pie-form-label>
+            <pie-textarea
+            class="form-field"
+            id="comment"
+            name="comment"
+            value="commentsTextareaValue">
+        ` : nothing}
 
         <div class="form-btns">
             <pie-button class="form-btn" variant="secondary" type="reset">Reset</pie-button>
             <pie-button class="form-btn" type="submit">Submit</pie-button>
         </div>
     </form>
+    <div id="formDataOutput"></div>
 `;
 
 const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => html`
