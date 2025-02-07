@@ -55,8 +55,9 @@ test('should render the component default placeholder on image load failure', as
 });
 
 test('should not render the component default placeholder if the `hideDefaultPlaceholder` is set to true', async ({ page }) => {
-    const basePage = new BasePage(page, 'thumbnail--invalid-src-and-default-placeholder');
+    const basePage = new BasePage(page, 'thumbnail--default');
     await basePage.load({
+        src: 'invalid-url',
         hideDefaultPlaceholder: true,
     });
 
