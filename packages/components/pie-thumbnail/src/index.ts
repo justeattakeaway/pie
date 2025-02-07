@@ -2,7 +2,6 @@ import {
     LitElement,
     html,
     unsafeCSS,
-    type PropertyValues,
 } from 'lit';
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
@@ -17,7 +16,7 @@ import {
     aspectRatios,
 } from './defs';
 import styles from './thumbnail.scss?inline';
-import defaultPlaceholder from './default-placeholder.svg';
+import defaultPlaceholder from './default-placeholder.svg?inline';
 
 // Valid values available to consumers
 export * from './defs';
@@ -61,6 +60,9 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
 
     @property({ type: Object })
     public placeholder: ThumbnailProps['placeholder'] = defaultProps.placeholder;
+
+    @query('img')
+    private img!: HTMLImageElement;
 
     @state()
     private _hasError = false;
@@ -109,6 +111,22 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
 
     private _handleImageError (): void {
         this._hasError = true;
+    }
+
+    /**
+     * Detects image load status and sets the hasError state.
+     * This is needed as the `onerror` event is not triggered in SSR.
+     */
+    private _checkImageError () {
+        if (this.img) {
+            const { complete, naturalHeight } = this.img;
+            const hasError = complete && naturalHeight === 0;
+            if (hasError) this._handleImageError.call(this);
+        }
+    }
+
+    protected firstUpdated (): void {
+        this._checkImageError();
     }
 
     render () {
