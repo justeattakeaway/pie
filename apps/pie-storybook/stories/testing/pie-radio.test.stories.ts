@@ -91,7 +91,6 @@ const onSubmit = (event: Event) => {
     const form = document.querySelector('#testForm') as HTMLFormElement;
     const output = document.querySelector('#formDataOutput') as HTMLDivElement;
 
-    console.log('form', form);
     const formData = new FormData(form);
     const formDataObj: { [key: string]: FormDataEntryValue } = {};
     formData.forEach((value, key) => {
@@ -190,12 +189,12 @@ const radioPropsMatrix: Partial<Record<keyof RadioProps, unknown[]>> = {
 };
 
 const variantPropDisplayOptions: PropDisplayOptions<RadioProps> = {
-  propLabels: {
-      slot: {
-          [longLabel]: 'With long content',
-          [shortLabel]: 'With short content',
-      },
-  },
+    propLabels: {
+        slot: {
+            [longLabel]: 'With long content',
+            [shortLabel]: 'With short content',
+        },
+    },
 };
 
-export const Variations = createVariantStory<RadioProps>(Template, radioPropsMatrix, { ... variantPropDisplayOptions, multiColumn: true });
+export const Variations = createVariantStory<RadioProps>(Template, radioPropsMatrix, { ...variantPropDisplayOptions, multiColumn: true });
