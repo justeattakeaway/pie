@@ -26,14 +26,12 @@ const switchStoryMeta: SwitchStoryMeta = {
     component: 'pie-switch',
     argTypes: {
         checked: {
-            description: 'Same as the HTML checked attribute - indicates whether the switch is on or off',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.checked,
             },
         },
         disabled: {
-            description: 'Same as the HTML disabled attribute - indicates whether the switch is disabled or not',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.disabled,
@@ -49,7 +47,6 @@ const switchStoryMeta: SwitchStoryMeta = {
             },
         },
         labelPlacement: {
-            description: 'Set the placement of the label.',
             control: 'select',
             if: { arg: 'label', truthy: true },
             options: labelPlacements,
@@ -58,11 +55,9 @@ const switchStoryMeta: SwitchStoryMeta = {
             },
         },
         aria: {
-            description: 'The ARIA labels used for the switch.',
             control: 'object',
         },
         name: {
-            description: 'Same as the HTML name attribute - indicates the name of the switch (for use with forms)',
             control: {
                 type: 'text',
                 defaultValue: {
@@ -71,7 +66,6 @@ const switchStoryMeta: SwitchStoryMeta = {
             },
         },
         value: {
-            description: 'Same as the HTML value attribute - indicates the value of the switch (for use with forms). Defaults to "on".',
             control: {
                 type: 'text',
                 defaultValue: {
@@ -80,7 +74,6 @@ const switchStoryMeta: SwitchStoryMeta = {
             },
         },
         required: {
-            description: 'Same as the HTML required attribute - for use in forms',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.required,
@@ -92,6 +85,41 @@ const switchStoryMeta: SwitchStoryMeta = {
 
 export default switchStoryMeta;
 const changeAction = () => console.info('Switch clicked');
+const submitAction = (event: Event) => {
+    event.preventDefault(); // Prevent the actual submission
+
+    const formLog = document.querySelector('#formLog') as HTMLElement;
+
+    // Display a success message to the user when they submit the form
+    formLog.innerHTML = 'Form submitted!';
+    formLog.style.display = 'block';
+
+    // Reset the success message after roughly 8 seconds
+    setTimeout(() => {
+        formLog.innerHTML = '';
+        formLog.style.display = 'none';
+    }, 8000);
+};
+
+const submitActionTestForm = (event: Event) => {
+    event.preventDefault(); // Prevent the actual submission
+
+    const form = document.querySelector('#testForm') as HTMLFormElement;
+
+    // Serialize form data
+    const formData = new FormData(form);
+    const formDataObj: Record<string, unknown> = {};
+
+    // Serialize form data into an object
+    formData.forEach((value, key) => { formDataObj[key] = value; });
+
+    // Append serialized form data as JSON to a hidden element
+    const dataHolder = document.createElement('div');
+    dataHolder.id = 'formDataJson';
+    dataHolder.textContent = JSON.stringify(formDataObj);
+    dataHolder.style.display = 'none';
+    document.body.appendChild(dataHolder);
+};
 
 const Template : TemplateFunction<SwitchProps> = (props) => {
     const {
@@ -122,52 +150,20 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
 
 const FormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html`
     <p id="formLog" style="display: none; font-size: 2rem; color: var(--dt-color-support-positive);"></p>
-    <h2>Fake form</h2>
-    <form id="testForm">
-    <p>Required fields are followed by <strong><span aria-label="required">*</span></strong>.</p>
+    <form id="testForm" @submit="${submitAction}">
 
     <section>
     ${Template({
     ...props,
 })}
     </section>
-    <button id="submitButton" type="submit">Submit</button>
+    <button id="submitButton" type="submit"">Submit</button>
     </form>
-    <script>
-        // var is used to prevent storybook from erroring when the script is re-run
-        var form = document.querySelector('#testForm');
-        var formLog = document.querySelector('#formLog');
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // Display a success message to the user when they submit the form
-            formLog.innerHTML = 'Form submitted!';
-            formLog.style.display = 'block';
-
-            // log out all form input values
-            const formData = new FormData(form);
-            console.log('All form elements:', form.elements);
-            console.log('All form element data keys and values submitted:');
-
-            for (const entry of formData.entries()) {
-                console.table(entry);
-            }
-
-            // Reset the success message after roughly 8 seconds
-            setTimeout(() => {
-                formLog.innerHTML = '';
-                formLog.style.display = 'none';
-            }, 8000);
-        });
-    </script>
 `;
 
 const TestFormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html`
     <p id="formLog" style="display: none; font-size: 2rem; color: var(--dt-color-support-positive);"></p>
-    <h2>Fake form</h2>
-    <form id="testForm" action="/default-endpoint" method="POST">
-    <p>Required fields are followed by <strong><span aria-label="required">*</span></strong>.</p>
+    <form id="testForm" @submit="${submitActionTestForm}" action="/default-endpoint" method="POST">
 
     <section>
     ${Template({
@@ -176,31 +172,6 @@ const TestFormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => 
     </section>
     <button id="submitButton" type="submit">Submit</button>
     </form>
-    <script>
-        // var is used to prevent storybook from erroring when the script is re-run
-        var form = document.querySelector('#testForm');
-        var formLog = document.querySelector('#formLog');
-
-         form.addEventListener('submit', (e) => {
-            e.preventDefault(); // Prevent the actual submission
-
-            // Serialize form data
-            const formData = new FormData(form);
-            const formDataObj = {};
-
-            // This is JS - we don't need TS inside these calls
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            formData.forEach((value, key) => { formDataObj[key] = value; });
-
-            // Append serialized form data as JSON to a hidden element
-            const dataHolder = document.createElement('div');
-            dataHolder.id = 'formDataJson';
-            dataHolder.textContent = JSON.stringify(formDataObj);
-            dataHolder.style.display = 'none';
-            document.body.appendChild(dataHolder);
-        });
-    </script>
 `;
 
 const createSwitchStory = createStory(Template, defaultArgs);
@@ -210,7 +181,6 @@ const createSwitchStoryWithForm = createStory<SwitchProps>(FormTemplate, default
 const createSwitchTestStoryWithForm = createStory<SwitchProps>(TestFormTemplate, defaultArgs);
 
 const formIntegrationOnly = {
-    description: 'This prop is only used when the switch is used inside a form. You can try it out in the Form Integration story.',
     table: {
         readonly: true,
     },
@@ -224,9 +194,9 @@ export const Default = createSwitchStory({}, {
     },
 });
 
-export const FormIntegration = createSwitchStoryWithForm({ label: 'Click me' });
+export const FormIntegration = createSwitchStoryWithForm();
 
-export const TestFormIntegration = createSwitchTestStoryWithForm({ label: 'Click me' });
+export const TestFormIntegration = createSwitchTestStoryWithForm();
 
 const baseSharedPropsMatrix: Partial<Record<keyof SwitchProps, unknown[]>> = {
     checked: [true, false],

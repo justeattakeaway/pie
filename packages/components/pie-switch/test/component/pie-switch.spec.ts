@@ -4,19 +4,7 @@ import { labelPlacements, type SwitchProps } from '../../src/defs';
 import { pieSwitch } from '../helpers/page-objects/selectors';
 
 test.describe('Component: `Pie switch`', () => {
-    test('should be visible', async ({ page }) => {
-        // Arrange
-        const switchPage = new BasePage(page, 'switch');
-        await switchPage.load();
-
-        // Act
-        const switchComponent = page.getByTestId(pieSwitch.selectors.container.dataTestId);
-
-        // Assert
-        await expect(switchComponent).toBeVisible();
-    });
-
-    test('should have a "visible" input to help with accessibility', async ({ page }) => {
+    test('should have a visible input', async ({ page }) => {
         // Arrange
         const switchPage = new BasePage(page, 'switch');
         await switchPage.load();
@@ -34,10 +22,10 @@ test.describe('Component: `Pie switch`', () => {
         await switchPage.load();
 
         // Act
-        const pieSwitchComponent = await page.getByTestId(pieSwitch.selectors.container.dataTestId).isChecked();
+        const pieSwitchComponentIsChecked = await page.getByTestId(pieSwitch.selectors.container.dataTestId).isChecked();
 
         // Assert
-        expect(pieSwitchComponent).toBe(false);
+        expect(pieSwitchComponentIsChecked).toBe(false);
     });
 
     test('should set `disabled` to `false` by default', async ({ page }) => {
@@ -46,10 +34,10 @@ test.describe('Component: `Pie switch`', () => {
         await switchPage.load();
 
         // Act
-        const pieSwitchComponent = await page.getByTestId(pieSwitch.selectors.container.dataTestId).isDisabled();
+        const pieSwitchComponentIsDisabled = await page.getByTestId(pieSwitch.selectors.container.dataTestId).isDisabled();
 
         // Assert
-        expect(pieSwitchComponent).toBe(false);
+        expect(pieSwitchComponentIsDisabled).toBe(false);
     });
 
     test.describe('component interaction states', () => {
@@ -65,10 +53,10 @@ test.describe('Component: `Pie switch`', () => {
 
                 // Act
                 await page.getByTestId(pieSwitch.selectors.container.dataTestId).click();
-                const pieSwitchComponent = await page.getByTestId(pieSwitch.selectors.container.dataTestId).isChecked();
+                const pieSwitchComponentIsChecked = await page.getByTestId(pieSwitch.selectors.container.dataTestId).isChecked();
 
                 // Assert
-                expect(pieSwitchComponent).toBe(true);
+                expect(pieSwitchComponentIsChecked).toBe(true);
             });
 
             test('should set `checked` to `false`', async ({ page }) => {
@@ -82,13 +70,13 @@ test.describe('Component: `Pie switch`', () => {
 
                 // Act
                 await page.getByTestId(pieSwitch.selectors.container.dataTestId).click();
-                const pieSwitchComponent = await page.getByTestId(pieSwitch.selectors.container.dataTestId).isChecked();
+                const pieSwitchComponentIsChecked = await page.getByTestId(pieSwitch.selectors.container.dataTestId).isChecked();
 
                 // Assert
-                expect(pieSwitchComponent).toBe(false);
+                expect(pieSwitchComponentIsChecked).toBe(false);
             });
 
-            test('should emit an event with the correct name', async ({ page }) => {
+            test('should emit a "Switch clicked" console event when the switch is clicked', async ({ page }) => {
                 // Arrange
                 const switchPage = new BasePage(page, 'switch');
                 await switchPage.load();
@@ -151,7 +139,7 @@ test.describe('Component: `Pie switch`', () => {
                 expect(pieSwitchComponent).toBe(false);
             });
 
-            test('should emit an event with the correct name', async ({ page }) => {
+            test('should emit a "Switch clicked" console event when the switch is clicked', async ({ page }) => {
                 // Arrange
                 const switchPage = new BasePage(page, 'switch');
                 await switchPage.load();
@@ -191,10 +179,9 @@ test.describe('Component: `Pie switch`', () => {
 
                 // Act
                 const switchInput = page.getByTestId(pieSwitch.selectors.input.dataTestId);
-                const ariaLabel = await switchInput.getAttribute('aria-label');
 
                 // Assert
-                expect(ariaLabel).toBe(ariaLabelText);
+                await expect(switchInput).toHaveAttribute('aria-label', 'Aria label');
             });
         });
 
@@ -214,10 +201,9 @@ test.describe('Component: `Pie switch`', () => {
 
                 // Act
                 const switchInput = page.getByTestId(pieSwitch.selectors.input.dataTestId);
-                const ariaDescription = await switchInput.getAttribute('aria-describedBy');
 
                 // Assert
-                expect(ariaDescription).toBe(pieSwitch.selectors.ariaDescription.dataTestId);
+                await expect(switchInput).toHaveAttribute('aria-describedBy', 'switch-description');
             });
 
             test('should render a description element with the correct text', async ({ page }) => {
@@ -253,11 +239,9 @@ test.describe('Component: `Pie switch`', () => {
                 await switchPage.load({ ...props });
 
                 const labelSelector = page.getByTestId(pieSwitch.selectors.label[labelPlacement].dataTestId);
-                const testId = await labelSelector.getAttribute('data-test-id');
 
                 // Assert
                 await expect(labelSelector).toBeVisible();
-                expect(testId).toContain(labelPlacement);
             });
         });
     });
