@@ -62,11 +62,27 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     @property({ type: Object })
     public placeholder: ThumbnailProps['placeholder'] = defaultProps.placeholder;
 
-    @query('img')
-    private img!: HTMLImageElement;
-
     @state()
-    private _isDefaultPlaceholderVisible = false;
+    private _hasError = false;
+
+    private get _hasDefaultPlaceholder (): boolean {
+        const { _hasError, placeholder } = this;
+        return _hasError && !placeholder?.src;
+    }
+
+    private get _controlledSrc (): string {
+        if (!this._hasError) return this.src;
+        if (this.placeholder?.src) return this.placeholder.src;
+        if (!this.hideDefaultPlaceholder) return defaultPlaceholder;
+        return this.src;
+    }
+
+    private get _controlledAlt (): string {
+        if (!this._hasError) return this.alt;
+        if (this.placeholder?.src) return this.placeholder.alt ?? '';
+        if (!this.hideDefaultPlaceholder) return '';
+        return this.alt;
+    }
 
     /**
      * Assigns the thumbnail size and border radius CSS variables
@@ -91,54 +107,18 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
         `;
     }
 
-    /**
-     * Handles image load errors by replacing the src and alt attributes in the following order:
-     * 1. If a custom placeholder is provided using the placeholder prop, use it.
-     * 2. If hideDefaultPlaceholder is false, apply the component default placeholder.
-     * 3. Otherwise, revert to the original src and alt.
-     */
-    private _handleImageError () {
-        if (this.placeholder?.src) {
-            this.setAttribute('src', this.placeholder.src);
-            this.setAttribute('alt', this.placeholder.alt ?? '');
-        } else {
-            const showDefaultPlaceholder = !this.hideDefaultPlaceholder;
-            this.setAttribute('src', showDefaultPlaceholder ? defaultPlaceholder : this.src);
-            this.setAttribute('alt', showDefaultPlaceholder ? '' : this.alt);
-            this._isDefaultPlaceholderVisible = showDefaultPlaceholder;
-        }
-    }
-
-    /**
-     * Detects image load status and applies the placeholder on failure.
-     * This is needed as the `onerror` event is not triggered in SSR.
-     */
-    private _checkImageError () {
-        if (this.img) {
-            const { complete, naturalHeight } = this.img;
-            const hasError = complete && naturalHeight === 0;
-            if (hasError) this._handleImageError.call(this);
-        }
-    }
-
-    protected firstUpdated (): void {
-        this._checkImageError();
-    }
-
-    updated (changedProperties: PropertyValues<this>): void {
-        if (changedProperties.has('placeholder') || changedProperties.has('hideDefaultPlaceholder')) {
-            this._handleImageError();
-        }
+    private _handleImageError (): void {
+        this._hasError = true;
     }
 
     render () {
         const {
             variant,
-            src,
-            alt,
+            _controlledSrc,
+            _controlledAlt,
             disabled,
             hasPadding,
-            _isDefaultPlaceholderVisible,
+            _hasDefaultPlaceholder,
             backgroundColor,
             aspectRatio,
         } = this;
@@ -150,7 +130,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
             [backgroundColorClassNames[backgroundColor]]: true,
             'c-thumbnail--disabled': disabled,
             'c-thumbnail--padding': hasPadding,
-            'c-thumbnail--defaultPlaceholder': _isDefaultPlaceholderVisible,
+            'c-thumbnail--defaultPlaceholder': _hasDefaultPlaceholder,
         };
 
         const sizeStyles = this._generateSizeStyles();
@@ -161,9 +141,9 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
              style="${sizeStyles}">
                 <img
                     data-test-id="pie-thumbnail-img"
-                    src="${src}"
+                    src="${_controlledSrc}"
+                    alt="${_controlledAlt}"
                     class="c-thumbnail-img"
-                    alt="${alt}"
                     @error="${this._handleImageError}"
                 />
             </div>
