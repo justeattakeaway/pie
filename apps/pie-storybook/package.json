@@ -10,7 +10,8 @@
     "build:testing": "BROWSER_TESTING=true storybook build --output-dir dist && cp -R ./static ./dist",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
-    "test": "run -T vitest run test"
+    "test": "run -T vitest run test",
+    "test:ci": "yarn test"
   },
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
