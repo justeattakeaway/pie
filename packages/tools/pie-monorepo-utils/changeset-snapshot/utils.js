@@ -23,8 +23,8 @@ const createSnapshotComment = (context, newTags) => {
 /**
  * Handles an error by creating a comment on the issue
  * @param {Object} github - The GitHub client
- * @param {Object} context - The context object
- * @param {string} message - The error message
+ * @param {Object} context - The context object from actions/github-script
+ * @param {string} message - The error message to be displayed in the comment
  * @param {Error} error - The error object
  */
 const handleError = async (github, context, message, error) => {
@@ -38,9 +38,9 @@ const handleError = async (github, context, message, error) => {
 };
 
 /**
- * Publishes a snapshot
+ * Publishes a changeset snapshot for affected packages
  * @param {Object} execa - The execa instance
- * @returns {Array<string>} The new tags
+ * @returns {Array<string>} The the tags of the newly published snapshots
  */
 const publishSnapshot = async (execa) => {
     await execa.command('yarn changeset:version --snapshot snapshot-release', { stdio: 'inherit' });
