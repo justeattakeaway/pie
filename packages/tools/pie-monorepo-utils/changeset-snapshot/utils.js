@@ -62,4 +62,4 @@ module.exports = {
     createSnapshotComment,
     handleError,
     publishSnapshot,
-}; 
+};

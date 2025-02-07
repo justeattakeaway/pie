@@ -5,7 +5,6 @@ module.exports = async ({ github, context }, execa) => {
     try {
         const newTags = await publishSnapshot(execa);
 
-        // Check for changed packages
         if (newTags.length === 0) {
             throw new Error('No changed packages found! Please make sure you have added a changeset entry for the packages you would like to snapshot.');
         }
@@ -31,7 +30,6 @@ module.exports = async ({ github, context }, execa) => {
             await handleError(github, context, 'Failed to dispatch workflow', error);
         }
 
-        // Create a GitHub comment with the update instructions
         const body = createSnapshotComment(context, newTags);
         await github.rest.issues.createComment({
             issue_number: context.issue.number,
