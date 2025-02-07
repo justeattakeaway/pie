@@ -67,11 +67,21 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     @state()
     private _hasError = false;
 
-    private get _hasDefaultPlaceholder (): boolean {
-        const { _hasError, placeholder } = this;
-        return _hasError && !placeholder?.src;
+    /**
+     * Determines if the default placeholder should be displayed.
+     */
+    private get _isDefaultPlaceholderVisible (): boolean {
+        const { _hasError, placeholder, hideDefaultPlaceholder } = this;
+        return _hasError && !placeholder?.src && !hideDefaultPlaceholder;
     }
 
+    /**
+     * Returns the appropriate image props based on the following order:
+     * 1. If there is no error, return the provided image props.
+     * 2. If there is an error and a custom placeholder is provided, return the placeholder props.
+     * 3. If there is an error and no custom placeholder is provided, return the component default placeholder.
+     * 4. Otherwise, fall back to the provided src (resulting in a broken image).
+     */
     private get _controlledSrc (): string {
         if (!this._hasError) return this.src;
         if (this.placeholder?.src) return this.placeholder.src;
@@ -87,8 +97,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     }
 
     /**
-     * Assigns the thumbnail size and border radius CSS variables
-     * based on the size prop.
+     * Assigns CSS variables based on the size prop.
      */
     private _generateSizeStyles (): string {
         const { size } = this;
@@ -109,12 +118,15 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
         `;
     }
 
+    /**
+     * Handles the image error event.
+     */
     private _handleImageError (): void {
         this._hasError = true;
     }
 
     /**
-     * Detects image load status and sets the hasError state.
+     * Checks the image load status and triggers error handling if needed.
      * This is needed as the `onerror` event is not triggered in SSR.
      */
     private _checkImageError () {
@@ -136,7 +148,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
             _controlledAlt,
             disabled,
             hasPadding,
-            _hasDefaultPlaceholder,
+            _isDefaultPlaceholderVisible,
             backgroundColor,
             aspectRatio,
         } = this;
@@ -148,7 +160,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
             [backgroundColorClassNames[backgroundColor]]: true,
             'c-thumbnail--disabled': disabled,
             'c-thumbnail--padding': hasPadding,
-            'c-thumbnail--defaultPlaceholder': _hasDefaultPlaceholder,
+            'c-thumbnail--defaultPlaceholder': _isDefaultPlaceholderVisible,
         };
 
         const sizeStyles = this._generateSizeStyles();
