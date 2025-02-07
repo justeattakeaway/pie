@@ -11,4 +11,4 @@ declare module '*.scss?inline' {
 declare module '*.svg?inline' {
     const content: string;
     export default content;
-  }
+}
