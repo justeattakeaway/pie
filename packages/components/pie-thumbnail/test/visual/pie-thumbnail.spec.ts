@@ -66,7 +66,7 @@ test('should not render the component default placeholder if the `hideDefaultPla
     await percySnapshot(page, 'PIE Thumbnail - hideDefaultPlaceholder: true', { widths: [1280] });
 });
 
-test('should render a custom placeholder on image load failure if the `placeholder` prop is set ', async ({ page }) => {
+test('should render a custom placeholder on image load failure if the `placeholder` prop is set', async ({ page }) => {
     const basePage = new BasePage(page, 'thumbnail--invalid-src-and-custom-placeholder');
     await basePage.load();
 

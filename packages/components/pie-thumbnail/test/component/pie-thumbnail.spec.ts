@@ -39,7 +39,7 @@ test.describe('PieThumbnail - Component tests', () => {
             alt: 'The PIE design system logo',
         };
 
-        const pieThumbnailPage = new BasePage(page, 'thumbnail--valid-src-with-placeholder');
+        const pieThumbnailPage = new BasePage(page, 'thumbnail--valid-src-with-custom-placeholder');
         await pieThumbnailPage.load();
 
         // Act
