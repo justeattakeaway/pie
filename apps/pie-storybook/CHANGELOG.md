@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.22.1
+
+### Patch Changes
+
+- Updated dependencies [[`903664e`](https://github.com/justeattakeaway/pie/commit/903664ee5e4db410a6a2db76af899df5df3dfdf5)]:
+  - @justeattakeaway/pie-notification@0.12.10
+
 ## 1.22.0
 
 ### Minor Changes

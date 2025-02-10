@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-notification
 
+## 0.12.10
+
+### Patch Changes
+
+- [Changed] - Notification font colour ([#2200](https://github.com/justeattakeaway/pie/pull/2200)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.12.9
 
 ### Patch Changes
