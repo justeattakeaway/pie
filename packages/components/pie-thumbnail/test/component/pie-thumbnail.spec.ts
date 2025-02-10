@@ -32,7 +32,7 @@ test.describe('PieThumbnail - Component tests', () => {
         await expect(thumbnailImg).toHaveAttribute('alt', expectedPlaceholder.alt);
     });
 
-    test('should NOT set a custom placeholder if the `placeholder` prop is provided and the image loads succcseffuly', async ({ page }) => {
+    test('should NOT set a custom placeholder if the `placeholder` prop is provided and the image loads successfully', async ({ page }) => {
         // Arrange
         const expectedValues = {
             src: './static/images/pie-logo.svg',
