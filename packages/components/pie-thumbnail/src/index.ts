@@ -5,7 +5,7 @@ import {
 } from 'lit';
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
-import { property, query } from 'lit/decorators.js';
+import { property, query, state } from 'lit/decorators.js';
 import {
     type ThumbnailProps,
     defaultProps,
@@ -16,6 +16,7 @@ import {
     aspectRatios,
 } from './defs';
 import styles from './thumbnail.scss?inline';
+import defaultPlaceholder from './default-placeholder.svg?inline';
 
 // Valid values available to consumers
 export * from './defs';
@@ -50,6 +51,9 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     @property({ type: Boolean })
     public hasPadding = defaultProps.hasPadding;
 
+    @property({ type: Boolean })
+    public hideDefaultPlaceholder = defaultProps.hideDefaultPlaceholder;
+
     @property({ type: String })
     @validPropertyValues(componentSelector, backgroundColors, defaultProps.backgroundColor)
     public backgroundColor = defaultProps.backgroundColor;
@@ -60,36 +64,69 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     @query('img')
     private img!: HTMLImageElement;
 
+    @state()
+    private _hasError = false;
+
     /**
-     * Assigns the thumbnail size and border radius CSS variables
-     * based on the size prop.
+     * Determines if the default placeholder should be displayed.
+     */
+    private get _isDefaultPlaceholderVisible (): boolean {
+        const { _hasError, placeholder, hideDefaultPlaceholder } = this;
+        return _hasError && !placeholder?.src && !hideDefaultPlaceholder;
+    }
+
+    /**
+     * Returns the appropriate image props based on the following order:
+     * 1. If there is no error, return the provided image props.
+     * 2. If there is an error and a custom placeholder is provided, return the placeholder props.
+     * 3. If there is an error and no custom placeholder is provided, return the component default placeholder.
+     * 4. Otherwise, fall back to the provided src (resulting in a broken image).
+     */
+    private get _controlledSrc (): string {
+        if (!this._hasError) return this.src;
+        if (this.placeholder?.src) return this.placeholder.src;
+        if (!this.hideDefaultPlaceholder) return defaultPlaceholder;
+        return this.src;
+    }
+
+    private get _controlledAlt (): string {
+        if (!this._hasError) return this.alt;
+        if (this.placeholder?.src) return this.placeholder.alt ?? '';
+        if (!this.hideDefaultPlaceholder) return '';
+        return this.alt;
+    }
+
+    /**
+     * Assigns CSS variables based on the size prop.
      */
     private _generateSizeStyles (): string {
         const { size } = this;
         let borderRadius = '--dt-radius-rounded-c';
+        let defaultPlaceholderPadding = '--dt-spacing-d';
         if (size <= 40) {
             borderRadius = '--dt-radius-rounded-a';
+            defaultPlaceholderPadding = '--dt-spacing-a';
         } else if (size <= 56) {
             borderRadius = '--dt-radius-rounded-b';
+            defaultPlaceholderPadding = '--dt-spacing-b';
         }
 
         return `
             --thumbnail-size: ${size}px;
             --thumbnail-border-radius: var(${borderRadius});
+            --thumbnail-default-placeholder-padding: var(${defaultPlaceholderPadding});
         `;
     }
 
     /**
-     * Handles image load errors by replacing the src and alt props
-     * with the placeholder props.
+     * Handles the image error event.
      */
-    private _handleImageError () {
-        if (this.placeholder?.src) this.setAttribute('src', this.placeholder.src);
-        if (this.placeholder?.alt) this.setAttribute('alt', this.placeholder.alt);
+    private _handleImageError (): void {
+        this._hasError = true;
     }
 
     /**
-     * Detects image load status and applies the placeholder on failure.
+     * Checks the image load status and triggers error handling if needed.
      * This is needed as the `onerror` event is not triggered in SSR.
      */
     private _checkImageError () {
@@ -107,10 +144,11 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
     render () {
         const {
             variant,
-            src,
-            alt,
+            _controlledSrc,
+            _controlledAlt,
             disabled,
             hasPadding,
+            _isDefaultPlaceholderVisible,
             backgroundColor,
             aspectRatio,
         } = this;
@@ -122,6 +160,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
             [backgroundColorClassNames[backgroundColor]]: true,
             'c-thumbnail--disabled': disabled,
             'c-thumbnail--padding': hasPadding,
+            'c-thumbnail--defaultPlaceholder': _isDefaultPlaceholderVisible,
         };
 
         const sizeStyles = this._generateSizeStyles();
@@ -132,9 +171,9 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
              style="${sizeStyles}">
                 <img
                     data-test-id="pie-thumbnail-img"
-                    src="${src}"
+                    src="${_controlledSrc}"
+                    alt="${_controlledAlt}"
                     class="c-thumbnail-img"
-                    alt="${alt}"
                     @error="${this._handleImageError}"
                 />
             </div>
