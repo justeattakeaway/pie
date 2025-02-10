@@ -23,6 +23,7 @@
     gap: var(--dt-spacing-d);
     font-size: var(--notification-font-size);
     line-height: var(--notification-line-height);
+    color: var(--dt-color-content-default);
 
     &.c-notification--compact {
         --notification-direction: row;
