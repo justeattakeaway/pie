@@ -32,3 +32,7 @@ execSync('npx babel-node bin/build-svgs.js', { stdio: 'inherit' });
 console.info('Building JavaScript library');
 execSync('npx webpack --output-filename pie-icons.js --mode development');
 execSync('npx webpack --output-filename pie-icons.min.js --mode production');
+
+// Copy iconData.json
+console.info('Copying data file');
+execSync('cp src/iconData.json dist/iconData.json');
