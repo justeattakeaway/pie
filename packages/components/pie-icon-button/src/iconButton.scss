@@ -13,7 +13,7 @@
 .o-iconBtn {
     --btn-border-radius: var(--dt-radius-rounded-e);
     --btn-bg-color: var(--dt-color-interactive-brand);
-    --btn-icon-fill: var(--dt-color-content-interactive-primary);
+    --btn-icon-fill: var(--dt-color-content-interactive-light);
     --icon-display-override: block;
 
     block-size: var(--btn-dimension, var(--btn-dimension-default));
@@ -125,4 +125,3 @@
         --icon-size-override: 28px;
     }
 }
-

@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-modal
 
+## 1.3.0
+
+### Minor Changes
+
+- [Changed] - Update styling for dark mode ([#2182](https://github.com/justeattakeaway/pie/pull/2182)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Updated dependencies [[`4cf5835`](https://github.com/justeattakeaway/pie/commit/4cf5835f9dd77f1e931fa14cb6818fbb7674c41d)]:
+  - @justeattakeaway/pie-button@1.2.0
+  - @justeattakeaway/pie-icon-button@1.2.0
+
 ## 1.2.0
 
 ### Minor Changes

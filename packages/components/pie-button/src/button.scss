@@ -24,7 +24,7 @@
     // The following values set to default background and color
     // currently this sets the primary button styles
     --btn-bg-color: var(--dt-color-interactive-brand);
-    --btn-text-color: var(--dt-color-content-interactive-primary);
+    --btn-text-color: var(--dt-color-content-interactive-light);
     --icon-display-override: block;
 
     // Vertical and horizontal padding values for the button
@@ -131,6 +131,7 @@
             * update the button backgrounds so that the text is accessible
             **/
             --btn-bg-color: var(--dt-color-interactive-primary);
+            --btn-text-color: var(--dt-color-content-interactive-primary);
 
             @include p.button-interactive-states('--dt-color-interactive-primary', 'inverse');
         }

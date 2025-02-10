@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-thumbnail
 
+## 0.5.0
+
+### Minor Changes
+
+- [Added] - the aspect ratio prop ([#2184](https://github.com/justeattakeaway/pie/pull/2184)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.4.0
 
 ### Minor Changes

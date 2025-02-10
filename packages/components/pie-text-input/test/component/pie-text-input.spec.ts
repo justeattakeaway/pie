@@ -1,33 +1,16 @@
-import { setupFormDataExtraction, getFormDataObject } from '@justeattakeaway/pie-webc-testing/src/helpers/form-helpers.ts';
-import { test, expect } from '@sand4rt/experimental-ct-web';
-import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder';
-import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
-import { PieTextInput, type TextInputProps } from '../../src/index.ts';
-import { statusTypes } from '../../src/defs.ts';
-
-const componentSelector = '[data-test-id="pie-text-input"]';
-const assistiveTextSelector = '[data-test-id="pie-text-input-assistive-text"]';
+import { test, expect } from '@playwright/test';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { statusTypes, type TextInputProps } from '../../src/defs.ts';
+import { textInput } from '../helpers/page-object/selectors.ts';
 
 test.describe('PieTextInput - Component tests', () => {
-    // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
-    // mount the component will still have it available in Playwright's cache (loaded and registered in the test browser)
-    test.beforeEach(async ({ mount }) => {
-        const component = await mount(PieTextInput);
-        await component.unmount();
-
-        const iconComponent = await mount(IconPlaceholder);
-        await iconComponent.unmount();
-
-        const assistiveTextComponent = await mount(PieAssistiveText);
-        await assistiveTextComponent.unmount();
-    });
-
-    test('should render successfully', async ({ mount, page }) => {
+    test('should render successfully', async ({ page }) => {
         // Arrange
-        await mount(PieTextInput);
+        const textInputDefaultPage = new BasePage(page, 'text-input--default');
+        await textInputDefaultPage.load();
 
         // Act
-        const input = page.locator(componentSelector);
+        const input = page.getByTestId(textInput.selectors.container.dataTestId);
 
         // Assert
         expect(input).toBeVisible();
@@ -35,128 +18,144 @@ test.describe('PieTextInput - Component tests', () => {
 
     test.describe('Props', () => {
         test.describe('type', () => {
-            test('should default to text type if no type prop provided', async ({ mount }) => {
+            test('should default to text type if no type prop provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput);
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
                 expect(input).toHaveAttribute('type', 'text');
             });
 
-            test('should apply the type prop to the HTML input rendered', async ({ mount }) => {
+            test('should apply the type prop to the HTML input rendered', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        type: 'number',
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    type: 'number',
+                    value: '123',
+                };
+
+                const textInputNumberPage = new BasePage(page, 'text-input--default');
+                await textInputNumberPage.load({ ...props });
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect(input).toHaveAttribute('type', 'number');
+                await expect(input).toHaveAttribute('type', 'number');
             });
         });
 
         test.describe('value', () => {
-            test('should default to an empty string if no value prop provided', async ({ mount }) => {
+            test('should default to an empty string if no value prop provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput);
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect((await input.inputValue())).toBe('');
+                await expect(input).toHaveValue('');
             });
 
-            test('should apply the value prop to the HTML input rendered', async ({ mount }) => {
+            test('should apply the value prop to the HTML input rendered', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        value: 'test',
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    value: 'test',
+                };
+
+                const textInputNumberPage = new BasePage(page, 'text-input--default');
+                await textInputNumberPage.load({ ...props });
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect((await input.inputValue())).toBe('test');
+                await expect(input).toHaveValue('test');
             });
         });
 
         test.describe('name', () => {
-            test('should not render a name attribute on the input element if no name provided', async ({ mount }) => {
+            test('should not render a name attribute on the input element if no name provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput);
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect((await input.getAttribute('name'))).toBe(null);
+                await expect(input).not.toHaveAttribute('name');
             });
 
-            test('should apply the name prop to the HTML input rendered', async ({ mount }) => {
+            test('should apply the name prop to the HTML input rendered', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        name: 'test',
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    name: 'test',
+                    value: '123',
+                };
+
+                const textInputNumberPage = new BasePage(page, 'text-input--default');
+                await textInputNumberPage.load({ ...props });
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect((await input.getAttribute('name'))).toBe('test');
+                await expect(input).toHaveAttribute('name', 'test');
             });
         });
 
         test.describe('pattern', () => {
-            test('should not render a pattern attribute on the input element if no pattern provided', async ({ mount }) => {
+            test('should not render a pattern attribute on the input element if no pattern provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput);
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect((await input.getAttribute('pattern'))).toBe(null);
+                await expect(input).not.toHaveAttribute('pattern');
             });
 
-            test('should be invalid state `patternMismatch` if pattern is not met', async ({ mount, page }) => {
+            test('should be invalid state `patternMismatch` if pattern is not met', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        pattern: '[a-z]{4,8}',
-                    } as TextInputProps,
+                const textInputNumberPage = new BasePage(page, 'text-input--default');
+                await textInputNumberPage.load();
+
+                const component = page.getByTestId(textInput.selectors.container.dataTestId);
+
+                // Setting this manually due to Storybook limitations - https://storybook.js.org/docs/writing-stories/args#setting-args-through-the-url
+                await component.evaluate((element) => {
+                    (element as HTMLInputElement).pattern = '[a-z]{4,8}';
                 });
 
-                // Act
-                await component.type('hello world');
+                await page.getByTestId(textInput.selectors.input.dataTestId).fill('hello world');
 
-                const isInvalid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.patternMismatch);
+                const isInvalid = await component.evaluate((element) => (element as HTMLInputElement).validity.patternMismatch);
 
                 // Assert
                 expect(isInvalid).toBe(true);
             });
 
-            test('should be valid state if pattern is met', async ({ mount, page }) => {
+            test('should be valid state if pattern is met', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        pattern: '[a-z]{4,8}',
-                    } as TextInputProps,
+                const textInputNumberPage = new BasePage(page, 'text-input--default');
+                await textInputNumberPage.load();
+
+                const component = page.getByTestId(textInput.selectors.container.dataTestId);
+
+                // Setting this manually due to Storybook limitations - https://storybook.js.org/docs/writing-stories/args#setting-args-through-the-url
+                await component.evaluate((element) => {
+                    (element as HTMLInputElement).pattern = '[a-z]{4,8}';
                 });
 
                 // Act
-                await component.type('test');
+                await page.getByTestId(textInput.selectors.input.dataTestId).fill('test');
 
                 const isValid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valid);
 
@@ -166,46 +165,53 @@ test.describe('PieTextInput - Component tests', () => {
         });
 
         test.describe('minlength', () => {
-            test('should not render a minlength attribute on the input element if no minlength provided', async ({ mount }) => {
+            test('should not render a minlength attribute on the input element if no minlength provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput);
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect((await input.getAttribute('minlength'))).toBe(null);
+                await expect(input).not.toHaveAttribute('minlength');
             });
 
-            test('should be invalid state `tooShort` if the min length is not entered', async ({ mount, page }) => {
+            test('should be invalid state `tooShort` if the min length is not entered', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        minlength: 3,
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    minlength: 3,
+                    value: '',
+                };
+
+                const textInputNumberPage = new BasePage(page, 'text-input--default');
+                await textInputNumberPage.load({ ...props });
 
                 // Act
-                await component.type('te');
+                await page.getByTestId(textInput.selectors.input.dataTestId).fill('te');
 
-                const isInvalid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.tooShort);
+                const component = page.getByTestId(textInput.selectors.container.dataTestId);
+                const isInvalid = await component.evaluate((element) => (element as HTMLInputElement).validity.tooShort);
 
                 // Assert
                 expect(isInvalid).toBe(true);
             });
 
-            test('should be valid state if the min length is met', async ({ mount, page }) => {
+            test('should be valid state if the min length is met', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        minlength: 3,
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    minlength: 3,
+                    value: 'test',
+                };
+
+                const textInputNumberPage = new BasePage(page, 'text-input--default');
+                await textInputNumberPage.load({ ...props });
 
                 // Act
-                await component.type('tes');
+                await page.getByTestId(textInput.selectors.input.dataTestId).fill('test');
 
-                const isValid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valid);
+                const component = page.getByTestId(textInput.selectors.container.dataTestId);
+                const isValid = await component.evaluate((element) => (element as HTMLInputElement).validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -213,64 +219,75 @@ test.describe('PieTextInput - Component tests', () => {
         });
 
         test.describe('maxlength', () => {
-            test('should not render a maxlength attribute on the input element if no maxlength provided', async ({ mount }) => {
+            test('should not render a maxlength attribute on the input element if no maxlength provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput);
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect((await input.getAttribute('maxlength'))).toBe(null);
+                await expect(input).not.toHaveAttribute('maxlength');
             });
 
-            test('should not be able to input a value greater than the maxlength provided', async ({ mount }) => {
+            test('should not be able to input a value greater than the maxlength provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        maxlength: 3,
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    maxlength: 3,
+                    value: '',
+                };
+
+                const textInputNumberPage = new BasePage(page, 'text-input--default');
+                await textInputNumberPage.load({ ...props });
 
                 // Act
-                await component.type('test');
+                await page.getByTestId(textInput.selectors.input.dataTestId).fill('test');
+
+                const component = page.getByTestId(textInput.selectors.container.dataTestId);
+                const inputValue = await component.evaluate((element) => (element as HTMLInputElement).value);
 
                 // Assert
-                expect((await component.locator('input').inputValue())).toBe('tes');
+                expect(inputValue).toBe('tes');
             });
 
-            test('should be invalid state `tooLong` if the maxlength is exceeded programmatically', async ({ mount, page }) => {
+            test('should be invalid state `tooLong` if the maxlength is exceeded programmatically', async ({ page }) => {
                 // Arrange
-                await mount(PieTextInput, {
-                    props: {
-                        maxlength: 2,
-                        value: 'test',
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    maxlength: 2,
+                    value: 'test',
+                };
+
+                const textInputNumberPage = new BasePage(page, 'text-input--default');
+                await textInputNumberPage.load({ ...props });
 
                 // Act
                 await page.focus('pie-text-input');
                 await page.keyboard.press('ArrowRight'); // Move cursor to end of input so we don't delete the whole value
                 await page.keyboard.press('Backspace'); // Delete the last character to trigger an input event - this should trigger the validity state update
 
-                const isInvalid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.tooLong);
+                const component = page.getByTestId(textInput.selectors.container.dataTestId);
+                const isInvalid = await component.evaluate((element) => (element as HTMLInputElement).validity.tooLong);
 
                 // Assert
                 expect(isInvalid).toBe(true);
             });
 
-            test('should be valid state if the max length is not exceeded', async ({ mount, page }) => {
+            test('should be valid state if the max length is not exceeded', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        maxlength: 3,
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    maxlength: 3,
+                    value: '',
+                };
+
+                const textInputNumberPage = new BasePage(page, 'text-input--default');
+                await textInputNumberPage.load({ ...props });
 
                 // Act
-                await component.type('tes');
+                await page.getByTestId(textInput.selectors.input.dataTestId).fill('test');
 
-                const isValid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valid);
+                const component = page.getByTestId(textInput.selectors.container.dataTestId);
+                const isValid = await component.evaluate((element) => (element as HTMLInputElement).validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -278,192 +295,212 @@ test.describe('PieTextInput - Component tests', () => {
         });
 
         test.describe('autocomplete', () => {
-            test('should not render an autocomplete attribute on the input element if no autocomplete provided', async ({ mount }) => {
+            test('should not render an autocomplete attribute on the input element if no autocomplete provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput);
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect((await input.getAttribute('autocomplete'))).toBe(null);
+                await expect(input).not.toHaveAttribute('autocomplete');
             });
 
-            test('should apply the autocomplete prop to the HTML input rendered', async ({ mount }) => {
+            test('should apply the autocomplete prop to the HTML input rendered', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        autocomplete: 'on',
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    autocomplete: 'on',
+                    value: 'test',
+                };
+
+                const textInputNumberPage = new BasePage(page, 'text-input--default');
+                await textInputNumberPage.load({ ...props });
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect((await input.getAttribute('autocomplete'))).toBe('on');
+                await expect(input).toHaveAttribute('autocomplete', 'on');
             });
         });
 
         test.describe('placeholder', () => {
-            test('should not render a placeholder attribute on the input element if no placeholder provided', async ({ mount }) => {
+            test('should not render a placeholder attribute on the input element if no placeholder provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput);
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect((await input.getAttribute('placeholder'))).toBe(null);
+                await expect(input).not.toHaveAttribute('placeholder');
             });
 
-            test('should apply the placeholder prop to the HTML input rendered', async ({ mount }) => {
+            test('should apply the placeholder prop to the HTML input rendered', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        placeholder: 'Test Placeholder',
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    placeholder: 'Test Placeholder',
+                    value: 'test',
+                };
+
+                const textInputNumberPage = new BasePage(page, 'text-input--default');
+                await textInputNumberPage.load({ ...props });
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect((await input.getAttribute('placeholder'))).toBe('Test Placeholder');
+                await expect(input).toHaveAttribute('placeholder', 'Test Placeholder');
             });
         });
 
         test.describe('autoFocus', () => {
             test('should focus the component when autoFocus is `true`', async ({ page }) => {
                 // Arrange
-                // Setting the content this way rather than a mount call triggers the autofocus behaviour immediately
-                await page.setContent('<pie-text-input data-test-id="testInput" type="text" autofocus></pie-text-input>');
+                const props: TextInputProps = {
+                    autoFocus: true,
+                    value: '',
+                };
+
+                const textInputNumberPage = new BasePage(page, 'text-input--default');
+                await textInputNumberPage.load({ ...props });
 
                 // Act
-                const inputLocator = page.getByTestId('testInput');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                await expect(inputLocator).toBeFocused();
+                await expect(input).toBeFocused();
             });
 
             test('should not focus the component when autoFocus is not provided', async ({ page }) => {
                 // Arrange
-                // Setting the content this way rather than a mount call triggers the autofocus behaviour immediately
-                await page.setContent('<pie-text-input data-test-id="testInput" type="text"></pie-text-input>');
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
 
                 // Act
-                const inputLocator = page.getByTestId('testInput');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                await expect(inputLocator).not.toBeFocused();
+                await expect(input).not.toBeFocused();
             });
         });
 
         test.describe('inputmode', () => {
-            test('should not render an inputmode attribute on the input element if no inputmode provided', async ({ mount }) => {
+            test('should not render an inputmode attribute on the input element if no inputmode provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput);
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect((await input.getAttribute('inputmode'))).toBe(null);
+                await expect(input).not.toHaveAttribute('inputmode');
             });
 
-            test('should apply the inputmode prop to the HTML input rendered', async ({ mount }) => {
+            test('should apply the inputmode prop to the HTML input rendered', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        inputmode: 'numeric',
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    inputmode: 'numeric',
+                    value: '',
+                };
+
+                const textInputNumberPage = new BasePage(page, 'text-input--default');
+                await textInputNumberPage.load({ ...props });
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect((await input.getAttribute('inputmode'))).toBe('numeric');
+                await expect(input).toHaveAttribute('inputmode', 'numeric');
             });
         });
 
         test.describe('readonly', () => {
-            test('should be able to edit the component value when readonly is `false`', async ({ mount }) => {
+            test('should be able to edit the component value when readonly is `false`', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        readonly: false,
-                        value: 'test',
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    readonly: false,
+                    value: 'test',
+                };
+
+                const textInputNumberPage = new BasePage(page, 'text-input--default');
+                await textInputNumberPage.load({ ...props });
 
                 // Act
-                await component.type('another test');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
+                await input.fill('another test');
 
                 // Assert
-                expect((await component.locator('input').inputValue())).toBe('another test');
+                await expect(input).toHaveValue('another test');
             });
 
-            test('should not be able to edit the component value when readonly is `true`', async ({ mount }) => {
+            test('should not be able to edit the component value when readonly is `true`', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        readonly: true,
-                        value: 'test',
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    readonly: true,
+                    value: 'test',
+                };
+
+                const textInputNumberPage = new BasePage(page, 'text-input--default');
+                await textInputNumberPage.load({ ...props });
 
                 // Act
-                await component.type('another test');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect((await component.locator('input').inputValue())).toBe('test');
+                await expect(input).not.toBeEditable();
             });
         });
 
         test.describe('defaultValue', () => {
             test('should correctly reset the input value to the default value if one is provided when the form is reset', async ({ page }) => {
                 // Arrange
-                await page.setContent(`
-                    <form id="testForm" action="/foo" method="POST">
-                        <pie-text-input type="text" name="username" defaultValue="foo"></pie-text-input>
-                        <button type="reset">Submit</button>
-                    </form>
-                `);
+                const textInputFormPage = new BasePage(page, 'text-input--example-form');
+                await textInputFormPage.load({ defaultValue: 'foo' });
 
                 // Act & Assert
-                await page.locator('pie-text-input').type('test');
-                expect(await page.evaluate(() => document.querySelector('pie-text-input')?.value)).toBe('test');
+                await page.getByTestId(textInput.selectors.input.dataTestId).fill('test');
+                await expect(page.getByTestId(textInput.selectors.input.dataTestId)).toHaveValue('test');
 
                 await page.click('button[type="reset"]');
-                expect(await page.evaluate(() => document.querySelector('pie-text-input')?.value)).toBe('foo');
+                await expect(page.getByTestId(textInput.selectors.input.dataTestId)).toHaveValue('foo');
             });
         });
 
         test.describe('disabled', () => {
             test.describe('when true', () => {
-                test('should disable the component', async ({ mount }) => {
+                test('should disable the component', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieTextInput, {
-                        props: {
-                            disabled: true,
-                            value: 'test',
-                        } as TextInputProps,
-                    });
+                    const props: TextInputProps = {
+                        disabled: true,
+                        value: 'test',
+                    };
+
+                    const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                    await textInputDefaultPage.load({ ...props });
 
                     // Act
-                    const input = component.locator('input');
+                    const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                     // Assert
-                    expect(input).toBeDisabled();
+                    await expect(input).toBeDisabled();
                 });
 
                 test('should not be able to focus the component', async ({ page }) => {
                     // Arrange
-                    await page.setContent('<pie-text-input type="text" disabled></pie-text-input>');
+                    const props: TextInputProps = {
+                        disabled: true,
+                        value: 'test',
+                    };
+
+                    const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                    await textInputDefaultPage.load({ ...props });
 
                     // Act
-                    const input = page.locator('pie-text-input');
+                    const input = page.getByTestId(textInput.selectors.input.dataTestId);
                     await input.focus();
 
                     // Assert
@@ -472,93 +509,102 @@ test.describe('PieTextInput - Component tests', () => {
             });
 
             test.describe('when not provided', () => {
-                test('should not disable the component', async ({ mount }) => {
+                test('should not disable the component', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieTextInput);
+                    const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                    await textInputDefaultPage.load();
 
                     // Act
-                    const input = component.locator('input');
+                    const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                     // Assert
-                    expect(input).not.toBeDisabled();
+                    await expect(input).not.toBeDisabled();
                 });
 
                 test('should still be able to focus the component', async ({ page }) => {
                     // Arrange
-                    await page.setContent('<pie-text-input type="text"></pie-text-input>');
+                    const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                    await textInputDefaultPage.load();
 
                     // Act
-                    const input = page.locator('pie-text-input');
+                    const input = page.getByTestId(textInput.selectors.input.dataTestId);
                     await input.focus();
 
                     // Assert
-                    expect(input).toBeFocused();
+                    await expect(input).toBeFocused();
                 });
             });
         });
 
         test.describe('assistiveText', () => {
-            test('should not render the assistive text component if the prop is not provided', async ({ mount, page }) => {
+            test('should not render the assistive text component if the prop is not provided', async ({ page }) => {
                 // Arrange
-                await mount(PieTextInput);
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
 
                 // Act
-                const assistiveText = page.locator(assistiveTextSelector);
+                const assistiveText = page.getByTestId(textInput.selectors.assistiveText.dataTestId);
 
                 // Assert
                 expect(assistiveText).not.toBeVisible();
             });
 
-            test('should apply the "default" variant attribute if no status is provided', async ({ mount, page }) => {
+            test('should apply the "default" variant attribute if no status is provided', async ({ page }) => {
                 // Arrange
-                await mount(PieTextInput, {
-                    props: {
-                        assistiveText: 'Assistive text',
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    assistiveText: 'Assistive text',
+                    value: 'test',
+                };
+
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load({ ...props });
 
                 // Act
-                const assistiveText = page.locator(assistiveTextSelector);
+                const assistiveText = page.getByTestId(textInput.selectors.assistiveText.dataTestId);
 
                 // Assert
-                expect(assistiveText).toBeVisible();
-                expect(await assistiveText.getAttribute('variant')).toBe('default');
-                expect(assistiveText).toHaveText('Assistive text');
+                await expect(assistiveText).toBeVisible();
+                await expect(assistiveText).toHaveAttribute('variant', 'default');
+                await expect(assistiveText).toHaveText('Assistive text');
             });
 
             test.describe('Assistive text: Status', () => {
                 statusTypes.forEach((status) => {
-                    test(`should render the assistive text component with the ${status} variant`, async ({ mount, page }) => {
+                    test(`should render the assistive text component with the ${status} variant`, async ({ page }) => {
                         // Arrange
-                        await mount(PieTextInput, {
-                            props: {
-                                assistiveText: 'Assistive text',
-                                status,
-                            } as TextInputProps,
-                        });
+                        const props: TextInputProps = {
+                            assistiveText: 'Assistive text',
+                            status,
+                            value: 'test',
+                        };
+
+                        const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                        await textInputDefaultPage.load({ ...props });
 
                         // Act
-                        const assistiveText = page.locator(assistiveTextSelector);
+                        const assistiveText = page.getByTestId(textInput.selectors.assistiveText.dataTestId);
 
                         // Assert
-                        expect(assistiveText).toBeVisible();
-                        expect(assistiveText).toHaveAttribute('variant', status);
-                        expect(assistiveText).toHaveText('Assistive text');
+                        await expect(assistiveText).toBeVisible();
+                        await expect(assistiveText).toHaveAttribute('variant', status);
+                        await expect(assistiveText).toHaveText('Assistive text');
                     });
                 });
             });
 
             test.describe('Assistive test ID attribute', () => {
-                test('should contain an ID associated the input element for a11y', async ({ mount, page }) => {
+                test('should contain an ID associated the input element for a11y', async ({ page }) => {
                     // Arrange
-                    await mount(PieTextInput, {
-                        props: {
-                            assistiveText: 'Assistive text',
-                        } as TextInputProps,
-                    });
+                    const props: TextInputProps = {
+                        assistiveText: 'Assistive text',
+                        value: 'test',
+                    };
+
+                    const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                    await textInputDefaultPage.load({ ...props });
 
                     // Act
-                    const assistiveText = page.locator(assistiveTextSelector);
+                    const assistiveText = page.getByTestId(textInput.selectors.assistiveText.dataTestId);
 
                     // Assert
                     await expect(assistiveText).toHaveAttribute('id', 'assistive-text');
@@ -568,15 +614,16 @@ test.describe('PieTextInput - Component tests', () => {
 
         test.describe('step', () => {
             test.describe('when type is number', () => {
-                test('should be able to increment the value by the step amount when using the up arrow', async ({ mount, page }) => {
+                test('should be able to increment the value by the step amount when using the up arrow', async ({ page }) => {
                     // Arrange
-                    await mount(PieTextInput, {
-                        props: {
-                            type: 'number',
-                            value: '0',
-                            step: 5,
-                        } as TextInputProps,
-                    });
+                    const props: TextInputProps = {
+                        type: 'number',
+                        value: '0',
+                        step: 5,
+                    };
+
+                    const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                    await textInputDefaultPage.load({ ...props });
 
                     // Act
                     await page.focus('pie-text-input');
@@ -584,18 +631,20 @@ test.describe('PieTextInput - Component tests', () => {
                     await page.keyboard.press('ArrowUp');
 
                     // Assert
-                    expect(await page.evaluate(() => document.querySelector('pie-text-input')?.value)).toBe('10');
+                    const input = page.getByTestId(textInput.selectors.input.dataTestId);
+                    await expect(input).toHaveValue('10');
                 });
 
-                test('should be able to decrement the value by the step amount when using the down arrow', async ({ mount, page }) => {
+                test('should be able to decrement the value by the step amount when using the down arrow', async ({ page }) => {
                     // Arrange
-                    await mount(PieTextInput, {
-                        props: {
-                            type: 'number',
-                            value: '0',
-                            step: 5,
-                        } as TextInputProps,
-                    });
+                    const props: TextInputProps = {
+                        type: 'number',
+                        value: '0',
+                        step: 5,
+                    };
+
+                    const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                    await textInputDefaultPage.load({ ...props });
 
                     // Act
                     await page.focus('pie-text-input');
@@ -603,20 +652,22 @@ test.describe('PieTextInput - Component tests', () => {
                     await page.keyboard.press('ArrowDown');
 
                     // Assert
-                    expect(await page.evaluate(() => document.querySelector('pie-text-input')?.value)).toBe('-10');
+                    const input = page.getByTestId(textInput.selectors.input.dataTestId);
+                    await expect(input).toHaveValue('-10');
                 });
             });
 
             test.describe('when type is not number', () => {
-                test('should not be able to increment the value by the step amount when using the up arrow', async ({ mount, page }) => {
+                test('should not be able to increment the value by the step amount when using the up arrow', async ({ page }) => {
                     // Arrange
-                    await mount(PieTextInput, {
-                        props: {
-                            type: 'text',
-                            value: '0',
-                            step: 5,
-                        } as TextInputProps,
-                    });
+                    const props: TextInputProps = {
+                        type: 'text',
+                        value: '0',
+                        step: 5,
+                    };
+
+                    const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                    await textInputDefaultPage.load({ ...props });
 
                     // Act
                     await page.focus('pie-text-input');
@@ -624,18 +675,20 @@ test.describe('PieTextInput - Component tests', () => {
                     await page.keyboard.press('ArrowUp');
 
                     // Assert
-                    expect(await page.evaluate(() => document.querySelector('pie-text-input')?.value)).toBe('0');
+                    const input = page.getByTestId(textInput.selectors.input.dataTestId);
+                    await expect(input).toHaveValue('0');
                 });
 
-                test('should not be able to decrement the value by the step amount when using the down arrow', async ({ mount, page }) => {
+                test('should not be able to decrement the value by the step amount when using the down arrow', async ({ page }) => {
                     // Arrange
-                    await mount(PieTextInput, {
-                        props: {
-                            type: 'text',
-                            value: '0',
-                            step: 5,
-                        } as TextInputProps,
-                    });
+                    const props: TextInputProps = {
+                        type: 'text',
+                        value: '0',
+                        step: 5,
+                    };
+
+                    const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                    await textInputDefaultPage.load({ ...props });
 
                     // Act
                     await page.focus('pie-text-input');
@@ -643,45 +696,50 @@ test.describe('PieTextInput - Component tests', () => {
                     await page.keyboard.press('ArrowDown');
 
                     // Assert
-                    expect(await page.evaluate(() => document.querySelector('pie-text-input')?.value)).toBe('0');
+                    const input = page.getByTestId(textInput.selectors.input.dataTestId);
+                    await expect(input).toHaveValue('0');
                 });
             });
         });
 
         test.describe('min', () => {
-            test('should be invalid state `rangeUnderflow` if the value is lower than the min', async ({ mount, page }) => {
+            test('should be invalid state `rangeUnderflow` if the value is lower than the min', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        type: 'number',
-                        value: '0',
-                        min: 5,
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    type: 'number',
+                    value: '0',
+                    min: 5,
+                };
+
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load({ ...props });
 
                 // Act
-                await component.type('4');
+                await page.getByTestId(textInput.selectors.input.dataTestId).fill('4');
 
-                const isInvalid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.rangeUnderflow);
+                const component = page.getByTestId(textInput.selectors.container.dataTestId);
+                const isInvalid = await component.evaluate((element) => (element as HTMLInputElement).validity.rangeUnderflow);
 
                 // Assert
                 expect(isInvalid).toBe(true);
             });
 
-            test('should be valid state if the value is greater than the min', async ({ mount, page }) => {
+            test('should be valid state if the value is greater than the min', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        type: 'number',
-                        value: '0',
-                        min: 5,
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    type: 'number',
+                    value: '0',
+                    min: 5,
+                };
+
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load({ ...props });
 
                 // Act
-                await component.type('6');
+                await page.getByTestId(textInput.selectors.input.dataTestId).fill('6');
 
-                const isValid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valid);
+                const component = page.getByTestId(textInput.selectors.container.dataTestId);
+                const isValid = await component.evaluate((element) => (element as HTMLInputElement).validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -689,39 +747,43 @@ test.describe('PieTextInput - Component tests', () => {
         });
 
         test.describe('max', () => {
-            test('should be invalid state `rangeOverflow` if the value is greater than the max', async ({ mount, page }) => {
+            test('should be invalid state `rangeOverflow` if the value is greater than the max', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        type: 'number',
-                        value: '0',
-                        max: 5,
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    type: 'number',
+                    value: '0',
+                    max: 5,
+                };
+
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load({ ...props });
 
                 // Act
-                await component.type('6');
+                await page.getByTestId(textInput.selectors.input.dataTestId).fill('6');
 
-                const isInvalid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.rangeOverflow);
+                const component = page.getByTestId(textInput.selectors.container.dataTestId);
+                const isInvalid = await component.evaluate((element) => (element as HTMLInputElement).validity.rangeOverflow);
 
                 // Assert
                 expect(isInvalid).toBe(true);
             });
 
-            test('should be valid state if the value is lower than the max', async ({ mount, page }) => {
+            test('should be valid state if the value is lower than the max', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        type: 'number',
-                        value: '0',
-                        max: 5,
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    type: 'number',
+                    value: '0',
+                    max: 5,
+                };
+
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load({ ...props });
 
                 // Act
-                await component.type('4');
+                await page.getByTestId(textInput.selectors.input.dataTestId).fill('4');
 
-                const isValid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valid);
+                const component = page.getByTestId(textInput.selectors.container.dataTestId);
+                const isValid = await component.evaluate((element) => (element as HTMLInputElement).validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -729,91 +791,102 @@ test.describe('PieTextInput - Component tests', () => {
         });
 
         test.describe('required', () => {
-            test('should not render a required attribute on the input element if no required provided', async ({ mount }) => {
+            test('should not render a required attribute on the input element if no required provided', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput);
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect((await input.getAttribute('required'))).toBe(null);
+                await expect(input).not.toHaveAttribute('required');
             });
 
-            test('should apply the required prop to the HTML input rendered', async ({ mount }) => {
+            test('should apply the required prop to the HTML input rendered', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        required: true,
-                    } as TextInputProps,
-                });
+                const props: TextInputProps = {
+                    required: true,
+                    value: 'test',
+                };
+
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load({ ...props });
 
                 // Act
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect((await input.getAttribute('required'))).toBe('');
+                await expect(input).toHaveAttribute('required');
             });
 
-            test('should be invalid state `valueMissing` if the input is empty and required', async ({ mount, page }) => {
+            test('should be invalid state `valueMissing` if the input is empty and required', async ({ page }) => {
                 // Arrange
-                await mount(PieTextInput, {
-                    props: {
-                        required: true,
-                    } as TextInputProps,
-                });
+                const props: Partial<TextInputProps> = {
+                    required: true,
+                };
+
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load({ ...props });
 
                 // Act
-                const isInvalid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valueMissing);
+                const component = page.getByTestId(textInput.selectors.container.dataTestId);
+                const isInvalid = await component.evaluate((element) => (element as HTMLInputElement).validity.valueMissing);
 
                 // Assert
                 expect(isInvalid).toBe(true);
             });
 
-            test('should be valid state if the input is not empty and required', async ({ mount, page }) => {
+            test('should be valid state if the input is not empty and required', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    props: {
-                        required: true,
-                    } as TextInputProps,
-                });
+                const props: Partial<TextInputProps> = {
+                    required: true,
+                };
+
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load({ ...props });
 
                 // Act
-                await component.type('test');
+                await page.getByTestId(textInput.selectors.input.dataTestId).fill('test');
 
-                const isValid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valid);
+                const component = page.getByTestId(textInput.selectors.container.dataTestId);
+                const isValid = await component.evaluate((element) => (element as HTMLInputElement).validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
             });
 
-            test('should be valid state if the input has a value prop and required', async ({ mount, page }) => {
+            test('should be valid state if the input has a value prop and required', async ({ page }) => {
                 // Arrange
-                await mount(PieTextInput, {
-                    props: {
-                        required: true,
-                        value: 'test',
-                    } as TextInputProps,
-                });
+                const props: Partial<TextInputProps> = {
+                    required: true,
+                    value: 'test',
+                };
+
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load({ ...props });
 
                 // Act
-                const isValid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valid);
+                const component = page.getByTestId(textInput.selectors.container.dataTestId);
+                const isValid = await component.evaluate((element) => (element as HTMLInputElement).validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
             });
 
-            test('should be valid state if the input is empty and required but disabled', async ({ mount, page }) => {
+            test('should be valid state if the input is empty and required but disabled', async ({ page }) => {
                 // Arrange
-                await mount(PieTextInput, {
-                    props: {
-                        required: true,
-                        disabled: true,
-                    } as TextInputProps,
-                });
+                const props: Partial<TextInputProps> = {
+                    required: true,
+                    disabled: true,
+                };
+
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load({ ...props });
 
                 // Act
-                const isValid = await page.evaluate(() => document.querySelector('pie-text-input')?.validity.valid);
+                const component = page.getByTestId(textInput.selectors.container.dataTestId);
+                const isValid = await component.evaluate((element) => (element as HTMLInputElement).validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -823,232 +896,198 @@ test.describe('PieTextInput - Component tests', () => {
 
     test.describe('Events', () => {
         test.describe('input', () => {
-            test('should emit an event each time the component receives input', async ({ mount, page }) => {
+            test('should emit an event each time the component receives input', async ({ page }) => {
                 // Arrange
-                const messages: InputEvent[] = [];
-                const expectedMessagesLength = 5;
+                const expectedMessagesLength = 2;
 
-                const component = await mount(PieTextInput, {
-                    on: {
-                        input: (data: InputEvent) => {
-                            messages.push(data);
-                        },
-                    },
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
+
+                // Set up a listener for console messages
+                const consoleMessages: string[] = [];
+                page.on('console', (message) => {
+                    if (message.type() === 'info') {
+                        consoleMessages.push(message.text());
+                    }
                 });
 
-                const input = component.locator('input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Act
-                await input.type('test');
+                await input.fill('test');
                 await page.keyboard.press('Backspace');
 
                 // Assert
-                expect(messages.length).toEqual(expectedMessagesLength);
+                expect(consoleMessages.length).toEqual(expectedMessagesLength);
             });
 
             test('should provide the event target value for event listeners', async ({ page }) => {
                 // Arrange
                 const expectedMessage = 'tes';
 
-                await page.setContent(`
-                    <pie-text-input type="text"></pie-text-input>
-                    <div id="output"></div>
-                `);
-
-                await page.evaluate(() => {
-                    const output = (document.getElementById('output') as HTMLDivElement);
-                    const input = document.querySelector('pie-text-input');
-
-                    input?.addEventListener('input', (event: Event) => {
-                        const currentValue = (event.target as HTMLInputElement).value;
-                        output.innerText = currentValue;
-                    });
-                });
-
-                const input = page.locator('pie-text-input');
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
 
                 // Act
-                await input.type('test');
+                await page.getByTestId(textInput.selectors.input.dataTestId).fill('test');
                 await page.keyboard.press('Backspace');
 
                 const output = page.locator('#output');
 
                 // Assert
-                expect(await output.innerText()).toEqual(expectedMessage);
+                await expect(output).toHaveText(expectedMessage);
             });
 
             test('should correctly handle input including backspaces in the event.data property', async ({ page }) => {
                 // Arrange
                 const expectedMessage = 'tes';
 
-                await page.setContent(`
-                    <pie-text-input type="text"></pie-text-input>
-                    <div id="output"></div>
-                `);
-
-                await page.evaluate(() => {
-                    const output = document.getElementById('output') as HTMLDivElement;
-                    const input = document.querySelector('pie-text-input');
-
-                    input?.addEventListener('input', (event) => {
-                        const { data } = event as InputEvent;
-                        const currentValue = (event.target as HTMLInputElement).value;
-
-                        // If data is null, it's a deletion, so update the output to match the input's value
-                        if (data === null) {
-                            output.innerText = currentValue;
-                        } else {
-                            // For additions, append the data character
-                            output.innerText += data;
-                        }
-                    });
-                });
-
-                const input = page.locator('pie-text-input');
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
 
                 // Act
-                await input.type('test');
+                await page.getByTestId(textInput.selectors.input.dataTestId).fill('test');
                 await page.keyboard.press('Backspace');
 
                 // Assert
-                expect(await page.locator('#output').innerText()).toEqual(expectedMessage);
+                const output = page.locator('#output');
+                await expect(output).toHaveText(expectedMessage);
             });
         });
 
         test.describe('change', () => {
-            test('should dispatch a change event when the input value changes', async ({ mount, page }) => {
+            test('should dispatch a change event when the input value changes', async ({ page }) => {
                 // Arrange
-                const messages: CustomEvent[] = [];
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
 
-                await mount(PieTextInput, {
-                    on: {
-                        change: (data: CustomEvent) => {
-                            messages.push(data);
-                        },
-                    },
+                // Set up a listener for console messages
+                const consoleMessages: string[] = [];
+                page.on('console', (message) => {
+                    if (message.type() === 'info') {
+                        consoleMessages.push(message.text());
+                    }
                 });
 
-                const input = page.locator('pie-text-input');
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Act
-                await input.type('test');
+                await input.fill('test');
                 await page.keyboard.press('Tab');
 
                 // Assert
-                expect(messages.length).toEqual(1);
+                expect(consoleMessages).toContain('change event recieved {"isTrusted":false}');
             });
 
-            test('should dispatch a custom event that contains the original native event', async ({ mount, page }) => {
+            test('should dispatch a custom event that contains the original native event', async ({ page }) => {
                 // Arrange
-                const messages: CustomEvent[] = [];
-                const expectedMessages = [{ sourceEvent: { isTrusted: true } }];
+                const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                await textInputDefaultPage.load();
 
-                await mount(PieTextInput, {
-                    on: {
-                        change: (data: CustomEvent) => {
-                            messages.push(data);
-                        },
-                    },
+                const consoleMessages: string[] = [];
+                const input = page.getByTestId(textInput.selectors.input.dataTestId);
+
+                // Set up a listener for console messages
+                page.on('console', (message) => {
+                    if (message.type() === 'info') {
+                        consoleMessages.push(message.text());
+                    }
                 });
 
-                const input = page.locator('pie-text-input');
-
                 // Act
-                await input.type('test');
+                await input.fill('test');
                 await page.keyboard.press('Tab'); // Change events on inputs are triggered when they lose focus after the value was changed
 
                 // Assert
-                expect(messages).toStrictEqual(expectedMessages);
+                expect(consoleMessages).toContain('change event recieved {"isTrusted":false}');
             });
         });
     });
 
     test.describe('Slots', () => {
         test.describe('leadingText', () => {
-            test('should render the leading slot content', async ({ mount }) => {
+            test('should render the leading slot content', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    slots: {
-                        leadingText: '<icon-placeholder id="leadingText"></icon-placeholder>',
-                    },
-                });
+                const textInputLeadingTextPage = new BasePage(page, 'text-input--leading-text');
+                await textInputLeadingTextPage.load();
 
                 // Act
-                const leadingSlot = component.locator('#leadingText');
+                const leadingText = page.getByTestId('leadingText');
 
                 // Assert
-                expect(leadingSlot).toBeVisible();
+                await expect(leadingText).toBeVisible();
             });
         });
 
         test.describe('trailingText', () => {
-            test('should render the trailingText slot content', async ({ mount }) => {
+            test('should render the trailingText slot content', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    slots: {
-                        trailingText: '<icon-placeholder id="trailingText"></icon-placeholder>',
-                    },
-                });
+                const textInputTrailingTextPage = new BasePage(page, 'text-input--trailing-text');
+                await textInputTrailingTextPage.load();
 
                 // Act
-                const trailingSlot = component.locator('#trailingText');
+                const trailingText = page.getByTestId('trailingText');
 
                 // Assert
-                expect(trailingSlot).toBeVisible();
+                await expect(trailingText).toBeVisible();
             });
         });
 
         test.describe('leadingIcon', () => {
-            test('should render the leadingIcon slot content', async ({ mount }) => {
+            test('should render the leadingIcon slot content', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    slots: {
-                        leadingIcon: '<icon-placeholder id="leadingIcon"></icon-placeholder>',
-                    },
-                });
+                const textInputLeadingIconPage = new BasePage(page, 'text-input--leading-icon');
+                await textInputLeadingIconPage.load();
 
                 // Act
-                const leadingSlot = component.locator('#leadingIcon');
+                const leadingIcon = page.getByTestId('leadingIcon');
 
                 // Assert
-                expect(leadingSlot).toBeVisible();
+                await expect(leadingIcon).toBeVisible();
             });
         });
 
         test.describe('trailingIcon', () => {
-            test('should render the trailingIcon slot content', async ({ mount }) => {
+            test('should render the trailingIcon slot content', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    slots: {
-                        trailingIcon: '<icon-placeholder id="trailingIcon"></icon-placeholder>',
-                    },
-                });
+                const textInputTrailingIconPage = new BasePage(page, 'text-input--trailing-icon');
+                await textInputTrailingIconPage.load();
 
                 // Act
-                const trailingSlot = component.locator('#trailingIcon');
+                const trailingIcon = page.getByTestId('trailingIcon');
 
                 // Assert
-                expect(trailingSlot).toBeVisible();
+                await expect(trailingIcon).toBeVisible();
             });
         });
 
         test.describe('leading and trailing', () => {
-            test('should render both the leading and trailing slot content', async ({ mount }) => {
+            test('should render both the leading and trailing text content', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieTextInput, {
-                    slots: {
-                        leadingIcon: '<icon-placeholder id="leadingIcon"></icon-placeholder>',
-                        trailingText: '<span id="trailingText">#</span>',
-                    },
-                });
+                const textInputLeadingAndTrailingTextPage = new BasePage(page, 'text-input--leading-and-trailing-text');
+                await textInputLeadingAndTrailingTextPage.load();
 
                 // Act
-                const leadingSlot = component.locator('#leadingIcon');
-                const trailingSlot = component.locator('#trailingText');
+                const leadingText = page.getByTestId('leadingText');
+                const trailingText = page.getByTestId('trailingText');
 
                 // Assert
-                expect(leadingSlot).toBeVisible();
-                expect(trailingSlot).toBeVisible();
+                await expect(leadingText).toBeVisible();
+                await expect(trailingText).toBeVisible();
+            });
+
+            test('should render both the leading and trailing icon content', async ({ page }) => {
+                // Arrange
+                const textInputLeadingAndTrailingIconPage = new BasePage(page, 'text-input--leading-and-trailing-icon');
+                await textInputLeadingAndTrailingIconPage.load();
+
+                // Act
+                const leadingIcon = page.getByTestId('leadingIcon');
+                const trailingIcon = page.getByTestId('trailingIcon');
+
+                // Assert
+                await expect(leadingIcon).toBeVisible();
+                await expect(trailingIcon).toBeVisible();
             });
         });
     });
@@ -1056,191 +1095,166 @@ test.describe('PieTextInput - Component tests', () => {
     test.describe('Form integration', () => {
         test('should correctly set the value of username in the FormData object when submitted', async ({ page }) => {
             // Arrange
-            await page.setContent(`
-                <form id="testForm" action="/foo" method="POST">
-                    <pie-text-input type="text" name="username"></pie-text-input>
-                    <button type="submit">Submit</button>
-                </form>
-                <div id="formDataJson""></div>
-            `);
-
-            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+            const textInputFormPage = new BasePage(page, 'text-input--example-form');
+            await textInputFormPage.load();
 
             // Act
-            await page.locator('pie-text-input').type('test');
-            await page.click('button[type="submit"]');
-            const formDataObj = await getFormDataObject(page, '#formDataJson');
+            await page.getByTestId(textInput.selectors.input.dataTestId).fill('test');
+            await page.locator('pie-button', { hasText: 'Submit' }).click();
 
             // Assert
-            expect(formDataObj.username).toBe('test');
+            const output = await page.locator('#formDataOutput');
+            await expect(output).toHaveText('{"username":"test"}');
         });
 
         test('should submit the updated value if the value prop is changed programmatically', async ({ page }) => {
             // Arrange
-            await page.setContent(`
-                <form id="testForm" action="/foo" method="POST">
-                    <pie-text-input type="text" name="username"></pie-text-input>
-                    <button type="submit">Submit</button>
-                </form>
-                <div id="formDataJson""></div>
-            `);
-
-            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+            const textInputFormPage = new BasePage(page, 'text-input--example-form');
+            await textInputFormPage.load();
 
             // Act
-            await page.locator('pie-text-input').type('test');
+            await page.getByTestId(textInput.selectors.input.dataTestId).fill('test');
 
-            await page.evaluate(() => {
-                const input = document.querySelector('pie-text-input') as PieTextInput;
+            const component = page.getByTestId(textInput.selectors.container.dataTestId);
+            await component.evaluate((element) => {
+                const input = element as HTMLInputElement;
                 input.value = 'test2';
             });
 
-            await page.click('button[type="submit"]');
+            await page.locator('pie-button', { hasText: 'Submit' }).click();
 
-            const formDataObj = await getFormDataObject(page, '#formDataJson');
+            const output = page.locator('#formDataOutput');
 
             // Assert
-            expect(formDataObj.username).toBe('test2');
+            await expect(output).toHaveText('{"username":"test2"}');
         });
 
         test('should correctly reset the input value when the form is reset', async ({ page }) => {
             // Arrange
-            await page.setContent(`
-                <form id="testForm" action="/foo" method="POST">
-                    <pie-text-input type="text" name="username"></pie-text-input>
-                    <button type="reset">Reset</button>
-                </form>
-            `);
+            const textInputFormPage = new BasePage(page, 'text-input--example-form');
+            await textInputFormPage.load();
 
             // Act & Assert
-            await page.locator('pie-text-input').type('test');
-            expect(await page.evaluate(() => document.querySelector('pie-text-input')?.value)).toBe('test');
+            const component = page.getByTestId(textInput.selectors.container.dataTestId);
+            const input = page.getByTestId(textInput.selectors.input.dataTestId);
+            await input.fill('test');
 
-            await page.click('button[type="reset"]');
-            expect(await page.evaluate(() => document.querySelector('pie-text-input')?.value)).toBe('');
+            await component.evaluate((element) => {
+                const input = element as HTMLInputElement;
+                input.value = 'test';
+            });
+
+            await expect(input).toHaveValue('test');
+
+            await page.locator('pie-button', { hasText: 'Reset' }).click();
+            await expect(input).toHaveValue('');
         });
 
         test('should not submit the value for disabled inputs', async ({ page }) => {
             // Arrange
-            await page.setContent(`
-                <form id="testForm" action="/foo" method="POST">
-                    <pie-text-input type="text" name="username" value="excluded" disabled></pie-text-input>
-                    <pie-text-input type="text" name="email" value="test@test.com"></pie-text-input>
-                    <button type="submit">Submit</button>
-                </form>
-                <div id="formDataJson""></div>
-            `);
+            const props: Partial<TextInputProps & { showEmailField?: boolean }> = {
+                // Configured to only disable the username field
+                disabled: true,
+                showEmailField: true,
+            };
 
-            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+            const textInputFormPage = new BasePage(page, 'text-input--example-form');
+            await textInputFormPage.load({ ...props });
 
             // Act
-            await page.click('button[type="submit"]');
+            await page.locator('#email input').fill('test@test.com');
+            await page.locator('pie-button', { hasText: 'Submit' }).click();
 
-            const formDataObj = await getFormDataObject(page, '#formDataJson');
+            const output = page.locator('#formDataOutput');
 
             // Assert
-            expect(formDataObj).toStrictEqual({ email: 'test@test.com' });
+            await expect(output).toHaveText('{"email":"test@test.com"}');
         });
 
         test('should not submit the value inside a disabled fieldset', async ({ page }) => {
             // Arrange
-            await page.setContent(`
-                <form id="testForm" action="/foo" method="POST">
-                    <fieldset disabled>
-                        <pie-text-input type="text" name="username" value="excluded"></pie-text-input>
-                    </fieldset>
-                    <pie-text-input type="text" name="email" value="included@test.com"></pie-text-input>
-                    <button type="submit">Submit</button>
-                </form>
-                <div id="formDataJson""></div>
-            `);
-
-            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+            const textInputDisabledFieldsetPage = new BasePage(page, 'text-input--disabled-fieldset');
+            await textInputDisabledFieldsetPage.load();
 
             // Act
-            await page.click('button[type="submit"]');
+            await page.locator('pie-button', { hasText: 'Submit' }).click();
 
-            const formDataObj = await getFormDataObject(page, '#formDataJson');
+            const output = page.locator('#formDataOutput');
 
             // Assert
-            expect(formDataObj).toStrictEqual({
-                email: 'included@test.com',
-            });
+            await expect(output).toHaveText('{"email":"included@test.com"}');
         });
     });
 
     test.describe('Attributes:', () => {
         test.describe('aria-describedby', () => {
             test.describe('when `assistiveText` is not defined', () => {
-                test('should not render the attribute', async ({ mount }) => {
+                test('should not render the attribute', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieTextInput);
+                    const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                    await textInputDefaultPage.load();
 
                     // Act
-                    const input = component.locator('input');
-
-                    const componentAttribute = await input.getAttribute('aria-describedby');
+                    const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                     // Assert
-                    expect(componentAttribute).toBeNull();
+                    await expect(input).not.toHaveAttribute('aria-describedby');
                 });
             });
 
             test.describe('when `assistiveText` is defined', () => {
-                test('should render the attribute correctly with the correct value', async ({ mount }) => {
+                test('should render the attribute correctly with the correct value', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieTextInput, {
-                        props: {
-                            assistiveText: 'Some useful message',
-                        } as TextInputProps,
-                    });
+                    const props: Partial<TextInputProps> = {
+                        assistiveText: 'Some useful message',
+                    };
 
+                    const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                    await textInputDefaultPage.load(props);
                     // Act
-                    const input = component.locator('input');
-
-                    const componentAttribute = await input.getAttribute('aria-describedby');
+                    const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                     // Assert
-                    expect(componentAttribute).toBe('assistive-text');
+                    await expect(input).toHaveAttribute('aria-describedby', 'assistive-text');
                 });
             });
         });
 
         test.describe('aria-invalid', () => {
             test.describe('when the component status is set to `error`', () => {
-                test('should render the `aria-invalid` attribute', async ({ mount }) => {
+                test('should render the `aria-invalid` attribute', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieTextInput, {
-                        props: {
-                            status: 'error',
-                        } as TextInputProps,
-                    });
+                    const props: Partial<TextInputProps> = {
+                        status: 'error',
+                    };
+
+                    const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                    await textInputDefaultPage.load(props);
 
                     // Act
-                    const input = component.locator('input');
-
-                    const componentAttribute = await input.getAttribute('aria-invalid');
+                    const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                     // Assert
-                    expect(componentAttribute).toBeDefined();
+                    await expect(input).toHaveAttribute('aria-invalid', 'true');
                 });
             });
 
             statusTypes.filter((status) => status !== 'error').forEach((status) => {
                 test.describe(`when the component status is set to "${status}"`, () => {
-                    test('should render the `aria-invalid` with a value of `false`', async ({ mount }) => {
+                    test('should render the `aria-invalid` with a value of `false`', async ({ page }) => {
                         // Arrange
-                        const component = await mount(PieTextInput, {
-                            props: { status } as TextInputProps,
-                        });
+                        const props: Partial<TextInputProps> = {
+                            status,
+                        };
+
+                        const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                        await textInputDefaultPage.load(props);
 
                         // Act
-                        const input = component.locator('input');
-
-                        const componentAttribute = await input.getAttribute('aria-invalid');
+                        const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                         // Assert
-                        expect(componentAttribute).toBe('false');
+                        await expect(input).toHaveAttribute('aria-invalid', 'false');
                     });
                 });
             });
@@ -1248,39 +1262,39 @@ test.describe('PieTextInput - Component tests', () => {
 
         test.describe('aria-errormessage', () => {
             test.describe('when the component status is set to `error`', () => {
-                test('should render the `aria-errormessage` attribute', async ({ mount }) => {
+                test('should render the `aria-errormessage` attribute', async ({ page }) => {
                     // Arrange
-                    const component = await mount(PieTextInput, {
-                        props: {
-                            status: 'error',
-                        } as TextInputProps,
-                    });
+                    const props: Partial<TextInputProps> = {
+                        status: 'error',
+                    };
+
+                    const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                    await textInputDefaultPage.load(props);
 
                     // Act
-                    const input = component.locator('input');
-
-                    const componentAttribute = await input.getAttribute('aria-errormessage');
+                    const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                     // Assert
-                    expect(componentAttribute).toBeDefined();
+                    await expect(input).toHaveAttribute('aria-errormessage');
                 });
             });
 
             statusTypes.filter((status) => status !== 'error').forEach((status) => {
                 test.describe(`when the component status is set to "${status}"`, () => {
-                    test('should not render the `aria-errormessage` attribute', async ({ mount }) => {
+                    test('should not render the `aria-errormessage` attribute', async ({ page }) => {
                         // Arrange
-                        const component = await mount(PieTextInput, {
-                            props: { status } as TextInputProps,
-                        });
+                        const props: Partial<TextInputProps> = {
+                            status,
+                        };
+
+                        const textInputDefaultPage = new BasePage(page, 'text-input--default');
+                        await textInputDefaultPage.load(props);
 
                         // Act
-                        const input = component.locator('input');
-
-                        const componentAttribute = await input.getAttribute('aria-errormessage');
+                        const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                         // Assert
-                        expect(componentAttribute).toBeNull();
+                        await expect(input).not.toHaveAttribute('aria-errormessage');
                     });
                 });
             });
