@@ -73,7 +73,7 @@ describe('create and publish workflow', () => {
     });
 
     describe('if no packages were changed', () => {
-        test('should have a message body starting with "No packages changed!"', async () => {
+        test('should have a message body starting with "No changed packages found!"', async () => {
             // Arrange
             sampleOutput = '';
 
@@ -81,7 +81,7 @@ describe('create and publish workflow', () => {
             await workflow({ context, github }, execa);
 
             // Assert
-            expect(expectedBody.startsWith('No changed packages found!')).toBe(true);
+            expect(expectedBody).toBe('No changed packages found! Please make sure you have added a changeset entry for the packages you would like to snapshot.');
         });
     });
 
