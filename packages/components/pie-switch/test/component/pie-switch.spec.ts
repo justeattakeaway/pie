@@ -1,236 +1,222 @@
-import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieSwitch } from '../../src/index.ts';
-import {
-    type SwitchProps,
-    labelPlacements,
-    ON_SWITCH_CHANGED_EVENT,
-} from '../../src/defs.ts';
-
-const componentSelector = '[data-test-id="switch-component"]';
-const inputSelector = '[data-test-id="switch-input"]';
-const switchLabelSelector = (placement: SwitchProps['labelPlacement'] = 'leading') => `[data-test-id="switch-label-${placement}"]`;
+import { test, expect } from '@playwright/test';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+import { labelPlacements, type SwitchProps } from '../../src/defs';
+import { pieSwitch } from '../helpers/page-objects/selectors';
+import { EXPECTED_EVENT_MESSAGE } from '../helpers/constants';
 
 test.describe('Component: `Pie switch`', () => {
-    test.beforeEach(async ({ mount }) => {
-        const component = await mount(PieSwitch);
-        await component.unmount();
-    });
-
-    test('should be visible', async ({ mount, page }) => {
+    test('should have a visible input', async ({ page }) => {
         // Arrange
-        await mount(PieSwitch);
+        const switchPage = new BasePage(page, 'switch');
+        await switchPage.load();
 
         // Act
-        const pieSwitch = page.locator(componentSelector);
-
-        // Assert
-        await expect(pieSwitch).toBeVisible();
-    });
-
-    test('should have a "visible" input to help with accessibility', async ({ mount, page }) => {
-        // Arrange
-        await mount(PieSwitch);
-
-        // Act
-        const input = page.locator(inputSelector);
+        const input = page.getByTestId(pieSwitch.selectors.input.dataTestId);
 
         // Assert
         await expect(input).toBeVisible();
     });
 
-    test('should set `checked` to `false` by default', async ({ mount }) => {
+    test('should set `checked` to `false` by default', async ({ page }) => {
         // Arrange
-        const component = await mount(PieSwitch);
+        const switchPage = new BasePage(page, 'switch');
+        await switchPage.load();
 
         // Act
-        const pieSwitchComponent = await component.locator(componentSelector).isChecked();
+        const pieSwitchComponentIsChecked = await page.getByTestId(pieSwitch.selectors.container.dataTestId).isChecked();
 
         // Assert
-        expect(pieSwitchComponent).toBe(false);
+        expect(pieSwitchComponentIsChecked).toBe(false);
     });
 
-    test('should set `disabled` to `false` by default', async ({ mount }) => {
+    test('should set `disabled` to `false` by default', async ({ page }) => {
         // Arrange
-        const component = await mount(PieSwitch);
+        const switchPage = new BasePage(page, 'switch');
+        await switchPage.load();
 
         // Act
-        const pieSwitchComponent = await component.locator(componentSelector).isDisabled();
+        const pieSwitchComponentIsDisabled = await page.getByTestId(pieSwitch.selectors.container.dataTestId).isDisabled();
 
         // Assert
-        expect(pieSwitchComponent).toBe(false);
+        expect(pieSwitchComponentIsDisabled).toBe(false);
     });
 
     test.describe('component interaction states', () => {
         test.describe('when the component is clicked', () => {
-            test('should set `checked` to `true`', async ({ mount, page }) => {
+            test('should set `checked` to `true`', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieSwitch, {
-                    props: {
-                        checked: false,
-                    },
-                });
+                const switchPage = new BasePage(page, 'switch');
+                const props: Partial<SwitchProps> = {
+                    checked: false,
+                };
+
+                await switchPage.load({ ...props });
 
                 // Act
-                await page.click(componentSelector);
-
-                const pieSwitchComponent = await component.locator(componentSelector).isChecked();
+                await page.getByTestId(pieSwitch.selectors.container.dataTestId).click();
+                const pieSwitchComponentIsChecked = await page.getByTestId(pieSwitch.selectors.container.dataTestId).isChecked();
 
                 // Assert
-                expect(pieSwitchComponent).toBe(true);
+                expect(pieSwitchComponentIsChecked).toBe(true);
             });
 
-            test('should set `checked` to `false`', async ({ mount, page }) => {
+            test('should set `checked` to `false`', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieSwitch, {
-                    props: {
-                        checked: true,
-                    },
-                });
+                const switchPage = new BasePage(page, 'switch');
+                const props: Partial<SwitchProps> = {
+                    checked: true,
+                };
+
+                await switchPage.load({ ...props });
 
                 // Act
-                await page.click(componentSelector);
-
-                const pieSwitchComponent = await component.locator(componentSelector).isChecked();
+                await page.getByTestId(pieSwitch.selectors.container.dataTestId).click();
+                const pieSwitchComponentIsChecked = await page.getByTestId(pieSwitch.selectors.container.dataTestId).isChecked();
 
                 // Assert
-                expect(pieSwitchComponent).toBe(false);
+                expect(pieSwitchComponentIsChecked).toBe(false);
             });
 
-            test('should emit an event with the correct name', async ({ mount, page }) => {
+            test('should emit a "Switch clicked" console event when the switch is clicked', async ({ page }) => {
                 // Arrange
-                let eventHeard = false;
-                await mount(PieSwitch, {
-                    on: {
-                        [ON_SWITCH_CHANGED_EVENT]: () => {
-                            eventHeard = true;
-                        },
-                    },
+                const switchPage = new BasePage(page, 'switch');
+                await switchPage.load();
+
+                // Set up a listener for console messages
+                const consoleMessages: string[] = [];
+                page.on('console', (message) => {
+                    if (message.type() === 'info') {
+                        consoleMessages.push(message.text());
+                    }
                 });
 
                 // Act
-                await page.click(componentSelector);
+                await page.getByTestId(pieSwitch.selectors.container.dataTestId).click();
 
                 // Assert
-                await expect(eventHeard).toBe(true);
+                expect(consoleMessages).toEqual([EXPECTED_EVENT_MESSAGE]);
             });
         });
 
         test.describe('when the components label element is clicked', () => {
-            test('should set `checked` to `true`', async ({ mount, page }) => {
+            test('should set `checked` to `true`', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieSwitch, {
-                    props: {
-                        label: 'Label',
-                        labelPlacement: 'leading',
-                    } as SwitchProps,
-                });
+                const switchPage = new BasePage(page, 'switch');
+                const props: Partial<SwitchProps> = {
+                    label: 'Label',
+                    labelPlacement: 'leading',
+                };
+
+                await switchPage.load({ ...props });
 
                 // Act
-                await page.click(switchLabelSelector());
+                await page.getByTestId(pieSwitch.selectors.label.leading.dataTestId).click();
 
-                const pieSwitchComponent = await component.locator(componentSelector).isChecked();
+                const pieSwitchComponent = await page.getByTestId(pieSwitch.selectors.container.dataTestId).isChecked();
 
                 // Assert
                 expect(pieSwitchComponent).toBe(true);
             });
 
-            test('should set `checked` to `false`', async ({ mount, page }) => {
+            test('should set `checked` to `false`', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieSwitch, {
-                    props: {
-                        label: 'Label',
-                        labelPlacement: 'leading',
-                        checked: true,
-                    } as SwitchProps,
-                });
+                const switchPage = new BasePage(page, 'switch');
+                const props: Partial<SwitchProps> = {
+                    label: 'Label',
+                    labelPlacement: 'leading',
+                    checked: true,
+                };
+
+                await switchPage.load({ ...props });
 
                 // Act
-                await page.click(switchLabelSelector());
+                await page.getByTestId(pieSwitch.selectors.label.leading.dataTestId).click();
 
-                const pieSwitchComponent = await component.locator(componentSelector).isChecked();
+                const pieSwitchComponent = await page.getByTestId(pieSwitch.selectors.container.dataTestId).isChecked();
 
                 // Assert
                 expect(pieSwitchComponent).toBe(false);
             });
 
-            test('should emit an event with the correct name', async ({ mount, page }) => {
+            test('should emit a "Switch clicked" console event when the switch is clicked', async ({ page }) => {
                 // Arrange
-                let eventHeard = false;
-                await mount(PieSwitch, {
-                    on: {
-                        [ON_SWITCH_CHANGED_EVENT]: () => {
-                            eventHeard = true;
-                        },
-                    },
+                const switchPage = new BasePage(page, 'switch');
+                await switchPage.load();
+
+                const consoleMessages: string[] = [];
+
+                page.on('console', (message) => {
+                    if (message.type() === 'info') {
+                        consoleMessages.push(message.text());
+                    }
                 });
 
                 // Act
-                await page.click(componentSelector);
+                await page.getByTestId(pieSwitch.selectors.label.leading.dataTestId).click();
 
                 // Assert
-                await expect(eventHeard).toBe(true);
+                expect(consoleMessages).toEqual([EXPECTED_EVENT_MESSAGE]);
             });
         });
     });
 
     test.describe('Props: `aria`', () => {
         test.describe('when label exist', () => {
-            test('should render the component with the correct aria-labels', async ({ mount }) => {
+            test('should render the component with the correct aria-labels', async ({ page }) => {
                 // Arrange
                 const ariaLabelText = 'Aria label';
 
-                const component = await mount(PieSwitch, {
-                    props: {
-                        aria: {
-                            label: ariaLabelText,
-                        },
+                const switchPage = new BasePage(page, 'switch');
+                const props: Partial<SwitchProps> = {
+                    aria: {
+                        label: ariaLabelText,
                     },
-                });
+                };
+
+                await switchPage.load({ ...props });
 
                 // Act
-                const switchInput = component.locator(inputSelector);
-                const ariaLabel = await switchInput.getAttribute('aria-label');
+                const switchInput = page.getByTestId(pieSwitch.selectors.input.dataTestId);
 
                 // Assert
-                expect(ariaLabel).toBe(ariaLabelText);
+                await expect(switchInput).toHaveAttribute('aria-label', 'Aria label');
             });
         });
 
         test.describe('when describedBy exist', () => {
-            const ariaDescriptionID = 'switch-description';
-            const ariaDescriptionSelector = `[data-test-id="${ariaDescriptionID}"]`;
             const ariaDescriptionText = 'Aria description';
 
-            test('should render the component with the correct description id', async ({ mount }) => {
+            test('should render the component with the correct description id', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieSwitch, {
-                    props: {
-                        aria: {
-                            describedBy: ariaDescriptionText,
-                        },
+                const switchPage = new BasePage(page, 'switch');
+                const props: Partial<SwitchProps> = {
+                    aria: {
+                        describedBy: ariaDescriptionText,
                     },
-                });
+                };
+
+                await switchPage.load({ ...props });
 
                 // Act
-                const switchInput = component.locator(inputSelector);
-                const ariaDescription = await switchInput.getAttribute('aria-describedBy');
+                const switchInput = page.getByTestId(pieSwitch.selectors.input.dataTestId);
 
                 // Assert
-                expect(ariaDescription).toBe(ariaDescriptionID);
+                await expect(switchInput).toHaveAttribute('aria-describedBy', 'switch-description');
             });
 
-            test('should render a description element with the correct text', async ({ mount }) => {
+            test('should render a description element with the correct text', async ({ page }) => {
                 // Arrange
-                const component = await mount(PieSwitch, {
-                    props: {
-                        aria: {
-                            describedBy: ariaDescriptionText,
-                        },
+                const switchPage = new BasePage(page, 'switch');
+                const props: Partial<SwitchProps> = {
+                    aria: {
+                        describedBy: ariaDescriptionText,
                     },
-                });
+                };
+
+                await switchPage.load({ ...props });
 
                 // Act
-                const ariaDescriptionElement = component.locator(ariaDescriptionSelector);
+                const ariaDescriptionElement = page.getByTestId(pieSwitch.selectors.ariaDescription.dataTestId);
 
                 // Assert
                 await expect(ariaDescriptionElement).toContainText(ariaDescriptionText);
@@ -240,22 +226,20 @@ test.describe('Component: `Pie switch`', () => {
 
     test.describe('Props: `LabelProps`', () => {
         labelPlacements.forEach((labelPlacement) => {
-            test(`should render a ${labelPlacement} label`, async ({ mount }) => {
+            test(`should render a ${labelPlacement} label`, async ({ page }) => {
                 // Arrange
-                const component = await mount(PieSwitch, {
-                    props: {
-                        label: 'Label',
-                        labelPlacement,
-                    } as SwitchProps,
-                });
+                const switchPage = new BasePage(page, 'switch');
+                const props: Partial<SwitchProps> = {
+                    label: 'Label',
+                    labelPlacement,
+                };
 
-                const selector = switchLabelSelector(labelPlacement);
-                const pieSwitchLabel = component.locator(selector);
-                const testId = await pieSwitchLabel.getAttribute('data-test-id');
+                await switchPage.load({ ...props });
+
+                const labelSelector = page.getByTestId(pieSwitch.selectors.label[labelPlacement].dataTestId);
 
                 // Assert
-                await expect(pieSwitchLabel).toBeVisible();
-                expect(testId).toContain(labelPlacement);
+                await expect(labelSelector).toBeVisible();
             });
         });
     });
@@ -264,47 +248,18 @@ test.describe('Component: `Pie switch`', () => {
         test('should be included in the submitted form data', async ({ page }) => {
             // Arrange
             const switchName = 'switch';
-            const switchValue = 'someValue';
+            const switchValue = 'switchValue';
 
-            await page.evaluate(() => {
-                const formHTML = `
-                <form id="testForm" action="/default-endpoint" method="POST">
-                    <pie-switch id="pieSwitch" name="switch" value="someValue" label="Click me"></pie-switch>
-                    <button id="submitButton" type="submit">Submit</button>
-                </form>
-                `;
-                document.body.innerHTML = formHTML;
-            });
-
-            // Set up the form submission listener
-            await page.evaluate(() => {
-                const form = document.querySelector('#testForm') as HTMLFormElement;
-
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault(); // Prevent the actual submission
-
-                    // Serialize form data
-                    const formData = new FormData(form);
-                    const formDataObj = {};
-
-                    // This is JS - we don't need TS inside these calls
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    formData.forEach((value, key) => { formDataObj[key] = value; });
-
-                    // Append serialized form data as JSON to a hidden element
-                    const dataHolder = document.createElement('div');
-                    dataHolder.id = 'formDataJson';
-                    dataHolder.textContent = JSON.stringify(formDataObj);
-                    dataHolder.style.display = 'none';
-                    document.body.appendChild(dataHolder);
-                });
-            });
+            const switchPage = new BasePage(page, 'switch--test-form-integration');
+            const props: Partial<SwitchProps> = {
+                required: true,
+            };
+            await switchPage.load({ ...props });
 
             // Fill out the form
-            await page.click('#pieSwitch');
+            await page.getByTestId(pieSwitch.selectors.container.dataTestId).click();
 
-            // Act
+            // Act - Click the submit button
             await page.click('#submitButton');
 
             // Assert
@@ -317,41 +272,12 @@ test.describe('Component: `Pie switch`', () => {
         });
 
         test('form should be invalid and not submit if the switch is required but not set', async ({ page }) => {
-            // Arrange
-            await page.evaluate(() => {
-                const formHTML = `
-                <form id="testForm" action="/default-endpoint" method="POST">
-                    <pie-switch id="pieSwitch" name="switch" value="someValue" label="Click me" required></pie-switch>
-                    <button id="submitButton" type="submit">Submit</button>
-                </form>
-                `;
-                document.body.innerHTML = formHTML;
-            });
-
-            // Set up the form submission listener
-            await page.evaluate(() => {
-                const form = document.querySelector('#testForm') as HTMLFormElement;
-
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault(); // Prevent the actual submission
-
-                    // Serialize form data
-                    const formData = new FormData(form);
-                    const formDataObj = {};
-
-                    // This is JS - we don't need TS inside these calls
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    formData.forEach((value, key) => { formDataObj[key] = value; });
-
-                    // Append serialized form data as JSON to a hidden element
-                    const dataHolder = document.createElement('div');
-                    dataHolder.id = 'formDataJson';
-                    dataHolder.textContent = JSON.stringify(formDataObj);
-                    dataHolder.style.display = 'none';
-                    document.body.appendChild(dataHolder);
-                });
-            });
+        //     // Arrange
+            const switchPage = new BasePage(page, 'switch--test-form-integration');
+            const props: Partial<SwitchProps> = {
+                required: true,
+            };
+            await switchPage.load({ ...props });
 
             // Act
             // Do not click the switch to leave it unset
@@ -364,43 +290,12 @@ test.describe('Component: `Pie switch`', () => {
 
         test('should not be included in the submitted form data if disabled and checked', async ({ page }) => {
             // Arrange
-            await page.evaluate(() => {
-                const formHTML = `
-                <form id="testForm" action="/default-endpoint" method="POST">
-                    <pie-switch id="pieSwitch" name="switch" value="someValue" label="Click me" checked disabled></pie-switch>
-                    <button id="submitButton" type="submit">Submit</button>
-                </form>
-                `;
-                document.body.innerHTML = formHTML;
-            });
-
-            // Set up the form submission listener
-            await page.evaluate(() => {
-                const form = document.querySelector('#testForm') as HTMLFormElement;
-
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault(); // Prevent the actual submission
-
-                    // Serialize form data
-                    const formData = new FormData(form);
-                    const formDataObj = {};
-
-                    // This is JS - we don't need TS inside these calls
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    formData.forEach((value, key) => { formDataObj[key] = value; });
-
-                    // Append serialized form data as JSON to a hidden element
-                    const dataHolder = document.createElement('div');
-                    dataHolder.id = 'formDataJson';
-                    dataHolder.textContent = JSON.stringify(formDataObj);
-                    dataHolder.style.display = 'none';
-                    document.body.appendChild(dataHolder);
-                });
-            });
-
-            // Fill out the form
-            await page.click('#pieSwitch');
+            const switchPage = new BasePage(page, 'switch--test-form-integration');
+            const props: Partial<SwitchProps> = {
+                checked: true,
+                disabled: true,
+            };
+            await switchPage.load({ ...props });
 
             // Act
             await page.click('#submitButton');
@@ -414,43 +309,11 @@ test.describe('Component: `Pie switch`', () => {
 
         test('should not be included in the submitted form data if disabled and not checked', async ({ page }) => {
             // Arrange
-            await page.evaluate(() => {
-                const formHTML = `
-                <form id="testForm" action="/default-endpoint" method="POST">
-                    <pie-switch id="pieSwitch" name="switch" value="someValue" label="Click me" disabled></pie-switch>
-                    <button id="submitButton" type="submit">Submit</button>
-                </form>
-                `;
-                document.body.innerHTML = formHTML;
-            });
-
-            // Set up the form submission listener
-            await page.evaluate(() => {
-                const form = document.querySelector('#testForm') as HTMLFormElement;
-
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault(); // Prevent the actual submission
-
-                    // Serialize form data
-                    const formData = new FormData(form);
-                    const formDataObj = {};
-
-                    // This is JS - we don't need TS inside these calls
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    formData.forEach((value, key) => { formDataObj[key] = value; });
-
-                    // Append serialized form data as JSON to a hidden element
-                    const dataHolder = document.createElement('div');
-                    dataHolder.id = 'formDataJson';
-                    dataHolder.textContent = JSON.stringify(formDataObj);
-                    dataHolder.style.display = 'none';
-                    document.body.appendChild(dataHolder);
-                });
-            });
-
-            // Fill out the form
-            await page.click('#pieSwitch');
+            const switchPage = new BasePage(page, 'switch--test-form-integration');
+            const props: Partial<SwitchProps> = {
+                disabled: true,
+            };
+            await switchPage.load({ ...props });
 
             // Act
             await page.click('#submitButton');

@@ -1,58 +1,20 @@
-import { test } from '@sand4rt/experimental-ct-web';
+import { test } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
-import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-direction.ts';
-import { PieSwitch } from '../../src/index.ts';
-import { type SwitchProps, labelPlacements } from '../../src/defs.ts';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 
-[
-    [false, false],
-    [false, true],
-    [true, false],
-    [true, true],
-].forEach(([checked, disabled]) => {
-    test(`should render correctly with checked = ${checked} and disabled = ${disabled}`, async ({ page, mount }) => {
-        await mount(PieSwitch, {
-            props: {
-                checked,
-                disabled,
-            },
-        });
+const writingDirections = ['dir', 'rtl'];
 
-        await percySnapshot(page, `Switch - checked = ${checked} and disabled = ${disabled}`, percyWidths);
-    });
-});
+const percyWidths = {
+    widths: [1280],
+};
 
-test.describe('Prop: `Label`', () => {
-    test.describe('when passed in', () => {
-        labelPlacements.forEach(async (placement) => {
-            test(`should render a label next to the switch (placement: ${placement})`, async ({ page, mount }) => {
-                await mount(PieSwitch, {
-                    props: {
-                        label: 'Label',
-                        labelPlacement: placement,
-                    } as SwitchProps,
-                });
+writingDirections.forEach((direction) => {
+    test(`should render all prop variations in writing direction: ${direction}`, async ({ page }) => {
+        // Arrange
+        const switchVariationsPage = new BasePage(page, 'switch--variations');
+        await switchVariationsPage.load({}, { writingDirection: direction });
 
-                await percySnapshot(page, `Switch - label placement: ${placement}`, percyWidths);
-            });
-        });
-    });
-});
-
-test.describe('when in RTL settings', () => {
-    [true, false].forEach(async (checkedState) => {
-        test(`should render in rtl correctly when (checked: ${checkedState})`, async ({ page, mount }) => {
-            await setRTL(page);
-
-            await mount(PieSwitch, {
-                props: {
-                    label: 'Label',
-                    checked: checkedState,
-                } as SwitchProps,
-            });
-
-            await percySnapshot(page, `Switch - in RTL - (checked: ${checkedState})`, percyWidths);
-        });
+        // Assert
+        await percySnapshot(page, `PIE Toast - Writing Direction: ${direction}`, percyWidths);
     });
 });

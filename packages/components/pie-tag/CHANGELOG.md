@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-tag
 
+## 0.13.0
+
+### Minor Changes
+
+- [Changed] - Update styling for dark mode ([#2182](https://github.com/justeattakeaway/pie/pull/2182)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.12.0
 
 ### Minor Changes
