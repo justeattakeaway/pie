@@ -40,7 +40,7 @@ const handleError = async (github, context, message, error) => {
 /**
  * Publishes a changeset snapshot for affected packages
  * @param {Object} execa - The execa instance
- * @returns {Array<string>} The the tags of the newly published snapshots
+ * @returns {Array<string>} The tags of the newly published snapshots
  */
 const publishSnapshot = async (execa) => {
     await execa.command('yarn changeset:version --snapshot snapshot-release', { stdio: 'inherit' });
