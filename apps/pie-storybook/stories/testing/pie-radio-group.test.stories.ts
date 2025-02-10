@@ -1,18 +1,20 @@
 import { html, nothing } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
-
+import { action } from '@storybook/addon-actions';
+import { EXPECTED_CHANGE_EVENT_MESSAGE } from '@justeattakeaway/pie-radio-group/test/helpers/constants.ts';
 import '@justeattakeaway/pie-radio-group';
 import {
     defaultProps,
+    statusTypes,
     type RadioGroupProps as RadioGroupPropsBase,
 } from '@justeattakeaway/pie-radio-group';
-import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-radio';
 import '@justeattakeaway/pie-form-label';
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle';
 
-import { createStory } from '../../utilities';
+import { createStory, createVariantStory, type PropDisplayOptions } from '../../utilities';
 
 type RadioGroupProps = RadioGroupPropsBase & {
     labelSlot: keyof typeof labelSlotOptions;
@@ -33,18 +35,98 @@ const labelSlotOptions = {
 const radioGroupStoryMeta: RadioGroupStoryMeta = {
     title: 'Radio Group',
     component: 'pie-radio-group',
-    parameters: {
-        controls: {
-            disable: true,
+    argTypes: {
+        name: {
+            description: 'The name associated with the group.',
+            control: 'text',
         },
-        design: {
-            type: 'figma',
-            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/branch/6u3sopt3trAp9wdJi7lUfY/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?node-id=6369-3799&node-type=frame&t=pbk7ibGYRutGCO3z-0',
+        labelSlot: {
+            name: 'Label Slot',
+            options: Object.keys(labelSlotOptions),
+            control: 'select',
+            mapping: labelSlotOptions,
+        },
+        isInline: {
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultArgs.isInline,
+            },
+        },
+        disabled: {
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultArgs.disabled,
+            },
+        },
+        value: {
+            control: 'text',
+            defaultValue: {
+                summary: defaultArgs.value,
+            },
+        },
+        status: {
+            control: 'select',
+            options: statusTypes,
+            defaultValue: {
+                summary: defaultProps.status,
+            },
+        },
+        assistiveText: {
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
         },
     },
+    args: defaultArgs,
 };
 
 export default radioGroupStoryMeta;
+
+const DefaultTemplate = ({
+    name,
+    value,
+    isInline,
+    disabled,
+    labelSlot,
+    assistiveText,
+    status,
+}: RadioGroupProps) => {
+    function onChange (event: CustomEvent) {
+        const selectedRadioElement = event.target as HTMLInputElement;
+        action('change')(selectedRadioElement.value);
+        console.info(EXPECTED_CHANGE_EVENT_MESSAGE);
+    }
+
+    return html`
+      <div style="max-width: 400px">
+          <pie-radio-group
+              data-test-id="pie-radio-group"
+              name="${ifDefined(name)}"
+              .value=${ifDefined(value)}
+              ?isInline=${isInline}
+              ?disabled=${disabled}
+              assistiveText="${ifDefined(assistiveText)}"
+              status=${ifDefined(status)}
+              @change=${onChange}>
+                  ${labelSlot}
+                  <pie-radio value="radio-one">radio 1</pie-radio>
+                  <pie-radio value="radio-two">radio 2</pie-radio>
+                  <pie-radio value="radio-three">radio 3</pie-radio>
+          </pie-radio-group>
+      </div>
+  `;
+};
+
+const DisabledRadioTemplate = () => html`
+      <div style="max-width: 400px">
+          <pie-radio-group
+              data-test-id="pie-radio-group">
+                  <pie-radio disabled value="radio-one">radio 1</pie-radio>
+                  <pie-radio value="radio-two">radio 2</pie-radio>
+          </pie-radio-group>
+      </div>
+  `;
 
 const KeyboardNavigationTemplate = () => html`
     <h2>Radio group 1</h2>
@@ -102,6 +184,21 @@ const DynamicSlotsTemplate = () => {
         `;
 };
 
+export const Default = createStory<RadioGroupProps>(DefaultTemplate, defaultArgs)();
+export const DisabledRadio = createStory<RadioGroupProps>(DisabledRadioTemplate, defaultArgs)();
 export const KeyboardNavigation = createStory<RadioGroupProps>(KeyboardNavigationTemplate, defaultArgs)();
 export const DynamicSlots = createStory<RadioGroupProps>(DynamicSlotsTemplate, defaultArgs)();
 
+const radioGroupPropsMatrix : Partial<Record<keyof RadioGroupProps, unknown[]>> = {
+    disabled: [true, false],
+    isInline: [true, false],
+    status: [...statusTypes],
+    labelSlot: ['Label'],
+    assistiveText: ['Assistive text', ''],
+    value: ['radio-two'],
+};
+
+const variantPropDisplayOptions: PropDisplayOptions<RadioGroupProps> = {
+    hiddenProps: ['value'],
+};
+export const Variations = createVariantStory<RadioGroupProps>(DefaultTemplate, radioGroupPropsMatrix, { multiColumn: true, ...variantPropDisplayOptions });
