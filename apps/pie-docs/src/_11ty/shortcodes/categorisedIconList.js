@@ -1,4 +1,4 @@
-const iconData = require('../../iconData.json');
+const iconData = require('@justeattakeaway/pie-icons/dist/iconData.json');
 const pieIcons = require('../filters/pieIconsSvg')();
 const headingAnchor = require('../filters/headingAnchor');
 /**
