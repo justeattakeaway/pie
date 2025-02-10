@@ -157,13 +157,13 @@
 
     &.c-tag--brand-03 {
         --tag-bg-color: var(--dt-color-support-brand-03);
-        --tag-color: var(--dt-color-content-default);
+        --tag-color: var(--dt-color-content-dark);
         @include tag-interactive-states('--dt-color-support-brand-03');
     }
 
     &.c-tag--brand-04 {
         --tag-bg-color: var(--dt-color-support-brand-04);
-        --tag-color: var(--dt-color-content-default);
+        --tag-color: var(--dt-color-content-dark);
         @include tag-interactive-states('--dt-color-support-brand-04');
     }
 
