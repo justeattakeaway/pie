@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icon-button
 
+## 1.2.0
+
+### Minor Changes
+
+- [Changed] - Update styling for dark mode ([#2182](https://github.com/justeattakeaway/pie/pull/2182)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 1.1.1
 
 ### Patch Changes
