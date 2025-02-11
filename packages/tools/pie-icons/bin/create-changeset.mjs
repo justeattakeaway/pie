@@ -15,7 +15,7 @@ const config = getConfig();
  * @returns Object with groups of categories and files
  */
 function groupIconsByCategories (fileNamesArr) {
-    const iconsData = readJSONSync(path.join(findMonorepoRoot(), 'apps/pie-docs/src/iconData.json'));
+    const iconsData = readJSONSync(path.join(findMonorepoRoot(), 'packages/tools/pie-icons/src/iconData.json'));
     const categoriesAndIcons = {};
 
     fileNamesArr.forEach((fileName) => {
