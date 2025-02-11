@@ -11,13 +11,15 @@ const percyWidths = {
     widths: [1280],
 };
 
-test('should render prop variations', async ({ page }) => {
-    // Arrange
-    const textareaVariationsPage = new BasePage(page, 'textarea--variations');
-    await textareaVariationsPage.load();
+readingDirections.forEach((direction) => {
+    test(`should render prop variations in writing direction: ${direction}`, async ({ page }) => {
+        // Arrange
+        const textareaVariationsPage = new BasePage(page, 'textarea--variations');
+        await textareaVariationsPage.load({}, { writingDirection: direction });
 
-    // Assert
-    await percySnapshot(page, 'PIE Textarea - Variations', percyWidths);
+        // Assert
+        await percySnapshot(page, `PIE Textarea - Variations - ${direction}`, percyWidths);
+    });
 });
 
 test('should render text related prop variations', async ({ page }) => {
@@ -30,13 +32,13 @@ test('should render text related prop variations', async ({ page }) => {
 });
 
 readingDirections.forEach((direction) => {
-    test(`should render prop variations in writing direction: ${direction}`, async ({ page }) => {
+    test(`should render assistive text and status prop variations in writing direction: ${direction}`, async ({ page }) => {
         // Arrange
         const textareaVariationsPage = new BasePage(page, 'textarea--status-variations');
         await textareaVariationsPage.load({}, { writingDirection: direction });
 
         // Assert
-        await percySnapshot(page, `PIE Textarea - Writing Direction: ${direction}`, percyWidths);
+        await percySnapshot(page, `PIE Textarea - Assistive Text & Statuses - ${direction}`, percyWidths);
     });
 });
 
