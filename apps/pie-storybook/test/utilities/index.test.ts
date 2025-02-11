@@ -3,6 +3,7 @@ import { html, render, type TemplateResult } from 'lit';
 import { createStory, createVariantStory } from '../../utilities/index';
 import { type StoryOptions } from '../../types/StoryOptions';
 import CUSTOM_BACKGROUNDS from '../../.storybook/backgrounds';
+
 type ComponentProps = {
   size: string;
   variant: string;
@@ -93,7 +94,7 @@ describe('createVariantStory', () => {
     it('should apply custom background color from CUSTOM_BACKGROUNDS', () => {
         const propOptions = {
             size: ['small'],
-            variant: ['primary']
+            variant: ['primary'],
         };
 
         const story = createVariantStory(template, propOptions, { bgColor: 'background-subtle' });
@@ -103,20 +104,23 @@ describe('createVariantStory', () => {
         render(renderResult, container);
 
         const templateContainer = container.querySelector('.template-container');
-        const computedStyle = window.getComputedStyle(templateContainer!);
-        
+        if (!templateContainer) {
+            throw new Error('Template container not found');
+        }
+        const computedStyle = window.getComputedStyle(templateContainer);
+
         const backgroundColor = computedStyle.getPropertyValue('--background-color');
         expect(backgroundColor).toBeTruthy();
         expect(backgroundColor).not.toBe('#ffffff');
-        
-        const matchingBackground = CUSTOM_BACKGROUNDS.values.find(bg => bg.name === 'background-subtle');
+
+        const matchingBackground = CUSTOM_BACKGROUNDS.values.find((bg) => bg.name === 'background-subtle');
         expect(backgroundColor).toBe(matchingBackground?.value);
     });
 
     it('should fallback to default white background when invalid bgColor is provided', () => {
         const propOptions = {
             size: ['small'],
-            variant: ['primary']
+            variant: ['primary'],
         };
 
         // @ts-expect-error - Testing invalid background color
@@ -127,8 +131,11 @@ describe('createVariantStory', () => {
         render(renderResult, container);
 
         const templateContainer = container.querySelector('.template-container');
-        const computedStyle = window.getComputedStyle(templateContainer!);
-        
+        if (!templateContainer) {
+            throw new Error('Template container not found');
+        }
+        const computedStyle = window.getComputedStyle(templateContainer);
+
         // Should fallback to default white background
         const backgroundColor = computedStyle.getPropertyValue('--background-color');
         expect(backgroundColor).toBe('#ffffff');
@@ -137,7 +144,7 @@ describe('createVariantStory', () => {
     it('should use default white background when bgColor is undefined', () => {
         const propOptions = {
             size: ['small'],
-            variant: ['primary']
+            variant: ['primary'],
         };
 
         const story = createVariantStory(template, propOptions);
@@ -147,8 +154,11 @@ describe('createVariantStory', () => {
         render(renderResult, container);
 
         const templateContainer = container.querySelector('.template-container');
-        const computedStyle = window.getComputedStyle(templateContainer!);
-        
+        if (!templateContainer) {
+            throw new Error('Template container not found');
+        }
+        const computedStyle = window.getComputedStyle(templateContainer);
+
         const backgroundColor = computedStyle.getPropertyValue('--background-color');
         expect(backgroundColor).toBe('#ffffff');
     });
