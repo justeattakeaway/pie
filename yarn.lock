@@ -5031,6 +5031,7 @@ __metadata:
     is-svg: 5.1.0
     lint-staged: 12.5.0
     prettier: 2.8.7
+    slugify: 1.6.6
     svgo: 3.0.2
     webpack: 5.94.0
     webpack-cli: 4.10.0
