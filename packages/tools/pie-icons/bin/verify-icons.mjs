@@ -13,8 +13,8 @@ import { getIconCategory, findMonorepoRoot } from './helpers.mjs';
  * @param {Array} files Array of file paths
  * @returns Array with messages describing the issues
  */
-function validateFileIsInIconsData (files) {
-    const iconsData = readJSONSync(path.join(findMonorepoRoot(), 'apps/pie-docs/src/iconData.json'));
+function validateFileIsInIconsData (files) { // TODO: Extract this to a new process
+    const iconsData = readJSONSync(path.join(findMonorepoRoot(), 'packages/tools/pie-icons/src/iconData.json'));
 
     const issues = files
         .map((filePath) => {
