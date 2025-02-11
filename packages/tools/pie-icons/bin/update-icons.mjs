@@ -2,13 +2,16 @@
 /* eslint-disable import/extensions */
 import path from 'path';
 import { execSync } from 'child_process';
-import { emptyDirSync, removeSync } from 'fs-extra/esm';
+import {
+    emptyDirSync, removeSync, readJSONSync, writeJsonSync,
+} from 'fs-extra/esm';
 import slugify from 'slugify';
 
 import { getConfig } from './config.mjs';
 import { syncIcons } from './sync-icons.mjs';
 import { verifyIcons } from './verify-icons.mjs';
 import { createChangeset } from './create-changeset.mjs';
+import { findMonorepoRoot } from './helpers.mjs';
 
 const config = getConfig();
 
@@ -56,10 +59,17 @@ function getChangedFilesGroups () {
     return groupedChanges;
 }
 
+function kebabToTitle (string) {
+    return string
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
+}
+
 // Infers both `categoryDisplayName` and `categoryName` from the icon original file path
 function getCategories (filesPaths) {
     return filesPaths.map((item) => {
-        const { srcFilePath } = item;
+        const { srcFilePath, destFilePath } = item;
 
         const folderMappingItem = config.folderMapping.find(({ from }) => srcFilePath.includes(from));
         let category = folderMappingItem && folderMappingItem.category;
@@ -77,15 +87,59 @@ function getCategories (filesPaths) {
             }
         }
 
+        const fileName = path.parse(destFilePath).name;
         const categoryDisplayName = category;
         const categoryName = slugify(category.replace(/ \(.*\)/, ''), { lower: true });
+        const iconName = fileName;
+        const iconDisplayName = kebabToTitle(fileName);
 
         return {
             ...item,
+            iconDisplayName,
+            iconName,
             categoryDisplayName,
             categoryName,
         };
     });
+}
+
+function updateIconData (iconsDataFilePath, addedFiles, allFilesPathsAndCategories) {
+    const iconsData = readJSONSync(iconsDataFilePath);
+
+    addedFiles.forEach((_iconName) => {
+        // bypass adding large icons
+        if (_iconName.includes('-large')) return;
+
+        // get icon data
+        const {
+            categoryName, categoryDisplayName, iconName, iconDisplayName,
+        } = allFilesPathsAndCategories.find(({ destFilePath }) => destFilePath.includes(`/${_iconName}.`));
+
+        const category = iconsData.categories.find(({ name }) => name === categoryName);
+
+        // handle edge cases where the `oneSize` prop is needed
+        const isOneSized = config.singleSizeCategories.includes(categoryName);
+
+        const newIcon = {
+            name: iconName,
+            displayName: iconDisplayName,
+            ...(isOneSized ? { oneSize: true } : {}),
+        };
+
+        if (!category) {
+            // create the new category + icon
+            const newCategory = {
+                name: categoryName,
+                displayName: categoryDisplayName,
+                icons: [newIcon],
+            };
+            iconsData.categories.push(newCategory);
+        } else {
+            category.icons.push(newIcon);
+        }
+    });
+
+    writeJsonSync(iconsDataFilePath, iconsData, { spaces: 4 });
 }
 
 /**
@@ -124,11 +178,14 @@ async function updateIcons () {
         const branchName = `dsw-000-update-icons-${Math.floor(Date.now() / 1000)}`;
         execSync(`git checkout -b ${branchName}`);
 
-        // validate categories
+        // add new icons to iconData.json file
+        const changedFilesGroups = getChangedFilesGroups();
+        console.info('updating iconData.json file');
+        const iconsDataFilePath = path.join(findMonorepoRoot(), 'packages/tools/pie-icons/src/iconData.json');
+        updateIconData(iconsDataFilePath, changedFilesGroups.added, allFilesPathsAndCategories);
 
         // create changeset file
         console.info('create icons changeset');
-        const changedFilesGroups = getChangedFilesGroups();
         const changesetFilePath = await createChangeset(changedFilesGroups);
 
         // check if is running on GHA and setup the git user
@@ -138,8 +195,8 @@ async function updateIcons () {
             execSync('git config --global user.email "username@users.noreply.github.com"');
         }
 
-        // commit icons and changeset file
-        execSync(`git add ${changesetFilePath} && git commit -m "feat(pie-icons): DSW-000 update icons"`);
+        // commit changes
+        execSync(`git add ${changesetFilePath} ${iconsDataFilePath} && git commit -m "feat(pie-icons): DSW-000 update icons"`);
 
         // push if is running on GHA
         if (process.env.GITHUB_ACTIONS) {
