@@ -3,6 +3,7 @@
 import path from 'path';
 import { execSync } from 'child_process';
 import { emptyDirSync, removeSync } from 'fs-extra/esm';
+import slugify from 'slugify';
 
 import { getConfig } from './config.mjs';
 import { syncIcons } from './sync-icons.mjs';
@@ -55,6 +56,38 @@ function getChangedFilesGroups () {
     return groupedChanges;
 }
 
+// Infers both `categoryDisplayName` and `categoryName` from the icon original file path
+function getCategories (filesPaths) {
+    return filesPaths.map((item) => {
+        const { srcFilePath } = item;
+
+        const folderMappingItem = config.folderMapping.find(({ from }) => srcFilePath.includes(from));
+        let category = folderMappingItem && folderMappingItem.category;
+
+        // Refine "All" category cases
+        // The directory name after /All determines the category
+        // E.g.: /All/Functionality/edit-large.svg
+        if (category === 'All') {
+            // get the parent directory name
+            category = path.parse(srcFilePath).dir.split(path.sep).pop();
+
+            // We need some more refinement as some categories don't map 1:1
+            if (Object.keys(config.categoryNamesMap).includes(category)) {
+                category = config.categoryNamesMap[category];
+            }
+        }
+
+        const categoryDisplayName = category;
+        const categoryName = slugify(category.replace(/ \(.*\)/, ''), { lower: true });
+
+        return {
+            ...item,
+            categoryDisplayName,
+            categoryName,
+        };
+    });
+}
+
 /**
  * Script for synchronizing icons from pie-iconography.
  * As long as there are icon files differences between this repo and pie-iconography, it will:
@@ -71,6 +104,8 @@ async function updateIcons () {
     // fetch icons from "pie-iconongraphy" and copy them to "src/assets"
     const tempFolderPath = path.join(process.cwd(), '/.tmp-pie-iconography-copy');
     const allFilesPaths = syncIcons(tempFolderPath);
+    // infer the icon category by the file parent folders
+    const allFilesPathsAndCategories = getCategories(allFilesPaths);
 
     // git add them so it makes easier to track what changed with "git status --short"
     console.info('git add files');
@@ -88,6 +123,8 @@ async function updateIcons () {
         // create and checkout branch
         const branchName = `dsw-000-update-icons-${Math.floor(Date.now() / 1000)}`;
         execSync(`git checkout -b ${branchName}`);
+
+        // validate categories
 
         // create changeset file
         console.info('create icons changeset');
