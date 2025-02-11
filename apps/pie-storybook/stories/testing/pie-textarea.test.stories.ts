@@ -12,7 +12,12 @@ import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-form-label';
 import '@justeattakeaway/pie-link';
 
-import { createStory, createVariantStory, PropDisplayOptions, type TemplateFunction } from '../../utilities';
+import {
+    createStory,
+    createVariantStory,
+    type PropDisplayOptions,
+    type TemplateFunction,
+} from '../../utilities';
 
 type TextareaStoryMeta = Meta<TextareaProps & { showAdditionalField?: boolean }>;
 
