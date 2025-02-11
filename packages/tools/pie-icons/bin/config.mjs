@@ -21,6 +21,10 @@ export function getConfig () {
             AV: 'Audiovisual (AV)',
             Misc: 'Miscellaneous',
         },
+        singleSizeCategories: [
+            'flags',
+            'payment',
+        ],
         packages: [
             '@justeattakeaway/pie-icons',
             '@justeattakeaway/pie-icons-react',
