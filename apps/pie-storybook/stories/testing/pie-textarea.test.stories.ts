@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { useArgs as UseArgs } from '@storybook/preview-api';
@@ -12,11 +12,16 @@ import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-form-label';
 import '@justeattakeaway/pie-link';
 
-import { createStory, type TemplateFunction } from '../utilities';
+import {
+    createStory,
+    createVariantStory,
+    type PropDisplayOptions,
+    type TemplateFunction,
+} from '../../utilities';
 
-type TextareaStoryMeta = Meta<TextareaProps>;
+type TextareaStoryMeta = Meta<TextareaProps & { showAdditionalField?: boolean }>;
 
-const defaultArgs: TextareaProps = { ...defaultProps, name: 'testName' };
+const defaultArgs: TextareaProps = { ...defaultProps };
 
 const textareaStoryMeta: TextareaStoryMeta = {
     title: 'Textarea',
@@ -30,7 +35,6 @@ const textareaStoryMeta: TextareaStoryMeta = {
             },
         },
         size: {
-            description: 'The size of the textarea field. Can be `small`, `medium` or `large`. Defaults to `medium`.',
             control: 'select',
             options: sizes,
             defaultValue: {
@@ -38,7 +42,6 @@ const textareaStoryMeta: TextareaStoryMeta = {
             },
         },
         resize: {
-            description: 'Controls the resizing behaviour of the textarea. Can be `auto` or `manual`. Defaults to `auto`.',
             control: 'select',
             options: resizeModes,
             defaultValue: {
@@ -46,14 +49,12 @@ const textareaStoryMeta: TextareaStoryMeta = {
             },
         },
         assistiveText: {
-            description: 'An optional assistive text to display below the textarea element. Must be provided when the status is success or error.',
             control: 'text',
             defaultValue: {
                 summary: '',
             },
         },
         status: {
-            description: 'The status of the textarea component / assistive text. Can be default, success or error.',
             control: 'select',
             options: statusTypes,
             defaultValue: {
@@ -61,69 +62,61 @@ const textareaStoryMeta: TextareaStoryMeta = {
             },
         },
         name: {
-            description: 'The name of the textarea (used as a key/value pair with `value`). This is required in order to work properly with forms.',
             control: 'text',
             defaultValue: {
                 summary: defaultArgs.name,
             },
         },
         value: {
-            description: 'The value of the textarea (used as a key/value pair in HTML forms with `name`).',
             control: 'text',
             defaultValue: {
                 summary: defaultProps.value,
             },
         },
         defaultValue: {
-            description: 'An optional default value to use when the textarea is reset.',
             control: 'text',
             defaultValue: {
                 summary: '',
             },
         },
         readonly: {
-            description: 'When true, the user cannot edit the control. Not the same as disabled. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.',
             control: 'boolean',
             defaultValue: {
                 summary: false,
             },
         },
         required: {
-            description: 'If true, the textarea is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid.',
             control: 'boolean',
             defaultValue: {
                 summary: false,
             },
         },
         autoFocus: {
-            description: 'If true, the textarea will be focused on the first render. No more than one element in the document or dialog may have the autofocus attribute. If applied to multiple elements the first one will receive focus. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus) for more information.',
             control: 'boolean',
             defaultValue: {
                 summary: false,
             },
         },
         autocomplete: {
-            description: 'Allows the user to enable or disable autocomplete functionality on the textarea field. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for more information and values.',
             control: 'text',
             defaultValue: {
                 summary: 'off',
             },
         },
         placeholder: {
-            description: 'The placeholder text to display when the textarea is empty.',
             control: 'text',
             defaultValue: {
                 summary: '',
             },
         },
-    },
-    args: defaultArgs,
-    parameters: {
-        design: {
-            type: 'figma',
-            url: 'https://www.figma.com/file/pPSC73rPin4csb8DiK1CRr/branch/aD4m0j97Ruw8Q4S5lED2Bl/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?m=auto&node-id=1573-114527&t=t5zmveNU4ztOqlCs-1',
+        showAdditionalField: {
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
         },
     },
+    args: defaultArgs,
 };
 
 const Template = ({
@@ -145,12 +138,18 @@ const Template = ({
 
     function onInput (event: InputEvent) {
         const textareaElement = event.target as HTMLTextAreaElement;
+        const outputElement = (document.getElementById('output') as HTMLDivElement);
         updateArgs({ value: textareaElement?.value });
 
         action('input')({
             data: event.data,
             value: textareaElement.value,
         });
+
+        console.info('input event received', JSON.stringify(event));
+
+        const currentValue = (event.target as HTMLInputElement).value;
+        outputElement.innerText = currentValue;
     }
 
     function onChange (event: CustomEvent) {
@@ -178,11 +177,32 @@ const Template = ({
             assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}>
         </pie-textarea>
+        <div id="output"></div>
     `;
 };
 
-const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
+const onSubmit = (event: Event) => {
+    event.preventDefault();
+    const form = document.querySelector('#testForm') as HTMLFormElement;
+    const output = document.querySelector('#formDataOutput') as HTMLDivElement;
+
+    const formData = new FormData(form);
+    const formDataObj: { [key: string]: FormDataEntryValue } = {};
+    formData.forEach((value, key) => {
+        formDataObj[key] = value;
+    });
+
+    output.innerText = JSON.stringify(formDataObj);
+};
+
+const shortContent = 'The default height is enough for two lines of text, but it should grow if you type more.';
+const longContent = 'This textarea has been filled with enough text for the automatic resizing to reach its maximum height. Some content should be cut off and you should not be able to see the end of this text. If this happens then the maximum height is not being limited correctly.';
+const overflowingContent = 'The default height is enough for two lines of text, but it should grow if you type more.\n\nIf you reach more than six lines of content, the element will not continue to grow and scrollbars will appear.';
+
+const ExampleFormTemplate: TemplateFunction<TextareaProps & { showAdditionalField?: boolean }> = ({
     defaultValue,
+    disabled,
+    showAdditionalField = false,
 }) => html`
     <style>
         .form {
@@ -207,22 +227,35 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
         }
     </style>
 
-    <form class="form">
+    <form id="testForm" class="form" @submit="${onSubmit}" >
         <pie-form-label for="description">Description:</pie-form-label>
-        <pie-textarea class="form-field" id="description" name="description" defaultValue="${ifDefined(defaultValue)}">
+        <pie-textarea class="form-field" id="description" name="description" defaultValue="${ifDefined(defaultValue)}" ?disabled="${disabled}">
         </pie-textarea>
+        ${showAdditionalField ? html`
+            <pie-form-label for="comment">Comment:</pie-form-label>
+            <pie-textarea
+            class="form-field"
+            id="comment"
+            name="comment"
+            value="commentsTextareaValue">
+        ` : nothing}
 
         <div class="form-btns">
             <pie-button class="form-btn" variant="secondary" type="reset">Reset</pie-button>
             <pie-button class="form-btn" type="submit">Submit</pie-button>
         </div>
     </form>
+    <div id="formDataOutput"></div>
 `;
 
 const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => html`
         <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-label</pie-link>.</p>
         <pie-form-label for="${ifDefined(props.name)}">Label</pie-form-label>
         ${Template(props)}
+    `;
+
+const TallTextarea: TemplateFunction<TextareaProps> = () => html`
+        <pie-textarea></pie-textarea>
     `;
 
 const CreateTextareaStory = createStory<TextareaProps>(Template, defaultArgs);
@@ -236,5 +269,47 @@ export const Default = CreateTextareaStory({}, {
 });
 export const WithLabel = CreateTextareaStoryWithLabel(defaultArgs)();
 export const ExampleForm = CreateTextareaStoryWithForm();
+
+// Base shared props matrix
+const baseSharedPropsMatrix: Partial<Record<keyof TextareaProps, unknown[]>> = {
+    size: [...sizes],
+    disabled: [true, false],
+    readonly: [true, false],
+    placeholder: ['Placeholder', ''],
+    value: [''],
+};
+
+// Text variant stories
+const textPropsMatrix: Partial<Record<keyof TextareaProps, unknown[]>> = {
+    resize: ['auto', 'manual'],
+    value: [shortContent, longContent, overflowingContent],
+};
+
+// Text resize stories
+const resizePropsMatrix: Partial<Record<keyof TextareaProps, unknown[]>> = {
+    resize: ['auto', 'manual'],
+};
+
+// Status variant stories
+const statusPropsMatrix: Partial<Record<keyof TextareaProps, unknown[]>> = {
+    value: ['String'],
+    status: ['default', 'success', 'error'],
+    assistiveText: ['', 'assistive text'],
+};
+
+const variantPropDisplayOptions: PropDisplayOptions<TextareaProps> = {
+    propLabels: {
+        value: {
+            [overflowingContent]: 'With overflowing content',
+            [longContent]: 'With long content',
+            [shortContent]: 'With short content',
+        },
+    },
+};
+
+export const Variations = createVariantStory<TextareaProps>(Template, baseSharedPropsMatrix, { ...variantPropDisplayOptions, multiColumn: true });
+export const ExtendedTextVariations = createVariantStory<TextareaProps>(Template, textPropsMatrix, { ...variantPropDisplayOptions, multiColumn: true });
+export const StatusVariations = createVariantStory<TextareaProps>(Template, statusPropsMatrix, { ...variantPropDisplayOptions, multiColumn: true });
+export const TallTextareaVariations = createVariantStory<TextareaProps>(TallTextarea, resizePropsMatrix, { multiColumn: true });
 
 export default textareaStoryMeta;
