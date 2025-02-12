@@ -409,9 +409,9 @@ test.describe('PieTextarea - Component tests', () => {
                         const assistiveText = page.getByTestId(textArea.selectors.assistiveText.dataTestId);
 
                         // Assert
-                        expect(assistiveText).toBeVisible();
-                        expect(assistiveText).toHaveAttribute('variant', status);
-                        expect(assistiveText).toHaveText('Assistive text');
+                        await expect(assistiveText).toBeVisible();
+                        await expect(assistiveText).toHaveAttribute('variant', status);
+                        await expect(assistiveText).toHaveText('Assistive text');
                     });
                 });
             });
