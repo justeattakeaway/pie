@@ -47,11 +47,7 @@ yarn add @justeattakeaway/pie-webc
 
 When using `pie-assistive-text`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
 
-{% notification {
-  type: "neutral",
-  iconName: "link",
-  message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
-} %}
+{% componentCodeMoreInformationNotification %}
 
 ## Props
 

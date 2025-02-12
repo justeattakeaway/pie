@@ -38,11 +38,7 @@ $ npm i @justeattakeaway/{component}
 $ yarn add @justeattakeaway/{component}
 ```
 
-{% notification {
-  type: "neutral",
-  iconName: "link",
-  message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
-} %}
+{% componentCodeMoreInformationNotification %}
 
 ## Props
 
