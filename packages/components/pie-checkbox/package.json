@@ -24,8 +24,6 @@
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
     "watch": "run -T vite build --watch",
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "test:ci": "yarn test",
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
     "test:browsers-setup": "npx playwright-lit-setup",
