@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.23.0
+
+### Minor Changes
+
+- [Added] - component default placeholder ([#2195](https://github.com/justeattakeaway/pie/pull/2195)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`df8ddf7`](https://github.com/justeattakeaway/pie/commit/df8ddf76dc0c2016f168e30d563cf70af0eedbbd)]:
+  - @justeattakeaway/pie-thumbnail@0.6.0
+
 ## 1.22.1
 
 ### Patch Changes

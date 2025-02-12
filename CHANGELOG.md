@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.75.0
+
+### Minor Changes
+
+- [Added] - component default placeholder ([#2195](https://github.com/justeattakeaway/pie/pull/2195)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 2.74.0
 
 ### Minor Changes

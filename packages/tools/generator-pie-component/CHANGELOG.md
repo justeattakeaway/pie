@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.28.0
+
+### Minor Changes
+
+- [Removed] - Unused `test` script ([#2197](https://github.com/justeattakeaway/pie/pull/2197)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.27.0
 
 ### Minor Changes
