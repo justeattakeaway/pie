@@ -13,7 +13,7 @@ export class MockComponent extends LitElement {
         return html`
             <button
                 @click="${() => dispatchCustomEvent(this, this.eventName)}"
-                data-test-id="dispatch-custom-event-mock">
+                data-test-id="dispatch-custom-event-mock-button">
                 Component with the event to dispatch
             </button>`;
     }
