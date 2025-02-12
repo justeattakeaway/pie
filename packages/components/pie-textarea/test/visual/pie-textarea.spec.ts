@@ -51,12 +51,13 @@ resizeModes.forEach((size) => {
 
         await textareaPage.load({ ...props });
 
-        await page.evaluate(() => {
-            const textarea = document.querySelector('pie-textarea');
-            textarea?.shadowRoot?.querySelector('textarea')?.setAttribute('style', 'height: 600px;'); // Setting the height too high, maxHeight should override this.
+        // Assumes you added the new `textArea` property I suggested above
+        const element = page.getByTestId(textArea.selectors.textArea.dataTestId);
+        await element.evaluate((el) => {
+            el.setAttribute('style', 'height: 600px;'); // Setting the height too high, maxHeight should override this.
         });
 
-        const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+        const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
         await expect.soft(textarea).toBeVisible();
 

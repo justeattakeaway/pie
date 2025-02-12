@@ -146,7 +146,7 @@ const Template = ({
             value: textareaElement.value,
         });
 
-        console.info('input event recieved', JSON.stringify(event));
+        console.info('input event received', JSON.stringify(event));
 
         const currentValue = (event.target as HTMLInputElement).value;
         outputElement.innerText = currentValue;

@@ -13,10 +13,10 @@ test.describe('PieTextarea - Component tests', () => {
         await textAreaPage.load();
 
         // Act
-        const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+        const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
         // Assert
-        expect(textarea).toBeVisible();
+        await expect(textarea).toBeVisible();
     });
 
     test.describe('Props', () => {
@@ -32,10 +32,10 @@ test.describe('PieTextarea - Component tests', () => {
                     await textAreaPage.load({ ...props });
 
                     // Act
-                    const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                    const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                     // Assert
-                    expect(textarea).toBeDisabled();
+                    await expect(textarea).toBeDisabled();
                 });
 
                 test('should not be able to focus the component', async ({ page }) => {
@@ -48,11 +48,11 @@ test.describe('PieTextarea - Component tests', () => {
                     await textAreaPage.load({ ...props });
 
                     // Act
-                    const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                    const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
                     await textarea.focus();
 
                     // Assert
-                    expect(textarea).not.toBeFocused();
+                    await expect(textarea).not.toBeFocused();
                 });
             });
 
@@ -63,10 +63,10 @@ test.describe('PieTextarea - Component tests', () => {
                     await textAreaPage.load();
 
                     // Act
-                    const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                    const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                     // Assert
-                    expect(textarea).not.toBeDisabled();
+                    await expect(textarea).not.toBeDisabled();
                 });
 
                 test('should still be able to focus the component', async ({ page }) => {
@@ -75,11 +75,11 @@ test.describe('PieTextarea - Component tests', () => {
                     await textAreaPage.load();
 
                     // Act
-                    const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                    const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
                     await textarea.focus();
 
                     // Assert
-                    expect(textarea).toBeFocused();
+                    await expect(textarea).toBeFocused();
                 });
             });
         });
@@ -91,10 +91,10 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load();
 
                 // Act
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Assert
-                expect((await textarea.inputValue())).toBe('');
+                await expect(textarea).toHaveValue('');
             });
 
             test('the value property should be applied to the rendered HTML textarea element', async ({ page }) => {
@@ -107,10 +107,10 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Assert
-                expect((await textarea.inputValue())).toBe('testValue');
+                await expect(textarea).toHaveValue('testValue');
             });
         });
 
@@ -121,10 +121,10 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load();
 
                 // Act
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Assert
-                expect((await textarea.getAttribute('name'))).toBe(null);
+                await expect(textarea).not.toHaveAttribute('name');
             });
 
             test('should apply the name property to the rendered HTML textarea element', async ({ page }) => {
@@ -137,10 +137,10 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Assert
-                expect((await textarea.getAttribute('name'))).toBe('testName');
+                await expect(textarea).toHaveAttribute('name', 'testName');
             });
         });
 
@@ -155,10 +155,10 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = page.locator(textArea.selectors.container.dataTestId);
+                const textarea = page.locator(textArea.selectors.textArea.dataTestId);
 
                 // Assert
-                expect((await textarea.getAttribute('defaultValue'))).toBe('testDefaultValue');
+                await expect(textarea).toHaveAttribute('defaultValue', 'testDefaultValue');
             });
         });
 
@@ -169,10 +169,10 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load();
 
                 // Act
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Assert
-                expect((await textarea.getAttribute('autocomplete'))).toBe(null);
+                await expect(textarea).not.toHaveAttribute('autocomplete');
             });
 
             test('autocomplete property should be applied to the rendered HTML textarea element', async ({ page }) => {
@@ -185,10 +185,10 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Assert
-                expect((await textarea.getAttribute('autocomplete'))).toBe('on');
+                await expect(textarea).toHaveAttribute('autocomplete', 'on');
             });
         });
 
@@ -203,7 +203,7 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Assert
                 await expect(textarea).toBeFocused();
@@ -215,7 +215,7 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load();
 
                 // Act
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Assert
                 await expect(textarea).not.toBeFocused();
@@ -234,11 +234,11 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
                 await textarea.pressSequentially(' newValue');
 
                 // Assert
-                expect((await textarea.inputValue())).toBe('testValue newValue');
+                await expect(textarea).toHaveValue('testValue newValue');
             });
 
             test('should not be able to edit the component value when readonly property is set to `true`', async ({ page }) => {
@@ -252,11 +252,11 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
                 await textarea.pressSequentially('newValue');
 
                 // Assert
-                expect((await textarea.inputValue())).toBe('testValue');
+                await expect(textarea).toHaveValue('testValue');
             });
         });
 
@@ -267,10 +267,10 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load();
 
                 // Act
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Assert
-                expect((await textarea.getAttribute('required'))).toBe(null);
+                await expect(textarea).not.toHaveAttribute('required');
             });
 
             test('should apply the property property to the HTML textarea rendered', async ({ page }) => {
@@ -283,10 +283,10 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Assert
-                expect((await textarea.getAttribute('required'))).toBe('');
+                await expect(textarea).toHaveAttribute('required', '');
             });
 
             test('should be in an invalid `valueMissing` state if the textarea is empty and required property is set to `true`', async ({ page }) => {
@@ -299,7 +299,8 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load({ ...props });
 
                 // Act
-                const isInvalid = await page.evaluate(() => document.querySelector('pie-textarea')?.validity.valueMissing);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
+                const isInvalid = await textarea.evaluate((el) => (el as HTMLInputElement).validity.valueMissing);
 
                 // Assert
                 expect(isInvalid).toBe(true);
@@ -315,10 +316,10 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
                 await textarea.pressSequentially('test');
 
-                const isValid = await page.evaluate(() => document.querySelector('pie-textarea')?.validity.valid);
+                const isValid = await textarea.evaluate((el) => (el as HTMLInputElement).validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -335,7 +336,8 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load({ ...props });
 
                 // Act
-                const isValid = await page.evaluate(() => document.querySelector('pie-textarea')?.validity.valid);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
+                const isValid = await textarea.evaluate((el) => (el as HTMLInputElement).validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -352,7 +354,8 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load({ ...props });
 
                 // Act
-                const isValid = await page.evaluate(() => document.querySelector('pie-textarea')?.validity.valid);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
+                const isValid = await textarea.evaluate((el) => (el as HTMLInputElement).validity.valid);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -385,9 +388,9 @@ test.describe('PieTextarea - Component tests', () => {
                 const assistiveText = page.getByTestId(textArea.selectors.assistiveText.dataTestId);
 
                 // Assert
-                expect(assistiveText).toBeVisible();
-                expect(await assistiveText.getAttribute('variant')).toBe('default');
-                expect(assistiveText).toHaveText('Assistive text');
+                await expect(assistiveText).toBeVisible();
+                await expect(assistiveText).toHaveAttribute('variant', 'default');
+                await expect(assistiveText).toHaveText('Assistive text');
             });
 
             test.describe('Assistive text: Status', () => {
@@ -439,10 +442,10 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load();
 
                 // Act
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Assert
-                expect((await textarea.getAttribute('placeholder'))).toBe('');
+                await expect(textarea).toHaveAttribute('placeholder', '');
             });
 
             test('should apply the placeholder prop to the HTML textarea rendered', async ({ page }) => {
@@ -455,10 +458,10 @@ test.describe('PieTextarea - Component tests', () => {
                 await textAreaPage.load({ ...props });
 
                 // Act
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Assert
-                expect((await textarea.getAttribute('placeholder'))).toBe('Test Placeholder');
+                await expect(textarea).toHaveAttribute('placeholder', 'Test Placeholder');
             });
         });
     });
@@ -474,7 +477,8 @@ test.describe('PieTextarea - Component tests', () => {
             await textAreaPage.load({ ...props });
 
             // Act
-            await page.getByTestId(textArea.selectors.container.dataTestId).fill('testValue');
+            const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
+            await textarea.fill('testValue');
             await page.locator('pie-button', { hasText: 'Submit' }).click();
 
             // Assert
@@ -488,7 +492,8 @@ test.describe('PieTextarea - Component tests', () => {
             await textAreaPage.load();
 
             // Act
-            await page.getByTestId(textArea.selectors.container.dataTestId).fill('testValue');
+            const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
+            await textarea.fill('testValue');
 
             await page.evaluate(() => {
                 const textarea = document.querySelector('pie-textarea') as PieTextarea;
@@ -507,12 +512,14 @@ test.describe('PieTextarea - Component tests', () => {
             const textAreaPage = new BasePage(page, 'textarea--example-form');
             await textAreaPage.load();
 
-            // Act & Assert
-            await page.getByTestId(textArea.selectors.container.dataTestId).fill('testValue');
-            expect(await page.evaluate(() => document.querySelector('pie-textarea')?.value)).toBe('testValue');
+            const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
-            await page.click('button[type="reset"]');
-            expect(await page.evaluate(() => document.querySelector('pie-textarea')?.value)).toBe('');
+            // Act & Assert
+            await textarea.fill('testValue');
+            await expect(textarea).toHaveValue('testValue');
+
+            await page.locator('pie-button', { hasText: 'Reset' }).click();
+            await expect(textarea).toHaveValue('');
         });
 
         test('should correctly reset the textarea value to the `defaultValue` if one is provided when the form is reset', async ({ page }) => {
@@ -525,10 +532,11 @@ test.describe('PieTextarea - Component tests', () => {
             await textAreaPage.load({ ...props });
 
             // Act & Assert
-            await page.getByTestId(textArea.selectors.container.dataTestId).fill('test');
+            const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
+            await textarea.fill('test');
 
-            await page.click('button[type="reset"]');
-            expect(await page.evaluate(() => document.querySelector('pie-textarea')?.value)).toBe('foo');
+            await page.locator('pie-button', { hasText: 'Reset' }).click();
+            await expect(textarea).toHaveValue('foo');
         });
 
         test('should NOT submit the value for disabled textarea elements', async ({ page }) => {
@@ -555,7 +563,9 @@ test.describe('PieTextarea - Component tests', () => {
             await textAreaPage.load();
 
             // Act
-            await page.getByTestId(textArea.selectors.container.dataTestId).pressSequentially('testValue');
+            const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
+            await textarea.pressSequentially('testValue');
+
             await page.keyboard.press('Enter');
 
             // Assert
@@ -581,7 +591,7 @@ test.describe('PieTextarea - Component tests', () => {
                     }
                 });
 
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Act
                 await textarea.fill('testValue');
@@ -598,7 +608,7 @@ test.describe('PieTextarea - Component tests', () => {
                 const textAreaPage = new BasePage(page, 'textarea');
                 await textAreaPage.load();
 
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Act
                 await textarea.fill('test');
@@ -616,7 +626,7 @@ test.describe('PieTextarea - Component tests', () => {
                 const textAreaPage = new BasePage(page, 'textarea');
                 await textAreaPage.load();
 
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Act
                 await textarea.fill('test');
@@ -642,14 +652,14 @@ test.describe('PieTextarea - Component tests', () => {
                     }
                 });
 
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Act
                 await textarea.fill('testValue');
                 await page.keyboard.press('Tab');
 
                 // Assert
-                expect(consoleMessages).toContain('input event recieved {"isTrusted":true}');
+                expect(consoleMessages).toContain('input event received {"isTrusted":true}');
             });
 
             test('should dispatch a custom event that contains the original native event', async ({ page }) => {
@@ -666,14 +676,14 @@ test.describe('PieTextarea - Component tests', () => {
                     }
                 });
 
-                const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                 // Act
                 await textarea.fill('testValue');
                 await page.keyboard.press('Tab'); // Change events on inputs are triggered when they lose focus after the value was changed
 
                 // Assert
-                expect(consoleMessages).toContain('input event recieved {"isTrusted":true}');
+                expect(consoleMessages).toContain('input event received {"isTrusted":true}');
             });
         });
     });
@@ -687,7 +697,7 @@ test.describe('PieTextarea - Component tests', () => {
                     await textAreaPage.load();
 
                     // Act
-                    const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                    const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                     const componentAttribute = await textarea.getAttribute('aria-describedby');
 
@@ -706,7 +716,7 @@ test.describe('PieTextarea - Component tests', () => {
                     await textAreaPage.load({ ...props });
 
                     // Act
-                    const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                    const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                     const componentAttribute = await textarea.getAttribute('aria-describedby');
 
@@ -728,7 +738,7 @@ test.describe('PieTextarea - Component tests', () => {
                     await textAreaPage.load({ ...props });
 
                     // Act
-                    const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                    const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                     const componentAttribute = await textarea.getAttribute('aria-invalid');
 
@@ -749,7 +759,7 @@ test.describe('PieTextarea - Component tests', () => {
                         await textAreaPage.load({ ...props });
 
                         // Act
-                        const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                        const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                         const componentAttribute = await textarea.getAttribute('aria-invalid');
 
@@ -772,7 +782,7 @@ test.describe('PieTextarea - Component tests', () => {
                     await textAreaPage.load({ ...props });
 
                     // Act
-                    const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                    const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                     const componentAttribute = await textarea.getAttribute('aria-errormessage');
 
@@ -793,7 +803,7 @@ test.describe('PieTextarea - Component tests', () => {
                         await textAreaPage.load({ ...props });
 
                         // Act
-                        const textarea = page.getByTestId(textArea.selectors.container.dataTestId);
+                        const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
                         const componentAttribute = await textarea.getAttribute('aria-errormessage');
 
