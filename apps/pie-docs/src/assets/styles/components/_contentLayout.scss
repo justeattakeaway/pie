@@ -24,6 +24,10 @@
         flex: 0 1 calc(33.333% - var(--dt-spacing-e)); // Three equal-width columns
       }
     }
+
+    .c-contentPage-img {
+      height: 100%;
+    }
   }
 }
 
@@ -41,8 +45,8 @@
     margin-block-start: var(--dt-spacing-f);
   }
 
-  p, .c-contentPage-img {
-    flex: 1;
+  p {
+    flex-grow: 1;
   }
 }
 
