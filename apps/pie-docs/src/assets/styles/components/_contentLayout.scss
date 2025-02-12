@@ -13,21 +13,20 @@
       flex: 0 1 calc(50% - (var(--dt-spacing-e) / 2));
     }
   }
+}
 
+&.c-columns--three {
+  @include f.media('>=huge') {
+    flex-flow: row wrap;
 
-  &.c-columns--three {
-    @include f.media('>=huge') {
-      flex-flow: row wrap;
-
-      > * {
-        // stylelint-disable-next-line declaration-block-no-redundant-longhand-properties
-        flex: 0 1 calc(33.333% - var(--dt-spacing-e)); // Three equal-width columns
-      }
+    > * {
+      // stylelint-disable-next-line declaration-block-no-redundant-longhand-properties
+      flex: 0 1 calc(33.333% - var(--dt-spacing-e)); // Three equal-width columns
     }
+  }
 
-    .c-contentPage-img {
-      height: 100%;
-    }
+  .c-contentPage-img {
+    height: 100%;
   }
 }
 
