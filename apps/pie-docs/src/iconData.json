@@ -471,8 +471,8 @@
                     "displayName": "Radio Selected"
                 },
                 {
-                  "name": "radio-unselected",
-                  "displayName": "Radio"
+                    "name": "radio-unselected",
+                    "displayName": "Radio"
                 }
             ]
         },
@@ -569,6 +569,10 @@
                 {
                     "name": "swiss-franc",
                     "displayName": "Swiss Franc"
+                },
+                {
+                    "name": "zloty",
+                    "displayName": "Zloty"
                 }
             ]
         },
@@ -576,6 +580,10 @@
             "name": "dietary",
             "displayName": "Dietary",
             "icons": [
+                {
+                    "name": "caffeine",
+                    "displayName": "Caffeine"
+                },
                 {
                     "name": "celery",
                     "displayName": "Celery"
@@ -755,6 +763,11 @@
                 {
                     "name": "canada",
                     "displayName": "Canada",
+                    "oneSize": true
+                },
+                {
+                    "name": "catalonia",
+                    "displayName": "Catalonia",
                     "oneSize": true
                 },
                 {
@@ -1623,6 +1636,587 @@
             ]
         },
         {
+            "name": "payment",
+            "displayName": "Payment",
+            "icons": [
+                {
+                    "name": "10bis",
+                    "displayName": "10bis",
+                    "oneSize": true
+                },
+                {
+                    "name": "abn",
+                    "displayName": "Abn",
+                    "oneSize": true
+                },
+                {
+                    "name": "affirm",
+                    "displayName": "Affirm",
+                    "oneSize": true
+                },
+                {
+                    "name": "ali-pay",
+                    "displayName": "Ali Pay",
+                    "oneSize": true
+                },
+                {
+                    "name": "allied-irish-bank",
+                    "displayName": "Allied Irish Bank",
+                    "oneSize": true
+                },
+                {
+                    "name": "allied-irish-bank",
+                    "displayName": "Allied Irish Bank",
+                    "oneSize": true
+                },
+                {
+                    "name": "amazon",
+                    "displayName": "Amazon",
+                    "oneSize": true
+                },
+                {
+                    "name": "amex",
+                    "displayName": "Amex",
+                    "oneSize": true
+                },
+                {
+                    "name": "apple-pay",
+                    "displayName": "Apple Pay",
+                    "oneSize": true
+                },
+                {
+                    "name": "asn",
+                    "displayName": "Asn",
+                    "oneSize": true
+                },
+                {
+                    "name": "asn",
+                    "displayName": "Asn",
+                    "oneSize": true
+                },
+                {
+                    "name": "bancontact",
+                    "displayName": "Bancontact",
+                    "oneSize": true
+                },
+                {
+                    "name": "bank-of-ireland-uk",
+                    "displayName": "Bank Of Ireland Uk",
+                    "oneSize": true
+                },
+                {
+                    "name": "bank-of-scotland",
+                    "displayName": "Bank Of Scotland",
+                    "oneSize": true
+                },
+                {
+                    "name": "barclays",
+                    "displayName": "Barclays",
+                    "oneSize": true
+                },
+                {
+                    "name": "bimpli",
+                    "displayName": "Bimpli",
+                    "oneSize": true
+                },
+                {
+                    "name": "bit-pay",
+                    "displayName": "Bit Pay",
+                    "oneSize": true
+                },
+                {
+                    "name": "bitcoin",
+                    "displayName": "Bitcoin",
+                    "oneSize": true
+                },
+                {
+                    "name": "bitcoin-cash",
+                    "displayName": "Bitcoin Cash",
+                    "oneSize": true
+                },
+                {
+                    "name": "blik",
+                    "displayName": "Blik",
+                    "oneSize": true
+                },
+                {
+                    "name": "blik",
+                    "displayName": "Blik",
+                    "oneSize": true
+                },
+                {
+                    "name": "braintree-paypal",
+                    "displayName": "Braintree Paypal",
+                    "oneSize": true
+                },
+                {
+                    "name": "bunq",
+                    "displayName": "Bunq",
+                    "oneSize": true
+                },
+                {
+                    "name": "bunq",
+                    "displayName": "Bunq",
+                    "oneSize": true
+                },
+                {
+                    "name": "cashplus",
+                    "displayName": "Cashplus",
+                    "oneSize": true
+                },
+                {
+                    "name": "cashplus",
+                    "displayName": "Cashplus",
+                    "oneSize": true
+                },
+                {
+                    "name": "chase",
+                    "displayName": "Chase",
+                    "oneSize": true
+                },
+                {
+                    "name": "chase",
+                    "displayName": "Chase",
+                    "oneSize": true
+                },
+                {
+                    "name": "citadele",
+                    "displayName": "Citadele",
+                    "oneSize": true
+                },
+                {
+                    "name": "clydesdale-bank",
+                    "displayName": "Clydesdale Bank",
+                    "oneSize": true
+                },
+                {
+                    "name": "clydesdale-bank",
+                    "displayName": "Clydesdale Bank",
+                    "oneSize": true
+                },
+                {
+                    "name": "dankort",
+                    "displayName": "Dankort",
+                    "oneSize": true
+                },
+                {
+                    "name": "dankort",
+                    "displayName": "Dankort",
+                    "oneSize": true
+                },
+                {
+                    "name": "danske-bank",
+                    "displayName": "Danske Bank",
+                    "oneSize": true
+                },
+                {
+                    "name": "diners-club",
+                    "displayName": "Diners Club",
+                    "oneSize": true
+                },
+                {
+                    "name": "discover",
+                    "displayName": "Discover",
+                    "oneSize": true
+                },
+                {
+                    "name": "elo",
+                    "displayName": "Elo",
+                    "oneSize": true
+                },
+                {
+                    "name": "eps",
+                    "displayName": "Eps",
+                    "oneSize": true
+                },
+                {
+                    "name": "etherium",
+                    "displayName": "Etherium",
+                    "oneSize": true
+                },
+                {
+                    "name": "first-direct",
+                    "displayName": "First Direct",
+                    "oneSize": true
+                },
+                {
+                    "name": "forbrugsforeningen",
+                    "displayName": "Forbrugsforeningen",
+                    "oneSize": true
+                },
+                {
+                    "name": "giropay",
+                    "displayName": "Giropay",
+                    "oneSize": true
+                },
+                {
+                    "name": "google-pay",
+                    "displayName": "Google Pay",
+                    "oneSize": true
+                },
+                {
+                    "name": "halifax",
+                    "displayName": "Halifax",
+                    "oneSize": true
+                },
+                {
+                    "name": "handelsbanken",
+                    "displayName": "Handelsbanken",
+                    "oneSize": true
+                },
+                {
+                    "name": "handelsbanken",
+                    "displayName": "Handelsbanken",
+                    "oneSize": true
+                },
+                {
+                    "name": "hsbc",
+                    "displayName": "Hsbc",
+                    "oneSize": true
+                },
+                {
+                    "name": "i-deal",
+                    "displayName": "I Deal",
+                    "oneSize": true
+                },
+                {
+                    "name": "ing",
+                    "displayName": "Ing",
+                    "oneSize": true
+                },
+                {
+                    "name": "interac",
+                    "displayName": "Interac",
+                    "oneSize": true
+                },
+                {
+                    "name": "jcb",
+                    "displayName": "Jcb",
+                    "oneSize": true
+                },
+                {
+                    "name": "klarna",
+                    "displayName": "Klarna",
+                    "oneSize": true
+                },
+                {
+                    "name": "knab",
+                    "displayName": "Knab",
+                    "oneSize": true
+                },
+                {
+                    "name": "knab",
+                    "displayName": "Knab",
+                    "oneSize": true
+                },
+                {
+                    "name": "litecoin",
+                    "displayName": "Litecoin",
+                    "oneSize": true
+                },
+                {
+                    "name": "lloyds",
+                    "displayName": "Lloyds",
+                    "oneSize": true
+                },
+                {
+                    "name": "maestro",
+                    "displayName": "Maestro",
+                    "oneSize": true
+                },
+                {
+                    "name": "mastercard",
+                    "displayName": "Mastercard",
+                    "oneSize": true
+                },
+                {
+                    "name": "mettle",
+                    "displayName": "Mettle",
+                    "oneSize": true
+                },
+                {
+                    "name": "mettle",
+                    "displayName": "Mettle",
+                    "oneSize": true
+                },
+                {
+                    "name": "mister-cash",
+                    "displayName": "Mister Cash",
+                    "oneSize": true
+                },
+                {
+                    "name": "mobile-pay",
+                    "displayName": "Mobile Pay",
+                    "oneSize": true
+                },
+                {
+                    "name": "monzo",
+                    "displayName": "Monzo",
+                    "oneSize": true
+                },
+                {
+                    "name": "n26",
+                    "displayName": "N26",
+                    "oneSize": true
+                },
+                {
+                    "name": "n26",
+                    "displayName": "N26",
+                    "oneSize": true
+                },
+                {
+                    "name": "nationale-nederlanden",
+                    "displayName": "Nationale Nederlanden",
+                    "oneSize": true
+                },
+                {
+                    "name": "nationale-nederlanden",
+                    "displayName": "Nationale Nederlanden",
+                    "oneSize": true
+                },
+                {
+                    "name": "nationwide",
+                    "displayName": "Nationwide",
+                    "oneSize": true
+                },
+                {
+                    "name": "natwest",
+                    "displayName": "Natwest",
+                    "oneSize": true
+                },
+                {
+                    "name": "payoneer",
+                    "displayName": "Payoneer",
+                    "oneSize": true
+                },
+                {
+                    "name": "paypal",
+                    "displayName": "Paypal",
+                    "oneSize": true
+                },
+                {
+                    "name": "paysafe",
+                    "displayName": "Paysafe",
+                    "oneSize": true
+                },
+                {
+                    "name": "payu",
+                    "displayName": "Payu",
+                    "oneSize": true
+                },
+                {
+                    "name": "post-finance",
+                    "displayName": "Post Finance",
+                    "oneSize": true
+                },
+                {
+                    "name": "qiwi",
+                    "displayName": "Qiwi",
+                    "oneSize": true
+                },
+                {
+                    "name": "rabobank",
+                    "displayName": "Rabobank",
+                    "oneSize": true
+                },
+                {
+                    "name": "rabobank",
+                    "displayName": "Rabobank",
+                    "oneSize": true
+                },
+                {
+                    "name": "regiobank",
+                    "displayName": "Regiobank",
+                    "oneSize": true
+                },
+                {
+                    "name": "regiobank",
+                    "displayName": "Regiobank",
+                    "oneSize": true
+                },
+                {
+                    "name": "revolut",
+                    "displayName": "Revolut",
+                    "oneSize": true
+                },
+                {
+                    "name": "royal-bank-of-scotland",
+                    "displayName": "Royal Bank Of Scotland",
+                    "oneSize": true
+                },
+                {
+                    "name": "santander",
+                    "displayName": "Santander",
+                    "oneSize": true
+                },
+                {
+                    "name": "sepa",
+                    "displayName": "Sepa",
+                    "oneSize": true
+                },
+                {
+                    "name": "shop-pay",
+                    "displayName": "Shop Pay",
+                    "oneSize": true
+                },
+                {
+                    "name": "skrill",
+                    "displayName": "Skrill",
+                    "oneSize": true
+                },
+                {
+                    "name": "sns",
+                    "displayName": "Sns",
+                    "oneSize": true
+                },
+                {
+                    "name": "sns",
+                    "displayName": "Sns",
+                    "oneSize": true
+                },
+                {
+                    "name": "sodexo",
+                    "displayName": "Sodexo",
+                    "oneSize": true
+                },
+                {
+                    "name": "sofort",
+                    "displayName": "Sofort",
+                    "oneSize": true
+                },
+                {
+                    "name": "starling",
+                    "displayName": "Starling",
+                    "oneSize": true
+                },
+                {
+                    "name": "stripe",
+                    "displayName": "Stripe",
+                    "oneSize": true
+                },
+                {
+                    "name": "takeaway-pay",
+                    "displayName": "Takeaway Pay",
+                    "oneSize": true
+                },
+                {
+                    "name": "tenbis",
+                    "displayName": "Tenbis",
+                    "oneSize": true
+                },
+                {
+                    "name": "tesco-bank",
+                    "displayName": "Tesco Bank",
+                    "oneSize": true
+                },
+                {
+                    "name": "triodos",
+                    "displayName": "Triodos",
+                    "oneSize": true
+                },
+                {
+                    "name": "triodos",
+                    "displayName": "Triodos",
+                    "oneSize": true
+                },
+                {
+                    "name": "tsb",
+                    "displayName": "Tsb",
+                    "oneSize": true
+                },
+                {
+                    "name": "twint",
+                    "displayName": "Twint",
+                    "oneSize": true
+                },
+                {
+                    "name": "ulster-bank",
+                    "displayName": "Ulster Bank",
+                    "oneSize": true
+                },
+                {
+                    "name": "union-pay",
+                    "displayName": "Union Pay",
+                    "oneSize": true
+                },
+                {
+                    "name": "up",
+                    "displayName": "Up",
+                    "oneSize": true
+                },
+                {
+                    "name": "van-lanschot",
+                    "displayName": "Van Lanschot",
+                    "oneSize": true
+                },
+                {
+                    "name": "van-lanschot",
+                    "displayName": "Van Lanschot",
+                    "oneSize": true
+                },
+                {
+                    "name": "verifone",
+                    "displayName": "Verifone",
+                    "oneSize": true
+                },
+                {
+                    "name": "virgin-money",
+                    "displayName": "Virgin Money",
+                    "oneSize": true
+                },
+                {
+                    "name": "virgin-money",
+                    "displayName": "Virgin Money",
+                    "oneSize": true
+                },
+                {
+                    "name": "visa",
+                    "displayName": "Visa",
+                    "oneSize": true
+                },
+                {
+                    "name": "vvv",
+                    "displayName": "Vvv",
+                    "oneSize": true
+                },
+                {
+                    "name": "we-chat",
+                    "displayName": "We Chat",
+                    "oneSize": true
+                },
+                {
+                    "name": "web-money",
+                    "displayName": "Web Money",
+                    "oneSize": true
+                },
+                {
+                    "name": "wise",
+                    "displayName": "Wise",
+                    "oneSize": true
+                },
+                {
+                    "name": "wise",
+                    "displayName": "Wise",
+                    "oneSize": true
+                },
+                {
+                    "name": "yandex",
+                    "displayName": "Yandex",
+                    "oneSize": true
+                },
+                {
+                    "name": "yoursafe",
+                    "displayName": "Yoursafe",
+                    "oneSize": true
+                },
+                {
+                    "name": "yoursafe",
+                    "displayName": "Yoursafe",
+                    "oneSize": true
+                }
+            ]
+        },
+        {
             "name": "people",
             "displayName": "People",
             "icons": [
@@ -1847,12 +2441,12 @@
                     "displayName": "Restaurant"
                 },
                 {
-                    "name": "restaurant-filled",
-                    "displayName": "Restaurant Filled"
-                },
-                {
                     "name": "restaurant-cancelled",
                     "displayName": "Restaurant Cancelled"
+                },
+                {
+                    "name": "restaurant-filled",
+                    "displayName": "Restaurant Filled"
                 },
                 {
                     "name": "restaurant-menu",
@@ -1865,6 +2459,10 @@
                 {
                     "name": "sign-closed",
                     "displayName": "Sign Closed"
+                },
+                {
+                    "name": "sign-open",
+                    "displayName": "Sign Open"
                 }
             ]
         },
@@ -1887,36 +2485,9 @@
             ]
         },
         {
-            "name": "stampcard",
-            "displayName": "StampCard",
-            "icons": [
-                {
-                    "name": "percentage",
-                    "displayName": "Percentage"
-                },
-                {
-                    "name": "stampcard",
-                    "displayName": "StampCard"
-                },
-                {
-                    "name": "stampcard-filled",
-                    "displayName": "StampCard Filled"
-                },
-                {
-                    "name": "stampcard-10",
-                    "displayName": "StampCard 10"
-                },
-                {
-                    "name": "stampcard-10-filled",
-                    "displayName": "StampCard 10 Filled"
-                }
-            ]
-        },
-        {
             "name": "social",
             "displayName": "Social",
             "icons": [
-
                 {
                     "name": "android-circle",
                     "displayName": "Android Circle"
@@ -2026,6 +2597,18 @@
                     "displayName": "Pinterest Static"
                 },
                 {
+                    "name": "tiktok-circle",
+                    "displayName": "Tiktok Circle"
+                },
+                {
+                    "name": "tiktok-circle-filled",
+                    "displayName": "Tiktok Circle Filled"
+                },
+                {
+                    "name": "tiktok-static",
+                    "displayName": "Tiktok Static"
+                },
+                {
                     "name": "twitter-circle",
                     "displayName": "Twitter Circle"
                 },
@@ -2052,6 +2635,32 @@
             ]
         },
         {
+            "name": "stampcard",
+            "displayName": "StampCard",
+            "icons": [
+                {
+                    "name": "percentage",
+                    "displayName": "Percentage"
+                },
+                {
+                    "name": "stampcard",
+                    "displayName": "StampCard"
+                },
+                {
+                    "name": "stampcard-filled",
+                    "displayName": "StampCard Filled"
+                },
+                {
+                    "name": "stampcard-10",
+                    "displayName": "StampCard 10"
+                },
+                {
+                    "name": "stampcard-10-filled",
+                    "displayName": "StampCard 10 Filled"
+                }
+            ]
+        },
+        {
             "name": "technology",
             "displayName": "Technology",
             "icons": [
@@ -2070,6 +2679,10 @@
                 {
                     "name": "bug",
                     "displayName": "Bug"
+                },
+                {
+                    "name": "face-id",
+                    "displayName": "Face Id"
                 },
                 {
                     "name": "fingerprint",
@@ -2092,12 +2705,12 @@
                     "displayName": "Laptop Filled"
                 },
                 {
-                    "name": "laptop-success",
-                    "displayName": "Laptop Success"
-                },
-                {
                     "name": "laptop-highlight",
                     "displayName": "Laptop Highlight"
+                },
+                {
+                    "name": "laptop-success",
+                    "displayName": "Laptop Success"
                 },
                 {
                     "name": "phone",
