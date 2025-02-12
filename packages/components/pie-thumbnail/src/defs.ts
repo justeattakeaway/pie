@@ -63,7 +63,11 @@ export interface ThumbnailProps {
      */
     backgroundColor?: typeof backgroundColors[number];
     /**
-     * What placeholder should be used when the image fails to load.
+     * When true, hides the component default placeholder on image load failure.
+     */
+    hideDefaultPlaceholder?: boolean;
+    /**
+     * Overrides the component default placeholder with a custom one on image load failure.
      */
     placeholder?: PlaceholderProps;
      /**
@@ -81,6 +85,7 @@ export const defaultProps: DefaultProps = {
     alt: '',
     disabled: false,
     hasPadding: false,
+    hideDefaultPlaceholder: false,
     backgroundColor: 'default',
     aspectRatio: '1by1',
     placeholder: {

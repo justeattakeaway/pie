@@ -360,7 +360,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
                 tabindex="0"
                 name=${ifDefined(name)}
                 ?disabled=${disabled}
-                data-test-id="pie-radio-group"
+                data-test-id="pie-radio-group-fieldset"
                 aria-describedby=${hasAssistiveText ? assistiveTextId : nothing}
                 class="${classMap(classes)}">
                     ${this._renderWrappedLabel()}
