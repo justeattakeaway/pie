@@ -145,6 +145,8 @@ Thumbnails have 3 main sizes to account for corner radius readability; XSmall, S
 
 ### Aspect ratio
 
+The Thumbnail component can be easily resized along the aspect ratio constraints and always in 8px increment.
+
 #### 1:1
 
 The default most common ratio is 1:1. Ideal for logos and item previews.
