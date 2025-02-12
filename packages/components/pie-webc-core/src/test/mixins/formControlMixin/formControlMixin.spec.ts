@@ -1,4 +1,6 @@
-import { describe, test, expect, beforeEach, afterEach } from 'vitest';
+import {
+    describe, test, expect, beforeEach, afterEach,
+} from 'vitest';
 import { MockComponent } from './MockComponent';
 import 'element-internals-polyfill';
 
@@ -39,7 +41,7 @@ describe('FormControlMixin', () => {
                 form.id = 'testForm';
                 form.action = '/foo';
                 form.method = 'POST';
-                
+
                 // Move component into form
                 document.body.removeChild(mockComponent);
                 document.body.appendChild(form);
@@ -62,7 +64,7 @@ describe('FormControlMixin', () => {
                 // Arrange
                 form.id = 'siblingForm';
                 document.body.appendChild(form);
-                
+
                 // Wait for component to be ready
                 await mockComponent.updateComplete;
 
