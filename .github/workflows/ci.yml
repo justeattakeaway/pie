@@ -166,11 +166,6 @@ jobs:
         with:
           node-version: 20
           os: ubuntu-latest
-      # Restore Packages from Cache
-      - name: Build Packages
-        uses: ./.github/actions/run-script
-        with:
-          script-name: "build"
       # Run Unit Tests
       - name: Unit Tests
         uses: ./.github/actions/run-script

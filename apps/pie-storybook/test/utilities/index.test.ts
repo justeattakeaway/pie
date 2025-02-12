@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { html, render, type TemplateResult } from 'lit';
 import { createStory, createVariantStory } from '../../utilities/index';
 import { type StoryOptions } from '../../types/StoryOptions';
+import CUSTOM_BACKGROUNDS from '../../.storybook/backgrounds';
 
 type ComponentProps = {
   size: string;
@@ -86,10 +87,79 @@ describe('createVariantStory', () => {
 
         const story = createVariantStory(template, propOptions, storyOpts);
 
-        // Check if the parameters include the background color
-        expect(story.parameters.backgrounds.default).toBe('background-subtle');
-
         // Check if argTypes are applied
         expect(story.argTypes).toEqual(storyOpts.argTypes);
+    });
+
+    it('should apply custom background color from CUSTOM_BACKGROUNDS', () => {
+        const propOptions = {
+            size: ['small'],
+            variant: ['primary'],
+        };
+
+        const story = createVariantStory(template, propOptions, { bgColor: 'background-subtle' });
+        const renderResult = story.render();
+
+        const container = document.createElement('div');
+        render(renderResult, container);
+
+        const templateContainer = container.querySelector('.template-container');
+        if (!templateContainer) {
+            throw new Error('Template container not found');
+        }
+        const computedStyle = window.getComputedStyle(templateContainer);
+
+        const backgroundColor = computedStyle.getPropertyValue('--background-color');
+        expect(backgroundColor).toBeTruthy();
+        expect(backgroundColor).not.toBe('#ffffff');
+
+        const matchingBackground = CUSTOM_BACKGROUNDS.values.find((bg) => bg.name === 'background-subtle');
+        expect(backgroundColor).toBe(matchingBackground?.value);
+    });
+
+    it('should fallback to default white background when invalid bgColor is provided', () => {
+        const propOptions = {
+            size: ['small'],
+            variant: ['primary'],
+        };
+
+        // @ts-expect-error - Testing invalid background color
+        const story = createVariantStory(template, propOptions, { bgColor: 'background-invalid' });
+        const renderResult = story.render();
+
+        const container = document.createElement('div');
+        render(renderResult, container);
+
+        const templateContainer = container.querySelector('.template-container');
+        if (!templateContainer) {
+            throw new Error('Template container not found');
+        }
+        const computedStyle = window.getComputedStyle(templateContainer);
+
+        // Should fallback to default white background
+        const backgroundColor = computedStyle.getPropertyValue('--background-color');
+        expect(backgroundColor).toBe('#ffffff');
+    });
+
+    it('should use default white background when bgColor is undefined', () => {
+        const propOptions = {
+            size: ['small'],
+            variant: ['primary'],
+        };
+
+        const story = createVariantStory(template, propOptions);
+        const renderResult = story.render();
+
+        const container = document.createElement('div');
+        render(renderResult, container);
+
+        const templateContainer = container.querySelector('.template-container');
+        if (!templateContainer) {
+            throw new Error('Template container not found');
+        }
+        const computedStyle = window.getComputedStyle(templateContainer);
+
+        const backgroundColor = computedStyle.getPropertyValue('--background-color');
+        expect(backgroundColor).toBe('#ffffff');
     });
 });
