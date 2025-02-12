@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-monorepo-utils
 
+## 0.3.0
+
+### Minor Changes
+
+- [Changed] - Reuse common logic for /test-aperture & /snapit commands ([#2198](https://github.com/justeattakeaway/pie/pull/2198)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.2.0
 
 ### Minor Changes

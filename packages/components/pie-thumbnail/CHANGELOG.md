@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-thumbnail
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - component default placeholder ([#2195](https://github.com/justeattakeaway/pie/pull/2195)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.5.0
 
 ### Minor Changes
