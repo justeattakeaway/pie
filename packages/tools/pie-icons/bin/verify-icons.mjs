@@ -4,31 +4,7 @@
 import fs from 'fs';
 import path from 'path';
 import isSvg from 'is-svg';
-import { ensureDirSync, readJSONSync, writeJsonSync } from 'fs-extra/esm';
-
-import { getIconCategory, findMonorepoRoot } from './helpers.mjs';
-
-/**
- * Checks if the files do already exist in pie-docs iconData.json
- * @param {Array} files Array of file paths
- * @returns Array with messages describing the issues
- */
-function validateFileIsInIconsData (files) {
-    const iconsData = readJSONSync(path.join(findMonorepoRoot(), 'apps/pie-docs/src/iconData.json'));
-
-    const issues = files
-        .map((filePath) => {
-            const { name } = path.parse(filePath);
-
-            // Perform file name validation
-            const category = getIconCategory(iconsData, name);
-
-            return !category ? `The file "${name}" is new as it cannot be found on "pie-docs/src/iconData.json", it might be worth updating the JSON file otherwise pie-docs will not render the new icon.` : null;
-        })
-        .filter(Boolean);
-
-    return issues;
-}
+import { ensureDirSync, writeJsonSync } from 'fs-extra/esm';
 
 /**
  * Checks the content of SVG files for invalid tags such as
@@ -118,7 +94,6 @@ function storeIssues (issues, issuesFolderPath) {
 
 function checkFilesIssues (files) {
     const issues = [
-        ...validateFileIsInIconsData(files),
         ...validateFileNames(files),
         ...validateSVGs(files),
         ...validateFilesContent(files),
