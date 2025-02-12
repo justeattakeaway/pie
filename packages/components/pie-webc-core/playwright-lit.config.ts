@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@sand4rt/experimental-ct-web';
+import { defineConfig, devices } from '@playwright/test';
 import { getPlaywrightConfig as getPlaywrightConfigOG } from '@justeattakeaway/pie-components-config';
 import type { PlaywrightTestConfig } from '@playwright/test';
 

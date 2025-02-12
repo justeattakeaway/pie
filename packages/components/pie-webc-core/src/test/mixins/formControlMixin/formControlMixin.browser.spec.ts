@@ -1,76 +1,48 @@
-import { test, expect } from '@sand4rt/experimental-ct-web';
-import { MockComponent } from './MockComponent.ts';
+import { test, expect } from '@playwright/test';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 
 test.describe('FormControlMixin', () => {
-    // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
-    // mount the component will still have it available in Playwright's cache (loaded and registered in the test browser)
-    test.beforeEach(async ({ mount }) => {
-        const component = await mount(MockComponent);
-        await component.unmount();
-    });
-
     test.describe('form property', () => {
-        test.describe('when no form exists', () => {
-            test('should not have an associated form', async ({ page, mount }) => {
-                // Arrange
-                await mount(MockComponent);
+        test('should not have an associated form when no form exists', async ({ page }) => {
+            // Arrange
+            const mockComponentPage = new BasePage(page, 'webc-core--form-control-mixin-mock');
+            await mockComponentPage.load();
 
-                const isFormAssociated = await page.evaluate(() => {
-                    const component = document.querySelector('form-control-mixin-mock');
-                    const form = component?.form;
-
-                    return !!form;
-                });
-
-                // Assert
-                expect(isFormAssociated).toBe(false);
+            const isFormAssociated = await page.evaluate(() => {
+                const component = document.querySelector('form-control-mixin-mock');
+                return component?.form !== null;
             });
+
+            // Assert
+            expect(isFormAssociated).toBe(false);
         });
 
-        test.describe('when inside of a form', () => {
-            test('should return the associated form', async ({ page }) => {
-                // Arrange
-                await page.setContent(`
-                    <form id="testForm" action="/foo" method="POST">
-                        <input type="text" id="username" name="username" required>
-                        <input type="password" id="password" name="password" required>
-                        <form-control-mixin-mock></form-control-mixin-mock>
-                    </form>
-                `);
+        test('should return the associated form when inside a form', async ({ page }) => {
+            // Arrange
+            const mockComponentPage = new BasePage(page, 'webc-core--form-control-mixin-in-form');
+            await mockComponentPage.load();
 
-                const formId = await page.evaluate(() => {
-                    const component = document.querySelector('form-control-mixin-mock');
-                    const form = component?.form;
-
-                    return form?.id;
-                });
-
-                // Assert
-                expect(formId).toContain('testForm');
+            const formId = await page.evaluate(() => {
+                const component = document.querySelector('form-control-mixin-mock');
+                return component?.form?.id;
             });
+
+            // Assert
+            expect(formId).toBe('testForm');
         });
 
-        test.describe('when not inside of an existing form', () => {
-            test('should not have an associated form', async ({ page }) => {
-                // Arrange
-                await page.setContent(`
-                    <form id="siblingForm" action="/foo" method="POST">
-                        <input type="text" id="username" name="username" required>
-                        <input type="password" id="password" name="password" required>
-                    </form>
-                    <form-control-mixin-mock></form-control-mixin-mock>
-                `);
+        test('should not have an associated form when outside a form', async ({ page }) => {
+            // Arrange
+            const mockComponentPage = new BasePage(page, 'webc-core--form-control-mixin-outside-form');
+            await mockComponentPage.load();
 
-                const isFormAssociated = await page.evaluate(() => {
-                    const component = document.querySelector('form-control-mixin-mock');
-                    const form = component?.form;
-
-                    return !!form;
-                });
-
-                // Assert
-                expect(isFormAssociated).toBe(false);
+            const isFormAssociated = await page.evaluate(() => {
+                const component = document.querySelector('form-control-mixin-mock');
+                return component?.form !== null;
             });
+
+            // Assert
+            expect(isFormAssociated).toBe(false);
         });
     });
 });

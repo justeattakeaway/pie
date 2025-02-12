@@ -1,0 +1,24 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "extends": [
+    "//"
+  ],
+  "pipeline": {
+    "test:browsers": {
+      "cache": true,
+      "dependsOn": [],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "../../../apps/pie-storybook/stories/testing/pie-webc-core.test.stories.ts"
+      ]
+    },
+    "test:browsers:ci": {
+      "cache": true,
+      "dependsOn": [],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "../../../apps/pie-storybook/stories/testing/pie-webc-core.test.stories.ts"
+      ]
+    }
+  }
+}
