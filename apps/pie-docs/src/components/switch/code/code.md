@@ -42,11 +42,7 @@ npm i @justeattakeaway/pie-webc
 yarn add @justeattakeaway/pie-webc
 ```
 
-{% notification {
-  type: "neutral",
-  iconName: "link",
-  message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
-} %}
+{% componentCodeMoreInformationNotification %}
 
 ## Props
 
