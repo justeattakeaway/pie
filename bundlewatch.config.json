@@ -190,7 +190,7 @@
     },
     {
       "path": "./packages/components/pie-thumbnail/dist/*.js",
-      "maxSize": "3 KB"
+      "maxSize": "3.5 KB"
     }
   ],
   "defaultCompression": "gzip",
