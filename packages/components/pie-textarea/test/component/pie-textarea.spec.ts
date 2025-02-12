@@ -699,10 +699,8 @@ test.describe('PieTextarea - Component tests', () => {
                     // Act
                     const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
-                    const componentAttribute = await textarea.getAttribute('aria-describedby');
-
                     // Assert
-                    expect(componentAttribute).toBeNull();
+                    await expect(textarea).not.toHaveAttribute('aria-describedby');
                 });
             });
 
@@ -718,10 +716,8 @@ test.describe('PieTextarea - Component tests', () => {
                     // Act
                     const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
-                    const componentAttribute = await textarea.getAttribute('aria-describedby');
-
                     // Assert
-                    expect(componentAttribute).toBe('assistive-text');
+                    await expect(textarea).toHaveAttribute('aria-describedby', 'assistive-text');
                 });
             });
         });
@@ -740,10 +736,8 @@ test.describe('PieTextarea - Component tests', () => {
                     // Act
                     const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
-                    const componentAttribute = await textarea.getAttribute('aria-invalid');
-
                     // Assert
-                    expect(componentAttribute).toBe('true');
+                    await expect(textarea).toHaveAttribute('aria-invalid', 'true');
                 });
             });
 
@@ -761,10 +755,8 @@ test.describe('PieTextarea - Component tests', () => {
                         // Act
                         const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
-                        const componentAttribute = await textarea.getAttribute('aria-invalid');
-
                         // Assert
-                        expect(componentAttribute).toBe('false');
+                        await expect(textarea).toHaveAttribute('aria-invalid', 'false');
                     });
                 });
             });
@@ -784,10 +776,8 @@ test.describe('PieTextarea - Component tests', () => {
                     // Act
                     const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
-                    const componentAttribute = await textarea.getAttribute('aria-errormessage');
-
                     // Assert
-                    expect(componentAttribute).toBeDefined();
+                    await expect(textarea).toHaveAttribute('aria-errormessage');
                 });
             });
 
@@ -805,10 +795,8 @@ test.describe('PieTextarea - Component tests', () => {
                         // Act
                         const textarea = page.getByTestId(textArea.selectors.textArea.dataTestId);
 
-                        const componentAttribute = await textarea.getAttribute('aria-errormessage');
-
                         // Assert
-                        expect(componentAttribute).toBeNull();
+                        await expect(textarea).not.toHaveAttribute('aria-errormessage');
                     });
                 });
             });
