@@ -23,10 +23,10 @@
       // stylelint-disable-next-line declaration-block-no-redundant-longhand-properties
       flex: 0 1 calc(33.333% - var(--dt-spacing-e)); // Three equal-width columns
     }
+  }
 
-    .c-contentPage-img {
-      height: 100%;
-    }
+  .c-contentPage-img {
+    height: 100%;
   }
 
   .c-contentPage-img {
