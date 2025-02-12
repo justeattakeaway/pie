@@ -106,6 +106,16 @@ function getCategories (filesPaths) {
 function updateIconData (iconsDataFilePath, addedFiles, allFilesPathsAndCategories) {
     const iconsData = readJSONSync(iconsDataFilePath);
 
+    const sortFn = (a, b) => {
+        if (a.name < b.name) {
+            return -1;
+        } else if (b.name > a.name) {
+            return 1;
+        }
+
+        return 0;
+    };
+
     addedFiles.forEach((_iconName) => {
         // bypass adding large icons
         if (_iconName.includes('-large')) return;
@@ -134,8 +144,14 @@ function updateIconData (iconsDataFilePath, addedFiles, allFilesPathsAndCategori
                 icons: [newIcon],
             };
             iconsData.categories.push(newCategory);
+
+            // sort categories
+            iconsData.categories.sort(sortFn);
         } else {
             category.icons.push(newIcon);
+
+            // sort icons
+            category.icons.sort(sortFn);
         }
     });
 
