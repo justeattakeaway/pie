@@ -12,16 +12,14 @@
     "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run --config ../../../vite.config.js",
     "test:ci": "yarn test",
-    "test:browsers-setup": "npx playwright-lit-setup",
-    "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
-    "test:browsers:ci": "yarn test:browsers",
     "test:watch": "run -T vitest"
   },
   "dependencies": {
     "lit": "3.2.0"
   },
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.18.0"
+    "@justeattakeaway/pie-components-config": "0.18.0",
+    "element-internals-polyfill": "1.3.13"
   },
   "volta": {
     "extends": "../../../package.json"

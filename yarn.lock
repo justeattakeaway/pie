@@ -5251,6 +5251,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
   dependencies:
     "@justeattakeaway/pie-components-config": 0.18.0
+    element-internals-polyfill: 1.3.13
     lit: 3.2.0
   languageName: unknown
   linkType: soft
@@ -14565,6 +14566,13 @@ __metadata:
   version: 1.3.11
   resolution: "element-internals-polyfill@npm:1.3.11"
   checksum: 72467b0bcd8c580f41a276baa20f37cdf0e417c7c68e67987c7f21579a3f3ee4dd0ffbc0a65cf5fd7899c1c42ba9f0fb7312117abbf75214542b5c4e538d542a
+  languageName: node
+  linkType: hard
+
+"element-internals-polyfill@npm:1.3.13":
+  version: 1.3.13
+  resolution: "element-internals-polyfill@npm:1.3.13"
+  checksum: 7aa05eeacd6fa6458501ae2a3a1d2e8cd18557d9ea3744b7bb94ea47d1b507f35e1bfe6c8065d39cf1b78cee0de929bae8b1828775f4b91c621172072141aab5
   languageName: node
   linkType: hard
 
