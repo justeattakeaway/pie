@@ -7,7 +7,7 @@
   "license": "Apache-2.0",
   "private": true,
   "engines": {
-    "node": "^16 || ^18 || ^20"
+    "node": "^16 || ^18 || ^20 || ^22"
   },
   "packageManager": "yarn@3.8.1",
   "workspaces": {
@@ -83,7 +83,7 @@
     "@playwright/experimental-ct-react": "1.50.1",
     "@playwright/test": "1.50.1",
     "@rollup/plugin-node-resolve": "15.1.0",
-    "@types/node": "20.4.8",
+    "@types/node": "22.13.2",
     "@types/react": "18.3.11",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
@@ -132,7 +132,7 @@
     }
   },
   "volta": {
-    "node": "20.9.0",
+    "node": "22.14.0",
     "yarn": "3.8.1"
   },
   "resolutions": {

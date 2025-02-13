@@ -72,7 +72,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       - name: Verify if pie-docs has changes
         id: docs-check
@@ -103,7 +103,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       # Lint Styles
       - name: Lint Styles
@@ -122,7 +122,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       # Lint JS
       - name: Lint JavaScript
@@ -130,31 +130,31 @@ jobs:
         with:
           script-name: "lint:scripts"
 
-  build-windows-node-20:
+  build-windows-node-22:
     uses: ./.github/workflows/install-build.yml
     with:
       os: windows-latest
-      node-version: 20
-    secrets: inherit
-
-  build-ubuntu-node-18:
-    uses: ./.github/workflows/install-build.yml
-    with:
-      os: ubuntu-latest
-      node-version: 18
+      node-version: 22
     secrets: inherit
 
   build-ubuntu-node-20:
     uses: ./.github/workflows/install-build.yml
-    needs: [ 'lint-js', 'lint-styles', 'check-change-type' ]
     with:
       os: ubuntu-latest
       node-version: 20
+    secrets: inherit
+
+  build-ubuntu-node-22:
+    uses: ./.github/workflows/install-build.yml
+    needs: [ 'lint-js', 'lint-styles', 'check-change-type' ]
+    with:
+      os: ubuntu-latest
+      node-version: 22
       analyse-component-bundles: true
     secrets: inherit
 
   unit-tests:
-    needs: 'build-ubuntu-node-20'
+    needs: 'build-ubuntu-node-22'
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -164,7 +164,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       # Run Unit Tests
       - name: Unit Tests
@@ -178,7 +178,7 @@ jobs:
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
-      node-version: 20
+      node-version: 22
       amplify-app-id: d17ja0ul7nrdy0
       package-name: 'pie-storybook'
       package-dist-directory: ./apps/pie-storybook/dist
@@ -194,7 +194,7 @@ jobs:
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
-      node-version: 20
+      node-version: 22
       amplify-app-id: d3eyargno6okyn
       package-name: 'pie-storybook'
       package-dist-directory: ./apps/pie-storybook/dist
@@ -220,7 +220,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-20.04
       # Setup Playwright
       - name: Setup Playwright
@@ -267,7 +267,7 @@ jobs:
     if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
     with:
       os: ubuntu-latest
-      node-version: 20
+      node-version: 22
       amplify-app-id: dvskdcoepjoyf
       package-name: 'pie-docs'
       package-dist-directory: ./apps/pie-docs/dist
@@ -289,7 +289,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-20.04
       # Setup Playwright
       - name: Setup Playwright
@@ -336,7 +336,7 @@ jobs:
     uses: ./.github/workflows/changeset-release.yml
     with:
       os: ubuntu-latest
-      node-version: 20
+      node-version: 22
     secrets: inherit
 
   check-all-jobs:
@@ -345,9 +345,9 @@ jobs:
     needs:
       - lint-styles
       - lint-js
-      - build-ubuntu-node-18
-      - build-windows-node-20
       - build-ubuntu-node-20
+      - build-ubuntu-node-20
+      - build-windows-node-22
       - unit-tests
       - browser-tests-components
       - deploy-docs
