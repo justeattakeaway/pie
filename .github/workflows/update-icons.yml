@@ -1,6 +1,10 @@
 name: Update icons
 on:
   workflow_dispatch:
+
+env:
+  HUSKY: 0
+
 jobs:
   update-icons:
     runs-on: ubuntu-latest
