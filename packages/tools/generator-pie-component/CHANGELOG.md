@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.29.0
+
+### Minor Changes
+
+- [Added] - New `inputs` in turbo.json for `test:browser` tasks ([#2136](https://github.com/justeattakeaway/pie/pull/2136)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.28.0
 
 ### Minor Changes
