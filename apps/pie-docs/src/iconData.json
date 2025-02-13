@@ -1740,11 +1740,6 @@
                     "oneSize": true
                 },
                 {
-                    "name": "blik",
-                    "displayName": "Blik",
-                    "oneSize": true
-                },
-                {
                     "name": "braintree-paypal",
                     "displayName": "Braintree Paypal",
                     "oneSize": true
@@ -1755,23 +1750,8 @@
                     "oneSize": true
                 },
                 {
-                    "name": "bunq",
-                    "displayName": "Bunq",
-                    "oneSize": true
-                },
-                {
                     "name": "cashplus",
                     "displayName": "Cashplus",
-                    "oneSize": true
-                },
-                {
-                    "name": "cashplus",
-                    "displayName": "Cashplus",
-                    "oneSize": true
-                },
-                {
-                    "name": "chase",
-                    "displayName": "Chase",
                     "oneSize": true
                 },
                 {
@@ -1787,16 +1767,6 @@
                 {
                     "name": "clydesdale-bank",
                     "displayName": "Clydesdale Bank",
-                    "oneSize": true
-                },
-                {
-                    "name": "clydesdale-bank",
-                    "displayName": "Clydesdale Bank",
-                    "oneSize": true
-                },
-                {
-                    "name": "dankort",
-                    "displayName": "Dankort",
                     "oneSize": true
                 },
                 {
@@ -1865,11 +1835,6 @@
                     "oneSize": true
                 },
                 {
-                    "name": "handelsbanken",
-                    "displayName": "Handelsbanken",
-                    "oneSize": true
-                },
-                {
                     "name": "hsbc",
                     "displayName": "Hsbc",
                     "oneSize": true
@@ -1905,11 +1870,6 @@
                     "oneSize": true
                 },
                 {
-                    "name": "knab",
-                    "displayName": "Knab",
-                    "oneSize": true
-                },
-                {
                     "name": "litecoin",
                     "displayName": "Litecoin",
                     "oneSize": true
@@ -1935,11 +1895,6 @@
                     "oneSize": true
                 },
                 {
-                    "name": "mettle",
-                    "displayName": "Mettle",
-                    "oneSize": true
-                },
-                {
                     "name": "mister-cash",
                     "displayName": "Mister Cash",
                     "oneSize": true
@@ -1957,16 +1912,6 @@
                 {
                     "name": "n26",
                     "displayName": "N26",
-                    "oneSize": true
-                },
-                {
-                    "name": "n26",
-                    "displayName": "N26",
-                    "oneSize": true
-                },
-                {
-                    "name": "nationale-nederlanden",
-                    "displayName": "Nationale Nederlanden",
                     "oneSize": true
                 },
                 {
@@ -2020,16 +1965,6 @@
                     "oneSize": true
                 },
                 {
-                    "name": "rabobank",
-                    "displayName": "Rabobank",
-                    "oneSize": true
-                },
-                {
-                    "name": "regiobank",
-                    "displayName": "Regiobank",
-                    "oneSize": true
-                },
-                {
                     "name": "regiobank",
                     "displayName": "Regiobank",
                     "oneSize": true
@@ -2070,11 +2005,6 @@
                     "oneSize": true
                 },
                 {
-                    "name": "sns",
-                    "displayName": "Sns",
-                    "oneSize": true
-                },
-                {
                     "name": "sodexo",
                     "displayName": "Sodexo",
                     "oneSize": true
@@ -2107,11 +2037,6 @@
                 {
                     "name": "tesco-bank",
                     "displayName": "Tesco Bank",
-                    "oneSize": true
-                },
-                {
-                    "name": "triodos",
-                    "displayName": "Triodos",
                     "oneSize": true
                 },
                 {
@@ -2187,11 +2112,6 @@
                 {
                     "name": "web-money",
                     "displayName": "Web Money",
-                    "oneSize": true
-                },
-                {
-                    "name": "wise",
-                    "displayName": "Wise",
                     "oneSize": true
                 },
                 {
