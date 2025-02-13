@@ -55,7 +55,7 @@ const buildIconCard = (icon) => {
  */
 const categorisedIconList = () => headingAnchor(`<div>
         <ul class="c-categorisedIconList">
-            ${iconData.categories.map((cat) => `
+            ${iconData.categories.filter(({ name }) => name !== 'payment').map((cat) => `
                 <li>
                     <h3 class="c-categorisedIconList-heading" id="category-${cat.name}">
                         ${cat.displayName}
