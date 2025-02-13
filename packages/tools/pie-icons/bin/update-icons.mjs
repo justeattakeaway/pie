@@ -212,11 +212,11 @@ async function updateIcons () {
         }
 
         // commit changes
-        execSync(`git add ${changesetFilePath} ${iconsDataFilePath} && git commit -m "feat(pie-icons): DSW-000 update icons"`);
+        execSync(`git add ${changesetFilePath} ${iconsDataFilePath} && git commit --no-verify -m "feat(pie-icons): DSW-000 update icons"`);
 
         // push if is running on GHA
         if (process.env.GITHUB_ACTIONS) {
-            execSync(`git push --set-upstream origin ${branchName}`);
+            execSync(`git push --set-upstream origin ${branchName} --no-verify`);
             execSync(`echo "BRANCH_NAME=${branchName}" >> $GITHUB_ENV`);
             execSync(`echo "CHANGESET_FILE_PATH=${changesetFilePath}" >> $GITHUB_ENV`);
         }
