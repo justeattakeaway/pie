@@ -9,11 +9,21 @@ export function getConfig () {
     return {
         assetsPath,
         folderMapping: [
-            { from: '/All', to: `${assetsPath}` },
-            { from: '/Flag', to: `${assetsPath}/flag` },
-            { from: '/Logo', to: `${assetsPath}/logo` },
-            { from: '/Payment/Default', to: `${assetsPath}/payment` },
-            { from: '/Social', to: `${assetsPath}/social` },
+            { from: '/Payment/Default', to: `${assetsPath}/payment`, category: 'Payment' },
+            { from: '/Flag', to: `${assetsPath}/flag`, category: 'Flags' },
+            { from: '/Logo', to: `${assetsPath}/logo`, category: 'Logo' },
+            { from: '/Social', to: `${assetsPath}/social`, category: 'Social' },
+            { from: '/All', to: `${assetsPath}`, category: 'All' },
+        ],
+        categoryNamesMap: {
+            // from `pie-iconography/All` to `pie-icons`
+            'Age Limit': 'Age limit',
+            AV: 'Audiovisual (AV)',
+            Misc: 'Miscellaneous',
+        },
+        singleSizeCategories: [
+            'flags',
+            'payment',
         ],
         packages: [
             '@justeattakeaway/pie-icons',
