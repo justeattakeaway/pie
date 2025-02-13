@@ -80,8 +80,8 @@
     "@justeattakeaway/stylelint-config-pie": "0.8.0",
     "@percy/cli": "1.30.6",
     "@percy/playwright": "1.0.7",
-    "@playwright/experimental-ct-react": "1.49.1",
-    "@playwright/test": "1.49.1",
+    "@playwright/experimental-ct-react": "1.50.1",
+    "@playwright/test": "1.50.1",
     "@rollup/plugin-node-resolve": "15.1.0",
     "@types/node": "20.4.8",
     "@types/react": "18.3.11",
@@ -137,7 +137,6 @@
   },
   "resolutions": {
     "lit": "3.2.0",
-    "tar": "6.2.1",
-    "@playwright/experimental-ct-core": "1.49.1"
+    "tar": "6.2.1"
   }
 }
