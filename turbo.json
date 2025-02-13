@@ -108,32 +108,16 @@
     },
     "test:browsers": {
       "cache": true,
-      "dependsOn": [
-        "^build",
-        "test:browsers-setup"
-      ],
       "outputs": []
     },
     "test:browsers:ci": {
-      "cache": true,
-      "dependsOn": [
-        "^build",
-        "test:browsers-setup"
-      ]
+      "cache": true
     },
     "test:visual": {
-      "cache": false,
-      "dependsOn": [
-        "^build",
-        "test:browsers-setup"
-      ]
+      "cache": false
     },
     "test:visual:ci": {
-      "cache": false,
-      "dependsOn": [
-        "^build",
-        "test:browsers-setup"
-      ]
+      "cache": false
     },
     "lint:scripts": {
       "cache": true,

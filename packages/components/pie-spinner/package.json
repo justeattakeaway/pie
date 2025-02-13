@@ -24,7 +24,6 @@
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
     "watch": "run -T vite build --watch",
-    "test:browsers-setup": "npx playwright-lit-setup",
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
     "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_SPINNER} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
