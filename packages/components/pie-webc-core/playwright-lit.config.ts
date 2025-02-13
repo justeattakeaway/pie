@@ -1,8 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
-import { getPlaywrightConfig as getPlaywrightConfigOG } from '@justeattakeaway/pie-components-config';
+import { getPlaywrightNativeConfig as getPlaywrightConfigOG } from '@justeattakeaway/pie-components-config';
 import type { PlaywrightTestConfig } from '@playwright/test';
 
-const getPlaywrightConfig = () : PlaywrightTestConfig => ({
+const getPlaywrightNativeConfig = () : PlaywrightTestConfig => ({
     ...getPlaywrightConfigOG(),
     projects: [
         {
@@ -15,4 +15,4 @@ const getPlaywrightConfig = () : PlaywrightTestConfig => ({
     ],
 });
 
-export default defineConfig(getPlaywrightConfig());
+export default defineConfig(getPlaywrightNativeConfig());
