@@ -10,7 +10,7 @@ import slugify from 'slugify';
 import { getConfig } from './config.mjs';
 import { syncIcons } from './sync-icons.mjs';
 import { verifyIcons } from './verify-icons.mjs';
-import { createChangeset } from './create-changeset.mjs';
+import { createChangeset, createPieDocsChangeset } from './create-changeset.mjs';
 import { findMonorepoRoot } from './helpers.mjs';
 
 const config = getConfig();
@@ -204,11 +204,11 @@ async function updateIcons () {
         const iconsDataFilePath = path.join(findMonorepoRoot(), 'packages/tools/pie-icons/src/iconData.json');
         updateIconData(iconsDataFilePath, changedFilesGroups.added, allFilesPathsAndCategories);
 
-        console.info('update pie-docs snapshots');
+        console.info('updating pie-docs snapshots');
         execSync(`cd ${pieDocsPath} && yarn test:update`);
 
-        // create changeset file
-        console.info('create icons changeset');
+        console.info('creating changesets');
+        const pieDocsChangesetFilePath = await createPieDocsChangeset(pieDocsTestsPath);
         const changesetFilePath = await createChangeset(changedFilesGroups);
 
         // check if is running on GHA and setup the git user
@@ -218,7 +218,8 @@ async function updateIcons () {
             execSync('git config --global user.email "username@users.noreply.github.com"');
         }
 
-        const gitUpdatedPaths = [changesetFilePath, iconsDataFilePath, pieDocsTestsPath].join(' ');
+        const gitUpdatedPaths = [changesetFilePath, iconsDataFilePath, pieDocsTestsPath, pieDocsChangesetFilePath]
+            .filter(Boolean).join(' ');
 
         // commit changes
         execSync(`git add ${gitUpdatedPaths} && git commit --no-verify -m "feat(pie-icons): DSW-000 update icons"`);

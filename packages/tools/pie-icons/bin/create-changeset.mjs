@@ -1,8 +1,9 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-extraneous-dependencies */
-import path from 'path';
+import { execSync } from 'child_process';
 import { readJSONSync } from 'fs-extra/esm';
+import path from 'path';
 import writeChangeset from '@changesets/write';
 import { getIconCategory, findMonorepoRoot } from './helpers.mjs';
 import { getConfig } from './config.mjs';
@@ -46,8 +47,9 @@ function renderChangelogText (groupedChanges) {
     Object.keys(groupedChanges)
         .sort()
         .forEach((changeType) => {
+            const changeTypeTitleCase = changeType.charAt(0).toUpperCase() + changeType.substring(1).toLowerCase();
             changelogLines.push('');
-            changelogLines.push(`[${changeType}] - Icons`);
+            changelogLines.push(`[${changeTypeTitleCase}] - Icons`);
 
             const fileNames = groupedChanges[changeType];
             const categoriesAndIcons = groupIconsByCategories(fileNames);
@@ -106,4 +108,17 @@ export async function createChangeset (changedFilesGroups) {
 
     const changesetFilePath = await createChangeSetFile(changelogText, versionBumpType, packages, monorepoRootPath);
     return changesetFilePath;
+}
+
+export async function createPieDocsChangeset (pieDocsPath) {
+    const changes = execSync(`git status --short ${pieDocsPath}`).toString().trim();
+
+    if (!changes) return null;
+
+    const changelogText = '[Changed] - updated snapshots after icons update';
+    const versionBumpType = 'patch';
+    const packages = ['pie-docs'];
+    const monorepoRootPath = findMonorepoRoot();
+
+    return createChangeSetFile(changelogText, versionBumpType, packages, monorepoRootPath);
 }
