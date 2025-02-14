@@ -1,5 +1,14 @@
 # Changelog
 
+## 4.25.1
+
+### Patch Changes
+
+- [Changed] - Use icons data from pie-icons package ([#2209](https://github.com/justeattakeaway/pie/pull/2209)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`9578bf9`](https://github.com/justeattakeaway/pie/commit/9578bf9b0d1b61a28bbffd2471d2ba9f658bb602)]:
+  - @justeattakeaway/pie-icons@5.5.0
+
 ## 4.25.0
 
 ### Minor Changes

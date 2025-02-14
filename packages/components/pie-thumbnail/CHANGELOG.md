@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-thumbnail
 
+## 0.6.1
+
+### Patch Changes
+
+- [Changed] - ensure default placeholder isn't cut ([#2213](https://github.com/justeattakeaway/pie/pull/2213)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.6.0
 
 ### Minor Changes

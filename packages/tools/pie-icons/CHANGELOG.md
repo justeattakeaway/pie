@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.5.0
+
+### Minor Changes
+
+- [Changed] - Implement automation for maintaining icons data updated when icons and or categories are added ([#2209](https://github.com/justeattakeaway/pie/pull/2209)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 5.4.0
 
 ### Minor Changes
