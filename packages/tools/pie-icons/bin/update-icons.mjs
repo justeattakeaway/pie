@@ -168,7 +168,6 @@ function updateIconData (iconsDataFilePath, addedFiles, allFilesPathsAndCategori
  * - set environment variables so the GitHub workflow can resume its job based on what this script yields
  */
 async function updateIcons () {
-    console.log('process.cwd', process.cwd());
     const pieDocsPath = '../../../apps/pie-docs';
     const pieDocsTestsPath = `${pieDocsPath}/src/__tests__`;
 
