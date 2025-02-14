@@ -471,8 +471,8 @@
                     "displayName": "Radio Selected"
                 },
                 {
-                  "name": "radio-unselected",
-                  "displayName": "Radio"
+                    "name": "radio-unselected",
+                    "displayName": "Radio"
                 }
             ]
         },
@@ -569,6 +569,10 @@
                 {
                     "name": "swiss-franc",
                     "displayName": "Swiss Franc"
+                },
+                {
+                    "name": "zloty",
+                    "displayName": "Zloty"
                 }
             ]
         },
@@ -576,6 +580,10 @@
             "name": "dietary",
             "displayName": "Dietary",
             "icons": [
+                {
+                    "name": "caffeine",
+                    "displayName": "Caffeine"
+                },
                 {
                     "name": "celery",
                     "displayName": "Celery"
@@ -755,6 +763,11 @@
                 {
                     "name": "canada",
                     "displayName": "Canada",
+                    "oneSize": true
+                },
+                {
+                    "name": "catalonia",
+                    "displayName": "Catalonia",
                     "oneSize": true
                 },
                 {
@@ -1623,6 +1636,117 @@
             ]
         },
         {
+            "name": "payment",
+            "displayName": "Payment",
+            "icons": [
+                {
+                    "name": "allied-irish-bank",
+                    "displayName": "Allied Irish Bank",
+                    "oneSize": true
+                },
+                {
+                    "name": "asn",
+                    "displayName": "Asn",
+                    "oneSize": true
+                },
+                {
+                    "name": "blik",
+                    "displayName": "Blik",
+                    "oneSize": true
+                },
+                {
+                    "name": "bunq",
+                    "displayName": "Bunq",
+                    "oneSize": true
+                },
+                {
+                    "name": "cashplus",
+                    "displayName": "Cashplus",
+                    "oneSize": true
+                },
+                {
+                    "name": "chase",
+                    "displayName": "Chase",
+                    "oneSize": true
+                },
+                {
+                    "name": "clydesdale-bank",
+                    "displayName": "Clydesdale Bank",
+                    "oneSize": true
+                },
+                {
+                    "name": "dankort",
+                    "displayName": "Dankort",
+                    "oneSize": true
+                },
+                {
+                    "name": "handelsbanken",
+                    "displayName": "Handelsbanken",
+                    "oneSize": true
+                },
+                {
+                    "name": "knab",
+                    "displayName": "Knab",
+                    "oneSize": true
+                },
+                {
+                    "name": "mettle",
+                    "displayName": "Mettle",
+                    "oneSize": true
+                },
+                {
+                    "name": "n26",
+                    "displayName": "N26",
+                    "oneSize": true
+                },
+                {
+                    "name": "nationale-nederlanden",
+                    "displayName": "Nationale Nederlanden",
+                    "oneSize": true
+                },
+                {
+                    "name": "rabobank",
+                    "displayName": "Rabobank",
+                    "oneSize": true
+                },
+                {
+                    "name": "regiobank",
+                    "displayName": "Regiobank",
+                    "oneSize": true
+                },
+                {
+                    "name": "sns",
+                    "displayName": "Sns",
+                    "oneSize": true
+                },
+                {
+                    "name": "triodos",
+                    "displayName": "Triodos",
+                    "oneSize": true
+                },
+                {
+                    "name": "van-lanschot",
+                    "displayName": "Van Lanschot",
+                    "oneSize": true
+                },
+                {
+                    "name": "virgin-money",
+                    "displayName": "Virgin Money",
+                    "oneSize": true
+                },
+                {
+                    "name": "wise",
+                    "displayName": "Wise",
+                    "oneSize": true
+                },
+                {
+                    "name": "yoursafe",
+                    "displayName": "Yoursafe",
+                    "oneSize": true
+                }
+            ]
+        },
+        {
             "name": "people",
             "displayName": "People",
             "icons": [
@@ -1847,12 +1971,12 @@
                     "displayName": "Restaurant"
                 },
                 {
-                    "name": "restaurant-filled",
-                    "displayName": "Restaurant Filled"
-                },
-                {
                     "name": "restaurant-cancelled",
                     "displayName": "Restaurant Cancelled"
+                },
+                {
+                    "name": "restaurant-filled",
+                    "displayName": "Restaurant Filled"
                 },
                 {
                     "name": "restaurant-menu",
@@ -1865,6 +1989,10 @@
                 {
                     "name": "sign-closed",
                     "displayName": "Sign Closed"
+                },
+                {
+                    "name": "sign-open",
+                    "displayName": "Sign Open"
                 }
             ]
         },
@@ -1887,36 +2015,9 @@
             ]
         },
         {
-            "name": "stampcard",
-            "displayName": "StampCard",
-            "icons": [
-                {
-                    "name": "percentage",
-                    "displayName": "Percentage"
-                },
-                {
-                    "name": "stampcard",
-                    "displayName": "StampCard"
-                },
-                {
-                    "name": "stampcard-filled",
-                    "displayName": "StampCard Filled"
-                },
-                {
-                    "name": "stampcard-10",
-                    "displayName": "StampCard 10"
-                },
-                {
-                    "name": "stampcard-10-filled",
-                    "displayName": "StampCard 10 Filled"
-                }
-            ]
-        },
-        {
             "name": "social",
             "displayName": "Social",
             "icons": [
-
                 {
                     "name": "android-circle",
                     "displayName": "Android Circle"
@@ -2026,6 +2127,18 @@
                     "displayName": "Pinterest Static"
                 },
                 {
+                    "name": "tiktok-circle",
+                    "displayName": "Tiktok Circle"
+                },
+                {
+                    "name": "tiktok-circle-filled",
+                    "displayName": "Tiktok Circle Filled"
+                },
+                {
+                    "name": "tiktok-static",
+                    "displayName": "Tiktok Static"
+                },
+                {
                     "name": "twitter-circle",
                     "displayName": "Twitter Circle"
                 },
@@ -2052,6 +2165,32 @@
             ]
         },
         {
+            "name": "stampcard",
+            "displayName": "StampCard",
+            "icons": [
+                {
+                    "name": "percentage",
+                    "displayName": "Percentage"
+                },
+                {
+                    "name": "stampcard",
+                    "displayName": "StampCard"
+                },
+                {
+                    "name": "stampcard-filled",
+                    "displayName": "StampCard Filled"
+                },
+                {
+                    "name": "stampcard-10",
+                    "displayName": "StampCard 10"
+                },
+                {
+                    "name": "stampcard-10-filled",
+                    "displayName": "StampCard 10 Filled"
+                }
+            ]
+        },
+        {
             "name": "technology",
             "displayName": "Technology",
             "icons": [
@@ -2070,6 +2209,10 @@
                 {
                     "name": "bug",
                     "displayName": "Bug"
+                },
+                {
+                    "name": "face-id",
+                    "displayName": "Face Id"
                 },
                 {
                     "name": "fingerprint",
@@ -2092,12 +2235,12 @@
                     "displayName": "Laptop Filled"
                 },
                 {
-                    "name": "laptop-success",
-                    "displayName": "Laptop Success"
-                },
-                {
                     "name": "laptop-highlight",
                     "displayName": "Laptop Highlight"
+                },
+                {
+                    "name": "laptop-success",
+                    "displayName": "Laptop Success"
                 },
                 {
                     "name": "phone",
