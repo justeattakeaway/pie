@@ -1,0 +1,65 @@
+// ----------------------------------------------
+// Mixin to define hover, active and loading styles for interactive elements.
+// ---
+// $bg-color: design token name to be used for the states
+// $mode: 'default': apply the default lighten/darken to the color via hsl
+//        'alt': applies a larger percentage change to the color (darken)
+//        'inverse': inverts the modifier, so that it lightens the color rather than darken it
+//        'transparent': uses hsla syntax to make the color semi-opaque with base as black
+//        'transparent-inverse': uses hsla syntax to make the color semi-opaque with base as white
+// $level: the level of hover/active to be used. Follows hover/active token names (01, 02, 01-dark, 02-light)
+// ----------------------------------------------
+@mixin interactive-states($bg-color, $mode: default, $level: '01') {
+    // Deprecate when we drop support for safari <16.2
+    &:hover:not(:disabled) {
+        @if $mode == 'alt' {
+            --hover-modifier: calc(-1 * var(--dt-color-hover-02));
+        } @else if $mode == 'inverse' {
+            --hover-modifier: var(--dt-color-hover-02);
+        } @else {
+            --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+        }
+
+        // for mode=transparent, use the hsla syntax to make the button background opaque by a set percentage
+        @if $mode == 'transparent' {
+            --hover-modifier: var(--dt-color-hover-01);
+            --btn-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--hover-modifier));
+        } @if $mode == 'transparent-inverse' {
+            --hover-modifier: var(--dt-color-hover-02);
+            --btn-bg-color: hsl(var(--dt-color-white-h), var(--dt-color-white-s), var(--dt-color-white-l), var(--active-modifier));
+        } @else {
+            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
+        }
+    }
+
+    &:active:not(:disabled),
+    &.is-loading:not(:disabled) {
+        @if $mode == 'alt' {
+            --active-modifier: calc(-1 * var(--dt-color-active-02));
+        } @else if $mode == 'inverse' {
+            --active-modifier: var(--dt-color-active-02);
+        } @else {
+            --active-modifier: calc(-1 * var(--dt-color-active-01));
+        }
+
+        @if $mode == 'transparent' {
+            --active-modifier: var(--dt-color-active-01);
+            --btn-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--active-modifier));
+        } @if $mode == 'transparent-inverse' {
+            --active-modifier: var(--dt-color-active-02);
+            --btn-bg-color: hsl(var(--dt-color-white-h), var(--dt-color-white-s), var(--dt-color-white-l), var(--active-modifier));
+        } @else {
+            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
+        }
+    }
+
+    @supports (background-color: color-mix(in srgb, black, white)) {
+        &:hover:not(:disabled) {
+           --btn-bg-color: color-mix(in srgb, var(--dt-color-hover-#{$level}-bg) var(--dt-color-hover-#{$level}),  var(#{$bg-color}));
+        }
+        &:active:not(:disabled),
+        &.is-loading:not(:disabled) {
+            --btn-bg-color: color-mix(in srgb, var(--dt-color-active-#{$level}-bg) var(--dt-color-active-#{$level}), var(#{$bg-color}));
+        }
+    }
+}

@@ -36,6 +36,9 @@
     --btn-padding-horizontal-medium: var(--dt-spacing-d);
     --btn-padding-horizontal-large: var(--dt-spacing-e);
 
+    // this token is needed for interactive-states mixin
+    --btn-bg-transparent: transparent;
+
     /**
     * Mixin for updating the button styles based on the size passed in.
     * Takes in the name of the size to be used.
@@ -122,7 +125,7 @@
     // Button Variant Modifiers
     // ************************
     &.o-btn--primary {
-        @include p.button-interactive-states('--dt-color-interactive-brand');
+        @include p.interactive-states('--dt-color-interactive-brand');
 
         &.o-btn--xsmall,
         &.o-btn--small-productive {
@@ -133,7 +136,7 @@
             --btn-bg-color: var(--dt-color-interactive-primary);
             --btn-text-color: var(--dt-color-content-interactive-primary);
 
-            @include p.button-interactive-states('--dt-color-interactive-primary', 'inverse');
+            @include p.interactive-states('--dt-color-interactive-primary', 'inverse', '02');
         }
 
         // This is to handle the background colour change getting overridden above, but then being put in responsive mode
@@ -143,7 +146,7 @@
             @include responsive-wide {
                 --btn-bg-color: var(--dt-color-interactive-brand);
 
-                @include p.button-interactive-states('--dt-color-interactive-brand');
+                @include p.interactive-states('--dt-color-interactive-brand');
             }
         }
     }
@@ -152,7 +155,7 @@
         --btn-bg-color: var(--dt-color-interactive-secondary);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
 
-        @include p.button-interactive-states('--dt-color-interactive-secondary');
+        @include p.interactive-states('--dt-color-interactive-secondary');
     }
 
     &.o-btn--outline {
@@ -161,25 +164,21 @@
 
         border: 1px solid var(--dt-color-border-strong);
 
-        // use black as the background color for hover and inverse,
-        // as this variant uses a shade of transparent black showing through the container background
-        @include p.button-interactive-states('--dt-color-black', 'transparent');
+        @include p.interactive-states('--btn-bg-transparent', 'transparent', '01');
     }
 
     &.o-btn--ghost {
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-link);
 
-        // use black as the background color for hover and inverse,
-        // as this variant uses a shade of transparent black showing through the container background
-        @include p.button-interactive-states('--dt-color-black', 'transparent');
+        @include p.interactive-states('--btn-bg-transparent', 'transparent', '01');
     }
 
     &.o-btn--inverse {
         --btn-bg-color: var(--dt-color-interactive-inverse);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
 
-        @include p.button-interactive-states('--dt-color-interactive-inverse');
+        @include p.interactive-states('--dt-color-interactive-inverse');
     }
 
     &.o-btn--ghost-inverse,
@@ -187,9 +186,7 @@
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-primary);
 
-        // use white as the background color for hover and inverse,
-        // as these variants use a shade of transparent white showing through the container background
-        @include p.button-interactive-states('--dt-color-container-default', 'transparent');
+        @include p.interactive-states('--btn-bg-transparent', 'transparent-inverse', '02');
     }
 
     &.o-btn--outline-inverse {
@@ -199,16 +196,14 @@
     &.o-btn--destructive {
         --btn-bg-color: var(--dt-color-support-error);
 
-        @include p.button-interactive-states('--dt-color-support-error');
+        @include p.interactive-states('--dt-color-support-error');
     }
 
     &.o-btn--destructive-ghost {
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-error);
 
-        // use black as the background color for hover and inverse,
-        // as this variant uses a shade of transparent black showing through the container background
-        @include p.button-interactive-states('--dt-color-black', 'transparent');
+        @include p.interactive-states('--btn-bg-transparent', 'transparent', '01');
     }
 
     // *********************
