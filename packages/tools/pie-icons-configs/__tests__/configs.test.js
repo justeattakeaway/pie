@@ -173,15 +173,25 @@ describe('getSvgProps', () => {
     });
 
     describe('when size is not provided', () => {
+        let spy;
+
+        beforeEach(() => {
+            spy = vi.spyOn(console, 'error').mockImplementation(vi.fn());
+        });
+
+        afterEach(() => {
+            spy.mockRestore();
+        });
+
         it('returns an object with default icon width and height properties', () => {
             const received = getSvgProps('icon-test', null, null, regularIconSizeName);
 
             expect(received.width).toEqual(defaultRegularIconSize);
             expect(received.height).toEqual(defaultRegularIconSize);
         });
-        it('does not output a console error', () => {
-            const spy = vi.spyOn(console, 'error').mockImplementation(vi.fn());
 
+        it('does not output a console error', () => {
+            getSvgProps('icon-test', null, null, regularIconSizeName);
             expect(spy).not.toHaveBeenCalled();
         });
     });
@@ -230,15 +240,25 @@ describe('getSvgProps', () => {
         });
 
         describe('when size is not provided', () => {
+            let spy;
+
+            beforeEach(() => {
+                spy = vi.spyOn(console, 'error').mockImplementation(vi.fn());
+            });
+
+            afterEach(() => {
+                spy.mockRestore();
+            });
+
             it('returns an object with default icon width and height properties', () => {
                 const received = getSvgProps('test-large', null, null, largeIconSizeName);
 
                 expect(received.width).toEqual(largeIconSizeDefault);
                 expect(received.height).toEqual(largeIconSizeDefault);
             });
-            it('does not output a console error', () => {
-                const spy = vi.spyOn(console, 'error').mockImplementation(vi.fn());
 
+            it('does not output a console error', () => {
+                getSvgProps('test-large', null, null, largeIconSizeName);
                 expect(spy).not.toHaveBeenCalled();
             });
         });
