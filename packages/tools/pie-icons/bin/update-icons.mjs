@@ -168,8 +168,7 @@ function updateIconData (iconsDataFilePath, addedFiles, allFilesPathsAndCategori
  * - set environment variables so the GitHub workflow can resume its job based on what this script yields
  */
 async function updateIcons () {
-    const pieDocsPath = '../../../apps/pie-docs';
-    const pieDocsTestsPath = `${pieDocsPath}/src/__tests__`;
+    const pieDocsTestsPath = '../../../apps/pie-docs/src/__tests__';
 
     // empty ".issues" folder to avoid leftovers from the previous run
     emptyDirSync(path.join(process.cwd(), '/.issues'));
@@ -204,7 +203,7 @@ async function updateIcons () {
         updateIconData(iconsDataFilePath, changedFilesGroups.added, allFilesPathsAndCategories);
 
         console.info('updating pie-docs snapshots');
-        execSync(`cd ${pieDocsPath} && yarn test:update`);
+        execSync('cd ../../../ && yarn test --filter=pie-docs -- -u');
 
         console.info('creating changesets');
         const pieDocsChangesetFilePath = await createPieDocsChangeset(pieDocsTestsPath);
