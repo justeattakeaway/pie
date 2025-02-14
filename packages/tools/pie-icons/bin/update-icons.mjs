@@ -7,11 +7,13 @@ import {
 } from 'fs-extra/esm';
 import slugify from 'slugify';
 
+import { title } from 'process';
 import { getConfig } from './config.mjs';
 import { syncIcons } from './sync-icons.mjs';
 import { verifyIcons } from './verify-icons.mjs';
 import { createChangeset } from './create-changeset.mjs';
 import { findMonorepoRoot } from './helpers.mjs';
+import { openPr } from './open-pr.mjs';
 
 const config = getConfig();
 
@@ -158,6 +160,23 @@ function updateIconData (iconsDataFilePath, addedFiles, allFilesPathsAndCategori
     writeJsonSync(iconsDataFilePath, iconsData, { spaces: 4 });
 }
 
+function getPrBody (changes) {
+    return `## Changes
+
+This PR updates icons.
+
+${changes}
+
+## Reviewer checklists (complete before approving)
+### Reviewer 1 -
+- [ ] I have reviewed the \`PIE Docs\` PR preview
+- [ ] If there are visual test updates, I have reviewed them
+
+### Reviewer 2 -
+- [ ] I have reviewed the \`PIE Docs\` PR preview
+- [ ] If there are visual test updates, I have reviewed them`;
+}
+
 /**
  * Script for synchronizing icons from pie-iconography.
  * As long as there are icon files differences between this repo and pie-iconography, it will:
@@ -202,24 +221,16 @@ async function updateIcons () {
 
         // create changeset file
         console.info('create icons changeset');
-        const changesetFilePath = await createChangeset(changedFilesGroups);
+        const { changesetFilePath, changelogText } = await createChangeset(changedFilesGroups);
 
-        // check if is running on GHA and setup the git user
-        if (process.env.GITHUB_ACTIONS) {
-            // configure git and push
-            execSync('git config --global user.name "pie-design-system-bot"');
-            execSync('git config --global user.email "username@users.noreply.github.com"');
-        }
-
-        // commit changes
+        // commit and push changes
         execSync(`git add ${changesetFilePath} ${iconsDataFilePath} && git commit --no-verify -m "feat(pie-icons): DSW-000 update icons"`);
+        execSync(`git push --set-upstream origin ${branchName} --no-verify`);
 
-        // push if is running on GHA
-        if (process.env.GITHUB_ACTIONS) {
-            execSync(`git push --set-upstream origin ${branchName} --no-verify`);
-            execSync(`echo "BRANCH_NAME=${branchName}" >> $GITHUB_ENV`);
-            execSync(`echo "CHANGESET_FILE_PATH=${changesetFilePath}" >> $GITHUB_ENV`);
-        }
+        // open pr
+        const title = 'feat(pie-icons): DSW-000 Update icons from pie-iconography';
+        const body = getPrBody(changelogText);
+        openPr(branchName, title, body);
     }
 
     // clean-up
