@@ -10,7 +10,7 @@ import slugify from 'slugify';
 import { getConfig } from './config.mjs';
 import { syncIcons } from './sync-icons.mjs';
 import { verifyIcons } from './verify-icons.mjs';
-import { createChangeset, createPieDocsChangeset } from './create-changeset.mjs';
+import { createIconsChangeset, createPieDocsChangeset } from './create-changeset.mjs';
 import { findMonorepoRoot } from './helpers.mjs';
 
 const config = getConfig();
@@ -209,7 +209,7 @@ async function updateIcons () {
 
         console.info('creating changesets');
         const pieDocsChangesetFilePath = await createPieDocsChangeset(pieDocsTestsPath);
-        const changesetFilePath = await createChangeset(changedFilesGroups);
+        const changesetFilePath = await createIconsChangeset(changedFilesGroups);
 
         // check if is running on GHA and setup the git user
         if (process.env.GITHUB_ACTIONS) {

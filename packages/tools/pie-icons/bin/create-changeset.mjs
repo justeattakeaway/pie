@@ -94,7 +94,7 @@ async function createChangeSetFile (changelogText, versionBumpType, packagesArr,
  * @param {Object} - changedFilesGroups
  * @returns File path for the generated changeset file
  */
-export async function createChangeset (changedFilesGroups) {
+export async function createIconsChangeset (changedFilesGroups) {
     // define modification type
     const hasRenamedOrMovedFiles = changedFilesGroups.renamed || changedFilesGroups.removed;
     const versionBumpType = hasRenamedOrMovedFiles ? 'major' : 'minor';
@@ -110,6 +110,11 @@ export async function createChangeset (changedFilesGroups) {
     return changesetFilePath;
 }
 
+/**
+ * Creates a changeset file for pie-docs snapshot tests
+ * @param {String} - pieDocsPath
+ * @returns File path for the generated changeset file
+ */
 export async function createPieDocsChangeset (pieDocsPath) {
     const changes = execSync(`git status --short ${pieDocsPath}`).toString().trim();
 
