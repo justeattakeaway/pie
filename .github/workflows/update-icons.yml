@@ -4,6 +4,7 @@ on:
 
 env:
   HUSKY: 0
+  GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
 
 jobs:
   update-icons:
