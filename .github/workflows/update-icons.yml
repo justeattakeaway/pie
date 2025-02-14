@@ -36,6 +36,7 @@ jobs:
           BRANCH_NAME: ${{ env.BRANCH_NAME }} # this is set by the previous step
           CHANGESET_FILE_PATH: ${{ env.CHANGESET_FILE_PATH }} # this is set by the previous step
         with:
+          github-token: ${{ secrets.CHANGESETS_TOKEN }}
           script: |
             const script = require('./packages/tools/pie-monorepo-utils/create-icons-update-pr/create-icons-update-pr.js');
             const { BRANCH_NAME, CHANGESET_FILE_PATH } = process.env
