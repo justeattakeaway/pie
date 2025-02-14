@@ -105,5 +105,5 @@ export async function createChangeset (changedFilesGroups) {
     const monorepoRootPath = findMonorepoRoot();
 
     const changesetFilePath = await createChangeSetFile(changelogText, versionBumpType, packages, monorepoRootPath);
-    return changesetFilePath;
+    return { changesetFilePath, changelogText };
 }
