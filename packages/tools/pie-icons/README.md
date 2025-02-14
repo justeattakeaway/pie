@@ -255,6 +255,14 @@ All attributes on the placeholder element (i.e. `<i>`) will be copied to the `<s
 
 ---
 
+## Maintenance
+
+To sync the icons with the latest changes from the `pie-iconography` repository and create a PR with the changes, run the following command in this package folder:
+
+```
+yarn update-icons
+```
+
 ## Credits
 
 The `@justeattakeaway/pie-icons` project owes a great deal to the [Feather SVG Icon Library](https://github.com/feathericons/feather).  This project started as a fork of that project for developers at Just Eat Takeaway.com to build out icons, while giving us a great platform for the initial build and API that Feather had already built.
