@@ -10,7 +10,7 @@ import slugify from 'slugify';
 import { getConfig } from './config.mjs';
 import { syncIcons } from './sync-icons.mjs';
 import { verifyIcons } from './verify-icons.mjs';
-import { createChangeset } from './create-changeset.mjs';
+import { createIconsChangeset, createPieDocsChangeset } from './create-changeset.mjs';
 import { findMonorepoRoot } from './helpers.mjs';
 
 const config = getConfig();
@@ -168,6 +168,8 @@ function updateIconData (iconsDataFilePath, addedFiles, allFilesPathsAndCategori
  * - set environment variables so the GitHub workflow can resume its job based on what this script yields
  */
 async function updateIcons () {
+    const pieDocsTestsPath = '../../../apps/pie-docs/src/__tests__';
+
     // empty ".issues" folder to avoid leftovers from the previous run
     emptyDirSync(path.join(process.cwd(), '/.issues'));
 
@@ -200,9 +202,12 @@ async function updateIcons () {
         const iconsDataFilePath = path.join(findMonorepoRoot(), 'packages/tools/pie-icons/src/iconData.json');
         updateIconData(iconsDataFilePath, changedFilesGroups.added, allFilesPathsAndCategories);
 
-        // create changeset file
-        console.info('create icons changeset');
-        const changesetFilePath = await createChangeset(changedFilesGroups);
+        console.info('updating pie-docs snapshots');
+        execSync('cd ../../../ && yarn test --filter=pie-docs -- -u');
+
+        console.info('creating changesets');
+        const pieDocsChangesetFilePath = await createPieDocsChangeset(pieDocsTestsPath);
+        const changesetFilePath = await createIconsChangeset(changedFilesGroups);
 
         // check if is running on GHA and setup the git user
         if (process.env.GITHUB_ACTIONS) {
@@ -211,8 +216,11 @@ async function updateIcons () {
             execSync('git config --global user.email "username@users.noreply.github.com"');
         }
 
+        const gitUpdatedPaths = [changesetFilePath, iconsDataFilePath, pieDocsTestsPath, pieDocsChangesetFilePath]
+            .filter(Boolean).join(' ');
+
         // commit changes
-        execSync(`git add ${changesetFilePath} ${iconsDataFilePath} && git commit --no-verify -m "feat(pie-icons): DSW-000 update icons"`);
+        execSync(`git add ${gitUpdatedPaths} && git commit --no-verify -m "feat(pie-icons): DSW-000 update icons"`);
 
         // push if is running on GHA
         if (process.env.GITHUB_ACTIONS) {
