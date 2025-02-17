@@ -1,65 +1,65 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`indexPageDisplay.js > should not render items if the page is a draft 1`] = `
-"<div class=\\"c-indexPage\\">
-                <a class=\\"c-indexPage-link\\" href=\\"/second-sub-item/\\">
+"<div class="c-indexPage">
+                <a class="c-indexPage-link" href="/second-sub-item/">
                     <picture>
                         
-                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/second-sub-item.svg\\" alt=\\"\\">
+                        <img src="../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/second-sub-item.svg" alt="">
                     </picture>
                     Second Sub Item
-                    <div class=\\"c-indexPage-background\\"></div>
+                    <div class="c-indexPage-background"></div>
                 </a></div>"
 `;
 
 exports[`indexPageDisplay.js > should return the expected HTML for an index page 1`] = `
-"<div class=\\"c-indexPage\\">
-                <a class=\\"c-indexPage-link\\" href=\\"/first-sub-item/\\">
+"<div class="c-indexPage">
+                <a class="c-indexPage-link" href="/first-sub-item/">
                     <picture>
                         
-                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/first-sub-item.svg\\" alt=\\"\\">
+                        <img src="../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/first-sub-item.svg" alt="">
                     </picture>
                     First Sub Item
-                    <div class=\\"c-indexPage-background\\"></div>
+                    <div class="c-indexPage-background"></div>
                 </a>
-                <a class=\\"c-indexPage-link\\" href=\\"/second-sub-item/\\">
+                <a class="c-indexPage-link" href="/second-sub-item/">
                     <picture>
                         
-                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/second-sub-item.svg\\" alt=\\"\\">
+                        <img src="../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/second-sub-item.svg" alt="">
                     </picture>
                     Second Sub Item
-                    <div class=\\"c-indexPage-background\\"></div>
+                    <div class="c-indexPage-background"></div>
                 </a></div>"
 `;
 
 exports[`indexPageDisplay.js > should return the expected HTML for an index page with excluded items 1`] = `
-"<div class=\\"c-indexPage\\">
-                <a class=\\"c-indexPage-link\\" href=\\"/first-sub-item/\\">
+"<div class="c-indexPage">
+                <a class="c-indexPage-link" href="/first-sub-item/">
                     <picture>
                         
-                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/first-sub-item.svg\\" alt=\\"\\">
+                        <img src="../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/first-sub-item.svg" alt="">
                     </picture>
                     First Sub Item
-                    <div class=\\"c-indexPage-background\\"></div>
+                    <div class="c-indexPage-background"></div>
                 </a></div>"
 `;
 
 exports[`indexPageDisplay.js > should use child url for subpage dropdown when it does not have an index page 1`] = `
-"<div class=\\"c-indexPage\\">
-                <a class=\\"c-indexPage-link\\" href=\\"/second-sub-item/\\">
+"<div class="c-indexPage">
+                <a class="c-indexPage-link" href="/second-sub-item/">
                     <picture>
                         
-                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/second-sub-item.svg\\" alt=\\"\\">
+                        <img src="../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/second-sub-item.svg" alt="">
                     </picture>
                     Second Sub Item
-                    <div class=\\"c-indexPage-background\\"></div>
+                    <div class="c-indexPage-background"></div>
                 </a>
-                <a class=\\"c-indexPage-link\\" href=\\"subpage-dropdown-child\\">
+                <a class="c-indexPage-link" href="subpage-dropdown-child">
                     <picture>
                         
-                        <img src=\\"../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/subpage-dropdown.svg\\" alt=\\"\\">
+                        <img src="../../__tests__/_11ty/shortcodes/test-index-images/test-menu-item/subpage-dropdown.svg" alt="">
                     </picture>
                     Subpage dropdown
-                    <div class=\\"c-indexPage-background\\"></div>
+                    <div class="c-indexPage-background"></div>
                 </a></div>"
 `;
