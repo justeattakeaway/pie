@@ -133,3 +133,5 @@ pie-toast-provider:
   - packages/components/pie-toast-provider/**/*
 pie-thumbnail:
   - packages/components/pie-thumbnail/**/*
+pie-select:
+  - packages/components/pie-select/**/*
