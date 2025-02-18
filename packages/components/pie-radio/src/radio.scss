@@ -4,16 +4,28 @@
     .c-radio-input {
         &:hover:not(:checked, :disabled) {
             --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
+
+            @supports (background-color: color-mix(in srgb, black, white)) {
+                --radio-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01),  transparent);
+            }
         }
 
         &:active:not(:checked, :disabled) {
             --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
+
+            @supports (background-color: color-mix(in srgb, black, white)) {
+                --radio-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01),  transparent);
+            }
         }
 
         &:hover:checked:not(:disabled) {
             &:before {
                 --radio-bg-color--checked: hsl(var(--#{$bg-color}-h), var(--#{$bg-color}-s), calc(var(--#{$bg-color}-l) - var(--dt-color-hover-01)));
                 --radio-border-color: hsl(var(--#{$bg-color}-h), var(--#{$bg-color}-s), calc(var(--#{$bg-color}-l) - var(--dt-color-hover-01)));
+
+                @supports (background-color: color-mix(in srgb, black, white)) {
+                    --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01),  var(#{$bg-color}));
+                }
             }
         }
 
@@ -21,6 +33,10 @@
             &:before {
                 --radio-bg-color--checked: hsl(var(--#{$bg-color}-h), var(--#{$bg-color}-s), calc(var(--#{$bg-color}-l) - var(--dt-color-active-01)));
                 --radio-border-color: hsl(var(--#{$bg-color}-h), var(--#{$bg-color}-s), calc(var(--#{$bg-color}-l) - var(--dt-color-active-01)));
+
+                @supports (background-color: color-mix(in srgb, black, white)) {
+                    --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01),  var(#{$bg-color}));
+                }
             }
         }
     }
