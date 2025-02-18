@@ -24,7 +24,8 @@
         @if $mode == 'transparent' {
             --hover-modifier: var(--dt-color-hover-01);
             --bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--hover-modifier));
-        } @if $mode == 'transparent-inverse' {
+        }
+        @if $mode == 'transparent-inverse' {
             --hover-modifier: var(--dt-color-hover-02);
             --bg-color: hsl(var(--dt-color-white-h), var(--dt-color-white-s), var(--dt-color-white-l), var(--active-modifier));
         } @else {
@@ -45,7 +46,8 @@
         @if $mode == 'transparent' {
             --active-modifier: var(--dt-color-active-01);
             --bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--active-modifier));
-        } @if $mode == 'transparent-inverse' {
+        }
+        @if $mode == 'transparent-inverse' {
             --active-modifier: var(--dt-color-active-02);
             --bg-color: hsl(var(--dt-color-white-h), var(--dt-color-white-s), var(--dt-color-white-l), var(--active-modifier));
         } @else {
@@ -57,6 +59,7 @@
         &:hover:not(:disabled, .disabled, .dismissible) {
            --bg-color: color-mix(in srgb, var(--dt-color-hover-#{$level}-bg) var(--dt-color-hover-#{$level}),  var(#{$bg-color}));
         }
+
         &:active:not(:disabled, .disabled, .dismissible),
         &.is-loading:not(:disabled, .disabled) {
             --bg-color: color-mix(in srgb, var(--dt-color-active-#{$level}-bg) var(--dt-color-active-#{$level}), var(#{$bg-color}));

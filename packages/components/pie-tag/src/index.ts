@@ -87,7 +87,7 @@ export class PieTag extends LitElement implements TagProps {
             'c-tag': true,
             [`c-tag--${size}`]: true,
             [`c-tag--${variant}`]: true,
-            'c-tag--disabled': disabled,
+            disabled,
             'c-tag--strong': isStrong,
             'c-tag--interactive': isInteractive,
             [`c-tag--icon-placement--${iconPlacement}`]: isInteractive && iconPlacement,

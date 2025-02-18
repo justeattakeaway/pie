@@ -4739,17 +4739,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:6.8.1":
-  version: 6.8.1
-  resolution: "@justeat/pie-design-tokens@npm:6.8.1"
-  dependencies:
-    jsonc-parser: 3.2.0
-    lodash.merge: 4.6.2
-    mkdirp: 1.0.4
-  checksum: 6fc3bd43a994521c9ad7fe761807ddc4dcbb00854d7bac224a25a196af528b81c5b69f6cf26c02e15e733992a70bb048b8a96856a0f394800fdf59b11501e8ee
-  languageName: node
-  linkType: hard
-
 "@justeat/pie-design-tokens@npm:6.9.0":
   version: 6.9.0
   resolution: "@justeat/pie-design-tokens@npm:6.9.0"
@@ -5081,7 +5070,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeat/pie-design-tokens": 6.8.1
+    "@justeat/pie-design-tokens": 6.9.0
     "@justeattakeaway/pie-button": 1.2.0
     "@justeattakeaway/pie-components-config": 0.18.0
     "@justeattakeaway/pie-css": 0.14.1
