@@ -103,7 +103,7 @@ Adds extra space around the thumbnail, useful to center and add space around log
 
 ### Container fill
 
-The fill behind the image is set to `$container-default` by default, it can be changed as needed to any container colour token.
+The fill behind the image is set to $container-default by default, it can be changed as needed to any container colour token.
 
 {% contentPageImage {
     src:"../../../assets/img/components/thumbnail/container-fill.svg",
@@ -145,7 +145,7 @@ Thumbnails have 3 main sizes to account for corner radius readability; XSmall, S
 
 ### Aspect ratio
 
-The Thumbnail component can be easily resized along the aspect ratio constraints and always in 8px increment.
+The Thumbnail component can be easily resized along the aspect ratio constraints and always in 8px increments.
 
 #### 1:1
 
