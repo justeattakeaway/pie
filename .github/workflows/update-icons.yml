@@ -5,6 +5,7 @@ on:
 env:
   HUSKY: 0
   GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
 jobs:
   update-icons:
