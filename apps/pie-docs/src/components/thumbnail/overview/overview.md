@@ -28,7 +28,7 @@ Thumbnails are commonly used in cards, image grids, file managers, and various o
     do: {
         type: usageTypes.text,
         items: [
-          "Use to make it easier and faster to look at or manage a group of larger images.",
+          "Use to give visibility to content on other pages.",
           "Use to show logos and photography."
         ]
     },
@@ -46,17 +46,17 @@ Thumbnails are commonly used in cards, image grids, file managers, and various o
 ## Anatomy
 
 {% contentPageImage {
-    src:"../../../assets/img/components/textarea/anatomy.svg",
-    alt: "Textarea with numbers specifying four different parts of textarea anatomy.",
-    width: "416px"
+    src:"../../../assets/img/components/thumbnail/anatomy.svg",
+    alt: "Thumbnail with two numbers specifying different parts of thumbnail anatomy.",
+    width: "218px",
+    variant: "secondary"
 } %}
 
 {% list {
     type: listTypes.ordered,
     items: [
-      "**Container:** To align the image in the center and highlight white-space around the image.",
-      "**Image:** Placeholder for the image to be inserted.",
-      "**Background color:** Defaults to white, update it based on PNG needs or themes."
+      "**Container:** To align the image in the center and highlight the white-space around the image.",
+      "**Image:** The fill can be an image, placeholder icon or a fill color."
     ]
 } %}
 
@@ -103,7 +103,7 @@ Adds extra space around the thumbnail, useful to center and add space around log
 
 ### Container fill
 
-The fill behind the image is set to `$container-default` by default, it can be changed as needed to any container colour token.
+The fill behind the image is set to $container-default by default, it can be changed as needed to any container colour token.
 
 {% contentPageImage {
     src:"../../../assets/img/components/thumbnail/container-fill.svg",
@@ -118,10 +118,10 @@ The fill behind the image is set to `$container-default` by default, it can be c
 
 Thumbnails have 3 main sizes to account for corner radius readability,XSmall, Small and Medium, each of them with maximum and minimum widths and heights to signal where it’s necessary to change into the variant with a different corner radius.
 
-The following table outlines the available Thumbnail sizes
+The following table outlines the available Thumbnail sizes:
 
 {% notification {
-  type: "warning",
+  type: "information",
   message: "To calculate the border-radius of the inner container, subtract the padding (2px) from the thumbnail radius."
 } %}
 
@@ -129,9 +129,29 @@ The following table outlines the available Thumbnail sizes
   tableData: sizes
 } %}
 
+
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/thumbnail/sizes-example-do.svg",
+            width: "128px",
+            alt: "An example of a correctly used thumbnail displaying a burger meal. The image is clear, properly sized, and fits within the designated thumbnail area."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/thumbnail/sizes-example-dont.svg",
+            width: "128px",
+            alt: "An example of incorrect thumbnail usage, displaying an illustration. This is discouraged because thumbnails should contain real images, not illustrations."
+        }]
+    }
+} %}
+
 ### Aspect ratio
 
-The Thumbnail component can be easily resized along the aspect ratio constraints and always in 8px increment.
+The Thumbnail component can be easily resized along the aspect ratio constraints and always in 8px increments.
 
 #### 1:1
 
@@ -145,7 +165,7 @@ The default most common ratio is 1:1. Ideal for logos and item previews.
 
 #### 4:3
 
-4:3 ratio is also allowed but recommended in Medium size. Stick to 8px increments for the width.
+4:3 ratio is also allowed but recommended in Medium size.
 
 {% contentPageImage {
     src:"../../../assets/img/components/thumbnail/4by3-aspect-ratio-example.svg",
@@ -156,7 +176,7 @@ The default most common ratio is 1:1. Ideal for logos and item previews.
 
 #### 16:9
 
-16:9 is also ideal for in card placement and reserved for high quality on brand photos. Stick to 8px increments for the width.
+16:9 is also ideal for in card placement and reserved for high quality on brand photos.
 
 {% contentPageImage {
     src:"../../../assets/img/components/thumbnail/16by9-aspect-ratio-example.svg",
@@ -212,8 +232,7 @@ If an image is unavailable, a placeholder can be used to ensure there is always 
 {% contentPageImage {
     src:"../../../assets/img/components/thumbnail/placeholder.svg",
     alt: "A thumbnail placeholder with a centred small Just Eat Takeaway.com logo, indicating a missing or unavailable image.",
-    width: "64px",
-    variant: "secondary"
+    width: "64px"
 } %}
 
 ---
@@ -223,7 +242,6 @@ If an image is unavailable, a placeholder can be used to ensure there is always 
 {% contentLayout %}
   {% contentItem %}
     <h3>Default</h3>
-    <p>Empty container with 100% opacity that can be replaced with any other image.</p>
     {% contentPageImage {
       src: "../../../assets/img/components/thumbnail/state-default.svg",
       width: "64px",
@@ -233,7 +251,6 @@ If an image is unavailable, a placeholder can be used to ensure there is always 
   {% endcontentItem %}
   {% contentItem %}
     <h3>Disabled</h3>
-    <p>Thumbnail changes opacity from 100% to 50%</p>
     {% contentPageImage {
       src: "../../../assets/img/components/thumbnail/state-disabled.svg",
       width: "64px",

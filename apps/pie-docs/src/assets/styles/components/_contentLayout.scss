@@ -15,7 +15,7 @@
   }
 }
 
-&.c-columns--three {
+.c-columns--three {
   @include f.media('>=huge') {
     flex-flow: row wrap;
 
