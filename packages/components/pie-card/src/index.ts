@@ -195,7 +195,7 @@ export class PieCard extends LitElement implements CardProps {
             'c-card': true,
             [`c-card--${variant}`]: true,
             'c-card--draggable': isDraggable,
-            'c-card--disabled': disabled,
+            disabled,
         };
 
         if (tag === 'a') return this.renderAnchor(classes);
