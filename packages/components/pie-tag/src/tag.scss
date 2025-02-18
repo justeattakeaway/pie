@@ -1,42 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-@mixin tag-interactive-states($bg-color, $mode: 'default') {
-    &.c-tag--interactive {
-        &:hover:not(.c-tag--disabled) {
-            @if $mode == 'inverse' {
-                --hover-modifier: var(--dt-color-hover-02);
-            } @else {
-                --hover-modifier: calc(-1 * var(--dt-color-hover-01));
-            }
-
-            @if $mode == 'transparent' {
-                --hover-modifier: var(--dt-color-hover-01);
-                --tag-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--hover-modifier));
-            } @else {
-                --tag-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
-            }
-        }
-
-        &:active:not(.c-tag--disabled) {
-            @if $mode == 'inverse' {
-                --active-modifier: var(--dt-color-active-02);
-            } @else {
-                --active-modifier: calc(-1 * var(--dt-color-active-01));
-            }
-
-            @if $mode == 'transparent' {
-                --active-modifier: var(--dt-color-active-01);
-                --tag-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--active-modifier));
-            } @else {
-                --tag-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
-            }
-        }
-    }
-}
 
 // Base tag styles
 .c-tag {
-    --tag-bg-color: var(--dt-color-container-strong);
+    --bg-color: var(--dt-color-container-strong); // var without prefix to support interactive-states mixin
     --tag-color: var(--dt-color-content-default);
     --tag-border-radius: var(--dt-radius-rounded-b);
     --tag-padding-block: 2px;
@@ -62,7 +29,7 @@
     gap: var(--dt-spacing-a);
     padding: var(--tag-padding-block) var(--tag-padding-inline);
     border-radius: var(--tag-border-radius);
-    background-color: var(--tag-bg-color);
+    background-color: var(--bg-color);
     color: var(--tag-color);
     font-family: var(--tag-font-family);
     font-weight: var(--tag-font-weight);
@@ -104,97 +71,144 @@
 
     // Variant
     &.c-tag--neutral {
-        @include tag-interactive-states('--dt-color-container-strong');
+        &.c-tag--interactive {
+            @include p.interactive-states('--dt-color-container-strong');
+        }
 
         &.c-tag--strong {
-            --tag-bg-color: var(--dt-color-container-inverse);
+            --bg-color: var(--dt-color-container-inverse);
             --tag-color: var(--dt-color-content-inverse);
-            @include tag-interactive-states('--dt-color-container-inverse', 'inverse');
+
+            &.c-tag--interactive {
+                @include p.interactive-states('--dt-color-container-inverse', 'inverse', '02');
+            }
         }
     }
 
     &.c-tag--information {
-        --tag-bg-color: var(--dt-color-support-info-02);
+        --bg-color: var(--dt-color-support-info-02);
         --tag-color: var(--dt-color-content-default);
-        @include tag-interactive-states('--dt-color-support-info-02');
+
+        &.c-tag--interactive {
+            @include p.interactive-states('--dt-color-support-info-02');
+        }
 
         &.c-tag--strong {
-            --tag-bg-color: var(--dt-color-support-info);
+            --bg-color: var(--dt-color-support-info);
             --tag-color: var(--dt-color-content-inverse);
-            @include tag-interactive-states('--dt-color-support-info');
+
+            &.c-tag--interactive {
+                @include p.interactive-states('--dt-color-support-info');
+            }
         }
     }
 
     &.c-tag--success {
-        --tag-bg-color: var(--dt-color-support-positive-02);
+        --bg-color: var(--dt-color-support-positive-02);
         --tag-color: var(--dt-color-content-default);
-        @include tag-interactive-states('--dt-color-support-positive-02');
+
+        &.c-tag--interactive {
+            @include p.interactive-states('--dt-color-support-positive-02');
+        }
 
         &.c-tag--strong {
-            --tag-bg-color: var(--dt-color-support-positive);
+            --bg-color: var(--dt-color-support-positive);
             --tag-color: var(--dt-color-content-inverse);
-            @include tag-interactive-states('--dt-color-support-positive');
+
+            &.c-tag--interactive {
+                @include p.interactive-states('--dt-color-support-positive');
+            }
         }
     }
 
     &.c-tag--error {
-        --tag-bg-color: var(--dt-color-support-error-02);
+        --bg-color: var(--dt-color-support-error-02);
         --tag-color: var(--dt-color-content-default);
-        @include tag-interactive-states('--dt-color-support-error-02');
+
+        &.c-tag--interactive {
+            @include p.interactive-states('--dt-color-support-error-02');
+        }
 
         &.c-tag--strong {
-            --tag-bg-color: var(--dt-color-support-error);
+            --bg-color: var(--dt-color-support-error);
             --tag-color: var(--dt-color-content-light);
-            @include tag-interactive-states('--dt-color-support-error');
+
+            &.c-tag--interactive {
+                @include p.interactive-states('--dt-color-support-error');
+            }
         }
     }
 
     &.c-tag--brand-02 {
-        --tag-bg-color: var(--dt-color-support-brand-02);
+        --bg-color: var(--dt-color-support-brand-02);
         --tag-color: var(--dt-color-content-default);
-        @include tag-interactive-states('--dt-color-support-brand-02');
+
+        &.c-tag--interactive {
+            @include p.interactive-states('--dt-color-support-brand-02');
+        }
     }
 
     &.c-tag--brand-03 {
-        --tag-bg-color: var(--dt-color-support-brand-03);
+        --bg-color: var(--dt-color-support-brand-03);
         --tag-color: var(--dt-color-content-dark);
-        @include tag-interactive-states('--dt-color-support-brand-03');
+
+        &.c-tag--interactive {
+            @include p.interactive-states('--dt-color-support-brand-03');
+        }
     }
 
     &.c-tag--brand-04 {
-        --tag-bg-color: var(--dt-color-support-brand-04);
+        --bg-color: var(--dt-color-support-brand-04);
         --tag-color: var(--dt-color-content-dark);
-        @include tag-interactive-states('--dt-color-support-brand-04');
+
+        &.c-tag--interactive {
+            @include p.interactive-states('--dt-color-support-brand-04');
+        }
     }
 
     &.c-tag--brand-05 {
-        --tag-bg-color: var(--dt-color-support-warning-02);
+        --bg-color: var(--dt-color-support-warning-02);
         --tag-color: var(--dt-color-content-default);
-        @include tag-interactive-states('--dt-color-support-warning-02');
+
+        &.c-tag--interactive {
+            @include p.interactive-states('--dt-color-support-warning-02');
+        }
 
         &.c-tag--strong {
-            --tag-bg-color: var(--dt-color-support-warning);
+            --bg-color: var(--dt-color-support-warning);
             --tag-color: var(--dt-color-content-dark);
-            @include tag-interactive-states('--dt-color-support-warning');
+
+            &.c-tag--interactive {
+                @include p.interactive-states('--dt-color-support-warning');
+            }
         }
     }
 
     &.c-tag--brand-06 {
-        --tag-bg-color: var(--dt-color-support-brand-06);
+        --bg-color: var(--dt-color-support-brand-06);
         --tag-color: var(--dt-color-content-light);
-        @include tag-interactive-states('--dt-color-support-brand-06', 'inverse');
+
+        &.c-tag--interactive {
+            @include p.interactive-states('--dt-color-support-brand-06', 'inverse', '02-light');
+        }
     }
 
     &.c-tag--neutral-alternative {
-        --tag-bg-color: var(--dt-color-container-default);
+        --bg-color: var(--dt-color-container-default);
         --tag-color: var(--dt-color-content-default);
-        @include tag-interactive-states('--dt-color-container-default');
+
+        &.c-tag--interactive {
+            @include p.interactive-states('--dt-color-container-default');
+        }
     }
 
     &.c-tag--outline {
-        --tag-bg-color: var(--tag-transparent-bg-color);
+        --bg-color: var(--tag-transparent-bg-color);
         --tag-color: var(--dt-color-content-default);
-        @include tag-interactive-states('--dt-color-black', 'transparent');
+
+        &.c-tag--interactive {
+            @include p.interactive-states('--tag-transparent-bg-color', 'transparent');
+        }
 
         // the outline in design specs is part of the total component
         // height calculation, thus, we use box-shadow to mimic borders
@@ -203,12 +217,15 @@
     }
 
     &.c-tag--ghost {
-        --tag-bg-color: var(--tag-transparent-bg-color);
+        --bg-color: var(--tag-transparent-bg-color);
         --tag-color: var(--dt-color-content-default);
-        @include tag-interactive-states('--dt-color-black', 'transparent');
+
+        &.c-tag--interactive {
+            @include p.interactive-states('--tag-transparent-bg-color', 'transparent');
+        }
     }
 
-    &.c-tag--disabled {
+    &.disabled {
         opacity: 0.5;
     }
 
