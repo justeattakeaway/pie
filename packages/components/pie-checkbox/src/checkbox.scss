@@ -220,6 +220,11 @@
                 var(--dt-color-container-default-s),
                 calc(var(--dt-color-container-default-l) - var(--dt-color-hover-01))
             );
+
+            @supports (background-color: color-mix(in srgb, black, white)) {
+                --checkbox-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01),  var(--dt-color-container-default));
+            }
+
             transition:
                 background-color var(--dt-motion-timing-200) var(--checkbox-motion-easing),
                 border-color var(--dt-motion-timing-200) var(--checkbox-motion-easing);
@@ -233,6 +238,11 @@
                 var(--dt-color-container-default-s),
                 calc(var(--dt-color-container-default-l) - var(--dt-color-active-01))
             );
+
+            @supports (background-color: color-mix(in srgb, black, white)) {
+                --checkbox-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01),  var(--dt-color-container-default));
+            }
+
             transition:
                 background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing),
                 border-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
@@ -269,6 +279,10 @@
                     var(--dt-color-container-default-s),
                     calc(var(--dt-color-container-default-l) - var(--dt-color-hover-01))
                 );
+
+                @supports (background-color: color-mix(in srgb, black, white)) {
+                    --checkbox-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01),  var(--dt-color-container-default));
+                }
             }
         }
 
@@ -279,6 +293,10 @@
                     var(--dt-color-container-default-s),
                     calc(var(--dt-color-container-default-l) - var(--dt-color-active-01))
                 );
+            }
+
+            @supports (background-color: color-mix(in srgb, black, white)) {
+                --checkbox-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01),  var(--dt-color-container-default));
             }
         }
     }
@@ -297,6 +315,11 @@
                     var(--dt-color-interactive-brand-s),
                     calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01))
                 );
+
+                @supports (background-color: color-mix(in srgb, black, white)) {
+                    --checkbox-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01),  var(--dt-color-interactive-brand));
+                    --checkbox-border-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01),  var(--dt-color-interactive-brand));
+                }
             }
         }
 
@@ -312,6 +335,11 @@
                     var(--dt-color-support-error-s),
                     calc(var(--dt-color-support-error-l) - var(--dt-color-hover-01))
                 );
+
+                @supports (background-color: color-mix(in srgb, black, white)) {
+                    --checkbox-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01),  var(--dt-color-support-error));
+                    --checkbox-border-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01),  var(--dt-color-support-error));
+                }
             }
         }
 
@@ -327,6 +355,11 @@
                     var(--dt-color-interactive-brand-s),
                     calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01))
                 );
+
+                @supports (background-color: color-mix(in srgb, black, white)) {
+                    --checkbox-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01),  var(--dt-color-interactive-brand));
+                    --checkbox-border-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01),  var(--dt-color-interactive-brand));
+                }
             }
         }
 
@@ -342,6 +375,11 @@
                     var(--dt-color-support-error-s),
                     calc(var(--dt-color-support-error-l) - var(--dt-color-active-01))
                 );
+
+                @supports (background-color: color-mix(in srgb, black, white)) {
+                    --checkbox-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01),  var(--dt-color-support-error));
+                    --checkbox-border-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01),  var(--dt-color-support-error));
+                }
             }
         }
     }
