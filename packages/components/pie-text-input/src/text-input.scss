@@ -81,6 +81,10 @@
     @media (hover: hover) {
         &:hover {
             --input-container-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
+
+            @supports (background-color: color-mix(in srgb, black, white)) {
+                --input-container-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01),  var(--dt-color-container-default));
+            }
         }
     }
 
