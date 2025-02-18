@@ -51,8 +51,6 @@ yarn add @justeattakeaway/pie-webc
   tableData: props
 } %}
 
-You can customise the disabled appearance by setting the `--tag-opacity` css variable. The default opacity level for the disabled state is 0.5.
-
 ## Slots
 
 {% componentDetailsTable {

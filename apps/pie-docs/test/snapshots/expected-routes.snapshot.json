@@ -83,6 +83,7 @@
     "components/textarea",
     "components/textarea/code",
     "components/thumbnail",
+    "components/thumbnail/code",
     "components/toast",
     "components/toast/code",
     "components/toast/motion",
