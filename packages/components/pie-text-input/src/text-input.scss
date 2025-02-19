@@ -7,7 +7,7 @@
     --input-text-color: var(--dt-color-content-default);
     --input-text-color-leading-trailing-content: var(--dt-color-content-default);
     --input-text-color-placeholder: var(--dt-color-content-placeholder);
-    --input-border-color: var(--dt-color-interactive-form);
+    --input-border-color: var(--dt-color-border-form);
     --input-container-color: var(--dt-color-container-default);
     --input-radius: var(--dt-radius-rounded-c);
     --input-font-size: #{p.font-size(--dt-font-body-l-size)};
@@ -86,7 +86,7 @@
 
     &.c-textInput--readonly {
         --input-container-color: var(--dt-color-container-subtle);
-        --input-border-color: var(--dt-color-interactive-form);
+        --input-border-color: var(--dt-color-border-form);
     }
 
     // Ensure that if an input is readonly and disabled, the disabled styles take precedence
