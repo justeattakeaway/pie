@@ -1,5 +1,20 @@
 # Changelog
 
+## 4.26.0
+
+### Minor Changes
+
+- [Added] - shortcode for rendering Youtube videos embeds ([#2231](https://github.com/justeattakeaway/pie/pull/2231)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- [Changed] - New shortcode for a more info notification to use in each component code page ([#2207](https://github.com/justeattakeaway/pie/pull/2207)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - updated snapshots after icons update ([#2235](https://github.com/justeattakeaway/pie/pull/2235)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`084bb04`](https://github.com/justeattakeaway/pie/commit/084bb04cb9547d2cce3d7d54f2364a25545703fe)]:
+  - @justeattakeaway/pie-icons@5.6.0
+
 ## 4.25.1
 
 ### Patch Changes
