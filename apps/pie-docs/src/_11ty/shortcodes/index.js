@@ -17,6 +17,7 @@ const tag = require('./tag');
 const termsAndDescriptions = require('./termsAndDescriptions');
 const tokensTable = require('./tokensTable');
 const usage = require('./usage');
+const youtubeVideo = require('./youtubeVideo');
 
 const { deindentHTML } = require('./shortcode-utilities');
 
@@ -46,6 +47,7 @@ const addAllShortCodes = (eleventyConfig) => {
     eleventyConfig.addShortcode('termsAndDescriptions', (shortcodeArgs) => deindentHTML(termsAndDescriptions(shortcodeArgs)));
     eleventyConfig.addShortcode('tokensTable', (shortcodeArgs) => deindentHTML(tokensTable(shortcodeArgs)));
     eleventyConfig.addShortcode('usage', (shortcodeArgs) => deindentHTML(usage(shortcodeArgs)));
+    eleventyConfig.addShortcode('youtubeVideo', (shortcodeArgs) => deindentHTML(youtubeVideo(shortcodeArgs)));
 };
 
 module.exports = {
