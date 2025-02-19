@@ -13,7 +13,7 @@
   --textarea-padding-inline: var(--dt-spacing-c);
   --textarea-padding-block: var(--dt-spacing-b);
   --textarea-background-color: var(--dt-color-container-default);
-  --textarea-border-color: var(--dt-color-interactive-form);
+  --textarea-border-color: var(--dt-color-border-form);
   --textarea-content-color: var(--dt-color-content-default);
   --textarea-placeholder-color: var(--dt-color-content-placeholder);
 
@@ -60,7 +60,7 @@
 
   &.c-textarea--readonly {
     --textarea-background-color: var(--dt-color-container-subtle);
-    --textarea-border-color: var(--dt-color-interactive-form);
+    --textarea-border-color: var(--dt-color-border-form);
   }
 
   &.c-textarea--disabled {
