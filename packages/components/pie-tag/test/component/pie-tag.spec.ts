@@ -100,7 +100,7 @@ variantsToIsStrongStyle.forEach(({ variantName, bgStyle }) => {
 
         // Act
         const tagComponent = page.locator(tag.selectors.container.dataTestId, { hasText: 'Label' });
-        const [currentBgStyle, expectedBgStyle] = await getShadowElementStylePropValues(tagComponent, componentSelector, ['--tag-bg-color', bgStyle]);
+        const [currentBgStyle, expectedBgStyle] = await getShadowElementStylePropValues(tagComponent, componentSelector, ['--bg-color', bgStyle]);
 
         // Assert
         expect(currentBgStyle).toBe(expectedBgStyle);
