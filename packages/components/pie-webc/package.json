@@ -168,6 +168,16 @@
       "require": "./react/radio-group.js",
       "types": "./react/radio-group.d.ts"
     },
+    "./components/select.js": {
+      "import": "./components/select.js",
+      "require": "./components/select.js",
+      "types": "./components/select.d.ts"
+    },
+    "./react/select.js": {
+      "import": "./react/select.js",
+      "require": "./react/select.js",
+      "types": "./react/select.d.ts"
+    },
     "./components/spinner.js": {
       "import": "./components/spinner.js",
       "require": "./components/spinner.js",
@@ -281,6 +291,7 @@
     "@justeattakeaway/pie-notification": "0.12.10",
     "@justeattakeaway/pie-radio": "0.8.0",
     "@justeattakeaway/pie-radio-group": "0.7.0",
+    "@justeattakeaway/pie-select": "0.0.0",
     "@justeattakeaway/pie-spinner": "1.0.0",
     "@justeattakeaway/pie-switch": "1.1.0",
     "@justeattakeaway/pie-tag": "0.13.0",
