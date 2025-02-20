@@ -210,7 +210,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
 
         const classes = {
             'c-textareaWrapper': true,
-            'c-textarea--disabled': disabled,
+            disabled,
             'c-textarea--readonly': readonly,
             'c-textarea--error': status === 'error',
             [`c-textarea--resize-${resize}`]: true,

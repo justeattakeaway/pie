@@ -158,7 +158,7 @@ export class PieThumbnail extends LitElement implements ThumbnailProps {
             [`c-thumbnail--${variant}`]: true,
             [`c-thumbnail--${aspectRatio}`]: true,
             [backgroundColorClassNames[backgroundColor]]: true,
-            'c-thumbnail--disabled': disabled,
+            disabled,
             'c-thumbnail--padding': hasPadding,
             'c-thumbnail--defaultPlaceholder': _isDefaultPlaceholderVisible,
         };

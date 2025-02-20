@@ -68,7 +68,7 @@
         animation: scaleDown var(--dt-motion-timing-100) var(--checkbox-motion-easing);
     }
 
-    &.c-checkbox-tick--disabled {
+    &.disabled {
         --checkbox-bg-color: var(--dt-color-container-strong);
         --checkbox-border-color: var(--dt-color-disabled-01);
     }
@@ -82,7 +82,7 @@
             animation: scaleUp var(--dt-motion-timing-100) var(--checkbox-motion-easing);
         }
 
-        &:not(.c-checkbox-tick--disabled) {
+        &:not(.disabled) {
             --checkbox-bg-color: var(--dt-color-interactive-brand);
             --checkbox-border-color: var(--checkbox-bg-color);
         }
@@ -131,7 +131,7 @@
     }
 
     &.c-checkbox-tick--indeterminate {
-        &:not(.c-checkbox-tick--disabled) {
+        &:not(.disabled) {
             --checkbox-bg-color: var(--dt-color-interactive-brand);
             --checkbox-border-color: var(--checkbox-bg-color);
         }
@@ -249,7 +249,7 @@
         }
     }
 
-    &.c-checkbox--disabled {
+    &.disabled {
         label {
             cursor: not-allowed;
         }
@@ -261,7 +261,7 @@
         }
     }
 
-    &.c-checkbox--disabled {
+    &.disabled {
         &:hover,
         &:active {
             .c-checkbox-tick {
@@ -303,7 +303,7 @@
 
     &.c-checkbox--checked,
     &.c-checkbox--indeterminate {
-        &:not(.c-checkbox--disabled):hover {
+        &:not(.disabled):hover {
             .c-checkbox-tick {
                 --checkbox-bg-color: hsl(
                     var(--dt-color-interactive-brand-h),
@@ -335,7 +335,7 @@
             }
         }
 
-        &:not(.c-checkbox--disabled):active {
+        &:not(.disabled):active {
             .c-checkbox-tick {
                 --checkbox-bg-color: hsl(
                     var(--dt-color-interactive-brand-h),

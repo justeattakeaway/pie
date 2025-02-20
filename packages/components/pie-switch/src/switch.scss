@@ -25,7 +25,7 @@
 }
 
 .c-switch {
-    --bg-color: var(--dt-color-interactive-form); // var without prefix to support interactive-states mixin
+    --mixin-bg-color: var(--dt-color-interactive-form); // var without prefix to support interactive-states mixin
     --switch-bg-color--checked: var(--dt-color-interactive-brand);
     --switch-bg-color--disabled: var(--dt-color-disabled-01);
     --switch-width: 48px;
@@ -42,7 +42,7 @@
     flex-shrink: 0;
     padding: var(--switch-padding);
     border-radius: var(--switch-radius);
-    background-color: var(--bg-color);
+    background-color: var(--mixin-bg-color);
 
     @include switch-transition(background-color);
 
@@ -54,7 +54,7 @@
     }
 
     &[checked] {
-        --bg-color: var(--dt-color-interactive-brand);
+        --mixin-bg-color: var(--dt-color-interactive-brand);
 
         @include switch-transition(background-color);
 
@@ -62,7 +62,7 @@
     }
 
     [disabled] & {
-        --bg-color: var(--switch-bg-color--disabled);
+        --mixin-bg-color: var(--switch-bg-color--disabled);
 
         pointer-events: none;
     }

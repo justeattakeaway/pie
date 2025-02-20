@@ -171,7 +171,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
         const checkboxClasses = {
             'c-checkbox': true,
             [`c-checkbox--status-${status}`]: !componentDisabled,
-            'c-checkbox--disabled': componentDisabled,
+            disabled: componentDisabled,
             'c-checkbox--checked': checked,
             'c-checkbox--indeterminate': indeterminate && !checked,
         };
@@ -179,7 +179,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
         const labelClasses = {
             'c-checkbox-tick': true,
             [`c-checkbox-tick--status-${status}`]: !componentDisabled,
-            'c-checkbox-tick--disabled': componentDisabled,
+            disabled: componentDisabled,
             'c-checkbox-tick--checked': checked,
             'c-checkbox-tick--indeterminate': indeterminate && !checked,
             'c-checkbox-tick--rtl': isRTL,

@@ -63,7 +63,7 @@
     --textarea-border-color: var(--dt-color-border-form);
   }
 
-  &.c-textarea--disabled {
+  &.disabled {
     --textarea-background-color: var(--dt-color-disabled-01);
     --textarea-border-color: var(--dt-color-disabled-01);
     --textarea-content-color: var(--dt-color-content-disabled);
@@ -71,7 +71,7 @@
   }
 
   @media (hover: hover) {
-    &:hover:not(.c-textarea--disabled, .c-textarea--readonly) {
+    &:hover:not(.disabled, .c-textarea--readonly) {
       --textarea-background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
 
       @supports (background-color: color-mix(in srgb, black, white)) {
