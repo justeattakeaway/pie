@@ -84,12 +84,12 @@
 
         &:not(.c-checkbox-tick--disabled) {
             --checkbox-bg-color: var(--dt-color-interactive-brand);
-            --checkbox-border-color: var(--dt-color-interactive-brand);
+            --checkbox-border-color: var(--checkbox-bg-color);
         }
 
         &.c-checkbox-tick--status-error {
             --checkbox-bg-color: var(--dt-color-support-error);
-            --checkbox-border-color: var(--dt-color-support-error);
+            --checkbox-border-color: var(--checkbox-bg-color);
         }
     }
 
@@ -133,12 +133,12 @@
     &.c-checkbox-tick--indeterminate {
         &:not(.c-checkbox-tick--disabled) {
             --checkbox-bg-color: var(--dt-color-interactive-brand);
-            --checkbox-border-color: var(--dt-color-interactive-brand);
+            --checkbox-border-color: var(--checkbox-bg-color);
         }
 
         &.c-checkbox-tick--status-error {
             --checkbox-bg-color: var(--dt-color-support-error);
-            --checkbox-border-color: var(--dt-color-support-error);
+            --checkbox-border-color: var(--checkbox-bg-color);
         }
     }
 
@@ -310,15 +310,11 @@
                     var(--dt-color-interactive-brand-s),
                     calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01))
                 );
-                --checkbox-border-color: hsl(
-                    var(--dt-color-interactive-brand-h),
-                    var(--dt-color-interactive-brand-s),
-                    calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01))
-                );
+                --checkbox-border-color: var(--checkbox-bg-color);
 
                 @supports (background-color: color-mix(in srgb, black, white)) {
                     --checkbox-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01),  var(--dt-color-interactive-brand));
-                    --checkbox-border-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01),  var(--dt-color-interactive-brand));
+                    --checkbox-border-color: var(--checkbox-bg-color);
                 }
             }
         }
@@ -330,15 +326,11 @@
                     var(--dt-color-support-error-s),
                     calc(var(--dt-color-support-error-l) - var(--dt-color-hover-01))
                 );
-                --checkbox-border-color: hsl(
-                    var(--dt-color-support-error-h),
-                    var(--dt-color-support-error-s),
-                    calc(var(--dt-color-support-error-l) - var(--dt-color-hover-01))
-                );
+                --checkbox-border-color: var(--checkbox-bg-color);
 
                 @supports (background-color: color-mix(in srgb, black, white)) {
                     --checkbox-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01),  var(--dt-color-support-error));
-                    --checkbox-border-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01),  var(--dt-color-support-error));
+                    --checkbox-border-color: var(--checkbox-bg-color);
                 }
             }
         }
@@ -350,15 +342,11 @@
                     var(--dt-color-interactive-brand-s),
                     calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01))
                 );
-                --checkbox-border-color: hsl(
-                    var(--dt-color-interactive-brand-h),
-                    var(--dt-color-interactive-brand-s),
-                    calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01))
-                );
+                --checkbox-border-color: var(--checkbox-bg-color);
 
                 @supports (background-color: color-mix(in srgb, black, white)) {
                     --checkbox-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01),  var(--dt-color-interactive-brand));
-                    --checkbox-border-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01),  var(--dt-color-interactive-brand));
+                    --checkbox-border-color: var(--checkbox-bg-color);
                 }
             }
         }
@@ -370,15 +358,11 @@
                     var(--dt-color-support-error-s),
                     calc(var(--dt-color-support-error-l) - var(--dt-color-active-01))
                 );
-                --checkbox-border-color: hsl(
-                    var(--dt-color-support-error-h),
-                    var(--dt-color-support-error-s),
-                    calc(var(--dt-color-support-error-l) - var(--dt-color-active-01))
-                );
+                --checkbox-border-color: var(--checkbox-bg-color);
 
                 @supports (background-color: color-mix(in srgb, black, white)) {
                     --checkbox-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01),  var(--dt-color-support-error));
-                    --checkbox-border-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01),  var(--dt-color-support-error));
+                    --checkbox-border-color: var(--checkbox-bg-color);
                 }
             }
         }

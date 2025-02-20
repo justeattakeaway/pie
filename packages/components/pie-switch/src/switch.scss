@@ -25,7 +25,7 @@
 }
 
 .c-switch {
-    --switch-bg-color: var(--dt-color-interactive-form);
+    --bg-color: var(--dt-color-interactive-form); // var without prefix to support interactive-states mixin
     --switch-bg-color--checked: var(--dt-color-interactive-brand);
     --switch-bg-color--disabled: var(--dt-color-disabled-01);
     --switch-width: 48px;
@@ -42,59 +42,28 @@
     flex-shrink: 0;
     padding: var(--switch-padding);
     border-radius: var(--switch-radius);
-    background-color: var(--switch-bg-color);
+    background-color: var(--bg-color);
 
     @include switch-transition(background-color);
 
-    &:hover {
-        background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), calc(var(--dt-color-interactive-form-l) - var(--dt-color-hover-01)));
-
-        @supports (background-color: color-mix(in srgb, black, white)) {
-            background-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01),  var(--dt-color-interactive-form));
-        }
-    }
+    @include p.interactive-states('--dt-color-interactive-form');
 
     &:focus,
     &:focus-within {
         @include p.focus;
     }
 
-    &:active {
-        background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), calc(var(--dt-color-interactive-form-l) - var(--dt-color-active-01)));
-
-        @supports (background-color: color-mix(in srgb, black, white)) {
-            background-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01),  var(--dt-color-interactive-form));
-        }
-    }
-
     &[checked] {
+        --bg-color: var(--dt-color-interactive-brand);
+
         @include switch-transition(background-color);
-        background-color: var(--switch-bg-color--checked);
 
-        &:hover {
-            background-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
-
-            @supports (background-color: color-mix(in srgb, black, white)) {
-                background-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01),  var(--dt-color-interactive-brand));
-            }
-        }
-
-        &:focus,
-        &:focus-within {
-            background-color: var(--switch-bg-color--checked);
-        }
-
-        &:active {
-            background-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
-
-            @supports (background-color: color-mix(in srgb, black, white)) {
-                background-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01),  var(--dt-color-interactive-brand));
-            }
-        }
+        @include p.interactive-states('--dt-color-interactive-brand');
     }
 
     [disabled] & {
-        background-color: var(--switch-bg-color--disabled);
+        --bg-color: var(--switch-bg-color--disabled);
+
         pointer-events: none;
     }
 }
@@ -139,7 +108,7 @@
 
         .c-pieIcon--check {
             @include switch-transition(color);
-            color: var(--switch-bg-color--checked);
+            color: var(--dt-color-interactive-brand);
         }
     }
 
