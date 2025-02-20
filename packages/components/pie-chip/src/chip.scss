@@ -1,7 +1,7 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 .c-chip {
-    --bg-color: var(--dt-color-interactive-secondary); // var without prefix to support interactive-states mixin
+    --mixin-bg-color: var(--dt-color-interactive-secondary);
     --chip-color: var(--dt-color-content-interactive-secondary);
     --chip-border-width: 1px;
     --chip-border-color: transparent;
@@ -29,7 +29,7 @@
     padding-block-end: var(--chip-padding-block);
     padding-inline-start: var(--chip-padding-inline);
     padding-inline-end: var(--chip-padding-inline);
-    background-color: var(--bg-color);
+    background-color: var(--mixin-bg-color);
     color: var(--chip-color);
     border-radius: var(--dt-radius-rounded-e);
     border: 1px solid;
@@ -54,13 +54,13 @@
 
     &.c-chip--outline,
     &.c-chip--ghost {
-        --bg-color: transparent;
+        --mixin-bg-color: transparent;
 
         @include p.interactive-states('--chip-bg-transparent', 'transparent');
     }
 
     &.c-chip--selected {
-        --bg-color: var(--dt-color-interactive-primary);
+        --mixin-bg-color: var(--dt-color-interactive-primary);
         --chip-color: var(--dt-color-content-interactive-primary);
 
         @include p.interactive-states('--dt-color-interactive-primary', 'inverse', '02');
@@ -80,13 +80,13 @@
     }
 
     &.disabled {
-        --bg-color: var(--dt-color-disabled-01);
+        --mixin-bg-color: var(--dt-color-disabled-01);
         --chip-color: var(--dt-color-content-disabled);
         --chip-cursor: not-allowed;
         --chip-close-btn-cursor: not-allowed;
 
         &.c-chip--ghost {
-            --bg-color: transparent;
+            --mixin-bg-color: transparent;
         }
     }
 
