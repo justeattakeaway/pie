@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-radio-group
 
+## 0.7.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.8.3
+
 ## 0.7.0
 
 ### Minor Changes

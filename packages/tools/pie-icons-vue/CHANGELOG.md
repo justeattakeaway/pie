@@ -1,5 +1,76 @@
 # Changelog
 
+## 5.6.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2235](https://github.com/justeattakeaway/pie/pull/2235)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Currency
+
+  - zloty-large
+  - zloty
+
+  ## Dietary
+
+  - caffeine-large
+  - caffeine
+
+  ## Flags
+
+  - catalonia
+
+  ## Payment
+
+  - allied-irish-bank
+  - asn
+  - blik
+  - bunq
+  - cashplus
+  - chase
+  - clydesdale-bank
+  - dankort
+  - handelsbanken
+  - knab
+  - mettle
+  - n26
+  - nationale-nederlanden
+  - rabobank
+  - regiobank
+  - sns
+  - triodos
+  - van-lanschot
+  - virgin-money
+  - wise
+  - yoursafe
+
+  ## Restaurant
+
+  - sign-open-large
+  - sign-open
+
+  ## Social
+
+  - microsoft-large-static
+  - tiktok-circle-filled-large
+  - tiktok-circle-filled
+  - tiktok-circle-large
+  - tiktok-circle
+  - tiktok-static-large
+  - tiktok-static
+
+  ## Technology
+
+  - face-id-large
+  - face-id
+
+  [Updated] - Icons
+
+  ## Miscellaneous
+
+  - drone-large
+  - drone
+
 ## 5.4.0
 
 ### Minor Changes
