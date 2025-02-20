@@ -10,7 +10,8 @@
 // $level: the level of hover/active to be used. Follows hover/active token names (01, 02, 01-dark, 02-light)
 // ----------------------------------------------
 @mixin interactive-states($bg-color, $mode: default, $level: '01') {
-    // Deprecate when we drop support for safari <16.2
+    // Needed for webviews and safari <16.2
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix#browser_compatibility
     &:hover:not(:disabled, .disabled, .dismissible) {
         @if $mode == 'alt' {
             --hover-modifier: calc(-1 * var(--dt-color-hover-02));
