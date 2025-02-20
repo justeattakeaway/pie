@@ -25,7 +25,7 @@
 }
 
 .c-switch {
-    --mixin-bg-color: var(--dt-color-interactive-form); // var without prefix to support interactive-states mixin
+    --mixin-bg-color: var(--dt-color-interactive-form);
     --switch-bg-color--checked: var(--dt-color-interactive-brand);
     --switch-bg-color--disabled: var(--dt-color-disabled-01);
     --switch-width: 48px;

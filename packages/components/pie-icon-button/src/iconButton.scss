@@ -15,7 +15,7 @@
 // Base button styles
 .o-iconBtn {
     --btn-border-radius: var(--dt-radius-rounded-e);
-    --mixin-bg-color: var(--dt-color-interactive-brand); // var without prefix to support interactive-states mixin
+    --mixin-bg-color: var(--dt-color-interactive-brand);
     --btn-icon-fill: var(--dt-color-content-interactive-light);
     --icon-display-override: block;
 
