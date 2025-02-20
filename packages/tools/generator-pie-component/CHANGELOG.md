@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.29.1
+
+### Patch Changes
+
+- [Changed] - templates formatting to avoid ESLint issues ([#2225](https://github.com/justeattakeaway/pie/pull/2225)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.29.0
 
 ### Minor Changes

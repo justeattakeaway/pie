@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-textarea
 
+## 0.13.3
+
+### Patch Changes
+
+- [Changed] - update the border color values to use `$border-form` ([#2234](https://github.com/justeattakeaway/pie/pull/2234)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.8.3
+
 ## 0.13.2
 
 ### Patch Changes

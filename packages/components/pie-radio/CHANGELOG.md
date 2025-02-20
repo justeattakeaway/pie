@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-radio
 
+## 0.8.1
+
+### Patch Changes
+
+- [Changed] - update the border color values to use `$border-form` ([#2234](https://github.com/justeattakeaway/pie/pull/2234)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.8.0
 
 ### Minor Changes
