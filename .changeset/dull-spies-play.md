@@ -11,4 +11,4 @@
 "@justeattakeaway/pie-tag": minor
 ---
 
-Changed - active and hover styles to support dark mode
+[Changed] - active and hover styles to support dark mode

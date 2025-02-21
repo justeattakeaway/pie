@@ -3,7 +3,7 @@
 
 // Base tag styles
 .c-tag {
-    --mixin-bg-color: var(--dt-color-container-strong);
+    --int-states-mixin-bg-color: var(--dt-color-container-strong);
     --tag-color: var(--dt-color-content-default);
     --tag-border-radius: var(--dt-radius-rounded-b);
     --tag-padding-block: 2px;
@@ -29,7 +29,7 @@
     gap: var(--dt-spacing-a);
     padding: var(--tag-padding-block) var(--tag-padding-inline);
     border-radius: var(--tag-border-radius);
-    background-color: var(--mixin-bg-color);
+    background-color: var(--int-states-mixin-bg-color);
     color: var(--tag-color);
     font-family: var(--tag-font-family);
     font-weight: var(--tag-font-weight);
@@ -76,7 +76,7 @@
         }
 
         &.c-tag--strong {
-            --mixin-bg-color: var(--dt-color-container-inverse);
+            --int-states-mixin-bg-color: var(--dt-color-container-inverse);
             --tag-color: var(--dt-color-content-inverse);
 
             &.c-tag--interactive {
@@ -86,7 +86,7 @@
     }
 
     &.c-tag--information {
-        --mixin-bg-color: var(--dt-color-support-info-02);
+        --int-states-mixin-bg-color: var(--dt-color-support-info-02);
         --tag-color: var(--dt-color-content-default);
 
         &.c-tag--interactive {
@@ -94,7 +94,7 @@
         }
 
         &.c-tag--strong {
-            --mixin-bg-color: var(--dt-color-support-info);
+            --int-states-mixin-bg-color: var(--dt-color-support-info);
             --tag-color: var(--dt-color-content-inverse);
 
             &.c-tag--interactive {
@@ -104,7 +104,7 @@
     }
 
     &.c-tag--success {
-        --mixin-bg-color: var(--dt-color-support-positive-02);
+        --int-states-mixin-bg-color: var(--dt-color-support-positive-02);
         --tag-color: var(--dt-color-content-default);
 
         &.c-tag--interactive {
@@ -112,7 +112,7 @@
         }
 
         &.c-tag--strong {
-            --mixin-bg-color: var(--dt-color-support-positive);
+            --int-states-mixin-bg-color: var(--dt-color-support-positive);
             --tag-color: var(--dt-color-content-inverse);
 
             &.c-tag--interactive {
@@ -122,7 +122,7 @@
     }
 
     &.c-tag--error {
-        --mixin-bg-color: var(--dt-color-support-error-02);
+        --int-states-mixin-bg-color: var(--dt-color-support-error-02);
         --tag-color: var(--dt-color-content-default);
 
         &.c-tag--interactive {
@@ -130,7 +130,7 @@
         }
 
         &.c-tag--strong {
-            --mixin-bg-color: var(--dt-color-support-error);
+            --int-states-mixin-bg-color: var(--dt-color-support-error);
             --tag-color: var(--dt-color-content-light);
 
             &.c-tag--interactive {
@@ -140,7 +140,7 @@
     }
 
     &.c-tag--brand-02 {
-        --mixin-bg-color: var(--dt-color-support-brand-02);
+        --int-states-mixin-bg-color: var(--dt-color-support-brand-02);
         --tag-color: var(--dt-color-content-default);
 
         &.c-tag--interactive {
@@ -149,7 +149,7 @@
     }
 
     &.c-tag--brand-03 {
-        --mixin-bg-color: var(--dt-color-support-brand-03);
+        --int-states-mixin-bg-color: var(--dt-color-support-brand-03);
         --tag-color: var(--dt-color-content-dark);
 
         &.c-tag--interactive {
@@ -158,7 +158,7 @@
     }
 
     &.c-tag--brand-04 {
-        --mixin-bg-color: var(--dt-color-support-brand-04);
+        --int-states-mixin-bg-color: var(--dt-color-support-brand-04);
         --tag-color: var(--dt-color-content-dark);
 
         &.c-tag--interactive {
@@ -167,7 +167,7 @@
     }
 
     &.c-tag--brand-05 {
-        --mixin-bg-color: var(--dt-color-support-warning-02);
+        --int-states-mixin-bg-color: var(--dt-color-support-warning-02);
         --tag-color: var(--dt-color-content-default);
 
         &.c-tag--interactive {
@@ -175,7 +175,7 @@
         }
 
         &.c-tag--strong {
-            --mixin-bg-color: var(--dt-color-support-warning);
+            --int-states-mixin-bg-color: var(--dt-color-support-warning);
             --tag-color: var(--dt-color-content-dark);
 
             &.c-tag--interactive {
@@ -185,7 +185,7 @@
     }
 
     &.c-tag--brand-06 {
-        --mixin-bg-color: var(--dt-color-support-brand-06);
+        --int-states-mixin-bg-color: var(--dt-color-support-brand-06);
         --tag-color: var(--dt-color-content-light);
 
         &.c-tag--interactive {
@@ -194,7 +194,7 @@
     }
 
     &.c-tag--neutral-alternative {
-        --mixin-bg-color: var(--dt-color-container-default);
+        --int-states-mixin-bg-color: var(--dt-color-container-default);
         --tag-color: var(--dt-color-content-default);
 
         &.c-tag--interactive {
@@ -203,7 +203,7 @@
     }
 
     &.c-tag--outline {
-        --mixin-bg-color: var(--tag-transparent-bg-color);
+        --int-states-mixin-bg-color: var(--tag-transparent-bg-color);
         --tag-color: var(--dt-color-content-default);
 
         &.c-tag--interactive {
@@ -217,7 +217,7 @@
     }
 
     &.c-tag--ghost {
-        --mixin-bg-color: var(--tag-transparent-bg-color);
+        --int-states-mixin-bg-color: var(--tag-transparent-bg-color);
         --tag-color: var(--dt-color-content-default);
 
         &.c-tag--interactive {
