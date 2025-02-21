@@ -2195,6 +2195,14 @@
             "displayName": "Technology",
             "icons": [
                 {
+                    "name": "ai",
+                    "displayName": "Ai"
+                },
+                {
+                    "name": "ai-filled",
+                    "displayName": "Ai Filled"
+                },
+                {
                     "name": "at-symbol",
                     "displayName": "At Symbol"
                 },
