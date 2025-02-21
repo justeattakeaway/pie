@@ -1,5 +1,6 @@
 // ----------------------------------------------
 // Mixin to define hover, active and loading styles for interactive elements.
+// The mixin expects the '--int-states-mixin-bg-color' css var to be used in component styles.
 // ---
 // $bg-color: design token name to be used for the states
 // $mode: 'default': apply the default lighten/darken to the color via hsl
@@ -24,13 +25,13 @@
         // for mode=transparent, use the hsla syntax to make the button background opaque by a set percentage
         @if $mode == 'transparent' {
             --hover-modifier: var(--dt-color-hover-01);
-            --mixin-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--hover-modifier));
+            --int-states-mixin-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--hover-modifier));
         }
         @if $mode == 'transparent-inverse' {
             --hover-modifier: var(--dt-color-hover-02);
-            --mixin-bg-color: hsl(var(--dt-color-white-h), var(--dt-color-white-s), var(--dt-color-white-l), var(--active-modifier));
+            --int-states-mixin-bg-color: hsl(var(--dt-color-white-h), var(--dt-color-white-s), var(--dt-color-white-l), var(--active-modifier));
         } @else {
-            --mixin-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
+            --int-states-mixin-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
         }
     }
 
@@ -46,24 +47,24 @@
 
         @if $mode == 'transparent' {
             --active-modifier: var(--dt-color-active-01);
-            --mixin-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--active-modifier));
+            --int-states-mixin-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--active-modifier));
         }
         @if $mode == 'transparent-inverse' {
             --active-modifier: var(--dt-color-active-02);
-            --mixin-bg-color: hsl(var(--dt-color-white-h), var(--dt-color-white-s), var(--dt-color-white-l), var(--active-modifier));
+            --int-states-mixin-bg-color: hsl(var(--dt-color-white-h), var(--dt-color-white-s), var(--dt-color-white-l), var(--active-modifier));
         } @else {
-            --mixin-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
+            --int-states-mixin-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
         }
     }
 
     @supports (background-color: color-mix(in srgb, black, white)) {
         &:hover:not(:disabled, .disabled, .dismissible) {
-           --mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-#{$level}-bg) var(--dt-color-hover-#{$level}),  var(#{$bg-color}));
+           --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-#{$level}-bg) var(--dt-color-hover-#{$level}),  var(#{$bg-color}));
         }
 
         &:active:not(:disabled, .disabled, .dismissible),
         &.is-loading:not(:disabled, .disabled) {
-            --mixin-bg-color: color-mix(in srgb, var(--dt-color-active-#{$level}-bg) var(--dt-color-active-#{$level}), var(#{$bg-color}));
+            --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-#{$level}-bg) var(--dt-color-active-#{$level}), var(#{$bg-color}));
         }
     }
 }
