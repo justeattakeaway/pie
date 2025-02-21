@@ -116,14 +116,13 @@ The fill behind the image is set to `$container-default` by default, it can be c
 
 ## Sizes
 
-Thumbnails have 3 main sizes to account for corner radius readability,XSmall, Small and Medium, each of them with maximum and minimum widths and heights to signal where it’s necessary to change into the variant with a different corner radius.
+The Thumbnail component can be easily resized along the aspect ratio constraints and always in 8px increments.
 
-The following table outlines the available Thumbnail sizes:
+Thumbnails have 3 main sizes to account for corner radius readability; XSmall, Small and Medium, each of them with maximum and minimum widths and heights to signal where it’s necessary to change into the variant with a different corner radius.
 
 {% componentDetailsTable {
   tableData: sizes
 } %}
-
 
 {% usage {
     do: {
@@ -145,8 +144,6 @@ The following table outlines the available Thumbnail sizes:
 } %}
 
 ### Aspect ratio
-
-The Thumbnail component can be easily resized along the aspect ratio constraints and always in 8px increments.
 
 #### 1:1
 
