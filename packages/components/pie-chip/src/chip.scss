@@ -17,9 +17,6 @@
     // Pie Webc Icon var that is used to ensure the correctly sized icon passed in a slot
     --icon-display-override: block;
 
-    // this token is needed for interactive-states mixin
-    --chip-bg-transparent: transparent;
-
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -56,7 +53,7 @@
     &.c-chip--ghost {
         --int-states-mixin-bg-color: transparent;
 
-        @include p.interactive-states('--chip-bg-transparent', 'transparent');
+        @include p.interactive-states('--dt-color-transparent', 'transparent');
     }
 
     &.c-chip--selected {

@@ -4739,14 +4739,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:6.9.0":
-  version: 6.9.0
-  resolution: "@justeat/pie-design-tokens@npm:6.9.0"
+"@justeat/pie-design-tokens@npm:6.10.0":
+  version: 6.10.0
+  resolution: "@justeat/pie-design-tokens@npm:6.10.0"
   dependencies:
     jsonc-parser: 3.2.0
     lodash.merge: 4.6.2
     mkdirp: 1.0.4
-  checksum: 75ed84839c98c7020b2bd9bcaed86b4ff41aceeb84b51ae8370b329d4f6749e8fa4e568c8460fa86b0d7281fe6e6ba85b45246b750b443b458d130ac00a85704
+  checksum: 5682aac7046c180d910022f385fdcdaf4224c0c1e27aebbb6f434390d698da7424e07379951de0a51e73fd2514ee4087082aba5f0c3435d29afacdf3cda2f346
   languageName: node
   linkType: hard
 
@@ -5070,7 +5070,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeat/pie-design-tokens": 6.9.0
+    "@justeat/pie-design-tokens": 6.10.0
     "@justeattakeaway/pie-button": 1.2.0
     "@justeattakeaway/pie-components-config": 0.18.0
     "@justeattakeaway/pie-css": 0.14.1
@@ -22950,7 +22950,7 @@ __metadata:
     "@docsearch/css": 3.5.2
     "@docsearch/js": 3.5.2
     "@justeat/fozzie": 11.0.2
-    "@justeat/pie-design-tokens": 6.9.0
+    "@justeat/pie-design-tokens": 6.10.0
     "@justeattakeaway/browserslist-config-pie": 0.2.0
     "@justeattakeaway/pie-css": 0.14.1
     "@justeattakeaway/pie-icons": 5.7.0
@@ -22983,7 +22983,7 @@ __metadata:
     "@changesets/cli": 2.27.10
     "@commitlint/cli": 17.5.1
     "@commitlint/config-conventional": 17.4.4
-    "@justeat/pie-design-tokens": 6.9.0
+    "@justeat/pie-design-tokens": 6.10.0
     "@justeattakeaway/browserslist-config-pie": 0.2.0
     "@justeattakeaway/generator-pie-component": 0.29.1
     "@justeattakeaway/pie-icons": 5.7.0
@@ -23041,7 +23041,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
-    "@justeat/pie-design-tokens": 6.9.0
+    "@justeat/pie-design-tokens": 6.10.0
     "@justeattakeaway/pie-assistive-text": 0.8.4
     "@justeattakeaway/pie-button": 1.2.0
     "@justeattakeaway/pie-card": 0.22.0

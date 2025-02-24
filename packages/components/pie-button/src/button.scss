@@ -36,9 +36,6 @@
     --btn-padding-horizontal-medium: var(--dt-spacing-d);
     --btn-padding-horizontal-large: var(--dt-spacing-e);
 
-    // this token is needed for interactive-states mixin
-    --btn-bg-transparent: transparent;
-
     /**
     * Mixin for updating the button styles based on the size passed in.
     * Takes in the name of the size to be used.
@@ -164,14 +161,14 @@
 
         border: 1px solid var(--dt-color-border-strong);
 
-        @include p.interactive-states('--btn-bg-transparent', 'transparent', '01');
+        @include p.interactive-states('--dt-color-transparent', 'transparent', '01');
     }
 
     &.o-btn--ghost {
         --int-states-mixin-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-link);
 
-        @include p.interactive-states('--btn-bg-transparent', 'transparent', '01');
+        @include p.interactive-states('--dt-color-transparent', 'transparent', '01');
     }
 
     &.o-btn--inverse {
@@ -186,7 +183,7 @@
         --int-states-mixin-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-primary);
 
-        @include p.interactive-states('--btn-bg-transparent', 'transparent-inverse', '02');
+        @include p.interactive-states('--dt-color-transparent', 'transparent-inverse', '02');
     }
 
     &.o-btn--outline-inverse {
@@ -203,7 +200,7 @@
         --int-states-mixin-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-error);
 
-        @include p.interactive-states('--btn-bg-transparent', 'transparent', '01');
+        @include p.interactive-states('--dt-color-transparent', 'transparent', '01');
     }
 
     // *********************

@@ -7,9 +7,6 @@
 
     // Sizing is set to Medium button icon size, as that is the default
     --icon-size-override: 24px;
-
-    // this token is needed for interactive-states mixin
-    --btn-bg-transparent: transparent;
 }
 
 // Base button styles
@@ -63,21 +60,21 @@
 
         border: 1px solid var(--dt-color-border-strong);
 
-        @include p.interactive-states('--btn-bg-transparent', 'transparent');
+        @include p.interactive-states('--dt-color-transparent', 'transparent');
     }
 
     &.o-iconBtn--ghost {
         --int-states-mixin-bg-color: transparent;
         --btn-icon-fill: var(--dt-color-content-interactive-brand);
 
-        @include p.interactive-states('--btn-bg-transparent', 'transparent');
+        @include p.interactive-states('--dt-color-transparent', 'transparent');
     }
 
     &.o-iconBtn--ghost-secondary {
         --int-states-mixin-bg-color: transparent;
         --btn-icon-fill: var(--dt-color-content-interactive-secondary);
 
-        @include p.interactive-states('--btn-bg-transparent', 'transparent');
+        @include p.interactive-states('--dt-color-transparent', 'transparent');
     }
 
     &.o-iconBtn--inverse {
@@ -91,7 +88,7 @@
         --int-states-mixin-bg-color: transparent;
         --btn-icon-fill: var(--dt-color-content-inverse);
 
-        @include p.interactive-states('--btn-bg-transparent', 'transparent', '02');
+        @include p.interactive-states('--dt-color-transparent', 'transparent', '02');
     }
 
     &[disabled] {
