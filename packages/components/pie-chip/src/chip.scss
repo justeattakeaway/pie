@@ -45,7 +45,7 @@
         // same as default styles
     }
 
-    &.c-chip--outline:not(.disabled, .c-chip--selected) {
+    &.c-chip--outline:not(.is-disabled, .c-chip--selected) {
         --chip-border-color: var(--dt-color-border-strong);
     }
 
@@ -76,7 +76,7 @@
         }
     }
 
-    &.disabled {
+    &.is-disabled {
         --int-states-mixin-bg-color: var(--dt-color-disabled-01);
         --chip-color: var(--dt-color-content-disabled);
         --chip-cursor: not-allowed;

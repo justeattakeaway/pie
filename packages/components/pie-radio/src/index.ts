@@ -143,7 +143,7 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
 
         const classes = {
             'c-radio': true,
-            disabled: componentDisabled,
+            'is-disabled': componentDisabled,
             [`c-radio--status-${status}`]: !componentDisabled,
         };
 

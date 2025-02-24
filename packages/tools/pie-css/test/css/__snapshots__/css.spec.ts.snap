@@ -101,6 +101,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-interactive-form: var(--dt-color-mozzarella-60);
     --dt-color-interactive-error: var(--dt-color-red);
     --dt-color-overlay: rgb(0,0,0,0.55);
+    --dt-color-transparent: rgb(255,255,255,0);
     --dt-color-support-error: var(--dt-color-red);
     --dt-color-support-warning: var(--dt-color-yellow);
     --dt-color-support-positive: var(--dt-color-green);
@@ -477,6 +478,7 @@ html[data-highcontrast-enabled] {
     --dt-color-interactive-form: var(--dt-color-black);
     --dt-color-interactive-error: var(--dt-color-red);
     --dt-color-overlay: rgb(0,0,0,0.55);
+    --dt-color-transparent: rgb(255,255,255,0);
     --dt-color-support-error: var(--dt-color-red-dark-hc);
     --dt-color-support-warning: var(--dt-color-yellow-dark-hc);
     --dt-color-support-positive: var(--dt-color-green-dark-hc);
@@ -587,6 +589,7 @@ html[data-highcontrast-enabled] {
         --dt-color-interactive-form: var(--dt-color-mozzarella-50);
         --dt-color-interactive-error: var(--dt-color-red-40);
         --dt-color-overlay: rgb(0,0,0,0.55);
+        --dt-color-transparent: rgb(255,255,255,0);
         --dt-color-support-error: var(--dt-color-red-40);
         --dt-color-support-warning: var(--dt-color-yellow);
         --dt-color-support-positive: var(--dt-color-green-30);
@@ -698,6 +701,7 @@ html[data-highcontrast-enabled] {
         --dt-color-interactive-form: var(--dt-color-white);
         --dt-color-interactive-error: var(--dt-color-red-40);
         --dt-color-overlay: rgb(0,0,0,0.55);
+        --dt-color-transparent: rgb(255,255,255,0);
         --dt-color-support-error: var(--dt-color-red-light-hc);
         --dt-color-support-warning: var(--dt-color-yellow);
         --dt-color-support-positive: var(--dt-color-green-light-hc);

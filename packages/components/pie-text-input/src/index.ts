@@ -195,7 +195,7 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
             'c-textInput': true,
             [`c-textInput--${size}`]: true,
             [`c-textInput--${status}`]: true,
-            disabled,
+            'is-disabled': disabled,
             'c-textInput--readonly': readonly,
         };
 
