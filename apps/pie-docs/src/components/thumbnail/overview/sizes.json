@@ -1,0 +1,32 @@
+{
+  "headings": [
+    "Thumbnail variation",
+    "Min size (px)",
+    "Max size (px)",
+    "Corner radius",
+    "Use cases"
+  ],
+  "rows": [
+    [
+      "Medium",
+      "64px width and height",
+      "128px width and height",
+      "12px",
+      "Images and pictures on a card that will expand once the user taps on an option"
+    ],
+    [
+      "Small",
+      "48px  width and height",
+      "56px  width and height",
+      "8px",
+      "As part of a list or primary logo preview"
+    ],
+    [
+      "XSmall",
+      "24px  width and height",
+      "40px  width and height",
+      "4px",
+      "On top of images, corner placements"
+    ]
+  ]
+}
