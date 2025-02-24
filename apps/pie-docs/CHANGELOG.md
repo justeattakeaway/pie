@@ -1,5 +1,20 @@
 # Changelog
 
+## 4.27.0
+
+### Minor Changes
+
+- [Added] - the thumbnail code section ([#2204](https://github.com/justeattakeaway/pie/pull/2204)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - thumbnail overview page ([#2203](https://github.com/justeattakeaway/pie/pull/2203)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2237](https://github.com/justeattakeaway/pie/pull/2237)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`e3f89be`](https://github.com/justeattakeaway/pie/commit/e3f89be94893177ec1ad4e38af8f996729c2caad)]:
+  - @justeattakeaway/pie-icons@5.7.0
+
 ## 4.26.0
 
 ### Minor Changes
