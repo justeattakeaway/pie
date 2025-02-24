@@ -55,7 +55,7 @@ export interface ThumbnailProps {
      */
     disabled?: boolean;
     /**
-     * When true, an extra spacing around the thumbnail container is applied.
+     * When true, extra spacing around the thumbnail container is applied.
      */
     hasPadding?: boolean;
     /**
