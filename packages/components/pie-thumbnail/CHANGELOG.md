@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-thumbnail
 
+## 0.6.2
+
+### Patch Changes
+
+- [Changed] - move the component beta ([#2204](https://github.com/justeattakeaway/pie/pull/2204)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.6.1
 
 ### Patch Changes

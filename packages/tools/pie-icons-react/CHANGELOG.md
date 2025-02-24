@@ -1,5 +1,18 @@
 # Changelog
 
+## 5.7.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2237](https://github.com/justeattakeaway/pie/pull/2237)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Technology
+
+  - ai-filled-large
+  - ai-filled
+  - ai-large
+  - ai
+
 ## 5.6.0
 
 ### Minor Changes
