@@ -2,6 +2,12 @@
   "name": "@justeattakeaway/pie-toast-provider",
   "description": "PIE Design System Toast Provider built using Web Components",
   "version": "0.2.5",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/components/pie-toast-provider"
+  },
+  "homepage": "https://pie.design/components/toast/toast-provider/code/",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

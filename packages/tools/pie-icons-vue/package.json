@@ -1,6 +1,13 @@
 {
   "name": "@justeattakeaway/pie-icons-vue",
   "version": "5.7.0",
+  "description": "PIE Design System Icon set for Vue",
+  "homepage": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons-vue",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/tools/pie-icons-vue"
+  },
   "main": "dist/index.cjs",
   "module": "esm/index.mjs",
   "files": [
@@ -19,14 +26,9 @@
     "access": "public"
   },
   "sideEffects": false,
-  "homepage": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons-vue",
   "contributors": [
     "Github contributors <https://github.com/justeattakeaway/pie/graphs/contributors>"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:justeattakeaway/pie.git"
-  },
   "bugs": {
     "url": "https://github.com/justeat/pie/issues"
   },

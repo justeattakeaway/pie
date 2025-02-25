@@ -2,6 +2,12 @@
   "name": "@justeattakeaway/pie-modal",
   "version": "1.4.0",
   "description": "PIE design system modal built using web components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/components/pie-modal"
+  },
+  "homepage": "https://pie.design/components/modal/code/",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
