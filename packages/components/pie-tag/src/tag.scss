@@ -69,6 +69,10 @@
         // same as default styles
     }
 
+    &.c-tag--icon-only {
+        --tag-padding-block: var(--dt-spacing-a);
+    }
+
     // Variant
     &.c-tag--neutral {
         &.c-tag--interactive {
