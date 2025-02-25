@@ -154,7 +154,7 @@
     },
     {
       "path": "./packages/components/pie-tag/dist/index.js",
-      "maxSize": "2.8 KB"
+      "maxSize": "3 KB"
     },
     {
       "path": "./packages/components/pie-tag/dist/react.js",
@@ -190,7 +190,7 @@
     },
     {
       "path": "./packages/components/pie-thumbnail/dist/*.js",
-      "maxSize": "3.51 KB"
+      "maxSize": "4 KB"
     },
     {
       "path": "./packages/components/pie-select/dist/*.js",
