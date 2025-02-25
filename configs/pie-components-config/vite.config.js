@@ -39,16 +39,20 @@ const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
         ],
         exclude: ['**/node_modules/**'],
     },
-    plugins: deepmerge([dts({
-        insertTypesEntry: true,
-        outputDir: 'dist',
-        rollupTypes: true,
-    }),
-    visualizer({
-        gzipSize: true,
-        brotliSize: true,
-    })], plugins),
+    plugins: (() => {
+        const isWatchMode = process.argv.includes('--watch');
 
+        // We don't need DTS generation and visualization during development
+        return isWatchMode ? plugins : deepmerge([dts({
+            insertTypesEntry: true,
+            outputDir: 'dist',
+            rollupTypes: true,
+        }),
+        visualizer({
+            gzipSize: true,
+            brotliSize: true,
+        })], plugins);
+    })(),
     ...rest,
 });
 
