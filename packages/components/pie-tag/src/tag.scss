@@ -102,6 +102,10 @@
         // same as default styles
     }
 
+    &.c-tag--icon-only {
+        --tag-padding-block: var(--dt-spacing-a);
+    }
+
     // Variant
     &.c-tag--neutral {
         @include tag-interactive-states('--dt-color-container-strong');
