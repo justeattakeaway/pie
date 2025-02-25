@@ -63,6 +63,7 @@
   },
   "customElements": "custom-elements.json",
   "sideEffects": [
-    "dist/*.js"
+    "dist/*.js",
+    "cdn_dist/*.js"
   ]
 }
