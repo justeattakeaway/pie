@@ -171,7 +171,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implemen
         const checkboxClasses = {
             'c-checkbox': true,
             [`c-checkbox--status-${status}`]: !componentDisabled,
-            disabled: componentDisabled,
+            'is-disabled': componentDisabled,
             'c-checkbox--checked': checked,
             'c-checkbox--indeterminate': indeterminate && !checked,
         };

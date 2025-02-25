@@ -13,7 +13,7 @@
 @mixin interactive-states($bg-color, $mode: default, $level: '01') {
     // Needed for webviews and safari <16.2
     // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix#browser_compatibility
-    &:hover:not(:disabled, .is-disabled, .dismissible) {
+    &:hover:not(:disabled, .is-disabled, .is-dismissible) {
         @if $mode == 'alt' {
             --hover-modifier: calc(-1 * var(--dt-color-hover-02));
         } @else if $mode == 'inverse' {
@@ -35,7 +35,7 @@
         }
     }
 
-    &:active:not(:disabled, .is-disabled, .dismissible),
+    &:active:not(:disabled, .is-disabled, .is-dismissible),
     &.is-loading:not(:disabled, .is-disabled) {
         @if $mode == 'alt' {
             --active-modifier: calc(-1 * var(--dt-color-active-02));
@@ -58,11 +58,11 @@
     }
 
     @supports (background-color: color-mix(in srgb, black, white)) {
-        &:hover:not(:disabled, .is-disabled, .dismissible) {
+        &:hover:not(:disabled, .is-disabled, .is-dismissible) {
            --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-#{$level}-bg) var(--dt-color-hover-#{$level}),  var(#{$bg-color}));
         }
 
-        &:active:not(:disabled, .is-disabled, .dismissible),
+        &:active:not(:disabled, .is-disabled, .is-dismissible),
         &.is-loading:not(:disabled, .is-disabled) {
             --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-#{$level}-bg) var(--dt-color-active-#{$level}), var(#{$bg-color}));
         }

@@ -87,7 +87,7 @@
         }
     }
 
-    &.dismissible {
+    &.is-dismissible {
         --chip-cursor: text;
         padding-inline-end: var(--chip-padding-dismissible);
         padding-block-start: var(--chip-padding-dismissible);

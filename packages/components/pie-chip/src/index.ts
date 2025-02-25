@@ -116,7 +116,7 @@ export class PieChip extends LitElement implements ChipProps {
             'c-chip': true,
             [`c-chip--${variant}`]: true,
             'c-chip--selected': isSelected,
-            dismissible: showCloseButton,
+            'is-dismissible': showCloseButton,
             'is-disabled': disabled,
             'is-loading': isLoading,
         };
