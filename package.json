@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "The home of Just Eat Takeaway.com's PIE Design System.",
-  "version": "2.75.0",
+  "version": "2.76.0",
   "keywords": [],
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
@@ -29,7 +29,7 @@
     "create:manifest": "cross-env-shell turbo run create:manifest --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "changeset": "changeset",
     "changeset:publish": "changeset publish",
-    "changeset:version": "changeset version",
+    "changeset:version": "changeset version && yarn",
     "clean": "turbo run clean --filter=!pie-monorepo",
     "cz": "./packages/tools/pie-monorepo-utils/git-hooks/check-branch-name.js $(git symbolic-ref --short HEAD) && ./node_modules/cz-customizable/standalone.js",
     "dev": "turbo run dev --filter=!pie-monorepo",
