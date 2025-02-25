@@ -43,7 +43,7 @@ const handleError = async (github, context, message, error) => {
  * @returns {Array<string>} The tags of the newly published snapshots
  */
 const publishSnapshot = async (execa) => {
-    await execa.command('yarn changeset:version --snapshot snapshot-release', { stdio: 'inherit' });
+    await execa.command('yarn changeset:snapshot', { stdio: 'inherit' });
 
     const releaseProcess = execa.command('yarn changeset:publish --no-git-tags --snapshot --tag snapshot-release');
     releaseProcess.stdout.pipe(process.stdout);
