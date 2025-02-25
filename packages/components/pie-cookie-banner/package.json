@@ -10,6 +10,7 @@
     "custom-elements.json",
     "src",
     "dist",
+    "cdn_dist",
     "locales",
     "**/*.d.ts"
   ],
