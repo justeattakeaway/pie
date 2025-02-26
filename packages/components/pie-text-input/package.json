@@ -2,6 +2,12 @@
   "name": "@justeattakeaway/pie-text-input",
   "description": "PIE Design System Input built using Web Components",
   "version": "0.26.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/components/pie-text-input"
+  },
+  "homepage": "https://pie.design/components/text-input/code/",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

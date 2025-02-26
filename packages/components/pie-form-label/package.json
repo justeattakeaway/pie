@@ -2,6 +2,12 @@
   "name": "@justeattakeaway/pie-form-label",
   "description": "PIE Design System Form Label built using Web Components",
   "version": "0.14.4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/components/pie-form-label"
+  },
+  "homepage": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-form-label",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
