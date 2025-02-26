@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.76.0
+
+### Minor Changes
+
+- [Updated] `changeset:version` to run `yarn` so new yarn.lock can be generated for _Version Packages_ PR's ([#2243](https://github.com/justeattakeaway/pie/pull/2243)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.75.0
 
 ### Minor Changes
