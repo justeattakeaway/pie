@@ -14,6 +14,7 @@ import '@justeattakeaway/pie-assistive-text';
 import styles from './text-input.scss?inline';
 import {
     type TextInputProps, types, statusTypes, defaultProps,
+    sizes,
 } from './defs';
 import 'element-internals-polyfill';
 
@@ -92,6 +93,7 @@ export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) impleme
     public max: TextInputProps['max'];
 
     @property({ type: String })
+    @validPropertyValues(componentSelector, sizes, defaultProps.size)
     public size = defaultProps.size;
 
     @property({ type: Boolean })
