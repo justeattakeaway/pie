@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/browserslist-config-pie",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Shared browserslist config for applications using the PIE Design System",
   "repository": {
     "type": "git",
