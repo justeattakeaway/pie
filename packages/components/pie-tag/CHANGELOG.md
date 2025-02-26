@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-tag
 
+## 0.14.0
+
+### Minor Changes
+
+- [Changed] - active and hover styles to support dark mode ([#2230](https://github.com/justeattakeaway/pie/pull/2230)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.13.0
 
 ### Minor Changes
