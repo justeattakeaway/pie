@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.28.0
+
+### Minor Changes
+
+- [Changed] - pie-design-tokens version bump to 6.10.0 ([#2230](https://github.com/justeattakeaway/pie/pull/2230)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- Updated dependencies [[`270c19d`](https://github.com/justeattakeaway/pie/commit/270c19d9ac091b74d57a9cb95278c7a57814f1f5)]:
+  - @justeattakeaway/pie-css@0.15.0
+
 ## 4.27.0
 
 ### Minor Changes

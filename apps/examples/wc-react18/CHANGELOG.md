@@ -1,5 +1,13 @@
 # wc-react18
 
+## 0.6.58
+
+### Patch Changes
+
+- Updated dependencies [[`270c19d`](https://github.com/justeattakeaway/pie/commit/270c19d9ac091b74d57a9cb95278c7a57814f1f5)]:
+  - @justeattakeaway/pie-css@0.15.0
+  - @justeattakeaway/pie-webc@0.6.13
+
 ## 0.6.57
 
 ### Patch Changes
