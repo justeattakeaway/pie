@@ -397,6 +397,7 @@ const sharedAnchorPropMatrix : Partial<Record<keyof ButtonProps, unknown[]>> = {
 };
 
 export const PrimaryAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['primary'] });
+export const PrimaryAlternativeAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['primary-alternative'] });
 export const SecondaryAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['secondary'] });
 export const OutlineAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['outline'] });
 export const GhostAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['ghost'] });
@@ -412,6 +413,11 @@ export const DestructiveGhostAnchorVariations = createVariantStory<ButtonProps>(
 export const PrimaryVariations = createVariantStory<ButtonProps>(Template, {
     ...sharedPropMatrix,
     variant: ['primary'],
+}, { multiColumn: true });
+
+export const PrimaryAlternativeVariations = createVariantStory<ButtonProps>(Template, {
+    ...sharedPropMatrix,
+    variant: ['primary-alternative'],
 }, { multiColumn: true });
 
 export const SecondaryVariations = createVariantStory<ButtonProps>(Template, {
