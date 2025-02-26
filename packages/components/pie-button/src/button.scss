@@ -23,7 +23,7 @@
 
     // The following values set to default background and color
     // currently this sets the primary button styles
-    --btn-bg-color: var(--dt-color-interactive-brand);
+    --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
     --btn-text-color: var(--dt-color-content-interactive-light);
     --icon-display-override: block;
 
@@ -105,7 +105,7 @@
     border: none;
     border-radius: var(--btn-border-radius);
     outline: none;
-    background-color: var(--btn-bg-color);
+    background-color: var(--int-states-mixin-bg-color);
     font-family: var(--btn-font-family);
     font-size: var(--btn-font-size);
     font-weight: var(--btn-font-weight);
@@ -122,7 +122,7 @@
     // Button Variant Modifiers
     // ************************
     &.o-btn--primary {
-        @include p.button-interactive-states('--dt-color-interactive-brand');
+        @include p.interactive-states('--dt-color-interactive-brand');
 
         &.o-btn--xsmall,
         &.o-btn--small-productive {
@@ -130,10 +130,10 @@
             * Where the font-size is smaller,
             * update the button backgrounds so that the text is accessible
             **/
-            --btn-bg-color: var(--dt-color-interactive-primary);
+            --int-states-mixin-bg-color: var(--dt-color-interactive-primary);
             --btn-text-color: var(--dt-color-content-interactive-primary);
 
-            @include p.button-interactive-states('--dt-color-interactive-primary', 'inverse');
+            @include p.interactive-states('--dt-color-interactive-primary', 'inverse', '02');
         }
 
         // This is to handle the background colour change getting overridden above, but then being put in responsive mode
@@ -141,9 +141,9 @@
         &.o-btn--xsmall.o-btn--expressive,
         &.o-btn--small-productive {
             @include responsive-wide {
-                --btn-bg-color: var(--dt-color-interactive-brand);
+                --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
 
-                @include p.button-interactive-states('--dt-color-interactive-brand');
+                @include p.interactive-states('--dt-color-interactive-brand');
             }
         }
     }
@@ -156,47 +156,41 @@
     }
 
     &.o-btn--secondary {
-        --btn-bg-color: var(--dt-color-interactive-secondary);
+        --int-states-mixin-bg-color: var(--dt-color-interactive-secondary);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
 
-        @include p.button-interactive-states('--dt-color-interactive-secondary');
+        @include p.interactive-states('--dt-color-interactive-secondary');
     }
 
     &.o-btn--outline {
-        --btn-bg-color: transparent;
+        --int-states-mixin-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-secondary);
 
         border: 1px solid var(--dt-color-border-strong);
 
-        // use black as the background color for hover and inverse,
-        // as this variant uses a shade of transparent black showing through the container background
-        @include p.button-interactive-states('--dt-color-black', 'transparent');
+        @include p.interactive-states('--dt-color-transparent', 'transparent', '01');
     }
 
     &.o-btn--ghost {
-        --btn-bg-color: transparent;
+        --int-states-mixin-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-link);
 
-        // use black as the background color for hover and inverse,
-        // as this variant uses a shade of transparent black showing through the container background
-        @include p.button-interactive-states('--dt-color-black', 'transparent');
+        @include p.interactive-states('--dt-color-transparent', 'transparent', '01');
     }
 
     &.o-btn--inverse {
-        --btn-bg-color: var(--dt-color-interactive-inverse);
+        --int-states-mixin-bg-color: var(--dt-color-interactive-inverse);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
 
-        @include p.button-interactive-states('--dt-color-interactive-inverse');
+        @include p.interactive-states('--dt-color-interactive-inverse');
     }
 
     &.o-btn--ghost-inverse,
     &.o-btn--outline-inverse {
-        --btn-bg-color: transparent;
+        --int-states-mixin-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-primary);
 
-        // use white as the background color for hover and inverse,
-        // as these variants use a shade of transparent white showing through the container background
-        @include p.button-interactive-states('--dt-color-container-default', 'transparent');
+        @include p.interactive-states('--dt-color-transparent', 'transparent-inverse', '02');
     }
 
     &.o-btn--outline-inverse {
@@ -204,18 +198,16 @@
     }
 
     &.o-btn--destructive {
-        --btn-bg-color: var(--dt-color-support-error);
+        --int-states-mixin-bg-color: var(--dt-color-support-error);
 
-        @include p.button-interactive-states('--dt-color-support-error');
+        @include p.interactive-states('--dt-color-support-error');
     }
 
     &.o-btn--destructive-ghost {
-        --btn-bg-color: transparent;
+        --int-states-mixin-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-error);
 
-        // use black as the background color for hover and inverse,
-        // as this variant uses a shade of transparent black showing through the container background
-        @include p.button-interactive-states('--dt-color-black', 'transparent');
+        @include p.interactive-states('--dt-color-transparent', 'transparent', '01');
     }
 
     // *********************
@@ -334,7 +326,7 @@
 
         // For every variant (except ghost variants) set the disabled background color
         &:not(.o-btn--ghost, .o-btn--ghost-inverse, .o-btn--destructive-ghost) {
-            --btn-bg-color: var(--dt-color-disabled-01) !important;
+            --int-states-mixin-bg-color: var(--dt-color-disabled-01) !important;
         }
 
         // For outline variants, set the border to the disabled color
