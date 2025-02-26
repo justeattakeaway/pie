@@ -66,11 +66,21 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
 
 ### Primary
 
-The primary call-to-action on the page should be singular and prominent, limited to one per page. It should be reserved for the most critical action, such as "Next," "Save," "Submit," etc.
+The primary call-to-action on the page, should be singular and prominent, limited to one per page. Used on crucial moments in the user flow such as a sign up, checkout, user agreement, etc.
 
 {% contentPageImage {
     src:"../../../assets/img/components/button/variation-primary.svg",
     alt: "A primary button",
+    width: 97
+} %}
+
+### Primary - alternative
+
+The primary call-to-action on the section, should be singular and prominent. It should be reserved for the most critical actions expected from the user, such as "Next," "Save," "Submit," etc.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-primary-alternative.svg",
+    alt: "A primary alternative button",
     width: 97
 } %}
 
@@ -226,30 +236,11 @@ Left and right padding is automated depending on the fluid width of the containe
 
 Outlines the Button sizes that are available, and where they should be used across our products.
 
+All button sizes are available in full width.
+
 {% componentDetailsTable {
   tableData: sizes
 } %}
-
-### Small & XSmall
-
-For the Primary variation only our Small and XSmall sizes use a dark background to improve the colour contrast between the label and the button background. This ensures the component remains accessible when using smaller type.
-
-{% contentLayout %}
-  {% contentItem %}
-    {% contentPageImage {
-      src: "../../../assets/img/components/button/sizes-small.svg",
-      width: 71,
-      alt: "A small size button."
-    } %}
-  {% endcontentItem %}
-  {% contentItem %}
-    {% contentPageImage {
-      src: "../../../assets/img/components/button/sizes-xsmall.svg",
-      width: 50,
-      alt: "A xsmall size button."
-    } %}
-  {% endcontentItem %}
-{% endcontentLayout %}
 
 ### Responsive sizes
 
@@ -277,6 +268,30 @@ Use sentence-style capitalisation (only the first world in a phrase and any prop
 
 ---
 
+### Overflow
+
+### Singular word overflow
+
+When a single word extends beyond the the available horizontal space, the word truncates and an ellipsis is displayed.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/overflow-singular.svg",
+    alt: "A button with long text that stays on a single line.",
+    width: 375
+} %}
+
+### Multiple words overflow
+
+When a group of words extends beyond the available horizontal space, the text automatically wraps onto a new line, with no maximum height restriction.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/overflow-multiple.svg",
+    alt: "A button with long text that wraps onto two lines.",
+    width: 375
+} %}
+
+---
+
 ## Hierarchy
 
 Buttons should follow a hierarchy of importance with regards to the action that is being committed by the user and how the Buttons are paired together.
@@ -286,8 +301,10 @@ Buttons should follow a hierarchy of importance with regards to the action that 
 When pairing Buttons, they should always have a relationship to one another; with the highest hierarchy Button is always positioned on the right / top depending on if the button pair is stacked with a 16px spacing between. Always ensure the same sized Buttons are paired together.
 
 Button pairing options are:
-A high-emphasis Button with a medium / low-emphasis Button that performs a less important action.
-A medium-emphasis Button with a low-emphasis Button that performs a less important action.
+
+- A high-emphasis Button with a medium / low-emphasis Button that performs a less important action.
+
+- A medium-emphasis Button with a low-emphasis Button that performs a less important action. 
 
 {% contentPageImage {
     src:"../../../assets/img/components/button/hierarchy-multiple-pairing.svg",
@@ -308,6 +325,26 @@ A medium-emphasis Button with a low-emphasis Button that performs a less importa
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/components/button/hierarchy-multiple-pairing-large-dont.svg",
+            width: "210px",
+            alt: "A primary button paired with another primary button."
+        }]
+    }
+} %}
+
+
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/button/hierarchy-multiple-variants-pairing-do.svg",
+            width: "210px",
+            alt: "A primary button paired with an outline button."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/button/hierarchy-multiple-variants-pairing-dont.svg",
             width: "210px",
             alt: "A primary button paired with another primary button."
         }]

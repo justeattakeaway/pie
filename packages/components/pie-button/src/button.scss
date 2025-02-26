@@ -148,6 +148,13 @@
         }
     }
 
+    &.o-btn--primary-alternative {
+        --int-states-mixin-bg-color: var(--dt-color-interactive-primary);
+        --btn-text-color: var(--dt-color-content-interactive-primary);
+
+        @include p.interactive-states('--dt-color-interactive-primary', 'inverse', '02');
+    }
+
     &.o-btn--secondary {
         --btn-bg-color: var(--dt-color-interactive-secondary);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
