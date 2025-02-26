@@ -2,6 +2,12 @@
   "name": "@justeattakeaway/pie-tag",
   "description": "PIE Design System Tag built using Web Components",
   "version": "0.14.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/components/pie-tag"
+  },
+  "homepage": "https://pie.design/components/tag/code/",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

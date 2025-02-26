@@ -2,6 +2,11 @@
   "name": "@justeattakeaway/pie-wrapper-react",
   "version": "0.14.2",
   "description": "Common react wrapper for use for PIE custom elements",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/tools/pie-wrapper-react"
+  },
   "license": "Apache-2.0",
   "type": "module",
   "files": [
