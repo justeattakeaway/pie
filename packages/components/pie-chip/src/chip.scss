@@ -1,40 +1,7 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-@mixin chip-interactive-states($bg-color, $mode: 'default') {
-    &:hover:not(.c-chip--disabled, .c-chip--dismissible) {
-        @if $mode == 'inverse' {
-            --hover-modifier: var(--dt-color-hover-02);
-        } @else {
-            --hover-modifier: calc(-1 * var(--dt-color-hover-01));
-        }
-
-        @if $mode == 'transparent' {
-            --hover-modifier: var(--dt-color-hover-01);
-            --chip-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--hover-modifier));
-        } @else {
-            --chip-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
-        }
-    }
-
-    &:active:not(.c-chip--disabled, .c-chip--dismissible),
-    &.is-loading:not(.c-chip--disabled, .c-chip--dismissible) {
-        @if $mode == 'inverse' {
-            --active-modifier: var(--dt-color-active-02);
-        } @else {
-            --active-modifier: calc(-1 * var(--dt-color-active-01));
-        }
-
-        @if $mode == 'transparent' {
-            --active-modifier: var(--dt-color-active-01);
-            --chip-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--active-modifier));
-        } @else {
-            --chip-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
-        }
-    }
-}
-
 .c-chip {
-    --chip-bg-color: var(--dt-color-interactive-secondary);
+    --int-states-mixin-bg-color: var(--dt-color-interactive-secondary);
     --chip-color: var(--dt-color-content-interactive-secondary);
     --chip-border-width: 1px;
     --chip-border-color: transparent;
@@ -59,7 +26,7 @@
     padding-block-end: var(--chip-padding-block);
     padding-inline-start: var(--chip-padding-inline);
     padding-inline-end: var(--chip-padding-inline);
-    background-color: var(--chip-bg-color);
+    background-color: var(--int-states-mixin-bg-color);
     color: var(--chip-color);
     border-radius: var(--dt-radius-rounded-e);
     border: 1px solid;
@@ -72,28 +39,28 @@
     @include p.line-height(--dt-font-interactive-xs-line-height);
     font-weight: var(--dt-font-weight-bold);
 
-    @include chip-interactive-states('--dt-color-interactive-secondary');
+    @include p.interactive-states('--dt-color-interactive-secondary');
 
     &.c-chip--default {
         // same as default styles
     }
 
-    &.c-chip--outline:not(.c-chip--disabled, .c-chip--selected) {
+    &.c-chip--outline:not(.is-disabled, .c-chip--selected) {
         --chip-border-color: var(--dt-color-border-strong);
     }
 
     &.c-chip--outline,
     &.c-chip--ghost {
-        --chip-bg-color: transparent;
+        --int-states-mixin-bg-color: transparent;
 
-        @include chip-interactive-states('--dt-color-black', 'transparent');
+        @include p.interactive-states('--dt-color-transparent', 'transparent');
     }
 
     &.c-chip--selected {
-        --chip-bg-color: var(--dt-color-interactive-primary);
+        --int-states-mixin-bg-color: var(--dt-color-interactive-primary);
         --chip-color: var(--dt-color-content-interactive-primary);
 
-        @include chip-interactive-states('--dt-color-interactive-primary', 'inverse');
+        @include p.interactive-states('--dt-color-interactive-primary', 'inverse', '02');
     }
 
     &.is-loading {
@@ -109,18 +76,18 @@
         }
     }
 
-    &.c-chip--disabled {
-        --chip-bg-color: var(--dt-color-disabled-01);
+    &.is-disabled {
+        --int-states-mixin-bg-color: var(--dt-color-disabled-01);
         --chip-color: var(--dt-color-content-disabled);
         --chip-cursor: not-allowed;
         --chip-close-btn-cursor: not-allowed;
 
         &.c-chip--ghost {
-            --chip-bg-color: transparent;
+            --int-states-mixin-bg-color: transparent;
         }
     }
 
-    &.c-chip--dismissible {
+    &.is-dismissible {
         --chip-cursor: text;
         padding-inline-end: var(--chip-padding-dismissible);
         padding-block-start: var(--chip-padding-dismissible);

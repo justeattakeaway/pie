@@ -47,7 +47,7 @@ export class PieChip extends LitElement implements ChipProps {
     public aria: ChipProps['aria'];
 
     /**
-     * Hander to prevent click events
+     * Handler to prevent click events
      * when the chip is disabled or dismissible
      *
      * @private
@@ -116,8 +116,8 @@ export class PieChip extends LitElement implements ChipProps {
             'c-chip': true,
             [`c-chip--${variant}`]: true,
             'c-chip--selected': isSelected,
-            'c-chip--dismissible': showCloseButton,
-            'c-chip--disabled': disabled,
+            'is-dismissible': showCloseButton,
+            'is-disabled': disabled,
             'is-loading': isLoading,
         };
 
