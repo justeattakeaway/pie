@@ -146,6 +146,17 @@ Inverse buttons are specifically designed to be used on backgrounds with colours
     variant: "inverse"
 } %}
 
+### Outline inverse 
+
+Outline inverse buttons are used to signify a secondary action. They can be utilised independently or in conjunction with an inverse button.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/button/variation-outline-inverse.svg",
+    alt: "An outline inverse button",
+    width: 97,
+    variant: "inverse"
+} %}
+
 ### Ghost inverse
 
 Ghost Inverse buttons are intended for utilisation on backgrounds with colours or images, and are usually reserved for actions of lesser significance. They can be used independently or in conjunction with a primary button. Ghost Inverse buttons are ideal for repetitive actions, such as an edit button on a repeating card.
