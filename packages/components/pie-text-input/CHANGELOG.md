@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-text-input
 
+## 0.26.0
+
+### Minor Changes
+
+- [Changed] - active and hover styles to support dark mode ([#2230](https://github.com/justeattakeaway/pie/pull/2230)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- [Added] - Missing `validPropertyValues` decorator for `size` prop ([#2247](https://github.com/justeattakeaway/pie/pull/2247)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.25.3
 
 ### Patch Changes

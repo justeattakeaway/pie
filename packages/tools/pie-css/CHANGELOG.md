@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-css
 
+## 0.15.0
+
+### Minor Changes
+
+- [Added] - interactive-states mixin ([#2230](https://github.com/justeattakeaway/pie/pull/2230)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Removed] - button-interactive-states mixin
+
 ## 0.14.1
 
 ### Patch Changes
