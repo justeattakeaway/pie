@@ -207,6 +207,16 @@ const brand06PropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
     variant: ['brand-06'],
 };
 
+// IconOnly variant stories
+const iconOnlyPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    size: ['large'],
+    iconPlacement: ['leading'],
+    showIcon: [true],
+    slot: [''],
+    variant: ['information'],
+};
+
 export const NeutralVariations = createVariantStory<TagProps>(Template, neutralPropsMatrix);
 export const InformationVariations = createVariantStory<TagProps>(Template, informationPropsMatrix);
 export const SuccessVariations = createVariantStory<TagProps>(Template, successPropsMatrix);
@@ -219,3 +229,4 @@ export const Brand03Variations = createVariantStory<TagProps>(Template, brand03P
 export const Brand04Variations = createVariantStory<TagProps>(Template, brand04PropsMatrix);
 export const Brand05Variations = createVariantStory<TagProps>(Template, brand05PropsMatrix);
 export const Brand06Variations = createVariantStory<TagProps>(Template, brand06PropsMatrix);
+export const IconOnlyVariations = createVariantStory<TagProps>(Template, iconOnlyPropsMatrix);
