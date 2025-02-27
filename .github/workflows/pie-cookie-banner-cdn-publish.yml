@@ -37,8 +37,7 @@ jobs:
 
       - name: Upload to S3
         run: |
-          aws s3 sync ${{ github.workspace }}/packages/components/pie-cookie-banner/cdn_dist/ s3://${{ vars.COOKIE_BANNER_CDN_BUCKET_NAME }}/${{ inputs.package-version }}/ --region ${{ env.AWS_REGION }}
+          aws s3 sync ${{ github.workspace }}/packages/components/pie-cookie-banner/cdn_dist/ s3://${{ vars.COOKIE_BANNER_CDN_BUCKET_NAME }}/${{ inputs.package-version }}/ --region ${{ env.AWS_REGION }} --content-type "text/javascript"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: eu-west-1
