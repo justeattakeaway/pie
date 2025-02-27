@@ -367,12 +367,9 @@ jobs:
 
 
   publish-cookie-banner-cdn:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Publish Cookie Banner CDN
-        uses: ./.github/workflows/pie-cookie-banner-cdn-publish.yml
-        with:
-          os: ubuntu-latest
-          node-version: 20
-          # package-version: v${{ steps.extract-version.outputs.cookie_banner_version }}
-          package-version: v2.3.4
+    uses: ./.github/workflows/pie-cookie-banner-cdn-publish.yml
+    with:
+      os: ubuntu-latest
+      node-version: 20
+      package-version: v2.3.4
+    secrets: inherit
