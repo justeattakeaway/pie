@@ -22,6 +22,9 @@ env:
 
 jobs:
   changesets:
+    outputs:
+      published: ${{ steps.changesets-main.outputs.published }}
+      published-packages: ${{ steps.changesets-main.outputs.publishedPackages }}
     runs-on: ${{ inputs.os }}
     if: github.repository == 'justeattakeaway/pie' && ${{ github.event_name != 'pull_request' }} &&
       (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
@@ -198,3 +201,22 @@ jobs:
           }
       env:
         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+  
+  publish-cookie-banner-cdn:
+    needs: changesets
+    runs-on: ${{ inputs.os }}
+    if: needs.changesets.outputs.published == 'true' && contains(needs.changesets.outputs.publishedPackages, '@justeattakeaway/pie-cookie-banner')
+    steps:
+      - name: Extract cookie banner version
+        id: extract-version
+        run: |
+          PACKAGES='${{ needs.changesets.outputs.publishedPackages}}'
+          COOKIE_BANNER_VERSION=$(echo $PACKAGES | jq -r '.[] | select(.name == "@justeattakeaway/pie-cookie-banner") | .version')
+          echo "cookie_banner_version=$COOKIE_BANNER_VERSION" >> $GITHUB_OUTPUT
+      - name: Publish Cookie Banner CDN
+        uses: ./.github/actions/publish-cookie-banner-cdn
+        with:
+          os: ${{ inputs.os }}
+          node-version: ${{ inputs.node-version }}
+          # package-version: v${{ steps.extract-version.outputs.cookie_banner_version }}
+          package-version: v2.3.4
