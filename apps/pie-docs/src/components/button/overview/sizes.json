@@ -2,33 +2,39 @@
   "headings": [
     "Button size",
     "Height",
-    "Use cases"
+    "Use cases",
+    "Notes"
   ],
   "rows": [
     [
       "Large",
       "56px",
-      "Typically used on Wide resolutions. Search input fields. Available in Full width."
+      "Typically used on Wide resolutions. Search input fields.",
+      "-"
     ],
     [
       "Medium",
       "48px",
-      "Primary page actions and other stand alone actions. Medium is the default size of the button and is available in full width."
+      "Primary page actions and other stand alone actions.",
+      "-"
     ],
     [
       "Small - Expressive",
       "40px",
-      "Larger expressive font size used for increased emphasis. Available in Full width."
+      "Larger expressive font size used for increased emphasis.",
+      "-"
     ],
     [
       "Small - Productive",
       "40px",
-      "Larger expressive font size used for increased emphasis. Available in Full width."
+      "Larger expressive font size used for increased emphasis.",
+      "Not available for Primary"
     ],
     [
       "XSmall",
       "32px",
-      "Larger expressive font size used for increased emphasis. Available in Full width."
+      "Larger expressive font size used for increased emphasis.",
+      "Not available for Primary"
     ]
   ]
 }
