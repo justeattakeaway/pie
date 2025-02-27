@@ -1,5 +1,14 @@
 # Changelog
 
+## 4.28.1
+
+### Patch Changes
+
+- Updated dependencies [[`46ebcee`](https://github.com/justeattakeaway/pie/commit/46ebceec9e0a16f9b4663daa72091abf687e839f)]:
+  - @justeattakeaway/browserslist-config-pie@0.2.1
+  - @justeattakeaway/pie-icons@5.7.1
+  - @justeattakeaway/pie-css@0.15.1
+
 ## 4.28.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.14.3
+
+### Patch Changes
+
+- [Added] - repository and homepage references to packages ([#2246](https://github.com/justeattakeaway/pie/pull/2246)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.14.2
 
 ### Patch Changes
