@@ -49,4 +49,4 @@ jobs:
           prefix: '${{ inputs.package-version }}'
           path-format: $(prefix)/$(file)
           directories: |
-            - './packages/components/pie-cookie-banner/cdn_dist/*'
+            - '${{ github.workspace }}/packages/components/pie-cookie-banner/cdn_dist/*'
