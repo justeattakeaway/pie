@@ -56,320 +56,319 @@ env:
   PERCY_TOKEN_PIE_SELECT: ${{ secrets.PERCY_TOKEN_PIE_SELECT }}
 
 jobs:
-  # check-change-type:
-  #   name: Get change type
-  #   runs-on: ubuntu-latest
-  #   outputs:
-  #     pie-docs-change: ${{ steps.docs-check.outputs.docs-change }}
-  #     web-components-change: ${{ steps.component-check.outputs.web-components-change }}
-  #     storybook-change: ${{ steps.storybook-check.outputs.storybook-change }}
-  #   steps:
-  #     # Checkout the Repo
-  #     - name: Checkout
-  #       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-  #       with:
-  #         fetch-depth: 0
-  #     # Setup Repo
-  #     - name: Setup Repo
-  #       uses: ./.github/actions/setup-repo
-  #       with:
-  #         node-version: 20
-  #         os: ubuntu-latest
-  #     - name: Verify if pie-docs has changes
-  #       id: docs-check
-  #       run: |
-  #         DOCS_CHANGE=$(npx -y turbo run build --filter='pie-docs[origin/main]' --dry=json | jq '.packages | length > 0')
-  #         echo "Change Detected: $DOCS_CHANGE"
-  #         echo "docs-change=$DOCS_CHANGE" >> $GITHUB_OUTPUT
-  #     - name: Verify if web components have changes
-  #       id: component-check
-  #       run: |
-  #         COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}...[origin/main]' --dry=json | jq '.packages | length > 0')
-  #         echo "Change Detected: $COMPONENT_CHANGE"
-  #         echo "web-components-change=$COMPONENT_CHANGE" >> $GITHUB_OUTPUT
-  #     - name: Verify if storybook has changes
-  #       id: storybook-check
-  #       run: |
-  #         STORYBOOK_CHANGE=$(npx -y turbo run build --filter='pie-storybook[origin/main]' --dry=json | jq '.packages | length > 0')
-  #         echo "Change Detected: $STORYBOOK_CHANGE"
-  #         echo "storybook-change=$STORYBOOK_CHANGE" >> $GITHUB_OUTPUT
+  check-change-type:
+    name: Get change type
+    runs-on: ubuntu-latest
+    outputs:
+      pie-docs-change: ${{ steps.docs-check.outputs.docs-change }}
+      web-components-change: ${{ steps.component-check.outputs.web-components-change }}
+      storybook-change: ${{ steps.storybook-check.outputs.storybook-change }}
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 20
+          os: ubuntu-latest
+      - name: Verify if pie-docs has changes
+        id: docs-check
+        run: |
+          DOCS_CHANGE=$(npx -y turbo run build --filter='pie-docs[origin/main]' --dry=json | jq '.packages | length > 0')
+          echo "Change Detected: $DOCS_CHANGE"
+          echo "docs-change=$DOCS_CHANGE" >> $GITHUB_OUTPUT
+      - name: Verify if web components have changes
+        id: component-check
+        run: |
+          COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}...[origin/main]' --dry=json | jq '.packages | length > 0')
+          echo "Change Detected: $COMPONENT_CHANGE"
+          echo "web-components-change=$COMPONENT_CHANGE" >> $GITHUB_OUTPUT
+      - name: Verify if storybook has changes
+        id: storybook-check
+        run: |
+          STORYBOOK_CHANGE=$(npx -y turbo run build --filter='pie-storybook[origin/main]' --dry=json | jq '.packages | length > 0')
+          echo "Change Detected: $STORYBOOK_CHANGE"
+          echo "storybook-change=$STORYBOOK_CHANGE" >> $GITHUB_OUTPUT
 
-  # lint-styles:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     # Checkout the Repo
-  #     - name: Checkout
-  #       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-  #     # Setup Repo
-  #     - name: Setup Repo
-  #       uses: ./.github/actions/setup-repo
-  #       with:
-  #         node-version: 20
-  #         os: ubuntu-latest
-  #     # Lint Styles
-  #     - name: Lint Styles
-  #       uses: ./.github/actions/run-script
-  #       with:
-  #         script-name: "lint:style"
-  #         concurrency: 10
+  lint-styles:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 20
+          os: ubuntu-latest
+      # Lint Styles
+      - name: Lint Styles
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "lint:style"
+          concurrency: 10
 
-  # lint-js:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     # Checkout the Repo
-  #     - name: Checkout
-  #       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-  #     # Setup Repo
-  #     - name: Setup Repo
-  #       uses: ./.github/actions/setup-repo
-  #       with:
-  #         node-version: 20
-  #         os: ubuntu-latest
-  #     # Lint JS
-  #     - name: Lint JavaScript
-  #       uses: ./.github/actions/run-script
-  #       with:
-  #         script-name: "lint:scripts"
+  lint-js:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 20
+          os: ubuntu-latest
+      # Lint JS
+      - name: Lint JavaScript
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "lint:scripts"
 
-  # build-windows-node-20:
-  #   uses: ./.github/workflows/install-build.yml
-  #   with:
-  #     os: windows-latest
-  #     node-version: 20
-  #   secrets: inherit
+  build-windows-node-20:
+    uses: ./.github/workflows/install-build.yml
+    with:
+      os: windows-latest
+      node-version: 20
+    secrets: inherit
 
-  # build-ubuntu-node-18:
-  #   uses: ./.github/workflows/install-build.yml
-  #   with:
-  #     os: ubuntu-latest
-  #     node-version: 18
-  #   secrets: inherit
+  build-ubuntu-node-18:
+    uses: ./.github/workflows/install-build.yml
+    with:
+      os: ubuntu-latest
+      node-version: 18
+    secrets: inherit
 
-  # build-ubuntu-node-20:
-  #   uses: ./.github/workflows/install-build.yml
-  #   needs: [ 'lint-js', 'lint-styles', 'check-change-type' ]
-  #   with:
-  #     os: ubuntu-latest
-  #     node-version: 20
-  #     analyse-component-bundles: true
-  #   secrets: inherit
-
-  # unit-tests:
-  #   needs: 'build-ubuntu-node-20'
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     # Checkout the Repo
-  #     - name: Checkout
-  #       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-  #     # Setup Repo
-  #     - name: Setup Repo
-  #       uses: ./.github/actions/setup-repo
-  #       with:
-  #         node-version: 20
-  #         os: ubuntu-latest
-  #     # Run Unit Tests
-  #     - name: Unit Tests
-  #       uses: ./.github/actions/run-script
-  #       with:
-  #         script-name: "test:ci"
-
-  # deploy-storybook:
-  #   needs: unit-tests
-  #   if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
-  #   uses: ./.github/workflows/amplify-deploy.yml
-  #   with:
-  #     os: ubuntu-latest
-  #     node-version: 20
-  #     amplify-app-id: d17ja0ul7nrdy0
-  #     package-name: 'pie-storybook'
-  #     package-dist-directory: ./apps/pie-storybook/dist
-  #     bucket-name-preview: 'pie-storybook-preview'
-  #     bucket-name-main: 'pie-storybook'
-  #     sub-domain-suffix: 'storybook'
-  #   secrets: inherit
-
-  # # Workflow task that deploys an instance of storybook used for test suites to run against
-  # deploy-storybook-testing:
-  #   needs: unit-tests
-  #   if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
-  #   uses: ./.github/workflows/amplify-deploy.yml
-  #   with:
-  #     os: ubuntu-latest
-  #     node-version: 20
-  #     amplify-app-id: d3eyargno6okyn
-  #     package-name: 'pie-storybook'
-  #     package-dist-directory: ./apps/pie-storybook/dist
-  #     bucket-name-preview: 'pie-storybook-preview'
-  #     bucket-name-main: 'pie-storybook'
-  #     destination-dir: 'testing'
-  #     build-script: 'build:testing'
-  #     sub-domain-suffix: 'storybook-testing'
-  #   secrets: inherit
-
-  # # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
-  # browser-tests-components:
-  #   needs: [ build-ubuntu-node-20, deploy-storybook ]
-  #   if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     # Checkout the Repo
-  #     - name: Checkout
-  #       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-  #       with:
-  #         fetch-depth: 0
-  #     # Setup Repo
-  #     - name: Setup Repo
-  #       uses: ./.github/actions/setup-repo
-  #       with:
-  #         node-version: 20
-  #         os: ubuntu-latest
-  #     # Setup Playwright
-  #     - name: Setup Playwright
-  #       uses: ./.github/actions/setup-playwright
-  #     # Run System / a11y Tests
-  #     - name: Run All System / Component /  a11y Tests
-  #       uses: ./.github/actions/run-script
-  #       with:
-  #         script-name: "test:browsers:ci --filter='./packages/components/*'"
-  #     - name: Upload Playwright Report
-  #       uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
-  #       if: always()
-  #       with:
-  #         name: lit-browsers-report
-  #         path: lit-browsers-report/
-  #         retention-days: 7
-  #     # Run Visual Tests
-  #     - name: Run All Visual Tests
-  #       uses: ./.github/actions/run-script
-  #       if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-  #       with:
-  #         script-name: "test:visual:ci --filter='{./packages/components/*}[HEAD^1]' --filter='{./packages/tools/*}[HEAD^1]'"
-  #         concurrency: 1
-  #     - name: Run Changed Package Visual Tests
-  #       uses: ./.github/actions/run-script
-  #       if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
-  #       with:
-  #         script-name: "test:visual:ci --filter='{./packages/components/*}...[origin/main]' --filter='{./packages/tools/*}...[origin/main]'"
-  #         concurrency: 1
-  #     - name: Upload Playwright Report
-  #       uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
-  #       if: always()
-  #       with:
-  #         name: lit-visual-report
-  #         path: lit-visual-report/
-  #         retention-days: 7
-  #   env:
-  #     STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
-  #     PR_NUMBER: ${{ github.event.number }}
-
-  # deploy-docs:
-  #   needs: unit-tests
-  #   uses: ./.github/workflows/amplify-deploy.yml
-  #   if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
-  #   with:
-  #     os: ubuntu-latest
-  #     node-version: 20
-  #     amplify-app-id: dvskdcoepjoyf
-  #     package-name: 'pie-docs'
-  #     package-dist-directory: ./apps/pie-docs/dist
-  #     bucket-name-preview: 'pie-docs-preview'
-  #     bucket-name-main: 'pie-docs'
-  #     sub-domain-suffix: 'docs'
-  #   secrets: inherit
-
-  # browser-tests-docs:
-  #   needs: deploy-docs
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     # Checkout the Repo
-  #     - name: Checkout
-  #       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-  #       with:
-  #         fetch-depth: 0
-  #     # Setup Repo
-  #     - name: Setup Repo
-  #       uses: ./.github/actions/setup-repo
-  #       with:
-  #         node-version: 20
-  #         os: ubuntu-latest
-  #     # Setup Playwright
-  #     - name: Setup Playwright
-  #       uses: ./.github/actions/setup-playwright
-  #     # Run System / a11y Tests
-  #     - name: Run All System /  a11y Tests
-  #       uses: ./.github/actions/run-script
-  #       with:
-  #         script-name: "test:browsers:ci --filter=pie-docs"
-  #     - name: Upload Playwright Report
-  #       uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
-  #       if: always()
-  #       with:
-  #         name: browsers-report
-  #         path: browsers-report/
-  #         retention-days: 7
-  #     # Run Visual Tests
-  #     - name: Run All Visual Tests
-  #       uses: ./.github/actions/run-script
-  #       if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-  #       with:
-  #         script-name: "test:visual:ci --filter=pie-docs[HEAD^1]"
-  #         concurrency: 1
-  #     - name: Run Changed Package Visual Tests
-  #       uses: ./.github/actions/run-script
-  #       if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
-  #       with:
-  #         script-name: "test:visual:ci --filter=pie-docs"
-  #         concurrency: 1
-  #     - name: Upload Playwright Report
-  #       uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
-  #       if: always()
-  #       with:
-  #         name: visual-report
-  #         path: visual-report/
-  #         retention-days: 7
-  #   env:
-  #     DOCS_AMPLIFY_ID: dvskdcoepjoyf
-  #     PR_NUMBER: ${{ github.event.number }}
-
-  # release:
-  #   needs: [ 'unit-tests', 'lint-js' ]
-  #   if: github.event_name != 'pull_request'
-  #   uses: ./.github/workflows/changeset-release.yml
-  #   with:
-  #     os: ubuntu-latest
-  #     node-version: 20
-  #   secrets: inherit
-
-  # check-all-jobs:
-  #   if: always()
-
-  #   needs:
-  #     - lint-styles
-  #     - lint-js
-  #     - build-ubuntu-node-18
-  #     - build-windows-node-20
-  #     - build-ubuntu-node-20
-  #     - unit-tests
-  #     - browser-tests-components
-  #     - deploy-docs
-  #     - deploy-storybook
-  #     - browser-tests-docs
-
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - name: Verify if the required jobs succeeded
-  #       uses: re-actors/alls-green@05ac9388f0aebcb5727afa17fcccfecd6f8ec5fe # v1.2.2
-  #       with:
-  #         # "allowed-skips" lists jobs that are optional but should not fail
-  #         allowed-skips: browser-tests-components, deploy-docs, deploy-storybook, browser-tests-docs
-  #         jobs: ${{ toJSON(needs) }}
-
-
-  publish-cookie-banner-cdn:
-    uses: ./.github/workflows/pie-cookie-banner-cdn-publish.yml
+  build-ubuntu-node-20:
+    uses: ./.github/workflows/install-build.yml
+    needs: [ 'lint-js', 'lint-styles', 'check-change-type' ]
     with:
       os: ubuntu-latest
       node-version: 20
-      package-version: v2.3.4
+      analyse-component-bundles: true
     secrets: inherit
+
+  unit-tests:
+    needs: 'build-ubuntu-node-20'
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 20
+          os: ubuntu-latest
+      # Run Unit Tests
+      - name: Unit Tests
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "test:ci"
+
+  deploy-storybook:
+    needs: unit-tests
+    if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/amplify-deploy.yml
+    with:
+      os: ubuntu-latest
+      node-version: 20
+      amplify-app-id: d17ja0ul7nrdy0
+      package-name: 'pie-storybook'
+      package-dist-directory: ./apps/pie-storybook/dist
+      bucket-name-preview: 'pie-storybook-preview'
+      bucket-name-main: 'pie-storybook'
+      sub-domain-suffix: 'storybook'
+    secrets: inherit
+
+  # Workflow task that deploys an instance of storybook used for test suites to run against
+  deploy-storybook-testing:
+    needs: unit-tests
+    if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/amplify-deploy.yml
+    with:
+      os: ubuntu-latest
+      node-version: 20
+      amplify-app-id: d3eyargno6okyn
+      package-name: 'pie-storybook'
+      package-dist-directory: ./apps/pie-storybook/dist
+      bucket-name-preview: 'pie-storybook-preview'
+      bucket-name-main: 'pie-storybook'
+      destination-dir: 'testing'
+      build-script: 'build:testing'
+      sub-domain-suffix: 'storybook-testing'
+    secrets: inherit
+
+  # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
+  browser-tests-components:
+    needs: [ build-ubuntu-node-20, deploy-storybook ]
+    if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 20
+          os: ubuntu-latest
+      # Setup Playwright
+      - name: Setup Playwright
+        uses: ./.github/actions/setup-playwright
+      # Run System / a11y Tests
+      - name: Run All System / Component /  a11y Tests
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "test:browsers:ci --filter='./packages/components/*'"
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        if: always()
+        with:
+          name: lit-browsers-report
+          path: lit-browsers-report/
+          retention-days: 7
+      # Run Visual Tests
+      - name: Run All Visual Tests
+        uses: ./.github/actions/run-script
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        with:
+          script-name: "test:visual:ci --filter='{./packages/components/*}[HEAD^1]' --filter='{./packages/tools/*}[HEAD^1]'"
+          concurrency: 1
+      - name: Run Changed Package Visual Tests
+        uses: ./.github/actions/run-script
+        if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
+        with:
+          script-name: "test:visual:ci --filter='{./packages/components/*}...[origin/main]' --filter='{./packages/tools/*}...[origin/main]'"
+          concurrency: 1
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        if: always()
+        with:
+          name: lit-visual-report
+          path: lit-visual-report/
+          retention-days: 7
+    env:
+      STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
+      PR_NUMBER: ${{ github.event.number }}
+
+  deploy-docs:
+    needs: unit-tests
+    uses: ./.github/workflows/amplify-deploy.yml
+    if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
+    with:
+      os: ubuntu-latest
+      node-version: 20
+      amplify-app-id: dvskdcoepjoyf
+      package-name: 'pie-docs'
+      package-dist-directory: ./apps/pie-docs/dist
+      bucket-name-preview: 'pie-docs-preview'
+      bucket-name-main: 'pie-docs'
+      sub-domain-suffix: 'docs'
+    secrets: inherit
+
+  browser-tests-docs:
+    needs: deploy-docs
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 20
+          os: ubuntu-latest
+      # Setup Playwright
+      - name: Setup Playwright
+        uses: ./.github/actions/setup-playwright
+      # Run System / a11y Tests
+      - name: Run All System /  a11y Tests
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "test:browsers:ci --filter=pie-docs"
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        if: always()
+        with:
+          name: browsers-report
+          path: browsers-report/
+          retention-days: 7
+      # Run Visual Tests
+      - name: Run All Visual Tests
+        uses: ./.github/actions/run-script
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        with:
+          script-name: "test:visual:ci --filter=pie-docs[HEAD^1]"
+          concurrency: 1
+      - name: Run Changed Package Visual Tests
+        uses: ./.github/actions/run-script
+        if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
+        with:
+          script-name: "test:visual:ci --filter=pie-docs"
+          concurrency: 1
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        if: always()
+        with:
+          name: visual-report
+          path: visual-report/
+          retention-days: 7
+    env:
+      DOCS_AMPLIFY_ID: dvskdcoepjoyf
+      PR_NUMBER: ${{ github.event.number }}
+
+  release:
+    needs: [ 'unit-tests', 'lint-js' ]
+    if: github.event_name != 'pull_request'
+    uses: ./.github/workflows/changeset-release.yml
+    with:
+      os: ubuntu-latest
+      node-version: 20
+    secrets: inherit
+
+  check-all-jobs:
+    if: always()
+
+    needs:
+      - lint-styles
+      - lint-js
+      - build-ubuntu-node-18
+      - build-windows-node-20
+      - build-ubuntu-node-20
+      - unit-tests
+      - browser-tests-components
+      - deploy-docs
+      - deploy-storybook
+      - browser-tests-docs
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Verify if the required jobs succeeded
+        uses: re-actors/alls-green@05ac9388f0aebcb5727afa17fcccfecd6f8ec5fe # v1.2.2
+        with:
+          # "allowed-skips" lists jobs that are optional but should not fail
+          allowed-skips: browser-tests-components, deploy-docs, deploy-storybook, browser-tests-docs
+          jobs: ${{ toJSON(needs) }}
+
+  # publish-cookie-banner-cdn:
+  #   uses: ./.github/workflows/pie-cookie-banner-cdn-publish.yml
+  #   with:
+  #     os: ubuntu-latest
+  #     node-version: 20
+  #     package-version: v2.3.4
+  #   secrets: inherit
