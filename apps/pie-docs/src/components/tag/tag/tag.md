@@ -4,7 +4,7 @@ eleventyNavigation:
     parent: Tag
     order: 1
 shouldShowContents: true
-permalink: components/tag/
+permalink: components/tag/tag/
 eleventyComputed:
     sizes: "{% include './sizes.json' %}"
 ---
@@ -63,7 +63,7 @@ Tags can be embedded in other components such as cards, data tables (among other
 
 ## Variations
 
-### Non-interactive 
+### Non-interactive
 
 The non-interactive variation should be used by default, and should be used when the tag doesn’t require any interactivity.
 
@@ -83,13 +83,13 @@ The interactive variation should be used for non-crucial interactions.
     width: "224px"
 } %}
 
---- 
+---
 
 ## Modifiers
 
 ### Icon
 
-When incorporating an icon into a tag, it is essential to ensure that the icon clearly supports the label. Icons are only available in the large size of the tag. 
+When incorporating an icon into a tag, it is essential to ensure that the icon clearly supports the label. Icons are only available in the large size of the tag.
 
 {% contentLayout %}
   {% contentItem %}
@@ -257,19 +257,19 @@ Two size options are available to suit the scale required.
 Container width is dynamic to the content’s width and retains 4px left and right padding.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/tag/long-label.svg",
+    src:"../../../../assets/img/components/tag/long-label.svg",
     alt: "A tag component with a long text",
     width: "128px"
 } %}
 
-___ 
+___
 
 ## Meaning and purpose
 
 Tags can be used to indicate status or used to convey specific meanings within JET which are displayed below.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/tag/meaning-and-purpose.svg",
+    src:"../../../../assets/img/components/tag/meaning-and-purpose.svg",
     alt: "A collection of different tag variants",
     width: "358px"
 } %}

@@ -1,8 +1,9 @@
 ---
 eleventyNavigation:
-    key: Tag
+    key: tag
+    title: 'Tag'
     parent: Components
-    url: /components/tag/
     order: 44
-permalink: false
+    subPageDropdown: true
+title: 'Tag'
 ---
