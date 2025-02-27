@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.18.0",
-    "@justeattakeaway/pie-icons": "5.7.0",
+    "@justeattakeaway/pie-icons": "5.7.1",
     "@justeattakeaway/pie-icons-configs": "4.5.1",
     "@rollup/plugin-typescript": "11.1.6",
     "@web/test-runner": "0.16.1",

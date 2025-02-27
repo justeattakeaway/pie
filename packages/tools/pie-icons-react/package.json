@@ -1,6 +1,7 @@
 {
   "name": "@justeattakeaway/pie-icons-react",
-  "version": "5.7.0",
+  "version": "5.7.1",
+  "description": "PIE Design System Icon set for React",
   "main": "dist/index.js",
   "module": "esm/index.js",
   "types": "esm/icons/index.d.ts",
@@ -30,7 +31,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:justeattakeaway/pie.git"
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/tools/pie-icons-react"
   },
   "bugs": {
     "url": "https://github.com/justeat/pie/issues"
@@ -58,7 +60,7 @@
     "@babel/core": "7.24.9",
     "@babel/node": "7.24.7",
     "@babel/preset-react": "7.24.7",
-    "@justeattakeaway/pie-icons": "5.7.0",
+    "@justeattakeaway/pie-icons": "5.7.1",
     "@justeattakeaway/pie-icons-configs": "4.5.1",
     "@svgr/core": "6.4.0",
     "pascal-case": "3.1.2",

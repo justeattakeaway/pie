@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.29.2
+
+### Patch Changes
+
+- [Added] - repository and homepage references to packages ([#2246](https://github.com/justeattakeaway/pie/pull/2246)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.29.1
 
 ### Patch Changes

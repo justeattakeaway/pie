@@ -1,7 +1,13 @@
 {
   "name": "@justeattakeaway/pie-thumbnail",
   "description": "PIE Design System Thumbnail built using Web Components",
-  "version": "0.6.2",
+  "version": "0.6.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/components/pie-thumbnail"
+  },
+  "homepage": "https://pie.design/components/thumbnail/code/",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -34,7 +40,7 @@
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
     "@justeattakeaway/pie-components-config": "0.18.0",
-    "@justeattakeaway/pie-css": "0.15.0",
+    "@justeattakeaway/pie-css": "0.15.1",
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
