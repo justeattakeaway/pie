@@ -370,7 +370,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Publish Cookie Banner CDN
-        uses: ./.github/actions/publish-cookie-banner-cdn
+        uses: ./.github/workflows/pie-cookie-banner-cdn-publish.yml
         with:
           os: ubuntu-latest
           node-version: 20
