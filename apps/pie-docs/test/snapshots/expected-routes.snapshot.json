@@ -78,6 +78,7 @@
     "components/tabs",
     "components/tag",
     "components/tag/code",
+    "components/tag-icon-only",
     "components/text-input",
     "components/text-input/code",
     "components/textarea",
