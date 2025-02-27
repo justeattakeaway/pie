@@ -1,5 +1,32 @@
 # @justeattakeaway/pie-webc
 
+## 0.6.14
+
+### Patch Changes
+
+- [Added] - repository and homepage references to packages ([#2246](https://github.com/justeattakeaway/pie/pull/2246)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- Updated dependencies [[`46ebcee`](https://github.com/justeattakeaway/pie/commit/46ebceec9e0a16f9b4663daa72091abf687e839f)]:
+  - @justeattakeaway/pie-checkbox-group@0.7.11
+  - @justeattakeaway/pie-toast-provider@0.2.6
+  - @justeattakeaway/pie-cookie-banner@1.2.10
+  - @justeattakeaway/pie-notification@0.12.14
+  - @justeattakeaway/pie-icon-button@1.3.1
+  - @justeattakeaway/pie-form-label@0.14.5
+  - @justeattakeaway/pie-text-input@0.26.1
+  - @justeattakeaway/pie-thumbnail@0.6.3
+  - @justeattakeaway/pie-checkbox@0.14.1
+  - @justeattakeaway/pie-divider@1.2.1
+  - @justeattakeaway/pie-spinner@1.0.1
+  - @justeattakeaway/pie-button@1.3.1
+  - @justeattakeaway/pie-switch@1.2.1
+  - @justeattakeaway/pie-modal@1.4.1
+  - @justeattakeaway/pie-toast@0.7.6
+  - @justeattakeaway/pie-card@0.23.1
+  - @justeattakeaway/pie-chip@0.10.1
+  - @justeattakeaway/pie-link@1.0.1
+  - @justeattakeaway/pie-tag@0.14.1
+
 ## 0.6.13
 
 ### Patch Changes

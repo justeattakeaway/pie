@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-toast-provider
 
+## 0.2.6
+
+### Patch Changes
+
+- [Added] - repository and homepage references to packages ([#2246](https://github.com/justeattakeaway/pie/pull/2246)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- Updated dependencies [[`46ebcee`](https://github.com/justeattakeaway/pie/commit/46ebceec9e0a16f9b4663daa72091abf687e839f)]:
+  - @justeattakeaway/pie-toast@0.7.6
+
 ## 0.2.5
 
 ### Patch Changes
