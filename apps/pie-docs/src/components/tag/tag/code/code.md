@@ -76,6 +76,18 @@ We recommend using `pie-icons-webc` when using the `icon` slot. Here is an examp
 </pie-tag>
 ```
 
+#### Icon only tags
+
+Icon only mode is inferred when the `icon` slot is used without any text content and the `size` property is assigned as `large`.
+
+Using the component with the mentioned settings will implicitly disable the `isInteractive` property.
+
+```html
+<pie-tag size="large">
+    <icon-vegan slot="icon"></icon-vegan>
+</pie-tag>
+```
+
 ## Examples
 
 For HTML:
