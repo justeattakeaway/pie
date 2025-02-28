@@ -53,7 +53,7 @@
             "variant",
             {
                 "type": "code",
-                "item": ["\"primary\"", "\"secondary\"", "\"outline\"", "\"outline-inverse\"", "\"ghost\"", "\"inverse\"", "\"ghost-inverse\"", "\"destructive\"", "\"destructive-ghost\""]
+                "item": ["\"primary\"", "\"primary-alternative\"", "\"secondary\"", "\"outline\"", "\"outline-inverse\"", "\"ghost\"", "\"inverse\"", "\"ghost-inverse\"", "\"destructive\"", "\"destructive-ghost\""]
             },
             "Sets the variant of the button.",
             {

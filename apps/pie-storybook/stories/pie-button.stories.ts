@@ -347,6 +347,10 @@ export const Primary = createButtonStory({}, {
     controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
 
+export const PrimaryAlternative = createButtonStory({ variant: 'primary-alternative' }, {
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
+});
+
 export const Secondary = createButtonStory({ variant: 'secondary' }, {
     controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
