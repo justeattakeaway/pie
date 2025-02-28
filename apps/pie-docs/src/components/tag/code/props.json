@@ -44,7 +44,7 @@
                 "item": ["true", "false"]
 
             },
-            "When true, the tag will be rendered as a button and can be interacted with.",
+            "When true, the tag will be rendered as a button and can be interacted with. When utilized in \"icon only\" mode, `isInteractive` will always be `false` regardless of the assigned prop value.",
             {
                 "type": "code",
                 "item": ["false"]
