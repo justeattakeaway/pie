@@ -364,11 +364,3 @@ jobs:
           # "allowed-skips" lists jobs that are optional but should not fail
           allowed-skips: browser-tests-components, deploy-docs, deploy-storybook, browser-tests-docs
           jobs: ${{ toJSON(needs) }}
-
-  # publish-cookie-banner-cdn:
-  #   uses: ./.github/workflows/pie-cookie-banner-cdn-publish.yml
-  #   with:
-  #     os: ubuntu-latest
-  #     node-version: 20
-  #     package-version: v2.3.4
-  #   secrets: inherit
