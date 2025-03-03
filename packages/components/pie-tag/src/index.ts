@@ -1,7 +1,7 @@
 import {
-    LitElement, html, unsafeCSS, nothing,
+    LitElement, html, unsafeCSS, nothing, type PropertyValues,
 } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, queryAssignedElements } from 'lit/decorators.js';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './tag.scss?inline';
@@ -45,10 +45,53 @@ export class PieTag extends LitElement implements TagProps {
     @validPropertyValues(componentSelector, iconPlacements, defaultProps.iconPlacement)
     public iconPlacement = defaultProps.iconPlacement;
 
+    @queryAssignedElements({ slot: 'icon', flatten: true }) _iconSlotNodes!: Array<HTMLElement>;
+
+    private isIconOnly = false;
+
+    updated (changedProperties: PropertyValues<this>) {
+        if (changedProperties.has('size')) this.checkIfIsIconOnly();
+    }
+
+    private checkIfIsIconOnly () {
+        const { size, textContent, _iconSlotNodes } = this;
+
+        // The instance size must be large
+        const isLargeSize = size === 'large';
+
+        // The default slot must be empty
+        const defaultSlotText = textContent?.trim();
+        const isDefaultSlotEmpty = defaultSlotText === '';
+
+        // The icon slot must have some content
+        const iconsSlotNotEmpty = _iconSlotNodes.length > 0;
+
+        if (isLargeSize && isDefaultSlotEmpty && iconsSlotNotEmpty) {
+            // The icon slot content must be an icon
+            if (_iconSlotNodes && _iconSlotNodes.length === 1) {
+                const firstNode = (_iconSlotNodes[0] as Element);
+                const tag = firstNode.tagName.toUpperCase();
+                const isIcon = tag.startsWith('ICON-') || tag === 'SVG';
+
+                this.isIconOnly = isIcon;
+                this.requestUpdate();
+
+                return;
+            }
+        }
+
+        this.isIconOnly = false;
+        this.requestUpdate();
+    }
+
+    private handleSlotChange () {
+        this.checkIfIsIconOnly();
+    }
+
     private renderIconSlot () {
         if (this.size !== 'large') return nothing;
 
-        return html`<slot name="icon"></slot>`;
+        return html`<slot name="icon" @slotchange=${this.handleSlotChange}></slot>`;
     }
 
     private renderTag (classes: ClassInfo) {
@@ -57,7 +100,7 @@ export class PieTag extends LitElement implements TagProps {
             class="${classMap(classes)}"
             data-test-id="pie-tag">
             ${this.renderIconSlot()}
-            <slot></slot>
+            <slot @slotchange=${this.handleSlotChange}></slot>
         </div>`;
     }
 
@@ -81,7 +124,11 @@ export class PieTag extends LitElement implements TagProps {
             size,
             variant,
             iconPlacement,
+            isIconOnly,
         } = this;
+
+        // isInteractive can only be true when isIconOnly is false
+        const _isInteractive = isIconOnly ? false : isInteractive;
 
         const classes = {
             'c-tag': true,
@@ -89,11 +136,12 @@ export class PieTag extends LitElement implements TagProps {
             [`c-tag--${variant}`]: true,
             'is-disabled': disabled,
             'c-tag--strong': isStrong,
-            'c-tag--interactive': isInteractive,
-            [`c-tag--icon-placement--${iconPlacement}`]: isInteractive && iconPlacement,
+            'c-tag--interactive': _isInteractive,
+            'c-tag--icon-only': isIconOnly,
+            [`c-tag--icon-placement--${iconPlacement}`]: _isInteractive && iconPlacement,
         };
 
-        if (isInteractive) {
+        if (_isInteractive) {
             return this.renderButtonTag(classes);
         }
 
