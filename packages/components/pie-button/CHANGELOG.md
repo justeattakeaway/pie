@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.0
+
+### Minor Changes
+
+- [Added] - primary-alternative variant to buttons ([#2249](https://github.com/justeattakeaway/pie/pull/2249)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.3.1
 
 ### Patch Changes
