@@ -994,6 +994,10 @@
                     "displayName": "Close Circle Filled"
                 },
                 {
+                    "name": "double-check",
+                    "displayName": "Double Check"
+                },
+                {
                     "name": "drag",
                     "displayName": "Drag"
                 },
@@ -1134,12 +1138,12 @@
                     "displayName": "Sort Descending"
                 },
                 {
-                    "name": "sync",
-                    "displayName": "Sync"
-                },
-                {
                     "name": "switch-product",
                     "displayName": "Switch Product"
+                },
+                {
+                    "name": "sync",
+                    "displayName": "Sync"
                 },
                 {
                     "name": "trash",
@@ -1639,6 +1643,11 @@
             "name": "payment",
             "displayName": "Payment",
             "icons": [
+                {
+                    "name": "afteroay",
+                    "displayName": "Afteroay",
+                    "oneSize": true
+                },
                 {
                     "name": "allied-irish-bank",
                     "displayName": "Allied Irish Bank",
