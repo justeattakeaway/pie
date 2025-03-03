@@ -1,7 +1,7 @@
 import {
     LitElement, html, unsafeCSS, nothing, type PropertyValues,
 } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, queryAssignedElements } from 'lit/decorators.js';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './tag.scss?inline';
@@ -45,6 +45,8 @@ export class PieTag extends LitElement implements TagProps {
     @validPropertyValues(componentSelector, iconPlacements, defaultProps.iconPlacement)
     public iconPlacement = defaultProps.iconPlacement;
 
+    @queryAssignedElements({ slot: 'icon', flatten: true }) _iconSlotNodes!: Array<HTMLElement>;
+
     private isIconOnly = false;
 
     updated (changedProperties: PropertyValues<this>) {
@@ -52,23 +54,24 @@ export class PieTag extends LitElement implements TagProps {
     }
 
     private checkIfIsIconOnly () {
-        // The size must be large
-        const isLargeSize = this.size === 'large';
+        const { size, textContent, _iconSlotNodes } = this;
+
+        // The instance size must be large
+        const isLargeSize = size === 'large';
 
         // The default slot must be empty
-        const defaultSlotText = this.textContent?.trim();
+        const defaultSlotText = textContent?.trim();
         const isDefaultSlotEmpty = defaultSlotText === '';
 
         // The icon slot must have some content
-        const iconSlot = this.shadowRoot?.querySelector('slot[name="icon"]') as HTMLSlotElement | null;
+        const iconsSlotNotEmpty = _iconSlotNodes.length > 0;
 
-        if (isLargeSize && isDefaultSlotEmpty && iconSlot) {
-            const iconSlotNodes = iconSlot.assignedNodes({ flatten: true });
-
+        if (isLargeSize && isDefaultSlotEmpty && iconsSlotNotEmpty) {
             // The icon slot content must be an icon
-            if (iconSlotNodes && iconSlotNodes.length === 1) {
-                const firstNode = (iconSlotNodes[0] as Element);
-                const isIcon = firstNode.tagName.startsWith('ICON-');
+            if (_iconSlotNodes && _iconSlotNodes.length === 1) {
+                const firstNode = (_iconSlotNodes[0] as Element);
+                const tag = firstNode.tagName.toUpperCase();
+                const isIcon = tag.startsWith('ICON-') || tag === 'SVG';
 
                 this.isIconOnly = isIcon;
                 this.requestUpdate();
