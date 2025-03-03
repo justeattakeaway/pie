@@ -1,0 +1,44 @@
+name: Publish Pie Cookie Banner to CDN
+
+on:
+  workflow_call:
+    inputs:
+      os:
+        required: true
+        type: string
+      node-version:
+        required: true
+        type: string
+      package-version:
+        required: true
+        type: string
+
+env:
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+
+jobs:
+  publish-cookie-banner-cdn:
+    runs-on: ${{ inputs.os }}
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: ${{ inputs.node-version }}
+          os: ${{ inputs.os }}
+      # Build
+      - name: Build Cookie Banner
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "build --filter=pie-cookie-banner"
+
+      - name: Upload to S3
+        run: |
+          aws s3 sync ${{ github.workspace }}/packages/components/pie-cookie-banner/cdn_dist/ s3://${{ vars.PIE_CDN_BUCKET_NAME }}/pie-cookie-banner/${{ inputs.package-version }}/ --region ${{ env.AWS_REGION }} --content-type "text/javascript"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: eu-west-1
