@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-modal
 
+## 1.4.2
+
+### Patch Changes
+
+- Updated dependencies [[`f87b488`](https://github.com/justeattakeaway/pie/commit/f87b4884467373f2475abefef3d8f6067c35f03e)]:
+  - @justeattakeaway/pie-button@1.4.0
+
 ## 1.4.1
 
 ### Patch Changes
