@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-assistive-text
 
+## 0.8.5
+
+### Patch Changes
+
+- Updated dependencies [[`e05f3e3`](https://github.com/justeattakeaway/pie/commit/e05f3e31838856fed581adefd87db42691153ee6)]:
+  - @justeattakeaway/pie-icons-webc@1.6.0
+
 ## 0.8.4
 
 ### Patch Changes
