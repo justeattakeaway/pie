@@ -1,5 +1,27 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.6.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2255](https://github.com/justeattakeaway/pie/pull/2255)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Functionality
+
+  - double-check-large
+  - double-check
+
+  ## Payment
+
+  - afterpay
+
+  [Updated] - Icons
+
+  ## Functionality
+
+  - check-large
+  - check
+
 ## 1.5.0
 
 ### Minor Changes
