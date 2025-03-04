@@ -1,1 +1,20 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+.c-breadcrumb {
+  --breadcrumb-background-color: var(--dt-color-transparent);
+
+  padding: var(--dt-spacing-a) var(--dt-spacing-d) var(--dt-spacing-a) var(--dt-spacing-d);
+
+  ol {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row;
+
+    gap: var(--dt-spacing-a);
+
+    li {
+      list-style-type: none;
+    }
+  }
+}
