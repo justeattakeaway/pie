@@ -2314,10 +2314,10 @@ exports[`categorisedIconList.js > should return the expected HTML 1`] = `
     </li><li class=\\"c-categorisedIconList-iconCard\\">
         <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
             <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
-                <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--checkLarge\\"><path d=\\"M11.258 24.242a1.813 1.813 0 0 1-1.33-.577L4.625 17.75l1.313-1.164 5.25 5.924h.087L26.089 6.76l1.286 1.19L12.596 23.7a1.838 1.838 0 0 1-1.338.586v-.044Z\\"></path></svg>
+                <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--checkLarge\\"><path d=\\"m26.089 7.241-14.753 15.68-.105.114-1.163-1.313-4.13-4.655-1.313 1.164 5.303 5.915c.166.184.376.333.603.429.228.096.473.192.726.192.254 0 .5-.052.727-.157.227-.105.437-.245.612-.429l14.779-15.75-1.286-1.19Z\\"></path></svg>
             </div>
             <div class=\\"c-categorisedIconList-icon\\" aria-hidden=\\"true\\">
-                <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 16 16\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--check\\"><path d=\\"M5.865 12.489a1.217 1.217 0 0 1-.875-.385L1.875 8.656l.98-.875 3.028 3.369 7.253-7.822.963.875-7.35 7.875a1.216 1.216 0 0 1-.875.385l-.009.026Z\\"></path></svg>
+                <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 16 16\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--check\\"><path d=\\"M5.865 12.489a1.217 1.217 0 0 1-.875-.385L1.875 8.656l.98-.875 3.028 3.369 7.253-7.822.963.875-7.35 7.875c-.113.12-.248.215-.398.282-.15.066-.322.127-.486.129Z\\"></path></svg>
             </div>
         </div>
         <span class=\\"c-categorisedIconList-iconCard-separator\\"></span>
@@ -2377,6 +2377,17 @@ exports[`categorisedIconList.js > should return the expected HTML 1`] = `
         </div>
         <span class=\\"c-categorisedIconList-iconCard-separator\\"></span>
         <p>Close Circle Filled</p>
+    </li><li class=\\"c-categorisedIconList-iconCard\\">
+        <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
+            <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
+                <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--doubleCheckLarge\\"><path d=\\"m25.336 9.875-.004.004-.005-.004h.01Z\\"></path><path d=\\"m25.332 9.88 1.282 1.185-9.459 10.194a1.821 1.821 0 0 1-1.33.586c-.499 0-.989-.21-1.33-.578L10.75 17.05l1.313-1.164 3.727 4.2.035.044 9.507-10.25Z\\"></path><path d=\\"m15.318 17.584 6.055-6.519-1.287-1.19-5.932 6.396 1.164 1.313Z\\"></path><path d=\\"m10.575 20.13.053-.061v.009l.533-.578 1.164 1.313-.42.454a1.822 1.822 0 0 1-1.33.587c-.499 0-.989-.21-1.33-.578L5.5 17.06l1.313-1.164 2.598 2.922 1.164 1.313Z\\"></path></svg>
+            </div>
+            <div class=\\"c-categorisedIconList-icon\\" aria-hidden=\\"true\\">
+                <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 16 16\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--doubleCheck\\"><path d=\\"m7.843 8.779 3.14-3.386-.962-.893-3.036 3.308.858.97Z\\"></path><path d=\\"m4.902 10.074-.288.315-2.11-2.38-.98.875 2.188 2.458c.228.245.552.385.884.385.333 0 .656-.14.884-.385l.28-.306-.858-.962Z\\"></path><path fill-rule=\\"evenodd\\" d=\\"M7.195 11.342c.226.244.548.384.88.385.33 0 .652-.14.879-.385l5.52-5.95-.962-.892-5.416 5.889-2.109-2.38-.98.875 2.188 2.458Zm.88.385h.004-.01.005Z\\" clip-rule=\\"evenodd\\"></path></svg>
+            </div>
+        </div>
+        <span class=\\"c-categorisedIconList-iconCard-separator\\"></span>
+        <p>Double Check</p>
     </li><li class=\\"c-categorisedIconList-iconCard\\">
         <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
             <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
@@ -2765,17 +2776,6 @@ exports[`categorisedIconList.js > should return the expected HTML 1`] = `
     </li><li class=\\"c-categorisedIconList-iconCard\\">
         <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
             <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
-                <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--syncLarge\\"><path d=\\"M19.762 4.056 18.1 5.72a10.403 10.403 0 0 1 5.32 2.852 10.499 10.499 0 0 1 0 14.875l-1.234-1.234A8.751 8.751 0 0 0 18.205 7.54l1.557 1.557-1.242 1.243-3.141-3.142a.875.875 0 0 1 0-1.242l3.14-3.141 1.243 1.242Zm-9.948 18.13a8.697 8.697 0 0 0 3.98 2.275l-1.557-1.557 1.243-1.243 3.141 3.141a.874.874 0 0 1 0 1.243l-3.141 3.141-1.243-1.242L13.9 26.28A10.5 10.5 0 0 1 8.57 8.571l1.243 1.243a8.75 8.75 0 0 0 0 12.372Z\\"></path></svg>
-            </div>
-            <div class=\\"c-categorisedIconList-icon\\" aria-hidden=\\"true\\">
-                <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 16 16\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--sync\\"><path d=\\"M8.875 2.164A5.906 5.906 0 0 1 13.906 8a5.845 5.845 0 0 1-1.75 4.174l-.927-.928a4.587 4.587 0 0 0 0-6.492 4.507 4.507 0 0 0-2.354-1.251V4.78L6.25 2.75 8.875 1v1.164ZM3.406 8a4.568 4.568 0 0 0 1.348 3.246 4.506 4.506 0 0 0 2.371 1.252V11.22l2.625 2.03L7.125 15v-1.164A5.906 5.906 0 0 1 2.094 8a5.845 5.845 0 0 1 1.75-4.174l.91.928A4.567 4.567 0 0 0 3.406 8Z\\"></path></svg>
-            </div>
-        </div>
-        <span class=\\"c-categorisedIconList-iconCard-separator\\"></span>
-        <p>Sync</p>
-    </li><li class=\\"c-categorisedIconList-iconCard\\">
-        <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
-            <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
                 <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--switchProductLarge\\"><path d=\\"M8.974 6.375v2.599H6.375V6.375h2.599Zm1.75-1.75H4.625v6.099h6.099V4.625Z\\"></path><path d=\\"M8.974 14.696v2.6H6.375v-2.6h2.599Zm1.75-1.75H4.625v6.1h6.099v-6.1Z\\"></path><path d=\\"M17.295 6.375v2.599h-2.599V6.375h2.6Zm1.75-1.75h-6.099v6.099h6.1V4.625Z\\"></path><path d=\\"M17.295 14.696v2.6h-2.599v-2.6h2.6Zm1.75-1.75h-6.099v6.1h6.1v-6.1Z\\"></path><path d=\\"M8.974 23.018v2.598H6.375v-2.598h2.599Zm1.75-1.75H4.625v6.098h6.099v-6.098Z\\"></path><path d=\\"M17.295 23.018v2.598h-2.599v-2.598h2.6Zm1.75-1.75h-6.099v6.098h6.1v-6.098Z\\"></path><path d=\\"M25.616 6.375v2.599h-2.598V6.375h2.598Zm1.75-1.75h-6.098v6.099h6.098V4.625Z\\"></path><path d=\\"M25.616 14.696v2.6h-2.598v-2.6h2.598Zm1.75-1.75h-6.098v6.1h6.098v-6.1Z\\"></path><path d=\\"M25.616 23.018v2.598h-2.598v-2.598h2.598Zm1.75-1.75h-6.098v6.098h6.098v-6.098Z\\"></path></svg>
             </div>
             <div class=\\"c-categorisedIconList-icon\\" aria-hidden=\\"true\\">
@@ -2784,6 +2784,17 @@ exports[`categorisedIconList.js > should return the expected HTML 1`] = `
         </div>
         <span class=\\"c-categorisedIconList-iconCard-separator\\"></span>
         <p>Switch Product</p>
+    </li><li class=\\"c-categorisedIconList-iconCard\\">
+        <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
+            <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
+                <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--syncLarge\\"><path d=\\"M19.762 4.056 18.1 5.72a10.403 10.403 0 0 1 5.32 2.852 10.499 10.499 0 0 1 0 14.875l-1.234-1.234A8.751 8.751 0 0 0 18.205 7.54l1.557 1.557-1.242 1.243-3.141-3.142a.875.875 0 0 1 0-1.242l3.14-3.141 1.243 1.242Zm-9.948 18.13a8.697 8.697 0 0 0 3.98 2.275l-1.557-1.557 1.243-1.243 3.141 3.141a.874.874 0 0 1 0 1.243l-3.141 3.141-1.243-1.242L13.9 26.28A10.5 10.5 0 0 1 8.57 8.571l1.243 1.243a8.75 8.75 0 0 0 0 12.372Z\\"></path></svg>
+            </div>
+            <div class=\\"c-categorisedIconList-icon\\" aria-hidden=\\"true\\">
+                <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 16 16\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--sync\\"><path d=\\"M8.875 2.164A5.906 5.906 0 0 1 13.906 8a5.845 5.845 0 0 1-1.75 4.174l-.927-.928a4.587 4.587 0 0 0 0-6.492 4.507 4.507 0 0 0-2.354-1.251V4.78L6.25 2.75 8.875 1v1.164ZM3.406 8a4.568 4.568 0 0 0 1.348 3.246 4.506 4.506 0 0 0 2.371 1.252V11.22l2.625 2.03L7.125 15v-1.164A5.906 5.906 0 0 1 2.094 8a5.845 5.845 0 0 1 1.75-4.174l.91.928A4.567 4.567 0 0 0 3.406 8Z\\"></path></svg>
+            </div>
+        </div>
+        <span class=\\"c-categorisedIconList-iconCard-separator\\"></span>
+        <p>Sync</p>
     </li><li class=\\"c-categorisedIconList-iconCard\\">
         <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
             <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
