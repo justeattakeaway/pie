@@ -3,6 +3,7 @@ eleventyNavigation:
     key: 'Tag - Icon Only'
     parent: Components
     order: 45
+shouldShowContents: true
 ---
 
 ## Overview
@@ -30,7 +31,7 @@ The purpose of the icon only tag is to provide a quick and visually appealing wa
         type: usageTypes.text,
         items: [
           "Don’t use for interactions crucial for the flow.",
-          "Don’t use the icon only tag if a label is required to communicate the purpose, use a tag instead."
+          "Don’t use the icon only tag if a label is required to communicate the purpose, use a [Tag](/components/tag/) instead."
         ]
     }
 } %}
