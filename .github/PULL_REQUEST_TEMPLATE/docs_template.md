@@ -6,6 +6,7 @@
 - [ ] I have added thorough tests where applicable (unit / component / visual)
 - [ ] I have reviewed the Docs site preview
 - [ ] If there are visual test updates, I have reviewed them properly before approving
+- [ ] I have filled out the DS Review Tracker checklist (Moving PR to "Ready to Review")
 
 ## Reviewer checklists (complete before approving)
 ### Reviewer 1
