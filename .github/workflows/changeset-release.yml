@@ -214,7 +214,7 @@ jobs:
           COOKIE_BANNER_VERSION=$(echo $PACKAGES | jq -r '.[] | select(.name == "@justeattakeaway/pie-cookie-banner") | .version')
           echo "cookie_banner_version=$COOKIE_BANNER_VERSION" >> $GITHUB_OUTPUT
       - name: Publish Cookie Banner CDN
-        uses: ./.github/actions/publish-cookie-banner-cdn
+        uses: ./.github/workflows/pie-cookie-banner-cdn-publish.yml
         with:
           os: ${{ inputs.os }}
           node-version: ${{ inputs.node-version }}
