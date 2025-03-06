@@ -205,7 +205,7 @@ jobs:
   publish-cookie-banner-cdn:
     # needs: changesets
     runs-on: ${{ inputs.os }}
-    if: needs.changesets.outputs.published == 'true' && contains(fromJson(needs.changesets.outputs.publishedPackages).*.name, '@justeattakeaway/pie-cookie-banner')
+    # if: needs.changesets.outputs.published == 'true' && contains(fromJson(needs.changesets.outputs.publishedPackages).*.name, '@justeattakeaway/pie-cookie-banner')
     steps:
       # Checkout the Repo
       - name: Checkout
