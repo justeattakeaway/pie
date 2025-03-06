@@ -49,14 +49,14 @@ const selectStoryMeta: SelectStoryMeta = {
             },
         },
         assistiveText: {
-            description: 'An optional assistive text to display below the textarea element. Must be provided when the status is success or error.',
+            description: 'An optional assistive text to display below the select element. Must be provided when the status is success or error.',
             control: 'text',
             defaultValue: {
                 summary: '',
             },
         },
         status: {
-            description: 'The status of the textarea component / assistive text. Can be default or error.',
+            description: 'The status of the select component / assistive text. Can be default or error.',
             control: 'select',
             options: statusTypes,
             defaultValue: {

@@ -55,8 +55,8 @@
         --select-padding-inline-start: calc(var(--dt-spacing-h) - var(--dt-spacing-a));
     }
 
-    .c-select-trailing-icon,
-    ::slotted([slot="leadingIcon"]) {
+    ::slotted([slot="leadingIcon"]),
+    .c-select-trailing-icon {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
