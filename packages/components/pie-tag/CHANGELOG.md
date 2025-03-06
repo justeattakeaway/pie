@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-tag
 
+## 0.15.0
+
+### Minor Changes
+
+- [Added] - supporting code for icon only mode ([#2253](https://github.com/justeattakeaway/pie/pull/2253)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Updated] - fixed padding in icon only mode
+
 ## 0.14.1
 
 ### Patch Changes

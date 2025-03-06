@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.30.0
+
+### Minor Changes
+
+- [Added] - page for Tag icon only mode ([#2253](https://github.com/justeattakeaway/pie/pull/2253)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Updated] - content for Tag page regarding icon only mode
+
 ## 4.29.1
 
 ### Patch Changes

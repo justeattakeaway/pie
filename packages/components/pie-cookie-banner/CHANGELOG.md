@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.2.13
+
+### Patch Changes
+
+- [Added] - CDN dist output containing all cookie-banner and dependency code for uses where consumers cannot use npm/yarn or build tools. ([#2193](https://github.com/justeattakeaway/pie/pull/2193)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.2.12
 
 ### Patch Changes

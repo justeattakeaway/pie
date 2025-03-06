@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.26.0
+
+### Minor Changes
+
+- [Added] - regular story for Tag icon only mode ([#2253](https://github.com/justeattakeaway/pie/pull/2253)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Added] - test stories for Tag icon only mode
+
+### Patch Changes
+
+- Updated dependencies [[`2774a61`](https://github.com/justeattakeaway/pie/commit/2774a61a8809ae356722602dd0295a968dc1f8c0), [`6b6e7b3`](https://github.com/justeattakeaway/pie/commit/6b6e7b3a70036323aefbec874c8f904fc04ed8d4)]:
+  - @justeattakeaway/pie-tag@0.15.0
+  - @justeattakeaway/pie-cookie-banner@1.2.13
+
 ## 1.25.1
 
 ### Patch Changes
