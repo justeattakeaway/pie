@@ -1,1 +1,97 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+.c-select {
+    --select-padding-block: var(--dt-spacing-c);
+    --select-padding-inline-start: var(--dt-spacing-d);
+    --select-padding-inline-end: var(--dt-spacing-h);
+    --select-background-color: var(--dt-color-container-default);
+    --select-text-color: var(--dt-color-content-default);
+    --select-border-color: var(--dt-color-border-form);
+    --select-font-size: #{p.font-size(--dt-font-body-l-size)};
+    --select-line-height: #{p.font-size(--dt-font-body-l-line-height)};
+    --select-height: 48px;
+    --select-cursor: pointer;
+
+    position: relative;
+    color: var(--select-text-color);
+
+    select {
+        border: 1px solid var(--select-border-color);
+        border-radius: var(--dt-radius-rounded-c);
+        padding-inline-start: var(--select-padding-inline-start);
+        padding-inline-end: var(--select-padding-inline-end);
+        padding-block-start: var(--select-padding-block);
+        padding-block-end: var(--select-padding-block);
+        font-size: var(--select-font-size);
+        line-height: var(--select-line-height);
+        background-color: var(--select-background-color);
+        color: inherit;
+        cursor: var(--select-cursor);
+        outline: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        &:focus-within {
+            @include p.focus;
+        }
+    }
+
+    &.c-select--small {
+        --select-padding-block: var(--dt-spacing-b);
+        --select-height: 40px;
+    }
+
+    &.c-select--large {
+        --select-padding-block: var(--dt-spacing-d);
+        --select-height: 56px;
+    }
+
+    &.c-select--error {
+        --select-border-color: var(--dt-color-support-error);
+    }
+
+    &.c-select--withLeadingIcon {
+        --select-padding-inline-start: calc(var(--dt-spacing-h) - var(--dt-spacing-a));
+    }
+
+    .c-select-trailing-icon,
+    ::slotted([slot="leadingIcon"]) {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+
+    &:not(.is-disabled) ::slotted([slot="leadingIcon"]),
+    &:not(.is-disabled) .c-select-trailing-icon {
+        color: var(--dt-color-content-subdued);
+    }
+
+    ::slotted([slot="leadingIcon"]) {
+        --icon-display-override: block;
+        --icon-size-override: 24px;
+        inset-inline-start: var(--dt-spacing-d);
+    }
+
+    .c-select-trailing-icon {
+        inset-inline-end: var(--dt-spacing-d);
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            --select-background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
+
+            @supports (background-color: color-mix(in srgb, black, white)) {
+                --select-background-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-container-default));
+            }
+        }
+    }
+
+    &.is-disabled {
+        --select-background-color: var(--dt-color-disabled-01);
+        --select-border-color: var(--dt-color-disabled-01);
+        --select-text-color: var(--dt-color-content-disabled);
+        --select-cursor: auto;
+    }
+}
