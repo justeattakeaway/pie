@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.77.3
+
+### Patch Changes
+
+- [Fixed] - CDN publish logic v2 ([#2263](https://github.com/justeattakeaway/pie/pull/2263)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.77.2
 
 ### Patch Changes

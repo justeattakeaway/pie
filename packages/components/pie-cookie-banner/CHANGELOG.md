@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.3.0
+
+### Minor Changes
+
+- [Changed] - Updated vite config to bundle everything in the cdn dist file ([#2265](https://github.com/justeattakeaway/pie/pull/2265)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.2.14
 
 ### Patch Changes
