@@ -207,15 +207,35 @@ jobs:
     runs-on: ${{ inputs.os }}
     if: needs.changesets.outputs.published == 'true' && contains(fromJson(needs.changesets.outputs.publishedPackages).*.name, '@justeattakeaway/pie-cookie-banner')
     steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: ${{ inputs.node-version }}
+          os: ${{ inputs.os }}
+
+      # Build
+      - name: Build Cookie Banner
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "build --filter=pie-cookie-banner"
+
       - name: Extract cookie banner version
         id: extract-version
         run: |
-          PACKAGES='${{ needs.changesets.outputs.publishedPackages}}'
-          COOKIE_BANNER_VERSION=$(echo $PACKAGES | jq -r '.[] | select(.name == "@justeattakeaway/pie-cookie-banner") | .version')
-          echo "cookie_banner_version=$COOKIE_BANNER_VERSION" >> $GITHUB_OUTPUT
-      - name: Publish Cookie Banner CDN
-        uses: ./.github/workflows/pie-cookie-banner-cdn-publish.yml
-        with:
-          os: ${{ inputs.os }}
-          node-version: ${{ inputs.node-version }}
-          package-version: v${{ steps.extract-version.outputs.cookie_banner_version }}
+          PACKAGES='${{ needs.changesets.outputs.publishedPackages }}'
+          cookie_banner_version=$(echo $PACKAGES | jq -r '.[] | select(.name == "@justeattakeaway/pie-cookie-banner") | .version')
+          echo "COOKIE_BANNER_VERSION=$cookie_banner_version" >> $GITHUB_ENV
+
+      - name: Upload to S3
+        run: |
+          aws s3 sync $GITHUB_WORKSPACE/packages/components/pie-cookie-banner/cdn_dist/ s3://$PIE_CDN_BUCKET_NAME/pie-cookie-banner/$COOKIE_BANNER_VERSION/ --region $AWS_REGION --content-type "text/javascript"
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: eu-west-1
+      PIE_CDN_BUCKET_NAME: ${{ vars.PIE_CDN_BUCKET_NAME }}
