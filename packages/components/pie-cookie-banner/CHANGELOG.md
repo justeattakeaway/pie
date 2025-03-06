@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.2.14
+
+### Patch Changes
+
+- [Fixed] - CDN publish logic ([#2260](https://github.com/justeattakeaway/pie/pull/2260)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 1.2.13
 
 ### Patch Changes
