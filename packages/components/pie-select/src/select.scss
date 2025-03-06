@@ -14,23 +14,27 @@
 
     position: relative;
     color: var(--select-text-color);
+    font-size: var(--select-font-size);
+    line-height: var(--select-line-height);
 
     select {
+        height: var(--select-height);
+        width: 100%;
         border: 1px solid var(--select-border-color);
         border-radius: var(--dt-radius-rounded-c);
         padding-inline-start: var(--select-padding-inline-start);
         padding-inline-end: var(--select-padding-inline-end);
         padding-block-start: var(--select-padding-block);
         padding-block-end: var(--select-padding-block);
-        font-size: var(--select-font-size);
-        line-height: var(--select-line-height);
         background-color: var(--select-background-color);
+        font-size: inherit;
+        line-height: inherit;
         color: inherit;
-        cursor: var(--select-cursor);
         outline: 0;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
+        cursor: var(--select-cursor);
 
         &:focus-within {
             @include p.focus;
