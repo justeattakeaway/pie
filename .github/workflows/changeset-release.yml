@@ -24,7 +24,7 @@ jobs:
   changesets:
     outputs:
       published: ${{ steps.changesets-main.outputs.published }}
-      published-packages: ${{ steps.changesets-main.outputs.publishedPackages }}
+      publishedPackages: ${{ steps.changesets-main.outputs.publishedPackages }}
     runs-on: ${{ inputs.os }}
     if: github.repository == 'justeattakeaway/pie' && ${{ github.event_name != 'pull_request' }} &&
       (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
@@ -205,7 +205,7 @@ jobs:
   publish-cookie-banner-cdn:
     needs: changesets
     runs-on: ${{ inputs.os }}
-    if: needs.changesets.outputs.published == 'true' && contains(needs.changesets.outputs.publishedPackages, '@justeattakeaway/pie-cookie-banner')
+    if: needs.changesets.outputs.published == 'true' && contains(fromJson(needs.changesets.outputs.publishedPackages).*.name, '@justeattakeaway/pie-cookie-banner')
     steps:
       - name: Extract cookie banner version
         id: extract-version
