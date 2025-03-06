@@ -16,6 +16,7 @@
     "custom-elements.json",
     "src",
     "dist",
+    "cdn_dist",
     "locales",
     "**/*.d.ts"
   ],
@@ -23,7 +24,8 @@
     "componentStatus": "stable"
   },
   "scripts": {
-    "build": "run -T vite build",
+    "build": "run -T vite build && yarn build:cdn",
+    "build:cdn": "run -T vite build --config './cdn.vite.config.js'",
     "build:react-wrapper": "npx build-react-wrapper",
     "create:manifest": "yarn cem analyze --litelement",
     "lint:scripts": "run -T eslint .",
@@ -61,6 +63,7 @@
   },
   "customElements": "custom-elements.json",
   "sideEffects": [
-    "dist/*.js"
+    "dist/*.js",
+    "cdn_dist/*.js"
   ]
 }
