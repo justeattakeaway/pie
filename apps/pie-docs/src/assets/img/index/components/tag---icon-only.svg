@@ -1,0 +1,15 @@
+<svg width="320" height="160" viewBox="0 0 320 160" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <rect width="320" height="160" rx="12" fill="#EFEDEA" id="object-0"></rect>
+  <path d="M144 78C144 73.5817 147.582 70 152 70H168C172.418 70 176 73.5817 176 78V82C176 86.4183 172.418 90 168 90H152C147.582 90 144 86.4183 144 82V78Z" fill="#262626"></path>
+  <g clip-path="url(#clip0_3847_7435)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M152.083 72H167.917L168 72.0828V87.9172L167.917 88H152.083L152 87.9172V72.0828L152.083 72ZM167.834 87.8338V72.1655H152.165V87.8338H167.834ZM155.269 73H164.731C165.984 73 167 74.0157 167 75.2685V84.7315C167 85.9844 165.984 87 164.731 87H155.269C154.016 87 153 85.9844 153 84.7315V75.2685C153 74.0157 154.016 73 155.269 73Z" fill="white"></path>
+  </g>
+  <defs>
+    <clipPath id="clip0_3847_7435">
+      <rect width="16" height="16" fill="white" transform="translate(152 72)"></rect>
+    </clipPath>
+    <bx:export>
+      <bx:file format="svg" href="#object-0"></bx:file>
+    </bx:export>
+  </defs>
+</svg>

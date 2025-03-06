@@ -165,3 +165,11 @@ export const Brand06 = createTagStory({ variant: 'brand-06' }, {
         exclude: ['isStrong'],
     },
 });
+
+export const IconOnly = createTagStory({
+    size: 'large',
+    showIcon: true,
+    slot: '',
+    isInteractive: false,
+    variant: 'brand-06',
+}, {});
