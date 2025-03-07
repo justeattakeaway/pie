@@ -48,6 +48,7 @@
     --radio-bg-color--checked: var(--dt-color-interactive-brand);
     --radio-border-color: var(--dt-color-border-form);
     --radio-font-size: #{p.font-size(--dt-font-body-l-size)};
+    --radio-line-height: #{p.font-size(--dt-font-body-l-line-height)};
     --radio-font-weight: var(--dt-font-weight-regular);
     --radio-text-color: var(--dt-color-content-default);
     --radio-size: 24px;
@@ -61,6 +62,7 @@
     gap: var(--dt-spacing-b);
     cursor: var(--radio-cursor);
     font-size: var(--radio-font-size);
+    line-height: var(--radio-line-height);
     font-weight: var(--radio-font-weight);
     color: var(--radio-text-color);
 
