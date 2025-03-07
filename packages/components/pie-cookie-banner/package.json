@@ -21,7 +21,10 @@
     "**/*.d.ts"
   ],
   "pieMetadata": {
-    "componentStatus": "stable"
+    "componentStatus": "stable",
+    "cdnPublish": true,
+    "cdnSourceFolder": "cdn_dist",
+    "cdnContentType": "text/javascript"
   },
   "scripts": {
     "build": "run -T vite build && yarn build:cdn",
