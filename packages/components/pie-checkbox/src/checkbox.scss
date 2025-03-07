@@ -185,7 +185,7 @@
     --checkbox-radius: var(--dt-radius-rounded-a);
     --checkbox-margin: 1px;
     --checkbox-gap: var(--dt-spacing-b);
-    --checkbox-font-size: p.font-size(--dt-font-body-l-size);
+    --checkbox-font-size: #{p.font-size(--dt-font-body-l-size)};
     --checkbox-font-weight: var(--dt-font-weight-regular);
     --checkbox-bg-color: var(--dt-color-container-default);
     --checkbox-border-color: var(--dt-color-border-form);
