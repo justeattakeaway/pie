@@ -160,6 +160,7 @@
     white-space: normal;
     color: var(--checkbox-content-color);
     font-size: var(--checkbox-font-size);
+    line-height: var(--checkbox-line-height);
     font-weight: var(--checkbox-font-weight);
 }
 
@@ -186,6 +187,7 @@
     --checkbox-margin: 1px;
     --checkbox-gap: var(--dt-spacing-b);
     --checkbox-font-size: #{p.font-size(--dt-font-body-l-size)};
+    --checkbox-line-height: #{p.line-height(--dt-font-body-l-line-height)};
     --checkbox-font-weight: var(--dt-font-weight-regular);
     --checkbox-bg-color: var(--dt-color-container-default);
     --checkbox-border-color: var(--dt-color-border-form);
