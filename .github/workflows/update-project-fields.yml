@@ -2,7 +2,7 @@ name: DS Review Tracker – Update Project Fields
 
 on:
   pull_request:
-    types: [opened]
+    types: [opened, synchronize, reopened]
 
 jobs:
   update-project-fields:
