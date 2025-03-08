@@ -19,58 +19,30 @@ jobs:
           echo "Project Number: $PROJECT_NUMBER"
           echo "$PROJECT_NUMBER" | jq type
 
-          gh api graphql -f query='
-            query($org: String!, $number: Int!) {
-              organization(login: $org) {
-                projectV2(number: $number) {
-                  id
-                  fields(first: 20) {
-                    nodes {
-                      ... on ProjectV2Field {
-                        id
-                        name
-                      }
-                      ... on ProjectV2SingleSelectField {
-                        id
-                        name
-                        options {
-                          id
-                          name
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            ' -f org=$ORGANIZATION -f number=5
-
           # Get project ID and fields in one query
-          PROJECT_DATA=$(gh api graphql -f query='
-            query($org: String!, $number: Int!) {
-              organization(login: $org) {
-                projectV2(number: $number) {
+          PROJECT_DATA=$(gh api graphql --input - <<EOF
+          {
+            "query": "query(\$org: String!, \$number: Int!) {
+              organization(login: \$org) {
+                projectV2(number: \$number) {
                   id
                   fields(first: 20) {
                     nodes {
-                      ... on ProjectV2Field {
-                        id
-                        name
-                      }
+                      ... on ProjectV2Field { id name }
                       ... on ProjectV2SingleSelectField {
-                        id
-                        name
-                        options {
-                          id
-                          name
-                        }
+                        id name options { id name }
                       }
                     }
                   }
                 }
               }
+            }",
+            "variables": {
+              "org": "$ORGANIZATION",
+              "number": 5
             }
-            ' -f org=$ORGANIZATION -f number=5)
+          }
+          EOF
 
           PROJECT_ID=$(echo "$PROJECT_DATA" | jq -r '.data.organization.projectV2.id')
           DATE_FIELD_ID=$(echo "$PROJECT_DATA" | jq -r '.data.organization.projectV2.fields.nodes[] | select(.name=="Date Opened") | .id')
