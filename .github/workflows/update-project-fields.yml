@@ -15,7 +15,7 @@ jobs:
           PROJECT_NUMBER: 5 # The project number for the Design System Review Tracker
         run: |
           # Get project ID and fields in one query
-          PROJECT_DATA=$(gh api graphql --input - <<EOF
+          PROJECT_DATA=$(gh api graphql --input - <<'EOF'
           {
             "query": "query(\$org: String!, \$number: Int!) {
               organization(login: \$org) {
@@ -37,7 +37,8 @@ jobs:
               "number": 5
             }
           }
-          EOF)
+          EOF
+          )
 
           echo "$PROJECT_DATA"
 
