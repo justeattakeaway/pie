@@ -43,7 +43,7 @@ jobs:
                 }
               }
             }
-            ' -f org=$ORGANIZATION -f number=$(printf "%d" "$PROJECT_NUMBER")
+            ' -f org=$ORGANIZATION -f number=5
 
           # Get project ID and fields in one query
           PROJECT_DATA=$(gh api graphql -f query='
