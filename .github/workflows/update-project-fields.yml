@@ -16,20 +16,35 @@ jobs:
         run: |
           echo "ORGANIZATION: $ORGANIZATION"
           echo "$GITHUB_TOKEN" | gh auth status
+          echo "Project Number: $PROJECT_NUMBER"
+          echo "$PROJECT_NUMBER" | jq type
+
           gh api graphql -f query='
-          query($org: String!) {
-            organization(login: $org) {
-              projectsV2(first: 10) {
-                nodes {
-                  number
-                  title
+            query($org: String!, $number: Int!) {
+              organization(login: $org) {
+                projectV2(number: $number) {
+                  id
+                  fields(first: 20) {
+                    nodes {
+                      ... on ProjectV2Field {
+                        id
+                        name
+                      }
+                      ... on ProjectV2SingleSelectField {
+                        id
+                        name
+                        options {
+                          id
+                          name
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
-          }' -f org=$ORGANIZATION
+            ' -f org=$ORGANIZATION -f number=$(printf "%d" "$PROJECT_NUMBER")
 
-          echo "Project Number: $PROJECT_NUMBER"
-          echo "$PROJECT_NUMBER" | jq type
           # Get project ID and fields in one query
           PROJECT_DATA=$(gh api graphql -f query='
             query($org: String!, $number: Int!) {
