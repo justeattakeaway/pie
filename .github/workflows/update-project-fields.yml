@@ -50,9 +50,9 @@ jobs:
 
           # Get the item ID for this PR
           ITEM_ID=$(gh api graphql -f query='
-            query($project:ID!, $org:String!, $repo:String!, $pr_number:Int!) {
+            query($project:ID!, $org:String!, $repo:String!, $pr_number:Int!, $number:Int!) {
               organization(login: $org) {
-                projectV2(number: $PROJECT_NUMBER) {
+                projectV2(number: $number) {
                   items(first: 1, filter: {path: $repo + "#" + $pr_number}) {
                     nodes {
                       id
@@ -61,7 +61,7 @@ jobs:
                 }
               }
             }
-            ' -f project=$PROJECT_ID -f org=$ORGANIZATION -f repo=${{ github.event.repository.name }} -f pr_number=${{ github.event.pull_request.number }} --jq '.data.organization.projectV2.items.nodes[0].id')
+            ' -f project=$PROJECT_ID -f org=$ORGANIZATION -f repo=${{ github.event.repository.name }} -f pr_number=${{ github.event.pull_request.number }} -f number=$PROJECT_NUMBER --jq '.data.organization.projectV2.items.nodes[0].id')
 
           # Update all fields in one mutation
           gh api graphql -f query='
