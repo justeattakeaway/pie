@@ -55,7 +55,7 @@ jobs:
                 }
               }
             }
-            ' -f org=$ORGANIZATION -f number="$PROJECT_NUMBER")
+            ' -f org=$ORGANIZATION -f number=$(printf "%d" "$PROJECT_NUMBER"))
 
           PROJECT_ID=$(echo "$PROJECT_DATA" | jq -r '.data.organization.projectV2.id')
           DATE_FIELD_ID=$(echo "$PROJECT_DATA" | jq -r '.data.organization.projectV2.fields.nodes[] | select(.name=="Date Opened") | .id')
