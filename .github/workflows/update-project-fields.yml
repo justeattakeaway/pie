@@ -14,11 +14,6 @@ jobs:
           ORGANIZATION: ${{ github.repository_owner }}
           PROJECT_NUMBER: 5 # The project number for the Design System Review Tracker
         run: |
-          echo "ORGANIZATION: $ORGANIZATION"
-          echo "$GITHUB_TOKEN" | gh auth status
-          echo "Project Number: $PROJECT_NUMBER"
-          echo "$PROJECT_NUMBER" | jq type
-
           # Get project ID and fields in one query
           PROJECT_DATA=$(gh api graphql --input - <<EOF
           {
@@ -43,6 +38,8 @@ jobs:
             }
           }
           EOF)
+
+          echo "$PROJECT_DATA"
 
           PROJECT_ID=$(echo "$PROJECT_DATA" | jq -r '.data.organization.projectV2.id')
           DATE_FIELD_ID=$(echo "$PROJECT_DATA" | jq -r '.data.organization.projectV2.fields.nodes[] | select(.name=="Date Opened") | .id')
