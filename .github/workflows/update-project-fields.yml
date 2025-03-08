@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Update Project Fields
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PROJECTS_SECRET }}
           ORGANIZATION: ${{ github.repository_owner }}
           PROJECT_NUMBER: 5 # The project number for the Design System Review Tracker
         run: |
