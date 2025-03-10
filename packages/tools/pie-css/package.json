@@ -12,6 +12,11 @@
     "scss"
   ],
   "main": "dist/index.css",
+  "pieMetadata": {
+    "cdnPublish": true,
+    "cdnSourceFolder": "dist",
+    "cdnContentType": "text/css"
+  },
   "scripts": {
     "build": "run -T ts-node ./buildCss.ts",
     "lint:scripts": "run -T eslint .",
