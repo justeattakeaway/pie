@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-radio
 
+## 0.9.1
+
+### Patch Changes
+
+- [Fixed] - SCSS reference interpolation ([#2267](https://github.com/justeattakeaway/pie/pull/2267)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Added] - line height style
+
 ## 0.9.0
 
 ### Minor Changes
