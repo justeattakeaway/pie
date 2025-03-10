@@ -39,7 +39,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
-    "@justeattakeaway/pie-checkbox": "0.14.2",
+    "@justeattakeaway/pie-checkbox": "0.14.3",
     "@justeattakeaway/pie-components-config": "0.18.0",
     "@justeattakeaway/pie-css": "0.15.1",
     "cem-plugin-module-file-extensions": "0.0.5"

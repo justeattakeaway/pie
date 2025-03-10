@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.14.3
+
+### Patch Changes
+
+- [Fixed] - SCSS reference interpolation ([#2267](https://github.com/justeattakeaway/pie/pull/2267)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Added] - line height style
+
 ## 0.14.2
 
 ### Patch Changes
