@@ -135,3 +135,5 @@ pie-thumbnail:
   - packages/components/pie-thumbnail/**/*
 pie-select:
   - packages/components/pie-select/**/*
+pie-breadcrumb:
+  - packages/components/pie-breadcrumb/**/*
