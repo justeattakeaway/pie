@@ -59,16 +59,17 @@ export class PieSelect extends RtlMixin(LitElement) implements SelectProps {
     @query('select')
     public focusTarget!: HTMLElement;
 
-    @queryAssignedElements({ slot: 'leadingIcon', flatten: true }) _leadingIconNodes!: Array<Node>;
+    @queryAssignedElements({ slot: 'leadingIcon', flatten: true })
+    private _leadingIconSlot!: Array<HTMLElement>;
 
     @state()
     private _hasLeadingIcon = false;
 
-    private handleLeadingIconSlotchange () {
-        this._hasLeadingIcon = Boolean(this._leadingIconNodes.length);
+    private _handleLeadingIconSlotchange () {
+        this._hasLeadingIcon = Boolean(this._leadingIconSlot.length);
     }
 
-    renderAssistiveText () {
+    private renderAssistiveText () {
         if (!this.assistiveText) {
             return nothing;
         }
@@ -105,7 +106,7 @@ export class PieSelect extends RtlMixin(LitElement) implements SelectProps {
             <div
                 class="${classMap(classes)}"
                 data-test-id="pie-select-shell">
-                    <slot name="leadingIcon" @slotchange=${this.handleLeadingIconSlotchange}></slot>
+                    <slot name="leadingIcon" @slotchange=${this._handleLeadingIconSlotchange}></slot>
                     <select
                         name=${ifDefined(name)}
                         ?disabled=${disabled}
