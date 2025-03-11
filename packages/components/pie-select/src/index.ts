@@ -12,7 +12,7 @@ import {
 import {
     property,
     query,
-    queryAssignedNodes,
+    queryAssignedElements,
     state,
 } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -59,7 +59,7 @@ export class PieSelect extends RtlMixin(LitElement) implements SelectProps {
     @query('select')
     public focusTarget!: HTMLElement;
 
-    @queryAssignedNodes({ slot: 'leadingIcon', flatten: true }) _leadingIconNodes!: Array<Node>;
+    @queryAssignedElements({ slot: 'leadingIcon', flatten: true }) _leadingIconNodes!: Array<Node>;
 
     @state()
     private _hasLeadingIcon = false;
@@ -116,7 +116,7 @@ export class PieSelect extends RtlMixin(LitElement) implements SelectProps {
                         <option value="cat">Cat</option>
                         <option value="hamster">Hamster</option>
                     </select>
-                    <icon-chevron-down size='s' class='c-select-trailing-icon'></icon-chevron-down>
+                    <icon-chevron-down size='s' class='c-select-trailingIcon'></icon-chevron-down>
             </div>
             ${this.renderAssistiveText()}
         `;

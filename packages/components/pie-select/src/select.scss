@@ -60,7 +60,7 @@
     }
 
     ::slotted([slot="leadingIcon"]),
-    .c-select-trailing-icon {
+    .c-select-trailingIcon {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -68,7 +68,7 @@
     }
 
     &:not(.is-disabled) ::slotted([slot="leadingIcon"]),
-    &:not(.is-disabled) .c-select-trailing-icon {
+    &:not(.is-disabled) .c-select-trailingIcon {
         color: var(--dt-color-content-subdued);
     }
 
@@ -78,7 +78,7 @@
         inset-inline-start: var(--dt-spacing-d);
     }
 
-    .c-select-trailing-icon {
+    .c-select-trailingIcon {
         inset-inline-end: var(--dt-spacing-d);
     }
 
