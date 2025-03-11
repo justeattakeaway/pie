@@ -2,7 +2,7 @@ const markdownFilter = require('../filters/markdown');
 const listTypes = require('../../_data/listTypes');
 const pieIconsSvg = require('../filters/pieIconsSvg');
 const pieDesignTokenColours = require('../filters/pieDesignTokenColours');
-
+// this is a token const
 const getTokenByName = (tokenName) => pieDesignTokenColours({ tokenName, tokenPath: ['alias', 'default'] });
 
 const getIconSvg = (iconName, iconFill) => {
