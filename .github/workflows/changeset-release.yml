@@ -120,10 +120,10 @@ jobs:
         PACKAGES='${{ steps.changesets-main.outputs.publishedPackages}}'
         PRIORITIZED_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select(.name == "pie-docs" or .name == "pie-storybook")]')
         REST_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select((.name != "pie-docs" and .name != "pie-storybook") and (.name | startswith("wc-") | not) and .name != "pie-monorepo")]')
-    
+
         PRIORITIZED_BLOCKS=$(echo $PACKAGES | jq -c '
             map(select(.name == "pie-docs" or .name == "pie-storybook")) |
-          
+
             if length > 0 then
               [{"type": "divider"}, {"type": "header", "text": {"type": "plain_text", "text": ":rocket: Deployment Summary"}}] +
               (map(
@@ -170,8 +170,8 @@ jobs:
               .
             end
           ')
-    
-    
+
+
         REST_COMPONENT_BLOCKS=$(echo $REST_PACKAGES | jq -c '
             if length > 0 then
               [{"type": "divider"}] +
@@ -183,9 +183,9 @@ jobs:
                 []
             end
         ')
-    
+
         BLOCKS=$(echo "[${PRIORITIZED_BLOCKS},${REST_COMPONENT_BLOCKS}]" | jq -c 'add')
-    
+
         echo "BLOCKS=$BLOCKS" >> $GITHUB_ENV
 
     - name: Send a Slack notification on publish
@@ -201,8 +201,9 @@ jobs:
           }
       env:
         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-    
+
     - name: Publish packages to CDN
+      id: cdn-publish
       if: steps.changesets-main.outputs.published == 'true'
       uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
       env:
@@ -212,6 +213,66 @@ jobs:
         PIE_CDN_BUCKET_NAME: ${{ vars.PIE_CDN_BUCKET_NAME }}
       with:
         script: |
-          const publishedPackages = JSON.parse('${{ steps.changesets-main.outputs.publishedPackages }}');
-          const publishToCdn = require('${{ github.workspace }}/packages/tools/pie-monorepo-utils/pie-cdn/publish-to-cdn.js');
-          await publishToCdn({ publishedPackages });
+          try {
+            const publishedPackages = JSON.parse('${{ steps.changesets-main.outputs.publishedPackages }}');
+            const publishToCdn = require('${{ github.workspace }}/packages/tools/pie-monorepo-utils/pie-cdn/publish-to-cdn.js');
+            await publishToCdn({ publishedPackages });
+          } catch (error) {
+            core.setFailed(`CDN publish failed: ${error.message}`);
+          }
+
+    - name: Send Slack alert on CDN publish failure
+      if: failure() && steps.cdn-publish.outcome == 'failure'
+      uses: slackapi/slack-github-action@fcfb566f8b0aab22203f066d80ca1d7e4b5d05b3 # v1.27.1
+      with:
+        channel-id: ${{ secrets.ALERTS_SLACK_CHANNEL_ID }}
+        payload: |
+          {
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": ":warning: *CDN Publish Failed* :warning:\nThe CDN publishing step has failed for new package versions."
+                }
+              },
+              {
+                "type": "context",
+                "elements": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Workflow:* `${{ github.workflow }}`"
+                  }
+                ]
+              },
+              {
+                "type": "actions",
+                "elements": [
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "View Workflow Run :github:",
+                      "emoji": true
+                    },
+                    "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+                    "style": "primary"
+                  },
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "View Repository :octocat:",
+                      "emoji": true
+                    },
+                    "url": "https://github.com/${{ github.repository }}",
+                    "style": "primary"
+                  }
+                ]
+              }
+            ]
+          }
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+
