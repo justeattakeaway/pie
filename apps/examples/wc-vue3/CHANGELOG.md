@@ -1,5 +1,13 @@
 # wc-vue3
 
+## 0.5.68
+
+### Patch Changes
+
+- Updated dependencies [[`4ec1e6b`](https://github.com/justeattakeaway/pie/commit/4ec1e6b06f3f68ce23a31d17b5ac313894dbe64b), [`4ec1e6b`](https://github.com/justeattakeaway/pie/commit/4ec1e6b06f3f68ce23a31d17b5ac313894dbe64b)]:
+  - @justeattakeaway/pie-css@0.16.0
+  - @justeattakeaway/pie-webc@0.6.21
+
 ## 0.5.67
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.4.0
+
+### Minor Changes
+
+- [Added] - `pieMetadata` properties for cdn publishing ([#2268](https://github.com/justeattakeaway/pie/pull/2268)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 1.3.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-monorepo-utils
 
+## 0.4.0
+
+### Minor Changes
+
+- [Updated] - cdn publishing functionality to handle multiple packages ([#2268](https://github.com/justeattakeaway/pie/pull/2268)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.3.1
 
 ### Patch Changes

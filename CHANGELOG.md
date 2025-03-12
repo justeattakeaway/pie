@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.78.0
+
+### Minor Changes
+
+- [Updated] - cdn publishing functionality to handle multiple packages ([#2268](https://github.com/justeattakeaway/pie/pull/2268)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.77.3
 
 ### Patch Changes

@@ -42,7 +42,7 @@
     "@justeat/pie-design-tokens": "6.10.0",
     "@justeattakeaway/pie-button": "1.4.0",
     "@justeattakeaway/pie-components-config": "0.18.0",
-    "@justeattakeaway/pie-css": "0.15.1",
+    "@justeattakeaway/pie-css": "0.16.0",
     "@justeattakeaway/pie-text-input": "0.26.2",
     "@justeattakeaway/pie-wrapper-react": "0.14.3",
     "@types/body-scroll-lock": "3.1.2",
