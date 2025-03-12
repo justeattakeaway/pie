@@ -65,8 +65,20 @@ export class PieSelect extends RtlMixin(LitElement) implements SelectProps {
     @state()
     private _hasLeadingIcon = false;
 
+    private _handleDefaultSlotChange () {
+        this.requestUpdate();
+    }
+
     private _handleLeadingIconSlotchange () {
         this._hasLeadingIcon = Boolean(this._leadingIconSlot.length);
+    }
+
+    private renderItems () {
+        return html`
+          ${[...this.children]
+            .filter((el) => el.matches('pie-select-option'))
+            .map(({ textContent }) => html`<option>${textContent}</option>`)}
+        `;
     }
 
     private renderAssistiveText () {
@@ -113,11 +125,10 @@ export class PieSelect extends RtlMixin(LitElement) implements SelectProps {
                         aria-describedby=${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}
                         aria-invalid=${status === 'error' ? 'true' : 'false'}
                         aria-errormessage="${ifDefined(status === 'error' ? assistiveTextIdValue : undefined)}">
-                        <option value="dog">Dog</option>
-                        <option value="cat">Cat</option>
-                        <option value="hamster">Hamster</option>
+                        ${this.renderItems()}
                     </select>
                     <icon-chevron-down size='s' class='c-select-trailingIcon'></icon-chevron-down>
+                    <slot @slotchange=${this._handleDefaultSlotChange} style="display: none"></slot>
             </div>
             ${this.renderAssistiveText()}
         `;

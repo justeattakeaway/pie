@@ -96,16 +96,19 @@ const Template = ({
             ?disabled="${disabled}"
             size="${ifDefined(size)}"
             assistiveText="${ifDefined(assistiveText)}"
-            status=${ifDefined(status)}>   
-                ${showLeadingIcon ? html`<icon-placeholder slot="leadingIcon"></icon-placeholder>` : nothing} 
+            status=${ifDefined(status)}>
+                ${showLeadingIcon ? html`<icon-placeholder slot="leadingIcon"></icon-placeholder>` : nothing}
+                <pie-select-option>Option 1</pie-select-option>
+                <pie-select-option>Option 2</pie-select-option>
+                <pie-select-option>Option 3</pie-select-option>
         </pie-select>
-    `;
+`;
 
 const WithLabelTemplate: TemplateFunction<SelectProps> = (props: SelectProps) => html`
-        <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-label</pie-link>.</p>
-        <pie-form-label for="${ifDefined(props.name)}">Label</pie-form-label>
-        ${Template(props)}
-    `;
+    <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-label</pie-link>.</p>
+    <pie-form-label for="${ifDefined(props.name)}">Label</pie-form-label>
+    ${Template(props)}
+`;
 
 export const Default = createStory<SelectProps>(Template, defaultArgs)();
 export const Labelled = createStory<SelectProps>(WithLabelTemplate, defaultArgs)();
