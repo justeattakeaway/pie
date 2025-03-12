@@ -111,7 +111,11 @@ As with the browser tests, it is vital that the component to test is mounted and
 ## Bundling
 When we build a component, we run a plugin for Rollup named `rollup-plugin-visualizer`. This generates a file for each component named `stats.html` in the root of the component package. This file can be viewed in the browser to visualise the bundled Javascript and better understand what contributes to the size of the final build output.
 
-## Component Status changes
+## PIE Metadata Configuration
+
+The `pieMetadata` object in a package's `package.json` file is used to configure various aspects of PIE packages. This metadata controls component status, CDN publishing, and other features.
+
+### Component Status changes
 The `package.json` file of each component is the source of truth for its status. Any change of status will be automatically reflected in Storybook and the Documentation site.
 
 Supported statuses are `alpha`, `beta` and `stable`.
@@ -122,6 +126,20 @@ Supported statuses are `alpha`, `beta` and `stable`.
   "componentStatus": "alpha"
 },
 ```
+
+### CDN Publishing
+
+To enable CDN publishing for a package, add the following properties:
+
+```json
+// package.json
+"pieMetadata": {
+  "cdnPublish": true,
+  "cdnSourceFolder": "dist",
+  "cdnContentType": "text/javascript" 
+}
+```
+
 
 ### Release Categorisation
 |                    | Prerelease/Alpha (v0.x.x)                                                                                                           | Beta (v0.x.x)                                                                                                            | Stable (v1.x.x)                                                                                                                                                                                                   |
