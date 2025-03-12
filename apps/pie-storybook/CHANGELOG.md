@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.27.0
+
+### Minor Changes
+
+- [Added] - shell component and its main props ([#2262](https://github.com/justeattakeaway/pie/pull/2262)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`4ec1e6b`](https://github.com/justeattakeaway/pie/commit/4ec1e6b06f3f68ce23a31d17b5ac313894dbe64b), [`4ec1e6b`](https://github.com/justeattakeaway/pie/commit/4ec1e6b06f3f68ce23a31d17b5ac313894dbe64b), [`b7ea0a0`](https://github.com/justeattakeaway/pie/commit/b7ea0a040ebc98b46bb71a229b321029a315b666)]:
+  - @justeattakeaway/pie-css@0.16.0
+  - @justeattakeaway/pie-cookie-banner@1.4.0
+  - @justeattakeaway/pie-select@0.1.0
+
 ## 1.26.3
 
 ### Patch Changes

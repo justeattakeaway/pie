@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 
-const componentSelector = '[data-test-id="pie-select"]';
+const componentSelector = '[data-test-id="pie-select-shell"]';
 
 test.describe('PieSelect - Component tests', () => {
     test('should render successfully', async ({ page }) => {

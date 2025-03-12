@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-css
 
+## 0.16.0
+
+### Minor Changes
+
+- [Updated] - version to push new pie-css version to CDN ([#2268](https://github.com/justeattakeaway/pie/pull/2268)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - `pieMetadata` properties for cdn publishing ([#2268](https://github.com/justeattakeaway/pie/pull/2268)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.15.1
 
 ### Patch Changes
