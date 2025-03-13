@@ -1,24 +1,22 @@
-const markdownFilter = require("../filters/markdown");
-const listTypes = require("../../_data/listTypes");
-const pieIconsSvg = require("../filters/pieIconsSvg");
-const pieDesignTokenColours = require("../filters/pieDesignTokenColours");
+const markdownFilter = require('../filters/markdown');
+const listTypes = require('../../_data/listTypes');
+const pieIconsSvg = require('../filters/pieIconsSvg');
+const pieDesignTokenColours = require('../filters/pieDesignTokenColours');
 
-const getTokenByName = (tokenName) =>
-    pieDesignTokenColours({ tokenName, tokenPath: ["alias", "default"] });
+const getTokenByName = (tokenName) => pieDesignTokenColours({ tokenName, tokenPath: ['alias', 'default'] });
 
 const getIconSvg = (iconName, iconFill) => {
-    if (!iconName)
-        throw new Error(
-            `List item for 'type = ${listTypes.icon}' must have iconName`
-        );
+    if (!iconName) {
+        throw new Error(`List item for 'type = ${listTypes.icon}' must have iconName`);
+    }
     return pieIconsSvg({
         name: iconName,
         attrs: {
             height: 20,
             width: 20,
             fill: iconFill,
-            class: iconFill && "u-iconFilled",
-            "aria-hidden": "true",
+            class: iconFill && 'u-iconFilled',
+            'aria-hidden': 'true',
         },
     });
 };
@@ -26,7 +24,7 @@ const getIconSvg = (iconName, iconFill) => {
 const getHighlightIndicator = (highlightColour, index) => {
     const highlightColourHexcode = highlightColour?.[index]
         ? getTokenByName(highlightColour[index])
-        : getTokenByName("support-brand-03");
+        : getTokenByName('support-brand-03');
 
     return `<span class="c-list--highlight-indicator" style="background-color: ${highlightColourHexcode};"></span>`;
 };
@@ -39,13 +37,11 @@ const getHighlightIndicator = (highlightColour, index) => {
  * @param {string[]} items - An array of list items
  * @returns {string}
  */
-const list = ({ type, items, iconName, iconFill, highlightColour }) => {
+const list = ({
+    type, items, iconName, iconFill, highlightColour,
+}) => {
     if (!type || !listTypes[type]) {
-        throw new Error(
-            `List 'type = ${type}' not recognised. Try ${Object.values(
-                listTypes
-            ).join(", ")}`
-        );
+        throw new Error(`List 'type = ${type}' not recognised. Try ${Object.values(listTypes).join(', ')}`);
     }
 
     const isIconType = type === listTypes.icon;
@@ -53,25 +49,20 @@ const list = ({ type, items, iconName, iconFill, highlightColour }) => {
     const isHighlightType = type === listTypes.highlight;
 
     const listItems = items
-        .map(
-            (item, index) => `<li class="c-list-item">
-        ${isIconType ? getIconSvg(iconName, iconFill) : ""}
-        ${isHighlightType ? getHighlightIndicator(highlightColour, index) : ""}
+        .map((item, index) => `<li class="c-list-item">
+        ${isIconType ? getIconSvg(iconName, iconFill) : ''}
+        ${isHighlightType ? getHighlightIndicator(highlightColour, index) : ''}
         ${markdownFilter(item, true)}
-        </li>`
-        )
-        .join("");
+        </li>`)
+        .join('');
 
-    const listTag = type === listTypes.ordered ? "ol" : "ul";
-    const listClasses = ["c-list", `c-list--${type}`];
+    const listTag = type === listTypes.ordered ? 'ol' : 'ul';
+    const listClasses = ['c-list', `c-list--${type}`];
 
-    return `<${listTag} class="${listClasses.join(" ")}"  ${
-        isIconType ? `style="--icon-fill: ${iconFillHexcode}";` : ""
-    }>
+    return `<${listTag} class="${listClasses.join(' ')}"  ${isIconType ? `style="--icon-fill: ${iconFillHexcode}";` : ''
+        }>
         ${listItems}
     </${listTag}>`;
 };
 
 module.exports = list;
-
-// some change
