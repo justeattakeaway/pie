@@ -49,7 +49,7 @@ To check for the most up-to-date versions of our cookie banner and css, check th
 2. Now you can add the Cookie Banner script to your application. This can also be imported from our CDN like so:
 
 ```html
-<script src="https://pie-design-system-cdn.production.jet-external.com/pie-cookie-banner/1.3.0/index.js"></script>
+<script src="https://pie-design-system-cdn.production.jet-external.com/pie-cookie-banner/v1.4.0/index.js"></script>
 ```
 
 We would recommend placing this script somewhere in the bottom of your HTML body tag. However what works for each application will be different. Please consider how this could affect the loading of your page.
