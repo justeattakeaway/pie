@@ -3,4 +3,4 @@
 "pie-storybook": minor
 ---
 
-[Added] - pie select option
+[Added] - pie-option pie-option-group
