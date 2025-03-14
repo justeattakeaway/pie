@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.79.0
+
+### Minor Changes
+
+- [Added] - Alert an internal slack channel if CDN publishes fail ([#2276](https://github.com/justeattakeaway/pie/pull/2276)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.78.0
 
 ### Minor Changes
