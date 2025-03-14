@@ -201,7 +201,7 @@ export class ComponentService {
                     const subComponentTargets = [
                         {
                             dir: componentsTargetDir,
-                            exportPath: `${packageName}/dist/${subComponent}`,
+                            exportPath: `${packageName}/dist/${subComponent}/index.js`,
                         },
                         {
                             dir: reactTargetDir,
