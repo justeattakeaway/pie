@@ -74,20 +74,19 @@ export class ComponentService {
     /**
      * Creates the exports for a component to be added to the pie-webc package.json.
      * @param {string} componentName - The name of the component to create exports for, omitting the `'pie-'` prefix.
+     * @param {string} [parentComponentName] - The name of the parent component, omitting the `'pie-'` prefix.
      * @returns {Object} - An object containing the exports for the component.
      */
-    createPackageJsonExports (componentName) {
+    createPackageJsonExports (componentName, parentComponentName) {
+        const createExportPath = (pathPrefix) => ({
+            import: `${pathPrefix}/${componentName}.js`,
+            require: `${pathPrefix}/${componentName}.js`,
+            types: `${pathPrefix}/${componentName}.d.ts`,
+        });
+
         const exports = {
-            [`./components/${componentName}.js`]: {
-                import: `./components/${componentName}.js`,
-                require: `./components/${componentName}.js`,
-                types: `./components/${componentName}.d.ts`,
-            },
-            [`./react/${componentName}.js`]: {
-                import: `./react/${componentName}.js`,
-                require: `./react/${componentName}.js`,
-                types: `./react/${componentName}.d.ts`,
-            },
+            [`./components/${componentName}.js`]: createExportPath(`./components${parentComponentName ? `/${parentComponentName}` : ''}`),
+            [`./react/${componentName}.js`]: createExportPath(`./react${parentComponentName ? `/${parentComponentName}` : ''}`),
         };
 
         return exports;
@@ -119,6 +118,25 @@ export class ComponentService {
      */
     writePackageJson (path, content) {
         this.fs.writeFileSync(path, `${JSON.stringify(content, null, 2)}\n`);
+    }
+
+    /**
+     * Finds sub components in a component directory.
+     * @param {string} componentPath - The path to the component directory.
+     * @returns {Array} - An array of sub component names found in the component's src directory.
+     */
+    findSubComponents (componentPath) {
+        const srcPath = this.path.join(componentPath, 'src');
+
+        if (!this.fs.existsSync(srcPath)) {
+            return [];
+        }
+
+        return this.fs.readdirSync(srcPath)
+            .filter((item) => {
+                const itemPath = this.path.join(srcPath, item);
+                return this.fs.statSync(itemPath).isDirectory() && item.startsWith('pie-');
+            });
     }
 
     /**
@@ -170,6 +188,37 @@ export class ComponentService {
             targets.forEach((target) => {
                 this.writeFilesForComponent(componentName, target);
             });
+
+            const subComponents = this.findSubComponents(fullFolderPath);
+
+            if (subComponents.length > 0) {
+                subComponents.forEach((subComponent) => {
+                    const subComponentName = subComponent.replace('pie-', '');
+
+                    console.info(chalk.gray(`Adding sub-component: ${chalk.white(subComponent)}`));
+
+                    const subComponentTargets = [
+                        {
+                            dir: componentsTargetDir,
+                            exportPath: `${packageName}/dist/${subComponent}`,
+                        },
+                        {
+                            dir: reactTargetDir,
+                            exportPath: `${packageName}/dist/${subComponent}/react.js`,
+                        }
+                    ];
+
+                    subComponentTargets.forEach((target) => {
+                        this.writeFilesForComponent(subComponentName, target);
+                    });
+
+                    const subComponentExports = this.createPackageJsonExports(subComponentName, componentName);
+                    newPackageJson.exports = {
+                        ...newPackageJson.exports,
+                        ...subComponentExports,
+                    };
+                });
+            }
 
             const exportsObj = {
                 ...newPackageJson.exports,
