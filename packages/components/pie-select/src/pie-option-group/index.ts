@@ -1,13 +1,13 @@
 import { LitElement } from 'lit';
 import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
-import { type SelectOptionGroupProps } from './defs';
+import { type OptionGroupProps } from './defs';
 
 const componentSelector = 'pie-option-group';
 
 /**
  * @tagname pie-option-group
  */
-export class PieOptionGroup extends LitElement implements SelectOptionGroupProps {
+export class PieOptionGroup extends LitElement implements OptionGroupProps {
 
 }
 

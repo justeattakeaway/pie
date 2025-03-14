@@ -11,8 +11,10 @@ const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
             entry: {
                 index: 'src/index.ts',
                 react: 'src/react.ts',
-                'pie-select-option/index': 'src/pie-select-option/index.ts',
-                'pie-select-option/react': 'src/pie-select-option/react.ts',
+                'pie-option/index': 'src/pie-option/index.ts',
+                'pie-option/react': 'src/pie-option/react.ts',
+                'pie-option-group/index': 'src/pie-option-group/index.ts',
+                'pie-option-group/react': 'src/pie-option-group/react.ts',
             },
             formats: ['es'],
         },
