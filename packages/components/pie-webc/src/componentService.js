@@ -74,19 +74,20 @@ export class ComponentService {
     /**
      * Creates the exports for a component to be added to the pie-webc package.json.
      * @param {string} componentName - The name of the component to create exports for, omitting the `'pie-'` prefix.
-     * @param {string} [parentComponentName] - The name of the parent component, omitting the `'pie-'` prefix.
      * @returns {Object} - An object containing the exports for the component.
      */
-    createPackageJsonExports (componentName, parentComponentName) {
-        const createExportPath = (pathPrefix) => ({
-            import: `${pathPrefix}/${componentName}.js`,
-            require: `${pathPrefix}/${componentName}.js`,
-            types: `${pathPrefix}/${componentName}.d.ts`,
-        });
-
+    createPackageJsonExports (componentName) {
         const exports = {
-            [`./components/${componentName}.js`]: createExportPath(`./components${parentComponentName ? `/${parentComponentName}` : ''}`),
-            [`./react/${componentName}.js`]: createExportPath(`./react${parentComponentName ? `/${parentComponentName}` : ''}`),
+            [`./components/${componentName}.js`]: {
+                import: `./components/${componentName}.js`,
+                require: `./components/${componentName}.js`,
+                types: `./components/${componentName}.d.ts`,
+            },
+            [`./react/${componentName}.js`]: {
+                import: `./react/${componentName}.js`,
+                require: `./react/${componentName}.js`,
+                types: `./react/${componentName}.d.ts`,
+            },
         };
 
         return exports;
@@ -212,7 +213,7 @@ export class ComponentService {
                         this.writeFilesForComponent(subComponentName, target);
                     });
 
-                    const subComponentExports = this.createPackageJsonExports(subComponentName, componentName);
+                    const subComponentExports = this.createPackageJsonExports(subComponentName);
                     newPackageJson.exports = {
                         ...newPackageJson.exports,
                         ...subComponentExports,
