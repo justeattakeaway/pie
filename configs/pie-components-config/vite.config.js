@@ -5,7 +5,9 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { deepmerge } from 'deepmerge-ts';
 
 // https://vitejs.dev/config/
-const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
+const sharedConfig = ({
+    build = {}, plugins = [], dtsConfig = {}, ...rest
+}) => defineConfig({
     build: deepmerge({
         lib: {
             entry: {
@@ -43,6 +45,7 @@ const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
         insertTypesEntry: true,
         outputDir: 'dist',
         rollupTypes: true,
+        ...dtsConfig,
     }),
     visualizer({
         gzipSize: true,

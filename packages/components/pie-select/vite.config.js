@@ -1,5 +1,4 @@
 import viteConfig from '@justeattakeaway/pie-components-config/vite.config';
-import dts from 'vite-plugin-dts';
 
 export default viteConfig({
     build: {
@@ -12,12 +11,8 @@ export default viteConfig({
             },
         },
     },
-    plugins: [
-        dts({
-            insertTypesEntry: true,
-            outputDir: 'dist',
-            entryRoot: 'src',
-            rollupTypes: false,
-        }),
-    ],
+    dtsConfig: {
+        entryRoot: 'src',
+        rollupTypes: false,
+    },
 });
