@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.4.1
+
+### Patch Changes
+
+- [Added] - CDN readme ([#2279](https://github.com/justeattakeaway/pie/pull/2279)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.4.0
 
 ### Minor Changes
