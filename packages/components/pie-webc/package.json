@@ -204,16 +204,6 @@
       "require": "./react/select.js",
       "types": "./react/select.d.ts"
     },
-    "./components/select-option.js": {
-      "import": "./components/select-option.js",
-      "require": "./components/select-option.js",
-      "types": "./components/select-option.d.ts"
-    },
-    "./react/select-option.js": {
-      "import": "./react/select-option.js",
-      "require": "./react/select-option.js",
-      "types": "./react/select-option.d.ts"
-    },
     "./components/spinner.js": {
       "import": "./components/spinner.js",
       "require": "./components/spinner.js",
