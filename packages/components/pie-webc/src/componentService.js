@@ -122,6 +122,25 @@ export class ComponentService {
     }
 
     /**
+     * Finds sub components in a component directory.
+     * @param {string} componentPath - The path to the component directory.
+     * @returns {Array} - An array of sub component names found in the component's src directory.
+     */
+    findSubComponents (componentPath) {
+        const srcPath = this.path.join(componentPath, 'src');
+
+        if (!this.fs.existsSync(srcPath)) {
+            return [];
+        }
+
+        return this.fs.readdirSync(srcPath)
+            .filter((item) => {
+                const itemPath = this.path.join(srcPath, item);
+                return this.fs.statSync(itemPath).isDirectory() && item.startsWith('pie-');
+            });
+    }
+
+    /**
      * Processes all components in the components directory, adding them to the pie-webc package.
      * @param {*} workingDir - The working directory from which the script is run.
      * @param {*} excludedFolders - An array of folder names to exclude from the processing.
@@ -170,6 +189,37 @@ export class ComponentService {
             targets.forEach((target) => {
                 this.writeFilesForComponent(componentName, target);
             });
+
+            const subComponents = this.findSubComponents(fullFolderPath);
+
+            if (subComponents.length > 0) {
+                subComponents.forEach((subComponent) => {
+                    const subComponentName = subComponent.replace('pie-', '');
+
+                    console.info(chalk.gray(`Adding sub-component: ${chalk.white(subComponent)}`));
+
+                    const subComponentTargets = [
+                        {
+                            dir: componentsTargetDir,
+                            exportPath: `${packageName}/dist/${subComponent}/index.js`,
+                        },
+                        {
+                            dir: reactTargetDir,
+                            exportPath: `${packageName}/dist/${subComponent}/react.js`,
+                        }
+                    ];
+
+                    subComponentTargets.forEach((target) => {
+                        this.writeFilesForComponent(subComponentName, target);
+                    });
+
+                    const subComponentExports = this.createPackageJsonExports(subComponentName);
+                    newPackageJson.exports = {
+                        ...newPackageJson.exports,
+                        ...subComponentExports,
+                    };
+                });
+            }
 
             const exportsObj = {
                 ...newPackageJson.exports,
