@@ -7,16 +7,77 @@ eleventyNavigation:
 
 ## Overview
 - [Our packages](#our-packages)
+- [Web Components (pie-icons-webc)](#web-components-pie-icons-webc)
 - [Vanilla JS (pie-icons)](#vanilla-js-pie-icons)
 - [React (pie-icons-react)](#react-pie-icons-react)
 - [Vue (pie-icons-vue)](#vue-pie-icons-vue)
-- [Web Components (pie-icons-webc)](#web-components-pie-icons-webc)
 
 ---
 
 ## Our packages
 
 We have a number of different icon packages available for use in our applications. We have a package for each framework we support, as well as a base package for the icons themselves.
+
+---
+
+## Web Components (pie-icons-webc)
+
+This package generates a framework-agnostic Web Component icon set for web applications. It uses the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in `pie-icons` are compiled into [Lit](https://lit.dev/) web components.
+
+### Usage
+
+#### Installation
+
+```sh
+npm install @justeattakeaway/pie-icons-webc --save
+```
+```sh
+yarn add @justeattakeaway/pie-icons-webc
+```
+
+#### Import into your project
+We suggest importing the bundle for an individual component directly.
+
+{% notification {
+  type: "information",
+  message: "These components are compiled from TypeScript and have type definitions available. Therefore they will work in TypeScript projects."
+} %}
+
+```js
+import '@justeattakeaway/pie-icons-webc/dist/IconAppRestaurant.js';
+
+export class MyAmazingComponent extends LitElement {
+  render () {
+    return html`
+      <h2>
+        This is a heading
+        <icon-app-restaurant size="xl" />
+      </h2>`;
+  }
+}
+```
+
+#### Size
+
+Icons are made available in different size variants:
+- small
+- large, when its name has the `Large` suffix
+
+Small icons default size is `xs` and can use one of the following pre-determined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](/foundations/iconography/#sizes-for-the-small-icon-set).
+
+Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise they will fallback to the default value. You can learn more about large icon sizes [here](/foundations/iconography/#sizes-for-the-large-icon-set).
+
+Example:
+
+```js
+<IconAlertTriangle size="l" />
+<IconAlertTriangleLarge size="40" />
+```
+
+{% notification {
+  type: "information",
+  message: "For more information, please refer to the [package README](https://github.com/justeattakeaway/pie/blob/main/packages/tools/pie-icons-webc/README.md)."
+} %}
 
 ---
 
@@ -256,71 +317,4 @@ Example:
 {% notification {
   type: "information",
   message: "For more information, please refer to the [package README](https://github.com/justeattakeaway/pie/blob/main/packages/tools/pie-icons-vue/README.md)."
-} %}
-
----
-## Web Components (pie-icons-webc)
-
-This package generates a framework-agnostic Web Component icon set for web applications. It uses the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in `pie-icons` are compiled into [Lit](https://lit.dev/) web components.
-
-{% notification {
-  type: "warning",
-  message: "Our Web Components package is still in **active development** and is not yet production ready. We will be adding integration guides for different frameworks in the near future."
-} %}
-
-### Usage - In Lit Components
-
-#### Installation
-
-```sh
-npm install @justeattakeaway/pie-icons-webc --save
-```
-```sh
-yarn add @justeattakeaway/pie-icons-webc
-```
-
-#### Import into your project
-We suggest importing the bundle for an individual component directly.
-
-{% notification {
-  type: "information",
-  message: "These components are compiled from TypeScript and have type definitions available. Therefore they will work in TypeScript projects."
-} %}
-
-```js
-
-```js
-import '@justeattakeaway/pie-icons-webc/dist/IconAppRestaurant.js';
-
-export class MyAmazingComponent extends LitElement {
-  render () {
-    return html`
-      <h2>
-        This is a heading
-        <icon-app-restaurant size="xl" />
-      </h2>`;
-  }
-}
-```
-
-#### Size
-
-Icons are made available in different size variants:
-- small
-- large, when its name has the `Large` suffix
-
-Small icons default size is `xs` and can use one of the following pre-determined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](/foundations/iconography/#sizes-for-the-small-icon-set).
-
-Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise they will fallback to the default value. You can learn more about large icon sizes [here](/foundations/iconography/#sizes-for-the-large-icon-set).
-
-Example:
-
-```js
-<IconAlertTriangle size="l" />
-<IconAlertTriangleLarge size="40" />
-```
-
-{% notification {
-  type: "information",
-  message: "For more information, please refer to the [package README](https://github.com/justeattakeaway/pie/blob/main/packages/tools/pie-icons-webc/README.md)."
 } %}
