@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-components-config
 
+## 0.18.1
+
+### Patch Changes
+
+- [Added] - extend vite config to accept dtsConfig ([#2278](https://github.com/justeattakeaway/pie/pull/2278)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.18.0
 
 ### Minor Changes
