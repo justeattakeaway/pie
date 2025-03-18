@@ -2,9 +2,9 @@ import {
     html, nothing, unsafeCSS,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { property } from 'lit/decorators.js';
+import { property, customElement } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './spinner.scss?inline';
 import {
     type SpinnerProps,
@@ -21,6 +21,7 @@ const componentSelector = 'pie-spinner';
 /**
  * @tagname pie-spinner
  */
+@customElement('pie-spinner')
 export class PieSpinner extends PieElement implements SpinnerProps {
     @property({ type: Object })
     public aria: SpinnerProps['aria'];
@@ -64,8 +65,6 @@ export class PieSpinner extends PieElement implements SpinnerProps {
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieSpinner);
 
 declare global {
     interface HTMLElementTagNameMap {

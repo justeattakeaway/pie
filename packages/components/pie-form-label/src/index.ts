@@ -3,8 +3,8 @@ import {
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { RtlMixin, defineCustomElement, type PIEInputElement } from '@justeattakeaway/pie-webc-core';
-import { property } from 'lit/decorators.js';
+import { RtlMixin, type PIEInputElement } from '@justeattakeaway/pie-webc-core';
+import { property, customElement } from 'lit/decorators.js';
 import styles from './form-label.scss?inline';
 import { type FormLabelProps } from './defs';
 
@@ -16,6 +16,7 @@ const componentSelector = 'pie-form-label';
 /**
  * @tagname pie-form-label
  */
+@customElement('pie-form-label')
 export class PieFormLabel extends RtlMixin(PieElement) implements FormLabelProps {
     @property({ type: String, reflect: true })
     public for: FormLabelProps['for'];
@@ -71,8 +72,6 @@ export class PieFormLabel extends RtlMixin(PieElement) implements FormLabelProps
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieFormLabel);
 
 declare global {
     interface HTMLElementTagNameMap {

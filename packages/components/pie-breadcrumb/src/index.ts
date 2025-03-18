@@ -1,7 +1,7 @@
 import { html, unsafeCSS } from 'lit';
-import { RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { RtlMixin } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
-
+import { customElement } from 'lit/decorators.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import styles from './breadcrumb.scss?inline';
 import { type BreadcrumbProps, componentSelector, componentClass } from './defs';
@@ -12,6 +12,7 @@ export * from './defs';
 /**
  * @tagname pie-breadcrumb
  */
+@customElement('pie-breadcrumb')
 export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbProps {
     render () {
         const componentWrapperClasses = {
@@ -32,8 +33,6 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieBreadcrumb);
 
 declare global {
     interface HTMLElementTagNameMap {

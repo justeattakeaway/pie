@@ -3,11 +3,11 @@ import {
 } from 'lit';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { property } from 'lit/decorators.js';
+import { property, customElement } from 'lit/decorators.js';
 import 'element-internals-polyfill';
 
-import { validPropertyValues, defineCustomElement, FormControlMixin } from '@justeattakeaway/pie-webc-core';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
+import { validPropertyValues, FormControlMixin } from '@justeattakeaway/pie-webc-core';
 
 import '@justeattakeaway/pie-spinner';
 import { type SpinnerProps } from '@justeattakeaway/pie-spinner';
@@ -27,6 +27,7 @@ const componentSelector = 'pie-button';
  * @slot icon - The icon slot
  * @slot - Default slot
  */
+@customElement('pie-button')
 export class PieButton extends FormControlMixin(PieElement) implements ButtonProps {
     connectedCallback () {
         super.connectedCallback();
@@ -304,8 +305,6 @@ export class PieButton extends FormControlMixin(PieElement) implements ButtonPro
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieButton);
 
 declare global {
     interface HTMLElementTagNameMap {

@@ -6,11 +6,10 @@ import {
     type PropertyValues,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { property, query } from 'lit/decorators.js';
+import { property, customElement, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import {
     RtlMixin,
-    defineCustomElement,
     dispatchCustomEvent,
     validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
@@ -44,6 +43,7 @@ export * from './defs';
  * @event {CustomEvent} pie-toast-open - when the toast is opened.
  * @event {CustomEvent} pie-toast-leading-action-click - when the user interacts with the leading action.
  */
+@customElement('pie-toast')
 export class PieToast extends RtlMixin(PieElement) implements ToastProps {
     @property({ type: String })
     public message = defaultProps.message;
@@ -352,8 +352,6 @@ export class PieToast extends RtlMixin(PieElement) implements ToastProps {
             </div>`;
     }
 }
-
-defineCustomElement(componentSelector, PieToast);
 
 declare global {
     interface HTMLElementTagNameMap {

@@ -9,7 +9,6 @@ import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElem
 import {
     FormControlMixin,
     RtlMixin,
-    defineCustomElement,
     validPropertyValues,
     wrapNativeEvent,
 } from '@justeattakeaway/pie-webc-core';
@@ -17,6 +16,7 @@ import {
     property,
     query,
     queryAssignedElements,
+    customElement,
     state,
 } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -43,6 +43,7 @@ const assistiveTextIdValue = 'assistive-text';
  * @tagname pie-select
  * @event {CustomEvent} change - when the selected option is changed.
  */
+@customElement('pie-select')
 export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements SelectProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
@@ -223,8 +224,6 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieSelect);
 
 declare global {
     interface HTMLElementTagNameMap {

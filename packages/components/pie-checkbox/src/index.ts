@@ -3,13 +3,14 @@ import {
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { classMap } from 'lit/directives/class-map.js';
-import { property, query, state } from 'lit/decorators.js';
+import {
+    property, customElement, query, state,
+} from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 
 import {
     RtlMixin,
-    defineCustomElement,
     wrapNativeEvent,
     FormControlMixin,
     validPropertyValues,
@@ -30,6 +31,7 @@ const assistiveTextId = 'assistive-text';
  * @slot - Default slot
  * @event {CustomEvent} change - when checked state is changed.
  */
+@customElement('pie-checkbox')
 export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implements CheckboxProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
@@ -224,8 +226,6 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implemen
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieCheckbox);
 
 declare global {
     interface HTMLElementTagNameMap {
