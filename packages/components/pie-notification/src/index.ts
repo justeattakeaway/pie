@@ -7,7 +7,7 @@ import {
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { classMap } from 'lit/directives/class-map.js';
 import { html, unsafeStatic } from 'lit/static-html.js';
-import { defineCustomElement, validPropertyValues, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
+import { validPropertyValues, dispatchCustomEvent, safeCustomElement } from '@justeattakeaway/pie-webc-core';
 import { property, queryAssignedElements } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import {
@@ -46,6 +46,7 @@ export * from './defs';
  * @slot - Default slot
  * @slot icon - The icon slot
  */
+@safeCustomElement('pie-notification')
 export class PieNotification extends PieElement implements NotificationProps {
     @property({ type: Boolean })
     public isOpen = defaultProps.isOpen;
@@ -304,8 +305,6 @@ export class PieNotification extends PieElement implements NotificationProps {
             </div>`;
     }
 }
-
-defineCustomElement(componentSelector, PieNotification);
 
 declare global {
     interface HTMLElementTagNameMap {

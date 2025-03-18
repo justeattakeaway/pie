@@ -14,8 +14,8 @@ import {
     requiredProperty,
     RtlMixin,
     validPropertyValues,
-    defineCustomElement,
     dispatchCustomEvent,
+    safeCustomElement,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconChevronLeft.js';
@@ -54,6 +54,7 @@ export interface ModalEventDetail {
  * @event {CustomEvent} pie-modal-leading-action-click - when the modal leading action is clicked.
  * @event {CustomEvent} pie-modal-supporting-action-click - when the modal supporting action is clicked.
  */
+@safeCustomElement('pie-modal')
 export class PieModal extends RtlMixin(PieElement) implements ModalProps {
     @property({ type: Object })
     public aria: ModalProps['aria'];
@@ -579,8 +580,6 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
         }
     };
 }
-
-defineCustomElement(componentSelector, PieModal);
 
 declare global {
     interface HTMLElementTagNameMap {
