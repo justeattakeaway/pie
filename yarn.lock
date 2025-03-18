@@ -4888,6 +4888,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-components-config@npm:0.18.0":
+  version: 0.18.0
+  resolution: "@justeattakeaway/pie-components-config@npm:0.18.0"
+  dependencies:
+    deepmerge-ts: 5.1.0
+  peerDependencies:
+    cem-plugin-module-file-extensions: 0.0.5
+  bin:
+    playwright-lit-setup: scripts/playwright-lit-setup.js
+  checksum: cc844a89a6b92a564e67fa5b7b479c586ae56ee8c3f411f71b8432973d5f58cfdb69c22c795960d633b90a33e696ea1bac1cccb65e2a4c4b3a85e79501d3cc05
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/pie-cookie-banner@1.4.1, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
@@ -4918,6 +4931,13 @@ __metadata:
     w3c-css-validator: 1.3.2
   languageName: unknown
   linkType: soft
+
+"@justeattakeaway/pie-css@npm:0.15.1":
+  version: 0.15.1
+  resolution: "@justeattakeaway/pie-css@npm:0.15.1"
+  checksum: 0fc2ee3dd7976c3ca5dfefc2a06382e7ec3c336734d6d7c41566d821c4d44142e925a632ef4f3830d5a423131dc5d7f9771c1a6564d666caa525895d92bfa1de
+  languageName: node
+  linkType: hard
 
 "@justeattakeaway/pie-divider@1.2.1, @justeattakeaway/pie-divider@workspace:packages/components/pie-divider":
   version: 0.0.0-use.local
