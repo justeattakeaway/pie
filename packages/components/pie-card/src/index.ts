@@ -3,8 +3,8 @@ import {
 } from 'lit';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { property, queryAssignedElements } from 'lit/decorators.js';
-import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { property, customElement, queryAssignedElements } from 'lit/decorators.js';
+import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './card.scss?inline';
 import {
     variants,
@@ -22,6 +22,7 @@ const componentSelector = 'pie-card';
 /**
  * @tagname pie-card
  */
+@customElement('pie-card')
 export class PieCard extends LitElement implements CardProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, tags, defaultProps.tag)
@@ -218,8 +219,6 @@ export class PieCard extends LitElement implements CardProps {
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieCard);
 
 declare global {
     interface HTMLElementTagNameMap {
