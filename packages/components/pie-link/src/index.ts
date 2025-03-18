@@ -1,10 +1,10 @@
 import {
     html, LitElement, unsafeCSS, nothing,
 } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, customElement } from 'lit/decorators.js';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './link.scss?inline';
 import {
     type LinkProps,
@@ -28,6 +28,7 @@ const componentSelector = 'pie-link';
  * @slot - Default slot
  */
 
+@customElement('pie-link')
 export class PieLink extends LitElement implements LinkProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, tags, defaultProps.tag)
@@ -144,8 +145,6 @@ export class PieLink extends LitElement implements LinkProps {
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieLink);
 
 declare global {
     interface HTMLElementTagNameMap {

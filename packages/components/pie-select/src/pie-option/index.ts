@@ -1,5 +1,5 @@
 import { LitElement } from 'lit';
-import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { customElement } from 'lit/decorators.js';
 import { type OptionProps } from './defs';
 
 const componentSelector = 'pie-option';
@@ -7,11 +7,10 @@ const componentSelector = 'pie-option';
 /**
  * @tagname pie-option
  */
+@customElement('pie-option')
 export class PieOption extends LitElement implements OptionProps {
 
 }
-
-defineCustomElement(componentSelector, PieOption);
 
 declare global {
     interface HTMLElementTagNameMap {

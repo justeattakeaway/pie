@@ -1,9 +1,9 @@
 import {
     LitElement, html, unsafeCSS, nothing, type PropertyValues,
 } from 'lit';
-import { property, queryAssignedElements } from 'lit/decorators.js';
+import { property, customElement, queryAssignedElements } from 'lit/decorators.js';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
-import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './tag.scss?inline';
 import {
     variants,
@@ -23,6 +23,7 @@ const componentSelector = 'pie-tag';
  * @slot icon - The icon slot
  * @slot - Default slot
  */
+@customElement('pie-tag')
 export class PieTag extends LitElement implements TagProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
@@ -151,8 +152,6 @@ export class PieTag extends LitElement implements TagProps {
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieTag);
 
 declare global {
     interface HTMLElementTagNameMap {

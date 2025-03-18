@@ -1,11 +1,12 @@
 import { LitElement, html, unsafeCSS } from 'lit';
-import { property, query, state } from 'lit/decorators.js';
+import {
+    property, customElement, query, state,
+} from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { classMap } from 'lit/directives/class-map.js';
 
 import {
-    defineCustomElement,
     FormControlMixin,
     requiredProperty,
     RtlMixin,
@@ -26,6 +27,7 @@ const componentSelector = 'pie-radio';
  * @event {InputEvent} input - Should fire whenever a user toggles the radio.
  * @event {CustomEvent} change - Fires when the radio is checked (but not when unchecked).
  */
+@customElement('pie-radio')
 export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements RadioProps {
     @state()
     private _disabledByParent = false;
@@ -169,8 +171,6 @@ export class PieRadio extends FormControlMixin(RtlMixin(LitElement)) implements 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieRadio);
 
 declare global {
     interface HTMLElementTagNameMap {

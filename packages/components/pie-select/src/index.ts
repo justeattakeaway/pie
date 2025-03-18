@@ -6,13 +6,13 @@ import {
 } from 'lit';
 import {
     RtlMixin,
-    defineCustomElement,
     validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
 import {
     property,
     query,
     queryAssignedElements,
+    customElement,
     state,
 } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -36,6 +36,7 @@ const assistiveTextIdValue = 'assistive-text';
 /**
  * @tagname pie-select
  */
+@customElement('pie-select')
 export class PieSelect extends RtlMixin(LitElement) implements SelectProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
@@ -126,8 +127,6 @@ export class PieSelect extends RtlMixin(LitElement) implements SelectProps {
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieSelect);
 
 declare global {
     interface HTMLElementTagNameMap {

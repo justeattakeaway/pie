@@ -7,11 +7,10 @@ import {
     type TemplateResult,
 } from 'lit';
 import {
-    property, query, queryAssignedElements, state,
+    property, query, queryAssignedElements, state, customElement,
 } from 'lit/decorators.js';
 import {
     RtlMixin,
-    defineCustomElement,
     FormControlMixin,
     wrapNativeEvent,
     validPropertyValues,
@@ -39,6 +38,7 @@ const assistiveTextId = 'assistive-text';
  * @slot label - The label slot
  * @event {CustomEvent} change - when one of the radios state is changed.
  */
+@customElement('pie-radio-group')
 export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implements RadioGroupProps {
     @state()
     private _hasLabel = false;
@@ -380,8 +380,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implem
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieRadioGroup);
 
 declare global {
     interface HTMLElementTagNameMap {

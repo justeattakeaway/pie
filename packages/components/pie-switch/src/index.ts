@@ -1,13 +1,13 @@
 import {
     LitElement, html, unsafeCSS, nothing,
 } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { property, customElement, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import 'element-internals-polyfill';
 
 import {
-    RtlMixin, validPropertyValues, defineCustomElement, FormControlMixin, wrapNativeEvent, type PIEInputElement,
+    RtlMixin, validPropertyValues, FormControlMixin, wrapNativeEvent, type PIEInputElement,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
@@ -23,6 +23,7 @@ const componentSelector = 'pie-switch';
  * @tagname pie-switch
  * @event {CustomEvent} change - when the switch checked state is changed.
  */
+@customElement('pie-switch')
 export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements SwitchProps, PIEInputElement {
     @property({ type: String })
     public label: SwitchProps['label'];
@@ -224,8 +225,6 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
             </label>`;
     }
 }
-
-defineCustomElement(componentSelector, PieSwitch);
 
 declare global {
     interface HTMLElementTagNameMap {
