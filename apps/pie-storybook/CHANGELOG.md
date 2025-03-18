@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.28.0
+
+### Minor Changes
+
+- [Added] - pie-option pie-option-group shell components ([#2278](https://github.com/justeattakeaway/pie/pull/2278)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`2efac2e`](https://github.com/justeattakeaway/pie/commit/2efac2e8a7822998ffded9eba35cfb162812e483)]:
+  - @justeattakeaway/pie-select@0.2.0
+
 ## 1.27.1
 
 ### Patch Changes

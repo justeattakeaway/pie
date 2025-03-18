@@ -1,6 +1,6 @@
 {
   "name": "pie-storybook",
-  "version": "1.27.1",
+  "version": "1.28.0",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
@@ -35,7 +35,7 @@
     "@justeattakeaway/pie-notification": "0.12.15",
     "@justeattakeaway/pie-radio": "0.9.1",
     "@justeattakeaway/pie-radio-group": "0.7.3",
-    "@justeattakeaway/pie-select": "0.1.0",
+    "@justeattakeaway/pie-select": "0.2.0",
     "@justeattakeaway/pie-spinner": "1.0.1",
     "@justeattakeaway/pie-switch": "1.2.2",
     "@justeattakeaway/pie-tag": "0.15.0",
