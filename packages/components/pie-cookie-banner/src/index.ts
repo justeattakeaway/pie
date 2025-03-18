@@ -5,7 +5,9 @@ import {
     type PropertyValues,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { property, state, queryAll } from 'lit/decorators.js';
+import {
+    property, state, queryAll,
+} from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
 
 import '@justeattakeaway/pie-button';
@@ -15,7 +17,7 @@ import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-modal';
 import '@justeattakeaway/pie-switch';
 import { type PieSwitch } from '@justeattakeaway/pie-switch';
-import { defineCustomElement, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
+import { dispatchCustomEvent, safeCustomElement } from '@justeattakeaway/pie-webc-core';
 import defaultLocale from '@justeattakeaway/pie-cookie-banner/locales/en.js';
 
 import styles from './cookie-banner.scss?inline';
@@ -51,6 +53,7 @@ const componentSelector = 'pie-cookie-banner';
  * @event {CustomEvent} pie-cookie-banner-manage-prefs - when a user clicks manage preferences.
  * @event {CustomEvent} pie-cookie-banner-prefs-saved - when a user clicks save preferences.
  */
+@safeCustomElement('pie-cookie-banner')
 export class PieCookieBanner extends PieElement implements CookieBannerProps {
     @state()
     private _isCookieBannerHidden = false;
@@ -331,8 +334,6 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieCookieBanner);
 
 declare global {
     interface HTMLElementTagNameMap {

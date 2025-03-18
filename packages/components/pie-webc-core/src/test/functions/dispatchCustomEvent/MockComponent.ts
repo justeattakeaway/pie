@@ -1,10 +1,10 @@
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
-import { defineCustomElement } from '../../../functions/defineCustomElement.js';
+import { property, customElement } from 'lit/decorators.js';
 import { dispatchCustomEvent } from '../../../functions/dispatchCustomEvent.js';
 
 const componentSelector = 'dispatch-custom-event-mock';
 
+@customElement('dispatch-custom-event-mock')
 export class MockComponent extends LitElement {
     @property({ type: String })
     public eventName = 'pie-mock-event';
@@ -24,5 +24,3 @@ declare global {
         [componentSelector]: MockComponent;
     }
 }
-
-defineCustomElement(componentSelector, MockComponent);
