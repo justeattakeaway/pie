@@ -142,10 +142,11 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
         this._hasLeadingIcon = Boolean(this._leadingIconSlot.length);
     }
 
-    private renderChildren (child: PieSelect | PieOption | PieOptionGroup): TemplateResult {
+    private renderChildren (children: PieSelect | PieOption | PieOptionGroup): TemplateResult {
+        const childElements = Array.from(children.querySelectorAll(':scope > pie-option-group, :scope > pie-option'));
+
         return html`
-          ${Array.from(child.children)
-            .filter((el) => el.matches('pie-option-group,pie-option'))
+          ${childElements
             .map((el) => {
                 const disabled = el.hasAttribute('disabled');
                 const selected = el.hasAttribute('selected');
