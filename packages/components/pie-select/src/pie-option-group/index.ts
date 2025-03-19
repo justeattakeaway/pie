@@ -12,10 +12,10 @@ const componentSelector = 'pie-option-group';
  * @tagname pie-option-group
  */
 export class PieOptionGroup extends LitElement implements OptionGroupProps {
-    @property({ type: Boolean })
+    @property({ type: Boolean, reflect: true })
     public disabled = optionGroupDefaultProps.disabled;
 
-    @property({ type: String })
+    @property({ type: String, reflect: true })
     public label = optionGroupDefaultProps.label;
 }
 

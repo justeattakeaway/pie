@@ -12,13 +12,13 @@ const componentSelector = 'pie-option';
  * @tagname pie-option
  */
 export class PieOption extends LitElement implements OptionProps {
-    @property({ type: Boolean })
+    @property({ type: Boolean, reflect: true })
     public disabled = optionDefaultProps.disabled;
 
-    @property({ type: Boolean })
+    @property({ type: Boolean, reflect: true })
     public selected = optionDefaultProps.selected;
 
-    @property({ type: String })
+    @property({ type: String, reflect: true })
     public value = optionDefaultProps.value;
 }
 
