@@ -143,7 +143,7 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
     }
 
     private renderChildren (children: PieSelect | PieOption | PieOptionGroup): TemplateResult {
-        const childElements = Array.from(children.querySelectorAll(':scope > pie-option-group, :scope > pie-option'));
+        const childElements = Array.from(children.querySelectorAll(':scope > pie-option-group, :scope > pie-option')) ?? [];
 
         return html`
           ${childElements
