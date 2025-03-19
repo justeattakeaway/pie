@@ -1,5 +1,6 @@
 import { html, nothing } from 'lit';
 import { type Meta } from '@storybook/web-components';
+import { action } from '@storybook/addon-actions';
 
 import '@justeattakeaway/pie-select';
 import {
@@ -8,18 +9,34 @@ import {
     statusTypes,
     type SelectProps as SelectBaseProps,
 } from '@justeattakeaway/pie-select';
+import '@justeattakeaway/pie-select/dist/pie-option';
+import '@justeattakeaway/pie-select/dist/pie-option-group';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-import { createStory, type TemplateFunction } from '../utilities';
+import {
+    createStory,
+    sanitizeAndRenderHTML,
+    type TemplateFunction,
+} from '../utilities';
+import { type SlottedComponentProps } from '../types';
 
-type SelectProps = SelectBaseProps & { showLeadingIcon: boolean };
+type SelectProps = SlottedComponentProps<SelectBaseProps & { showLeadingIcon: boolean }>;
 type SelectStoryMeta = Meta<SelectProps>;
 
 const defaultArgs: SelectProps = {
     ...defaultProps,
-    name: 'testName',
+    name: 'meals',
     showLeadingIcon: false,
+    slot: `<pie-option-group label="Food">
+                <pie-option value="pizza">Pizza</pie-option>
+                <pie-option value="burger">Burger</pie-option>
+            </pie-option-group>
+            <pie-option-group label="Drinks">
+                <pie-option value="water">Water</pie-option>
+                <pie-option value="juice" disabled>Juice</pie-option>
+                <pie-option value="tea">Tea</pie-option>
+            </pie-option-group>`,
 };
 
 const selectStoryMeta: SelectStoryMeta = {
@@ -38,6 +55,13 @@ const selectStoryMeta: SelectStoryMeta = {
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.disabled,
+            },
+        },
+        required: {
+            description: 'If true, the select is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.required,
             },
         },
         size: {
@@ -70,6 +94,10 @@ const selectStoryMeta: SelectStoryMeta = {
                 summary: defaultArgs.showLeadingIcon,
             },
         },
+        slot: {
+            description: 'Content to place within the select. Use `<pie-option>` for individual options and `<pie-option-group>` to group related options.',
+            control: 'text',
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -82,24 +110,37 @@ const selectStoryMeta: SelectStoryMeta = {
 
 export default selectStoryMeta;
 
-const Template = ({
+const Template: TemplateFunction<SelectProps> = ({
     disabled,
+    required,
     size,
     assistiveText,
     status,
     name,
     showLeadingIcon,
-}: SelectProps) => html`
+    slot,
+}) => {
+    function onChange (event: CustomEvent) {
+        action('change')({
+            detail: event.detail,
+        });
+    }
+
+    return html`
         <pie-select
             id="${ifDefined(name)}"
             name="${ifDefined(name)}"   
             ?disabled="${disabled}"
+            ?required="${required}"
             size="${ifDefined(size)}"
             assistiveText="${ifDefined(assistiveText)}"
-            status=${ifDefined(status)}>   
-                ${showLeadingIcon ? html`<icon-placeholder slot="leadingIcon"></icon-placeholder>` : nothing} 
+            status="${ifDefined(status)}"
+            @change="${onChange}">   
+                ${showLeadingIcon ? html`<icon-placeholder slot="leadingIcon"></icon-placeholder>` : nothing}
+                ${sanitizeAndRenderHTML(slot, { ALLOWED_TAGS: ['pie-option', 'pie-option-group'] })}
         </pie-select>
     `;
+};
 
 const WithLabelTemplate: TemplateFunction<SelectProps> = (props: SelectProps) => html`
         <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-label</pie-link>.</p>
