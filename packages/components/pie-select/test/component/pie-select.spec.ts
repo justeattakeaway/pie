@@ -396,7 +396,7 @@ test.describe('PieSelect - Component tests', () => {
         test('should reset to the option marked as selected if provided', async ({ page }) => {
             // Arrange
             const props = {
-                hasSelectedChild: true,
+                hasSelectedOption: true,
             };
 
             const selectFormPage = new BasePage(page, 'select--example-form');

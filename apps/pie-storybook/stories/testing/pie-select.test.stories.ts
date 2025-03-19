@@ -24,7 +24,7 @@ import {
 import { type SlottedComponentProps } from '../../types';
 
 type SelectProps = SlottedComponentProps<SelectBaseProps &
-{ showLeadingIcon?: boolean, hasSelectedChild?: boolean }>;
+{ showLeadingIcon?: boolean, hasSelectedOption?: boolean }>;
 type SelectStoryMeta = Meta<SelectProps>;
 
 const defaultArgs: SelectProps = {
@@ -113,7 +113,7 @@ const selectStoryMeta: SelectStoryMeta = {
                 summary: defaultArgs.showLeadingIcon,
             },
         },
-        hasSelectedChild: {
+        hasSelectedOption: {
             description: '<b>**Not a component prop</b><br><br>Used only for testing to mark one of the options as selected',
             control: 'boolean',
         },
@@ -178,7 +178,7 @@ const Template: TemplateFunction<SelectProps> = ({
 
 const ExampleFormTemplate: TemplateFunction<SelectProps> = ({
     disabled,
-    hasSelectedChild,
+    hasSelectedOption,
 }: SelectProps) => html`
   <form id="testForm" @submit="${onSubmit}">
       <pie-form-label for="food">Food:</pie-form-label>
@@ -190,7 +190,7 @@ const ExampleFormTemplate: TemplateFunction<SelectProps> = ({
           data-test-id="pie-select-container">
           <icon-placeholder slot="leadingIcon"></icon-placeholder>
           <pie-option value="pizza">Pizza</pie-option>
-          <pie-option value="burger" ?selected=${hasSelectedChild}>Burger</pie-option>
+          <pie-option value="burger" ?selected=${hasSelectedOption}>Burger</pie-option>
           <pie-option value="pasta">Pasta</pie-option>
       </pie-select>
 
