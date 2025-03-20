@@ -22,7 +22,7 @@ import {
 type SelectProps = SelectBaseProps & { showLeadingIcon?: boolean };
 type SelectStoryMeta = Meta<SelectProps>;
 
-export const defaultArgs: SelectProps = {
+const defaultArgs: SelectProps = {
     ...defaultProps,
     options: [{
         tag: 'optgroup',
