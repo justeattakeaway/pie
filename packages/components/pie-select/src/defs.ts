@@ -5,8 +5,8 @@ export const sizes = ['small', 'medium', 'large'] as const;
 export const statusTypes = ['default', 'error'] as const;
 
 interface SelectOptionProps {
-    /**
-     * The tag value must be 'option' for options
+   /**
+     * What HTML select element the option should be such option or optgroup.
      */
     tag: 'option';
 
@@ -33,7 +33,7 @@ interface SelectOptionProps {
 
 interface SelectOptionGroupProps {
     /**
-     * Tag discriminator must be 'optgroup' for option groups
+     * What HTML select element the option should be such option or optgroup.
      */
     tag: 'optgroup';
 
@@ -52,7 +52,6 @@ interface SelectOptionGroupProps {
      */
     disabled?: boolean;
 }
-
 export interface SelectProps {
     /**
      * The size of the select component. Can be `small`, `medium` or `large`. Defaults to `medium`.
