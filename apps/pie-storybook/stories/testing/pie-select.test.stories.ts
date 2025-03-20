@@ -1,15 +1,13 @@
 import { html, nothing } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-select';
 import {
     defaultProps,
     sizes,
     statusTypes,
     type SelectProps as SelectBaseProps,
 } from '@justeattakeaway/pie-select';
-import '@justeattakeaway/pie-select/dist/pie-option';
-import '@justeattakeaway/pie-select/dist/pie-option-group';
+import '@justeattakeaway/pie-select';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-form-label';
@@ -18,44 +16,103 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import {
     createStory,
     createVariantStory,
-    sanitizeAndRenderHTML,
     type TemplateFunction,
 } from '../../utilities';
-import { type SlottedComponentProps } from '../../types';
 
-type SelectProps = SlottedComponentProps<SelectBaseProps &
-{ showLeadingIcon?: boolean, hasSelectedOption?: boolean }>;
+type SelectProps = SelectBaseProps & { showLeadingIcon?: boolean };
 type SelectStoryMeta = Meta<SelectProps>;
 
 const defaultArgs: SelectProps = {
     ...defaultProps,
-    slot: `<pie-option-group label="Food">
-                <pie-option value="pizza">Pizza</pie-option>
-                <pie-option value="burger">Burger</pie-option>
-            </pie-option-group>
-            <pie-option-group label="Drinks">
-                <pie-option value="water">Water</pie-option>
-                <pie-option value="juice" disabled>Juice</pie-option>
-                <pie-option value="tea">Tea</pie-option>
-            </pie-option-group>`,
+    options: [{
+        tag: 'optgroup',
+        label: 'Food',
+        options: [{
+            tag: 'option',
+            text: 'Pizza',
+            value: 'pizza',
+        },
+        {
+            tag: 'option',
+            text: 'Burger',
+            value: 'burger',
+        },
+        ],
+    },
+    {
+        tag: 'optgroup',
+        label: 'Drinks',
+        options: [{
+            tag: 'option',
+            text: 'Water',
+            value: 'water',
+        },
+        {
+            tag: 'option',
+            text: 'Juice',
+            value: 'juice',
+            disabled: true,
+        },
+        {
+            tag: 'option',
+            text: 'Tea',
+            value: 'tea',
+        },
+        ],
+    },
+    ],
 };
 
 const disabledOptionsArgs: SelectProps = {
     ...defaultProps,
-    slot: `<pie-option-group label="Disabled Group" disabled>
-                <pie-option value="option1">Option 1</pie-option>
-                <pie-option value="option2">Option 2</pie-option>
-            </pie-option-group>
-            <pie-option-group label="Partially Disabled">
-                <pie-option value="option3">Option 3</pie-option>
-                <pie-option value="option4" disabled>Option 4</pie-option>
-            </pie-option-group>`,
+    options: [{
+        tag: 'optgroup',
+        label: 'Disabled Group',
+        disabled: true,
+        options: [{
+            tag: 'option',
+            text: 'Option 1',
+            value: 'option1',
+        },
+        {
+            tag: 'option',
+            text: 'Option 2',
+            value: 'option2',
+        },
+        ],
+    },
+    {
+        tag: 'optgroup',
+        label: 'Partially Disabled',
+        options: [{
+            tag: 'option',
+            text: 'Option 3',
+            value: 'option3',
+        },
+        {
+            tag: 'option',
+            text: 'Option 4',
+            value: 'option4',
+            disabled: true,
+        },
+        ],
+    }],
 };
 
 const selectedOptionsArgs: SelectProps = {
     ...defaultProps,
-    slot: `<pie-option value="apple">Apple</pie-option>
-            <pie-option value="banana" selected>Banana</pie-option>`,
+    options: [{
+        tag: 'option',
+        text: 'Apple',
+        value: 'apple',
+    },
+    {
+        tag: 'option',
+        text: 'Banana',
+        value: 'banana',
+        selected: true,
+    },
+    ],
 };
 
 const selectStoryMeta: SelectStoryMeta = {
@@ -66,7 +123,7 @@ const selectStoryMeta: SelectStoryMeta = {
             description: 'The name of the select (used as a key/value pair with `value`). This is required in order to work properly with forms.',
             control: 'text',
             defaultValue: {
-                summary: defaultArgs.name,
+                summary: '',
             },
         },
         disabled: {
@@ -113,13 +170,12 @@ const selectStoryMeta: SelectStoryMeta = {
                 summary: defaultArgs.showLeadingIcon,
             },
         },
-        hasSelectedOption: {
-            description: '<b>**Not a component prop</b><br><br>Used only for testing to mark one of the options as selected',
-            control: 'boolean',
-        },
-        slot: {
-            description: 'Content to place within the select. Use `<pie-option>` for individual options and `<pie-option-group>` to group related options.',
-            control: 'text',
+        options: {
+            description: 'The options to display in the select. Can be an array of option objects or option group objects.',
+            control: 'object',
+            defaultValue: {
+                summary: defaultProps.options,
+            },
         },
     },
     args: defaultArgs,
@@ -159,8 +215,8 @@ const Template: TemplateFunction<SelectProps> = ({
     assistiveText,
     status,
     name,
+    options,
     showLeadingIcon,
-    slot,
 }) => html`
         <pie-select
             id="${ifDefined(name)}"
@@ -170,15 +226,15 @@ const Template: TemplateFunction<SelectProps> = ({
             size="${ifDefined(size)}"
             assistiveText="${ifDefined(assistiveText)}"
             status="${ifDefined(status)}"
+            .options="${options}"
             @change="${onChange}">   
                 ${showLeadingIcon ? html`<icon-placeholder slot="leadingIcon"></icon-placeholder>` : nothing}
-                ${sanitizeAndRenderHTML(slot, { ALLOWED_TAGS: ['pie-option', 'pie-option-group'] })}
         </pie-select>
     `;
 
 const ExampleFormTemplate: TemplateFunction<SelectProps> = ({
     disabled,
-    hasSelectedOption,
+    options,
 }: SelectProps) => html`
   <form id="testForm" @submit="${onSubmit}">
       <pie-form-label for="food">Food:</pie-form-label>
@@ -187,11 +243,9 @@ const ExampleFormTemplate: TemplateFunction<SelectProps> = ({
           id="food"
           name="food"
           ?disabled="${disabled}"
+          .options="${options}"
           data-test-id="pie-select-container">
           <icon-placeholder slot="leadingIcon"></icon-placeholder>
-          <pie-option value="pizza">Pizza</pie-option>
-          <pie-option value="burger" ?selected=${hasSelectedOption}>Burger</pie-option>
-          <pie-option value="pasta">Pasta</pie-option>
       </pie-select>
 
       <div class="form-btns">
@@ -210,13 +264,13 @@ const basePropOptions = {
     size: [...sizes],
     disabled: [true, false],
     showLeadingIcon: [true, false],
-    slot: ['<pie-option value="placeholder">Select a value</pie-option>'],
+    options: [...defaultArgs.options],
 };
 
 const statusPropsOptions = {
     status: [...statusTypes],
     assistiveText: ['', 'assistive text'],
-    slot: ['<pie-option value="placeholder">Select a value</pie-option>'],
+    options: [...defaultArgs.options],
 };
 
 export const Variations = createVariantStory<SelectProps>(Template, basePropOptions);

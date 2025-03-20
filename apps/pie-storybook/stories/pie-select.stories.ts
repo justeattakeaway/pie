@@ -9,34 +9,53 @@ import {
     statusTypes,
     type SelectProps as SelectBaseProps,
 } from '@justeattakeaway/pie-select';
-import '@justeattakeaway/pie-select/dist/pie-option';
-import '@justeattakeaway/pie-select/dist/pie-option-group';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 import {
     createStory,
-    sanitizeAndRenderHTML,
     type TemplateFunction,
 } from '../utilities';
-import { type SlottedComponentProps } from '../types';
 
-type SelectProps = SlottedComponentProps<SelectBaseProps & { showLeadingIcon: boolean }>;
+type SelectProps = SelectBaseProps & { showLeadingIcon: boolean };
 type SelectStoryMeta = Meta<SelectProps>;
 
 const defaultArgs: SelectProps = {
     ...defaultProps,
     name: 'meals',
     showLeadingIcon: false,
-    slot: `<pie-option-group label="Food">
-                <pie-option value="pizza">Pizza</pie-option>
-                <pie-option value="burger">Burger</pie-option>
-            </pie-option-group>
-            <pie-option-group label="Drinks">
-                <pie-option value="water">Water</pie-option>
-                <pie-option value="juice" disabled>Juice</pie-option>
-                <pie-option value="tea">Tea</pie-option>
-            </pie-option-group>`,
+    options: [{
+        tag: 'option',
+        text: 'Pizza',
+        value: 'pizza',
+    },
+    {
+        tag: 'option',
+        text: 'Burger',
+        value: 'burger',
+    },
+    {
+        tag: 'optgroup',
+        label: 'Drinks',
+        options: [{
+            tag: 'option',
+            text: 'Water',
+            value: 'water',
+        },
+        {
+            tag: 'option',
+            text: 'Juice',
+            value: 'juice',
+            disabled: true,
+        },
+        {
+            tag: 'option',
+            text: 'Tea',
+            value: 'tea',
+        },
+        ],
+    },
+    ],
 };
 
 const selectStoryMeta: SelectStoryMeta = {
@@ -47,7 +66,7 @@ const selectStoryMeta: SelectStoryMeta = {
             description: 'The name of the select (used as a key/value pair with `value`). This is required in order to work properly with forms.',
             control: 'text',
             defaultValue: {
-                summary: defaultArgs.name,
+                summary: '',
             },
         },
         disabled: {
@@ -94,9 +113,12 @@ const selectStoryMeta: SelectStoryMeta = {
                 summary: defaultArgs.showLeadingIcon,
             },
         },
-        slot: {
-            description: 'Content to place within the select. Use `<pie-option>` for individual options and `<pie-option-group>` to group related options.',
-            control: 'text',
+        options: {
+            description: 'The options to display in the select. Can be an array of option objects or option group objects.',
+            control: 'object',
+            defaultValue: {
+                summary: defaultProps.options,
+            },
         },
     },
     args: defaultArgs,
@@ -118,7 +140,7 @@ const Template: TemplateFunction<SelectProps> = ({
     status,
     name,
     showLeadingIcon,
-    slot,
+    options,
 }) => {
     function onChange (event: CustomEvent) {
         action('change')({
@@ -135,9 +157,9 @@ const Template: TemplateFunction<SelectProps> = ({
             size="${ifDefined(size)}"
             assistiveText="${ifDefined(assistiveText)}"
             status="${ifDefined(status)}"
+            .options="${options}"
             @change="${onChange}">   
                 ${showLeadingIcon ? html`<icon-placeholder slot="leadingIcon"></icon-placeholder>` : nothing}
-                ${sanitizeAndRenderHTML(slot, { ALLOWED_TAGS: ['pie-option', 'pie-option-group'] })}
         </pie-select>
     `;
 };

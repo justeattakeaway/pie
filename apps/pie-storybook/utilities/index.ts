@@ -1,5 +1,5 @@
 import { html, type TemplateResult } from 'lit';
-import DOMPurify, { type Config as DOMPurifyConfig } from 'dompurify';
+import DOMPurify from 'dompurify';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import type { StoryOptions, BackgroundValue } from '../types/StoryOptions';
 import CUSTOM_BACKGROUNDS from '../.storybook/backgrounds';
@@ -60,7 +60,7 @@ export const createStory = <T>(templateFunc: TemplateFunction<T>, defaultArgs: T
  * @param {string} slot - The HTML string content to be sanitized and rendered.
  * @returns {import('lit/directives/unsafe-html.js').UnsafeHTMLDirective} A Lit directive that can be used in a Lit template to render the sanitized content.
  */
-export const sanitizeAndRenderHTML = (slot: string, config: DOMPurifyConfig = {}) => unsafeHTML(DOMPurify.sanitize(slot, config).toString());
+export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sanitize(slot));
 
 export type PropDisplayOptions<T> = {
     hiddenProps?: (keyof T)[];

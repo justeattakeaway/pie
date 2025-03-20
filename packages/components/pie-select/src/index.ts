@@ -31,8 +31,6 @@ import {
     statusTypes,
     type SelectProps,
 } from './defs';
-import { optionDefaultProps, type PieOption } from './pie-option';
-import { optionGroupDefaultProps, type PieOptionGroup } from './pie-option-group';
 
 // Valid values available to consumers
 export * from './defs';
@@ -65,6 +63,9 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
 
     @property({ type: String })
     public name: SelectProps['name'];
+
+    @property({ type: Array })
+    public options: SelectProps['options'] = defaultProps.options;
 
     @query('select')
     private select!: HTMLSelectElement;
@@ -101,7 +102,7 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
      * Resets the value to the default value.
      */
     public formResetCallback (): void {
-        const selected = this.querySelector('pie-option[selected]');
+        const selected = this.querySelector('option[selected]');
         this.select.value = selected?.getAttribute('value') ?? '';
         this.select.selectedIndex = selected ? this.select.selectedIndex : 0;
         this._internals.setFormValue(this.select.value);
@@ -134,38 +135,37 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
         this.dispatchEvent(customChangeEvent);
     };
 
-    private _handleDefaultSlotChange () {
-        this.requestUpdate();
-    }
-
     private _handleLeadingIconSlotchange () {
         this._hasLeadingIcon = Boolean(this._leadingIconSlot.length);
     }
 
-    private renderChildren (children: PieSelect | PieOption | PieOptionGroup): TemplateResult {
-        const childElements = Array.from(children.querySelectorAll(':scope > pie-option-group, :scope > pie-option')) ?? [];
-
+    /**
+     * Renders the options from the options property
+     * @param options - The options to render
+     * @returns A template result with the rendered options
+     */
+    private _renderOptions (options: SelectProps['options']): TemplateResult {
         return html`
-          ${childElements
-            .map((el) => {
-                const disabled = el.hasAttribute('disabled');
-                const selected = el.hasAttribute('selected');
-                const value = el.getAttribute('value') ?? optionDefaultProps.value;
-                const label = el.getAttribute('label') ?? optionGroupDefaultProps.label;
+            ${options.map((option) => {
+            if (option.tag === 'optgroup') {
+                return html`
+                        <optgroup
+                            ?disabled="${option.disabled}"
+                            label="${ifDefined(option.label)}">
+                            ${this._renderOptions(option.options)}
+                        </optgroup>
+                    `;
+            }
 
-                return el.matches('pie-option')
-                    ? html`<option
-                            .value="${live(value)}"
-                            ?disabled="${disabled}"
-                            ?selected="${selected}">
-                                ${el.textContent}
-                        </option>`
-                    : html`<optgroup
-                            ?disabled="${disabled}"
-                            label="${ifDefined(label)}">
-                                ${this.renderChildren(el as PieOptionGroup)}
-                        </optgroup>`;
-            })}
+            return html`
+                    <option
+                        .value="${live(option.value)}"
+                        ?disabled="${option.disabled}"
+                        ?selected="${option.selected}">
+                        ${option.text}
+                    </option>
+                `;
+        })}
         `;
     }
 
@@ -192,6 +192,7 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
             status,
             size,
             name,
+            options,
             _hasLeadingIcon,
         } = this;
 
@@ -207,21 +208,20 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
             <div
                 class="${classMap(classes)}"
                 data-test-id="pie-select-shell">
-                    <slot name="leadingIcon" @slotchange=${this._handleLeadingIconSlotchange}></slot>
-                    <select
+                <slot name="leadingIcon" @slotchange=${this._handleLeadingIconSlotchange}></slot>
+                <select
                     data-test-id="pie-select-element"
-                        name="${ifDefined(name)}"
-                        ?disabled="${disabled}"
-                        ?required="${required}"
-                        aria-describedby="${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}"
-                        aria-invalid="${status === 'error' ? 'true' : 'false'}"
-                        aria-errormessage="${ifDefined(status === 'error' ? assistiveTextIdValue : undefined)}"
-                        @input=${this._handleInput}
-                        @change=${this._handleChange}>
-                            ${this.renderChildren(this)}
-                    </select>
-                    <icon-chevron-down size='s' class='c-select-trailingIcon'></icon-chevron-down>
-                    <slot @slotchange=${this._handleDefaultSlotChange} style="display: none"></slot>
+                    name="${ifDefined(name)}"
+                    ?disabled="${disabled}"
+                    ?required="${required}"
+                    aria-describedby="${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}"
+                    aria-invalid="${status === 'error' ? 'true' : 'false'}"
+                    aria-errormessage="${ifDefined(status === 'error' ? assistiveTextIdValue : undefined)}"
+                    @input=${this._handleInput}
+                    @change=${this._handleChange}>
+                    ${this._renderOptions(options)}
+                </select>
+                <icon-chevron-down size='s' class='c-select-trailingIcon'></icon-chevron-down>
             </div>
             ${this.renderAssistiveText()}
         `;
