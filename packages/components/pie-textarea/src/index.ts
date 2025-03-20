@@ -173,6 +173,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     };
 
     public disconnectedCallback (): void {
+        super.disconnectedCallback();
         this._textarea.removeEventListener('keydown', this.handleKeyDown);
         window.removeEventListener('resize', () => this.handleResize());
     }
