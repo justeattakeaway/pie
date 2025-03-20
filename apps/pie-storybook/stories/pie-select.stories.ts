@@ -48,11 +48,6 @@ const defaultArgs: SelectProps = {
             value: 'juice',
             disabled: true,
         },
-        {
-            tag: 'option',
-            text: 'Tea',
-            value: 'tea',
-        },
         ],
     },
     ],
@@ -76,13 +71,6 @@ const selectStoryMeta: SelectStoryMeta = {
                 summary: defaultProps.disabled,
             },
         },
-        required: {
-            description: 'If true, the select is required to have a value before submitting the form. If there is no value, then the component validity state will be invalid.',
-            control: 'boolean',
-            defaultValue: {
-                summary: defaultProps.required,
-            },
-        },
         size: {
             description: 'The size of the select field. Can be `small`, `medium` or `large`. Defaults to `medium`.',
             control: 'select',
@@ -92,7 +80,7 @@ const selectStoryMeta: SelectStoryMeta = {
             },
         },
         assistiveText: {
-            description: 'An optional assistive text to display below the select element. Must be provided when the status is success or error.',
+            description: 'An optional assistive text to display below the select element. Must be provided when the status is error.',
             control: 'text',
             defaultValue: {
                 summary: '',
@@ -134,7 +122,6 @@ export default selectStoryMeta;
 
 const Template: TemplateFunction<SelectProps> = ({
     disabled,
-    required,
     size,
     assistiveText,
     status,
@@ -153,7 +140,6 @@ const Template: TemplateFunction<SelectProps> = ({
             id="${ifDefined(name)}"
             name="${ifDefined(name)}"   
             ?disabled="${disabled}"
-            ?required="${required}"
             size="${ifDefined(size)}"
             assistiveText="${ifDefined(assistiveText)}"
             status="${ifDefined(status)}"

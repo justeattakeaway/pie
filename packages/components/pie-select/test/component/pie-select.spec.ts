@@ -69,36 +69,6 @@ test.describe('PieSelect - Component tests', () => {
             });
         });
 
-        test.describe('required', () => {
-            test('should not render a required attribute on the select element if not provided', async ({ page }) => {
-                // Arrange
-                const selectPage = new BasePage(page, 'select--default');
-                await selectPage.load();
-
-                // Act
-                const selectElement = page.getByTestId(select.selectors.select.dataTestId);
-
-                // Assert
-                await expect(selectElement).not.toHaveAttribute('required');
-            });
-
-            test('should apply the required attribute on the select element', async ({ page }) => {
-                // Arrange
-                const props: Partial<SelectProps> = {
-                    required: true,
-                };
-
-                const selectPage = new BasePage(page, 'select--default');
-                await selectPage.load({ ...props });
-
-                // Act
-                const selectElement = page.getByTestId(select.selectors.select.dataTestId);
-
-                // Assert
-                await expect(selectElement).toHaveAttribute('required', '');
-            });
-        });
-
         test.describe('name', () => {
             test('should not apply the name attribute on the select element if not provided', async ({ page }) => {
                 // Arrange
@@ -214,7 +184,7 @@ test.describe('PieSelect - Component tests', () => {
                     const options = selectElement.locator('option');
 
                     // Assert the number of options passed to the default select story
-                    await expect(options).toHaveCount(5);
+                    await expect(options).toHaveCount(4);
                 });
 
                 test('should disable the option when the disabled property is true', async ({ page }) => {

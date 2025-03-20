@@ -11,7 +11,7 @@ interface SelectOptionProps {
     tag: 'option';
 
     /**
-     * The text content to display for the select option
+     * The text content to display for the select option.
      */
     text: string;
 
@@ -38,12 +38,12 @@ interface SelectOptionGroupProps {
     tag: 'optgroup';
 
     /**
-     * The label for the select option group
+     * The label for the select option group.
      */
     label?: string;
 
     /**
-     * The options within the select option group
+     * The options within the select option group.
      */
     options: SelectOptionProps[];
 
@@ -63,11 +63,6 @@ export interface SelectProps {
      * Same as the HTML disabled attribute - indicates whether the select is disabled.
      */
     disabled?: boolean;
-
-    /**
-     * Same as the HTML required attribute - indicates whether the select is required.
-     */
-    required?: boolean;
 
     /**
      * An optional assistive text to display below the select element. Must be provided when the status is error.
@@ -96,6 +91,5 @@ export const defaultProps: DefaultProps = {
     size: 'medium',
     status: 'default',
     disabled: false,
-    required: false,
     options: [],
 };

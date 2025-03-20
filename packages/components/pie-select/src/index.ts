@@ -52,9 +52,6 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
     @property({ type: Boolean })
     public disabled = defaultProps.disabled;
 
-    @property({ type: Boolean, reflect: true })
-    public required = defaultProps.required;
-
     @property({ type: String })
     @validPropertyValues(componentSelector, statusTypes, defaultProps.status)
     public status = defaultProps.status;
@@ -186,7 +183,6 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
         const {
             assistiveText,
             disabled,
-            required,
             status,
             size,
             name,
@@ -211,7 +207,6 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
                     data-test-id="pie-select-element"
                     name="${ifDefined(name)}"
                     ?disabled="${disabled}"
-                    ?required="${required}"
                     aria-describedby="${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}"
                     aria-invalid="${status === 'error' ? 'true' : 'false'}"
                     aria-errormessage="${ifDefined(status === 'error' ? assistiveTextIdValue : undefined)}"
