@@ -40,6 +40,7 @@ const assistiveTextIdValue = 'assistive-text';
 
 /**
  * @tagname pie-select
+ * @event {CustomEvent} change - when the selected option is changed.
  */
 export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements SelectProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
@@ -113,15 +114,6 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
     }
 
     /**
-     * Handles data processing in response to the input event. The native input event is left to bubble up.
-     * @param event - The input event.
-     */
-    private _handleInput = (event: InputEvent) => {
-        const { value } = (event.target as HTMLInputElement);
-        this._internals.setFormValue(value);
-    };
-
-    /**
      * Captures the native change event and wraps it in a custom event.
      * @param event - The change event.
      */
@@ -133,6 +125,8 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
         // Reference: https://javascript.info/shadow-dom-events#event-composed
         const customChangeEvent = wrapNativeEvent(event);
         this.dispatchEvent(customChangeEvent);
+
+        this._internals.setFormValue(this._select.value);
     };
 
     private _handleLeadingIconSlotchange () {
@@ -221,7 +215,6 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
                     aria-describedby="${ifDefined(assistiveText ? assistiveTextIdValue : undefined)}"
                     aria-invalid="${status === 'error' ? 'true' : 'false'}"
                     aria-errormessage="${ifDefined(status === 'error' ? assistiveTextIdValue : undefined)}"
-                    @input=${this._handleInput}
                     @change=${this._handleChange}>
                     ${this.renderChildren(options)}
                 </select>
