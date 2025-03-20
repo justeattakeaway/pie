@@ -68,10 +68,10 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
     public options: SelectProps['options'] = defaultProps.options;
 
     @query('select')
-    private select!: HTMLSelectElement;
+    public focusTarget!: HTMLSelectElement;
 
     @query('select')
-    public focusTarget!: HTMLElement;
+    private _select!: HTMLSelectElement;
 
     @queryAssignedElements({ slot: 'leadingIcon', flatten: true })
     private _leadingIconSlot!: Array<HTMLElement>;
@@ -79,12 +79,16 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
     @state()
     private _hasLeadingIcon = false;
 
+    protected firstUpdated (): void {
+        this._internals.setFormValue(this._select.value);
+    }
+
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.
      * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
      */
     public get validity (): ValidityState {
-        return this.select.validity;
+        return this._select.validity;
     }
 
     /**
@@ -99,17 +103,13 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
 
     /**
      * Called when the form that owns this component is reset.
-     * Resets the value to the default value.
+     * Resets the value to the default select value.
      */
     public formResetCallback (): void {
-        const selected = this.select.querySelector('option[selected]');
-        this.select.value = selected?.getAttribute('value') ?? '';
-        this.select.selectedIndex = selected ? this.select.selectedIndex : 0;
-        this._internals.setFormValue(this.select.value);
-    }
-
-    protected firstUpdated (): void {
-        this._internals.setFormValue(this.select.value);
+        const selected = this._select.querySelector('option[selected]');
+        this._select.value = selected?.getAttribute('value') ?? '';
+        this._select.selectedIndex = selected ? this._select.selectedIndex : 0;
+        this._internals.setFormValue(this._select.value);
     }
 
     /**
@@ -144,7 +144,7 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
      * @param options - The options to render
      * @returns A template result with the rendered options
      */
-    private _renderOptions (options: SelectProps['options']): TemplateResult {
+    private renderChildren (options: SelectProps['options']): TemplateResult {
         return html`
             ${options.map((option) => {
             if (option.tag === 'optgroup') {
@@ -152,7 +152,7 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
                         <optgroup
                             ?disabled="${option.disabled}"
                             label="${ifDefined(option.label)}">
-                            ${this._renderOptions(option.options)}
+                            ${this.renderChildren(option.options)}
                         </optgroup>
                     `;
             }
@@ -169,7 +169,11 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
         `;
     }
 
-    private renderAssistiveText () {
+    /**
+     * Renders the assistive text if available.
+     * @returns A template result with the assistive text
+     */
+    private renderAssistiveText (): TemplateResult | typeof nothing {
         if (!this.assistiveText) {
             return nothing;
         }
@@ -219,7 +223,7 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
                     aria-errormessage="${ifDefined(status === 'error' ? assistiveTextIdValue : undefined)}"
                     @input=${this._handleInput}
                     @change=${this._handleChange}>
-                    ${this._renderOptions(options)}
+                    ${this.renderChildren(options)}
                 </select>
                 <icon-chevron-down size='s' class='c-select-trailingIcon'></icon-chevron-down>
             </div>

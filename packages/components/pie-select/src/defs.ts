@@ -6,12 +6,12 @@ export const statusTypes = ['default', 'error'] as const;
 
 interface SelectOptionProps {
    /**
-     * What HTML select element the option should be such option or optgroup.
+     * What HTML element the option should be such option or optgroup.
      */
     tag: 'option';
 
     /**
-     * The text content to display for this option
+     * The text content to display for the select option
      */
     text: string;
 
@@ -33,7 +33,7 @@ interface SelectOptionProps {
 
 interface SelectOptionGroupProps {
     /**
-     * What HTML select element the option should be such option or optgroup.
+     * What HTML element the option should be such option or optgroup.
      */
     tag: 'optgroup';
 
@@ -43,7 +43,7 @@ interface SelectOptionGroupProps {
     label?: string;
 
     /**
-     * The options within this select option group
+     * The options within the select option group
      */
     options: SelectOptionProps[];
 
@@ -52,6 +52,7 @@ interface SelectOptionGroupProps {
      */
     disabled?: boolean;
 }
+
 export interface SelectProps {
     /**
      * The size of the select component. Can be `small`, `medium` or `large`. Defaults to `medium`.
