@@ -201,6 +201,76 @@ test.describe('PieSelect - Component tests', () => {
                 });
             });
         });
+
+        test.describe('options', () => {
+            test.describe('option', () => {
+                test('should render option objects as native HTML option elements', async ({ page }) => {
+                    // Arrange
+                    const selectPage = new BasePage(page, 'select--default');
+                    await selectPage.load();
+
+                    // Act
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+                    const options = selectElement.locator('option');
+
+                    // Assert the number of options passed to the default select story
+                    await expect(options).toHaveCount(5);
+                });
+
+                test('should disable the option when the disabled property is true', async ({ page }) => {
+                    // Arrange
+                    const selectPage = new BasePage(page, 'select--disabled-options');
+                    await selectPage.load();
+
+                    // Act
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+                    const disabledOption = selectElement.locator('option:text("Option 4")');
+
+                    // Assert
+                    await expect(disabledOption).toBeDisabled();
+                });
+
+                test('should select the option with the selected property by default when provided', async ({ page }) => {
+                    // Arrange
+                    const selectPage = new BasePage(page, 'select--selected-options');
+                    await selectPage.load();
+
+                    // Act
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+
+                    // Assert
+                    await expect(selectElement).toHaveValue('banana');
+                });
+            });
+
+            test.describe('optgroup', () => {
+                test('should render optgroup objects as native HTML optgroup elements', async ({ page }) => {
+                    // Arrange
+                    const selectPage = new BasePage(page, 'select--default');
+                    await selectPage.load();
+
+                    // Act
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+                    const optgroups = selectElement.locator('optgroup');
+
+                    // Assert the number of optgroups passed to the default select story
+                    await expect(optgroups).toHaveCount(2);
+                });
+
+                test('should disable the option group when the disabled property is true', async ({ page }) => {
+                    // Arrange
+                    const selectPage = new BasePage(page, 'select--disabled-options');
+                    await selectPage.load();
+
+                    // Act
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+                    const disabledOptgroup = selectElement.locator('optgroup').first();
+
+                    // Assert
+                    await expect(disabledOptgroup).toBeDisabled();
+                });
+            });
+        });
     });
 
     test.describe('Attributes:', () => {
@@ -384,8 +454,8 @@ test.describe('PieSelect - Component tests', () => {
 
             // Act
             const selectElement = page.getByTestId(select.selectors.select.dataTestId);
-            await selectElement.selectOption('pasta');
-            await expect(selectElement).toHaveValue('pasta');
+            await selectElement.selectOption('pizza');
+            await expect(selectElement).toHaveValue('pizza');
 
             await page.locator('pie-button', { hasText: 'Reset' }).click();
 
@@ -395,88 +465,17 @@ test.describe('PieSelect - Component tests', () => {
 
         test('should reset to the option marked as selected if provided', async ({ page }) => {
             // Arrange
-            const selectFormPage = new BasePage(page, 'select--example-form');
-            await selectFormPage.load({ ...props });
-
+            const selectFormPage = new BasePage(page, 'select--example-form-with-selected-option');
+            await selectFormPage.load();
             // Act
             const selectElement = page.getByTestId(select.selectors.select.dataTestId);
-            await selectElement.selectOption('pasta');
-            await expect(selectElement).toHaveValue('pasta');
+            await selectElement.selectOption('apple');
+            await expect(selectElement).toHaveValue('apple');
 
             await page.locator('pie-button', { hasText: 'Reset' }).click();
 
             // Assert
-            await expect(selectElement).toHaveValue('burger');
-        });
-    });
-
-    test.describe('Slots', () => {
-        test.describe('pie-option', () => {
-            test('should render pie-option elements as native HTML option elements', async ({ page }) => {
-                // Arrange
-                const selectPage = new BasePage(page, 'select--default');
-                await selectPage.load();
-
-                // Act
-                const selectElement = page.getByTestId(select.selectors.select.dataTestId);
-                const options = selectElement.locator('option');
-
-                // Assert
-                await expect(options).toHaveCount(await page.evaluate(() => document.querySelectorAll('pie-option').length));
-            });
-
-            test('should disable the option when the disabled attribute is provided', async ({ page }) => {
-                // Arrange
-                const selectPage = new BasePage(page, 'select--disabled-options');
-                await selectPage.load();
-
-                // Act
-                const selectElement = page.getByTestId(select.selectors.select.dataTestId);
-                const disabledOption = selectElement.locator('option:text("Option 4")');
-
-                // Assert
-                await expect(disabledOption).toBeDisabled();
-            });
-
-            test('should select the option with the selected attribute by default when provided', async ({ page }) => {
-                // Arrange
-                const selectPage = new BasePage(page, 'select--selected-options');
-                await selectPage.load();
-
-                // Act
-                const selectElement = page.getByTestId(select.selectors.select.dataTestId);
-
-                // Assert
-                await expect(selectElement).toHaveValue('banana');
-            });
-        });
-
-        test.describe('pie-option-group', () => {
-            test('should render pie-option-group elements as native HTML optgroup elements', async ({ page }) => {
-                // Arrange
-                const selectPage = new BasePage(page, 'select--default');
-                await selectPage.load();
-
-                // Act
-                const selectElement = page.getByTestId(select.selectors.select.dataTestId);
-                const optgroups = selectElement.locator('optgroup');
-
-                // Assert
-                await expect(optgroups).toHaveCount(await page.evaluate(() => document.querySelectorAll('pie-option-group').length));
-            });
-
-            test('should disable the option group when the disabled prop is provided', async ({ page }) => {
-                // Arrange
-                const selectPage = new BasePage(page, 'select--disabled-options');
-                await selectPage.load();
-
-                // Act
-                const selectElement = page.getByTestId(select.selectors.select.dataTestId);
-                const disabledOptgroup = selectElement.locator('optgroup').first();
-
-                // Assert
-                await expect(disabledOptgroup).toBeDisabled();
-            });
+            await expect(selectElement).toHaveValue('banana');
         });
     });
 });

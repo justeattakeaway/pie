@@ -22,7 +22,7 @@ import {
 type SelectProps = SelectBaseProps & { showLeadingIcon?: boolean };
 type SelectStoryMeta = Meta<SelectProps>;
 
-const defaultArgs: SelectProps = {
+export const defaultArgs: SelectProps = {
     ...defaultProps,
     options: [{
         tag: 'optgroup',
@@ -256,6 +256,30 @@ const ExampleFormTemplate: TemplateFunction<SelectProps> = ({
   <div id="formDataOutput"></div>
 `;
 
+const ExampleFormWithSelectedOptionTemplate: TemplateFunction<SelectProps> = ({
+    disabled,
+    options,
+}: SelectProps) => html`
+  <form id="testForm" @submit="${onSubmit}">
+      <pie-form-label for="food">Food:</pie-form-label>
+      <pie-select
+          class="form-field"
+          id="food"
+          name="food"
+          ?disabled="${disabled}"
+          .options="${options}"
+          data-test-id="pie-select-container">
+          <icon-placeholder slot="leadingIcon"></icon-placeholder>
+      </pie-select>
+
+      <div class="form-btns">
+          <pie-button class="form-btn" variant="secondary" type="reset">Reset</pie-button>
+          <pie-button class="form-btn" type="submit">Submit</pie-button>
+      </div>
+  </form>
+  <div id="formDataOutput"></div>
+`;
+
 export const Default = createStory<SelectProps>(Template, defaultArgs)();
 export const DisabledOptions = createStory<SelectProps>(Template, disabledOptionsArgs)();
 export const SelectedOptions = createStory<SelectProps>(Template, selectedOptionsArgs)();
@@ -264,15 +288,16 @@ const basePropOptions = {
     size: [...sizes],
     disabled: [true, false],
     showLeadingIcon: [true, false],
-    options: [...defaultArgs.options],
+    options: [[{ tag: 'option', text: 'Select a value', value: 'test' }]],
 };
 
 const statusPropsOptions = {
     status: [...statusTypes],
     assistiveText: ['', 'assistive text'],
-    options: [...defaultArgs.options],
+    options: [[{ tag: 'option', text: 'Select a value', value: 'test' }]],
 };
 
 export const Variations = createVariantStory<SelectProps>(Template, basePropOptions);
 export const StatusVariations = createVariantStory<SelectProps>(Template, statusPropsOptions);
 export const ExampleForm = createStory<SelectProps>(ExampleFormTemplate, defaultArgs)();
+export const ExampleFormWithSelectedOption = createStory<SelectProps>(ExampleFormWithSelectedOptionTemplate, selectedOptionsArgs)();

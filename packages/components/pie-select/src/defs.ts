@@ -18,7 +18,7 @@ interface SelectOptionProps {
     /**
      * The value of the select option (used as a key/value pair in HTML forms with `name`).
      */
-    value: string;
+    value?: string;
 
     /**
      * Same as the HTML disabled attribute - indicates whether the select option is disabled.

@@ -102,7 +102,7 @@ export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements
      * Resets the value to the default value.
      */
     public formResetCallback (): void {
-        const selected = this.querySelector('option[selected]');
+        const selected = this.select.querySelector('option[selected]');
         this.select.value = selected?.getAttribute('value') ?? '';
         this.select.selectedIndex = selected ? this.select.selectedIndex : 0;
         this._internals.setFormValue(this.select.value);
