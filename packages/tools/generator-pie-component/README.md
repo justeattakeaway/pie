@@ -21,7 +21,6 @@
 3. [Set up Percy visual regression testing](#setting-up-visual-regression-testing)
 4. [Export sub components](#exporting-sub-components)
 
-
 ### Installation
 
 Build the generator package locally (it is recommended you force the build)
