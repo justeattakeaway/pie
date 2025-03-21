@@ -50,15 +50,14 @@ Once you have completed all the prompts, your scaffolded component will be gener
 
 ### Exporting Sub-Components
 
-The generator *does not* currently support automatic exports for sub-components. To add a sub-component, follow these steps:
+The generator *does not* currently support automatic generation of sub-components. To add a sub-component, follow these steps:
 
 - Create a folder inside the component's src directory with the sub-component’s name (e.g., pie-breadcrumb-item).
 - Add the following files to the new folder:
   - `index.ts` – contains the component logic.
   - `defs.ts` – provides the component types.
   - `react.ts` – provides the React wrapper type.
-
-- Modify the component's vite.config.ts to match the following:
+- Modify the component's `vite.config.ts` to match the following:
 
 ```
 export default viteConfig({
@@ -77,7 +76,7 @@ export default viteConfig({
 });
 ```
 
-- Run `npx add-components` from the monorepo root to update the `webc` package exports
+- Run `npx add-components` from the monorepo root to update the `webc` package exports.
 
 ## Local development
 
