@@ -4795,6 +4795,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-breadcrumb@0.0.0, @justeattakeaway/pie-breadcrumb@workspace:packages/components/pie-breadcrumb":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-breadcrumb@workspace:packages/components/pie-breadcrumb"
+  dependencies:
+    "@custom-elements-manifest/analyzer": 0.9.0
+    "@justeattakeaway/pie-components-config": 0.18.1
+    "@justeattakeaway/pie-css": 0.16.0
+    "@justeattakeaway/pie-webc-core": 0.24.2
+    cem-plugin-module-file-extensions: 0.0.5
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-button@1.4.0, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
@@ -5285,6 +5297,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
     "@justeattakeaway/pie-assistive-text": 0.8.5
+    "@justeattakeaway/pie-breadcrumb": 0.0.0
     "@justeattakeaway/pie-button": 1.4.0
     "@justeattakeaway/pie-card": 0.23.1
     "@justeattakeaway/pie-checkbox": 0.14.3
@@ -23044,6 +23057,7 @@ __metadata:
   dependencies:
     "@justeat/pie-design-tokens": 6.10.0
     "@justeattakeaway/pie-assistive-text": 0.8.5
+    "@justeattakeaway/pie-breadcrumb": 0.0.0
     "@justeattakeaway/pie-button": 1.4.0
     "@justeattakeaway/pie-card": 0.23.1
     "@justeattakeaway/pie-checkbox": 0.14.3

@@ -24,6 +24,16 @@
       "require": "./react/assistive-text.js",
       "types": "./react/assistive-text.d.ts"
     },
+    "./components/breadcrumb.js": {
+      "import": "./components/breadcrumb.js",
+      "require": "./components/breadcrumb.js",
+      "types": "./components/breadcrumb.d.ts"
+    },
+    "./react/breadcrumb.js": {
+      "import": "./react/breadcrumb.js",
+      "require": "./react/breadcrumb.js",
+      "types": "./react/breadcrumb.d.ts"
+    },
     "./components/button.js": {
       "import": "./components/button.js",
       "require": "./components/button.js",
@@ -282,6 +292,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-assistive-text": "0.8.5",
+    "@justeattakeaway/pie-breadcrumb": "0.0.0",
     "@justeattakeaway/pie-button": "1.4.0",
     "@justeattakeaway/pie-card": "0.23.1",
     "@justeattakeaway/pie-checkbox": "0.14.3",
