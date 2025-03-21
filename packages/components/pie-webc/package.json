@@ -164,26 +164,6 @@
       "require": "./react/notification.js",
       "types": "./react/notification.d.ts"
     },
-    "./components/option.js": {
-      "import": "./components/option.js",
-      "require": "./components/option.js",
-      "types": "./components/option.d.ts"
-    },
-    "./react/option.js": {
-      "import": "./react/option.js",
-      "require": "./react/option.js",
-      "types": "./react/option.d.ts"
-    },
-    "./components/option-group.js": {
-      "import": "./components/option-group.js",
-      "require": "./components/option-group.js",
-      "types": "./components/option-group.d.ts"
-    },
-    "./react/option-group.js": {
-      "import": "./react/option-group.js",
-      "require": "./react/option-group.js",
-      "types": "./react/option-group.d.ts"
-    },
     "./components/radio.js": {
       "import": "./components/radio.js",
       "require": "./components/radio.js",

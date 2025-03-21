@@ -2,13 +2,28 @@ import { test } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 
+const readingDirections = ['ltr', 'rtl'];
+
 test.describe('PieSelect - Visual tests`', () => {
-    test('should display the PieSelect component successfully', async ({ page }) => {
-        const basePage = new BasePage(page, 'select--default');
+    readingDirections.forEach((direction) => {
+        test(`should render prop variations in writing direction: ${direction}`, async ({ page }) => {
+            // Arrange
+            const selectVariationsPage = new BasePage(page, 'select--variations');
+            await selectVariationsPage.load({}, { writingDirection: direction });
 
-        basePage.load();
-        await page.waitForTimeout(2500);
+            // Assert
+            await percySnapshot(page, `PIE Select - Variations - ${direction}`);
+        });
+    });
 
-        await percySnapshot(page, 'PieSelect - Visual Test');
+    readingDirections.forEach((direction) => {
+        test(`should render assistive text and status prop variations in writing direction: ${direction}`, async ({ page }) => {
+            // Arrange
+            const selectVariationsPage = new BasePage(page, 'select--status-variations');
+            await selectVariationsPage.load({}, { writingDirection: direction });
+
+            // Assert
+            await percySnapshot(page, `PIE Select - Assistive Text & Status - ${direction}`);
+        });
     });
 });
