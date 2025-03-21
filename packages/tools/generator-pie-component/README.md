@@ -18,9 +18,8 @@
 
 1. [Installation](#installation)
 2. [Generate the component](#generating-a-new-component)
-3. [Add the component to storybook](#setting-up-storybook)
-4. [Set up Percy visual regression testing](#setting-up-visual-regression-testing)
-5. [Set up the project label for GitHub](#setting-up-the-project-label-for-github)
+3. [Set up Percy visual regression testing](#setting-up-visual-regression-testing)
+4. [Export sub components](#exporting-sub-components)
 
 ### Installation
 
@@ -47,6 +46,36 @@ Once you have completed all the prompts, your scaffolded component will be gener
 - Create a Percy project for the component on the Percy website.
 - From the "Project settings" page, copy the project token value.
 - You need to add the new token value as a repository secret in GitHub. It must be named `PERCY_TOKEN_PIE_COMPONENT_NAME`. Visual tests will not work/run if this is not set up correctly.
+
+### Exporting Sub-Components
+
+The generator *does not* currently support automatic generation of sub-components. To add a sub-component, follow these steps:
+
+- Create a folder inside the component's src directory with the sub-component’s name (e.g., pie-breadcrumb-item).
+- Add the following files to the new folder:
+  - [index.ts](https://gist.github.com/raoufswe/8ed0f8aa148755520729c1cf732f2d70#indexts) – contains the component logic.
+  - [defs.ts](https://gist.github.com/raoufswe/8ed0f8aa148755520729c1cf732f2d70#defsts) – provides the component types.
+  - [defs-react.ts](https://gist.github.com/raoufswe/8ed0f8aa148755520729c1cf732f2d70#defs-reactts) – provides the React wrapper type.
+- Modify the component's `vite.config.ts` to match the following:
+
+```
+export default viteConfig({
+    build: {
+        lib: {
+            entry: {
+                'pie-sub-component/index': 'src/pie-sub-component/index.ts',
+                'pie-sub-component/react': 'src/pie-sub-component/react.ts',
+            },
+        },
+    },
+    dtsConfig: {
+        entryRoot: 'src',
+        rollupTypes: false,
+    },
+});
+```
+
+- Run `npx add-components` from the monorepo root to update the `webc` package exports.
 
 ## Local development
 
