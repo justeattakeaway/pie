@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.29.3
+
+### Patch Changes
+
+- [Updated] - add how to export sub components manually ([#2291](https://github.com/justeattakeaway/pie/pull/2291)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.29.2
 
 ### Patch Changes

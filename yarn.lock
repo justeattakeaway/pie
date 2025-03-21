@@ -4769,7 +4769,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/generator-pie-component@0.29.2, @justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component":
+"@justeattakeaway/generator-pie-component@0.29.3, @justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component"
   dependencies:
@@ -4795,7 +4795,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-breadcrumb@0.0.0, @justeattakeaway/pie-breadcrumb@workspace:packages/components/pie-breadcrumb":
+"@justeattakeaway/pie-breadcrumb@0.0.1, @justeattakeaway/pie-breadcrumb@workspace:packages/components/pie-breadcrumb":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-breadcrumb@workspace:packages/components/pie-breadcrumb"
   dependencies:
@@ -5146,7 +5146,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-select@0.2.0, @justeattakeaway/pie-select@workspace:packages/components/pie-select":
+"@justeattakeaway/pie-select@0.3.0, @justeattakeaway/pie-select@workspace:packages/components/pie-select":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-select@workspace:packages/components/pie-select"
   dependencies:
@@ -5292,12 +5292,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@0.6.23, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@0.6.24, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
     "@justeattakeaway/pie-assistive-text": 0.8.5
-    "@justeattakeaway/pie-breadcrumb": 0.0.0
+    "@justeattakeaway/pie-breadcrumb": 0.0.1
     "@justeattakeaway/pie-button": 1.4.0
     "@justeattakeaway/pie-card": 0.23.1
     "@justeattakeaway/pie-checkbox": 0.14.3
@@ -5314,7 +5314,7 @@ __metadata:
     "@justeattakeaway/pie-notification": 0.12.15
     "@justeattakeaway/pie-radio": 0.9.1
     "@justeattakeaway/pie-radio-group": 0.7.3
-    "@justeattakeaway/pie-select": 0.2.0
+    "@justeattakeaway/pie-select": 0.3.0
     "@justeattakeaway/pie-spinner": 1.0.1
     "@justeattakeaway/pie-switch": 1.2.2
     "@justeattakeaway/pie-tag": 0.15.0
@@ -22999,7 +22999,7 @@ __metadata:
     "@commitlint/config-conventional": 17.4.4
     "@justeat/pie-design-tokens": 6.10.0
     "@justeattakeaway/browserslist-config-pie": 0.2.1
-    "@justeattakeaway/generator-pie-component": 0.29.2
+    "@justeattakeaway/generator-pie-component": 0.29.3
     "@justeattakeaway/pie-icons": 5.8.0
     "@justeattakeaway/pie-webc-testing": 0.13.4
     "@justeattakeaway/pie-wrapper-react": 0.14.3
@@ -23057,7 +23057,7 @@ __metadata:
   dependencies:
     "@justeat/pie-design-tokens": 6.10.0
     "@justeattakeaway/pie-assistive-text": 0.8.5
-    "@justeattakeaway/pie-breadcrumb": 0.0.0
+    "@justeattakeaway/pie-breadcrumb": 0.0.1
     "@justeattakeaway/pie-button": 1.4.0
     "@justeattakeaway/pie-card": 0.23.1
     "@justeattakeaway/pie-checkbox": 0.14.3
@@ -23077,7 +23077,7 @@ __metadata:
     "@justeattakeaway/pie-notification": 0.12.15
     "@justeattakeaway/pie-radio": 0.9.1
     "@justeattakeaway/pie-radio-group": 0.7.3
-    "@justeattakeaway/pie-select": 0.2.0
+    "@justeattakeaway/pie-select": 0.3.0
     "@justeattakeaway/pie-spinner": 1.0.1
     "@justeattakeaway/pie-switch": 1.2.2
     "@justeattakeaway/pie-tag": 0.15.0
@@ -29967,7 +29967,7 @@ __metadata:
     "@angular/platform-browser-dynamic": 15.2.0
     "@angular/router": 15.2.0
     "@justeattakeaway/pie-css": 0.16.0
-    "@justeattakeaway/pie-webc": 0.6.23
+    "@justeattakeaway/pie-webc": 0.6.24
     rxjs: 7.8.0
     tslib: 2.3.0
     typescript: 4.9.4
@@ -29981,7 +29981,7 @@ __metadata:
   dependencies:
     "@babel/preset-env": 7.24.5
     "@justeattakeaway/pie-css": 0.16.0
-    "@justeattakeaway/pie-webc": 0.6.23
+    "@justeattakeaway/pie-webc": 0.6.24
     babel-loader: 8
     core-js: 3.30.0
     nuxt: 2.17.0
@@ -29996,7 +29996,7 @@ __metadata:
   resolution: "wc-react17@workspace:apps/examples/wc-react17"
   dependencies:
     "@justeattakeaway/pie-css": 0.16.0
-    "@justeattakeaway/pie-webc": 0.6.23
+    "@justeattakeaway/pie-webc": 0.6.24
     "@lit/react": 1.0.5
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -30016,7 +30016,7 @@ __metadata:
   resolution: "wc-react18@workspace:apps/examples/wc-react18"
   dependencies:
     "@justeattakeaway/pie-css": 0.16.0
-    "@justeattakeaway/pie-webc": 0.6.23
+    "@justeattakeaway/pie-webc": 0.6.24
     "@lit/react": 1.0.5
     "@types/react": 18.3.3
     "@types/react-dom": 18.3.0
@@ -30036,7 +30036,7 @@ __metadata:
   resolution: "wc-vue3@workspace:apps/examples/wc-vue3"
   dependencies:
     "@justeattakeaway/pie-css": 0.16.0
-    "@justeattakeaway/pie-webc": 0.6.23
+    "@justeattakeaway/pie-webc": 0.6.24
     "@types/node": 18.15.11
     "@vitejs/plugin-vue": 4.0.0
     "@vue/tsconfig": 0.1.3

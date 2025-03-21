@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-select
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - wire up option and option-group ([#2287](https://github.com/justeattakeaway/pie/pull/2287)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.2.0
 
 ### Minor Changes

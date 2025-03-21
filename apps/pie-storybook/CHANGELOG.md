@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.29.0
+
+### Minor Changes
+
+- [Added] - wire up option and option-group ([#2287](https://github.com/justeattakeaway/pie/pull/2287)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Added] - pie-breadcrumb component basic markup ([#2257](https://github.com/justeattakeaway/pie/pull/2257)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- Updated dependencies [[`7cc33e0`](https://github.com/justeattakeaway/pie/commit/7cc33e0a1b50eb8225bd80b52160996f5db573ed), [`6b4307b`](https://github.com/justeattakeaway/pie/commit/6b4307b392d400ecdc07f6b7445bda543650f26f)]:
+  - @justeattakeaway/pie-select@0.3.0
+  - @justeattakeaway/pie-breadcrumb@0.0.1
+
 ## 1.28.0
 
 ### Minor Changes
