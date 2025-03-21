@@ -79,6 +79,36 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
     @query('textarea')
     public focusTarget!: HTMLElement;
 
+    private _abortController!: AbortController;
+
+    connectedCallback () {
+        super.connectedCallback();
+        this._abortController = new AbortController();
+        const { signal } = this._abortController;
+        window.addEventListener('resize', () => this.handleResize(), { signal });
+    }
+
+    public disconnectedCallback (): void {
+        super.disconnectedCallback();
+        this._abortController.abort();
+    }
+
+    protected firstUpdated (): void {
+        const { signal } = this._abortController;
+        this._textarea.addEventListener('keydown', this.handleKeyDown, { signal });
+        this._internals.setFormValue(this.value);
+    }
+
+    protected updated (changedProperties: PropertyValues<this>) {
+        if (changedProperties.has('value')) {
+            this.handleInput(null, this.value);
+        }
+
+        if (this.resize === 'auto' && (changedProperties.has('resize') || changedProperties.has('size'))) {
+            this.handleResize();
+        }
+    }
+
     private _throttledResize = throttle(() => {
         if (this.resize === 'auto') {
             this._textarea.style.height = 'auto';
@@ -114,25 +144,8 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         this._internals.setFormValue(this.value);
     }
 
-    protected firstUpdated (): void {
-        this._internals.setFormValue(this.value);
-
-        window.addEventListener('resize', () => this.handleResize());
-        this._textarea.addEventListener('keydown', this.handleKeyDown);
-    }
-
     private handleResize () {
         this._throttledResize();
-    }
-
-    protected updated (changedProperties: PropertyValues<this>) {
-        if (changedProperties.has('value')) {
-            this.handleInput(null, this.value);
-        }
-
-        if (this.resize === 'auto' && (changedProperties.has('resize') || changedProperties.has('size'))) {
-            this.handleResize();
-        }
     }
 
     /**
@@ -172,13 +185,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implemen
         }
     };
 
-    public disconnectedCallback (): void {
-        super.disconnectedCallback();
-        this._textarea.removeEventListener('keydown', this.handleKeyDown);
-        window.removeEventListener('resize', () => this.handleResize());
-    }
-
-    renderAssistiveText () {
+    private renderAssistiveText () {
         if (!this.assistiveText) {
             return nothing;
         }
