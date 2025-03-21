@@ -53,9 +53,9 @@ The generator *does not* currently support automatic generation of sub-component
 
 - Create a folder inside the component's src directory with the sub-component’s name (e.g., pie-breadcrumb-item).
 - Add the following files to the new folder:
-  - `index.ts` – contains the component logic.
-  - `defs.ts` – provides the component types.
-  - `react.ts` – provides the React wrapper type.
+  - [index.ts](https://gist.github.com/raoufswe/8ed0f8aa148755520729c1cf732f2d70#indexts) – contains the component logic.
+  - [defs.ts](https://gist.github.com/raoufswe/8ed0f8aa148755520729c1cf732f2d70#defsts) – provides the component types.
+  - [defs-react.ts](https://gist.github.com/raoufswe/8ed0f8aa148755520729c1cf732f2d70#defs-reactts) – provides the React wrapper type.
 - Modify the component's `vite.config.ts` to match the following:
 
 ```
