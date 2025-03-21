@@ -19,7 +19,7 @@
 1. [Installation](#installation)
 2. [Generate the component](#generating-a-new-component)
 3. [Set up Percy visual regression testing](#setting-up-visual-regression-testing)
-5. [Export sub components](#exporting-sub-components)
+4. [Export sub components](#exporting-sub-components)
 
 
 ### Installation
