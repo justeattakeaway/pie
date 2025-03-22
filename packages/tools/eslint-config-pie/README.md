@@ -7,11 +7,9 @@ It extends the [eslint-config-airbnb-base](https://github.com/airbnb/javascript/
 
 Many thanks to the work that the Airbnb team have put in on creating their template for extension rules – we have liberally borrowed from their structure and documentation in creating this ruleset.
 
-## Usage
+## Installation
 
-### eslint-config-pie
-
-Our default export contains our base ESLint rules, including ECMAScript 6+. It requires `eslint` and `eslint-plugin-import`.
+Our default export contains our base ESLint rules, including ECMAScript 6+. It requires `eslint`, `eslint-plugin-import` and `eslint-plugin-vitest`.
 
 1. Install the correct versions of each package, which are listed by the command:
 
@@ -19,7 +17,8 @@ Our default export contains our base ESLint rules, including ECMAScript 6+. It r
   npm info "@justeattakeaway/eslint-config-pie@latest" peerDependencies
   ```
 
-  Linux/OSX users can simply run
+  Linux/OSX users can simply run:
+
   ```sh
   (
     export PKG=@justeattakeaway/eslint-config-pie;
@@ -30,7 +29,7 @@ Our default export contains our base ESLint rules, including ECMAScript 6+. It r
   Which produces and runs a command like:
 
   ```sh
-    npm install --save-dev @justeattakeaway/eslint-config-pie eslint@^#.#.# eslint-plugin-import@^#.#.#
+    npm install --save-dev @justeattakeaway/eslint-config-pie eslint@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-vitest@^#.#.#
   ```
 
   Windows users can either install all the peer dependencies manually, or use the [install-peerdeps](https://github.com/nathanhleung/install-peerdeps) cli tool.
@@ -43,12 +42,18 @@ Our default export contains our base ESLint rules, including ECMAScript 6+. It r
   The cli will produce and run a command like:
 
   ```sh
-  npm install --save-dev @justeattakeaway/eslint-config-pie eslint@^#.#.# eslint-plugin-import@^#.#.#
+  npm install --save-dev @justeattakeaway/eslint-config-pie eslint@^#.#.# eslint-plugin-import@^#.#.# eslint-plugin-vitest@^#.#.#
   ```
 
-2. Add `"extends": "@justeattakeaway/eslint-config-pie"` to your `.eslintrc` file, which should look like this:
+## Usage
 
-```
+### eslint-config-pie
+
+#### ESLint v8 and below
+
+Add `"extends": "@justeattakeaway/eslint-config-pie"` to your `.eslintrc` file, which should look like this:
+
+```js
 // Use this file as a starting point for your project's .eslintrc.js
 // Rule overrides can be added as needed
 module.exports = {
@@ -58,13 +63,18 @@ module.exports = {
 
 #### Note for PIE developers
 
-The usage in Pie monorepo is a bit different, since it's preferrable to use the ESLint rules directly from the PIE monorepo. This allow us to always be on the latest version without requiring any manual update.
+The usage in PIE monorepo is a bit different, since it's preferrable to use the ESLint rules directly from the PIE monorepo. This allow us to always be on the latest version without requiring any manual update.
 
 ```js
 module.exports = {
     extends: [require.resolve('@justeattakeaway/eslint-config-pie/strict')],
 }
 ```
+
+#### ESLint v9+
+
+use of `eslintrc` configuration files has been officially deprecated in ESLint v9. We are working on updating `eslint-config-pie` to integrate seamlessly with ESLint v9, but until these changes are released you will need to use a package such as [`@eslint/eslintrc`](https://www.npmjs.com/package/@eslint/eslintrc) to ensure compatibility.
+
 
 ### Rulesets
 
