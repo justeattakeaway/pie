@@ -13,6 +13,9 @@ import {
     FormControlMixin,
     validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
+
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
+
 import '@justeattakeaway/pie-assistive-text';
 
 import styles from './checkbox.scss?inline';
@@ -29,7 +32,7 @@ const assistiveTextId = 'assistive-text';
  * @slot - Default slot
  * @event {CustomEvent} change - when checked state is changed.
  */
-export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxProps {
+export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implements CheckboxProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @state()

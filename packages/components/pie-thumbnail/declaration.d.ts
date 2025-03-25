@@ -8,6 +8,10 @@ declare module '*.scss?inline' {
     export default content;
 }
 
+// This is a placeholder value that is swapped out
+// with the component package.json version at build time by Vite.
+declare const __PACKAGE_VERSION__: string;
+
 declare module '*.svg?inline' {
     const content: string;
     export default content;

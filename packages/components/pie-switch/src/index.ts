@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, nothing,
+    html, unsafeCSS, nothing,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -9,6 +9,7 @@ import 'element-internals-polyfill';
 import {
     RtlMixin, validPropertyValues, defineCustomElement, FormControlMixin, wrapNativeEvent, type PIEInputElement,
 } from '@justeattakeaway/pie-webc-core';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
 import styles from './switch.scss?inline';
@@ -23,7 +24,7 @@ const componentSelector = 'pie-switch';
  * @tagname pie-switch
  * @event {CustomEvent} change - when the switch checked state is changed.
  */
-export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements SwitchProps, PIEInputElement {
+export class PieSwitch extends FormControlMixin(RtlMixin(PieElement)) implements SwitchProps, PIEInputElement {
     @property({ type: String })
     public label: SwitchProps['label'];
 

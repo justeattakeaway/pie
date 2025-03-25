@@ -11,6 +11,7 @@ import '@justeattakeaway/pie-assistive-text';
 import {
     validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent, type PIEInputElement,
 } from '@justeattakeaway/pie-webc-core';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 
 import styles from './textarea.scss?inline';
 import {
@@ -28,7 +29,7 @@ const assistiveTextIdValue = 'assistive-text';
  * @event {InputEvent} input - when the textarea value is changed.
  * @event {CustomEvent} change - when the textarea value is changed.
  */
-export class PieTextarea extends FormControlMixin(RtlMixin(LitElement)) implements TextareaProps, PIEInputElement {
+export class PieTextarea extends FormControlMixin(RtlMixin(PieElement)) implements TextareaProps, PIEInputElement {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @property({ type: String })

@@ -1,10 +1,11 @@
 import {
-    LitElement, html, isServer, unsafeCSS,
+    html, isServer, unsafeCSS,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { type LottiePlayer, type AnimationItem } from 'lottie-web';
 
 import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { type LottiePlayerProps, defaultProps } from './defs';
 
 // Valid values available to consumers
@@ -15,7 +16,7 @@ const componentSelector = 'pie-lottie-player';
 /**
  * @tagname pie-lottie-player
  */
-export class PieLottiePlayer extends LitElement implements LottiePlayerProps {
+export class PieLottiePlayer extends PieElement implements LottiePlayerProps {
     @query('div')
     private _hostElement!: HTMLDivElement;
 

@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, type TemplateResult, nothing,
+    html, unsafeCSS, type TemplateResult, nothing,
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -8,6 +8,8 @@ import { classMap } from 'lit/directives/class-map.js';
 import {
     validPropertyValues, defineCustomElement, dispatchCustomEvent,
 } from '@justeattakeaway/pie-webc-core';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
+
 import styles from './chip.scss?inline';
 import {
     type ChipProps, variants, ON_CHIP_CLOSE_EVENT, defaultProps,
@@ -26,7 +28,7 @@ const componentSelector = 'pie-chip';
  * @slot - Default slot
  * @event {CustomEvent} pie-chip-close - when a user clicks close button.
  */
-export class PieChip extends LitElement implements ChipProps {
+export class PieChip extends PieElement implements ChipProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
     public variant = defaultProps.variant;

@@ -10,9 +10,15 @@ The purpose of this package is to centralize components configurations (build, t
 To use the shared config, all you need to do is import and re-export it in your own `vite.config.js`:
 
 ```js
+import { readFileSync } from 'fs';
+import path from 'path';
 import viteConfig from '@justeattakeaway/pie-components-config/vite.config';
 
-export default viteConfig;
+const pkg = JSON.parse(readFileSync(path.resolve(__dirname, 'package.json'), 'utf-8'));
+
+export default viteConfig({
+    version: pkg.version,
+});
 ```
 
 You can also override any values by passing in an object which will be merged deeply with the default values.

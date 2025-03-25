@@ -1,5 +1,4 @@
 import {
-    LitElement,
     html,
     unsafeCSS,
     nothing,
@@ -16,6 +15,7 @@ import {
     wrapNativeEvent,
     validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
 import styles from './radio-group.scss?inline';
@@ -39,7 +39,7 @@ const assistiveTextId = 'assistive-text';
  * @slot label - The label slot
  * @event {CustomEvent} change - when one of the radios state is changed.
  */
-export class PieRadioGroup extends FormControlMixin(RtlMixin(LitElement)) implements RadioGroupProps {
+export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implements RadioGroupProps {
     @state()
     private _hasLabel = false;
 

@@ -1,5 +1,5 @@
 import {
-    LitElement, nothing, type TemplateResult, unsafeCSS, type PropertyValues,
+    nothing, type TemplateResult, unsafeCSS, type PropertyValues,
 } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js';
@@ -16,6 +16,7 @@ import {
     defineCustomElement,
     dispatchCustomEvent,
 } from '@justeattakeaway/pie-webc-core';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconChevronLeft.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconChevronRight.js';
@@ -53,7 +54,7 @@ export interface ModalEventDetail {
  * @event {CustomEvent} pie-modal-leading-action-click - when the modal leading action is clicked.
  * @event {CustomEvent} pie-modal-supporting-action-click - when the modal supporting action is clicked.
  */
-export class PieModal extends RtlMixin(LitElement) implements ModalProps {
+export class PieModal extends RtlMixin(PieElement) implements ModalProps {
     @property({ type: Object })
     public aria: ModalProps['aria'];
 

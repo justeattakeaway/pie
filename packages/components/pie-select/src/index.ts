@@ -12,6 +12,7 @@ import {
     validPropertyValues,
     wrapNativeEvent,
 } from '@justeattakeaway/pie-webc-core';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import {
     property,
     query,
@@ -42,7 +43,7 @@ const assistiveTextIdValue = 'assistive-text';
  * @tagname pie-select
  * @event {CustomEvent} change - when the selected option is changed.
  */
-export class PieSelect extends FormControlMixin(RtlMixin(LitElement)) implements SelectProps {
+export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements SelectProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @property({ type: String })

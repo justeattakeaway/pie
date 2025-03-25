@@ -1,10 +1,12 @@
 import {
-    html, LitElement, unsafeCSS, nothing, type TemplateResult, type PropertyValues,
+    html, unsafeCSS, nothing, type TemplateResult, type PropertyValues,
 } from 'lit';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { property, queryAssignedElements } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
+
 import styles from './card.scss?inline';
 import {
     variants,
@@ -22,7 +24,7 @@ const componentSelector = 'pie-card';
 /**
  * @tagname pie-card
  */
-export class PieCard extends LitElement implements CardProps {
+export class PieCard extends PieElement implements CardProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, tags, defaultProps.tag)
     public tag = defaultProps.tag;

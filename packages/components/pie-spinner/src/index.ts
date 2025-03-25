@@ -1,9 +1,10 @@
 import {
-    LitElement, html, nothing, unsafeCSS,
+    html, nothing, unsafeCSS,
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import styles from './spinner.scss?inline';
 import {
     type SpinnerProps,
@@ -20,7 +21,7 @@ const componentSelector = 'pie-spinner';
 /**
  * @tagname pie-spinner
  */
-export class PieSpinner extends LitElement implements SpinnerProps {
+export class PieSpinner extends PieElement implements SpinnerProps {
     @property({ type: Object })
     public aria: SpinnerProps['aria'];
 
