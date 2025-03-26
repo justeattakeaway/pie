@@ -141,6 +141,7 @@
     "patterns/haptic-feedback",
     "patterns/haptic-feedback/guidance",
     "patterns/overlay-patterns",
+    "patterns/overlay-patterns/ios-guidance",
     "patterns/overlay-patterns/web-guidance",
     "support",
     "support/contact-us",
