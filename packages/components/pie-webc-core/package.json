@@ -6,6 +6,9 @@
   "main": "dist/index.js",
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "run -T vite build",
     "lint:scripts": "run -T eslint .",
