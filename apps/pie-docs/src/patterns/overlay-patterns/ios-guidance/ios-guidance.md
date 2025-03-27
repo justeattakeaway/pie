@@ -168,34 +168,6 @@ Popovers are a small overlay that appears above content, offering extra informat
 
 ---
 
-## Sheet 
-
-A sheet is a surface that slides up from the bottom of the screen, and is a display that overlays the previous screen, all while still providing a visual hint of the underlying content.
-
-{% contentPageImage {
-  src:"../../../../assets/img/patterns/overlay-patterns/ios-guidance/ios-sheet.svg",
-  alt: "",
-  width: "375px"
-} %}
-
-{% usage {
-    do: {
-        type: usageTypes.text,
-        items: [
-            "Use them as contextual interactions.",
-            "Use for single-step or multi-step flows, ideally with a maximum of two steps.",
-            "They are triggered by the user."
-        ]
-    },
-    dont: {
-        type: usageTypes.text,
-        items: [
-         ""
-        ]
-    }
-} %}
-
----
 
 ## System alert
 
