@@ -118,7 +118,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "If true, the link will apply the styles for the visited state.",
+            "If true, the link will apply the styles for the visited state. Only takes effect if `tag` is `a`.",
             {
                 "type": "code",
                 "item": ["false"]
@@ -130,7 +130,7 @@
                 "type": "code",
                 "item": ["\"leading\"", "\"trailing\""]
             },
-            "Sets the position of the icon relative to the text. Leading comes before the text and trailing comes after, taking writing direction into account. To use this, you must pass an icon into the <a href=\"#slots\">icon slot</a>.",
+            "Sets the position of the icon relative to the text. Leading comes before the text and trailing comes after, taking writing direction into account. To use this, you must pass an icon into the <a href=\"#slots\">icon slot</a>. **Will have no effect if `isStandAlone` is false.**",
             {
                 "type": "code",
                 "item": ["undefined"]
