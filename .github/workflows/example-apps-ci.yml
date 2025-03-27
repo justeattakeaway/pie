@@ -29,8 +29,6 @@ jobs:
             example-app: wc-react17
           - node-version: 20
             example-app: wc-react18
-          - node-version: 20
-            example-app: wc-vue3
     name: Build ${{matrix.example-app}} - Node ${{ matrix.node-version }}
     uses: ./.github/workflows/install-build.yml
     with:
@@ -68,12 +66,6 @@ jobs:
             build-script: build:examples
             dist-folder: ./apps/examples/wc-react18/dist
             example-app: wc-react18
-
-          - node-version: 20
-            amplify-app-id: dtgmklfymp81v
-            build-script: build:examples
-            dist-folder: ./apps/examples/wc-vue3/dist
-            example-app: wc-vue3
 
     name: Deploy ${{matrix.example-app}}
     uses: ./.github/workflows/amplify-deploy.yml
