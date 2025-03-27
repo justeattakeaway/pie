@@ -1,6 +1,7 @@
 import {
-    LitElement, html, unsafeCSS, type PropertyValues, type TemplateResult,
+    html, unsafeCSS, type PropertyValues, type TemplateResult,
 } from 'lit';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, queryAssignedElements, state } from 'lit/decorators.js';
 import {
     RtlMixin,
@@ -33,7 +34,7 @@ const assistiveTextId = 'assistive-text';
  * @event {CustomEvent} pie-checkbox-group-disabled - triggered after the disabled state of the checkbox group changes.
  * @event {CustomEvent} pie-checkbox-group-error - triggered after the state of the checkbox group changes to error.
  */
-export class PieCheckboxGroup extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxGroupProps {
+export class PieCheckboxGroup extends FormControlMixin(RtlMixin(PieElement)) implements CheckboxGroupProps {
     @state()
     private _hasLabel = false;
 

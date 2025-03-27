@@ -1,4 +1,5 @@
-import { LitElement, html, unsafeCSS } from 'lit';
+import { html, unsafeCSS } from 'lit';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 <% if (needsRTL) { %>import { RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';<% } %>
 <% if (!needsRTL) { %>import { defineCustomElement } from '@justeattakeaway/pie-webc-core';<% } %>
 import styles from './<%= fileName %>.scss?inline';
@@ -12,8 +13,8 @@ const componentSelector = 'pie-<%= fileName %>';
 /**
  * @tagname pie-<%= fileName %>
  */
-<% if (needsRTL) { %>export class Pie<%= componentName %> extends RtlMixin(LitElement) implements <%= componentName %>Props {<% }
-else { %>export class Pie<%= componentName %> extends LitElement implements <%= componentName %>Props {<% } %>
+<% if (needsRTL) { %>export class Pie<%= componentName %> extends RtlMixin(PieElement) implements <%= componentName %>Props {<% }
+else { %>export class Pie<%= componentName %> extends PieElement implements <%= componentName %>Props {<% } %>
     render () {
         return html`<h1 data-test-id="pie-<%= fileName %>">Hello world!</h1>`;
     }

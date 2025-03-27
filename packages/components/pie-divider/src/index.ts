@@ -1,6 +1,7 @@
 import {
-    html, LitElement, unsafeCSS,
+    html, unsafeCSS,
 } from 'lit';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
@@ -17,7 +18,7 @@ const componentSelector = 'pie-divider';
 /**
  * @tagname pie-divider
  */
-export class PieDivider extends LitElement implements DividerProps {
+export class PieDivider extends PieElement implements DividerProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
     public variant = defaultProps.variant;
