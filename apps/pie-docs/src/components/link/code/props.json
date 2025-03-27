@@ -130,7 +130,7 @@
                 "type": "code",
                 "item": ["\"leading\"", "\"trailing\""]
             },
-            "Sets the position of the icon relative to the text. Leading comes before the text and trailing comes after, taking writing direction into account. To use this, you must pass an icon into the <a href=\"#slots\">icon slot</a>. **Will have no effect if `isStandAlone` is false.**",
+            "Sets the position of the icon relative to the text. Leading comes before the text and trailing comes after, taking writing direction into account. To use this, you must pass an icon into the <a href=\"#slots\">icon slot</a>. **Will have no effect if `isStandalone` is false.**",
             {
                 "type": "code",
                 "item": ["undefined"]
