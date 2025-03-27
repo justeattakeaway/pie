@@ -8,7 +8,6 @@
   "types": "dist/index.d.ts",
   "files": [
     "custom-elements.json",
-    "src",
     "dist",
     "**/*.d.ts"
   ],
