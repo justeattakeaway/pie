@@ -21,8 +21,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - node-version: 20
-            example-app: wc-angular12
           - node-version: 16
             example-app: wc-nuxt2
           - node-version: 20
@@ -42,12 +40,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - node-version: 20
-            amplify-app-id: d3krjop5uu4oza
-            build-script: build:examples
-            dist-folder: ./apps/examples/wc-angular12/dist/wc-angular12
-            example-app: wc-angular12
-
           # Using the generate:examples script for static hosting. SSR requires more investigation
           - node-version: 16
             amplify-app-id: d3puta7o12ynlf
