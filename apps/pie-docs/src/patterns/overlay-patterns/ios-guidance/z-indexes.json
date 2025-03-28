@@ -1,0 +1,40 @@
+{
+  "headings": [
+    "Component",
+    "Z-index"
+  ],
+  "rows": [
+    [
+      "Toast",
+      "1"
+    ],
+    [
+      "Popover",
+      "3"
+    ],
+    [
+      "Tooltip",
+      "3"
+    ],
+    [
+      "Modal",
+      "3"
+    ],
+    [
+      "Full screen sheet",
+      "4"
+    ],
+    [
+      "Sheet",
+      "4"
+    ],
+    [
+      "Bottom sheet",
+      "4"
+    ],
+    [
+      "System dialogue",
+      "5"
+    ]
+  ]
+}
