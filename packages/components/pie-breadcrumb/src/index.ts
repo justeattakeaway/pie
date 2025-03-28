@@ -4,12 +4,11 @@ import { classMap } from 'lit/directives/class-map.js';
 
 import styles from './breadcrumb.scss?inline';
 import { type BreadcrumbProps, componentSelector, componentClass } from './defs';
-
-// import '@justeattakeaway/pie-breadcrumb-separator';
-// import '@justeattakeaway/pie-breadcrumb-item';
+import './pie-breadcrumb-separator';
 
 // Valid values available to consumers
 export * from './defs';
+export * from './pie-breadcrumb-item';
 
 /**
  * @tagname pie-breadcrumb
@@ -21,8 +20,8 @@ export class PieBreadcrumb extends RtlMixin(LitElement) implements BreadcrumbPro
         };
 
         return html`
-            <nav 
-                data-test-id="${componentSelector}" 
+            <nav
+                data-test-id="${componentSelector}"
                 class="${classMap(componentWrapperClasses)}">
                 <ol>
                     <slot></slot>

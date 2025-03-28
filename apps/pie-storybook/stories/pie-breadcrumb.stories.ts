@@ -3,8 +3,6 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-breadcrumb';
 import { type BreadcrumbProps } from '@justeattakeaway/pie-breadcrumb';
-import '@justeattakeaway/pie-breadcrumb-separator';
-import '@justeattakeaway/pie-breadcrumb-item';
 
 import { createStory } from '../utilities';
 
@@ -33,7 +31,7 @@ const Template = ({}: BreadcrumbProps) => html`
     <pie-breadcrumb>
         <pie-breadcrumb-item>Previous Page</pie-breadcrumb-item>
         <!-- <li><span>Previous Page</span></li> -->
-        <pie-breadcrumb-separator />
+        <pie-breadcrumb-separator></pie-breadcrumb-separator>
         <!-- <li><span>Current Page</span></li> -->
         <pie-breadcrumb-item>Current Page</pie-breadcrumb-item>
     </pie-breadcrumb>
