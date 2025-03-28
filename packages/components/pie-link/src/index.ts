@@ -1,6 +1,7 @@
 import {
-    html, LitElement, unsafeCSS, nothing,
+    html, unsafeCSS, nothing,
 } from 'lit';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property } from 'lit/decorators.js';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -28,7 +29,7 @@ const componentSelector = 'pie-link';
  * @slot - Default slot
  */
 
-export class PieLink extends LitElement implements LinkProps {
+export class PieLink extends PieElement implements LinkProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, tags, defaultProps.tag)
     public tag = defaultProps.tag;

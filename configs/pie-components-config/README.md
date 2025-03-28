@@ -11,8 +11,11 @@ To use the shared config, all you need to do is import and re-export it in your 
 
 ```js
 import viteConfig from '@justeattakeaway/pie-components-config/vite.config';
+import getPackageVersion from '@justeattakeaway/pie-monorepo-utils/utils/get-package-version.js';
 
-export default viteConfig;
+export default viteConfig({
+    version: getPackageVersion(__dirname),
+});
 ```
 
 You can also override any values by passing in an object which will be merged deeply with the default values.

@@ -46,6 +46,8 @@ export class MyComponent extends RtlMixin(LitElement) implements MyComponentProp
   // ...
 }
 ```
+## Internals
+The folder `internals` contains Typescript files that are to be imported into Pie Web Components and build into the bundles for each component. Everything else in this package is designed to be a one-time imported externalised dependency in applications using the web components to prevent duplication of code. The code in `internals` is the exception to this that contains things that must be included in each component bundle.
 
 ## Dependencies
 

@@ -1,6 +1,7 @@
 import {
-    LitElement, html, unsafeCSS,
+    html, unsafeCSS,
 } from 'lit';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { classMap } from 'lit/directives/class-map.js';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -19,7 +20,7 @@ const componentSelector = 'pie-icon-button';
 /**
  * @tagname pie-icon-button
  */
-export class PieIconButton extends LitElement implements IconButtonProps {
+export class PieIconButton extends PieElement implements IconButtonProps {
     @property({ type: Object })
     public aria: IconButtonProps['aria'];
 
