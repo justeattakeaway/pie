@@ -28,13 +28,7 @@ export default breadcrumbStoryMeta;
 // TODO: remove the eslint-disable rule when props are added
 // eslint-disable-next-line no-empty-pattern
 const Template = ({}: BreadcrumbProps) => html`
-    <pie-breadcrumb>
-        <pie-breadcrumb-item>Previous Page</pie-breadcrumb-item>
-        <!-- <li><span>Previous Page</span></li> -->
-        <pie-breadcrumb-separator></pie-breadcrumb-separator>
-        <!-- <li><span>Current Page</span></li> -->
-        <pie-breadcrumb-item>Current Page</pie-breadcrumb-item>
-    </pie-breadcrumb>
+    <pie-breadcrumb></pie-breadcrumb>
 `;
 
 export const Default = createStory<BreadcrumbProps>(Template, defaultArgs)();

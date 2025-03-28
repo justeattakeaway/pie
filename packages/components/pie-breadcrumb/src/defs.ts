@@ -4,4 +4,3 @@ export interface BreadcrumbProps {}
 
 export const componentSelector = 'pie-breadcrumb';
 export const componentClass = 'c-breadcrumb';
-export * from './pie-breadcrumb-item/defs';
