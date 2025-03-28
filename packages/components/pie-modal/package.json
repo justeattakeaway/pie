@@ -43,6 +43,7 @@
     "@justeattakeaway/pie-button": "1.4.0",
     "@justeattakeaway/pie-components-config": "0.18.1",
     "@justeattakeaway/pie-css": "0.16.0",
+    "@justeattakeaway/pie-monorepo-utils": "0.4.0",
     "@justeattakeaway/pie-text-input": "0.26.2",
     "@justeattakeaway/pie-wrapper-react": "0.14.3",
     "@types/body-scroll-lock": "3.1.2",
