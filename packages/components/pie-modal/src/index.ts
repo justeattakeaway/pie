@@ -53,6 +53,8 @@ export interface ModalEventDetail {
  * @event {CustomEvent} pie-modal-back - when the modal back button is clicked.
  * @event {CustomEvent} pie-modal-leading-action-click - when the modal leading action is clicked.
  * @event {CustomEvent} pie-modal-supporting-action-click - when the modal supporting action is clicked.
+ * @slot footer - The footer slot
+ * @slot - Default slot
  */
 export class PieModal extends RtlMixin(PieElement) implements ModalProps {
     @property({ type: Object })
