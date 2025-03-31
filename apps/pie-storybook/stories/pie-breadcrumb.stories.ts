@@ -8,7 +8,22 @@ import { createStory } from '../utilities';
 
 type BreadcrumbStoryMeta = Meta<BreadcrumbProps>;
 
-const defaultArgs: BreadcrumbProps = {};
+const defaultArgs: BreadcrumbProps = {
+    items: [
+        {
+            label: 'test one',
+            href: '#',
+        },
+        {
+            label: 'test two',
+            href: '#',
+        },
+        {
+            label: 'test three',
+            href: '#',
+        },
+    ],
+};
 
 const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
     title: 'Breadcrumb',
@@ -27,8 +42,10 @@ export default breadcrumbStoryMeta;
 
 // TODO: remove the eslint-disable rule when props are added
 // eslint-disable-next-line no-empty-pattern
-const Template = ({}: BreadcrumbProps) => html`
-    <pie-breadcrumb></pie-breadcrumb>
+const Template = ({ items }: BreadcrumbProps) => html`
+    <pie-breadcrumb
+        .items="${items}">
+    </pie-breadcrumb>
 `;
 
 export const Default = createStory<BreadcrumbProps>(Template, defaultArgs)();
