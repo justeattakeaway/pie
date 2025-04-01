@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-chip
 
+## 0.11.0
+
+### Minor Changes
+
+- [Changed] - Add a v property to all components using vite to bake the version number into the code ([#2301](https://github.com/justeattakeaway/pie/pull/2301)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`87e902f`](https://github.com/justeattakeaway/pie/commit/87e902f4995af214770200e430eaec2bad7d21b3)]:
+  - @justeattakeaway/pie-webc-core@0.25.0
+  - @justeattakeaway/pie-spinner@1.1.0
+  - @justeattakeaway/pie-icons-webc@1.6.1
+
 ## 0.10.2
 
 ### Patch Changes
