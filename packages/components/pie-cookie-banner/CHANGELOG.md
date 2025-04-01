@@ -1,5 +1,22 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.5.0
+
+### Minor Changes
+
+- [Changed] - Add a v property to all components using vite to bake the version number into the code ([#2301](https://github.com/justeattakeaway/pie/pull/2301)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`87e902f`](https://github.com/justeattakeaway/pie/commit/87e902f4995af214770200e430eaec2bad7d21b3)]:
+  - @justeattakeaway/pie-icon-button@1.4.0
+  - @justeattakeaway/pie-webc-core@0.25.0
+  - @justeattakeaway/pie-divider@1.3.0
+  - @justeattakeaway/pie-button@1.5.0
+  - @justeattakeaway/pie-switch@1.3.0
+  - @justeattakeaway/pie-modal@1.5.0
+  - @justeattakeaway/pie-link@1.1.0
+
 ## 1.4.1
 
 ### Patch Changes
