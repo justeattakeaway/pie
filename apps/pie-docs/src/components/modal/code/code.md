@@ -6,6 +6,7 @@ eleventyNavigation:
 shouldShowContents: true
 eleventyComputed:
     props: "{% include './props.json' %}"
+    slots: "{% include './slots.json' %}"
     events: "{% include './events.json' %}"
 ---
 
@@ -49,6 +50,12 @@ yarn add @justeattakeaway/pie-webc
 
 {% componentDetailsTable {
   tableData: props
+} %}
+
+## Slots
+
+{% componentDetailsTable {
+  tableData: slots
 } %}
 
 ## Events
