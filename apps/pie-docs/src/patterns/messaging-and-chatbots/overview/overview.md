@@ -17,7 +17,7 @@ Chatbots, powered by AI, simulate human conversations and allow users to request
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/messaging-and-chatbots/interactive-overview-messaging-and-chatbots.svg",
-  width: "1032px"
+  alt: ""
 } %}
 
 ---
@@ -35,4 +35,7 @@ If greater customisation is desired and justifiable within the means of the plat
 ### UI kits
 
 Depending on the platform you're using, there may be Figma UI kits available to assist in your design process. To check if a UI kit is readily accessible, please contact the PIE Design System team. If a kit isn’t available, we can either help you source one or provide guidance on how to proceed without it.
+
+---
+
 
