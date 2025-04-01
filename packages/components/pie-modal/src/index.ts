@@ -3,7 +3,7 @@ import {
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { html, unsafeStatic } from 'lit/static-html.js';
-import { property, query } from 'lit/decorators.js';
+import { property, query, queryAssignedElements } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
@@ -108,6 +108,8 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
 
     @query('dialog')
     private _dialog!: HTMLDialogElement;
+
+    @queryAssignedElements({ slot: 'footer', flatten: true }) _footerSlotNodes!: Array<HTMLElement>;
 
     private _backButtonClicked = false;
 
@@ -332,6 +334,10 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
         }
     }
 
+    private _handleFooterSlotChange () {
+        this.requestUpdate();
+    }
+
     /**
      * Template for the close button element. Called within the
      * main render function.
@@ -441,7 +447,9 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
      * @private
      */
     private renderModalFooter (): TemplateResult | typeof nothing {
-        if (!this.leadingAction?.text) {
+        const footerSlotEmpty = this._footerSlotNodes.length === 0;
+
+        if (footerSlotEmpty && !this.leadingAction?.text) {
             if (this.supportingAction?.text) {
                 console.warn('You cannot have a supporting action without a leading action. If you only need one button then use a leading action instead.');
             }
@@ -453,10 +461,12 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
             'c-modal-footer--stackedActions': this.hasStackedActions,
         };
 
+        const footerContent = footerSlotEmpty ? html`${this.renderLeadingAction()}${this.renderSupportingAction()}` : nothing;
+
         return html`
             <footer class="${classMap(footerClasses)}" data-test-id="pie-modal-footer">
-                ${this.renderLeadingAction()}
-                ${this.renderSupportingAction()}
+                ${footerContent}
+                <slot name="footer" @slotchange=${this._handleFooterSlotChange}></slot>
             </footer>`;
     }
 
