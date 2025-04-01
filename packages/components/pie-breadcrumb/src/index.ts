@@ -5,6 +5,7 @@ import { classMap } from 'lit/directives/class-map.js';
 
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 
+import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-icons-webc/dist/IconChevronRight.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconChevronLeft.js';
 
@@ -27,19 +28,32 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
     public items: BreadcrumbProps['items'] = [];
 
     private renderSeparator () {
-        return html`<li role="presentation" aria-hidden="true">${this.isRTL ? html`<icon-chevron-left></icon-chevron-left>` : html`<icon-chevron-right></icon-chevron-right>`}</li>`;
+        return html`
+            <li role="presentation" aria-hidden="true" class="c-breadcrumb-separator">
+                ${this.isRTL ? html`<icon-chevron-left></icon-chevron-left>` : html`<icon-chevron-right></icon-chevron-right>`}
+            </li>
+        `;
     }
 
     private renderNavigationItem (item: BreadcrumbItem, isLastItem = false) {
-        return html`<li><span>${item.label}</span></li>${isLastItem ? this.renderSeparator() : nothing}`;
+        return html`
+            <li>
+                ${
+                    isLastItem
+                        ? html`<span>${item.label}</span>`
+                        : html`<pie-link isStandalone="true" underline="reversed" isBold="true" href="${item.href}">${item.label}</pie-link>`
+                }
+            </li>
+            ${isLastItem ? nothing : this.renderSeparator()}
+        `;
     }
 
     private renderBreadcrumbItems (items: BreadcrumbProps['items']) {
         const numberOfSeparators = items.length - 1;
 
         return html`
-            <ol>
-                ${items.map((item, index) => this.renderNavigationItem(item, numberOfSeparators > index))}
+            <ol class="c-breadcrumb-list">
+                ${items.map((item, index) => this.renderNavigationItem(item, numberOfSeparators <= index))}
             </ol>
         `;
     }
