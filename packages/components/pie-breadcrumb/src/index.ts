@@ -40,8 +40,12 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
             <li>
                 ${
                     isLastItem
-                        ? html`<span>${item.label}</span>`
-                        : html`<pie-link isStandalone="true" underline="reversed" isBold="true" href="${item.href}">${item.label}</pie-link>`
+                        ? html`<span role="listitem">${item.label}</span>`
+                        : html`
+                            <pie-link role="listitem" isStandalone="true" underline="reversed" isBold="true" href="${item.href}">
+                                ${item.label}
+                            </pie-link>
+                        `
                 }
             </li>
             ${isLastItem ? nothing : this.renderSeparator()}
@@ -52,7 +56,7 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
         const numberOfSeparators = items.length - 1;
 
         return html`
-            <ol class="c-breadcrumb-list">
+            <ol class="c-breadcrumb-list" data-test-id="${componentSelector}-navigation-list">
                 ${items.map((item, index) => this.renderNavigationItem(item, numberOfSeparators <= index))}
             </ol>
         `;

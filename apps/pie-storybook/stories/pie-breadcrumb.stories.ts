@@ -15,11 +15,11 @@ const defaultArgs: BreadcrumbProps = {
             href: '#',
         },
         {
-            label: 'Breadcrumb 1',
+            label: 'Breadcrumb 2',
             href: '#',
         },
         {
-            label: 'Breadcrumb 1',
+            label: 'Breadcrumb 3',
             href: '#',
         },
         {
