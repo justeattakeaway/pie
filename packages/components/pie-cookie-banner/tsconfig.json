@@ -5,5 +5,5 @@
     "rootDir": ".",
     "resolveJsonModule": true,
   },
-  "include": ["src/**/*.ts","./declaration.d.ts", "test/**/*.ts", "playwright-lit-visual.config.ts", "playwright-lit.config.ts"],
+  "include": ["src/**/*.ts", "./declaration.d.ts", "../../../configs/pie-components-config/declaration.d.ts", "test/**/*.ts", "playwright-lit-visual.config.ts", "playwright-lit.config.ts"],
 }
