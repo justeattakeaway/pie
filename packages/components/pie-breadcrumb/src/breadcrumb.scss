@@ -18,5 +18,12 @@
     list-style-type: none;
     display: flex;
     align-items: center;
+    white-space: nowrap; 
   }  
+}
+
+.c-breadcrumb-list-last-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
 }

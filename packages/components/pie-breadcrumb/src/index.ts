@@ -40,7 +40,7 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
             <li role="listitem">
                 ${
                     isLastItem
-                        ? html`${item.label}`
+                        ? html`<span class="c-breadcrumb-list-last-item">${item.label}</span>`
                         : html`
                             <pie-link isStandalone="true" underline="reversed" isBold="true" href="${item.href}">
                                 ${item.label}
