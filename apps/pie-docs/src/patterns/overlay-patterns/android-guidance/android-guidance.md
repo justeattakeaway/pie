@@ -228,7 +228,7 @@ A toast shows short updates about app processes at the bottom of the screen.
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/%5BCore%5D-Apps-Component-Documentation-%5BPIE-3%5D?node-id=5315-5723&t=67j0iNJtN621byDP-0) for this component."
+  message: "Check out our [full documentation](https://pie.design/components/toast/) for this component."
 } %}
 
 {% contentPageImage {
@@ -264,7 +264,7 @@ A tooltip is a contextual message that appears when users interact with an eleme
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/%5BCore%5D-Apps-Component-Documentation-%5BPIE-3%5D?node-id=9315-6685&t=cLioDbXVWHtSWgba-0) for this component."
+  message: "Check out our [full documentation](https://pie.design/components/tooltip/) for this component."
 } %}
 
 {% contentPageImage {

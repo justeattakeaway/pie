@@ -79,7 +79,7 @@ A bottom sheet is a surface that slides up from the bottom of the screen, remain
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/%5BCore%5D-Apps-Component-Documentation-%5BPIE-3%5D?node-id=9834-4339&t=gPiifCZUGzJdzw2P-0) for this component."
+  message: "Check out our [full documentation](https://pie.design/components/bottom-sheet/) for this component."
 } %}
 
 {% contentPageImage {
@@ -210,7 +210,7 @@ A toast shows short updates about app processes at the bottom of the screen.
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/%5BCore%5D-Apps-Component-Documentation-%5BPIE-3%5D?node-id=5315-5723&t=DpRPWssNnUXzbXv9-0) for this component."
+  message: "Check out our [full documentation](https://pie.design/components/toast/) for this component."
 } %}
 
 {% contentPageImage {
@@ -246,7 +246,7 @@ A tooltip is a contextual message that appears when users interact with an eleme
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/%5BCore%5D-Apps-Component-Documentation-%5BPIE-3%5D?node-id=9315-7173&t=6Ha6Voc5k2s6bmCr-0) for this component."
+  message: "Check out our [full documentation](https://pie.design/components/tooltip/) for this component."
 } %}
 
 {% contentPageImage {
