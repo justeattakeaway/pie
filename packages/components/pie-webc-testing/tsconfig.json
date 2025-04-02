@@ -22,6 +22,6 @@
       "experimentalDecorators": true,
       "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*.ts","./declaration.d.ts", "test/**/*.ts", "index.ts"],
+  "include": ["src/**/*.ts", "../../../configs/pie-components-config/declaration.d.ts", "test/**/*.ts", "index.ts"],
   "exclude": []
 }
