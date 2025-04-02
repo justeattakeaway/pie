@@ -37,12 +37,12 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
 
     private renderNavigationItem (item: BreadcrumbItem, isLastItem = false) {
         return html`
-            <li>
+            <li role="listitem">
                 ${
                     isLastItem
-                        ? html`<span role="listitem">${item.label}</span>`
+                        ? html`${item.label}`
                         : html`
-                            <pie-link role="listitem" isStandalone="true" underline="reversed" isBold="true" href="${item.href}">
+                            <pie-link isStandalone="true" underline="reversed" isBold="true" href="${item.href}">
                                 ${item.label}
                             </pie-link>
                         `
