@@ -13,10 +13,10 @@ export function safeCustomElement (elementSelector: string): ClassDecorator {
             customElement(elementSelector)(elementClass);
         } catch (e) {
             const registeredClass = customElements.get(elementSelector) as { v?: string };
-            const version = registeredClass?.v ?? 'No version data found';
+            const version = registeredClass?.v ?? 'No version data found. Icon components do not contain version data. If the component is not an icon, please report the missing version data.';
 
             console.warn(
-        `PIE Web Component: "${elementSelector}" could not be registered. ${version}.`,
+        `PIE Web Component: "${elementSelector}" could not be registered. Version already registered: ${version}.`,
         e,
             );
         }
