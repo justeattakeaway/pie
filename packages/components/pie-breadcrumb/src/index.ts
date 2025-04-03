@@ -1,6 +1,6 @@
 import { html, nothing, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
-import { RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { RtlMixin, defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
 
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
@@ -15,6 +15,8 @@ import {
     type BreadcrumbItem,
     componentSelector,
     componentClass,
+    variants,
+    defaultProps,
 } from './defs';
 
 // Valid values available to consumers
@@ -27,6 +29,13 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
     @property({ type: Array })
     public items: BreadcrumbProps['items'] = [];
 
+    @property({ type: String })
+    @validPropertyValues(componentSelector, variants, defaultProps.variant)
+    public variant = defaultProps.variant;
+
+    @property({ type: Boolean })
+    public scrim = defaultProps.scrim;
+
     private renderSeparator () {
         return html`
             <li role="presentation" aria-hidden="true" class="c-breadcrumb-separator">
@@ -36,13 +45,15 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
     }
 
     private renderNavigationItem (item: BreadcrumbItem, isLastItem = false) {
+        const linkVariant = this.scrim ? 'inverse' : 'default';
+
         return html`
             <li role="listitem">
                 ${
                     isLastItem
                         ? html`<span class="c-breadcrumb-list-last-item">${item.label}</span>`
                         : html`
-                            <pie-link isStandalone="true" underline="reversed" isBold="true" href="${item.href}">
+                            <pie-link variant="${linkVariant}" isStandalone="true" underline="reversed" isBold="true" href="${item.href}">
                                 ${item.label}
                             </pie-link>
                         `
@@ -63,10 +74,12 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
     }
 
     render () {
-        const { items } = this;
+        const { items, variant, scrim } = this;
 
         const componentWrapperClasses = {
             [componentClass]: true,
+            [`${componentClass}--${variant}`]: true,
+            [`${componentClass}--scrim`]: Boolean(scrim),
         };
 
         return html`

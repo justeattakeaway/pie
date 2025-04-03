@@ -1,5 +1,4 @@
-// TODO - please remove the eslint disable comment below when you add props to this interface
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export const variants = ['default', 'back'] as const;
 
 export type BreadcrumbItem = {
   label: string;
@@ -7,8 +6,15 @@ export type BreadcrumbItem = {
 }
 
 export interface BreadcrumbProps {
-  items: BreadcrumbItem[]
+  items: BreadcrumbItem[];
+  variant?: typeof variants[number];
+  scrim?: boolean;
 }
+
+export const defaultProps: Pick<BreadcrumbProps, 'variant' | 'scrim'> = {
+    variant: 'default',
+    scrim: false,
+};
 
 export const componentSelector = 'pie-breadcrumb';
 export const componentClass = 'c-breadcrumb';
