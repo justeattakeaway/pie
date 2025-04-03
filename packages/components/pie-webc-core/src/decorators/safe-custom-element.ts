@@ -12,13 +12,13 @@ export function safeCustomElement (elementSelector: string): ClassDecorator {
         try {
             customElement(elementSelector)(elementClass);
         } catch (e) {
-            if ((e as Error).message.includes('define')) {
-                const registeredClass = customElements.get(elementSelector) as { v?: string };
-                const version = registeredClass?.v ?? 'No version data found';
-                console.warn(`PIE Web Component: "${elementSelector}" has already been defined. ${version}. Please ensure the component is only being defined once in your application.`);
-            } else {
-                throw e;
-            }
+            const registeredClass = customElements.get(elementSelector) as { v?: string };
+            const version = registeredClass?.v ?? 'No version data found';
+
+            console.warn(
+        `PIE Web Component: "${elementSelector}" could not be registered. ${version}.`,
+        e,
+            );
         }
     };
 }
