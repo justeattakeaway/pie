@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.25.1
+
+### Patch Changes
+
+- [Changed] - use a centralised TS declaration file for common duplicated declares ([#2303](https://github.com/justeattakeaway/pie/pull/2303)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.25.0
 
 ### Minor Changes

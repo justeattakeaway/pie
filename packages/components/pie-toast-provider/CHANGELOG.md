@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-toast-provider
 
+## 0.3.1
+
+### Patch Changes
+
+- [Changed] - use a centralised TS declaration file for common duplicated declares ([#2303](https://github.com/justeattakeaway/pie/pull/2303)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`edb0490`](https://github.com/justeattakeaway/pie/commit/edb049031b49a1d8a752c93db4cb164aa90eed3e)]:
+  - @justeattakeaway/pie-webc-core@0.25.1
+  - @justeattakeaway/pie-toast@0.8.1
+
 ## 0.3.0
 
 ### Minor Changes
