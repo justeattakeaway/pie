@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.81.0
+
+### Minor Changes
+
+- [Changed] - Removed the vue example app ([#2297](https://github.com/justeattakeaway/pie/pull/2297)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Deleted the wc-angular example app ([#2299](https://github.com/justeattakeaway/pie/pull/2299)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 2.80.0
+
+### Minor Changes
+
+- [Added] - wire up option and option-group ([#2287](https://github.com/justeattakeaway/pie/pull/2287)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Added] - pie-breadcrumb component basic markup ([#2257](https://github.com/justeattakeaway/pie/pull/2257)) by [@thejfreitas](https://github.com/thejfreitas)
+
 ## 2.79.0
 
 ### Minor Changes

@@ -1,5 +1,23 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.30.1
+
+### Patch Changes
+
+- [Changed] - use a centralised TS declaration file for common duplicated declares ([#2303](https://github.com/justeattakeaway/pie/pull/2303)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.30.0
+
+### Minor Changes
+
+- [Changed] - Add a v property to all components using vite to bake the version number into the code ([#2301](https://github.com/justeattakeaway/pie/pull/2301)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.29.3
+
+### Patch Changes
+
+- [Updated] - add how to export sub components manually ([#2291](https://github.com/justeattakeaway/pie/pull/2291)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.29.2
 
 ### Patch Changes

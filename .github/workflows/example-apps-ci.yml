@@ -21,16 +21,12 @@ jobs:
     strategy:
       matrix:
         include:
-          - node-version: 20
-            example-app: wc-angular12
           - node-version: 16
             example-app: wc-nuxt2
           - node-version: 20
             example-app: wc-react17
           - node-version: 20
             example-app: wc-react18
-          - node-version: 20
-            example-app: wc-vue3
     name: Build ${{matrix.example-app}} - Node ${{ matrix.node-version }}
     uses: ./.github/workflows/install-build.yml
     with:
@@ -44,12 +40,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - node-version: 20
-            amplify-app-id: d3krjop5uu4oza
-            build-script: build:examples
-            dist-folder: ./apps/examples/wc-angular12/dist/wc-angular12
-            example-app: wc-angular12
-
           # Using the generate:examples script for static hosting. SSR requires more investigation
           - node-version: 16
             amplify-app-id: d3puta7o12ynlf
@@ -68,12 +58,6 @@ jobs:
             build-script: build:examples
             dist-folder: ./apps/examples/wc-react18/dist
             example-app: wc-react18
-
-          - node-version: 20
-            amplify-app-id: dtgmklfymp81v
-            build-script: build:examples
-            dist-folder: ./apps/examples/wc-vue3/dist
-            example-app: wc-vue3
 
     name: Deploy ${{matrix.example-app}}
     uses: ./.github/workflows/amplify-deploy.yml

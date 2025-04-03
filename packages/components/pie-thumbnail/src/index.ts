@@ -1,8 +1,8 @@
 import {
-    LitElement,
     html,
     unsafeCSS,
 } from 'lit';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
 import { property, query, state } from 'lit/decorators.js';
@@ -26,7 +26,7 @@ const componentSelector = 'pie-thumbnail';
 /**
  * @tagname pie-thumbnail
  */
-export class PieThumbnail extends LitElement implements ThumbnailProps {
+export class PieThumbnail extends PieElement implements ThumbnailProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
     public variant = defaultProps.variant;

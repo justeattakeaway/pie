@@ -1,6 +1,7 @@
 import {
     LitElement, html, unsafeCSS, type PropertyValues, nothing,
 } from 'lit';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
@@ -33,7 +34,7 @@ const assistiveTextIdValue = 'assistive-text';
  * @slot trailingText - Short text to display at the end of the input. Wrap the text in a <span>. Do not use with trailingIcon at the same time.
  * @slot trailingIcon - An icon to display at the end of the input. Do not use with trailingText at the same time.
  */
-export class PieTextInput extends FormControlMixin(RtlMixin(LitElement)) implements TextInputProps, PIEInputElement {
+export class PieTextInput extends FormControlMixin(RtlMixin(PieElement)) implements TextInputProps, PIEInputElement {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @property({ type: String, reflect: true })

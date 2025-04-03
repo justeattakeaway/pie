@@ -1,5 +1,6 @@
 import { html, nothing } from 'lit';
 import { type Meta } from '@storybook/web-components';
+import { action } from '@storybook/addon-actions';
 
 import '@justeattakeaway/pie-select';
 import {
@@ -11,15 +12,45 @@ import {
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-import { createStory, type TemplateFunction } from '../utilities';
+import {
+    createStory,
+    type TemplateFunction,
+} from '../utilities';
 
 type SelectProps = SelectBaseProps & { showLeadingIcon: boolean };
 type SelectStoryMeta = Meta<SelectProps>;
 
 const defaultArgs: SelectProps = {
     ...defaultProps,
-    name: 'testName',
+    name: 'meals',
     showLeadingIcon: false,
+    options: [{
+        tag: 'option',
+        text: 'Pizza',
+        value: 'pizza',
+    },
+    {
+        tag: 'option',
+        text: 'Burger',
+        value: 'burger',
+    },
+    {
+        tag: 'optgroup',
+        label: 'Drinks',
+        options: [{
+            tag: 'option',
+            text: 'Water',
+            value: 'water',
+        },
+        {
+            tag: 'option',
+            text: 'Juice',
+            value: 'juice',
+            disabled: true,
+        },
+        ],
+    },
+    ],
 };
 
 const selectStoryMeta: SelectStoryMeta = {
@@ -30,7 +61,7 @@ const selectStoryMeta: SelectStoryMeta = {
             description: 'The name of the select (used as a key/value pair with `value`). This is required in order to work properly with forms.',
             control: 'text',
             defaultValue: {
-                summary: defaultArgs.name,
+                summary: '',
             },
         },
         disabled: {
@@ -49,7 +80,7 @@ const selectStoryMeta: SelectStoryMeta = {
             },
         },
         assistiveText: {
-            description: 'An optional assistive text to display below the select element. Must be provided when the status is success or error.',
+            description: 'An optional assistive text to display below the select element. Must be provided when the status is error.',
             control: 'text',
             defaultValue: {
                 summary: '',
@@ -70,6 +101,13 @@ const selectStoryMeta: SelectStoryMeta = {
                 summary: defaultArgs.showLeadingIcon,
             },
         },
+        options: {
+            description: 'The options to display in the select. Can be an array of option objects or option group objects.',
+            control: 'object',
+            defaultValue: {
+                summary: defaultProps.options,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -82,24 +120,35 @@ const selectStoryMeta: SelectStoryMeta = {
 
 export default selectStoryMeta;
 
-const Template = ({
+const Template: TemplateFunction<SelectProps> = ({
     disabled,
     size,
     assistiveText,
     status,
     name,
     showLeadingIcon,
-}: SelectProps) => html`
+    options,
+}) => {
+    function onChange (event: CustomEvent) {
+        action('change')({
+            detail: event.detail,
+        });
+    }
+
+    return html`
         <pie-select
             id="${ifDefined(name)}"
             name="${ifDefined(name)}"   
             ?disabled="${disabled}"
             size="${ifDefined(size)}"
             assistiveText="${ifDefined(assistiveText)}"
-            status=${ifDefined(status)}>   
-                ${showLeadingIcon ? html`<icon-placeholder slot="leadingIcon"></icon-placeholder>` : nothing} 
+            status="${ifDefined(status)}"
+            .options="${options}"
+            @change="${onChange}">   
+                ${showLeadingIcon ? html`<icon-placeholder slot="leadingIcon"></icon-placeholder>` : nothing}
         </pie-select>
     `;
+};
 
 const WithLabelTemplate: TemplateFunction<SelectProps> = (props: SelectProps) => html`
         <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-label</pie-link>.</p>

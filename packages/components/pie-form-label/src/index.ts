@@ -1,6 +1,7 @@
 import {
-    LitElement, type TemplateResult, html, nothing, unsafeCSS,
+    type TemplateResult, html, nothing, unsafeCSS,
 } from 'lit';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { RtlMixin, defineCustomElement, type PIEInputElement } from '@justeattakeaway/pie-webc-core';
 import { property } from 'lit/decorators.js';
@@ -15,7 +16,7 @@ const componentSelector = 'pie-form-label';
 /**
  * @tagname pie-form-label
  */
-export class PieFormLabel extends RtlMixin(LitElement) implements FormLabelProps {
+export class PieFormLabel extends RtlMixin(PieElement) implements FormLabelProps {
     @property({ type: String, reflect: true })
     public for: FormLabelProps['for'];
 

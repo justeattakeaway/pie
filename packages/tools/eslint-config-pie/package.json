@@ -1,12 +1,13 @@
 {
   "name": "@justeattakeaway/eslint-config-pie",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Shareable ESLint config for use with any front-end web projects across JET.",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/tools/eslint-config-pie"
   },
+  "homepage": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/eslint-config-pie",
   "exports": {
     ".": "./base/index.js",
     "./strict": "./strict/index.js",

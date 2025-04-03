@@ -1,10 +1,10 @@
 import {
-    LitElement,
     html,
     unsafeCSS,
     nothing,
     type PropertyValues,
 } from 'lit';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, state, queryAll } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
 
@@ -51,7 +51,7 @@ const componentSelector = 'pie-cookie-banner';
  * @event {CustomEvent} pie-cookie-banner-manage-prefs - when a user clicks manage preferences.
  * @event {CustomEvent} pie-cookie-banner-prefs-saved - when a user clicks save preferences.
  */
-export class PieCookieBanner extends LitElement implements CookieBannerProps {
+export class PieCookieBanner extends PieElement implements CookieBannerProps {
     @state()
     private _isCookieBannerHidden = false;
 

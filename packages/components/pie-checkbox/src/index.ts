@@ -1,6 +1,7 @@
 import {
     LitElement, html, unsafeCSS, nothing,
 } from 'lit';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { classMap } from 'lit/directives/class-map.js';
 import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -29,7 +30,7 @@ const assistiveTextId = 'assistive-text';
  * @slot - Default slot
  * @event {CustomEvent} change - when checked state is changed.
  */
-export class PieCheckbox extends FormControlMixin(RtlMixin(LitElement)) implements CheckboxProps {
+export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implements CheckboxProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @state()
