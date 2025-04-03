@@ -2,12 +2,13 @@ import {
     html, unsafeCSS, type TemplateResult, nothing,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { property, customElement } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
 
 import {
     validPropertyValues, dispatchCustomEvent,
+    safeCustomElement,
 } from '@justeattakeaway/pie-webc-core';
 import styles from './chip.scss?inline';
 import {
@@ -27,7 +28,7 @@ const componentSelector = 'pie-chip';
  * @slot - Default slot
  * @event {CustomEvent} pie-chip-close - when a user clicks close button.
  */
-@customElement('pie-chip')
+@safeCustomElement('pie-chip')
 export class PieChip extends PieElement implements ChipProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)

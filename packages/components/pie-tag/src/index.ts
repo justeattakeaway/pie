@@ -2,9 +2,9 @@ import {
     html, unsafeCSS, nothing, type PropertyValues,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { property, customElement, queryAssignedElements } from 'lit/decorators.js';
+import { property, queryAssignedElements } from 'lit/decorators.js';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
-import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './tag.scss?inline';
 import {
     variants,
@@ -24,7 +24,7 @@ const componentSelector = 'pie-tag';
  * @slot icon - The icon slot
  * @slot - Default slot
  */
-@customElement('pie-tag')
+@safeCustomElement('pie-tag')
 export class PieTag extends PieElement implements TagProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)

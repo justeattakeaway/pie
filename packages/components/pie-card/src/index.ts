@@ -4,8 +4,8 @@ import {
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { property, customElement, queryAssignedElements } from 'lit/decorators.js';
-import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { property, queryAssignedElements } from 'lit/decorators.js';
+import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './card.scss?inline';
 import {
     variants,
@@ -23,7 +23,7 @@ const componentSelector = 'pie-card';
 /**
  * @tagname pie-card
  */
-@customElement('pie-card')
+@safeCustomElement('pie-card')
 export class PieCard extends PieElement implements CardProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, tags, defaultProps.tag)

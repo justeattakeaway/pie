@@ -7,13 +7,14 @@ import {
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import {
-    property, query, queryAssignedElements, state, customElement,
+    property, query, queryAssignedElements, state,
 } from 'lit/decorators.js';
 import {
     RtlMixin,
     FormControlMixin,
     wrapNativeEvent,
     validPropertyValues,
+    safeCustomElement,
 } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -38,7 +39,7 @@ const assistiveTextId = 'assistive-text';
  * @slot label - The label slot
  * @event {CustomEvent} change - when one of the radios state is changed.
  */
-@customElement('pie-radio-group')
+@safeCustomElement('pie-radio-group')
 export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implements RadioGroupProps {
     @state()
     private _hasLabel = false;

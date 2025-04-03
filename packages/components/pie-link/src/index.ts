@@ -2,10 +2,10 @@ import {
     html, unsafeCSS, nothing,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { property, customElement } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './link.scss?inline';
 import {
     type LinkProps,
@@ -29,7 +29,7 @@ const componentSelector = 'pie-link';
  * @slot - Default slot
  */
 
-@customElement('pie-link')
+@safeCustomElement('pie-link')
 export class PieLink extends PieElement implements LinkProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, tags, defaultProps.tag)

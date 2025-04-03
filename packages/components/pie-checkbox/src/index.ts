@@ -3,9 +3,7 @@ import {
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { classMap } from 'lit/directives/class-map.js';
-import {
-    property, customElement, query, state,
-} from 'lit/decorators.js';
+import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 
@@ -14,6 +12,7 @@ import {
     wrapNativeEvent,
     FormControlMixin,
     validPropertyValues,
+    safeCustomElement,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-assistive-text';
 
@@ -31,7 +30,7 @@ const assistiveTextId = 'assistive-text';
  * @slot - Default slot
  * @event {CustomEvent} change - when checked state is changed.
  */
-@customElement('pie-checkbox')
+@safeCustomElement('pie-checkbox')
 export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implements CheckboxProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 

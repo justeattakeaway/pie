@@ -2,9 +2,9 @@ import {
     html, unsafeCSS,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { customElement, property } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './divider.scss?inline';
 import {
     type DividerProps, defaultProps, orientations, variants,
@@ -18,7 +18,7 @@ const componentSelector = 'pie-divider';
 /**
  * @tagname pie-divider
  */
-@customElement('pie-divider')
+@safeCustomElement('pie-divider')
 export class PieDivider extends PieElement implements DividerProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)

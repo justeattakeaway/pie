@@ -5,11 +5,12 @@ import {
     type PropertyValues,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { state, property, customElement } from 'lit/decorators.js';
+import { state, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import {
     RtlMixin,
     dispatchCustomEvent,
+    safeCustomElement,
 } from '@justeattakeaway/pie-webc-core';
 import { defaultProps as toastDefaultProps } from '@justeattakeaway/pie-toast';
 import styles from './toast-provider.scss?inline';
@@ -32,7 +33,7 @@ const componentSelector = 'pie-toast-provider';
  * @tagname pie-toast-provider
  * @event {CustomEvent} pie-toast-provider-queue-update - when a toast is added or removed from the queue.
  */
-@customElement('pie-toast-provider')
+@safeCustomElement('pie-toast-provider')
 export class PieToastProvider extends RtlMixin(PieElement) implements ToastProviderProps {
     @state()
     private _toasts: ExtendedToastProps[] = [];

@@ -3,9 +3,9 @@ import {
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { classMap } from 'lit/directives/class-map.js';
-import { property, customElement } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './iconButton.scss?inline';
 import {
     type IconButtonProps, sizes, variants, defaultProps,
@@ -20,7 +20,7 @@ const componentSelector = 'pie-icon-button';
 /**
  * @tagname pie-icon-button
  */
-@customElement('pie-icon-button')
+@safeCustomElement('pie-icon-button')
 export class PieIconButton extends PieElement implements IconButtonProps {
     @property({ type: Object })
     public aria: IconButtonProps['aria'];

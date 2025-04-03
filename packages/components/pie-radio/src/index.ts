@@ -1,7 +1,7 @@
 import { html, unsafeCSS } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import {
-    property, customElement, query, state,
+    property, query, state,
 } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
@@ -13,6 +13,7 @@ import {
     RtlMixin,
     wrapNativeEvent,
     validPropertyValues,
+    safeCustomElement,
 } from '@justeattakeaway/pie-webc-core';
 
 import { type RadioProps, defaultProps, statusTypes } from './defs';
@@ -28,7 +29,7 @@ const componentSelector = 'pie-radio';
  * @event {InputEvent} input - Should fire whenever a user toggles the radio.
  * @event {CustomEvent} change - Fires when the radio is checked (but not when unchecked).
  */
-@customElement('pie-radio')
+@safeCustomElement('pie-radio')
 export class PieRadio extends FormControlMixin(RtlMixin(PieElement)) implements RadioProps {
     @state()
     private _disabledByParent = false;

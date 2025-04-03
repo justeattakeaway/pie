@@ -1,7 +1,7 @@
 import { html, unsafeCSS } from 'lit';
-import { customElement } from 'lit/decorators.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-<% if (needsRTL) { %>import { RtlMixin } from '@justeattakeaway/pie-webc-core';<% } %>
+<% if (needsRTL) { %>import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';<% } %>
+<% if (!needsRTL) { %>import { safeCustomElement } from '@justeattakeaway/pie-webc-core';<% } %>
 import styles from './<%= fileName %>.scss?inline';
 import { type <%= componentName %>Props } from './defs';
 
@@ -13,7 +13,7 @@ const componentSelector = 'pie-<%= fileName %>';
 /**
  * @tagname pie-<%= fileName %>
  */
-@customElement('pie-<%= fileName %>')
+@safeCustomElement('pie-<%= fileName %>')
 <% if (needsRTL) { %>export class Pie<%= componentName %> extends RtlMixin(PieElement) implements <%= componentName %>Props {<% }
 else { %>export class Pie<%= componentName %> extends PieElement implements <%= componentName %>Props {<% } %>
     render () {
