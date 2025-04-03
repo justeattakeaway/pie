@@ -30,14 +30,14 @@ const componentTemplate = (name, svg) => {
     import { property } from 'lit/decorators.js';
     import { ${sizeType} } from '@justeattakeaway/pie-icons-configs';
     import { PieIconComponent } from './PieIconComponent.ts';
-    import { customElement } from 'lit/decorators.js';
+    import { safeCustomElement } from '@justeattakeaway/pie-webc-core';
 
     const componentSelector = '${kebabCaseName}';
 
     /**
      * @tagname ${kebabCaseName}
      */
-    @customElement('${kebabCaseName}')
+    @safeCustomElement('${kebabCaseName}')
     export class ${name} extends PieIconComponent  {
         @property({ type: String, reflect: true })
         public size: ${sizeType} = ${defaultSize};
