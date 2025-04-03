@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.2
+
+### Patch Changes
+
+- [Changed] - Updated README and homepage link ([#2292](https://github.com/justeattakeaway/pie/pull/2292)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.5.1
 
 ### Patch Changes
