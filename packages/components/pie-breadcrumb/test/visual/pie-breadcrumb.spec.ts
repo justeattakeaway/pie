@@ -21,6 +21,20 @@ test.describe('PieBreadcrumb - Visual tests`', () => {
         await percySnapshot(page, 'PieBreadcrumb - Visual Test');
     });
 
+    test('should display crop the text from the last item when the label is too long (bigger than 250px)', async ({ page }) => {
+        // Arrange
+        const basePage = new BasePage(page, componentName);
+        const props: Partial<BreadcrumbProps> = {
+            items: [...navigationItems, { label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque eget velit quis mollis.', href: '#' }],
+        };
+
+        basePage.load({ ...props });
+        await page.waitForTimeout(2500);
+
+        // Assert
+        await percySnapshot(page, 'PieBreadcrumb - Visual Test');
+    });
+
     readingDirections.forEach((direction) => {
         test(`should render navigation items in writing direction: ${direction}`, async ({ page }) => {
             // Arrange
