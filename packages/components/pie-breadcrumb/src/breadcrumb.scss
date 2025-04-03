@@ -34,8 +34,11 @@
 }
 
 .c-breadcrumb--back {
-  .c-breadcrumb-list-last-item {
 
+  .c-breadcrumb-list {
+    li {
+      color: var(--dt-color-content-link-light);
+    }
   }
 }
 
