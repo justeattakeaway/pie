@@ -27,6 +27,14 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
     @property({ type: Array })
     public items: BreadcrumbProps['items'] = [];
 
+    /**
+     * Renders a separator icon between breadcrumb items.
+     * The icon direction depends on the RTL (Right-to-Left) setting.
+     *
+     * @returns {TemplateResult} HTML template for the separator icon.
+     *
+     * @private
+     */
     private renderSeparator () {
         return html`
             <li role="presentation" aria-hidden="true" class="c-breadcrumb-separator">
@@ -35,23 +43,51 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
         `;
     }
 
+    /**
+     * Renders a navigation link for a breadcrumb item.
+     *
+     * @param {BreadcrumbItem} item - The breadcrumb item containing label and URL.
+     *
+     * @private
+     */
+    private renderNavigationLink (item: BreadcrumbItem) {
+        return html`
+            <pie-link isStandalone="true" underline="reversed" isBold="true" href="${item.href}">
+                ${item.label}
+            </pie-link>
+        `;
+    }
+
+    /**
+     * Renders an individual breadcrumb navigation item.
+     * Conditionally renders either a clickable link or plain text for the last item.
+     *
+     * @param {BreadcrumbItem} item - The breadcrumb item to render.
+     * @param {boolean} [isLastItem=false] - Indicates if the item is the last in the breadcrumb trail.
+     *
+     * @private
+     */
     private renderNavigationItem (item: BreadcrumbItem, isLastItem = false) {
         return html`
             <li role="listitem">
                 ${
                     isLastItem
                         ? html`<span class="c-breadcrumb-list-last-item">${item.label}</span>`
-                        : html`
-                            <pie-link isStandalone="true" underline="reversed" isBold="true" href="${item.href}">
-                                ${item.label}
-                            </pie-link>
-                        `
+                        : this.renderNavigationLink(item)
                 }
             </li>
             ${isLastItem ? nothing : this.renderSeparator()}
         `;
     }
 
+    /**
+     * Renders a complete breadcrumb navigation list.
+     * Iterates over breadcrumb items to generate the breadcrumb trail.
+     *
+     * @param {BreadcrumbProps['items']} items - Array of breadcrumb items to render.
+     *
+     * @private
+     */
     private renderBreadcrumbItems (items: BreadcrumbProps['items']) {
         const numberOfSeparators = items.length - 1;
 
