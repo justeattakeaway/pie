@@ -227,7 +227,7 @@ Outlines the atomic level interactive elements for the component.
       alt: ""
     } %}
   {% endcontentItem %}
-{% endcontentLayout %} Metadata
+{% endcontentLayout %} 
 
 ---
 
@@ -235,39 +235,29 @@ Outlines the atomic level interactive elements for the component.
 
 Metadata should be applied to individual content elements or content groups to provide additional context 
 
-<h4>Name</h4>
+<h3> Name </h3>
 Consider including the correspondent's name as message metadata based on the user-correspondent relationship. It can be used to foster a more personalised connection or enhance identification depending on the conversation.
 
 {% contentLayout %}
   {% contentItem %}
-  **First name**
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/first-name.svg",
+      width:300,
+      variant:"secondary",
       alt: ""
     } %}
   {% endcontentItem %}
-  
+
   {% contentItem %}
-    **First + last name**
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/first-last-name.svg",
+      width:300,
       alt: ""
     } %}
   {% endcontentItem %}
 
-
-  {% contentItem %}
-    **Restaurant name**
-    {% contentPageImage {
-      src: "../../../assets/img/patterns/messaging-and-chatbots/restaurant-name.svg",
-      alt: ""
-    } %}
-  {% endcontentItem %}
 {% endcontentLayout %} 
 
-## Date & timestamp
-
-Consider including the message’s date and time in the metadata, for both the user and the correspondent, depending on the message’s purpose. This can provide contextual understand the timing of events or response.
-
+---
 
 
