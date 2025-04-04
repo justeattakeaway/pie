@@ -52,21 +52,26 @@ const sharedConfig = ({
         exclude: ['**/node_modules/**'],
     },
 
-    plugins: deepmerge(
-        [
-            dts({
-                insertTypesEntry: true,
-                outputDir: 'dist',
-                rollupTypes: true,
-                ...dtsConfig,
-            }),
-            visualizer({
-                gzipSize: true,
-                brotliSize: true,
-            }),
-        ],
-        plugins,
-    ),
+    plugins: (() => {
+        const isWatchMode = process.argv.includes('--watch');
+
+        // Bypass DTS generation and visualization plugins in watch mode
+        return isWatchMode ? plugins : deepmerge(
+            [
+                dts({
+                    insertTypesEntry: true,
+                    outputDir: 'dist',
+                    rollupTypes: true,
+                    ...dtsConfig,
+                }),
+                visualizer({
+                    gzipSize: true,
+                    brotliSize: true,
+                }),
+            ],
+            plugins,
+        );
+    })(),
 
     ...rest,
 });
