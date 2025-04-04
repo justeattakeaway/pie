@@ -337,4 +337,75 @@ Different UI kits position metadata in various locations relative to individual 
 
 ---
 
+## Avatars
+
+Avatars should only be visible for the correspondent, and not for the user. If the avatar is included in the conversation, it should be applied to all messages for consistency.
+
+<h3> Variants </h3>
+
+Various avatar variants are provided to cater for different correspondent types, ensuring users have distinct visual identifiers.
+
+{% contentLayout %}
+  {% contentItem %}
+   <h4> Chatbot </h4>
+    {% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/avatar-variants-chatbot.svg",
+      width:300,
+      alt: ""
+    } %}
+  {% endcontentItem %}
+
+  {% contentItem %}
+   <h4> AI assistant </h4>
+
+    {% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/avatar-variants-ai-assistant.svg",
+      width:300,
+      alt: ""
+    } %}
+  {% endcontentItem %}
+
+  {% contentItem %}
+   <h4> Advisor </h4>
+
+    {% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/avatar-variants-agent.svg",
+      width:300,
+      alt: ""
+    } %}
+  {% endcontentItem %}
+
+  {% contentItem %}
+   <h4> Customer </h4>
+
+    {% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/avatar-variants-initial.svg",
+      width:300,
+      alt: ""
+    } %}
+  {% endcontentItem %}
+
+  {% contentItem %}
+   <h4> Courier </h4>
+
+    {% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/avatar-variants-courier.svg",
+      width:300,
+      alt: ""
+    } %}
+  {% endcontentItem %}
+
+  {% contentItem %}
+   <h4> Partner </h4>
+
+    {% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/avatar-variants-partner.svg",
+      width:300,
+      alt: ""
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+
+
 
