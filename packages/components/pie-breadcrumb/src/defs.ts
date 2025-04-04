@@ -7,7 +7,15 @@ export type BreadcrumbItem = {
 
 export interface BreadcrumbProps {
   items: BreadcrumbItem[];
+
+  /**
+   * Optional variant for styling the breadcrumb component.
+   */
   variant?: typeof variants[number];
+
+  /**
+   * Optional flag to enable or disable a scrim overlay for readability.
+   */
   scrim?: boolean;
 }
 

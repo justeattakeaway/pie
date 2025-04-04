@@ -45,8 +45,10 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
      * @private
      */
     private renderSeparator () {
+        const separatorVariant = this.scrim ? 'c-breadcrumb-separator--scrim' : 'c-breadcrumb-separator';
+
         return html`
-            <li role="presentation" aria-hidden="true" class="c-breadcrumb-separator">
+            <li role="presentation" aria-hidden="true" class="${separatorVariant}">
                 ${this.isRTL ? html`<icon-chevron-left></icon-chevron-left>` : html`<icon-chevron-right></icon-chevron-right>`}
             </li>
         `;
@@ -70,6 +72,23 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
     }
 
     /**
+     * Renders the last breadcrumb item.
+     * It has 250px of max-width. If the label reaches this width the text truncates.
+     *
+     * @param {BreadcrumbItem} item - The breadcrumb item containing label and URL.
+     *
+     * @private
+     */
+    private renderLastItem (item: BreadcrumbItem) {
+        const wrapperClasses = {
+            'c-breadcrumb-list-last-item': true,
+            'c-breadcrumb-list-last-item--scrim': Boolean(this.scrim),
+        };
+
+        return html`<span class="${classMap(wrapperClasses)}">${item.label}</span>`;
+    }
+
+    /**
      * Renders an individual breadcrumb navigation item.
      * Conditionally renders either a clickable link or plain text for the last item.
      *
@@ -83,11 +102,56 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
             <li role="listitem">
                 ${
                     isLastItem
-                        ? html`<span class="c-breadcrumb-list-last-item">${item.label}</span>`
+                        ? this.renderLastItem(item)
                         : this.renderNavigationLink(item)
                 }
             </li>
             ${isLastItem ? nothing : this.renderSeparator()}
+        `;
+    }
+
+    /**
+     * Renders breadcrumb items using the default variant style.
+     *
+     * @param {BreadcrumbProps['items']} items - Breadcrumb items to render.
+     *
+     * @private
+     */
+    private renderDefaultVariant (items: BreadcrumbProps['items']) {
+        const numberOfSeparators = items.length - 1;
+
+        return html`${items.map((item, index) => this.renderNavigationItem(item, numberOfSeparators <= index))}`;
+    }
+
+    /**
+     * Renders a separator icon specifically for the back variant.
+     * The icon direction depends on the RTL (Right-to-Left) setting.
+     *
+     * @private
+     */
+    private renderBackVariantSeparator () {
+        const separatorVariant = this.scrim ? 'c-breadcrumb-separator--scrim' : 'c-breadcrumb-separator';
+
+        return html`
+            <li role="presentation" aria-hidden="true" class="${separatorVariant}">
+                ${this.isRTL ? html`<icon-chevron-right></icon-chevron-right>` : html`<icon-chevron-left></icon-chevron-left>`}
+            </li>
+        `;
+    }
+
+    /**
+     * Renders breadcrumb items using the back variant style, displaying only the last item with a preceding separator.
+     *
+     * @param {BreadcrumbProps['items']} items - Breadcrumb items to render.
+     *
+     * @private
+     */
+    private renderBackVariant (items: BreadcrumbProps['items']) {
+        const lastItem = items[items.length - 1];
+
+        return html`
+            ${this.renderBackVariantSeparator()}
+            ${this.renderNavigationLink(lastItem)}
         `;
     }
 
@@ -99,12 +163,10 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
      *
      * @private
      */
-    private renderBreadcrumbItems (items: BreadcrumbProps['items']) {
-        const numberOfSeparators = items.length - 1;
-
+    private renderBreadcrumbItems (items: BreadcrumbProps['items'], variant: BreadcrumbProps['variant']) {
         return html`
             <ol class="c-breadcrumb-list" data-test-id="${componentSelector}-navigation-list">
-                ${items.map((item, index) => this.renderNavigationItem(item, numberOfSeparators <= index))}
+                ${variant === 'back' ? this.renderBackVariant(items) : this.renderDefaultVariant(items)}
             </ol>
         `;
     }
@@ -123,7 +185,7 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
                 aria-label="breadcrumb"
                 data-test-id="${componentSelector}"
                 class="${classMap(componentWrapperClasses)}">
-                ${items ? this.renderBreadcrumbItems(items) : nothing}
+                ${items ? this.renderBreadcrumbItems(items, variant) : nothing}
             </nav>`;
     }
 

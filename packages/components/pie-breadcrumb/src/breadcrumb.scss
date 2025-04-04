@@ -26,23 +26,22 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 250px;
+  color: var(--dt-color-content-subdued);
 }
 
-
-.c-breadcrumb--default {
-
-}
-
-.c-breadcrumb--back {
-
-  .c-breadcrumb-list {
-    li {
-      color: var(--dt-color-content-link-light);
-    }
-  }
+.c-breadcrumb-list-last-item--scrim {
+  color: var(--dt-color-content-link-light);
 }
 
 .c-breadcrumb--scrim {
   --breadcrumb-background-color: var(--dt-color-overlay);
   border-radius: var(--dt-radius-rounded-e);
+}
+
+.c-breadcrumb-separator {
+  color: var(--dt-color-content-subdued);
+}
+
+.c-breadcrumb-separator--scrim {
+  color: var(--dt-color-content-link-light);
 }
