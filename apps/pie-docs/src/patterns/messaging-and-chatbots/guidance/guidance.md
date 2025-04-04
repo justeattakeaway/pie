@@ -406,6 +406,55 @@ Various avatar variants are provided to cater for different correspondent types,
   {% endcontentItem %}
 {% endcontentLayout %}
 
+<h3> Colour </h3>
 
+The default colour should be brand orange to ensure that the brand colour is present within the UI. Consider the hierarchy of the avatar within the conversation when making a choice.
 
+Maintain consistency by using the same colour throughout the entire message, regardless of any changes in avatar variants.
+
+{% notification {
+  type: "information",
+  iconName: "info-circle",
+  message: "Ensure that the colour of the avatar doesn’t match the message colour used for the primary user to avoid confusion."
+} %}
+
+{% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/avatar-colour.svg",
+      width: 970,
+      alt: ""
+} %}
+
+---
+
+## Footer
+The footer is used to enter messages or select media to send in the conversation. 
+
+{% usage {
+    do: {
+        type: usageTypes.text,
+        items: [
+            "Ensure the message send button or icon is prominent in the visual hierarchy, making it stands out as the primary CTA."
+        ]
+    },
+    dont: {
+        type: usageTypes.text,
+        items: [
+            "Don’t enable the message send button or icon until the user has entered a minimum of one character."
+        ]
+    }
+} %}
+
+{% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/footer-1.svg",
+      width: 970,
+      alt: ""
+} %}
+
+{% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/footer-2.svg",
+      width: 970,
+      alt: ""
+} %}
+
+---
 
