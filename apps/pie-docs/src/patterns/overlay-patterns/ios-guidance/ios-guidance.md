@@ -178,6 +178,23 @@ A sheet is a surface that slides up from the bottom of the screen, and is a disp
   width: "375px"
 } %}
 
+{% usage {
+    do: {
+        type: usageTypes.text,
+        items: [
+            "Use them as contextual interactions.",
+            "Use for single-step or multi-step flows, ideally with a maximum of two steps.",
+            "They are triggered by the user."
+        ]
+    },
+    dont: {
+        type: usageTypes.text,
+        items: [
+            "Don’t use when the flow isn’t critical to the user."
+        ]
+    }
+} %}
+
 ---
 
 
