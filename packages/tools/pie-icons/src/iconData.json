@@ -225,12 +225,16 @@
                     "displayName": "Gift"
                 },
                 {
+                    "name": "gift-card",
+                    "displayName": "Gift Card"
+                },
+                {
                     "name": "gift-filled",
                     "displayName": "Gift Filled"
                 },
                 {
-                    "name": "gift-card",
-                    "displayName": "Gift Card"
+                    "name": "loyalty-card",
+                    "displayName": "Loyalty Card"
                 },
                 {
                     "name": "meal-voucher",
