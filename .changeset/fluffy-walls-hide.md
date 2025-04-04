@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-textarea": patch
 ---
 
-[Added] - add and remove events correctly
+[Fixed] - add and remove events correctly
