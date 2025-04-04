@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-components-config
 
+## 0.20.0
+
+### Minor Changes
+
+- [Added] - settings to improve performance and stability in watch mode ([#2305](https://github.com/justeattakeaway/pie/pull/2305)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.19.1
 
 ### Patch Changes

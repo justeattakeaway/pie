@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.30.2
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2311](https://github.com/justeattakeaway/pie/pull/2311)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- [Changed] - updated snapshots after icons update ([#2309](https://github.com/justeattakeaway/pie/pull/2309)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`d797c8b`](https://github.com/justeattakeaway/pie/commit/d797c8b628484cfd9649e7811b8e8ee878a82349), [`3bd4b43`](https://github.com/justeattakeaway/pie/commit/3bd4b436c118eea4202e863798711af07fa64bb4)]:
+  - @justeattakeaway/pie-icons@5.9.0
+
 ## 4.30.1
 
 ### Patch Changes
