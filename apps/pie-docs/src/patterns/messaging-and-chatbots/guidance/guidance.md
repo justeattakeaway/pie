@@ -74,8 +74,6 @@ It's crucial to differentiate between the correspondent's and user's messages. B
   width: "800px"
 } %}
 
----
-
 ### Borders
 
 Borders are an optional addition to message colours than can be used for multiple reasons.
@@ -104,7 +102,6 @@ Borders are an optional addition to message colours than can be used for multipl
   width: "800px"
 } %}
 
----
 ## Tails
 
 Tails are a small extension that point towards the direction of the message’s sender that are attached to individual messages. They can vary in design depending on the third party platform that is being used.
@@ -130,7 +127,6 @@ Tails are a small extension that point towards the direction of the message’s 
   width: "290px"
 } %}
 
----
 
 ## Groups
 
@@ -181,7 +177,7 @@ Structured responses are always paired with a message to provide context to the 
   width: "800px"
 } %}
 
-## Interactive states
+<h3> Interactive states </h3>
 
 Outlines the atomic level interactive elements for the component.
 
@@ -236,12 +232,16 @@ Outlines the atomic level interactive elements for the component.
 Metadata should be applied to individual content elements or content groups to provide additional context 
 
 <h3> Name </h3>
+
 Consider including the correspondent's name as message metadata based on the user-correspondent relationship. It can be used to foster a more personalised connection or enhance identification depending on the conversation.
 
 {% contentLayout %}
   {% contentItem %}
+   <h4> First name </h4>
+   <p>Using the correspondent’s first name allows personalisation whilst maintaining a level of privacy and security.</p>
+
     {% contentPageImage {
-      src: "../../../assets/img/patterns/messaging-and-chatbots/first-name.svg",
+      src: "../../../assets/img/patterns/messaging-and-chatbots/metadata-first-name.svg",
       width:300,
       variant:"secondary",
       alt: ""
@@ -249,14 +249,91 @@ Consider including the correspondent's name as message metadata based on the use
   {% endcontentItem %}
 
   {% contentItem %}
+   <h4> First + last name </h4>
+   <p> Using both first and last names in metadata enhances identification, professionalism, record-keeping, and personalised communication, particularly in contexts where accuracy and clarity are important. </p>
+
+
     {% contentPageImage {
-      src: "../../../assets/img/patterns/messaging-and-chatbots/first-last-name.svg",
+      src: "../../../assets/img/patterns/messaging-and-chatbots/metadata-first-last-name.svg",
+      variant:"secondary",
+      width:300,
+
+      alt: ""
+    } %}
+  {% endcontentItem %}
+
+  {% contentItem %}
+   <h4> Restaurant name </h4>
+   <p> Using a restaurant's name helps clearly identify the business, enabling personalised interactions and efficient customer service. </p>
+    {% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/metadata-restaurant-name.svg",
+      variant:"secondary",
       width:300,
       alt: ""
     } %}
   {% endcontentItem %}
 
 {% endcontentLayout %} 
+
+<h3> Date & timestamp </h3>
+
+Consider including the message’s date and time in the metadata, for both the user and the correspondent, depending on the message’s purpose. This can provide contextual understand the timing of events or response.
+
+{% contentLayout %}
+  {% contentItem %}
+   <h4> Date & timestamp </h4>
+   <p> Using both the timestamp and date provides precise tracking of when interactions occurred, which is crucial for context. </p>
+
+
+    {% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/date-timestamp-message.svg",
+      variant:"secondary",
+      width:300,
+      alt: ""
+    } %}
+  {% endcontentItem %}
+
+  {% contentItem %}
+   <h4> Timestamp </h4>
+   <p> Using just the timestamp ensures precise tracking of interactions and response times, for conversations lasting less than a day. </p>
+
+
+    {% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/timestamp-message.svg",
+      variant:"secondary",
+      width:300,
+      alt: ""
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+<h3> Placement </h3>
+
+Different UI kits position metadata in various locations relative to individual content elements, with some placing it above and others below. While using the default placement is acceptable, we recommend; if possible, positioning metadata below the message to reduce its prominence in the hierarchy.
+
+{% contentLayout %}
+  {% contentItem %}
+   <h4> Below </h4>
+    {% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/placement-below.svg",
+      variant:"secondary",
+      width:300,
+      alt: ""
+    } %}
+  {% endcontentItem %}
+
+  {% contentItem %}
+   <h4> Above </h4>
+
+    {% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/placement-above.svg",
+      variant:"secondary",
+      width:300,
+      alt: ""
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
 
 ---
 
