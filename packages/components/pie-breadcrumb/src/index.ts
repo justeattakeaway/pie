@@ -1,7 +1,8 @@
-import { LitElement, html, unsafeCSS } from 'lit';
+import { html, unsafeCSS } from 'lit';
 import { RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
 
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import styles from './breadcrumb.scss?inline';
 import { type BreadcrumbProps, componentSelector, componentClass } from './defs';
 
@@ -11,15 +12,15 @@ export * from './defs';
 /**
  * @tagname pie-breadcrumb
  */
-export class PieBreadcrumb extends RtlMixin(LitElement) implements BreadcrumbProps {
+export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbProps {
     render () {
         const componentWrapperClasses = {
             [componentClass]: true,
         };
 
         return html`
-            <nav 
-                data-test-id="${componentSelector}" 
+            <nav
+                data-test-id="${componentSelector}"
                 class="${classMap(componentWrapperClasses)}">
                 <ol>
                     <li><span>Previous Page</span></li>

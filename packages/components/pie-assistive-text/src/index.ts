@@ -1,7 +1,7 @@
 import {
-    LitElement, html, unsafeCSS, nothing, type TemplateResult,
+    html, unsafeCSS, nothing, type TemplateResult,
 } from 'lit';
-
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
@@ -20,7 +20,7 @@ const componentSelector = 'pie-assistive-text';
  * @tagname pie-assistive-text
  * @slot - Default slot
  */
-export class PieAssistiveText extends LitElement implements AssistiveTextProps {
+export class PieAssistiveText extends PieElement implements AssistiveTextProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
     public variant = defaultProps.variant;

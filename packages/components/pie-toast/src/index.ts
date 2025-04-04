@@ -1,11 +1,11 @@
 import {
-    LitElement,
     html,
     unsafeCSS,
     nothing,
     type TemplateResult,
     type PropertyValues,
 } from 'lit';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import {
@@ -44,7 +44,7 @@ export * from './defs';
  * @event {CustomEvent} pie-toast-open - when the toast is opened.
  * @event {CustomEvent} pie-toast-leading-action-click - when the user interacts with the leading action.
  */
-export class PieToast extends RtlMixin(LitElement) implements ToastProps {
+export class PieToast extends RtlMixin(PieElement) implements ToastProps {
     @property({ type: String })
     public message = defaultProps.message;
 

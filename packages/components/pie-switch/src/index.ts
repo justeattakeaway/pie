@@ -1,6 +1,7 @@
 import {
-    LitElement, html, unsafeCSS, nothing,
+    html, unsafeCSS, nothing,
 } from 'lit';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -23,7 +24,7 @@ const componentSelector = 'pie-switch';
  * @tagname pie-switch
  * @event {CustomEvent} change - when the switch checked state is changed.
  */
-export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements SwitchProps, PIEInputElement {
+export class PieSwitch extends FormControlMixin(RtlMixin(PieElement)) implements SwitchProps, PIEInputElement {
     @property({ type: String })
     public label: SwitchProps['label'];
 

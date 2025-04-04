@@ -1,7 +1,8 @@
 import { html } from 'lit';
-import '@justeattakeaway/pie-webc-core/src/test/functions/dispatchCustomElement/MockComponent';
+import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-webc-core/src/test/functions/dispatchCustomEvent/MockComponent';
 import '@justeattakeaway/pie-webc-core/src/test/mixins/formControlMixin/MockComponent';
-import { EXPECTED_MOCK_EVENT_MESSAGE } from '@justeattakeaway/pie-webc-core/src/test/functions/dispatchCustomElement/constants';
+import { EXPECTED_MOCK_EVENT_MESSAGE } from '@justeattakeaway/pie-webc-core/src/test/functions/dispatchCustomEvent/constants';
 /**
  * Mock stories for testing pie-webc-core functionality
  */
@@ -19,7 +20,7 @@ export const DispatchCustomEvent = () => {
 
     return html`
     <dispatch-custom-event-mock
-      @pie-mock-event="${onDispatchCustomEvent}"
+        @pie-mock-event="${onDispatchCustomEvent}"
     ></dispatch-custom-event-mock>
 `;
 };
@@ -31,7 +32,7 @@ DispatchCustomEvent.storyName = 'Dispatch Custom Event Mock';
  */
 export const InvalidEventNameEvent = () => html`
     <dispatch-custom-event-mock
-      eventName="mock-event"
+        eventName="mock-event"
     ></dispatch-custom-event-mock>
 `;
 
@@ -71,3 +72,9 @@ export const FormControlMixinOutsideForm = () => html`
 `;
 
 FormControlMixinOutsideForm.storyName = 'Form Control Mixin - Outside Form';
+
+/**
+ * Story for testing the v property on PieElement derived classes
+ */
+export const PieElementVersionProperty = () => html`<pie-button data-test-id="pie-element">Test</pie-button>`;
+PieElementVersionProperty.storyName = 'Pie Elements contain correct version number';

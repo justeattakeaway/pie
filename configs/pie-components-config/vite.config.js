@@ -6,8 +6,15 @@ import { deepmerge } from 'deepmerge-ts';
 
 // https://vitejs.dev/config/
 const sharedConfig = ({
-    build = {}, plugins = [], dtsConfig = {}, ...rest
+    build = {},
+    plugins = [],
+    dtsConfig = {},
+    version = 'missing',
+    ...rest
 }) => defineConfig({
+    define: {
+        __PACKAGE_VERSION__: JSON.stringify(version),
+    },
     build: deepmerge({
         lib: {
             entry: {
@@ -22,7 +29,9 @@ const sharedConfig = ({
                     return true;
                 }
 
-                if (id.startsWith('@justeattakeaway/pie-')) {
+                // Any imports from pie-webc-core/src/internals are to be included in component bundles.
+                // Any imports outside of the internals folder must be externalised.
+                if (id.startsWith('@justeattakeaway/pie-') && !id.startsWith('@justeattakeaway/pie-webc-core/src/internals')) {
                     console.info(`Excluding ${id} from the bundle`);
                     return true;
                 }
@@ -31,6 +40,7 @@ const sharedConfig = ({
             },
         },
     }, build),
+
     test: {
         dir: '.',
         environment: 'jsdom',
@@ -41,16 +51,27 @@ const sharedConfig = ({
         ],
         exclude: ['**/node_modules/**'],
     },
-    plugins: deepmerge([dts({
-        insertTypesEntry: true,
-        outputDir: 'dist',
-        rollupTypes: true,
-        ...dtsConfig,
-    }),
-    visualizer({
-        gzipSize: true,
-        brotliSize: true,
-    })], plugins),
+
+    plugins: (() => {
+        const isWatchMode = process.argv.includes('--watch');
+
+        // Bypass DTS generation and visualization plugins in watch mode
+        return isWatchMode ? plugins : deepmerge(
+            [
+                dts({
+                    insertTypesEntry: true,
+                    outputDir: 'dist',
+                    rollupTypes: true,
+                    ...dtsConfig,
+                }),
+                visualizer({
+                    gzipSize: true,
+                    brotliSize: true,
+                }),
+            ],
+            plugins,
+        );
+    })(),
 
     ...rest,
 });
