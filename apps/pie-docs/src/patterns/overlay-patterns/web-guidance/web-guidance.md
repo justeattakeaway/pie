@@ -12,7 +12,7 @@ shouldShowContents: true
 
 You can follow this decision tree to choose the most appropriate UI component based on the specific context, importance, and user interaction requirements of your product interface.
 
-You can take a closer look at this in our [overlay patterns](https://www.figma.com/design/Rqz8KHogVsGCS4j0nDueNo/%5BCore%5D-Patterns-%5BPIE-3%5D?node-id=3196-366) file.
+You can take a closer look at this in our [overlay patterns](https://pie.design/components/modal/) file.
 
 
 {% contentPageImage {
