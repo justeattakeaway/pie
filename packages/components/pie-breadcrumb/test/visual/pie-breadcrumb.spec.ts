@@ -2,7 +2,7 @@ import { test } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 import { componentName, navigationItems } from 'test/helpers';
-import { type BreadcrumbProps } from 'src/defs';
+import { type BreadcrumbProps, variants } from 'src/defs';
 
 const readingDirections = ['ltr', 'rtl'];
 
@@ -48,5 +48,35 @@ test.describe('PieBreadcrumb - Visual tests`', () => {
             // Assert
             await percySnapshot(page, `PieBreadcrumb - ${direction}`);
         });
+    });
+
+    variants.forEach((variant) => {
+        test(`should render PieBreadcrumb with variant: ${variant}`, async ({ page }) => {
+            // Arrange
+            const selectVariationsPage = new BasePage(page, componentName);
+            const props: Partial<BreadcrumbProps> = {
+                items: navigationItems,
+                variant,
+            };
+
+            await selectVariationsPage.load({ ...props });
+
+            // Assert
+            await percySnapshot(page, `PieBreadcrumb - Variant: ${variant}`);
+        });
+    });
+
+    test('should display scrim mode', async ({ page }) => {
+        // Arrange
+        const selectVariationsPage = new BasePage(page, componentName);
+        const props: Partial<BreadcrumbProps> = {
+            items: navigationItems,
+            scrim: true,
+        };
+
+        await selectVariationsPage.load({ ...props });
+
+        // Assert
+        await percySnapshot(page, 'PieBreadcrumb - Scrim mode');
     });
 });

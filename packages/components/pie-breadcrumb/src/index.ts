@@ -151,7 +151,9 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
 
         return html`
             ${this.renderBackVariantSeparator()}
-            ${this.renderNavigationLink(lastItem)}
+            <li role="listitem">
+                ${this.renderNavigationLink(lastItem)}    
+            </li>
         `;
     }
 
@@ -176,7 +178,6 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
 
         const componentWrapperClasses = {
             [componentClass]: true,
-            [`${componentClass}--${variant}`]: true,
             [`${componentClass}--scrim`]: Boolean(scrim),
         };
 
