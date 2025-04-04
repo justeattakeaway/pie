@@ -71,7 +71,7 @@ Select inputs consist of a clickable area that, when activated, displays the ava
         "**Checkmark:** Used to indicate that an option has been selected.",
         "**Select option (Optional):** Allows the user to deselect an existing choice.",
         "**Option:** These represent the available selections that the user can choose from.",
-        "**Option group:** A way to organise related options into logical categories."
+        "**Option group:** A way to organize related options into logical categories."
     ]
 } %}
 
@@ -165,7 +165,7 @@ The recommended text is “Selected...”, but it can be modified if necessary w
     {% contentPageImage {
       src: "../../../assets/img/components/select-input/content-select-option-1.svg",
       width: 266,
-      alt: "A select input component with a Select placeholder"
+      alt: "Select input showing dropdown with the first option preselected."
     } %}
   {% endcontentItem %}
   {% contentItem %}
