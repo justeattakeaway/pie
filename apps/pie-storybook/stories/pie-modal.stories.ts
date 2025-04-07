@@ -324,7 +324,9 @@ const CustomFooterStoryTemplate = (props: ModalProps) => {
             @pie-modal-leading-action-click="${leadingClickAction}"
             @pie-modal-supporting-action-click="${supportingClickAction}">
                 ${sanitizeAndRenderHTML(slot)}
-                <div slot="footer">Footer slotted content</div>
+                <div slot="footer">
+                    <div id="custom-footer">Footer slotted content</div>
+                </div>
             </pie-modal>`;
 };
 
