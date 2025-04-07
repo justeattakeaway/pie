@@ -275,6 +275,7 @@ test.describe('Prop: `leadingAction`', () => {
             const props: ModalProps = {
                 ...sharedProps,
                 isOpen: true,
+                leadingAction: undefined,
             };
 
             await modalDefaultPage.load(props);
