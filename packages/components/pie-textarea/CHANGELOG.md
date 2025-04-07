@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-textarea
 
+## 0.15.2
+
+### Patch Changes
+
+- [Fixed] - add and remove events correctly ([#2289](https://github.com/justeattakeaway/pie/pull/2289)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.9.2
+
 ## 0.15.1
 
 ### Patch Changes
