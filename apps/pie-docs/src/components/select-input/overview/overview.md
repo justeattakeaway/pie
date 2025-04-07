@@ -338,7 +338,6 @@ The select input has various states to communicate its current status to the use
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
-
 {% contentLayout %}
   {% contentItem %}
     <h4>Disabled</h4>
