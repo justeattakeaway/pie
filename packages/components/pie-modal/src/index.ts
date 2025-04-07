@@ -449,11 +449,16 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
     private renderModalFooter (): TemplateResult | typeof nothing {
         const footerSlotEmpty = this._footerSlotNodes.length === 0;
 
-        if (footerSlotEmpty && !this.leadingAction?.text) {
+        if (!this.leadingAction?.text) {
             if (this.supportingAction?.text) {
                 console.warn('You cannot have a supporting action without a leading action. If you only need one button then use a leading action instead.');
             }
-            return nothing;
+        }
+
+        const slotContent = html`<slot name="footer" @slotchange=${this._handleFooterSlotChange}></slot>`;
+
+        if (footerSlotEmpty && !this.leadingAction?.text) {
+            return slotContent;
         }
 
         const footerClasses = {
@@ -466,7 +471,7 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
         return html`
             <footer class="${classMap(footerClasses)}" data-test-id="pie-modal-footer">
                 ${footerContent}
-                <slot name="footer" @slotchange=${this._handleFooterSlotChange}></slot>
+                ${slotContent}
             </footer>`;
     }
 
