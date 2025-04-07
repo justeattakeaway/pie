@@ -458,3 +458,74 @@ The footer is used to enter messages or select media to send in the conversation
 
 ---
 
+## Backgrounds
+
+Various background options are available, but always ensure that the background choice feels appropriate for the scenario as the background can change the user’s experience.
+
+<h3> Simple </h3>
+
+Single coloured backgrounds help messages stand out clearly and keep them as the main focus. Simple backgrounds are also viewed as more professional, so consider this when making your choice.
+
+{% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/backgrounds-simple.svg",
+      width: 970,
+      alt: ""
+} %}
+
+<h3> Complex </h3>
+
+{% usage {
+    do: {
+        type: usageTypes.text,
+        items: [
+            "Ensure that it doesn't draw too much attention from the messages and ensure that the messages stand out through either colour or borders.",
+            "Make sure that a background feels appropriate for the scenario, as complex backgrounds typically make the conversation feel more casual."
+
+        ]
+    },
+    dont: {
+        type: usageTypes.text,
+        items: [
+            "Use a complex background unnecessarily, make sure that it serves a purpose for the conversation and benefits the users."
+        ]
+    }
+} %}
+
+{% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/backgrounds-complex.svg",
+      width: 970,
+      alt: ""
+} %}
+
+## Content 
+
+Copy across chatbots and messaging services can impact how users perceive the experience. To ensure the tone of voice and content being proposed is suitable, reach out the product copywriting team for their expertise.
+
+---
+## Examples 
+
+Outlines the atomic level interactive elements for the component.
+
+<h3> LTR examples </h3>
+
+Here are some examples of messaging in left-to-right context:
+
+{% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/ltr-examples.svg",
+      width: 970,
+      alt: ""
+} %}
+
+<h3> RTL examples </h3>
+
+Here are some examples of messaging in right-to-left context:
+
+{% contentPageImage {
+      src: "../../../assets/img/patterns/messaging-and-chatbots/rtl-examples.svg",
+      width: 970,
+      alt: ""
+} %}
+
+
+
+
