@@ -266,12 +266,6 @@
         padding-block-end: var(--modal-content-padding-block-end); // We require a larger bottom padding when there's no footer
         flex-grow: 1;
 
-        // If the footer is rendered, the modal content is not the last child
-        &:not(:last-child) {
-          padding-block-end: var(--modal-content-padding-block);
-          min-block-size: var(--modal-content-min-block-size);
-        }
-
         &--scrollable {
             background:
                 // Scroll shadow cover
@@ -337,6 +331,18 @@
           pie-spinner {
             top: 50%;
           }
+        }
+    }
+
+    // If the footer is rendered, the modal content is not the last child
+    // stylelint-disable-next-line no-descending-specificity
+    .c-modal-content:not(:last-child) {
+        // AND is not followed by a slot
+        // This is because slots will be always rendered regardless of the footer element presence
+        // stylelint-disable-next-line no-descending-specificity
+        &:not(:has(+ slot)){
+            padding-block-end: var(--modal-content-padding-block);
+            min-block-size: var(--modal-content-min-block-size);
         }
     }
 
