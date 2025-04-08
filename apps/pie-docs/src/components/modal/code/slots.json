@@ -13,7 +13,7 @@
               "type": "code",
               "item": ["footer"]
           },
-          "Used to pass optional content to the notification component footer area."
+          "Used to pass optional content to the modal component footer area."
       ]
   ]
 }
