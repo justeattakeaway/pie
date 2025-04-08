@@ -102,7 +102,7 @@ Borders are an optional addition to message colours than can be used for multipl
   width: "800px"
 } %}
 
-## Tails
+### Tails
 
 Tails are a small extension that point towards the direction of the message’s sender that are attached to individual messages. They can vary in design depending on the third party platform that is being used.
 
@@ -128,7 +128,7 @@ Tails are a small extension that point towards the direction of the message’s 
 } %}
 
 
-## Groups
+### Groups
 
 Messages sent in quick succession can be grouped to show users they are connected. Different third-party platforms may have varying time thresholds for defining grouped messages. 
 
@@ -137,6 +137,8 @@ The spacing between individual messages is reduced to ensure they are visually t
 
 {% contentPageImage {
   src:"../../../../assets/img/patterns/messaging-and-chatbots/groups-variants.svg",
+  variant: "secondary",
+  width: "240px",
   alt: ""
 } %}
 
@@ -242,7 +244,7 @@ Consider including the correspondent's name as message metadata based on the use
 
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/metadata-first-name.svg",
-      width:300,
+      width: "300px",
       variant:"secondary",
       alt: ""
     } %}
@@ -350,7 +352,7 @@ Various avatar variants are provided to cater for different correspondent types,
    <h4> Chatbot </h4>
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/avatar-variants-chatbot.svg",
-      width:300,
+      width:"56px",
       alt: ""
     } %}
   {% endcontentItem %}
