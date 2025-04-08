@@ -749,14 +749,27 @@ test('should not close the modal when a form is submitted', async ({ page }) => 
 });
 
 test.describe('when the `footer` slot is assigned', () => {
-    test('the footer element should be visible', async ({ page }) => {
+    test('the footer element should not be available', async ({ page }) => {
         // Arrange
         const modalCustomFooterPage = new ModalCustomFooterPage(page);
 
         await modalCustomFooterPage.load();
 
         // Assert
-        await expect(modalCustomFooterPage.footerLocator).toBeVisible();
+        await expect(modalCustomFooterPage.footerLocator).not.toBeVisible();
+    });
+
+    test('should have the slot `footer` available', async ({ page }) => {
+        // Arrange
+        const modalCustomFooterPage = new ModalCustomFooterPage(page);
+
+        await modalCustomFooterPage.load();
+
+        // Act
+        const slotLocator = modalCustomFooterPage.footerSlotLocator;
+
+        // Assert
+        await expect(slotLocator).toBeVisible();
     });
 
     test('should have the content assigned to the slot', async ({ page }) => {
@@ -766,7 +779,7 @@ test.describe('when the `footer` slot is assigned', () => {
         await modalCustomFooterPage.load();
 
         // Act
-        const slotLocator = page.locator('pie-modal [slot="footer"]');
+        const slotLocator = modalCustomFooterPage.footerSlotLocator;
         const textContent = await slotLocator.textContent();
 
         // Assert
