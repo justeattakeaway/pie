@@ -12,7 +12,7 @@ shouldShowContents: true
 
 You can follow this decision tree to choose the most appropriate UI component based on the specific context, importance, and user interaction requirements of your product interface.
 
-You can take a closer look at this in our [overlay patterns](https://www.figma.com/design/Rqz8KHogVsGCS4j0nDueNo/branch/OsUnZnAk7zDlRrpFGmYn5O/%5BCore%5D-Patterns-%5BPIE-3%5D?node-id=3665-12671&t=J8Ps6EMJaR9MPVKG-0) file.
+You can take a closer look at this in our [overlay patterns](https://www.figma.com/design/Rqz8KHogVsGCS4j0nDueNo/%5BCore%5D-Patterns-%5BPIE-3%5D?node-id=3196-366) file.
 
 
 {% contentPageImage {
@@ -30,7 +30,7 @@ A modal is a surface that overlays the page’s main content and is used to disp
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/%5BCore%5D-Web-Component-Documentation-%5BPIE-3%5D?node-id=1-65348&p=f&t=SAb5lSzmAE0RMOQ4-0) for this component."
+  message: "Check out our [full documentation](https://pie.design/components/modal/) for this component."
 } %}
 
 {% contentPageImage {
@@ -67,7 +67,7 @@ A popover is a small overlay that appears above content, offering extra informat
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/%5BCore%5D-Web-Component-Documentation-%5BPIE-3%5D?node-id=9391-12586&t=qSBfh74KWq5laEpy-0) for this component."
+  message: "Check out our [full documentation](https://pie.design/components/popover/) for this component."
 } %}
 
 {% contentPageImage {
@@ -102,7 +102,7 @@ A toast shows short updates about app processes at the bottom of the screen.
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/%5BCore%5D-Web-Component-Documentation-%5BPIE-3%5D?node-id=8377-10417&t=WBREJlQq4ofMOF8a-0) for this component."
+  message: "Check out our [full documentation](https://pie.design/components/toast/) for this component."
 } %}
 
 {% contentPageImage {
@@ -138,7 +138,7 @@ A tooltip is a contextual message that appears when users interact with an eleme
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "Check out our [full documentation](https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/%5BCore%5D-Web-Component-Documentation-%5BPIE-3%5D?node-id=1186-14944&t=n1ZaunFqJCzr1gE2-0) for this component."
+  message: "Check out our [full documentation](https://pie.design/components/tooltip/) for this component."
 } %}
 
 {% contentPageImage {
