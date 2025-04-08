@@ -1,5 +1,45 @@
 # Changelog
 
+## 5.9.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2311](https://github.com/justeattakeaway/pie/pull/2311)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Benefits
+
+  - loyalty-card-large
+  - loyalty-card
+
+- [Added] - Icons ([#2309](https://github.com/justeattakeaway/pie/pull/2309)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Payment
+
+  - payconiq
+
+  ## UEFA
+
+  - ball-large
+  - ball
+  - fan-festival-large
+  - fan-festival
+  - match-ball-large
+  - match-ball
+  - referee-large
+  - referee
+  - score-large
+  - score
+  - shirt-uniform-large
+  - shirt-uniform
+  - spectators-large
+  - spectators
+  - stadium-large
+  - stadium
+  - ticket-large
+  - ticket
+  - trophy-large
+  - trophy
+
 ## 5.8.0
 
 ### Minor Changes

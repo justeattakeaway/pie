@@ -225,12 +225,16 @@
                     "displayName": "Gift"
                 },
                 {
+                    "name": "gift-card",
+                    "displayName": "Gift Card"
+                },
+                {
                     "name": "gift-filled",
                     "displayName": "Gift Filled"
                 },
                 {
-                    "name": "gift-card",
-                    "displayName": "Gift Card"
+                    "name": "loyalty-card",
+                    "displayName": "Loyalty Card"
                 },
                 {
                     "name": "meal-voucher",
@@ -1714,6 +1718,11 @@
                     "oneSize": true
                 },
                 {
+                    "name": "payconiq",
+                    "displayName": "Payconiq",
+                    "oneSize": true
+                },
+                {
                     "name": "rabobank",
                     "displayName": "Rabobank",
                     "oneSize": true
@@ -2404,6 +2413,52 @@
                 {
                     "name": "world",
                     "displayName": "World"
+                }
+            ]
+        },
+        {
+            "name": "uefa",
+            "displayName": "UEFA",
+            "icons": [
+                {
+                    "name": "ball",
+                    "displayName": "Ball"
+                },
+                {
+                    "name": "fan-festival",
+                    "displayName": "Fan Festival"
+                },
+                {
+                    "name": "match-ball",
+                    "displayName": "Match Ball"
+                },
+                {
+                    "name": "referee",
+                    "displayName": "Referee"
+                },
+                {
+                    "name": "score",
+                    "displayName": "Score"
+                },
+                {
+                    "name": "shirt-uniform",
+                    "displayName": "Shirt Uniform"
+                },
+                {
+                    "name": "spectators",
+                    "displayName": "Spectators"
+                },
+                {
+                    "name": "stadium",
+                    "displayName": "Stadium"
+                },
+                {
+                    "name": "ticket",
+                    "displayName": "Ticket"
+                },
+                {
+                    "name": "trophy",
+                    "displayName": "Trophy"
                 }
             ]
         }
