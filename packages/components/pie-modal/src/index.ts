@@ -109,8 +109,6 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
     @query('dialog')
     private _dialog!: HTMLDialogElement;
 
-    @queryAssignedElements({ slot: 'footer', flatten: true }) _footerSlotNodes!: Array<HTMLElement>;
-
     private _backButtonClicked = false;
 
     private _abortController!: AbortController;
@@ -334,10 +332,6 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
         }
     }
 
-    private _handleFooterSlotChange () {
-        this.requestUpdate();
-    }
-
     /**
      * Template for the close button element. Called within the
      * main render function.
@@ -466,7 +460,7 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
             </footer>` : nothing;
 
         return html`
-            <slot name="footer" @slotchange=${this._handleFooterSlotChange}>
+            <slot name="footer">
                 ${footerContent}
             </slot>`;
     }
