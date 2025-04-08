@@ -90,8 +90,7 @@ Borders are an optional addition to message colours than can be used for multipl
     dont: {
         type: usageTypes.text,
         items: [
-            "Don’t use the same colour for both the user’s messages and the correspondent’s. Ensure there are clear visual differences to help the user easily distinguish between them.",
-            "Don’t use multiple colours."
+            "Don’t apply borders to messages that provide a high contrast against the background."
         ]
     }
 } %}
@@ -187,14 +186,18 @@ Outlines the atomic level interactive elements for the component.
   {% contentItem %}
   **Default**
     {% contentPageImage {
-      src: "../../../assets/img/patterns/messaging-and-chatbots/interactive-states-container1.svg",
+      src: "../../../assets/img/patterns/messaging-and-chatbots/interactive-states-default.svg",
+      variant: "secondary",
+      width:150,
       alt: ""
     } %}
   {% endcontentItem %}
   {% contentItem %}
     **Hover**
     {% contentPageImage {
-      src: "../../../assets/img/patterns/messaging-and-chatbots/interactive-states-container2.svg",
+      src: "../../../assets/img/patterns/messaging-and-chatbots/interactive-states-hover.svg",
+      variant: "secondary",
+      width:150,
       alt: ""
     } %}
   {% endcontentItem %}
@@ -204,14 +207,18 @@ Outlines the atomic level interactive elements for the component.
   {% contentItem %}
   **Active**
     {% contentPageImage {
-      src: "../../../assets/img/patterns/messaging-and-chatbots/image-container-active-1.svg",
+      src: "../../../assets/img/patterns/messaging-and-chatbots/interactive-states-active.svg",
+      variant: "secondary",
+      width:150,
       alt: ""
     } %}
   {% endcontentItem %}
   {% contentItem %}
     **Focus**
     {% contentPageImage {
-      src: "../../../assets/img/patterns/messaging-and-chatbots/image-container-active-2.svg",
+      src: "../../../assets/img/patterns/messaging-and-chatbots/interactive-states-focus.svg",
+      variant: "secondary",
+      width:150,
       alt: ""
     } %}
   {% endcontentItem %}
@@ -221,7 +228,9 @@ Outlines the atomic level interactive elements for the component.
 {% contentItem %}
     **Disabled**
     {% contentPageImage {
-      src: "../../../assets/img/patterns/messaging-and-chatbots/image-container-disabled.svg",
+      src: "../../../assets/img/patterns/messaging-and-chatbots/interactive-states-disabled.svg",
+      variant: "secondary",
+      width:150,
       alt: ""
     } %}
   {% endcontentItem %}
@@ -244,7 +253,7 @@ Consider including the correspondent's name as message metadata based on the use
 
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/metadata-first-name.svg",
-      width: "300px",
+      width: "150px",
       variant:"secondary",
       alt: ""
     } %}
@@ -258,8 +267,7 @@ Consider including the correspondent's name as message metadata based on the use
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/metadata-first-last-name.svg",
       variant:"secondary",
-      width:300,
-
+      width: "150px",
       alt: ""
     } %}
   {% endcontentItem %}
@@ -270,7 +278,7 @@ Consider including the correspondent's name as message metadata based on the use
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/metadata-restaurant-name.svg",
       variant:"secondary",
-      width:300,
+      width:"150px",
       alt: ""
     } %}
   {% endcontentItem %}
@@ -290,7 +298,7 @@ Consider including the message’s date and time in the metadata, for both the u
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/date-timestamp-message.svg",
       variant:"secondary",
-      width:300,
+      width:135,
       alt: ""
     } %}
   {% endcontentItem %}
@@ -303,7 +311,7 @@ Consider including the message’s date and time in the metadata, for both the u
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/timestamp-message.svg",
       variant:"secondary",
-      width:300,
+      width:135,
       alt: ""
     } %}
   {% endcontentItem %}
@@ -319,7 +327,7 @@ Different UI kits position metadata in various locations relative to individual 
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/placement-below.svg",
       variant:"secondary",
-      width:300,
+      width:235,
       alt: ""
     } %}
   {% endcontentItem %}
@@ -330,7 +338,7 @@ Different UI kits position metadata in various locations relative to individual 
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/placement-above.svg",
       variant:"secondary",
-      width:300,
+      width:235,
       alt: ""
     } %}
   {% endcontentItem %}
@@ -362,7 +370,7 @@ Various avatar variants are provided to cater for different correspondent types,
 
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/avatar-variants-ai-assistant.svg",
-      width:300,
+      width:"56px",
       alt: ""
     } %}
   {% endcontentItem %}
@@ -372,7 +380,7 @@ Various avatar variants are provided to cater for different correspondent types,
 
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/avatar-variants-agent.svg",
-      width:300,
+      width:"56px",
       alt: ""
     } %}
   {% endcontentItem %}
@@ -382,7 +390,7 @@ Various avatar variants are provided to cater for different correspondent types,
 
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/avatar-variants-initial.svg",
-      width:300,
+      width:"56px",
       alt: ""
     } %}
   {% endcontentItem %}
@@ -392,7 +400,7 @@ Various avatar variants are provided to cater for different correspondent types,
 
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/avatar-variants-courier.svg",
-      width:300,
+      width:"185px",
       alt: ""
     } %}
   {% endcontentItem %}
@@ -402,7 +410,7 @@ Various avatar variants are provided to cater for different correspondent types,
 
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/avatar-variants-partner.svg",
-      width:300,
+      width:"56px",
       alt: ""
     } %}
   {% endcontentItem %}
