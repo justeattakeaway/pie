@@ -143,6 +143,8 @@
     "patterns/messaging-and-chatbots",
     "patterns/messaging-and-chatbots/guidance",
     "patterns/overlay-patterns",
+    "patterns/overlay-patterns/android-guidance",
+    "patterns/overlay-patterns/ios-guidance",
     "patterns/overlay-patterns/web-guidance",
     "support",
     "support/contact-us",
