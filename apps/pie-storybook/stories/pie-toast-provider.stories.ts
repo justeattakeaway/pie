@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 import { type Meta } from '@storybook/web-components';
 import { action } from '@storybook/addon-actions';
 
@@ -33,6 +33,13 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
                 summary: defaultProps.options,
             },
         },
+        zIndex: {
+            description: 'Defines the stacking order of the toast provider.',
+            control: 'text',
+            defaultValue: {
+                summary: '--dt-z-index-toast (6000)',
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -45,7 +52,7 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
 
 export default toastProviderStoryMeta;
 
-const Template = ({ options }: ToastProviderProps) => {
+const Template = ({ options, zIndex }: ToastProviderProps) => {
     const onQueueUpdate = (event: CustomEvent) => {
         const queueLength = document.querySelector('#queue-length-tag') as HTMLElement;
         if (queueLength) {
@@ -56,6 +63,7 @@ const Template = ({ options }: ToastProviderProps) => {
     return html`
     <pie-toast-provider 
         .options=${options} 
+        zIndex="${zIndex || nothing}"
         @pie-toast-provider-queue-update=${onQueueUpdate}>
     </pie-toast-provider>
 
