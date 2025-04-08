@@ -4,6 +4,7 @@ import { ModalFocusToSpecifiedElementPage } from 'test/helpers/page-object/pie-m
 import { ModalFocusToFirstMatchingElementPage } from 'test/helpers/page-object/pie-modal-focus-to-first-matching-element.page.ts';
 import { ModalScrollLockingPage } from 'test/helpers/page-object/pie-modal-scroll-locking.page.ts';
 import { ModalEmbeddedFormPage } from 'test/helpers/page-object/pie-modal-embedded-form.page.ts';
+import { ModalCustomFooterPage } from 'test/helpers/page-object/pie-modal-custom-footer.page.ts';
 import { type ModalProps, headingLevels } from '../../src/defs.ts';
 
 const sharedProps: ModalProps = {
@@ -745,4 +746,30 @@ test('should not close the modal when a form is submitted', async ({ page }) => 
 
     // Assert
     expect(isModalVisible).toBe(true);
+});
+
+test.describe('when the `footer` slot is assigned', () => {
+    test('the footer element should be visible', async ({ page }) => {
+        // Arrange
+        const modalCustomFooterPage = new ModalCustomFooterPage(page);
+
+        await modalCustomFooterPage.load();
+
+        // Assert
+        await expect(modalCustomFooterPage.footerLocator).toBeVisible();
+    });
+
+    test('should have the content assigned to the slot', async ({ page }) => {
+        // Arrange
+        const modalCustomFooterPage = new ModalCustomFooterPage(page);
+
+        await modalCustomFooterPage.load();
+
+        // Act
+        const slotLocator = page.locator('pie-modal [slot="footer"]');
+        const textContent = await slotLocator.textContent();
+
+        // Assert
+        expect(textContent?.trim()).toBe('Footer slotted content');
+    });
 });
