@@ -165,7 +165,7 @@ The recommended text is “Selected...”, but it can be modified if necessary w
     {% contentPageImage {
       src: "../../../assets/img/components/select-input/content-select-option-1.svg",
       width: 266,
-      alt: "Select input showing dropdown with the first option preselected."
+      alt: "A select input component with a Select placeholder"
     } %}
   {% endcontentItem %}
   {% contentItem %}
