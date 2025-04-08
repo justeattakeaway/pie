@@ -447,18 +447,11 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
      * @private
      */
     private renderModalFooter (): TemplateResult | typeof nothing {
-        const footerSlotEmpty = this._footerSlotNodes.length === 0;
-
-        if (!this.leadingAction?.text) {
+        const hasLeadingAction = this.leadingAction?.text;
+        if (!hasLeadingAction) {
             if (this.supportingAction?.text) {
                 console.warn('You cannot have a supporting action without a leading action. If you only need one button then use a leading action instead.');
             }
-        }
-
-        const slotContent = html`<slot name="footer" @slotchange=${this._handleFooterSlotChange}></slot>`;
-
-        if (footerSlotEmpty && !this.leadingAction?.text) {
-            return slotContent;
         }
 
         const footerClasses = {
@@ -466,13 +459,16 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
             'c-modal-footer--stackedActions': this.hasStackedActions,
         };
 
-        const footerContent = footerSlotEmpty ? html`${this.renderLeadingAction()}${this.renderSupportingAction()}` : nothing;
+        const footerContent = hasLeadingAction ? html`
+            <footer class="${classMap(footerClasses)}" data-test-id="pie-modal-footer">
+                ${this.renderLeadingAction()}
+                ${this.renderSupportingAction()}
+            </footer>` : nothing;
 
         return html`
-            <footer class="${classMap(footerClasses)}" data-test-id="pie-modal-footer">
+            <slot name="footer" @slotchange=${this._handleFooterSlotChange}>
                 ${footerContent}
-                ${slotContent}
-            </footer>`;
+            </slot>`;
     }
 
     /**

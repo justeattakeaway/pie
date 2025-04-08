@@ -332,7 +332,7 @@ const CustomFooterStoryTemplate = (props: ModalProps) => {
                 @pie-modal-back="${backClickAction}">
                     ${sanitizeAndRenderHTML(slot)}
                     <div slot="footer">
-                        <div id="custom-footer">Footer slotted content</div>
+                        <div id="custom-footer" style="padding: var(--dt-spacing-e);">Footer slotted content</div>
                     </div>
                 </pie-modal>`;
 };
