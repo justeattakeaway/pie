@@ -4188,6 +4188,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-list@0.0.0, @justeattakeaway/pie-list@workspace:packages/components/pie-list":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-list@workspace:packages/components/pie-list"
+  dependencies:
+    "@custom-elements-manifest/analyzer": 0.9.0
+    "@justeattakeaway/pie-components-config": 0.20.0
+    "@justeattakeaway/pie-css": 0.16.0
+    "@justeattakeaway/pie-monorepo-utils": 0.5.0
+    "@justeattakeaway/pie-webc-core": 0.25.1
+    cem-plugin-module-file-extensions: 0.0.5
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-lottie-player@0.1.1, @justeattakeaway/pie-lottie-player@workspace:packages/components/pie-lottie-player":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-lottie-player@workspace:packages/components/pie-lottie-player"
@@ -4447,6 +4460,7 @@ __metadata:
     "@justeattakeaway/pie-form-label": 0.15.1
     "@justeattakeaway/pie-icon-button": 1.4.2
     "@justeattakeaway/pie-link": 1.1.1
+    "@justeattakeaway/pie-list": 0.0.0
     "@justeattakeaway/pie-lottie-player": 0.1.1
     "@justeattakeaway/pie-modal": 1.6.0
     "@justeattakeaway/pie-notification": 0.13.2
@@ -20892,6 +20906,7 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": 4.5.1
     "@justeattakeaway/pie-icons-webc": 1.7.0
     "@justeattakeaway/pie-link": 1.1.1
+    "@justeattakeaway/pie-list": 0.0.0
     "@justeattakeaway/pie-lottie-player": 0.1.1
     "@justeattakeaway/pie-modal": 1.6.0
     "@justeattakeaway/pie-monorepo-utils": 0.5.0
