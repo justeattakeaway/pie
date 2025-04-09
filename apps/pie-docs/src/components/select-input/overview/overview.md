@@ -71,7 +71,7 @@ Select inputs consist of a clickable area that, when activated, displays the ava
         "**Checkmark:** Used to indicate that an option has been selected.",
         "**Select option (Optional):** Allows the user to deselect an existing choice.",
         "**Option:** These represent the available selections that the user can choose from.",
-        "**Option group:** A way to organize related options into logical categories."
+        "**Option group:** A way to organise related options into logical categories."
     ]
 } %}
 
@@ -89,11 +89,11 @@ Select inputs consist of a clickable area that, when activated, displays the ava
 
 ### Grouped options
 
-Organizing options into logical categories can help users better understand the content within the select input.
+Organising options into logical categories can help users better understand the content within the select input.
 
 {% contentPageImage {
     src:"../../../assets/img/components/select-input/variations-grouped-options.svg",
-    alt: "Select input with options organized into logical groups for better categorization.",
+    alt: "Select input with options organised into logical groups for better categorization.",
     width: 544
 } %}
 
@@ -165,7 +165,7 @@ The recommended text is “Selected...”, but it can be modified if necessary w
     {% contentPageImage {
       src: "../../../assets/img/components/select-input/content-select-option-1.svg",
       width: 266,
-      alt: "Select input showing dropdown with the first option preselected."
+      alt: "A select input component with a Select placeholder."
     } %}
   {% endcontentItem %}
   {% contentItem %}
