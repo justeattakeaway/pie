@@ -68,6 +68,7 @@
     "components/rating",
     "components/segmented-controls",
     "components/select-input",
+    "components/select-input/code",
     "components/show-more",
     "components/side-sheet",
     "components/skeleton",
