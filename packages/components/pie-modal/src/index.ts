@@ -3,7 +3,7 @@ import {
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { html, unsafeStatic } from 'lit/static-html.js';
-import { property, query, queryAssignedElements } from 'lit/decorators.js';
+import { property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
