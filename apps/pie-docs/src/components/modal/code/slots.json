@@ -1,0 +1,19 @@
+{
+  "headings": ["Slot", "Description"],
+  "rows": [
+      [
+          {
+              "type": "code",
+              "item": ["default"]
+          },
+          "The default slot is used to pass content into the modal component."
+      ],
+      [
+          {
+              "type": "code",
+              "item": ["footer"]
+          },
+          "Used to pass optional content to the modal component footer area."
+      ]
+  ]
+}

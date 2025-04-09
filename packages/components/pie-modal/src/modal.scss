@@ -155,6 +155,11 @@
         }
     }
 
+    ::slotted([slot="footer"]) {
+        display: flex;
+        width: 100%;
+    }
+
     & .c-modal-header {
         display: grid;
         grid-template-areas: 'back heading close';
@@ -261,10 +266,9 @@
         padding-block-end: var(--modal-content-padding-block-end); // We require a larger bottom padding when there's no footer
         flex-grow: 1;
 
-        // If the footer is rendered, the modal content is not the last child
-        &:not(:last-child) {
-          padding-block-end: var(--modal-content-padding-block);
-          min-block-size: var(--modal-content-min-block-size);
+        &:has(+ slot > footer) {
+            padding-block-end: var(--modal-content-padding-block);
+            min-block-size: var(--modal-content-min-block-size);
         }
 
         &--scrollable {
