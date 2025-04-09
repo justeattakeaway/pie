@@ -133,7 +133,6 @@ Messages sent in quick succession can be grouped to show users they are connecte
 
 The spacing between individual messages is reduced to ensure they are visually tied together, and only the last message in a sequence retains its tail, while the others do not.
 
-
 {% contentPageImage {
   src:"../../../../assets/img/patterns/messaging-and-chatbots/groups-variants.svg",
   variant: "secondary",
@@ -263,7 +262,6 @@ Consider including the correspondent's name as message metadata based on the use
    <h4> First + last name </h4>
    <p> Using both first and last names in metadata enhances identification, professionalism, record-keeping, and personalised communication, particularly in contexts where accuracy and clarity are important. </p>
 
-
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/metadata-first-last-name.svg",
       variant:"secondary",
@@ -294,7 +292,6 @@ Consider including the message’s date and time in the metadata, for both the u
    <h4> Date & timestamp </h4>
    <p> Using both the timestamp and date provides precise tracking of when interactions occurred, which is crucial for context. </p>
 
-
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/date-timestamp-message.svg",
       variant:"secondary",
@@ -306,7 +303,6 @@ Consider including the message’s date and time in the metadata, for both the u
   {% contentItem %}
    <h4> Timestamp </h4>
    <p> Using just the timestamp ensures precise tracking of interactions and response times, for conversations lasting less than a day. </p>
-
 
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/timestamp-message.svg",
@@ -334,7 +330,6 @@ Different UI kits position metadata in various locations relative to individual 
 
   {% contentItem %}
    <h4> Above </h4>
-
     {% contentPageImage {
       src: "../../../assets/img/patterns/messaging-and-chatbots/placement-above.svg",
       variant:"secondary",
@@ -343,7 +338,6 @@ Different UI kits position metadata in various locations relative to individual 
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
-
 
 ---
 
@@ -512,6 +506,7 @@ Single coloured backgrounds help messages stand out clearly and keep them as the
 Copy across chatbots and messaging services can impact how users perceive the experience. To ensure the tone of voice and content being proposed is suitable, reach out the product copywriting team for their expertise.
 
 ---
+
 ## Examples 
 
 Outlines the atomic level interactive elements for the component.

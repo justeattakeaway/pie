@@ -13,8 +13,6 @@ Messaging services facilitate the exchange of text, media, and information acros
 
 Chatbots, powered by AI, simulate human conversations and allow users to request information on-demand using natural language. They should provide helpful and reliable responses that address the user's question or task.
 
----
-
 {% contentPageImage {
   src:"../../../../assets/img/patterns/messaging-and-chatbots/interactive-overview-messaging-and-chatbots.svg",
   alt: ""
