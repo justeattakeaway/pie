@@ -33,7 +33,7 @@
           "boolean"
         ]
       },
-      "Same as the HTML disabled attribute - indicates whether the select is disabled.",
+      "Whether the select is disabled.",
       {
         "type": "code",
         "item": [
