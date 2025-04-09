@@ -71,7 +71,7 @@ Select inputs consist of a clickable area that, when activated, displays the ava
         "**Checkmark:** Used to indicate that an option has been selected.",
         "**Select option (Optional):** Allows the user to deselect an existing choice.",
         "**Option:** These represent the available selections that the user can choose from.",
-        "**Option group:** A way to organize related options into logical categories."
+        "**Option group:** A way to organise related options into logical categories."
     ]
 } %}
 
