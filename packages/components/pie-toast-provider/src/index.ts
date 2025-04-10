@@ -133,9 +133,9 @@ export class PieToastProvider extends RtlMixin(PieElement) implements ToastProvi
 
         return html`
         <div 
-        class="c-toast-provider" 
-        data-test-id="pie-toast-provider" 
-        style="${styles}">
+            class="c-toast-provider" 
+            data-test-id="pie-toast-provider" 
+            style="${styles}">
             ${_currentToast &&
                 html`
                 <pie-toast
