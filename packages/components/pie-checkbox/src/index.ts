@@ -42,7 +42,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implemen
     @property({ type: String })
     public value = defaultProps.value;
 
-    @property({ type: String })
+    @property({ type: String, reflect: true })
     public name: CheckboxProps['name'];
 
     @property({ type: Boolean, reflect: true })
