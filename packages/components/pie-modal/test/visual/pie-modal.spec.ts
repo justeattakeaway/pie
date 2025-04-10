@@ -3,6 +3,7 @@ import percySnapshot from '@percy/playwright';
 import { type ModalProps, sizes, positions } from '../../src/defs.ts';
 import { ModalDefaultPage } from '../helpers/page-object/pie-modal-default.page.ts';
 import { ModalLargeTextContentPage } from '../helpers/page-object/pie-modal-large-text-content.page.ts';
+import { ModalCustomFooterPage } from '../helpers/page-object/pie-modal-custom-footer.page.ts';
 
 const sharedProps: ModalProps = {
     heading: 'This is a modal heading',
@@ -275,6 +276,7 @@ test.describe('Prop: `leadingAction`', () => {
             const props: ModalProps = {
                 ...sharedProps,
                 isOpen: true,
+                leadingAction: undefined,
             };
 
             await modalDefaultPage.load(props);
@@ -479,5 +481,19 @@ test.describe('Prop: `hasStackedActions`', () => {
               await percySnapshot(page, `Modal - hasStackedActions = true, size = ${size}`);
           });
       });
+    });
+});
+
+test.describe('Slot: `footer`', () => {
+    test.describe('is assigned', () => {
+        test('should display the "footer" slot content in the modal footer', async ({ page }) => {
+            const modalCustomFooterPage = new ModalCustomFooterPage(page);
+            const props:ModalProps = { ...sharedProps };
+            await modalCustomFooterPage.load(props);
+
+            await expect.soft(modalCustomFooterPage.modalComponent.componentLocator).toBeVisible();
+
+            await percySnapshot(page, 'Modal - has footer slot content');
+        });
     });
 });

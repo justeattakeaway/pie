@@ -38,7 +38,7 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(PieElement)) imp
     @state()
     private _hasLabel = false;
 
-    @property({ type: String })
+    @property({ type: String, reflect: true })
     public name: CheckboxGroupProps['name'];
 
     @property({ type: String })

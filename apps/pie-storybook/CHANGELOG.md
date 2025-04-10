@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.31.0
+
+### Minor Changes
+
+- [Added] - new pie-modal story featuring the usage of the new footer slot ([#2315](https://github.com/justeattakeaway/pie/pull/2315)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- Updated dependencies [[`a70523e`](https://github.com/justeattakeaway/pie/commit/a70523eecf62adde827093bb53d4104f84513d29)]:
+  - @justeattakeaway/pie-modal@1.6.0
+  - @justeattakeaway/pie-cookie-banner@1.5.3
+
 ## 1.30.2
 
 ### Patch Changes

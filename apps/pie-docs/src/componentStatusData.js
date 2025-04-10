@@ -1592,7 +1592,8 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            link: 'https://webc.pie.design/?path=/story/select--default',
+            status: webComponentStatuses['pie-select'],
         },
         {
             resource: resourceTypes.VUE,

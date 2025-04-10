@@ -281,6 +281,55 @@ const FocusableElementsPageStoryTemplate = (props: ModalProps) => html`
     ${BaseStoryTemplate(props)}
     ${createFocusableElementsPageHTML()}`;
 
+const CustomFooterStoryTemplate = (props: ModalProps) => {
+    const {
+        aria,
+        hasBackButton,
+        hasStackedActions,
+        heading,
+        headingLevel,
+        isDismissible,
+        isFooterPinned,
+        isFullWidthBelowMid,
+        isLoading,
+        isOpen,
+        leadingAction,
+        position,
+        returnFocusAfterCloseSelector,
+        size,
+        slot,
+        supportingAction,
+    } = props;
+    return html`
+        <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
+        <pie-modal
+            .aria="${aria}"
+            heading="${heading}"
+            headingLevel="${ifDefined(headingLevel)}"
+            ?hasBackButton="${hasBackButton}"
+            ?hasStackedActions="${hasStackedActions}"
+            ?isDismissible="${isDismissible}"
+            ?isFooterPinned="${isFooterPinned}"
+            ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+            ?isLoading="${isLoading}"
+            ?isOpen="${isOpen}"
+            .leadingAction=${leadingAction}
+            position="${ifDefined(position)}"
+            returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
+            size="${ifDefined(size)}"
+            .supportingAction="${supportingAction}"
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}"
+            @pie-modal-back="${backClickAction}"
+            @pie-modal-leading-action-click="${leadingClickAction}"
+            @pie-modal-supporting-action-click="${supportingClickAction}">
+                ${sanitizeAndRenderHTML(slot)}
+                <div slot="footer">
+                    <div id="custom-footer" style="padding: var(--dt-spacing-e);">Footer slotted content</div>
+                </div>
+            </pie-modal>`;
+};
+
 const createBaseModalStory = createStory<ModalProps>(BaseStoryTemplate, defaultArgs);
 
 export const Default = createBaseModalStory();
@@ -311,3 +360,5 @@ export const LargeTextContent = createBaseModalStory({
     Ullam accusamus porro cumque, assumenda eligendi quos optio qui architecto perspiciatis quaerat error iusto, quae, aspernatur libero nemo. Possimus deserunt laudantium velit, aut mollitia molestiae id atque voluptatibus eum earum.
     Placeat, ad! Quidem error aliquam atque aut, voluptates voluptatibus cumque quia? Laboriosam ab mollitia laborum maxime numquam similique eveniet quaerat? Et, nemo natus officia cum hic adipisci doloremque! Quia, delectus.`,
 });
+
+export const CustomFooter = createStory<ModalProps>(CustomFooterStoryTemplate, defaultArgs)();

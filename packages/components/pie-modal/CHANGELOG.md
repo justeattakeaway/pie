@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 1.6.0
+
+### Minor Changes
+
+- [Added] - slot allowing to display custom footer content ([#2315](https://github.com/justeattakeaway/pie/pull/2315)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.5.2
 
 ### Patch Changes
