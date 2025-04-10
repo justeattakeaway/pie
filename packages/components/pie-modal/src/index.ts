@@ -53,6 +53,8 @@ export interface ModalEventDetail {
  * @event {CustomEvent} pie-modal-back - when the modal back button is clicked.
  * @event {CustomEvent} pie-modal-leading-action-click - when the modal leading action is clicked.
  * @event {CustomEvent} pie-modal-supporting-action-click - when the modal supporting action is clicked.
+ * @slot footer - The footer slot
+ * @slot - Default slot
  */
 export class PieModal extends RtlMixin(PieElement) implements ModalProps {
     @property({ type: Object })
@@ -439,11 +441,11 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
      * @private
      */
     private renderModalFooter (): TemplateResult | typeof nothing {
-        if (!this.leadingAction?.text) {
+        const hasLeadingAction = this.leadingAction?.text;
+        if (!hasLeadingAction) {
             if (this.supportingAction?.text) {
                 console.warn('You cannot have a supporting action without a leading action. If you only need one button then use a leading action instead.');
             }
-            return nothing;
         }
 
         const footerClasses = {
@@ -451,11 +453,16 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
             'c-modal-footer--stackedActions': this.hasStackedActions,
         };
 
-        return html`
+        const footerContent = hasLeadingAction ? html`
             <footer class="${classMap(footerClasses)}" data-test-id="pie-modal-footer">
                 ${this.renderLeadingAction()}
                 ${this.renderSupportingAction()}
-            </footer>`;
+            </footer>` : nothing;
+
+        return html`
+            <slot name="footer">
+                ${footerContent}
+            </slot>`;
     }
 
     /**

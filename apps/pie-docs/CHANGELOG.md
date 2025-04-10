@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.31.0
+
+### Minor Changes
+
+- [Added] - the code section of the select component ([#2316](https://github.com/justeattakeaway/pie/pull/2316)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - the overview section of the select component ([#2312](https://github.com/justeattakeaway/pie/pull/2312)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - Modal code documentation for footer slot ([#2315](https://github.com/justeattakeaway/pie/pull/2315)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 4.30.2
 
 ### Patch Changes
