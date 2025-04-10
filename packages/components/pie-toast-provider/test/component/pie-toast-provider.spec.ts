@@ -147,7 +147,7 @@ test.describe('PieToastProvider - Component tests', () => {
         });
 
         test.describe('zIndex', () => {
-            test('should not apply the name attribute on the toast provider element if not provided', async ({ page }) => {
+            test('should not apply the attribute on the toast provider element if not provided', async ({ page }) => {
                 // Arrange
                 const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
                 await pieToastProviderPage.load();
@@ -159,7 +159,7 @@ test.describe('PieToastProvider - Component tests', () => {
                 await expect(toastProviderElement).not.toHaveAttribute('zIndex');
             });
 
-            test('should apply the name attribute on the toast provider element', async ({ page }) => {
+            test('should apply the attribute on the toast provider element', async ({ page }) => {
                 // Arrange
                 const props: Partial<PieToastProvider> = {
                     zIndex: 2000,
