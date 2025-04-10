@@ -1,0 +1,91 @@
+{
+  "title": "Option Properties",
+  "headings": [
+    "Prop",
+    "Options",
+    "Description",
+    "Default"
+  ],
+  "rows": [
+    [
+      "tag",
+      {
+        "type": "code",
+        "item": [
+          "\"option\""
+        ]
+      },
+      "Must be `option` to identify this as an option.",
+      {
+        "type": "code",
+        "item": [
+          "undefined"
+        ]
+      }
+    ],
+    [
+      "text",
+      {
+        "type": "code",
+        "item": [
+          "string"
+        ]
+      },
+      "The text to display for the option.",
+      {
+        "type": "code",
+        "item": [
+          "undefined"
+        ]
+      }
+    ],
+    [
+      "value",
+      {
+        "type": "code",
+        "item": [
+          "string"
+        ]
+      },
+      "The value for the option.",
+      {
+        "type": "code",
+        "item": [
+          "undefined"
+        ]
+      }
+    ],
+    [
+      "disabled",
+      {
+        "type": "code",
+        "item": [
+          "boolean"
+        ]
+      },
+      "Whether the option is disabled.",
+      {
+        "type": "code",
+        "item": [
+          "false"
+        ]
+      }
+    ],
+    [
+      "selected",
+      {
+        "type": "code",
+        "item": [
+          "boolean"
+        ]
+      },
+      "Whether the option is selected by default.",
+      {
+        "type": "code",
+        "item": [
+          "false"
+        ]
+      }
+    ]
+  ]
+}

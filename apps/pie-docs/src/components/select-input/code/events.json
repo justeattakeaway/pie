@@ -1,0 +1,18 @@
+{
+  "title": "Events",
+  "headings": [
+    "Event",
+    "Description"
+  ],
+  "rows": [
+    [
+      {
+        "type": "code",
+        "item": [
+          "change"
+        ]
+      },
+      "Fires when the selected option is changed."
+    ]
+  ]
+}

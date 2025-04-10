@@ -40,7 +40,7 @@ export class PieRadio extends FormControlMixin(RtlMixin(PieElement)) implements 
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
 
-    @property({ type: String })
+    @property({ type: String, reflect: true })
     public name: RadioProps['name'];
 
     @property({ type: Boolean, reflect: true })
