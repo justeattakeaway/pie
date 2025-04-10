@@ -65,7 +65,7 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
         const linkVariant = this.scrim ? 'inverse' : 'default';
 
         return html`
-            <pie-link variant="${linkVariant}" isStandalone="true" underline="reversed" isBold="true" href="${item.href}">
+            <pie-link variant="${linkVariant}" isStandalone underline="reversed" isBold href="${item.href}">
                 ${item.label}
             </pie-link>
         `;
