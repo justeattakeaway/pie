@@ -9,4 +9,4 @@
 "@justeattakeaway/pie-radio": patch
 ---
 
-[Added] = reflect the name attribute
+[Added] - reflect the name attribute
