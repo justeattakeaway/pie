@@ -60,7 +60,7 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
     @property({ type: String })
     public assistiveText: SelectProps['assistiveText'];
 
-    @property({ type: String })
+    @property({ type: String, reflect: true })
     public name: SelectProps['name'];
 
     @property({ type: Array })

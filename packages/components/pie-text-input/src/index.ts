@@ -44,7 +44,7 @@ export class PieTextInput extends FormControlMixin(RtlMixin(PieElement)) impleme
     @property({ type: String })
     public value = defaultProps.value;
 
-    @property({ type: String })
+    @property({ type: String, reflect: true })
     public name: TextInputProps['name'];
 
     @property({ type: Boolean, reflect: true })
