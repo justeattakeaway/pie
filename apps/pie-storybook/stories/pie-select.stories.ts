@@ -54,7 +54,7 @@ const defaultArgs: SelectProps = {
 };
 
 const selectStoryMeta: SelectStoryMeta = {
-    title: 'Select',
+    title: 'Components/Select',
     component: 'pie-select',
     argTypes: {
         name: {
@@ -138,13 +138,13 @@ const Template: TemplateFunction<SelectProps> = ({
     return html`
         <pie-select
             id="${ifDefined(name)}"
-            name="${ifDefined(name)}"   
+            name="${ifDefined(name)}"
             ?disabled="${disabled}"
             size="${ifDefined(size)}"
             assistiveText="${ifDefined(assistiveText)}"
             status="${ifDefined(status)}"
             .options="${options}"
-            @change="${onChange}">   
+            @change="${onChange}">
                 ${showLeadingIcon ? html`<icon-placeholder slot="leadingIcon"></icon-placeholder>` : nothing}
         </pie-select>
     `;

@@ -39,7 +39,7 @@ const defaultArgs: CardProps = {
 };
 
 const cardStoryMeta: CardStoryMeta = {
-    title: 'Card',
+    title: 'Components/Card',
     component: 'pie-card',
     argTypes: {
         tag: {

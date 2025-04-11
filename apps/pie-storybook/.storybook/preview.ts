@@ -62,7 +62,15 @@ export default {
         options: {
             storySort: {
                 method: 'alphabetical',
-            }
+                order: [
+                    'Introduction',
+                    ['Welcome', 'Typography and styles', 'Form integration'],
+                    'Integration',
+                    ['React', 'Vue', 'Nuxt', 'NextJS', 'No framework'],
+                    'Contribution',
+                    'Components',
+                ],
+            },
         }
     }
 };
