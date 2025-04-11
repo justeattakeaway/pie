@@ -19,7 +19,7 @@ type TextareaStoryMeta = Meta<TextareaProps>;
 const defaultArgs: TextareaProps = { ...defaultProps, name: 'testName' };
 
 const textareaStoryMeta: TextareaStoryMeta = {
-    title: 'Textarea',
+    title: 'Components/Textarea',
     component: 'pie-textarea',
     argTypes: {
         disabled: {

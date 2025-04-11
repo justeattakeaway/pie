@@ -20,7 +20,7 @@ const defaultArgs: ToastProps = {
 };
 
 const toastStoryMeta: ToastStoryMeta = {
-    title: 'Toast',
+    title: 'Components/Toast',
     component: 'pie-toast',
     argTypes: {
         isOpen: {
@@ -115,7 +115,7 @@ const Template : TemplateFunction<ToastProps> = ({
             ?isDismissible="${isDismissible}"
             ?isStrong="${isStrong}"
             variant="${ifDefined(variant)}"
-            message="${message}" 
+            message="${message}"
             .duration="${duration}"
             ?isMultiline="${isMultiline}"
             .leadingAction="${leadingAction}"

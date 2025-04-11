@@ -25,7 +25,7 @@ const defaultArgs: TagProps = {
 };
 
 const tagStoryMeta: TagStoryMeta = {
-    title: 'Tag',
+    title: 'Components/Tag',
     component: 'pie-tag',
     argTypes: {
         variant: {
