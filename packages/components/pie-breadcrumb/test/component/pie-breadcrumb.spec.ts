@@ -5,14 +5,15 @@ import { type BreadcrumbProps, componentSelector } from 'src/defs';
 import {
     breadCrumbNavigationItemRole,
     breadCrumbSeparatorRole,
-    componentName,
     navigationItems,
 } from 'test/helpers';
+
+const storybookPath = 'breadcrumb--default';
 
 test.describe('PieBreadcrumb - Component tests', () => {
     test('should render successfully', async ({ page }) => {
         // Arrange
-        const basePage = new BasePage(page, componentName);
+        const basePage = new BasePage(page, storybookPath);
         const props: Partial<BreadcrumbProps> = {
             items: [navigationItems[0]],
         };
@@ -31,7 +32,7 @@ test.describe('PieBreadcrumb - Component tests', () => {
         test.describe('items', () => {
             test('should render navigation items', async ({ page }) => {
                 // Arrange
-                const basePage = new BasePage(page, componentName);
+                const basePage = new BasePage(page, storybookPath);
                 const props: Partial<BreadcrumbProps> = {
                     items: navigationItems,
                 };
@@ -56,7 +57,7 @@ test.describe('PieBreadcrumb - Component tests', () => {
         test.describe('variant', () => {
             test('should render default variant', async ({ page }) => {
                 // Arrange
-                const basePage = new BasePage(page, componentName);
+                const basePage = new BasePage(page, storybookPath);
                 const props: Partial<BreadcrumbProps> = {
                     items: navigationItems,
                     variant: 'default',
@@ -80,7 +81,7 @@ test.describe('PieBreadcrumb - Component tests', () => {
 
             test('should render back variant - only the last item is shown', async ({ page }) => {
                 // Arrange
-                const basePage = new BasePage(page, componentName);
+                const basePage = new BasePage(page, storybookPath);
                 const props: Partial<BreadcrumbProps> = {
                     items: navigationItems,
                     variant: 'back',
@@ -102,7 +103,7 @@ test.describe('PieBreadcrumb - Component tests', () => {
         test.describe('scrim', () => {
             test('should render in scrim mode', async ({ page }) => {
                 // Arrange
-                const basePage = new BasePage(page, componentName);
+                const basePage = new BasePage(page, storybookPath);
                 const props: Partial<BreadcrumbProps> = {
                     items: navigationItems,
                     scrim: true,

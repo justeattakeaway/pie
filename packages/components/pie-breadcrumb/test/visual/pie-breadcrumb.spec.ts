@@ -1,15 +1,17 @@
 import { test } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
-import { componentName, navigationItems } from 'test/helpers';
+import { navigationItems } from 'test/helpers';
 import { type BreadcrumbProps, variants } from 'src/defs';
 
 const readingDirections = ['ltr', 'rtl'];
 
+const storybookPath = 'breadcrumb--default';
+
 test.describe('PieBreadcrumb - Visual tests`', () => {
     test('should display the PieBreadcrumb component successfully', async ({ page }) => {
         // Arrange
-        const basePage = new BasePage(page, componentName);
+        const basePage = new BasePage(page, storybookPath);
         const props: Partial<BreadcrumbProps> = {
             items: [navigationItems[0]],
         };
@@ -23,7 +25,7 @@ test.describe('PieBreadcrumb - Visual tests`', () => {
 
     test('should display crop the text from the last item when the label is too long (bigger than 250px)', async ({ page }) => {
         // Arrange
-        const basePage = new BasePage(page, componentName);
+        const basePage = new BasePage(page, storybookPath);
         const props: Partial<BreadcrumbProps> = {
             items: [...navigationItems, { label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque eget velit quis mollis.', href: '#' }],
         };
@@ -38,7 +40,7 @@ test.describe('PieBreadcrumb - Visual tests`', () => {
     readingDirections.forEach((direction) => {
         test(`should render navigation items in writing direction: ${direction}`, async ({ page }) => {
             // Arrange
-            const selectVariationsPage = new BasePage(page, componentName);
+            const selectVariationsPage = new BasePage(page, storybookPath);
             const props: Partial<BreadcrumbProps> = {
                 items: navigationItems,
             };
@@ -53,7 +55,7 @@ test.describe('PieBreadcrumb - Visual tests`', () => {
     variants.forEach((variant) => {
         test(`should render PieBreadcrumb with variant: ${variant}`, async ({ page }) => {
             // Arrange
-            const selectVariationsPage = new BasePage(page, componentName);
+            const selectVariationsPage = new BasePage(page, storybookPath);
             const props: Partial<BreadcrumbProps> = {
                 items: navigationItems,
                 variant,
@@ -68,7 +70,7 @@ test.describe('PieBreadcrumb - Visual tests`', () => {
 
     test('should display scrim mode', async ({ page }) => {
         // Arrange
-        const selectVariationsPage = new BasePage(page, componentName);
+        const selectVariationsPage = new BasePage(page, storybookPath);
         const props: Partial<BreadcrumbProps> = {
             items: navigationItems,
             scrim: true,
