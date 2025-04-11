@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-radio
 
+## 0.10.2
+
+### Patch Changes
+
+- [Added] - reflect the name attribute ([#2320](https://github.com/justeattakeaway/pie/pull/2320)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.10.1
 
 ### Patch Changes
