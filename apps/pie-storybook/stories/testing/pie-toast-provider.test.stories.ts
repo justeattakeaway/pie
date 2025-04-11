@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-toast-provider';
@@ -23,6 +23,13 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
                 summary: defaultProps.options,
             },
         },
+        zIndex: {
+            description: 'Defines the stacking order of the toast provider.',
+            control: 'text',
+            defaultValue: {
+                summary: '--dt-z-index-toast (6000)',
+            },
+        },
     },
     args: defaultArgs,
 };
@@ -33,9 +40,10 @@ const onQueueUpdate = (queue: CustomEvent) => {
     console.info('toast provider queue:', queue.detail);
 };
 
-const Template = ({ options }: ToastProviderProps) => html`
+const Template = ({ options, zIndex }: ToastProviderProps) => html`
     <pie-toast-provider
         .options="${options}"
+        zIndex="${zIndex || nothing}"
         @pie-toast-provider-queue-update="${onQueueUpdate}">
     </pie-toast-provider>
 `;

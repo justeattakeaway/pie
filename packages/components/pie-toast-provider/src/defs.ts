@@ -39,11 +39,12 @@ export interface ToastProviderProps {
      * Default options for all toasts; accepts all toast props.
      */
     options?: Partial<ExtendedToastProps>;
+    zIndex?: number;
 }
 
 export type DefaultProps = ComponentDefaultProps<ToastProviderProps>;
 
-export const defaultProps: DefaultProps = {
+export const defaultProps: Omit<DefaultProps, 'zIndex'> = {
     options: {},
 };
 

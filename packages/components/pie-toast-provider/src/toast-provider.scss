@@ -4,10 +4,12 @@
 
 .c-toast-provider {
     --toast-provider-offset: var(--dt-spacing-d);
+    --toast-provider-z-index: var(--dt-z-index-toast);
 
     position: absolute;
     inset-inline-start: var(--toast-provider-offset);
     inset-block-end: var(--toast-provider-offset);
+    z-index: var(--toast-provider-z-index);
 
     @include media('>md') {
         --toast-offset: var(--dt-spacing-e);
