@@ -134,6 +134,16 @@
       "require": "./react/link.js",
       "types": "./react/link.d.ts"
     },
+    "./components/list.js": {
+      "import": "./components/list.js",
+      "require": "./components/list.js",
+      "types": "./components/list.d.ts"
+    },
+    "./react/list.js": {
+      "import": "./react/list.js",
+      "require": "./react/list.js",
+      "types": "./react/list.d.ts"
+    },
     "./components/lottie-player.js": {
       "import": "./components/lottie-player.js",
       "require": "./components/lottie-player.js",
@@ -303,6 +313,7 @@
     "@justeattakeaway/pie-form-label": "0.15.1",
     "@justeattakeaway/pie-icon-button": "1.4.2",
     "@justeattakeaway/pie-link": "1.1.1",
+    "@justeattakeaway/pie-list": "0.0.0",
     "@justeattakeaway/pie-lottie-player": "0.1.1",
     "@justeattakeaway/pie-modal": "1.6.0",
     "@justeattakeaway/pie-notification": "0.13.2",
