@@ -22,7 +22,7 @@ const defaultArgs: SwitchProps = {
 };
 
 const switchStoryMeta: SwitchStoryMeta = {
-    title: 'Switch',
+    title: 'Components/Switch',
     component: 'pie-switch',
     argTypes: {
         checked: {
