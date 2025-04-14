@@ -24,5 +24,3 @@ export const defaultProps: Pick<BreadcrumbProps, 'variant' | 'scrim'> = {
     scrim: false,
 };
 
-export const componentSelector = 'pie-breadcrumb';
-export const componentClass = 'c-breadcrumb';
