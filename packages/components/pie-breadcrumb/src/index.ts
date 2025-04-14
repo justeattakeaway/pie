@@ -37,10 +37,10 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
      */
     private renderSeparator () {
         return html`
-            <li 
-                role="presentation" 
+            <li
+                role="presentation"
                 aria-hidden="true"
-                class="c-breadcrumb-separator" 
+                class="c-breadcrumb-separator"
                 data-test-id="pie-breadcrumb-separator">
                     ${this.isRTL ? html`<icon-chevron-left></icon-chevron-left>` : html`<icon-chevron-right></icon-chevron-right>`}
             </li>

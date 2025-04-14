@@ -17,5 +17,3 @@ export const breadcrumbItems = [
         href: '#',
     },
 ];
-
-export * from './selectors';
