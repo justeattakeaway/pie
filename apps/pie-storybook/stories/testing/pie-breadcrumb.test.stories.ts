@@ -8,27 +8,45 @@ import { createStory } from '../../utilities';
 
 type BreadcrumbStoryMeta = Meta<BreadcrumbProps>;
 
-const defaultArgs: BreadcrumbProps = {};
+const defaultArgs: BreadcrumbProps = {
+    items: [
+        {
+            label: 'Breadcrumb 1',
+            href: '#',
+        },
+        {
+            label: 'Breadcrumb 2',
+            href: '#',
+        },
+        {
+            label: 'Breadcrumb 3',
+            href: '#',
+        },
+        {
+            label: 'Current Page',
+            href: '#',
+        },
+    ],
+};
 
 const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
     title: 'Breadcrumb',
     component: 'pie-breadcrumb',
-    argTypes: {},
-    args: defaultArgs,
-    parameters: {
-        design: {
-            type: 'figma',
-            url: '',
+    argTypes: {
+        items: {
+            description: 'The navigation items to display in the breadcrumb. Should be an array of objects containing `label` and `href` i.e: `{ label: \'homepage\', href: \'/\' }`',
+            control: 'object',
         },
     },
+    args: defaultArgs,
 };
 
 export default breadcrumbStoryMeta;
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
-const Template = ({}: BreadcrumbProps) => html`
-    <pie-breadcrumb></pie-breadcrumb>
+const Template = ({ items }: BreadcrumbProps) => html`
+    <pie-breadcrumb
+        .items="${items}">
+    </pie-breadcrumb>
 `;
 
 export const Default = createStory<BreadcrumbProps>(Template, defaultArgs)();

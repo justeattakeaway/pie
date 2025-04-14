@@ -49,8 +49,6 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
 
 export default breadcrumbStoryMeta;
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
 const Template = ({ items }: BreadcrumbProps) => html`
     <pie-breadcrumb
         .items="${items}">

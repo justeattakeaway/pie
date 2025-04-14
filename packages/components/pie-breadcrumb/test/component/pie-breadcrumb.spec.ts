@@ -12,7 +12,7 @@ import {
 test.describe('PieBreadcrumb - Component tests', () => {
     test('should render successfully', async ({ page }) => {
         // Arrange
-        const basePage = new BasePage(page, componentName);
+        const basePage = new BasePage(page, 'breadcrumb--default');
         const props: Partial<BreadcrumbProps> = {
             items: [navigationItems[0]],
         };
@@ -31,7 +31,7 @@ test.describe('PieBreadcrumb - Component tests', () => {
         test.describe('items', () => {
             test('should render navigation items', async ({ page }) => {
                 // Arrange
-                const basePage = new BasePage(page, componentName);
+                const basePage = new BasePage(page, 'breadcrumb--default');
                 const props: Partial<BreadcrumbProps> = {
                     items: navigationItems,
                 };
