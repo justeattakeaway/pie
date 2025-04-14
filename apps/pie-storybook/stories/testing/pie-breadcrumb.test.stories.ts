@@ -50,3 +50,14 @@ const Template = ({ items }: BreadcrumbProps) => html`
 `;
 
 export const Default = createStory<BreadcrumbProps>(Template, defaultArgs)();
+export const WithLongText = createStory<BreadcrumbProps>(Template, {
+    items: [{
+        label: 'Breadcrumb 1',
+        href: '#',
+    },
+    {
+        label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque eget velit quis mollis.',
+        href: '#',
+    }],
+})();
+
