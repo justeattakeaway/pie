@@ -76,7 +76,7 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
             <li role="listitem" data-test-id="pie-breadcrumb-item">
                 ${
                     isLastItem
-                        ? html`<span 
+                        ? html`<span
                                     class="c-breadcrumb-list-last-item" 
                                     data-test-id="pie-breadcrumb-last-item">
                                         ${item.label}
