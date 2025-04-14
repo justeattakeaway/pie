@@ -13,9 +13,9 @@ import styles from './breadcrumb.scss?inline';
 import {
     type BreadcrumbProps,
     type BreadcrumbItem,
-    componentSelector,
-    componentClass,
 } from './defs';
+
+const componentSelector = 'pie-breadcrumb';
 
 // Valid values available to consumers
 export * from './defs';
@@ -37,8 +37,12 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
      */
     private renderSeparator () {
         return html`
-            <li role="presentation" aria-hidden="true" class="c-breadcrumb-separator">
-                ${this.isRTL ? html`<icon-chevron-left></icon-chevron-left>` : html`<icon-chevron-right></icon-chevron-right>`}
+            <li 
+                role="presentation" 
+                aria-hidden="true"
+                class="c-breadcrumb-separator" 
+                data-test-id="pie-breadcrumb-separator">
+                    ${this.isRTL ? html`<icon-chevron-left></icon-chevron-left>` : html`<icon-chevron-right></icon-chevron-right>`}
             </li>
         `;
     }
@@ -59,7 +63,7 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
     }
 
     /**
-     * Renders an individual breadcrumb navigation item.
+     * Renders an individual breadcrumb item.
      * Conditionally renders either a clickable link or plain text for the last item.
      *
      * @param {BreadcrumbItem} item - The breadcrumb item to render.
@@ -67,12 +71,16 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
      *
      * @private
      */
-    private renderNavigationItem (item: BreadcrumbItem, isLastItem = false) {
+    private renderItem (item: BreadcrumbItem, isLastItem = false) {
         return html`
-            <li role="listitem">
+            <li role="listitem" data-test-id="pie-breadcrumb-item">
                 ${
                     isLastItem
-                        ? html`<span class="c-breadcrumb-list-last-item">${item.label}</span>`
+                        ? html`<span 
+                                    class="c-breadcrumb-list-last-item" 
+                                    data-test-id="pie-breadcrumb-last-item">
+                                        ${item.label}
+                                </span>`
                         : this.renderNavigationLink(item)
                 }
             </li>
@@ -81,7 +89,7 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
     }
 
     /**
-     * Renders a complete breadcrumb navigation list.
+     * Renders a complete breadcrumb list.
      * Iterates over breadcrumb items to generate the breadcrumb trail.
      *
      * @param {BreadcrumbProps['items']} items - Array of breadcrumb items to render.
@@ -92,8 +100,8 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
         const numberOfSeparators = items.length - 1;
 
         return html`
-            <ol class="c-breadcrumb-list" data-test-id="${componentSelector}-navigation-list">
-                ${items.map((item, index) => this.renderNavigationItem(item, numberOfSeparators <= index))}
+            <ol class="c-breadcrumb-list" data-test-id="pie-breadcrumb-list">
+                ${items.map((item, index) => this.renderItem(item, numberOfSeparators <= index))}
             </ol>
         `;
     }
@@ -102,15 +110,15 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
         const { items } = this;
 
         const componentWrapperClasses = {
-            [componentClass]: true,
+            'c-breadcrumb': true,
         };
 
         return html`
             <nav
                 aria-label="breadcrumb"
-                data-test-id="${componentSelector}"
+                data-test-id="pie-breadcrumb"
                 class="${classMap(componentWrapperClasses)}">
-                ${items ? this.renderBreadcrumbItems(items) : nothing}
+                    ${items ? this.renderBreadcrumbItems(items) : nothing}
             </nav>`;
     }
 

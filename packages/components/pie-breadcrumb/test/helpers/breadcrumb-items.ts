@@ -1,8 +1,5 @@
-export const breadCrumbSeparatorRole = 'presentation';
-export const breadCrumbNavigationItemRole = 'listitem';
-export const componentName = 'breadcrumb';
 
-export const navigationItems = [
+export const breadcrumbItems = [
     {
         label: 'Breadcrumb 1',
         href: '#',
@@ -20,3 +17,5 @@ export const navigationItems = [
         href: '#',
     },
 ];
+
+export * from './selectors';

@@ -1,7 +1,7 @@
 import { test } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
-import { componentName, navigationItems } from 'test/helpers';
+import { breadcrumbItems } from 'test/helpers/breadcrumb-items';
 import { type BreadcrumbProps } from 'src/defs';
 
 const readingDirections = ['ltr', 'rtl'];
@@ -9,9 +9,9 @@ const readingDirections = ['ltr', 'rtl'];
 test.describe('PieBreadcrumb - Visual tests`', () => {
     test('should display the PieBreadcrumb component successfully', async ({ page }) => {
         // Arrange
-        const basePage = new BasePage(page, componentName);
+        const basePage = new BasePage(page, 'breadcrumb--default');
         const props: Partial<BreadcrumbProps> = {
-            items: [navigationItems[0]],
+            items: [breadcrumbItems[0]],
         };
 
         basePage.load({ ...props });
@@ -23,9 +23,9 @@ test.describe('PieBreadcrumb - Visual tests`', () => {
 
     test('should display crop the text from the last item when the label is too long (bigger than 250px)', async ({ page }) => {
         // Arrange
-        const basePage = new BasePage(page, componentName);
+        const basePage = new BasePage(page, 'breadcrumb--default');
         const props: Partial<BreadcrumbProps> = {
-            items: [...navigationItems, { label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque eget velit quis mollis.', href: '#' }],
+            items: [...breadcrumbItems, { label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque eget velit quis mollis.', href: '#' }],
         };
 
         basePage.load({ ...props });
@@ -36,11 +36,11 @@ test.describe('PieBreadcrumb - Visual tests`', () => {
     });
 
     readingDirections.forEach((direction) => {
-        test(`should render navigation items in writing direction: ${direction}`, async ({ page }) => {
+        test(`should render items in writing direction: ${direction}`, async ({ page }) => {
             // Arrange
-            const selectVariationsPage = new BasePage(page, componentName);
+            const selectVariationsPage = new BasePage(page, 'breadcrumb--default');
             const props: Partial<BreadcrumbProps> = {
-                items: navigationItems,
+                items: breadcrumbItems,
             };
 
             await selectVariationsPage.load({ ...props }, { writingDirection: direction });
