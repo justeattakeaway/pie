@@ -12,7 +12,7 @@ import '@justeattakeaway/pie-icons-webc/dist/IconChevronLeft.js';
 import styles from './breadcrumb.scss?inline';
 import {
     type BreadcrumbProps,
-    type BreadcrumbItem,    
+    type BreadcrumbItem,
     variants,
     defaultProps,
 } from './defs';
