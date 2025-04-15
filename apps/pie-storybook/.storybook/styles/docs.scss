@@ -4,3 +4,7 @@
 .docs-story:has([id*='inverse']) {
     background-color: var(--dt-color-background-dark);
 }
+
+figure > img {
+    border-radius: var(--dt-radius-rounded-d);
+}
