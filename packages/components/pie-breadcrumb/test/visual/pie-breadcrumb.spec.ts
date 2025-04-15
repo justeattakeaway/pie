@@ -1,5 +1,4 @@
-import { navigationItems } from 'test/helpers';
-import { type BreadcrumbProps, variants } from 'src/defs';
+import { variants } from 'src/defs';
 
 import { test } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
@@ -32,30 +31,11 @@ test.describe('PieBreadcrumb - Visual tests`', () => {
     variants.forEach((variant) => {
         test(`should render PieBreadcrumb with variant: ${variant}`, async ({ page }) => {
             // Arrange
-            const selectVariationsPage = new BasePage(page, 'breadcrumb--default');
-            const props: Partial<BreadcrumbProps> = {
-                items: navigationItems,
-                variant,
-            };
-
-            await selectVariationsPage.load({ ...props });
+            const selectVariationsPage = new BasePage(page, `breadcrumb--${variant}-prop-variation`);
+            await selectVariationsPage.load();
 
             // Assert
             await percySnapshot(page, `PieBreadcrumb - Variant: ${variant}`);
         });
-    });
-
-    test('should display scrim mode', async ({ page }) => {
-        // Arrange
-        const selectVariationsPage = new BasePage(page, 'breadcrumb--default');
-        const props: Partial<BreadcrumbProps> = {
-            items: navigationItems,
-            scrim: true,
-        };
-
-        await selectVariationsPage.load({ ...props });
-
-        // Assert
-        await percySnapshot(page, 'PieBreadcrumb - Scrim mode');
     });
 });

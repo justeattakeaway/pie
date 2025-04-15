@@ -5,7 +5,7 @@ import { type Meta } from '@storybook/web-components';
 import '@justeattakeaway/pie-breadcrumb';
 import { type BreadcrumbProps, defaultProps, variants } from '@justeattakeaway/pie-breadcrumb';
 
-import { createStory } from '../../utilities';
+import { createStory, createVariantStory } from '../../utilities';
 
 type BreadcrumbStoryMeta = Meta<BreadcrumbProps>;
 
@@ -88,3 +88,20 @@ export const WithLongText = createStory<BreadcrumbProps>(Template, {
     }],
 })();
 
+const sharedPropOptions = {
+    items: [[...defaultArgs.items]],
+    scrim: [true, false],
+};
+
+const defaultVariantPropOptions = {
+    ...sharedPropOptions,
+    variant: ['default'],
+};
+
+const backVariantPropOptions = {
+    ...sharedPropOptions,
+    variant: ['back'],
+};
+
+export const DefaultPropVariation = createVariantStory<BreadcrumbProps>(Template, defaultVariantPropOptions);
+export const BackPropVariation = createVariantStory<BreadcrumbProps>(Template, backVariantPropOptions);

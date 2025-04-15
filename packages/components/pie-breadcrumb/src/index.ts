@@ -138,7 +138,7 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
         const separatorVariant = this.scrim ? 'c-breadcrumb-separator--scrim' : 'c-breadcrumb-separator';
 
         return html`
-            <li role="presentation" aria-hidden="true" class="${separatorVariant}">
+            <li role="presentation" aria-hidden="true" class="${separatorVariant}" data-test-id="pie-breadcrumb-separator">
                 ${this.isRTL ? html`<icon-chevron-right></icon-chevron-right>` : html`<icon-chevron-left></icon-chevron-left>`}
             </li>
         `;
@@ -156,7 +156,7 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
 
         return html`
             ${this.renderBackVariantSeparator()}
-            <li role="listitem">
+            <li role="listitem" data-test-id="pie-breadcrumb-item">
                 ${this.renderNavigationLink(lastItem)}    
             </li>
         `;

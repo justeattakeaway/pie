@@ -71,21 +71,5 @@ test.describe('PieBreadcrumb - Component tests', () => {
                 await expect(breadcrumbItemElements).toHaveCount(1);
             });
         });
-
-        test.describe('scrim', () => {
-            test('should render in scrim mode', async ({ page }) => {
-                // Arrange
-                const basePage = new BasePage(page, storybookPath);
-                await basePage.load({ scrim: true });
-
-                // Act
-                const breadcrumbComponent = page.getByTestId(breadcrumb.selectors.container.dataTestId);
-                const breadcrumbItemElements = page.getByTestId(breadcrumb.selectors.item.dataTestId);
-
-                // Assert
-                await expect(breadcrumbComponent).toBeVisible();
-                await expect(breadcrumbItemElements).toHaveCount(4);
-            });
-        });
     });
 });
