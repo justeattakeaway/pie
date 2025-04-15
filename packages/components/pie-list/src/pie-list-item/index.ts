@@ -2,19 +2,19 @@ import { LitElement } from 'lit';
 import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { type ListItemProps } from './defs';
 
-const componentSelector = 'pie-sub-components';
+const componentSelector = 'pie-list-item';
 
 /**
- * @tagname pie-sub-component
+ * @tagname pie-list-item
  */
-export class PieListItemComponent extends LitElement implements ListItemProps {
+export class PieListItem extends LitElement implements ListItemProps {
     // component logic
 }
 
-defineCustomElement(componentSelector, PieListItemComponent);
+defineCustomElement(componentSelector, PieListItem);
 
 declare global {
     interface HTMLElementTagNameMap {
-        [componentSelector]: PieListItemComponent;
+        [componentSelector]: PieListItem;
     }
 }
