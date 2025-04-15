@@ -1,3 +1,5 @@
+import { variants } from 'src/defs';
+
 import { test } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
@@ -23,6 +25,17 @@ test.describe('PieBreadcrumb - Visual tests`', () => {
 
             // Assert
             await percySnapshot(page, `PieBreadcrumb - ${direction}`);
+        });
+    });
+
+    variants.forEach((variant) => {
+        test(`should render PieBreadcrumb with variant: ${variant}`, async ({ page }) => {
+            // Arrange
+            const selectVariationsPage = new BasePage(page, `breadcrumb--${variant}-prop-variation`);
+            await selectVariationsPage.load();
+
+            // Assert
+            await percySnapshot(page, `PieBreadcrumb - Variant: ${variant}`);
         });
     });
 });
