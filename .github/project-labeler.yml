@@ -137,3 +137,5 @@ pie-select:
   - packages/components/pie-select/**/*
 pie-breadcrumb:
   - packages/components/pie-breadcrumb/**/*
+pie-list:
+  - packages/components/pie-list/**/*
