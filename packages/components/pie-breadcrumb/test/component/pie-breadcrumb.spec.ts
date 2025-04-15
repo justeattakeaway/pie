@@ -2,8 +2,6 @@ import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 import { breadcrumb } from '../helpers/selectors';
 
-const storybookPath = 'breadcrumb--default';
-
 test.describe('PieBreadcrumb - Component tests', () => {
     test('should render successfully', async ({ page }) => {
         // Arrange
@@ -59,7 +57,7 @@ test.describe('PieBreadcrumb - Component tests', () => {
 
             test('should render back variant - only the last item is shown', async ({ page }) => {
                 // Arrange
-                const basePage = new BasePage(page, storybookPath);
+                const basePage = new BasePage(page, 'breadcrumb--default');
                 await basePage.load({ variant: 'back' });
 
                 // Act
