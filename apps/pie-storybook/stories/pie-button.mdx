@@ -1,0 +1,74 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/Button" name="Overview" />
+
+# Button
+
+[Source code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-button) | [Design Documentation](https://pie.design/components/button/)
+
+## Overview
+The purpose of buttons is to provide a clear and intuitive way for users to interact with the interface and perform various actions. They enhance the user experience by making key functionalities easily accessible and identifiable, helping users navigate and interact with the application or website more efficiently.
+
+Buttons serve a wide range of purposes in user interfaces, such as submitting forms, confirming actions, navigating to different pages or sections, or executing specific functions.
+
+
+## Properties
+
+| Prop            | Options | Description | Default |
+|-----------------|---------|-------------|---------|
+| size            | `"xsmall"`, `"small-productive"`, `"small-expressive"`, `"medium"`, `"large"` | Sets the size of the button. | `"medium"` |
+| isResponsive    | `true`, `false` | Uses larger size on wider viewports. | `false` |
+| responsiveSize  | `"productive"`, `"expressive"` | Responsive growth target size. | `"productive"` |
+| type            | `"button"`, `"reset"`, `"submit"` | Sets the button type. | `"submit"` |
+| variant         | `"primary"`, `"secondary"`, ... | Sets the button style variant. | `"primary"` |
+| disabled        | `true`, `false` | Disables the button if true. | `false` |
+
+## Slots
+
+| Slot    | Description |
+|---------|-------------|
+| `default` | Button text content. |
+| `icon`    | Icon slot (e.g., from pie-icons-webc). |
+
+## CSS Properties
+
+| CSS Variable | Description | Default Value |
+|--------------|-------------|----------------|
+| `--button-font-size` | Font size of the button text. | `14px` |
+| `--button-padding` | Internal padding. | `0.5rem 1rem` |
+| `--button-border-radius` | Button border radius. | `4px` |
+| `--button-background-color` | Background color. | `var(--color-primary)` |
+
+## Usage
+
+Vanilla HTML
+```html
+<pie-button style="--button-padding: var(--dt-padding-f);" size="large" variant="primary" isFullWidth="true" onclick="e => console.log(e)">Click me!</pie-button>
+```
+
+React/JSX
+```jsx
+import { PieButton } from '@justeattakeaway/pie-webc/react/button.js';
+
+<PieButton size="large" variant="primary" isFullWidth={true} onClick={e => console.log(e)}>Click me!</PieButton>
+```
+
+Vue
+```html
+<template>
+    <pie-button size="large" variant="primary" isFullWidth="true" @click="handleClick">Click me!</pie-button>
+</template>
+<script>
+import { PieButton } from '@justeattakeaway/pie-webc/button.js';
+export default {
+    components: {
+        PieButton
+    },
+    methods: {
+        handleClick(event) {
+        console.log(event);
+        }
+    }
+}
+</script>
+```
