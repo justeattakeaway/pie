@@ -8,8 +8,8 @@ import {
 } from '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 
-import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
-import { type SlottedComponentProps } from '../types';
+import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../../utilities';
+import { type SlottedComponentProps } from '../../types';
 
 type ButtonProps = SlottedComponentProps<ButtonPropsBase>;
 type ButtonStoryMeta = Meta<ButtonProps>;
