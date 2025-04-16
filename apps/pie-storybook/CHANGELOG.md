@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.32.0
+
+### Minor Changes
+
+- [Added] - `items` prop for rendering navigation items ([#2308](https://github.com/justeattakeaway/pie/pull/2308)) by [@thejfreitas](https://github.com/thejfreitas)
+
+### Patch Changes
+
+- [Added] - breadcrumb test selectors ([#2325](https://github.com/justeattakeaway/pie/pull/2325)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`57b5aea`](https://github.com/justeattakeaway/pie/commit/57b5aea9e926dc97287d0502b4f6cd0d668c8ccc), [`311fa23`](https://github.com/justeattakeaway/pie/commit/311fa2367a16ae300fa572352e91d5e9d0eae914), [`4ad9e3d`](https://github.com/justeattakeaway/pie/commit/4ad9e3d19e44606a39ae765828ac825946a4428c)]:
+  - @justeattakeaway/pie-breadcrumb@0.2.0
+  - @justeattakeaway/pie-checkbox-group@0.8.3
+  - @justeattakeaway/pie-radio-group@0.8.3
+  - @justeattakeaway/pie-text-input@0.27.3
+  - @justeattakeaway/pie-checkbox@0.15.3
+  - @justeattakeaway/pie-textarea@0.15.3
+  - @justeattakeaway/pie-select@0.4.3
+  - @justeattakeaway/pie-switch@1.3.3
+  - @justeattakeaway/pie-radio@0.10.2
+  - @justeattakeaway/pie-cookie-banner@1.5.4
+
 ## 1.31.0
 
 ### Minor Changes

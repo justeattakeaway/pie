@@ -43,7 +43,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     @state()
     private _hasLabel = false;
 
-    @property({ type: String })
+    @property({ type: String, reflect: true })
     public name: RadioGroupProps['name'];
 
     @property({ type: String })

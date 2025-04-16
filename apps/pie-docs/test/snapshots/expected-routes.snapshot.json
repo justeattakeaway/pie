@@ -141,6 +141,8 @@
     "patterns/cookie-banner/code",
     "patterns/haptic-feedback",
     "patterns/haptic-feedback/guidance",
+    "patterns/messaging-and-chatbots",
+    "patterns/messaging-and-chatbots/guidance",
     "patterns/overlay-patterns",
     "patterns/overlay-patterns/android-guidance",
     "patterns/overlay-patterns/ios-guidance",

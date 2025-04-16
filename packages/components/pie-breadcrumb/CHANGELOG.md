@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-breadcrumb
 
+## 0.2.0
+
+### Minor Changes
+
+- [Added] - `items` prop for rendering navigation items ([#2308](https://github.com/justeattakeaway/pie/pull/2308)) by [@thejfreitas](https://github.com/thejfreitas)
+
+### Patch Changes
+
+- [Added] - breadcrumb test selectors ([#2325](https://github.com/justeattakeaway/pie/pull/2325)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.1.1
 
 ### Patch Changes

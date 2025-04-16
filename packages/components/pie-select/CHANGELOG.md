@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-select
 
+## 0.4.3
+
+### Patch Changes
+
+- [Added] - reflect the name attribute ([#2320](https://github.com/justeattakeaway/pie/pull/2320)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.4.2
 
 ### Patch Changes

@@ -65,7 +65,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(PieElement)) implemen
     @property({ type: String })
     public assistiveText: TextareaProps['assistiveText'];
 
-    @property({ type: String })
+    @property({ type: String, reflect: true })
     public name: TextareaProps['name'];
 
     @property({ type: String })

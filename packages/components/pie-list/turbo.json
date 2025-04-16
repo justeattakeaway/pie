@@ -1,0 +1,40 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "extends": [
+    "//"
+  ],
+  "pipeline": {
+    "test:browsers": {
+      "cache": true,
+      "dependsOn": [],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "../../../apps/pie-storybook/stories/testing/pie-list.test.stories.ts"
+      ]
+    },
+    "test:browsers:ci": {
+      "cache": true,
+      "dependsOn": [],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "../../../apps/pie-storybook/stories/testing/pie-list.test.stories.ts"
+      ]
+    },
+    "test:visual": {
+      "cache": false,
+      "dependsOn": [],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "../../../apps/pie-storybook/stories/testing/pie-list.test.stories.ts"
+      ]
+    },
+    "test:visual:ci": {
+      "cache": false,
+      "dependsOn": [],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "../../../apps/pie-storybook/stories/testing/pie-list.test.stories.ts"
+      ]
+    }
+  }
+}

@@ -199,6 +199,10 @@
     {
       "path": "./packages/components/pie-breadcrumb/dist/*.js",
       "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-list/dist/*.js",
+      "maxSize": "3 KB"
     }
   ],
   "defaultCompression": "gzip",

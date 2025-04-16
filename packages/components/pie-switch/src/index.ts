@@ -44,7 +44,7 @@ export class PieSwitch extends FormControlMixin(RtlMixin(PieElement)) implements
     @property({ type: String })
     public value = defaultProps.value;
 
-    @property({ type: String })
+    @property({ type: String, reflect: true })
     public name: SwitchProps['name'];
 
     @property({ type: Boolean, reflect: true })
