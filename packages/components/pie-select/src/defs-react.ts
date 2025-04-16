@@ -1,3 +1,3 @@
 import type React from 'react';
 
-export type ReactBaseType = React.HTMLAttributes<HTMLSelectElement>
+export type ReactBaseType = Omit<React.HTMLAttributes<HTMLSelectElement>, 'onChange'>
