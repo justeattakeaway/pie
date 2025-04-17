@@ -3,7 +3,7 @@
 .c-select {
     --select-padding-block: var(--dt-spacing-c);
     --select-padding-inline-start: var(--dt-spacing-d);
-    --select-padding-inline-end: var(--dt-spacing-h);
+    --select-padding-inline-end: 52px;
     --select-background-color: var(--dt-color-container-default);
     --select-text-color: var(--dt-color-content-default);
     --select-border-color: var(--dt-color-border-form);
@@ -27,6 +27,7 @@
         padding-block-start: var(--select-padding-block);
         padding-block-end: var(--select-padding-block);
         background-color: var(--select-background-color);
+        font-family: inherit;
         font-size: inherit;
         line-height: inherit;
         color: inherit;
@@ -35,6 +36,11 @@
         -moz-appearance: none;
         appearance: none;
         cursor: var(--select-cursor);
+
+        // Ensure longer options are truncated
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
 
         &:focus-within {
             @include p.focus;
