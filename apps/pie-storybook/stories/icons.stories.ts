@@ -24,7 +24,6 @@ const iconGalleryTemplate: TemplateFunction<null> = () => html`
         padding: var(--dt-spacing-b);
         justify-items: center;
         text-align: center;
-        font-family: sans-serif;
     }
 
     .c-iconGallery-item {
