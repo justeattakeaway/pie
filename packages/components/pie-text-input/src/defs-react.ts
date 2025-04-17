@@ -1,4 +1,4 @@
 import type React from 'react';
 
-// Omitting the native input 'size' type to avoid conflicts with our custom 'size' prop.
+// Omit `size` and event types from HTMLInputElement to avoid conflicting with PieInput's type definition
 export type ReactBaseType = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'onInput' | 'size'>
