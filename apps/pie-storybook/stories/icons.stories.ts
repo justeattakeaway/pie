@@ -16,12 +16,40 @@ const iconsStoryMeta = {
 export default iconsStoryMeta;
 
 const iconGalleryTemplate: TemplateFunction<null> = () => html`
+<style>
+    .c-iconGallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: var(--dt-spacing-e);
+        padding: var(--dt-spacing-b);
+        justify-items: center;
+        text-align: center;
+    }
+
+    .c-iconGallery-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--dt-spacing-b);
+    }
+
+    .c-iconGallery-item p {
+        font-size: calc(var(--dt-font-size-12) * 1px);
+        color: var(--dt-color-content);
+        margin: 0;
+        word-break: break-word;
+    }
+</style>
+
 <div class="c-iconGallery">
     ${Object.keys(icons).map((iconName) => {
     const tag = unsafeStatic(kebabCase(iconName));
     return html`
-        <${tag}></${tag}>
-    `;
+            <div class="c-iconGallery-item">
+                <${tag}></${tag}>
+                <p>${tag}</p>
+            </div>
+        `;
 })}
 </div>
 `;
