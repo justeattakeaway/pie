@@ -5,5 +5,5 @@ import type React from 'react';
  * Example: an HTML button maps to `React.ButtonHTMLAttributes<HTMLButtonElement>`
  * https://github.com/DefinitelyTyped/DefinitelyTyped/blob/0bb210867d16170c4a08d9ce5d132817651a0f80/types/react/index.d.ts#L2829
  */
-// Omit event types from HTMLInputElement to avoid conflicting with PieInput's type definition
+// Omit event types from HTMLInputElement to avoid conflicting with PieRadioGroup's type definition
 export type ReactBaseType = Omit<React.HTMLAttributes<HTMLElement>, 'onChange'>
