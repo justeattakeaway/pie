@@ -5,6 +5,11 @@ import { Meta } from '@storybook/addon-docs';
 # Button
 
 [Source code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-button) | [Design Documentation](https://pie.design/components/button/)
+<p>
+<a href="https://www.npmjs.com/@justeattakeaway/pie-button">
+<img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-button.svg"/>
+</a>
+</p>
 
 ## Table of Contents
 
@@ -39,6 +44,13 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
 | `default` | Button text content. |
 | `icon`    | Icon slot (e.g., from pie-icons-webc). |
 
+```html
+<pie-button>
+    <icon-circle slot="icon"></pie-icon>
+    Click me!
+</pie-button>
+```
+
 ## CSS Properties
 
 | CSS Variable | Description | Default Value |
@@ -47,6 +59,15 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
 | `--button-padding` | Internal padding. | `0.5rem 1rem` |
 | `--button-border-radius` | Button border radius. | `4px` |
 | `--button-background-color` | Background color. | `var(--color-primary)` |
+
+```html
+<pie-button style="--button-padding: var(--dt-padding-f);">Click me!</pie-button>
+```
+```css
+pie-button {
+    --button-background-color: var(--color-primary);
+}
+```
 
 ## Usage
 
