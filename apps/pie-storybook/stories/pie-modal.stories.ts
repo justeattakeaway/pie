@@ -43,7 +43,7 @@ const defaultArgs: ModalProps = {
 };
 
 const modalStoryMeta: ModalStoryMeta = {
-    title: 'Modal',
+    title: 'Components/Modal',
     component: 'pie-modal',
     argTypes: {
         isDismissible: {

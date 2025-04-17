@@ -23,7 +23,7 @@ const defaultArgs: RadioProps = {
 };
 
 const radioStoryMeta: RadioStoryMeta = {
-    title: 'Radio',
+    title: 'Components/Radio',
     component: 'pie-radio',
     argTypes: {
         checked: {

@@ -15,7 +15,7 @@ type IconButtonStoryMeta = Meta<IconButtonProps>;
 const defaultArgs: IconButtonProps = { ...defaultProps, aria: { label: 'Test Label ' } };
 
 const iconButtonStoryMeta: IconButtonStoryMeta = {
-    title: 'Icon Button',
+    title: 'Components/Icon Button',
     component: 'pie-icon-button',
     argTypes: {
         aria: {
