@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-text-input
 
+## 0.27.4
+
+### Patch Changes
+
+- [Fixed] - typescript compatibility issues with pie form element events in React ([#2327](https://github.com/justeattakeaway/pie/pull/2327)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.27.3
 
 ### Patch Changes

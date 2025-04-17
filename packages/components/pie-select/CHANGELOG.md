@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-select
 
+## 0.4.4
+
+### Patch Changes
+
+- [Fixed] - typescript compatibility issues with pie form element events in React ([#2327](https://github.com/justeattakeaway/pie/pull/2327)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - Reduce right padding on select, inherit font-family and truncate long options ([#2329](https://github.com/justeattakeaway/pie/pull/2329)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.4.3
 
 ### Patch Changes

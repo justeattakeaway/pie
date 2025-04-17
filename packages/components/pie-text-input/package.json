@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-text-input",
   "description": "PIE Design System Input built using Web Components",
-  "version": "0.27.3",
+  "version": "0.27.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",

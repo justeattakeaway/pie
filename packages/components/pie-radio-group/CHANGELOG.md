@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-radio-group
 
+## 0.8.4
+
+### Patch Changes
+
+- [Fixed] - typescript compatibility issues with pie form element events in React ([#2327](https://github.com/justeattakeaway/pie/pull/2327)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.8.3
 
 ### Patch Changes
