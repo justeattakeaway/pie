@@ -1,4 +1,3 @@
-import type { LitElement } from 'lit';
 
 /**
  * Defines a web component, ensuring that the component is only defined once in the Custom Element Registry.
@@ -38,7 +37,7 @@ import type { LitElement } from 'lit';
  *
  * @returns {void}
  */
-export function defineCustomElement (elementSelector: string, elementClass: typeof LitElement): void {
+export function defineCustomElement (elementSelector: string, elementClass: any): void {
     if (!customElements.get(elementSelector)) {
         customElements.define(elementSelector, elementClass);
     } else {
