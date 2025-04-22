@@ -1,6 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 @use '@justeattakeaway/pie-css/scss/settings' as *;
 
+:host {
+    --toast-provider-z-index: var(--dt-z-index-toast);
+}
 
 .c-toast-provider {
     --toast-provider-offset: var(--dt-spacing-d);
