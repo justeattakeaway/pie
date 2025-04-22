@@ -10,7 +10,7 @@
             "Controls the stacking order of the toast provider.",
             {
                 "type": "code",
-                "item": [["--dt-z-index-toast (6000)"]]
+                "item": ["--dt-z-index-toast (6000)"]
             }
         ]
     ]

@@ -43,9 +43,6 @@ export class PieToastProvider extends RtlMixin(PieElement) implements ToastProvi
     @property({ type: Object })
     public options = defaultProps.options;
 
-    @property({ type: Number })
-    public zIndex: ToastProviderProps['zIndex'];
-
     updated (changedProperties: PropertyValues<this>): void {
         if (changedProperties.has('_toasts' as keyof PieToastProvider)) {
             this._dispatchQueueUpdateEvent();
@@ -120,22 +117,13 @@ export class PieToastProvider extends RtlMixin(PieElement) implements ToastProvi
         this._currentToast = null;
     }
 
-    private _generateInlineStyles () {
-        const { zIndex } = this;
-
-        return typeof zIndex !== 'undefined' && typeof zIndex === 'number' ? `--toast-provider-z-index: ${zIndex}` : nothing;
-    }
-
     render () {
         const { _currentToast, _dismissToast } = this;
-
-        const styles = this._generateInlineStyles();
 
         return html`
         <div 
             class="c-toast-provider" 
-            data-test-id="pie-toast-provider" 
-            style="${styles}">
+            data-test-id="pie-toast-provider">
             ${_currentToast &&
                 html`
                 <pie-toast
