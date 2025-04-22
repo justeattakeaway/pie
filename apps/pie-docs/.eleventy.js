@@ -1,3 +1,5 @@
+const litPlugin = require('@lit-labs/eleventy-plugin-lit');
+
 const {
     filters,
     libraries,
@@ -11,6 +13,13 @@ module.exports = eleventyConfig => {
 
     // Plugins
     plugins.addAllPlugins(eleventyConfig);
+
+    eleventyConfig.addPlugin(litPlugin, {
+        mode: 'worker',
+        componentModules: [
+           '../../node_modules/@justeattakeaway/pie-button/dist/index.js'
+        ],
+      });
 
     // Filters
     filters.addAllFilters(eleventyConfig);
