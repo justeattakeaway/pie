@@ -64,11 +64,12 @@ export default {
                 method: 'alphabetical',
                 order: [
                     'Introduction',
-                    ['Welcome', 'Typography and styles', 'Form integration'],
+                    ['Welcome', 'Typography and styles', 'Form integration', 'Browser support'],
                     'Integration',
                     ['React', 'Vue', 'Nuxt', 'NextJS', 'No framework'],
-                    'Contribution',
                     'Components',
+                    'Additional Libraries',
+                    'Contributing',
                 ],
             },
         }

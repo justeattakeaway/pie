@@ -7,7 +7,7 @@ import {
 import { createStory, type TemplateFunction } from '../utilities';
 
 const iconsStoryMeta = {
-    title: 'Components/Icons',
+    title: 'Additional Libraries/Icons',
     parameters: {
         layout: 'fullscreen',
     },
