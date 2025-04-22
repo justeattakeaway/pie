@@ -1,3 +1,4 @@
 import type React from 'react';
 
-export type ReactBaseType = React.InputHTMLAttributes<HTMLInputElement>
+// Omit event types to avoid conflicting with PieSwitch's type definition
+export type ReactBaseType = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'>

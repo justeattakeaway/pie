@@ -1,5 +1,12 @@
 # wc-react17
 
+## 0.5.75
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.6.30
+
 ## 0.5.74
 
 ### Patch Changes

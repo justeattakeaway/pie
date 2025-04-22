@@ -44,7 +44,7 @@
     "@justeattakeaway/pie-components-config": "0.20.0",
     "@justeattakeaway/pie-css": "0.16.0",
     "@justeattakeaway/pie-monorepo-utils": "0.5.0",
-    "@justeattakeaway/pie-text-input": "0.27.3",
+    "@justeattakeaway/pie-text-input": "0.27.4",
     "@justeattakeaway/pie-wrapper-react": "0.14.3",
     "@types/body-scroll-lock": "3.1.2",
     "cem-plugin-module-file-extensions": "0.0.5"
