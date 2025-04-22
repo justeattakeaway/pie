@@ -118,7 +118,7 @@ The `toaster` utility dynamically creates toasts. It can be imported and called 
 ```js
 import { toaster } from '@justeattakeaway/pie-webc/components/toast-provider.js';
 
-toaster.createToast({
+toaster.create({
   message: 'This is a success toast!',
   variant: 'success',
   isDismissible: true,

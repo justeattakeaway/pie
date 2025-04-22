@@ -1,8 +1,9 @@
-import { html, nothing } from 'lit';
+import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-toast-provider';
-import { type ToastProviderProps, defaultProps } from '@justeattakeaway/pie-toast-provider';
+import { type ToastProviderProps, defaultProps, toaster } from '@justeattakeaway/pie-toast-provider';
+import '@justeattakeaway/pie-button';
 
 import { createStory } from '../../utilities';
 
@@ -23,13 +24,6 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
                 summary: defaultProps.options,
             },
         },
-        zIndex: {
-            description: 'Defines the stacking order of the toast provider.',
-            control: 'text',
-            defaultValue: {
-                summary: '--dt-z-index-toast (6000)',
-            },
-        },
     },
     args: defaultArgs,
 };
@@ -40,12 +34,35 @@ const onQueueUpdate = (queue: CustomEvent) => {
     console.info('toast provider queue:', queue.detail);
 };
 
-const Template = ({ options, zIndex }: ToastProviderProps) => html`
+const Template = ({ options }: ToastProviderProps) => html`
     <pie-toast-provider
         .options="${options}"
-        zIndex="${zIndex || nothing}"
         @pie-toast-provider-queue-update="${onQueueUpdate}">
     </pie-toast-provider>
 `;
 
+const CustomZIndexTemplate = () => {
+    const showToast = () => {
+        toaster.create({
+            title: 'Test Toast',
+            message: 'This toast should appear above the red box.',
+            duration: null,
+        });
+    };
+
+    return html`
+        <div style="position: relative; height: 200px; border: 1px dashed grey; padding: 20px; margin-bottom: 20px;">
+            <div style="position: absolute; inset: 40px; background-color: red; z-index: 6500;">
+                (z-index: 6500)
+            </div>
+            <pie-toast-provider
+                style="--toast-provider-z-index: 7000;"
+                @pie-toast-provider-queue-update="${onQueueUpdate}">
+            </pie-toast-provider>
+        </div>
+        <pie-button @click="${showToast}">Show Toast</pie-button>
+    `;
+};
+
 export const Default = createStory<ToastProviderProps>(Template, defaultArgs)();
+export const CustomZIndex = createStory(CustomZIndexTemplate, {})();
