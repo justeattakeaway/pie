@@ -1,4 +1,4 @@
-import { html, nothing } from 'lit';
+import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 import { action } from '@storybook/addon-actions';
 
@@ -33,11 +33,14 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
                 summary: defaultProps.options,
             },
         },
-        zIndex: {
-            description: 'Defines the stacking order of the toast provider.',
+        '--toast-provider-z-index': {
+            description: 'Controls the stacking order of the toast provider.',
             control: 'text',
             defaultValue: {
                 summary: '--dt-z-index-toast (6000)',
+            },
+            table: {
+                category: 'CSS Properties',
             },
         },
     },
@@ -52,7 +55,7 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
 
 export default toastProviderStoryMeta;
 
-const Template = ({ options, zIndex }: ToastProviderProps) => {
+const Template = ({ options, '--toast-provider-z-index': customZIndex }: ToastProviderProps & { '--toast-provider-z-index'?: string }) => {
     const onQueueUpdate = (event: CustomEvent) => {
         const queueLength = document.querySelector('#queue-length-tag') as HTMLElement;
         if (queueLength) {
@@ -63,7 +66,7 @@ const Template = ({ options, zIndex }: ToastProviderProps) => {
     return html`
     <pie-toast-provider 
         .options=${options} 
-        zIndex="${zIndex || nothing}"
+        style="${customZIndex ? `--toast-provider-z-index: ${customZIndex}` : ''}"
         @pie-toast-provider-queue-update=${onQueueUpdate}>
     </pie-toast-provider>
 

@@ -3,4 +3,4 @@
 "pie-storybook": minor
 ---
 
-[Added] - `zIndex` property
+[Added] - `zIndex` css property
