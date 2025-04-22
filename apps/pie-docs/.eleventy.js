@@ -17,9 +17,9 @@ module.exports = eleventyConfig => {
     eleventyConfig.addPlugin(litPlugin, {
         mode: 'worker',
         componentModules: [
-           '../../node_modules/@justeattakeaway/pie-button/dist/index.js'
+            '../../node_modules/@justeattakeaway/pie-webc/components/button.js'
         ],
-      });
+    });
 
     // Filters
     filters.addAllFilters(eleventyConfig);
@@ -60,8 +60,8 @@ module.exports = eleventyConfig => {
 
     return {
         dir: {
-        input: "src",
-        output: "dist",
+            input: "src",
+            output: "dist",
         },
         markdownTemplateEngine: "njk",
     };
