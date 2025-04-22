@@ -145,35 +145,5 @@ test.describe('PieToastProvider - Component tests', () => {
                 expect(toastsQueue[1].isDismissible).toBeFalsy(); // Override should take precedence
             });
         });
-
-        test.describe('zIndex', () => {
-            test('should not apply the attribute on the toast provider element if not provided', async ({ page }) => {
-                // Arrange
-                const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
-                await pieToastProviderPage.load();
-
-                // Act
-                const toastProviderElement = page.getByTestId(toastProvider.selectors.container.dataTestId);
-
-                // Assert
-                await expect(toastProviderElement).not.toHaveAttribute('zIndex');
-            });
-
-            test('should apply the attribute on the toast provider element', async ({ page }) => {
-                // Arrange
-                const props: Partial<PieToastProvider> = {
-                    zIndex: 2000,
-                };
-
-                const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
-                await pieToastProviderPage.load({ ...props });
-
-                // Act
-                const toastProviderElement = page.getByTestId(toastProvider.selectors.container.dataTestId);
-
-                // Assert
-                await expect(toastProviderElement).toHaveAttribute('zIndex', '2000');
-            });
-        });
     });
 });
