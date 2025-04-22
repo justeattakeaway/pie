@@ -60,7 +60,7 @@ const CustomZIndexTemplate = () => {
                 @pie-toast-provider-queue-update="${onQueueUpdate}">
             </pie-toast-provider>
         </div>
-        <pie-button @click="${showToast}">Show Toast</pie-button>
+        <pie-button data-test-id="show-toast-button" @click="${showToast}">Show Toast</pie-button>
     `;
 };
 
