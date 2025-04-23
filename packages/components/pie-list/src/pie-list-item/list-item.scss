@@ -1,1 +1,197 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+:host {
+  // These variables can be overridden by the parent list component
+  --list-item-leading-margin: var(--dt-spacing-c);
+  --list-item-trailing-margin: var(--dt-spacing-c);
+  --list-item-hover-bg: var(--dt-color-hover-1);
+  --list-item-active-bg: var(--dt-color-active-1);
+  --list-item-focus-outline: 2px solid var(--dt-color-focus);
+  --list-item-focus-offset: -2px;
+  --list-item-touch-target-height: 48px;
+}
+
+.c-list-item {
+  display: flex;
+  align-items: center;
+  padding: var(--list-item-padding, var(--dt-spacing-d));
+  list-style: none;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: var(--list-item-border-bottom, none);
+  position: relative;
+  background-color: var(--dt-color-container-default);
+
+  // Set minimum height for proper touch targets
+  min-height: var(--list-item-touch-target-height);
+}
+
+// Layout container
+.c-list-item__content {
+  flex: 1;
+  min-width: 0; // Ensures text truncation works
+}
+
+// Primary text styles
+.c-list-item__primary {
+  color: var(--dt-color-content-default);
+  font-size: var(--dt-font-body-l-size);
+  font-weight: var(--dt-font-weight-regular);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Secondary text styles
+.c-list-item__secondary {
+  color: var(--dt-color-content-subdued);
+  font-size: var(--dt-font-body-s-size);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Leading content container - using logical properties for RTL support
+.c-list-item__leading {
+  margin-inline-end: var(--list-item-leading-margin);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Trailing content container - using logical properties for RTL support
+.c-list-item__trailing {
+  margin-inline-start: var(--list-item-trailing-margin);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Meta text styles
+.c-list-item__meta {
+  color: var(--dt-color-content-subdued);
+  font-size: var(--dt-font-body-s-size);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Compact variation
+.c-list-item--compact {
+  padding-block: var(--dt-spacing-b);
+  padding-inline: var(--dt-spacing-d);
+  min-height: 40px;
+}
+
+.c-list-item--compact .c-list-item__primary {
+  font-size: var(--dt-font-size-2);
+  line-height: var(--dt-line-height-3);
+}
+
+.c-list-item--compact .c-list-item__secondary {
+  font-size: var(--dt-font-size-1);
+  line-height: var(--dt-line-height-1);
+}
+
+// Interactive states
+.c-list-item--interactive {
+  cursor: pointer;
+}
+
+.c-list-item--interactive:hover {
+  background-color: var(--list-item-hover-bg);
+}
+
+.c-list-item--interactive:active {
+  background-color: var(--list-item-active-bg);
+}
+
+.c-list-item--interactive:focus-visible {
+  outline: var(--list-item-focus-outline);
+  outline-offset: var(--list-item-focus-offset);
+}
+
+// Selected state
+.c-list-item--selected {
+  background-color: var(--dt-color-active-1);
+}
+
+// Disabled state
+.c-list-item--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+// Content type variations - Leading
+.c-list-item--leading-icon {
+  --list-item-icon-size: 24px;
+}
+
+.c-list-item--leading-avatar {
+  --list-item-avatar-size: 40px;
+}
+
+.c-list-item--leading-thumbnail {
+  --list-item-thumbnail-size: 40px;
+}
+
+.c-list-item--leading-thumbnail .c-list-item__leading {
+  height: var(--list-item-thumbnail-size);
+  width: var(--list-item-thumbnail-size);
+  overflow: hidden;
+  border-radius: var(--dt-border-radius-b);
+}
+
+.c-list-item--leading-payment {
+  --list-item-payment-size: 32px;
+}
+
+// Content type variations - Trailing
+.c-list-item--trailing-meta .c-list-item__trailing {
+  text-align: end; // Logical property instead of 'right'
+}
+
+.c-list-item--trailing-tag .c-list-item__trailing > * {
+  max-width: 120px; // Limit tag width
+}
+
+// Handle form controls
+.c-list-item--control {
+  cursor: pointer;
+}
+
+// With secondary text adjustments
+.c-list-item--with-secondary {
+  align-items: flex-start;
+}
+
+.c-list-item--with-secondary .c-list-item__leading,
+.c-list-item--with-secondary .c-list-item__trailing {
+  margin-block-start: 2px; // Logical property instead of 'margin-top'
+}
+
+// Thumbnail-specific styles for slotted content
+.c-list-item--leading-thumbnail .c-list-item__leading ::slotted(img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.c-list-item__leading ::slotted(*),
+.c-list-item__trailing ::slotted(*) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Avatar-specific styles
+.c-list-item--leading-avatar .c-list-item__leading ::slotted(pie-avatar) {
+  width: var(--list-item-avatar-size);
+  height: var(--list-item-avatar-size);
+}
+
+.c-list-item--leading-checkbox .c-list-item__leading {
+  margin-inline-end: var(--dt-spacing-a);
+}
