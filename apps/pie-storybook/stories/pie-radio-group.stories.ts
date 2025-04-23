@@ -33,7 +33,7 @@ const labelSlotOptions = {
 };
 
 const radioGroupStoryMeta: RadioGroupStoryMeta = {
-    title: 'Radio Group',
+    title: 'Components/Radio Group',
     component: 'pie-radio-group',
     argTypes: {
         name: {

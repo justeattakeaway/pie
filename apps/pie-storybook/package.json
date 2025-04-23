@@ -65,6 +65,7 @@
     "@types/dompurify": "3.0.5",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "remark-gfm": "4.0.1",
     "serve": "14.2.0",
     "storybook": "8.4.5",
     "storybook-dark-mode": "4.0.2"

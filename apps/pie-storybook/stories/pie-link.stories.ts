@@ -45,7 +45,7 @@ const defaultArgs: ExtendedLinkProps = {
 };
 
 const linkStoryMeta: LinkStoryMeta = {
-    title: 'Link',
+    title: 'Components/Link',
     component: 'pie-link',
     argTypes: {
         tag: {
