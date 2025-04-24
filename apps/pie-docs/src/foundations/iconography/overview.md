@@ -10,6 +10,9 @@ permalink: foundations/iconography/
 
 We have two icon sets that can be used in our products and communications.
 
+<pie-text-input placeholder="please enter something"> </pie-text-input>
+
+
 ### Small icon set
 
 This is the default icon set used throughout our products across Web, Android and iOS. It features less details, which helps with making them simpler when used at smaller sizes.

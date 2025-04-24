@@ -6,45 +6,46 @@
 {% set footerNavItems = [allAboutPiePages, designersPages, engineersPages, accessibilityPages, supportPages] %}
 {% set jetLogoSrc = '/assets/img/jet-logo.svg' | url %}
 {% set jetLogoSrcNarrow = '/assets/img/jet-logo-narrow.svg' | url %}
-
 <footer class="c-footer" data-test-id="site_footer">
-    <pie-button> kat </pie-button>
     <div class='c-content-container'>
         <div class="c-footer-logo">
             <picture>
                 <source media="(max-width: 600px)" srcset="{{ jetLogoSrcNarrow }}">
-                <img src="{{ jetLogoSrc }}" alt="Just Eat Takeaway- Logo" />
-            </picture>
-            <span class='c-footer-logo-divider' aria-hidden="true"></span>
-            {% include "pie-logo.njk" %}
-        </div>
-        <main class='c-footer-main'>
-            {% for section in footerNavItems %}
-                {% if section[0].url %}
-                    <section>
-                        <h3>{{ section[0].parent }}</h3>
-                        <ul>
-                            {% for page in section %}
-                                {% if page.url %}
-                                    <li>
-                                        <a href="{{ page.url | url }}" data-test-id='footer_link'>
-                                            {{ page.title }}
-                                        </a>
-                                    </li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
-                    </section>
-                {% endif %}
-            {% endfor %}
-        </main>
-        <div class='c-footer-info'>
-            <div>Copyright © {{ metadata.currentYear }} Just Eat Takeaway.com</div>
-            <div>
-                <a href="https://www.just-eat.co.uk/info/privacy-policy" data-test-id='footer_link'>Privacy policy</a>
-                <span class='c-footer-info-separator' aria-hidden="true"></span>
-                <span>Updated: <span class="updated-date">{{ metadata.lastUpdated }}</span></span>
+                    <img src="{{ jetLogoSrc }}" alt="Just Eat Takeaway- Logo"/>
+                </picture>
+                <span class='c-footer-logo-divider' aria-hidden="true"></span>
+                {% include "pie-logo.njk" %}
+            </div>
+            <main class='c-footer-main'>
+                {% for section in footerNavItems %}
+                    {% if section[0].url %}
+                        <section>
+                            <h3>{{ section[0].parent }}</h3>
+                            <ul>
+                                {% for page in section %}
+                                    {% if page.url %}
+                                        <li>
+                                            <a href="{{ page.url | url }}" data-test-id='footer_link'>
+                                                {{ page.title }}
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </section>
+                    {% endif %}
+                {% endfor %}
+            </main>
+            <pie-divider></pie-divider>
+            <div class='c-footer-info'>
+                <div>Copyright © {{ metadata.currentYear }} Just Eat Takeaway.com</div>
+                <div>
+                    <a href="https://www.just-eat.co.uk/info/privacy-policy" data-test-id='footer_link'>Privacy policy</a>
+                    <span class='c-footer-info-separator' aria-hidden="true"></span>
+                    <span>Updated:
+                        <span class="updated-date">{{ metadata.lastUpdated }}</span>
+                    </span>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>

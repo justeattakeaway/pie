@@ -4,9 +4,14 @@ eleventyNavigation:
     parent: engineers-getting-started
     order: 1
 permalink: engineers/getting-started/
+eleventyComputed: 
 ---
 
 ## Introduction
+
+<pie-select size='large' name='my-select' options='[{"tag":"option","text":"apple"},{"tag":"option","text":"banana"}]'></pie-select> 
+
+<pie-notification variant="info"> Test notification </pie-notification>
 
 One of the core aims of the **PIE Design System** is to provide engineers with a consistent set of components and best practices for creating and maintaining UIs across JET.
 

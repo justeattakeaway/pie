@@ -17,7 +17,11 @@ module.exports = eleventyConfig => {
     eleventyConfig.addPlugin(litPlugin, {
         mode: 'worker',
         componentModules: [
-            '../../node_modules/@justeattakeaway/pie-webc/components/button.js'
+            '../../node_modules/@justeattakeaway/pie-webc/components/button.js',
+            '../../node_modules/@justeattakeaway/pie-webc/components/notification.js',
+            '../../node_modules/@justeattakeaway/pie-webc/components/select.js',
+            '../../node_modules/@justeattakeaway/pie-webc/components/divider.js',
+            '../../node_modules/@justeattakeaway/pie-webc/components/text-input.js'
         ],
     });
 
