@@ -1,4 +1,4 @@
-export const variants = ['default', 'back'] as const;
+export const variants = ['default', 'back', 'scrim'] as const;
 
 export type BreadcrumbItem = {
   label: string;
@@ -14,13 +14,13 @@ export interface BreadcrumbProps {
   variant?: typeof variants[number];
 
   /**
-   * Optional flag to enable or disable a scrim overlay for readability.
+   * Optional property for rendering a compact variation of the breadcrumb.
    */
-  scrim?: boolean;
+  isCompact?: boolean;
 }
 
-export const defaultProps: Pick<BreadcrumbProps, 'variant' | 'scrim'> = {
+export const defaultProps: Pick<BreadcrumbProps, 'variant' | 'isCompact'> = {
     variant: 'default',
-    scrim: false,
+    isCompact: false,
 };
 

@@ -34,7 +34,7 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
     public variant = defaultProps.variant;
 
     @property({ type: Boolean })
-    public scrim = defaultProps.scrim;
+    public isCompact = defaultProps.isCompact;
 
     /**
      * Renders a separator icon between breadcrumb items.
@@ -45,7 +45,7 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
      * @private
      */
     private renderSeparator () {
-        const separatorVariant = this.scrim ? 'c-breadcrumb-separator--scrim' : 'c-breadcrumb-separator';
+        const separatorVariant = this.variant === 'scrim' ? 'c-breadcrumb-separator--scrim' : 'c-breadcrumb-separator';
 
         return html`
             <li
@@ -66,7 +66,7 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
      * @private
      */
     private renderNavigationLink (item: BreadcrumbItem) {
-        const linkVariant = this.scrim ? 'inverse' : 'default';
+        const linkVariant = this.variant === 'scrim' ? 'inverse' : 'default';
 
         return html`
             <pie-link variant="${linkVariant}" isStandalone underline="reversed" isBold href="${item.href}">
@@ -86,7 +86,7 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
     private renderLastItem (item: BreadcrumbItem) {
         const wrapperClasses = {
             'c-breadcrumb-list-last-item': true,
-            'c-breadcrumb-list-last-item--scrim': Boolean(this.scrim),
+            'c-breadcrumb-list-last-item--scrim': this.variant === 'scrim',
         };
 
         return html`<span class="${classMap(wrapperClasses)}">${item.label}</span>`;
@@ -122,7 +122,7 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
      *
      * @private
      */
-    private renderDefaultVariant (items: BreadcrumbProps['items']) {
+    private renderDefaultBreadcrumb (items: BreadcrumbProps['items']) {
         const numberOfSeparators = items.length - 1;
 
         return html`${items.map((item, index) => this.renderItem(item, numberOfSeparators <= index))}`;
@@ -134,8 +134,8 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
      *
      * @private
      */
-    private renderBackVariantSeparator () {
-        const separatorVariant = this.scrim ? 'c-breadcrumb-separator--scrim' : 'c-breadcrumb-separator';
+    private renderCompactBreadcrumbSeparator () {
+        const separatorVariant = this.variant === 'scrim' ? 'c-breadcrumb-separator--scrim' : 'c-breadcrumb-separator';
 
         return html`
             <li role="presentation" aria-hidden="true" class="${separatorVariant}" data-test-id="pie-breadcrumb-separator">
@@ -151,11 +151,11 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
      *
      * @private
      */
-    private renderBackVariant (items: BreadcrumbProps['items']) {
+    private renderCompactBreadcrumb (items: BreadcrumbProps['items']) {
         const lastItem = items[items.length - 1];
 
         return html`
-            ${this.renderBackVariantSeparator()}
+            ${this.renderCompactBreadcrumbSeparator()}
             <li role="listitem" data-test-id="pie-breadcrumb-item">
                 ${this.renderNavigationLink(lastItem)}    
             </li>
@@ -170,20 +170,20 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
      *
      * @private
      */
-    private renderBreadcrumbItems (items: BreadcrumbProps['items'], variant: BreadcrumbProps['variant']) {
+    private renderBreadcrumbItems (items: BreadcrumbProps['items'], isCompact: BreadcrumbProps['isCompact']) {
         return html`
             <ol class="c-breadcrumb-list" data-test-id="pie-breadcrumb-list">
-                ${variant === 'back' ? this.renderBackVariant(items) : this.renderDefaultVariant(items)}
+                ${isCompact ? this.renderCompactBreadcrumb(items) : this.renderDefaultBreadcrumb(items)}
             </ol>
         `;
     }
 
     render () {
-        const { items, variant, scrim } = this;
+        const { items, variant, isCompact } = this;
 
         const componentWrapperClasses = {
             'c-breadcrumb': true,
-            'c-breadcrumb--scrim': Boolean(scrim),
+            'c-breadcrumb--scrim': variant === 'scrim',
         };
 
         return html`
@@ -191,7 +191,7 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
                 aria-label="breadcrumb"
                 data-test-id="pie-breadcrumb"
                 class="${classMap(componentWrapperClasses)}">
-                ${items ? this.renderBreadcrumbItems(items, variant) : nothing}
+                ${items ? this.renderBreadcrumbItems(items, isCompact) : nothing}
             </nav>`;
     }
 

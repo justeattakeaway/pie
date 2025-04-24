@@ -22,6 +22,11 @@
   }  
 }
 
+.c-breadcrumb--scrim {
+  --breadcrumb-background-color: var(--dt-color-overlay);
+  border-radius: var(--dt-radius-rounded-e);
+}
+
 .c-breadcrumb-list-last-item {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -31,11 +36,6 @@
 
 .c-breadcrumb-list-last-item--scrim {
   color: var(--dt-color-content-link-light);
-}
-
-.c-breadcrumb--scrim {
-  --breadcrumb-background-color: var(--dt-color-overlay);
-  border-radius: var(--dt-radius-rounded-e);
 }
 
 .c-breadcrumb-separator {
