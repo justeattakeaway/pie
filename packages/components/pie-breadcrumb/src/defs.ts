@@ -1,4 +1,4 @@
-export const variants = ['default', 'back', 'scrim'] as const;
+export const variants = ['default', 'scrim'] as const;
 
 export type BreadcrumbItem = {
   label: string;

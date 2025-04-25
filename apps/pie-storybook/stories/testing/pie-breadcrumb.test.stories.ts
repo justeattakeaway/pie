@@ -40,18 +40,18 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
             control: 'object',
         },
         variant: {
-            description: 'Optional variant for styling the breadcrumb component.`default` will display a regular breadcrumb component. `back` variant will display the last element in the `items` property as a link',
+            description: 'Optional variant for styling the breadcrumb component.`default` will display a regular breadcrumb component. `scrim` will enable a scrim overlay for readability.',
             control: 'select',
             options: variants,
             defaultValue: {
                 summary: defaultProps.variant,
             },
         },
-        scrim: {
-            description: 'Optional flag to enable or disable a scrim overlay for readability.',
+        isCompact: {
+            description: 'Optional flag to display a compact variation of the breadcrumb which will display only the last element in the `items` property as a link',
             control: 'boolean',
             defaultValue: {
-                summary: defaultProps.scrim,
+                summary: defaultProps.isCompact,
             },
         },
     },
@@ -66,9 +66,9 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
 
 export default breadcrumbStoryMeta;
 
-const Template = ({ items, scrim, variant }: BreadcrumbProps) => html`
+const Template = ({ items, variant, isCompact }: BreadcrumbProps) => html`
     <pie-breadcrumb
-        ?scrim="${scrim}"
+        ?isCompact="${isCompact}"
         variant="${ifDefined(variant)}"
         .items="${items}">
     </pie-breadcrumb>
@@ -88,7 +88,7 @@ export const WithLongText = createStory<BreadcrumbProps>(Template, {
 
 const sharedPropOptions = {
     items: [[...defaultArgs.items]],
-    scrim: [true, false],
+    isCompact: [true, false],
 };
 
 const defaultVariantPropOptions = {
@@ -96,10 +96,10 @@ const defaultVariantPropOptions = {
     variant: ['default'],
 };
 
-const backVariantPropOptions = {
+const scrimVariantPropOptions = {
     ...sharedPropOptions,
-    variant: ['back'],
+    variant: ['scrim'],
 };
 
 export const DefaultPropVariation = createVariantStory<BreadcrumbProps>(Template, defaultVariantPropOptions);
-export const BackPropVariation = createVariantStory<BreadcrumbProps>(Template, backVariantPropOptions);
+export const ScrimPropVariation = createVariantStory<BreadcrumbProps>(Template, scrimVariantPropOptions);
