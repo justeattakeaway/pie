@@ -1,3 +1,5 @@
+const litPlugin = require('@lit-labs/eleventy-plugin-lit');
+
 const {
     filters,
     libraries,
@@ -11,6 +13,17 @@ module.exports = eleventyConfig => {
 
     // Plugins
     plugins.addAllPlugins(eleventyConfig);
+
+    eleventyConfig.addPlugin(litPlugin, {
+        mode: 'worker',
+        componentModules: [
+            '../../node_modules/@justeattakeaway/pie-webc/components/button.js',
+            '../../node_modules/@justeattakeaway/pie-webc/components/notification.js',
+            '../../node_modules/@justeattakeaway/pie-webc/components/select.js',
+            '../../node_modules/@justeattakeaway/pie-webc/components/divider.js',
+            '../../node_modules/@justeattakeaway/pie-webc/components/text-input.js'
+        ],
+    });
 
     // Filters
     filters.addAllFilters(eleventyConfig);
@@ -51,8 +64,8 @@ module.exports = eleventyConfig => {
 
     return {
         dir: {
-        input: "src",
-        output: "dist",
+            input: "src",
+            output: "dist",
         },
         markdownTemplateEngine: "njk",
     };
