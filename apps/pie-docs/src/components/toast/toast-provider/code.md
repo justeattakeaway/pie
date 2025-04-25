@@ -7,6 +7,7 @@ shouldShowContents: true
 eleventyComputed:
     props: "{% include './props.json' %}"
     events: "{% include './events.json' %}"
+    cssProperties: "{% include './css-properties.json' %}"
 ---
 
 ## Overview
@@ -51,6 +52,18 @@ yarn add @justeattakeaway/pie-webc
 
 {% componentDetailsTable {
   tableData: props
+} %}
+
+## CSS Properties
+
+{% componentDetailsTable {
+  tableData: cssProperties
+} %}
+
+{% notification {
+  type: "information",
+  iconName: "info-circle",
+  message: "CSS Custom Properties provided by the component can be overridden using standard CSS techniques. For example, using inline styles: `<pie-toast-provider style='--toast-provider-z-index: 7000;'></pie-toast-provider>`"
 } %}
 
 ## Events
@@ -105,7 +118,7 @@ The `toaster` utility dynamically creates toasts. It can be imported and called 
 ```js
 import { toaster } from '@justeattakeaway/pie-webc/components/toast-provider.js';
 
-toaster.createToast({
+toaster.create({
   message: 'This is a success toast!',
   variant: 'success',
   isDismissible: true,

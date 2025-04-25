@@ -121,24 +121,26 @@ export class PieToastProvider extends RtlMixin(PieElement) implements ToastProvi
         const { _currentToast, _dismissToast } = this;
 
         return html`
-      <div class="c-toast-provider" data-test-id="pie-toast-provider">
-      ${_currentToast &&
-            html`
-              <pie-toast
-                message="${_currentToast.message}"
-                variant="${ifDefined(_currentToast.variant)}"
-                ?isStrong="${_currentToast.isStrong}"
-                ?isDismissible="${_currentToast.isDismissible}"
-                ?isMultiline="${_currentToast.isMultiline}"
-                .leadingAction="${_currentToast.leadingAction}"
-                .duration="${typeof _currentToast.duration === 'undefined' ? nothing : _currentToast.duration}"
-                @pie-toast-close="${_dismissToast}"
-                @pie-toast-open="${_currentToast.onPieToastOpen}"
-                @pie-toast-leading-action-click="${_currentToast.onPieToastLeadingActionClick}">
-              </pie-toast>
+        <div 
+            class="c-toast-provider" 
+            data-test-id="pie-toast-provider">
+            ${_currentToast &&
+                html`
+                <pie-toast
+                    message="${_currentToast.message}"
+                    variant="${ifDefined(_currentToast.variant)}"
+                    ?isStrong="${_currentToast.isStrong}"
+                    ?isDismissible="${_currentToast.isDismissible}"
+                    ?isMultiline="${_currentToast.isMultiline}"
+                    .leadingAction="${_currentToast.leadingAction}"
+                    .duration="${typeof _currentToast.duration === 'undefined' ? nothing : _currentToast.duration}"
+                    @pie-toast-close="${_dismissToast}"
+                    @pie-toast-open="${_currentToast.onPieToastOpen}"
+                    @pie-toast-leading-action-click="${_currentToast.onPieToastLeadingActionClick}">
+                </pie-toast>
             `}
-      </div>
-    `;
+        </div>
+        `;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
@@ -152,4 +154,3 @@ declare global {
         [componentSelector]: PieToastProvider;
     }
 }
-
