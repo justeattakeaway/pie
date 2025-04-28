@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-toast-provider
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - `--toast-provider-z-index` CSS custom property that allows users to override the stacking order of the toast provider. ([#2317](https://github.com/justeattakeaway/pie/pull/2317)) by [@thejfreitas](https://github.com/thejfreitas)
+
 ## 0.3.2
 
 ### Patch Changes
