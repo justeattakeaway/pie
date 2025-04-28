@@ -5,6 +5,9 @@ const {
     plugins
 } = require('./src/_11ty');
 
+const litPlugin = require('@lit-labs/eleventy-plugin-lit');
+
+
 module.exports = eleventyConfig => {
     // Copy over img directory to dist directory.
     eleventyConfig.addPassthroughCopy({ 'src/assets/img': 'assets/img' });
@@ -12,6 +15,13 @@ module.exports = eleventyConfig => {
     // Plugins
     plugins.addAllPlugins(eleventyConfig);
 
+    eleventyConfig.addPlugin(litPlugin, {
+        mode: 'worker',
+        componentModules: [
+            '../../node_modules/@justeattakeaway/pie-webc/components/select.js',
+            '../../node_modules/@justeattakeaway/pie-webc/components/text-input.js'
+        ],
+    });
     // Filters
     filters.addAllFilters(eleventyConfig);
 
@@ -51,8 +61,8 @@ module.exports = eleventyConfig => {
 
     return {
         dir: {
-        input: "src",
-        output: "dist",
+            input: "src",
+            output: "dist",
         },
         markdownTemplateEngine: "njk",
     };
