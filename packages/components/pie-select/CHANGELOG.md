@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-select
 
+## 0.5.0
+
+### Minor Changes
+
+- [Changed] - Promoted component status from Alpha to Beta ([#2336](https://github.com/justeattakeaway/pie/pull/2336)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.4.4
 
 ### Patch Changes
