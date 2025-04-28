@@ -40,7 +40,7 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
             control: 'object',
         },
         variant: {
-            description: 'Optional variant for styling the breadcrumb component.`default` will display a regular breadcrumb component. `scrim` will enable a scrim overlay for readability.',
+            description: 'Set the variant of the breadcrumb.',
             control: 'select',
             options: variants,
             defaultValue: {
@@ -48,7 +48,7 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
             },
         },
         isCompact: {
-            description: 'Optional flag to display a compact variation of the breadcrumb which will display only the last element in the `items` property as a link',
+            description: 'When set to true, a compact version of the breadcrumb is displayed, showing only the last item in the `items` property.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isCompact,
