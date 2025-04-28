@@ -3,4 +3,4 @@
 "pie-storybook": minor
 ---
 
-[Added] - `variant` and `scrim` property
+[Added] - `variant` and `isCompact` property
