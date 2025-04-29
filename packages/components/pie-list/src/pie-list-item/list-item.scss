@@ -35,8 +35,9 @@
 // Primary text styles
 .c-list-item__primary {
   color: var(--dt-color-content-default);
-  font-size: var(--dt-font-body-l-size);
+  font-size: #{p.font-size(--dt-font-body-l-size)};
   font-weight: var(--dt-font-weight-regular);
+  line-height: #{p.line-height(--dt-font-body-l-line-height)};
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -45,10 +46,11 @@
 // Secondary text styles
 .c-list-item__secondary {
   color: var(--dt-color-content-subdued);
-  font-size: var(--dt-font-body-s-size);
+  font-size: #{p.font-size(--dt-font-body-s-size)};
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin: 0;
 }
 
 // Leading content container - using logical properties for RTL support
@@ -72,7 +74,7 @@
 // Meta text styles
 .c-list-item__meta {
   color: var(--dt-color-content-subdued);
-  font-size: var(--dt-font-body-s-size);
+  font-size: #{p.font-size(--dt-font-body-s-size)};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -80,7 +82,7 @@
 
 // Compact variation
 .c-list-item--compact {
-  padding-block: var(--dt-spacing-b);
+  padding-block: var(--dt-spacing-c);
   padding-inline: var(--dt-spacing-d);
   min-height: 40px;
 }

@@ -488,7 +488,7 @@ export class PieListItem extends RtlMixin(PieElement) implements ListItemProps {
 
                     <!-- Secondary text -->
                     ${this.secondaryText ? html`
-                        <div class="c-list-item__secondary">${this.secondaryText}</div>
+                        <p class="c-list-item__secondary">${this.secondaryText}</p>
                     ` : html`
                         <slot name="secondary"></slot>
                     `}

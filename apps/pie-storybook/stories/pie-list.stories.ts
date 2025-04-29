@@ -192,6 +192,42 @@ export const CheckboxLeadingListItem: Story = {
   `,
 };
 
+export const IconLeadingListItemSecondaryText: Story = {
+    name: 'List Item - Icon Leading - Secondary Text',
+    parameters: {
+        backgrounds: {
+            default: 'background-subtle',
+        },
+    },
+    render: () => html`
+    <div style="width: 350px">
+      <pie-list>
+        <pie-list-item leadingType="icon" primaryText="Next payment" secondaryText="4 May 2025, £1.99 per month">
+            <icon-plus-circle size="m" slot="leading"></icon-plus-circle>
+        </pie-list-item>
+      </pie-list>
+    </div>
+  `,
+};
+
+export const ThumbnailLeadingListItemSecondaryText: Story = {
+    name: 'List Item - Thumbnail Leading - Secondary Text',
+    parameters: {
+        backgrounds: {
+            default: 'background-subtle',
+        },
+    },
+    render: () => html`
+    <div style="width: 350px">
+      <pie-list>
+        <pie-list-item leadingType="thumbnail" primaryText="Next payment" secondaryText="4 May 2025, £1.99 per month">
+            <img slot="leading" src="https://placehold.co/32x24" alt="placeholder">
+        </pie-list-item>
+      </pie-list>
+    </div>
+  `,
+};
+
 //----------------------------------------------------------------------
 // 2. INTERACTIVITY (INTERACTIVE/NON-INTERACTIVE)
 //----------------------------------------------------------------------
