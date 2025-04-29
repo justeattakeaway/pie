@@ -102,6 +102,10 @@
         right: 2px;
     }
 
+    .c-pieIcon--check {
+        vertical-align: top;
+    }
+
     .c-switch-input:checked + & {
         @include switch-transition(transform);
         transform: translateX(var(--switch-translation));

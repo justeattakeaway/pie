@@ -2,7 +2,7 @@
 
 .c-breadcrumb {
   --breadcrumb-background-color: var(--dt-color-transparent);
-
+  background-color: var(--breadcrumb-background-color);
   padding: var(--dt-spacing-a) var(--dt-spacing-d) var(--dt-spacing-a) var(--dt-spacing-d);
 }
 
@@ -22,8 +22,26 @@
   }  
 }
 
+.c-breadcrumb--scrim {
+  --breadcrumb-background-color: var(--dt-color-overlay);
+  border-radius: var(--dt-radius-rounded-e);
+}
+
 .c-breadcrumb-list-last-item {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 250px;
+  color: var(--dt-color-content-subdued);
+}
+
+.c-breadcrumb-list-last-item--scrim {
+  color: var(--dt-color-content-link-light);
+}
+
+.c-breadcrumb-separator {
+  color: var(--dt-color-content-subdued);
+}
+
+.c-breadcrumb-separator--scrim {
+  color: var(--dt-color-content-link-light);
 }
