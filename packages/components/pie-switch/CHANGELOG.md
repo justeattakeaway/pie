@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-switch
 
+## 1.3.5
+
+### Patch Changes
+
+- [Fixed] - check icon vertical alignment ([#2338](https://github.com/justeattakeaway/pie/pull/2338)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.3.4
 
 ### Patch Changes
