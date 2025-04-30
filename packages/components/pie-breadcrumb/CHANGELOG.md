@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-breadcrumb
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - `variant` and `isCompact` property ([#2314](https://github.com/justeattakeaway/pie/pull/2314)) by [@thejfreitas](https://github.com/thejfreitas)
+
 ## 0.2.0
 
 ### Minor Changes
