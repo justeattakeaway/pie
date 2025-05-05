@@ -18,8 +18,7 @@ module.exports = eleventyConfig => {
     eleventyConfig.addPlugin(litPlugin, {
         mode: 'worker',
         componentModules: [
-            '../../node_modules/@justeattakeaway/pie-webc/components/select.js',
-            '../../node_modules/@justeattakeaway/pie-webc/components/text-input.js'
+            'src/assets/js/pie-components.js',
         ],
     });
     // Filters

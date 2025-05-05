@@ -156,10 +156,7 @@ const categoryDropdown = () => {
  * @returns {string}
  */
 const categorisedIconList = () => headingAnchor(`<div>
-    ${categoryDropdown()}
-        <ul class="c-categorisedIconList">
-            ${generateIconsList()}
-        </ul>
+    <pie-text-input></pie-text-input>
     </div>`);
 
 module.exports = categorisedIconList;
