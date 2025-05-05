@@ -18,7 +18,7 @@ module.exports = eleventyConfig => {
     eleventyConfig.addPlugin(litPlugin, {
         mode: 'worker',
         componentModules: [
-            'src/assets/js/pie-components.js',
+            'src/assets/js/pie-components-imports.js',
         ],
     });
     // Filters

@@ -8,9 +8,9 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "scripts": {
-    "build:assets": "run -T vite build",
-    "build": "yarn run build:assets && DEPLOYMENT_ENVIRONMENT='production' eleventy",
-    "build:dev": "yarn run build:assets && DEPLOYMENT_ENVIRONMENT='development' eleventy",
+    "build:external-deps": "run -T vite build",
+    "build": "yarn run build:external-deps && DEPLOYMENT_ENVIRONMENT='production' eleventy",
+    "build:dev": "yarn run build:external-deps && DEPLOYMENT_ENVIRONMENT='development' eleventy",
     "clean": "run -T rimraf dist",
     "dev": "npx @11ty/eleventy --serve --port=8080",
     "lint:scripts": "run -T eslint .",
