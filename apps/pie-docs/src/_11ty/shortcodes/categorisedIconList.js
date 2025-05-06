@@ -3,7 +3,6 @@ const pieIcons = require('../filters/pieIconsSvg')();
 const headingAnchor = require('../filters/headingAnchor');
 
 const categoryNames = iconData.categories.filter(({ name }) => name !== 'payment');
-const selectedCategory = 'all';
 
 /**
  *
@@ -48,14 +47,6 @@ const buildIconCard = (icon) => {
         <p>${icon.displayName}</p>
     </li>`;
 };
-const handleSelect = (e) => {
-    console.log('change');
-    /*     const selectedCategory = e.target.value;
-        const iconsListContainer = document.querySelector('.c-categorisedIconList');
-        if (iconsListContainer) {
-            iconsListContainer.innerHTML = generateIconsList(selectedCategory);
-        } */
-};
 
 const generateIconsList = (filterCategory) => {
     const filteredCategories = iconData.categories.filter((category) => {
@@ -87,65 +78,8 @@ const categoryDropdown = () => {
     ];
     const jsonOptions = JSON.stringify(formattedOptions).replace(/"/g, '&quot;');
 
-    return `<pie-select id="categoryFilter" options="${jsonOptions}"></pie-select>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const categoryFilter = document.getElementById('categoryFilter');
-        
-        if (categoryFilter) {
-            categoryFilter.addEventListener('change', function(e) {
-                const selectedCategory = e.target.value;
-                console.log('Category selected:', selectedCategory);
-            });
-        }
-    });
-    </script>
-    `;
+    return `<pie-select id="categoryFilter" options="${jsonOptions}"></pie-select>`;
 };
-/* const categoryDropdown = () => {
-    const formattedOptions = [
-        { tag: 'option', text: 'All categories', value: '' },
-        ...categoryNames.map((category) => ({
-            tag: 'option',
-            text: category.displayName,
-            value: category.name,
-        }))
-    ];
-    const jsonOptions = JSON.stringify(formattedOptions).replace(/"/g, '&quot;');
-
-    function callme (obj) {
-        console.log(obj.name);
-    }
-    return `<input type="text" name="fieldname" onkeydown="${callme(this)};" />`;
-}; */
-
-/*
-       <script>
-      const select = document.getElementById('cat-select');
-      select?.addEventListener('change', (e) => {
-        const selectedCategory = e.target.value;
-        console.log('Custom change event triggered:', e.target.value);
-        const container = document.querySelector('.c-categorisedIconList');
-        if (container) {
-          container.innerHTML = (${generateIconsList.toString()})(selectedCategory);
-        }
-      });
-    </script>
-
-        <script>
-      window.addEventListener('DOMContentLoaded', () => {
-        const select = document.getElementById('cat-select');
-        if (select) {
-          select.change = (selectedValue) => {
-            console.log('Value changed via custom property:', selectedValue);
-            const container = document.querySelector('.c-categorisedIconList');
-            if (container) {
-              container.innerHTML = (${generateIconsList.toString()})(selectedValue);
-            }
-          };
-        }
-      });
-    </script>*/
 
 /**
  * An HTML component that takes in a list of icon categories
@@ -157,9 +91,20 @@ const categoryDropdown = () => {
  */
 const categorisedIconList = () => headingAnchor(`<div>
     ${categoryDropdown()}
-        <ul class="c-categorisedIconList">
-            ${generateIconsList()}
-        </ul>
+    <ul class="c-categorisedIconList">
+        ${generateIconsList()}
+    </ul>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectElement = document.getElementById('categoryFilter');
+            if (selectElement) {
+                selectElement.addEventListener('input', (event) => {
+                    const category = selectElement.shadowRoot.querySelector('select').value;
+                    console.log('Category selected:', category);
+                });
+            }
+        });
+    </script>
     </div>`);
 
 module.exports = categorisedIconList;
