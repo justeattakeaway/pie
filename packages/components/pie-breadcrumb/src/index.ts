@@ -1,8 +1,7 @@
 import { html, nothing, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
-import { RtlMixin, defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { RtlMixin, safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
-
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 
 import '@justeattakeaway/pie-link';
@@ -25,6 +24,7 @@ export * from './defs';
 /**
  * @tagname pie-breadcrumb
  */
+@safeCustomElement('pie-breadcrumb')
 export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbProps {
     @property({ type: Array })
     public items: BreadcrumbProps['items'] = [];
@@ -157,7 +157,7 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
         return html`
             ${this.renderCompactBreadcrumbSeparator()}
             <li role="listitem" data-test-id="pie-breadcrumb-item">
-                ${this.renderNavigationLink(lastItem)}    
+                ${this.renderNavigationLink(lastItem)}
             </li>
         `;
     }
@@ -198,8 +198,6 @@ export class PieBreadcrumb extends RtlMixin(PieElement) implements BreadcrumbPro
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieBreadcrumb);
 
 declare global {
     interface HTMLElementTagNameMap {
