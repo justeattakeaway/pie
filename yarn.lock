@@ -4046,6 +4046,38 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-docs@workspace:apps/pie-docs":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-docs@workspace:apps/pie-docs"
+  dependencies:
+    "@11ty/eleventy": 2.0.1
+    "@11ty/eleventy-navigation": 0.3.5
+    "@docsearch/css": 3.5.2
+    "@docsearch/js": 3.5.2
+    "@justeat/fozzie": 11.0.2
+    "@justeat/pie-design-tokens": 6.10.0
+    "@justeattakeaway/browserslist-config-pie": 0.2.1
+    "@justeattakeaway/pie-css": 0.16.0
+    "@justeattakeaway/pie-icons": 5.9.0
+    "@justeattakeaway/pie-monorepo-utils": 0.5.0
+    "@types/markdown-it": 13.0.2
+    autoprefixer: 10.4.20
+    cssnano: 5.1.15
+    dree: 3.4.5
+    eleventy-plugin-rev: 1.1.1
+    eleventy-plugin-toc: 1.1.5
+    eleventy-sass: 2.2.3
+    js-cookie: 2.2.1
+    markdown-it: 13.0.2
+    markdown-it-anchor: 8.6.7
+    markdown-it-attrs: 4.1.6
+    node-html-parser: 6.1.13
+    postcss: 8.4.32
+    postcss-cli: 10.1.0
+    slugify: 1.6.6
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-form-label@0.15.1, @justeattakeaway/pie-form-label@workspace:packages/components/pie-form-label":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-form-label@workspace:packages/components/pie-form-label"
@@ -20799,38 +20831,6 @@ __metadata:
   checksum: 371cd14bbc9bdee2a6a44596dd521dd3565e223481e0b1afffdca3f1c29831850bfa7784114dc30d245d37e7d186cec035e036256b39f75d878d19498fe0df6a
   languageName: node
   linkType: hard
-
-"pie-docs@workspace:apps/pie-docs":
-  version: 0.0.0-use.local
-  resolution: "pie-docs@workspace:apps/pie-docs"
-  dependencies:
-    "@11ty/eleventy": 2.0.1
-    "@11ty/eleventy-navigation": 0.3.5
-    "@docsearch/css": 3.5.2
-    "@docsearch/js": 3.5.2
-    "@justeat/fozzie": 11.0.2
-    "@justeat/pie-design-tokens": 6.10.0
-    "@justeattakeaway/browserslist-config-pie": 0.2.1
-    "@justeattakeaway/pie-css": 0.16.0
-    "@justeattakeaway/pie-icons": 5.9.0
-    "@justeattakeaway/pie-monorepo-utils": 0.5.0
-    "@types/markdown-it": 13.0.2
-    autoprefixer: 10.4.20
-    cssnano: 5.1.15
-    dree: 3.4.5
-    eleventy-plugin-rev: 1.1.1
-    eleventy-plugin-toc: 1.1.5
-    eleventy-sass: 2.2.3
-    js-cookie: 2.2.1
-    markdown-it: 13.0.2
-    markdown-it-anchor: 8.6.7
-    markdown-it-attrs: 4.1.6
-    node-html-parser: 6.1.13
-    postcss: 8.4.32
-    postcss-cli: 10.1.0
-    slugify: 1.6.6
-  languageName: unknown
-  linkType: soft
 
 "pie-monorepo@workspace:.":
   version: 0.0.0-use.local
