@@ -11,14 +11,14 @@ We have a component generator package for generating new components named `gener
 To run Storybook, run the following command from the root of the monorepo:
 
 ```bash
-yarn dev --filter=pie-storybook
+yarn dev --filter=@justeattakeaway/pie-storybook
 ```
 
 ### Watch a component whilst running Storybook
 We can run storybook as above, and then watch a specific component in another shell. This is useful for developing a component in isolation. Run both commands from the root of the monorepo.
 
 ```bash
-yarn dev --filter=pie-storybook
+yarn dev --filter=@justeattakeaway/pie-storybook
 ```
 In another shell:
 ```bash
@@ -136,7 +136,7 @@ To enable CDN publishing for a package, add the following properties:
 "pieMetadata": {
   "cdnPublish": true,
   "cdnSourceFolder": "dist",
-  "cdnContentType": "text/javascript" 
+  "cdnContentType": "text/javascript"
 }
 ```
 
@@ -144,8 +144,8 @@ To enable CDN publishing for a package, add the following properties:
 ### Release Categorisation
 |                    | Prerelease/Alpha (v0.x.x)                                                                                                           | Beta (v0.x.x)                                                                                                            | Stable (v1.x.x)                                                                                                                                                                                                   |
 |--------------------|-------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **NPM Versioning** | Breaking changes should be expected. Component is still in active development and released as v0.x.x (indicating semver prerelease) | Breaking changes will be less likely, but could still occur due to component being integration tested with applications. | Component moves to v1.x.x NPM release. Breaking changes are communicated through version updates and any major feature changes will be tested as beta package releases.                                           | 
-| **Use in production applications is** | Not recommended. Component is still in active development and may have known issues. Is done so at application teams own risk.      | Is encouraged, but with appropriate level of caution for a beta package release. Thorough testing is recommended.        | Is encouraged and we don’t expect any obvious defects being found.  Component has already been tested in other applications and is therefore considered stable. As always, thorough testing is still recommended. | 
+| **NPM Versioning** | Breaking changes should be expected. Component is still in active development and released as v0.x.x (indicating semver prerelease) | Breaking changes will be less likely, but could still occur due to component being integration tested with applications. | Component moves to v1.x.x NPM release. Breaking changes are communicated through version updates and any major feature changes will be tested as beta package releases.                                           |
+| **Use in production applications is** | Not recommended. Component is still in active development and may have known issues. Is done so at application teams own risk.      | Is encouraged, but with appropriate level of caution for a beta package release. Thorough testing is recommended.        | Is encouraged and we don’t expect any obvious defects being found.  Component has already been tested in other applications and is therefore considered stable. As always, thorough testing is still recommended. |
 
 ### What to do as a contributor
 Versioning will happen automatically through our pipeline, and will use each commit description to determine the right version. Remember you can use `yarn cz` when committing any changes. You don't need to change versions manually in the `package.json`.

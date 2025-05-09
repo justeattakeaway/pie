@@ -55,7 +55,7 @@ jobs:
     runs-on: ${{ inputs.os }}
     steps:
       # Process package name to remove prefix
-      - name: Process package name
+      - name: Remove scope from package name
         run: |
           PACKAGE_NAME="${{ inputs.package-name }}"
           if [[ "$PACKAGE_NAME" == @justeattakeaway/* ]]; then

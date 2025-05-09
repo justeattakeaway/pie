@@ -91,7 +91,7 @@ describe('create and publish workflow', () => {
             sampleOutput = `
                 New tag: @justeattakeaway/pie-docs@0.0.0-snapshot-release-20231220110000
                 New tag: pie-monorepo@0.0.0-snapshot-release-20231220110000
-                New tag: pie-storybook@0.0.0-snapshot-release-20231220110000
+                New tag: @justeattakeaway/pie-storybook@0.0.0-snapshot-release-20231220110000
             `;
 
             // Act
