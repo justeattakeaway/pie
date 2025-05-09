@@ -1,5 +1,5 @@
 {
-  "name": "pie-docs",
+  "name": "@justeattakeaway/pie-docs",
   "private": true,
   "description": "Documentation website for the PIE design system",
   "version": "4.32.0",

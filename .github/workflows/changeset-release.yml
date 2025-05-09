@@ -118,16 +118,16 @@ jobs:
       id: generate_payload
       run: |
         PACKAGES='${{ steps.changesets-main.outputs.publishedPackages}}'
-        PRIORITIZED_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select(.name == "pie-docs" or .name == "pie-storybook")]')
-        REST_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select((.name != "pie-docs" and .name != "pie-storybook") and (.name | startswith("wc-") | not) and .name != "pie-monorepo")]')
+        PRIORITIZED_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select(.name == "@justeattakeaway/pie-docs" or .name == "@justeattakeaway/pie-storybook")]')
+        REST_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select((.name != "@justeattakeaway/pie-docs" and .name != "@justeattakeaway/pie-storybook") and (.name | startswith("wc-") | not) and .name != "pie-monorepo")]')
 
         PRIORITIZED_BLOCKS=$(echo $PACKAGES | jq -c '
-            map(select(.name == "pie-docs" or .name == "pie-storybook")) |
+            map(select(.name == "@justeattakeaway/pie-docs" or .name == "@justeattakeaway/pie-storybook")) |
 
             if length > 0 then
               [{"type": "divider"}, {"type": "header", "text": {"type": "plain_text", "text": ":rocket: Deployment Summary"}}] +
               (map(
-                if .name == "pie-docs" then
+                if .name == "@justeattakeaway/pie-docs" then
                   {
                     "type": "section",
                     "block_id": "sectionBlockWithButton",
@@ -145,7 +145,7 @@ jobs:
                       "url": "https://pie.design"
                     }
                   }
-                elif .name == "pie-storybook" then
+                elif .name == "@justeattakeaway/pie-storybook" then
                   {
                     "type": "section",
                     "text": {

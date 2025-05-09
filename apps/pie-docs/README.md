@@ -17,7 +17,7 @@
 - To run the project, start by running `yarn` from the root of the monorepo. Then whilst still at the root run:
 
   ```
-  yarn dev --filter=pie-docs
+  yarn dev --filter=@justeattakeaway/pie-docs
   ```
 
 ## Technologies used
@@ -102,9 +102,9 @@ We have route navigation tests that ensure all existing pages can be correctly n
 Route tests need a production build so that they do not fail with `draft` page routes. For this, we recommend to:
 1. Stop any local instance of the doc site
 2. Delete your `dist` folder
-3. Create a production build with `yarn build --filter=pie-docs`
+3. Create a production build with `yarn build --filter=@justeattakeaway/pie-docs`
 
-Once this is done, you can run the route tests with `yarn test --filter=pie-docs`.
+Once this is done, you can run the route tests with `yarn test --filter=@justeattakeaway/pie-docs`.
 From here, we run navigation, accessibility and visual tests against each route.
 
 #### Adding new routes
@@ -115,14 +115,14 @@ In order to fix the tests, you will need to register the routes to your newly ad
 
 Running `yarn test:browsers` will ensure that navigating to the routes stored in `expected-routes.snapshot.json` result in Status Code `200` responses.
 
-In order to run this command you will need the site to be served to localhost by running `yarn dev --filter=pie-docs` in another terminal.
+In order to run this command you will need the site to be served to localhost by running `yarn dev --filter=@justeattakeaway/pie-docs` in another terminal.
 
 ### Unit testing
 Our unit testing is quite light. We generally write unit tests for `Javascript` utilities and for `shortcodes`. With shortcodes, we often perform [snapshot tests](https://jestjs.io/docs/snapshot-testing) on the returned markup. Whilst visual tests will catch changes to how the markup looks, snapshot tests will catch any unwanted changes to things like `HTML` attributes.
 
-For testing snapshots you can run from the root of the monorepo `yarn test --filter=pie-docs`
+For testing snapshots you can run from the root of the monorepo `yarn test --filter=@justeattakeaway/pie-docs`
 
-If you would like to update snapshots because the changes are expected, you can run from the root of the monorepo `yarn test --filter=pie-docs -- -u`
+If you would like to update snapshots because the changes are expected, you can run from the root of the monorepo `yarn test --filter=@justeattakeaway/pie-docs -- -u`
 
 ## Conventions
 - If you want to create some reusable/shared content, you can add it to a markdown file using the following naming format: `**.content.md`. Eleventy knows to ignore these file types during build, so they will not turn into their own pages. Because we use Nunjucks as our markdown rendering engine, we are able to use includes in our markdown files like so: `{% include 'some/path/to/reusable-stuff.content.md' %}`. This allows us to reuse copy if needed.
