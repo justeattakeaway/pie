@@ -49,12 +49,31 @@ env:
   BRANCH_NAME: ${{ github.event_name == 'pull_request' && format('pr{0}', github.event.number) || (github.ref == 'refs/heads/main' && 'main' || github.ref == 'refs/heads/master' && 'master') }}
   BUCKET_NAME: ${{ github.event_name == 'pull_request' && inputs.bucket-name-preview || (github.ref == 'refs/heads/main' && inputs.bucket-name-main || github.ref == 'refs/heads/master' && inputs.bucket-name-main) }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-  ZIP_NAME: ${{ github.event_name == 'pull_request' && format('{0}-{1}-preview.zip', inputs.package-name, github.event.number) || (github.ref == 'refs/heads/main' && format('{0}-main.zip', inputs.package-name) || github.ref == 'refs/heads/master' && format('{0}-master.zip', inputs.package-name)) }}
 
 jobs:
   deploy:
     runs-on: ${{ inputs.os }}
     steps:
+      # Process package name to remove prefix
+      - name: Process package name
+        run: |
+          PACKAGE_NAME="${{ inputs.package-name }}"
+          if [[ "$PACKAGE_NAME" == @justeattakeaway/* ]]; then
+            PACKAGE_NAME="${PACKAGE_NAME/@justeattakeaway\//}"
+          fi
+          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
+
+      # Create ZIP_NAME environment variable
+      - name: Set ZIP_NAME
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "ZIP_NAME=${{ env.PACKAGE_NAME }}-${{ github.event.number }}-preview.zip" >> $GITHUB_ENV
+          elif [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            echo "ZIP_NAME=${{ env.PACKAGE_NAME }}-main.zip" >> $GITHUB_ENV
+          elif [[ "${{ github.ref }}" == "refs/heads/master" ]]; then
+            echo "ZIP_NAME=${{ env.PACKAGE_NAME }}-master.zip" >> $GITHUB_ENV
+          fi
+
       # Checkout the Repo
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2

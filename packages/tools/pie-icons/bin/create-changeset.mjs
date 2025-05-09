@@ -122,7 +122,7 @@ export async function createPieDocsChangeset (pieDocsPath) {
 
     const changelogText = '[Changed] - updated snapshots after icons update';
     const versionBumpType = 'patch';
-    const packages = ['pie-docs'];
+    const packages = ['@justeattakeaway/pie-docs'];
     const monorepoRootPath = findMonorepoRoot();
 
     return createChangeSetFile(changelogText, versionBumpType, packages, monorepoRootPath);
