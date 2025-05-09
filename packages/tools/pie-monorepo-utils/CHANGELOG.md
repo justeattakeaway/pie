@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-monorepo-utils
 
+## 0.5.1
+
+### Patch Changes
+
+- [Fixed] - Security patch to add scope to pie-storybook pkg ([#2345](https://github.com/justeattakeaway/pie/pull/2345)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Fixed] - Security patch to add scope to pie-docs ([#2342](https://github.com/justeattakeaway/pie/pull/2342)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.5.0
 
 ### Minor Changes

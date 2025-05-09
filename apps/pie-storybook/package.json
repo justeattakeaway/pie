@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-storybook",
-  "version": "1.35.0",
+  "version": "1.35.1",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@justeattakeaway/pie-icons-configs": "4.5.1",
-    "@justeattakeaway/pie-monorepo-utils": "0.5.0",
+    "@justeattakeaway/pie-monorepo-utils": "0.5.1",
     "@storybook/addon-a11y": "8.4.5",
     "@storybook/addon-designs": "8.0.4",
     "@storybook/addon-essentials": "8.4.5",

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.35.1
+
+### Patch Changes
+
+- [Fixed] - Security patch to add scope to pie-storybook pkg ([#2345](https://github.com/justeattakeaway/pie/pull/2345)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 1.35.0
 
 ### Minor Changes
