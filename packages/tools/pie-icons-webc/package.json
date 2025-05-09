@@ -51,8 +51,8 @@
     "@justeattakeaway/pie-webc-core": "0.25.1"
   },
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.20.0",
-    "@justeattakeaway/pie-icons": "5.9.0",
+    "@justeattakeaway/pie-components-config": "0.20.1",
+    "@justeattakeaway/pie-icons": "5.9.1",
     "@justeattakeaway/pie-icons-configs": "4.5.1",
     "@rollup/plugin-typescript": "11.1.6",
     "@web/test-runner": "0.16.1",

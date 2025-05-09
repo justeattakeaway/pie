@@ -297,7 +297,7 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.20.0",
+    "@justeattakeaway/pie-components-config": "0.20.1",
     "chalk": "5.3.0"
   },
   "dependencies": {
