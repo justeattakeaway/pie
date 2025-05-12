@@ -70,29 +70,32 @@ Form labels are displayed as a concise and clear text above an input field that 
 
 All leading content tells the user what type of information is expected in the field.
 
-### Label
-
-{% contentPageImage {
-    src:"../../../assets/img/components/form-label/variation-leading-label.svg",
-    alt: "A leading content form label",
-    width: 34
-} %}
-
-### Help tooltip icon
-
-{% contentPageImage {
-    src:"../../../assets/img/components/form-label/variation-leading-tooltip-icon.svg",
-    alt: "A form label with help tooltip icon",
-    width: 20
-} %}
-
-### Optional
-
-{% contentPageImage {
-    src:"../../../assets/img/components/form-label/variation-leading-optional.svg",
-    alt: "A form label with optional text",
-    width: 54
-} %}
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Label</h4>
+    {% contentPageImage {
+      src: "../../../assets/img/components/form-label/variation-leading-label.svg",
+      width: 34,
+      alt: "A leading content form label"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Help tooltip icon</h4>
+    {% contentPageImage {
+      src:"../../../assets/img/components/form-label/variation-leading-tooltip-icon.svg",
+      alt: "A form label with help tooltip icon",
+      width: 20
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Optional</h4>
+    {% contentPageImage {
+      src:"../../../assets/img/components/form-label/variation-leading-optional.svg",
+      alt: "A form label with optional text",
+      width: 54
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ### Trailing content
 
@@ -103,37 +106,41 @@ All trailing content is dynamic and based on user actions, selections, inputs, a
   message: "We only specify the types of trailing content in design. In development, however, trailing content is simply free-form text."
 } %}
 
-### Character count
 
-{% contentPageImage {
-    src:"../../../assets/img/components/form-label/variation-trailing-character-count.svg",
-    alt: "A form label with trailing character count",
-    width: 30
-} %}
-
-### Percentage
-
-{% contentPageImage {
-    src:"../../../assets/img/components/form-label/variation-trailing-percentage.svg",
-    alt: "A form label with trailing percentage",
-    width: 22
-} %}
-
-### Stepper
-
-{% contentPageImage {
-    src:"../../../assets/img/components/form-label/variation-trailing-stepper.svg",
-    alt: "A form label with trailing stepper",
-    width: 36
-} %}
-
-### String
-
-{% contentPageImage {
-    src:"../../../assets/img/components/form-label/variation-trailing-string.svg",
-    alt: "A form label with trailing string",
-    width: 38
-} %}
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Character count</h4>
+    {% contentPageImage {
+      src:"../../../assets/img/components/form-label/variation-trailing-character-count.svg",
+      alt: "A form label with trailing character count",
+      width: 30
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Percentage</h4>
+    {% contentPageImage {
+      src:"../../../assets/img/components/form-label/variation-trailing-percentage.svg",
+      alt: "A form label with trailing percentage",
+      width: 22
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Stepper</h4>
+    {% contentPageImage {
+      src:"../../../assets/img/components/form-label/variation-trailing-stepper.svg",
+      alt: "A form label with trailing stepper",
+      width: 36
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>String</h4>
+    {% contentPageImage {
+      src:"../../../assets/img/components/form-label/variation-trailing-string.svg",
+      alt: "A form label with trailing string",
+      width: 38
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ---
 
