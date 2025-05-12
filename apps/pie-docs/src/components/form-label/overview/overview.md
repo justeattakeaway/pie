@@ -156,7 +156,7 @@ Provides users with more context or information about the label when interacting
 
 {% contentPageImage {
     src:"../../../assets/img/components/form-label/variation-leading-tooltip-icon.svg",
-    alt: "A form label with help tooltip icon",
+    alt: "A leading form label with help tooltip icon",
     width: 154
 } %}
 
@@ -166,7 +166,7 @@ Informs the user that filling in the field is optional.
 
 {% contentPageImage {
     src:"../../../assets/img/components/form-label/variation-leading-optional.svg",
-    alt: "A form label with optional text",
+    alt: "A leading form label with optional text",
     width: 54
 } %}
 
@@ -178,7 +178,7 @@ If the help tooltip icon or the Optional identifier as active, they trail the en
 
 {% contentPageImage {
     src:"../../../assets/img/components/form-label/variation-leading-multiline-label.svg",
-    alt: "A form label with multiline text",
+    alt: "A leading form label with multiline text",
     width: 176
 } %}
 
@@ -337,7 +337,7 @@ When using the String modifier, ensure that the content is dynamic and is update
 
 {% contentPageImage {
     src:"../../../assets/img/components/form-label/content-character-count-stepper-percentage.svg",
-    alt: "A form label with trailing percentage",
+    alt: "Examples of form labels with character count, percentage, and stepper.",
     width: 168
 } %}
 
@@ -359,14 +359,14 @@ Text fields and text areas may have a character limit and counter. Use the chara
     {% contentPageImage {
       src: "../../../assets/img/components/form-label/behaviours-character-counter-1.svg",
       width: 256,
-      alt: "Example of encouraged form label usage."
+      alt: "Example of empty form label with character counter."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
       src: "../../../assets/img/components/form-label/behaviours-character-counter-2.svg",
       width: 257,
-      alt: "Example of encouraged form label usage."
+      alt: "Example of filled form label with character counter."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -377,7 +377,7 @@ User’s actions, selections, inputs and statuses are reflected on the trailing 
 
 {% contentPageImage {
     src:"../../../assets/img/components/form-label/behaviours-stepper-percentage-string.svg",
-    alt: "A form label with trailing percentage",
+    alt: "Examples of form label with stepper, percentage, and string.",
     width: 298
 } %}
 
@@ -413,7 +413,7 @@ Trailing content is positioned at the end of a form label and should be right-al
         items: [{
             src: "../../../assets/img/components/form-label/layout-position-do.svg",
             width: "280px",
-            alt: "Examples of encouraged form label usage."
+            alt: "Example of encouraged form label usage."
         }]
     },
     dont: {
