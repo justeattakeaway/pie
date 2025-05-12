@@ -23,11 +23,9 @@ const categorisedIconList = () => headingAnchor(`<div>
     <ul class="c-categorisedIconList" id="categorisedIconListContainer"></ul>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOMContentLoaded fired');
+
     window.iconData = ${JSON.stringify(iconData)};
-    window.pieIcons = ${JSON.stringify(pieIcons)};;
-  });
+    window.pieIcons = ${JSON.stringify(pieIcons)};
 </script>
 <script src="/assets/js/categorisedIconList.js"></script>
 </div>`);
