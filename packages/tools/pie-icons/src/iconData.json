@@ -237,6 +237,10 @@
                     "displayName": "Loyalty Card"
                 },
                 {
+                    "name": "loyalty-card-filled",
+                    "displayName": "Loyalty Card Filled"
+                },
+                {
                     "name": "meal-voucher",
                     "displayName": "Meal Voucher"
                 },
