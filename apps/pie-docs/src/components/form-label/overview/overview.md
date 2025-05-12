@@ -92,7 +92,7 @@ All leading content tells the user what type of information is expected in the f
     {% contentPageImage {
       src:"../../../assets/img/components/form-label/variation-leading-optional.svg",
       alt: "A form label with optional text",
-      width: 54
+      width: 96
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -157,7 +157,7 @@ Provides users with more context or information about the label when interacting
 {% contentPageImage {
     src:"../../../assets/img/components/form-label/variation-leading-tooltip-icon.svg",
     alt: "A form label with help tooltip icon",
-    width: 20
+    width: 154
 } %}
 
 #### Optional
@@ -216,7 +216,7 @@ Indicates the proportion of a task that has been completed.
 {% contentPageImage {
     src:"../../../assets/img/components/form-label/variation-trailing-percentage.svg",
     alt: "A form label with trailing percentage",
-    width: 22
+    width: 256
 } %}
 
 #### String
@@ -226,7 +226,7 @@ If none of the trailing content above suits your use cases, you can use this dyn
 {% contentPageImage {
     src:"../../../assets/img/components/form-label/variation-trailing-string.svg",
     alt: "A form label with trailing string",
-    width: 38
+    width: 256
 } %}
 
 ---
