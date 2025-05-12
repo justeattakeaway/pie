@@ -66,7 +66,7 @@ jobs:
     - name: Create latest release PR
       id: changesets-main
       if: contains(github.ref_name, 'main')
-      uses: changesets/action@06245a4e0a36c064a573d4150030f5ec548e4fcc # v1.4.10
+      uses: changesets/action@e0538e686673de0265c8a3e2904b8c76beaa43fd # v1.5.2
       with:
         version: yarn changeset:version
         publish: yarn changeset:publish
@@ -81,7 +81,7 @@ jobs:
       run: npx changeset pre enter beta
     - name: Create beta release PR
       if: contains(github.ref_name, 'beta')
-      uses: changesets/action@06245a4e0a36c064a573d4150030f5ec548e4fcc # v1.4.10
+      uses: changesets/action@e0538e686673de0265c8a3e2904b8c76beaa43fd # v1.5.2
       with:
         version: yarn changeset:version
         publish: yarn changeset:publish
@@ -94,7 +94,7 @@ jobs:
       run: npx changeset pre enter next
     - name: Create feature release PR
       if: contains(github.ref_name, 'feature')
-      uses: changesets/action@06245a4e0a36c064a573d4150030f5ec548e4fcc # v1.4.10
+      uses: changesets/action@e0538e686673de0265c8a3e2904b8c76beaa43fd # v1.5.2
       with:
         version: yarn changeset:version
         publish: yarn changeset:publish
