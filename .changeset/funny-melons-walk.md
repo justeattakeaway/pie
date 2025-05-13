@@ -1,5 +1,5 @@
 ---
-"pie-docs": patch
+"@justeattakeaway/pie-docs": patch
 ---
 
 [Changed] - updated snapshots after icons update
