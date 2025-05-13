@@ -55,10 +55,10 @@ window.generateIconsList = (filterCategory) => {
 document.addEventListener('DOMContentLoaded', () => {
     const selectElement = document.getElementById('categoryFilter');
     const iconListContainer = document.getElementById('categorisedIconListContainer');
-    iconListContainer.innerHTML = window.generateIconsList(); // initially generates the whole unflitered list of icons
+    iconListContainer.innerHTML = window.generateIconsList(); // generates the unflitered list of icons
     if (selectElement) {
         selectElement.addEventListener('change', (event) => {
-            const selectedCategory = event.detail.sourceEvent.target.value; // The custom event exposes the value of the inner <select> element without needing to manually access the Shadow DOM.
+            const selectedCategory = event.detail.sourceEvent.target.value;
             iconListContainer.innerHTML = window.generateIconsList(selectedCategory);
         });
     }

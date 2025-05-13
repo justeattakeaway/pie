@@ -6,7 +6,7 @@ const categoryNames = iconData.categories.filter(({ name }) => name !== 'payment
 
 const categoryDropdown = () => {
     const formattedOptions = [
-        { tag: 'option', text: 'All categories', value: '' },
+        { tag: 'option', text: 'All icons', value: '' },
         ...categoryNames.map((category) => ({
             tag: 'option',
             text: category.displayName,
