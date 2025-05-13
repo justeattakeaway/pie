@@ -1,5 +1,16 @@
 # Changelog
 
+## 5.10.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2343](https://github.com/justeattakeaway/pie/pull/2343)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Benefits
+
+  - loyalty-card-filled-large
+  - loyalty-card-filled
+
 ## 5.9.1
 
 ### Patch Changes
