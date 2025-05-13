@@ -19,7 +19,7 @@ const defaultArgs: SpinnerProps = {
 };
 
 const spinnerStoryMeta: SpinnerStoryMeta = {
-    title: 'Spinner',
+    title: 'Components/Spinner',
     component: 'pie-spinner',
     argTypes: {
         size: {

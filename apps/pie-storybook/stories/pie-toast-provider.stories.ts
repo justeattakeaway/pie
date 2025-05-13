@@ -23,7 +23,7 @@ const defaultArgs: ToastProviderProps = {
 };
 
 const toastProviderStoryMeta: ToastProviderStoryMeta = {
-    title: 'Toast Provider',
+    title: 'Components/Toast Provider',
     component: 'pie-toast-provider',
     argTypes: {
         options: {
@@ -64,8 +64,8 @@ const Template = ({ options, '--toast-provider-z-index': customZIndex }: ToastPr
     };
 
     return html`
-    <pie-toast-provider 
-        .options=${options} 
+    <pie-toast-provider
+        .options=${options}
         style="${customZIndex ? `--toast-provider-z-index: ${customZIndex}` : ''}"
         @pie-toast-provider-queue-update=${onQueueUpdate}>
     </pie-toast-provider>
@@ -75,7 +75,7 @@ const Template = ({ options, '--toast-provider-z-index': customZIndex }: ToastPr
     </pie-tag>
 
     <div style="margin-top: 16px; display: flex; gap: 16px; flex-wrap: wrap;">
-        <pie-button 
+        <pie-button
             @click=${() => {
         toaster.create({
             message: 'Low Priority Info',

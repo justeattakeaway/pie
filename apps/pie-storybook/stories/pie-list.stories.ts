@@ -11,7 +11,7 @@ type ListStoryMeta = Meta<ListProps>;
 const defaultArgs: ListProps = {};
 
 const listStoryMeta: ListStoryMeta = {
-    title: 'List',
+    title: 'Components/List',
     component: 'pie-list',
     argTypes: {},
     args: defaultArgs,
