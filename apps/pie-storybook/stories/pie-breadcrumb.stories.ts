@@ -32,7 +32,7 @@ const defaultArgs: BreadcrumbProps = {
 };
 
 const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
-    title: 'Breadcrumb',
+    title: 'Components/Breadcrumb',
     component: 'pie-breadcrumb',
     argTypes: {
         items: {

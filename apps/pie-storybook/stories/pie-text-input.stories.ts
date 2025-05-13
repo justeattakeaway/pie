@@ -49,7 +49,7 @@ const trailingSlotOptions = {
 };
 
 const textInputStoryMeta: TextInputStoryMeta = {
-    title: 'Text Input',
+    title: 'Components/Text Input',
     component: 'pie-text-input',
     argTypes: {
         type: {

@@ -19,7 +19,7 @@ const defaultArgs: CheckboxProps = {
 };
 
 const checkboxStoryMeta: CheckboxStoryMeta = {
-    title: 'Checkbox',
+    title: 'Components/Checkbox',
     component: 'pie-checkbox',
     argTypes: {
         value: {
