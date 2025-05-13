@@ -66,7 +66,7 @@ jobs:
     - name: Create latest release PR
       id: changesets-main
       if: contains(github.ref_name, 'main')
-      uses: changesets/action@06245a4e0a36c064a573d4150030f5ec548e4fcc # v1.4.10
+      uses: changesets/action@e0538e686673de0265c8a3e2904b8c76beaa43fd # v1.5.2
       with:
         version: yarn changeset:version
         publish: yarn changeset:publish
@@ -81,7 +81,7 @@ jobs:
       run: npx changeset pre enter beta
     - name: Create beta release PR
       if: contains(github.ref_name, 'beta')
-      uses: changesets/action@06245a4e0a36c064a573d4150030f5ec548e4fcc # v1.4.10
+      uses: changesets/action@e0538e686673de0265c8a3e2904b8c76beaa43fd # v1.5.2
       with:
         version: yarn changeset:version
         publish: yarn changeset:publish
@@ -94,7 +94,7 @@ jobs:
       run: npx changeset pre enter next
     - name: Create feature release PR
       if: contains(github.ref_name, 'feature')
-      uses: changesets/action@06245a4e0a36c064a573d4150030f5ec548e4fcc # v1.4.10
+      uses: changesets/action@e0538e686673de0265c8a3e2904b8c76beaa43fd # v1.5.2
       with:
         version: yarn changeset:version
         publish: yarn changeset:publish
@@ -118,16 +118,16 @@ jobs:
       id: generate_payload
       run: |
         PACKAGES='${{ steps.changesets-main.outputs.publishedPackages}}'
-        PRIORITIZED_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select(.name == "pie-docs" or .name == "pie-storybook")]')
-        REST_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select((.name != "pie-docs" and .name != "pie-storybook") and (.name | startswith("wc-") | not) and .name != "pie-monorepo")]')
+        PRIORITIZED_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select(.name == "@justeattakeaway/pie-docs" or .name == "@justeattakeaway/pie-storybook")]')
+        REST_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select((.name != "@justeattakeaway/pie-docs" and .name != "@justeattakeaway/pie-storybook") and (.name | startswith("wc-") | not) and .name != "pie-monorepo")]')
 
         PRIORITIZED_BLOCKS=$(echo $PACKAGES | jq -c '
-            map(select(.name == "pie-docs" or .name == "pie-storybook")) |
+            map(select(.name == "@justeattakeaway/pie-docs" or .name == "@justeattakeaway/pie-storybook")) |
 
             if length > 0 then
               [{"type": "divider"}, {"type": "header", "text": {"type": "plain_text", "text": ":rocket: Deployment Summary"}}] +
               (map(
-                if .name == "pie-docs" then
+                if .name == "@justeattakeaway/pie-docs" then
                   {
                     "type": "section",
                     "block_id": "sectionBlockWithButton",
@@ -145,7 +145,7 @@ jobs:
                       "url": "https://pie.design"
                     }
                   }
-                elif .name == "pie-storybook" then
+                elif .name == "@justeattakeaway/pie-storybook" then
                   {
                     "type": "section",
                     "text": {

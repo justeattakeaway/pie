@@ -1,5 +1,23 @@
 # Changelog
 
+## 4.32.2
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2343](https://github.com/justeattakeaway/pie/pull/2343)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`39422e1`](https://github.com/justeattakeaway/pie/commit/39422e1f7f537c48a20e20a727b46c975c6ecba1)]:
+  - @justeattakeaway/pie-icons@5.10.0
+
+## 4.32.1
+
+### Patch Changes
+
+- [Fixed] - Security patch to add scope to pie-docs ([#2342](https://github.com/justeattakeaway/pie/pull/2342)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- Updated dependencies [[`fa1c590`](https://github.com/justeattakeaway/pie/commit/fa1c590ce0b46d8774b2e98b68239e5d76431c8f)]:
+  - @justeattakeaway/pie-icons@5.9.1
+
 ## 4.32.0
 
 ### Minor Changes

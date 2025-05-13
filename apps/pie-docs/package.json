@@ -1,8 +1,8 @@
 {
-  "name": "pie-docs",
+  "name": "@justeattakeaway/pie-docs",
   "private": true,
   "description": "Documentation website for the PIE design system",
-  "version": "4.32.0",
+  "version": "4.32.2",
   "main": "index.js",
   "keywords": [],
   "author": "Just Eat Takeaway.com - Design System Team",
@@ -31,7 +31,7 @@
   "devDependencies": {
     "@11ty/eleventy": "2.0.1",
     "@11ty/eleventy-navigation": "0.3.5",
-    "@justeattakeaway/pie-monorepo-utils": "0.5.0",
+    "@justeattakeaway/pie-monorepo-utils": "0.5.1",
     "autoprefixer": "10.4.20",
     "eleventy-plugin-rev": "1.1.1",
     "eleventy-sass": "2.2.3",
@@ -44,7 +44,7 @@
     "@justeat/pie-design-tokens": "6.10.0",
     "@justeattakeaway/browserslist-config-pie": "0.2.1",
     "@justeattakeaway/pie-css": "0.16.0",
-    "@justeattakeaway/pie-icons": "5.9.0",
+    "@justeattakeaway/pie-icons": "5.10.0",
     "@types/markdown-it": "13.0.2",
     "cssnano": "5.1.15",
     "dree": "3.4.5",

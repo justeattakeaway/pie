@@ -11,7 +11,7 @@ type <%= componentName %>StoryMeta = Meta<<%= componentName %>Props>;
 const defaultArgs: <%= componentName %>Props = {};
 
 const <%= componentNameCamelCase %>StoryMeta: <%= componentName %>StoryMeta = {
-    title: '<%= displayName %>',
+    title: 'Components/<%= displayName %>',
     component: 'pie-<%= fileName %>',
     argTypes: {},
     args: defaultArgs,

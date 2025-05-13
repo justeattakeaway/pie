@@ -203,7 +203,7 @@ async function updateIcons () {
         updateIconData(iconsDataFilePath, changedFilesGroups.added, allFilesPathsAndCategories);
 
         console.info('updating pie-docs snapshots');
-        execSync('cd ../../../ && yarn test --filter=pie-docs -- -u');
+        execSync('cd ../../../ && yarn test --filter=@justeattakeaway/pie-docs -- -u');
 
         console.info('creating changesets');
         const pieDocsChangesetFilePath = await createPieDocsChangeset(pieDocsTestsPath);

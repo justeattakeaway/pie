@@ -23,7 +23,7 @@ const defaultArgs: ThumbnailProps = {
 };
 
 const thumbnailStoryMeta: ThumbnailStoryMeta = {
-    title: 'Thumbnail',
+    title: 'Components/Thumbnail',
     component: 'pie-thumbnail',
     argTypes: {
         variant: {

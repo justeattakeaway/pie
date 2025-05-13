@@ -1,5 +1,22 @@
 # Changelog
 
+## 5.10.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2343](https://github.com/justeattakeaway/pie/pull/2343)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Benefits
+
+  - loyalty-card-filled-large
+  - loyalty-card-filled
+
+## 5.9.1
+
+### Patch Changes
+
+- [Fixed] - Security patch to add scope to pie-docs ([#2342](https://github.com/justeattakeaway/pie/pull/2342)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 5.9.0
 
 ### Minor Changes

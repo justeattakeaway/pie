@@ -80,7 +80,7 @@ jobs:
       - name: Verify if pie-docs has changes
         id: docs-check
         run: |
-          DOCS_CHANGE=$(npx -y turbo run build --filter='pie-docs[origin/main]' --dry=json | jq '.packages | length > 0')
+          DOCS_CHANGE=$(npx -y turbo run build --filter='@justeattakeaway/pie-docs[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $DOCS_CHANGE"
           echo "docs-change=$DOCS_CHANGE" >> $GITHUB_OUTPUT
       - name: Verify if web components have changes
@@ -92,7 +92,7 @@ jobs:
       - name: Verify if storybook has changes
         id: storybook-check
         run: |
-          STORYBOOK_CHANGE=$(npx -y turbo run build --filter='pie-storybook[origin/main]' --dry=json | jq '.packages | length > 0')
+          STORYBOOK_CHANGE=$(npx -y turbo run build --filter='@justeattakeaway/pie-storybook[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $STORYBOOK_CHANGE"
           echo "storybook-change=$STORYBOOK_CHANGE" >> $GITHUB_OUTPUT
 
@@ -183,7 +183,7 @@ jobs:
       os: ubuntu-latest
       node-version: 20
       amplify-app-id: d17ja0ul7nrdy0
-      package-name: 'pie-storybook'
+      package-name: '@justeattakeaway/pie-storybook'
       package-dist-directory: ./apps/pie-storybook/dist
       bucket-name-preview: 'pie-storybook-preview'
       bucket-name-main: 'pie-storybook'
@@ -199,7 +199,7 @@ jobs:
       os: ubuntu-latest
       node-version: 20
       amplify-app-id: d3eyargno6okyn
-      package-name: 'pie-storybook'
+      package-name: '@justeattakeaway/pie-storybook'
       package-dist-directory: ./apps/pie-storybook/dist
       bucket-name-preview: 'pie-storybook-preview'
       bucket-name-main: 'pie-storybook'
@@ -272,7 +272,7 @@ jobs:
       os: ubuntu-latest
       node-version: 20
       amplify-app-id: dvskdcoepjoyf
-      package-name: 'pie-docs'
+      package-name: '@justeattakeaway/pie-docs'
       package-dist-directory: ./apps/pie-docs/dist
       bucket-name-preview: 'pie-docs-preview'
       bucket-name-main: 'pie-docs'
@@ -301,7 +301,7 @@ jobs:
       - name: Run All System /  a11y Tests
         uses: ./.github/actions/run-script
         with:
-          script-name: "test:browsers:ci --filter=pie-docs"
+          script-name: "test:browsers:ci --filter=@justeattakeaway/pie-docs"
       - name: Upload Playwright Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
@@ -314,13 +314,13 @@ jobs:
         uses: ./.github/actions/run-script
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter=pie-docs[HEAD^1]"
+          script-name: "test:visual:ci --filter=@justeattakeaway/pie-docs[HEAD^1]"
           concurrency: 1
       - name: Run Changed Package Visual Tests
         uses: ./.github/actions/run-script
         if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter=pie-docs"
+          script-name: "test:visual:ci --filter=@justeattakeaway/pie-docs"
           concurrency: 1
       - name: Upload Playwright Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

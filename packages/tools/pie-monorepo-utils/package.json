@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-monorepo-utils",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Scripts and utilities used by the PIE monorepo",
   "repository": {
     "type": "git",

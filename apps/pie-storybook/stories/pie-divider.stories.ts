@@ -14,7 +14,7 @@ type DividerStoryMeta = Meta<DividerProps>;
 const defaultArgs: DividerProps = { ...defaultProps };
 
 const dividerStoryMeta: DividerStoryMeta = {
-    title: 'Divider',
+    title: 'Components/Divider',
     component: 'pie-divider',
     argTypes: {
         variant: {

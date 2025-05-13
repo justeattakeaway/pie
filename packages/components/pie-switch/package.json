@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-switch",
   "description": "PIE Design System Switch built using Web Components",
-  "version": "1.3.5",
+  "version": "1.3.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -39,13 +39,13 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
-    "@justeattakeaway/pie-components-config": "0.20.0",
+    "@justeattakeaway/pie-components-config": "0.20.1",
     "@justeattakeaway/pie-css": "0.16.0",
-    "@justeattakeaway/pie-monorepo-utils": "0.5.0",
+    "@justeattakeaway/pie-monorepo-utils": "0.5.1",
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-icons-webc": "1.7.0",
+    "@justeattakeaway/pie-icons-webc": "1.8.0",
     "@justeattakeaway/pie-webc-core": "0.25.1",
     "@justeattakeaway/pie-wrapper-react": "0.14.3",
     "element-internals-polyfill": "1.3.11"
