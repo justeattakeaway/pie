@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.8.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2343](https://github.com/justeattakeaway/pie/pull/2343)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Benefits
+
+  - loyalty-card-filled-large
+  - loyalty-card-filled
+
 ## 1.7.0
 
 ### Minor Changes
