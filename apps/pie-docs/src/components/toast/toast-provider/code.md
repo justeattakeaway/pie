@@ -31,7 +31,7 @@ The `pie-toast-provider` component provides centralised management for toast not
 {% notification {
   type: "information",
   iconName: "engineers",
-  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/docs/toast-provider) instance!"
+  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/docs/components-toast-provider) instance!"
 } %}
 
 ## Installation
