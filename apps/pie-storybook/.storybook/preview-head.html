@@ -29,7 +29,8 @@
         font-family: var(--dt-font-interactive-l-family);
     }
 
-    .sbdocs img {
+    /* We only need borders applied to a particular subset of images */
+    .sbdocs img[src*="jetsans"] {
         box-shadow: 0 0 1px #000;
     }
 </style>
