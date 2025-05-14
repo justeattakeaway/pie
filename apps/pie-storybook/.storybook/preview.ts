@@ -62,6 +62,10 @@ export default {
         options: {
             storySort: {
                 method: 'alphabetical',
+                order: [
+                    'Introduction',
+                    'Components'
+                ]
             }
         }
     }
