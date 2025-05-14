@@ -17,7 +17,7 @@ Most of these CSS variables are what are known as [Design Tokens](https://pie.de
     - [Vue](#vue)
     - [Nuxt](#nuxt)
 - [SCSS](#scss)
-- [Native HTML](#native-html)
+- [CDN](#cdn)
 
 
 ## Installation
@@ -97,13 +97,16 @@ export default {
 ### SCSS
 If you are using Sass, you could import the CSS file as part of your styles directly.
 
-```SCSS
+```scss
 @use 'node_modules/@justeattakeaway/pie-css/dist/index.css';
 ```
 
-### Native HTML
-Of course, you could include the styles straight inside your HTML document – most likely you'd want to link to the `/@justeattakeaway/pie-css/dist/index.css` CSS file in the head of your HTML from your `node_modules` folder.
+### CDN
+We also provide a CDN version of the CSS file, which you can include in your HTML file. However we would suggest avoiding this approach and favour package installation instead. If you do want to use the CDN, you must ensure you keep the version in the link up to date.
 
+```html
+<link rel="stylesheet" href="https://pie-design-system-cdn.production.jet-external.com/pie-css/v0.16.0/index.css">
+```
 ---
 
 For more information on what styles are included in the CSS package, please refer to the [package readme](https://www.npmjs.com/package/@justeattakeaway/pie-css).
