@@ -64,7 +64,11 @@ export default {
                 method: 'alphabetical',
                 order: [
                     'Introduction',
-                    'Components'
+                    [
+                        'Getting started',
+                        'Typography',
+                    ],
+                    'Components',
                 ]
             }
         }
