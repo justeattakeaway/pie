@@ -67,6 +67,7 @@ export default {
                     [
                         'Getting started',
                         'Typography',
+                        'CSS setup',
                     ],
                     'Components',
                 ]

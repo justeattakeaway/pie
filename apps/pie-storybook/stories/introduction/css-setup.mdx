@@ -1,0 +1,109 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Introduction/CSS setup" />
+
+# CSS setup
+[Source code](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-css) | [NPM package](https://www.npmjs.com/package/@justeattakeaway/pie-css)
+
+In order for our components to render correctly, you will need to install our base CSS package, `@justeattakeaway/pie-css`. This package contains all the CSS variables and base styles required for our components to work correctly.
+Most of these CSS variables are what are known as [Design Tokens](https://pie.design/foundations/design-tokens/). They are a vital part of our design system, and are used to ensure consistency across all of our components.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [JS or Framework import (via bundler)](#js-or-framework-import-via-bundler)
+    - [React](#react)
+    - [Vue](#vue)
+    - [Nuxt](#nuxt)
+- [SCSS](#scss)
+- [Native HTML](#native-html)
+
+
+## Installation
+
+Simply install the package using your preferred package manager:
+
+**Using Yarn:**
+
+```bash
+yarn add @justeattakeaway/pie-css
+```
+
+**Using NPM:**
+
+```bash
+npm install @justeattakeaway/pie-css
+```
+
+## Usage
+
+How you include these styles will largely depend on the type of application you are building (and your own preference), but here are a few examples:
+
+### JS or Framework import (via bundler)
+```javascript
+// This is ensure the index.css file is included in your bundle
+import '@justeattakeaway/pie-css';
+```
+
+#### React
+In React (or NextJS), you could add the import to your `App.js` file:
+
+```javascript
+import '@justeattakeaway/pie-css';
+
+function App () {
+    return (
+        …
+    );
+}
+
+export default App;
+```
+
+#### Vue
+
+Similarly, in Vue 3, you will likely include it as part of your `/src/main.ts` file:
+
+```javascript
+import { createApp } from 'vue';
+import '@justeattakeaway/pie-css';
+import App from './App.vue';
+
+createApp(App).mount('#app');
+```
+
+#### Nuxt
+
+If you are using Nuxt, you can import the CSS into your `nuxt.config.js` file.
+
+```javascript
+// Nuxt v3
+export default defineNuxtConfig({
+    css: ['@justeattakeaway/pie-css'],
+    …
+});
+```
+
+```javascript
+export default {
+    css: [
+        '@justeattakeaway/pie-css',
+    ],
+    …
+}
+```
+
+### SCSS
+If you are using Sass, you could import the CSS file as part of your styles directly.
+
+```SCSS
+@use 'node_modules/@justeattakeaway/pie-css/dist/index.css';
+```
+
+### Native HTML
+Of course, you could include the styles straight inside your HTML document – most likely you'd want to link to the `/@justeattakeaway/pie-css/dist/index.css` CSS file in the head of your HTML from your `node_modules` folder.
+
+---
+
+For more information on what styles are included in the CSS package, please refer to the [package readme](https://www.npmjs.com/package/@justeattakeaway/pie-css).
