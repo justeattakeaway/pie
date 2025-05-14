@@ -29,7 +29,7 @@ This component can be easily integrated into various frontend frameworks and cus
 {% notification {
   type: "information",
   iconName: "engineers",
-  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/story/checkbox) instance!"
+  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/story/components-checkbox) instance!"
 } %}
 
 ## Installation

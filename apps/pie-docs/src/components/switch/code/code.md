@@ -27,7 +27,7 @@ This component can be easily integrated into various frontend frameworks and cus
 {% notification {
   type: "information",
   iconName: "engineers",
-  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/story/switch) instance!"
+  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/story/components-switch) instance!"
 } %}
 
 ## Installation

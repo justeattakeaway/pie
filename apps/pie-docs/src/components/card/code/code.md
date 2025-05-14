@@ -28,7 +28,7 @@ This component can be easily integrated into a variety of frontend frameworks (o
 {% notification {
   type: "information",
   iconName: "engineers",
-  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/story/card) instance!"
+  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/story/components-card) instance!"
 } %}
 
 ## Installation
