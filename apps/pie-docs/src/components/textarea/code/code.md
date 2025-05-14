@@ -28,7 +28,7 @@ This component integrates easily with various frontend frameworks and can be cus
 {% notification {
   type: "information",
   iconName: "engineers",
-  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/docs/textarea) instance!"
+  message: "You can try out this component on our [Storybook](https://webc.pie.design/?path=/docs/components-textarea) instance!"
 } %}
 
 ## Installation
