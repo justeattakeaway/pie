@@ -839,6 +839,11 @@
                     "oneSize": true
                 },
                 {
+                    "name": "saudi-arabia",
+                    "displayName": "Saudi Arabia",
+                    "oneSize": true
+                },
+                {
                     "name": "slovakia",
                     "displayName": "Slovakia",
                     "oneSize": true
@@ -851,6 +856,16 @@
                 {
                     "name": "switzerland",
                     "displayName": "Switzerland",
+                    "oneSize": true
+                },
+                {
+                    "name": "turkey",
+                    "displayName": "Turkey",
+                    "oneSize": true
+                },
+                {
+                    "name": "ukraine",
+                    "displayName": "Ukraine",
                     "oneSize": true
                 },
                 {
