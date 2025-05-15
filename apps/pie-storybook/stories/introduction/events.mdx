@@ -18,7 +18,7 @@ We use events because they are a browser-native way to communicate between compo
 The events dispatched by PIE web components are named using `pie-<component-name>-<event-name>`. For example, `pie-modal-leading-action-click` is dispatched when the leading action button in a modal is clicked.
 We follow this naming convention to ensure that events are unique and easily identifiable.
 
-> Sometimes events can simply emit native events, such as `input` or `change`. In these case, there is no need to create a custom event. The native event will bubble up from the component and can be listened to in the same way as any other event.
+> Sometimes components can simply emit native events, such as `input` or `change`. In these cases, there is no need to create a custom event. The native event will bubble up from the component and can be listened to like any other event.
 
 ## Listening to events
 Listening to custom events is similar to listening to native events and can be achieved in a number of ways depending on the application framework you are using. Below are some examples of how to listen to events in different frameworks.
