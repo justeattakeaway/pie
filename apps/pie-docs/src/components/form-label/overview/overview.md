@@ -318,6 +318,7 @@ When using the String modifier, ensure that the content is dynamic and is update
     {% contentPageImage {
       src: "../../../assets/img/components/form-label/content-string-do-1.svg",
       width: 308,
+      variant: "secondary",
       alt: "Example of encouraged form label usage."
     } %}
   {% endcontentItem %}
@@ -325,6 +326,7 @@ When using the String modifier, ensure that the content is dynamic and is update
     {% contentPageImage {
       src: "../../../assets/img/components/form-label/content-string-do-2.svg",
       width: 288,
+      variant: "secondary",
       alt: "Example of encouraged form label usage."
     } %}
   {% endcontentItem %}
@@ -380,6 +382,7 @@ User’s actions, selections, inputs and statuses are reflected on the trailing 
 {% contentPageImage {
     src:"../../../assets/img/components/form-label/behaviours-stepper-percentage-string.svg",
     alt: "Examples of form label with stepper, percentage, and string.",
+    variant: "secondary",
     width: 298
 } %}
 
@@ -455,6 +458,7 @@ Here are some examples of form label in left-to-right context:
     {% contentPageImage {
       src: "../../../assets/img/components/form-label/examples-ltr-3.svg",
       width: 288,
+      variant: "secondary",
       alt: "Example of encouraged form label usage."
     } %}
   {% endcontentItem %}
@@ -462,6 +466,7 @@ Here are some examples of form label in left-to-right context:
     {% contentPageImage {
       src: "../../../assets/img/components/form-label/examples-ltr-4.svg",
       width: 288,
+      variant: "secondary",
       alt: "Example of encouraged form label usage."
     } %}
   {% endcontentItem %}
@@ -469,6 +474,7 @@ Here are some examples of form label in left-to-right context:
     {% contentPageImage {
       src: "../../../assets/img/components/form-label/examples-ltr-5.svg",
       width: 308,
+      variant: "secondary",
       alt: "Example of encouraged form label usage."
     } %}
   {% endcontentItem %}
@@ -497,6 +503,7 @@ Here are some examples of form label in right-to-left context:
     {% contentPageImage {
       src: "../../../assets/img/components/form-label/examples-rtl-3.svg",
       width: 288,
+      variant: "secondary",
       alt: "Example of encouraged form label usage."
     } %}
   {% endcontentItem %}
@@ -504,6 +511,7 @@ Here are some examples of form label in right-to-left context:
     {% contentPageImage {
       src: "../../../assets/img/components/form-label/examples-rtl-4.svg",
       width: 288,
+      variant: "secondary",
       alt: "Example of encouraged form label usage."
     } %}
   {% endcontentItem %}
