@@ -4,19 +4,17 @@ import { Meta } from '@storybook/addon-docs';
 
 # CSS variables
 
-The main purpose of using CSS variables in a components library is to provide a straightforward mechanism for consumers to style and adapt PIE web components to their specific needs. It provides an abstraction layer that allows users to customize the appearance of components without delving into the intricacies of the component's internal styles.
+The main purpose of using CSS variables is to provide a straightforward mechanism for consumers to style and adapt PIE web components to their specific needs.
 
-Instead of requiring to resort to complex CSS selectors to override styles within the Shadow DOM, these variables can be used to control components visual aspects.
+It provides an abstraction layer that allows users to customise the appearance of components. Instead of requiring to resort to complex CSS selectors to override styles in the Shadow DOM, these variables can be used to control components visual aspects.
 
 ## Usage benefits
 
-- Easy customization: Consumers can easily modify the appearance of your components by simply redefining the CSS variables that were exposed. CSS variables offer a well-defined public API for styling, allowing controlled access to visual aspects of the component without risking to break its internal structure.
+- **Easy customization**: Consumers can easily modify the appearance of the components by simply redefining the CSS variables that were exposed. CSS variables offer a well-defined public API for styling, allowing controlled access to visual aspects of the component without risking to break the internal structure.
 
-- Consistency: By using CSS variables, it is possible to create a consistent design language across the component library.
+- **Readability and maintainability**: Descriptive variable names such as `--button-background-color` are easy to understand and maintain.
 
-- Readability and maintainability: Using descriptive variable names (e.g.: `--button-background-color`) is easy to understand and maintain.
-
-- Dynamic styling with JavaScript: CSS variables can be easily manipulated via JavaScript. This creates possibilities for setting its values depending on the application state or other specific conditions.
+- **Dynamic styling with JavaScript**: CSS variables can be easily manipulated via JavaScript. This creates possibilities for updating values depending on the application state or other specific conditions.
 
 ## Examples
 
@@ -25,7 +23,7 @@ CSS variables provided by the component can be overridden using standard CSS tec
 Inline style:
 
 ```html
- <pie-toast-provider style='--toast-provider-z-index: 7000;'></pie-toast-provider>
+ <pie-toast-provider style="--toast-provider-z-index: 7000;"></pie-toast-provider>
 ```
 
 CSS selector:
@@ -44,7 +42,7 @@ CSS selector:
 
 We're currently updating our components and the respective documentation pages to provide a dedicated section with the list of CSS variables.
 
-Alternatively, you can check the component "Styles" tab in Dev Tools to see the CSS variables that are available for the component. It should be listed under the `:host` element.
+Alternatively, the "Styles" tab in Dev Tools can show the component CSS variables that are available. These should be listed under the `:host` selector.
 
 ```css
 :host {
