@@ -68,6 +68,8 @@ export default {
                         'Getting started',
                         'Typography',
                         'CSS setup',
+                        'Events',
+                        'Browser support',
                     ],
                     'Components',
                 ]
