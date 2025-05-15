@@ -286,6 +286,7 @@ A good form label has certain qualities that make it user-friendly and improve t
 {% usage {
     do: {
         type: usageTypes.image,
+        variant: "secondary",
         items: [{
             src: "../../../assets/img/components/form-label/content-label-do-2.svg",
             width: "288px",
@@ -294,6 +295,7 @@ A good form label has certain qualities that make it user-friendly and improve t
     },
     dont: {
         type: usageTypes.image,
+        variant: "secondary",
         items: [{
             src: "../../../assets/img/components/form-label/content-label-dont-2.svg",
             width: "288px",
