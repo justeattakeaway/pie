@@ -7,7 +7,7 @@
  * @returns {string}
  */
 
-window.buildIconCard = (icon) => {
+const buildIconCard = (icon) => {
     const pieIcon = window.pieIcons.find((x) => x.name === icon.name)?.icon;
 
     if (!pieIcon) {
@@ -52,7 +52,7 @@ window.buildIconCard = (icon) => {
  * @returns {string}
  */
 
-window.generateIconsList = (filterCategory) => {
+const generateIconsList = (filterCategory) => {
     const filteredCategories = window.iconData.categories.filter((category) => {
         if (!filterCategory) {
             return category.name !== 'payment';
@@ -67,7 +67,7 @@ window.generateIconsList = (filterCategory) => {
             </h3>
 
             <ul class="c-categorisedIconList-iconList" aria-labelledby="category-${cat.name}">
-                ${cat.icons.map((i) => window.buildIconCard(i)).join('')}
+                ${cat.icons.map((i) => buildIconCard(i)).join('')}
             </ul>`).join('');
 };
 
@@ -76,11 +76,11 @@ window.generateIconsList = (filterCategory) => {
 document.addEventListener('DOMContentLoaded', () => {
     const selectElement = document.getElementById('categoryFilter');
     const iconListContainer = document.getElementById('categorisedIconListContainer');
-    iconListContainer.innerHTML = window.generateIconsList(); // generates the unflitered list of icons
+    iconListContainer.innerHTML = generateIconsList(); // generates the unflitered list of icons
     if (selectElement) {
         selectElement.addEventListener('change', (event) => {
             const selectedCategory = event.detail.sourceEvent.target.value;
-            iconListContainer.innerHTML = window.generateIconsList(selectedCategory);
+            iconListContainer.innerHTML = generateIconsList(selectedCategory);
         });
     }
 });
