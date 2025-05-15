@@ -1,3 +1,12 @@
+/**
+ * An HTML component that takes in a list of icon categories
+ * and renders a list of icons (with subheadings) for each category.
+ *
+ * Icons are assumed to have regular and `-large` variants
+ * unless specified with `"oneSize": true`.
+ * @returns {string}
+ */
+
 window.buildIconCard = (icon) => {
     const pieIcon = window.pieIcons.find((x) => x.name === icon.name)?.icon;
 
@@ -33,6 +42,16 @@ window.buildIconCard = (icon) => {
     </li>`;
 };
 
+/**
+ * Generates an HTML list of categorized icons based on a selected filter.
+ *
+ * Icons are grouped by their category and rendered as list items with
+ * subheadings. If no filter is provided, all categories are included
+ * except for the "payment" category.
+ * @param {string} filterCategory - The name of the category to filter by (optional).
+ * @returns {string}
+ */
+
 window.generateIconsList = (filterCategory) => {
     const filteredCategories = window.iconData.categories.filter((category) => {
         if (!filterCategory) {
@@ -51,6 +70,8 @@ window.generateIconsList = (filterCategory) => {
                 ${cat.icons.map((i) => window.buildIconCard(i)).join('')}
             </ul>`).join('');
 };
+
+// Sets up the icon list and category filter interaction once the DOM is fully loaded.
 
 document.addEventListener('DOMContentLoaded', () => {
     const selectElement = document.getElementById('categoryFilter');

@@ -5,7 +5,6 @@ const {
     plugins
 } = require('./src/_11ty');
 
-const litPlugin = require('@lit-labs/eleventy-plugin-lit');
 
 
 module.exports = eleventyConfig => {
@@ -15,12 +14,6 @@ module.exports = eleventyConfig => {
     // Plugins
     plugins.addAllPlugins(eleventyConfig);
 
-    eleventyConfig.addPlugin(litPlugin, {
-        mode: 'worker',
-        componentModules: [
-            'src/assets/js/pie-components-imports.js',
-        ],
-    });
     // Filters
     filters.addAllFilters(eleventyConfig);
 
