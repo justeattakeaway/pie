@@ -46,6 +46,8 @@
     "@justeattakeaway/browserslist-config-pie": "0.2.1",
     "@justeattakeaway/pie-css": "0.16.0",
     "@justeattakeaway/pie-icons": "5.10.0",
+    "@justeattakeaway/pie-text-input":"0.27.5",
+    "@justeattakeaway/pie-select": "0.5.1",
     "@lit-labs/eleventy-plugin-lit": "1.0.5",
     "@lit-labs/ssr-client": "1.1.7",
     "@types/markdown-it": "13.0.2",
