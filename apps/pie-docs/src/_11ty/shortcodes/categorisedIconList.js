@@ -21,7 +21,6 @@ const categoryDropdown = () => {
 const categorisedIconList = () => headingAnchor(`<div>
     ${categoryDropdown()}
     <ul class="c-categorisedIconList" id="categorisedIconListContainer"></ul>
-
 <script>
 
     window.iconData = ${JSON.stringify(iconData)};
