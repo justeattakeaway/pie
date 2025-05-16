@@ -4,15 +4,17 @@ import { Meta } from '@storybook/addon-docs';
 
 # CSS variables
 
+In order to enable a degree of visual customisation, PIE web components expose a set of CSS variables.
+
 The main purpose of using CSS variables is to provide a straightforward mechanism for consumers to style and adapt PIE web components to their specific needs.
 
 It provides an abstraction layer that allows users to customise the appearance of components. Instead of requiring to resort to complex CSS selectors to override styles in the Shadow DOM, these variables can be used to control components visual aspects.
 
 ## Usage benefits
 
-- **Easy customization**: Consumers can easily modify the appearance of the components by simply redefining the CSS variables that were exposed. CSS variables offer a well-defined public API for styling, allowing controlled access to visual aspects of the component without risking to break the internal structure.
+- **Easy customisation**: Consumers can easily modify the appearance of the components by simply redefining the CSS variables that were exposed. CSS variables offer a well-defined public API for styling, allowing controlled access to visual aspects of the component without risking breaking the internal structure.
 
-- **Readability and maintainability**: Descriptive variable names such as `--button-background-color` are easy to understand and maintain.
+- **Readability and maintainability**: Descriptive variable names such as `--toast-provider-z-index` are easy to understand and maintain.
 
 - **Dynamic styling with JavaScript**: CSS variables can be easily manipulated via JavaScript. This creates possibilities for updating values depending on the application state or other specific conditions.
 
