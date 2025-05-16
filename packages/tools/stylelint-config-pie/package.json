@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/stylelint-config-pie",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "Shareable Stylelint config for use with any front-end web projects across JET.",
   "repository": {
     "type": "git",

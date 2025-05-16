@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.2
+
+### Patch Changes
+
+- [Changed] - standardise wording to CSS Variables ([#2361](https://github.com/justeattakeaway/pie/pull/2361)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.8.1
 
 ### Patch Changes

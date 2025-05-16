@@ -1,5 +1,17 @@
 # Changelog
 
+## 5.11.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2357](https://github.com/justeattakeaway/pie/pull/2357)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Flags
+
+  - saudi-arabia
+  - turkey
+  - ukraine
+
 ## 5.10.0
 
 ### Minor Changes
