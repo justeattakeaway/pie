@@ -155,7 +155,7 @@ You can customise the form label to suit individual use cases.
 Provides users with more context or information about the label when interacting with the field, especially when the label alone may not provide sufficient explanation.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/variation-leading-tooltip-icon.svg",
+    src:"../../../assets/img/components/form-label/modifiers-leading-tooltip-icon.svg",
     alt: "A leading form label with help tooltip icon",
     width: 154
 } %}
@@ -165,7 +165,7 @@ Provides users with more context or information about the label when interacting
 Informs the user that filling in the field is optional.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/variation-leading-optional.svg",
+    src:"../../../assets/img/components/form-label/modifiers-leading-optional.svg",
     alt: "A leading form label with optional text",
     width: 54
 } %}
@@ -177,7 +177,7 @@ If that label length exceeds the width of the form, the label wraps onto a secon
 If the help tooltip icon or the Optional identifier are active, they trail the end of the label.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/variation-leading-multiline-label.svg",
+    src:"../../../assets/img/components/form-label/modifiers-leading-multiline-label.svg",
     alt: "A leading form label with multiline text",
     width: 176
 } %}
@@ -194,7 +194,7 @@ If the help tooltip icon or the Optional identifier are active, they trail the e
 Used in input forms such as textarea and text input, to show how many characters are left within the input field.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/variation-trailing-character-count.svg",
+    src:"../../../assets/img/components/form-label/modifiers-trailing-character-count.svg",
     alt: "A form label with trailing character count",
     width: 30
 } %}
@@ -204,7 +204,7 @@ Used in input forms such as textarea and text input, to show how many characters
 Used to indicate the users progression through a series of steps.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/variation-trailing-stepper.svg",
+    src:"../../../assets/img/components/form-label/modifiers-trailing-stepper.svg",
     alt: "A form label with trailing stepper",
     width: 36
 } %}
@@ -214,7 +214,7 @@ Used to indicate the users progression through a series of steps.
 Indicates the proportion of a task that has been completed.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/variation-trailing-percentage.svg",
+    src:"../../../assets/img/components/form-label/modifiers-trailing-percentage.svg",
     alt: "A form label with trailing percentage",
     width: 256
 } %}
@@ -224,7 +224,7 @@ Indicates the proportion of a task that has been completed.
 If none of the trailing content above suits your use cases, you can use this dynamic text-only content to meet the needs or requirements of the field to which the form label is associated.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/form-label/variation-trailing-string.svg",
+    src:"../../../assets/img/components/form-label/modifiers-trailing-string.svg",
     alt: "A form label with trailing string",
     width: 256
 } %}
