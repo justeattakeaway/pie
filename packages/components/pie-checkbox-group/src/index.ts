@@ -2,12 +2,14 @@ import {
     html, unsafeCSS, type PropertyValues, type TemplateResult,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { property, queryAssignedElements, state } from 'lit/decorators.js';
+import {
+    property, queryAssignedElements, state,
+} from 'lit/decorators.js';
 import {
     RtlMixin,
-    defineCustomElement,
     FormControlMixin,
     validPropertyValues,
+    safeCustomElement,
 } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -34,6 +36,7 @@ const assistiveTextId = 'assistive-text';
  * @event {CustomEvent} pie-checkbox-group-disabled - triggered after the disabled state of the checkbox group changes.
  * @event {CustomEvent} pie-checkbox-group-error - triggered after the state of the checkbox group changes to error.
  */
+@safeCustomElement('pie-checkbox-group')
 export class PieCheckboxGroup extends FormControlMixin(RtlMixin(PieElement)) implements CheckboxGroupProps {
     @state()
     private _hasLabel = false;
@@ -141,8 +144,6 @@ export class PieCheckboxGroup extends FormControlMixin(RtlMixin(PieElement)) imp
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieCheckboxGroup);
 
 declare global {
     interface HTMLElementTagNameMap {

@@ -7,7 +7,8 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
 
 import {
-    validPropertyValues, defineCustomElement, dispatchCustomEvent,
+    validPropertyValues, dispatchCustomEvent,
+    safeCustomElement,
 } from '@justeattakeaway/pie-webc-core';
 import styles from './chip.scss?inline';
 import {
@@ -27,6 +28,7 @@ const componentSelector = 'pie-chip';
  * @slot - Default slot
  * @event {CustomEvent} pie-chip-close - when a user clicks close button.
  */
+@safeCustomElement('pie-chip')
 export class PieChip extends PieElement implements ChipProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
@@ -144,8 +146,6 @@ export class PieChip extends PieElement implements ChipProps {
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieChip);
 
 declare global {
     interface HTMLElementTagNameMap {
