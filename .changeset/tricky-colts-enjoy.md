@@ -7,7 +7,8 @@
 
 [Added] - Icons
 
-## Benefits
+## Flags
 
-- loyalty-card-filled-large
-- loyalty-card-filled
+- saudi-arabia
+- turkey
+- ukraine

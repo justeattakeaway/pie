@@ -24,7 +24,7 @@ const defaultArgs: CookieBannerProps = {
 };
 
 const cookieBannerStoryMeta: CookieBannerStoryMeta = {
-    title: 'Cookie Banner',
+    title: 'Components/Cookie Banner',
     component: 'pie-cookie-banner',
     argTypes: {
         hasPrimaryActionsOnly: {

@@ -24,7 +24,7 @@ const defaultArgs: ChipProps = {
 };
 
 const chipStoryMeta: ChipStoryMeta = {
-    title: 'Chip',
+    title: 'Components/Chip',
     component: 'pie-chip',
     argTypes: {
         aria: {

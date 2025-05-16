@@ -62,6 +62,21 @@ export default {
         options: {
             storySort: {
                 method: 'alphabetical',
+                order: [
+                    'Introduction',
+                    [
+                        'Getting started',
+                        'Typography',
+                        'CSS setup',
+                        'Events',
+                        'Browser support',
+                    ],
+                    'Integration guides',
+                    [
+                        'Next.js 14',
+                    ],
+                    'Components',
+                ]
             }
         }
     }

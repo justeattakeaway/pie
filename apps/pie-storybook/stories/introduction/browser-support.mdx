@@ -1,0 +1,63 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Introduction/Browser support" />
+
+# Browser support
+
+Users have access to hundreds of versions of browsers, so instead of assessing them all individually, we've come up with a rating system that defines different levels of browser support and the testing requirements for each level. We've assigned the highest ratings to the browsers that are most commonly used by our customers.
+
+> This list needs to be reviewed often to stay up to date with the browsers chosen by our users.
+
+## Table of Contents
+
+- [Priority definitions](#priority-definitions)
+- [Browsers and their ratings](#browsers-and-their-ratings)
+    - [Desktop](#desktop)
+    - [Mobile](#mobile)
+- [Devices](#devices)
+
+
+## Priority definitions
+
+| Priority Level | Description |
+|----------------|-------------|
+| **A** – Fully Supported | - Testing is required<br/>- All content must be available<br/>- Layout must comply with the design, unless technical needs prevent this<br/>- All functionality must be available and work as required |
+| **B** – Mostly Supported | - Testing is required<br/>- User should be able to place an order or carry out the main function of the page<br/>- Layout doesn't have to be identical to the design, but should retain its functionality |
+| **C** – Not Supported | - Testing is not required<br/>- Browsers rated at B or C may have a better user experience than expected |
+
+> A good example of this would be users browsing using Opera. The reason we don't "Fully Support" this browser is simply down to user metrics, not the quality of the browser. We'd actually expect most functionality to work with no real issues, although we don't officially test in this browser.
+
+## Browsers and their ratings
+
+### Desktop
+
+| Browser | Grading |
+|---------|---------|
+| Chrome, last 3 versions (MacOS & Windows) | A |
+| Edge, last 3 versions (Windows) | A |
+| Firefox, last 3 versions (MacOS & Windows) | A |
+| Safari (MacOS), last 3 versions | A |
+| All other browsers & versions | C |
+
+### Mobile
+
+| Browser | Grading |
+|---------|---------|
+| Safari (iPhone), last 3 versions | A |
+| Safari (iPad), last 3 versions | A |
+| Chrome (Mobile), last 3 versions | A |
+| Samsung Internet, last 3 versions | B |
+| All other browsers & versions | C |
+
+## Devices
+
+To give an idea of what devices are worth testing on, these are the current recommended device types based on our analytics:
+
+| Device | Models |
+|--------|--------|
+| iPhone | 6 to latest (all variants such as Pro and Mini) |
+| iPad / iPad mini | Latest model |
+| Samsung Galaxy | S21, S22 |
+| Samsung Galaxy Tab | S7 to latest |
+| Google Pixel | 4a, 6 |
+| Huawei | P30 |

@@ -1,0 +1,49 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Introduction/Getting started" />
+
+# PIE Web Components
+[Source code](https://github.com/justeattakeaway/pie) | [Design Documentation](https://pie.design/)
+
+PIE Web Components is the web variant of the Just Eat Takeaway.com (JET) Design System, PIE. It is built using native web components to provide a consistent, accessible, and reusable set of components for building UIs across different products and applications.
+
+<figure>
+    <img src="./static/images/brand-colours.svg" alt="Brand colours for Principles for Interfaces and Experiences (PIE)"/>
+    <figcaption>
+        Principles for Interfaces and Experiences (PIE) is Just Eat Takeaway’s global design system.
+    </figcaption>
+</figure>
+
+<p align="center">
+    <a href="https://www.npmjs.com/@justeattakeaway/pie-webc">
+        <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc.svg" />
+    </a>
+</p>
+
+## `@justeattakeaway/pie-webc`
+
+`@justeattakeaway/pie-webc` is the web implementation of [JET's PIE Design system](https://pie.design/), built using [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components). Using Web Components allows us to build our components once and use them across all of our web UIs, regardless of the framework they have been built with. Our source code is open source, and can be found on [Github](https://github.com/justeattakeaway/pie).
+
+### Getting Started
+
+Setting up our web components differs slightly depending on your framework. However, regardless of your tech stack, the **first step** is to install our core packages:
+
+- The core component library: [@justeattakeaway/pie-webc](https://www.npmjs.com/package/@justeattakeaway/pie-webc)
+- Base styles used by the components: [@justeattakeaway/pie-css](https://www.npmjs.com/package/@justeattakeaway/pie-css)
+- Icons used by some of the components: [@justeattakeaway/pie-icons-webc](https://www.npmjs.com/package/@justeattakeaway/pie-icons-webc)
+
+> 💡 While components are also available as individual packages, we recommend using `@justeattakeaway/pie-webc` as the **single entry point**. This approach is the easiest way to get started with and ensures you stay up to date.
+
+**Using Yarn:**
+
+```bash
+yarn add @justeattakeaway/pie-webc @justeattakeaway/pie-css @justeattakeaway/pie-icons-webc
+```
+
+**Using NPM:**
+
+```bash
+npm install @justeattakeaway/pie-webc @justeattakeaway/pie-css @justeattakeaway/pie-icons-webc
+```
+
+From here, you will need to set up Typography and base CSS styles. Please read the [Typography](?path=/docs/introduction-typography--docs) and [CSS setup](?path=/docs/introduction-css-setup--docs) pages for more information.
