@@ -1,0 +1,78 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Integration guides/Next.js 14" />
+
+# Next.js 14
+
+This guide will show you how to set up the PIE Web Components in a Next.js 14 application.
+
+> This guide assumes you have first followed the [Getting started](?path=/docs/introduction-getting-started--docs), [Typography](?path=/docs/introduction-typography--docs) and [CSS setup](?path=/docs/introduction-css-setup--docs) guides.
+> Please make sure to follow them before continuing with this guide.
+
+## Table of Contents
+
+- [Dependencies](#dependencies)
+- [Next.js config](#nextjs-config)
+- [Usage](#usage)
+
+
+## Dependencies
+The first step is to install some React and Next.js specific dependencies:
+
+**Using Yarn:**
+
+```bash
+yarn add @lit-labs/nextjs @lit/react
+```
+
+**Using NPM:**
+
+```bash
+npm install @lit-labs/nextjs @lit/react
+```
+
+## Next.js config
+
+We need to update our `next.config.js` file to enable server-side rendering (SSR).
+
+Example minimal config file:
+
+```js
+// Example - ./next.config.js
+const withLitSSR = require('@lit-labs/nextjs')();
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    reactStrictMode: true,
+    swcMinify: true,
+}
+
+module.exports = withLitSSR(nextConfig);
+```
+
+## Usage
+
+> If you are using the app router structure, please ensure you add `use client` to the top of the files that directly import the PIE components. This does **not** prevent SSR, it just means that PIE components cannot be used directly in React server-components. These client components can then be imported into RSCs.
+
+For React-based applications, there is a `/react/` entry point in both `@justeattakeaway/pie-webc` and `@justeattakeaway/pie-icons-webc` as shown in the example code below:
+
+```jsx
+"use client"
+
+import { PieButton } from "@justeattakeaway/pie-webc/react/button.js";
+import { PieLink } from "@justeattakeaway/pie-webc/react/link.js";
+import { IconCamera } from "@justeattakeaway/pie-icons-webc/dist/react/IconCamera";
+
+export default function SomeComponent() {
+    return (
+        <div>
+            <PieButton size="small-productive" iconPlacement="leading">
+                <IconCamera slot="icon"></IconCamera>
+                Camera Button
+            </PieButton>
+        </div>
+    );
+}
+```
+
+You should now be able to use any components you need in your Next.js application!
