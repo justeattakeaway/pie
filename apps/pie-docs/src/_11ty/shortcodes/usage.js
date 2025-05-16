@@ -32,10 +32,13 @@ const buildImage = ({
           </picture>`;
 };
 
-const buildUsageCard = (usageType, { type, items, hasPadding = true }) => {
+const buildUsageCard = (usageType, {
+    type, items, variant, hasPadding = true,
+}) => {
     const {
         iconName, iconFill, styleColour, displayName,
     } = metadata[usageType];
+    const isSecondary = variant === 'secondary';
     const isImage = type === usageTypes.image;
     const styleColourValue = pieDesignTokenColours({ tokenName: styleColour, tokenPath: ['alias', 'default'] });
     const svg = pieIconsSvg({
@@ -48,6 +51,7 @@ const buildUsageCard = (usageType, { type, items, hasPadding = true }) => {
         },
     });
     const backdropClasses = ['c-usage-backdrop',
+        ...(isSecondary ? ['c-usage-backdrop-secondary'] : []),
         ...(isImage ? ['c-usage-backdrop--hasImage'] : []),
         ...(hasPadding ? ['c-usage-backdrop--hasPadding'] : []),
     ];

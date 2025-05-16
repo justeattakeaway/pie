@@ -55,6 +55,13 @@ $usage-bg-minHeight: 280px;
     &.c-usage-backdrop--hasPadding {
         padding: var(--dt-spacing-e);
     }
+
+    &.c-usage-backdrop-secondary {
+        background-color: var(--dt-color-background-default);
+        border-left: 1px solid var(--dt-color-border-strong);
+        border-right: 1px solid var(--dt-color-border-strong);
+        border-bottom: 1px solid var(--dt-color-border-strong);
+    }
 }
 
 .c-usage-img {

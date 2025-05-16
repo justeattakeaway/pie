@@ -39,6 +39,7 @@
     "components/dropdown",
     "components/fab",
     "components/form-label",
+    "components/form-label/code",
     "components/icon-button",
     "components/icon-button/code",
     "components/link",
