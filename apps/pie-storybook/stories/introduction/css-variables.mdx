@@ -1,0 +1,53 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Introduction/CSS variables" />
+
+# CSS variables
+
+In order to enable a degree of visual customisation, PIE web components expose a set of CSS variables.
+
+The main purpose of using CSS variables is to provide a straightforward mechanism for consumers to style and adapt PIE web components to their specific needs.
+
+It provides an abstraction layer that allows users to customise the appearance of components. Instead of requiring to resort to complex CSS selectors to override styles in the Shadow DOM, these variables can be used to control components visual aspects.
+
+## Usage benefits
+
+- **Easy customisation**: Consumers can easily modify the appearance of the components by simply redefining the CSS variables that were exposed. CSS variables offer a well-defined public API for styling, allowing controlled access to visual aspects of the component without risking breaking the internal structure.
+
+- **Readability and maintainability**: Descriptive variable names such as `--toast-provider-z-index` are easy to understand and maintain.
+
+- **Dynamic styling with JavaScript**: CSS variables can be easily manipulated via JavaScript. This creates possibilities for updating values depending on the application state or other specific conditions.
+
+## Examples
+
+CSS variables provided by the component can be overridden using standard CSS techniques.
+
+Inline style:
+
+```html
+ <pie-toast-provider style="--toast-provider-z-index: 7000;"></pie-toast-provider>
+```
+
+CSS selector:
+
+```html
+ <pie-toast-provider class="toast-override"></pie-toast-provider>
+```
+
+```css
+.toast-override {
+  --toast-provider-z-index: 7000;
+}
+```
+
+## How to start using CSS variables
+
+In the first place, it is necessary to verify if the component exposes any CSS variables. If that is the case, the component documentation will provide a section with a list of available CSS variables.
+
+Alternatively, the "Styles" tab in Dev Tools can show the component CSS variables that are available. These should be listed under the `:host` selector.
+
+```css
+:host {
+  --toast-provider-z-index: var(--dt-z-index-toast);
+}
+```
