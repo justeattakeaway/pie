@@ -3,6 +3,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-breadcrumb';
+import '@justeattakeaway/pie-breadcrumb/dist/pie-breadcrumb-item';
 import { type BreadcrumbProps, defaultProps, variants } from '@justeattakeaway/pie-breadcrumb';
 
 import { createStory } from '../utilities';
@@ -11,34 +12,12 @@ type BreadcrumbStoryMeta = Meta<BreadcrumbProps>;
 
 const defaultArgs: BreadcrumbProps = {
     ...defaultProps,
-    items: [
-        {
-            label: 'Breadcrumb 1',
-            href: '#',
-        },
-        {
-            label: 'Breadcrumb 2',
-            href: '#',
-        },
-        {
-            label: 'Breadcrumb 3',
-            href: '#',
-        },
-        {
-            label: 'Current Page',
-            href: '#',
-        },
-    ],
 };
 
 const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
     title: 'Components/Breadcrumb',
     component: 'pie-breadcrumb',
     argTypes: {
-        items: {
-            description: 'The navigation items to display in the breadcrumb. Should be an array of objects containing `label` and `href` i.e: `{ label: \'homepage\', href: \'/\' }`',
-            control: 'object',
-        },
         variant: {
             description: 'Set the variant of the breadcrumb.',
             control: 'select',
@@ -66,11 +45,15 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
 
 export default breadcrumbStoryMeta;
 
-const Template = ({ items, variant, isCompact }: BreadcrumbProps) => html`
+const Template = ({ variant, isCompact }: BreadcrumbProps) => html`
     <pie-breadcrumb
         ?isCompact="${isCompact}"
-        variant="${ifDefined(variant)}"
-        .items="${items}">
+        variant="${ifDefined(variant)}">
+        <pie-breadcrumb-item href="#">Breadcrumb 1</pie-breadcrumb-item>
+        <pie-breadcrumb-item href="#">Breadcrumb 2</pie-breadcrumb-item>
+        <pie-breadcrumb-item href="#">Breadcrumb 3</pie-breadcrumb-item>
+        <pie-breadcrumb-item href="#">Breadcrumb 4</pie-breadcrumb-item>
+        <pie-breadcrumb-item href="#">Current Page</pie-breadcrumb-item>
     </pie-breadcrumb>
 `;
 
