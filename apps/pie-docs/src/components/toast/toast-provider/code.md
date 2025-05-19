@@ -7,7 +7,7 @@ shouldShowContents: true
 eleventyComputed:
     props: "{% include './props.json' %}"
     events: "{% include './events.json' %}"
-    cssProperties: "{% include './css-properties.json' %}"
+    cssVariables: "{% include './css-variables.json' %}"
 ---
 
 ## Overview
@@ -54,16 +54,16 @@ yarn add @justeattakeaway/pie-webc
   tableData: props
 } %}
 
-## CSS Properties
+## CSS Variables
 
 {% componentDetailsTable {
-  tableData: cssProperties
+  tableData: cssVariables
 } %}
 
 {% notification {
   type: "information",
   iconName: "info-circle",
-  message: "CSS Custom Properties provided by the component can be overridden using standard CSS techniques. For example, using inline styles: `<pie-toast-provider style='--toast-provider-z-index: 7000;'></pie-toast-provider>`"
+  message: "CSS Variables provided by the component can be overridden using standard CSS techniques. For example, using inline styles: `<pie-toast-provider style='--toast-provider-z-index: 7000;'></pie-toast-provider>`"
 } %}
 
 ## Events

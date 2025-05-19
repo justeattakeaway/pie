@@ -25,7 +25,7 @@ Currently there are 3 different sets of rules:
 
 1. `base` - the base rules that we'd advise all projects use and extend as needed.
 2. `strict` - a smaller collection of _optional_ opinionated rules.
-3. `ordering` - an even smaller collection of _optional_ rules that specify the ordering of CSS properties.
+3. `ordering` - an even smaller collection of _optional_ rules that specify the ordering of CSS Variables.
 
 ### In your projects
 

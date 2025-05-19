@@ -1,0 +1,72 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Introduction/Events" />
+
+# Events
+When using PIE web components, you may want to listen for events that are dispatched by the component. This can be useful for handling user interactions or responding to changes in the component's state.
+We use events because they are a browser-native way to communicate between components and applications. They allow for a decoupled architecture, where components can emit events without needing to know who is listening to them. This makes it easier to build modular and reusable components that can be used in different contexts.
+
+## Table of Contents
+
+- [Naming convention](#naming-convention)
+- [Listening to events](#listening-to-events)
+    - [Vanilla JS](#vanilla-js)
+    - [Vue](#vue)
+    - [React](#react)
+
+## Naming convention
+The events dispatched by PIE web components are named using `pie-<component-name>-<event-name>`. For example, `pie-modal-leading-action-click` is dispatched when the leading action button in a modal is clicked.
+We follow this naming convention to ensure that events are unique and easily identifiable.
+
+> Sometimes components can simply emit native events, such as `input` or `change`. In these cases, there is no need to create a custom event. The native event will bubble up from the component and can be listened to like any other event.
+
+## Listening to events
+Listening to custom events is similar to listening to native events and can be achieved in a number of ways depending on the application framework you are using. Below are some examples of how to listen to events in different frameworks.
+
+### Vanilla JS
+```js
+const modal = document.querySelector('pie-modal');
+modal.addEventListener('pie-modal-leading-action-click', (e) => {
+    console.log('Leading action clicked!', e);
+});
+```
+### Vue
+```html
+<template>
+    <pie-modal @pie-modal-leading-action-click="handleClick"></pie-modal>
+</template>
+<script>
+export default {
+    methods: {
+        handleClick(event) {
+            console.log('Leading action clicked!', event);
+        }
+    }
+}
+</script>
+```
+
+### React
+
+React is a little different to other frameworks, because a common pattern is to pass callback functions as props rather than using event listeners.
+To enable this, we provide a React-specific wrapper for each component that allows engineers to pass callback functions as props.
+The naming convention for these props is `on<EventName>` (camel case). For example, `onPieModalLeadingActionClick` is the prop that can be used to listen to the `pie-modal-leading-action-click` event.
+
+> It is vital that you import the component from the `react` entrypoint.
+
+```jsx
+// Please note the import path for React components
+import { PieModal } from '@justeattakeaway/pie-webc/react/modal.js';
+
+function App() {
+    const handleClick = (event) => {
+        console.log('Leading action clicked!', event);
+    };
+
+    return (
+        <PieModal onPieModalLeadingActionClick={handleClick}></PieModal>
+    );
+}
+```
+
+
