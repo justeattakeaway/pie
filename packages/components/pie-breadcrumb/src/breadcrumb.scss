@@ -2,8 +2,21 @@
 
 .c-breadcrumb {
   --breadcrumb-background-color: var(--dt-color-transparent);
+  --breadcrumb-item-flex-direction: row;
+  --breadcrumb-item-color: var(--dt-color-content-link);
+  --breadcrumb-separator-color: var(--dt-color-content-subdued);
+  --breadcrumb-separator-transform: none;
+
   background-color: var(--breadcrumb-background-color);
-  padding: var(--dt-spacing-a) var(--dt-spacing-d) var(--dt-spacing-a) var(--dt-spacing-d);
+  padding: var(--dt-spacing-a) var(--dt-spacing-d);
+}
+
+.c-breadcrumb--scrim {
+  --breadcrumb-background-color: var(--dt-color-overlay);
+  --breadcrumb-item-color: var(--dt-color-content-link-light);
+  --breadcrumb-separator-color: var(--dt-color-content-light);
+
+  border-radius: var(--dt-radius-rounded-e);
 }
 
 .c-breadcrumb-list {
@@ -11,37 +24,45 @@
   padding: 0;
   display: flex;
   flex-flow: row;
-
   gap: var(--dt-spacing-a);
-
-  li {
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-    white-space: nowrap; 
-  }  
 }
 
-.c-breadcrumb--scrim {
-  --breadcrumb-background-color: var(--dt-color-overlay);
-  border-radius: var(--dt-radius-rounded-e);
-}
-
-.c-breadcrumb-list-last-item {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 250px;
-  color: var(--dt-color-content-subdued);
-}
-
-.c-breadcrumb-list-last-item--scrim {
-  color: var(--dt-color-content-link-light);
-}
+.c-breadcrumb-item {
+  display: flex;
+  flex-direction: var(--breadcrumb-item-flex-direction);
+  align-items: center;
+  white-space: nowrap;
+  gap: var(--dt-spacing-a);
+  
+  pie-link {
+    --link-text-color: var(--breadcrumb-item-color);
+    --link-font-weight: var(--dt-font-weight-bold);
+  }
+}  
 
 .c-breadcrumb-separator {
-  color: var(--dt-color-content-subdued);
+  display: inline-flex;
+  color: var(--breadcrumb-separator-color);
+  transform: var(--breadcrumb-separator-transform);
 }
 
-.c-breadcrumb-separator--scrim {
-  color: var(--dt-color-content-link-light);
+:host([isCompact]) {
+  .c-breadcrumb {
+    --breadcrumb-item-flex-direction: row-reverse;
+    --breadcrumb-separator-transform: rotate(180deg);
+  }
+  
+  ::slotted(pie-breadcrumb-item:not(:nth-last-of-type(2))) {
+    display: none;
+  }
+}
+
+:host(:last-of-type) {
+  pie-link {
+    --link-font-weight: var(--dt-font-weight-regular);
+  }
+
+  .c-breadcrumb-separator {
+    display: none;
+  }
 }
