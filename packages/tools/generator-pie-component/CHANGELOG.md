@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.30.2
+
+### Patch Changes
+
+- [Changed] - Components in Storybook moved to a 'Components' section ([#2351](https://github.com/justeattakeaway/pie/pull/2351)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.30.1
 
 ### Patch Changes
