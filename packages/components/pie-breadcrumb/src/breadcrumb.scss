@@ -67,6 +67,8 @@
   }
 }
 
-:host(:only-child) {
-  display: none;
-}
+:host {
+  ::slotted(pie-breadcrumb-item:only-child) {
+    display: none;
+  }
+} 
