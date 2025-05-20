@@ -8,14 +8,15 @@ import { customElement } from 'lit/decorators.js';
  * @returns {ClassDecorator}
  */
 export function safeCustomElement (elementSelector: string): ClassDecorator {
-    return (elementClass: any) => {
+    return (elementClass: unknown) => {
         try {
-            customElement(elementSelector)(elementClass);
+            customElement(elementSelector)(elementClass as CustomElementConstructor);
         } catch (e) {
-            const registeredClass = customElements.get(elementSelector) as { v?: string };
+            type WithVProperty = { v?: string }
+            const registeredClass = customElements.get(elementSelector) as WithVProperty;
             const registeredVersion = registeredClass?.v;
             const missingVersionMessage = 'No version data found. Icon components do not contain version data. If the component is not an icon, please report the missing version data.';
-            const currentElementVersion = elementClass.v as { v?: string };
+            const currentElementVersion = (elementClass as WithVProperty).v;
 
             if (currentElementVersion !== registeredVersion) {
                 console.warn(
