@@ -37,7 +37,7 @@ const categorisedIconList = () => headingAnchor(`
                 window.pieIcons = ${JSON.stringify(pieIcons)};
             </script>
             <script src="/assets/js/categorised-icon-list-helpers.js"></script>
-            <script src="/assets/js/categorised-icon-list.js"></script>
+            <script src="/assets/js/categorised-icon-list-filter.js"></script>
         </div>
     `);
 

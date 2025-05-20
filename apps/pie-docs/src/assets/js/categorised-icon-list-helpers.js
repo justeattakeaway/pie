@@ -1,5 +1,3 @@
-// Shared categorised icon list helperss for both server-side (11ty) and client-side usage
-
 const categorisedIconListHelpers = {
     /**
      * Builds an icon card HTML
@@ -70,6 +68,11 @@ const categorisedIconListHelpers = {
             </li>`).join('');
     },
 };
+
+// Export the helpers differently based on the environment:
+// - If running in a Node.js environment (during 11ty build time), export via `module.exports`
+// - If running in the browser (client-side), attach to the global `window` object
+// This allows the same code to be reused both during server-side generation and in the client
 
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = categorisedIconListHelpers;
