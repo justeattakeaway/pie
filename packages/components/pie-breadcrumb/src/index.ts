@@ -42,7 +42,7 @@ export class PieBreadcrumb extends PieElement implements BreadcrumbProps {
                 data-test-id="pie-breadcrumb"
                 class="${classMap(classes)}">
                     <ol class="c-breadcrumb-list" data-test-id="pie-breadcrumb-list">
-                        <slot @slotchange="${this._handleSlotChange}"></slot>
+                        <slot></slot>
                     </ol>
             </nav>`;
     }
