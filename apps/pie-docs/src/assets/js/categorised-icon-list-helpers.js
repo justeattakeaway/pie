@@ -1,6 +1,6 @@
-// Shared icon utilities for both server-side (11ty) and client-side usage
+// Shared categorised icon list helperss for both server-side (11ty) and client-side usage
 
-const iconUtils = {
+const categorisedIconListHelpers = {
     /**
      * Builds an icon card HTML
      * @param {Object} icon - An object representing the icon to be displayed in the card
@@ -65,14 +65,14 @@ const iconUtils = {
                 </h3>
 
                 <ul class="c-categorisedIconList-iconList" aria-labelledby="category-${cat.name}">
-                    ${cat.icons.map((i) => iconUtils.buildIconCard(i, pieIcons)).join('')}
+                    ${cat.icons.map((i) => categorisedIconListHelpers.buildIconCard(i, pieIcons)).join('')}
                 </ul>
             </li>`).join('');
     },
 };
 
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = iconUtils;
+    module.exports = categorisedIconListHelpers;
 } else if (typeof window !== 'undefined') {
-    window.iconUtils = iconUtils;
+    window.categorisedIconListHelpers = categorisedIconListHelpers;
 }

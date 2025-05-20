@@ -1,7 +1,7 @@
 const iconData = require('@justeattakeaway/pie-icons/dist/iconData.json');
 const pieIcons = require('../filters/pieIconsSvg')();
 const headingAnchor = require('../filters/headingAnchor');
-const iconUtils = require('../../assets/js/iconUtils');
+const { generateCategorisedIconList } = require('../../assets/js/categorised-icon-list-helpers');
 
 const categoryDropdown = () => {
     const categoryNames = iconData.categories.filter(({ name }) => name !== 'payment');
@@ -30,13 +30,14 @@ const categorisedIconList = () => headingAnchor(`
         <div>
             ${categoryDropdown()}
             <ul class="c-categorisedIconList" id="categorisedIconListContainer">
-                ${iconUtils.generateCategorisedIconList(iconData.categories, pieIcons)}
+                ${generateCategorisedIconList(iconData.categories, pieIcons)}
             </ul>
             <script>
                 window.iconData = ${JSON.stringify(iconData)};
                 window.pieIcons = ${JSON.stringify(pieIcons)};
             </script>
-            <script src="/assets/js/categorisedIconList.js"></script>
+            <script src="/assets/js/categorised-icon-list-helpers.js"></script>
+            <script src="/assets/js/categorised-icon-list.js"></script>
         </div>
     `);
 

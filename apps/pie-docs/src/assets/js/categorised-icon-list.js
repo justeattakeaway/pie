@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     selectElement.addEventListener('change', (event) => {
         const selectedCategory = event.detail.sourceEvent.target.value;
-        iconListContainer.innerHTML = window.iconUtils.generateCategorisedIconList(
+        iconListContainer.innerHTML = window.categorisedIconListHelpers.generateCategorisedIconList(
             window.iconData.categories,
             window.pieIcons,
             selectedCategory,
