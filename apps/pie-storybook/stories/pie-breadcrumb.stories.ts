@@ -4,14 +4,22 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-breadcrumb';
 import '@justeattakeaway/pie-breadcrumb/dist/pie-breadcrumb-item';
-import { type BreadcrumbProps, defaultProps, variants } from '@justeattakeaway/pie-breadcrumb';
+import { type BreadcrumbProps as BreadcrumbPropsBase, defaultProps, variants } from '@justeattakeaway/pie-breadcrumb';
 
-import { createStory } from '../utilities';
+import { type SlottedComponentProps } from '../types';
+import { createStory, sanitizeAndRenderHTML } from '../utilities';
 
+type BreadcrumbProps = SlottedComponentProps<BreadcrumbPropsBase>;
 type BreadcrumbStoryMeta = Meta<BreadcrumbProps>;
+
+const slot = `<pie-breadcrumb-item href="#">Breadcrumb 1</pie-breadcrumb-item>
+        <pie-breadcrumb-item href="#">Breadcrumb 2</pie-breadcrumb-item>
+        <pie-breadcrumb-item href="#">Breadcrumb 3</pie-breadcrumb-item>
+        <pie-breadcrumb-item href="#">Current Page</pie-breadcrumb-item>`;
 
 const defaultArgs: BreadcrumbProps = {
     ...defaultProps,
+    slot,
 };
 
 const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
@@ -27,11 +35,15 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
             },
         },
         isCompact: {
-            description: 'When set to true, a compact version of the breadcrumb is displayed, showing only the last item in the `items` property.',
+            description: 'When set to true, a compact version of the breadcrumb is displayed to navigate to the higher-level page in the hierarchy.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isCompact,
             },
+        },
+        slot: {
+            description: 'Content to place within the breadcrumb. Use `pie-breadcrumb-item` elements as children.',
+            control: 'text',
         },
     },
     args: defaultArgs,
@@ -45,15 +57,15 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
 
 export default breadcrumbStoryMeta;
 
-const Template = ({ variant, isCompact }: BreadcrumbProps) => html`
+const Template = ({
+    variant,
+    isCompact,
+    slot,
+}: BreadcrumbProps) => html`
     <pie-breadcrumb
         ?isCompact="${isCompact}"
         variant="${ifDefined(variant)}">
-        <pie-breadcrumb-item href="#">Breadcrumb 1</pie-breadcrumb-item>
-        <pie-breadcrumb-item href="#">Breadcrumb 2</pie-breadcrumb-item>
-        <pie-breadcrumb-item href="#">Breadcrumb 3</pie-breadcrumb-item>
-        <pie-breadcrumb-item href="#">Breadcrumb 4</pie-breadcrumb-item>
-        <pie-breadcrumb-item href="#">Current Page</pie-breadcrumb-item>
+            ${sanitizeAndRenderHTML(slot, { ALLOWED_TAGS: ['pie-breadcrumb-item'] })}
     </pie-breadcrumb>
 `;
 
