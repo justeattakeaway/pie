@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.34.0
+
+### Minor Changes
+
+- [Added] - `pie-form-label` overview page ([#2347](https://github.com/justeattakeaway/pie/pull/2347)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- [Added] - `pie-form-label` code page ([#2347](https://github.com/justeattakeaway/pie/pull/2347)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 4.33.0
 
 ### Minor Changes
