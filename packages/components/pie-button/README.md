@@ -14,6 +14,7 @@
 - [Documentation](#documentation)
   - [Properties](#properties)
   - [Slots](#slots)
+  - [CSS Variables](#css-variables)
   - [Events](#events)
 - [Forms Usage](#forms-usage)
   - [Button Attributes](#button-attributes)
@@ -56,6 +57,9 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 |----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `default`| The default slot is used to pass text into the button component.                                                                                                                                                                                                                    |
 | `icon`   | Used to pass in an icon to the button component. The icon placement can be controlled via the `iconPlacement` prop and we recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon.                                                           |
+
+### CSS Variables
+This component does not expose any CSS variables for style overrides.
 
 ### Events
 
