@@ -85,7 +85,9 @@ const readmeFiles = [...danger.git.created_files, ...danger.git.modified_files]
     .filter((file) => /^packages\/components\/[^/]+\/README\.md$/.test(file));
 
 const checkReadmeStructure = async (filepath) => {
-    const fileContent = await danger.git.fileContents(filepath);
+    const diff = await danger.git.diffForFile(filepath);
+    const fileContent = diff.after;
+
     const errors = [];
 
     if (!/https:\/\/img\.shields\.io\/npm\/v\/@justeattakeaway\//.test(fileContent)) {
