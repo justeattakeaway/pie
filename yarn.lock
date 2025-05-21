@@ -3901,6 +3901,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-assistive-text@npm:0.9.3":
+  version: 0.9.3
+  resolution: "@justeattakeaway/pie-assistive-text@npm:0.9.3"
+  dependencies:
+    "@justeattakeaway/pie-icons-webc": 1.8.0
+    "@justeattakeaway/pie-webc-core": 0.25.1
+  checksum: ac46e240ebcc37c75676e7c0312ae6faa99a2785647cdedc8793e4b2b9633d3605b71520b6e1793c96103c355be700101ddb899f721ee7275ed996cf110f8446
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/pie-breadcrumb@0.3.1, @justeattakeaway/pie-breadcrumb@workspace:packages/components/pie-breadcrumb":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-breadcrumb@workspace:packages/components/pie-breadcrumb"
@@ -4060,7 +4070,12 @@ __metadata:
     "@justeattakeaway/pie-css": 0.16.0
     "@justeattakeaway/pie-icons": 5.11.0
     "@justeattakeaway/pie-monorepo-utils": 0.5.1
+    "@justeattakeaway/pie-select": 0.5.1
+    "@justeattakeaway/pie-text-input": 0.27.5
+    "@lit-labs/eleventy-plugin-lit": 1.0.5
+    "@lit-labs/ssr-client": 1.1.7
     "@types/markdown-it": 13.0.2
+    "@webcomponents/template-shadowroot": 0.2.1
     autoprefixer: 10.4.20
     cssnano: 5.1.15
     dree: 3.4.5
@@ -4182,6 +4197,15 @@ __metadata:
     typescript: 5.4.5
   languageName: unknown
   linkType: soft
+
+"@justeattakeaway/pie-icons-webc@npm:1.8.0":
+  version: 1.8.0
+  resolution: "@justeattakeaway/pie-icons-webc@npm:1.8.0"
+  dependencies:
+    "@justeattakeaway/pie-webc-core": 0.25.1
+  checksum: 7b2b0774bc54a8ec980fabd2dcf8bd8a5bf633a33a865552ee0bf5ad97caf4b4dc2e5ce92be88914c9efcd8f1d83e56b5038c0fed34e62c016fb760f269788cc
+  languageName: node
+  linkType: hard
 
 "@justeattakeaway/pie-icons@5.11.0, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
@@ -4334,6 +4358,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-select@npm:0.5.1":
+  version: 0.5.1
+  resolution: "@justeattakeaway/pie-select@npm:0.5.1"
+  dependencies:
+    "@justeattakeaway/pie-assistive-text": 0.9.3
+    "@justeattakeaway/pie-webc-core": 0.25.1
+  checksum: 4b9260f7ed6a3ca4df0ee19e2156e89947102dd7c0111a13604b0c0f1ff6ffa48ceae0acc4ff09e61491a4beadef74a2673fea162e6f573cf1f2f1674a688f2f
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/pie-spinner@1.2.0, @justeattakeaway/pie-spinner@workspace:packages/components/pie-spinner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-spinner@workspace:packages/components/pie-spinner"
@@ -4454,6 +4488,17 @@ __metadata:
     element-internals-polyfill: 1.3.11
   languageName: unknown
   linkType: soft
+
+"@justeattakeaway/pie-text-input@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@justeattakeaway/pie-text-input@npm:0.27.5"
+  dependencies:
+    "@justeattakeaway/pie-assistive-text": 0.9.3
+    "@justeattakeaway/pie-webc-core": 0.25.1
+    element-internals-polyfill: 1.3.11
+  checksum: 1568e3121d9c7cdb9867b2c9fe13b22d3f04c6ef3b62f8333d429c58507f9e12ae034e843c154bb867e55757f70eb0db4033b4a8aeb1e114a1fa4415646491f4
+  languageName: node
+  linkType: hard
 
 "@justeattakeaway/pie-textarea@0.16.0, @justeattakeaway/pie-textarea@workspace:packages/components/pie-textarea":
   version: 0.0.0-use.local
@@ -4606,7 +4651,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lit-labs/eleventy-plugin-lit@npm:^1.0.5":
+"@lit-labs/eleventy-plugin-lit@npm:1.0.5":
   version: 1.0.5
   resolution: "@lit-labs/eleventy-plugin-lit@npm:1.0.5"
   dependencies:
@@ -4623,7 +4668,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit-labs/ssr-client@npm:^1.1.7":
+"@lit-labs/ssr-client@npm:1.1.7, @lit-labs/ssr-client@npm:^1.1.7":
   version: 1.1.7
   resolution: "@lit-labs/ssr-client@npm:1.1.7"
   dependencies:
@@ -8909,7 +8954,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@webcomponents/template-shadowroot@npm:^0.2.1":
+"@webcomponents/template-shadowroot@npm:0.2.1":
   version: 0.2.1
   resolution: "@webcomponents/template-shadowroot@npm:0.2.1"
   checksum: c9a0ac8524e8923ee2d62f904769be6a59185b99ee42f36b11b84f0520f3e19803d7fcda90d2f95bfc8470e926ea469f04e728f8cd1724c78618154d7c423775
@@ -21618,41 +21663,6 @@ __metadata:
   checksum: 371cd14bbc9bdee2a6a44596dd521dd3565e223481e0b1afffdca3f1c29831850bfa7784114dc30d245d37e7d186cec035e036256b39f75d878d19498fe0df6a
   languageName: node
   linkType: hard
-
-"pie-docs@workspace:apps/pie-docs":
-  version: 0.0.0-use.local
-  resolution: "pie-docs@workspace:apps/pie-docs"
-  dependencies:
-    "@11ty/eleventy": 2.0.1
-    "@11ty/eleventy-navigation": 0.3.5
-    "@docsearch/css": 3.5.2
-    "@docsearch/js": 3.5.2
-    "@justeat/fozzie": 11.0.2
-    "@justeat/pie-design-tokens": 6.10.0
-    "@justeattakeaway/browserslist-config-pie": 0.2.1
-    "@justeattakeaway/pie-css": 0.16.0
-    "@justeattakeaway/pie-icons": 5.9.0
-    "@justeattakeaway/pie-monorepo-utils": 0.5.0
-    "@lit-labs/eleventy-plugin-lit": ^1.0.5
-    "@lit-labs/ssr-client": ^1.1.7
-    "@types/markdown-it": 13.0.2
-    "@webcomponents/template-shadowroot": ^0.2.1
-    autoprefixer: 10.4.20
-    cssnano: 5.1.15
-    dree: 3.4.5
-    eleventy-plugin-rev: 1.1.1
-    eleventy-plugin-toc: 1.1.5
-    eleventy-sass: 2.2.3
-    js-cookie: 2.2.1
-    markdown-it: 13.0.2
-    markdown-it-anchor: 8.6.7
-    markdown-it-attrs: 4.1.6
-    node-html-parser: 6.1.13
-    postcss: 8.4.32
-    postcss-cli: 10.1.0
-    slugify: 1.6.6
-  languageName: unknown
-  linkType: soft
 
 "pie-monorepo@workspace:.":
   version: 0.0.0-use.local
