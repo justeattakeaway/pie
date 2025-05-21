@@ -6,6 +6,7 @@ import './styles/icons.scss';
 import { WritingDirection, ComponentStatus } from '../decorators';
 import CUSTOM_VIEWPORTS from './viewports';
 import backgrounds from './backgrounds';
+import getTheme from './pieTheme';
 
 export default {
     decorators: [ComponentStatus, WritingDirection],
@@ -54,6 +55,11 @@ export default {
         controls: {
             expanded: true,
             sort: 'alpha',
+        },
+        darkMode: {
+            // Override the default dark theme
+            dark: { ...getTheme('dark') },
+            light: { ...getTheme() },
         },
         viewport: {
             viewports: CUSTOM_VIEWPORTS

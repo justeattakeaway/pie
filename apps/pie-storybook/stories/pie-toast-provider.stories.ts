@@ -40,7 +40,7 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
                 summary: '--dt-z-index-toast (6000)',
             },
             table: {
-                category: 'CSS Properties',
+                category: 'CSS Variables',
             },
         },
     },
