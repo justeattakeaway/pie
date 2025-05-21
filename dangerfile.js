@@ -79,3 +79,57 @@ if (!isDependabotPR) {
     // Check Reviewer 2
     checkReviewerSection(reviewer2Section ? reviewer2Section[0] : null, 'Reviewer 2');
 }
+
+// README checks for Web Components
+const readmeFiles = [...danger.git.created_files, ...danger.git.modified_files]
+    .filter((file) => /^packages\/components\/[^/]+\/README\.md$/.test(file));
+
+const checkReadmeStructure = async (filepath) => {
+    const fileContent = await danger.git.fileContents(filepath);
+    const errors = [];
+
+    if (!/https:\/\/img\.shields\.io\/npm\/v\/@justeattakeaway\//.test(fileContent)) {
+        errors.push('Missing npm badge (https://img.shields.io/npm/v/@justeattakeaway/...).');
+    }
+
+    if (!/## Table of Contents/.test(fileContent)) {
+        errors.push('Missing "## Table of Contents" section.');
+    }
+
+    if (!/## Documentation/.test(fileContent)) {
+        errors.push('Missing "## Documentation" section.');
+    }
+
+    if (!/### Properties/.test(fileContent)) {
+        errors.push('Missing "### Properties" sub-section under Documentation.');
+    }
+    if (!/### Slots/.test(fileContent)) {
+        errors.push('Missing "### Slots" sub-section under Documentation.');
+    }
+    if (!/### Events/.test(fileContent)) {
+        errors.push('Missing "### Events" sub-section under Documentation.');
+    }
+    if (!/### CSS Variables/.test(fileContent)) {
+        errors.push('Missing "### CSS Variables" sub-section under Documentation.');
+    }
+
+    if (!/## Usage Examples/.test(fileContent)) {
+        errors.push('Missing "## Usage Examples" section.');
+    }
+
+    if (!/## Questions and Support/.test(fileContent)) {
+        errors.push('Missing "## Questions and Support" section.');
+    }
+
+    if (!/## Contributing/.test(fileContent)) {
+        errors.push('Missing "## Contributing" section.');
+    }
+
+    if (errors.length > 0) {
+        fail(`📘 \`${filepath}\` is missing required README sections:\n- ${errors.join('\n- ')}`);
+    }
+};
+
+readmeFiles.forEach((file) => {
+    checkReadmeStructure(file);
+});
