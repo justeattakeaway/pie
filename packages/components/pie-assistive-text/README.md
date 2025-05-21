@@ -1,47 +1,96 @@
-<p align="center">
-  <img align="center" src="../../../readme_image.png" height="200" alt="">
-</p>
+# @justeattakeaway/pie-assistive-text
 
-<p align="center">
+<p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-assistive-text">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-assistive-text.svg">
   </a>
 </p>
 
-# Table of Contents
+`@justeattakeaway/pie-assistive-text` is a Web Component built using the Lit library. It offers a simple and accessible assistive-text component for web applications to use in forms.
 
-1. [Introduction](#pie-assistive-text)
-2. [Installation](#installation)
-3. [Documentation](#documentation)
-4. [Questions](#questions)
-5. [Contributing](#contributing)
+## Table of Contents
 
-## pie-assistive-text
-
-`pie-assistive-text` is a Web Component built using the Lit library.
-
-This component can be easily integrated into various frontend frameworks and customized through a set of properties.
-
+- [Installation](#installation)
+- [Documentation](#documentation)
+  - [Properties](#properties)
+  - [Slots](#slots)
+  - [CSS Variables](#css-variables)
+  - [Events](#events)
+- [Usage Examples](#usage-examples)
+- [Questions and Support](#questions-and-support)
+- [Contributing](#contributing)
 
 ## Installation
 
-To install `pie-assistive-text` in your application, run the following on your command line:
+> To install any of our web components in your application, we would suggest following the [getting started guide](https://webc.pie.design/?path=/docs/introduction-getting-started--docs) to set up your project.
 
-```bash
-npm i @justeattakeaway/pie-assistive-text
-
-yarn add @justeattakeaway/pie-assistive-text
-```
-
-For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
+Ideally, you should install the component using the **`@justeattakeaway/pie-webc`** package, which includes all of the components. Or you can install the individual component package.
 
 ## Documentation
 
-Visit  [Assistive Text | PIE Design System](https://pie.design/components/assistive-text/code) to view more information on this component.
+### Properties
 
-## Questions
+| Prop              | Options                           | Description                                                                                                                                                                                                                                   | Default   |
+|-------------------|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| `variant`         | `"default"`, `"error"`, `"success"` | Sets the type of message displayed to one of three potential options: `error`, `success` or `default`. `error` and `success` include an icon and are used for validation messages. `default` provides users with extra context and guidance. | `default` |
+| `isVisuallyHidden`| `true`, `false`                    | If true, hides the component visually but leaves it accessible for screen readers.                                                                                                                                                           | `false`   |
 
-Please head to [FAQs | PIE Design System](https://pie.design/support/contact-us/) to see our FAQs and get in touch.
+
+### Slots
+
+| Slot     | Description                                                  |
+|----------|--------------------------------------------------------------|
+| `default`| The default, unnamed slot is used to pass in text to the component. |
+
+### CSS Variables
+This component does not expose any CSS variables for style overrides.
+
+### Events
+
+This component does not emit any custom events. In order to add event listening to this component, you can treat it like a native HTML element in your application.
+
+## Usage Examples
+
+**For HTML:**
+
+```js
+// import as module into a js file e.g. main.js
+import '@justeattakeaway/pie-webc/components/assistive-text.js'
+```
+
+```html
+<!-- pass js file into <script> tag -->
+<pie-assistive-text variant="success">Your request has been submitted.</pie-assistive-text>
+<script type="module" src="/main.js"></script>
+```
+
+**For Native JS Applications, Vue, Angular, Svelte etc.:**
+
+```js
+// import as module into a js file that will be loaded on the page where the component is used.
+import '@justeattakeaway/pie-webc/components/assistive-text.js';
+```
+
+```html
+<pie-assistive-text
+  variant="success">
+  Your request has been submitted.
+</pie-assistive-text>
+```
+
+**For React Applications:**
+
+```jsx
+import { PieAssistiveText } from '@justeattakeaway/pie-webc/react/assistive-text.js';
+
+<PieAssistiveText variant="success">
+  Your request has been submitted.
+</PieAssistiveText>
+```
+
+## Questions and Support
+
+If you work at Just Eat Takeaway.com, please contact us on **#help-designsystem**. Otherwise, please raise an issue on [Github](https://github.com/justeattakeaway/pie/issues).
 
 ## Contributing
 
