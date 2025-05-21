@@ -1,5 +1,20 @@
 # Changelog
 
+## 4.33.0
+
+### Minor Changes
+
+- [Fixed] - Correctly link to new Storybook pages for component code pages ([#2355](https://github.com/justeattakeaway/pie/pull/2355)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2357](https://github.com/justeattakeaway/pie/pull/2357)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- [Changed] - standardise wording to CSS Variables ([#2361](https://github.com/justeattakeaway/pie/pull/2361)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`fb37abe`](https://github.com/justeattakeaway/pie/commit/fb37abe8a4d3f9fda467476bef0be2c427a1b600)]:
+  - @justeattakeaway/pie-icons@5.11.0
+
 ## 4.32.2
 
 ### Patch Changes
