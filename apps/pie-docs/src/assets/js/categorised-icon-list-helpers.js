@@ -53,8 +53,7 @@ const categorisedIconListHelpers = {
      */
     generateCategorisedIconList: (categories, pieIcons, filterCategory = null) => {
         const filteredCategories = categories
-            .filter(({ name }) => name !== 'payment')
-            .filter(({ name }) => !filterCategory || name === filterCategory);
+            .filter(({ name }) => ((!filterCategory && name !== 'payment') || name === filterCategory));
 
         return filteredCategories.map((cat) => `
             <li>
