@@ -78,5 +78,3 @@ Currently, for writing unit tests we simply name the file `**/*.spec.ts`. To wri
 
 ## Bundling
 When we build the package, we run a plugin for Rollup named `rollup-plugin-visualizer`. This generates a file named `stats.html` in the root of the package. This file can be viewed in the browser to visualise the bundled Javascript and better understand what contributes to the size of the final build output.
-
-test to delete

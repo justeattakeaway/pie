@@ -5,5 +5,3 @@
 # pie-webc-testing
 
 A core library containing classes, utilities and anything else to assist with testing our web components.
-
-test to delete
