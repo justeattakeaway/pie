@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.10.0
+
+### Minor Changes
+
+- [Changed] - use lit decorator to define icon components ([#2286](https://github.com/justeattakeaway/pie/pull/2286)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - use safe custom el decorator ([#2286](https://github.com/justeattakeaway/pie/pull/2286)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`07b8fca`](https://github.com/justeattakeaway/pie/commit/07b8fca26662f794e8e5f6137b1ee7c7f755f6b0)]:
+  - @justeattakeaway/pie-webc-core@0.26.0
+
 ## 1.9.0
 
 ### Minor Changes
