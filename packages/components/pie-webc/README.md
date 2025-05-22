@@ -73,3 +73,5 @@ This does the following:
 ## Contributing
 
 Check out our [contributing guide](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide) for more information on [local development](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#local-development).
+
+Small change to delete

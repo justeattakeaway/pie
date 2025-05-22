@@ -80,9 +80,9 @@ if (!isDependabotPR) {
     checkReviewerSection(reviewer2Section ? reviewer2Section[0] : null, 'Reviewer 2');
 }
 
-// README checks for Web Components
+// README checks for Web Components (excluding core/testing projects)
 const readmeFiles = [...danger.git.created_files, ...danger.git.modified_files]
-    .filter((file) => /^packages\/components\/[^/]+\/README\.md$/.test(file));
+    .filter((file) => /^packages\/components\/(?!pie-webc(?:-core|-testing)?\/)[^/]+\/README\.md$/.test(file));
 
 const checkReadmeStructure = async (filepath) => {
     const diff = await danger.git.diffForFile(filepath);
