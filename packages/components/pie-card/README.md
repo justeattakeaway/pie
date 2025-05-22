@@ -1,4 +1,5 @@
 # @justeattakeaway/pie-card
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-card) | [Design Documentation](https://pie.design/components/card) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-card)
 
 <p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-card">

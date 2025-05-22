@@ -1,5 +1,6 @@
 # @justeattakeaway/pie-chip
 
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-chip) | [Design Documentation](https://pie.design/components/chip) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-chip)
 <p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-chip">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-chip.svg">

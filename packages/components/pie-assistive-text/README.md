@@ -1,4 +1,5 @@
 # @justeattakeaway/pie-assistive-text
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-assistive-text) | [Design Documentation](https://pie.design/components/assistive-text) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-assistive-text)
 
 <p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-assistive-text">

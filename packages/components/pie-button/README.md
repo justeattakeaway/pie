@@ -1,4 +1,5 @@
 # @justeattakeaway/pie-button
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-button) | [Design Documentation](https://pie.design/components/button) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-button)
 
 <p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-button">
