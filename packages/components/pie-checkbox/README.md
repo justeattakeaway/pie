@@ -51,6 +51,8 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 |----------|--------------------------------------------------------------|
 | `default`| The default, unnamed slot is used to pass in text to the component. |
 
+### CSS Variables
+This component does not expose any CSS variables for style overrides.
 
 ### Events
 
