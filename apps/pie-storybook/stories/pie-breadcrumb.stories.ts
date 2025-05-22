@@ -42,7 +42,7 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
             },
         },
         slot: {
-            description: 'The default slot is used to pass `pie-breadcrumb-item` elements. If only one item is provided, the breadcrumb will be hidden.',
+            description: 'The default slot is used to pass `pie-breadcrumb-item` elements. If only one item is provided, the breadcrumb is hidden.',
             control: 'text',
         },
     },
