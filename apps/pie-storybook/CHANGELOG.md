@@ -1,5 +1,47 @@
 # Changelog
 
+## 1.36.0
+
+### Minor Changes
+
+- [Changed] - updating theming to be more inline with pie brand ([#2366](https://github.com/justeattakeaway/pie/pull/2366)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- [Changed] - Components in Storybook moved to a 'Components' section ([#2351](https://github.com/justeattakeaway/pie/pull/2351)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Introduction section and getting started page ([#2352](https://github.com/justeattakeaway/pie/pull/2352)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - An events page to storybook ([#2360](https://github.com/justeattakeaway/pie/pull/2360)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Browser support page to storybook docs ([#2359](https://github.com/justeattakeaway/pie/pull/2359)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - standardise wording to CSS Variables ([#2361](https://github.com/justeattakeaway/pie/pull/2361)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - Next.js 14 integration guide ([#2362](https://github.com/justeattakeaway/pie/pull/2362)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - CSS Variables page ([#2361](https://github.com/justeattakeaway/pie/pull/2361)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - Typography setup page to Storybook ([#2354](https://github.com/justeattakeaway/pie/pull/2354)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`fb37abe`](https://github.com/justeattakeaway/pie/commit/fb37abe8a4d3f9fda467476bef0be2c427a1b600)]:
+  - @justeattakeaway/pie-icons-webc@1.9.0
+  - @justeattakeaway/pie-assistive-text@0.9.4
+  - @justeattakeaway/pie-chip@0.11.4
+  - @justeattakeaway/pie-icon-button@1.4.4
+  - @justeattakeaway/pie-modal@1.6.2
+  - @justeattakeaway/pie-notification@0.13.4
+  - @justeattakeaway/pie-switch@1.3.7
+  - @justeattakeaway/pie-text-input@0.27.6
+  - @justeattakeaway/pie-toast@0.8.4
+  - @justeattakeaway/pie-checkbox@0.15.6
+  - @justeattakeaway/pie-checkbox-group@0.8.5
+  - @justeattakeaway/pie-radio-group@0.8.6
+  - @justeattakeaway/pie-select@0.5.2
+  - @justeattakeaway/pie-textarea@0.15.6
+  - @justeattakeaway/pie-cookie-banner@1.5.8
+  - @justeattakeaway/pie-toast-provider@0.4.2
+
 ## 1.35.2
 
 ### Patch Changes
