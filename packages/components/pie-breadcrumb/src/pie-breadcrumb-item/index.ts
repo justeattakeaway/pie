@@ -5,6 +5,7 @@ import { RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 
 import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-icons-webc/dist/IconChevronRight.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconChevronLeft.js';
 
 import styles from '../breadcrumb.scss?inline';
 import { type BreadcrumbItemProps } from './defs';
