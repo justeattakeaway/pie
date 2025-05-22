@@ -49,7 +49,7 @@ export class PieBreadcrumbItem extends RtlMixin(PieElement) implements Breadcrum
     private renderNavigationLink () {
         return html`
             <pie-link isStandalone underline="reversed" href="${this.href}">
-                <slot></slot>
+                <span><slot></slot></span>
             </pie-link>
         `;
     }

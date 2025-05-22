@@ -60,6 +60,13 @@
 :host(:last-of-type) {
   pie-link {
     --link-font-weight: var(--dt-font-weight-regular);
+
+    span {
+      max-width: 250px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
   .c-breadcrumb-separator {
@@ -71,4 +78,4 @@
   ::slotted(pie-breadcrumb-item:only-child) {
     display: none;
   }
-} 
+}

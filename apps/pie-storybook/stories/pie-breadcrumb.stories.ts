@@ -35,14 +35,14 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
             },
         },
         isCompact: {
-            description: 'When set to true, a compact version of the breadcrumb is displayed to navigate to the higher-level page in the hierarchy.',
+            description: 'When set to true, only the previous breadcrumb item is shown for quick navigation. If there\'s no item to go back to, the breadcrumb is hidden.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isCompact,
             },
         },
         slot: {
-            description: 'Content to place within the breadcrumb. Use `pie-breadcrumb-item` elements as children.',
+            description: 'The default slot is used to pass `pie-breadcrumb-item` elements. If only one item is provided, the breadcrumb will be hidden.',
             control: 'text',
         },
     },
