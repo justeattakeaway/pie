@@ -1,43 +1,114 @@
-<p align="center">
-  <img align="center" src="../../../readme_image.png" height="200" alt="">
-</p>
+# @justeattakeaway/pie-checkbox-group
 
-<p align="center">
+<p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-checkbox-group">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-checkbox-group.svg">
   </a>
 </p>
 
-## pie-checkbox-group
+`@justeattakeaway/pie-checkbox-group` is a Web Component built using the Lit library. It offers a simple and accessible checkbox group component for web applications.
 
-`pie-checkbox-group` is a Web Component built using the Lit library.
+## Table of Contents
 
-It is a helper component that groups PieCheckbox components into a visual and functional group.
-
-This component can be easily integrated into various frontend frameworks and customized through a set of properties.
-
+- [Installation](#installation)
+- [Documentation](#documentation)
+  - [Properties](#properties)
+  - [Slots](#slots)
+  - [CSS Variables](#css-variables)
+  - [Events](#events)
+- [Usage Examples](#usage-examples)
+- [Questions and Support](#questions-and-support)
+- [Contributing](#contributing)
 
 ## Installation
 
-To install `pie-checkbox-group` in your application, run the following on your command line:
+> To install any of our web components in your application, we would suggest following the [getting started guide](https://webc.pie.design/?path=/docs/introduction-getting-started--docs) to set up your project.
 
-```bash
-$ npm i @justeattakeaway/pie-checkbox-group
-```
-```bash
-$ yarn add @justeattakeaway/pie-checkbox-group
-```
-
-For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
-
+Ideally, you should install the component using the **`@justeattakeaway/pie-webc`** package, which includes all of the components. Or you can install the individual component package.
 
 ## Documentation
 
-Visit  [Checkbox Group | PIE Design System](https://pie.design/components/checkbox-group/) to view more information on this component.
+### Properties
 
-## Questions
+| **Prop**         | **Options**                          | **Description**                                                                                                                                 | **Default**  |
+|------------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
+| `name`           | -                                    | The name associated with the group.                                                                                                             | -            |
+| `disabled`       | -                                    | Same as the HTML `disabled` attribute – indicates whether or not the checkbox group is disabled.                                               | `false`      |
+| `assistiveText`  | -                                    | Allows assistive text to be displayed below the checkbox group.                                                                                | -            |
+| `isInline`       | -                                    | Inline (horizontal) positioning of checkbox items.                                                                                              | `false`      |
+| `status`         | `"default"`, `"error"`, `"success"`  | The status of the checkbox group / assistive text. If you use `status`, you must provide an `assistiveText` prop value for accessibility.     | `"default"`  |
 
-Please head to [FAQs | PIE Design System](https://pie.design/support/contact-us/) to see our FAQs and get in touch.
+### Slots
+
+| **Slot**     | **Description**                                                                 |
+|--------------|----------------------------------------------------------------------------------|
+| `default`    | Pass `PieCheckbox` components as direct children for the `CheckboxGroup`.       |
+| `label`      | Pass `PieFormLabel` to render the checkbox group label.                         |
+
+### CSS Variables
+This component does not expose any CSS variables for style overrides.
+
+### Events
+This component does not emit any custom events. In order to add event listening to this component, you can treat it like a native HTML element in your application.
+
+## Usage Examples
+
+**For HTML:**
+
+```js
+// import as module into a js file e.g. main.js
+import '@justeattakeaway/pie-webc/components/checkbox-group.js';
+import '@justeattakeaway/pie-webc/components/checkbox.js';
+import '@justeattakeaway/pie-webc/components/form-label.js';
+```
+
+```html
+<pie-checkbox-group>
+  <pie-form-label slot="label">Choose the way we can contact you:</pie-form-label>
+  <pie-checkbox name="my-checkbox-one">Checkbox Label 1</pie-checkbox>
+  <pie-checkbox name="my-checkbox-two">Checkbox Label 2</pie-checkbox>
+  <pie-checkbox name="my-checkbox-three">Checkbox Label 3</pie-checkbox>
+</pie-checkbox-group>
+
+<script type="module" src="/main.js"></script>
+```
+
+**For Native JS Applications, Vue, Angular, Svelte etc.:**
+
+```js
+// import as module into a js file that will be loaded on the page where the component is used.
+import '@justeattakeaway/pie-webc/components/checkbox-group.js';
+import '@justeattakeaway/pie-webc/components/checkbox.js';
+import '@justeattakeaway/pie-webc/components/form-label.js';
+```
+
+```html
+<pie-checkbox-group>
+  <pie-form-label slot="label">Choose the way we can contact you:</pie-form-label>
+  <pie-checkbox name="my-checkbox-one">Checkbox Label 1</pie-checkbox>
+  <pie-checkbox name="my-checkbox-two">Checkbox Label 2</pie-checkbox>
+  <pie-checkbox name="my-checkbox-three">Checkbox Label 3</pie-checkbox>
+</pie-checkbox-group>
+```
+
+**For React Applications:**
+
+```jsx
+import { PieCheckboxGroup } from '@justeattakeaway/pie-webc/react/checkbox-group.js';
+import { PieCheckbox } from '@justeattakeaway/pie-webc/react/checkbox.js';
+import { PieFormLabel } from '@justeattakeaway/pie-webc/react/form-label.js';
+
+<PieCheckboxGroup>
+  <PieFormLabel slot="label">Choose the way we can contact you:</PieFormLabel>
+  <PieCheckbox name="my-checkbox-one">Checkbox Label 1</PieCheckbox>
+  <PieCheckbox name="my-checkbox-two">Checkbox Label 2</PieCheckbox>
+  <PieCheckbox name="my-checkbox-three">Checkbox Label 3</PieCheckbox>
+</PieCheckboxGroup>
+```
+
+## Questions and Support
+
+If you work at Just Eat Takeaway.com, please contact us on **#help-designsystem**. Otherwise, please raise an issue on [Github](https://github.com/justeattakeaway/pie/issues).
 
 ## Contributing
 

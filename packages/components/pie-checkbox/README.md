@@ -98,7 +98,6 @@ import '@justeattakeaway/pie-webc/components/checkbox.js'
 ```
 
 ```html
-<!-- pass js file into <script> tag -->
 <pie-checkbox name="mycheckbox">Label</pie-checkbox>
 
 <!-- Always use aria-label if you are not passing a label -->

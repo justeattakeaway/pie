@@ -59,8 +59,10 @@ import '@justeattakeaway/pie-webc/components/assistive-text.js'
 ```
 
 ```html
-<!-- pass js file into <script> tag -->
-<pie-assistive-text variant="success">Your request has been submitted.</pie-assistive-text>
+<pie-assistive-text variant="success">
+  Your request has been submitted.
+</pie-assistive-text>
+
 <script type="module" src="/main.js"></script>
 ```
 
@@ -72,8 +74,7 @@ import '@justeattakeaway/pie-webc/components/assistive-text.js';
 ```
 
 ```html
-<pie-assistive-text
-  variant="success">
+<pie-assistive-text variant="success">
   Your request has been submitted.
 </pie-assistive-text>
 ```
