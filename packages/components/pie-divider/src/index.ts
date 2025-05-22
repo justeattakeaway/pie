@@ -4,7 +4,7 @@ import {
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './divider.scss?inline';
 import {
     type DividerProps, defaultProps, orientations, variants,
@@ -18,6 +18,7 @@ const componentSelector = 'pie-divider';
 /**
  * @tagname pie-divider
  */
+@safeCustomElement('pie-divider')
 export class PieDivider extends PieElement implements DividerProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
@@ -64,8 +65,6 @@ export class PieDivider extends PieElement implements DividerProps {
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieDivider);
 
 declare global {
     interface HTMLElementTagNameMap {
