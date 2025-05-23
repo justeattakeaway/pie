@@ -1,4 +1,5 @@
 # @justeattakeaway/pie-button
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-button) | [Design Documentation](https://pie.design/components/button) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-button)
 
 <p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-button">
@@ -115,8 +116,10 @@ import '@justeattakeaway/pie-webc/components/button.js'
 ```
 
 ```html
-<!-- pass js file into <script> tag -->
-<pie-button type="reset" isFullWidth="true" onclick="e => console.log(e)">Click me!</pie-button>
+<pie-button type="reset" isFullWidth="true" onclick="e => console.log(e)">
+  Click me!
+</pie-button>
+
 <script type="module" src="/main.js"></script>
 ```
 
@@ -126,7 +129,9 @@ import '@justeattakeaway/pie-webc/components/button.js'
 // Vue templates (using Nuxt 3)
 import '@justeattakeaway/pie-webc/components/button.js';
 
-<pie-button @click="handleClick" size="large" type="button" variant="secondary">Click me!</pie-button>
+<pie-button @click="handleClick" size="large" type="button" variant="secondary">
+  Click me!
+</pie-button>
 ```
 
 **For React Applications:**
@@ -134,7 +139,9 @@ import '@justeattakeaway/pie-webc/components/button.js';
 ```jsx
 import { PieButton } from '@justeattakeaway/pie-webc/react/button.js';
 
-<PieButton onClick={handleClick}>increment</PieButton>
+<PieButton onClick={handleClick}>
+  increment
+</PieButton>
 ```
 
 ## Questions and Support
