@@ -18,8 +18,8 @@ test.describe('PieBreadcrumb - Component tests', () => {
     });
 
     test.describe('Props', () => {
-        test.describe('items', () => {
-            test('should render items', async ({ page }) => {
+        test.describe('breadcrumb-items', () => {
+            test('should render breadcrumb items', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'breadcrumb--default');
                 await basePage.load();
@@ -29,11 +29,14 @@ test.describe('PieBreadcrumb - Component tests', () => {
                 const breadcrumbList = page.getByTestId(breadcrumb.selectors.list.dataTestId);
                 const breadcrumbSeparators = page.getByTestId(breadcrumb.selectors.separator.dataTestId);
                 const breadcrumbItemElements = page.getByTestId(breadcrumb.selectors.item.dataTestId);
+                const lastItem = page.getByTestId(breadcrumb.selectors.item.dataTestId).last();
+                const lastSeparator = lastItem.getByTestId(breadcrumb.selectors.separator.dataTestId);
 
                 // Assert
                 await expect(breadcrumbComponent).toBeVisible();
                 await expect(breadcrumbList).toBeVisible();
-                await expect(breadcrumbSeparators).toHaveCount(3);
+                await expect(breadcrumbSeparators).toHaveCount(4);
+                await expect(lastSeparator).not.toBeVisible();
                 await expect(breadcrumbItemElements).toHaveCount(4);
             });
         });
@@ -46,12 +49,10 @@ test.describe('PieBreadcrumb - Component tests', () => {
 
                 // Act
                 const breadcrumbComponent = page.getByTestId(breadcrumb.selectors.container.dataTestId);
-                const breadcrumbSeparators = page.getByTestId(breadcrumb.selectors.separator.dataTestId);
                 const breadcrumbItemElements = page.getByTestId(breadcrumb.selectors.item.dataTestId);
 
                 // Assert
                 await expect(breadcrumbComponent).toBeVisible();
-                await expect(breadcrumbSeparators).toHaveCount(3);
                 await expect(breadcrumbItemElements).toHaveCount(4);
             });
 
@@ -62,18 +63,16 @@ test.describe('PieBreadcrumb - Component tests', () => {
 
                 // Act
                 const breadcrumbComponent = page.getByTestId(breadcrumb.selectors.container.dataTestId);
-                const breadcrumbSeparators = page.getByTestId(breadcrumb.selectors.separator.dataTestId);
                 const breadcrumbItemElements = page.getByTestId(breadcrumb.selectors.item.dataTestId);
 
                 // Assert
                 await expect(breadcrumbComponent).toBeVisible();
-                await expect(breadcrumbSeparators).toHaveCount(3);
                 await expect(breadcrumbItemElements).toHaveCount(4);
             });
         });
 
         test.describe('isCompact', () => {
-            test('should render the compact variation of the breadcrumb - only the last item is shown', async ({ page }) => {
+            test('should render the compact variation of the breadcrumb - only before the last item is shown', async ({ page }) => {
                 // Arrange
                 const basePage = new BasePage(page, 'breadcrumb--default');
                 await basePage.load({ isCompact: true });
@@ -82,9 +81,17 @@ test.describe('PieBreadcrumb - Component tests', () => {
                 const breadcrumbComponent = page.getByTestId(breadcrumb.selectors.container.dataTestId);
                 const breadcrumbItemElements = page.getByTestId(breadcrumb.selectors.item.dataTestId);
 
+                const firstItem = breadcrumbItemElements.nth(0);
+                const secondItem = breadcrumbItemElements.nth(1);
+                const beforeLastItem = breadcrumbItemElements.nth(2);
+                const lastItem = breadcrumbItemElements.nth(3);
+
                 // Assert
                 await expect(breadcrumbComponent).toBeVisible();
-                await expect(breadcrumbItemElements).toHaveCount(1);
+                await expect(beforeLastItem).toBeVisible();
+                await expect(firstItem).not.toBeVisible();
+                await expect(secondItem).not.toBeVisible();
+                await expect(lastItem).not.toBeVisible();
             });
         });
     });

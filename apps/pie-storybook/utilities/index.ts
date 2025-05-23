@@ -58,9 +58,10 @@ export const createStory = <T>(templateFunc: TemplateFunction<T>, defaultArgs: T
  * which renders the sanitized HTML into a Lit template.
  *
  * @param {string} slot - The HTML string content to be sanitized and rendered.
+ * @param {DOMPurify.Config} [config={}] - Optional DOMPurify configuration object to customize sanitization.
  * @returns {import('lit/directives/unsafe-html.js').UnsafeHTMLDirective} A Lit directive that can be used in a Lit template to render the sanitized content.
  */
-export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sanitize(slot));
+export const sanitizeAndRenderHTML = (slot: string, config: DOMPurify.Config = {}) => unsafeHTML(DOMPurify.sanitize(slot, config) as string);
 
 export type PropDisplayOptions<T> = {
     hiddenProps?: (keyof T)[];

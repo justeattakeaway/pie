@@ -34,6 +34,16 @@
       "require": "./react/breadcrumb.js",
       "types": "./react/breadcrumb.d.ts"
     },
+    "./components/breadcrumb-item.js": {
+      "import": "./components/breadcrumb-item.js",
+      "require": "./components/breadcrumb-item.js",
+      "types": "./components/breadcrumb-item.d.ts"
+    },
+    "./react/breadcrumb-item.js": {
+      "import": "./react/breadcrumb-item.js",
+      "require": "./react/breadcrumb-item.js",
+      "types": "./react/breadcrumb-item.d.ts"
+    },
     "./components/button.js": {
       "import": "./components/button.js",
       "require": "./components/button.js",

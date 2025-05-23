@@ -3,4 +3,16 @@ import getPackageVersion from '@justeattakeaway/pie-monorepo-utils/utils/get-pac
 
 export default viteConfig({
     version: getPackageVersion(__dirname),
+    build: {
+        lib: {
+            entry: {
+                'pie-breadcrumb-item/index': 'src/pie-breadcrumb-item/index.ts',
+                'pie-breadcrumb-item/react': 'src/pie-breadcrumb-item/react.ts',
+            },
+        },
+    },
+    dtsConfig: {
+        entryRoot: 'src',
+        rollupTypes: false,
+    },
 });
