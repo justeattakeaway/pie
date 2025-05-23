@@ -4070,8 +4070,7 @@ __metadata:
     "@justeattakeaway/pie-css": 0.16.0
     "@justeattakeaway/pie-icons": 5.11.0
     "@justeattakeaway/pie-monorepo-utils": 0.5.1
-    "@justeattakeaway/pie-select": 0.5.1
-    "@justeattakeaway/pie-text-input": 0.27.5
+    "@justeattakeaway/pie-webc": 0.6.34
     "@lit-labs/eleventy-plugin-lit": 1.0.5
     "@lit-labs/ssr-client": 1.1.7
     "@types/markdown-it": 13.0.2
@@ -4197,15 +4196,6 @@ __metadata:
     typescript: 5.4.5
   languageName: unknown
   linkType: soft
-
-"@justeattakeaway/pie-icons-webc@npm:1.8.0":
-  version: 1.8.0
-  resolution: "@justeattakeaway/pie-icons-webc@npm:1.8.0"
-  dependencies:
-    "@justeattakeaway/pie-webc-core": 0.25.1
-  checksum: 7b2b0774bc54a8ec980fabd2dcf8bd8a5bf633a33a865552ee0bf5ad97caf4b4dc2e5ce92be88914c9efcd8f1d83e56b5038c0fed34e62c016fb760f269788cc
-  languageName: node
-  linkType: hard
 
 "@justeattakeaway/pie-icons@5.11.0, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
