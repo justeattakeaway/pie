@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.26.0
+
+### Minor Changes
+
+- [Added] - decorator that wraps the lit customElement decorator with error handling ([#2286](https://github.com/justeattakeaway/pie/pull/2286)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.25.1
 
 ### Patch Changes

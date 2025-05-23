@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-lottie-player",
   "description": "PIE Design System Lottie Player built using Web Components",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -37,7 +37,7 @@
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "0.25.1",
+    "@justeattakeaway/pie-webc-core": "0.26.0",
     "lottie-web": "5.12.2"
   },
   "volta": {
