@@ -1,48 +1,21 @@
 const iconData = require('@justeattakeaway/pie-icons/dist/iconData.json');
 const pieIcons = require('../filters/pieIconsSvg')();
 const headingAnchor = require('../filters/headingAnchor');
-/**
- *
- * @param {*} icon - An object representing the icon to be displayed in the card.
- * @param {String} icon.name - The name of the icon, this should map directly to icon name from pie-icons.
- * @param {String} icon.displayName - The text to be displayed on the icon card, usually the icon name.
- * @param {Boolean} [icon.oneSize=false] - Defaults to `false` and hence the card will attempt to also render `${icon.name}-large`.
- * @returns
- */
-const buildIconCard = (icon) => {
-    const pieIcon = pieIcons.find((x) => x.name === icon.name)?.icon;
+const { generateCategorisedIconList } = require('../../assets/js/categorised-icon-list-helpers');
 
-    if (!pieIcon) {
-        throw new Error(`Could not find icon with name "${icon.name}".`);
-    }
+const categoryDropdown = () => {
+    const categoryNames = iconData.categories.filter(({ name }) => name !== 'payment');
+    const formattedOptions = [
+        { tag: 'option', text: 'All icons', value: '' },
+        ...categoryNames.map((category) => ({
+            tag: 'option',
+            text: category.displayName,
+            value: category.name,
+        })),
+    ];
+    const jsonOptions = JSON.stringify(formattedOptions).replace(/"/g, '&quot;');
 
-    let largeIcon;
-
-    if (!icon.oneSize) {
-        largeIcon = pieIcons.find((x) => x.name === `${icon.name}-large`)?.icon;
-
-        if (!largeIcon) {
-            throw new Error(`Could not find icon with name "${icon.name}-large".`);
-        }
-    }
-
-    // If there is only one size of icon then make the regular one larger
-    const regularSizeClass = icon.oneSize
-        ? 'c-categorisedIconList-icon-large'
-        : 'c-categorisedIconList-icon';
-
-    return `<li class="c-categorisedIconList-iconCard">
-        <div class="c-categorisedIconList-iconCard-iconContainer">
-            ${largeIcon ? `<div class="c-categorisedIconList-icon-large" aria-hidden="true">
-                ${largeIcon}
-            </div>` : ''}
-            ${pieIcon ? `<div class="${regularSizeClass}" aria-hidden="true">
-                ${pieIcon}
-            </div>` : ''}
-        </div>
-        <span class="c-categorisedIconList-iconCard-separator"></span>
-        <p>${icon.displayName}</p>
-    </li>`;
+    return `<pie-select id="categoryFilter" options="${jsonOptions}"></pie-select>`;
 };
 
 /**
@@ -53,19 +26,19 @@ const buildIconCard = (icon) => {
  * unless specified with `"oneSize": true`.
  * @returns {string}
  */
-const categorisedIconList = () => headingAnchor(`<div>
-        <ul class="c-categorisedIconList">
-            ${iconData.categories.filter(({ name }) => name !== 'payment').map((cat) => `
-                <li>
-                    <h3 class="c-categorisedIconList-heading" id="category-${cat.name}">
-                        ${cat.displayName}
-                    </h3>
-
-                    <ul class="c-categorisedIconList-iconList" aria-labelledby="category-${cat.name}">
-                        ${cat.icons.map((i) => buildIconCard(i)).join('')}
-                    </ul>`).join('')}
-                </li>
+const categorisedIconList = () => headingAnchor(`
+        <div>
+            ${categoryDropdown()}
+            <ul class="c-categorisedIconList" id="categorisedIconListContainer">
+                ${generateCategorisedIconList(iconData.categories, pieIcons)}
             </ul>
-        </div>`);
+            <script>
+                window.iconData = ${JSON.stringify(iconData)};
+                window.pieIcons = ${JSON.stringify(pieIcons)};
+            </script>
+            <script src="/assets/js/categorised-icon-list-helpers.js"></script>
+            <script src="/assets/js/categorised-icon-list-filter.js"></script>
+        </div>
+    `);
 
 module.exports = categorisedIconList;
