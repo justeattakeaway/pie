@@ -1,6 +1,6 @@
 import { html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
-import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 
@@ -19,6 +19,7 @@ export * from './defs';
 /**
  * @tagname pie-breadcrumb
  */
+@safeCustomElement('pie-breadcrumb')
 export class PieBreadcrumb extends PieElement implements BreadcrumbProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)

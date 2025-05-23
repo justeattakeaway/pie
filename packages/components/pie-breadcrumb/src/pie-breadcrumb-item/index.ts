@@ -1,7 +1,7 @@
 import { html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
 
 import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-icons-webc/dist/IconChevronRight.js';
@@ -18,6 +18,7 @@ export * from './defs';
 /**
  * @tagname pie-breadcrumb-item
  */
+@safeCustomElement('pie-breadcrumb-item')
 export class PieBreadcrumbItem extends RtlMixin(PieElement) implements BreadcrumbItemProps {
     @property({ type: String, reflect: true })
     public href = '';
@@ -67,8 +68,6 @@ export class PieBreadcrumbItem extends RtlMixin(PieElement) implements Breadcrum
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieBreadcrumbItem);
 
 declare global {
     interface HTMLElementTagNameMap {
