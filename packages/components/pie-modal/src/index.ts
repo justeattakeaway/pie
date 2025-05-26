@@ -14,8 +14,8 @@ import {
     requiredProperty,
     RtlMixin,
     validPropertyValues,
-    defineCustomElement,
     dispatchCustomEvent,
+    safeCustomElement,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconChevronLeft.js';
@@ -56,6 +56,7 @@ export interface ModalEventDetail {
  * @slot footer - The footer slot
  * @slot - Default slot
  */
+@safeCustomElement('pie-modal')
 export class PieModal extends RtlMixin(PieElement) implements ModalProps {
     @property({ type: Object })
     public aria: ModalProps['aria'];
@@ -586,8 +587,6 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
         }
     };
 }
-
-defineCustomElement(componentSelector, PieModal);
 
 declare global {
     interface HTMLElementTagNameMap {

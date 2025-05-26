@@ -8,7 +8,8 @@ import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { live } from 'lit/directives/live.js';
 
 import {
-    validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent, type PIEInputElement,
+    validPropertyValues, RtlMixin, FormControlMixin, wrapNativeEvent, type PIEInputElement,
+    safeCustomElement,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-assistive-text';
 
@@ -34,6 +35,7 @@ const assistiveTextIdValue = 'assistive-text';
  * @slot trailingText - Short text to display at the end of the input. Wrap the text in a <span>. Do not use with trailingIcon at the same time.
  * @slot trailingIcon - An icon to display at the end of the input. Do not use with trailingText at the same time.
  */
+@safeCustomElement('pie-text-input')
 export class PieTextInput extends FormControlMixin(RtlMixin(PieElement)) implements TextInputProps, PIEInputElement {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
@@ -255,8 +257,6 @@ export class PieTextInput extends FormControlMixin(RtlMixin(PieElement)) impleme
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-defineCustomElement(componentSelector, PieTextInput);
 
 declare global {
     interface HTMLElementTagNameMap {

@@ -1,5 +1,24 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.16.0
+
+### Minor Changes
+
+- [Changed] - Use lit customElement decorator ([#2286](https://github.com/justeattakeaway/pie/pull/2286)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`07b8fca`](https://github.com/justeattakeaway/pie/commit/07b8fca26662f794e8e5f6137b1ee7c7f755f6b0), [`07b8fca`](https://github.com/justeattakeaway/pie/commit/07b8fca26662f794e8e5f6137b1ee7c7f755f6b0)]:
+  - @justeattakeaway/pie-webc-core@0.26.0
+  - @justeattakeaway/pie-assistive-text@0.10.0
+
+## 0.15.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.9.4
+
 ## 0.15.5
 
 ### Patch Changes

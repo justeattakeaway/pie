@@ -27,16 +27,17 @@ const componentTemplate = (name, svg) => {
     return `import {
         html, TemplateResult
     } from 'lit';
-    import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
     import { property } from 'lit/decorators.js';
     import { ${sizeType} } from '@justeattakeaway/pie-icons-configs';
     import { PieIconComponent } from './PieIconComponent.ts';
+    import { safeCustomElement } from '@justeattakeaway/pie-webc-core';
 
     const componentSelector = '${kebabCaseName}';
 
     /**
      * @tagname ${kebabCaseName}
      */
+    @safeCustomElement('${kebabCaseName}')
     export class ${name} extends PieIconComponent  {
         @property({ type: String, reflect: true })
         public size: ${sizeType} = ${defaultSize};
@@ -51,8 +52,6 @@ const componentTemplate = (name, svg) => {
             return html\`${svgWithWidthAndHeight}\`;
         }
     }
-
-    defineCustomElement(componentSelector, ${name});
 
     declare global {
         interface HTMLElementTagNameMap {

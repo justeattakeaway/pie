@@ -9,6 +9,8 @@ const cssnano = require('cssnano');
 
 const pluginTOC = require('eleventy-plugin-toc');
 
+const litPlugin = require('@lit-labs/eleventy-plugin-lit');
+
 /**
  * Adds all 11ty plugins
  * @param {object} eleventyConfig
@@ -33,6 +35,12 @@ const addAllPlugins = (eleventyConfig) => {
             ],
             sourceMap: true,
         },
+    });
+    eleventyConfig.addPlugin(litPlugin, {
+        mode: 'worker',
+        componentModules: [
+            'src/assets/js/pie-components-imports.js',
+        ],
     });
 };
 
