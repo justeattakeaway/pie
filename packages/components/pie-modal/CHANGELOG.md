@@ -1,5 +1,28 @@
 # @justeattakeaway/pie-modal
 
+## 1.7.0
+
+### Minor Changes
+
+- [Changed] - Use lit customElement decorator ([#2286](https://github.com/justeattakeaway/pie/pull/2286)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`07b8fca`](https://github.com/justeattakeaway/pie/commit/07b8fca26662f794e8e5f6137b1ee7c7f755f6b0), [`07b8fca`](https://github.com/justeattakeaway/pie/commit/07b8fca26662f794e8e5f6137b1ee7c7f755f6b0), [`07b8fca`](https://github.com/justeattakeaway/pie/commit/07b8fca26662f794e8e5f6137b1ee7c7f755f6b0), [`6fcf0b2`](https://github.com/justeattakeaway/pie/commit/6fcf0b21cedfd48c21f5f743bc7537dcec63d82c), [`07b8fca`](https://github.com/justeattakeaway/pie/commit/07b8fca26662f794e8e5f6137b1ee7c7f755f6b0)]:
+  - @justeattakeaway/pie-webc-core@0.26.0
+  - @justeattakeaway/pie-icons-webc@1.10.0
+  - @justeattakeaway/pie-icon-button@1.5.0
+  - @justeattakeaway/pie-spinner@1.2.0
+  - @justeattakeaway/pie-button@1.6.0
+
+## 1.6.2
+
+### Patch Changes
+
+- Updated dependencies [[`fb37abe`](https://github.com/justeattakeaway/pie/commit/fb37abe8a4d3f9fda467476bef0be2c427a1b600)]:
+  - @justeattakeaway/pie-icons-webc@1.9.0
+  - @justeattakeaway/pie-icon-button@1.4.4
+
 ## 1.6.1
 
 ### Patch Changes
