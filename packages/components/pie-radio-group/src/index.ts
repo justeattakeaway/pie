@@ -209,10 +209,20 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     }
 
     private _moveFocus (currentIndex: number, step: number): void {
+        const enabledChildren = this._slottedChildren.filter((el) => !el.disabled);
+        if (!enabledChildren) return; // avoid infinite loop below
+
         const newIndex = (currentIndex + step + this._slottedChildren.length) % this._slottedChildren.length;
+        const childElement = this._slottedChildren[newIndex];
+
+        if (childElement.disabled) {
+            this._moveFocus(newIndex, step);
+            return;
+        }
+
 
         // Focus and click the next radio
-        const radio: HTMLInputElement = this._slottedChildren[newIndex];
+        const radio: HTMLInputElement = childElement;
         radio.focus();
         // This is quite hacky, but it ensures the radio elements correct emit a real change event.
         // Simply setting radio.checked as true would require re-architecture of both this component and the radio button
