@@ -57,6 +57,12 @@
   }
 }
 
+:host([hideCurrentPage]) {
+  ::slotted(pie-breadcrumb-item:last-of-type) {
+    display: none;
+  }
+}
+
 :host(:last-of-type) {
   pie-link {
     --link-font-weight: var(--dt-font-weight-regular);

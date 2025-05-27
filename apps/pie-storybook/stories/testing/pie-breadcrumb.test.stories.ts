@@ -41,6 +41,13 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
                 summary: defaultProps.isCompact,
             },
         },
+        hideCurrentPage: {
+            description: 'When set to true, the current page of the breadcrumb (last item) is hidden',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.hideCurrentPage,
+            },
+        },
         slot: {
             description: 'The default slot is used to pass `pie-breadcrumb-item` elements. If only one item is provided, the breadcrumb is hidden.',
             control: 'text',
@@ -60,11 +67,13 @@ export default breadcrumbStoryMeta;
 const Template = ({
     variant,
     isCompact,
+    hideCurrentPage,
     slot,
 }: BreadcrumbProps) => html`
     <pie-breadcrumb
+        variant="${ifDefined(variant)}"
         ?isCompact="${isCompact}"
-        variant="${ifDefined(variant)}">
+        ?hideCurrentPage="${hideCurrentPage}">
             ${sanitizeAndRenderHTML(slot, { ALLOWED_TAGS: ['pie-breadcrumb-item'] })}
     </pie-breadcrumb>
 `;
@@ -77,6 +86,7 @@ export const WithLongText = createStory<BreadcrumbProps>(Template, {
 
 const sharedPropOptions = {
     isCompact: [true, false],
+    hideCurrentPage: [true, false],
     slot: [slot],
 };
 

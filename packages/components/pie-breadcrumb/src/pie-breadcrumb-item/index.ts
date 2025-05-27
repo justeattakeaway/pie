@@ -2,6 +2,7 @@ import { html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-icons-webc/dist/IconChevronRight.js';
@@ -20,8 +21,14 @@ export * from './defs';
  */
 @safeCustomElement('pie-breadcrumb-item')
 export class PieBreadcrumbItem extends RtlMixin(PieElement) implements BreadcrumbItemProps {
-    @property({ type: String, reflect: true })
-    public href = '';
+    @property({ type: String })
+    public href: BreadcrumbItemProps['href'];
+
+    @property({ type: String })
+    public target: BreadcrumbItemProps['target'];
+
+    @property({ type: String })
+    public rel: BreadcrumbItemProps['rel'];
 
     /**
      * Renders a separator icon between breadcrumb items.
@@ -50,8 +57,11 @@ export class PieBreadcrumbItem extends RtlMixin(PieElement) implements Breadcrum
      */
     private renderNavigationLink () {
         return html`
-            <pie-link isStandalone underline="reversed" href="${this.href}">
-                <span><slot></slot></span>
+            <pie-link 
+                isStandalone 
+                underline="reversed"
+                href="${ifDefined(this.href)}">
+                    <span><slot></slot></span>
             </pie-link>
         `;
     }
