@@ -15,7 +15,11 @@ const categoryDropdown = () => {
     ];
     const jsonOptions = JSON.stringify(formattedOptions).replace(/"/g, '&quot;');
 
-    return `<pie-select id="categoryFilter" options="${jsonOptions}"></pie-select>`;
+    return `
+    <div class="c-categorisedIconList-selectWrapper">
+    <pie-select id="categoryFilter" options="${jsonOptions}"></pie-select>
+    </div>
+    `;
 };
 
 /**
