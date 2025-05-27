@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.35.0
+
+### Minor Changes
+
+- [Added] - `pie-select` web component to filter through the list of icon categories ([#2373](https://github.com/justeattakeaway/pie/pull/2373)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
 ## 4.34.0
 
 ### Minor Changes

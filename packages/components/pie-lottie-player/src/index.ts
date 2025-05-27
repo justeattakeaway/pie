@@ -5,7 +5,7 @@ import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElem
 import { property, query } from 'lit/decorators.js';
 import { type LottiePlayer, type AnimationItem } from 'lottie-web';
 
-import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { safeCustomElement } from '@justeattakeaway/pie-webc-core';
 import { type LottiePlayerProps, defaultProps } from './defs';
 
 // Valid values available to consumers
@@ -16,6 +16,7 @@ const componentSelector = 'pie-lottie-player';
 /**
  * @tagname pie-lottie-player
  */
+@safeCustomElement('pie-lottie-player')
 export class PieLottiePlayer extends PieElement implements LottiePlayerProps {
     @query('div')
     private _hostElement!: HTMLDivElement;
@@ -199,8 +200,6 @@ export class PieLottiePlayer extends PieElement implements LottiePlayerProps {
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(''); // Kept as empty to ensure it will be present during SSR testing
 }
-
-defineCustomElement(componentSelector, PieLottiePlayer);
 
 declare global {
     interface HTMLElementTagNameMap {
