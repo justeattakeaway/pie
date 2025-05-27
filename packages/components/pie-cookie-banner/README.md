@@ -7,7 +7,7 @@
   </a>
 </p>
 
-`@justeattakeaway/pie-cookie-banner` is a Web Component built using the Lit library. It offers a simple and accessible interactive card component for web applications.
+`@justeattakeaway/pie-cookie-banner` is a Web Component built using the Lit library. It offers a simple and accessible interactive cookie-banner component for web applications.
 
 ⚠️ `pie-cookie-banner` purely handles the UI and user interactions for cookie consent. It does not handle the setting or management of cookies or the storage of user preferences. It is the responsibility of the consuming application to handle these aspects.
 

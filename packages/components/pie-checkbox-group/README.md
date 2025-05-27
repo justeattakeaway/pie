@@ -1,5 +1,5 @@
 # @justeattakeaway/pie-checkbox-group
-[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-checkbox-group) | [Design Documentation](https://pie.design/components/pie-checkbox) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-checkbox-group)
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-checkbox-group) | [Design Documentation](https://pie.design/components/checkbox) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-checkbox-group)
 
 <p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-checkbox-group">
