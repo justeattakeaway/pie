@@ -75,6 +75,8 @@ export default {
                         'Typography',
                         'CSS setup',
                         'Events',
+                        'CSS variables',
+                        'Component versions',
                         'Browser support',
                     ],
                     'Integration guides',
