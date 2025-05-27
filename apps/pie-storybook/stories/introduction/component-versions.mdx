@@ -22,7 +22,7 @@ class MyComponent extends HTMLElement {
 // Register the component as a custom element. This tells the browser to use this class when it encounters the <my-component> tag in the DOM.
 customElements.define('my-component', MyComponent);
 ```
-We have some safeguarding in place to ensure this registration only happens once. If you import the same component multiple times (which is easy to do in a complex application), you may see a warning in development mode stating that the component has already been registered.
+We have some safeguarding in place to ensure this registration only happens once. If you import the same component multiple times (which can easily happen in a complex application), you may see a warning in development mode stating that the component has already been registered.
 
 Consumers of PIE web components will never have to perform this step themselves, as it is handled automatically by the component library.
 
