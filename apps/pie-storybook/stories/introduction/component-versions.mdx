@@ -28,7 +28,7 @@ Consumers of PIE web components will never have to perform this step themselves,
 
 ## Version mismatch issues
 
-One of the most common issues when using PIE web components is when multiple versions of the same component are registered in the DOM. This can happen if you have multiple versions of the component library installed, or if you import the same component multiple times in your application.
+One possible issue when using PIE web components is when multiple versions of the same component are registered in the DOM. This can happen if you have multiple versions of the component library installed, or if you import the same component multiple times in your application.
 This most often occurs in **micro-frontend applications**, where multiple teams are working on different parts of the application and may not be aware of each other's dependencies.
 
 When this happens, you may see a registration warning as previously mentioned. However our built-in safeguarding will not prevent you from potentially using a component version you were not expecting, as it depends which version was registered first. This could mean the component behaves differently than you expect, or even fails to render at all if the version is incompatible with your application.
