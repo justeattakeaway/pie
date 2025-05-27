@@ -1,4 +1,5 @@
 # @justeattakeaway/pie-<%= fileName %>
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-<%= fileName %>) | [Design Documentation](https://pie.design/components/<%= fileName %>) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-<%= fileName %>)
 
 <p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-<%= fileName %>">
@@ -54,7 +55,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 ```js
 // import as module into a js file e.g. main.js
-
+import '@justeattakeaway/pie-webc/components/<%= fileName %>.js'
 ```
 
 ```html
@@ -67,12 +68,14 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 ```js
 // Vue templates (using Nuxt 3)
+import '@justeattakeaway/pie-webc/components/<%= fileName %>.js'
 
 ```
 
 **For React Applications:**
 
 ```jsx
+import { Pie<%= componentName %> } from '@justeattakeaway/pie-webc/react/<%= fileName %>.js';
 
 ```
 
