@@ -42,7 +42,7 @@ export default class extends Generator {
             this.props,
             undefined,
             {
-                globOptions: { dot: true, ignore: ['**/pie-placeholder.__stories__.ts'] },
+                globOptions: { dot: true, ignore: ['**/pie-placeholder.__stories__.ts', '**/pie-placeholder.mdx'] },
                 processDestinationPath,
             },
         );
@@ -63,10 +63,18 @@ export default class extends Generator {
             { processDestinationPath },
         );
 
+        this.fs.copyTpl(
+            this.templatePath('**/pie-placeholder.mdx'),
+            this.destinationPath(storyPath),
+            this.props,
+            undefined,
+            { processDestinationPath },
+        );
+
         // Update YAML and config files
         this._addPercyTokenEnvVar();
         this._addGithubLabel();
-        this._addBundlewatchConfigEntry(); // New method to add bundlewatch config entry
+        this._addBundlewatchConfigEntry();
     }
 
     _readAndParseYaml (filePath: string): Document {
