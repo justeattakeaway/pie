@@ -253,7 +253,14 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     }
 
     private _moveFocus (currentIndex: number, step: number): void {
+        console.log('🔦 >>> 👉 PieRadioGroup 👉 _moveFocus 👉 currentIndex:', currentIndex);
+        console.log('🔦 >>> 👉 PieRadioGroup 👉 _moveFocus 👉 step:', step);
         const newIndex = (currentIndex + step + this._slottedChildren.length) % this._slottedChildren.length;
+        console.log('🔦 >>> 👉 PieRadioGroup 👉 _moveFocus 👉 newIndex:', newIndex);
+        console.log('🔦 >>> 👉 PieRadioGroup 👉 _moveFocus 👉 this._slottedChildren:', this._slottedChildren);
+        console.log('🔦 >>> 👉 PieRadioGroup 👉 _moveFocus 👉 nextChild:', this._slottedChildren[newIndex]);
+        console.log('');
+
         this._focusAndClickOption(this._slottedChildren[newIndex]);
     }
 
