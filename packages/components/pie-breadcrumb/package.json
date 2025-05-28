@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-breadcrumb",
   "description": "PIE Design System Breadcrumb built using Web Components",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -46,6 +46,7 @@
   },
   "customElements": "custom-elements.json",
   "sideEffects": [
-    "dist/*.js"
+    "dist/*.js",
+    "dist/**/*.js"
   ]
 }

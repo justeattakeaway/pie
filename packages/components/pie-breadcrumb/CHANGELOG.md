@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-breadcrumb
 
+## 0.4.0
+
+### Minor Changes
+
+- [Changed] - Refactored the items prop to be a pie-breadcrumb-item sub component ([#2368](https://github.com/justeattakeaway/pie/pull/2368)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.3.1
 
 ### Patch Changes

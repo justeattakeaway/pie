@@ -1,13 +1,8 @@
+import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
+
 export const variants = ['default', 'scrim'] as const;
 
-export type BreadcrumbItem = {
-  label: string;
-  href: string;
-}
-
 export interface BreadcrumbProps {
-  items: BreadcrumbItem[];
-
   /**
    * Optional variant for styling the breadcrumb component.
    */
@@ -19,7 +14,9 @@ export interface BreadcrumbProps {
   isCompact?: boolean;
 }
 
-export const defaultProps: Pick<BreadcrumbProps, 'variant' | 'isCompact'> = {
+export type DefaultProps = ComponentDefaultProps<BreadcrumbProps>;
+
+export const defaultProps:DefaultProps = {
     variant: 'default',
     isCompact: false,
 };
