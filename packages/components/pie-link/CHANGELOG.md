@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-link
 
+## 1.2.1
+
+### Patch Changes
+
+- [Added] - Exposed css vars for the font weight and color ([#2368](https://github.com/justeattakeaway/pie/pull/2368)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.2.0
 
 ### Minor Changes
