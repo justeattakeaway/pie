@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-assistive-text
 
+## 0.10.1
+
+### Patch Changes
+
+- [Added] - Overview component overview pages to storybok app and updated component readme files ([#2372](https://github.com/justeattakeaway/pie/pull/2372)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.10.0
 
 ### Minor Changes
