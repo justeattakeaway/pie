@@ -7,8 +7,4 @@ export interface BreadcrumbItemProps {
     * Where to display the linked URL such as _self, _blank, _parent or _top
     */
     target?: string;
-    /**
-     * What the relationship of the linked URL is
-     */
-    rel?: string;
 }

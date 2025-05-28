@@ -27,9 +27,6 @@ export class PieBreadcrumbItem extends RtlMixin(PieElement) implements Breadcrum
     @property({ type: String })
     public target: BreadcrumbItemProps['target'];
 
-    @property({ type: String })
-    public rel: BreadcrumbItemProps['rel'];
-
     /**
      * Renders a separator icon between breadcrumb items.
      * The icon direction depends on the RTL (Right-to-Left) setting.
@@ -60,7 +57,8 @@ export class PieBreadcrumbItem extends RtlMixin(PieElement) implements Breadcrum
             <pie-link 
                 isStandalone 
                 underline="reversed"
-                href="${ifDefined(this.href)}">
+                href="${ifDefined(this.href)}"
+                target="${ifDefined(this.target)}">
                     <span><slot></slot></span>
             </pie-link>
         `;
