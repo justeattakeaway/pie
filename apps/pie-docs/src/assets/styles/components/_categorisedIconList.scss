@@ -16,7 +16,8 @@ $icon-preview-size: 64px;
     list-style-type: none;
 }
 
-.c-categorisedIconList-selectWrapper {
+.c-categorisedIconList-select {
+    display: inline-block; 
     margin-top: var(--dt-spacing-d);
 }
 
