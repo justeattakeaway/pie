@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-form-label
 
+## 0.16.1
+
+### Patch Changes
+
+- [Changed] - Updated Readme content and format ([#2383](https://github.com/justeattakeaway/pie/pull/2383)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`8866307`](https://github.com/justeattakeaway/pie/commit/8866307deed67e698088e731bb87e5e6db45f0e3)]:
+  - @justeattakeaway/pie-webc-core@1.0.0
+
 ## 0.16.0
 
 ### Minor Changes
