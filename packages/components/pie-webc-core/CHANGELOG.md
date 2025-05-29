@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - Removed the defineCustomElement function and use a decorator for all custom elements to register them ([#2386](https://github.com/justeattakeaway/pie/pull/2386)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.26.0
 
 ### Minor Changes

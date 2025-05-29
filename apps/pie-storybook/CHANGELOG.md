@@ -1,5 +1,43 @@
 # Changelog
 
+## 1.37.1
+
+### Patch Changes
+
+- [Changed] - Added information on native events to events page in storybook ([#2378](https://github.com/justeattakeaway/pie/pull/2378)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Overview page for icon-button, chip, divider, form-label and cookie-banner ([#2383](https://github.com/justeattakeaway/pie/pull/2383)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`978d2df`](https://github.com/justeattakeaway/pie/commit/978d2df07bdab122c0ecaed0f73b8a20de9ffdc4)]:
+  - @justeattakeaway/pie-checkbox-group@0.9.2
+  - @justeattakeaway/pie-cookie-banner@1.6.2
+  - @justeattakeaway/pie-icon-button@1.5.1
+  - @justeattakeaway/pie-form-label@0.16.1
+  - @justeattakeaway/pie-divider@1.4.1
+  - @justeattakeaway/pie-modal@1.7.2
+  - @justeattakeaway/pie-notification@0.14.1
+  - @justeattakeaway/pie-toast@0.9.2
+  - @justeattakeaway/pie-assistive-text@0.10.2
+  - @justeattakeaway/pie-breadcrumb@0.4.1
+  - @justeattakeaway/pie-button@1.6.2
+  - @justeattakeaway/pie-card@0.25.2
+  - @justeattakeaway/pie-checkbox@0.16.2
+  - @justeattakeaway/pie-chip@0.12.2
+  - @justeattakeaway/pie-link@1.2.2
+  - @justeattakeaway/pie-list@0.0.2
+  - @justeattakeaway/pie-lottie-player@0.2.1
+  - @justeattakeaway/pie-radio@0.11.1
+  - @justeattakeaway/pie-radio-group@0.9.2
+  - @justeattakeaway/pie-select@0.6.2
+  - @justeattakeaway/pie-spinner@1.2.1
+  - @justeattakeaway/pie-switch@1.4.1
+  - @justeattakeaway/pie-tag@0.17.1
+  - @justeattakeaway/pie-text-input@0.28.2
+  - @justeattakeaway/pie-textarea@0.16.2
+  - @justeattakeaway/pie-thumbnail@0.8.1
+  - @justeattakeaway/pie-toast-provider@0.5.2
+  - @justeattakeaway/pie-icons-webc@1.10.1
+
 ## 1.37.0
 
 ### Minor Changes
