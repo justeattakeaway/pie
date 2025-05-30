@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-lottie-player
 
+## 0.2.2
+
+### Patch Changes
+
+- [Changed] - Updated component readme to include documentation ([#2385](https://github.com/justeattakeaway/pie/pull/2385)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.2.1
 
 ### Patch Changes
