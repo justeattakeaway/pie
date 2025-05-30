@@ -10,6 +10,21 @@ $icon-preview-size: 64px;
     inline-size: $size;
 }
 
+.c-categorisedIconList-search {
+    flex-grow:1;
+    max-width: 778px;
+}
+
+.c-categorisedIconList-select {
+    flex-grow: 0;
+}
+.c-categorisedIconList-filters-container {
+    display: flex;
+    flex-direction: row;
+    gap:var(--dt-spacing-e);
+    justify-content: flex-start;
+    margin-top:var(--dt-spacing-d);
+}
 .c-categorisedIconList {
     padding-inline-start: 0;
     max-inline-size: 100%;
