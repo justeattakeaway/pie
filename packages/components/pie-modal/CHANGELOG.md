@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 1.7.3
+
+### Patch Changes
+
+- [Changed] - Updated component readme to include documentation ([#2385](https://github.com/justeattakeaway/pie/pull/2385)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.7.2
 
 ### Patch Changes
