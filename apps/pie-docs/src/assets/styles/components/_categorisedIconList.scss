@@ -16,6 +16,11 @@ $icon-preview-size: 64px;
     list-style-type: none;
 }
 
+.c-categorisedIconList-select {
+    display: inline-block; 
+    margin-block-start: var(--dt-spacing-d);
+}
+
 .c-categorisedIconList-heading {
     margin-block-start: var(--dt-spacing-f);
     margin-block-end: var(--dt-spacing-f);

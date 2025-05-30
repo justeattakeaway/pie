@@ -1,116 +1,96 @@
-<p align="center">
-  <img align="center" src="../../../readme_image.png" height="200" alt="">
-</p>
+# @justeattakeaway/pie-lottie-player
 
-<p align="center">
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-lottie-player) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-lottie-player)
+<p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-lottie-player">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-lottie-player.svg">
   </a>
 </p>
 
-# Table of Contents
+`@justeattakeaway/pie-lottie-player` is a Web Component built using the Lit library. It offers a simple and accessible wrapper component for the animation library, [Lottie](https://github.com/airbnb/lottie-web), for web applications.
 
-1. [Introduction](#pie-lottie-player)
-2. [Installation](#installation)
-3. [Importing the component](#importing-the-component)
-4. [Peer Dependencies](#peer-dependencies)
-5. [Props](#props)
-5. [Acessibility](#acessibility)
-6. [Contributing](#contributing)
+## Table of Contents
 
-## pie-lottie-player
-
-`pie-lottie-player` is a Web Component built using the Lit library.
-
-This component can be easily integrated into various frontend frameworks and customized through a set of properties.
+- [Installation](#installation)
+- [Documentation](#documentation)
+  - [Properties](#properties)
+  - [Slots](#slots)
+  - [CSS Variables](#css-variables)
+  - [Events](#events)
+- [Usage Examples](#usage-examples)
+- [Accessibility](#accessibility)
+- [Questions and Support](#questions-and-support)
+- [Contributing](#contributing)
 
 ## Installation
 
-To install `pie-lottie-player` in your application, run the following on your command line:
+> To install any of our web components in your application, we would suggest following the [getting started guide](https://webc.pie.design/?path=/docs/introduction-getting-started--docs) to set up your project.
 
-```bash
-# npm
-$ npm i @justeattakeaway/pie-lottie-player
+Ideally, you should install the component using the **`@justeattakeaway/pie-webc`** package, which includes all of the components. Or you can install the individual component package.
 
-# yarn
-$ yarn add @justeattakeaway/pie-lottie-player
-```
+## Documentation
 
-For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
+### Properties
 
-### Importing the component
+| Prop               | Options                          | Description                                                                                                                             | Default     |
+|--------------------|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| `animationSrc`     | —                                | Lottie animation JSON file URL or relative path. `animationSrc` and `animationData` are mutually exclusive.                           | `-`         |
+| `animationData`    | —                                | Object with Lottie animation data. `animationSrc` and `animationData` are mutually exclusive.                                           | `-`         |
+| `loopDisabled`     | `true`, `false`                  | By default, animations loop. Setting this prop to `true` will prevent that behavior.                                                   | `false`     |
+| `autoPlayDisabled` | `true`, `false`                  | By default, animations start playing as soon as their data is available. Setting this prop to `true` will prevent that behavior.       | `false`     |
+| `speed`            | —                                | Determines the animation playback speed. `1` is normal speed, `2` is twice as fast, etc.                                                | `1`         |
+| `direction`        | `"forward"`, `"reverse"`         | Sets the animation playback direction.                                                                                                 | `"forward"` |
 
-#### JavaScript
+### Slots
+This component does not have any slots. All content is controlled through properties.
+
+### CSS Variables
+This component does not expose any CSS variables for style overrides.
+
+### Events
+This component does not emit any custom events. In order to add event listening to this component, you can treat it like a native HTML element in your application.
+
+## Usage Examples
+
+**For HTML:**
 
 ```js
-// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
-import { PieLottiePlayer } from '@justeattakeaway/pie-lottie-player';
-
-// If you don't need to reference the imported object, you can simply
-// import the module which registers the component as a custom element.
-import '@justeattakeaway/pie-lottie-player';
+// import as module into a js file e.g. main.js
+import '@justeattakeaway/pie-webc/components/pie-lottie-player.js';
 ```
-
-#### React
-
-```js
-// React
-// For React, you will need to import our React-specific component build
-// which wraps the web component using ​@lit/react
-import { PieLottiePlayer } from '@justeattakeaway/pie-lottie-player/dist/react';
-```
-
-> [!NOTE]
-> When using the React version of the component, please make sure to also
-> include React as a [peer dependency](#peer-dependencies) in your project.
-
-#### Nuxt and SSR
-
-When adding this component to a Nuxt application in combination with SSR settings, it might happen to receive the error "500 customElements.get(...) is not a constructor" during the preview of the built application.
-
-That is likely due [a known issue](https://github.com/prashantpalikhe/nuxt-ssr-lit/issues/137) with the module that enables using Lit components in Nuxt with SSR, `nuxt-ssr-lit`.
-
-To solve the issue, update or add the `nitro.moduleSideEffects` array in `nuxt.config.ts`:
-
-```
-  nitro: {
-      moduleSideEffects: [
-          '@justeattakeaway/pie-lottie-player',
-      ],
-  },
-```
-
-## Peer Dependencies
-
-> [!IMPORTANT]
-> When using `pie-lottie-player`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
-
-## Props
-
-| Property         | Type      | Default | Description                                                                                                                  |
-| ---------------- | --------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| animationSrc | `String` | - | Lottie animation JSON file URL or relative path. animationSrc and animationData are mutually exclusive. |
-| animationData | `Object` | - | Object with Lottie animation data. animationSrc and animationData are mutually exclusive. |
-| loopDisabled | `Boolean` | false | By the default animations loop, setting this prop as true will prevent such behaviour. |
-| autoPlayDisabled | `Boolean` | false | By default animations start playing as soon as its data is available, setting this prop as true will prevent such behaviour. |
-| speed | `Number` | 1 | Determines the animation reproduction speed. 1 is the regular speed, 2 is twice as fast. |
-| direction | `String` | forward | Sets the animation reproduction direction. |
-
-In your markup or JSX, you can then use these to set the properties for the `pie-lottie-player` component:
 
 ```html
-<!-- Native HTML -->
+<!-- pass js file into <script> tag -->
 <pie-lottie-player animationSrc="./animation-file.json"></pie-lottie-player>
+<script type="module" src="/main.js"></script>
+```
 
-<!-- JSX -->
+**For Native JS Applications, Vue, Angular, Svelte, etc.:**
+
+```js
+// Vue templates (using Nuxt 3)
+import '@justeattakeaway/pie-webc/components/pie-lottie-player.js';
+
+<pie-lottie-player animationSrc="./animation-file.json"></pie-lottie-player>
+```
+
+**For React Applications:**
+
+```jsx
+import { PieLottiePlayer } from '@justeattakeaway/pie-webc/react/lottie-player.js';
+
 <PieLottiePlayer animationSrc="./animation-file.json"></PieLottiePlayer>
 ```
 
-## Acessibility
+## Accessibility
 
 Currently the component is always hidden from screen readers because animations should only be decorative and supplementary. Any important meaning and context should be presented alongside the animation as text.
 
 For the users with the "Reduce motion" setting enabled, the animation will be paused on the first frame.
+
+## Questions and Support
+
+If you work at Just Eat Takeaway.com, please contact us on **#help-designsystem**. Otherwise, please raise an issue on [Github](https://github.com/justeattakeaway/pie/issues).
 
 ## Contributing
 

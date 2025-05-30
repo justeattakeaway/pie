@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.30.3
+
+### Patch Changes
+
+- [Added] - Component overview story and updated readme format ([#2378](https://github.com/justeattakeaway/pie/pull/2378)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.30.2
 
 ### Patch Changes
