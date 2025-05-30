@@ -49,22 +49,28 @@ const categorisedIconListHelpers = {
      * @param {Array} categories - Array of icon categories
      * @param {Array} pieIcons - Array of available pie icons
      * @param {String|null} filterCategory - Optional category to filter by
+     * @param {String|null} filterCategory - Optional search term to filter by
      * @returns {String} HTML string for the categorized icon list
      */
-    generateCategorisedIconList: (categories, pieIcons, filterCategory = null) => {
-        const filteredCategories = categories
+    generateCategorisedIconList: (categories, pieIcons, filterCategory = null, searchTerm = '') => {
+        let filteredCategories = categories
             .filter(({ name }) => ((!filterCategory && name !== 'payment') || name === filterCategory));
-
+        if (searchTerm && searchTerm !== '') {
+            filteredCategories = filteredCategories.map((cat) => {
+                const filteredIcons = cat.icons.filter((icon) => icon.displayName.toLowerCase().includes(searchTerm.toLowerCase()));
+                return { ...cat, icons: filteredIcons };
+            }).filter((cat) => cat.icons.length > 0);
+        }
         return filteredCategories.map((cat) => `
-            <li>
-                <h3 class="c-categorisedIconList-heading" id="category-${cat.name}">
-                    ${cat.displayName}
-                </h3>
+                <li>
+                    <h3 class="c-categorisedIconList-heading" id="category-${cat.name}">
+                        ${cat.displayName}
+                    </h3>
 
-                <ul class="c-categorisedIconList-iconList" aria-labelledby="category-${cat.name}">
-                    ${cat.icons.map((i) => categorisedIconListHelpers.buildIconCard(i, pieIcons)).join('')}
-                </ul>
-            </li>`).join('');
+                    <ul class="c-categorisedIconList-iconList" aria-labelledby="category-${cat.name}">
+                        ${cat.icons.map((i) => categorisedIconListHelpers.buildIconCard(i, pieIcons)).join('')}
+                    </ul>
+                </li>`).join('');
     },
 };
 

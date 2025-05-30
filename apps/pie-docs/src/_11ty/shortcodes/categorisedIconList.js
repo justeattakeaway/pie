@@ -15,9 +15,7 @@ const categoryDropdown = () => {
     ];
     const jsonOptions = JSON.stringify(formattedOptions).replace(/"/g, '&quot;');
 
-    return `
-    <pie-select id="categoryFilter" options="${jsonOptions}" class="c-categorisedIconList-select"></pie-select>
-    `;
+    return `<pie-select id="categoryFilter" options="${jsonOptions}" class="c-categorisedIconList-select"></pie-select>`;
 };
 
 /**
@@ -29,8 +27,11 @@ const categoryDropdown = () => {
  * @returns {string}
  */
 const categorisedIconList = () => headingAnchor(`
-        <div>
+        <div> 
+            <div class="c-categorisedIconList-filters-container">
+            <pie-text-input name="searchBar" id="searchBar" class="c-categorisedIconList-search" placeholder="Search icons"></pie-text-input>
             ${categoryDropdown()}
+            </div>
             <ul class="c-categorisedIconList" id="categorisedIconListContainer">
                 ${generateCategorisedIconList(iconData.categories, pieIcons)}
             </ul>
