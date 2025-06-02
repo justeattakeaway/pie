@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.38.0
+
+### Minor Changes
+
+- [Added] - support `hideCurrentPage`, `rel`, `target` props ([#2382](https://github.com/justeattakeaway/pie/pull/2382)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - assign `aria-current` to the last breadcrumb item
+
+### Patch Changes
+
+- Updated dependencies [[`0b8785e`](https://github.com/justeattakeaway/pie/commit/0b8785ea18785198ae02ebd33b47c92e803763d1)]:
+  - @justeattakeaway/pie-breadcrumb@0.5.0
+
 ## 1.37.2
 
 ### Patch Changes
