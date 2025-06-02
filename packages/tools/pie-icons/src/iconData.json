@@ -141,12 +141,12 @@
                     "displayName": "Image"
                 },
                 {
-                    "name": "image-filled",
-                    "displayName": "Image Filled"
-                },
-                {
                     "name": "image-add",
                     "displayName": "Image Add"
+                },
+                {
+                    "name": "image-filled",
+                    "displayName": "Image Filled"
                 },
                 {
                     "name": "megaphone",
@@ -155,6 +155,10 @@
                 {
                     "name": "microphone",
                     "displayName": "Microphone"
+                },
+                {
+                    "name": "microphone-filled",
+                    "displayName": "Microphone Filled"
                 },
                 {
                     "name": "pause",
@@ -1672,6 +1676,11 @@
                     "oneSize": true
                 },
                 {
+                    "name": "afterpay-2",
+                    "displayName": "Afterpay 2",
+                    "oneSize": true
+                },
+                {
                     "name": "allied-irish-bank",
                     "displayName": "Allied Irish Bank",
                     "oneSize": true
@@ -2234,6 +2243,14 @@
                 {
                     "name": "ai",
                     "displayName": "Ai"
+                },
+                {
+                    "name": "ai-2",
+                    "displayName": "Ai 2"
+                },
+                {
+                    "name": "ai-2-filled",
+                    "displayName": "Ai 2 Filled"
                 },
                 {
                     "name": "ai-filled",
