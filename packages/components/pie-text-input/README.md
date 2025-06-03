@@ -17,7 +17,7 @@
   - [Slots](#slots)
   - [CSS Variables](#css-variables)
   - [Events](#events)
-- [Forms usage](#forms-usage)
+- [Forms Usage](#forms-usage)
   - [Validation](#validation)
   - [Displaying error messages](#displaying-error-messages)
   - [Labelling](#labelling)
@@ -75,7 +75,7 @@ This component does not expose any CSS variables for style overrides.
 | `change` | Fires when the input loses focus after the value has been changed.    |
 | `input`  | Fires when the input value is changed.                                |
 
-## Forms usage
+## Forms Usage
 
 It is essential that when using the text input inside of a form, you provide a `name` attribute. HTML forms create key/value pairs for input data based on the `name` attribute, which is crucial for native form submission.
 
