@@ -13,8 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         );
     });
     const searchBar = document.getElementById('searchBar');
-    const innerInput = searchBar.shadowRoot?.querySelector('input');
-    innerInput.addEventListener('input', (event) => {
+    searchBar.addEventListener('input', (event) => {
         searchTerm = event.target.value;
         iconListContainer.innerHTML = window.categorisedIconListHelpers.generateCategorisedIconList(
             window.iconData.categories,
