@@ -7,7 +7,7 @@
   </a>
 </p>
 
-`@justeattakeaway/pie-radio-group` is a Web Component built using the Lit library. It offers a simple and accessible interactive card component for web applications.
+`@justeattakeaway/pie-radio-group` is a Web Component built using the Lit library. It offers a simple and accessible interactive radio group component for web applications.
 
 ## Table of Contents
 

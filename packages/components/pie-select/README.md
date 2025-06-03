@@ -7,7 +7,7 @@
   </a>
 </p>
 
-`@justeattakeaway/pie-select` is a Web Component built using the Lit library. It offers a simple and accessible interactive card component for web applications.
+`@justeattakeaway/pie-select` is a Web Component built using the Lit library. It offers a simple and accessible interactive select input component for web applications.
 
 ## Table of Contents
 
