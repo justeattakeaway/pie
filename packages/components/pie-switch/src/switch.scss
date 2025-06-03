@@ -13,7 +13,10 @@
 }
 
 .c-switch-wrapper {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--dt-spacing-b);
+    vertical-align: top; // This prevents the extra space at the bottom when the label is not displayed
     font-family: var(--dt-font-body-l-family);
     cursor: pointer;
 
