@@ -1,22 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     const selectElement = document.getElementById('categoryFilter');
     const iconListContainer = document.getElementById('categorisedIconListContainer');
-
+    let selectedCategory = '';
+    let searchTerm = '';
     selectElement.addEventListener('change', (event) => {
-        const selectedCategory = event.detail.sourceEvent.target.value;
+        selectedCategory = event.detail.sourceEvent.target.value;
         iconListContainer.innerHTML = window.categorisedIconListHelpers.generateCategorisedIconList(
             window.iconData.categories,
             window.pieIcons,
             selectedCategory,
+            searchTerm,
         );
     });
     const searchBar = document.getElementById('searchBar');
     const innerInput = searchBar.shadowRoot?.querySelector('input');
     innerInput.addEventListener('input', (event) => {
-        const searchTerm = event.target.value;
-        console.log('typing detected', searchTerm);
-        const selectedCategory = selectElement.value || null;
-
+        searchTerm = event.target.value;
         iconListContainer.innerHTML = window.categorisedIconListHelpers.generateCategorisedIconList(
             window.iconData.categories,
             window.pieIcons,
