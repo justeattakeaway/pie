@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-checkbox-group
 
+## 0.9.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.10.3
+
 ## 0.9.2
 
 ### Patch Changes

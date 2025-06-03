@@ -1,5 +1,36 @@
 # Changelog
 
+## 5.12.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2391](https://github.com/justeattakeaway/pie/pull/2391)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Audiovisual (AV)
+
+  - microphone-filled-large
+  - microphone-filled
+
+  ## Payment
+
+  - afterpay-2
+
+  ## Technology
+
+  - ai-2-filled-large
+  - ai-2-filled
+  - ai-2-large
+  - ai-2
+
+  [Updated] - Icons
+
+  ## Technology
+
+  - ai-filled-large
+  - ai-filled
+  - ai-large
+  - ai
+
 ## 5.11.0
 
 ### Minor Changes
