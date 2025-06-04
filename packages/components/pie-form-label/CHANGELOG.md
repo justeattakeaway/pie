@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-form-label
 
+## 0.16.2
+
+### Patch Changes
+
+- [Changed] - correct formatting in readme ([#2395](https://github.com/justeattakeaway/pie/pull/2395)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.16.1
 
 ### Patch Changes

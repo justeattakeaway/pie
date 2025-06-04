@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-card
 
+## 0.25.3
+
+### Patch Changes
+
+- [Changed] - correct formatting in readme ([#2395](https://github.com/justeattakeaway/pie/pull/2395)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.25.2
 
 ### Patch Changes
