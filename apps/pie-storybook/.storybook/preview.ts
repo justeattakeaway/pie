@@ -85,6 +85,7 @@ export default {
                         'Nuxt 3',
                     ],
                     'Components',
+                    'Additional libraries'
                 ]
             }
         }
