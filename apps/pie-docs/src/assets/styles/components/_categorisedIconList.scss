@@ -28,9 +28,10 @@ flex-grow:1;
 .c-categorisedIconList-filters-container {
     display: flex;
     flex-flow: row wrap;
-    gap:var(--dt-spacing-e);
+    gap: var(--dt-spacing-e);
     justify-content: flex-start;
-    margin-block-start:var(--dt-spacing-d);
+    align-items: center;
+    margin-block-start: var(--dt-spacing-d);
     width:100%;
 
 }
@@ -47,8 +48,8 @@ flex-grow:1;
 }
 
 .c-categorisedIconList-select {
-    display: inline-block; 
-    margin-block-start: var(--dt-spacing-d);
+/*     display: inline-block; 
+    margin-block-start: var(--dt-spacing-d); */
 }
 
 .c-categorisedIconList-heading {
