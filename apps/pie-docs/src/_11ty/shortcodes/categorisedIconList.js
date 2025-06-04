@@ -27,10 +27,11 @@ const categoryDropdown = () => {
  * @returns {string}
  */
 const categorisedIconList = () => headingAnchor(`
-        <div> 
+        <div class="c-categorisedIconList-filters-and-icons-container"> 
             <div class="c-categorisedIconList-filters-container">
             <pie-text-input name="searchBar" id="searchBar" class="c-categorisedIconList-search" placeholder="Search icons"></pie-text-input>
             ${categoryDropdown()}
+            <pie-notification variant='info' class='c-categorisedIconList-notification'> Different platforms have different naming conventions when using the icons in code, for more details please visit the “Code” page.  </pie-notification>
             </div>
             <ul class="c-categorisedIconList" id="categorisedIconListContainer">
                 ${generateCategorisedIconList(iconData.categories, pieIcons)}
