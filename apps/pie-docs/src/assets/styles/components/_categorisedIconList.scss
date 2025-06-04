@@ -1,4 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+@use '../fozzie-config' as f;
 
 $icon-size: 16px;
 $icon-size-large: 32px;
@@ -10,20 +11,34 @@ $icon-preview-size: 64px;
     inline-size: $size;
 }
 
+.c-categorisedIconList-filters-and-icons-container{
+}
+
 .c-categorisedIconList-search {
-    flex-grow:1;
-    max-width: 778px;
+flex-shrink: 0;
+flex-grow: 1;
 }
 
 .c-categorisedIconList-select {
+flex-grow:1;
+
+   @include f.media('>=mid') {
     flex-grow: 0;
+    }
+
 }
 .c-categorisedIconList-filters-container {
     display: flex;
     flex-direction: row;
     gap:var(--dt-spacing-e);
     justify-content: flex-start;
-    margin-top:var(--dt-spacing-d);
+    margin-block-start:var(--dt-spacing-d);
+    width:100%;
+    flex-wrap: wrap;
+}
+
+.c-categorisedIconList-notification {
+    margin-block-start:var(--dt-spacing-d);
 }
 .c-categorisedIconList {
     padding-inline-start: 0;
