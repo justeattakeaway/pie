@@ -27,7 +27,6 @@ const categoryDropdown = () => {
  * @returns {string}
  */
 const categorisedIconList = () => headingAnchor(`
-        <div class="c-categorisedIconList-filters-and-icons-container"> 
             <div class="c-categorisedIconList-filters-container">
             <pie-text-input name="searchBar" id="searchBar" class="c-categorisedIconList-search" placeholder="Search icons"></pie-text-input>
             ${categoryDropdown()}
@@ -42,7 +41,6 @@ const categorisedIconList = () => headingAnchor(`
             </script>
             <script src="/assets/js/categorised-icon-list-helpers.js"></script>
             <script src="/assets/js/categorised-icon-list-filter.js"></script>
-        </div>
     `);
 
 module.exports = categorisedIconList;
