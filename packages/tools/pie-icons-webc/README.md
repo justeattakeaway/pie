@@ -1,26 +1,52 @@
+# @justeattakeaway/pie-icons-webc
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons-webc) | [Design Documentation](https://pie.design/foundations/iconography/) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-icons-webc)
 
-# pie-icons-webc
+<p>
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-icons-webc">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-icons-webc.svg">
+  </a>
+</p>
 
-Shared PIE Icon Components built using [Lit Web Components](https://lit.dev/docs/).
+`@justeattakeaway/pie-icons-webc` is a Web Component icon library built using the [Lit library](https://lit.dev/docs/).
 
 This package provides the PIE icon set as importable web components, to make sure that icons are used in accordance with PIE sizing guidelines.
 
 This package takes the icon SVGs from the [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package and compiles them into Lit web components which can be imported into any web application.
 
----
+## Table of Contents
 
-[![npm version](https://img.shields.io/npm/v/@justeattakeaway/pie-icons-webc.svg)](https://img.shields.io/npm/v/@justeattakeaway/pie-icons-webc.svg)
-
----
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Vanilla JavaScript](#vanilla-javascript)
+    - [Importing a single icon](#importing-a-single-icon)
+    - [Importing multiple icons](#importing-multiple-icons)
+  - [Lit components](#lit-components)
+  - [React](#react)
+  - [Vue](#vue)
+- [Props](#props)
+  - [`size`](#size)
+- [Browser support](#browser-support)
+- [Contributing](#contributing)
+  - [Adding new icons](#adding-new-icons)
+  - [Building the module](#building-the-module)
+- [Icon library](#icon-library)
+- [Bundling](#bundling)
 
 ## Installation
 
 To add the module to your project:
 
+**Using Yarn:**
+
 ```bash
 yarn add @justeattakeaway/pie-icons-webc
 ```
 
+**Using NPM:**
+
+```bash
+npm install @justeattakeaway/pie-icons-webc
+```
 
 ## Usage
 
@@ -99,7 +125,7 @@ export class MyAmazingComponent extends LitElement {
 
 ### React
 
-Each icon has a separate entrypoint for use in React applications. This uses our [`pie-wrapper-react`](https://github.com/justeattakeaway/pie/blob/main/packages/tools/pie-wrapper-react) package.
+Each icon has a separate entrypoint for use in React applications.
 
 ```tsx
 import { IconAlertTriangleLarge } from "@justeattakeaway/pie-icons-webc/dist/react/IconAlertTriangleLarge.js";
@@ -119,7 +145,7 @@ export default function App() {
 
 Note that you don't need to register the icons as Vue components, because they aren't!
 
-```vue
+```html
 <template>
   <div>
     <icon-alert-triangle-large></icon-alert-triangle-large>
@@ -142,11 +168,11 @@ Icons are made available in different size variants:
 - regular
 - large, when its name has the `Large` suffix
 
-A regular icon's default size is `xs` and can use one of the following pre-defined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about regular icon sizes [here](https://www.pie.design/foundations/iconography/#sizes-for-the-small-icon-set).
+A `regular` icon's default size is `xs` and can use one of the following pre-defined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about regular icon sizes [here](https://www.pie.design/foundations/iconography/#sizes-for-the-small-icon-set).
 
-A large icon's default (and minimum) `size` is `32`. Values larger than the minimum **must** be multiples of `8`, otherwise the default size will be used. You can learn more about large icon sizes [here](https://www.pie.design/foundations/iconography/#sizes-for-the-large-icon-set).
+A `large` icon's default (and minimum) `size` is `32`. Values larger than the minimum **must** be multiples of `8`, otherwise the default size will be used. You can learn more about large icon sizes [here](https://www.pie.design/foundations/iconography/#sizes-for-the-large-icon-set).
 
-Example:
+**Example:**
 
 ```js
 <icon-alert-triangle size="s"></icon-alert-triangle>

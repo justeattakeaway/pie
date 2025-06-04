@@ -39,7 +39,9 @@ updates:
           - "storybook"
 
   - package-ecosystem: "github-actions"
-    directory: ".github/workflows"
+    directories:
+      - ".github/workflows"
+      - ".github/actions"
     schedule:
       interval: "weekly"
     ignore:
