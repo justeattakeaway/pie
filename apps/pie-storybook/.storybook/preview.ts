@@ -84,6 +84,7 @@ export default {
                         'Next.js 14',
                     ],
                     'Components',
+                    'Additional libraries'
                 ]
             }
         }
