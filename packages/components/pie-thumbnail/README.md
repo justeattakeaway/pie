@@ -1,90 +1,93 @@
-<p align="center">
-  <img align="center" src="../../../readme_image.png" height="200" alt="">
-</p>
+# @justeattakeaway/pie-thumbnail
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-thumbnail) | [Design Documentation](https://pie.design/components/thumbnail) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-thumbnail)
 
-<p align="center">
+<p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-thumbnail">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-thumbnail.svg">
   </a>
 </p>
 
-# Table of Contents
+`@justeattakeaway/pie-thumbnail` is a Web Component built using the Lit library. It offers a simple and accessible thumbnail component for web applications.
 
-1. [Introduction](#pie-thumbnail)
-2. [Installation](#installation)
-3. [Importing the component](#importing-the-component)
-4. [Peer Dependencies](#peer-dependencies)
-5. [Props](#props)
-6. [Contributing](#contributing)
+## Table of Contents
 
-## pie-thumbnail
-
-`pie-thumbnail` is a Web Component built using the Lit library.
-
-This component can be easily integrated into various frontend frameworks and customized through a set of properties.
-
+- [Installation](#installation)
+- [Documentation](#documentation)
+  - [Properties](#properties)
+  - [Slots](#slots)
+  - [CSS Variables](#css-variables)
+  - [Events](#events)
+- [Usage Examples](#usage-examples)
+- [Questions and Support](#questions-and-support)
+- [Contributing](#contributing)
 
 ## Installation
 
-To install `pie-thumbnail` in your application, run the following on your command line:
+> To install any of our web components in your application, we would suggest following the [getting started guide](https://webc.pie.design/?path=/docs/introduction-getting-started--docs) to set up your project.
 
-```bash
-# npm
-$ npm i @justeattakeaway/pie-thumbnail
+Ideally, you should install the component using the **`@justeattakeaway/pie-webc`** package, which includes all of the components. Or you can install the individual component package.
 
-# yarn
-$ yarn add @justeattakeaway/pie-thumbnail
-```
+## Documentation
 
-For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
+### Properties
+| Prop                   | Options                                                                                           | Description                                                                                                               | Default     |
+|------------------------|---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|-------------|
+| `src`                  | —                                                                                                 | The `src` attribute for the underlying image tag.                                                                         | `""`        |
+| `alt`                  | —                                                                                                 | The `alt` attribute for the underlying image tag.                                                                         | `""`        |
+| `variant`              | `"default"`, `"outline"`                                                                          | Sets the variant of the thumbnail.                                                                                        | `"default"` |
+| `backgroundColor`      | `"default"`, `"subtle"`, `"strong"`, `"dark"`, `"inverse"`, `"inverse-alternative"`               | Sets the background color of the thumbnail container.                                                                     | `"default"` |
+| `size`                 | A number between 24 and 128, in multiples of 8                                                    | Sets the size of the thumbnail.                                                                                           | `48`        |
+| `aspectRatio`          | `"1by1"`, `"4by3"`, `"16by9"`                                                                     | Sets the aspect-ratio of the thumbnail image.                                                                             | `"1by1"`    |
+| `disabled`             | `true`, `false`                                                                                   | When true, the disabled styles are applied.                                                                               | `false`     |
+| `hasPadding`           | `true`, `false`                                                                                   | When true, extra spacing around the thumbnail container is applied.                                                       | `false`     |
+| `hideDefaultPlaceholder` | `true`, `false`                                                                                 | When true, hides the component default placeholder on image load failure.                                                 | `false`     |
+| `placeholder`          | `{ src?: string, alt?: string }`                                                                  | Overrides the component default placeholder with a custom one on image load failure.                                     | `{}`        |
 
+### Slots
+This component does not have any slots. All content is controlled through properties.
 
-### Importing the component
+### CSS Variables
+This component does not expose any CSS variables for style overrides.
 
-#### JavaScript
+### Events
+
+This component does not emit any custom events. In order to add event listening to this component, you can treat it like a native HTML element in your application.
+
+## Usage Examples
+
+**For HTML:**
+
 ```js
-// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
-import { PieThumbnail } from '@justeattakeaway/pie-thumbnail';
-
-// If you don't need to reference the imported object, you can simply
-// import the module which registers the component as a custom element.
-import '@justeattakeaway/pie-thumbnail';
+// import as module into a js file e.g. main.js
+import '@justeattakeaway/pie-webc/components/thumbnail.js'
 ```
-
-#### React
-```js
-// React
-// For React, you will need to import our React-specific component build
-// which wraps the web component using ​@lit/react
-import { PieThumbnail } from '@justeattakeaway/pie-thumbnail/dist/react';
-```
-
-> [!NOTE]
-> When using the React version of the component, please make sure to also
-> include React as a [peer dependency](#peer-dependencies) in your project.
-
-
-## Peer Dependencies
-
-> [!IMPORTANT]
-> When using `pie-thumbnail`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
-
-
-## Props
-
-| Property | Type | Default | Description |
-|---|---|---|---|
-| - | - | - | - |
-
-In your markup or JSX, you can then use these to set the properties for the `pie-thumbnail` component:
 
 ```html
-<!-- Native HTML -->
-<pie-thumbnail></pie-thumbnail>
-
-<!-- JSX -->
-<PieThumbnail></PieThumbnail>
+<!-- pass js file into <script> tag -->
+<pie-thumbnail src="" alt=""></pie-thumbnail>
+<script type="module" src="/main.js"></script>
 ```
+
+**For Native JS Applications, Vue, Angular, Svelte etc.:**
+
+```js
+// Vue templates (using Nuxt 3)
+import '@justeattakeaway/pie-webc/components/thumbnail.js';
+
+<pie-thumbnail src="" alt=""></pie-thumbnail>
+```
+
+**For React Applications:**
+
+```jsx
+import { PieThumbnail } from '@justeattakeaway/pie-webc/react/thumbnail.js';
+
+<PieThumbnail src="" alt=""></PieThumbnail>
+```
+
+## Questions and Support
+
+If you work at Just Eat Takeaway.com, please contact us on **#help-designsystem**. Otherwise, please raise an issue on [Github](https://github.com/justeattakeaway/pie/issues).
 
 ## Contributing
 

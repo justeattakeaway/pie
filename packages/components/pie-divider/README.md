@@ -58,12 +58,8 @@ import '@justeattakeaway/pie-webc/components/divider.js';
 ```
 
 ```html
-<html>
-    <body>
-        <pie-divider orientation="horizontal" label="OR"></pie-divider>
-        <script type="module" src="/main.js"></script>
-    </body>
-</html>
+<pie-divider orientation="horizontal" label="OR"></pie-divider>
+<script type="module" src="/main.js"></script>
 ```
 
 **For Native JS Applications, Vue, Angular, Svelte etc.:**

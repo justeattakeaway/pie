@@ -63,13 +63,9 @@ import '@justeattakeaway/pie-webc/components/form-label.js';
 ```
 
 ```html
-<html>
-    <body>
-        <pie-form-label for="username" trailing="X of X">Label</pie-form-label>
-        <pie-text-input id="username" name="username" type="text"></pie-text-input>
-        <script type="module" src="/main.js"></script>
-    </body>
-</html>
+<pie-form-label for="username" trailing="X of X">Label</pie-form-label>
+<pie-text-input id="username" name="username" type="text"></pie-text-input>
+<script type="module" src="/main.js"></script>
 ```
 
 **For Native JS Applications, Vue, Angular, Svelte etc.:**
