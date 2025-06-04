@@ -45,11 +45,11 @@ const categorisedIconListHelpers = {
     },
 
     /**
-     * Generates HTML for a categorized icon list
+     * Generates HTML for a filtered icons list
      * @param {Array} categories - Array of icon categories
      * @param {Array} pieIcons - Array of available pie icons
      * @param {String|null} filterCategory - Optional category to filter by
-     * @param {String|null} filterCategory - Optional search term to filter by
+     * @param {String} searchTerm - Optional search term to filter by
      * @returns {String} HTML string for the categorized icon list
      */
     generateCategorisedIconList: (categories, pieIcons, filterCategory = null, searchTerm = '') => {
