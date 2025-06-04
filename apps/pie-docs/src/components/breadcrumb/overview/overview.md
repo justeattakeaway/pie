@@ -186,7 +186,7 @@ The Breadcrumb link’s target area width should be defined by the width of its 
 
 {% contentPageImage {
     src:"../../../assets/img/components/breadcrumb/interactions.svg",
-    alt: "Breadcrumb interaction target area showing width defined by label and height of 24px."
+    alt: "Breadcrumb interaction different target areas of the breadcrumb"
 } %}
 
 {% list {
