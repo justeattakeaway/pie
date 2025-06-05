@@ -1,5 +1,4 @@
 ---
-"@justeattakeaway/pie-css": patch
 "@justeattakeaway/pie-assistive-text": patch
 "@justeattakeaway/pie-breadcrumb": patch
 "@justeattakeaway/pie-button": patch

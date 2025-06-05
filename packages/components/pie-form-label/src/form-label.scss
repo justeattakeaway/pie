@@ -1,5 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+:host {
+    display: block;
+}
+
 .c-formLabel {
     --form-label-font-size: #{p.font-size(--dt-font-size-14)};
     --form-label-line-height: calc(var(--dt-font-size-14-line-height) * 1px);

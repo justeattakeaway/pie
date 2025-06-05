@@ -1,5 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+:host {
+    display: block;
+}
+
 .c-checkboxGroup {
     --checkbox-group-offset: var(--dt-spacing-c);
     --checkbox-group-offset--inline: var(--dt-spacing-e);
