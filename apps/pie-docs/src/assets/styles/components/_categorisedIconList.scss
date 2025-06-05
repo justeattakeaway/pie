@@ -42,14 +42,14 @@ flex-grow:1;
 
 .c-categorisedIconList {
     padding-inline-start: 0;
-
-    max-inline-size: 100%;
     list-style-type: none;
 }
 
-.c-categorisedIconList-select {
-/*     display: inline-block; 
-    margin-block-start: var(--dt-spacing-d); */
+// Override the max-width constraint from _layout.scss
+.c-layout-item > .c-categorisedIconList,
+.c-content-container > .c-categorisedIconList,
+#categorisedIconListContainer.c-categorisedIconList {
+    max-inline-size: 100%;
 }
 
 .c-categorisedIconList-heading {
