@@ -1,90 +1,116 @@
-<p align="center">
-  <img align="center" src="../../../readme_image.png" height="200" alt="">
-</p>
+# @justeattakeaway/pie-toast-provider
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-toast-provider) | [Design Documentation](https://pie.design/components/toast) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-toast-provider)
 
-<p align="center">
+<p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-toast-provider">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-toast-provider.svg">
   </a>
 </p>
 
-# Table of Contents
+`@justeattakeaway/pie-toast-provider` is a Web Component built using the Lit library. It offers a simple and accessible toast provider component for web applications.
 
-1. [Introduction](#pie-toast-provider)
-2. [Installation](#installation)
-3. [Importing the component](#importing-the-component)
-4. [Peer Dependencies](#peer-dependencies)
-5. [Props](#props)
-6. [Contributing](#contributing)
+## Table of Contents
 
-## pie-toast-provider
-
-`pie-toast-provider` is a Web Component built using the Lit library.
-
-This component can be easily integrated into various frontend frameworks and customized through a set of properties.
-
+- [Installation](#installation)
+- [Documentation](#documentation)
+  - [Properties](#properties)
+  - [Slots](#slots)
+  - [CSS Variables](#css-variables)
+  - [Events](#events)
+- [Usage Examples](#usage-examples)
+  - [Creating Toasts with `toaster`](#creating-toasts-with-toaster)
+- [Questions and Support](#questions-and-support)
+- [Contributing](#contributing)
 
 ## Installation
 
-To install `pie-toast-provider` in your application, run the following on your command line:
+> To install any of our web components in your application, we would suggest following the [getting started guide](https://webc.pie.design/?path=/docs/introduction-getting-started--docs) to set up your project.
 
-```bash
-# npm
-$ npm i @justeattakeaway/pie-toast-provider
+Ideally, you should install the component using the **`@justeattakeaway/pie-webc`** package, which includes all of the components. Or you can install the individual component package.
 
-# yarn
-$ yarn add @justeattakeaway/pie-toast-provider
-```
+## Documentation
 
-For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
+### Properties
 
+| Prop     | Options | Description                                                                                       | Default |
+|----------|---------|---------------------------------------------------------------------------------------------------|---------|
+| options  | `{}`    | Default options for all toasts; accepts all toast [props](https://webc.pie.design/?path=/story/components-toast).        | `{}`    |
 
-### Importing the component
+### Slots
+This component does not have any slots. All content is controlled through properties.
 
-#### JavaScript
+### CSS Variables
+
+| Name                     | Description                                 | Default                     |
+|--------------------------|---------------------------------------------|-----------------------------|
+| `--toast-provider-z-index` | Controls the stacking order of the toast provider. | `--dt-z-index-toast` (6000) |
+
+### Events
+
+| Event                              | Description                                      |
+|-----------------------------------|--------------------------------------------------|
+| `pie-toast-provider-queue-update` | Triggered when a toast is added or removed from the queue. |
+
+## Usage Examples
+
+The usage guideline is:
+
+- Place `pie-toast-provider` at the root level of your application or page.
+- Use the `toaster` utility from any where in your app to dynamically create toasts.
+
+**For HTML:**
+
 ```js
-// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
-import { PieToastProvider } from '@justeattakeaway/pie-toast-provider';
-
-// If you don't need to reference the imported object, you can simply
-// import the module which registers the component as a custom element.
-import '@justeattakeaway/pie-toast-provider';
+// import as module into a js file e.g. main.js
+import '@justeattakeaway/pie-webc/components/toast-provider.js'
 ```
-
-#### React
-```js
-// React
-// For React, you will need to import our React-specific component build
-// which wraps the web component using ​@lit/react
-import { PieToastProvider } from '@justeattakeaway/pie-toast-provider/dist/react';
-```
-
-> [!NOTE]
-> When using the React version of the component, please make sure to also
-> include React as a [peer dependency](#peer-dependencies) in your project.
-
-
-## Peer Dependencies
-
-> [!IMPORTANT]
-> When using `pie-toast-provider`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
-
-
-## Props
-
-| Property | Type | Default | Description |
-|---|---|---|---|
-| - | - | - | - |
-
-In your markup or JSX, you can then use these to set the properties for the `pie-toast-provider` component:
 
 ```html
-<!-- Native HTML -->
+<!-- pass js file into <script> tag -->
 <pie-toast-provider></pie-toast-provider>
+<script type="module" src="/main.js"></script>
+```
 
-<!-- JSX -->
+**For Native JS Applications, Vue, Angular, Svelte etc.:**
+
+```js
+// Vue templates (using Nuxt 3)
+import '@justeattakeaway/pie-webc/components/toast-provider.js';
+
+<pie-toast-provider></pie-toast-provider>
+```
+
+**For React Applications:**
+
+```jsx
+import { PieToastProvider } from '@justeattakeaway/pie-webc/react/toast-provider.js';
+
 <PieToastProvider></PieToastProvider>
 ```
+
+### Creating Toasts with `toaster`
+The `toaster` utility dynamically creates toasts. It can be imported and called from any file or component in your application.
+
+```js
+import { toaster } from '@justeattakeaway/pie-webc/components/toast-provider.js';
+
+toaster.create({
+  message: 'This is a success toast!',
+  variant: 'success',
+  isDismissible: true,
+});
+
+```
+
+To clear all active and queued toasts:
+
+```js
+toaster.clearToasts();
+```
+
+## Questions and Support
+
+If you work at Just Eat Takeaway.com, please contact us on **#help-designsystem**. Otherwise, please raise an issue on [Github](https://github.com/justeattakeaway/pie/issues).
 
 ## Contributing
 

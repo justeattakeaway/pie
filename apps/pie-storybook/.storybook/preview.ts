@@ -82,6 +82,7 @@ export default {
                     'Integration guides',
                     [
                         'Next.js 14',
+                        'Nuxt 3',
                     ],
                     'Components',
                     'Additional libraries'
