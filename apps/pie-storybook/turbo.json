@@ -3,7 +3,7 @@
   "extends": [
     "//"
   ],
-  "pipeline": {
+  "tasks": {
     "dev": {
       "cache": false,
       "dependsOn": [

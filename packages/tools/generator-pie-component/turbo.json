@@ -6,16 +6,9 @@
   "tasks": {
     "build": {
       "cache": true,
-      "dependsOn": [
-        "^build",
-        "clean"
-      ],
-      "inputs": [
-        "bin/**",
-        "src/**"
-      ],
+      "dependsOn": [],
       "outputs": [
-        "dist/**"
+        "generators/**"
       ]
     }
   }
