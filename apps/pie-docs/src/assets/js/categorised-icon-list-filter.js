@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const selectElement = document.getElementById('categoryFilter');
-    const iconListContainer = document.getElementById('categorisedIconListContainer');
+    const selectElement = document.getElementById('category-filter');
+    const iconListContainer = document.getElementById('categorised-icon-list-container');
     let selectedCategory = '';
     let searchTerm = '';
     selectElement.addEventListener('change', (event) => {
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             searchTerm,
         );
     });
-    const searchBar = document.getElementById('searchBar');
+    const searchBar = document.getElementById('search-bar');
     searchBar.addEventListener('input', (event) => {
         searchTerm = event.target.value;
         iconListContainer.innerHTML = window.categorisedIconListHelpers.generateCategorisedIconList(

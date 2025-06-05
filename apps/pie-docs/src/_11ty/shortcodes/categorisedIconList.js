@@ -15,7 +15,7 @@ const categoryDropdown = () => {
     ];
     const jsonOptions = JSON.stringify(formattedOptions).replace(/"/g, '&quot;');
 
-    return `<pie-select id="categoryFilter" options="${jsonOptions}" class="c-categorisedIconList-select"></pie-select>`;
+    return `<pie-select id="category-filter" options="${jsonOptions}" class="c-categorisedIconList-select"></pie-select>`;
 };
 
 /**
@@ -28,11 +28,11 @@ const categoryDropdown = () => {
  */
 const categorisedIconList = () => headingAnchor(`
             <div class="c-categorisedIconList-filters-container">
-            <pie-text-input name="searchBar" id="searchBar" class="c-categorisedIconList-search" placeholder="Search icons"></pie-text-input>
+            <pie-text-input name="searchBar" id="search-bar" class="c-categorisedIconList-search" placeholder="Search icons"></pie-text-input>
             ${categoryDropdown()}
-            <pie-notification variant='info' class='c-categorisedIconList-notification'> Different platforms have different naming conventions when using the icons in code, for more details please visit the “Code” page.  </pie-notification>
+            <pie-notification variant='info' class='c-categorisedIconList-notification'> Different platforms have different naming conventions when using the icons in code, for more details please visit the “Code” page. </pie-notification>
             </div>
-            <ul class="c-categorisedIconList" id="categorisedIconListContainer">
+            <ul class="c-categorisedIconList" id="categorised-icon-list-container">
                 ${generateCategorisedIconList(iconData.categories, pieIcons)}
             </ul>
             <script>
