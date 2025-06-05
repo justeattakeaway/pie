@@ -12,17 +12,16 @@ $icon-preview-size: 64px;
 }
 
 .c-categorisedIconList-search {
-flex-shrink: 0;
-flex-grow: 1;
+    flex-shrink: 0;
+    flex-grow: 1;
 }
 
 .c-categorisedIconList-select {
-flex-grow:1;
-
-   @include f.media('>=mid') {
-    flex-grow: 0;
+    flex-grow:1;
+    
+    @include f.media('>=mid') {
+        flex-grow: 0;
     }
-
 }
 
 .c-categorisedIconList-filters-container {
@@ -33,7 +32,6 @@ flex-grow:1;
     align-items: center;
     margin-block-start: var(--dt-spacing-d);
     width:100%;
-
 }
 
 .c-categorisedIconList-notification {
@@ -46,9 +44,7 @@ flex-grow:1;
 }
 
 // Override the max-width constraint from _layout.scss
-.c-layout-item > .c-categorisedIconList,
-.c-content-container > .c-categorisedIconList,
-#categorisedIconListContainer.c-categorisedIconList {
+#categorised-icon-list-container.c-categorisedIconList {
     max-inline-size: 100%;
 }
 
