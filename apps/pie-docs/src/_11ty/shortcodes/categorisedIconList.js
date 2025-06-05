@@ -27,20 +27,20 @@ const categoryDropdown = () => {
  * @returns {string}
  */
 const categorisedIconList = () => headingAnchor(`
-            <div class="c-categorisedIconList-filters-container">
+        <div class="c-categorisedIconList-filters-container">
             <pie-text-input name="searchBar" id="search-bar" class="c-categorisedIconList-search" placeholder="Search icons"></pie-text-input>
             ${categoryDropdown()}
             <pie-notification variant='info' class='c-categorisedIconList-notification'> Different platforms have different naming conventions when using the icons in code, for more details please visit the “Code” page. </pie-notification>
-            </div>
-            <ul class="c-categorisedIconList" id="categorised-icon-list-container">
-                ${generateCategorisedIconList(iconData.categories, pieIcons)}
-            </ul>
-            <script>
-                window.iconData = ${JSON.stringify(iconData)};
-                window.pieIcons = ${JSON.stringify(pieIcons)};
-            </script>
-            <script src="/assets/js/categorised-icon-list-helpers.js"></script>
-            <script src="/assets/js/categorised-icon-list-filter.js"></script>
+         </div>
+        <ul class="c-categorisedIconList" id="categorised-icon-list-container">
+            ${generateCategorisedIconList(iconData.categories, pieIcons)}
+        </ul>
+        <script>
+            window.iconData = ${JSON.stringify(iconData)};
+            window.pieIcons = ${JSON.stringify(pieIcons)};
+         </script>
+        <script src="/assets/js/categorised-icon-list-helpers.js"></script>
+        <script src="/assets/js/categorised-icon-list-filter.js"></script>
     `);
 
 module.exports = categorisedIconList;
