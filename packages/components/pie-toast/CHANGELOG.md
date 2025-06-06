@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-toast
 
+## 0.9.4
+
+### Patch Changes
+
+- [Changed] - add docs to readme ([#2395](https://github.com/justeattakeaway/pie/pull/2395)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`352c6df`](https://github.com/justeattakeaway/pie/commit/352c6df0bfdc98c00aca084791b100950c8ce27a)]:
+  - @justeattakeaway/pie-icons-webc@1.11.1
+  - @justeattakeaway/pie-icon-button@1.5.3
+  - @justeattakeaway/pie-button@1.6.3
+
 ## 0.9.3
 
 ### Patch Changes

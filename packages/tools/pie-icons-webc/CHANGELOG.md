@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.11.1
+
+### Patch Changes
+
+- [Changed] - updated icons readme to include more docs ([#2396](https://github.com/justeattakeaway/pie/pull/2396)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.11.0
 
 ### Minor Changes
