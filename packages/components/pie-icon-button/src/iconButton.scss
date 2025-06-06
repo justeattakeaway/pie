@@ -1,7 +1,10 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-// Normally we don't expect consumers to override these, but there are situations where it may be necessary
 :host {
+    display: inline-block;
+
+    // Normally we don't expect consumers to override these variables, but there are situations where it may be necessary
+
     // The base values are set to the size default, which is for the medium button size
     --btn-dimension-default: 48px;
 

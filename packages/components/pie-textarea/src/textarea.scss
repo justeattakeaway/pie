@@ -1,5 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+:host {
+  display: block;
+}
+
 // Heights are being defined based on the line height of the text and the padding.
 // Some of the padding is in the wrapper element to properly position the textarea resize handle.
 // Changing the `size` property affects the padding and therefore the height of the textarea.

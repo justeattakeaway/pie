@@ -1,6 +1,14 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 @use '@justeattakeaway/pie-css/scss/settings' as *;
 
+:host {
+    display: inline-block;
+}
+
+:host([isfullwidth]) {
+    display: block;
+}
+
 /**
 * Mixin for adding the responsive behaviour.
 * Takes in the the particular settings for the wide breakpoint.

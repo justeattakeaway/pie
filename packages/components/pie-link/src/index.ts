@@ -63,7 +63,7 @@ export class PieLink extends PieElement implements LinkProps {
     @property({ type: Boolean })
     public isBold = defaultProps.isBold;
 
-    @property({ type: Boolean })
+    @property({ type: Boolean, reflect: true })
     public isStandalone = defaultProps.isStandalone;
 
     @property({ type: Boolean })

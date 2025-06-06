@@ -1,5 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+:host {
+    display: block;
+}
+
 @mixin radio-interactive-state($bg-color) {
     .c-radio-input {
         &:hover:not(:checked, :disabled) {

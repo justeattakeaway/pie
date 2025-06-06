@@ -1,5 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+:host {
+    display: block;
+}
+
 .c-card {
     --int-states-mixin-bg-color: var(--dt-color-container-default);
     --card-color: var(--dt-color-content-default);

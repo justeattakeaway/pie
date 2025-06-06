@@ -1,5 +1,13 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+:host {
+    display: block;
+}
+
+:host([orientation="vertical"]) {
+   height: 100%;
+}
+
 .c-divider {
     --divider-bg-color: var(--dt-color-divider-default);
     --divider-width: 100%;

@@ -1,5 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+:host {
+    display: inline-block;
+}
+
 .c-chip {
     --int-states-mixin-bg-color: var(--dt-color-interactive-secondary);
     --chip-color: var(--dt-color-content-interactive-secondary);

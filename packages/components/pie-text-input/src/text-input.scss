@@ -1,5 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+:host {
+    display: block;
+}
+
 .c-textInput {
     --input-padding-block: var(--dt-spacing-c);
     --input-padding-inline: var(--dt-spacing-d);

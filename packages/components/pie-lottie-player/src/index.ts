@@ -8,6 +8,9 @@ import { type LottiePlayer, type AnimationItem } from 'lottie-web';
 import { safeCustomElement } from '@justeattakeaway/pie-webc-core';
 import { type LottiePlayerProps, defaultProps } from './defs';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import styles from './lottie-player.scss?inline';
+
 // Valid values available to consumers
 export * from './defs';
 

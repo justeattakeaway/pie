@@ -1,5 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+:host {
+    display: inline-block;
+}
+
 
 // Base tag styles
 .c-tag {

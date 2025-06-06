@@ -1,5 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+:host {
+    display: block;
+}
+
 .c-assistiveText {
     --assistive-text-color: var(--dt-color-content-subdued);
 

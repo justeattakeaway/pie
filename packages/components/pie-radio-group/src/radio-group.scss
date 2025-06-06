@@ -1,5 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+:host {
+    display: block;
+}
+
 .c-radioGroup {
     --radio-group-gap: var(--dt-spacing-c);
     --radio-group-gap--inline: var(--dt-spacing-c) var(--dt-spacing-e);
