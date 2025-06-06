@@ -1,0 +1,29 @@
+{
+    "headings": ["Prop", "Options", "Description", "Default"],
+    "rows": [
+        [
+            "href",
+            {
+                "type": "code",
+                "item": ["string"]
+            },
+            "The URL that the breadcrumb item links to.",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ],
+        [
+            "target",
+            {
+                "type": "code",
+                "item": ["string"]
+            },
+            "Where to display the linked URL such as `\"_self\"`, `\"_blank\"`, `\"_parent\"`, or `\"_top\"`.\n",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ]
+    ]
+}

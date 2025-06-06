@@ -16,6 +16,7 @@
     "components/badge",
     "components/bottom-sheet",
     "components/breadcrumb",
+    "components/breadcrumb/code",
     "components/button",
     "components/button/code",
     "components/card",

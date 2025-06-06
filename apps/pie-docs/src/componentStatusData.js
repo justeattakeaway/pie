@@ -250,7 +250,8 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            link: 'https://webc.pie.design/?path=/story/components-breadcrumb--default',
+            status: webComponentStatuses['pie-breadcrumb'],
         },
         {
             resource: resourceTypes.VUE,

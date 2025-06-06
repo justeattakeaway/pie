@@ -1,10 +1,10 @@
 <svg width="1034" height="402" viewBox="0 0 1034 402" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="0.5" y="0.5" width="1033" height="401" rx="16.5" fill="#F2A6B0" stroke="#DBD9D7"/>
-<mask id="mask0_693_124810" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="1032" height="400">
+<mask id="mask0_21145_12697" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="1032" height="400">
 <rect x="1" y="1" width="1032" height="400" rx="16" fill="#00DCFF"/>
 </mask>
-<g mask="url(#mask0_693_124810)">
-<g filter="url(#filter0_f_693_124810)">
+<g mask="url(#mask0_21145_12697)">
+<g filter="url(#filter0_f_21145_12697)">
 <path d="M322 113C322 104.163 329.163 97 338 97H1044V389C1044 402.255 1033.25 413 1020 413H322V113Z" fill="#AD5762"/>
 </g>
 <path d="M338 101H1040V389C1040 400.046 1031.05 409 1020 409H326V113C326 106.373 331.373 101 338 101Z" fill="white" stroke="#E18C97" stroke-width="8"/>
@@ -16,10 +16,10 @@
 <rect width="708" height="2" transform="translate(330 209)" fill="black" fill-opacity="0.08"/>
 </g>
 <defs>
-<filter id="filter0_f_693_124810" x="222" y="-3" width="922" height="516" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_f_21145_12697" x="222" y="-3" width="922" height="516" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_693_124810"/>
+<feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_21145_12697"/>
 </filter>
 </defs>
 </svg>
