@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-thumbnail
 
+## 0.8.2
+
+### Patch Changes
+
+- [Changed] - add docs to readme ([#2395](https://github.com/justeattakeaway/pie/pull/2395)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.8.1
 
 ### Patch Changes
