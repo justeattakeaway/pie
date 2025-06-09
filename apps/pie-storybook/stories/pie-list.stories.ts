@@ -1,9 +1,9 @@
 import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
+import { type ListProps } from '@justeattakeaway/pie-list';
 import '@justeattakeaway/pie-list';
 import '@justeattakeaway/pie-list/dist/pie-list-item';
-import { type ListProps } from '@justeattakeaway/pie-list';
 
 import { createStory } from '../utilities';
 

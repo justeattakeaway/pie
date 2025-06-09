@@ -47,23 +47,6 @@
   }
 }
 
-// Interactive states
-.c-list-item--interactive {
-  cursor: pointer;
-}
-
-.c-list-item--interactive:hover {
-  background-color: var(--list-item-hover-bg);
-}
-
-.c-list-item--interactive:active {
-  background-color: var(--list-item-active-bg);
-}
-
-.c-list-item--interactive:focus-visible {
-  outline: var(--list-item-focus-outline);
-  outline-offset: var(--list-item-focus-offset);
-}
 
 // Selected state
 .c-list-item--selected {

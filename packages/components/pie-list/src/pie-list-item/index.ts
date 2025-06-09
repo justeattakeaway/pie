@@ -30,7 +30,6 @@ export class PieListItem extends RtlMixin(PieElement) implements ListItemProps {
 
     connectedCallback () {
         super.connectedCallback();
-        this.setAttribute('role', 'listitem');
     }
 
     render () {
@@ -51,8 +50,8 @@ export class PieListItem extends RtlMixin(PieElement) implements ListItemProps {
                 
                 <div class="c-list-item__content">
                     <div class="c-list-item__primary">
-                        ${this.primaryText ? html`<span>${this.primaryText}</span>` : ''}
                         <slot></slot>
+                        ${!this.querySelector(':not([slot])') && this.primaryText ? html`<span>${this.primaryText}</span>` : ''}
                     </div>
                 </div>
             </li>

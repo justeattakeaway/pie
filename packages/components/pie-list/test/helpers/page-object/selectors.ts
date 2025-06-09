@@ -6,7 +6,7 @@ const list = {
         },
         listItem: {
             description: 'The selector for the list item element',
-            dataTestId: 'pie-list-item-content',
+            dataTestId: 'pie-list-item',
         },
     },
 };
