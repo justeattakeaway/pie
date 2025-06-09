@@ -1,1 +1,85 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+:host {
+  // These variables can be overridden by the parent list component
+  --list-item-leading-margin: var(--dt-spacing-c);
+  --list-item-trailing-margin: var(--dt-spacing-c);
+  --list-item-hover-bg: var(--dt-color-hover-1);
+  --list-item-active-bg: var(--dt-color-active-1);
+  --list-item-focus-outline: 2px solid var(--dt-color-focus);
+  --list-item-focus-offset: -2px;
+  --list-item-touch-target-height: 48px;
+}
+
+.c-list-item {
+  display: flex;
+  align-items: center;
+  padding: var(--list-item-padding, var(--dt-spacing-d));
+  list-style: none;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: var(--list-item-border-bottom, none);
+  position: relative;
+  background-color: var(--dt-color-container-default);
+
+  // Set minimum height for proper touch targets
+  min-height: var(--list-item-touch-target-height);
+}
+
+// Layout container
+.c-list-item__content {
+  flex: 1;
+  min-width: 0; // Ensures text truncation works
+}
+
+// Primary text styles
+.c-list-item__primary {
+  color: var(--dt-color-content-default);
+  font-size: #{p.font-size(--dt-font-body-l-size)};
+  font-weight: var(--dt-font-weight-regular);
+  line-height: #{p.line-height(--dt-font-body-l-line-height)};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  
+  span {
+    color: var(--dt-color-content-default);
+  }
+}
+
+// Interactive states
+.c-list-item--interactive {
+  cursor: pointer;
+}
+
+.c-list-item--interactive:hover {
+  background-color: var(--list-item-hover-bg);
+}
+
+.c-list-item--interactive:active {
+  background-color: var(--list-item-active-bg);
+}
+
+.c-list-item--interactive:focus-visible {
+  outline: var(--list-item-focus-outline);
+  outline-offset: var(--list-item-focus-offset);
+}
+
+// Selected state
+.c-list-item--selected {
+  background-color: var(--dt-color-active-1);
+  
+  .c-list-item__primary span {
+    color: var(--dt-color-content-default);
+  }
+}
+
+// Disabled state
+.c-list-item--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  
+  .c-list-item__primary span {
+    color: var(--dt-color-content-disabled);
+  }
+}
