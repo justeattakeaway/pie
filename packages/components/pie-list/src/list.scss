@@ -1,7 +1,42 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 :host {
-    display: block;
+  display: block;
+}
+
+.c-list {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+
+  // Default padding - will be inherited by child list items
+  --list-item-padding: var(--dt-spacing-d) var(--dt-spacing-d) var(--dt-spacing-d) var(--dt-spacing-d);
+
+  // Remove default browser list padding/margin
+  &:where(ul, ol) {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// Variant: Compact
+.c-list--compact {
+  --list-item-padding: var(--dt-spacing-b) var(--dt-spacing-d) var(--dt-spacing-b) var(--dt-spacing-d);
+}
+
+
+// Dividers between items
+.c-list--dividers ::slotted(*:not(:last-child)) {
+  --list-item-border-bottom: 1px solid var(--dt-color-border-subtle);
+
+  border-bottom: 1px solid var(--dt-color-border-subtle);
+}
+
+// RTL support
+.c-list--rtl {
+  direction: rtl;
 }
 
 .c-list {

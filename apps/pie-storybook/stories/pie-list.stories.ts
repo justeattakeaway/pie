@@ -2,7 +2,9 @@ import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-list';
-import '@justeattakeaway/pie-list/dist/pie-list-item';
+// Force component registration - this ensures the component is defined
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { PieListItem } from '@justeattakeaway/pie-list/dist/pie-list-item';
 import { type ListProps } from '@justeattakeaway/pie-list';
 
 import { createStory } from '../utilities';
