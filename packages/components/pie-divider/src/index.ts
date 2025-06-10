@@ -24,7 +24,7 @@ export class PieDivider extends PieElement implements DividerProps {
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
     public variant = defaultProps.variant;
 
-    @property({ type: String })
+    @property({ type: String, reflect: true })
     @validPropertyValues(componentSelector, orientations, defaultProps.orientation)
     public orientation = defaultProps.orientation;
 
