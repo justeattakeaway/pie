@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-docs",
   "private": true,
-  "description": "Documentation website for the PIE design system",
+  "description": "Documentation website for the PIE design system ",
   "version": "4.35.2",
   "main": "index.js",
   "keywords": [],
