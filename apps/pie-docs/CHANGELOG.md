@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.36.0
+
+### Minor Changes
+
+- [Added] - breadcrumb overview page ([#2393](https://github.com/justeattakeaway/pie/pull/2393)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - breadcrumb code section ([#2393](https://github.com/justeattakeaway/pie/pull/2393)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.6.42
+
 ## 4.35.2
 
 ### Patch Changes

@@ -71,7 +71,7 @@
     "@commitlint/config-conventional": "17.4.4",
     "@justeat/pie-design-tokens": "6.10.0",
     "@justeattakeaway/browserslist-config-pie": "0.2.1",
-    "@justeattakeaway/generator-pie-component": "0.30.3",
+    "@justeattakeaway/generator-pie-component": "0.30.4",
     "@justeattakeaway/pie-icons": "5.12.0",
     "@justeattakeaway/pie-webc-testing": "0.13.5",
     "@justeattakeaway/pie-wrapper-react": "0.14.3",

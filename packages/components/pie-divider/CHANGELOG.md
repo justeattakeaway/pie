@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-divider
 
+## 1.4.3
+
+### Patch Changes
+
+- [Fixed] display props for web components top level element ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] reflective attributes to be target by pie-css selectors ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.4.2
 
 ### Patch Changes
