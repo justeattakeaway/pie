@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-toast-provider
 
+## 0.5.4
+
+### Patch Changes
+
+- [Changed] - add docs to readme ([#2395](https://github.com/justeattakeaway/pie/pull/2395)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`80d36c5`](https://github.com/justeattakeaway/pie/commit/80d36c5877ba3dc5eceda05e7b2c6d72729cdc4f)]:
+  - @justeattakeaway/pie-toast@0.9.4
+
 ## 0.5.3
 
 ### Patch Changes

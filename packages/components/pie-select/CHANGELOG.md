@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-select
 
+## 0.6.4
+
+### Patch Changes
+
+- [Changed] - added docs to readme ([#2394](https://github.com/justeattakeaway/pie/pull/2394)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.10.4
+
 ## 0.6.3
 
 ### Patch Changes

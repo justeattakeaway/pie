@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-text-input
 
+## 0.28.4
+
+### Patch Changes
+
+- [Changed] - add docs to readme ([#2395](https://github.com/justeattakeaway/pie/pull/2395)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.10.4
+
 ## 0.28.3
 
 ### Patch Changes
