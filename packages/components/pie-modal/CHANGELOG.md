@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-modal
 
+## 1.7.6
+
+### Patch Changes
+
+- Updated dependencies [[`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855), [`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855), [`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855)]:
+  - @justeattakeaway/pie-icon-button@2.0.0
+  - @justeattakeaway/pie-button@1.6.4
+  - @justeattakeaway/pie-spinner@1.2.3
+
 ## 1.7.5
 
 ### Patch Changes

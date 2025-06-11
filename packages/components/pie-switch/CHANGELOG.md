@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-switch
 
+## 2.0.0
+
+### Major Changes
+
+- [Fixed] changed the host `display` property from `inline` to `block` for consistency ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- [Fixed] layout issue when the label is not displayed ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.4.3
 
 ### Patch Changes

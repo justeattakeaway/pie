@@ -1,5 +1,42 @@
 # Changelog
 
+## 1.39.0
+
+### Minor Changes
+
+- [Added] - breadcrumb code section ([#2393](https://github.com/justeattakeaway/pie/pull/2393)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855), [`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855), [`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855), [`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855), [`882325f`](https://github.com/justeattakeaway/pie/commit/882325fc0347d65c61137b3f1676d1ea33fe2661), [`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855), [`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855)]:
+  - @justeattakeaway/pie-switch@2.0.0
+  - @justeattakeaway/pie-icon-button@2.0.0
+  - @justeattakeaway/pie-assistive-text@0.10.5
+  - @justeattakeaway/pie-breadcrumb@0.6.0
+  - @justeattakeaway/pie-button@1.6.4
+  - @justeattakeaway/pie-card@0.25.4
+  - @justeattakeaway/pie-checkbox@0.16.5
+  - @justeattakeaway/pie-checkbox-group@0.9.5
+  - @justeattakeaway/pie-chip@0.12.5
+  - @justeattakeaway/pie-divider@1.4.3
+  - @justeattakeaway/pie-form-label@0.16.3
+  - @justeattakeaway/pie-link@1.2.4
+  - @justeattakeaway/pie-list@0.0.3
+  - @justeattakeaway/pie-lottie-player@0.2.3
+  - @justeattakeaway/pie-notification@0.14.5
+  - @justeattakeaway/pie-radio@0.11.3
+  - @justeattakeaway/pie-radio-group@0.9.5
+  - @justeattakeaway/pie-select@0.6.5
+  - @justeattakeaway/pie-spinner@1.2.3
+  - @justeattakeaway/pie-tag@0.17.3
+  - @justeattakeaway/pie-text-input@0.28.5
+  - @justeattakeaway/pie-textarea@0.16.5
+  - @justeattakeaway/pie-thumbnail@0.8.3
+  - @justeattakeaway/pie-cookie-banner@1.6.6
+  - @justeattakeaway/pie-modal@1.7.6
+  - @justeattakeaway/pie-toast@0.9.5
+  - @justeattakeaway/pie-toast-provider@0.5.5
+
 ## 1.38.2
 
 ### Patch Changes

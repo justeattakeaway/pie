@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-switch",
   "description": "PIE Design System Switch built using Web Components",
-  "version": "1.4.3",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
