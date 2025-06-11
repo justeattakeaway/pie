@@ -408,10 +408,13 @@ Icon(
 ## FAQs
 
 **Q: I’ve imported the library. Where can I find the icons?**
+
 A: Icons are located in their own namespace: com.jet.pie2.icons.R. More information here.
 
 **Q: I can’t find the icon I need. Can I add it to the library?**
+
 A: No. All icons will be automatically generated. If your icon doesn’t belong to PIE, it needs to live inside your own project.
 
 **Q: My icon belongs to PIE, I can see it in Figma. Can I add it?**
+
 A: If your icon belongs to PIE and it’s not in the library, make sure you’re using the latest version of PIE BOM. If you still can’t see it, message us and we’ll update the icons for you.
