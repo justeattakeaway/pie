@@ -12,14 +12,40 @@ inputs:
 runs:
   using: composite
   steps:
-      # Setup Node
-      - name: Setup Node
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - name: Get caching params
+        id: cache-params
+        shell: bash
+        run: |
+          echo "::group::Cache params"
+          echo "Getting cache params"
+          echo "node-version=$(node -v)" >> "$GITHUB_OUTPUT"
+          node -v
+          echo "yarn-version=$(yarn -v)" >> "$GITHUB_OUTPUT"
+          yarn -v
+          echo "yarn-cache-path=$(yarn config get cacheFolder)" >> "$GITHUB_OUTPUT"
+          yarn config get cacheFolder
+          echo "yarn-global-path=$(yarn config get globalFolder)" >> "$GITHUB_OUTPUT"
+          yarn config get globalFolder
+          echo "yarn-virtual-path=$(yarn config get virtualFolder)" >> "$GITHUB_OUTPUT"
+          yarn config get virtualFolder
+          echo "yarn-state-path=$(yarn config get installStatePath)" >> "$GITHUB_OUTPUT"
+          yarn config get installStatePath
+          echo "::endgroup::"
+
+      # Restore yarn package cache and build cache - specific key for each os/arch/node version
+      - name: Yarn cache and build state
+        uses: actions/cache@v4
         with:
-          node-version: ${{ inputs.node-version }}
-          cache: "yarn"
-      # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
+          path: |
+            **/node_modules
+            ${{ steps.cache-params.outputs.yarn-cache-path }}
+            ${{ steps.cache-params.outputs.yarn-global-path }}
+            ${{ steps.cache-params.outputs.yarn-virtual-path }}
+            ${{ steps.cache-params.outputs.yarn-state-path }}
+          key: yarn-${{ runner.os }}-${{ runner.arch }}-node-${{ steps.cache-params.outputs.node-version }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-${{ runner.os }}-${{ runner.arch }}-node-${{ steps.cache-params.outputs.node-version }}-
+
       - name: Install Dependencies
         shell: bash
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: yarn add
+        run: yarn install --immutable
