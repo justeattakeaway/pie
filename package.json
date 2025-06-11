@@ -11,7 +11,7 @@
   "engines": {
     "node": "^16 || ^18 || ^20"
   },
-  "packageManager": "yarn@3.8.1",
+  "packageManager": "yarn@4.8.1",
   "workspaces": {
     "packages": [
       "apps/**/*",
@@ -71,7 +71,7 @@
     "@commitlint/config-conventional": "17.4.4",
     "@justeat/pie-design-tokens": "6.10.0",
     "@justeattakeaway/browserslist-config-pie": "0.2.1",
-    "@justeattakeaway/generator-pie-component": "0.30.4",
+    "@justeattakeaway/generator-pie-component": "0.30.3",
     "@justeattakeaway/pie-icons": "5.12.0",
     "@justeattakeaway/pie-webc-testing": "0.13.5",
     "@justeattakeaway/pie-wrapper-react": "0.14.3",
@@ -105,7 +105,7 @@
     "stylelint-config-standard-scss": "13.0.0",
     "stylelint-order": "6.0.4",
     "ts-node": "10.9.1",
-    "turbo": "1.10.16",
+    "turbo": "2.5.4",
     "typescript": "5.4.5",
     "vite": "5.3.6",
     "vite-plugin-dts": "2.3.0",
@@ -121,7 +121,7 @@
   },
   "volta": {
     "node": "20.9.0",
-    "yarn": "3.8.1"
+    "yarn": "4.8.1"
   },
   "resolutions": {
     "lit": "3.2.0",
