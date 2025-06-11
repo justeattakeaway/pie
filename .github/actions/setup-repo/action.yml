@@ -12,6 +12,11 @@ inputs:
 runs:
   using: composite
   steps:
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: ${{ inputs.node-version }}
+
       - name: Get caching params
         id: cache-params
         shell: bash
@@ -32,7 +37,6 @@ runs:
           yarn config get installStatePath
           echo "::endgroup::"
 
-      # Restore yarn package cache and build cache - specific key for each os/arch/node version
       - name: Yarn cache and build state
         uses: actions/cache@v4
         with:
