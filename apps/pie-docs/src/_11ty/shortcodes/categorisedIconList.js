@@ -31,14 +31,14 @@ const categorisedIconList = () => headingAnchor(`
             <pie-text-input name="searchBar" id="search-bar" class="c-categorisedIconList-search" placeholder="Search icons"></pie-text-input>
             ${categoryDropdown()}
             <pie-notification variant='info' class='c-categorisedIconList-notification'> Different platforms have different naming conventions when using the icons in code, for more details please visit the <a href="https://pie.design/foundations/iconography/code/"> Code </a> page. </pie-notification>
-         </div>
+        </div>
         <ul class="c-categorisedIconList" id="categorised-icon-list-container">
             ${generateCategorisedIconList(iconData.categories, pieIcons)}
         </ul>
         <script>
             window.iconData = ${JSON.stringify(iconData)};
             window.pieIcons = ${JSON.stringify(pieIcons)};
-         </script>
+        </script>
         <script src="/assets/js/categorised-icon-list-helpers.js"></script>
         <script src="/assets/js/categorised-icon-list-filter.js"></script>
     `);
