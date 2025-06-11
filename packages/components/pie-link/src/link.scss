@@ -1,9 +1,15 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 :host {
+    display: inline-block;
+
     --link-font-weight: var(--dt-font-weight-regular);
     --link-text-color: var(--dt-color-content-link);
     --link-text-decoration: var(--dt-font-style-underline);
+}
+
+:host([isstandalone]) {
+    display: block;
 }
 
 @mixin link-interactive-states($mode: 'default') {

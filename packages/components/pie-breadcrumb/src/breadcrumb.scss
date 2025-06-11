@@ -1,5 +1,13 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+:host {
+  display: block;
+
+  ::slotted(pie-breadcrumb-item:only-child) {
+    display: none;
+  }
+}
+
 .c-breadcrumb {
   --breadcrumb-background-color: var(--dt-color-transparent);
   --breadcrumb-item-flex-direction: row;
@@ -36,12 +44,12 @@
   align-items: center;
   white-space: nowrap;
   gap: var(--dt-spacing-a);
-  
+
   pie-link {
     --link-text-color: var(--breadcrumb-item-color);
     --link-font-weight: var(--dt-font-weight-bold);
   }
-}  
+}
 
 .c-breadcrumb-separator {
   display: inline-flex;
@@ -54,7 +62,7 @@
     --breadcrumb-item-flex-direction: row-reverse;
     --breadcrumb-separator-transform: rotate(180deg);
   }
-  
+
   ::slotted(pie-breadcrumb-item:not(:nth-last-of-type(2))) {
     display: none;
   }
@@ -84,12 +92,6 @@
   }
 
   .c-breadcrumb-separator {
-    display: none;
-  }
-}
-
-:host {
-  ::slotted(pie-breadcrumb-item:only-child) {
     display: none;
   }
 }

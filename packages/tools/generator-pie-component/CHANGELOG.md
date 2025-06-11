@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.30.4
+
+### Patch Changes
+
+- [Added] comment to remind to set the CSS display prop when a new component is added ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.30.3
 
 ### Patch Changes
