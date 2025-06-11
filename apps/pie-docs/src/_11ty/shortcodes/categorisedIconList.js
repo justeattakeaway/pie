@@ -30,7 +30,7 @@ const categorisedIconList = () => headingAnchor(`
         <div class="c-categorisedIconList-filters-container">
             <pie-text-input name="searchBar" id="search-bar" class="c-categorisedIconList-search" placeholder="Search icons"></pie-text-input>
             ${categoryDropdown()}
-            <pie-notification variant='info' class='c-categorisedIconList-notification'> Different platforms have different naming conventions when using the icons in code, for more details please visit the “Code” page. </pie-notification>
+            <pie-notification variant='info' class='c-categorisedIconList-notification'> Different platforms have different naming conventions when using the icons in code, for more details please visit the <a href="https://pie.design/foundations/iconography/code/"> Code </a> page. </pie-notification>
          </div>
         <ul class="c-categorisedIconList" id="categorised-icon-list-container">
             ${generateCategorisedIconList(iconData.categories, pieIcons)}
