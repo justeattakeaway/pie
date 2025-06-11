@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-assistive-text
 
+## 0.10.5
+
+### Patch Changes
+
+- [Fixed] display props for web components top level element ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.10.4
 
 ### Patch Changes

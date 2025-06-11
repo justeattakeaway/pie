@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-chip
 
+## 0.12.5
+
+### Patch Changes
+
+- [Fixed] display props for web components top level element ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855)]:
+  - @justeattakeaway/pie-spinner@1.2.3
+
 ## 0.12.4
 
 ### Patch Changes

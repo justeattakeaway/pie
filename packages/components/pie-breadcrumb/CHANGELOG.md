@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-breadcrumb
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - breadcrumb code section ([#2393](https://github.com/justeattakeaway/pie/pull/2393)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Fixed] display props for web components top level element ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.5.0
 
 ### Minor Changes
