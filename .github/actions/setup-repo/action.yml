@@ -12,6 +12,12 @@ inputs:
 runs:
   using: composite
   steps:
+      - name: Install package manager (from package.json)
+        shell: bash
+        run: |
+          sudo corepack enable
+          sudo corepack install
+
       - name: Setup Node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
