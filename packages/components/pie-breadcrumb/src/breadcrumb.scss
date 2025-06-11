@@ -8,7 +8,8 @@
   --breadcrumb-separator-transform: none;
 
   background-color: var(--breadcrumb-background-color);
-  padding: var(--dt-spacing-a) var(--dt-spacing-d);
+  padding-block-start: var(--dt-spacing-a);
+  padding-block-end: var(--dt-spacing-a);
 }
 
 .c-breadcrumb--scrim {
@@ -17,6 +18,8 @@
   --breadcrumb-separator-color: var(--dt-color-content-light);
 
   border-radius: var(--dt-radius-rounded-e);
+  padding-inline-start: var(--dt-spacing-d);
+  padding-inline-end: var(--dt-spacing-d);
 }
 
 .c-breadcrumb-list {
@@ -66,6 +69,11 @@
 :host(:last-of-type) {
   pie-link {
     --link-font-weight: var(--dt-font-weight-regular);
+
+    &::part(base):hover,
+    &::part(base):active {
+      --link-text-decoration: none;
+    }
 
     span {
       max-width: 250px;

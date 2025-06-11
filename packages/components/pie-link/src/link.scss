@@ -3,6 +3,7 @@
 :host {
     --link-font-weight: var(--dt-font-weight-regular);
     --link-text-color: var(--dt-color-content-link);
+    --link-text-decoration: var(--dt-font-style-underline);
 }
 
 @mixin link-interactive-states($mode: 'default') {
@@ -20,7 +21,6 @@
     --link-font-family: var(--dt-font-interactive-l-family);
     --link-font-size: #{p.font-size(--dt-font-size-16)};
     --link-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
-    --link-text-decoration: var(--dt-font-style-underline);
     --link-icon-size: 16px;
     --link-icon-offset-top: var(--dt-spacing-a);
 
