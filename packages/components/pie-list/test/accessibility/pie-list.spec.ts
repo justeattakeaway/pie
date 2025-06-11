@@ -1,6 +1,5 @@
 import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/playwright-fixtures.ts';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
-import { PieList } from '../../src/index.ts';
 
 test.describe('PieList - Accessibility tests', () => {
     test('a11y - should test the PieList component WCAG compliance', async ({ page, makeAxeBuilder }) => {
