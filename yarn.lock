@@ -3872,18 +3872,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/generator-pie-component@npm:0.30.3":
-  version: 0.30.3
-  resolution: "@justeattakeaway/generator-pie-component@npm:0.30.3"
-  dependencies:
-    chalk: "npm:5.3.0"
-    yaml: "npm:2.5.1"
-    yeoman-generator: "npm:5.9.0"
-  checksum: 10/d1e577dcddb53980755cda6e5cd6cb5e2902d3a1762e39ebb27dabe55c98abcbb4db8b3b817ebf8bd432f2221559d2552a63f457207e82df792be6c9c46db7b4
-  languageName: node
-  linkType: hard
-
-"@justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component":
+"@justeattakeaway/generator-pie-component@npm:0.30.4, @justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component"
   dependencies:
@@ -21626,7 +21615,7 @@ __metadata:
     "@commitlint/config-conventional": "npm:17.4.4"
     "@justeat/pie-design-tokens": "npm:6.10.0"
     "@justeattakeaway/browserslist-config-pie": "npm:0.2.1"
-    "@justeattakeaway/generator-pie-component": "npm:0.30.3"
+    "@justeattakeaway/generator-pie-component": "npm:0.30.4"
     "@justeattakeaway/pie-icons": "npm:5.12.0"
     "@justeattakeaway/pie-webc-testing": "npm:0.13.5"
     "@justeattakeaway/pie-wrapper-react": "npm:0.14.3"
