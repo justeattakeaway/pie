@@ -1,13 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const selectElement = document.getElementById('categoryFilter');
-    const iconListContainer = document.getElementById('categorisedIconListContainer');
-
+    const selectElement = document.getElementById('category-filter');
+    const iconListContainer = document.getElementById('categorised-icon-list-container');
+    let selectedCategory = '';
+    let searchTerm = '';
     selectElement.addEventListener('change', (event) => {
-        const selectedCategory = event.detail.sourceEvent.target.value;
+        selectedCategory = event.detail.sourceEvent.target.value;
         iconListContainer.innerHTML = window.categorisedIconListHelpers.generateCategorisedIconList(
             window.iconData.categories,
             window.pieIcons,
             selectedCategory,
+            searchTerm,
+        );
+    });
+    const searchBar = document.getElementById('search-bar');
+    searchBar.addEventListener('input', (event) => {
+        searchTerm = event.target.value;
+        iconListContainer.innerHTML = window.categorisedIconListHelpers.generateCategorisedIconList(
+            window.iconData.categories,
+            window.pieIcons,
+            selectedCategory,
+            searchTerm,
         );
     });
 });
