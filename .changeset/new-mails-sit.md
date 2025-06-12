@@ -2,4 +2,4 @@
 "@justeattakeaway/generator-pie-component": patch
 ---
 
-[Removed] - unused var from a11y test template
+[Removed] - unused import from a11y test template
