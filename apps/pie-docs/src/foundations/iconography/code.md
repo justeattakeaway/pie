@@ -326,7 +326,7 @@ Example:
 ## iOS library and naming conventions
 
 iOS packs all icons into the JustUI core library. Our iOS library will use the same name of the icon, but transforming it from kebab-case to CamelCase (removing the hyphens):
-For example, the icon gift-filled-large icon would be giftFilledLarge.
+For example, the `gift-filled-large` icon would be `giftFilledLarge`.
 
 ---
 
@@ -369,7 +369,7 @@ For example, the icon below would be ```ic_pie_benefits_gift_filled_large``` and
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/iconography/icons-example-code-section.png",
-alt: "",
+alt: "Gift icons with example of a naming convention for Android",
 width:"350px"
 } %}
 
@@ -409,7 +409,7 @@ Icon(
 
 **Q: I’ve imported the library. Where can I find the icons?**
 
-A: Icons are located in their own namespace: com.jet.pie2.icons.R. More information here.
+A: Icons are located in their own namespace: com.jet.pie2.icons.R. More information [here](https://github.je-labs.com/Android/PIE/wiki/Getting-started#step-4---use-pie-assets).
 
 **Q: I can’t find the icon I need. Can I add it to the library?**
 
@@ -417,4 +417,4 @@ A: No. All icons will be automatically generated. If your icon doesn’t belong 
 
 **Q: My icon belongs to PIE, I can see it in Figma. Can I add it?**
 
-A: If your icon belongs to PIE and it’s not in the library, make sure you’re using the latest version of PIE BOM. If you still can’t see it, message us and we’ll update the icons for you.
+A: If your icon belongs to PIE and it’s not in the library, make sure you’re using the latest version of PIE BOM. If you still can’t see it, message us via #help-designsystem Slack channel and we’ll update the icons for you.
