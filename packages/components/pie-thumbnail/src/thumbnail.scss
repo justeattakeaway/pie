@@ -1,3 +1,7 @@
+:host {
+    display: block;
+}
+
 .c-thumbnail {
   --thumbnail-size: 48px;
   --thumbnail-border-radius: var(--dt-radius-rounded-b);

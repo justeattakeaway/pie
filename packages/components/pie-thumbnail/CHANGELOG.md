@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-thumbnail
 
+## 0.8.3
+
+### Patch Changes
+
+- [Fixed] display props for web components top level element ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.8.2
 
 ### Patch Changes

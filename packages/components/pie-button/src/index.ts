@@ -82,7 +82,7 @@ export class PieButton extends FormControlMixin(PieElement) implements ButtonPro
     @property({ type: Boolean, reflect: true })
     public isLoading = defaultProps.isLoading;
 
-    @property({ type: Boolean })
+    @property({ type: Boolean, reflect: true })
     public isFullWidth = defaultProps.isFullWidth;
 
     @property({ type: Boolean })
