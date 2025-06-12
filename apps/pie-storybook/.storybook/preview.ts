@@ -97,8 +97,8 @@ export default {
                             'Unit tests',
                             'Browser tests'
                         ]
-                    ]
-                ]
+                    ],
+                ],
             }
         }
     }
