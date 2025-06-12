@@ -36,6 +36,7 @@ describe('safeCustomElement', () => {
 
         // Act
         @safeCustomElement(tag)
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         class TestElementB extends HTMLElement {
             static v = '1.0.0';
         }
@@ -60,13 +61,14 @@ describe('safeCustomElement', () => {
 
         // Act
         @safeCustomElement(tag)
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         class TestElementC extends HTMLElement {
             static v = '2.0.0';
         }
 
         // Assert
         expect(warnSpy).toHaveBeenCalledTimes(1);
-        const [message, error] = warnSpy.mock.calls[0];
+        const [[message, error]] = warnSpy.mock.calls;
         expect(message).toBe(`PIE Web Component: "${tag}" was already registered with version: 1.0.0.`);
         expect(error).toBeInstanceOf(DOMException);
     });
@@ -84,13 +86,14 @@ describe('safeCustomElement', () => {
 
         // Act
         @safeCustomElement(tag)
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         class TestElementD extends HTMLElement {
             static v = '3.0.0';
         }
 
         // Assert
         expect(warnSpy).toHaveBeenCalledTimes(1);
-        const [message, error] = warnSpy.mock.calls[0];
+        const [[message, error]] = warnSpy.mock.calls;
         expect(message).toContain(`PIE Web Component: "${tag}" was already registered with version: No version data found.`);
         expect(error).toBeInstanceOf(DOMException);
     });
