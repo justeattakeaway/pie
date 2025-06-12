@@ -86,10 +86,17 @@ export default {
                     ],
                     'Components',
                     'Additional libraries',
+                    [
+                        'Icons'
+                    ],
                     'Contribution',
                     [
-                        'Overview',
-                        'Unit tests'
+                        'Testing',
+                        [
+                            'Overview',
+                            'Unit tests',
+                            'Browser tests'
+                        ]
                     ]
                 ]
             }
