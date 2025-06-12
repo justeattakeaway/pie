@@ -122,8 +122,10 @@ const DisabledRadioTemplate = () => html`
       <div style="max-width: 400px">
           <pie-radio-group
               data-test-id="pie-radio-group">
-                  <pie-radio disabled value="radio-one">radio 1</pie-radio>
-                  <pie-radio value="radio-two">radio 2</pie-radio>
+                  <pie-radio data-test-id="radio-1" value="radio-one">radio 1</pie-radio>
+                  <pie-radio data-test-id="radio-2" disabled value="radio-two">radio 2</pie-radio>
+                  <pie-radio data-test-id="radio-3" value="radio-three">radio 3</pie-radio>
+                  <pie-radio data-test-id="radio-4" value="radio-four">radio 4</pie-radio>
           </pie-radio-group>
       </div>
   `;

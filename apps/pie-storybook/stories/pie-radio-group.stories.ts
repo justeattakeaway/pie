@@ -124,7 +124,7 @@ const Template = ({
                     ${labelSlot}
                     <pie-radio value="radio-one">radio 1</pie-radio>
                     <pie-radio value="radio-two">radio 2</pie-radio>
-                    <pie-radio value="radio-three">radio 3 longer label</pie-radio>
+                    <pie-radio value="radio-three" disabled>radio 3 disabled</pie-radio>
                     <pie-radio value="radio-four">radio 4</pie-radio>
                     <pie-radio value="radio-five">radio 5 even longer label: Lorem ipsum dolor sit amet,
                     consectetur adipiscing elit.</pie-radio>
