@@ -4162,6 +4162,28 @@ exports[`categorisedIconList.js > should return the expected HTML 1`] = `
         </li><li class=\\"c-categorisedIconList-iconCard\\">
             <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
                 <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
+                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--faceExcitedLarge\\"><path d=\\"M24.662 7.338A12.25 12.25 0 1 0 7.338 24.662 12.25 12.25 0 0 0 24.662 7.338Zm-1.237 16.087a10.5 10.5 0 1 1-14.85-14.85 10.5 10.5 0 0 1 14.85 14.85Z\\"></path><path d=\\"M10.815 15.9a1.31 1.31 0 0 0 .81-1.213 1.313 1.313 0 1 0-.81 1.213Z\\"></path><path d=\\"M21.688 13.375a1.312 1.312 0 1 0 0 2.625 1.312 1.312 0 0 0 0-2.625Z\\"></path><path d=\\"M10.344 18.855c0 2.759 2.537 5.003 5.656 5.003 3.119 0 5.656-2.244 5.656-5.003v-.875H10.344v.875Zm9.418.875c-.46 1.37-1.973 2.378-3.762 2.378-1.79 0-3.303-1.008-3.762-2.378h7.524Z\\"></path></svg>
+                </div>
+                <div class=\\"c-categorisedIconList-icon\\" aria-hidden=\\"true\\">
+                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 16 16\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--faceExcited\\"><path d=\\"M9.5 6.75a.75.75 0 1 1 1.5 0 .75.75 0 0 1-1.5 0Z\\"></path><path d=\\"M12.792 3.207A6.79 6.79 0 0 0 8 1.22 6.781 6.781 0 1 0 14.781 8a6.79 6.79 0 0 0-1.989-4.793Zm.26 6.886a5.47 5.47 0 0 1-10.104 0 5.468 5.468 0 1 1 10.105 0Z\\"></path><path d=\\"M5.75 7.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z\\"></path><path d=\\"M4.866 9.297c0 1.475 1.405 2.675 3.134 2.675 1.729 0 3.134-1.2 3.134-2.675v-.656H4.866v.656Zm4.723.656c-.316.418-.917.707-1.589.707-.672 0-1.273-.29-1.588-.707h3.177Z\\"></path></svg>
+                </div>
+            </div>
+            <span class=\\"c-categorisedIconList-iconCard-separator\\"></span>
+            <p>Face Excited</p>
+        </li><li class=\\"c-categorisedIconList-iconCard\\">
+            <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
+                <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
+                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--faceExcitedFilledLarge\\"><path d=\\"M24.662 7.338A12.25 12.25 0 1 0 7.338 24.662 12.25 12.25 0 0 0 24.662 7.338Zm-14.606 8.637a1.313 1.313 0 1 1 .513-2.576 1.313 1.313 0 0 1-.513 2.576Zm11.162 2.88c0 2.517-2.341 4.565-5.219 4.565-2.877 0-5.217-2.048-5.217-4.565v-.437h10.436v.438Zm1.56-3.438a1.312 1.312 0 1 1-2.181-1.458 1.312 1.312 0 0 1 2.182 1.458Z\\"></path></svg>
+                </div>
+                <div class=\\"c-categorisedIconList-icon\\" aria-hidden=\\"true\\">
+                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 16 16\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--faceExcitedFilled\\"><path d=\\"M12.792 3.207A6.79 6.79 0 0 0 8 1.22 6.781 6.781 0 1 0 14.78 8a6.789 6.789 0 0 0-1.989-4.793ZM10.25 6a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5Zm-4.5 0a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5Zm5.384 3.297c0 1.475-1.406 2.675-3.134 2.675s-3.134-1.2-3.134-2.675v-.656h6.268v.656Z\\"></path></svg>
+                </div>
+            </div>
+            <span class=\\"c-categorisedIconList-iconCard-separator\\"></span>
+            <p>Face Excited Filled</p>
+        </li><li class=\\"c-categorisedIconList-iconCard\\">
+            <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
+                <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
                     <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--faceHappyLarge\\"><path d=\\"M16 3.75a12.25 12.25 0 1 0 0 24.5 12.25 12.25 0 0 0 0-24.5Zm0 22.75a10.5 10.5 0 1 1 0-21 10.5 10.5 0 0 1 0 21Zm-4.375-11.813a1.313 1.313 0 1 1-2.626 0 1.313 1.313 0 0 1 2.626 0Zm11.375 0a1.313 1.313 0 1 1-2.626 0 1.313 1.313 0 0 1 2.626 0Zm-4.288 3.938h1.847a4.717 4.717 0 0 1-9.118 0h1.846a2.975 2.975 0 0 0 5.425 0Z\\"></path></svg>
                 </div>
                 <div class=\\"c-categorisedIconList-icon\\" aria-hidden=\\"true\\">
@@ -4173,14 +4195,36 @@ exports[`categorisedIconList.js > should return the expected HTML 1`] = `
         </li><li class=\\"c-categorisedIconList-iconCard\\">
             <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
                 <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
-                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--usersLarge\\"><path d=\\"M10.461 8.563a3.938 3.938 0 1 1 0 7.875 3.938 3.938 0 0 1 0-7.875Zm0 1.75a2.187 2.187 0 1 0 2.135 2.187 2.17 2.17 0 0 0-2.135-2.187Zm11.113-1.75A3.937 3.937 0 1 1 17.75 12.5a3.903 3.903 0 0 1 3.824-3.937Zm0 1.75a2.187 2.187 0 1 0 2.135 2.187 2.161 2.161 0 0 0-2.135-2.187ZM27.9 20.375a5.25 5.25 0 0 0-4.97-3.036h-3.57A5.767 5.767 0 0 0 16 18.363a5.67 5.67 0 0 0-3.351-1.05H9.105a5.25 5.25 0 0 0-4.979 3.062l-1.251 3.063h1.864l.971-2.415a3.605 3.605 0 0 1 3.395-1.96h3.561a4.21 4.21 0 0 1 2.109.56 4.14 4.14 0 0 0-.385.726l-1.242 3.089h1.846L16 21.023a3.614 3.614 0 0 1 3.395-1.96h3.57a3.614 3.614 0 0 1 3.395 1.96l.971 2.415h1.794L27.9 20.375Z\\"></path></svg>
+                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--faceHappyFilledLarge\\"><path d=\\"M24.662 7.338A12.25 12.25 0 1 0 7.338 24.662 12.25 12.25 0 0 0 24.662 7.338ZM10.815 15.9a1.312 1.312 0 1 1-1.005-2.424 1.312 1.312 0 0 1 1.005 2.424Zm8.061 5.254a4.716 4.716 0 0 1-7.435-2.529h1.846a2.975 2.975 0 0 0 5.426 0h1.846a4.716 4.716 0 0 1-1.683 2.53Zm3.903-5.737a1.312 1.312 0 1 1-2.182-1.457 1.312 1.312 0 0 1 2.182 1.457Z\\"></path></svg>
                 </div>
                 <div class=\\"c-categorisedIconList-icon\\" aria-hidden=\\"true\\">
-                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 16 16\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--users\\"><path d=\\"m1.21 11.824.49-1.391a2.87 2.87 0 0 1 2.021-1.75 2.704 2.704 0 0 1-.481-.368 2.406 2.406 0 1 1 3.395 0 1.898 1.898 0 0 1-.324.271 2.905 2.905 0 0 1 1.689.5 2.94 2.94 0 0 1 1.697-.535 2.415 2.415 0 0 1-1.04-1.977 2.406 2.406 0 1 1 4.103 1.75c-.146.14-.308.263-.481.367a2.853 2.853 0 0 1 2.021 1.75l.49 1.392h-1.391l-.341-.954A1.584 1.584 0 0 0 11.5 9.855H9.75a1.583 1.583 0 0 0-1.523 1.015l-.34.954H6.46l.49-1.391c0-.123.105-.237.157-.35a1.653 1.653 0 0 0-.857-.228H4.5a1.583 1.583 0 0 0-1.523 1.015l-.34.954H1.21Zm8.75-5.25a1.094 1.094 0 1 0 .324-.77 1.084 1.084 0 0 0-.315.77H9.96Zm-6.125 0a1.094 1.094 0 1 0 .324-.77 1.085 1.085 0 0 0-.315.77h-.009Z\\"></path></svg>
+                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 16 16\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--faceHappyFilled\\"><path d=\\"M12.792 3.208A6.79 6.79 0 0 0 8 1.218 6.781 6.781 0 1 0 14.781 8a6.79 6.79 0 0 0-1.989-4.792ZM10.25 6a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5Zm-4.5 0a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5Zm4.245 4.7A3.168 3.168 0 0 1 5 9h1.374A1.847 1.847 0 0 0 9.75 9h1.374a3.167 3.167 0 0 1-1.13 1.7Z\\"></path></svg>
                 </div>
             </div>
             <span class=\\"c-categorisedIconList-iconCard-separator\\"></span>
-            <p>Users</p>
+            <p>Face Happy Filled</p>
+        </li><li class=\\"c-categorisedIconList-iconCard\\">
+            <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
+                <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
+                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--faceNeutralLarge\\"><path d=\\"M24.662 7.338A12.25 12.25 0 1 0 7.338 24.662 12.25 12.25 0 0 0 24.662 7.338Zm-1.237 16.087a10.5 10.5 0 1 1-14.85-14.85 10.5 10.5 0 0 1 14.85 14.85Z\\"></path><path d=\\"M11.625 14.688a1.313 1.313 0 1 1-2.625 0 1.313 1.313 0 0 1 2.625 0Z\\"></path><path d=\\"M23 14.688a1.313 1.313 0 1 1-2.625 0 1.313 1.313 0 0 1 2.625 0Z\\"></path><path d=\\"M20.559 19.504H11.44v1.75h9.118v-1.75Z\\"></path></svg>
+                </div>
+                <div class=\\"c-categorisedIconList-icon\\" aria-hidden=\\"true\\">
+                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 16 16\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--faceNeutral\\"><path d=\\"M8 1.219A6.781 6.781 0 1 0 14.781 8 6.79 6.79 0 0 0 8 1.219Zm0 12.25A5.469 5.469 0 1 1 8 2.53a5.469 5.469 0 0 1 0 10.938Z\\"></path><path d=\\"M5 6.75a.75.75 0 1 1 1.5 0 .75.75 0 0 1-1.5 0Z\\"></path><path d=\\"M9.5 6.75a.75.75 0 1 1 1.5 0 .75.75 0 0 1-1.5 0Z\\"></path><path d=\\"M11 9.627H5v1.312h6V9.627Z\\"></path></svg>
+                </div>
+            </div>
+            <span class=\\"c-categorisedIconList-iconCard-separator\\"></span>
+            <p>Face Neutral</p>
+        </li><li class=\\"c-categorisedIconList-iconCard\\">
+            <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
+                <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
+                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--faceNeutralFilledLarge\\"><path d=\\"M24.662 7.338A12.25 12.25 0 1 0 7.338 24.662 12.25 12.25 0 0 0 24.662 7.338ZM10.815 15.9a1.312 1.312 0 1 1-1.005-2.423 1.312 1.312 0 0 1 1.005 2.423Zm9.744 5.354H11.44v-1.75h9.118v1.75Zm2.22-5.837a1.314 1.314 0 1 1-2.184-1.46 1.314 1.314 0 0 1 2.184 1.46Z\\"></path></svg>
+                </div>
+                <div class=\\"c-categorisedIconList-icon\\" aria-hidden=\\"true\\">
+                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 16 16\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--faceNeutralFilled\\"><path d=\\"M12.793 3.208A6.79 6.79 0 0 0 8 1.218 6.782 6.782 0 1 0 14.78 8a6.789 6.789 0 0 0-1.989-4.793ZM5.75 6a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5ZM11 10.94H5V9.626h6v1.312Zm-.75-3.44a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z\\"></path></svg>
+                </div>
+            </div>
+            <span class=\\"c-categorisedIconList-iconCard-separator\\"></span>
+            <p>Face Neutral Filled</p>
         </li><li class=\\"c-categorisedIconList-iconCard\\">
             <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
                 <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
@@ -4206,17 +4250,6 @@ exports[`categorisedIconList.js > should return the expected HTML 1`] = `
         </li><li class=\\"c-categorisedIconList-iconCard\\">
             <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
                 <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
-                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--userCircleLarge\\"><path d=\\"M16 16.875a4.375 4.375 0 1 0 0-8.75 4.375 4.375 0 0 0 0 8.75Zm0-7a2.625 2.625 0 1 1 0 5.25 2.625 2.625 0 0 1 0-5.25Zm0-6.125a12.25 12.25 0 1 0 0 24.5 12.25 12.25 0 0 0 0-24.5Zm0 1.75A10.5 10.5 0 0 1 26.5 16a10.404 10.404 0 0 1-2.004 6.125 6.878 6.878 0 0 0-6.055-3.5H13.56a6.92 6.92 0 0 0-6.064 3.5A10.5 10.5 0 0 1 16 5.5ZM8.755 23.586a5.128 5.128 0 0 1 4.804-3.211h4.882a5.119 5.119 0 0 1 4.804 3.211 10.5 10.5 0 0 1-14.49 0Z\\"></path></svg>
-                </div>
-                <div class=\\"c-categorisedIconList-icon\\" aria-hidden=\\"true\\">
-                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 16 16\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--userCircle\\"><path d=\\"M8 5.13a1.12 1.12 0 1 1 0 2.24 1.12 1.12 0 0 1 0-2.24Zm0-1.313a2.433 2.433 0 1 0 2.432 2.433A2.441 2.441 0 0 0 8 3.817Z\\"></path><path d=\\"M8 1.438a6.563 6.563 0 0 0-4.944 10.876c.298.322.626.615.98.875a6.537 6.537 0 0 0 7.928 0c.354-.26.682-.553.98-.875A6.562 6.562 0 0 0 8 1.437Zm3.08 10.806a5.25 5.25 0 0 1-6.125 0 7.736 7.736 0 0 1-.516-.42c.153-.172.326-.325.516-.455a2.993 2.993 0 0 1 1.662-.49h2.8a2.993 2.993 0 0 1 1.663.49c.19.13.363.283.516.455a7.722 7.722 0 0 1-.516.42Zm1.339-1.435a3.495 3.495 0 0 0-.377-.341 4.235 4.235 0 0 0-2.625-.876H6.582a4.235 4.235 0 0 0-2.625.875c-.133.105-.259.219-.376.342a5.25 5.25 0 1 1 8.838 0Z\\"></path></svg>
-                </div>
-            </div>
-            <span class=\\"c-categorisedIconList-iconCard-separator\\"></span>
-            <p>User Circle</p>
-        </li><li class=\\"c-categorisedIconList-iconCard\\">
-            <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
-                <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
                     <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--userCancelledLarge\\"><path d=\\"M12.505 14.688a4.812 4.812 0 1 0-4.813-4.813 4.821 4.821 0 0 0 4.813 4.813Zm0-7.876a3.062 3.062 0 1 1 0 6.125 3.062 3.062 0 0 1 0-6.124Zm7.358 11.612-1.39 1.076a4.734 4.734 0 0 0-3.79-1.75h-4.375a4.497 4.497 0 0 0-4.287 2.625l-.674 1.75H3.492l.875-2.371A6.247 6.247 0 0 1 10.326 16H14.7a6.536 6.536 0 0 1 5.162 2.424Z\\"></path><path d=\\"m27.23 20.988-1.242-1.234-2.44 2.441-2.442-2.441-1.243 1.233 2.442 2.45-2.442 2.442 1.243 1.233 2.441-2.44 2.441 2.44 1.243-1.233-2.45-2.442 2.45-2.45Z\\"></path></svg>
                 </div>
                 <div class=\\"c-categorisedIconList-icon\\" aria-hidden=\\"true\\">
@@ -4225,6 +4258,17 @@ exports[`categorisedIconList.js > should return the expected HTML 1`] = `
             </div>
             <span class=\\"c-categorisedIconList-iconCard-separator\\"></span>
             <p>User Cancelled</p>
+        </li><li class=\\"c-categorisedIconList-iconCard\\">
+            <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
+                <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
+                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--userCircleLarge\\"><path d=\\"M16 16.875a4.375 4.375 0 1 0 0-8.75 4.375 4.375 0 0 0 0 8.75Zm0-7a2.625 2.625 0 1 1 0 5.25 2.625 2.625 0 0 1 0-5.25Zm0-6.125a12.25 12.25 0 1 0 0 24.5 12.25 12.25 0 0 0 0-24.5Zm0 1.75A10.5 10.5 0 0 1 26.5 16a10.404 10.404 0 0 1-2.004 6.125 6.878 6.878 0 0 0-6.055-3.5H13.56a6.92 6.92 0 0 0-6.064 3.5A10.5 10.5 0 0 1 16 5.5ZM8.755 23.586a5.128 5.128 0 0 1 4.804-3.211h4.882a5.119 5.119 0 0 1 4.804 3.211 10.5 10.5 0 0 1-14.49 0Z\\"></path></svg>
+                </div>
+                <div class=\\"c-categorisedIconList-icon\\" aria-hidden=\\"true\\">
+                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 16 16\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--userCircle\\"><path d=\\"M8 5.13a1.12 1.12 0 1 1 0 2.24 1.12 1.12 0 0 1 0-2.24Zm0-1.313a2.433 2.433 0 1 0 2.432 2.433A2.441 2.441 0 0 0 8 3.817Z\\"></path><path d=\\"M8 1.438a6.563 6.563 0 0 0-4.944 10.876c.298.322.626.615.98.875a6.537 6.537 0 0 0 7.928 0c.354-.26.682-.553.98-.875A6.562 6.562 0 0 0 8 1.437Zm3.08 10.806a5.25 5.25 0 0 1-6.125 0 7.736 7.736 0 0 1-.516-.42c.153-.172.326-.325.516-.455a2.993 2.993 0 0 1 1.662-.49h2.8a2.993 2.993 0 0 1 1.663.49c.19.13.363.283.516.455a7.722 7.722 0 0 1-.516.42Zm1.339-1.435a3.495 3.495 0 0 0-.377-.341 4.235 4.235 0 0 0-2.625-.876H6.582a4.235 4.235 0 0 0-2.625.875c-.133.105-.259.219-.376.342a5.25 5.25 0 1 1 8.838 0Z\\"></path></svg>
+                </div>
+            </div>
+            <span class=\\"c-categorisedIconList-iconCard-separator\\"></span>
+            <p>User Circle</p>
         </li><li class=\\"c-categorisedIconList-iconCard\\">
             <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
                 <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
@@ -4335,6 +4379,17 @@ exports[`categorisedIconList.js > should return the expected HTML 1`] = `
             </div>
             <span class=\\"c-categorisedIconList-iconCard-separator\\"></span>
             <p>User Shield</p>
+        </li><li class=\\"c-categorisedIconList-iconCard\\">
+            <div class=\\"c-categorisedIconList-iconCard-iconContainer\\">
+                <div class=\\"c-categorisedIconList-icon-large\\" aria-hidden=\\"true\\">
+                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 32 32\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--usersLarge\\"><path d=\\"M10.461 8.563a3.938 3.938 0 1 1 0 7.875 3.938 3.938 0 0 1 0-7.875Zm0 1.75a2.187 2.187 0 1 0 2.135 2.187 2.17 2.17 0 0 0-2.135-2.187Zm11.113-1.75A3.937 3.937 0 1 1 17.75 12.5a3.903 3.903 0 0 1 3.824-3.937Zm0 1.75a2.187 2.187 0 1 0 2.135 2.187 2.161 2.161 0 0 0-2.135-2.187ZM27.9 20.375a5.25 5.25 0 0 0-4.97-3.036h-3.57A5.767 5.767 0 0 0 16 18.363a5.67 5.67 0 0 0-3.351-1.05H9.105a5.25 5.25 0 0 0-4.979 3.062l-1.251 3.063h1.864l.971-2.415a3.605 3.605 0 0 1 3.395-1.96h3.561a4.21 4.21 0 0 1 2.109.56 4.14 4.14 0 0 0-.385.726l-1.242 3.089h1.846L16 21.023a3.614 3.614 0 0 1 3.395-1.96h3.57a3.614 3.614 0 0 1 3.395 1.96l.971 2.415h1.794L27.9 20.375Z\\"></path></svg>
+                </div>
+                <div class=\\"c-categorisedIconList-icon\\" aria-hidden=\\"true\\">
+                    <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#000\\" viewBox=\\"0 0 16 16\\" height=\\"50\\" width=\\"50\\" class=\\"c-pieIcon c-pieIcon--users\\"><path d=\\"m1.21 11.824.49-1.391a2.87 2.87 0 0 1 2.021-1.75 2.704 2.704 0 0 1-.481-.368 2.406 2.406 0 1 1 3.395 0 1.898 1.898 0 0 1-.324.271 2.905 2.905 0 0 1 1.689.5 2.94 2.94 0 0 1 1.697-.535 2.415 2.415 0 0 1-1.04-1.977 2.406 2.406 0 1 1 4.103 1.75c-.146.14-.308.263-.481.367a2.853 2.853 0 0 1 2.021 1.75l.49 1.392h-1.391l-.341-.954A1.584 1.584 0 0 0 11.5 9.855H9.75a1.583 1.583 0 0 0-1.523 1.015l-.34.954H6.46l.49-1.391c0-.123.105-.237.157-.35a1.653 1.653 0 0 0-.857-.228H4.5a1.583 1.583 0 0 0-1.523 1.015l-.34.954H1.21Zm8.75-5.25a1.094 1.094 0 1 0 .324-.77 1.084 1.084 0 0 0-.315.77H9.96Zm-6.125 0a1.094 1.094 0 1 0 .324-.77 1.085 1.085 0 0 0-.315.77h-.009Z\\"></path></svg>
+                </div>
+            </div>
+            <span class=\\"c-categorisedIconList-iconCard-separator\\"></span>
+            <p>Users</p>
         </li>
                     </ul>
                 </li>
