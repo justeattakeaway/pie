@@ -54,7 +54,12 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `icon`    | Used to pass in an icon to the link component. The icon placement can be controlled via the `iconPlacement` prop and we recommend using `pie-icons-webc` for defining this icon. **Please note the icon size is hardcoded and cannot be overridden.** |
 
 ### CSS Variables
-This component does not expose any CSS variables for style overrides.
+
+| Name                     | Description                                 |
+|--------------------------|---------------------------------------------|  
+| `--link-font-weight`      | Controls the font weight of the link text.   |
+| `--link-text-color`       | Controls the color of the link text.        |
+| `--link-text-decoration`  | Controls the text decoration of the link.   |
 
 ### Events
 This component does not emit any custom events. In order to add event listening to this component, you can treat it like a native HTML element in your application.
