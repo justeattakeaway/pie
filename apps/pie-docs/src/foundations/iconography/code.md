@@ -325,7 +325,8 @@ Example:
 
 ## iOS library and naming conventions
 
-iOS packs all icons into the JustUI core library. Our iOS library will use the same name of the icon, but transforming it from kebab-case to CamelCase (removing the hyphens):
+iOS packs all icons into the JustUI core library. Our iOS library will use the same name of the icon, but transforming it from kebab-case to CamelCase (removing the hyphens). 
+
 For example, the `gift-filled-large` icon would be `giftFilledLarge`.
 
 ---
@@ -346,7 +347,7 @@ Access to all PIE Icons:
 implementation("com.jet.pie2:icons")
 ```
 
-Access to all PIE Illustrations:
+Access to all PIE illustrations:
 ```
 implementation("com.jet.pie2:illustrations")
 ```
@@ -358,14 +359,15 @@ implementation("com.jet.pie2:logos")
 
 {% notification {
   type: "information",
-  message: "We strongly recommend using the PIE BOM to handle your dependencies. Of course, you're free to override any version of the above libraries, but that is at your own risk. To ensure you’re on the latest version, please head to the [Android PIE repository](https://github.je-labs.com/Android/PIE)."
+  message: "We strongly recommend using the PIE BOM to handle your dependencies. Of course, you are free to override any version of the above libraries, but that is at your own risk. To ensure you are on the latest version, please head to the [Android PIE repository](https://github.je-labs.com/Android/PIE)."
 } %}
 
 ### Get the information directly from Figma
 
 Naming convention for icons: ```ic_pie_{category}_{icon_name}```. 
 
-For example, the icon below would be ```ic_pie_benefits_gift_filled_large``` and available as ```@drawableic_pie_benefits_gift_filled_large``` or ```R.drawable ic_pie_benefits_gift_filled_large```.
+For example, the icon below would be ```ic_pie_benefits_gift_filled_large``` and available as  
+```@drawableic_pie_benefits_gift_filled_large``` or ```R.drawable ic_pie_benefits_gift_filled_large```.
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/iconography/icons-example-code-section.png",
@@ -375,11 +377,11 @@ width:"350px"
 
 ### Tint the icons with the correct colour token
 
-Icons come with a fuchsia tint by default, so it’s your responsibility to make sure they look OK in both Light and Dark themes. To do so, get the colour token from Figma and apply it directly to the icon.
+Icons come with a fuchsia tint by default, so it is your responsibility to make sure they look correct in both Light and Dark themes. To do so, get the colour token from Figma and apply it directly to the icon.
 
 {% notification {
   type: "information",
-  message: "You can use ```contentDefault``` as your default design token colour for tinting your icon if you’re not sure. This will make sure that the icon looks neat in both Light and Dark modes. Please review with your designer/Figma files that you’re using the right token for the icon."
+  message: "You can use ```contentDefault``` as your default design token colour for tinting your icon if you are unsure. This will make sure that the icon looks neat in both Light and Dark modes. Please check with your designer/Figma files that you are using the right token for the icon."
 } %}
 
 Example for XML Views:
