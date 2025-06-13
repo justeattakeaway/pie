@@ -1,0 +1,157 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Contribution/Testing/Visual tests" />
+
+# Component visual tests
+
+We use **Playwright** in combination with **Percy** to visually test our components in a real browser. Visual tests help us catch unintended UI changes by comparing screenshots against known baselines.
+
+Unlike browser tests that validate behavior, **visual tests validate appearance**.
+
+## Table of Contents
+
+- [Dos and Don’ts](#dos-and-donts)
+- [When and why to write visual tests](#when-and-why-to-write-visual-tests)
+- [Test stories vs documentation stories](#test-stories-vs-documentation-stories)
+- [Running Storybook with testing stories](#running-storybook-with-testing-stories)
+- [Creating or updating testing stories](#creating-or-updating-testing-stories)
+- [Writing visual tests](#writing-visual-tests)
+- [Running visual tests](#running-visual-tests)
+
+
+## Dos and Don’ts
+
+| ✅ Do                                                                 | ❌ Don't                                                                 |
+|----------------------------------------------------------------------|-------------------------------------------------------------------------|
+| Use Playwright with Percy for real-browser visual testing            | Use Percy on dynamic content or animations                             |
+| Use minimal, isolated stories with static data                       | Rely on development stories for visual testing                         |
+| Wait for key elements to render before snapshotting                 | Capture snapshots immediately without checking readiness               |
+| Create page objects for all test stories                            | Hardcode selectors or Storybook URLs directly in tests                 |
+| Use consistent snapshot naming (`Component - State - Dir`)          | Use vague snapshot names like “Default”                                |
+| Test across props, directions, and layout variations when relevant   | Duplicate similar tests with no added value                            |
+| Run visual tests on feature branches only                           | Run visual tests on `main` (this will overwrite Percy baselines)       |
+| Open Playwright UI for debugging when needed                        | Commit failing or flaky snapshots without investigation                |
+
+## When and why to write visual tests
+
+Use visual tests when:
+
+- A component has significant or conditional UI complexity
+- Appearance depends on props, themes, slots, or states (e.g., errors, loading, disabled)
+- Layout or spacing may be accidentally altered
+
+Don't use visual tests for:
+
+- Internal logic, events, or state management (use browser tests instead)
+- Anything not visually observable in the browser
+
+## Test stories vs documentation stories
+
+We separate documentation stories and testing stories:
+
+| Purpose             | File location                                                  |
+|---------------------|----------------------------------------------------------------|
+| For documentation     | `apps/pie-storybook/stories/pie-component.stories.ts`         |
+| For testing         | `apps/pie-storybook/stories/testing/pie-component.test.stories.ts` |
+
+Use `.test.stories.ts` files to add or modify stories used specifically for visual and browser testing.
+
+## Running Storybook with testing stories
+
+To start Storybook with the testing stories enabled:
+
+```
+yarn turbo run dev:testing --filter=@justeattakeaway/pie-storybook
+```
+
+## Creating or updating testing stories
+
+If a visual test requires a new story:
+
+1. Add the story to the appropriate `*.test.stories.ts` file.
+2. Make the story as minimal and focused as possible.
+3. Use fixed data to avoid flaky screenshots.
+
+## Writing visual tests
+
+In your test file:
+
+- Import and use the relevant page object
+- Load the test story
+- Wait for key elements to render (e.g. `page.waitForSelector`)
+- Capture a Percy snapshot using `percySnapshot`
+
+### Page objects for visual tests
+
+Visual tests rely on page objects to load specific Storybook stories.
+
+To create a new page object:
+
+1. Add a new file in `packages/components/**/test/helpers/page-object/**.page.ts`
+2. In the constructor, pass the story name from the Storybook URL (e.g., `modal--custom-footer`)
+3. Add any selectors or helpers methods the test will use
+
+Example of page object usage:
+
+```ts
+import { ModalCustomFooterPage } from 'test/helpers/page-object/pie-modal-custom-footer.page.ts'; // 👈 Newly created page object
+
+test.describe('when the `footer` slot is assigned', () => {
+    test('should have the content assigned to the slot', async ({ page }) => {
+        // Arrange
+        const modalCustomFooterPage = new ModalCustomFooterPage(page); // 👈 Use the page object here
+
+        await modalCustomFooterPage.load();
+
+        // Act
+        const slotLocator = modalCustomFooterPage.footerSlotLocator;
+
+        // Assert
+        // ... perform the tests
+    });
+});
+```
+
+### Common patterns
+
+- **Loop through variations** such as `status`, `size`, or `direction` to avoid test duplication
+- **Test both LTR and RTL** by passing `writingDirection` in the `load` method (defaults to LTR if omitted):
+
+    ```js
+    await pageObject.load({}, { writingDirection: 'rtl' })
+    ```
+- **Use consistent and descriptive snapshot names**:
+
+    Format: `Component Name - State - Direction`
+    Example: `PIE Text Input - Error - rtl`
+
+### Snapshot naming conventions
+
+| Pattern                                     | Example                                   |
+|---------------------------------------------|-------------------------------------------|
+| `Component - Prop Variation`                | `PIE Button - isLoading`                  |
+| `Component - State - Direction`             | `PIE Modal - Custom Footer - rtl`         |
+| `Component - Multiple Variations Combined`  | `PIE Input - Status: Error - Size: Small` |
+
+### Best practice: snapshot layout
+
+Always define a fixed layout using Percy's `widths` option to ensure consistent snapshots across environments:
+
+```js
+await percySnapshot(page, 'PIE Input - Error - rtl', { widths: [1280] })
+```
+
+Avoid vague or ambiguous snapshot names like "default" or "test 1". They make review harder and increase maintenance cost.
+
+## Running visual tests
+
+Before running visual tests:
+
+- Make sure **Storybook is running** with testing stories (`dev:testing`)
+- Do **not** run visual tests on `main` (Percy baselines can be overwritten)
+
+To run visual tests:
+
+```
+yarn test:visual --filter=@justeattakeaway/{pie-component} -- --ui
+```
