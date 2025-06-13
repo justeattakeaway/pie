@@ -44,17 +44,6 @@
         ".output/**"
       ]
     },
-    "generate:examples": {
-      "cache": true,
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "dist/**",
-        ".nuxt/**",
-        ".output/**"
-      ]
-    },
     "generate:component-statuses": {},
     "watch": {
       "cache": false,
