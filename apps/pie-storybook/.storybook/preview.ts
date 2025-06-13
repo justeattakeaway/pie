@@ -95,7 +95,8 @@ export default {
                         [
                             'Overview',
                             'Unit tests',
-                            'Browser tests'
+                            'Browser tests',
+                            'Visual tests'
                         ]
                     ],
                 ],
