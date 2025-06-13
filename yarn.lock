@@ -3872,7 +3872,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/generator-pie-component@0.30.4, @justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component":
+"@justeattakeaway/generator-pie-component@0.30.5, @justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component"
   dependencies:
@@ -21617,7 +21617,7 @@ __metadata:
     "@commitlint/config-conventional": 17.4.4
     "@justeat/pie-design-tokens": 6.10.0
     "@justeattakeaway/browserslist-config-pie": 0.2.1
-    "@justeattakeaway/generator-pie-component": 0.30.4
+    "@justeattakeaway/generator-pie-component": 0.30.5
     "@justeattakeaway/pie-icons": 5.13.0
     "@justeattakeaway/pie-webc-testing": 0.13.5
     "@justeattakeaway/pie-wrapper-react": 0.14.3
