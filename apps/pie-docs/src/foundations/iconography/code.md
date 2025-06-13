@@ -369,7 +369,7 @@ For example, the icon below would be ```ic_pie_benefits_gift_filled_large``` and
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/iconography/icons-example-code-section.png",
-alt: "Gift icons with example of a naming convention for Android",
+alt: "An example of gift icons showcasing the naming convention for Android.",
 width:"350px"
 } %}
 
