@@ -37,11 +37,7 @@
         "^build"
       ],
       "outputs": [
-        "build/**",
-        "dist/**",
-        ".next/**",
-        ".nuxt/**",
-        ".output/**"
+        "dist/**"
       ]
     },
     "generate:component-statuses": {},
