@@ -1,5 +1,32 @@
 # Changelog
 
+## 1.39.1
+
+### Patch Changes
+
+- [Added] - Unit testing docs and testing overview page ([#2407](https://github.com/justeattakeaway/pie/pull/2407)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`2449d26`](https://github.com/justeattakeaway/pie/commit/2449d26e61628c9cff5f86c53c8a65d989623638), [`608bd67`](https://github.com/justeattakeaway/pie/commit/608bd672f9b85d3f3dc4ff5b332a2bd0ba341e4d), [`2449d26`](https://github.com/justeattakeaway/pie/commit/2449d26e61628c9cff5f86c53c8a65d989623638), [`2e029b9`](https://github.com/justeattakeaway/pie/commit/2e029b914df0989bea6e0bbceb08c0271024f85d), [`0bdcf37`](https://github.com/justeattakeaway/pie/commit/0bdcf37d2f1327bf309ffc002c48a8bbe8295769)]:
+  - @justeattakeaway/pie-link@1.2.5
+  - @justeattakeaway/pie-divider@1.4.4
+  - @justeattakeaway/pie-breadcrumb@0.6.1
+  - @justeattakeaway/pie-icons-webc@1.12.0
+  - @justeattakeaway/pie-cookie-banner@1.6.7
+  - @justeattakeaway/pie-assistive-text@0.10.6
+  - @justeattakeaway/pie-chip@0.12.6
+  - @justeattakeaway/pie-icon-button@2.0.1
+  - @justeattakeaway/pie-modal@1.7.7
+  - @justeattakeaway/pie-notification@0.14.6
+  - @justeattakeaway/pie-switch@2.0.1
+  - @justeattakeaway/pie-text-input@0.28.6
+  - @justeattakeaway/pie-toast@0.9.6
+  - @justeattakeaway/pie-checkbox@0.16.6
+  - @justeattakeaway/pie-checkbox-group@0.9.6
+  - @justeattakeaway/pie-radio-group@0.9.6
+  - @justeattakeaway/pie-select@0.6.6
+  - @justeattakeaway/pie-textarea@0.16.6
+  - @justeattakeaway/pie-toast-provider@0.5.6
+
 ## 1.39.0
 
 ### Minor Changes
