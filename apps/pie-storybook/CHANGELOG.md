@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.39.2
+
+### Patch Changes
+
+- [Added] - Visual testing documentation ([#2420](https://github.com/justeattakeaway/pie/pull/2420)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - browser tests documentation ([#2415](https://github.com/justeattakeaway/pie/pull/2415)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.39.1
 
 ### Patch Changes
