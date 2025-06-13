@@ -15,9 +15,7 @@ const categoryDropdown = () => {
     ];
     const jsonOptions = JSON.stringify(formattedOptions).replace(/"/g, '&quot;');
 
-    return `
-    <pie-select id="categoryFilter" options="${jsonOptions}" class="c-categorisedIconList-select"></pie-select>
-    `;
+    return `<pie-select id="category-filter" options="${jsonOptions}" class="c-categorisedIconList-select"></pie-select>`;
 };
 
 /**
@@ -29,18 +27,20 @@ const categoryDropdown = () => {
  * @returns {string}
  */
 const categorisedIconList = () => headingAnchor(`
-        <div>
+        <div class="c-categorisedIconList-filters-container">
+            <pie-text-input name="searchBar" id="search-bar" class="c-categorisedIconList-search" placeholder="Search icons"></pie-text-input>
             ${categoryDropdown()}
-            <ul class="c-categorisedIconList" id="categorisedIconListContainer">
-                ${generateCategorisedIconList(iconData.categories, pieIcons)}
-            </ul>
-            <script>
-                window.iconData = ${JSON.stringify(iconData)};
-                window.pieIcons = ${JSON.stringify(pieIcons)};
-            </script>
-            <script src="/assets/js/categorised-icon-list-helpers.js"></script>
-            <script src="/assets/js/categorised-icon-list-filter.js"></script>
+            <pie-notification variant='info' class='c-categorisedIconList-notification'> Different platforms have different naming conventions when using the icons in code, for more details please visit the <a href="https://pie.design/foundations/iconography/code/"> Code </a> page. </pie-notification>
         </div>
+        <ul class="c-categorisedIconList" id="categorised-icon-list-container">
+            ${generateCategorisedIconList(iconData.categories, pieIcons)}
+        </ul>
+        <script>
+            window.iconData = ${JSON.stringify(iconData)};
+            window.pieIcons = ${JSON.stringify(pieIcons)};
+        </script>
+        <script src="/assets/js/categorised-icon-list-helpers.js"></script>
+        <script src="/assets/js/categorised-icon-list-filter.js"></script>
     `);
 
 module.exports = categorisedIconList;

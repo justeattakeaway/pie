@@ -1801,12 +1801,28 @@
                     "displayName": "Baby Kid"
                 },
                 {
+                    "name": "face-excited",
+                    "displayName": "Face Excited"
+                },
+                {
+                    "name": "face-excited-filled",
+                    "displayName": "Face Excited Filled"
+                },
+                {
                     "name": "face-happy",
                     "displayName": "Face Happy"
                 },
                 {
-                    "name": "users",
-                    "displayName": "Users"
+                    "name": "face-happy-filled",
+                    "displayName": "Face Happy Filled"
+                },
+                {
+                    "name": "face-neutral",
+                    "displayName": "Face Neutral"
+                },
+                {
+                    "name": "face-neutral-filled",
+                    "displayName": "Face Neutral Filled"
                 },
                 {
                     "name": "user",
@@ -1817,12 +1833,12 @@
                     "displayName": "User Add"
                 },
                 {
-                    "name": "user-circle",
-                    "displayName": "User Circle"
-                },
-                {
                     "name": "user-cancelled",
                     "displayName": "User Cancelled"
+                },
+                {
+                    "name": "user-circle",
+                    "displayName": "User Circle"
                 },
                 {
                     "name": "user-circle-filled",
@@ -1863,6 +1879,10 @@
                 {
                     "name": "user-shield",
                     "displayName": "User Shield"
+                },
+                {
+                    "name": "users",
+                    "displayName": "Users"
                 }
             ]
         },
