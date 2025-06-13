@@ -48,8 +48,6 @@ const notificationSettings = {
 const baseNotification = (config) => {
     const context = config.context ?? 'contentPage';
     const contextClass = `c-${context}-notification`;
-    console.log(notificationSettings[config.type]);
-    console.log(config);
     const iconFill = getNotificationColour(notificationSettings[config.type].iconFill);
     const svg = pieIconsSvg({
         name: config.iconName ?? notificationSettings[config.type].iconName,
