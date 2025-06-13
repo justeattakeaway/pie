@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-link
 
+## 1.2.5
+
+### Patch Changes
+
+- [Changed] - add `@justeattakeaway/pie-icons-webc` to be a main dependency instead of dev ([#2417](https://github.com/justeattakeaway/pie/pull/2417)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - current breadcrumb item shouldn't have underline styles with hover ([#2406](https://github.com/justeattakeaway/pie/pull/2406)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`0bdcf37`](https://github.com/justeattakeaway/pie/commit/0bdcf37d2f1327bf309ffc002c48a8bbe8295769)]:
+  - @justeattakeaway/pie-icons-webc@1.12.0
+
 ## 1.2.4
 
 ### Patch Changes
