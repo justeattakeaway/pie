@@ -1,5 +1,21 @@
 # Changelog
 
+## 4.37.0
+
+### Minor Changes
+
+- [Added] - `notification` and `pie-text-input` web component that filters the list of icons based on search term ([#2402](https://github.com/justeattakeaway/pie/pull/2402)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- [Changed] - update the layout alignment for tooltip and breadcrumb example. ([#2406](https://github.com/justeattakeaway/pie/pull/2406)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - updated snapshots after icons update ([#2416](https://github.com/justeattakeaway/pie/pull/2416)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`0bdcf37`](https://github.com/justeattakeaway/pie/commit/0bdcf37d2f1327bf309ffc002c48a8bbe8295769)]:
+  - @justeattakeaway/pie-icons@5.13.0
+  - @justeattakeaway/pie-webc@0.6.43
+
 ## 4.36.0
 
 ### Minor Changes
