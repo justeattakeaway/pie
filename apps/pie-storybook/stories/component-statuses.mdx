@@ -21,14 +21,19 @@ A component in <pie-tag variant="brand-05">beta</pie-tag> or <pie-tag variant="s
         </tr>
     </thead>
     <tbody>
-        {Object.entries(componentStatusesJson).map(([name, status]) => {
+        {Object.entries(componentStatusesJson)
+        .sort(([aName, aStatus], [bName, bStatus]) => {
+            const order = ['stable', 'beta', 'alpha', 'deprecated', 'removed'];
+            return order.indexOf(aStatus) - order.indexOf(bStatus);
+        })
+        .map(([name, status]) => {
             const tagVariant = tagVariantToStatusMap[status];
             return (
                 <tr key={name}>
-                <td><code>{name}</code></td>
-                <td>
-                    <pie-tag variant={tagVariant}>{status}</pie-tag>
-                </td>
+                    <td><code>{name}</code></td>
+                    <td>
+                        <pie-tag variant={tagVariant}>{status}</pie-tag>
+                    </td>
                 </tr>
             );
         })}
