@@ -21,8 +21,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - node-version: 16
-            example-app: wc-nuxt2
           - node-version: 20
             example-app: wc-react17
           - node-version: 20
@@ -40,13 +38,6 @@ jobs:
     strategy:
       matrix:
         include:
-          # Using the generate:examples script for static hosting. SSR requires more investigation
-          - node-version: 16
-            amplify-app-id: d3puta7o12ynlf
-            build-script: generate:examples
-            dist-folder: ./apps/examples/wc-nuxt2/dist
-            example-app: wc-nuxt2
-
           - node-version: 20
             amplify-app-id: d2a3kuvjs3esad
             build-script: build:examples
