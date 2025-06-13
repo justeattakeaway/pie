@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-divider
 
+## 1.4.4
+
+### Patch Changes
+
+- [Changed] - set @justeattakeaway/pie-wrapper-react as dev dependency ([#2411](https://github.com/justeattakeaway/pie/pull/2411)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.4.3
 
 ### Patch Changes
