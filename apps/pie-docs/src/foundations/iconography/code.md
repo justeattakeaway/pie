@@ -337,7 +337,7 @@ For example, the `gift-filled-large` icon would be `giftFilledLarge`.
 In order to get all the PIE Icons in your app, you’ll need to include the com.jet.pie2:icons library in your gradle module. 
 Library versions are controlled via a Bill of Materials (BOM), that will ensure all PIE libraries use a compatible version.
 
-This will handle all versions for you, BOM version: 2025.01.00 or higher:
+This will handle all versions for you, BOM version: `2025.01.00` or higher:
 ```
 implementation(platform("com.jet.pie2:bom:$latestBOMversion"))
 ```
