@@ -1,0 +1,174 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Introduction/Design tokens cookbook" />
+
+# 🧑‍🍳 Design Tokens Cookbook
+
+Below are common recipes for using our design tokens. For web engineers, design tokens are simply **CSS variables** that expose raw values - such as **colours, spacing, and motion**. These form the foundation of the PIE visual language.
+
+For a more in-depth introduction to design tokens, please visit our [design documentation website](https://pie.design/foundations/design-tokens/).
+
+All of our design tokens can be added to your project by following our [CSS setup guide](?path=/docs/introduction-css-setup--docs).
+
+> ⚠️ Token names may evolve over time as the design system is updated. While we strive to keep this guide up to date, some variable names may differ in future versions.
+>
+> These examples are purely for illustrating how to use our design token variables. They are not intended as recommendations for how to structure your CSS or name your classes.
+
+## Table of Contents
+
+- [Colour](#colour)
+    - [Use brand colour as button background](#use-brand-colour-as-button-background)
+    - [Using HSL](#using-hsl)
+- [Spacing](#spacing)
+    - [Stack items with spacing token](#stack-items-with-spacing-token)
+    - [Add padding using spacing alias](#add-padding-using-spacing-alias)
+- [Typography](#typography)
+    - [Body text](#body-text)
+    - [Heading example](#heading-example)
+    - [Line height](#line-height)
+- [Radius](#radius)
+    - [Rounded card](#rounded-card)
+- [Motion](#motion)
+    - [Fade in-out transition](#fade-in-out-transition)
+- [Elevation](#elevation)
+    - [Card with elevation](#card-with-elevation)
+
+## Colour
+This example uses a semantic colour token (`--dt-color-interactive-brand`) to define the background, and a complementary content token (`--dt-color-content-interactive-primary`) for the text. These tokens abstract away raw hex or HSL values in favor of role-based names, which makes them more adaptable to different themes (like dark mode) and helps maintain accessibility and brand consistency.
+
+### Use brand colour as button background
+```css
+.box-brand {
+    background-color: var(--dt-color-interactive-brand);
+    color: var(--dt-color-content-interactive-primary);
+}
+```
+
+### Using HSL
+
+For greater flexibility, we provide `-h`, `-s`, and `-l` variants of all our colour tokens. These expose the hue, saturation, and lightness components separately, allowing you to compose colours using the native CSS `hsl()` function.
+
+You can combine these with our [state tokens](https://pie.design/foundations/colour/tokens/alias/light/#States), such as `--dt-color-hover-01`, which typically represents a percentage to dynamically adjust things like lightness for hover or focus states.
+
+> You will need to apply the state token to a `calc()` css function with `-1` to darken the colour.
+
+```css
+.hsl-example-darken {
+  background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
+}
+```
+
+```css
+.hsl-example-lighten {
+    background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + var(--dt-color-hover-01)));
+}
+```
+
+## Spacing
+
+### Stack items with spacing token
+This example uses a spacing token (`--dt-spacing-d`) with the CSS gap property to control vertical rhythm between stacked elements. By using tokens for spacing rather than hardcoded values, we ensure consistent layout behavior across all components, and make global spacing updates easier to apply.
+
+```css
+.stack-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dt-spacing-d);
+}
+```
+
+### Add padding using spacing alias
+A spacing token (`--dt-spacing-e`) is applied to padding, providing internal space around content. These tokens act as aliases for specific steps in our spacing scale, allowing for a semantically meaningful way to apply spacing while keeping layout consistent with the design system.
+
+```css
+.padded-box {
+    padding: var(--dt-spacing-e);
+}
+```
+
+## Typography
+
+### Body text
+Font tokens define the typography for body content, including font family, size, weight, and line height. Each token maps to a specific design choice in the type scale, and using them ensures that text remains visually consistent and readable, even as underlying type styles evolve in the system.
+
+```css
+.body-text {
+    font-family: var(--dt-font-body-l-family);
+    font-size: var(--dt-font-body-l-size);
+    font-weight: var(--dt-font-body-l-weight);
+    line-height: calc(var(--dt-font-body-l-line-height) * 1px);
+}
+```
+
+### Heading example
+Typography tokens are again used here, but with heading-specific values - including a `--wide` variant for font size and line height. This demonstrates how token modifiers allow flexibility (e.g. tighter vs wider spacing) without diverging from the core type system.
+
+```css
+.heading-m {
+    font-family: var(--dt-font-heading-m-family);
+    font-size: var(--dt-font-heading-m-size--wide);
+    font-weight: var(--dt-font-heading-m-weight);
+    line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
+}
+```
+
+### Line height
+
+Line height tokens only contain the raw number, not a `px` unit. Therefore they must be multipled by `1px` to create a `px` value CSS will understand.
+
+```css
+.applied-lineheight {
+    line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
+}
+```
+
+## Radius
+
+### Rounded card
+A radius token (`--dt-radius-rounded-c`) controls the roundness of corners, making the visual shape consistent with other rounded elements in the system. The token abstracts the exact pixel value, allowing us to tweak the roundness globally if the design direction changes.
+
+```css
+.card-rounded {
+    border-radius: var(--dt-radius-rounded-c);
+    border: 1px solid var(--dt-color-border-default);
+    padding: var(--dt-spacing-e);
+}
+```
+
+## Motion
+
+### Fade in-out transition
+This example uses motion tokens to control the timing and easing of a keyframe animation. The `--dt-motion-timing-200` token defines the duration of the animation, while `--dt-motion-easing-out` provides a standard easing curve.
+
+By using tokens instead of hardcoded values, we ensure that all animations across the product feel consistent and aligned with the system's motion principles. These tokens abstract away raw timing values, allowing the design team to update motion characteristics centrally - improving coherence and accessibility (e.g. adjusting for reduced motion preferences).
+
+```css
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.animated {
+    animation-name: fadeInOut;
+    animation-duration: var(--dt-motion-timing-200);
+    animation-timing-function: var(--dt-motion-easing-out);
+    animation-iteration-count: infinite;
+}
+```
+
+## Elevation
+
+### Card with elevation
+This uses an elevation token (`--dt-elevation-card`) to apply a standardized shadow. Elevation tokens encapsulate not just a single box-shadow, but a visual effect aligned with the design system's depth model - helping create consistent layering and hierarchy throughout the UI.
+
+```css
+.card-elevated {
+    box-shadow: var(--dt-elevation-card);
+    padding: var(--dt-spacing-e);
+    border-radius: var(--dt-radius-rounded-b);
+}
+```
