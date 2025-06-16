@@ -1,5 +1,43 @@
 # @justeattakeaway/pie-link
 
+## 1.2.5
+
+### Patch Changes
+
+- [Changed] - add `@justeattakeaway/pie-icons-webc` to be a main dependency instead of dev ([#2417](https://github.com/justeattakeaway/pie/pull/2417)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - current breadcrumb item shouldn't have underline styles with hover ([#2406](https://github.com/justeattakeaway/pie/pull/2406)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`0bdcf37`](https://github.com/justeattakeaway/pie/commit/0bdcf37d2f1327bf309ffc002c48a8bbe8295769)]:
+  - @justeattakeaway/pie-icons-webc@1.12.0
+
+## 1.2.4
+
+### Patch Changes
+
+- [Fixed] display props for web components top level element ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] reflective attributes to be target by pie-css selectors ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 1.2.3
+
+### Patch Changes
+
+- [Changed] - Updated component readme to include documentation ([#2385](https://github.com/justeattakeaway/pie/pull/2385)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 1.2.2
+
+### Patch Changes
+
+- Updated dependencies [[`8866307`](https://github.com/justeattakeaway/pie/commit/8866307deed67e698088e731bb87e5e6db45f0e3)]:
+  - @justeattakeaway/pie-webc-core@1.0.0
+
+## 1.2.1
+
+### Patch Changes
+
+- [Added] - Exposed css vars for the font weight and color ([#2368](https://github.com/justeattakeaway/pie/pull/2368)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.2.0
 
 ### Minor Changes

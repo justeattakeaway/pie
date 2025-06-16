@@ -1,5 +1,68 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.12.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2416](https://github.com/justeattakeaway/pie/pull/2416)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## People
+
+  - face-excited-filled-large
+  - face-excited-filled
+  - face-excited-large
+  - face-excited
+  - face-happy-filled-large
+  - face-happy-filled
+  - face-neutral-filled-large
+  - face-neutral-filled
+  - face-neutral-large
+  - face-neutral
+
+## 1.11.1
+
+### Patch Changes
+
+- [Changed] - updated icons readme to include more docs ([#2396](https://github.com/justeattakeaway/pie/pull/2396)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 1.11.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2391](https://github.com/justeattakeaway/pie/pull/2391)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Audiovisual (AV)
+
+  - microphone-filled-large
+  - microphone-filled
+
+  ## Payment
+
+  - afterpay-2
+
+  ## Technology
+
+  - ai-2-filled-large
+  - ai-2-filled
+  - ai-2-large
+  - ai-2
+
+  [Updated] - Icons
+
+  ## Technology
+
+  - ai-filled-large
+  - ai-filled
+  - ai-large
+  - ai
+
+## 1.10.1
+
+### Patch Changes
+
+- Updated dependencies [[`8866307`](https://github.com/justeattakeaway/pie/commit/8866307deed67e698088e731bb87e5e6db45f0e3)]:
+  - @justeattakeaway/pie-webc-core@1.0.0
+
 ## 1.10.0
 
 ### Minor Changes

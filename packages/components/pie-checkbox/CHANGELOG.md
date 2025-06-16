@@ -1,5 +1,52 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.16.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.10.6
+
+## 0.16.5
+
+### Patch Changes
+
+- [Fixed] display props for web components top level element ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855)]:
+  - @justeattakeaway/pie-assistive-text@0.10.5
+
+## 0.16.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.10.4
+
+## 0.16.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.10.3
+
+## 0.16.2
+
+### Patch Changes
+
+- Updated dependencies [[`8866307`](https://github.com/justeattakeaway/pie/commit/8866307deed67e698088e731bb87e5e6db45f0e3)]:
+  - @justeattakeaway/pie-webc-core@1.0.0
+  - @justeattakeaway/pie-assistive-text@0.10.2
+
+## 0.16.1
+
+### Patch Changes
+
+- [Added] - Overview component overview pages to storybok app and updated component readme files ([#2372](https://github.com/justeattakeaway/pie/pull/2372)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`0d3dfc0`](https://github.com/justeattakeaway/pie/commit/0d3dfc0f19ca502433e2f15ad5a6e03cdf77c1a3)]:
+  - @justeattakeaway/pie-assistive-text@0.10.1
+
 ## 0.16.0
 
 ### Minor Changes

@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Contribution/Testing/Overview" />
+
+# Testing
+
+Building a component library using web components presents a number of interesting challenges;
+unlike building a component for Vue or React, we have to ensure our components
+are compatible with multiple frameworks and server-side rendering processes. This means when
+building our components, we must be be writing tests that ensure our components:
+
+1. **Behave** as expected in the browser
+2. Follow the **design** specifications
+3. Render correctly during **SSR** (server-side rendering)
+4. Meet **accessibility guidelines**
+5. Integrate correctly into the **web application frameworks** we support (Vue, React and the meta-frameworks Nuxt and Next.js)
+
+In addition to testing our components, we have other libraries that contain core functionalities that make building our components easier.
+These libraries can contain things like custom Typescript decorators, base classes, mixins and functions. These things must also be tested in isolation
+to ensure they work as expected.
+
+## Kinds of tests
+
+We group our tests into the following categories. Please visit the individual guides linked below for more information.
+
+- [Unit tests](?path=/docs/contribution-testing-unit-tests--docs)
+- [Component browser tests](?path=/docs/contribution-testing-browser-tests--docs)
+- [Visual tests](?path=/docs/contribution-testing-visual-tests--docs)
+- Accessibility tests
+- Aperture integration tests
+

@@ -1,5 +1,37 @@
 # Changelog
 
+## 1.6.4
+
+### Patch Changes
+
+- [Fixed] display props for web components top level element ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] reflective attributes to be target by pie-css selectors ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855)]:
+  - @justeattakeaway/pie-spinner@1.2.3
+
+## 1.6.3
+
+### Patch Changes
+
+- Updated dependencies [[`ab8d2e0`](https://github.com/justeattakeaway/pie/commit/ab8d2e08305131ec6f8dfe9c4a1228dd91703254)]:
+  - @justeattakeaway/pie-spinner@1.2.2
+
+## 1.6.2
+
+### Patch Changes
+
+- Updated dependencies [[`8866307`](https://github.com/justeattakeaway/pie/commit/8866307deed67e698088e731bb87e5e6db45f0e3)]:
+  - @justeattakeaway/pie-webc-core@1.0.0
+  - @justeattakeaway/pie-spinner@1.2.1
+
+## 1.6.1
+
+### Patch Changes
+
+- [Added] - Overview component overview pages to storybok app and updated component readme files ([#2372](https://github.com/justeattakeaway/pie/pull/2372)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.6.0
 
 ### Minor Changes

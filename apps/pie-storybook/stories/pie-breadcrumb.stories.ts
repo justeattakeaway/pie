@@ -3,42 +3,29 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-breadcrumb';
-import { type BreadcrumbProps, defaultProps, variants } from '@justeattakeaway/pie-breadcrumb';
+import '@justeattakeaway/pie-breadcrumb/dist/pie-breadcrumb-item';
+import { type BreadcrumbProps as BreadcrumbPropsBase, defaultProps, variants } from '@justeattakeaway/pie-breadcrumb';
 
-import { createStory } from '../utilities';
+import { type SlottedComponentProps } from '../types';
+import { createStory, sanitizeAndRenderHTML } from '../utilities';
 
+type BreadcrumbProps = SlottedComponentProps<BreadcrumbPropsBase>;
 type BreadcrumbStoryMeta = Meta<BreadcrumbProps>;
+
+const slot = `<pie-breadcrumb-item href="#">Breadcrumb 1</pie-breadcrumb-item>
+        <pie-breadcrumb-item href="#">Breadcrumb 2</pie-breadcrumb-item>
+        <pie-breadcrumb-item href="#">Breadcrumb 3</pie-breadcrumb-item>
+        <pie-breadcrumb-item href="#">Current Page</pie-breadcrumb-item>`;
 
 const defaultArgs: BreadcrumbProps = {
     ...defaultProps,
-    items: [
-        {
-            label: 'Breadcrumb 1',
-            href: '#',
-        },
-        {
-            label: 'Breadcrumb 2',
-            href: '#',
-        },
-        {
-            label: 'Breadcrumb 3',
-            href: '#',
-        },
-        {
-            label: 'Current Page',
-            href: '#',
-        },
-    ],
+    slot,
 };
 
 const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
     title: 'Components/Breadcrumb',
     component: 'pie-breadcrumb',
     argTypes: {
-        items: {
-            description: 'The navigation items to display in the breadcrumb. Should be an array of objects containing `label` and `href` i.e: `{ label: \'homepage\', href: \'/\' }`',
-            control: 'object',
-        },
         variant: {
             description: 'Set the variant of the breadcrumb.',
             control: 'select',
@@ -48,11 +35,22 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
             },
         },
         isCompact: {
-            description: 'When set to true, a compact version of the breadcrumb is displayed, showing only the last item in the `items` property.',
+            description: 'When set to true, only the previous breadcrumb item is shown for quick navigation. If there\'s no item to go back to, the breadcrumb is hidden.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isCompact,
             },
+        },
+        hideCurrentPage: {
+            description: 'When set to true, the current page of the breadcrumb (last item) is hidden',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.hideCurrentPage,
+            },
+        },
+        slot: {
+            description: 'The default slot is used to pass `pie-breadcrumb-item` elements. If only one item is provided, the breadcrumb is hidden.',
+            control: 'text',
         },
     },
     args: defaultArgs,
@@ -66,11 +64,17 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
 
 export default breadcrumbStoryMeta;
 
-const Template = ({ items, variant, isCompact }: BreadcrumbProps) => html`
+const Template = ({
+    variant,
+    isCompact,
+    hideCurrentPage,
+    slot,
+}: BreadcrumbProps) => html`
     <pie-breadcrumb
-        ?isCompact="${isCompact}"
         variant="${ifDefined(variant)}"
-        .items="${items}">
+        ?isCompact="${isCompact}"
+        ?hideCurrentPage="${hideCurrentPage}">
+            ${sanitizeAndRenderHTML(slot, { ALLOWED_TAGS: ['pie-breadcrumb-item'] })}
     </pie-breadcrumb>
 `;
 

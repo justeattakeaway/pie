@@ -1,5 +1,219 @@
 # Changelog
 
+## 1.39.1
+
+### Patch Changes
+
+- [Added] - Unit testing docs and testing overview page ([#2407](https://github.com/justeattakeaway/pie/pull/2407)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`2449d26`](https://github.com/justeattakeaway/pie/commit/2449d26e61628c9cff5f86c53c8a65d989623638), [`608bd67`](https://github.com/justeattakeaway/pie/commit/608bd672f9b85d3f3dc4ff5b332a2bd0ba341e4d), [`2449d26`](https://github.com/justeattakeaway/pie/commit/2449d26e61628c9cff5f86c53c8a65d989623638), [`2e029b9`](https://github.com/justeattakeaway/pie/commit/2e029b914df0989bea6e0bbceb08c0271024f85d), [`0bdcf37`](https://github.com/justeattakeaway/pie/commit/0bdcf37d2f1327bf309ffc002c48a8bbe8295769)]:
+  - @justeattakeaway/pie-link@1.2.5
+  - @justeattakeaway/pie-divider@1.4.4
+  - @justeattakeaway/pie-breadcrumb@0.6.1
+  - @justeattakeaway/pie-icons-webc@1.12.0
+  - @justeattakeaway/pie-cookie-banner@1.6.7
+  - @justeattakeaway/pie-assistive-text@0.10.6
+  - @justeattakeaway/pie-chip@0.12.6
+  - @justeattakeaway/pie-icon-button@2.0.1
+  - @justeattakeaway/pie-modal@1.7.7
+  - @justeattakeaway/pie-notification@0.14.6
+  - @justeattakeaway/pie-switch@2.0.1
+  - @justeattakeaway/pie-text-input@0.28.6
+  - @justeattakeaway/pie-toast@0.9.6
+  - @justeattakeaway/pie-checkbox@0.16.6
+  - @justeattakeaway/pie-checkbox-group@0.9.6
+  - @justeattakeaway/pie-radio-group@0.9.6
+  - @justeattakeaway/pie-select@0.6.6
+  - @justeattakeaway/pie-textarea@0.16.6
+  - @justeattakeaway/pie-toast-provider@0.5.6
+
+## 1.39.0
+
+### Minor Changes
+
+- [Added] - breadcrumb code section ([#2393](https://github.com/justeattakeaway/pie/pull/2393)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855), [`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855), [`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855), [`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855), [`882325f`](https://github.com/justeattakeaway/pie/commit/882325fc0347d65c61137b3f1676d1ea33fe2661), [`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855), [`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855)]:
+  - @justeattakeaway/pie-switch@2.0.0
+  - @justeattakeaway/pie-icon-button@2.0.0
+  - @justeattakeaway/pie-assistive-text@0.10.5
+  - @justeattakeaway/pie-breadcrumb@0.6.0
+  - @justeattakeaway/pie-button@1.6.4
+  - @justeattakeaway/pie-card@0.25.4
+  - @justeattakeaway/pie-checkbox@0.16.5
+  - @justeattakeaway/pie-checkbox-group@0.9.5
+  - @justeattakeaway/pie-chip@0.12.5
+  - @justeattakeaway/pie-divider@1.4.3
+  - @justeattakeaway/pie-form-label@0.16.3
+  - @justeattakeaway/pie-link@1.2.4
+  - @justeattakeaway/pie-list@0.0.3
+  - @justeattakeaway/pie-lottie-player@0.2.3
+  - @justeattakeaway/pie-notification@0.14.5
+  - @justeattakeaway/pie-radio@0.11.3
+  - @justeattakeaway/pie-radio-group@0.9.5
+  - @justeattakeaway/pie-select@0.6.5
+  - @justeattakeaway/pie-spinner@1.2.3
+  - @justeattakeaway/pie-tag@0.17.3
+  - @justeattakeaway/pie-text-input@0.28.5
+  - @justeattakeaway/pie-textarea@0.16.5
+  - @justeattakeaway/pie-thumbnail@0.8.3
+  - @justeattakeaway/pie-cookie-banner@1.6.6
+  - @justeattakeaway/pie-modal@1.7.6
+  - @justeattakeaway/pie-toast@0.9.5
+  - @justeattakeaway/pie-toast-provider@0.5.5
+
+## 1.38.2
+
+### Patch Changes
+
+- [Added] - Additional libraries section and moved icons into it ([#2396](https://github.com/justeattakeaway/pie/pull/2396)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Nuxt 3 guide ([#2397](https://github.com/justeattakeaway/pie/pull/2397)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - docs pages for toast, toast-provider, text-input, textarea and thumbnail ([#2395](https://github.com/justeattakeaway/pie/pull/2395)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`80d36c5`](https://github.com/justeattakeaway/pie/commit/80d36c5877ba3dc5eceda05e7b2c6d72729cdc4f), [`352c6df`](https://github.com/justeattakeaway/pie/commit/352c6df0bfdc98c00aca084791b100950c8ce27a), [`80d36c5`](https://github.com/justeattakeaway/pie/commit/80d36c5877ba3dc5eceda05e7b2c6d72729cdc4f), [`ab8d2e0`](https://github.com/justeattakeaway/pie/commit/ab8d2e08305131ec6f8dfe9c4a1228dd91703254)]:
+  - @justeattakeaway/pie-toast-provider@0.5.4
+  - @justeattakeaway/pie-text-input@0.28.4
+  - @justeattakeaway/pie-thumbnail@0.8.2
+  - @justeattakeaway/pie-textarea@0.16.4
+  - @justeattakeaway/pie-toast@0.9.4
+  - @justeattakeaway/pie-icons-webc@1.11.1
+  - @justeattakeaway/pie-form-label@0.16.2
+  - @justeattakeaway/pie-divider@1.4.2
+  - @justeattakeaway/pie-card@0.25.3
+  - @justeattakeaway/pie-tag@0.17.2
+  - @justeattakeaway/pie-radio-group@0.9.4
+  - @justeattakeaway/pie-select@0.6.4
+  - @justeattakeaway/pie-switch@1.4.3
+  - @justeattakeaway/pie-spinner@1.2.2
+  - @justeattakeaway/pie-modal@1.7.5
+  - @justeattakeaway/pie-assistive-text@0.10.4
+  - @justeattakeaway/pie-chip@0.12.4
+  - @justeattakeaway/pie-icon-button@1.5.3
+  - @justeattakeaway/pie-notification@0.14.4
+  - @justeattakeaway/pie-cookie-banner@1.6.5
+  - @justeattakeaway/pie-button@1.6.3
+  - @justeattakeaway/pie-checkbox@0.16.4
+  - @justeattakeaway/pie-checkbox-group@0.9.4
+
+## 1.38.1
+
+### Patch Changes
+
+- Updated dependencies [[`89b96e1`](https://github.com/justeattakeaway/pie/commit/89b96e150ff851450581a1a4a86e2c307b3afbe4)]:
+  - @justeattakeaway/pie-icons-webc@1.11.0
+  - @justeattakeaway/pie-assistive-text@0.10.3
+  - @justeattakeaway/pie-chip@0.12.3
+  - @justeattakeaway/pie-icon-button@1.5.2
+  - @justeattakeaway/pie-modal@1.7.4
+  - @justeattakeaway/pie-notification@0.14.3
+  - @justeattakeaway/pie-switch@1.4.2
+  - @justeattakeaway/pie-text-input@0.28.3
+  - @justeattakeaway/pie-toast@0.9.3
+  - @justeattakeaway/pie-checkbox@0.16.3
+  - @justeattakeaway/pie-checkbox-group@0.9.3
+  - @justeattakeaway/pie-radio-group@0.9.3
+  - @justeattakeaway/pie-select@0.6.3
+  - @justeattakeaway/pie-textarea@0.16.3
+  - @justeattakeaway/pie-cookie-banner@1.6.4
+  - @justeattakeaway/pie-toast-provider@0.5.3
+
+## 1.38.0
+
+### Minor Changes
+
+- [Added] - support `hideCurrentPage`, `rel`, `target` props ([#2382](https://github.com/justeattakeaway/pie/pull/2382)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - assign `aria-current` to the last breadcrumb item
+
+### Patch Changes
+
+- Updated dependencies [[`0b8785e`](https://github.com/justeattakeaway/pie/commit/0b8785ea18785198ae02ebd33b47c92e803763d1)]:
+  - @justeattakeaway/pie-breadcrumb@0.5.0
+
+## 1.37.2
+
+### Patch Changes
+
+- Updated dependencies [[`bd6505d`](https://github.com/justeattakeaway/pie/commit/bd6505d0542de8f5aa19d8f1b3da6b1e63761aae)]:
+  - @justeattakeaway/pie-link@1.2.3
+  - @justeattakeaway/pie-modal@1.7.3
+  - @justeattakeaway/pie-notification@0.14.2
+  - @justeattakeaway/pie-lottie-player@0.2.2
+  - @justeattakeaway/pie-radio@0.11.2
+  - @justeattakeaway/pie-cookie-banner@1.6.3
+
+## 1.37.1
+
+### Patch Changes
+
+- [Changed] - Added information on native events to events page in storybook ([#2378](https://github.com/justeattakeaway/pie/pull/2378)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Overview page for icon-button, chip, divider, form-label and cookie-banner ([#2383](https://github.com/justeattakeaway/pie/pull/2383)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`978d2df`](https://github.com/justeattakeaway/pie/commit/978d2df07bdab122c0ecaed0f73b8a20de9ffdc4)]:
+  - @justeattakeaway/pie-checkbox-group@0.9.2
+  - @justeattakeaway/pie-cookie-banner@1.6.2
+  - @justeattakeaway/pie-icon-button@1.5.1
+  - @justeattakeaway/pie-form-label@0.16.1
+  - @justeattakeaway/pie-divider@1.4.1
+  - @justeattakeaway/pie-modal@1.7.2
+  - @justeattakeaway/pie-notification@0.14.1
+  - @justeattakeaway/pie-toast@0.9.2
+  - @justeattakeaway/pie-assistive-text@0.10.2
+  - @justeattakeaway/pie-breadcrumb@0.4.1
+  - @justeattakeaway/pie-button@1.6.2
+  - @justeattakeaway/pie-card@0.25.2
+  - @justeattakeaway/pie-checkbox@0.16.2
+  - @justeattakeaway/pie-chip@0.12.2
+  - @justeattakeaway/pie-link@1.2.2
+  - @justeattakeaway/pie-list@0.0.2
+  - @justeattakeaway/pie-lottie-player@0.2.1
+  - @justeattakeaway/pie-radio@0.11.1
+  - @justeattakeaway/pie-radio-group@0.9.2
+  - @justeattakeaway/pie-select@0.6.2
+  - @justeattakeaway/pie-spinner@1.2.1
+  - @justeattakeaway/pie-switch@1.4.1
+  - @justeattakeaway/pie-tag@0.17.1
+  - @justeattakeaway/pie-text-input@0.28.2
+  - @justeattakeaway/pie-textarea@0.16.2
+  - @justeattakeaway/pie-thumbnail@0.8.1
+  - @justeattakeaway/pie-toast-provider@0.5.2
+  - @justeattakeaway/pie-icons-webc@1.10.1
+
+## 1.37.0
+
+### Minor Changes
+
+- [Changed] - Refactored the items prop to be a pie-breadcrumb-item sub component ([#2368](https://github.com/justeattakeaway/pie/pull/2368)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Added] - Overview component overview pages to storybok app and updated component readme files ([#2372](https://github.com/justeattakeaway/pie/pull/2372)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Component versions page ([#2379](https://github.com/justeattakeaway/pie/pull/2379)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`0d3dfc0`](https://github.com/justeattakeaway/pie/commit/0d3dfc0f19ca502433e2f15ad5a6e03cdf77c1a3), [`551a73a`](https://github.com/justeattakeaway/pie/commit/551a73a2aa69ff4d0fc3daa8b48fda3d240b0d3a), [`551a73a`](https://github.com/justeattakeaway/pie/commit/551a73a2aa69ff4d0fc3daa8b48fda3d240b0d3a)]:
+  - @justeattakeaway/pie-assistive-text@0.10.1
+  - @justeattakeaway/pie-checkbox-group@0.9.1
+  - @justeattakeaway/pie-checkbox@0.16.1
+  - @justeattakeaway/pie-button@1.6.1
+  - @justeattakeaway/pie-card@0.25.1
+  - @justeattakeaway/pie-chip@0.12.1
+  - @justeattakeaway/pie-link@1.2.1
+  - @justeattakeaway/pie-breadcrumb@0.4.0
+  - @justeattakeaway/pie-radio-group@0.9.1
+  - @justeattakeaway/pie-select@0.6.1
+  - @justeattakeaway/pie-text-input@0.28.1
+  - @justeattakeaway/pie-textarea@0.16.1
+  - @justeattakeaway/pie-cookie-banner@1.6.1
+  - @justeattakeaway/pie-modal@1.7.1
+  - @justeattakeaway/pie-toast@0.9.1
+  - @justeattakeaway/pie-toast-provider@0.5.1
+
 ## 1.36.1
 
 ### Patch Changes

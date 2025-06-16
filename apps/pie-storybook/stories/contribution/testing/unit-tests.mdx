@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Contribution/Testing/Unit tests" />
+
+# Unit tests
+
+Unit tests are the smallest kinds of tests we write. These are useful for small pieces of code.
+We generally write our unit tests using `vitest`.
+
+## Table of Contents
+
+- [Dos and Don'ts](#dos-and-donts)
+- [What requires unit testing?](#what-requires-unit-testing)
+- [Node-based unit tests](#node-based-unit-tests)
+- [Browser-based unit tests](#browser-based-unit-tests)
+
+
+## Dos and Don'ts
+
+| ✅ **Do**                                                                 | ❌ **Don't**                                                                 |
+|--------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| Write unit tests for small pieces of logic                               | Write unit tests for entire components                                       |
+| Verify that a single unit of code does exactly what it's supposed to do | Write complex unit tests that require excessive dependency mocking          |
+| Ensure dependencies are minimal and easily mockable                      |                                                                              |
+
+## What requires unit testing?
+If the code is something small like a function or Typescript class decorator, then
+generally speaking a unit test is the most appropriate way to test the code. We write some basic
+tests that isolate the code and ensure it works as expected both with correct and incorrect inputs.
+
+Generally speaking, we do not write many unit tests. This is because the bulk of our effort goes into component browser tests, visual and Aperture integration testing instead.
+
+## Node-based unit tests
+Some code can be safely tested in a node environment because its logic and behaviour do not change regardless of whether or not they are in the browser. This is great for very simple code that won't be prone to potential runtime issues.
+A good example of this in our codebase could be our tests for the custom [required-property](https://github.com/justeattakeaway/pie/blob/main/packages/components/pie-webc-core/src/test/decorators/required-property.spec.ts) class decorator.
+
+## Browser-based unit tests
+It is very important that if the code is going to run in the browser
+that we actually test in the browser. For this reason, we often create Stories in our [dedicated testing Storybook site](https://webc-testing.pie.design/).
+Our tests then run against the browser.
+
+> These are _slightly_ different from what we refer to as Component Browser Tests (or just Browser Tests). But both are run in the actual browser rather than a node environment
+
+A good example of where we do this is the tests for our [dispatchCustomEvent](https://github.com/justeattakeaway/pie/blob/main/packages/components/pie-webc-core/src/test/functions/dispatchCustomEvent/dispatchCustomEvent.browser.spec.ts) function.
+This is a useful function we wrote to handle dispatching custom component events. It is shared between many components that emit their own custom events. For this code, we host a mock component in our testing storybook environment and run the tests against it.

@@ -1,37 +1,87 @@
-<p align="center">
-  <img align="center" src="../../../readme_image.png" height="200" alt="">
-</p>
+# @justeattakeaway/pie-divider
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-divider) | [Design Documentation](https://pie.design/components/divider) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-divider)
 
-<p align="center">
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-divider">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-divider.svg">
+<p>
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-divider">
+    <img alt="npm version" src="https://img.shields.io/npm/v/@justeattakeaway/pie-divider.svg">
   </a>
 </p>
 
-## pie-divider
+`@justeattakeaway/pie-divider` is a Web Component built using the Lit library. It offers a customizable divider element for visual separation of content.
 
-`pie-divider` is a Web Component built using the Lit library.
+## Table of Contents
 
-This component can be easily integrated into various frontend frameworks and customized through a set of properties.
-
+- [Installation](#installation)
+- [Documentation](#documentation)
+  - [Properties](#properties)
+- [Usage Examples](#usage-examples)
+- [Questions and Support](#questions-and-support)
+- [Contributing](#contributing)
 
 ## Installation
 
-To install `pie-divider` in your application, run the following on your command line:
+## Installation
 
-```bash
-npm i @justeattakeaway/pie-divider
+> To install any of our web components in your application, we would suggest following the [getting started guide](https://webc.pie.design/?path=/docs/introduction-getting-started--docs) to set up your project.
 
-yarn add @justeattakeaway/pie-divider
-```
+Ideally, you should install the component using the **`@justeattakeaway/pie-webc`** package, which includes all of the components. Or you can install the individual component package.
 
 ## Documentation
 
-Visit  [Divider | PIE Design System](https://pie.design/components/divider) to view more information on this component.
+### Properties
 
-## Questions
+| Prop         | Type                                  | Description                                                                                     | Default        |
+|--------------|---------------------------------------|-------------------------------------------------------------------------------------------------|----------------|
+| `variant`    | `"default"`, `"inverse"`              | Sets the variant of the divider.                                                                | `"default"`    |
+| `label`      | `string`                              | The label text for the divider. Label is only available for the horizontal variant.             | `""`           |
+| `orientation`| `"horizontal"`, `"vertical"`          | Sets the orientation of the divider.                                                            | `"horizontal"` |
 
-Please head to [FAQs | PIE Design System](https://pie.design/support/contact-us/) to see our FAQs and get in touch.
+### Slots
+
+This component does not expose any slots.
+
+### CSS Variables
+
+This component does not expose any CSS variables for style overrides.
+
+### Events
+
+This component does not emit any custom events. In order to add event listening to this component, you can treat it like a native HTML element in your application.
+
+## Usage Examples
+
+**For HTML:**
+
+```js
+// import as module into a js file e.g. main.js
+import '@justeattakeaway/pie-webc/components/divider.js';
+```
+
+```html
+<pie-divider orientation="horizontal" label="OR"></pie-divider>
+<script type="module" src="/main.js"></script>
+```
+
+**For Native JS Applications, Vue, Angular, Svelte etc.:**
+
+```js
+// Vue templates (using Nuxt 3)
+import '@justeattakeaway/pie-webc/components/divider.js';
+
+<pie-divider orientation="horizontal" label="OR"></pie-divider>
+```
+
+**For React Applications:**
+
+```jsx
+import { PieDivider } from '@justeattakeaway/pie-webc/react/divider.js';
+
+<PieDivider orientation="horizontal" label="OR" />
+```
+
+## Questions and Support
+
+If you work at Just Eat Takeaway.com, please contact us on **#help-designsystem**. Otherwise, please raise an issue on [Github](https://github.com/justeattakeaway/pie/issues).
 
 ## Contributing
 

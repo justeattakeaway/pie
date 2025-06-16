@@ -63,7 +63,7 @@ export class PieLink extends PieElement implements LinkProps {
     @property({ type: Boolean })
     public isBold = defaultProps.isBold;
 
-    @property({ type: Boolean })
+    @property({ type: Boolean, reflect: true })
     public isStandalone = defaultProps.isStandalone;
 
     @property({ type: Boolean })
@@ -102,7 +102,8 @@ export class PieLink extends PieElement implements LinkProps {
                 data-test-id="pie-link-button"
                 class="${classMap(classes)}"
                 type=${this.type}
-                aria-label=${ifDefined(this.aria?.label)}>
+                aria-label=${ifDefined(this.aria?.label)}
+                part="base">
                 ${this.renderContent()}
             </button>`;
     }
@@ -120,7 +121,8 @@ export class PieLink extends PieElement implements LinkProps {
                 href=${ifDefined(this.href)}
                 target=${ifDefined(this.target)}
                 rel=${ifDefined(this.rel)}
-                aria-label=${ifDefined(this.aria?.label)}>
+                aria-label=${ifDefined(this.aria?.label)}
+                part="base">
                 ${this.renderContent()}
             </a>`;
     }

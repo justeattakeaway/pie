@@ -1,0 +1,103 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Contribution/Testing/Browser tests" />
+
+# Component browser tests
+
+When testing web components, we aim to verify real behavior in real browsers. We use **Storybook** and **Playwright** to run our tests directly in the browser, rather than relying on simulated environments or mocked DOM APIs. This ensures our components work as users actually experience them.
+
+## Table of Contents
+
+- [Dos and Don’ts](#dos-and-donts)
+- [Why test in the browser?](#why-test-in-the-browser)
+- [What do we test?](#what-do-we-test)
+- [Testing philosophy](#testing-philosophy)
+- [Test naming conventions and structure](#test-naming-conventions-and-structure)
+
+## Dos and Don’ts
+
+| ✅ Do                                                                 | ❌ Don’t                                                             |
+|----------------------------------------------------------------------|----------------------------------------------------------------------|
+| Test in a real browser using Playwright and Storybook                | Rely on jsdom or shallow rendering for core behavior tests           |
+| Use realistic interactions (clicks, keypresses, form submissions)    | Simulate state changes without reflecting how users trigger them     |
+| Validate behavior that affects users or integration                  | Test trivial props that don’t affect output or UX                    |
+| Check accessibility roles                   | Assume correctness based on code without verification                |
+| Use Playwright’s async actions to wait for real changes              | Use hardcoded timeouts if they can be avoided        |
+| Test integration points (e.g. forms, events, attributes)             | Break test naming conventions         |
+| Think about edge cases and failures                                  | Over-test happy paths or every prop permutation                     |
+| Keep tests clear, focused, and valuable                              | Write tests for the sake of coverage or completeness                 |
+
+## Why test in the browser?
+
+Browser tests are our primary form of component testing because:
+
+- **They reflect real-world usage.** We interact with components as users do: clicking buttons, submitting forms, focusing fields, etc.
+- **They run in an actual browser.** This gives us confidence that things like events, focus behavior, and HTML semantics work as expected.
+- **They help catch integration issues.** For example, we can test how components interact with forms, accessibility features, and the surrounding page.
+
+## What do we test?
+
+We focus on behavior that **matters to users**. We write tests to:
+
+- Verify the component renders the correct HTML (button vs anchor, input types, etc.)
+- Confirm accessibility and form behavior (submission, validation, reset, etc.)
+- Ensure props like `disabled`, `isLoading`, or `type` affect behavior correctly
+- Validate keyboard interactions (e.g. pressing Enter)
+- Confirm correct DOM output or network behavior when necessary (e.g. `postData` in submissions)
+
+We avoid writing exhaustive tests for every prop or permutation unless there's a **clear risk or value**.
+
+## Testing philosophy
+
+- **Be practical.** Test what users will do, not every possible prop.
+- **Use real scenarios.** Set up components in Storybook with realistic data.
+- **Catch edge cases.** Think about unusual but possible usage, like pressing Enter without a visible submit button.
+- **Avoid noise.** Don't write tests that assert obvious defaults or duplicated logic unless those are critical.
+
+## Test naming conventions and structure
+
+To keep our browser tests clear and consistent, we follow a structured approach for naming and organising them.
+
+### Structure
+
+> All component test files use a naming convention of: `/test/component/{component-name}.spec.ts`. When creating a new component, the [component generator](https://github.com/justeattakeaway/pie/tree/main/packages/tools/generator-pie-component) will create this for you.
+
+We use `test.describe` blocks to group related tests logically:
+
+- **Top-level describe:** The name of the component (e.g., `PieTextInput - Component tests`)
+- **Nested describe:** A specific feature or prop being tested (e.g., `Props`, `Events`, `Slots`)
+- **Test cases:** Individual behaviors or conditions
+
+**Example*:*
+
+```js
+test.describe('PieTextInput - Component tests', () => {
+    test.describe('Props', () => {
+        test.describe('type', () => {
+            test('should apply the type prop to the HTML input rendered', async ({ page }) => {
+                // ...
+            });
+        });
+    });
+});
+```
+
+### Naming guidelines
+
+Use the following patterns when naming test cases:
+
+| Pattern                                   | Example                                                       |
+|-------------------------------------------|---------------------------------------------------------------|
+| `should [do something]`                   | `should render successfully`                                  |
+| `should [do something] when [condition]`  | `should apply the type prop when provided`                    |
+| `should not [do something]`               | `should not submit the form when disabled`                    |
+| `should [do something] with [input]`      | `should submit form with correct data`                        |
+| `should [do something] on [event]`        | `should emit change event on blur`                            |
+| `should [do something] if [prop/flag]`    | `should focus input if autoFocus is true`                     |
+
+### Best practices
+
+- Keep test cases small and focused on a single behavior.
+- Use the **Arrange–Act–Assert** structure for clarity.
+- Avoid vague names like `works correctly` or `renders properly`.
+- Prefer clarity and readability over brevity in test names.

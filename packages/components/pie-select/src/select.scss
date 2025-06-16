@@ -1,5 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+:host {
+    display: block;
+}
+
 .c-select {
     --select-padding-block: var(--dt-spacing-c);
     --select-padding-inline-start: var(--dt-spacing-d);
