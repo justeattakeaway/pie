@@ -85,6 +85,9 @@ export default {
                         'Nuxt 3',
                     ],
                     'Components',
+                    [
+                        'Component statuses'
+                    ],
                     'Additional libraries',
                     [
                         'Icons'
@@ -95,7 +98,8 @@ export default {
                         [
                             'Overview',
                             'Unit tests',
-                            'Browser tests'
+                            'Browser tests',
+                            'Visual tests',
                         ]
                     ],
                 ],
