@@ -66,9 +66,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     @queryAssignedElements({ selector: 'pie-radio' })
         _slottedChildren!: Array<HTMLInputElement>;
 
-    @query('fieldset')
-    private _fieldset!: HTMLInputElement;
-
     private _abortController!: AbortController;
 
     /**
@@ -106,11 +103,14 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
      */
     private _handleRadioSelection (selectedValue: string): void {
         this.value = selectedValue;
+
         this._slottedChildren.forEach((radio) => {
             if (!radio.disabled) {
-                radio.checked = radio.value === selectedValue;
+                radio.checked = radio.value === this.value;
             }
         });
+
+        this._setTabIndex();
     }
 
     /**
@@ -137,14 +137,34 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     }
 
     /**
-     * Ensures all newly added radio buttons are not tabbable and inherit the name property
+     * Ensures all newly added radio buttons are tabbable and inherit the name property
      */
     private _handleRadioSlotChange (): void {
-        // Make all (including any newly added) radio buttons impossible to tab to
-        // This is because by default, we are able to tab to each individual radio button.
-        // This is not the behaviour we want, so applying -1 tabindex prevents it.
-        this._slottedChildren.forEach((radio) => radio.setAttribute('tabindex', '-1'));
+        this._setTabIndex();
         this._applyNameToChildren();
+    }
+
+    /**
+     * Ensure tabIndex is consistently set to provide the expected handling
+     * whilst using the keyboard
+     */
+    private _setTabIndex () {
+        // Ensure to have at least one focusable radio when nothing is selected
+        if (!this.value) {
+            this._slottedChildren.forEach((radio, index) => {
+                radio.tabIndex = index === 0 ? 0 : -1;
+            });
+            return;
+        }
+
+        // Set the selected radio with tabindex 0, and -1 for the others
+        this._slottedChildren.forEach((radio) => {
+            if (!radio.disabled) {
+                radio.tabIndex = radio.value === this.value ? 0 : -1;
+            } else {
+                radio.tabIndex = -1;
+            }
+        });
     }
 
     /**
@@ -191,9 +211,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
 
         this.shadowRoot?.addEventListener('change', this._handleRadioChange.bind(this), { signal });
 
-        this.addEventListener('focusin', this._handleFocusIn, { signal });
-        this.addEventListener('focusout', this._handleFocusOut, { signal });
-
         this.addEventListener('keydown', this._handleKeyDown, { signal });
 
         // Warning! One edge case bug we've noticed is if the radio group is the first focusable element in the document,
@@ -213,48 +230,16 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         }
     }
 
-    /**
-     * Handles the `focusin` event to manage focus within the radio group.
-     *
-     * This method determines the appropriate element to focus when the radio group
-     * gains focus. It considers the last navigation action (whether `Shift+Tab` was used)
-     * and focuses the checked option, the first option, or the last option as needed.
-     */
-    private _handleFocusIn (event: FocusEvent): void {
-        if (this !== event.target) return;
-
-        const isShiftTab = PieRadioGroup._wasShiftTabPressed;
-        const focusTarget = this._slottedChildren?.find((child) => child.checked) ||
-            (isShiftTab ? this._slottedChildren.at(-1) : this._slottedChildren[0]);
-
-        if (!focusTarget) return;
-
-        focusTarget.focus();
-        this._toggleFieldsetTabindex(false);
-    }
-
-    /**
-     * Handles the `focusout` event to restore the `tabindex` on the radio group's `fieldset`.
-     *
-     * When focus leaves the radio group, this method enables the `tabindex` attribute
-     * on the `fieldset` element. This ensures the radio group remains accessible for
-     * keyboard navigation and can be re-focused when tabbing back into the group.
-     */
-    private _handleFocusOut (): void {
-        this._toggleFieldsetTabindex(true);
-    }
-
-    private _toggleFieldsetTabindex (enable: boolean): void {
-        if (enable) {
-            this._fieldset.setAttribute('tabindex', '0');
-        } else {
-            this._fieldset.removeAttribute('tabindex');
-        }
-    }
-
     private _moveFocus (currentIndex: number, step: number): void {
         const newIndex = (currentIndex + step + this._slottedChildren.length) % this._slottedChildren.length;
-        this._focusAndClickOption(this._slottedChildren[newIndex]);
+
+        // Focus and click the next radio
+        const radio: HTMLInputElement = this._slottedChildren[newIndex];
+        radio.focus();
+        // This is quite hacky, but it ensures the radio elements correct emit a real change event.
+        // Simply setting radio.checked as true would require re-architecture of both this component and the radio button
+        // to ensure that property changes are observed and correctly propagated up.
+        radio.shadowRoot?.querySelector('input')?.click();
     }
 
     /**
@@ -321,16 +306,9 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             this._moveFocus(currentIndex, 1);
         } else if (this._isBackwardKey(event)) {
             this._moveFocus(currentIndex, -1);
+        } else if (event.code === 'Space') {
+            this._moveFocus(currentIndex, 0);
         }
-    }
-
-    private _focusAndClickOption (option: HTMLInputElement): void {
-        option.focus();
-        // This is quite hacky, but it ensures the radio elements correct emit a real change event.
-        // Simply setting option.checked as true would require re-architecture of both this component and the radio button
-        // to ensure that property changes are observed and correctly propagated up.
-        option.shadowRoot?.querySelector('input')?.click();
-        this._toggleFieldsetTabindex(false);
     }
 
     disconnectedCallback (): void {
@@ -358,7 +336,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         return html`
             <fieldset
                 role="radiogroup"
-                tabindex="0"
                 name=${ifDefined(name)}
                 ?disabled=${disabled}
                 data-test-id="pie-radio-group-fieldset"
