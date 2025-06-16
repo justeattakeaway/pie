@@ -359,7 +359,7 @@ implementation("com.jet.pie2:logos")
 
 {% notification {
   type: "information",
-  message: "We strongly recommend using the PIE BOM to handle your dependencies. Of course, you are free to override any version of the above libraries, but that is at your own risk. To ensure you are on the latest version, please head to the [Android PIE repository](https://github.je-labs.com/Android/PIE)."
+  message: "We strongly recommend using the PIE BOM to handle your dependencies. Of course, you're free to override any version of the above libraries, but that is at your own risk. To ensure you’re on the latest version, please head to the Android PIE repository (reach us on Slack via #help-designsystem if you need the link to this repo)."
 } %}
 
 ### Get the information directly from Figma
@@ -407,11 +407,11 @@ Icon(
 ) 
 ```
 
-## FAQs
+### FAQs
 
 **Q: I’ve imported the library. Where can I find the icons?**
 
-A: Icons are located in their own namespace: com.jet.pie2.icons.R. More information [here](https://github.je-labs.com/Android/PIE/wiki/Getting-started#step-4---use-pie-assets).
+A: Icons are located in their own namespace: com.jet.pie2.icons.R. You can find more information in the Android repository Wiki under the *Use PIE assets* section.
 
 **Q: I can’t find the icon I need. Can I add it to the library?**
 
