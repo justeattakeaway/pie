@@ -26,7 +26,7 @@
 Build the generator package locally (it is recommended you force the build)
 
 ```sh
-$ yarn build --filter=@justeattakeaway/generator-pie-component --force
+$ yarn build --filter=generator-pie-component --force
 ```
 
 ### Generating a new component
@@ -88,13 +88,13 @@ yarn
 To build the `generator-pie-component` package, run the following command:
 
 ```bash
-yarn build --filter=@justeattakeaway/generator-pie-component
+yarn build --filter=generator-pie-component
 ```
 
 You can also build the component in `watch` mode if desired with the following command:
 
 ```bash
-yarn watch --filter=@justeattakeaway/generator-pie-component
+yarn watch --filter=generator-pie-component
 ```
 
 ## Contributing

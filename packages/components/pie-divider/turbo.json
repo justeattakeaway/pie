@@ -3,7 +3,7 @@
     "extends": [
       "//"
     ],
-    "tasks": {
+    "pipeline": {
       "test:browsers": {
         "cache": true,
         "dependsOn": [],
