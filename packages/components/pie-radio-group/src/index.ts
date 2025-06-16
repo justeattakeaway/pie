@@ -69,14 +69,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     private _abortController!: AbortController;
 
     /**
-     * Tracks whether the `Shift` key was held during the last `Tab` key press.
-     *
-     * The property is static because it needs to be shared across all instances of the
-     * `PieRadioGroup` component on the same page, ensuring consistent behavior.
-     */
-    private static _wasShiftTabPressed = false;
-
-    /**
      * Dispatches a custom event to notify each slotted child radio element
      * when the radio group is disabled.
      * @private
@@ -213,21 +205,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
 
         this.addEventListener('keydown', this._handleKeyDown, { signal });
 
-        // Warning! One edge case bug we've noticed is if the radio group is the first focusable element in the document,
-        // and you shift + tab out of it, when tabbing back in, it will focus the last radio instead of the first.
-        // Given it is quite an edge case, we will leave it for now.
-        document.addEventListener('keydown', this._updateShiftTabState.bind(this), { signal });
-
         this._applyNameToChildren();
-    }
-
-    /**
-     * Updates the state of `_wasShiftTabPressed` based on the last `Tab` key press.
-     */
-    private _updateShiftTabState (event: KeyboardEvent): void {
-        if (event.key === 'Tab') {
-            PieRadioGroup._wasShiftTabPressed = event.shiftKey;
-        }
     }
 
     private _moveFocus (currentIndex: number, step: number): void {
