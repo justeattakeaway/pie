@@ -1,90 +1,84 @@
-<p align="center">
-  <img align="center" src="../../../readme_image.png" height="200" alt="">
-</p>
+# @justeattakeaway/pie-spinner
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-spinner) | [Design Documentation](https://pie.design/components/spinner) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-spinner)
 
-<p align="center">
+<p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-spinner">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-spinner.svg">
   </a>
 </p>
 
-# Table of Contents
+`@justeattakeaway/pie-spinner` is a Web Component built using the Lit library. It offers a simple and accessible spinner component for web applications.
 
-1. [Introduction](#pie-spinner)
-2. [Installation](#installation)
-3. [Importing the component](#importing-the-component)
-4. [Peer Dependencies](#peer-dependencies)
-5. [Props](#props)
-6. [Contributing](#contributing)
+## Table of Contents
 
-## pie-spinner
-
-`pie-spinner` is a Web Component built using the Lit library.
-
-This component can be easily integrated into various frontend frameworks and customized through a set of properties.
-
+- [Installation](#installation)
+- [Documentation](#documentation)
+  - [Properties](#properties)
+  - [Slots](#slots)
+  - [CSS Variables](#css-variables)
+  - [Events](#events)
+- [Usage Examples](#usage-examples)
+- [Questions and Support](#questions-and-support)
+- [Contributing](#contributing)
 
 ## Installation
 
-To install `pie-spinner` in your application, run the following on your command line:
+> To install any of our web components in your application, we would suggest following the [getting started guide](https://webc.pie.design/?path=/docs/introduction-getting-started--docs) to set up your project.
 
-```bash
-npm i @justeattakeaway/pie-spinner
+Ideally, you should install the component using the **`@justeattakeaway/pie-webc`** package, which includes all of the components. Or you can install the individual component package.
 
-yarn add @justeattakeaway/pie-spinner
-```
+## Documentation
+### Properties
+| Prop     | Options                                      | Description                                                                                      | Default     |
+|----------|----------------------------------------------|--------------------------------------------------------------------------------------------------|-------------|
+| `size`   | `"xsmall"`, `"small"`, `"medium"`, `"large"`, `"xlarge"` | Size of the spinner.                                                                             | `medium`    |
+| `variant`| `"brand"`, `"secondary"`, `"inverse"`        | Variant of the spinner.                                                                          | `brand`     |
+| `aria`   | —                                            | An object representing the ARIA attributes such as `label`.                                      | `undefined` |
 
-For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
+### Slots
+This component does not have any slots. All content is controlled through properties.
 
+### CSS Variables
+This component does not expose any CSS variables for style overrides.
 
-### Importing the component
+### Events
+This component does not emit any custom events. In order to add event listening to this component, you can treat it like a native HTML element in your application.
 
-#### JavaScript
+## Usage Examples
+
+**For HTML:**
+
 ```js
-// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
-import { PieSpinner } from '@justeattakeaway/pie-spinner';
-
-// If you don't need to reference the imported object, you can simply
-// import the module which registers the component as a custom element.
-import '@justeattakeaway/pie-spinner';
+// import as module into a js file e.g. main.js
+import '@justeattakeaway/pie-webc/components/spinner.js';
 ```
-
-#### React
-```js
-// React
-// For React, you will need to import our React-specific component build
-// which wraps the web component using ​@lit/react
-import { PieSpinner } from '@justeattakeaway/pie-spinner/dist/react';
-```
-
-> [!NOTE]
-> When using the React version of the component, please make sure to also
-> include React as a [peer dependency](#peer-dependencies) in your project.
-
-
-## Peer Dependencies
-
-> [!IMPORTANT]
-> When using `pie-spinner`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
-
-
-## Props
-
-| Property | Type | Default | Description |
-|---|---|---|---|
-| size | `String` | `medium` | Size of the spinner, one of `sizes` – `xsmall`, `small`, `medium`, `large`, `xlarge` |
-| variant | `String` | `brand` | Variant of the spinner, one of `variants` – `brand`, `secondary`, `inverse` |
-| aria  | `Object`  | `undefined`  | An object representing the aria attributes such as label;
-
-In your markup or JSX, you can then use these to set the properties for the `pie-spinner` component:
 
 ```html
-<!-- Native HTML -->
-<pie-spinner></pie-spinner>
+<pie-spinner size="medium" variant="brand" aria="{ label: 'Loading' }"></pie-spinner>
 
-<!-- JSX -->
-<PieSpinner></PieSpinner>
+<script type="module" src="/main.js"></script>
 ```
+
+**For Native JS Applications, Vue, Angular, Svelte etc.:**
+
+```js
+// Vue templates (using Nuxt 3)
+import '@justeattakeaway/pie-webc/components/spinner.js';
+
+<pie-spinner size="medium" variant="brand" aria="{ label: 'Loading' }"></pie-spinner>
+```
+
+**For React Applications:**
+
+```jsx
+import { PieSpinner } from '@justeattakeaway/pie-webc/react/spinner.js';
+
+<PieSpinner size="medium" variant="brand" aria={{ label: 'Loading' }} />
+```
+
+## Questions and Support
+
+If you work at Just Eat Takeaway.com, please contact us on **#help-designsystem**. Otherwise, please raise an issue on [Github](https://github.com/justeattakeaway/pie/issues).
 
 ## Contributing
 

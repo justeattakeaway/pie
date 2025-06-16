@@ -75,14 +75,34 @@ export default {
                         'Typography',
                         'CSS setup',
                         'Events',
+                        'CSS variables',
+                        'Component versions',
                         'Browser support',
                     ],
                     'Integration guides',
                     [
                         'Next.js 14',
+                        'Nuxt 3',
                     ],
                     'Components',
-                ]
+                    [
+                        'Component statuses'
+                    ],
+                    'Additional libraries',
+                    [
+                        'Icons'
+                    ],
+                    'Contribution',
+                    [
+                        'Testing',
+                        [
+                            'Overview',
+                            'Unit tests',
+                            'Browser tests',
+                            'Visual tests',
+                        ]
+                    ],
+                ],
             }
         }
     }

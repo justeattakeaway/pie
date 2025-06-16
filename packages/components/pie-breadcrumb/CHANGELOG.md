@@ -1,5 +1,48 @@
 # @justeattakeaway/pie-breadcrumb
 
+## 0.6.1
+
+### Patch Changes
+
+- [Changed] - move the component to beta ([#2417](https://github.com/justeattakeaway/pie/pull/2417)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - current breadcrumb item shouldn't have underline styles with hover ([#2406](https://github.com/justeattakeaway/pie/pull/2406)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`2449d26`](https://github.com/justeattakeaway/pie/commit/2449d26e61628c9cff5f86c53c8a65d989623638), [`2e029b9`](https://github.com/justeattakeaway/pie/commit/2e029b914df0989bea6e0bbceb08c0271024f85d), [`0bdcf37`](https://github.com/justeattakeaway/pie/commit/0bdcf37d2f1327bf309ffc002c48a8bbe8295769)]:
+  - @justeattakeaway/pie-link@1.2.5
+  - @justeattakeaway/pie-icons-webc@1.12.0
+
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - breadcrumb code section ([#2393](https://github.com/justeattakeaway/pie/pull/2393)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Fixed] display props for web components top level element ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.5.0
+
+### Minor Changes
+
+- [Added] - support `hideCurrentPage`, `rel`, `target` props ([#2382](https://github.com/justeattakeaway/pie/pull/2382)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - assign `aria-current` to the last breadcrumb item
+
+## 0.4.1
+
+### Patch Changes
+
+- Updated dependencies [[`8866307`](https://github.com/justeattakeaway/pie/commit/8866307deed67e698088e731bb87e5e6db45f0e3)]:
+  - @justeattakeaway/pie-webc-core@1.0.0
+
+## 0.4.0
+
+### Minor Changes
+
+- [Changed] - Refactored the items prop to be a pie-breadcrumb-item sub component ([#2368](https://github.com/justeattakeaway/pie/pull/2368)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.3.1
 
 ### Patch Changes

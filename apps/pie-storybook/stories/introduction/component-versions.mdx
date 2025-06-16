@@ -1,0 +1,46 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Introduction/Component versions" />
+
+# Component Versions
+
+An important feature of web components is that they must be registered in the DOM before they can be used. This tells the browser what component to use when it tries to parse a particular selector such as `<pie-button>`.
+
+## Table of Contents
+- [How we register components](#how-we-register-components)
+- [Version mismatch issues](#version-mismatch-issues)
+- [The `v` attribute](#the-v-attribute)
+
+## How we register components
+PIE web **components will register themselves automatically** when they are imported into the DOM. An illustration of what this looks like under the hood is like this:
+
+```js
+class MyComponent extends HTMLElement {
+    // Logic omitted for simplicity
+}
+
+// Register the component as a custom element. This tells the browser to use this class when it encounters the <my-component> tag in the DOM.
+customElements.define('my-component', MyComponent);
+```
+We have some safeguarding in place to ensure this registration only happens once. If you import the same component multiple times (which can easily happen in a complex application), you may see a warning in development mode stating that the component has already been registered.
+
+Consumers of PIE web components will never have to perform this step themselves, as it is handled automatically by the component library.
+
+## Version mismatch issues
+
+One possible issue when using PIE web components is when multiple versions of the same component are registered in the DOM. This can happen if you have multiple versions of the component library installed, or if you import the same component multiple times in your application.
+This most often occurs in **micro-frontend applications**, where multiple teams are working on different parts of the application and may not be aware of each other's dependencies.
+
+When this happens, you may see a registration warning as previously mentioned. However our built-in safeguarding will not prevent you from potentially using a component version you were not expecting, as it depends which version was registered first. This could mean the component behaves differently than you expect, or even fails to render at all if the version is incompatible with your application.
+
+To avoid this issue, we recommend that teams working on different parts of the application coordinate on which versions of the component library they are using.
+
+## The `v` attribute
+
+All of our web components have a `v` attribute that indicates the version of the component. This can be particularly useful when debugging issues related to version mismatches. Simply inspect the component in the browser's developer tools and look for the `v` attribute to see which version of the component is being used.
+
+This attribute is automatically set by the component library during build. It should be compatible with server-side rendering, so it should be visible in the HTML returned from the server.
+
+```html
+<pie-button v="1.0.0"></pie-button>
+```

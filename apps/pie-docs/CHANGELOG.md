@@ -1,5 +1,51 @@
 # Changelog
 
+## 4.37.0
+
+### Minor Changes
+
+- [Added] - `notification` and `pie-text-input` web component that filters the list of icons based on search term ([#2402](https://github.com/justeattakeaway/pie/pull/2402)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- [Changed] - update the layout alignment for tooltip and breadcrumb example. ([#2406](https://github.com/justeattakeaway/pie/pull/2406)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - updated snapshots after icons update ([#2416](https://github.com/justeattakeaway/pie/pull/2416)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`0bdcf37`](https://github.com/justeattakeaway/pie/commit/0bdcf37d2f1327bf309ffc002c48a8bbe8295769)]:
+  - @justeattakeaway/pie-icons@5.13.0
+  - @justeattakeaway/pie-webc@0.6.43
+
+## 4.36.0
+
+### Minor Changes
+
+- [Added] - breadcrumb overview page ([#2393](https://github.com/justeattakeaway/pie/pull/2393)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - breadcrumb code section ([#2393](https://github.com/justeattakeaway/pie/pull/2393)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.6.42
+
+## 4.35.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.6.41
+
+## 4.35.1
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2391](https://github.com/justeattakeaway/pie/pull/2391)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`89b96e1`](https://github.com/justeattakeaway/pie/commit/89b96e150ff851450581a1a4a86e2c307b3afbe4)]:
+  - @justeattakeaway/pie-icons@5.12.0
+  - @justeattakeaway/pie-webc@0.6.40
+
 ## 4.35.0
 
 ### Minor Changes

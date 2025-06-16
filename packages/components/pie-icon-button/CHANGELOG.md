@@ -1,5 +1,49 @@
 # @justeattakeaway/pie-icon-button
 
+## 2.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`0bdcf37`](https://github.com/justeattakeaway/pie/commit/0bdcf37d2f1327bf309ffc002c48a8bbe8295769)]:
+  - @justeattakeaway/pie-icons-webc@1.12.0
+
+## 2.0.0
+
+### Major Changes
+
+- [Fixed] changed the host `display` property from `block` to `inline-block` for consistency ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- Updated dependencies [[`c8df2cd`](https://github.com/justeattakeaway/pie/commit/c8df2cdcd5a19296321b008d9a1284176d6c8855)]:
+  - @justeattakeaway/pie-spinner@1.2.3
+
+## 1.5.3
+
+### Patch Changes
+
+- Updated dependencies [[`352c6df`](https://github.com/justeattakeaway/pie/commit/352c6df0bfdc98c00aca084791b100950c8ce27a), [`ab8d2e0`](https://github.com/justeattakeaway/pie/commit/ab8d2e08305131ec6f8dfe9c4a1228dd91703254)]:
+  - @justeattakeaway/pie-icons-webc@1.11.1
+  - @justeattakeaway/pie-spinner@1.2.2
+
+## 1.5.2
+
+### Patch Changes
+
+- Updated dependencies [[`89b96e1`](https://github.com/justeattakeaway/pie/commit/89b96e150ff851450581a1a4a86e2c307b3afbe4)]:
+  - @justeattakeaway/pie-icons-webc@1.11.0
+
+## 1.5.1
+
+### Patch Changes
+
+- [Changed] - Updated Readme content and format ([#2383](https://github.com/justeattakeaway/pie/pull/2383)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`8866307`](https://github.com/justeattakeaway/pie/commit/8866307deed67e698088e731bb87e5e6db45f0e3)]:
+  - @justeattakeaway/pie-webc-core@1.0.0
+  - @justeattakeaway/pie-spinner@1.2.1
+  - @justeattakeaway/pie-icons-webc@1.10.1
+
 ## 1.5.0
 
 ### Minor Changes

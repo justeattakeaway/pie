@@ -64,18 +64,14 @@ import '@justeattakeaway/pie-webc/components/card.js';
 ```
 
 ```html
-<html>
-    <body>
-        <pie-card
-            tag="a"
-            href="https://www.example.com"
-            target="_blank"
-            padding="d">
-            Take me to example.com!
-        </pie-card>
-        <script type="module" src="/main.js"></script>
-    </body>
-</html>
+<pie-card
+    tag="a"
+    href="https://www.example.com"
+    target="_blank"
+    padding="d">
+    Take me to example.com!
+</pie-card>
+<script type="module" src="/main.js"></script>
 ```
 
 **For Native JS Applications, Vue, Angular, Svelte etc.:**

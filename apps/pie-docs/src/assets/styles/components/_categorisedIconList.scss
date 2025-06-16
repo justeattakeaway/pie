@@ -1,4 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+@use '../fozzie-config' as f;
 
 $icon-size: 16px;
 $icon-size-large: 32px;
@@ -10,10 +11,42 @@ $icon-preview-size: 64px;
     inline-size: $size;
 }
 
+.c-categorisedIconList-search {
+    flex-shrink: 0;
+    flex-grow: 1;
+}
+
+.c-categorisedIconList-select {
+    flex-grow:1;
+    
+    @include f.media('>=mid') {
+        flex-grow: 0;
+    }
+}
+
+.c-categorisedIconList-filters-container {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--dt-spacing-e);
+    justify-content: flex-start;
+    align-items: center;
+    margin-block-start: var(--dt-spacing-d);
+    width:100%;
+}
+
+.c-categorisedIconList-notification {
+    margin-block-start:var(--dt-spacing-d);
+    width: 100%;
+}
+
 .c-categorisedIconList {
     padding-inline-start: 0;
-    max-inline-size: 100%;
     list-style-type: none;
+}
+
+// Override the max-width constraint from _layout.scss
+#categorised-icon-list-container.c-categorisedIconList {
+    max-inline-size: 100%;
 }
 
 .c-categorisedIconList-heading {

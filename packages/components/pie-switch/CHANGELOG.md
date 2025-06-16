@@ -1,5 +1,46 @@
 # @justeattakeaway/pie-switch
 
+## 2.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`0bdcf37`](https://github.com/justeattakeaway/pie/commit/0bdcf37d2f1327bf309ffc002c48a8bbe8295769)]:
+  - @justeattakeaway/pie-icons-webc@1.12.0
+
+## 2.0.0
+
+### Major Changes
+
+- [Fixed] changed the host `display` property from `inline` to `block` for consistency ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- [Fixed] layout issue when the label is not displayed ([#2403](https://github.com/justeattakeaway/pie/pull/2403)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 1.4.3
+
+### Patch Changes
+
+- [Changed] - added docs to readme ([#2394](https://github.com/justeattakeaway/pie/pull/2394)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`352c6df`](https://github.com/justeattakeaway/pie/commit/352c6df0bfdc98c00aca084791b100950c8ce27a)]:
+  - @justeattakeaway/pie-icons-webc@1.11.1
+
+## 1.4.2
+
+### Patch Changes
+
+- Updated dependencies [[`89b96e1`](https://github.com/justeattakeaway/pie/commit/89b96e150ff851450581a1a4a86e2c307b3afbe4)]:
+  - @justeattakeaway/pie-icons-webc@1.11.0
+
+## 1.4.1
+
+### Patch Changes
+
+- Updated dependencies [[`8866307`](https://github.com/justeattakeaway/pie/commit/8866307deed67e698088e731bb87e5e6db45f0e3)]:
+  - @justeattakeaway/pie-webc-core@1.0.0
+  - @justeattakeaway/pie-icons-webc@1.10.1
+
 ## 1.4.0
 
 ### Minor Changes
