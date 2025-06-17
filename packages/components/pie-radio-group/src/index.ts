@@ -7,7 +7,7 @@ import {
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import {
-    property, query, queryAssignedElements, state,
+    property, queryAssignedElements, state,
 } from 'lit/decorators.js';
 import {
     RtlMixin,
