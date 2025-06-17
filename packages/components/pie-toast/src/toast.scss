@@ -1,4 +1,14 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+@use '@justeattakeaway/pie-css/scss/settings' as *;
+
+:host {
+  --toast-z-index: var(--dt-z-index-toast);
+  --toast-offset: var(--dt-spacing-d);
+
+  @include media('>md') {
+    --toast-offset: var(--dt-spacing-e);
+  }
+}
 
 .c-toast {
   --toast-border-radius: var(--dt-radius-rounded-b);
@@ -10,6 +20,7 @@
   --toast-translate-start: -100%;
   --toast-translate-end: 0;
 
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,10 +39,7 @@
   transition-property: all;
   transition-duration: var(--dt-motion-timing-100);
   transition-timing-function: var(--dt-motion-easing-in);
-}
-
-.c-toast--rtl {
-  --toast-translate-start: 100%;
+  z-index: var(--toast-z-index);
 }
 
 .c-toast--animate-in {
@@ -51,7 +59,7 @@
 
 .c-toast--info {
   --toast-icon-fill: var(--dt-color-support-info-inverse);
-  
+
   &.c-toast--strong {
     --toast-background-color: var(--dt-color-support-info);
     --toast-icon-fill: var(--dt-color-content-inverse);
@@ -60,7 +68,7 @@
 
 .c-toast--warning {
   --toast-icon-fill: var(--dt-color-support-warning-inverse);
-  
+
   &.c-toast--strong {
     --toast-background-color: var(--dt-color-support-warning);
     --toast-icon-fill: var(--dt-color-content-dark);
@@ -69,8 +77,8 @@
 }
 
 .c-toast--success {
-  --toast-icon-fill: var(--dt-color-support-positive-inverse); 
-  
+  --toast-icon-fill: var(--dt-color-support-positive-inverse);
+
   &.c-toast--strong {
     --toast-background-color: var(--dt-color-support-positive);
     --toast-icon-fill: var(--dt-color-content-inverse);
@@ -78,7 +86,7 @@
 }
 
 .c-toast--error {
-  --toast-icon-fill: var(--dt-color-support-error-inverse);  
+  --toast-icon-fill: var(--dt-color-support-error-inverse);
 
   &.c-toast--strong {
     --toast-background-color: var(--dt-color-support-error);
@@ -118,10 +126,10 @@
     gap: 0;
   }
 
-  .c-toast-messageArea {  
+  .c-toast-messageArea {
     align-items: flex-start;
     padding-block-end: var(--dt-spacing-b);
-  
+
     span {
       max-height: 60px;
       white-space: inherit;
@@ -145,22 +153,51 @@
   color: var(--toast-icon-fill);
 }
 
+.c-toast--position-default {
+  inset-inline-start: var(--toast-offset);
+  inset-block-end: var(--toast-offset);
+}
+
+.c-toast--position-bottom-left {
+  left: var(--toast-offset);
+  bottom: var(--toast-offset);
+}
+
+.c-toast--position-bottom-right {
+  right: var(--toast-offset);
+  bottom: var(--toast-offset);
+}
+
+.c-toast--position-bottom-center {
+  --toast-translate-start: -50%, 100%;
+  --toast-translate-end: -50%, 0;
+
+  left: 50%;
+  bottom: var(--toast-offset);
+  transform: translateX(-50%);
+}
+
+.c-toast--rtl,
+.c-toast--position-bottom-right {
+  --toast-translate-start: 100%;
+}
+
 @keyframes animate-in {
-  from { 
-    transform: translateX(var(--toast-translate-start));
+  from {
+    transform: translate(var(--toast-translate-start));
   }
 
-  to { 
-    transform: translateX(var(--toast-translate-end));
+  to {
+    transform: translate(var(--toast-translate-end));
   }
 }
 
 @keyframes animate-out {
-  from { 
-    transform: translateX(var(--toast-translate-end));
+  from {
+    transform: translate(var(--toast-translate-end));
   }
 
-  to { 
-    transform: translateX(var(--toast-translate-start));
+  to {
+    transform: translate(var(--toast-translate-start));
   }
 }

@@ -41,12 +41,17 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `isMultiline`    | `true`, `false`                                                           | Allows the message content to be displayed as multiline, limited to three rows.                                                                                          | `false`     |
 | `leadingAction`  | `{ text: string, ariaLabel?: string }`                                    | The leading action for the toast.                                                                                                                                        | `undefined` |
 | `duration`       | `number`, `null`                                                          | Sets the duration of the toast in milliseconds before it auto-dismisses. `null` disables auto-dismiss. Defaults to 5 seconds if not specified.                          | `5000`      |
+| `position`       | `"default"`, `"bottom-left"`, `"bottom-right"`, `"bottom-center"`        | Sets the position of the toast. When set to `default`, the toast will be positioned at bottom-left for RTL languages and bottom-right for LTR languages.                | `"default"` |
 
 ### Slots
 This component does not have any slots. All content is controlled through properties.
 
 ### CSS Variables
-This component does not expose any CSS variables for style overrides.
+
+| Name                     | Description                                                   | Default Value                                |
+|--------------------------|---------------------------------------------------------------|-----------------------------------------|
+| `--toast-z-index`        | Controls the z-index of the toast                             | `var(--dt-z-index-toast)`               |
+| `--toast-offset`         | Controls the spacing between the toast and the viewport edge  | `var(--dt-spacing-d)` (mobile), `var(--dt-spacing-e)` (desktop) |
 
 ### Events
 

@@ -1,6 +1,7 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const variants = ['neutral', 'info', 'warning', 'success', 'error'] as const;
+export const positions = ['default', 'bottom-left', 'bottom-right', 'bottom-center'] as const;
 
 export type ActionProps = {
   /**
@@ -51,6 +52,12 @@ export interface ToastProps {
    * If the value is not provided it auto-dismisses after 5 seconds
    */
   duration?: number | null;
+
+  /**
+   * Sets the position of the toast.
+   * When set to `default`, the toast will be positioned at bottom-left for RTL languages and bottom-right for LTR languages.
+   */
+  position: typeof positions[number];
 }
 
 export const componentSelector = 'pie-toast';
@@ -87,4 +94,5 @@ export const defaultProps: DefaultProps = {
     isDismissible: false,
     isMultiline: false,
     duration: 5000,
+    position: 'default',
 };

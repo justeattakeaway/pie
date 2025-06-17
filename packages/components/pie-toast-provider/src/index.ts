@@ -130,6 +130,7 @@ export class PieToastProvider extends RtlMixin(PieElement) implements ToastProvi
                 <pie-toast
                     message="${_currentToast.message}"
                     variant="${ifDefined(_currentToast.variant)}"
+                    position="${ifDefined(_currentToast.position)}"
                     ?isStrong="${_currentToast.isStrong}"
                     ?isDismissible="${_currentToast.isDismissible}"
                     ?isMultiline="${_currentToast.isMultiline}"
