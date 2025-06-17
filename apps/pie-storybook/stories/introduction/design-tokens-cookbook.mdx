@@ -137,26 +137,27 @@ A radius token (`--dt-radius-rounded-c`) controls the roundness of corners, maki
 
 ## Motion
 
-### Fade in-out transition
+### Animate-in transition
 This example uses motion tokens to control the timing and easing of a keyframe animation. The `--dt-motion-timing-200` token defines the duration of the animation, while `--dt-motion-easing-out` provides a standard easing curve.
 
-By using tokens instead of hardcoded values, we ensure that all animations across the product feel consistent and aligned with the system's motion principles. These tokens abstract away raw timing values, allowing the design team to update motion characteristics centrally - improving coherence and accessibility (e.g. adjusting for reduced motion preferences).
+By using tokens instead of hardcoded values, we ensure that all animations across the product feel consistent and aligned with the system's motion principles. These tokens abstract away raw timing values, allowing the design team to update motion characteristics centrally - improving coherence.
 
 ```css
-@keyframes fadeInOut {
-    0%, 100% {
-        opacity: 0;
+@keyframes animate-in {
+    from {
+        transform: translateX(-100%);
     }
-    50% {
-        opacity: 1;
+
+    to {
+        transform: translateX(0);
     }
 }
 
 .animated {
-    animation-name: fadeInOut;
     animation-duration: var(--dt-motion-timing-200);
+    animation-name: animate-in;
     animation-timing-function: var(--dt-motion-easing-out);
-    animation-iteration-count: infinite;
+    transform: translateX(0);
 }
 ```
 
