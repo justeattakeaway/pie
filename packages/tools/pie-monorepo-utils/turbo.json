@@ -3,7 +3,7 @@
   "extends": [
     "//"
   ],
-  "tasks": {
+  "pipeline": {
     "generate:component-statuses": {
       "cache": false,
       "outputs": [
