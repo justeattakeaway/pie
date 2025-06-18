@@ -35,11 +35,11 @@ Accessibility testing checks whether UI elements like buttons, forms, and menus 
 
 We follow the **Web Content Accessibility Guidelines (WCAG)**, specifically targeting:
 
-- `wcag21a`
-- `wcag21aa`
-- `wcag143`
-- `cat.color`
-- `cat.aria`
+- `wcag21a` - Filters rules that check for [WCAG 2.1](https://www.w3.org/TR/WCAG21/#conformance) Level A compliance.
+- `wcag21aa` - 	Filters rules that check for WCAG 2.1 Level AA compliance.
+- `wcag143` - 	Targets WCAG 2.1 [Success Criterion 1.4.3: Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
+- `cat.color` - Filters rules in the color category, e.g. low contrast text, missing color contrast [reference to Axe rules](https://dequeuniversity.com/rules/axe/4.7/).
+- `cat.aria` - 	Filters rules in the ARIA category, related to ARIA attributes and roles [reference to Axe rules](https://dequeuniversity.com/rules/axe/4.7/).
 
 These can be seen in our [Playwright fixtures file](https://github.com/justeattakeaway/pie/blob/main/packages/components/pie-webc-testing/src/playwright/playwright-fixtures.ts) where we define what standards we test for.
 
