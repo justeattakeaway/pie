@@ -1,2 +1,5 @@
-.c-toast-provider {
+@use '@justeattakeaway/pie-css/scss' as p;
+
+:host {
+    display: block;
 }

@@ -123,7 +123,6 @@ export class PieToastProvider extends RtlMixin(PieElement) implements ToastProvi
 
         return html`
         <div 
-            class="c-toast-provider" 
             data-test-id="pie-toast-provider">
             ${_currentToast &&
                 html`
