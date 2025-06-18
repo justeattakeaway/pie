@@ -1,0 +1,108 @@
+
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Contribution/Testing/Accessibility tests" />
+
+# Component accessibility tests
+
+We use **Playwright** in combination with **axe-core** to evaluate the accessibility of our components in a real browser. Accessibility tests ensure that our components comply with accessibility standards and can be used effectively by people who rely on assistive technologies such as screen readers or specialised input devices.
+
+> **Note:** Whilst automated tests can assist with catching easy to spot accessibility issues, they are not a substitute for proper manual testing. A combination of automated and manual testing is key to ensuring an accessible, inclusive experience. Learn how to use assistive technologies yourself and make sure to properly test your components in realistic ways.
+
+## Table of Contents
+
+- [Dos and Don'ts](#dos-and-donts)
+- [What is accessibility testing?](#what-is-accessibility-testing)
+- [What tools are used?](#what-tools-are-used)
+- [How are accessibility tests set up?](#how-are-accessibility-tests-set-up)
+- [Writing accessibility tests](#writing-accessibility-tests)
+- [Viewing test results](#viewing-test-results)
+
+## Dos and Don’ts
+
+| ✅ Do                                                                 | ❌ Don't                                                                 |
+|----------------------------------------------------------------------|-------------------------------------------------------------------------|
+| Use `axe-core` with Playwright for automated accessibility checks    | Use manual visual inspection as a replacement for automated tests       |
+| Test minimal, static stories from `.test.stories.ts` files           | Run accessibility tests on large complicated stories      |
+| Use consistent tags and disable rules only when necessary            | Disable rules to bypass violations without investigation                |
+| Reuse existing page objects for Storybook test story loading         | Hardcode Storybook URLs or bypass loading mechanisms                    |
+| Run tests in both LTR and RTL if relevant                            | Assume a single layout direction covers all accessibility needs         |
+| Investigate and fix violations before merging                        | Merge changes with unresolved accessibility issues                      |
+
+## What is accessibility testing?
+
+Accessibility testing checks whether UI elements like buttons, forms, and menus are perceivable, operable, and understandable to people using assistive technologies.
+
+We follow the **Web Content Accessibility Guidelines (WCAG)**, specifically targeting:
+
+- `wcag21a` - Filters rules that check for [WCAG 2.1](https://www.w3.org/TR/WCAG21/#conformance) Level A compliance.
+- `wcag21aa` - 	Filters rules that check for WCAG 2.1 Level AA compliance.
+- `wcag143` - 	Targets WCAG 2.1 [Success Criterion 1.4.3: Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
+- `cat.color` - Filters rules in the color category, e.g. low contrast text, missing color contrast [reference to Axe rules](https://dequeuniversity.com/rules/axe/4.7/).
+- `cat.aria` - 	Filters rules in the ARIA category, related to ARIA attributes and roles [reference to Axe rules](https://dequeuniversity.com/rules/axe/4.7/).
+
+These can be seen in our [Playwright fixtures file](https://github.com/justeattakeaway/pie/blob/main/packages/components/pie-webc-testing/src/playwright/playwright-fixtures.ts) where we define what standards we test for.
+
+By ensuring our components meet these standards, we help deliver a more inclusive experience across our platform.
+
+## What tools are used?
+
+- **Playwright** - for browser-based testing
+- **axe-core** - an automated accessibility engine used via the `@axe-core/playwright` plugin
+
+Tests are run both on the documentation site and individual components across the **Pie monorepo**.
+
+## How are accessibility tests set up?
+
+Accessibility tests are structured similarly to component and system tests:
+
+- They use the same Playwright test runner and helper utilities.
+- They import the `@axe-core/playwright` package.
+- The key difference is the addition of the `axe` analysis step and validation of the results.
+
+### Example axe setup:
+
+```ts
+const results = await new AxeBuilder.default({ page })
+    .withTags(['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'])
+    .disableRules(['color-contrast', 'color-contrast-enhanced']) // Optional: exclude noisy rules
+    .analyze();
+
+expect(results.violations).toEqual([]);
+```
+
+## Writing accessibility tests
+
+Accessibility tests should:
+
+- Load the test-specific Storybook story
+- Use a page object to manage story navigation (page objects are just a class representation of the Story. We discuss them in our [visual testing guide](?path=/docs/contribution-testing-visual-tests--docs))
+- Call `makeAxeBuilder().analyze()` to run axe-core checks
+- Assert that there are no violations
+
+### Example test:
+
+```ts
+import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/playwright-fixtures.ts';
+import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
+
+test.describe('PieTextInput - Accessibility tests', () => {
+    test('a11y - should test the PieTextInput component WCAG compliance', async ({ makeAxeBuilder, page }) => {
+        const textInputDefaultPage = new BasePage(page, 'text-input--default');
+        await textInputDefaultPage.load();
+
+        const results = await makeAxeBuilder().analyze();
+
+        expect(results.violations).toEqual([]);
+    });
+});
+```
+
+## Viewing test results
+
+If any violations are found:
+
+- The test will fail with a list of violations
+- You can view the full test report in your terminal
+
+Use the Playwright UI (`--ui`) for debugging and interactively inspecting the failed accessibility checks.

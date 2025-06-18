@@ -101,6 +101,7 @@ export default {
                             'Unit tests',
                             'Browser tests',
                             'Visual tests',
+                            'Accessibility tests'
                         ]
                     ],
                 ],
