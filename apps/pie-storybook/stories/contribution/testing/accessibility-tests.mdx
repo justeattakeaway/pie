@@ -41,6 +41,8 @@ We follow the **Web Content Accessibility Guidelines (WCAG)**, specifically targ
 - `cat.color`
 - `cat.aria`
 
+These can be seen in our [Playwright fixtures file](https://github.com/justeattakeaway/pie/blob/main/packages/components/pie-webc-testing/src/playwright/playwright-fixtures.ts) where we define what standards we test for.
+
 By ensuring our components meet these standards, we help deliver a more inclusive experience across our platform.
 
 ## What tools are used?
@@ -74,7 +76,7 @@ expect(results.violations).toEqual([]);
 Accessibility tests should:
 
 - Load the test-specific Storybook story
-- Use a page object to manage story navigation
+- Use a page object to manage story navigation (page objects are just a class representation of the Story. We discuss them in our [visual testing guide](?path=/docs/contribution-testing-visual-tests--docs))
 - Call `makeAxeBuilder().analyze()` to run axe-core checks
 - Assert that there are no violations
 
