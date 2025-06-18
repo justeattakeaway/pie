@@ -215,16 +215,23 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
      */
     private _handleFocus (event: FocusEvent): void {
         if (!this.value) {
-            // Depending on the previously focused element, transfer focus to the next logical radio
-            if (!event.target || !event.relatedTarget) return;
+            // When no value is assigned, depending on the previously focused element,
+            // transfer focus to the next logical radio
 
-            const sourceRelativePosition = (event.target as Node).compareDocumentPosition(event.relatedTarget as Node);
-            const topToBottomOrder = sourceRelativePosition === Node.DOCUMENT_POSITION_PRECEDING;
-
+            // Bypass all logic if there are no children
             const enabledChildren = this._slottedChildren.filter((item) => !item.disabled);
-
             if (!enabledChildren || enabledChildren.length === 0) return;
 
+            // Workaround for Safari, when body is the active element,
+            // it is not assigned to the event.relatedTarget
+            const previouslyFocusedElement = event.relatedTarget as Node || this.parentNode;
+            const sourceRelativePosition = (this as Node).compareDocumentPosition(previouslyFocusedElement);
+
+            // Check if focus element was before or after this instance
+            // eslint-disable-next-line no-bitwise
+            const topToBottomOrder = sourceRelativePosition & Node.DOCUMENT_POSITION_PRECEDING; // we need the bitwise operator here
+
+            // Depending on the focus direction of movement, get the first or last enabled children
             const firstOrLastChild = topToBottomOrder ? enabledChildren.shift() : enabledChildren.pop();
 
             this._hasFocus = true;
@@ -260,15 +267,19 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
      */
     private _handleFocusOut (event: FocusEvent): void {
         // `relatedTarget` is null when focusing the body
-        if (!event.relatedTarget) {
+        const focusedElement = event.relatedTarget as Node;
+        if (!focusedElement) {
             this._resetFocus();
-            return; // compareDocumentPosition cant be used with null
+            return;
         }
 
         // Since losing focus out can happen after focusing a radio, we want to check
         // if the focus target is outside this component
-        const position = (event.relatedTarget as Node).compareDocumentPosition(this as Node);
-        const radioGroupLostFocus = position < Node.DOCUMENT_POSITION_CONTAINS;
+        const position = (focusedElement).compareDocumentPosition(this as Node);
+
+        // we need the bitwise operator here
+        const instanceContainsFocusedElement = position & Node.DOCUMENT_POSITION_CONTAINS; // eslint-disable-line no-bitwise
+        const radioGroupLostFocus = instanceContainsFocusedElement === 0;
 
         if (radioGroupLostFocus) {
             this._resetFocus();
@@ -393,11 +404,11 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             'c-radioGroup--hasAssistiveText': hasAssistiveText,
         };
 
-        const tabIndex = value === '' && !this._hasFocus ? 0 : -1;
+        const fieldSetTabIndex = value === '' && !this._hasFocus ? 0 : -1;
 
         return html`
             <fieldset
-                tabindex=${tabIndex}
+                tabindex=${fieldSetTabIndex}
                 role="radiogroup"
                 name=${ifDefined(name)}
                 ?disabled=${disabled}
