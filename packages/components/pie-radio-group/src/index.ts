@@ -103,9 +103,9 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             if (!radio.disabled) {
                 radio.checked = radio.value === this.value;
             }
+            // tabIndex should be -1 when the value changes, so a radio doesnt get focus when it doesnt needs it
+            radio.tabIndex = -1;
         });
-
-        this._setTabIndex();
     }
 
     /**
@@ -197,6 +197,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         const { signal } = this._abortController;
 
         this.addEventListener('focus', this._handleFocus, { signal });
+        this.addEventListener('focusout', this._handleFocusOut, { signal });
 
         this.shadowRoot?.addEventListener('change', this._handleRadioChange.bind(this), { signal });
 
@@ -237,23 +238,41 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             enabledChildren.forEach((radio) => {
                 radio.tabIndex = -1;
             });
-
-            this.addEventListener('focusout', this._handleFocusOut, { signal: this._abortController.signal });
         }
     }
 
+    private _resetFocus () {
+        this._hasFocus = false;
+        this._setTabIndex();
+    }
+
     /**
-     * Handles the `focusout` event to remove the `tabindex` from the radio group's `fieldset`.
+     * Handles the `focusout` event to set `tabindex` where it will be needed
      *
      * When no value is set and focus leaves the radio group, this method enables the
      * `tabindex` attribute on the `fieldset` element. This ensures the radio group
      * remains accessible for keyboard navigation and can be re-focused when tabbing
      * back into the group.
+     *
+     * When a value is set and focus leaves the radio group, it will add it back
+     * to the correspondent radio, so ir can be re-focused when tabbing back into
+     * the group.
      */
-    private _handleFocusOut (): void {
-        this.removeEventListener('focusout', this._handleFocusOut);
-        this._hasFocus = false;
-        this._setTabIndex();
+    private _handleFocusOut (event: FocusEvent): void {
+        // `relatedTarget` is null when focusing the body
+        if (!event.relatedTarget) {
+            this._resetFocus();
+            return; // compareDocumentPosition cant be used with null
+        }
+
+        // Since losing focus out can happen after focusing a radio, we want to check
+        // if the focus target is outside this component
+        const position = (event.relatedTarget as Node).compareDocumentPosition(this as Node);
+        const radioGroupLostFocus = position < Node.DOCUMENT_POSITION_CONTAINS;
+
+        if (radioGroupLostFocus) {
+            this._resetFocus();
+        }
     }
 
     private _moveFocus (currentIndex: number, step: number): void {
