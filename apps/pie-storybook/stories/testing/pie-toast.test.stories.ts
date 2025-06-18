@@ -46,6 +46,14 @@ const toastStoryMeta: ToastStoryMeta = {
                 summary: defaultProps.variant,
             },
         },
+        position: {
+            description: 'Set the position of the toast. When set to `default`, the toast will be positioned at bottom-left for RTL languages and bottom-right for LTR languages.',
+            control: 'select',
+            options: positions,
+            defaultValue: {
+                summary: defaultProps.position,
+            },
+        },
         isStrong: {
             description: 'When true, the toast is displayed with a strong visual style.',
             control: 'boolean',
