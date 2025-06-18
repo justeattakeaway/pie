@@ -57,7 +57,7 @@ export interface ToastProps {
    * Sets the position of the toast.
    * When set to `default`, the toast will be positioned at bottom-left for RTL languages and bottom-right for LTR languages.
    */
-  position: typeof positions[number];
+  position?: typeof positions[number];
 }
 
 export const componentSelector = 'pie-toast';
