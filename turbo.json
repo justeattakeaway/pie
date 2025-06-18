@@ -36,22 +36,7 @@
         "^build"
       ],
       "outputs": [
-        "build/**",
-        "dist/**",
-        ".next/**",
-        ".nuxt/**",
-        ".output/**"
-      ]
-    },
-    "generate:examples": {
-      "cache": true,
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "dist/**",
-        ".nuxt/**",
-        ".output/**"
+        "dist/**"
       ]
     },
     "generate:component-statuses": {},
