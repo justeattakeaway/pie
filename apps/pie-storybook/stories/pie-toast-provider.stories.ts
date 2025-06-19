@@ -33,16 +33,6 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
                 summary: defaultProps.options,
             },
         },
-        '--toast-provider-z-index': {
-            description: 'Controls the stacking order of the toast provider.',
-            control: 'text',
-            defaultValue: {
-                summary: '--dt-z-index-toast (6000)',
-            },
-            table: {
-                category: 'CSS Variables',
-            },
-        },
     },
     args: defaultArgs,
     parameters: {
@@ -55,7 +45,7 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
 
 export default toastProviderStoryMeta;
 
-const Template = ({ options, '--toast-provider-z-index': customZIndex }: ToastProviderProps & { '--toast-provider-z-index'?: string }) => {
+const Template = ({ options }: ToastProviderProps) => {
     const onQueueUpdate = (event: CustomEvent) => {
         const queueLength = document.querySelector('#queue-length-tag') as HTMLElement;
         if (queueLength) {
@@ -66,7 +56,6 @@ const Template = ({ options, '--toast-provider-z-index': customZIndex }: ToastPr
     return html`
     <pie-toast-provider
         .options=${options}
-        style="${customZIndex ? `--toast-provider-z-index: ${customZIndex}` : ''}"
         @pie-toast-provider-queue-update=${onQueueUpdate}>
     </pie-toast-provider>
 

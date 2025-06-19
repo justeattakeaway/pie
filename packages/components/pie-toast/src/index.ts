@@ -28,6 +28,7 @@ import {
     componentClass,
     defaultProps,
     variants,
+    positions,
     ON_TOAST_CLOSE_EVENT,
     ON_TOAST_OPEN_EVENT,
     ON_TOAST_LEADING_ACTION_CLICK_EVENT,
@@ -55,6 +56,10 @@ export class PieToast extends RtlMixin(PieElement) implements ToastProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
     public variant = defaultProps.variant;
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, positions, defaultProps.position)
+    public position = defaultProps.position;
 
     @property({ type: Boolean })
     public isStrong = defaultProps.isStrong;
@@ -316,6 +321,7 @@ export class PieToast extends RtlMixin(PieElement) implements ToastProps {
         const {
             isOpen,
             variant,
+            position,
             message,
             isDismissible,
             leadingAction,
@@ -329,6 +335,7 @@ export class PieToast extends RtlMixin(PieElement) implements ToastProps {
             [`${componentClass}--rtl`]: isRTL,
             [`${componentClass}--multiline`]: isMultiline,
             [`${componentClass}--${variant}`]: true,
+            [`${componentClass}--position-${position}`]: true,
             [`${componentClass}--strong`]: isStrong,
             [`${componentClass}--animate-in`]: isOpen,
             [`${componentClass}--animate-out`]: !isOpen,

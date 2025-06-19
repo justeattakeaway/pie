@@ -1,7 +1,12 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
-import { type ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
+import {
+    type ToastProps,
+    defaultProps,
+    variants,
+    positions,
+} from '@justeattakeaway/pie-toast';
 
 import {
     type TemplateFunction,
@@ -39,6 +44,14 @@ const toastStoryMeta: ToastStoryMeta = {
             options: variants,
             defaultValue: {
                 summary: defaultProps.variant,
+            },
+        },
+        position: {
+            description: 'Set the position of the toast. When set to `default`, the toast will be positioned at bottom-left for RTL languages and bottom-right for LTR languages.',
+            control: 'select',
+            options: positions,
+            defaultValue: {
+                summary: defaultProps.position,
             },
         },
         isStrong: {
@@ -101,31 +114,25 @@ const Template : TemplateFunction<ToastProps> = ({
     isMultiline,
     isStrong,
     variant,
+    position,
     duration,
 }: ToastProps) => html`
-        <pie-toast
-            ?isOpen="${isOpen}"
-            ?isDismissible="${isDismissible}"
-            ?isStrong="${isStrong}"
-            variant="${ifDefined(variant)}"
-            message="${message}" 
-            .duration="${duration}"
-            ?isMultiline="${isMultiline}"
-            .leadingAction="${leadingAction}"
-        </pie-toast>
+        <div style="position: relative; height: 200px; margin: -8px;">
+            <pie-toast
+                ?isOpen="${isOpen}"
+                ?isDismissible="${isDismissible}"
+                ?isStrong="${isStrong}"
+                variant="${ifDefined(variant)}"
+                position="${ifDefined(position)}"
+                message="${message}" 
+                .duration="${duration}"
+                ?isMultiline="${isMultiline}"
+                .leadingAction="${leadingAction}">
+            </pie-toast>
+        </div>
     `;
 
 const createToastStory = createStory<ToastProps>(Template, defaultArgs);
-
-export const Neutral = createToastStory();
-export const Info = createToastStory({ variant: 'info' });
-export const InfoStrong = createToastStory({ variant: 'info', isStrong: true });
-export const Warning = createToastStory({ variant: 'warning' });
-export const WarningStrong = createToastStory({ variant: 'warning', isStrong: true });
-export const Success = createToastStory({ variant: 'success' });
-export const SuccessStrong = createToastStory({ variant: 'success', isStrong: true });
-export const Error = createToastStory({ variant: 'error' });
-export const ErrorStrong = createToastStory({ variant: 'error', isStrong: true });
 export const AutoDismiss = createToastStory({ duration: 3000, message: 'Closing in three seconds' });
 
 // Base shared props matrix
@@ -136,6 +143,7 @@ const baseSharedPropsMatrix: Partial<Record<keyof ToastProps, unknown[]>> = {
     message: [shortMessage, longMessage],
     duration: [null],
     leadingAction: [leadingActionTrue, leadingActionFalse],
+    position: [...positions],
 };
 
 // Neutral variant stories

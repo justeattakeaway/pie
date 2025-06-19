@@ -40,10 +40,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 This component does not have any slots. All content is controlled through properties.
 
 ### CSS Variables
-
-| Name                     | Description                                 | Default                     |
-|--------------------------|---------------------------------------------|-----------------------------|
-| `--toast-provider-z-index` | Controls the stacking order of the toast provider. | `--dt-z-index-toast` (6000) |
+This component does not expose any CSS variables for style overrides.
 
 ### Events
 

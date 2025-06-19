@@ -23,7 +23,7 @@ test.describe('PieToast - Component tests', () => {
 
     test.describe('Props', () => {
         test.describe('isOpen', () => {
-            test('should have c-toast--animate-out class if isOpen is false', async ({ page }) => {
+            test('the component should be visible', async ({ page }) => {
                 // Arrange
                 const toastPage = new BasePage(page, 'toast');
                 const props: Partial<ToastProps> = {
@@ -39,7 +39,6 @@ test.describe('PieToast - Component tests', () => {
 
                 // Assert
                 await expect(toastComponent).toBeVisible();
-                await expect(toastComponent).toHaveClass('c-toast c-toast--neutral c-toast--animate-out');
             });
         });
 

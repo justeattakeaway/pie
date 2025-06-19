@@ -3,7 +3,12 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { useArgs } from '@storybook/preview-api';
 import { action } from '@storybook/addon-actions';
 import { type Meta } from '@storybook/web-components';
-import { type ToastProps, defaultProps, variants } from '@justeattakeaway/pie-toast';
+import {
+    type ToastProps,
+    defaultProps,
+    variants,
+    positions,
+} from '@justeattakeaway/pie-toast';
 
 import { type TemplateFunction, createStory } from '../utilities';
 
@@ -36,6 +41,14 @@ const toastStoryMeta: ToastStoryMeta = {
             options: variants,
             defaultValue: {
                 summary: defaultProps.variant,
+            },
+        },
+        position: {
+            description: 'Set the position of the toast. When set to `default`, the toast will be positioned at bottom-left for RTL languages and bottom-right for LTR languages.',
+            control: 'select',
+            options: positions,
+            defaultValue: {
+                summary: defaultProps.position,
             },
         },
         isStrong: {
@@ -95,6 +108,7 @@ const Template : TemplateFunction<ToastProps> = ({
     isMultiline,
     isStrong,
     variant,
+    position,
     duration,
 }: ToastProps) => {
     const [, updateArgs] = useArgs();
@@ -115,6 +129,7 @@ const Template : TemplateFunction<ToastProps> = ({
             ?isDismissible="${isDismissible}"
             ?isStrong="${isStrong}"
             variant="${ifDefined(variant)}"
+            position="${ifDefined(position)}"
             message="${message}"
             .duration="${duration}"
             ?isMultiline="${isMultiline}"

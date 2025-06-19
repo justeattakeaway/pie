@@ -123,13 +123,13 @@ export class PieToastProvider extends RtlMixin(PieElement) implements ToastProvi
 
         return html`
         <div 
-            class="c-toast-provider" 
             data-test-id="pie-toast-provider">
             ${_currentToast &&
                 html`
                 <pie-toast
                     message="${_currentToast.message}"
                     variant="${ifDefined(_currentToast.variant)}"
+                    position="${ifDefined(_currentToast.position)}"
                     ?isStrong="${_currentToast.isStrong}"
                     ?isDismissible="${_currentToast.isDismissible}"
                     ?isMultiline="${_currentToast.isMultiline}"
