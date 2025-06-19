@@ -1,8 +1,8 @@
 ---
 eleventyNavigation:
-    key: Overview
+    key: Motion
     parent: 'Spinner'
-    order: 1
+    order: 2
 eleventyComputed:
     sizes: "{% include './sizes.json'
     %}"
