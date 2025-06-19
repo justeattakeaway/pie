@@ -253,8 +253,18 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     }
 
     private _moveFocus (currentIndex: number, step: number): void {
+        const enabledChildren = this._slottedChildren.filter((el) => !el.disabled);
+        if (!enabledChildren) return; // avoid infinite loop below
+
         const newIndex = (currentIndex + step + this._slottedChildren.length) % this._slottedChildren.length;
-        this._focusAndClickOption(this._slottedChildren[newIndex]);
+        const childElement = this._slottedChildren[newIndex];
+
+        if (childElement.disabled) {
+            this._moveFocus(newIndex, step);
+            return;
+        }
+
+        this._focusAndClickOption(childElement);
     }
 
     /**
