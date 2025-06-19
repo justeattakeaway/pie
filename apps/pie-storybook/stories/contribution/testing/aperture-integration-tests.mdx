@@ -1,0 +1,74 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Contribution/Testing/Aperture integration tests" />
+
+# Aperture integration tests
+[PIE Aperture](https://github.com/justeattakeaway/pie-aperture/) is our suite of sandbox applications designed to ensure our web components work in each framework we are required to be compatible with.
+Currently, this list is React, Vue, Nuxt and NextJS. Because React and Vue are already the engines behind the two metaframeworks, we simply test in Nuxt and NextJS applications. In addition to this, we test in a vanilla JS and HTML application.
+
+## Table of Contents
+- [Testing in PIE Aperture](#testing-in-pie-aperture)
+  - [What do we test?](#what-do-we-test)
+  - [How to test](#how-to-test)
+- [Server-side Rendering Testing](#server-side-rendering-testing)
+  - [How and where to test](#how-and-where-to-test)
+  - [Developing SSR safe components](#developing-ssr-safe-components)
+- [Form integration tests](#form-integration-tests)
+
+# Testing in PIE Aperture
+
+When we create or update components, we must always test in the Aperture suite.
+
+## What do we test?
+
+There are three things we test in Aperture:
+
+1. **Component smoke tests:** generally speaking, we create a new page in Aperture for a single component and ensure that it renders and looks as expected in addition to some manual testing. We run visual tests against these component pages to automated checking they look correct.
+2. **Form integration:** for form control components, such as inputs and buttons, we also add them to the existing form pages and update the automated form test that runs against all of the applications. This test will attempt to fill in a form, submit it and ensure the submitted data is what we expect.
+3. **Server-side rendering:** All of our components must render in a Nuxt or NextJS SSR process. This is handled by an automated test and new components should be added to the list of components to test.
+
+Here is an example of the same component page in Nuxt, NextJS and Vanilla for the Button component:
+- [Nuxt](https://github.com/justeattakeaway/pie-aperture/blob/main/nuxt-app/pages/components/button.vue)
+- [NextJS](https://github.com/justeattakeaway/pie-aperture/blob/main/nextjs-app-v14/src/app/components/button/button.tsx)
+- [Vanilla](https://github.com/justeattakeaway/pie-aperture/blob/main/vanilla-app/js/button.js)
+
+### How to test
+
+Here is a general outline of the steps to test:
+
+1. In your PIE pull request, add a comment saying `/test-aperture`. This will automatically both create snapshot releases of your updated packages (which could be installed and tested in any application), and open a pull request into PIE Aperture with your updated packages.
+2. Pull the PIE Aperture PR branch to your machine and run the applications (instructions in the readme for each app).
+3. If you are adding a new feature or updating a components interface please ensure you make these changes in Aperture.
+4. If this is a new component, please add a new page in each test app for the component as well as **visual tests**.
+5. If this is a new component, you will need to add **SSR tests** and if it is a form component, add to the form integration page in each app and update the form automated test to include it.
+6. Push your changes to the Aperture PR and add the preview deployment links to the table in your PIE PR. These preview deployments allow you to check the components work in **production builds**.
+7. Once you have merged your PIE PR, the component will automatically be published (after the Version Packages PR gets merged), once this is done, update your PIE Aperture PR to use this new version of the packages (likely just `pie-webc`) and ask for code reviews.
+
+## Server-side Rendering Testing
+
+When we build a component, it is critical that we test it in a way that is similar to how it will be used by consumers. This includes testing the component in a server-side rendered (SSR) environment.
+
+### How and where to test
+
+This project has a shared [SSR test](https://github.com/justeattakeaway/pie-aperture/blob/main/test/ssr/ssr.spec.ts) that can be used to test components in an SSR environment. It will render the component on the server and then inspect the output to ensure that it is as expected. This includes checking for the presence of a `<template>` element, with various shadow DOM attributes as well as a `<style>` element with styles included.
+
+It is vital that an SSR test is included for each component that is built, to ensure that it behaves as expected in an SSR environment. This should be done before the component is moved from `alpha` to `beta` status.
+
+### Developing SSR safe components
+> **Note:** Please ensure when reading Lit documentation pages that they are written for the major version our components are built with!
+
+Lit has provided some [good guidelines](https://lit.dev/docs/ssr/authoring/) on how to avoid creating SSR problems in components.
+
+To avoid repeating what is already documented in their site, the most common mistake that creates SSR issues in our components is using browser-only APIs in parts of component logic that will be run on the server. An example is adding event listeners inside of a lifecycle method such as `hasChanged()`.
+
+Always test in real frameworks as you are developing a component so that you spot any issues like this early on.
+
+## Form integration tests
+
+Our shared form integration test can be found [here](https://github.com/justeattakeaway/pie-aperture/blob/main/test/system/form.spec.ts). It is important that if you are adding a form control component, that you add it to the form pages for each app and update this test so it will interact with the newly added component.
+
+Here are the form pages for each app:
+- [Nuxt](https://github.com/justeattakeaway/pie-aperture/blob/main/nuxt-app/pages/integrations/form.vue)
+- [NextJS (controlled form)](https://github.com/justeattakeaway/pie-aperture/blob/main/nextjs-app-v14/src/app/integrations/controlled-form/controlled-form.tsx)
+- [NextJS (uncontrolled form)](https://github.com/justeattakeaway/pie-aperture/blob/main/nextjs-app-v14/src/app/integrations/uncontrolled-form/uncontrolled-form.tsx)
+- [Vanilla](https://github.com/justeattakeaway/pie-aperture/blob/main/vanilla-app/integrations/form.html)
