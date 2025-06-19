@@ -1,0 +1,298 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Contribution/Overview" />
+
+# Contributing to the PIE web component library
+This page should guide an engineer through the entire component development process.
+Our web component library is open source, which means anyone can contribute! However, if you would
+like to create a new component then we would ask you to reach out to our team first for us to discuss requirements.
+
+## Table of Contents
+
+- [How to get involved](#how-to-get-involved)
+- [Development](#development)
+    - [Machine setup](#machine-setup)
+    - [Building a component](#building-a-component)
+    - [Anatomy of a component package](#anatomy-of-a-component-package)
+    - [Testing and QA](#testing-and-qa)
+- [Pull requests and version control](#pull-requests-and-version-control)
+    - [Branch names](#branch-names)
+    - [Commit messages](#commit-messages)
+    - [Pull request titles](#pull-request-titles)
+    - [Pull request templates](#pull-request-templates)
+    - [Changesets and versioning](#changesets-and-versioning)
+    - [Snapshot releases](#snapshot-releases)
+- [Resources](#resources)
+
+## How to get involved
+
+The first step in build a component is to reach out to our team! We want people to be empowered to create
+core components, however we want to help you define the requirements and specification to ensure the component is reusable and appropriate
+for our core library. Domain-specific components do not belong in the library, because these are not considered reusable across the entire organisation.
+
+Because our web components must be compatible with a number of different frontend frameworks, we have quite a comprehensive [testing strategy](?path=/docs/contribution-testing-overview--docs) that all components must follow.
+
+## Development
+
+We will cover setting up your machine to work with our repo, as well as building your first component.
+
+### Machine setup
+First, lets get your machine set up to work with the repository.
+
+#### Code editor
+
+You can use any code editor, but most of the design system engineers use [Visual Studio Code (VSCode)](https://code.visualstudio.com/).
+
+> It is entirely optional, but we built a [prototype extension](https://marketplace.visualstudio.com/items?itemName=JamieMaguire.pie-design-system-vscode-prototype) for VSCode that helps with using our design tokens in CSS/SCSS files.
+
+#### Git secrets
+Install following the [instructions](https://github.com/awslabs/git-secrets).
+
+#### Volta
+Install following the [instructions](https://docs.volta.sh/guide/getting-started). This will ensure you have the correct versions of Node and Yarn installed. We have pinned versions for both Node and Yarn using Volta in each of our packages inside the repo. This means that when running `node --version` or `yarn --version` inside a package in the repo, the result should match the one present in the closest package.json file. Most of which extend the root [package.json file](https://github.com/justeattakeaway/pie/blob/main/package.json).
+
+#### Yarn >= 2
+Using Volta should take care of this for you.
+
+#### Node 20+
+Using Volta should take care of this for you.
+
+#### Environment variables
+- `TURBO_TOKEN`: you will need this token to properly run Turborepo commands and enable remote caching. Please reach out to the design system team for the value of this token.
+
+- `PERCY_TOKEN_{COMPONENT}`: you will need these tokens to run visual regression tests locally. Please reach out to the design system team for the values of these tokens. An example could be `PERCY_TOKEN_PIE_BUTTON` or `PERCY_TOKEN_PIE_DOCS`.
+
+- How you add these will depend on your operating system. For example, on Mac they could be added to a `.zshrc` or `.zshenv` file. It is best that you research the best method of adding these for your particular setup.
+
+- Examples of adding these environment variables:
+    - via bash (e.g. `.zshrc`):
+
+        ```bash
+        export PERCY_TOKEN_{COMPONENT}=abcde # e.g PERCY_TOKEN_PIE_BUTTON=abcde or PERCY_TOKEN_PIE_CARD=abcde
+        ```
+
+    - via `package.json`:
+
+        ```bash
+        # Under scripts `test:visual` replace the environment variable like so:
+        PERCY_TOKEN_{COMPONENT}=abcde # e.g PERCY_TOKEN_PIE_BUTTON=abcde
+        ```
+
+### Building a component
+We can scaffold a new component and its Stories very easily.
+
+#### Component generator
+We have a [Yeoman generator](https://github.com/justeattakeaway/pie/tree/main/packages/tools/generator-pie-component) that scaffolds new component projects for us! Please check out the project `README` file for instructions.
+
+#### Turborepo
+We use [Turborepo](https://turborepo.com/) to manage our [monorepo](https://monorepo.tools/).
+
+When running any yarn commands, such as dev or build, it is important that you **run them from the root of the monorepo** and `filter` by the project you want to target.
+
+For example:
+
+```bash
+yarn build --filter=@justeattakeway/pie-{component-name}
+```
+
+#### Using Storybook
+Whilst your developing a component, you will want it rendered in the browser whilst you make code changes.
+
+To do this, run:
+
+```bash
+yarn dev --filter=@justeattakeway/pie-storybook
+```
+This will run Storybook in the browser.
+
+You likely will want Storybook to immediately reflect changes as you change code. To do this, we want to watch the project being changed:
+
+```bash
+yarn watch --filter=@justeattakeway/pie-{component-name}
+```
+
+Now as you make changes to the component, the Story should update in the browser as you go.
+
+
+#### Component statuses
+When you generate a new component, it will have an object in the `package.json` file that looks like this:
+
+```json
+"pieMetadata": {
+    "componentStatus": "alpha"
+},
+```
+
+The component status by default will always be `alpha`. This means the component is in active development. You must agree with the design system team before updating a component status.
+
+A full explanation on the different statuses can be seen [here](https://pie.design/components/component-status/#status-descriptions).
+
+### Anatomy of a component package
+Generally speaking, a component package can be broken down into the following areas:
+
+```
+component-name/
+├── dist/
+├── src/
+│   ├── component-name.scss
+│   ├── defs.ts
+│   ├── defs-react.ts
+│   └── index.ts
+│
+├── test/
+│   ├── accessibility/
+│   │   └── component-name.spec.ts
+│   ├── component/
+│   │   └── component-name.spec.ts
+│   ├── helpers/
+│   │   └── page-object/
+│   │       └── selectors.ts
+│   └── visual/
+│       └── component-name.spec.ts
+│
+├── custom-elements-manifest.config.mjs
+├── package.json
+├── README.md
+├── tsconfig.json
+├── turbo.json
+├── vite.config.js
+├── playwright-lit-visual.config.ts
+└── playwright-lit.config.ts
+```
+
+## Project Structure
+
+> Pretty much this entire structure is generated for you by the component generator!
+
+### Project root files
+
+1. **`custom-elements-manifest.config.mjs`**
+    Configuration for generating the [Custom Elements Manifest](https://github.com/webcomponents/custom-elements-manifest). Useful for IDE tooling and documentation.
+
+2. **`package.json`**
+    Defines package metadata, dependencies, scripts, and component configuration such as `pieMetadata`.
+
+3. **`README.md`**
+    Documentation for usage, purpose, and development instructions.
+
+4. **`tsconfig.json`**
+    TypeScript configuration to ensure consistent compilation and type safety.
+
+5. **`turbo.json`**
+    Configuration for [Turborepo](https://turborepo.com/docs), enabling efficient monorepo builds and caching.
+
+6. **`vite.config.js`**
+    Vite configuration used for building and serving the component during development.
+
+7. **`playwright-lit-visual.config.ts`**
+    Playwright config for visual regression testing
+
+8. **`playwright-lit.config.ts`**
+    General Playwright config for E2E tests on Lit-based components.
+
+---
+### `dist/` - Component build artifacts to publish
+
+### `src/` - Component source code
+
+9. **`component-name.scss`**
+    SCSS styles scoped to the component.
+
+10. **`defs.ts`**
+    Type definitions for component properties, events, and internal structure.
+
+11. **`defs-react.ts`**
+    React-specific types used when wrapping the web component in a React wrapper.
+
+12. **`index.ts`**
+    Entry point for the component. Registers the custom element and exports definitions.
+
+---
+
+### `test/` — Tests and utilities
+
+> See our [testing guide](?path=/docs/contribution-testing-overview--docs) for more in-depth explanations.
+
+13. **`accessibility/component-name.spec.ts`**
+    Automated accessibility checks (e.g. ARIA, keyboard nav) using tools like Axe or Playwright.
+
+14. **`component/component-name.spec.ts`**
+    Core test file for component logic, rendering, attributes, and events.
+
+15. **`helpers/page-object/selectors.ts`**
+    Page Object pattern helpers for selecting and interacting with component DOM in tests.
+
+16. **`visual/component-name.spec.ts`**
+    Visual regression test comparing screenshots across changes using Percy or similar.
+
+
+### Testing and QA
+Please read our [testing guide](/?path=/docs/contribution-testing-overview--docs) for an overview of how we ensure our components work as expected and our testing standards.
+
+## Pull requests and version control
+We follow a few patterns for branch names, commit messages, and GitHub pull request titles. This helps us to keep references to the context provided by tickets.
+
+The patterns are validated by Git hooks and Github actions and are described below.
+
+### Branch names
+
+The branch name must have the ticket id prepended in lowercase, followed by a dash. Example: `dsw-123-branch-name`, `dsw-1234-branch-name`.
+
+All branches must have an associated ticket, even if for a small fix.
+
+### Commit messages
+
+Commits can be added manually, however, we make use of `commitizen` to help us to follow a standard commit message format.
+
+This is done by running `yarn cz` instead of `git commit ...`. This will prompt a series of questions that will be used to generate the commit message.
+
+The commit message must contain the ticket in uppercase, appended between the `type(scope)` and the commit subject. Example: `type(scope): DSW-123 your commit message`.
+
+If the branch name already contains a ticket id, it can be inferred from it and automatically added to the commit message. Example: given a branch named `dsw-123-my-branch`, when adding a commit with message `feat(pie-monorepo): your commit message`, it will be automatically updated to `feat(pie-monorepo): DSW-123 your commit message`.
+
+### Pull request titles
+
+The PR title must contain follow the same pattern as the branch name. Example: `type(scope): DSW-123 your PR title`.
+
+A GitHub action will validate the title when the PR is created or after editing it directly. The validation status will be displayed in the PR checks under the item `Lint PR Title` item.
+
+Other patterns are also accepted to accommodate for exceptions like `Version Packages`.
+
+### Pull request templates
+When you raise a pull request, you will see there is a comprehensive template. This template can be found [here](https://github.com/justeattakeaway/pie/blob/main/.github/pull_request_template.md).
+
+Some changes will not require aperture testing, so this table can sometimes be left empty if necessary.
+
+> DangerJS checks will fail if the PR template is not correctly filled out!
+
+### Changesets and versioning
+
+If you are contributing a user-facing or noteworthy change to a pie-monorepo package that should be added to the changelog, you should include a changeset with your PR.
+
+Changesets are only required for Major, Minor, and Patch changes that have an effect on consumers. Changes that don't affect consumers do not need to be versioned. Examples include linting, testing or CI updates.
+
+To add a changeset, run this script locally in the root of the project:
+
+```bash
+yarn changeset
+```
+
+Follow the prompts to select which package(s) are affected by your change, and whether the change is a major, minor or patch change. This will create a file in the `.changesets` directory at the root of the monorepo. This change should be committed and included with your PR.
+
+Considerations:
+
+- When writing your Changesets message, be sure to prefix your message with one of the following: `[Added]`, `[Changed]`, `[Fixed]` or `[Removed]`.
+- E.g. `[Added] - My new webpage.`
+- You can use markdown in your changeset to include code examples, headings, and more. However, **please use plain text for the first line of your changeset**. The formatting of the GitHub release notes does not support headings as the first line of the changeset.
+- When selecting packages for the changesets, only select packages which are intended to be published.
+
+### Snapshot releases
+Once you have raised a PR, you can run the snapshot command by adding a comment with `/snapit`. This will trigger a snapshot release of the affected packages(s) (any package with a changeset entry in your PR) that can be installed into any application for manual/automated testing.
+
+## Resources
+
+> When reading any external documentation, please ensure the version matches that which we use in our repositories.
+
+- [Turborepo documentation](https://turborepo.com/docs)
+- [Lit development documentation](https://lit.dev/docs/)
+- [Semantic versioning](https://semver.org/)

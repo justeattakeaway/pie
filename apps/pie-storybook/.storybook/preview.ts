@@ -95,6 +95,7 @@ export default {
                     ],
                     'Contribution',
                     [
+                        'Overview',
                         'Testing',
                         [
                             'Overview',
