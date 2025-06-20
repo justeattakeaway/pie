@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-radio-group",
   "description": "PIE Design System Radio Group built using Web Components",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

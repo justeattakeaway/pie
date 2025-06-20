@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-radio-group
 
+## 0.9.7
+
+### Patch Changes
+
+- [Fixed] focus and keyboard handling ([#2426](https://github.com/justeattakeaway/pie/pull/2426)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Fixed] - keyboard focus function to handle disabled elements ([#2426](https://github.com/justeattakeaway/pie/pull/2426)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.9.6
 
 ### Patch Changes

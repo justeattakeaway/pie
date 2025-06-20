@@ -1,5 +1,14 @@
 # wc-react18
 
+## 0.6.89
+
+### Patch Changes
+
+- [Updated] - `vite@5.4.19` ([#2421](https://github.com/justeattakeaway/pie/pull/2421)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.6.44
+
 ## 0.6.88
 
 ### Patch Changes

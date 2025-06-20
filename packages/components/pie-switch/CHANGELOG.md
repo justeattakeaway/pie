@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-switch
 
+## 2.0.2
+
+### Patch Changes
+
+- [Fixed] - focus ring is only displayed when focused with the keyboard ([#2433](https://github.com/justeattakeaway/pie/pull/2433)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 2.0.1
 
 ### Patch Changes

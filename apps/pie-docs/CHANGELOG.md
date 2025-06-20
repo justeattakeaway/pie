@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.38.0
+
+### Minor Changes
+
+- [Added] - iOS and Android naming conventions ([#2412](https://github.com/justeattakeaway/pie/pull/2412)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.6.44
+
 ## 4.37.0
 
 ### Minor Changes
