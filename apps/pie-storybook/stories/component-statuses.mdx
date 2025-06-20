@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/addon-docs';
+import componentStatusesJson from '@justeattakeaway/pie-monorepo-utils/dist/component-statuses.json';
+import { tagVariantToStatusMap } from '../data/tag-variants-to-statuses-map';
+import '@justeattakeaway/pie-tag';
+
+<Meta title="Components/Component statuses" />
+
+# Component Statuses
+
+Below is a table of all PIE components and their current status.
+
+A component in <pie-tag variant="brand-05">beta</pie-tag> or <pie-tag variant="success">stable</pie-tag> can be safely used in your project.
+
+> For more information about what a status means, please visit our [documentation site](https://pie.design/components/component-status/#status-descriptions).
+
+<table>
+    <thead>
+        <tr>
+            <th>Component</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {Object.entries(componentStatusesJson)
+        .sort(([aName, aStatus], [bName, bStatus]) => {
+            const order = ['stable', 'beta', 'alpha', 'deprecated', 'removed'];
+            return order.indexOf(aStatus) - order.indexOf(bStatus);
+        })
+        .map(([name, status]) => {
+            const tagVariant = tagVariantToStatusMap[status];
+            return (
+                <tr key={name}>
+                    <td><code>{name}</code></td>
+                    <td>
+                        <pie-tag variant={tagVariant}>{status}</pie-tag>
+                    </td>
+                </tr>
+            );
+        })}
+    </tbody>
+</table>

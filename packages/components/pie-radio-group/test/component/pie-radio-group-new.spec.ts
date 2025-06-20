@@ -43,6 +43,18 @@ const dynamicSlotsStorySelectors = {
     addOptionBtn: 'add-option',
 };
 
+const disabledRadioStorySelectors = {
+    radioGroup: {
+        self: 'pie-radio-group',
+        radios: {
+            1: 'radio-1',
+            2: 'radio-2',
+            3: 'radio-3',
+            4: 'radio-4',
+        },
+    },
+};
+
 // Returns the checked state of the currently focused pie-radio on the page
 // Will error if the active element on the page is not a pie-radio instance
 const expectFocusedRadioToBeChecked = async (page: Page, expect: Expect): Promise<void> => {
@@ -118,8 +130,8 @@ test.describe('PieRadioGroup - Component tests new', () => {
                     const secondRadio = page.getByTestId(radio.selectors.input.dataTestId).nth(1);
 
                     // Assert
-                    await expect(firstRadio).toBeDisabled();
-                    await expect(secondRadio).not.toBeDisabled();
+                    await expect(firstRadio).not.toBeDisabled();
+                    await expect(secondRadio).toBeDisabled();
                 });
             });
 
@@ -471,6 +483,39 @@ test.describe('PieRadioGroup - Component tests new', () => {
                     // Ensure the previously selected radio in the first group is focused and still selected
                     await expect(secondRadioButtonGroup1).toBeFocused();
                     await expectFocusedRadioToBeChecked(page, expect);
+                });
+
+                test.describe('When a radio-button is disabled', () => {
+                    test('Down Arrow bypasses disabled radios', async ({ page }) => {
+                        // Use disabled-radio test story
+                        pageObject = new BasePage(page, 'radio-group--disabled-radio');
+                        await pageObject.load();
+
+                        const firstRadio = page.getByTestId(disabledRadioStorySelectors.radioGroup.radios[1]);
+                        const thirdRadio = page.getByTestId(disabledRadioStorySelectors.radioGroup.radios[3]);
+                        const fourthRadio = page.getByTestId(disabledRadioStorySelectors.radioGroup.radios[4]);
+
+                        // Tab to Radio group
+                        await page.keyboard.press('Tab');
+                        await expect(firstRadio).toBeFocused();
+
+                        // Press Arrow Down once to get to the third radio since the second is disabled
+                        await page.keyboard.press('ArrowDown');
+
+                        // Ensure we are on the third radio
+                        await expect(thirdRadio).toBeFocused();
+                        await expectFocusedRadioToBeChecked(page, expect);
+
+                        // Ensure we are on the third radio
+                        await page.keyboard.press('ArrowDown');
+                        await expect(fourthRadio).toBeFocused();
+
+                        // Ensure two ArrowUp presses gets the focus back to the first radio
+                        await page.keyboard.press('ArrowUp');
+                        await page.keyboard.press('ArrowUp');
+                        await expect(firstRadio).toBeFocused();
+                        await expectFocusedRadioToBeChecked(page, expect);
+                    });
                 });
             });
 

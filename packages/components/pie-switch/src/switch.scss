@@ -53,11 +53,6 @@
 
     @include p.interactive-states('--dt-color-interactive-form');
 
-    &:focus,
-    &:focus-within {
-        @include p.focus;
-    }
-
     &[checked] {
         --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
 
@@ -70,6 +65,10 @@
         --int-states-mixin-bg-color: var(--switch-bg-color--disabled);
 
         pointer-events: none;
+    }
+
+    &:has(.c-switch-input:focus-visible) {
+        @include p.focus;
     }
 }
 

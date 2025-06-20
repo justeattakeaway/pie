@@ -75,6 +75,7 @@ export default {
                         'Typography',
                         'CSS setup',
                         'Events',
+                        'Design tokens cookbook',
                         'CSS variables',
                         'Component versions',
                         'Browser support',
@@ -85,17 +86,23 @@ export default {
                         'Nuxt 3',
                     ],
                     'Components',
+                    [
+                        'Component statuses'
+                    ],
                     'Additional libraries',
                     [
                         'Icons'
                     ],
                     'Contribution',
                     [
+                        'Overview',
                         'Testing',
                         [
                             'Overview',
                             'Unit tests',
-                            'Browser tests'
+                            'Browser tests',
+                            'Visual tests',
+                            'Accessibility tests'
                         ]
                     ],
                 ],

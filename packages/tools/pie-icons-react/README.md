@@ -92,7 +92,7 @@ The PIE iconset is managed by our PIE design system team and new icon requests s
 
 ### Building the Module
 
-Run `yarn build` from the project level or `yarn turbo run build --filter=@justeattakeaway/pie-icons-react` from the root level to compile the module.
+Run `yarn build` from the project level or `yarn turbo run build --filter=pie-icons-react` from the root level to compile the module.
 
 ## Icon list
 

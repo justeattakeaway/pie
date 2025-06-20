@@ -1,0 +1,222 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Contribution/Overview" />
+
+# PIE web components - Contribution guide
+
+This guide walks you through the full contribution process for the PIE web component library, from setup to pull request.
+
+## Table of Contents
+
+1. [Get involved](#1-get-involved)
+2. [Machine setup](#2-machine-setup)
+3. [Clone the repository](#3-clone-the-repository)
+4. [Scaffold a new component](#4-scaffold-a-new-component)
+5. [Develop and test the component](#5-develop-and-test-the-component)
+6. [Component package anatomy](#6-component-package-anatomy)
+7. [Testing standards](#7-testing-standards)
+8. [Add a changeset (if needed)](#8-add-a-changeset-if-needed)
+9. [Create a pull request](#9-create-a-pull-request)
+10. [Trigger a snapshot release](#10-trigger-a-snapshot-release)
+11. [References](#11-references)
+
+## 1. Get involved
+
+Before starting a new component, please contact the Design System team. They will help define requirements and ensure the component is suitable for the shared library.
+
+## 2. Machine setup
+
+Set up your development environment for the PIE monorepo.
+
+### Required tools
+
+- Install a code editor ([VSCode](https://code.visualstudio.com/) recommended)
+- (Optional) Install the [PIE VSCode extension](https://marketplace.visualstudio.com/items?itemName=JamieMaguire.pie-design-system-vscode-prototype)
+- (Optional) Go to `Extensions` in VSCode and install all recommended extensions found in `.vscode/extensions.json`
+- Install [Git secrets](https://github.com/awslabs/git-secrets)
+- Install [Volta](https://docs.volta.sh/guide/getting-started) (manages Node/Yarn versions):
+
+### Environment Variables
+
+Request these from the Design System team:
+
+- `TURBO_TOKEN` - used to gain access to Turborepo remote caching
+- `PERCY_TOKEN_{COMPONENT}` (e.g. `PERCY_TOKEN_PIE_BUTTON`) - allows you to run Percy visual regression tests for a component locally
+
+Add them to your environment:
+
+> How to best add these to your environment will depend on your operating system. If in doubt, feel free to reach out to the Design System team for help!
+
+```bash
+# ~/.zshrc or ~/.bashrc
+export TURBO_TOKEN=your_token
+export PERCY_TOKEN_PIE_BUTTON=your_token
+```
+
+## 3. Clone the repository
+
+Start by cloning the [PIE monorepo](https://github.com/justeattakeaway/pie) and installing dependencies via `yarn install`.
+
+> Make sure you're on the `main` branch and have synced the latest changes before starting new work.
+
+## 4. Scaffold a new component
+
+Use our [Yeoman generator](https://github.com/justeattakeaway/pie/tree/main/packages/tools/generator-pie-component) to create a new component.
+
+Follow the README for usage.
+
+## 5. Develop and test the component
+
+### Start storybook
+
+```bash
+yarn dev --filter=@justeattakeaway/pie-storybook
+```
+
+### Watch the component for changes
+
+In another window whilst Storybook is being served:
+
+```bash
+yarn watch --filter=@justeattakeaway/pie-{component-name}
+```
+
+### Build the component
+
+This is not usually needed during development as running watch will also build the component
+
+```bash
+yarn build --filter=@justeattakeaway/pie-{component-name}
+```
+
+### Set the component status
+
+In `package.json`:
+
+```json
+"pieMetadata": {
+    "componentStatus": "alpha"
+}
+```
+
+Please do not change the status without agreement from the Design System team. All new components start in `alpha`. See [here](https://pie.design/components/component-status/#status-descriptions) for more information.
+
+## 6. Component package anatomy
+
+This is the typical structure for a PIE component:
+
+```
+component-name/
+├── dist/
+├── src/
+│   ├── component-name.scss
+│   ├── defs.ts
+│   ├── defs-react.ts
+│   ├── index.ts
+│   └── react.ts
+│
+├── test/
+│   ├── accessibility/
+│   │   └── component-name.spec.ts
+│   ├── component/
+│   │   └── component-name.spec.ts
+│   ├── helpers/
+│   │   └── page-object/
+│   │       └── selectors.ts
+│   └── visual/
+│       └── component-name.spec.ts
+│
+├── custom-elements-manifest.config.mjs
+├── package.json
+├── README.md
+├── tsconfig.json
+├── turbo.json
+├── vite.config.js
+├── playwright-lit-visual.config.ts
+└── playwright-lit.config.ts
+```
+
+### File breakdown
+
+- **package.json** - Metadata, dependencies, `pieMetadata`
+- **README.md** - Usage and development notes. This is imported into Storybook as the `Overview` page for a component.
+- **tsconfig.json** - TypeScript configuration
+- **vite.config.js** - Vite dev/build config
+- **turbo.json** - Turborepo monorepo config
+- **custom-elements-manifest.config.mjs** - Custom Elements manifest setup. [More information](https://github.com/webcomponents/custom-elements-manifest).
+- **playwright-lit-visual.config.ts** - Visual testing Playwright config
+- **playwright-lit.config.ts** - General Playwright test config
+
+### Source directory (`src/`)
+
+- `component-name.scss` - Component styles
+- `defs.ts` - Type definitions
+- `defs-react.ts` - React types used by the React wrapper
+- `index.ts` - Component entry and exports
+- `react.ts` - Component entry and exports for React (this is an untracked file created during build)
+
+### Test directory (`test/`)
+
+- `accessibility/component-name.spec.ts` - Accessibility checks
+- `component/component-name.spec.ts` - Component browser tests
+- `helpers/page-object/selectors.ts` - Page object helpers for tests
+- `visual/component-name.spec.ts` - Visual regression tests
+
+## 7. Testing standards
+
+Please read our [testing guide](?path=/docs/contribution-testing-overview--docs).
+
+## 8. Add a changeset (if needed)
+
+For consumer-facing changes, run:
+
+```bash
+yarn changeset
+```
+
+Select the packages affected by your code changes and change type. Make sure to prefix your message with one of the following:
+
+- `[Added]`, `[Changed]`, `[Fixed]`, `[Removed]`
+
+Keep the description simple and easy to understand.
+
+## 9. Create a pull request
+
+### Branch naming
+
+Use format: `dsw-123-my-feature` where `dsw-123` is the ticket ID.
+
+### Commit messages
+
+Use `yarn cz` to generate commits.
+
+Format:
+
+```
+type(scope): DSW-123 your message
+```
+
+### Pull request title
+
+Format:
+
+```
+type(scope): DSW-123 your PR title
+```
+
+Complete the [pull request template](https://github.com/justeattakeaway/pie/blob/main/.github/pull_request_template.md). Otherwise DangerJS checks will fail.
+
+
+## 10. Trigger a snapshot release
+
+For pull requests with a new changeset, comment `/snapit` to trigger a snapshot release of affected packages once the CI checks have completed. You will now have a published version of the component to test in either [PIE Aperture](?path=/docs/contribution-testing-aperture-integration-tests--docs) or another application.
+
+Alternatively, you can comment `/test-aperture` to trigger a snapshot release and open a pull request installing it directly into PIE Aperture.
+
+## 11. References
+
+> When reading any external documentation, please ensure the version matches that which we use in our repositories.
+
+- https://turborepo.com/docs
+- https://lit.dev/docs/
+- https://semver.org/
