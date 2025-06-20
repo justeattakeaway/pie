@@ -15,8 +15,8 @@ This guide walks you through the full contribution process for the PIE web compo
 5. [Develop and test the component](#5-develop-and-test-the-component)
 6. [Component package anatomy](#6-component-package-anatomy)
 7. [Testing standards](#7-testing-standards)
-8. [Create a pull request](#8-create-a-pull-request)
-9. [Add a changeset (if needed)](#9-add-a-changeset-if-needed)
+8. [Add a changeset (if needed)](#8-add-a-changeset-if-needed)
+9. [Create a pull request](#9-create-a-pull-request)
 10. [Trigger a snapshot release](#10-trigger-a-snapshot-release)
 11. [References](#11-references)
 
@@ -82,6 +82,8 @@ yarn watch --filter=@justeattakeaway/pie-{component-name}
 ```
 
 ### Build the component
+
+This is not usually needed during development as running watch will also build the component
 
 ```bash
 yarn build --filter=@justeattakeaway/pie-{component-name}
@@ -164,7 +166,21 @@ component-name/
 
 Please read our [testing guide](?path=/docs/contribution-testing-overview--docs).
 
-## 8. Create a pull request
+## 8. Add a changeset (if needed)
+
+For consumer-facing changes, run:
+
+```bash
+yarn changeset
+```
+
+Select the packages affected by your code changes and change type. Make sure to prefix your message with one of the following:
+
+- `[Added]`, `[Changed]`, `[Fixed]`, `[Removed]`
+
+Keep the description simple and easy to understand.
+
+## 9. Create a pull request
 
 ### Branch naming
 
@@ -190,21 +206,6 @@ type(scope): DSW-123 your PR title
 
 Complete the [pull request template](https://github.com/justeattakeaway/pie/blob/main/.github/pull_request_template.md). Otherwise DangerJS checks will fail.
 
----
-
-## 9. Add a changeset (if needed)
-
-For consumer-facing changes, run:
-
-```bash
-yarn changeset
-```
-
-Select the packages affected by your code changes and change type. Make sure to prefix your message with one of the following:
-
-- `[Added]`, `[Changed]`, `[Fixed]`, `[Removed]`
-
-Keep the description simple and easy to understand.
 
 ## 10. Trigger a snapshot release
 
