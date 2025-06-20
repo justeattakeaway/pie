@@ -23,12 +23,6 @@ Spinners are commonly used to indicate tasks such as content loading, data retri
 ---
 
 ## Resources
-
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Spinner documentation, please see the resources below."
-} %}
-
 {% resourceTable {
     componentName: 'Spinner'
 } %}

@@ -7,7 +7,7 @@ shouldShowContents: true
 ---
 
 ## Example
-Illustrates the animations that happen in the button component, on hover, active and loading states. You can see an animated example of this component [here](https://drive.google.com/drive/folders/1uz-RLSiNUkjDccpI89puM1cp_whpGobX).
+Illustrates the animations that happen in the button component, on hover, active and loading states. You can see an animated example of this component[here](https://drive.google.com/drive/folders/1uz-RLSiNUkjDccpI89puM1cp_whpGobX).
 
 
 {% contentPageImage {
@@ -29,6 +29,8 @@ The spinner rotates 360 degrees in a clockwise direction on an infinite loop at 
 
 {% contentPageImage {
     src:"../../../assets/img/components/spinner/MotionGraph.svg",
-    alt: "A rotation graph over milliseconds is shown with a table detailing a linear transformation that rotates a shape infinitely.",
+    width:1030,
+    alt: "",
+    variant: "secondary"
 } %}
 
