@@ -107,7 +107,8 @@ component-name/
 │   ├── component-name.scss
 │   ├── defs.ts
 │   ├── defs-react.ts
-│   └── index.ts
+│   ├── index.ts
+│   └── react.ts
 │
 ├── test/
 │   ├── accessibility/
@@ -138,22 +139,23 @@ component-name/
 - **vite.config.js** - Vite dev/build config
 - **turbo.json** - Turborepo monorepo config
 - **custom-elements-manifest.config.mjs** - Custom Elements manifest setup. [More information](https://github.com/webcomponents/custom-elements-manifest).
-- **playwright-lit-visual.config.ts** - Visual testing config
-- **playwright-lit.config.ts** - E2E test config
+- **playwright-lit-visual.config.ts** - Visual testing Playwright config
+- **playwright-lit.config.ts** - General Playwright test config
 
 ### Source directory (`src/`)
 
 - `component-name.scss` - Component styles
 - `defs.ts` - Type definitions
-- `defs-react.ts` - React type extensions
+- `defs-react.ts` - React typing used by the React wrapper
 - `index.ts` - Component entry and exports
+- `react.ts` - Component entry and exports for React (this is an untracked file creating during build)
 
 ### Test directory (`test/`)
 
 - `accessibility/component-name.spec.ts` - Accessibility checks
-- `component/component-name.spec.ts` - Unit/component logic tests
+- `component/component-name.spec.ts` - Component browser tests
 - `helpers/page-object/selectors.ts` - Page object helpers for tests
-- `visual/component-name.spec.ts` - Visual regression (Percy)
+- `visual/component-name.spec.ts` - Visual regression tests
 
 ## 7. Testing standards
 
