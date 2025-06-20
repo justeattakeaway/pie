@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.30.5
+
+### Patch Changes
+
+- [Removed] - unused import from a11y test template ([#2414](https://github.com/justeattakeaway/pie/pull/2414)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.30.4
 
 ### Patch Changes
