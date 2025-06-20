@@ -44,7 +44,6 @@ export class PieListItem extends RtlMixin(PieElement) implements ListItemProps {
             <li
                 class=${classMap(classes)}
                 role="listitem"
-                aria-selected=${this.selected ? 'true' : 'false'}
                 aria-disabled=${this.disabled ? 'true' : 'false'}
                 data-test-id="pie-list-item">
                 
