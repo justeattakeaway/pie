@@ -245,7 +245,8 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/chip/interactive-state-default.svg",
       width: 63,
-      alt: "The default state of the chip component."
+      alt: "Four chip components in their default state, with three light-colored chips and one dark-colored chip.",
+      variant: "secondary"
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -253,7 +254,8 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/chip/interactive-state-hover.svg",
       width: 63,
-      alt: "The hover state of the chip component."
+      alt: "Four chip components in a hover state, showing a slight visual change compared to the default state, with three light-colored chips and one dark-colored chip.",
+      variant: "secondary"
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -261,7 +263,8 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/chip/interactive-state-active.svg",
       width: 63,
-      alt: "The active state of the chip component."
+      alt: "Four chip components in an active state, with three light-colored chips and one dark-colored chip, showing a visual indication of being pressed or selected.",
+      variant: "secondary"
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -269,7 +272,8 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/chip/interactive-state-focus.svg",
       width: 63,
-      alt: "The focus state of the chip component."
+      alt: "Four chip components in a focus state, with three light-colored chips and one dark-colored chip, showing a clear outline or highlight indicating keyboard focus.",
+      variant: "secondary"
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -277,7 +281,8 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/chip/interactive-state-disabled.svg",
       width: 63,
-      alt: "The disabled state of the chip component."
+      alt: "Four chip components in a disabled state, appearing greyed out or muted, indicating they are not interactive.",
+      variant: "secondary"
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -285,7 +290,8 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/chip/interactive-state-loading.svg",
       width: 63,
-      alt: "The loading state of the chip component."
+      alt: "Four chip components in a loading state, showing a spinner or animation within each chip, indicating content is being loaded.",
+      variant: "secondary"
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
