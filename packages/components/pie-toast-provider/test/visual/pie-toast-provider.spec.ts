@@ -20,7 +20,7 @@ test.describe('PieToastProvider - Visual tests`', () => {
 
     positions.forEach((position) => {
         test(`should render toast with position: ${position}`, async ({ page }) => {
-            const basePage = new BasePage(page, `toast-provider--${position}`);
+            const basePage = new BasePage(page, `toast-provider--position-${position}`);
 
             basePage.load();
 

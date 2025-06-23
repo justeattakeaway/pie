@@ -48,12 +48,21 @@ const onQueueUpdate = (queue: CustomEvent) => {
     console.info('toast provider queue:', queue.detail);
 };
 
-const Template = ({ options = defaultProps.options, position }: ToastProviderProps) => {
+const Template = ({ options = defaultProps.options, position }: ToastProviderProps) => html`
+        <pie-toast-provider
+            .options="${options}"
+            position="${ifDefined(position)}"
+            @pie-toast-provider-queue-update="${onQueueUpdate}">
+        </pie-toast-provider>
+    `;
+
+const PositionTemplate = ({ options = defaultProps.options, position }: ToastProviderProps) => {
     // move the creation of the toast to the next frame to mimic user interaction
     requestAnimationFrame(() => {
         toaster.create({
-            message: 'This toast should appear above the red box.',
+            message: 'A toast component inside toast provider.',
             duration: null,
+            isDismissible: true,
         });
     });
 
@@ -89,7 +98,8 @@ const CustomZIndexTemplate = () => {
 };
 
 export const Default = createStory<ToastProviderProps>(Template, defaultArgs)();
-export const BottomLeft = createStory<ToastProviderProps>(Template, { position: 'bottom-left' })();
-export const BottomRight = createStory<ToastProviderProps>(Template, { position: 'bottom-right' })();
-export const BottomCenter = createStory<ToastProviderProps>(Template, { position: 'bottom-center' })();
+export const PositionDefault = createStory<ToastProviderProps>(PositionTemplate, defaultArgs)();
+export const PositionBottomLeft = createStory<ToastProviderProps>(PositionTemplate, { position: 'bottom-left' })();
+export const PositionBottomRight = createStory<ToastProviderProps>(PositionTemplate, { position: 'bottom-right' })();
+export const PositionBottomCenter = createStory<ToastProviderProps>(PositionTemplate, { position: 'bottom-center' })();
 export const CustomZIndex = createStory(CustomZIndexTemplate, {})();

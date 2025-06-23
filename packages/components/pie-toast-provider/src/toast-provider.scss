@@ -45,8 +45,8 @@
     }
 
     &.c-toast-provider--bottom-center {
-        --toast-translate-start: -50%, 100%;
-        --toast-translate-end: -50%, 0;
+        --toast-translate-start: 0, 100%;
+        --toast-translate-end: 0, 0;
 
         left: 50%;
         bottom: var(--toast-provider-offset);
