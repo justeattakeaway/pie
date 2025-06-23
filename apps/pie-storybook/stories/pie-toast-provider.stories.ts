@@ -91,60 +91,60 @@ const Template = ({ options = defaultProps.options, position, '--toast-provider-
     <div style="margin-top: 16px; display: flex; gap: 16px; flex-wrap: wrap;">
         <pie-button
             @click=${() => {
-            toaster.create({
-                message: 'Low Priority Info',
-                variant: 'info',
-            });
-        }}>
+        toaster.create({
+            message: 'Low Priority Info',
+            variant: 'info',
+        });
+    }}>
             Trigger Info Toast (Low Priority)
         </pie-button>
 
         <pie-button
             @click=${() => {
-            toaster.create({
-                message: 'Medium Priority Warning Toast',
-                variant: 'warning',
-            });
-        }}>
+        toaster.create({
+            message: 'Medium Priority Warning Toast',
+            variant: 'warning',
+        });
+    }}>
             Trigger Warning Toast (Medium Priority)
         </pie-button>
 
         <pie-button
             @click=${() => {
-            toaster.create({
-                message: 'High Priority Error Toast',
-                variant: 'error',
-            });
-        }}>
+        toaster.create({
+            message: 'High Priority Error Toast',
+            variant: 'error',
+        });
+    }}>
             Trigger Error Toast (High Priority)
         </pie-button>
 
         <pie-button
             @click=${() => {
-            toaster.create({
-                message: 'Actionable Info Toast',
-                variant: 'info',
-                leadingAction: { text: 'Retry' },
-            });
-        }}>
+        toaster.create({
+            message: 'Actionable Info Toast',
+            variant: 'info',
+            leadingAction: { text: 'Retry' },
+        });
+    }}>
             Trigger Actionable Info Toast
         </pie-button>
 
         <pie-button
             @click=${() => {
-            toaster.create({
-                message: 'Persistent Toast',
-                duration: null,
-            });
-        }}>
+        toaster.create({
+            message: 'Persistent Toast',
+            duration: null,
+        });
+    }}>
             Trigger Persistent Toast
         </pie-button>
 
         <pie-button
             variant="secondary"
             @click=${() => {
-            toaster.clearAll();
-        }}>
+        toaster.clearAll();
+    }}>
             Clear All Toasts
         </pie-button>
     </div>
