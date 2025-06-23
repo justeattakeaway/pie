@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.81.2
+
+### Patch Changes
+
+- [Updated] - `vite@5.4.19` ([#2421](https://github.com/justeattakeaway/pie/pull/2421)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.81.1
 
 ### Patch Changes
