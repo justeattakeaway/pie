@@ -7,14 +7,17 @@ import {
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { state, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { classMap } from 'lit/directives/class-map.js';
 import {
     RtlMixin,
     dispatchCustomEvent,
     safeCustomElement,
+    validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
 import { defaultProps as toastDefaultProps } from '@justeattakeaway/pie-toast';
 import styles from './toast-provider.scss?inline';
 import {
+    positions,
     defaultProps,
     PRIORITY_ORDER,
     type Priority,
@@ -35,14 +38,18 @@ const componentSelector = 'pie-toast-provider';
  */
 @safeCustomElement('pie-toast-provider')
 export class PieToastProvider extends RtlMixin(PieElement) implements ToastProviderProps {
+    @property({ type: Object })
+    public options = defaultProps.options;
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, positions, defaultProps.position)
+    public position = defaultProps.position;
+
     @state()
     private _toasts: ExtendedToastProps[] = [];
 
     @state()
     private _currentToast: ExtendedToastProps | null = null;
-
-    @property({ type: Object })
-    public options = defaultProps.options;
 
     updated (changedProperties: PropertyValues<this>): void {
         if (changedProperties.has('_toasts' as keyof PieToastProvider)) {
@@ -119,15 +126,31 @@ export class PieToastProvider extends RtlMixin(PieElement) implements ToastProvi
     }
 
     render () {
-        const { _currentToast, _dismissToast } = this;
+        const {
+            position,
+            isRTL,
+            _currentToast,
+        } = this;
+
+        const classes = {
+            'c-toast-provider': true,
+            [`c-toast-provider--${position}`]: true,
+            'c-toast-provider--rtl': isRTL,
+        };
+
+        const toastClasses = {
+            'c-toast--animate-in': Boolean(_currentToast),
+            'c-toast--animate-out': _currentToast === null,
+        };
 
         return html`
         <div 
-            class="c-toast-provider" 
+            class=${classMap(classes)}
             data-test-id="pie-toast-provider">
             ${_currentToast &&
-                html`
+            html`
                 <pie-toast
+                    class=${classMap(toastClasses)}
                     message="${_currentToast.message}"
                     variant="${ifDefined(_currentToast.variant)}"
                     ?isStrong="${_currentToast.isStrong}"
@@ -135,12 +158,12 @@ export class PieToastProvider extends RtlMixin(PieElement) implements ToastProvi
                     ?isMultiline="${_currentToast.isMultiline}"
                     .leadingAction="${_currentToast.leadingAction}"
                     .duration="${typeof _currentToast.duration === 'undefined' ? nothing : _currentToast.duration}"
-                    @pie-toast-close="${_dismissToast}"
+                    @pie-toast-close="${this._dismissToast}"
                     @pie-toast-open="${_currentToast.onPieToastOpen}"
                     @pie-toast-leading-action-click="${_currentToast.onPieToastLeadingActionClick}">
                 </pie-toast>
             `}
-        </div>
+            </div>
         `;
     }
 
