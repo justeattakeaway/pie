@@ -1,36 +1,56 @@
 ---
 eleventyNavigation:
-    key: Motion
+    key: Style
     parent: 'Spinner'
     order: 2
+
+eleventyComputed:
+    brand: "{% include './brand.json'
+    %}"
+    secondary: "{% include './secondary.json'
+    %}"
+    secondaryDark: "{% include './secondary-dark.json'
+    %}"
+    inverse: "{% include './inverse.json'
+    %}"
+    inverseLight: "{% include './inverse-light.json'
+    %}"
 shouldShowContents: true
 ---
 
-## Example
-Illustrates the animations that happen in the button component, on hover, active and loading states. You can see an animated example of this component[here](https://drive.google.com/drive/folders/1uz-RLSiNUkjDccpI89puM1cp_whpGobX).
+## Colour tokens
+### Brand
 
-
-{% contentPageImage {
-    src:"../../../assets/img/components/spinner/spinner-motion-example.svg",
-    alt: "A cyclical timeline shows eight circles, each progressively filled with orange, indicating a continuous progression.",
-    width:680
+{% componentDetailsTable {
+tableData: brand
 } %}
- 
----
 
-## Loading
+### Secondary
 
-The spinner rotates 360 degrees in a clockwise direction on an infinite loop at a speed of 1150ms.
+{% componentDetailsTable {
+tableData: secondary
+} %}
+
+### Secondary dark
+
+{% componentDetailsTable {
+tableData: secondaryDark
+} %}
+
+### Inverse
+
+{% componentDetailsTable {
+tableData: inverse
+} %}
+
+### Inverse light
+
+{% componentDetailsTable {
+tableData: inverseLight
+} %}
+
 
 {% notification {
-  type: "information",
-  message: "For RTL the spinner rotates in an anti-clockwise direction."
+ type: "information",
+ message: "Check out the [colour](https://pie.design/foundations/colour/) documentation."
 } %}
-
-{% contentPageImage {
-    src:"../../../assets/img/components/spinner/MotionGraph.svg",
-    width:1030,
-    alt: "",
-    variant: "secondary"
-} %}
-
