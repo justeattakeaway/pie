@@ -34,10 +34,9 @@ export class PieListItem extends RtlMixin(PieElement) implements ListItemProps {
 
     render () {
         const classes = {
-            'c-list-item': true,
-            'c-list-item--selected': this.selected,
-            'c-list-item--disabled': this.disabled,
-            'c-list-item--rtl': this.isRTL,
+            'c-listItem': true,
+            'c-listItem--selected': this.selected,
+            'c-listItem--disabled': this.disabled,
         };
 
         return html`
@@ -47,8 +46,8 @@ export class PieListItem extends RtlMixin(PieElement) implements ListItemProps {
                 aria-disabled=${this.disabled ? 'true' : 'false'}
                 data-test-id="pie-list-item">
                 
-                <div class="c-list-item__content">
-                    <div class="c-list-item__primary">
+                <div class="c-listItem-content">
+                    <div class="c-listItem-primary">
                         <slot></slot>
                         ${!this.querySelector(':not([slot])') && this.primaryText ? html`<span>${this.primaryText}</span>` : ''}
                     </div>

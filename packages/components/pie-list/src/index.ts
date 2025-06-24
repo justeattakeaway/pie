@@ -29,8 +29,7 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
         const classes = {
             'c-list': true,
             'c-list--compact': this.variant === 'compact',
-            'c-list--dividers': this.dividers,
-            'c-list--rtl': this.isRTL,
+            'has--dividers': this.dividers,
         };
 
         return html`
