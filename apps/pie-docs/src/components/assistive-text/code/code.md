@@ -19,6 +19,4 @@ shouldShowContents: true
     ]
 } %}
 
----
-
 {% include "ios-and-android-code.md" %}
