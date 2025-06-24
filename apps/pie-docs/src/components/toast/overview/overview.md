@@ -311,13 +311,20 @@ If the toast includes either a close icon button or a dismiss button, either can
 
 ## Layout
 
-### LTR position
+### Page position
 
-A toast should be located at the bottom left of the page’s content area, excluding any navigation.
+#### LTR
+
+By default, toasts should appear at the bottom-left of the page’s content area, excluding any navigation. Alternatively, they may be placed at the bottom-right.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/toast/layout-ltr-position.svg",
+    src:"../../../assets/img/components/toast/layout-ltr-position-left.svg",
     alt: "A toast placed at the bottom-left of a page with a left-to-right direction."
+} %}
+
+{% contentPageImage {
+    src:"../../../assets/img/components/toast/layout-ltr-position-right.svg",
+    alt: "A toast placed at the bottom-right of a page with a left-to-right direction."
 } %}
 
 {% list {
@@ -327,13 +334,34 @@ A toast should be located at the bottom left of the page’s content area, exclu
     ]
 } %}
 
-### RTL position
+#### RTL
 
-A toast should be located at the bottom right of the page’s content area, excluding any navigation.
+By default, toasts should appear at the bottom-right of the page’s content area, excluding any navigation in RTL layout. Alternatively, they may be placed at the bottom-left.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/toast/layout-rtl-position.svg",
+    src:"../../../assets/img/components/toast/layout-rtl-position-right.svg",
+    alt: "A toast placed at the bottom-right of a page with a right-to-left direction."
+} %}
+
+{% contentPageImage {
+    src:"../../../assets/img/components/toast/layout-rtl-position-left.svg",
     alt: "A toast placed at the bottom-left of a page with a right-to-left direction."
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Wide:** 24px padding <br /> **Narrow:** 16px padding"
+    ]
+} %}
+
+### Modal position
+
+A toast should be located at the bottom centre of the modal content. The toast shouldn’t overlay a pinned footer. 
+
+{% contentPageImage {
+    src:"../../../assets/img/components/toast/layout-modal-position.svg",
+    alt: "A toast placed at the bottom of a modal."
 } %}
 
 {% list {
