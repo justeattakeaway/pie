@@ -11,7 +11,7 @@ shouldShowContents: true
 {% card {
   items: [
         {
-          linkText: "PIE Web Components (Web)",
+          linkText: "PIE Web Components",
           href: "https://webc.pie.design/?path=/docs/components-assistive-text--overview",
           src: "../../../assets/img/engineers/webComponents.png",
           shouldOpenInNewTab: true
