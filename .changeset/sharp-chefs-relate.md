@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-list": minor
 ---
 
-the initial list item changes to inmplement a basic list item
+[Changed] - the initial list item changes to implement a basic list item
