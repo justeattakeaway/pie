@@ -12,11 +12,13 @@ $card-border: 1px solid var(--dt-color-border-default);
     container-type: inline-size;
 }
 
-p + .c-card-wrapper {
+p + .c-card-wrapper,
+p + .c-card--standalone {
     margin-block-start: var(--dt-spacing-f);
 }
 
-h2 + .c-card-wrapper {
+h2 + .c-card-wrapper,
+h2 + .c-card--standalone {
     margin-block-start: var(--dt-spacing-e);
 }
 
@@ -69,6 +71,10 @@ h2 + .c-card-wrapper {
 
 .c-card--hasImage {
     padding: 0;
+}
+
+.c-card--standalone {
+    max-width: 350px;
 }
 
 .c-card-icon {
