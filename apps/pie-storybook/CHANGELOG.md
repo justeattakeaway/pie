@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.39.2
+
+### Patch Changes
+
+- [Added] - Visual testing documentation ([#2420](https://github.com/justeattakeaway/pie/pull/2420)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Contribution guide ([#2431](https://github.com/justeattakeaway/pie/pull/2431)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - A11y testing docs ([#2427](https://github.com/justeattakeaway/pie/pull/2427)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - aperture integration testing guide ([#2429](https://github.com/justeattakeaway/pie/pull/2429)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - browser tests documentation ([#2415](https://github.com/justeattakeaway/pie/pull/2415)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - add disabled radio button to radio group story ([#2426](https://github.com/justeattakeaway/pie/pull/2426)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - Design tokens cookbook page ([#2423](https://github.com/justeattakeaway/pie/pull/2423)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`44bdcbf`](https://github.com/justeattakeaway/pie/commit/44bdcbf0d4b70b82ad6df0f82417f18eae7e45e7), [`1b60673`](https://github.com/justeattakeaway/pie/commit/1b606730bc23c35251d8878c891ad2eb63e75d7b), [`44bdcbf`](https://github.com/justeattakeaway/pie/commit/44bdcbf0d4b70b82ad6df0f82417f18eae7e45e7)]:
+  - @justeattakeaway/pie-radio-group@0.9.7
+  - @justeattakeaway/pie-switch@2.0.2
+  - @justeattakeaway/pie-cookie-banner@1.6.8
+
 ## 1.39.1
 
 ### Patch Changes
