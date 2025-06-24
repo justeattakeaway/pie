@@ -207,7 +207,7 @@ Both letters, numbers and certain special characters are allowed, for the majori
 
 ### Form inputs
 
-When typing into a textarea and reaching the end of the field, the cursor should remain as static in the bottom right corner (for left-to-right languages) while text above it overflows through the top of the field. When the field loses focus, text should overflow through the bottom of the text area, showing the beginning of the text.
+When typing into a textarea and reaching the end of the field, the cursor should remain as static in the bottom right corner (for left-to-right languages) while text above it overflows through the top of the field.
 
 #### Auto-resize
 
