@@ -33,7 +33,5 @@
 
 // Dividers between items
 .has--dividers ::slotted(*:not(:last-child)) {
-  --list-item-border-bottom: 1px solid var(--dt-color-border-subtle);
-
   border-bottom: 1px solid var(--dt-color-border-subtle);
 }
