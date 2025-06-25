@@ -2,7 +2,7 @@
   "name": "@justeattakeaway/pie-docs",
   "private": true,
   "description": "Documentation website for the PIE design system",
-  "version": "4.38.0",
+  "version": "4.39.0",
   "main": "index.js",
   "keywords": [],
   "author": "Just Eat Takeaway.com - Design System Team",
