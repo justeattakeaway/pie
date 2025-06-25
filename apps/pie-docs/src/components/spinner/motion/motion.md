@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Motion
     parent: 'Spinner'
     order: 2
-shouldShowContents: true
 ---
 
 ## Example

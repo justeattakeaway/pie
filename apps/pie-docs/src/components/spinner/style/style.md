@@ -15,7 +15,6 @@ eleventyComputed:
     %}"
     inverseLight: "{% include './inverse-light.json'
     %}"
-shouldShowContents: true
 ---
 
 ## Colour tokens
