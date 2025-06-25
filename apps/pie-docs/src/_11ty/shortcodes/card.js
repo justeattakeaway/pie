@@ -83,13 +83,15 @@ const card = ({ items, shouldFillContainer = false }) => {
         linkText,
         shouldOpenInNewTab = false,
         src,
+        isStandalone = false,
     }) => {
         const cardHasImage = !!src;
         const cardHasContent = (!!icon && !!iconColour) || !!heading || !!content;
 
         const cardClasses = [
             'c-card',
-            cardHasImage && 'c-card--hasImage'
+            cardHasImage && 'c-card--hasImage',
+            isStandalone && 'c-card--standalone',
         ].filter(Boolean).join(' ');
 
         return `<article class="${cardClasses}">
@@ -114,7 +116,7 @@ const card = ({ items, shouldFillContainer = false }) => {
                 </div>`;
     }
 
-    return `${buildCard(items[0])}`;
+    return `${buildCard({ ...items[0], isStandalone: true })}`;
 };
 
 module.exports = card;
