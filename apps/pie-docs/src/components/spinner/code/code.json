@@ -1,0 +1,38 @@
+{
+    "headings": ["Prop", "Options", "Description", "Default"],
+    "rows": [
+        [
+            "size",
+            {
+                "type": "code",
+                "item": ["\"xsmall\"", "\"small\"", "\"medium\"", "\"large\"", "\"xlarge\""]
+            },
+            "Sets the size of the spinner.",
+            {
+                "type": "code",
+                "item": ["medium"]
+            }
+        ],
+        [
+            "variant",
+            {
+                "type": "code",
+                "item": ["\"brand\"", "\"secondary\"", "\"inverse\""]
+            },
+            "Variant of the spinner.",
+            {
+                "type": "code",
+                "item": ["brand"]
+            }
+        ],
+        [
+            "aria",
+            " – ",
+            "An object representing the ARIA attributes such as `label`.",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ]
+    ]
+    }
