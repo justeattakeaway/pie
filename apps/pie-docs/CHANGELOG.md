@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.39.0
+
+### Minor Changes
+
+- - [Changed] - updates in content for chip, button and textarea ([#2422](https://github.com/justeattakeaway/pie/pull/2422)) by [@maledr5](https://github.com/maledr5)
+
 ## 4.38.0
 
 ### Minor Changes
