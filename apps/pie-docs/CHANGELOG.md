@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.39.1
+
+### Patch Changes
+
+- [Changed] - Updated assistive-text code page to point to storybook ([#2438](https://github.com/justeattakeaway/pie/pull/2438)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 4.39.0
 
 ### Minor Changes
