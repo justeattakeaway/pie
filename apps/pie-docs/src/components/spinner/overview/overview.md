@@ -11,6 +11,7 @@ permalink: components/spinner/
 ---
 
 ## Overview
+
 The purpose of spinners is to communicate activity and progress to users, assuring them that the system is actively working and that their requested action is being processed. They enhance the user experience by reducing uncertainty and providing feedback during waiting periods.
 
 Spinners are commonly used to indicate tasks such as content loading, data retrieval or processing that may require some time.
@@ -58,6 +59,7 @@ Spinners are commonly used to indicate tasks such as content loading, data retri
 } %}
 
 ---
+
 ## Variations
 
 ### Brand
@@ -115,9 +117,11 @@ tableData: sizes
 ---
 
 ## Placement
+
 Spinners should always be centred horizontally and vertically within the viewport, container, or component they indicate is loading.
 
 ### Page
+
 The spinner should be centred in the viewport to indicate a full-page loading state.
 
 {% contentPageImage {
@@ -127,6 +131,7 @@ The spinner should be centred in the viewport to indicate a full-page loading st
 } %}
 
 ### Section
+
 The spinner should be centred in the loading section to indicate which section is loading.
 
 {% contentPageImage {
@@ -136,6 +141,7 @@ The spinner should be centred in the loading section to indicate which section i
 } %}
 
 ### Components
+
 The spinner should be centred within the component to indicate that an action is being processed.
 
 {% contentLayout %}
@@ -155,16 +161,20 @@ The spinner should be centred within the component to indicate that an action is
   {% endcontentItem %}
 {% endcontentLayout %} 
 
-----
+---
 
 ## Interactions
+
 ### Drag on mobile
+
 Mobile devices don't have a hover cursor, so dragging actions might not be the most intuitive choice on mobile screens. If you’re using a draggable card container in your mobile designs, make sure to provide clear context and guidance to the user.
 
 ---
 
 ## Examples
+
 ### LTR examples 
+
 Here are some examples of cards in left-to-right context:
 
 {% contentPageImage {
@@ -174,6 +184,7 @@ Here are some examples of cards in left-to-right context:
 } %}
 
 ### RTL examples 
+
 Here are some examples of cards in right-to-left context:
 
 {% contentPageImage {
@@ -183,7 +194,9 @@ Here are some examples of cards in right-to-left context:
 } %}
 
 ---
+
 ## Resources
+
 {% resourceTable {
 componentName: 'Cookie Banner'
 } %}
