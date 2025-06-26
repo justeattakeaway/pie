@@ -16,6 +16,7 @@ Ideally, you should install the component using the @justeattakeaway/pie-webc pa
 
 ---
 ## Documentation
+
 ### Properties
 
 {% componentDetailsTable {
@@ -23,16 +24,20 @@ Ideally, you should install the component using the @justeattakeaway/pie-webc pa
 } %}
 
 ### Slots 
+
 This component does not have any slots. All content is controlled through properties.
 
 ### CSS Variables
+
 This component does not expose any CSS variables for style overrides.
 
 ### Events
+
 This component does not emit any custom events. In order to add event listening to this component, you can treat it like a native HTML element in your application.
 
 ---
 ## Usage examples
+
 ### For HTML:
 
 ```js
@@ -45,8 +50,8 @@ import '@justeattakeaway/pie-webc/components/spinner.js';
 
 <script type="module" src="/main.js"></script>
 ```
-### For Native JS Applications, Vue, Angular, Svelte etc.:
 
+### For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 // Vue templates (using Nuxt 3)
@@ -65,10 +70,12 @@ import { PieSpinner } from '@justeattakeaway/pie-webc/react/spinner.js';
 
 ---
 ## Questions and Support
+
 If you work at Just Eat Takeaway.com, please contact us on #help-designsystem. Otherwise, please raise an issue on [Github](https://github.com/justeattakeaway/pie/issues).
 
 ---
 ## Contributing
+
 Check out our [contributing guide](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide) for more information on local development and how to run specific [component tests](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#testing).
 
 
