@@ -6,6 +6,7 @@ eleventyNavigation:
 ---
 
 ## Example
+
 Illustrates the animations that happen in the button component, on hover, active and loading states. You can see an animated example of this component [here](https://drive.google.com/drive/folders/1uz-RLSiNUkjDccpI89puM1cp_whpGobX).
 
 
