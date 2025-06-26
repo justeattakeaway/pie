@@ -139,8 +139,8 @@ export class PieToastProvider extends RtlMixin(PieElement) implements ToastProvi
         };
 
         const toastClasses = {
-            'c-toast--animate-in': Boolean(_currentToast),
-            'c-toast--animate-out': _currentToast === null,
+            'pie-animation--slide-in': Boolean(_currentToast),
+            'pie-animation--slide-out': _currentToast === null,
         };
 
         return html`

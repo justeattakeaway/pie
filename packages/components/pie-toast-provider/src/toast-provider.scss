@@ -1,5 +1,6 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 @use '@justeattakeaway/pie-css/scss/settings' as *;
+@use '@justeattakeaway/pie-css/css/helpers/animations.css' as *;
 
 :host {
     --toast-provider-z-index: var(--dt-z-index-toast);
@@ -13,24 +14,20 @@
 }
 
 .c-toast-provider {
-    --toast-translate-start: -100%;
-    --toast-translate-end: 0;
-
     position: absolute;
     z-index: var(--toast-provider-z-index);
-
 
     &.c-toast-provider--default {
         inset-inline-start: var(--toast-provider-offset);
         inset-block-end: var(--toast-provider-offset);
 
         &.c-toast-provider--rtl {
-            --toast-translate-start: 100%;
+            --pie-animation-slide-translate-start: 100%;
         }
     }
 
     &.c-toast-provider--bottom-left {
-        --toast-translate-start: -100%;
+        --pie-animation-slide-translate-start: -100%;
 
         left: var(--toast-provider-offset);
         bottom: var(--toast-provider-offset);
@@ -38,53 +35,17 @@
     }
 
     &.c-toast-provider--bottom-right {
-        --toast-translate-start: 100%;
+        --pie-animation-slide-translate-start: 100%;
 
         right: var(--toast-provider-offset);
         bottom: var(--toast-provider-offset);
     }
 
     &.c-toast-provider--bottom-center {
-        --toast-translate-start: 0, 100%;
-        --toast-translate-end: 0, 0;
+        --pie-animation-slide-translate-start: 0, 100%;
 
         left: 50%;
         bottom: var(--toast-provider-offset);
         transform: translateX(-50%);
-    }
-
-    .c-toast--animate-in {
-        animation-duration: var(--dt-motion-timing-200);
-        animation-name: animate-in;
-        animation-timing-function: var(--dt-motion-easing-out);
-        transform: translate(var(--toast-translate-end));
-    }
-
-    .c-toast--animate-out {
-        animation-duration: var(--dt-motion-timing-100);
-        animation-name: animate-out;
-        animation-timing-function: var(--dt-motion-easing-in);
-        transform: translate(var(--toast-translate-start));
-        opacity: 0;
-    }
-}
-
-@keyframes animate-in {
-    from {
-        transform: translate(var(--toast-translate-start));
-    }
-
-    to {
-        transform: translate(var(--toast-translate-end));
-    }
-}
-
-@keyframes animate-out {
-    from {
-        transform: translate(var(--toast-translate-end));
-    }
-
-    to {
-        transform: translate(var(--toast-translate-start));
     }
 }

@@ -20,12 +20,16 @@
     3. Sass /SCSS
     4. Native HTML
 4. [What's included in the `pie-css` base stylesheet](#whats-included-in-the-pie-css-base-stylesheet)
-4. [Using the `pie-css` SCSS helpers (mixins & functions)](#using-the-pie-css-scss-helpers-mixins--functions)
+    1. [PIE Design Tokens](#pie-design-tokens)
+    2. [box-sizing](#box-sizing)
+    3. [z-index stacking context](#z-index-stacking-context)
+    4. [Reusable Animations](#reusable-animations)
+5. [Using the `pie-css` SCSS helpers (mixins & functions)](#using-the-pie-css-scss-helpers-mixins--functions)
     1. [Importing the `pie-css` SCSS helpers](#importing-the-pie-css-scss-helpers)
     2. [`pie-css` SCSS Helper Definitions](#pie-css-scss-helper-definitions)
         -  [`font-size()`](#font-size)
         - [`@include media()`](#include-media)
-5. [Testing](#testing)
+6. [Testing](#testing)
     - [CSS](#css)
     - [SCSS](#scss)
 
@@ -171,6 +175,7 @@ In most cases, a webpage should follow the DOM's natural stacking order and the 
 
 | Token                      | Z-Index Value  |
 | -------------------------- | ---------------|
+| --dt-z-index-base: 1;      | 1              |
 | --dt-z-index-dropdown      | 1000           |
 | --dt-z-index-fab           | 1000           |
 | --dt-z-index-tooltip       | 2000           |
@@ -180,6 +185,22 @@ In most cases, a webpage should follow the DOM's natural stacking order and the 
 | --dt-z-index-modal         | 4000           |
 | --dt-z-index-cookie-banner | 5000           |
 | --dt-z-index-toast         | 6000           |
+
+### Reusable Animations
+
+`pie-css` also ships with a set of reusable animations that can be applied to elements by adding a CSS class.
+
+#### Slide Animation
+
+| Class                      | Description  |
+| -------------------------- | ---------------|
+| `.pie-animation--slide-in` | Slides an element in from the left. |
+| `.pie-animation--slide-out`| Slides an element out to the left. |
+
+
+**Customization:**
+
+The starting position of the slide animation can be customized by overriding the `--pie-animation-slide-translate-start` CSS variable. The default value is `-100%`.
 
 ---
 

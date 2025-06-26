@@ -1,0 +1,32 @@
+
+:root {
+    --pie-animation-slide-translate-start: -100%;
+}
+
+.pie-animation--slide-in {
+    animation: pie-animation-slide-in var(--dt-motion-timing-200) var(--dt-motion-easing-out);
+}
+
+.pie-animation--slide-out {
+    animation: pie-animation-slide-out var(--dt-motion-timing-100) var(--dt-motion-easing-in);
+}
+
+@keyframes pie-animation-slide-in {
+    from {
+        transform: translate(var(--pie-animation-slide-translate-start));
+    }
+
+    to {
+        transform: translate(0);
+    }
+}
+
+@keyframes pie-animation-slide-out {
+    from {
+        transform: translate(0);
+    }
+
+    to {
+        transform: translate(var(--pie-animation-slide-translate-start));
+    }
+}
