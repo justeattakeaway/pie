@@ -22,13 +22,6 @@ Spinners are commonly used to indicate tasks such as content loading, data retri
 
 ---
 
-## Resources
-{% resourceTable {
-    componentName: 'Spinner'
-} %}
-
----
-
 ## Do's and Don'ts
 
 {% usage {
