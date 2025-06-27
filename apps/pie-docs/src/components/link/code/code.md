@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Code
     parent: Link
-    order: 3
+    order: 2
 ---
 
 ## Web
