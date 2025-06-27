@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Code
     parent: Spinner
     order: 2
-shouldShowContents: true
 ---
 ## Web
 
@@ -13,12 +12,6 @@ shouldShowContents: true
           linkText: "PIE Web Components",
           href: "https://webc.pie.design/?path=/docs/components-spinner--overview",
           src: "../../../assets/img/engineers/webComponents.png",
-          shouldOpenInNewTab: true
-        },
-        {
-          linkText: "Snacks",
-          href: "https://snacks.takeaway.com/portal/components/loading/",
-          src: "../../../assets/img/engineers/react.png",
           shouldOpenInNewTab: true
         }
     ]

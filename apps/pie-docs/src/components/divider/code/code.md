@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Code
     parent: Divider
     order: 3
-shouldShowContents: true
 ---
 
 
@@ -15,12 +14,6 @@ shouldShowContents: true
           linkText: "PIE Web Components",
           href: "https://webc.pie.design/?path=/docs/components-divider--overview",
           src: "../../../assets/img/engineers/webComponents.png",
-          shouldOpenInNewTab: true
-        },
-        {
-          linkText: "Snacks",
-          href: "https://snacks.takeaway.com/portal/components/divider/",
-          src: "../../../assets/img/engineers/react.png",
           shouldOpenInNewTab: true
         }
     ]

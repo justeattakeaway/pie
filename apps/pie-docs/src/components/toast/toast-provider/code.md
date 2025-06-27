@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Toast Provider
     parent: Toast
     order: 4
-shouldShowContents: true
 ---
 
 ## Web
