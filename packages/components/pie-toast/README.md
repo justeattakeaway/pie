@@ -59,7 +59,7 @@ This component does not expose any CSS variables for style overrides.
 
 ### Animations
 
-`pie-toast` does not include any animations to keep the component agnostic. We generally recommend using [pie-toast-provider](https://webc.pie.design/?path=/docs/components-toast-provider--overview) to manage toasts in your application, which already provides the animation aligned to PIE specs. However, in case you would like to have full control of the toasts and require animation, you may use the slide animation reusable classes from `pie-css`
+`pie-toast` does not include any animations to keep the component agnostic. We generally recommend using [pie-toast-provider](https://webc.pie.design/?path=/docs/components-toast-provider--overview) to manage toasts in your application, which already provides the animation aligned to PIE specs. However, in case you would like to have full control of the toasts and require animation, you may use the slide animation reusable classes from [pie-css](https://github.com/justeattakeaway/pie/blob/main/packages/tools/pie-css/README.md#reusable-animations).
 
 You will need to listen to the `pie-toast-open` and `pie-toast-close` events to toggle the following animation classes:
 

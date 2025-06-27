@@ -22,8 +22,9 @@
 4. [What's included in the `pie-css` base stylesheet](#whats-included-in-the-pie-css-base-stylesheet)
     1. [PIE Design Tokens](#pie-design-tokens)
     2. [box-sizing](#box-sizing)
-    3. [z-index stacking context](#z-index-stacking-context)
-    4. [Reusable Animations](#reusable-animations)
+    3. [Typography](#typography)
+    4. [z-index stacking context](#z-index-stacking-context)
+    5. [Reusable Animations](#reusable-animations)
 5. [Using the `pie-css` SCSS helpers (mixins & functions)](#using-the-pie-css-scss-helpers-mixins--functions)
     1. [Importing the `pie-css` SCSS helpers](#importing-the-pie-css-scss-helpers)
     2. [`pie-css` SCSS Helper Definitions](#pie-css-scss-helper-definitions)
@@ -198,9 +199,9 @@ In most cases, a webpage should follow the DOM's natural stacking order and the 
 | `.pie-animation--slide-out`| Slides an element out to the left. |
 
 
-**Customization:**
+**Customisation:**
 
-The starting position of the slide animation can be customized by overriding the `--pie-animation-slide-translate-start` CSS variable. The default value is `-100%`.
+The starting position of the slide animation can be customised by overriding the `--pie-animation-slide-translate-start` CSS variable. The default value is `-100%`.
 
 ---
 
