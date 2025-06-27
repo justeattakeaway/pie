@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Code
     parent: Assistive Text
     order: 2
-shouldShowContents: true
 ---
 
 ## Web
