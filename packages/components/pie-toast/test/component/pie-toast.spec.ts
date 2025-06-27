@@ -22,27 +22,6 @@ test.describe('PieToast - Component tests', () => {
     });
 
     test.describe('Props', () => {
-        test.describe('isOpen', () => {
-            test('should have c-toast--animate-out class if isOpen is false', async ({ page }) => {
-                // Arrange
-                const toastPage = new BasePage(page, 'toast');
-                const props: Partial<ToastProps> = {
-                    isOpen: false,
-                    duration: 250,
-                };
-                await toastPage.load({ ...props });
-
-                await expect.soft(page.getByTestId(toast.selectors.container.dataTestId)).toBeVisible();
-
-                // Act
-                const toastComponent = page.getByTestId(toast.selectors.container.dataTestId);
-
-                // Assert
-                await expect(toastComponent).toBeVisible();
-                await expect(toastComponent).toHaveClass('c-toast c-toast--neutral c-toast--animate-out');
-            });
-        });
-
         test.describe('message', () => {
             test('should render the message', async ({ page }) => {
                 // Arrange

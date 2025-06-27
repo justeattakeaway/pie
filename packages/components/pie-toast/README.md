@@ -17,6 +17,7 @@
   - [Slots](#slots)
   - [CSS Variables](#css-variables)
   - [Events](#events)
+  - [Animations](#animations)
 - [Usage Examples](#usage-examples)
 - [Questions and Support](#questions-and-support)
 - [Contributing](#contributing)
@@ -54,7 +55,23 @@ This component does not expose any CSS variables for style overrides.
 |-----------------------------------|---------------|--------------------------------------------------------------------------------------------------|
 | `pie-toast-close`                | `CustomEvent` | Triggered when the user interacts with the close icon or when the toast auto dismiss.           |
 | `pie-toast-open`                 | `CustomEvent` | Triggered when the toast is opened.                                                              |
-| `pie-toast-leading-action-click`| `CustomEvent` | Triggered when the user interacts with the leading action.                                       |
+| `pie-toast-leading-action-click`| `CustomEvent` | Triggered when the user interacts with the leading action.                
+
+### Animations
+
+`pie-toast` does not include any animations to keep the component agnostic. We generally recommend using [pie-toast-provider](https://webc.pie.design/?path=/docs/components-toast-provider--overview) to manage toasts in your application, which already provides the animation aligned to PIE specs. However, in case you would like to have full control of the toasts and require animation, you may use the slide animation reusable classes from [pie-css](https://github.com/justeattakeaway/pie/blob/main/packages/tools/pie-css/README.md#reusable-animations).
+
+You will need to listen to the `pie-toast-open` and `pie-toast-close` events to toggle the following animation classes:
+
+| Class                      | Description  |
+| -------------------------- | ---------------|
+| `.pie-animation--slide-in` | Slides an element in from the left. |
+| `.pie-animation--slide-out`| Slides an element out to the left. |
+
+
+**Customization:**
+
+The starting position of the slide animation can be customized by overriding the `--pie-animation-slide-translate-start` CSS variable.
 
 ## Usage Examples
 

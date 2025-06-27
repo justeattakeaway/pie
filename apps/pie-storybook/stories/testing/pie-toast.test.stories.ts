@@ -111,7 +111,7 @@ const Template : TemplateFunction<ToastProps> = ({
             message="${message}" 
             .duration="${duration}"
             ?isMultiline="${isMultiline}"
-            .leadingAction="${leadingAction}"
+            .leadingAction="${leadingAction}">
         </pie-toast>
     `;
 
