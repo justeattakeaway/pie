@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Code
     parent: Chip
-    order: 3
+    order: 2
 ---
 
 ## Web
