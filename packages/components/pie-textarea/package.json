@@ -2,7 +2,7 @@
   "name": "@justeattakeaway/pie-textarea",
   "description": "PIE Design System Textarea built using Web Components",
   "version": "0.16.6",
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-textarea"

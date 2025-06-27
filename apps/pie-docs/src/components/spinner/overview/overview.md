@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: 'Spinner'
     order: 1
-eleventyComputed:
     sizes: "{% include './sizes.json'
     %}"
 shouldShowContents: true
@@ -11,7 +10,6 @@ permalink: components/spinner/
 ---
 
 ## Overview
-
 The purpose of spinners is to communicate activity and progress to users, assuring them that the system is actively working and that their requested action is being processed. They enhance the user experience by reducing uncertainty and providing feedback during waiting periods.
 
 Spinners are commonly used to indicate tasks such as content loading, data retrieval or processing that may require some time.
@@ -159,7 +157,7 @@ The spinner should be centred within the component to indicate that an action is
       alt: ""
     } %}
   {% endcontentItem %}
-{% endcontentLayout %} 
+{% endcontentLayout %}
 
 ---
 
@@ -173,7 +171,7 @@ Mobile devices don't have a hover cursor, so dragging actions might not be the m
 
 ## Examples
 
-### LTR examples 
+### LTR examples
 
 Here are some examples of cards in left-to-right context:
 
@@ -183,7 +181,7 @@ Here are some examples of cards in left-to-right context:
     alt: "Inverse light variation of the spinner component"
 } %}
 
-### RTL examples 
+### RTL examples
 
 Here are some examples of cards in right-to-left context:
 
@@ -198,5 +196,5 @@ Here are some examples of cards in right-to-left context:
 ## Resources
 
 {% resourceTable {
-componentName: 'Spinner'
+  componentName: 'Spinner'
 } %}
