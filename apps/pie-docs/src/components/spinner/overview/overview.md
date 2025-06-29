@@ -200,12 +200,3 @@ Here are some examples of cards in right-to-left context:
 {% resourceTable {
 componentName: 'Cookie Banner'
 } %}
-
-
-
-
-
-
-
-
-

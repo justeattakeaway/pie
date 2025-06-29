@@ -3,6 +3,8 @@ eleventyNavigation:
     key: Motion
     parent: 'Spinner'
     order: 2
+eleventyComputed:
+    loading: "{% include './loading.json' %}"
 ---
 
 ## Example
@@ -27,8 +29,12 @@ The spinner rotates 360 degrees in a clockwise direction on an infinite loop at 
  message: "For RTL the spinner rotates in an anti-clockwise direction."
 } %}
 
-{% contentPageImage {
-    src:"../../../assets/img/components/spinner/MotionGraph.svg",
-    alt: "A rotation graph over milliseconds is shown with a table detailing a linear transformation that rotates a shape infinitely."
-} %}
+{% contentWrapper %}
+    {% contentPageImage {
+        src:"../../../assets/img/components/spinner/spinner-bar-chart.svg",
+        alt:  "A rotation graph over milliseconds is shown with a table detailing a linear transformation that rotates a shape infinitely."
+    } %}
+    {% componentDetailsTable { tableData: loading } %}
+{% endcontentWrapper %}
+
 
