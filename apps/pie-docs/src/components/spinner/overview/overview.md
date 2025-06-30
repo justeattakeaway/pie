@@ -198,5 +198,5 @@ Here are some examples of cards in right-to-left context:
 ## Resources
 
 {% resourceTable {
-componentName: 'Cookie Banner'
+componentName: 'Spinner'
 } %}
