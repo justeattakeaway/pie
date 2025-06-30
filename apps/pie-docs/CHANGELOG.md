@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.39.2
+
+### Patch Changes
+
+- [Changed] - update code pages to point to webc.pie.design and the snacks portal for a number of components ([#2439](https://github.com/justeattakeaway/pie/pull/2439)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 4.39.1
 
 ### Patch Changes
