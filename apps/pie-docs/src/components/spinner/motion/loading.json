@@ -9,7 +9,7 @@
         [
             "Transformation",
             "(0, 0, 1, 1)",
-            "Linear(not tokenised)",
+            "Linear (not tokenised)",
             "Shape rotates at 360 degrees on a infinite loop."
         ]
     ]
