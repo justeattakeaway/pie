@@ -7,7 +7,7 @@
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-button"
   },
-  "homepage": "https://pie.design/components/button/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-button--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

@@ -2,6 +2,12 @@
   "name": "@justeattakeaway/pie-textarea",
   "description": "PIE Design System Textarea built using Web Components",
   "version": "0.16.6",
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/components/pie-textarea"
+  },
+  "homepage": "https://webc.pie.design/?path=/docs/components-textarea--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

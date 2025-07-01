@@ -7,7 +7,7 @@
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-toast-provider"
   },
-  "homepage": "https://pie.design/components/toast/toast-provider/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-toast-provider--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

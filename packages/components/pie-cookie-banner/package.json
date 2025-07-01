@@ -7,7 +7,7 @@
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-cookie-banner"
   },
-  "homepage": "https://pie.design/patterns/cookie-banner/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-cookie-banner--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

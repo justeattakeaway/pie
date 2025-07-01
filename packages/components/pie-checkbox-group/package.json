@@ -7,7 +7,7 @@
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-checkbox-group"
   },
-  "homepage": "https://pie.design/components/checkbox-group/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-checkbox-group--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

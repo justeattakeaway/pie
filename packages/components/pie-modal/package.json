@@ -7,7 +7,7 @@
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-modal"
   },
-  "homepage": "https://pie.design/components/modal/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-modal--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
