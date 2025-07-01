@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Overview
     parent: 'Spinner'
     order: 1
+eleventyComputed:
     sizes: "{% include './sizes.json'
     %}"
 shouldShowContents: true
