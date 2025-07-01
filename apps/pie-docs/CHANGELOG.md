@@ -1,5 +1,23 @@
 # Changelog
 
+## 4.39.2
+
+### Patch Changes
+
+- [Changed] - update code pages to point to webc.pie.design and the snacks portal for a number of components ([#2439](https://github.com/justeattakeaway/pie/pull/2439)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 4.39.1
+
+### Patch Changes
+
+- [Changed] - Updated assistive-text code page to point to storybook ([#2438](https://github.com/justeattakeaway/pie/pull/2438)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 4.39.0
+
+### Minor Changes
+
+- - [Changed] - updates in content for chip, button and textarea ([#2422](https://github.com/justeattakeaway/pie/pull/2422)) by [@maledr5](https://github.com/maledr5)
+
 ## 4.38.0
 
 ### Minor Changes
