@@ -7,7 +7,7 @@
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-divider"
   },
-  "homepage": "https://pie.design/components/divider/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-divider--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

@@ -7,7 +7,7 @@
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-chip"
   },
-  "homepage": "https://pie.design/components/chip/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-chip--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

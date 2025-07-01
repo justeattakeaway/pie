@@ -7,7 +7,7 @@
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-text-input"
   },
-  "homepage": "https://pie.design/components/text-input/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-text-input--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

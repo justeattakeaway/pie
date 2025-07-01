@@ -7,7 +7,7 @@
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-switch"
   },
-  "homepage": "https://pie.design/components/switch/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-switch--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

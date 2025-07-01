@@ -7,7 +7,7 @@
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-card"
   },
-  "homepage": "https://pie.design/components/card/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-card--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
