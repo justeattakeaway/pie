@@ -7,7 +7,7 @@
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-spinner"
   },
-  "homepage": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-spinner",
+  "homepage": "https://webc.pie.design/?path=/docs/components-spinner--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

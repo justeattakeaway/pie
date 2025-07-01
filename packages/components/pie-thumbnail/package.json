@@ -7,7 +7,7 @@
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-thumbnail"
   },
-  "homepage": "https://pie.design/components/thumbnail/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-thumbnail--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
