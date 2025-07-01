@@ -6,7 +6,9 @@
     --toast-provider-z-index: var(--dt-z-index-toast);
     --toast-provider-offset: var(--dt-spacing-d);
 
-    display: block;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
 
     @include media('>md') {
         --toast-provider-offset: var(--dt-spacing-e);
@@ -31,7 +33,6 @@
 
         left: var(--toast-provider-offset);
         bottom: var(--toast-provider-offset);
-
     }
 
     &.c-toast-provider--bottom-right {
