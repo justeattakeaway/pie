@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Code
     parent: Divider
-    2
+    order: 2
 ---
 
 
