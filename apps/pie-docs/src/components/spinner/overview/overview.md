@@ -4,8 +4,7 @@ eleventyNavigation:
     parent: 'Spinner'
     order: 1
 eleventyComputed:
-    sizes: "{% include './sizes.json'
-    %}"
+    sizes: "{% include './sizes.json'%}"
 shouldShowContents: true
 permalink: components/spinner/
 ---
