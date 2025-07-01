@@ -76,6 +76,7 @@
     "components/skeleton",
     "components/slider",
     "components/spinner",
+    "components/spinner/motion",
     "components/switch",
     "components/switch/code",
     "components/tabs",
