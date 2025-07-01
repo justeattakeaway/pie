@@ -84,7 +84,7 @@ const CustomZIndexTemplate = () => {
     };
 
     return html`
-        <div style="position: relative; height: 200px; border: 1px dashed grey; padding: 20px; margin-bottom: 20px;">
+        <div style="position: relative; height: 200px; width: 400px; border: 1px dashed grey; padding: 20px; margin-bottom: 20px;">
             <div style="position: absolute; inset: 40px; background-color: red; z-index: 6500;">
                 (z-index: 6500)
             </div>
