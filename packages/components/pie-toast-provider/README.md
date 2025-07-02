@@ -44,8 +44,8 @@ This component does not have any slots. All content is controlled through proper
 
 | Name                     | Description                                 | Default                     |
 |--------------------------|---------------------------------------------|-----------------------------|
-| `--toast-provider-z-index` | Controls the stacking order of the toast provider. | `--dt-z-index-toast` (6000) |
-| `--toast-provider-offset` | Controls the offset of the toast provider. | `--dt-spacing-c  (Desktop)` / `--dt-spacing-d (Mobile)` |
+| `--toast-provider-z-index` | Controls the stacking order of the toasts. | `--dt-z-index-toast` (6000) |
+| `--toast-provider-offset` | Controls the gap between toasts and the boundary of the viewport. | `--dt-spacing-c  (Desktop)` / `--dt-spacing-d (Mobile)` |
 
 ### Events
 

@@ -47,7 +47,7 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
             },
         },
         '--toast-provider-z-index': {
-            description: 'Controls the stacking order of the toast provider.',
+            description: 'Controls the stacking order of the toasts.',
             control: 'text',
             defaultValue: {
                 summary: '--dt-z-index-toast (6000)',
