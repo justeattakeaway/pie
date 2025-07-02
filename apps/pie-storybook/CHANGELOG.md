@@ -1,5 +1,37 @@
 # Changelog
 
+## 1.39.3
+
+### Patch Changes
+
+- Updated dependencies [[`d63ca7c`](https://github.com/justeattakeaway/pie/commit/d63ca7ccb1a40619f0118bc436550c6c02f70309)]:
+  - @justeattakeaway/pie-assistive-text@0.10.7
+  - @justeattakeaway/pie-checkbox-group@0.9.7
+  - @justeattakeaway/pie-toast-provider@0.5.7
+  - @justeattakeaway/pie-cookie-banner@1.6.9
+  - @justeattakeaway/pie-lottie-player@0.2.4
+  - @justeattakeaway/pie-notification@0.14.7
+  - @justeattakeaway/pie-icon-button@2.0.2
+  - @justeattakeaway/pie-radio-group@0.9.8
+  - @justeattakeaway/pie-breadcrumb@0.6.2
+  - @justeattakeaway/pie-form-label@0.16.4
+  - @justeattakeaway/pie-text-input@0.28.7
+  - @justeattakeaway/pie-thumbnail@0.8.4
+  - @justeattakeaway/pie-checkbox@0.16.7
+  - @justeattakeaway/pie-textarea@0.16.7
+  - @justeattakeaway/pie-divider@1.4.5
+  - @justeattakeaway/pie-spinner@1.2.4
+  - @justeattakeaway/pie-button@1.6.5
+  - @justeattakeaway/pie-select@0.6.7
+  - @justeattakeaway/pie-switch@2.0.3
+  - @justeattakeaway/pie-modal@1.7.8
+  - @justeattakeaway/pie-radio@0.11.4
+  - @justeattakeaway/pie-toast@0.9.7
+  - @justeattakeaway/pie-card@0.25.5
+  - @justeattakeaway/pie-chip@0.12.7
+  - @justeattakeaway/pie-link@1.2.6
+  - @justeattakeaway/pie-tag@0.17.4
+
 ## 1.39.2
 
 ### Patch Changes

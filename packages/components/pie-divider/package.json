@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-divider",
   "description": "PIE Design System Divider built using Web Components",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
