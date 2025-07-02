@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-form-label
 
+## 0.16.4
+
+### Patch Changes
+
+- [Changed] - Add consistent git info and storybook url to package.json file ([#2443](https://github.com/justeattakeaway/pie/pull/2443)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.16.3
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-modal
 
+## 1.7.8
+
+### Patch Changes
+
+- [Changed] - Add consistent git info and storybook url to package.json file ([#2443](https://github.com/justeattakeaway/pie/pull/2443)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`d63ca7c`](https://github.com/justeattakeaway/pie/commit/d63ca7ccb1a40619f0118bc436550c6c02f70309)]:
+  - @justeattakeaway/pie-icon-button@2.0.2
+  - @justeattakeaway/pie-spinner@1.2.4
+  - @justeattakeaway/pie-button@1.6.5
+
 ## 1.7.7
 
 ### Patch Changes

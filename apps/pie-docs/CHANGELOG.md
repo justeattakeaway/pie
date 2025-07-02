@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.40.0
+
+### Minor Changes
+
+- [Added]- Spinner documentation ([#2432](https://github.com/justeattakeaway/pie/pull/2432)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.6.45
+
 ## 4.39.2
 
 ### Patch Changes
