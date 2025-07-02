@@ -1,15 +1,63 @@
-import { LitElement } from 'lit';
-import { safeCustomElement } from '@justeattakeaway/pie-webc-core';
-import { type ListItemProps } from './defs';
+import { html, unsafeCSS } from 'lit';
+import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
+import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
+import { property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+
+import styles from './list-item.scss?inline';
+import { type ListItemProps, defaultProps } from './defs';
+
+// Valid values available to consumers
+export * from './defs';
 
 const componentSelector = 'pie-list-item';
 
 /**
  * @tagname pie-list-item
+ *
+ * PIE List Item component for use within pie-list.
  */
 @safeCustomElement('pie-list-item')
-export class PieListItem extends LitElement implements ListItemProps {
-    // component logic
+export class PieListItem extends RtlMixin(PieElement) implements ListItemProps {
+    @property({ type: String })
+    public primaryText = defaultProps.primaryText;
+
+    @property({ type: Boolean, reflect: true })
+    public selected = defaultProps.selected;
+
+    @property({ type: Boolean, reflect: true })
+    public disabled = defaultProps.disabled;
+
+    connectedCallback () {
+        super.connectedCallback();
+    }
+
+    render () {
+        const classes = {
+            'c-listItem': true,
+            'c-listItem--selected': this.selected,
+            'c-listItem--disabled': this.disabled,
+        };
+
+        return html`
+            <li
+                class=${classMap(classes)}
+                role="listitem"
+                aria-disabled=${this.disabled ? 'true' : 'false'}
+                data-test-id="pie-list-item">
+                
+                <div class="c-listItem-content">
+                    <div class="c-listItem-primary">
+                        <slot></slot>
+                        ${!this.querySelector(':not([slot])') && this.primaryText ? html`<span>${this.primaryText}</span>` : ''}
+                    </div>
+                </div>
+            </li>
+        `;
+    }
+
+    // Renders a `CSSResult` generated from SCSS by Vite
+    static styles = unsafeCSS(styles);
 }
 
 declare global {
