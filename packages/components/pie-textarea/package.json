@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-textarea",
   "description": "PIE Design System Textarea built using Web Components",
-  "version": "0.16.6",
+  "version": "0.16.7",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -46,7 +46,7 @@
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-assistive-text": "0.10.6",
+    "@justeattakeaway/pie-assistive-text": "0.10.7",
     "@justeattakeaway/pie-webc-core": "1.0.0",
     "lodash.throttle": "4.1.1"
   },
