@@ -3,7 +3,7 @@ import { property } from 'lit/decorators.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
 
-import styles from '../tabs.scss?inline';
+import styles from './tab-panel.scss?inline';
 import { type TabPanelProps } from './defs';
 
 const componentSelector = 'pie-tab-panel';
