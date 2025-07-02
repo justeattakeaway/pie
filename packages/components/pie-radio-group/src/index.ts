@@ -211,7 +211,9 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         const enabledChildren = this._slottedChildren.filter((item) => !item.disabled);
         if (!enabledChildren || enabledChildren.length === 0) return;
 
-        if (!this.value) {
+        const hasNoValueSet = this.value === '' || this.value === undefined;
+
+        if (hasNoValueSet) {
             // When no value is assigned, depending on the previously focused element,
             // transfer focus to the next logical radio
 
