@@ -2,8 +2,7 @@
 eleventyNavigation:
     key: Code
     parent: Form Label
-    order: 3
-shouldShowContents: true
+    order: 2
 ---
 
 ## Web
