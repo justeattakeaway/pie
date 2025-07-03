@@ -1,8 +1,14 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-toast-provider';
-import { type ToastProviderProps, defaultProps, toaster } from '@justeattakeaway/pie-toast-provider';
+import {
+    type ToastProviderProps,
+    defaultProps,
+    toaster,
+    positions,
+} from '@justeattakeaway/pie-toast-provider';
+import '@justeattakeaway/pie-toast';
 import '@justeattakeaway/pie-button';
 
 import { createStory } from '../../utilities';
@@ -24,6 +30,14 @@ const toastProviderStoryMeta: ToastProviderStoryMeta = {
                 summary: defaultProps.options,
             },
         },
+        position: {
+            description: 'Set the position of the toast. When set to `default`, the toast will be positioned at bottom-left for RTL languages and bottom-right for LTR languages.',
+            control: 'select',
+            options: positions,
+            defaultValue: {
+                summary: defaultProps.position,
+            },
+        },
     },
     args: defaultArgs,
 };
@@ -34,24 +48,43 @@ const onQueueUpdate = (queue: CustomEvent) => {
     console.info('toast provider queue:', queue.detail);
 };
 
-const Template = ({ options }: ToastProviderProps) => html`
-    <pie-toast-provider
-        .options="${options}"
-        @pie-toast-provider-queue-update="${onQueueUpdate}">
-    </pie-toast-provider>
-`;
+const Template = ({ options = defaultProps.options, position }: ToastProviderProps) => html`
+        <pie-toast-provider
+            .options="${options}"
+            position="${ifDefined(position)}"
+            @pie-toast-provider-queue-update="${onQueueUpdate}">
+        </pie-toast-provider>
+    `;
+
+const PositionTemplate = ({ options = defaultProps.options, position }: ToastProviderProps) => {
+    // move the creation of the toast to the next frame to mimic user interaction
+    requestAnimationFrame(() => {
+        toaster.create({
+            message: 'A toast component inside toast provider.',
+            duration: null,
+            isDismissible: true,
+        });
+    });
+
+    return html`
+        <pie-toast-provider
+            .options="${options}"
+            position="${ifDefined(position)}"
+            @pie-toast-provider-queue-update="${onQueueUpdate}">
+        </pie-toast-provider>
+    `;
+};
 
 const CustomZIndexTemplate = () => {
     const showToast = () => {
         toaster.create({
-            title: 'Test Toast',
             message: 'This toast should appear above the red box.',
             duration: null,
         });
     };
 
     return html`
-        <div style="position: relative; height: 200px; border: 1px dashed grey; padding: 20px; margin-bottom: 20px;">
+        <div style="position: relative; height: 200px; width: 400px; border: 1px dashed grey; padding: 20px; margin-bottom: 20px;">
             <div style="position: absolute; inset: 40px; background-color: red; z-index: 6500;">
                 (z-index: 6500)
             </div>
@@ -65,4 +98,8 @@ const CustomZIndexTemplate = () => {
 };
 
 export const Default = createStory<ToastProviderProps>(Template, defaultArgs)();
+export const PositionDefault = createStory<ToastProviderProps>(PositionTemplate, defaultArgs)();
+export const PositionBottomLeft = createStory<ToastProviderProps>(PositionTemplate, { position: 'bottom-left' })();
+export const PositionBottomRight = createStory<ToastProviderProps>(PositionTemplate, { position: 'bottom-right' })();
+export const PositionBottomCenter = createStory<ToastProviderProps>(PositionTemplate, { position: 'bottom-center' })();
 export const CustomZIndex = createStory(CustomZIndexTemplate, {})();

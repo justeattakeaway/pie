@@ -1,5 +1,6 @@
 @import '@justeat/pie-design-tokens/dist/jet.css';
 @import '@justeat/pie-design-tokens/dist/jet-hsl-colors.css';
+@import './helpers/animations.css';
 
 html {
     box-sizing: border-box;

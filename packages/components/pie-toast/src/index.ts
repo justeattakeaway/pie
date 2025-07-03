@@ -9,7 +9,6 @@ import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElem
 import { property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import {
-    RtlMixin,
     dispatchCustomEvent,
     safeCustomElement,
     validPropertyValues,
@@ -45,7 +44,7 @@ export * from './defs';
  * @event {CustomEvent} pie-toast-leading-action-click - when the user interacts with the leading action.
  */
 @safeCustomElement('pie-toast')
-export class PieToast extends RtlMixin(PieElement) implements ToastProps {
+export class PieToast extends PieElement implements ToastProps {
     @property({ type: String })
     public message = defaultProps.message;
 
@@ -314,24 +313,19 @@ export class PieToast extends RtlMixin(PieElement) implements ToastProps {
 
     render () {
         const {
-            isOpen,
             variant,
             message,
             isDismissible,
             leadingAction,
             isMultiline,
             isStrong,
-            isRTL,
         } = this;
 
         const componentWrapperClasses = {
             [componentClass]: true,
-            [`${componentClass}--rtl`]: isRTL,
             [`${componentClass}--multiline`]: isMultiline,
             [`${componentClass}--${variant}`]: true,
             [`${componentClass}--strong`]: isStrong,
-            [`${componentClass}--animate-in`]: isOpen,
-            [`${componentClass}--animate-out`]: !isOpen,
         };
 
         return html`

@@ -1,5 +1,9 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+:host {
+  display: block;
+}
+
 .c-toast {
   --toast-border-radius: var(--dt-radius-rounded-b);
   --toast-background-color: var(--dt-color-container-inverse);
@@ -7,8 +11,6 @@
   --toast-font-size: #{p.font-size(--dt-font-body-s-size)};
   --toast-line-height: #{p.line-height(--dt-font-body-s-line-height)};
   --toast-icon-fill: var(--dt-color-content-default);
-  --toast-translate-start: -100%;
-  --toast-translate-end: 0;
 
   display: flex;
   flex-direction: column;
@@ -25,29 +27,8 @@
   color: var(--toast-font-color);
   font-size: var(--toast-font-size);
   line-height: var(--toast-line-height);
-  transition-property: all;
-  transition-duration: var(--dt-motion-timing-100);
-  transition-timing-function: var(--dt-motion-easing-in);
 }
 
-.c-toast--rtl {
-  --toast-translate-start: 100%;
-}
-
-.c-toast--animate-in {
-  animation-duration: var(--dt-motion-timing-200);
-  animation-name: animate-in;
-  animation-timing-function: var(--dt-motion-easing-out);
-  transform: translateX(var(--toast-translate-end));
-}
-
-.c-toast--animate-out {
-  animation-duration: var(--dt-motion-timing-100);
-  animation-name: animate-out;
-  animation-timing-function: var(--dt-motion-easing-in);
-  transform: translateX(var(--toast-translate-start));
-  opacity: 0;
-}
 
 .c-toast--info {
   --toast-icon-fill: var(--dt-color-support-info-inverse);
@@ -143,24 +124,4 @@
 
 .c-toast-icon {
   color: var(--toast-icon-fill);
-}
-
-@keyframes animate-in {
-  from { 
-    transform: translateX(var(--toast-translate-start));
-  }
-
-  to { 
-    transform: translateX(var(--toast-translate-end));
-  }
-}
-
-@keyframes animate-out {
-  from { 
-    transform: translateX(var(--toast-translate-end));
-  }
-
-  to { 
-    transform: translateX(var(--toast-translate-start));
-  }
 }

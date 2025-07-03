@@ -1,19 +1,52 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 @use '@justeattakeaway/pie-css/scss/settings' as *;
+@use '@justeattakeaway/pie-css/css/helpers/animations.css' as *;
 
 :host {
     --toast-provider-z-index: var(--dt-z-index-toast);
-}
-
-.c-toast-provider {
     --toast-provider-offset: var(--dt-spacing-d);
 
     position: absolute;
-    inset-inline-start: var(--toast-provider-offset);
-    inset-block-end: var(--toast-provider-offset);
-    z-index: var(--toast-provider-z-index);
+    inset: 0;
+    overflow: hidden;
 
     @include media('>md') {
-        --toast-offset: var(--dt-spacing-e);
+        --toast-provider-offset: var(--dt-spacing-e);
+    }
+}
+
+.c-toast-provider {
+    position: absolute;
+    z-index: var(--toast-provider-z-index);
+
+    &.c-toast-provider--default {
+        inset-inline-start: var(--toast-provider-offset);
+        inset-block-end: var(--toast-provider-offset);
+
+        &.c-toast-provider--rtl {
+            --pie-animation-slide-translate-start: 100%;
+        }
+    }
+
+    &.c-toast-provider--bottom-left {
+        --pie-animation-slide-translate-start: -100%;
+
+        left: var(--toast-provider-offset);
+        bottom: var(--toast-provider-offset);
+    }
+
+    &.c-toast-provider--bottom-right {
+        --pie-animation-slide-translate-start: 100%;
+
+        right: var(--toast-provider-offset);
+        bottom: var(--toast-provider-offset);
+    }
+
+    &.c-toast-provider--bottom-center {
+        --pie-animation-slide-translate-start: 0, 100%;
+
+        left: 50%;
+        bottom: var(--toast-provider-offset);
+        transform: translateX(-50%);
     }
 }
