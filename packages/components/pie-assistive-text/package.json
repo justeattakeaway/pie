@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-assistive-text",
   "description": "PIE Design System Assistive Text built using Web Components",
-  "version": "0.10.6",
+  "version": "0.10.7",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
