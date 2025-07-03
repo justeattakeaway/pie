@@ -1,13 +1,13 @@
 {
   "name": "@justeattakeaway/pie-switch",
   "description": "PIE Design System Switch built using Web Components",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-switch"
   },
-  "homepage": "https://pie.design/components/switch/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-switch--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

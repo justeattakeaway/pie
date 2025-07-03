@@ -1,13 +1,13 @@
 {
   "name": "@justeattakeaway/pie-card",
-  "version": "0.25.4",
+  "version": "0.25.5",
   "description": "PIE Design System Card built using Web Components",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-card"
   },
-  "homepage": "https://pie.design/components/card/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-card--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

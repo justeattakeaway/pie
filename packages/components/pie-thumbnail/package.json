@@ -1,13 +1,13 @@
 {
   "name": "@justeattakeaway/pie-thumbnail",
   "description": "PIE Design System Thumbnail built using Web Components",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-thumbnail"
   },
-  "homepage": "https://pie.design/components/thumbnail/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-thumbnail--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

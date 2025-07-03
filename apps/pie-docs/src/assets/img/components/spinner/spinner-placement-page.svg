@@ -1,0 +1,17 @@
+<svg width="777" height="575" viewBox="0 0 777 575" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_f_7770_11216)">
+<rect x="100" y="100" width="577" height="375" rx="24" fill="#8E8E8E"/>
+<rect x="103" y="103" width="571" height="369" rx="21" stroke="#DBD9D7" stroke-width="6"/>
+</g>
+<rect x="96" y="96" width="585" height="383" rx="28" fill="white"/>
+<rect x="96" y="96" width="585" height="383" rx="28" stroke="#DBD9D7" stroke-width="8"/>
+<path opacity="0.35" fill-rule="evenodd" clip-rule="evenodd" d="M389 264C402.255 264 413 274.745 413 288C413 301.255 402.255 312 389 312C375.745 312 365 301.255 365 288C365 274.745 375.745 264 389 264ZM389 270C379.059 270 371 278.059 371 288C371 297.941 379.059 306 389 306C398.941 306 407 297.941 407 288C407 278.059 398.941 270 389 270Z" fill="#F36805"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M389 312C375.745 312 365 301.255 365 288C365 274.745 375.745 264 389 264M389 270C379.059 270 371 278.059 371 288C371 297.941 379.059 306 389 306" fill="#F36805"/>
+<defs>
+<filter id="filter0_f_7770_11216" x="0" y="0" width="777" height="575" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_7770_11216"/>
+</filter>
+</defs>
+</svg>

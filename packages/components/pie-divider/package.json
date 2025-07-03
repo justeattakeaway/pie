@@ -1,13 +1,13 @@
 {
   "name": "@justeattakeaway/pie-divider",
   "description": "PIE Design System Divider built using Web Components",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-divider"
   },
-  "homepage": "https://pie.design/components/divider/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-divider--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

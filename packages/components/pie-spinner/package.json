@@ -1,13 +1,13 @@
 {
   "name": "@justeattakeaway/pie-spinner",
   "description": "PIE Design System Spinner built using Web Components",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-spinner"
   },
-  "homepage": "https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-spinner",
+  "homepage": "https://webc.pie.design/?path=/docs/components-spinner--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

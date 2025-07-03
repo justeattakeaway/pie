@@ -1,13 +1,13 @@
 {
   "name": "@justeattakeaway/pie-link",
   "description": "PIE Design System Link built using Web Components",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-link"
   },
-  "homepage": "https://pie.design/components/link/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-link--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
