@@ -18,6 +18,7 @@
   "dependencies": {
     "@justeat/pie-design-tokens": "6.10.0",
     "@justeattakeaway/pie-assistive-text": "0.10.7",
+    "@justeattakeaway/pie-avatar": "0.0.0",
     "@justeattakeaway/pie-breadcrumb": "0.6.2",
     "@justeattakeaway/pie-button": "1.6.5",
     "@justeattakeaway/pie-card": "0.25.5",

@@ -24,6 +24,16 @@
       "require": "./react/assistive-text.js",
       "types": "./react/assistive-text.d.ts"
     },
+    "./components/avatar.js": {
+      "import": "./components/avatar.js",
+      "require": "./components/avatar.js",
+      "types": "./components/avatar.d.ts"
+    },
+    "./react/avatar.js": {
+      "import": "./react/avatar.js",
+      "require": "./react/avatar.js",
+      "types": "./react/avatar.d.ts"
+    },
     "./components/breadcrumb.js": {
       "import": "./components/breadcrumb.js",
       "require": "./components/breadcrumb.js",
@@ -153,6 +163,16 @@
       "import": "./react/list.js",
       "require": "./react/list.js",
       "types": "./react/list.d.ts"
+    },
+    "./components/list-item.js": {
+      "import": "./components/list-item.js",
+      "require": "./components/list-item.js",
+      "types": "./components/list-item.d.ts"
+    },
+    "./react/list-item.js": {
+      "import": "./react/list-item.js",
+      "require": "./react/list-item.js",
+      "types": "./react/list-item.d.ts"
     },
     "./components/lottie-player.js": {
       "import": "./components/lottie-player.js",
@@ -312,6 +332,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-assistive-text": "0.10.7",
+    "@justeattakeaway/pie-avatar": "0.0.0",
     "@justeattakeaway/pie-breadcrumb": "0.6.2",
     "@justeattakeaway/pie-button": "1.6.5",
     "@justeattakeaway/pie-card": "0.25.5",
