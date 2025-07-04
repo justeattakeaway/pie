@@ -40,7 +40,7 @@
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
     "@justeattakeaway/pie-components-config": "0.20.1",
-    "@justeattakeaway/pie-css": "0.16.0",
+    "@justeattakeaway/pie-css": "0.17.0",
     "@justeattakeaway/pie-monorepo-utils": "0.5.1",
     "@justeattakeaway/pie-switch": "2.0.3",
     "@justeattakeaway/pie-text-input": "0.28.7",

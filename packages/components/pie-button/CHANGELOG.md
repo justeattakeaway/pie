@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.6
+
+### Patch Changes
+
+- [Added] - add missing props documentation ([#2446](https://github.com/justeattakeaway/pie/pull/2446)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.6.5
 
 ### Patch Changes
