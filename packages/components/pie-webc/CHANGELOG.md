@@ -1,5 +1,22 @@
 # @justeattakeaway/pie-webc
 
+## 0.7.0
+
+### Minor Changes
+
+- creating the pie-avatar web component ([#2449](https://github.com/justeattakeaway/pie/pull/2449)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies [[`a790653`](https://github.com/justeattakeaway/pie/commit/a790653fabfa9301ea4d0cb89899ee50ae10ffab), [`a790653`](https://github.com/justeattakeaway/pie/commit/a790653fabfa9301ea4d0cb89899ee50ae10ffab), [`5fd79d4`](https://github.com/justeattakeaway/pie/commit/5fd79d4396b3170d99b20710c97580cee8744cbe), [`024074c`](https://github.com/justeattakeaway/pie/commit/024074cbb428968ffee71c39f7f94cb8828f5156), [`2327fff`](https://github.com/justeattakeaway/pie/commit/2327fffa4e335e7807308a0ca5e11e76f3cf0394)]:
+  - @justeattakeaway/pie-toast@0.10.0
+  - @justeattakeaway/pie-toast-provider@0.6.0
+  - @justeattakeaway/pie-button@1.6.6
+  - @justeattakeaway/pie-avatar@0.1.0
+  - @justeattakeaway/pie-radio-group@0.9.9
+  - @justeattakeaway/pie-cookie-banner@1.6.10
+  - @justeattakeaway/pie-modal@1.7.9
+
 ## 0.6.45
 
 ### Patch Changes

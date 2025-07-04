@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-toast-provider
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - support custom rendering positions for the toast provider ([#2435](https://github.com/justeattakeaway/pie/pull/2435)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`a790653`](https://github.com/justeattakeaway/pie/commit/a790653fabfa9301ea4d0cb89899ee50ae10ffab), [`a790653`](https://github.com/justeattakeaway/pie/commit/a790653fabfa9301ea4d0cb89899ee50ae10ffab)]:
+  - @justeattakeaway/pie-toast@0.10.0
+
 ## 0.5.7
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-radio-group
 
+## 0.9.9
+
+### Patch Changes
+
+- [Fixed] - keyboard focus handling when the radio group value is changed programmatically ([#2445](https://github.com/justeattakeaway/pie/pull/2445)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.9.8
 
 ### Patch Changes

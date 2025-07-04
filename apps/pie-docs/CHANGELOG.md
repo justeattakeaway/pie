@@ -1,5 +1,19 @@
 # Changelog
 
+## 4.41.0
+
+### Minor Changes
+
+- [Added] - toast custom rendering positions docs ([#2436](https://github.com/justeattakeaway/pie/pull/2436)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - correct storybook links for web components on overview pages ([#2448](https://github.com/justeattakeaway/pie/pull/2448)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`024074c`](https://github.com/justeattakeaway/pie/commit/024074cbb428968ffee71c39f7f94cb8828f5156), [`a790653`](https://github.com/justeattakeaway/pie/commit/a790653fabfa9301ea4d0cb89899ee50ae10ffab)]:
+  - @justeattakeaway/pie-webc@0.7.0
+  - @justeattakeaway/pie-css@0.17.0
+
 ## 4.40.0
 
 ### Minor Changes

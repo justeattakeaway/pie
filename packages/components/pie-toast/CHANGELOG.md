@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-toast
 
+## 0.10.0
+
+### Minor Changes
+
+- [Changed] - removed the toast animation from the component level in favor of reusable animation classes from `pie-css` to make the component agnostic. ([#2435](https://github.com/justeattakeaway/pie/pull/2435)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - support custom rendering positions for the toast provider ([#2435](https://github.com/justeattakeaway/pie/pull/2435)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`5fd79d4`](https://github.com/justeattakeaway/pie/commit/5fd79d4396b3170d99b20710c97580cee8744cbe)]:
+  - @justeattakeaway/pie-button@1.6.6
+
 ## 0.9.7
 
 ### Patch Changes

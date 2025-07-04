@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-css
 
+## 0.17.0
+
+### Minor Changes
+
+- creating the pie-avatar web component ([#2449](https://github.com/justeattakeaway/pie/pull/2449)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+- [Added] - reusable css animation classes ([#2435](https://github.com/justeattakeaway/pie/pull/2435)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.16.0
 
 ### Minor Changes
