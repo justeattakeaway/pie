@@ -69,7 +69,12 @@
         transition:
             background-color var(--dt-motion-timing-100) var(--checkbox-motion-easing),
             border-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
-        animation: scaleDown var(--dt-motion-timing-100) var(--checkbox-motion-easing);
+    }
+
+    &.c-checkbox-tick--allow-animation {
+        @media (prefers-reduced-motion: no-preference) {
+            animation: scaleDown var(--dt-motion-timing-100) var(--checkbox-motion-easing);
+        }
     }
 
     &.is-disabled {
@@ -81,11 +86,13 @@
         --checkbox-border-color: var(--dt-color-support-error);
     }
 
-    &.c-checkbox-tick--checked {
+    &.c-checkbox-tick--allow-animation.c-checkbox-tick--checked {
         @media (prefers-reduced-motion: no-preference) {
             animation: scaleUp var(--dt-motion-timing-100) var(--checkbox-motion-easing);
         }
+    }
 
+    &.c-checkbox-tick--checked {
         &:not(.is-disabled) {
             --checkbox-bg-color: var(--dt-color-interactive-brand);
             --checkbox-border-color: var(--checkbox-bg-color);

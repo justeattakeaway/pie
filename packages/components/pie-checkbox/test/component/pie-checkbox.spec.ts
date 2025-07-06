@@ -565,4 +565,27 @@ test.describe('PieCheckbox - Component tests', () => {
             });
         });
     });
+
+    test.describe('animations', () => {
+        test('should not animate on mount', async ({ page }) => {
+            // Arrange
+            const checkboxDefaultPage = new CheckboxDefaultPage(page);
+            await checkboxDefaultPage.load();
+
+            // Assert: tick element should not have animation enabled on mount
+            await expect(checkboxDefaultPage.checkboxComponent.labelLocator).not.toHaveClass('c-checkbox-tick--allow-animation');
+        });
+
+        test('should allow animate on change', async ({ page }) => {
+            // Arrange
+            const checkboxDefaultPage = new CheckboxDefaultPage(page);
+            await checkboxDefaultPage.load();
+
+            // Act
+            await checkboxDefaultPage.checkboxComponent.labelLocator.check();
+
+            // Assert: tick element should have animation after change
+            await expect(checkboxDefaultPage.checkboxComponent.labelLocator).toHaveClass('c-checkbox-tick--allow-animation');
+        });
+    });
 });
