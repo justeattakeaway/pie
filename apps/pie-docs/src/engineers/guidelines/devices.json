@@ -14,7 +14,7 @@
                     "text": "iPhone"
                 },
                 {
-                    "text": "6 to latest (all variants such as Pro and Mini)"
+                    "text": "X to latest (all variants such as SE Gen 2, Pro and Mini)"
                 }
             ]
         },
@@ -34,7 +34,7 @@
                   "text": "Samsung Galaxy"
               },
               {
-                  "text": "S21, S22"
+                  "text": "S21 FE to latest"
               }
             ]
         },
@@ -44,7 +44,7 @@
                   "text": "Samsung Galaxy Tab"
               },
               {
-                  "text": "S7 to latest"
+                  "text": "S8 to latest"
               }
             ]
         },
@@ -54,17 +54,7 @@
                   "text": "Google Pixel"
               },
               {
-                  "text": "4a, 6"
-              }
-            ]
-        },
-        {
-          "data": [
-              {
-                  "text": "Huawei"
-              },
-              {
-                  "text": "P30"
+                  "text": "5a, 7"
               }
             ]
         }
