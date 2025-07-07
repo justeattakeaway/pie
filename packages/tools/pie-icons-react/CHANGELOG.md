@@ -1,5 +1,16 @@
 # Changelog
 
+## 5.14.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2451](https://github.com/justeattakeaway/pie/pull/2451)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Miscellaneous
+
+  - weight-large
+  - weight
+
 ## 5.13.0
 
 ### Minor Changes
