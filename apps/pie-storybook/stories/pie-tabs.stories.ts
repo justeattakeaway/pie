@@ -30,7 +30,7 @@ const tabsStoryMeta: TabsStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: '',
+            url: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/branch/Mn7rERbBnNmaO2UAHT8qDz/%E2%9C%A8--Core--Web-Components--PIE-3-?node-id=12502-11771',
         },
     },
 };
