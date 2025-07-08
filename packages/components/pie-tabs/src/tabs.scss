@@ -2,76 +2,92 @@
 
 .c-tabs {
   --tabs-background-color: var(--dt-color-transparent);
+  --tabs-flex-global-orientation: row;
+  --tabs-flex-navigation-orientation: column;
 
   display: flex;
-  background-color: var(--tabs-background-color);
-  
-  nav {
-    ul {
+  flex-direction: var(--tabs-flex-global-orientation);
+}
+
+.c-tabs-variant--contained {
+  --tabs-background-color: var(--dt-color-container-default);
+}
+
+.c-tabs-orientation--horizontal {
+  --tabs-flex-global-orientation: column;
+  --tabs-flex-navigation-orientation: row;
+}
+
+.c-tabs-navigation {
+  ul {
+    display: flex;
+    flex-direction: var(--tabs-flex-navigation-orientation);
+    padding: 0;
+    margin: 0;
+    
+    li {
+      cursor: pointer;
+      background-color: var(--tabs-background-color);
+      list-style: none;
       display: flex;
-      flex-direction: row;
-      padding: 0;
-      margin: 0;
+      position: relative;
+      gap: var(--dt-spacing-b);
+      border-radius: var(--dt-radius-02);
+      color: var(--dt-color-content-subdued);
       
-      li {
-        cursor: pointer;
-        list-style: none;
-        display: flex;
-        position: relative;
-        gap: var(--dt-spacing-b);
-        border-radius: var(--dt-radius-02);
-        color: var(--dt-color-content-subdued);
+      padding-block-start: var(--dt-spacing-b);
+      padding-block-end: var(--dt-spacing-b);
+      padding-inline-start: var(--dt-spacing-d);
+      padding-inline-end: var(--dt-spacing-d);
+
+      font-size: #{p.font-size(--dt-font-size-16)};
+      line-height: #{p.line-height(--dt-font-size-16-line-height)};
+      font-weight: 700;
+
+      &:hover {
+        background-color: color-mix(in srgb, var(--dt-color-content-subdued) var(--dt-color-hover-01), var(--dt-color-transparent));
+      }
+
+      &:focus-visible {
+        outline: solid calc(var(--dt-spacing-a) / 2) var(--dt-color-focus-outer);
+        outline-offset: calc(var(--dt-spacing-a) / 2 * -1.5);
+      }
+
+      &:active {
+        background-color: color-mix(in srgb, var(--dt-color-content-subdued) var(--dt-color-active-01), var(--dt-color-transparent));
+      }
+
+      &.selected {  
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: calc(var(--dt-spacing-a) * -1); ;
+          left: 0;
+          right: 0;
+          width: 100%;
+          height: 4px;
+
+          border-top-left-radius: calc(var(--dt-radius-02) / 2);
+          border-top-right-radius: calc(var(--dt-radius-02) / 2);
+
+          background-color: var(--dt-color-interactive-brand);
+        }
+      }
+
+      &.disabled {
+        cursor: not-allowed;
+        user-select: none;
+        color: var(--dt-color-content-disabled);
         
-        padding-block-start: var(--dt-spacing-b);
-        padding-block-end: var(--dt-spacing-b);
-        padding-inline-start: var(--dt-spacing-d);
-        padding-inline-end: var(--dt-spacing-d);
 
-        font-size: #{p.font-size(--dt-font-size-16)};
-        line-height: #{p.line-height(--dt-font-size-16-line-height)};
-        font-weight: 700;
-
-        &:hover {
-          background-color: color-mix(in srgb, var(--dt-color-content-subdued) var(--dt-color-hover-01), var(--dt-color-transparent));
-        }
-
-        &:focus-visible {
-          outline: solid calc(var(--dt-spacing-a) / 2) var(--dt-color-focus-outer);
-          outline-offset: calc(var(--dt-spacing-a) / 2 * -1.5);
-        }
-
-        &:active {
-          background-color: color-mix(in srgb, var(--dt-color-content-subdued) var(--dt-color-active-01), var(--dt-color-transparent));
-        }
-
-        &.selected {  
-          &::after {
-            content: '';
-            position: absolute;
-            bottom: calc(var(--dt-spacing-a) * -1); ;
-            left: 0;
-            right: 0;
-            width: 100%;
-            height: 4px;
-
-            border-top-left-radius: calc(var(--dt-radius-02) / 2);
-            border-top-right-radius: calc(var(--dt-radius-02) / 2);
-
-            background-color: var(--dt-color-interactive-brand);
-          }
-        }
-
-        &.disabled {
-          cursor: not-allowed;
-          user-select: none;
-          color: var(--dt-color-content-disabled);
-          
-
-          &:hover, &:focus, &:focus-visible, &:active {
-            outline: none;
-          }
+        &:hover, &:focus, &:focus-visible, &:active {
+          outline: none;
         }
       }
     }
   }
+}
+
+.c-tabs-panels {
+  background-color: var(--tabs-background-color);
 }

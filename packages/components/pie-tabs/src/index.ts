@@ -1,10 +1,16 @@
 import { html, unsafeCSS } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { safeCustomElement } from '@justeattakeaway/pie-webc-core';
+import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
+import { property } from 'lit/decorators.js';
 
 import styles from './tabs.scss?inline';
-import { type TabsProps } from './defs';
+import {
+    type TabsProps,
+    variants,
+    defaultProps,
+    orientations,
+} from './defs';
 
 const componentSelector = 'pie-tabs';
 
@@ -16,19 +22,24 @@ export * from './defs';
  */
 @safeCustomElement(componentSelector)
 export class PieTabs extends PieElement implements TabsProps {
+    @property({ type: String })
+    @validPropertyValues(componentSelector, variants, defaultProps.variant)
+    public variant = defaultProps.variant;
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, orientations, defaultProps.orientation)
+    public orientation = defaultProps.orientation;
+
     private _selectedTab = 0;
 
-    // firstUpdated() {
-    //     this.updateSelectedPanel();
-    // }
+    firstUpdated () {
+        this.updateSelectedPanel();
+    }
 
     private handleTabClick (index: number) {
         this._selectedTab = index;
         this.updateSelectedPanel();
         this.requestUpdate();
-
-        // console.log('index', this._selectedTab)
-        // this.updateSelectedPanel();
     }
 
     private updateSelectedPanel () {
@@ -46,11 +57,11 @@ export class PieTabs extends PieElement implements TabsProps {
     render () {
         const classes = {
             'c-tabs': true,
+            'c-tabs-variant--contained': this.variant === 'contained',
+            [`c-tabs-orientation--${this.orientation}`]: true,
         };
 
         const panels = this.getPanels();
-
-        console.log('panels', panels);
 
         return html`
             <div
@@ -59,7 +70,7 @@ export class PieTabs extends PieElement implements TabsProps {
                 class="${classMap(classes)}"
             >
                 ${panels.length > 0 && (html`
-                    <nav>
+                    <nav class="c-tabs-navigation">
                         <ul role="tablist">
                             ${panels.map((panel, index) => html`
                                 <li
@@ -74,8 +85,11 @@ export class PieTabs extends PieElement implements TabsProps {
                         </ul>
                     </nav>
                 `)}
-            </div> 
-             <slot></slot>
+                
+                <div class="c-tabs-panels">
+                    <slot></slot>
+                </div>
+            </div>
         `;
     }
 
