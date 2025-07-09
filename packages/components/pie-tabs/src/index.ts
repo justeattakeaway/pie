@@ -2,7 +2,8 @@ import { html, unsafeCSS } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
-import { property } from 'lit/decorators.js';
+import { property, queryAssignedElements } from 'lit/decorators.js';
+import { repeat } from 'lit/directives/repeat.js';
 
 import styles from './tabs.scss?inline';
 import {
@@ -11,6 +12,7 @@ import {
     defaultProps,
     orientations,
 } from './defs';
+import { type TabPanelProps } from './pie-tab-panel/defs';
 
 const componentSelector = 'pie-tabs';
 
@@ -30,28 +32,42 @@ export class PieTabs extends PieElement implements TabsProps {
     @validPropertyValues(componentSelector, orientations, defaultProps.orientation)
     public orientation = defaultProps.orientation;
 
+    @queryAssignedElements() _pieTabPanelSlots!: Array<HTMLElement & TabPanelProps>;
+
     private _selectedTab = 0;
 
-    firstUpdated () {
+    firstUpdated (): void {
+        this.requestUpdate();
+    }
+
+    updated (): void {
         this.updateSelectedPanel();
     }
 
+    /**
+     * Handles the click event on a tab.
+     * This method updates the selected tab index and updates the displayed panel accordingly.
+     *
+     * @param index The index of the tab that was clicked.
+     *
+     * @private
+     */
     private handleTabClick (index: number) {
         this._selectedTab = index;
         this.updateSelectedPanel();
         this.requestUpdate();
     }
 
+    /**
+     * Updates the selected state of each tab panel based on the currently selected tab index.
+     * This method iterates through all tab panels and sets the `selected` property accordingly.
+     *
+     * @private
+     */
     private updateSelectedPanel () {
-        const panels = this.getPanels();
-
-        panels.forEach((panel, index) => {
+        this._pieTabPanelSlots.forEach((panel, index) => {
             panel.selected = index === this._selectedTab;
         });
-    }
-
-    private getPanels () {
-        return Array.from(this.querySelectorAll('pie-tab-panel'));
     }
 
     render () {
@@ -61,31 +77,35 @@ export class PieTabs extends PieElement implements TabsProps {
             [`c-tabs-orientation--${this.orientation}`]: true,
         };
 
-        const panels = this.getPanels();
-
         return html`
             <div
                 aria-label="tabs"
                 data-test-id="pie-tabs"
                 class="${classMap(classes)}"
             >
-                ${panels.length > 0 && (html`
+                ${this._pieTabPanelSlots && this._pieTabPanelSlots.length > 0 && (html`
                     <nav class="c-tabs-navigation">
                         <ul role="tablist">
-                            ${panels.map((panel, index) => html`
-                                <li
-                                    @click=${() => this.handleTabClick(index)}
-                                    role="tab"
-                                    tabindex="${index}"
-                                    class="${classMap({ selected: this._selectedTab === index })}"
-                                >
-                                    <span>${panel.title}</span>
-                                </li>
-                            `)}
+                            ${
+                            repeat(
+                                this._pieTabPanelSlots,
+                                (element, index) => html`
+                                    <li
+                                        @click=${() => this.handleTabClick(index)}
+                                        role="tab"
+                                        tabindex="${index}"
+                                        class="
+                                            ${classMap({ selected: this._selectedTab === index, [`c-tabs-navigation-item--${this.orientation}`]: true, [`c-tabs-navigation-item-variant--${this.variant}`]: true })}
+                                        "
+                                    >
+                                        <span>${element.title}</span>
+                                    </li>
+                                    
+                                `,
+                            )}
                         </ul>
                     </nav>
                 `)}
-                
                 <div class="c-tabs-panels">
                     <slot></slot>
                 </div>
