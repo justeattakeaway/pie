@@ -6,7 +6,7 @@ import { Meta } from '@storybook/addon-docs';
 Using typescript with our components is straightforward. Each component package exports its types, which can be imported and used in your application where needed.
 Below are examples of how to use the types in different frameworks and are all fairly similar.
 
-Our published components contain `index.d.ts` and `react.d.ts` files that contain the types for the component and its props. These files are automatically generated during the build process and are used by the TypeScript compiler to provide type checking and autocompletion in your IDE. You should not need to import or interact with these. They can be viewed in the `dist` directory of the component packages.
+Our published components contain `index.d.ts` and `react.d.ts` files that contain the types for the component and its props. These files are automatically generated during the build process and are used by the TypeScript compiler to provide type checking and intellisense in your IDE. You should not need to import or interact with these. They can be viewed in the `dist` directory of the component packages.
 
 > Note that the examples below are using the `PieSelect` component, but the same principles apply to all components in the PIE web components library.
 > Also please bear in mind that these are minimal examples to demonstrate how to use the types, and you will likely need to adapt them to your specific use case. Simply reusing the example code in your application is unlikely to work as-is.
