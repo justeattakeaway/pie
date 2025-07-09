@@ -77,6 +77,7 @@ export default {
                         'Events',
                         'Design tokens cookbook',
                         'CSS variables',
+                        'Typescript usage',
                         'Component versions',
                         'Browser support',
                     ],

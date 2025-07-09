@@ -1,0 +1,117 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Introduction/Typescript usage" />
+
+# Typescript usage
+Using typescript with our components is straightforward. Each component package exports its types, which can be imported and used in your application where needed.
+Below are examples of how to use the types in different frameworks and are all fairly similar.
+
+Our published components contain `index.d.ts` and `react.d.ts` files that contain the types for the component and its props. These files are automatically generated during the build process and are used by the TypeScript compiler to provide type checking and autocompletion in your IDE. You should not need to import or interact with these. They can be viewed in the `dist` directory of the component packages.
+
+> Note that the examples below are using the `PieSelect` component, but the same principles apply to all components in the PIE web components library.
+> Also please bear in mind that these are minimal examples to demonstrate how to use the types, and you will likely need to adapt them to your specific use case. Simply reusing the example code in your application is unlikely to work as-is.
+
+---
+
+### React
+Import any types you want to use from the component file. Please note the **react** entry point in the path.
+It is important to specify the `type` keyword when importing types as this will ensure the Typescript compiler will not try to compile the types into JavaScript code.
+
+```tsx
+import { PieSelect, type SelectProps } from "@justeattakeaway/pie-webc/react/select.js";
+
+export default function Select() {
+    const options: SelectProps['options'] = [
+        {
+            tag: 'optgroup',
+            label: 'Animals',
+            options: [
+                {
+                    tag: 'option',
+                    text: 'Cat',
+                    value: 'cat',
+                },
+                {
+                    tag: 'option',
+                    text: 'Dog',
+                    value: 'dog',
+                },
+            ],
+        },
+    ];
+
+    return (
+        <PieSelect options={options} />
+    );
+}
+```
+
+### Vue
+
+```html
+<template>
+    <pie-select :options="options"></pie-select>
+</template>
+
+<script setup lang="ts">
+import '@justeattakeaway/pie-webc/components/select.js';
+import type { SelectProps } from '@justeattakeaway/pie-webc/components/select.js';
+
+const options: SelectProps['options'] = [
+    {
+        tag: 'optgroup',
+        label: 'Animal',
+        options: [
+            {
+                tag: 'option',
+                text: 'Cat',
+                value: 'cat',
+            },
+            {
+                tag: 'option',
+                text: 'Dog',
+                value: 'dog',
+            },
+        ],
+    },
+];
+</script>
+```
+
+### Plain Typescript
+
+```html
+<pie-select id="mySelect"></pie-select>
+
+<script type="module" src="./main.ts"></script>
+```
+
+```ts
+// main.ts
+import '@justeattakeaway/pie-webc/components/select.js';
+import type { SelectProps, PieSelect } from '@justeattakeaway/pie-webc/components/select.js';
+
+const options: SelectProps['options'] = [
+    {
+        tag: 'optgroup',
+        label: 'Animal',
+        options: [
+        {
+            tag: 'option',
+            text: 'Cat',
+            value: 'cat',
+        },
+        {
+            tag: 'option',
+            text: 'Dog',
+            value: 'dog',
+        },
+        ],
+    },
+];
+
+// Using type casting here just to specify the element cannot be null. This is not always a good practice.
+const pieSelect = document.querySelector('pie-select') as PieSelect;
+
+pieSelect.options = options;
+```
