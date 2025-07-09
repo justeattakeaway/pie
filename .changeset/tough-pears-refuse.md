@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-storybook": patch
 ---
 
-[Added] - Typescript usage guide
+[Added] - TypeScript usage guide
