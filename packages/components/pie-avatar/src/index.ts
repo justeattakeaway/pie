@@ -22,7 +22,7 @@ const componentSelector = 'pie-avatar';
 export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, tags, defaultProps.tag)
-    public tag = defaultProps.tag;
+    public tag = defaultProps.tag; // access modifier
 
     @property({ type: String })
     public label: AvatarProps['label'];
@@ -128,3 +128,5 @@ declare global {
         [componentSelector]: PieAvatar;
     }
 }
+
+/* makes your code know what the element is  */
