@@ -47,6 +47,9 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     @state()
     private _fieldSetTabIndex = 0;
 
+    @state()
+    private _allRadiosDisabled = false;
+
     @property({ type: String, reflect: true })
     public name: RadioGroupProps['name'];
 
@@ -80,6 +83,8 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         this._slottedChildren.forEach((child) => child.dispatchEvent(new CustomEvent(ON_RADIO_GROUP_DISABLED, {
             bubbles: false, composed: false, detail: { disabled: this.disabled },
         })));
+
+        this._allRadiosDisabled = this._slottedChildren.every((item) => item.disabled);
     }
 
     /**
@@ -398,8 +403,8 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             status,
             assistiveText,
             _fieldSetTabIndex,
+            _allRadiosDisabled,
         } = this;
-
         const hasAssistiveText = Boolean(assistiveText?.length);
 
         const classes = {
@@ -410,7 +415,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
 
         return html`
             <fieldset
-                tabindex=${_fieldSetTabIndex}
+                tabindex=${_allRadiosDisabled ? -1 : _fieldSetTabIndex}
                 role="radiogroup"
                 name=${ifDefined(name)}
                 ?disabled=${disabled}
