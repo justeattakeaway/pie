@@ -1,9 +1,9 @@
 import { Meta } from '@storybook/addon-docs';
 
-<Meta title="Introduction/Typescript usage" />
+<Meta title="Introduction/TypeScript usage" />
 
-# Typescript usage
-Using typescript with our components is straightforward. Each component package exports its types, which can be imported and used in your application where needed.
+# TypeScript usage
+Using TypeScript with our components is straightforward. Each component package exports its types, which can be imported and used in your application where needed.
 Below are examples of how to use the types in different frameworks and are all fairly similar.
 
 Our published components contain `index.d.ts` and `react.d.ts` files that contain the types for the component and its props. These files are automatically generated during the build process and are used by the TypeScript compiler to provide type checking and intellisense in your IDE. You should not need to import or interact with these. They can be viewed in the `dist` directory of the component packages.
@@ -15,7 +15,7 @@ Our published components contain `index.d.ts` and `react.d.ts` files that contai
 
 ### React
 Import any types you want to use from the component file. Please note the **react** entry point in the path.
-It is important to specify the `type` keyword when importing types as this will ensure the Typescript compiler will not try to compile the types into JavaScript code.
+It is important to specify the `type` keyword when importing types as this will ensure the TypeScript compiler will not try to compile the types into JavaScript code.
 
 ```tsx
 import { PieSelect, type SelectProps } from "@justeattakeaway/pie-webc/react/select.js";
@@ -78,7 +78,7 @@ const options: SelectProps['options'] = [
 </script>
 ```
 
-### Plain Typescript
+### Plain TypeScript
 
 ```html
 <pie-select id="mySelect"></pie-select>
