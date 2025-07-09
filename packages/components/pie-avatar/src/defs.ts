@@ -8,9 +8,9 @@ export interface AvatarProps {
 
 }
 
-export type DefaultProps = ComponentDefaultProps<AvatarProps>;
+export type DefaultProps = ComponentDefaultProps<AvatarProps, keyof Omit<AvatarProps, 'label'>>;
 export const defaultProps: DefaultProps = {
     tag: 'div',
-    label: '',
 };
 
+// TODO: add descriptions for properties
