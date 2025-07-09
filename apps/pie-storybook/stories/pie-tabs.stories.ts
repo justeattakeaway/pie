@@ -1,6 +1,7 @@
 import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 import { type TabsProps as TabsPropsBase } from '@justeattakeaway/pie-tabs';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 import '@justeattakeaway/pie-tabs';
 import '@justeattakeaway/pie-tabs/dist/pie-tab-panel';
@@ -25,7 +26,28 @@ const defaultArgs: TabsProps = {
 const tabsStoryMeta: TabsStoryMeta = {
     title: 'Tabs',
     component: 'pie-tabs',
-    argTypes: {},
+    argTypes: {
+        variant: {
+            description: 'Set the variant of the tabs.',
+            control: 'select',
+            options: ['global', 'contained'],
+            defaultValue: {
+                summary: 'global',
+            },
+        },
+        orientation: {
+            description: 'Set the orientation of the tabs.',
+            control: 'select',
+            options: ['horizontal', 'vertical'],
+            defaultValue: {
+                summary: 'horizontal',
+            },
+        },
+        slot: {
+            description: 'The default slot is used to pass `pie-tab-panel` elements. You must provide at least one `pie-tab-panel` element for the tabs to be visible.',
+            control: 'text',
+        },
+    },
     args: defaultArgs,
     parameters: {
         design: {
@@ -39,8 +61,12 @@ export default tabsStoryMeta;
 
 // TODO: remove the eslint-disable rule when props are added
 // eslint-disable-next-line no-empty-pattern
-const Template = ({ slot }: TabsProps) => html`
-    <pie-tabs>
+const Template = ({ slot, variant, orientation }: TabsProps) => html`
+    <pie-tabs
+        variant=${ifDefined(variant)}
+        orientation=${ifDefined(orientation)}
+        data-test-id="pie-tabs"  
+    >
         ${sanitizeAndRenderHTML(slot, { ALLOWED_TAGS: ['pie-tab-panel'] })}
     </pie-tabs>
 `;
