@@ -1,13 +1,13 @@
 {
   "name": "@justeattakeaway/pie-tag",
   "description": "PIE Design System Tag built using Web Components",
-  "version": "0.17.3",
+  "version": "0.17.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-tag"
   },
-  "homepage": "https://pie.design/components/tag/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-tag--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -40,8 +40,8 @@
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
     "@justeattakeaway/pie-components-config": "0.20.1",
-    "@justeattakeaway/pie-css": "0.16.0",
-    "@justeattakeaway/pie-icons-webc": "1.12.0",
+    "@justeattakeaway/pie-css": "0.17.0",
+    "@justeattakeaway/pie-icons-webc": "1.13.0",
     "@justeattakeaway/pie-monorepo-utils": "0.5.1",
     "@justeattakeaway/pie-wrapper-react": "0.14.3",
     "cem-plugin-module-file-extensions": "0.0.5"

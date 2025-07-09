@@ -6,6 +6,8 @@ import { Meta } from '@storybook/addon-docs';
 
 This guide walks you through the full contribution process for the PIE web component library, from setup to pull request.
 
+⚠️ Before you can contribute to our repository, **you must be added as a contributor**. Please contact the Design System team to be added.
+
 ## Table of Contents
 
 1. [Get involved](#1-get-involved)
@@ -64,6 +66,29 @@ Start by cloning the [PIE monorepo](https://github.com/justeattakeaway/pie) and 
 Use our [Yeoman generator](https://github.com/justeattakeaway/pie/tree/main/packages/tools/generator-pie-component) to create a new component.
 
 Follow the README for usage.
+
+
+### Percy setup
+Once you have created the new component, you will need to also create a new project in Percy:
+
+1. You may need to ask for admin rights to Percy and the Pie repository on Github. Ask an admin if needed.
+
+2. Go to percy: https://percy.io/4bc223d1
+
+3. Create new project
+
+4. Name the project after the component (e.g. pie-avatar)
+
+5. Point the repository at Pie
+
+6. Set the *Default base branch* and *Auto-approve branches* to `main`
+
+7. Go into the Pie repository settings in Github and go to *Secrets and Variables*
+
+8. Create a new secret with the name of the percy project in the format of `PERCY_TOKEN_PIE_<COMPONENT>`
+for example `PERCY_TOKEN_PIE_LINK`
+
+9. Add this token locally using the same naming format. Where you add your environment variables will differ depending on your machine. On Mac, it could be in `~/.zshrc`, for example.
 
 ## 5. Develop and test the component
 

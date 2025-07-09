@@ -1,5 +1,37 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.6.11
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.0.3
+  - @justeattakeaway/pie-link@1.2.7
+  - @justeattakeaway/pie-modal@1.7.10
+  - @justeattakeaway/pie-switch@2.0.4
+
+## 1.6.10
+
+### Patch Changes
+
+- Updated dependencies [[`5fd79d4`](https://github.com/justeattakeaway/pie/commit/5fd79d4396b3170d99b20710c97580cee8744cbe)]:
+  - @justeattakeaway/pie-button@1.6.6
+  - @justeattakeaway/pie-modal@1.7.9
+
+## 1.6.9
+
+### Patch Changes
+
+- [Changed] - Add consistent git info and storybook url to package.json file ([#2443](https://github.com/justeattakeaway/pie/pull/2443)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`d63ca7c`](https://github.com/justeattakeaway/pie/commit/d63ca7ccb1a40619f0118bc436550c6c02f70309)]:
+  - @justeattakeaway/pie-icon-button@2.0.2
+  - @justeattakeaway/pie-divider@1.4.5
+  - @justeattakeaway/pie-button@1.6.5
+  - @justeattakeaway/pie-switch@2.0.3
+  - @justeattakeaway/pie-modal@1.7.8
+  - @justeattakeaway/pie-link@1.2.6
+
 ## 1.6.8
 
 ### Patch Changes

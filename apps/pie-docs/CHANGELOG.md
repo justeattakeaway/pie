@@ -1,5 +1,40 @@
 # Changelog
 
+## 4.41.1
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2451](https://github.com/justeattakeaway/pie/pull/2451)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`e118da0`](https://github.com/justeattakeaway/pie/commit/e118da0ff66420635f3b5e3cad1cff5884f47632)]:
+  - @justeattakeaway/pie-icons@5.14.0
+  - @justeattakeaway/pie-webc@0.7.1
+
+## 4.41.0
+
+### Minor Changes
+
+- [Added] - toast custom rendering positions docs ([#2436](https://github.com/justeattakeaway/pie/pull/2436)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - correct storybook links for web components on overview pages ([#2448](https://github.com/justeattakeaway/pie/pull/2448)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`024074c`](https://github.com/justeattakeaway/pie/commit/024074cbb428968ffee71c39f7f94cb8828f5156), [`a790653`](https://github.com/justeattakeaway/pie/commit/a790653fabfa9301ea4d0cb89899ee50ae10ffab)]:
+  - @justeattakeaway/pie-webc@0.7.0
+  - @justeattakeaway/pie-css@0.17.0
+
+## 4.40.0
+
+### Minor Changes
+
+- [Added]- Spinner documentation ([#2432](https://github.com/justeattakeaway/pie/pull/2432)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.6.45
+
 ## 4.39.2
 
 ### Patch Changes

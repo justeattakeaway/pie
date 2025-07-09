@@ -358,6 +358,41 @@ test.describe('PieRadioGroup - Component tests new', () => {
 
                     await expect(button).toBeFocused();
                 });
+
+                test('When an option is set programatically, Shift + Tab focuses the correct radio button', async ({ page }) => {
+                    // First Tab 3 times to go button 1 -> Radio group 1 -> button 2
+                    await page.keyboard.press('Tab');
+                    await page.keyboard.press('Tab');
+                    await page.keyboard.press('Tab');
+
+                    // The radio group should have no value
+                    const radioGroup1Locator = await page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.self);
+                    await expect(radioGroup1Locator).not.toHaveAttribute('value');
+
+                    // Set value to pizza (the third option)
+                    await page.evaluate(() => {
+                        const radioGroup = document.querySelector('pie-radio-group[name="radio-group-1"]');
+                        radioGroup?.setAttribute('value', 'pizza');
+                    });
+
+                    // Ensure the correct value is set
+                    await expect(radioGroup1Locator).toHaveAttribute('value', 'pizza');
+
+                    // Ensure the correct radio is checked but not focused
+                    const radio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[3]);
+                    await expect(radio).not.toBeFocused();
+                    await expect(radio).toBeChecked();
+
+                    // Press shift tab, it should focus the radio now
+                    await page.keyboard.press('Shift+Tab');
+                    await expect(radio).toBeFocused();
+                    await expect(radio).toBeChecked();
+
+                    // Press shift tab, it should focus button 1
+                    await page.keyboard.press('Shift+Tab');
+                    const button = page.getByTestId(keyboardNavigationStorySelectors.button1);
+                    await expect(button).toBeFocused();
+                });
             });
 
             test.describe('Arrow Keys', () => {

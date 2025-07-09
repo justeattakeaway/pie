@@ -99,7 +99,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/assistive-text--default',
+            link: 'https://webc.pie.design/?path=/story/components-assistive-text--overview',
             status: webComponentStatuses['pie-assistive-text'],
         },
         {
@@ -250,7 +250,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/components-breadcrumb--default',
+            link: 'https://webc.pie.design/?path=/story/components-breadcrumb--overview',
             status: webComponentStatuses['pie-breadcrumb'],
         },
         {
@@ -290,7 +290,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/button--primary',
+            link: 'https://webc.pie.design/?path=/story/components-button--overview',
             status: webComponentStatuses['pie-button'],
         },
         {
@@ -330,7 +330,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/card--default',
+            link: 'https://webc.pie.design/?path=/story/components-card--overview',
             status: webComponentStatuses['pie-card'],
         },
         {
@@ -407,7 +407,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/checkbox--default',
+            link: 'https://webc.pie.design/?path=/story/components-checkbox--overview',
             status: webComponentStatuses['pie-checkbox'],
         },
         {
@@ -447,7 +447,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/checkbox-group--default',
+            link: 'https://webc.pie.design/?path=/story/components-checkbox-group--overview',
             status: webComponentStatuses['pie-checkbox-group'],
         },
         {
@@ -486,7 +486,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/chip--default',
+            link: 'https://webc.pie.design/?path=/story/components-chip--overview',
             status: webComponentStatuses['pie-chip'],
         },
         {
@@ -525,7 +525,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/cookie-banner--default',
+            link: 'https://webc.pie.design/?path=/story/components-cookie-banner--overview',
             status: webComponentStatuses['pie-cookie-banner'],
         },
         {
@@ -709,7 +709,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/divider--default',
+            link: 'https://webc.pie.design/?path=/story/components-divider--overview',
             status: webComponentStatuses['pie-divider'],
         },
         {
@@ -860,7 +860,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/icon-button--primary',
+            link: 'https://webc.pie.design/?path=/story/components-icon-button--overview',
             status: webComponentStatuses['pie-icon-button'],
         },
         {
@@ -900,7 +900,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/link--default',
+            link: 'https://webc.pie.design/?path=/story/components-link--overview',
             status: webComponentStatuses['pie-link'],
         },
         {
@@ -1053,7 +1053,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/modal--default',
+            link: 'https://webc.pie.design/?path=/story/components-modal--overview',
             status: webComponentStatuses['pie-modal'],
         },
         {
@@ -1093,7 +1093,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/notification--neutral',
+            link: 'https://webc.pie.design/?path=/story/components-notification--overview',
             status: webComponentStatuses['pie-notification'],
         },
         {
@@ -1436,7 +1436,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/radio--default',
+            link: 'https://webc.pie.design/?path=/story/components-radio--overview',
             status: webComponentStatuses['pie-radio'],
         },
         {
@@ -1476,7 +1476,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/radio-group--default',
+            link: 'https://webc.pie.design/?path=/story/components-radio-group--overview',
             status: webComponentStatuses['pie-radio-group'],
         },
         {
@@ -1593,7 +1593,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/select--default',
+            link: 'https://webc.pie.design/?path=/story/components-select--overview',
             status: webComponentStatuses['pie-select'],
         },
         {
@@ -1781,7 +1781,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/spinner--brand',
+            link: 'https://webc.pie.design/?path=/story/components-spinner--overview',
             status: webComponentStatuses['pie-spinner'],
         },
         {
@@ -1821,7 +1821,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/switch--default',
+            link: 'https://webc.pie.design/?path=/story/components-switch--overview',
             status: webComponentStatuses['pie-switch'],
         },
         {
@@ -1900,7 +1900,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/tag--neutral',
+            link: 'https://webc.pie.design/?path=/story/components-tag--overview',
             status: webComponentStatuses['pie-tag'],
         },
         {
@@ -1939,7 +1939,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/text-input--default',
+            link: 'https://webc.pie.design/?path=/story/components-text-input--overview',
             status: webComponentStatuses['pie-text-input'],
         },
         {
@@ -1979,7 +1979,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/textarea--default',
+            link: 'https://webc.pie.design/?path=/story/components-textarea--overview',
             status: webComponentStatuses['pie-textarea'],
         },
         {
@@ -2019,7 +2019,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/thumbnail--default',
+            link: 'https://webc.pie.design/?path=/story/components-thumbnail--overview',
             status: webComponentStatuses['pie-thumbnail'],
         },
         {
@@ -2058,7 +2058,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: 'https://webc.pie.design/?path=/story/toast--neutral',
+            link: 'https://webc.pie.design/?path=/story/components-toast--overview',
             status: webComponentStatuses['pie-toast'],
         },
         {

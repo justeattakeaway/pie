@@ -139,5 +139,7 @@ pie-breadcrumb:
   - packages/components/pie-breadcrumb/**/*
 pie-list:
   - packages/components/pie-list/**/*
+pie-avatar:
+  - packages/components/pie-avatar/**/*
 pie-tabs:
   - packages/components/pie-tabs/**/*

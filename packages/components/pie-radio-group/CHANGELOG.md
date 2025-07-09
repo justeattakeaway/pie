@@ -1,5 +1,27 @@
 # @justeattakeaway/pie-radio-group
 
+## 0.9.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.10.8
+
+## 0.9.9
+
+### Patch Changes
+
+- [Fixed] - keyboard focus handling when the radio group value is changed programmatically ([#2445](https://github.com/justeattakeaway/pie/pull/2445)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.9.8
+
+### Patch Changes
+
+- [Changed] - Add consistent git info and storybook url to package.json file ([#2443](https://github.com/justeattakeaway/pie/pull/2443)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`d63ca7c`](https://github.com/justeattakeaway/pie/commit/d63ca7ccb1a40619f0118bc436550c6c02f70309)]:
+  - @justeattakeaway/pie-assistive-text@0.10.7
+
 ## 0.9.7
 
 ### Patch Changes

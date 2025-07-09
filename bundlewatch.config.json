@@ -205,6 +205,10 @@
       "maxSize": "3 KB"
     },
     {
+      "path": "./packages/components/pie-avatar/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
       "path": "./packages/components/pie-tabs/dist/*.js",
       "maxSize": "3 KB"
     }

@@ -1,0 +1,16 @@
+{
+    "headings": [
+        "Property",
+        "Cubic Bezier",
+        "Easing token",
+        "Notes"
+    ],
+    "rows": [
+        [
+            "Transformation",
+            "(0, 0, 1, 1)",
+            "Linear (not tokenised)",
+            "Shape rotates at 360 degrees on a infinite loop."
+        ]
+    ]
+}

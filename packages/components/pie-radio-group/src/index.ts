@@ -45,7 +45,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     private _hasLabel = false;
 
     @state()
-    private _hasFocus = false;
+    private _fieldSetTabIndex = 0;
 
     @property({ type: String, reflect: true })
     public name: RadioGroupProps['name'];
@@ -103,8 +103,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             if (!radio.disabled) {
                 radio.checked = radio.value === this.value;
             }
-            // tabIndex should be -1 when the value changes, so a radio doesnt get focus when it doesnt needs it
-            radio.tabIndex = -1;
         });
     }
 
@@ -117,6 +115,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         event.stopPropagation();
         const target = event.target as HTMLInputElement;
         this._handleRadioSelection(target.value);
+        this._resetButtonsTabIndex();
         const changedEvent = wrapNativeEvent(event);
         this.dispatchEvent(changedEvent);
     }
@@ -135,22 +134,16 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
      * Ensures all newly added radio buttons are tabbable and inherit the name property
      */
     private _handleRadioSlotChange (): void {
-        this._setTabIndex();
+        this._resetButtonsTabIndex();
         this._applyNameToChildren();
     }
 
     /**
-     * Ensure tabIndex is consistently set to provide the expected handling
-     * whilst using the keyboard
+     * Prevent radio buttons from receiving focus
      */
-    private _setTabIndex () {
-        // Set the selected radio with tabindex 0, and -1 for the others
+    private _resetButtonsTabIndex () {
         this._slottedChildren.forEach((radio) => {
-            if (!radio.disabled) {
-                radio.tabIndex = radio.value === this.value ? 0 : -1;
-            } else {
-                radio.tabIndex = -1;
-            }
+            radio.tabIndex = -1;
         });
     }
 
@@ -214,13 +207,15 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
      * checked option, the first option, or the last option as needed.
      */
     private _handleFocus (event: FocusEvent): void {
-        if (!this.value) {
+        // Bypass all logic if there are no children
+        const enabledChildren = this._slottedChildren.filter((item) => !item.disabled);
+        if (!enabledChildren || enabledChildren.length === 0) return;
+
+        const hasNoValueSet = this.value === '' || this.value === undefined;
+
+        if (hasNoValueSet) {
             // When no value is assigned, depending on the previously focused element,
             // transfer focus to the next logical radio
-
-            // Bypass all logic if there are no children
-            const enabledChildren = this._slottedChildren.filter((item) => !item.disabled);
-            if (!enabledChildren || enabledChildren.length === 0) return;
 
             // Workaround for Safari, when body is the active element,
             // it is not assigned to the event.relatedTarget
@@ -234,8 +229,6 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             // Depending on the focus direction of movement, get the first or last enabled children
             const firstOrLastChild = topToBottomOrder ? enabledChildren.shift() : enabledChildren.pop();
 
-            this._hasFocus = true;
-
             if (firstOrLastChild) {
                 firstOrLastChild.tabIndex = 0;
                 firstOrLastChild.focus();
@@ -245,12 +238,17 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             enabledChildren.forEach((radio) => {
                 radio.tabIndex = -1;
             });
+        } else {
+            // When a value is assigned, the matching radio element is focused
+            enabledChildren.forEach((radio) => {
+                if (radio.value === this.value) {
+                    radio.tabIndex = 0;
+                    radio.focus();
+                } else {
+                    radio.tabIndex = -1;
+                }
+            });
         }
-    }
-
-    private _resetFocus () {
-        this._hasFocus = false;
-        this._setTabIndex();
     }
 
     /**
@@ -269,7 +267,8 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         // `relatedTarget` is null when focusing the body
         const focusedElement = event.relatedTarget as Node;
         if (!focusedElement) {
-            this._resetFocus();
+            this._resetButtonsTabIndex();
+            this._fieldSetTabIndex = 0;
             return;
         }
 
@@ -281,8 +280,13 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         const instanceContainsFocusedElement = position & Node.DOCUMENT_POSITION_CONTAINS; // eslint-disable-line no-bitwise
         const radioGroupLostFocus = instanceContainsFocusedElement === 0;
 
+        // Make the fieldset focusable after it loses focus to an element that is not inside itself
         if (radioGroupLostFocus) {
-            this._resetFocus();
+            this._resetButtonsTabIndex();
+            this._fieldSetTabIndex = 0;
+        } else {
+            // If the fieldset lost focus to an element inside itself it should not be focusable
+            this._fieldSetTabIndex = -1;
         }
     }
 
@@ -393,7 +397,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             disabled,
             status,
             assistiveText,
-            value,
+            _fieldSetTabIndex,
         } = this;
 
         const hasAssistiveText = Boolean(assistiveText?.length);
@@ -404,11 +408,9 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             'c-radioGroup--hasAssistiveText': hasAssistiveText,
         };
 
-        const fieldSetTabIndex = value === '' && !this._hasFocus ? 0 : -1;
-
         return html`
             <fieldset
-                tabindex=${fieldSetTabIndex}
+                tabindex=${_fieldSetTabIndex}
                 role="radiogroup"
                 name=${ifDefined(name)}
                 ?disabled=${disabled}

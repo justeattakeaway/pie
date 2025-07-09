@@ -1,7 +1,13 @@
 {
   "name": "@justeattakeaway/pie-lottie-player",
   "description": "PIE Design System Lottie Player built using Web Components",
-  "version": "0.2.3",
+  "version": "0.2.4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/components/pie-lottie-player"
+  },
+  "homepage": "https://webc.pie.design/?path=/docs/components-lottie-player--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -32,7 +38,7 @@
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
     "@justeattakeaway/pie-components-config": "0.20.1",
-    "@justeattakeaway/pie-css": "0.16.0",
+    "@justeattakeaway/pie-css": "0.17.0",
     "@justeattakeaway/pie-monorepo-utils": "0.5.1",
     "cem-plugin-module-file-extensions": "0.0.5"
   },

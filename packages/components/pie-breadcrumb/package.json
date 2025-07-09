@@ -1,13 +1,13 @@
 {
   "name": "@justeattakeaway/pie-breadcrumb",
   "description": "PIE Design System Breadcrumb built using Web Components",
-  "version": "0.6.1",
+  "version": "0.6.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
     "directory": "packages/components/pie-breadcrumb"
   },
-  "homepage": "https://pie.design/components/breadcrumb/code/",
+  "homepage": "https://webc.pie.design/?path=/docs/components-breadcrumb--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -40,13 +40,13 @@
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
     "@justeattakeaway/pie-components-config": "0.20.1",
-    "@justeattakeaway/pie-css": "0.16.0",
+    "@justeattakeaway/pie-css": "0.17.0",
     "@justeattakeaway/pie-monorepo-utils": "0.5.1",
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-icons-webc": "1.12.0",
-    "@justeattakeaway/pie-link": "1.2.5",
+    "@justeattakeaway/pie-icons-webc": "1.13.0",
+    "@justeattakeaway/pie-link": "1.2.7",
     "@justeattakeaway/pie-webc-core": "1.0.0"
   },
   "volta": {
