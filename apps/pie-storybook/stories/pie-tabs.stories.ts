@@ -15,7 +15,7 @@ type TabsStoryMeta = Meta<TabsProps>;
 const slot = `
         <pie-tab-panel title="Tab 1">Content 1</pie-tab-panel>
         <pie-tab-panel title="Tab 2">Content 2</pie-tab-panel>
-        <pie-tab-panel title="Tab 3">Content 3</pie-tab-panel>
+        <pie-tab-panel title="Tab 3" disabled>Content 3</pie-tab-panel>
         <pie-tab-panel title="Tab 4">Content 4</pie-tab-panel>
     `;
 

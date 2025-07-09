@@ -87,21 +87,30 @@ export class PieTabs extends PieElement implements TabsProps {
                     <nav class="c-tabs-navigation">
                         <ul role="tablist">
                             ${
+                            /* eslint-disable indent */
                             repeat(
                                 this._pieTabPanelSlots,
                                 (element, index) => html`
                                     <li
-                                        @click=${() => this.handleTabClick(index)}
+                                        @click=${() => {
+                                            if (element.disabled) {
+                                                return;
+                                            }
+                                            this.handleTabClick(index);
+                                        }}
                                         role="tab"
                                         tabindex="${index}"
-                                        class="
-                                            ${classMap({ selected: this._selectedTab === index, [`c-tabs-navigation-item--${this.orientation}`]: true, [`c-tabs-navigation-item-variant--${this.variant}`]: true })}
-                                        "
+                                        class="${classMap({
+                                            selected: this._selectedTab === index,
+                                            [`c-tabs-navigation-item--${this.orientation}`]: true,
+                                            [`c-tabs-navigation-item-variant--${this.variant}`]: true,
+                                            disabled: !!element.disabled,
+                                        })}"
                                     >
                                         <span>${element.title}</span>
                                     </li>
-                                    
                                 `,
+                            /* eslint-enable indent */
                             )}
                         </ul>
                     </nav>

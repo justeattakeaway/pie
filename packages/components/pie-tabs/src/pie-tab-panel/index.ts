@@ -22,6 +22,9 @@ export class PieTabPanel extends RtlMixin(PieElement) implements TabPanelProps {
     @property({ type: Boolean, reflect: true })
     public selected = false;
 
+    @property({ type: Boolean, reflect: true })
+    public disabled = false;
+
     render () {
         return html`<slot></slot>`;
     }
