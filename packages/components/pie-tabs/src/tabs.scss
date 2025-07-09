@@ -62,7 +62,7 @@
         background-color: var(--tabs-background-color);
         border-radius: 0;
 
-        &::after {
+        &:after {
           content: '';
           position: absolute;
           background-color: var(--dt-color-interactive-brand);
@@ -72,7 +72,7 @@
       // Horizontal and vertical tabs on selected state
       &.c-tabs-navigation-item--horizontal {
         &.selected {
-          &::after {
+          &:after {
             height: 4px;
             width: 100%;
             left: 0;
@@ -84,7 +84,7 @@
 
         &.c-tabs-navigation-item-variant--global {
           &.selected {
-            &::after {
+            &:after {
               bottom: calc(var(--dt-spacing-a) * -1);
             }
           }
@@ -92,7 +92,7 @@
 
         &.c-tabs-navigation-item-variant--contained {
           &.selected {
-            &::after {
+            &:after {
               top: calc(var(--dt-spacing-a) * -1);
             }
           }
@@ -101,7 +101,7 @@
 
       &.c-tabs-navigation-item--vertical {
         &.selected {
-          &::after {
+          &:after {
             top: 0;
             left: calc(var(--dt-spacing-a) * -1);
             width: 4px;
@@ -111,7 +111,7 @@
 
         &.c-tabs-navigation-item-variant--global {
           &.selected {
-            &::after {
+            &:after {
               border-top-right-radius: calc(var(--dt-radius-02) / 2);
               border-bottom-right-radius: calc(var(--dt-radius-02) / 2);
             }
@@ -120,13 +120,14 @@
 
         &.c-tabs-navigation-item-variant--contained {
           &.selected {
-            &::after {
+            &:after {
               border-top-left-radius: calc(var(--dt-radius-02) / 2);
               border-bottom-left-radius: calc(var(--dt-radius-02) / 2);
             }
           }
         }
       }
+      
       // End of horizontal and vertical tabs on selected state
       
       &.disabled {
