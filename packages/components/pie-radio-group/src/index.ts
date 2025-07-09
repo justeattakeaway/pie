@@ -105,9 +105,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         this.value = selectedValue;
 
         this._slottedChildren.forEach((radio) => {
-            if (!radio.disabled) {
-                radio.checked = radio.value === this.value;
-            }
+            radio.checked = radio.value === this.value;
         });
     }
 
@@ -205,11 +203,37 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     }
 
     /**
-     * Handles the `focus` event to manage focus within the radio group.
-     *
      * This method determines the appropriate element to focus when the radio group
      * gains focus. It considers where the focus is coming from, and focuses the
-     * checked option, the first option, or the last option as needed.
+     * the first or the last option as needed.
+     */
+    private _focusNearestAvailableRadio (enabledChildren: HTMLInputElement[], event:FocusEvent): void {
+        // Workaround for Safari, when body is the active element,
+        // it is not assigned to the event.relatedTarget
+        const previouslyFocusedElement = event.relatedTarget as Node || this.parentNode;
+        const sourceRelativePosition = (this as Node).compareDocumentPosition(previouslyFocusedElement);
+
+        // Check if focus element was before or after this instance
+        // eslint-disable-next-line no-bitwise
+        const topToBottomOrder = sourceRelativePosition & Node.DOCUMENT_POSITION_PRECEDING; // we need the bitwise operator here
+
+        // Depending on the focus direction of movement, get the first or last enabled children
+        const firstOrLastChild = topToBottomOrder ? enabledChildren.shift() : enabledChildren.pop();
+
+        if (firstOrLastChild) {
+            firstOrLastChild.tabIndex = 0;
+            firstOrLastChild.focus();
+        }
+
+        // Set the selected radio with tabindex 0, and -1 for the others
+        enabledChildren.forEach((radio) => {
+            radio.tabIndex = -1;
+        });
+    }
+
+    /**
+     * Handles the `focus` event to manage focus within the radio group.
+     *
      */
     private _handleFocus (event: FocusEvent): void {
         // Bypass all logic if there are no children
@@ -221,34 +245,17 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         if (hasNoValueSet) {
             // When no value is assigned, depending on the previously focused element,
             // transfer focus to the next logical radio
-
-            // Workaround for Safari, when body is the active element,
-            // it is not assigned to the event.relatedTarget
-            const previouslyFocusedElement = event.relatedTarget as Node || this.parentNode;
-            const sourceRelativePosition = (this as Node).compareDocumentPosition(previouslyFocusedElement);
-
-            // Check if focus element was before or after this instance
-            // eslint-disable-next-line no-bitwise
-            const topToBottomOrder = sourceRelativePosition & Node.DOCUMENT_POSITION_PRECEDING; // we need the bitwise operator here
-
-            // Depending on the focus direction of movement, get the first or last enabled children
-            const firstOrLastChild = topToBottomOrder ? enabledChildren.shift() : enabledChildren.pop();
-
-            if (firstOrLastChild) {
-                firstOrLastChild.tabIndex = 0;
-                firstOrLastChild.focus();
-            }
-
-            // Set the selected radio with tabindex 0, and -1 for the others
-            enabledChildren.forEach((radio) => {
-                radio.tabIndex = -1;
-            });
+            this._focusNearestAvailableRadio(enabledChildren, event);
         } else {
             // When a value is assigned, the matching radio element is focused
-            enabledChildren.forEach((radio) => {
+            this._slottedChildren.forEach((radio) => {
                 if (radio.value === this.value) {
-                    radio.tabIndex = 0;
-                    radio.focus();
+                    if (radio.disabled) {
+                        this._focusNearestAvailableRadio(enabledChildren, event);
+                    } else {
+                        radio.tabIndex = 0;
+                        radio.focus();
+                    }
                 } else {
                     radio.tabIndex = -1;
                 }
