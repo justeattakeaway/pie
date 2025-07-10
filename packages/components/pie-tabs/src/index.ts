@@ -79,7 +79,6 @@ export class PieTabs extends PieElement implements TabsProps {
 
         return html`
             <div
-                aria-label="tabs"
                 data-test-id="pie-tabs"
                 class="${classMap(classes)}"
             >
