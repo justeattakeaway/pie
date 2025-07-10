@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.13.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2451](https://github.com/justeattakeaway/pie/pull/2451)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Miscellaneous
+
+  - weight-large
+  - weight
+
 ## 1.12.0
 
 ### Minor Changes
