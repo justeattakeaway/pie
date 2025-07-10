@@ -85,7 +85,7 @@ export default {
                     [
                         'React',
                         [
-                            'React 18',
+                            'React 19',
                         ],
                         'Next.js',
                         [
