@@ -59,3 +59,29 @@ we can render 2 things:
 
 two spans : one always readf by screen readers, initials separated by comma
 the other span, initials without the comma
+
+---
+Return object with 2 props. 
+We can make it a type (just return this type which is an object with 2 keys: we create an object and assign it a type. (for example type Initials).
+type Initials = { visual: string, screenreader: string }. In this file for now. 
+
+in render function only csll this if label has a lenght)
+
+let initials;
+if label.length > 1
+  initials = generateInitials(label)
+
+if initials 
+return button span<initials.visual> span<initials.screenreader>
+
+create a getter on a class of initials and that when called creared initials for us
+
+maybe do some RegEx validation that checks words
+space-hyphen-space and tried to upperCase it doesnt work....(and is made up of numbers and letters)
+
+wr may need a property or label isValidLabel?
+Could potentially be a getter. 
+
+if you see a design token like this
+$interactive-brand
+css variable --dt-color-interactive-brand
