@@ -18,5 +18,5 @@
 
 
 .c-avatar--hidden {
-    @include visually-hidden();
+    @include visually-hidden;
 }
