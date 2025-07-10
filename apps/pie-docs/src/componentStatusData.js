@@ -4,7 +4,7 @@ const statusTypes = require('./_data/statusTypes');
 
 const webHeadings = [
     {
-        title: 'Component',
+        title: resourceTypes.WEB_COMPONENT,
     },
     {
         title: 'Figma',
@@ -26,7 +26,7 @@ const webHeadings = [
 
 const appHeadings = [
     {
-        title: 'Component',
+        title: resourceTypes.APP_COMPONENT,
     },
     {
         title: 'Figma',
