@@ -44,8 +44,8 @@ export default avatarStoryMeta;
 
 // TODO: remove the eslint-disable rule when props are added
 // eslint-disable-next-line no-empty-pattern
-const Template = ({ label }: AvatarProps) => html`
-    <pie-avatar label= "${ifDefined(label)}"></pie-avatar>
+const Template = ({ label, tag }: AvatarProps) => html`
+    <pie-avatar label= "${ifDefined(label)}" tag="${ifDefined(tag)}"></pie-avatar>
 `;
 
 export const Default = createStory<AvatarProps>(Template, defaultArgs)();

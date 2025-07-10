@@ -1,4 +1,4 @@
-import { html, unsafeCSS } from 'lit';
+import { html, nothing, unsafeCSS } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { RtlMixin, safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 
@@ -16,6 +16,11 @@ const componentSelector = 'pie-avatar';
 /**
  * @tagname pie-avatar
  */
+
+type Initials = {
+    visual: string,
+    screenreader: string
+}
 @safeCustomElement('pie-avatar')
 export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     @property({ type: String })
@@ -25,43 +30,54 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     @property({ type: String })
     public label: AvatarProps['label'];
 
-    private generateInitials (name: string): string | undefined {
-        if (name === '') return undefined;
+    private generateInitials (name: string): Initials {
         const nameTrimmed = name.trim().replace(/-/g, ' ').split(/\s+/); // [Katarina,Neskovic]
-        const firstInitial = nameTrimmed[0].charAt(0).toUpperCase();
-        if (nameTrimmed.length > 1) {
-            const lastInitial = nameTrimmed[1].charAt(0).toUpperCase();
-            return firstInitial + lastInitial;
-        }
+        const initials = nameTrimmed.slice(0, 2).map((word) => word[0].toUpperCase());
 
-        return firstInitial;
+        return {
+            visual: initials.join(''),
+            screenreader: initials.join(', '),
+        };
+    }
+
+    private get isValidLabel (): boolean {
+        return !!(this.label?.trim().length && /^[a-zA-Z0-9]+(?:[ -][a-zA-Z0-9]+)*$/.test(this.label));
     }
 
     render () {
         const { label, tag } = this;
-        const initials = label ? this.generateInitials(label) : undefined;
+        if (this.isValidLabel) {
+            const initials = this.generateInitials(label as string);
+            const initialsMarkup = html`
+            <span aria-hidden="true"> 
+               ${initials?.visual} 
+            </span>
+    
+            <span class="c-avatar--hidden"> 
+               ${initials?.screenreader} 
+            </span>`;
 
-        if (tag === 'button') {
-            return html`<button>
-            ${initials}
+            if (tag === 'button') {
+                return html`
+            <button> 
+             ${initialsMarkup}
             </button>`;
-        }
+            }
 
-        if (tag === 'a') {
-            return html`<a>
-            ${initials}
+            if (tag === 'a') {
+                return html`
+            <a> 
+             ${initialsMarkup}
             </a>`;
+            }
+
+            return html`
+            <div> 
+             ${initialsMarkup}
+            </div>`;
         }
 
-        return html`<div>
-           <button> 
-           Jamie
-           </button>
-           <span> 
-           ${initials} 
-           </span>
-           
-           </div>`;
+        return nothing;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
