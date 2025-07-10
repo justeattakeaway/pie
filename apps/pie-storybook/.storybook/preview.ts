@@ -102,6 +102,7 @@ export default {
                     ],
                     'Additional libraries',
                     [
+                        'PIE CSS',
                         'Icons'
                     ],
                     'Contribution',

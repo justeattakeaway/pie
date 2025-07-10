@@ -10,36 +10,36 @@
 
 # PIE CSS
 
+`pie-css` is a styling library that provides two distinct features:
+
+1. A minimal set of CSS styles to help PIE web components display as intended in web applications and providing our design tokens for applications to use.
+2. A set of SCSS style helpers (mixins, functions and variables) to help with common styling tasks when authoring PIE web components.
+
+The PIE design tokens (and HSL colour variants) are exposed as CSS variables, as these variables are used across the PIE component styles and therefore need to be imported when using the PIE Web Components.
+
+
 # Table of Contents
 
-1. [Introduction](#introduction)
-2. [Installation](#installation)
-3. [Using the `pie-css` CSS stylesheet in your web application](#using-the-pie-css-css-stylesheet-in-your-web-application)
+1. [Installation](#installation)
+2. [Using the `pie-css` CSS stylesheet in your web application](#using-the-pie-css-css-stylesheet-in-your-web-application)
     1. JS or Framework import (via bundler)
     2. Nuxt
     3. Sass /SCSS
     4. Native HTML
-4. [What's included in the `pie-css` base stylesheet](#whats-included-in-the-pie-css-base-stylesheet)
+3. [What's included in the `pie-css` base stylesheet](#whats-included-in-the-pie-css-base-stylesheet)
     1. [PIE Design Tokens](#pie-design-tokens)
     2. [box-sizing](#box-sizing)
     3. [Typography](#typography)
     4. [z-index stacking context](#z-index-stacking-context)
     5. [Reusable Animations](#reusable-animations)
-5. [Using the `pie-css` SCSS helpers (mixins & functions)](#using-the-pie-css-scss-helpers-mixins--functions)
+4. [Using the `pie-css` SCSS helpers (mixins & functions)](#using-the-pie-css-scss-helpers-mixins--functions)
     1. [Importing the `pie-css` SCSS helpers](#importing-the-pie-css-scss-helpers)
     2. [`pie-css` SCSS Helper Definitions](#pie-css-scss-helper-definitions)
         -  [`font-size()`](#font-size)
         - [`@include media()`](#include-media)
-6. [Testing](#testing)
+5. [Testing](#testing)
     - [CSS](#css)
     - [SCSS](#scss)
-
-## Introduction
-
-`pie-css` is a styling library that provides both a minimal set of CSS styles to help PIE Web Components display as intended on web applications, and a set of optional SCSS style helpers (mixins & functions) to help with common styling tasks.
-
-It also includes the PIE design tokens (and HSL colour variants) as CSS variables, as these variables are used across the PIE component styles and therefore need to be imported when using the PIE Web Components.
-
 
 ## Installation
 
