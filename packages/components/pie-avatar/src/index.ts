@@ -1,5 +1,5 @@
 import {
-    html, nothing, type TemplateResult, unsafeCSS,
+    html, type TemplateResult, unsafeCSS,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { RtlMixin, safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';

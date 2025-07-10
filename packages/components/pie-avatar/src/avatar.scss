@@ -20,3 +20,16 @@
 .c-avatar--hidden {
     @include visually-hidden;
 }
+
+.c-avatar--div-content {
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: var(--dt-font-size-14);
+background-color: var(--dt-color-mozzarella-90);
+color: var(--dt-color-white);
+width: var(--dt-spacing-06);
+height: var(--dt-spacing-06);
+border-radius:var(--dt-radius-06);
+
+}
