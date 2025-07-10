@@ -130,6 +130,58 @@ const DisabledRadioTemplate = () => html`
       </div>
   `;
 
+const KeyboardNavigationAllDisabledTemplate = () => html`
+      <div style="max-width: 400px">
+            <p><pie-button size="small-productive" data-test-id="btn-1">Button 1</pie-button></p>
+            <pie-radio-group data-test-id="pie-radio-group">
+                  <pie-radio data-test-id="radio-1" disabled value="radio-one">radio 1</pie-radio>
+                  <pie-radio data-test-id="radio-2" disabled value="radio-two">radio 2</pie-radio>
+                  <pie-radio data-test-id="radio-3" disabled value="radio-three">radio 3</pie-radio>
+                  <pie-radio data-test-id="radio-4" disabled value="radio-four">radio 4</pie-radio>
+            </pie-radio-group>
+            <p><pie-button size="small-productive" data-test-id="btn-2">Button 2</pie-button></p>
+      </div>
+  `;
+
+const KeyboardNavigationAllDisabledAndCheckedTemplate = () => html`
+      <div style="max-width: 400px">
+            <p><pie-button size="small-productive" data-test-id="btn-1">Button 1</pie-button></p>
+            <pie-radio-group data-test-id="pie-radio-group" value="radio-two">
+                  <pie-radio data-test-id="radio-1" disabled value="radio-one">radio 1</pie-radio>
+                  <pie-radio data-test-id="radio-2" disabled value="radio-two">radio 2</pie-radio>
+                  <pie-radio data-test-id="radio-3" disabled value="radio-three">radio 3</pie-radio>
+                  <pie-radio data-test-id="radio-4" disabled value="radio-four">radio 4</pie-radio>
+            </pie-radio-group>
+            <p><pie-button size="small-productive" data-test-id="btn-2">Button 2</pie-button></p>
+      </div>
+  `;
+
+const KeyboardNavigationDisabledAndCheckedTemplate = () => html`
+      <div style="max-width: 400px">
+            <p><pie-button size="small-productive" data-test-id="btn-1">Button 1</pie-button></p>
+            <pie-radio-group data-test-id="pie-radio-group" value="radio-two">
+                  <pie-radio data-test-id="radio-1" value="radio-one">radio 1</pie-radio>
+                  <pie-radio data-test-id="radio-2" disabled value="radio-two">radio 2</pie-radio>
+                  <pie-radio data-test-id="radio-3" value="radio-three">radio 3</pie-radio>
+                  <pie-radio data-test-id="radio-4" value="radio-four">radio 4</pie-radio>
+            </pie-radio-group>
+            <p><pie-button size="small-productive" data-test-id="btn-2">Button 2</pie-button></p>
+      </div>
+  `;
+
+const KeyboardNavigationDisabledRadiosAndCheckedTemplate = () => html`
+      <div style="max-width: 400px">
+            <p><pie-button size="small-productive" data-test-id="btn-1">Button 1</pie-button></p>
+            <pie-radio-group data-test-id="pie-radio-group" value="radio-two">
+                  <pie-radio data-test-id="radio-1" disabled value="radio-one">radio 1</pie-radio>
+                  <pie-radio data-test-id="radio-2" value="radio-two">radio 2</pie-radio>
+                  <pie-radio data-test-id="radio-3" disabled value="radio-three">radio 3</pie-radio>
+                  <pie-radio data-test-id="radio-4" disabled value="radio-four">radio 4</pie-radio>
+            </pie-radio-group>
+            <p><pie-button size="small-productive" data-test-id="btn-2">Button 2</pie-button></p>
+      </div>
+  `;
+
 const KeyboardNavigationTemplate = () => html`
     <h2>Radio group 1</h2>
     <p><pie-button size="small-productive" data-test-id="btn-1">Button 1</pie-button></p>
@@ -189,6 +241,10 @@ const DynamicSlotsTemplate = () => {
 export const Default = createStory<RadioGroupProps>(DefaultTemplate, defaultArgs)();
 export const DisabledRadio = createStory<RadioGroupProps>(DisabledRadioTemplate, defaultArgs)();
 export const KeyboardNavigation = createStory<RadioGroupProps>(KeyboardNavigationTemplate, defaultArgs)();
+export const KeyboardNavigationDisabledAndChecked = createStory<RadioGroupProps>(KeyboardNavigationDisabledAndCheckedTemplate, defaultArgs)();
+export const KeyboardNavigationDisabledRadiosAndChecked = createStory<RadioGroupProps>(KeyboardNavigationDisabledRadiosAndCheckedTemplate, defaultArgs)();
+export const KeyboardNavigationAllDisabledAndChecked = createStory<RadioGroupProps>(KeyboardNavigationAllDisabledAndCheckedTemplate, defaultArgs)();
+export const KeyboardNavigationAllDisabled = createStory<RadioGroupProps>(KeyboardNavigationAllDisabledTemplate, defaultArgs)();
 export const DynamicSlots = createStory<RadioGroupProps>(DynamicSlotsTemplate, defaultArgs)();
 
 const radioGroupPropsMatrix : Partial<Record<keyof RadioGroupProps, unknown[]>> = {
