@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.40.2
+
+### Patch Changes
+
+- [Added] - Warning about contributor permissions ([#2454](https://github.com/justeattakeaway/pie/pull/2454)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - new test stories for `PieRadioGroup` component ([#2460](https://github.com/justeattakeaway/pie/pull/2460)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - Mention channel to raise PRs in ([#2463](https://github.com/justeattakeaway/pie/pull/2463)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - TypeScript usage guide ([#2457](https://github.com/justeattakeaway/pie/pull/2457)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`2f947b3`](https://github.com/justeattakeaway/pie/commit/2f947b355f45d0165e358d6f9f904300e4eae5fd)]:
+  - @justeattakeaway/pie-radio-group@0.9.11
+
 ## 1.40.1
 
 ### Patch Changes
