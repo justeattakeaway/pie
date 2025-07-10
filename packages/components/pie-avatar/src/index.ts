@@ -72,7 +72,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
             }
 
             return html`
-            <div> 
+            <div class="c-avatar--div-content"> 
              ${initialsMarkup}
             </div>`;
         }
