@@ -83,8 +83,18 @@ export default {
                     ],
                     'Integration guides',
                     [
-                        'Next.js 14',
-                        'Nuxt 3',
+                        'React',
+                        [
+                            'React 19',
+                        ],
+                        'Next.js',
+                        [
+                            'Next.js 14',
+                        ],
+                        'Nuxt',
+                        [
+                            'Nuxt 3',
+                        ],
                     ],
                     'Components',
                     [
