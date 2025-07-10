@@ -5,3 +5,18 @@
     // "block" or "inline-block", otherwise it can be ommited for floating elements
     display: block;
 }
+
+@mixin visually-hidden() {
+    position: absolute;
+    display: block;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    padding: 1px;
+    white-space: nowrap;
+}
+
+
+.c-avatar--hidden {
+    @include visually-hidden();
+}
