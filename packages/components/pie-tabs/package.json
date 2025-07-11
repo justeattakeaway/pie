@@ -45,6 +45,7 @@
   },
   "customElements": "custom-elements.json",
   "sideEffects": [
-    "dist/*.js"
+    "dist/*.js",
+    "dist/**/*.js"
   ]
 }
