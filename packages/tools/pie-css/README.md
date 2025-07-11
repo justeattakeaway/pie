@@ -30,7 +30,7 @@ The PIE design tokens (and HSL colour variants) are exposed as CSS variables, as
     1. [PIE Design Tokens](#pie-design-tokens)
     2. [box-sizing](#box-sizing)
     3. [Typography](#typography)
-    4. [z-index stacking context](#z-index-stacking-context)
+    4. [z-index variables](#z-index-variables)
     5. [Reusable Animations](#reusable-animations)
 4. [Using the `pie-css` SCSS helpers (mixins & functions)](#using-the-pie-css-scss-helpers-mixins--functions)
     1. [Importing the `pie-css` SCSS helpers](#importing-the-pie-css-scss-helpers)
