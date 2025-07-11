@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.42.0
+
+### Minor Changes
+
+- Updated supported devices ([#2453](https://github.com/justeattakeaway/pie/pull/2453)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.2
+
 ## 4.41.1
 
 ### Patch Changes

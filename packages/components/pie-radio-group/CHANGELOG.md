@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-radio-group
 
+## 0.9.11
+
+### Patch Changes
+
+- [Fixed] keyboard focus handling when one or more radio buttons are disabled ([#2460](https://github.com/justeattakeaway/pie/pull/2460)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.9.10
 
 ### Patch Changes
