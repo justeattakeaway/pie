@@ -1,4 +1,6 @@
-import { html, nothing, unsafeCSS } from 'lit';
+import {
+    html, nothing, type TemplateResult, unsafeCSS,
+} from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { RtlMixin, safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 
@@ -13,14 +15,14 @@ export * from './defs';
 
 const componentSelector = 'pie-avatar';
 
-/**
- * @tagname pie-avatar
- */
-
 type Initials = {
     visual: string,
     screenreader: string
 }
+
+/**
+ * @tagname pie-avatar
+ */
 @safeCustomElement('pie-avatar')
 export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     @property({ type: String })
@@ -30,54 +32,75 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     @property({ type: String })
     public label: AvatarProps['label'];
 
-    private generateInitials (name: string): Initials {
-        const nameTrimmed = name.trim().replace(/-/g, ' ').split(/\s+/); // [Katarina,Neskovic]
-        const initials = nameTrimmed.slice(0, 2).map((word) => word[0].toUpperCase());
+    // Attempts to extract initials from the label string. If the label is not provided or is invalid, it returns null.
+    private getInitials (name: string): Initials | null {
+        try {
+            if (!name || typeof name !== 'string' || name.trim().length === 0) {
+                return null;
+            }
 
-        return {
-            visual: initials.join(''),
-            screenreader: initials.join(', '),
-        };
+            const nameSplit: string[] = name.trim().replace(/-/g, ' ').split(/\s+/); // [Katarina, Neskovic]
+            const initials: string[] = nameSplit.slice(0, 2).map((word) => word[0].toUpperCase()); // [K, N]
+
+            if (initials.length === 0) {
+                return null;
+            }
+
+            return {
+                visual: initials.join(''),
+                screenreader: initials.join(', '),
+            };
+        } catch (error) {
+            return null;
+        }
     }
 
-    private get isValidLabel (): boolean {
-        return !!(this.label?.trim().length && /^[a-zA-Z0-9]+(?:[ -][a-zA-Z0-9]+)*$/.test(this.label));
+    // Renders the initials both for visual display and for screen readers.
+    private renderInitials (initials: Initials): TemplateResult {
+        return html`
+            <span aria-hidden="true">${initials.visual}</span>
+            <span class="c-avatar--hidden">${initials.screenreader}</span>
+        `;
+    }
+
+    // Renders the icon (placeholder span for now)
+    private renderIcon (): TemplateResult {
+        return html`<span>Icon Placeholder</span>`;
+    }
+
+    // Renders the inner content of the avatar such as initials, an icon or an image
+    // This is a getter because the value is computed based on properties
+    private get avatarContent (): TemplateResult {
+        // TODO: handle unauthenticated and src here
+
+        if (this.label) {
+            const initials = this.getInitials(this.label);
+            if (initials) {
+                return this.renderInitials(initials);
+            }
+        }
+
+        return this.renderIcon();
+    }
+
+    // Renders the avatar wrapper element based on the `tag` property. Can be a `button`, `a` or a `div`.
+    // This is a method because it takes an argument in order to render the content inside the wrapper.
+    private renderAvatarWrapper (content: TemplateResult): TemplateResult {
+        const { tag } = this;
+
+        if (tag === 'button') {
+            return html`<button>${content}</button>`;
+        }
+
+        if (tag === 'a') {
+            return html`<a>${content}</a>`;
+        }
+
+        return html`<div>${content}</div>`;
     }
 
     render () {
-        const { label, tag } = this;
-        if (this.isValidLabel) {
-            const initials = this.generateInitials(label as string);
-            const initialsMarkup = html`
-            <span aria-hidden="true"> 
-               ${initials?.visual} 
-            </span>
-    
-            <span class="c-avatar--hidden"> 
-               ${initials?.screenreader} 
-            </span>`;
-
-            if (tag === 'button') {
-                return html`
-            <button> 
-             ${initialsMarkup}
-            </button>`;
-            }
-
-            if (tag === 'a') {
-                return html`
-            <a> 
-             ${initialsMarkup}
-            </a>`;
-            }
-
-            return html`
-            <div> 
-             ${initialsMarkup}
-            </div>`;
-        }
-
-        return nothing;
+        return this.renderAvatarWrapper(this.avatarContent);
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
