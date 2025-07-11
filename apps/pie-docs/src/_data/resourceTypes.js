@@ -4,9 +4,11 @@
  * @returns {Object} - an option of string values
  */
 module.exports = {
-    COMPONENT: 'Component',
+    WEB_COMPONENT: 'Web Component',
+    WEB_DOCUMENTATION: 'Web Documentation',
+    APP_COMPONENT: 'App Component',
+    APP_DOCUMENTATION: 'App Documentation',
     PATTERN: 'Pattern',
-    DOCUMENTATION: 'Documentation',
     WEB_COMPONENTS: 'Web Components',
     VUE: 'Vue [Fozzie]',
     REACT: 'React [Snacks]',
