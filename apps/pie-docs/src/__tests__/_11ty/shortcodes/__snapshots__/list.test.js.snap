@@ -52,7 +52,7 @@ exports[`list.js > should return the expected HTML for an highlight list 1`] = `
         <span>a</span>
         </li><li class=\\"c-list-item\\">
         
-        <span class=\\"c-list--highlight-indicator\\" style=\\"background-color: #ffead4;\\"></span>
+        <span class=\\"c-list--highlight-indicator\\" style=\\"background-color: #fddfc3;\\"></span>
         <span>b</span>
         </li><li class=\\"c-list-item\\">
         
