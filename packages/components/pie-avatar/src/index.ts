@@ -96,7 +96,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
             return html`<a>${content}</a>`;
         }
 
-        return html`<div>${content}</div>`;
+        return html`<div class="c-avatar--div-content">${content}</div>`;
     }
 
     render () {
