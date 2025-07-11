@@ -34,7 +34,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
      *
      * @private
      */
-    private getInitials(name: string): Initials | null {
+    private getInitials (name: string): Initials | null {
         try {
             if (!name || typeof name !== 'string' || name.trim().length === 0) {
                 return null;
