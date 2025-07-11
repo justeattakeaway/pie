@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.17.1
+
+### Patch Changes
+
+- [Changed] - Moved introduction to top of readme ([#2467](https://github.com/justeattakeaway/pie/pull/2467)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.17.0
 
 ### Minor Changes

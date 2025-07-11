@@ -1,7 +1,7 @@
 {
   "name": "wc-react17",
   "private": true,
-  "version": "0.5.93",
+  "version": "0.5.94",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@justeattakeaway/pie-css": "0.17.0",
+    "@justeattakeaway/pie-css": "0.17.1",
     "@justeattakeaway/pie-webc": "0.7.2",
     "@lit/react": "1.0.5",
     "react": "17.0.2",

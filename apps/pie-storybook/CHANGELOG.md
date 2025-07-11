@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.40.3
+
+### Patch Changes
+
+- [Added] - vanilla integration guide ([#2466](https://github.com/justeattakeaway/pie/pull/2466)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - PIE CSS overview page ([#2467](https://github.com/justeattakeaway/pie/pull/2467)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`1cb6f81`](https://github.com/justeattakeaway/pie/commit/1cb6f81de20b73c45de75d5f5b5a53dbb8350407)]:
+  - @justeattakeaway/pie-css@0.17.1
+
 ## 1.40.2
 
 ### Patch Changes
