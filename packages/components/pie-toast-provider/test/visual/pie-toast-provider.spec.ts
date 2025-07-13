@@ -11,9 +11,6 @@ test.describe('PieToastProvider - Visual tests`', () => {
 
         basePage.load();
 
-        const showToastButton = page.getByTestId('show-toast-button');
-        await showToastButton.click();
-
         const toastElement = page.locator('pie-toast');
         await toastElement.waitFor({ state: 'visible' });
 

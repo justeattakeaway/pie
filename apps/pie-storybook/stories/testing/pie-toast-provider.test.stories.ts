@@ -76,24 +76,25 @@ const PositionTemplate = ({ options = defaultProps.options, position }: ToastPro
 };
 
 const CustomZIndexTemplate = () => {
-    const showToast = () => {
+    requestAnimationFrame(() => {
         toaster.create({
-            message: 'This toast should appear above the red box.',
+            message: 'This toast should appear above the overlay.',
             duration: null,
         });
-    };
+    });
 
     return html`
-        <div style="position: relative; height: 200px; width: 400px; border: 1px dashed grey; padding: 20px; margin-bottom: 20px;">
-            <div style="position: absolute; inset: 40px; background-color: red; z-index: 6500;">
-                (z-index: 6500)
+        <pie-toast-provider
+            style="--toast-provider-z-index: 7000;"
+            @pie-toast-provider-queue-update="${onQueueUpdate}">
+        </pie-toast-provider>
+        
+        <!-- Fixed overlay to test z-index stacking -->
+        <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(255, 0, 0, 0.5); z-index: 6500; pointer-events: none; display: flex; align-items: center; justify-content: center;">
+            <div style="background: white; padding: 20px; border: 2px solid red; border-radius: 8px;">
+                Red overlay (z-index: 6500)
             </div>
-            <pie-toast-provider
-                style="--toast-provider-z-index: 7000;"
-                @pie-toast-provider-queue-update="${onQueueUpdate}">
-            </pie-toast-provider>
         </div>
-        <pie-button data-test-id="show-toast-button" @click="${showToast}">Show Toast</pie-button>
     `;
 };
 
