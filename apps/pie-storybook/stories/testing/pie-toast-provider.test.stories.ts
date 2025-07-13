@@ -78,7 +78,7 @@ const PositionTemplate = ({ options = defaultProps.options, position }: ToastPro
 const CustomZIndexTemplate = () => {
     requestAnimationFrame(() => {
         toaster.create({
-            message: 'This toast should appear above the overlay.',
+            message: 'Toast with z-index: 7000 should appear above the overlay.',
             duration: null,
         });
     });
@@ -89,10 +89,9 @@ const CustomZIndexTemplate = () => {
             @pie-toast-provider-queue-update="${onQueueUpdate}">
         </pie-toast-provider>
         
-        <!-- Fixed overlay to test z-index stacking -->
-        <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(255, 0, 0, 0.5); z-index: 6500; pointer-events: none; display: flex; align-items: center; justify-content: center;">
-            <div style="background: white; padding: 20px; border: 2px solid red; border-radius: 8px;">
-                Red overlay (z-index: 6500)
+        <div style="position: fixed; inset:0; background-color: var(--dt-color-overlay); z-index: 6500; pointer-events: none; display: flex; align-items: center; justify-content: center;">
+            <div style="padding: var(--dt-spacing-d); border: 1px solid var(--dt-color-border-inverse); color: var(--dt-color-content-light)">
+                Overlay (z-index: 6500)
             </div>
         </div>
     `;
