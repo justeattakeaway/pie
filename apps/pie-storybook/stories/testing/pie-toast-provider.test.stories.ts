@@ -97,9 +97,47 @@ const CustomZIndexTemplate = () => {
     `;
 };
 
+const ScrollPageTemplate = ({ options = defaultProps.options, position }: ToastProviderProps) => {
+    requestAnimationFrame(() => {
+        toaster.create({
+            message: 'This toast should stay in a fixed position while scrolling.',
+            duration: null,
+            isDismissible: true,
+        });
+    });
+
+    const handleSectionClick = () => {
+        console.info('Section button clicked');
+    };
+
+    return html`
+        <pie-toast-provider
+            .options="${options}"
+            position="${ifDefined(position)}"
+            @pie-toast-provider-queue-update="${onQueueUpdate}">
+        </pie-toast-provider>
+         
+                <div style="padding: var(--dt-spacing-e); margin: var(--dt-spacing-e) 0;">
+                <h3>Scrollable Content Area</h3>
+                <p>Scroll down to test toast positioning is maintained during page scroll.</p>
+                
+                ${Array.from({ length: 8 }, (_, i) => html`
+                    <div style="margin: var(--dt-spacing-e) 0; padding: var(--dt-spacing-d); border: 1px solid var(--dt-color-border-default); background: white;">
+                        <h4>Section ${i + 1}</h4>
+                        <p>This is content section ${i + 1}.</p>
+                    </div>
+                `)}
+
+            <pie-button @click="${handleSectionClick}">Interactive element</pie-button>
+            <p>A message should be logged on console when clicked</p>
+            </div>
+    `;
+};
+
 export const Default = createStory<ToastProviderProps>(Template, defaultArgs)();
 export const PositionDefault = createStory<ToastProviderProps>(PositionTemplate, defaultArgs)();
 export const PositionBottomLeft = createStory<ToastProviderProps>(PositionTemplate, { position: 'bottom-left' })();
 export const PositionBottomRight = createStory<ToastProviderProps>(PositionTemplate, { position: 'bottom-right' })();
 export const PositionBottomCenter = createStory<ToastProviderProps>(PositionTemplate, { position: 'bottom-center' })();
 export const CustomZIndex = createStory(CustomZIndexTemplate, {})();
+export const ScrollPage = createStory<ToastProviderProps>(ScrollPageTemplate, defaultArgs)();

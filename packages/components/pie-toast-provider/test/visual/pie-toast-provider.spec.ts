@@ -34,4 +34,20 @@ test.describe('PieToastProvider - Visual tests`', () => {
             });
         });
     });
+
+    test('should maintain toast position when scrolling', async ({ page }) => {
+        const basePage = new BasePage(page, 'toast-provider--scroll-page');
+
+        await basePage.load();
+
+        const toastElement = page.locator('pie-toast');
+        await toastElement.waitFor({ state: 'visible' });
+
+        // Scroll to the bottom of the page
+        await page.evaluate(() => {
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+
+        await percySnapshot(page, 'PieToastProvider - ScrollPage - Toast Position After Scroll');
+    });
 });
