@@ -174,4 +174,30 @@ test.describe('PieToastProvider - Component tests', () => {
             expect(consoleMessages).toEqual([expectedEventMessage]);
         });
     });
+
+    test.describe('Position and Scrolling', () => {
+        test('should maintain fixed position when scrolling', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--scroll-page');
+            await pieToastProviderPage.load();
+
+            const toastElement = page.locator('pie-toast');
+            await expect(toastElement).toBeVisible();
+
+            const initialPosition = await toastElement.boundingBox();
+
+            // Act
+            await page.evaluate(() => {
+                window.scrollTo(0, document.body.scrollHeight);
+            });
+
+            // Assert
+            const finalPosition = await toastElement.boundingBox();
+
+            if (initialPosition && finalPosition) {
+                expect(finalPosition.x).toBe(initialPosition.x);
+                expect(finalPosition.y).toBe(initialPosition.y);
+            }
+        });
+    });
 });
