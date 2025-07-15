@@ -1,6 +1,6 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { type Meta } from '@storybook/web-components';
+import { type Meta, type StoryObj } from '@storybook/web-components';
 
 import {
     type ToastProviderProps,
@@ -56,34 +56,15 @@ const Template = ({ options = defaultProps.options, position }: ToastProviderPro
         </pie-toast-provider>
     `;
 
-const PositionTemplate = ({ options = defaultProps.options, position }: ToastProviderProps) => {
-    // move the creation of the toast to the next frame to mimic user interaction
-    requestAnimationFrame(() => {
-        toaster.create({
-            message: 'A toast component inside toast provider.',
-            duration: null,
-            isDismissible: true,
-        });
-    });
-
-    return html`
+const PositionTemplate = ({ options = defaultProps.options, position }: ToastProviderProps) => html`
         <pie-toast-provider
             .options="${options}"
             position="${ifDefined(position)}"
             @pie-toast-provider-queue-update="${onQueueUpdate}">
         </pie-toast-provider>
     `;
-};
 
-const CustomZIndexTemplate = () => {
-    requestAnimationFrame(() => {
-        toaster.create({
-            message: 'Toast with z-index: 7000 should appear above the overlay.',
-            duration: null,
-        });
-    });
-
-    return html`
+const CustomZIndexTemplate = () => html`
         <pie-toast-provider
             style="--toast-provider-z-index: 7000;"
             @pie-toast-provider-queue-update="${onQueueUpdate}">
@@ -95,17 +76,8 @@ const CustomZIndexTemplate = () => {
             </div>
         </div>
     `;
-};
 
 const ScrollPageTemplate = ({ options = defaultProps.options, position }: ToastProviderProps) => {
-    requestAnimationFrame(() => {
-        toaster.create({
-            message: 'This toast should stay in a fixed position while scrolling.',
-            duration: null,
-            isDismissible: true,
-        });
-    });
-
     const handleSectionClick = () => {
         console.info('Section button clicked');
     };
@@ -135,9 +107,68 @@ const ScrollPageTemplate = ({ options = defaultProps.options, position }: ToastP
 };
 
 export const Default = createStory<ToastProviderProps>(Template, defaultArgs)();
-export const PositionDefault = createStory<ToastProviderProps>(PositionTemplate, defaultArgs)();
-export const PositionBottomLeft = createStory<ToastProviderProps>(PositionTemplate, { position: 'bottom-left' })();
-export const PositionBottomRight = createStory<ToastProviderProps>(PositionTemplate, { position: 'bottom-right' })();
-export const PositionBottomCenter = createStory<ToastProviderProps>(PositionTemplate, { position: 'bottom-center' })();
-export const CustomZIndex = createStory(CustomZIndexTemplate, {})();
-export const ScrollPage = createStory<ToastProviderProps>(ScrollPageTemplate, defaultArgs)();
+
+export const PositionDefault: StoryObj<ToastProviderProps> = {
+    ...createStory<ToastProviderProps>(PositionTemplate, defaultArgs)(),
+    play: () => {
+        toaster.create({
+            message: 'A default toast',
+            duration: null,
+            isDismissible: true,
+        });
+    },
+};
+
+export const PositionBottomLeft: StoryObj<ToastProviderProps> = {
+    ...createStory<ToastProviderProps>(PositionTemplate, { position: 'bottom-left' })(),
+    play: () => {
+        toaster.create({
+            message: 'A bottom-left toast',
+            duration: null,
+            isDismissible: true,
+        });
+    },
+};
+
+export const PositionBottomRight: StoryObj<ToastProviderProps> = {
+    ...createStory<ToastProviderProps>(PositionTemplate, { position: 'bottom-right' })(),
+    play: () => {
+        toaster.create({
+            message: 'A bottom-right toast',
+            duration: null,
+            isDismissible: true,
+        });
+    },
+};
+
+export const PositionBottomCenter: StoryObj<ToastProviderProps> = {
+    ...createStory<ToastProviderProps>(PositionTemplate, { position: 'bottom-center' })(),
+    play: () => {
+        toaster.create({
+            message: 'A bottom-center toast',
+            duration: null,
+            isDismissible: true,
+        });
+    },
+};
+
+export const CustomZIndex = {
+    ...createStory(CustomZIndexTemplate, {})(),
+    play: () => {
+        toaster.create({
+            message: 'Toast with z-index: 7000 should appear above the overlay.',
+            duration: null,
+        });
+    },
+};
+
+export const ScrollPage: StoryObj<ToastProviderProps> = {
+    ...createStory<ToastProviderProps>(ScrollPageTemplate, defaultArgs)(),
+    play: () => {
+        toaster.create({
+            message: 'This toast should stay in a fixed position while scrolling.',
+            duration: null,
+            isDismissible: true,
+        });
+    },
+};

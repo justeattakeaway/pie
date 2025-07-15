@@ -194,10 +194,8 @@ test.describe('PieToastProvider - Component tests', () => {
             // Assert
             const finalPosition = await toastElement.boundingBox();
 
-            if (initialPosition && finalPosition) {
-                expect(finalPosition.x).toBe(initialPosition.x);
-                expect(finalPosition.y).toBe(initialPosition.y);
-            }
+            expect(finalPosition?.x).toBe(initialPosition?.x);
+            expect(finalPosition?.y).toBe(initialPosition?.y);
         });
     });
 });
