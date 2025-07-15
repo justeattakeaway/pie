@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.17.2
+
+### Patch Changes
+
+- [Changed] - Improved formatting of pie-css readme.md file ([#2473](https://github.com/justeattakeaway/pie/pull/2473)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.17.1
 
 ### Patch Changes
