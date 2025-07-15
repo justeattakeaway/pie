@@ -30,7 +30,7 @@
     "test:browsers": {
       "cache": true,
       "dependsOn": [
-        "^build",
+        "build",
         "test:browsers-setup"
       ],
       "inputs": [
@@ -44,7 +44,7 @@
     "test:browsers:ci": {
       "cache": true,
       "dependsOn": [
-        "^build",
+        "build",
         "test:browsers-setup"
       ],
       "inputs": [
