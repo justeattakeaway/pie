@@ -12,13 +12,29 @@ We use **Playwright** in combination with **axe-core** to evaluate the accessibi
 ## Table of Contents
 
 - [Dos and Don'ts](#dos-and-donts)
+- [Running accessibility tests](#running-accessibility-tests)
 - [What is accessibility testing?](#what-is-accessibility-testing)
 - [What tools are used?](#what-tools-are-used)
 - [How are accessibility tests set up?](#how-are-accessibility-tests-set-up)
 - [Writing accessibility tests](#writing-accessibility-tests)
 - [Viewing test results](#viewing-test-results)
 
-## Dos and Don’ts
+## Running accessibility tests
+Accessibility tests are run as part of the Browser tests:
+
+**Using Yarn:**
+
+```bash
+yarn test:browsers
+```
+**Using NPM:**
+
+```bash
+npm run test:browsers
+```
+If in doubt, check the `package.json` scripts for the most up-to-date command.
+
+## Dos and Don'ts
 
 | ✅ Do                                                                 | ❌ Don't                                                                 |
 |----------------------------------------------------------------------|-------------------------------------------------------------------------|

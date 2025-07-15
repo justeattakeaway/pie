@@ -10,10 +10,27 @@ We generally write our unit tests using `vitest`.
 ## Table of Contents
 
 - [Dos and Don'ts](#dos-and-donts)
+- [Running unit tests](#running-unit-tests)
 - [What requires unit testing?](#what-requires-unit-testing)
 - [Node-based unit tests](#node-based-unit-tests)
 - [Browser-based unit tests](#browser-based-unit-tests)
 
+## Running unit tests
+> Most components will not have unit tests, so this section is mostly relevant for our core libraries like `@justeattakeaway/pie-webc-core`.
+
+Unit tests can usually be run with the following command:
+
+**Using Yarn:**
+
+```bash
+yarn test
+```
+**Using NPM:**
+
+```bash
+npm run test
+```
+If in doubt, check the `package.json` scripts for the most up-to-date command.
 
 ## Dos and Don'ts
 

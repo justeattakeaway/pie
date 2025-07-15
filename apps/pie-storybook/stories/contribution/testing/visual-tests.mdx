@@ -10,7 +10,8 @@ Unlike browser tests that validate behavior, **visual tests validate appearance*
 
 ## Table of Contents
 
-- [Dos and Don’ts](#dos-and-donts)
+- [Dos and Don'ts](#dos-and-donts)
+- [Running visual tests](#running-visual-tests)
 - [When and why to write visual tests](#when-and-why-to-write-visual-tests)
 - [Test stories vs documentation stories](#test-stories-vs-documentation-stories)
 - [Running Storybook with testing stories](#running-storybook-with-testing-stories)
@@ -18,8 +19,26 @@ Unlike browser tests that validate behavior, **visual tests validate appearance*
 - [Writing visual tests](#writing-visual-tests)
 - [Running visual tests](#running-visual-tests)
 
+## Running visual tests
 
-## Dos and Don’ts
+> **Note**: To run a component visual test locally you must have the Percy token set up in your environment. We discuss this in the [Contribution guide](?path=/docs/contribution-overview--docs) under the `Machine setup` section.
+
+Visual tests can usually be run with the following command:
+
+**Using Yarn:**
+
+```bash
+yarn test:visual
+```
+
+**Using NPM:**
+
+```bash
+npm run test:visual
+```
+If in doubt, check the `package.json` scripts for the most up-to-date command.
+
+## Dos and Don'ts
 
 | ✅ Do                                                                 | ❌ Don't                                                                 |
 |----------------------------------------------------------------------|-------------------------------------------------------------------------|
