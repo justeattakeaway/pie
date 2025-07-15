@@ -20,18 +20,13 @@ We use **Playwright** in combination with **axe-core** to evaluate the accessibi
 - [Viewing test results](#viewing-test-results)
 
 ## Running accessibility tests
-Accessibility tests are run as part of the Browser tests:
-
-**Using Yarn:**
+Accessibility tests can usually be run with the following commands:
 
 ```bash
-yarn test:browsers
+yarn test:browsers -- --project=a11y:chrome # runs all accessibility tests in the repo
+yarn test:browsers --filter=@justeattakeaway/pie-button -- --project=a11y:chrome # runs all accessibility tests for the pie-button component
 ```
-**Using NPM:**
 
-```bash
-npm run test:browsers
-```
 If in doubt, check the `package.json` scripts for the most up-to-date command.
 
 ## Dos and Don'ts

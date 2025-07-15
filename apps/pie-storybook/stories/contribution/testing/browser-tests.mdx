@@ -17,18 +17,11 @@ When testing web components, we aim to verify real behavior in real browsers. We
 - [Test naming conventions and structure](#test-naming-conventions-and-structure)
 
 ## Running browser tests
-Browser tests can usually be run with the following command:
-
-**Using Yarn:**
+Browser tests can usually be run with the following commands:
 
 ```bash
-yarn test:browsers
-```
-
-**Using NPM:**
-
-```bash
-npm run test:browsers
+yarn test:browsers -- --project=component:chrome # runs all browser tests in the repo (excludes accessibility tests)
+yarn test:browsers --filter=@justeattakeaway/pie-button -- --project=component:chrome # runs all browser tests for the pie-button component
 ```
 
 If in doubt, check the `package.json` scripts for the most up-to-date command.

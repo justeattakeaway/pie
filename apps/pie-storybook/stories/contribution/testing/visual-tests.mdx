@@ -23,19 +23,13 @@ Unlike browser tests that validate behavior, **visual tests validate appearance*
 
 > **Note**: To run a component visual test locally you must have the Percy token set up in your environment. We discuss this in the [Contribution guide](?path=/docs/contribution-overview--docs) under the `Machine setup` section.
 
-Visual tests can usually be run with the following command:
-
-**Using Yarn:**
+Visual tests can usually be run with the following commands:
 
 ```bash
-yarn test:visual
+yarn test:visual ## runs all visual tests in the repo
+yarn test:visual --filter=@justeattakeaway/pie-button ## runs all visual tests for the pie-button component
 ```
 
-**Using NPM:**
-
-```bash
-npm run test:visual
-```
 If in doubt, check the `package.json` scripts for the most up-to-date command.
 
 ## Dos and Don'ts
