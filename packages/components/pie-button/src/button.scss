@@ -7,7 +7,7 @@
 
 :host([isfullwidth]) {
     display: block;
-    flex-grow: 1;
+    width: 100%;
 }
 
 /**
