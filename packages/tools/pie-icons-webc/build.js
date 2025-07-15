@@ -33,7 +33,6 @@ const componentTemplate = (name, svg) => {
     import { safeCustomElement } from '@justeattakeaway/pie-webc-core';
 
     const componentSelector = '${kebabCaseName}';
-    const defaultClasses = '${svgClasses}';
 
     /**
      * @tagname ${kebabCaseName}
@@ -45,20 +44,11 @@ const componentTemplate = (name, svg) => {
 
         // These classes also exist on the internal SVG element. However they are not used for anything on the SVG.
         @property({ type: String, reflect: true })
-        public class = defaultClasses;
+        public class = '${svgClasses}';
 
         protected name = '${name}';
 
-        attributeChangedCallback (name: string, oldVal: string | null, newVal: string | null) {
-            if (name === 'class' && newVal !== null) {
-                const incomingClasses = newVal.trim().split(' ').filter((cls) => !defaultClasses.split(' ').includes(cls));
-                this.class = [defaultClasses, incomingClasses].join(' ');
-            } else {
-                super.attributeChangedCallback(name, oldVal, newVal);
-            }
-        }
-
-        render (): TemplateResult {
+        render(): TemplateResult {
             return html\`${svgWithWidthAndHeight}\`;
         }
     }
