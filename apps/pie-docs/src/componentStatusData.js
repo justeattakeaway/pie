@@ -153,7 +153,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_DOCUMENTATION,
             link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=2-65909',
-            status: statusTypes.PLANNED,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.APP_COMPONENT,
@@ -299,13 +299,7 @@ const rows = [
         },
         {
             resource: resourceTypes.APP_COMPONENT,
-            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=314-23908',
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.APP_DOCUMENTATION,
-            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=13-19354',
-            status: statusTypes.STABLE,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -729,23 +723,23 @@ const rows = [
         { componentName: 'Bar Chart' },
         {
             resource: resourceTypes.WEB_COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=19180-143092&mode=design&t=6BvgpFnD3pPWQayd-4',
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114517',
             status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=35122-293317&mode=design&t=aOGQYXIwnBhahFPU-4',
-            status: statusTypes.PLANNED,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=18-19651',
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.APP_COMPONENT,
-            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=19180-143092',
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114517',
             status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.APP_DOCUMENTATION,
-            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=35122-293317',
-            status: statusTypes.PLANNED,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=18-19651',
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -776,23 +770,23 @@ const rows = [
         { componentName: 'Line Chart' },
         {
             resource: resourceTypes.WEB_COMPONENT,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=35122-283303&mode=design&t=aOGQYXIwnBhahFPU-4',
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114517',
             status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_DOCUMENTATION,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=19207-143051&mode=design&t=6BvgpFnD3pPWQayd-4',
-            status: statusTypes.PLANNED,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=18-19651',
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.APP_COMPONENT,
-            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=35122-283303',
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114517',
             status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.APP_DOCUMENTATION,
-            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=19207-143051',
-            status: statusTypes.PLANNED,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=18-19651',
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -829,7 +823,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_DOCUMENTATION,
             link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=18-19652',
-            status: statusTypes.PLANNED,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.APP_COMPONENT,
@@ -839,7 +833,7 @@ const rows = [
         {
             resource: resourceTypes.APP_DOCUMENTATION,
             link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=18-19652',
-            status: statusTypes.PLANNED,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -876,7 +870,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_DOCUMENTATION,
             link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=1-45657',
-            status: statusTypes.PLANNED,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.APP_COMPONENT,
@@ -886,7 +880,7 @@ const rows = [
         {
             resource: resourceTypes.APP_DOCUMENTATION,
             link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=1-45657',
-            status: statusTypes.PLANNED,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -925,7 +919,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_DOCUMENTATION,
             link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=19-19818',
-            status: statusTypes.PLANNED,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.APP_COMPONENT,
@@ -935,7 +929,7 @@ const rows = [
         {
             resource: resourceTypes.APP_DOCUMENTATION,
             link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=19-19818',
-            status: statusTypes.PLANNED,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -973,7 +967,8 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_DOCUMENTATION,
-            status: statusTypes.PLANNED,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=19-19819',
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.APP_COMPONENT,
@@ -982,7 +977,8 @@ const rows = [
         },
         {
             resource: resourceTypes.APP_DOCUMENTATION,
-            status: statusTypes.PLANNED,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=19-19819',
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1605,13 +1601,7 @@ const rows = [
         },
         {
             resource: resourceTypes.APP_COMPONENT,
-            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114522',
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.APP_DOCUMENTATION,
-            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=25-21972',
-            status: statusTypes.STABLE,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1658,8 +1648,7 @@ const rows = [
         },
         {
             resource: resourceTypes.APP_DOCUMENTATION,
-            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=29-19',
-            status: statusTypes.STABLE,
+            status: statusTypes.PLANNED,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1846,13 +1835,7 @@ const rows = [
         },
         {
             resource: resourceTypes.APP_COMPONENT,
-            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=198-33663',
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.APP_DOCUMENTATION,
-            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=29-22',
-            status: statusTypes.STABLE,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1870,15 +1853,15 @@ const rows = [
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.STABLE,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.STABLE,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.STABLE,
+            status: statusTypes.NOT_APPLICABLE,
         }
     ],
     [
@@ -1993,13 +1976,7 @@ const rows = [
         },
         {
             resource: resourceTypes.APP_COMPONENT,
-            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114525',
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.APP_DOCUMENTATION,
-            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=876-1329',
-            status: statusTypes.STABLE,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -2180,7 +2157,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_DOCUMENTATION,
             link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=29-30',
-            status: statusTypes.PLANNED,
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.APP_COMPONENT,
@@ -2189,7 +2166,8 @@ const rows = [
         },
         {
             resource: resourceTypes.APP_DOCUMENTATION,
-            status: statusTypes.PLANNED,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=29-30',
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -2478,13 +2456,7 @@ const rows = [
         },
         {
             resource: resourceTypes.APP_COMPONENT,
-            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114527',
-            status: statusTypes.STABLE,
-        },
-        {
-            resource: resourceTypes.APP_DOCUMENTATION,
-            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=32-258',
-            status: statusTypes.STABLE,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -2621,7 +2593,7 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_DOCUMENTATION,
-            link: 'https://www.figma.com/design/OOgnT2oNMdGFGFytj5AanYvt/?node-id=35-261',
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=35-261',
             status: statusTypes.STABLE,
         },
         {
