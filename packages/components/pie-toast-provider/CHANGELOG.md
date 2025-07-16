@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-toast-provider
 
+## 0.6.2
+
+### Patch Changes
+
+- [Fixed] - setting custom position blocks page interaction and the position is not maintained during page scroll. ([#2469](https://github.com/justeattakeaway/pie/pull/2469)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.6.1
 
 ### Patch Changes
