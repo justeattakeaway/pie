@@ -1,5 +1,37 @@
 # Changelog
 
+## 4.43.0
+
+### Minor Changes
+
+- [Fixed] - Sass deprecation warning for usage of `color.lightness` ([#2470](https://github.com/justeattakeaway/pie/pull/2470)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Updated] - upgraded the version of `@justeat/pie-design-tokens` to v7.0.2 ([#2459](https://github.com/justeattakeaway/pie/pull/2459)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`7925bb4`](https://github.com/justeattakeaway/pie/commit/7925bb4b80ae88a6f662fbcab7644f5c9c00bcaf)]:
+  - @justeattakeaway/pie-css@0.17.2
+  - @justeattakeaway/pie-webc@0.7.3
+
+## 4.42.1
+
+### Patch Changes
+
+- Updated dependencies [[`1cb6f81`](https://github.com/justeattakeaway/pie/commit/1cb6f81de20b73c45de75d5f5b5a53dbb8350407)]:
+  - @justeattakeaway/pie-css@0.17.1
+
+## 4.42.0
+
+### Minor Changes
+
+- Updated supported devices ([#2453](https://github.com/justeattakeaway/pie/pull/2453)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.2
+
 ## 4.41.1
 
 ### Patch Changes

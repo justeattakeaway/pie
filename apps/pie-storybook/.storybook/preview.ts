@@ -83,8 +83,23 @@ export default {
                     ],
                     'Integration guides',
                     [
-                        'Next.js 14',
-                        'Nuxt 3',
+                        'No framework',
+                        'React',
+                        [
+                            'React 19',
+                        ],
+                        'Next.js',
+                        [
+                            'Next.js 14',
+                        ],
+                        'Nuxt',
+                        [
+                            'Nuxt 3',
+                        ],
+                        'Vue',
+                        [
+                            'Vue 3',
+                        ],
                     ],
                     'Components',
                     [
@@ -92,6 +107,7 @@ export default {
                     ],
                     'Additional libraries',
                     [
+                        'PIE CSS',
                         'Icons'
                     ],
                     'Contribution',
