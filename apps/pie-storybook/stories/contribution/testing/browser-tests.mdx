@@ -6,23 +6,35 @@ import { Meta } from '@storybook/addon-docs';
 
 When testing web components, we aim to verify real behavior in real browsers. We use **Storybook** and **Playwright** to run our tests directly in the browser, rather than relying on simulated environments or mocked DOM APIs. This ensures our components work as users actually experience them.
 
+
 ## Table of Contents
 
-- [Dos and Don’ts](#dos-and-donts)
+- [Dos and Don'ts](#dos-and-donts)
+- [Running browser tests](#running-browser-tests)
 - [Why test in the browser?](#why-test-in-the-browser)
 - [What do we test?](#what-do-we-test)
 - [Testing philosophy](#testing-philosophy)
 - [Test naming conventions and structure](#test-naming-conventions-and-structure)
 
-## Dos and Don’ts
+## Running browser tests
+Browser tests can usually be run with the following commands:
+
+```bash
+yarn test:browsers -- --project=component:chrome # runs all browser tests in the repo (excludes accessibility tests)
+yarn test:browsers --filter=@justeattakeaway/pie-button -- --project=component:chrome # runs all browser tests for the pie-button component
+```
+
+If in doubt, check the `package.json` scripts for the most up-to-date command.
+
+## Dos and Don'ts
 
 | ✅ Do                                                                 | ❌ Don’t                                                             |
 |----------------------------------------------------------------------|----------------------------------------------------------------------|
 | Test in a real browser using Playwright and Storybook                | Rely on jsdom or shallow rendering for core behavior tests           |
 | Use realistic interactions (clicks, keypresses, form submissions)    | Simulate state changes without reflecting how users trigger them     |
-| Validate behavior that affects users or integration                  | Test trivial props that don’t affect output or UX                    |
+| Validate behavior that affects users or integration                  | Test trivial props that don't affect output or UX                    |
 | Check accessibility roles                   | Assume correctness based on code without verification                |
-| Use Playwright’s async actions to wait for real changes              | Use hardcoded timeouts if they can be avoided        |
+| Use Playwright's async actions to wait for real changes              | Use hardcoded timeouts if they can be avoided        |
 | Test integration points (e.g. forms, events, attributes)             | Break test naming conventions         |
 | Think about edge cases and failures                                  | Over-test happy paths or every prop permutation                     |
 | Keep tests clear, focused, and valuable                              | Write tests for the sake of coverage or completeness                 |

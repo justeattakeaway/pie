@@ -41,7 +41,7 @@
     "@custom-elements-manifest/analyzer": "0.9.0",
     "@justeattakeaway/pie-checkbox": "0.16.8",
     "@justeattakeaway/pie-components-config": "0.20.1",
-    "@justeattakeaway/pie-css": "0.17.0",
+    "@justeattakeaway/pie-css": "0.17.2",
     "@justeattakeaway/pie-monorepo-utils": "0.5.1",
     "cem-plugin-module-file-extensions": "0.0.5"
   },

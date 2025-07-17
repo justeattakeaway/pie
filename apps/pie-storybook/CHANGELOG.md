@@ -1,5 +1,32 @@
 # Changelog
 
+## 1.41.0
+
+### Minor Changes
+
+- [Updated] - upgraded the version of `@justeat/pie-design-tokens` to v7.0.2 ([#2459](https://github.com/justeattakeaway/pie/pull/2459)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - Edited test documentation to include yarn/npm commands ([#2475](https://github.com/justeattakeaway/pie/pull/2475)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`d5a4622`](https://github.com/justeattakeaway/pie/commit/d5a4622dce4f0502a5c45aabe23fd1ce19b9beb0), [`7925bb4`](https://github.com/justeattakeaway/pie/commit/7925bb4b80ae88a6f662fbcab7644f5c9c00bcaf), [`9c50321`](https://github.com/justeattakeaway/pie/commit/9c50321ccacf29fed58a3b143a6f1fc6545b8cca)]:
+  - @justeattakeaway/pie-toast-provider@0.6.2
+  - @justeattakeaway/pie-css@0.17.2
+  - @justeattakeaway/pie-modal@1.8.0
+  - @justeattakeaway/pie-cookie-banner@1.6.12
+
+## 1.40.3
+
+### Patch Changes
+
+- [Added] - vanilla integration guide ([#2466](https://github.com/justeattakeaway/pie/pull/2466)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - PIE CSS overview page ([#2467](https://github.com/justeattakeaway/pie/pull/2467)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`1cb6f81`](https://github.com/justeattakeaway/pie/commit/1cb6f81de20b73c45de75d5f5b5a53dbb8350407)]:
+  - @justeattakeaway/pie-css@0.17.1
+
 ## 1.40.2
 
 ### Patch Changes
