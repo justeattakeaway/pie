@@ -3,9 +3,11 @@
 const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
-const parse = require('@changesets/parse').default;
+const parseChangesetFile = require('@changesets/parse').default;
 const { execSync } = require('child_process');
 const findMonorepoRoot = require('../utils/find-monorepo-root');
+const getPackageVersion = require('../utils/get-package-version');
+const getChangesetFilesInCurrentBranch = require('../utils/get-changeset-files-in-current-branch');
 
 const monorepoRoot = findMonorepoRoot();
 
@@ -14,62 +16,6 @@ function getWebcInternalDependencies () {
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
     const dependencies = packageJson.dependencies || {};
     return Object.keys(dependencies).filter((dep) => dep.startsWith('@justeattakeaway/pie-'));
-}
-
-function getChangesetFilesInCurrentBranch (monorepoRoot) {
-    const changesetFilePaths = new Set();
-    /*
-    Tracked files in the current branch:
-      git diff --name-only origin/main...HEAD -- .changeset/*.md
-      This command lists all files in the .changeset directory that are in the current branch but not in main.
-        diff: Show changes between commits, commit and working tree, etc
-        --name-only: Show only the name of each changed file
-        origin/main...HEAD: The range of commits to compare
-        -- .changeset/*.md: Only include .md files in the .changeset directory
-    */
-    try {
-        const trackedChangesetFiles = execSync(
-            'git diff --name-only origin/main...HEAD -- .changeset/*.md',
-            { encoding: 'utf-8', cwd: monorepoRoot },
-        );
-        trackedChangesetFiles.split('\n').filter(Boolean).forEach((filePath) => changesetFilePaths.add(path.join(monorepoRoot, filePath)));
-    } catch (err) {
-        // eslint-disable-next-line no-console
-        console.error(chalk.red('Could not list tracked changeset files in current branch:', err.message));
-        process.exit(1);
-    }
-    /*
-    Untracked changeset files:
-      git ls-files --others --exclude-standard .changeset/*.md
-      This command lists all files in the .changeset directory that are not tracked by Git.
-        --others: Include untracked files
-        --exclude-standard: Exclude standard Git ignore patterns
-        .changeset/*.md: Only include .md files in the .changeset directory
-    */
-    try {
-        const untrackedChangesetFiles = execSync(
-            'git ls-files --others --exclude-standard .changeset/*.md',
-            { encoding: 'utf-8', cwd: monorepoRoot },
-        );
-        untrackedChangesetFiles.split('\n').filter(Boolean).forEach((filePath) => changesetFilePaths.add(path.join(monorepoRoot, filePath)));
-    } catch (err) {
-        // eslint-disable-next-line no-console
-        console.error(chalk.red('Could not list untracked changeset files:', err.message));
-        process.exit(1);
-    }
-    return Array.from(changesetFilePaths);
-}
-
-function parseChangesetFile (filePath) {
-    const content = fs.readFileSync(filePath, 'utf-8');
-    try {
-        return parse(content);
-    } catch (e) {
-        // eslint-disable-next-line no-console
-        console.error(chalk.red(`${e.message} for ${filePath}`));
-        process.exit(1);
-    }
-    return { summary: '', releases: [] }; // fallback for linting
 }
 
 function getWorkspacePackages (monorepoRoot) {
@@ -93,8 +39,8 @@ function getDepVersionAndStatus (depName, workspacePackages) {
     }
     const depPkgPath = path.join(monorepoRoot, dep.location, 'package.json');
     try {
+        const version = getPackageVersion(path.join(monorepoRoot, dep.location));
         const depPkg = JSON.parse(fs.readFileSync(depPkgPath, 'utf-8'));
-        const { version } = depPkg;
         const status = depPkg.pieMetadata && depPkg.pieMetadata.componentStatus;
         if (!status) {
             // eslint-disable-next-line no-console
@@ -128,26 +74,33 @@ function checkWebcMajorVersioning () {
     const pieWebcMajorBumpChangesetFiles = [];
 
     branchChangesetFiles.forEach((file) => {
-        const { releases } = parseChangesetFile(file);
-        releases.forEach(({ name, type }) => {
-            if (name === '@justeattakeaway/pie-webc' && type === 'major') {
-                hasWebcMajorBump = true;
-                pieWebcMajorBumpChangesetFiles.push(file);
-            }
-
-            if (webcDependencies.includes(name) && type === 'major') {
-                const { version, status } = getDepVersionAndStatus(name, workspacePackages);
-
-                /* Ignore component status promotion.
-                   0.x.x -> 1.x.x is a major bump, but we don't want to require a major bump for pie-webc if the dependency is only being promoted from alpha to beta.
-                   0.x.x with 'beta' status will only be possible before the 'Version Packages' PR is merged.
-                */
-                if (version && version.startsWith('0.') && (status === 'alpha' || status === 'beta')) {
-                    return;
+        try {
+            const content = fs.readFileSync(file, 'utf-8');
+            const { releases } = parseChangesetFile(content);
+            releases.forEach(({ name, type }) => {
+                if (name === '@justeattakeaway/pie-webc' && type === 'major') {
+                    hasWebcMajorBump = true;
+                    pieWebcMajorBumpChangesetFiles.push(file);
                 }
-                webcDependenciesWithMajorBump.push(name);
-            }
-        });
+
+                if (webcDependencies.includes(name) && type === 'major') {
+                    const { version, status } = getDepVersionAndStatus(name, workspacePackages);
+
+                    /* Ignore component status promotion.
+                       0.x.x -> 1.x.x is a major bump, but we don't want to require a major bump for pie-webc if the dependency is only being promoted from alpha to beta.
+                       0.x.x with 'beta' status will only be possible before the 'Version Packages' PR is merged.
+                    */
+                    if (version && version.startsWith('0.') && (status === 'alpha' || status === 'beta')) {
+                        return;
+                    }
+                    webcDependenciesWithMajorBump.push(name);
+                }
+            });
+        } catch (e) {
+            // eslint-disable-next-line no-console
+            console.error(chalk.red(`Error parsing changeset file ${file}:`, e.message));
+            process.exit(1);
+        }
     });
 
     if (webcDependenciesWithMajorBump.length > 0 && !hasWebcMajorBump) {
