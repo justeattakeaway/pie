@@ -2,4 +2,4 @@
 
 exports[`deindentHTML > flattens an indented HTML string to a single line 1`] = `"<div>          <p>Foo Bar Baz</p>        </div>"`;
 
-exports[`deindentHTML > flattens the result of a real shortcode 1`] = `"<figure class=\\"c-bar-img c-contentImage c-contentImage--fullWidth\\">        <div class=\\"c-contentImage-backdrop c-contentImage-default\\">          <picture>                        <img src=\\"../some/path\\"  alt=\\"foo\\">          </picture>        </div>              </figure>"`;
+exports[`deindentHTML > flattens the result of a real shortcode 1`] = `"<figure class="c-bar-img c-contentImage c-contentImage--fullWidth">        <div class="c-contentImage-backdrop c-contentImage-default">          <picture>                        <img src="../some/path"  alt="foo">          </picture>        </div>              </figure>"`;
