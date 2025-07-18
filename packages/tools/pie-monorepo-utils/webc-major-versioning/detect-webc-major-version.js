@@ -2,10 +2,10 @@
 // CLI tool to check for missing major bump in pie-webc after changeset creation
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
 const chalk = require('chalk');
-const findMonorepoRoot = require('../utils/find-monorepo-root');
 const parse = require('@changesets/parse').default;
+const { execSync } = require('child_process');
+const findMonorepoRoot = require('../utils/find-monorepo-root');
 
 const monorepoRoot = findMonorepoRoot();
 
@@ -16,9 +16,8 @@ function getWebcInternalDependencies () {
     return Object.keys(dependencies).filter((dep) => dep.startsWith('@justeattakeaway/pie-'));
 }
 
-function getChangesetFilesInCurrentBranch(monorepoRoot) {
-    let files = new Set();
-
+function getChangesetFilesInCurrentBranch (monorepoRoot) {
+    const changesetFilePaths = new Set();
     /*
     Tracked files in the current branch:
       git diff --name-only origin/main...HEAD -- .changeset/*.md
@@ -29,16 +28,16 @@ function getChangesetFilesInCurrentBranch(monorepoRoot) {
         -- .changeset/*.md: Only include .md files in the .changeset directory
     */
     try {
-        const tracked = execSync(
+        const trackedChangesetFiles = execSync(
             'git diff --name-only origin/main...HEAD -- .changeset/*.md',
-            { encoding: 'utf-8', cwd: monorepoRoot }
+            { encoding: 'utf-8', cwd: monorepoRoot },
         );
-        tracked.split('\n').filter(Boolean).forEach(f => files.add(path.join(monorepoRoot, f)));
+        trackedChangesetFiles.split('\n').filter(Boolean).forEach((filePath) => changesetFilePaths.add(path.join(monorepoRoot, filePath)));
     } catch (err) {
-        console.error('Could not list tracked changeset files in current branch:', err.message);
+        // eslint-disable-next-line no-console
+        console.error(chalk.red('Could not list tracked changeset files in current branch:', err.message));
         process.exit(1);
     }
-
     /*
     Untracked changeset files:
       git ls-files --others --exclude-standard .changeset/*.md
@@ -48,64 +47,74 @@ function getChangesetFilesInCurrentBranch(monorepoRoot) {
         .changeset/*.md: Only include .md files in the .changeset directory
     */
     try {
-        const untracked = execSync(
+        const untrackedChangesetFiles = execSync(
             'git ls-files --others --exclude-standard .changeset/*.md',
-            { encoding: 'utf-8', cwd: monorepoRoot }
+            { encoding: 'utf-8', cwd: monorepoRoot },
         );
-        untracked.split('\n').filter(Boolean).forEach(f => files.add(path.join(monorepoRoot, f)));
+        untrackedChangesetFiles.split('\n').filter(Boolean).forEach((filePath) => changesetFilePaths.add(path.join(monorepoRoot, filePath)));
     } catch (err) {
-        console.error('Could not list untracked changeset files:', err.message);
+        // eslint-disable-next-line no-console
+        console.error(chalk.red('Could not list untracked changeset files:', err.message));
         process.exit(1);
     }
-
-    return Array.from(files);
+    return Array.from(changesetFilePaths);
 }
 
-function parseChangesetFile(filePath) {
+function parseChangesetFile (filePath) {
     const content = fs.readFileSync(filePath, 'utf-8');
     try {
         return parse(content);
     } catch (e) {
-        console.error(`Failed to parse changeset file ${filePath}: ${e.message}`);
-        return { summary: '', releases: [] };
-    }
-}
-
-function getWorkspacePackageMap(monorepoRoot) {
-    const { execSync } = require('child_process');
-    const map = {};
-    try {
-        const output = execSync('yarn workspaces list --json', { encoding: 'utf-8', cwd: monorepoRoot });
-        output.split('\n').filter(Boolean).forEach(line => {
-            const { name, location } = JSON.parse(line);
-            map[name] = location;
-        });
-    } catch (err) {
-        console.error('Could not get yarn workspaces list:', err.message);
+        // eslint-disable-next-line no-console
+        console.error(chalk.red(`${e.message} for ${filePath}`));
         process.exit(1);
     }
-    return map;
+    return { summary: '', releases: [] }; // fallback for linting
 }
 
-function getDepVersionAndStatus(depName, workspaceMap) {
-    const depLocation = workspaceMap[depName];
-    if (!depLocation) return { version: null, status: null };
-    const depPkgPath = path.join(monorepoRoot, depLocation, 'package.json');
+function getWorkspacePackages (monorepoRoot) {
+    try {
+        const output = execSync('yarn workspaces list --json', { encoding: 'utf-8', cwd: monorepoRoot });
+        return output.split('\n').filter(Boolean).map((line) => JSON.parse(line));
+    } catch (err) {
+        // eslint-disable-next-line no-console
+        console.error(chalk.red(err.message));
+        process.exit(1);
+    }
+    return []; // fallback for linting
+}
+
+function getDepVersionAndStatus (depName, workspacePackages) {
+    const dep = workspacePackages.find((pkg) => pkg.name === depName);
+    if (!dep) {
+        // eslint-disable-next-line no-console
+        console.error(chalk.red(`Could not find location for dependency: ${depName}`));
+        process.exit(1);
+    }
+    const depPkgPath = path.join(monorepoRoot, dep.location, 'package.json');
     try {
         const depPkg = JSON.parse(fs.readFileSync(depPkgPath, 'utf-8'));
         const { version } = depPkg;
         const status = depPkg.pieMetadata && depPkg.pieMetadata.componentStatus;
+        if (!status) {
+            // eslint-disable-next-line no-console
+            console.error(chalk.red(`No componentStatus found in ${depPkgPath}. Unable to determine if pie-webc needs a major bump.`));
+            process.exit(1);
+        }
         return { version, status };
     } catch (err) {
-        return { version: null, status: null };
+        // eslint-disable-next-line no-console
+        console.error(`Could not read or parse ${depPkgPath}:`, err.message);
+        process.exit(1);
     }
+    return { version: null, status: null }; // fallback for linting
 }
 
-function printWebcVersioningWarning({ title, bodyLines }) {
-    // Print the title with a single butterfly
+function printWebcVersioningWarning ({ title, bodyLines }) {
+    // eslint-disable-next-line no-console
     console.error(chalk.red.bold(`🦋  ${title}`));
-    // Print each body line with a butterfly
-    bodyLines.forEach(line => {
+    bodyLines.forEach((line) => {
+        // eslint-disable-next-line no-console
         console.error(chalk.yellow(`🦋  ${line}`));
     });
 }
@@ -113,41 +122,41 @@ function printWebcVersioningWarning({ title, bodyLines }) {
 function checkWebcMajorVersioning () {
     const webcDependencies = getWebcInternalDependencies();
     const branchChangesetFiles = getChangesetFilesInCurrentBranch(monorepoRoot);
-    const workspaceMap = getWorkspacePackageMap(monorepoRoot);
+    const workspacePackages = getWorkspacePackages(monorepoRoot);
     let hasWebcMajorBump = false;
-    const majorBumpedDependencies = [];
-    const webcMajorBumpFiles = [];
+    const webcDependenciesWithMajorBump = [];
+    const pieWebcMajorBumpChangesetFiles = [];
 
-    for (const file of branchChangesetFiles) {
+    branchChangesetFiles.forEach((file) => {
         const { releases } = parseChangesetFile(file);
-        for (const { name, type } of releases) {
+        releases.forEach(({ name, type }) => {
             if (name === '@justeattakeaway/pie-webc' && type === 'major') {
                 hasWebcMajorBump = true;
-                webcMajorBumpFiles.push(file);
+                pieWebcMajorBumpChangesetFiles.push(file);
             }
-            if (webcDependencies.includes(name) && type === 'major') {
-                // Check version and status
-                const { version, status } = getDepVersionAndStatus(name, workspaceMap);
-                if (
-                    version &&
-                    version.startsWith('0.') &&
-                    (status === 'alpha' || status === 'beta')
-                ) {
-                    // Ignore this dependency
-                    continue;
-                }
-                majorBumpedDependencies.push(name);
-            }
-        }
-    }
 
-    if (majorBumpedDependencies.length > 0 && !hasWebcMajorBump) {
+            if (webcDependencies.includes(name) && type === 'major') {
+                const { version, status } = getDepVersionAndStatus(name, workspacePackages);
+
+                /* Ignore component status promotion.
+                   0.x.x -> 1.x.x is a major bump, but we don't want to require a major bump for pie-webc if the dependency is only being promoted from alpha to beta.
+                   0.x.x with 'beta' status will only be possible before the 'Version Packages' PR is merged.
+                */
+                if (version && version.startsWith('0.') && (status === 'alpha' || status === 'beta')) {
+                    return;
+                }
+                webcDependenciesWithMajorBump.push(name);
+            }
+        });
+    });
+
+    if (webcDependenciesWithMajorBump.length > 0 && !hasWebcMajorBump) {
         printWebcVersioningWarning({
             title: 'PIE Webc Versioning Warning',
             bodyLines: [
                 '',
                 'Major changes detected in PIE Webc dependencies:',
-                ...majorBumpedDependencies.map(dep => `  - ${dep}`),
+                ...webcDependenciesWithMajorBump.map((dep) => `  - ${dep}`),
                 '',
                 `You must also add a major changeset for ${chalk.bold('@justeattakeaway/pie-webc')} detailing the breaking changes, and a migration path for consumers`,
                 '',
@@ -155,15 +164,20 @@ function checkWebcMajorVersioning () {
                 `  1. Run ${chalk.cyan('yarn changeset')} and select ${chalk.bold('@justeattakeaway/pie-webc')} for a major bump.`,
                 '  2. Commit the new changeset file.',
                 ''
-            ]
+            ],
         });
         process.exit(1);
-    } else if (majorBumpedDependencies.length > 0 && hasWebcMajorBump) {
+    }
+
+    if (webcDependenciesWithMajorBump.length > 0 && hasWebcMajorBump) {
+        // eslint-disable-next-line no-console
         console.log(chalk.green('🦋  PIE Webc versioning check passed.'));
-        if (webcMajorBumpFiles.length > 0) {
+        if (pieWebcMajorBumpChangesetFiles.length > 0) {
+            // eslint-disable-next-line no-console
             console.log(chalk.green('🦋  Major bump for @justeattakeaway/pie-webc found in:'));
-            webcMajorBumpFiles.forEach(f => {
-                console.log(chalk.green(`    - ${f}`));
+            pieWebcMajorBumpChangesetFiles.forEach((filePath) => {
+                // eslint-disable-next-line no-console
+                console.log(chalk.green(`    - ${filePath}`));
             });
         }
     }
