@@ -26,7 +26,7 @@
     "extends": "../../../package.json"
   },
   "dependencies": {
-    "@changesets/parse": "^0.4.1",
+    "@changesets/parse": "0.4.1",
     "chalk": "4.1.2"
   }
 }
