@@ -2,33 +2,42 @@ import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-avatar';
-import { type AvatarProps } from '@justeattakeaway/pie-avatar';
+import { type AvatarProps, defaultProps, tags } from '@justeattakeaway/pie-avatar';
+import { ifDefined } from 'lit/directives/if-defined.js';
+/* import { type SlottedComponentProps } from '../../types'; // check if needed
+ */
+import { createStory, type TemplateFunction } from '../../utilities';
 
-import { createStory } from '../../utilities';
+/* interface ExtendedAvatarProps extends AvatarProps {
+    showLabelFallbackInfo?: boolean;
+} */
 
 type AvatarStoryMeta = Meta<AvatarProps>;
+// this is an optional type of the AvatarProps because in the browser there is no such thing as required properties and we want to test against runtime weirdness. :)
+type OptionalAvatarProps = Partial<AvatarProps>; // giving us a tye that can have any of the props in the AvatarProps but can miss any of them (allows us to get {})
 
-const defaultArgs: AvatarProps = {};
+const defaultArgs: AvatarProps = {
+    ...defaultProps,
+    label: 'Foo Bar',
+};
 
 const avatarStoryMeta: AvatarStoryMeta = {
     title: 'Avatar',
     component: 'pie-avatar',
-    argTypes: {},
-    args: defaultArgs,
-    parameters: {
-        design: {
-            type: 'figma',
-            url: '',
-        },
-    },
 };
 
 export default avatarStoryMeta;
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
-const Template = ({}: AvatarProps) => html`
-    <pie-avatar></pie-avatar>
+const Template: TemplateFunction<AvatarProps> = ({ label, tag }: AvatarProps) => html`
+    <pie-avatar
+    tag="${ifDefined(tag)}"
+    label="${ifDefined(label)}">
+    </pie-avatar>
 `;
 
-export const Default = createStory<AvatarProps>(Template, defaultArgs)();
+export const NoTagProvided = createStory<OptionalAvatarProps>(Template, {})();
+
+export const DivAsTagProvided = createStory<OptionalAvatarProps>(Template, {
+    tag: 'div',
+    label: 'Alice Johnson',
+})();
