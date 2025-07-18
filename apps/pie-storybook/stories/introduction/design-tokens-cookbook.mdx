@@ -24,6 +24,7 @@ All of our design tokens can be added to your project by following our [CSS setu
     - [Stack items with spacing token](#stack-items-with-spacing-token)
     - [Add padding using spacing alias](#add-padding-using-spacing-alias)
 - [Typography](#typography)
+    - [Font size](#font-size)
     - [Body text](#body-text)
     - [Heading example](#heading-example)
     - [Line height](#line-height)
@@ -94,13 +95,22 @@ A spacing token (`--dt-spacing-e`) is applied to padding, providing internal spa
 
 **Note:** Whenever you set a `font-size`, you must also set a compatible `line-height` rule to ensure the font looks correct.
 
+### Font size
+Our font-size tokens only store the raw number, not a `px` unit. Therefore, you must multiply the token by `1px` to create a `px` value that CSS will understand.
+
+```css
+.font-size-example {
+    font-size: calc(var(--dt-font-body-l-size) * 1px);
+}
+```
+
 ### Body text
 Font tokens define the typography for body content, including font family, size, weight, and line height. Each token maps to a specific design choice in the type scale, and using them ensures that text remains visually consistent and readable, even as underlying type styles evolve in the system.
 
 ```css
 .body-text {
     font-family: var(--dt-font-body-l-family);
-    font-size: var(--dt-font-body-l-size);
+    font-size: calc(var(--dt-font-body-l-size) * 1px);
     font-weight: var(--dt-font-body-l-weight);
     line-height: calc(var(--dt-font-body-l-line-height) * 1px);
 }
@@ -112,7 +122,7 @@ Typography tokens are again used here, but with heading-specific values - includ
 ```css
 .heading-m {
     font-family: var(--dt-font-heading-m-family);
-    font-size: var(--dt-font-heading-m-size--wide);
+    font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
     font-weight: var(--dt-font-heading-m-weight);
     line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
 }
