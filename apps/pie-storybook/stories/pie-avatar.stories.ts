@@ -48,4 +48,15 @@ const Template = ({ label, tag }: AvatarProps) => html`
     <pie-avatar label= "${ifDefined(label)}" tag="${ifDefined(tag)}"></pie-avatar>
 `;
 
-export const Default = createStory<AvatarProps>(Template, defaultArgs)();
+const createAvatarStory = createStory<AvatarProps>(Template, defaultArgs);
+
+export const Default = createAvatarStory();
+export const Button = createAvatarStory({
+    tag: 'button',
+    label: 'Ada Lovelace',
+});
+export const Anchor = createAvatarStory({
+    tag: 'a',
+    label: 'Margaret Hamilton',
+});
+

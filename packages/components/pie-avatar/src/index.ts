@@ -58,14 +58,14 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     // Renders the initials both for visual display and for screen readers.
     private renderInitials (initials: Initials): TemplateResult {
         return html`
-            <span aria-hidden="true">${initials.visual}</span>
-            <span class="c-avatar--hidden">${initials.screenreader}</span>
+            <span aria-hidden="true" data-test-id="pie-avatar-initials">${initials.visual}</span>
+            <span class="c-avatar-visually-hidden">${initials.screenreader}</span>
         `;
     }
 
     // Renders the icon (placeholder span for now)
     private renderIcon (): TemplateResult {
-        return html`<span>Icon Placeholder</span>`;
+        return html`<span data-test-id="pie-avatar-icon">Icon Placeholder</span>`;
     }
 
     // Renders the inner content of the avatar such as initials, an icon or an image
@@ -89,14 +89,14 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
         const { tag } = this;
 
         if (tag === 'button') {
-            return html`<button>${content}</button>`;
+            return html`<button data-test-id="pie-avatar-button">${content}</button>`;
         }
 
         if (tag === 'a') {
-            return html`<a>${content}</a>`;
+            return html`<a data-test-id="pie-avatar-anchor">${content}</a>`;
         }
 
-        return html`<div>${content}</div>`;
+        return html`<div class="c-avatar-content" data-test-id="pie-avatar-div">${content}</div>`;
     }
 
     render () {
@@ -112,5 +112,3 @@ declare global {
         [componentSelector]: PieAvatar;
     }
 }
-
-/* makes your code know what the element is  */
