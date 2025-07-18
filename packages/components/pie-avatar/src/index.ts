@@ -129,5 +129,3 @@ declare global {
         [componentSelector]: PieAvatar;
     }
 }
-
-/* makes your code know what the element is  */
