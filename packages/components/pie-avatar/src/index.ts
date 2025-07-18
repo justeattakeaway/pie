@@ -58,8 +58,8 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     // Renders the initials both for visual display and for screen readers.
     private renderInitials (initials: Initials): TemplateResult {
         return html`
-            <span aria-hidden="true" data-test-id="pie-avatar-initials">${initials.visual}</span>
-            <span class="c-avatar-visually-hidden">${initials.screenreader}</span>
+            <span aria-hidden="true" data-test-id="pie-avatar-initials-visual">${initials.visual}</span>
+            <span class="c-avatar-visually-hidden" data-test-id="pie-avatar-initials-screenreader">${initials.screenreader}</span>
         `;
     }
 

@@ -14,16 +14,24 @@ import { createStory, type TemplateFunction } from '../../utilities';
 
 type AvatarStoryMeta = Meta<AvatarProps>;
 // this is an optional type of the AvatarProps because in the browser there is no such thing as required properties and we want to test against runtime weirdness. :)
-type OptionalAvatarProps = Partial<AvatarProps>; // giving us a tye that can have any of the props in the AvatarProps but can miss any of them (allows us to get {})
-
-const defaultArgs: AvatarProps = {
-    ...defaultProps,
-    label: 'Foo Bar',
-};
+type OptionalAvatarProps = Partial<AvatarProps>; // giving us a type that can have any of the props in the AvatarProps but can miss any of them (allows us to get {})
 
 const avatarStoryMeta: AvatarStoryMeta = {
     title: 'Avatar',
     component: 'pie-avatar',
+    argTypes: {
+        label: {
+            description: 'Text for user name',
+            control: {
+                type: 'text',
+            },
+        },
+        tag: {
+            description: 'Set the element tag of the link.',
+            control: 'select',
+            options: tags,
+        },
+    },
 };
 
 export default avatarStoryMeta;
@@ -35,9 +43,9 @@ const Template: TemplateFunction<AvatarProps> = ({ label, tag }: AvatarProps) =>
     </pie-avatar>
 `;
 
-export const NoTagProvided = createStory<OptionalAvatarProps>(Template, {})();
+export const Default = createStory<OptionalAvatarProps>(Template, {})();
 
-export const DivAsTagProvided = createStory<OptionalAvatarProps>(Template, {
+export const LabelProvided = createStory<OptionalAvatarProps>(Template, {
     tag: 'div',
     label: 'Alice Johnson',
 })();
