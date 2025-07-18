@@ -33,7 +33,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     public label: AvatarProps['label'];
 
     // Attempts to extract initials from the label string. If the label is not provided or is invalid, it returns null.
-    private getInitials(name: string): Initials | null {
+    private getInitials (name: string): Initials | null {
         try {
             if (!name || typeof name !== 'string' || name.trim().length === 0) {
                 return null;
@@ -56,21 +56,21 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     }
 
     // Renders the initials both for visual display and for screen readers.
-    private renderInitials(initials: Initials): TemplateResult {
+    private renderInitials (initials: Initials): TemplateResult {
         return html`
-            <span aria-hidden="true" data-test-id="pie-avatar-initials">${initials.visual}</span>
-            <span class="c-avatar-visually-hidden">${initials.screenreader}</span>
+            <span aria-hidden="true" data-test-id="pie-avatar-initials-visual">${initials.visual}</span>
+            <span class="c-avatar-visually-hidden" data-test-id="pie-avatar-initials-screenreader">${initials.screenreader}</span>
         `;
     }
 
     // Renders the icon (placeholder span for now)
-    private renderIcon(): TemplateResult {
+    private renderIcon (): TemplateResult {
         return html`<span data-test-id="pie-avatar-icon">Icon Placeholder</span>`;
     }
 
     // Renders the inner content of the avatar such as initials, an icon or an image
     // This is a getter because the value is computed based on properties
-    private get avatarContent(): TemplateResult {
+    private get avatarContent (): TemplateResult {
         // TODO: handle unauthenticated and src here
 
         if (this.label) {
@@ -85,7 +85,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
 
     // Renders the avatar wrapper element based on the `tag` property. Can be a `button`, `a` or a `div`.
     // This is a method because it takes an argument in order to render the content inside the wrapper.
-    private renderAvatarWrapper(content: TemplateResult): TemplateResult {
+    private renderAvatarWrapper (content: TemplateResult): TemplateResult {
         const { tag } = this;
 
         if (tag === 'button') {
@@ -99,7 +99,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
         return html`<div class="c-avatar-content" data-test-id="pie-avatar-div">${content}</div>`;
     }
 
-    render() {
+    render () {
         return this.renderAvatarWrapper(this.avatarContent);
     }
 

@@ -20,9 +20,13 @@ const avatar = {
             description: 'Fallback icon placeholder',
             dataTestId: 'pie-avatar-icon',
         },
-        initials: {
+        initialsVisual: {
             description: 'The visual initials span',
-            dataTestId: 'pie-avatar-initials',
+            dataTestId: 'pie-avatar-initials-visual',
+        },
+        initialsScreenreader: {
+            description: 'The screen reader initials span',
+            dataTestId: 'pie-avatar-initials-screenreader',
         },
     },
 };
