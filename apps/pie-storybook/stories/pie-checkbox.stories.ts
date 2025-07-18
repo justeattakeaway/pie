@@ -201,3 +201,4 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
 
 export const Default = createStory<CheckboxProps>(Template, defaultArgs)();
 export const ExampleForm = createStory<CheckboxProps>(ExampleFormTemplate, defaultArgs)();
+export const ExampleFormChecked = createStory<CheckboxProps>(ExampleFormTemplate, { ...defaultArgs, checked: true })();
