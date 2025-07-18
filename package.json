@@ -29,7 +29,7 @@
     "build:examples": "cross-env-shell turbo run build:examples --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "build:react-wrapper": "cross-env-shell turbo run build:react-wrapper --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "create:manifest": "cross-env-shell turbo run create:manifest --filter=!pie-monorepo --token=${TURBO_TOKEN}",
-    "changeset": "changeset",
+    "changeset": "changeset && npx detect-webc-major-version",
     "changeset:publish": "changeset publish",
     "changeset:snapshot": "changeset version --snapshot snapshot-release",
     "changeset:version": "changeset version && yarn --mode update-lockfile",
