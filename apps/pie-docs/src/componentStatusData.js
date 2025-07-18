@@ -4,7 +4,7 @@ const statusTypes = require('./_data/statusTypes');
 
 const webHeadings = [
     {
-        title: 'Component',
+        title: resourceTypes.WEB_COMPONENT,
     },
     {
         title: 'Figma',
@@ -26,7 +26,7 @@ const webHeadings = [
 
 const appHeadings = [
     {
-        title: 'Component',
+        title: resourceTypes.APP_COMPONENT,
     },
     {
         title: 'Figma',
@@ -50,13 +50,23 @@ const rows = [
     [
         { componentName: 'Accordion' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1410&mode=design&t=RgSr9spTcPyOytpv-0',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=4-21447',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1410&mode=design&t=fi48JZ4cPeb7qkf2-0',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=1-65907',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=4-21447',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=1-65907',
             status: statusTypes.STABLE,
         },
         {
@@ -88,13 +98,23 @@ const rows = [
     [
         { componentName: 'Assistive Text' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=981-5354&mode=design&t=eHntVWyoMgUqEPSN-0',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=163-43156',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=981-5354&mode=design&t=eGcAax5wgCPMal5i-0',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=2-65908',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=163-43156',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=2-65908',
             status: statusTypes.STABLE,
         },
         {
@@ -126,14 +146,24 @@ const rows = [
     [
         { componentName: 'Avatar' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=44260-73570&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114512',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=36949-318262&mode=design',
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=2-65909',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114512',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=2-65909',
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -162,15 +192,24 @@ const rows = [
     ],
     [
         { componentName: 'Badge' },
-
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=38419-73358&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=339-24355',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=33780-373521&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=2-65910',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=339-24355',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=2-65910',
             status: statusTypes.STABLE,
         },
         {
@@ -202,13 +241,23 @@ const rows = [
     [
         { componentName: 'Bottom Sheet' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=9832-49773&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=5-9831',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=9832-49773&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=13-17639',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=5-9831',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=13-17639',
             status: statusTypes.STABLE,
         },
         {
@@ -239,14 +288,18 @@ const rows = [
     [
         { componentName: 'Breadcrumb' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2425-1312&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=314-23908',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2425-1312&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=13-19354',
             status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -279,13 +332,23 @@ const rows = [
     [
         { componentName: 'Button' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=727-0&mode=design&t=CQEMbUPtF2XxT6Nu-0',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1-925',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=727-0&mode=design&t=P7rOGYbNedINS79O-0',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=0-1',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1-925',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=0-1',
             status: statusTypes.STABLE,
         },
         {
@@ -319,13 +382,23 @@ const rows = [
     [
         { componentName: 'Card' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-326&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=339-24607',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-326&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=1-15409',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=339-24607',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=1-15409',
             status: statusTypes.STABLE,
         },
         {
@@ -359,13 +432,23 @@ const rows = [
     [
         { componentName: 'Carousel Indicator' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=21877-137791&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114514',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=21877-137791&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=14-19646',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114514',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=14-19646',
             status: statusTypes.STABLE,
         },
         {
@@ -396,13 +479,23 @@ const rows = [
     [
         { componentName: 'Checkbox' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=835-3026&mode=design&t=6BvgpFnD3pPWQayd-4',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1998-6410',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=32007-382941&mode=design&t=aOGQYXIwnBhahFPU-4',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=14-19647',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1998-6410',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=14-19647',
             status: statusTypes.STABLE,
         },
         {
@@ -436,13 +529,23 @@ const rows = [
     [
         { componentName: 'Checkbox Group' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/aD4m0j97Ruw8Q4S5lED2Bl/Checkbox-audit?node-id=6312-11778&t=7rNtILex9xojH5wx-4',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1998-6410',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/aD4m0j97Ruw8Q4S5lED2Bl/Checkbox-audit?node-id=9938-14138&t=8Cx93DX9PwzEgNJS-4',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=14-19647',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1998-6410',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=14-19647',
             status: statusTypes.STABLE,
         },
         {
@@ -475,13 +578,23 @@ const rows = [
     [
         { componentName: 'Chip' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=733-1358&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=75-21124',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=733-1358&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=16-19648',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=75-21124',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=16-19648',
             status: statusTypes.STABLE,
         },
         {
@@ -514,13 +627,23 @@ const rows = [
     [
         { componentName: 'Cookie Banner' },
         {
-            resource: resourceTypes.COMPONENT,
+            resource: resourceTypes.WEB_COMPONENT,
             link: 'https://www.figma.com/file/Rqz8KHogVsGCS4j0nDueNo/[Core]-Patterns-%E2%9A%AA%EF%B8%8F-[PIE-2.0]?type=design&node-id=1599-41380&mode=design&t=8G38n2fCOYB5Bd2d-0',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
+            resource: resourceTypes.WEB_DOCUMENTATION,
             link: 'https://www.figma.com/file/Rqz8KHogVsGCS4j0nDueNo/[Core]-Patterns-%E2%9A%AA%EF%B8%8F-[PIE-2.0]?type=design&node-id=2755-20043&mode=design&t=8G38n2fCOYB5Bd2d-0',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1599-41380',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=2755-20043',
             status: statusTypes.STABLE,
         },
         {
@@ -552,13 +675,23 @@ const rows = [
     [
         { componentName: 'Data Table' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2308-0&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114515',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2308-0&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=17-19650',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114515',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=17-19650',
             status: statusTypes.STABLE,
         },
         {
@@ -589,14 +722,24 @@ const rows = [
     [
         { componentName: 'Bar Chart' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=19180-143092&mode=design&t=6BvgpFnD3pPWQayd-4',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114517',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=35122-293317&mode=design&t=aOGQYXIwnBhahFPU-4',
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=18-19651',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114517',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=18-19651',
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -626,14 +769,24 @@ const rows = [
     [
         { componentName: 'Line Chart' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=35122-283303&mode=design&t=aOGQYXIwnBhahFPU-4',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114517',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=19207-143051&mode=design&t=6BvgpFnD3pPWQayd-4',
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=18-19651',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114517',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=18-19651',
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -663,13 +816,24 @@ const rows = [
     [
         { componentName: 'Date Picker' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=746-1146&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114516',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=18-19652',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114516',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=18-19652',
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -699,13 +863,24 @@ const rows = [
     [
         { componentName: 'Divider' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1227&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=341-24442',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=1-45657',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=341-24442',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=1-45657',
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -737,14 +912,24 @@ const rows = [
     [
         { componentName: 'Dropdown' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=41132-65796&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114518',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=35988-277118&mode=design',
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=19-19818',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114518',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=19-19818',
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -776,13 +961,24 @@ const rows = [
     [
         { componentName: 'Fab' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=820-0&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=331-24128',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=19-19819',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=331-24128',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=19-19819',
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -812,13 +1008,23 @@ const rows = [
     [
         { componentName: 'Form Label' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=981-5350&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=163-43078',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=981-5350&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=1-49824',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=163-43078',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=1-49824',
             status: statusTypes.STABLE,
         },
         {
@@ -849,13 +1055,23 @@ const rows = [
     [
         { componentName: 'Icon Button' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-317&mode=design&t=TQwLuC8jGD8UIgAs-0',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=235-32588',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-317&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=20-20755',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=235-32588',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=20-20755',
             status: statusTypes.STABLE,
         },
         {
@@ -889,13 +1105,23 @@ const rows = [
     [
         { componentName: 'Link' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2163-13005&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=364-29974',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2163-13005&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=1-55378',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=364-29974',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=1-55378',
             status: statusTypes.STABLE,
         },
         {
@@ -929,13 +1155,23 @@ const rows = [
     [
         { componentName: 'List Item' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=14779-121656&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114520',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=14779-121656&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=20-21055',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114520',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=20-21055',
             status: statusTypes.STABLE,
         },
         {
@@ -967,13 +1203,23 @@ const rows = [
     [
         { componentName: 'List Item Interactive' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=14779-121656&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114521',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=14779-121656&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=21-21056',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114521',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=21-21056',
             status: statusTypes.STABLE,
         },
         {
@@ -1005,13 +1251,23 @@ const rows = [
     [
         { componentName: 'Map Pin' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=5491-23578&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=310-24558',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=5491-23578&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=24-21059',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=310-24558',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=24-21059',
             status: statusTypes.STABLE,
         },
         {
@@ -1042,13 +1298,23 @@ const rows = [
     [
         { componentName: 'Modal' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=1098-1144&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=45-9885',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=1098-1144&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=1-65348',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=45-9885',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=1-65348',
             status: statusTypes.STABLE,
         },
         {
@@ -1082,13 +1348,23 @@ const rows = [
     [
         { componentName: 'Notification' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=782-1302&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1005-30849',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=782-1302&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=13-17640',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1005-30849',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=13-17640',
             status: statusTypes.STABLE,
         },
         {
@@ -1122,13 +1398,23 @@ const rows = [
     [
         { componentName: 'Numeric Stepper' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=14449-108513&mode=design&t=6BvgpFnD3pPWQayd-4',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=363-26590',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=32007-398251&mode=design&t=aOGQYXIwnBhahFPU-4',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=25-21971',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=363-26590',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=25-21971',
             status: statusTypes.STABLE,
         },
         {
@@ -1160,13 +1446,23 @@ const rows = [
     [
         { componentName: 'Numeric Stepper Form' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=1729-4184&mode=design&t=6BvgpFnD3pPWQayd-4',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=363-26590',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=32007-397795&mode=design&t=aOGQYXIwnBhahFPU-4',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=25-21971',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=363-26590',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=25-21971',
             status: statusTypes.STABLE,
         },
         {
@@ -1198,13 +1494,23 @@ const rows = [
     [
         { componentName: 'Numeric Stepper Input' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=1860-14678&mode=design&t=6BvgpFnD3pPWQayd-4',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=363-26590',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=32007-398034&mode=design&t=aOGQYXIwnBhahFPU-4',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=25-21971',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=363-26590',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=25-21971',
             status: statusTypes.STABLE,
         },
         {
@@ -1236,13 +1542,23 @@ const rows = [
     [
         { componentName: 'Numeric Stepper Simple' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=14460-114966&mode=design&t=6BvgpFnD3pPWQayd-4',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=363-26590',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=32007-398424&mode=design&t=aOGQYXIwnBhahFPU-4',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=25-21971',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=363-26590',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=25-21971',
             status: statusTypes.STABLE,
         },
         {
@@ -1274,14 +1590,18 @@ const rows = [
     [
         { componentName: 'Pagination' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2373-13285&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114522',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2373-13285&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=25-21972',
             status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1312,14 +1632,23 @@ const rows = [
     [
         { componentName: 'Popover' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1484&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114523',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1484&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=29-19',
             status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114523',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            status: statusTypes.PLANNED,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1350,13 +1679,23 @@ const rows = [
     [
         { componentName: 'Progress Bar' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2420-13282&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=315-23961',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2420-13282&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=29-20',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=315-23961',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=29-20',
             status: statusTypes.STABLE,
         },
         {
@@ -1388,13 +1727,23 @@ const rows = [
     [
         { componentName: 'Progress Stepper' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=3919-19442&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114524',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=3919-19442&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=29-21',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114524',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=29-21',
             status: statusTypes.STABLE,
         },
         {
@@ -1425,13 +1774,23 @@ const rows = [
     [
         { componentName: 'Radio' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=835-2959&mode=design&t=6BvgpFnD3pPWQayd-4',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=198-33663',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=32007-383138&mode=design&t=aOGQYXIwnBhahFPU-4',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=29-22',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=198-33663',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=29-22',
             status: statusTypes.STABLE,
         },
         {
@@ -1465,14 +1824,18 @@ const rows = [
     [
         { componentName: 'Radio Group' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?node-id=198-33663',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=198-33663',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/%5BCore%5D-Web-Component-Documentation-%5BPIE-3%5D?node-id=29-22',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=29-22',
             status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1490,27 +1853,37 @@ const rows = [
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.STABLE,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.IOS_PIE,
-            status: statusTypes.STABLE,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.ANDROID_PIE,
-            status: statusTypes.STABLE,
+            status: statusTypes.NOT_APPLICABLE,
         }
     ],
     [
         { componentName: 'Rating' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=3472-16894&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=113-22915',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=3472-16894&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=29-23',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=113-22915',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=29-23',
             status: statusTypes.STABLE,
         },
         {
@@ -1543,13 +1916,23 @@ const rows = [
     [
         { componentName: 'Segmented Controls' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-319&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=904-31630',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-319&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=29-25',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=904-31630',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=29-25',
             status: statusTypes.STABLE,
         },
         {
@@ -1582,14 +1965,18 @@ const rows = [
     [
         { componentName: 'Select Input' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1329&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114525',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
+            resource: resourceTypes.WEB_DOCUMENTATION,
             link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1329&mode=design',
             status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1621,13 +2008,23 @@ const rows = [
     [
         { componentName: 'Show More' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=14115-101942&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=364-52420',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=14115-101942&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=29-27',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=364-52420',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=29-27',
             status: statusTypes.STABLE,
         },
         {
@@ -1659,12 +2056,21 @@ const rows = [
     [
         { componentName: 'Side Sheet' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=3762-19209&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114526',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            status: statusTypes.PLANNED,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114526',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
             status: statusTypes.PLANNED,
         },
         {
@@ -1695,13 +2101,23 @@ const rows = [
     [
         { componentName: 'Skeleton' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=24738-224311&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=345-32232',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=24738-224311&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=29-29',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=345-32232',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=29-29',
             status: statusTypes.STABLE,
         },
         {
@@ -1734,13 +2150,24 @@ const rows = [
     [
         { componentName: 'Slider' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2236-12979&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=315-26593',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            status: statusTypes.PLANNED,
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=29-30',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=315-26593',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=29-30',
+            status: statusTypes.STABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -1770,13 +2197,23 @@ const rows = [
     [
         { componentName: 'Spinner' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-329&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=132-15914',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-329&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=32-32',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=132-15914',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=32-32',
             status: statusTypes.STABLE,
         },
         {
@@ -1810,13 +2247,23 @@ const rows = [
     [
         { componentName: 'Switch' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=882-3264&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=193-33379',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=882-3264&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=1-60872',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=193-33379',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=1-60872',
             status: statusTypes.STABLE,
         },
         {
@@ -1850,13 +2297,23 @@ const rows = [
     [
         { componentName: 'Tabs' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2087-13001&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=294-32395',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=2087-13001&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=32-255',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=294-32395',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=32-255',
             status: statusTypes.STABLE,
         },
         {
@@ -1889,13 +2346,23 @@ const rows = [
     [
         { componentName: 'Tag' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-328&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=266-36459',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-328&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=32-256',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=266-36459',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=32-256',
             status: statusTypes.STABLE,
         },
         {
@@ -1928,13 +2395,23 @@ const rows = [
     [
         { componentName: 'Text Input' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-323&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=163-22046',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-323&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=32-257',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=163-22046',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=32-257',
             status: statusTypes.STABLE,
         },
         {
@@ -1968,14 +2445,18 @@ const rows = [
     [
         { componentName: 'Textarea' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=972-5408&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114527',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=972-5408&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=32-258',
             status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            status: statusTypes.NOT_APPLICABLE,
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
@@ -2008,13 +2489,23 @@ const rows = [
     [
         { componentName: 'Thumbnail' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=15875-125982&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=315-28057',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=15875-125982&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=34-259',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=315-28057',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=34-259',
             status: statusTypes.STABLE,
         },
         {
@@ -2047,13 +2538,23 @@ const rows = [
     [
         { componentName: 'Toast' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-324&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=193-32270',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/branch/sjkhCbCcv7t4QkDrz7g0Xx/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?node-id=7934-11960&node-type=frame&t=SxRV1mF3FT7S4lAP-0',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=35-260',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=193-32270',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=35-260',
             status: statusTypes.STABLE,
         },
         {
@@ -2086,13 +2587,23 @@ const rows = [
     [
         { componentName: 'Tooltip' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-325&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=287-32323',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-325&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=35-261',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=287-32323',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=35-261',
             status: statusTypes.STABLE,
         },
         {
@@ -2124,13 +2635,23 @@ const rows = [
     [
         { componentName: 'Uploader' },
         {
-            resource: resourceTypes.COMPONENT,
-            link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1368&mode=design',
+            resource: resourceTypes.WEB_COMPONENT,
+            link: 'https://www.figma.com/design/pPSC73rPin4csb8DiK1CRr/?node-id=1573-114528',
             status: statusTypes.STABLE,
         },
         {
-            resource: resourceTypes.DOCUMENTATION,
-            link: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1368&mode=design',
+            resource: resourceTypes.WEB_DOCUMENTATION,
+            link: 'https://www.figma.com/design/OOgnT2oNMdGFytj5AanYvt/?node-id=35-262',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_COMPONENT,
+            link: 'https://www.figma.com/design/DoilInMsO5L6Rrui7IWgl3/?node-id=1573-114528',
+            status: statusTypes.STABLE,
+        },
+        {
+            resource: resourceTypes.APP_DOCUMENTATION,
+            link: 'https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/?node-id=35-262',
             status: statusTypes.STABLE,
         },
         {
