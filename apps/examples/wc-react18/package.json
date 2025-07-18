@@ -1,7 +1,7 @@
 {
   "name": "wc-react18",
   "private": true,
-  "version": "0.6.95",
+  "version": "0.6.96",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-css": "0.17.2",
-    "@justeattakeaway/pie-webc": "0.7.3",
+    "@justeattakeaway/pie-webc": "0.7.4",
     "@lit/react": "1.0.5",
     "react": "18.3.1",
     "react-dom": "18.3.1"

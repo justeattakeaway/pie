@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.44.0
+
+### Minor Changes
+
+- Update Figma links across the site ([#2461](https://github.com/justeattakeaway/pie/pull/2461)) by [@maledr5](https://github.com/maledr5)
+
+- [Updated] - notification overview page to reflect new changes. ([#2479](https://github.com/justeattakeaway/pie/pull/2479)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.4
+
 ## 4.43.0
 
 ### Minor Changes

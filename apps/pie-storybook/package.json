@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-storybook",
-  "version": "1.41.0",
+  "version": "1.41.1",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
@@ -42,8 +42,8 @@
     "@justeattakeaway/pie-spinner": "1.2.4",
     "@justeattakeaway/pie-switch": "2.0.4",
     "@justeattakeaway/pie-tag": "0.17.4",
-    "@justeattakeaway/pie-text-input": "0.28.8",
-    "@justeattakeaway/pie-textarea": "0.16.8",
+    "@justeattakeaway/pie-text-input": "0.28.9",
+    "@justeattakeaway/pie-textarea": "0.16.9",
     "@justeattakeaway/pie-thumbnail": "0.8.4",
     "@justeattakeaway/pie-toast": "0.10.1",
     "@justeattakeaway/pie-toast-provider": "0.6.2",
