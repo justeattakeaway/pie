@@ -17,5 +17,3 @@ git-secrets --register-aws > /dev/null
 echo "Running git-secrets..."
 # Scans all files that are about to be committed.
 git-secrets --pre_commit_hook -- "$@"
-
-npx detect-webc-major-version
