@@ -13,7 +13,7 @@ if (!isDependabotPR) {
     } catch (err) {
         const output = err.stdout ? err.stdout.toString() : '';
         const errorOutput = err.stderr ? err.stderr.toString() : '';
-        fail(`:warning: PIE Webc versioning check failed.\n${output}\n${errorOutput}`);
+        fail(`PIE Webc versioning check failed.\n${output}\n${errorOutput}`);
     }
 }
 
