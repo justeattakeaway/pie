@@ -89,9 +89,8 @@ avatarInitialsTestCases.forEach(({ input, expectedVisual, expectedScreenReader }
     });
 });
 
-/*
-1.Check the aria-hide visual initials 'JM' for the ones not visible to screen readers
+/* 1.Check the aria-hide visual initials 'JM' for the ones not visible to screen readers
 2.Check that the other ones are not aria-hidden (no aria-hidden attribute).
 3. Test the other label combinations with Icon Placeholder fallback
 4. WILL NEED HELP: Create a story where controls are enabled (if you have controls enabled you can pass labels as url parameters into storybook)
-5. Ask Josh how you can pass labels (controls) as URL params */
+5. Ask Josh how you can pass labels (controls) as URL params  */
