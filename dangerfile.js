@@ -11,9 +11,8 @@ if (!isDependabotPR) {
     try {
         execSync('npx detect-webc-major-version', { stdio: 'pipe' });
     } catch (err) {
-        const output = err.stdout ? err.stdout.toString() : '';
         const errorOutput = err.stderr ? err.stderr.toString() : '';
-        fail(`PIE Webc versioning check failed.\n${output}\n${errorOutput}`);
+        fail(`${errorOutput}`);
     }
 }
 
