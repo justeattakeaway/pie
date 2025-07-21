@@ -56,13 +56,38 @@ function getDepVersionAndStatus (depName, workspacePackages) {
     return { version: null, status: null }; // fallback for linting
 }
 
-function printWebcVersioningWarning ({ title, bodyLines }) {
-    // eslint-disable-next-line no-console
-    console.error(chalk.red.bold(`🦋  ${title}`));
-    bodyLines.forEach((line) => {
+function printWebcVersioningWarning({ title, bodyLines }) {
+    if (process.env.GITHUB_ACTIONS) {
+        // Output pretty markdown for GitHub Actions (Danger)
+        const deps = bodyLines
+            .filter(line => line.trim().startsWith('-'))
+            .map(line => line.trim())
+            .join('\n');
+        const hasDeps = deps.length > 0;
+        const markdown = [
+            `## :warning: ${title}`,
+            '',
+            hasDeps ? '**Major changes detected in PIE Webc dependencies:**' : '',
+            hasDeps ? deps : '',
+            '',
+            'You must also add a **major changeset** for `@justeattakeaway/pie-webc` detailing the breaking changes, and a migration path for consumers.',
+            '',
+            '**To fix:**',
+            '1. Run <code>yarn changeset</code> and select <code>@justeattakeaway/pie-webc</code> for a major bump.',
+            '2. Commit the new changeset file.',
+            ''
+        ].filter(Boolean).join('\n');
         // eslint-disable-next-line no-console
-        console.error(chalk.yellow(`🦋  ${line}`));
-    });
+        console.error(markdown);
+    } else {
+        // Local/terminal output (keep emoji/chalk)
+        // eslint-disable-next-line no-console
+        console.error(chalk.red.bold(`🦋  ${title}`));
+        bodyLines.forEach((line) => {
+            // eslint-disable-next-line no-console
+            console.error(chalk.yellow(`🦋  ${line}`));
+        });
+    }
 }
 
 function checkWebcMajorVersioning () {
