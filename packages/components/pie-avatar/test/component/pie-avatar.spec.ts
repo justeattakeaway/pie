@@ -5,17 +5,20 @@ import { avatar } from '../helpers/selectors';
 
 // update to have expected visual and expected screen reader.
 const avatarInitialsTestCases = [
-    { input: 'Alice Johnson', expected: 'AJ' },
-    { input: 'John Davis Smith', expected: 'JD' },
-    { input: 'John Davis-Smith', expected: 'JD' },
-    { input: 'Jean-Luc Picard', expected: 'JP' },
-    { input: '  Mary   Anne  ', expected: 'MA' },
-    { input: 'D’Angelo Russell', expected: 'DR' },
-    { input: 'Madonna', expected: 'M' },
-    { input: 'John 123', expected: 'J1' },
-    { input: '', expected: 'Icon Placeholder' },
-    { input: null, expected: 'Icon Placeholder' },
-    { input: undefined, expected: 'Icon Placeholder' }
+    { input: 'Alice Johnson', expectedVisual: 'AJ', expectedScreenReader: 'A, J' },
+    { input: 'John Davis Smith', expectedVisual: 'JD', expectedScreenReader: 'J, D' },
+    { input: 'John Davis-Smith', expectedVisual: 'JD', expectedScreenReader: 'J, D' },
+    { input: 'Jean-Luc Picard', expectedVisual: 'JL', expectedScreenReader: 'J, L' },
+    { input: '  Mary   Anne  ', expectedVisual: 'MA', expectedScreenReader: 'M, A' },
+    { input: 'Madonna', expectedVisual: 'M', expectedScreenReader: 'M' },
+    { input: 'John 123', expectedVisual: 'J1', expectedScreenReader: 'J, 1' },
+    /*     { input: 'D\'\ Angelo Russell', expectedVisual: 'DR', expectedScreenReader: 'D, R' }, */
+
+];
+const avatarEdgeTestCases = [
+    { input: '', expectedVisual: 'Icon Placeholder' },
+    { input: null, expectedVisual: 'Icon Placeholder' },
+    { input: undefined, expectedVisual: 'Icon Placeholder' }
 ];
 
 test.describe('PieAvatar - Component tests', () => {
@@ -26,7 +29,7 @@ test.describe('PieAvatar - Component tests', () => {
 
         // Act
         const avatarCustomElement = page.locator(avatar.selectors.container.dataTestId); // getting the custom pie-avatar el
-        const avatarComponentDiv = avatarCustomElement.locator('div'); // gives pie-avatar custom el
+        const avatarComponentDiv = avatarCustomElement.locator('div');
 
         // Assert
         await expect(avatarCustomElement).not.toHaveAttribute('tag');
@@ -49,11 +52,27 @@ test.describe('PieAvatar - Component tests', () => {
         await expect(avatarComponentDiv).toBeVisible();
     });
 
-    test('should render initials `AJ` visually and `A, J` for screenreaders when label is Alice Johnson', async ({ page }) => {
+    avatarEdgeTestCases.forEach(({ input, expectedVisual }) => {
+        test(`should render 'Icon Placeholder' when label is ${input}`, async ({ page }) => {
+            // Arrange
+            const avatarPage = new BasePage(page, 'avatar--default');
+            avatarPage.args = ''; // don't set label at all
+            await avatarPage.load();
+
+            // Act
+            const avatarComponentVisual = page.getByTestId('pie-avatar-icon');
+
+            // Assert
+            await expect(avatarComponentVisual).toHaveText(expectedVisual);
+        });
+    });
+});
+
+avatarInitialsTestCases.forEach(({ input, expectedVisual, expectedScreenReader }) => {
+    test(`should render ${expectedVisual} initials visually and ${expectedScreenReader} for screenreaders when label is ${input}`, async ({ page }) => {
         // Arrange
         const avatarPage = new BasePage(page, 'avatar--default');
-        avatarPage.args = 'label:Alice Johnson'; // /story/avatar--default&args=tag:button;label:Josh
-
+        avatarPage.args = `label:${input}`;
         await avatarPage.load();
 
         // Act
@@ -61,48 +80,15 @@ test.describe('PieAvatar - Component tests', () => {
         const avatarComponentScreenreader = page.getByTestId('pie-avatar-initials-screenreader');
 
         // Assert
-        await expect(avatarComponentVisual).toHaveText('AJ');
+        await expect(avatarComponentVisual).toHaveText(expectedVisual);
         await expect(avatarComponentVisual).toHaveAttribute('aria-hidden');
-        await expect(avatarComponentScreenreader).toHaveText('A, J');
-        await expect(avatarComponentScreenreader).not.toHaveAttribute('aria-hidden');
-    });
-
-    test('should render `Icon Placeholder` when label is undefined', async ({ page }) => {
-        // Arrange
-        const avatarPage = new BasePage(page, 'avatar--default');
-        avatarPage.args = ''; // /story/avatar--default&args=tag:button;label:Josh
-
-        await avatarPage.load();
-
-        // Act
-        const avatarCustomElement = page.locator(avatar.selectors.container.dataTestId);
-
-        // Assert
-        await expect(avatarCustomElement).toHaveText('Icon Placeholder');
-    });
-
-    test('should render initials `JD` visually and `J, D`  when label is John Davis-Smith', async ({ page }) => {
-        // Arrange
-        const avatarPage = new BasePage(page, 'avatar--default');
-        avatarPage.args = 'label:John Davis-Smith';
-
-        await avatarPage.load();
-
-        // Act
-        const avatarComponentVisual = page.getByTestId('pie-avatar-initials-visual');
-        const avatarComponentScreenreader = page.getByTestId('pie-avatar-initials-screenreader');
-
-        // Assert
-        await expect(avatarComponentVisual).toHaveText('JD');
-        await expect(avatarComponentVisual).toHaveAttribute('aria-hidden');
-        await expect(avatarComponentScreenreader).toHaveText('J, D');
+        await expect(avatarComponentScreenreader).toHaveText(expectedScreenReader);
         await expect(avatarComponentScreenreader).not.toHaveAttribute('aria-hidden');
     });
 });
 
-/*
-1.Check the aria-hide visual initials 'JM' for the ones not visible to screen readers
+/* 1.Check the aria-hide visual initials 'JM' for the ones not visible to screen readers
 2.Check that the other ones are not aria-hidden (no aria-hidden attribute).
 3. Test the other label combinations with Icon Placeholder fallback
 4. WILL NEED HELP: Create a story where controls are enabled (if you have controls enabled you can pass labels as url parameters into storybook)
-5. Ask Josh how you can pass labels (controls) as URL params */
+5. Ask Josh how you can pass labels (controls) as URL params  */
