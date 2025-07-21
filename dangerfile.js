@@ -1,9 +1,21 @@
 import { danger, fail } from 'danger';
+const { execSync } = require('child_process');
 
 const { pr } = danger.github;
 const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
 
 const isDependabotPR = pr.user.login === 'dependabot[bot]';
+
+// PIE Webc major versioning check (only for non-Dependabot PRs)
+if (!isDependabotPR) {
+    try {
+        execSync('npx detect-webc-major-version', { stdio: 'pipe' });
+    } catch (err) {
+        const output = err.stdout ? err.stdout.toString() : '';
+        const errorOutput = err.stderr ? err.stderr.toString() : '';
+        fail(`:warning: PIE Webc versioning check failed.\n${output}\n${errorOutput}`);
+    }
+}
 
 // Check for correct Changeset formatting
 danger.git.created_files
