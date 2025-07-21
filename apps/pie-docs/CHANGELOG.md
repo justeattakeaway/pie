@@ -1,5 +1,17 @@
 # Changelog
 
+## 4.45.0
+
+### Minor Changes
+
+- [Updated] - `pie-design-token` to v7.1.0 ([#2484](https://github.com/justeattakeaway/pie/pull/2484)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`a9278c3`](https://github.com/justeattakeaway/pie/commit/a9278c3ec67ad66130e6f52cdf881baf0716fbb7)]:
+  - @justeattakeaway/pie-css@0.18.0
+  - @justeattakeaway/pie-webc@0.7.5
+
 ## 4.44.0
 
 ### Minor Changes
