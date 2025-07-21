@@ -112,10 +112,10 @@ function checkWebcMajorVersioning () {
                     const { version, status } = getDepVersionAndStatus(name, workspacePackages);
 
                     /* Ignore component status promotion.
-                       0.x.x -> 1.x.x is a major bump, but we don't want to require a major bump for pie-webc if the dependency is only being promoted from alpha to beta.
-                       0.x.x with 'beta' status will only be possible before the 'Version Packages' PR is merged.
+                       0.x.x -> 1.x.x is a major bump, but we don't want to require a major bump for pie-webc if the dependency is only being promoted from beta to stable.
+                       0.x.x with 'stable' status will only be possible before the 'Version Packages' PR is merged.
                     */
-                    if (version && version.startsWith('0.') && (status === 'alpha' || status === 'beta')) {
+                    if (version && version.startsWith('0.') && (status === 'alpha' || status === 'beta' || status === 'stable')) {
                         return;
                     }
                     webcDependenciesWithMajorBump.push(name);
