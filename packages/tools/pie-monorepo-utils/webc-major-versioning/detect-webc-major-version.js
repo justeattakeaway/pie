@@ -56,37 +56,37 @@ function getDepVersionAndStatus (depName, workspacePackages) {
     return { version: null, status: null }; // fallback for linting
 }
 
-function printWebcVersioningWarning({ title, bodyLines }) {
+function printWebcVersioningWarning ({ title, dependencies }) {
     if (process.env.GITHUB_ACTIONS) {
-        // Output pretty markdown for GitHub Actions (Danger)
-        const deps = bodyLines
-            .filter(line => line.trim().startsWith('-'))
-            .map(line => line.trim())
-            .join('\n');
-        const hasDeps = deps.length > 0;
-        const markdown = [
-            `## :warning: ${title}`,
-            '',
-            hasDeps ? '**Major changes detected in PIE Webc dependencies:**' : '',
-            hasDeps ? deps : '',
-            '',
-            'You must also add a **major changeset** for `@justeattakeaway/pie-webc` detailing the breaking changes, and a migration path for consumers.',
-            '',
-            '**To fix:**',
-            '1. Run <code>yarn changeset</code> and select <code>@justeattakeaway/pie-webc</code> for a major bump.',
-            '2. Commit the new changeset file.',
-            ''
-        ].filter(Boolean).join('\n');
-        // eslint-disable-next-line no-console
-        console.error(markdown);
+        const depsBlock = dependencies.length > 0
+            ? `**Major changes detected in PIE Webc dependencies:**\n${dependencies.map((dep) => `- ${dep}`).join('\n')}\n`
+            : '';
+        const markdown = `
+## :warning: ${title}
+
+${depsBlock}
+You must also add a **major changeset** for \`@justeattakeaway/pie-webc\` detailing the breaking changes, and a migration path for consumers.
+
+**To fix:**
+1. Run \`yarn changeset\` and select \`@justeattakeaway/pie-webc\` for a major bump.
+2. Commit the new changeset file.
+`;
+        console.error(markdown.trim());
     } else {
-        // Local/terminal output (keep emoji/chalk)
-        // eslint-disable-next-line no-console
-        console.error(chalk.red.bold(`🦋  ${title}`));
-        bodyLines.forEach((line) => {
-            // eslint-disable-next-line no-console
-            console.error(chalk.yellow(`🦋  ${line}`));
-        });
+        let depsBlock = '';
+        if (dependencies.length > 0) {
+            depsBlock = `🦋  Major changes detected in PIE Webc dependencies:\n${
+                dependencies.map((dep) => `🦋    - ${dep}`).join('\n')}\n`;
+        }
+        const terminal =
+            `${chalk.red.bold(`🦋  ${title}`)}\n\n${
+            depsBlock
+            }🦋  You must also add a major changeset for ${chalk.bold('@justeattakeaway/pie-webc')
+            } detailing the breaking changes, and a migration path for consumers\n\n` +
+            '🦋  To fix:\n' +
+            `🦋    1. Run ${chalk.cyan('yarn changeset')} and select ${chalk.bold('@justeattakeaway/pie-webc')} for a major bump.\n` +
+            '🦋    2. Commit the new changeset file.\n';
+        console.error(terminal.trim());
     }
 }
 
@@ -131,18 +131,7 @@ function checkWebcMajorVersioning () {
     if (webcDependenciesWithMajorBump.length > 0 && !hasWebcMajorBump) {
         printWebcVersioningWarning({
             title: 'PIE Webc Versioning Warning',
-            bodyLines: [
-                '',
-                'Major changes detected in PIE Webc dependencies:',
-                ...webcDependenciesWithMajorBump.map((dep) => `  - ${dep}`),
-                '',
-                `You must also add a major changeset for ${chalk.bold('@justeattakeaway/pie-webc')} detailing the breaking changes, and a migration path for consumers`,
-                '',
-                'To fix:',
-                `  1. Run ${chalk.cyan('yarn changeset')} and select ${chalk.bold('@justeattakeaway/pie-webc')} for a major bump.`,
-                '  2. Commit the new changeset file.',
-                ''
-            ],
+            dependencies: webcDependenciesWithMajorBump,
         });
         process.exit(1);
     }
