@@ -22,7 +22,6 @@
     "allowImportingTsExtensions": true,
     "noEmit": true,
     "types": ["vitest/globals"],
-    "skipLibCheck": true,
     "useDefineForClassFields": false
   },
   "exclude": []

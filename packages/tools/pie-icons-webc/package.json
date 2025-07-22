@@ -60,7 +60,7 @@
     "just-pascal-case": "3.2.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "rollup": "3.29.5",
+    "rollup": "4.45.1",
     "rollup-plugin-multi-input": "1.4.1",
     "typescript": "5.4.5"
   },
