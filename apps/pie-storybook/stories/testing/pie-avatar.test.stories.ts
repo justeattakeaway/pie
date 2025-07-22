@@ -4,13 +4,7 @@ import { type Meta } from '@storybook/web-components';
 import '@justeattakeaway/pie-avatar';
 import { type AvatarProps, tags } from '@justeattakeaway/pie-avatar';
 import { ifDefined } from 'lit/directives/if-defined.js';
-/* import { type SlottedComponentProps } from '../../types'; // check if needed
- */
 import { createStory, type TemplateFunction } from '../../utilities';
-
-/* interface ExtendedAvatarProps extends AvatarProps {
-    showLabelFallbackInfo?: boolean;
-} */
 
 type AvatarStoryMeta = Meta<AvatarProps>;
 type OptionalAvatarProps = Partial<AvatarProps>; // giving us a type that can have any of the props in the AvatarProps but can miss any of them (allows us to get {})
@@ -49,7 +43,3 @@ export const LabelProvided = createStory<OptionalAvatarProps>(Template, {
     label: 'Alice Johnson',
 })();
 
-export const Test2 = createStory<OptionalAvatarProps>(Template, {
-    tag: 'button',
-    label: 'Fernando',
-})();
