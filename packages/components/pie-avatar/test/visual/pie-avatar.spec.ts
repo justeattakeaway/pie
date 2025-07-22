@@ -24,4 +24,3 @@ test.describe('PieAvatar - Visual tests`', () => {
     });
 });
 
-// do just 2 different tests, then if i want to i can put it in a for-each loop

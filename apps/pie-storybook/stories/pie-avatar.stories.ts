@@ -22,7 +22,7 @@ const avatarStoryMeta: AvatarStoryMeta = {
             },
         },
         tag: {
-            description: 'Set the element tag of the link.',
+            description: 'Set the element tag of the avatar.',
             control: 'select',
             options: tags,
             defaultValue: {
@@ -42,8 +42,6 @@ const avatarStoryMeta: AvatarStoryMeta = {
 
 export default avatarStoryMeta;
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
 const Template = ({ label, tag }: AvatarProps) => html`
     <pie-avatar label= "${ifDefined(label)}" tag="${ifDefined(tag)}"></pie-avatar>
 `;
@@ -51,12 +49,4 @@ const Template = ({ label, tag }: AvatarProps) => html`
 const createAvatarStory = createStory<AvatarProps>(Template, defaultArgs);
 
 export const Default = createAvatarStory();
-export const Button = createAvatarStory({
-    tag: 'button',
-    label: 'Ada Lovelace',
-});
-export const Anchor = createAvatarStory({
-    tag: 'a',
-    label: 'Margaret Hamilton',
-});
 

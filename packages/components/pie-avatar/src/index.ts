@@ -39,8 +39,8 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
                 return null;
             }
 
-            const nameSplit: string[] = name.trim().replace(/-/g, ' ').split(/\s+/); // [Katarina, Neskovic]
-            const initials: string[] = nameSplit.slice(0, 2).map((word) => word[0].toUpperCase()); // [K, N]
+            const nameSplit: string[] = name.trim().replace(/-/g, ' ').split(/\s+/); // [Ada, Lovelace]
+            const initials: string[] = nameSplit.slice(0, 2).map((word) => word[0].toUpperCase()); // [A, L]
 
             if (initials.length === 0) {
                 return null;
@@ -48,7 +48,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
 
             return {
                 visual: initials.join(''),
-                screenreader: initials.join(', '),
+                screenreader: initials.join(', '), // joins the two words by comma so initials are correctly pronounced by screenreaders
             };
         } catch (error) {
             return null;
@@ -65,7 +65,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
 
     // Renders the icon (placeholder span for now)
     private renderIcon (): TemplateResult {
-        return html`<span data-test-id="pie-avatar-icon">Icon Placeholder</span>`;
+        return html`<span data-test-id="pie-avatar-icon" class="c-avatar-placeholder">Icon Placeholder</span>`;
     }
 
     // Renders the inner content of the avatar such as initials, an icon or an image
@@ -84,7 +84,6 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     }
 
     // Renders the avatar wrapper element based on the `tag` property. Can be a `button`, `a` or a `div`.
-    // This is a method because it takes an argument in order to render the content inside the wrapper.
     private renderAvatarWrapper (content: TemplateResult): TemplateResult {
         const { tag } = this;
 
