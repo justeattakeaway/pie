@@ -287,6 +287,13 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-font-weight-extrabold: 800;
     --dt-font-weight-regular: 400;
     /* Alias tokens - Font */
+    /* Heading-xs font theme */
+    --dt-font-heading-xs-size--wide: var(--dt-font-size-16);
+    --dt-font-heading-xs-size--narrow: var(--dt-font-size-14);
+    --dt-font-heading-xs-family: var(--dt-font-family-primary);
+    --dt-font-heading-xs-weight: var(--dt-font-weight-extrabold);
+    --dt-font-heading-xs-line-height--wide: var(--dt-font-size-16-line-height);
+    --dt-font-heading-xs-line-height--narrow: var(--dt-font-size-14-line-height);
     /* Heading-s font theme */
     --dt-font-heading-s-size--wide: var(--dt-font-size-20);
     --dt-font-heading-s-size--narrow: var(--dt-font-size-16);
