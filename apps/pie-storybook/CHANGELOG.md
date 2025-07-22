@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.42.0
+
+### Minor Changes
+
+- [Updated] - `pie-design-token` to v7.1.0 ([#2484](https://github.com/justeattakeaway/pie/pull/2484)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`a9278c3`](https://github.com/justeattakeaway/pie/commit/a9278c3ec67ad66130e6f52cdf881baf0716fbb7)]:
+  - @justeattakeaway/pie-modal@1.9.0
+  - @justeattakeaway/pie-css@0.18.0
+  - @justeattakeaway/pie-cookie-banner@1.6.13
+
+## 1.41.1
+
+### Patch Changes
+
+- [Added] - Input value pitfalls section to readme ([#2478](https://github.com/justeattakeaway/pie/pull/2478)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Font-size example to the design tokens cookbook ([#2482](https://github.com/justeattakeaway/pie/pull/2482)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`8276827`](https://github.com/justeattakeaway/pie/commit/8276827b3614c16d4030413fc0c762e3717863a7)]:
+  - @justeattakeaway/pie-text-input@0.28.9
+  - @justeattakeaway/pie-textarea@0.16.9
+
 ## 1.41.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-textarea
 
+## 0.16.9
+
+### Patch Changes
+
+- [Added] - Input value pitfalls section to readme ([#2478](https://github.com/justeattakeaway/pie/pull/2478)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.16.8
 
 ### Patch Changes
