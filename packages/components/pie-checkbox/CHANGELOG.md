@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.16.9
+
+### Patch Changes
+
+- [Fixed] Flicker on mount ([#2458](https://github.com/justeattakeaway/pie/pull/2458)) by [@jonatankruszewski](https://github.com/jonatankruszewski)
+
 ## 0.16.8
 
 ### Patch Changes
