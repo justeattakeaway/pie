@@ -5,9 +5,10 @@ const { pr } = danger.github;
 const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
 
 const isDependabotPR = pr.user.login === 'dependabot[bot]';
+const isPieBotPR = pr.user.login === 'pie-design-system-bot';
 
-// PIE Webc major versioning check (only for non-Dependabot PRs)
-if (!isDependabotPR) {
+// PIE Webc major versioning check (only for non-bot PRs)
+if (!isDependabotPR && !isPieBotPR) {
     try {
         execSync('npx detect-webc-major-version', { stdio: 'pipe' });
     } catch (err) {
