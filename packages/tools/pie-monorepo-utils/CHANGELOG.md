@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-monorepo-utils
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - CLI to detect breaking changes of `pie-webc` deps and prompt contributors to add a required changeset for `pie-webc` ([#2481](https://github.com/justeattakeaway/pie/pull/2481)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.5.1
 
 ### Patch Changes
