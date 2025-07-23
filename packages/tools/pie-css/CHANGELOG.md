@@ -1,5 +1,23 @@
 # @justeattakeaway/pie-css
 
+## 0.18.0
+
+### Minor Changes
+
+- [Updated] - `pie-design-token` to v7.1.0 ([#2484](https://github.com/justeattakeaway/pie/pull/2484)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.17.2
+
+### Patch Changes
+
+- [Changed] - Improved formatting of pie-css readme.md file ([#2473](https://github.com/justeattakeaway/pie/pull/2473)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.17.1
+
+### Patch Changes
+
+- [Changed] - Moved introduction to top of readme ([#2467](https://github.com/justeattakeaway/pie/pull/2467)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.17.0
 
 ### Minor Changes

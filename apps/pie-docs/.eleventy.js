@@ -9,6 +9,9 @@ module.exports = eleventyConfig => {
     // Copy over img directory to dist directory.
     eleventyConfig.addPassthroughCopy({ 'src/assets/img': 'assets/img' });
 
+    // Copy over fonts directory to dist directory.
+    eleventyConfig.addPassthroughCopy({ 'src/assets/fonts': 'assets/fonts' });
+
     // Plugins
     plugins.addAllPlugins(eleventyConfig);
 

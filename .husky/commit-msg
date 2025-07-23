@@ -21,3 +21,6 @@ echo "Checking commit message for secrets..."
 # Scans the commit message.
 git-secrets --commit_msg_hook -- "$@"
 echo "Checking commit message for secrets...DONE"
+
+echo "Running PIE Webc versioning check..."
+npx detect-webc-major-version

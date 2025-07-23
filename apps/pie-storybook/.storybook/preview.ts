@@ -83,6 +83,7 @@ export default {
                     ],
                     'Integration guides',
                     [
+                        'No framework',
                         'React',
                         [
                             'React 19',
@@ -95,6 +96,10 @@ export default {
                         [
                             'Nuxt 3',
                         ],
+                        'Vue',
+                        [
+                            'Vue 3',
+                        ],
                     ],
                     'Components',
                     [
@@ -102,6 +107,7 @@ export default {
                     ],
                     'Additional libraries',
                     [
+                        'PIE CSS',
                         'Icons'
                     ],
                     'Contribution',

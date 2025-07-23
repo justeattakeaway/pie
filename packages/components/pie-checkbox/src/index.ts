@@ -40,6 +40,9 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implemen
     @state()
     private _visuallyHiddenError = false;
 
+    @state()
+    private _isAnimationAllowed = false;
+
     @property({ type: String })
     public value = defaultProps.value;
 
@@ -127,6 +130,9 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implemen
     private _handleChange (event: Event) {
         const { checked } = event?.currentTarget as HTMLInputElement;
         this.checked = checked;
+        if (!this._isAnimationAllowed) {
+            this._isAnimationAllowed = true;
+        }
         // This is because some events set `composed` to `false`.
         // Reference: https://javascript.info/shadow-dom-events#event-composed
         const customChangeEvent = wrapNativeEvent(event);
@@ -161,6 +167,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implemen
             disabled,
             _disabledByParent,
             _visuallyHiddenError,
+            _isAnimationAllowed,
             required,
             indeterminate,
             assistiveText,
@@ -184,6 +191,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implemen
             'is-disabled': componentDisabled,
             'c-checkbox-tick--checked': checked,
             'c-checkbox-tick--indeterminate': indeterminate && !checked,
+            'c-checkbox-tick--allow-animation': _isAnimationAllowed,
             'c-checkbox-tick--rtl': isRTL,
         };
 

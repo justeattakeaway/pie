@@ -6,17 +6,13 @@
     --toast-provider-z-index: var(--dt-z-index-toast);
     --toast-provider-offset: var(--dt-spacing-d);
 
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-
     @include media('>md') {
         --toast-provider-offset: var(--dt-spacing-e);
     }
 }
 
 .c-toast-provider {
-    position: absolute;
+    position: fixed;
     z-index: var(--toast-provider-z-index);
 
     &.c-toast-provider--default {

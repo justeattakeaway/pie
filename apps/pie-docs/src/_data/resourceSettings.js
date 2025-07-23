@@ -1,17 +1,25 @@
 const resourceTypes = require('./resourceTypes');
 
 module.exports = {
-    [resourceTypes.COMPONENT]: {
+    [resourceTypes.WEB_COMPONENT]: {
         icon: '/assets/img/components/icons/figma.svg',
-        resource: 'Figma Component',
+        resource: 'Figma Web Component',
+    },
+    [resourceTypes.WEB_DOCUMENTATION]: {
+        icon: '/assets/img/components/icons/figma.svg',
+        resource: 'Figma Web Documentation',
+    },
+    [resourceTypes.APP_COMPONENT]: {
+        icon: '/assets/img/components/icons/figma.svg',
+        resource: 'Figma App Component',
+    },
+    [resourceTypes.APP_DOCUMENTATION]: {
+        icon: '/assets/img/components/icons/figma.svg',
+        resource: 'Figma App Documentation',
     },
     [resourceTypes.PATTERN]: {
         icon: '/assets/img/components/icons/figma.svg',
         resource: 'Figma Pattern',
-    },
-    [resourceTypes.DOCUMENTATION]: {
-        icon: '/assets/img/components/icons/figma.svg',
-        resource: 'Figma Documentation',
     },
     [resourceTypes.WEB_COMPONENTS]: {
         icon: '/assets/img/components/icons/web-component.svg',
