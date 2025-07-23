@@ -170,7 +170,7 @@ custom-elements.json
 **/stats.html
 
 # Vite Timestamp
-**/vite.config.js.timestamp.*
+**/vite.config.js.timestamp-*
 
 # Yalc
 .yalc
