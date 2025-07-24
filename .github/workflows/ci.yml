@@ -145,7 +145,7 @@ jobs:
         env:
           ACTIONLINT_VERSION: 'v1.6.27'
         run: |
-          echo "::add-matcher::.github/actionlint-matcher.json"
+          echo "::add-matcher::.github/workflows/actionlint-matcher.json"
           bash <(curl --silent --show-error "https://raw.githubusercontent.com/rhysd/actionlint/${ACTIONLINT_VERSION}/scripts/download-actionlint.bash")
           ./actionlint -color
 
