@@ -83,19 +83,19 @@ jobs:
         run: |
           DOCS_CHANGE=$(npx -y turbo run build --filter='@justeattakeaway/pie-docs[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $DOCS_CHANGE"
-          echo "docs-change=$DOCS_CHANGE" >> $GITHUB_OUTPUT
+          echo "docs-change=$DOCS_CHANGE" >> "$GITHUB_OUTPUT"
       - name: Verify if web components have changes
         id: component-check
         run: |
           COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}...[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $COMPONENT_CHANGE"
-          echo "web-components-change=$COMPONENT_CHANGE" >> $GITHUB_OUTPUT
+          echo "web-components-change=$COMPONENT_CHANGE" >> "$GITHUB_OUTPUT"
       - name: Verify if storybook has changes
         id: storybook-check
         run: |
           STORYBOOK_CHANGE=$(npx -y turbo run build --filter='@justeattakeaway/pie-storybook[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $STORYBOOK_CHANGE"
-          echo "storybook-change=$STORYBOOK_CHANGE" >> $GITHUB_OUTPUT
+          echo "storybook-change=$STORYBOOK_CHANGE" >> "$GITHUB_OUTPUT"
 
   lint-styles:
     runs-on: ubuntu-latest
@@ -192,7 +192,7 @@ jobs:
           script-name: "test:ci"
 
   deploy-storybook:
-    needs: unit-tests
+    needs: [unit-tests, check-change-type]
     if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
     uses: ./.github/workflows/amplify-deploy.yml
     with:
@@ -208,7 +208,7 @@ jobs:
 
   # Workflow task that deploys an instance of storybook used for test suites to run against
   deploy-storybook-testing:
-    needs: unit-tests
+    needs: [unit-tests, check-change-type]
     if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
     uses: ./.github/workflows/amplify-deploy.yml
     with:
@@ -226,7 +226,7 @@ jobs:
 
   # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
   browser-tests-components:
-    needs: [ build-ubuntu-node-20, deploy-storybook ]
+    needs: [ build-ubuntu-node-20, deploy-storybook, check-change-type ]
     if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
@@ -281,7 +281,7 @@ jobs:
       PR_NUMBER: ${{ github.event.number }}
 
   deploy-docs:
-    needs: unit-tests
+    needs: [unit-tests, check-change-type]
     uses: ./.github/workflows/amplify-deploy.yml
     if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
     with:
