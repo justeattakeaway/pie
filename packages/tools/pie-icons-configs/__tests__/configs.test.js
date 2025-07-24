@@ -173,6 +173,16 @@ describe('getSvgProps', () => {
     });
 
     describe('when size is not provided', () => {
+        let spy;
+
+        beforeEach(() => {
+            spy = vi.spyOn(console, 'error').mockImplementation(vi.fn());
+        });
+
+        afterEach(() => {
+            spy.mockRestore();
+        });
+
         it('returns an object with default icon width and height properties', () => {
             const received = getSvgProps('icon-test', null, null, regularIconSizeName);
 
@@ -180,6 +190,7 @@ describe('getSvgProps', () => {
             expect(received.height).toEqual(defaultRegularIconSize);
         });
         it('does not output a console error', () => {
+            getSvgProps('icon-test', null, null, regularIconSizeName);
             const spy = vi.spyOn(console, 'error').mockImplementation(vi.fn());
 
             expect(spy).not.toHaveBeenCalled();
@@ -230,6 +241,16 @@ describe('getSvgProps', () => {
         });
 
         describe('when size is not provided', () => {
+            let spy;
+
+            beforeEach(() => {
+                spy = vi.spyOn(console, 'error').mockImplementation(vi.fn());
+            });
+
+            afterEach(() => {
+                spy.mockRestore();
+            });
+
             it('returns an object with default icon width and height properties', () => {
                 const received = getSvgProps('test-large', null, null, largeIconSizeName);
 
@@ -237,8 +258,7 @@ describe('getSvgProps', () => {
                 expect(received.height).toEqual(largeIconSizeDefault);
             });
             it('does not output a console error', () => {
-                const spy = vi.spyOn(console, 'error').mockImplementation(vi.fn());
-
+                getSvgProps('test-large', null, null, largeIconSizeName);
                 expect(spy).not.toHaveBeenCalled();
             });
         });
