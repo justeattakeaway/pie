@@ -134,6 +134,21 @@ jobs:
         with:
           script-name: "lint:scripts"
 
+  lint-workflows:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.pull_request.labels.*.name, 'ci') && (github.event.repository.fork == false || github.event_name == 'pull_request')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Lint workflows
+        shell: bash
+        env:
+          ACTIONLINT_VERSION: 'v1.6.27'
+        run: |
+          echo "::add-matcher::.github/actionlint-matcher.json"
+          bash <(curl --silent --show-error "https://raw.githubusercontent.com/rhysd/actionlint/${ACTIONLINT_VERSION}/scripts/download-actionlint.bash")
+          ./actionlint -color
+
   build-windows-node-20:
     uses: ./.github/workflows/install-build.yml
     with:
@@ -349,6 +364,7 @@ jobs:
     needs:
       - lint-styles
       - lint-js
+      - lint-workflows
       - build-ubuntu-node-18
       - build-windows-node-20
       - build-ubuntu-node-20
