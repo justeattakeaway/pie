@@ -136,7 +136,7 @@ jobs:
 
   lint-workflows:
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch' || contains(github.event.pull_request.labels.*.name, 'ci') && (github.event.repository.fork == false || github.event_name == 'pull_request')
+    if: (github.event.repository.fork == false || github.event_name == 'pull_request')
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
