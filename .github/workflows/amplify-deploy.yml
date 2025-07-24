@@ -150,12 +150,12 @@ jobs:
             --domain-name pie.design \
             --region ${{ env.AWS_REGION }} \
             | jq '
-              [.domainAssociation.subDomains[].subDomainSetting | { prefix: (.prefix // ""), branchName }] |
+              [.domainAssociation.subDomains[].subDomainSetting | { "prefix": (.prefix // ""), "branchName": .branchName }] |
               . |= (map(.branchName) | index("pr${{ github.event.number }}")) as $ix |
               if $ix == null then
-                . + [{branchName: "pr${{ github.event.number }}", prefix: "${{ env.SUB_DOMAIN }}"}]
+                . + [{"branchName": "pr${{ github.event.number }}", "prefix": "${{ env.SUB_DOMAIN }}"}]
               else . end
-            ' -c)
+            ')
           echo "DOMAIN_ASSOCIATIONS=$DOMAIN_ASSOCIATIONS" >> "$GITHUB_ENV"
       - name: Create Subdomain Association
         if: github.event_name == 'pull_request'
