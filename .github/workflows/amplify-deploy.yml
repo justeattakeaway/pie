@@ -61,7 +61,7 @@ jobs:
           if [[ "$PACKAGE_NAME" == "@justeattakeaway/"* ]]; then
             PACKAGE_NAME="${PACKAGE_NAME/@justeattakeaway\//}"
           fi
-          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
+          echo "PACKAGE_NAME=$PACKAGE_NAME" >> "$GITHUB_ENV"
 
       # Create ZIP_NAME environment variable
       - name: Set ZIP_NAME
