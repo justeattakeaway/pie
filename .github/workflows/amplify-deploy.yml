@@ -155,7 +155,7 @@ jobs:
               if $ix == null then
                 . + [{"branchName": "pr${{ github.event.number }}", "prefix": "${{ env.SUB_DOMAIN }}"}]
               else . end
-            ') 
+            ' -c)
             echo "DOMAIN_ASSOCIATIONS=$DOMAIN_ASSOCIATIONS" >> "$GITHUB_ENV"
 
       - name: Create Subdomain Association
