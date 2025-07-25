@@ -33,13 +33,14 @@
     "PIE"
   ],
   "scripts": {
-    "build": "cp ./PieIconComponent.ts ./icons && vite build && tsc",
-    "build:icons": "node ./build.js",
+    "build": "node ./build.js && cp ./PieIconComponent.ts ./icons && vite build && tsc",
     "clean": "run -T rimraf -rf ./dist/ ./icons/",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "test:browsers-setup": "npx playwright-lit-setup",
-    "test:browsers": "npx playwright test -c ./playwright-react.config.ts && npx playwright test -c ./playwright-lit.config.ts",
+    "test:browsers:react": "npx playwright test -c ./playwright-react.config.ts",
+    "test:browsers:webc": "npx playwright test -c ./playwright-lit.config.ts",
+    "test:browsers": "yarn test:browsers:react && yarn test:browsers:webc",
     "test:browsers:ci": "yarn test:browsers",
     "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_ICONS_WEBC} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
