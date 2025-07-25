@@ -39,7 +39,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
-    "@justeattakeaway/pie-components-config": "0.20.1",
+    "@justeattakeaway/pie-components-config": "0.21.0",
     "@justeattakeaway/pie-css": "0.18.0",
     "@justeattakeaway/pie-monorepo-utils": "0.6.0",
     "@justeattakeaway/pie-radio": "0.11.4",
