@@ -145,7 +145,7 @@ jobs:
       - name: Get existing domain associations
         if: github.event_name == 'pull_request'
         run: |
-          DOMAIN_ASSOCIATIONS=$(aws amplify get-domain-association \
+          aws amplify get-domain-association \
             --app-id ${{ env.AMPLIFY_ID }} \
             --domain-name pie.design \
             --region ${{ env.AWS_REGION }} \
@@ -155,8 +155,8 @@ jobs:
               if $ix == null then
                 . + [{"branchName": "pr${{ github.event.number }}", "prefix": "${{ env.SUB_DOMAIN }}"}]
               else . end
-            ')
-          echo "DOMAIN_ASSOCIATIONS=$DOMAIN_ASSOCIATIONS" >> "$GITHUB_ENV"
+            ' -c > domain_associations.json
+
       - name: Create Subdomain Association
         if: github.event_name == 'pull_request'
         shell: bash
@@ -164,7 +164,7 @@ jobs:
           aws amplify update-domain-association \
             --app-id ${{ env.AMPLIFY_ID }} \
             --domain-name pie.design \
-            --sub-domain-settings "${{ env.DOMAIN_ASSOCIATIONS }}"
+            --sub-domain-settings
 
       - name: Wait for Amplify deployment
         if: github.event_name == 'pull_request'
