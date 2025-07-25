@@ -12,6 +12,8 @@ const splitFontAliasToken = (token, tokenMetadata) => {
         Regular: 400,
         Bold: 700,
         ExtraBold: 800,
+        Black: 900,
+        ExtraBlack: 1000,
     };
 
     if (isGlobal) {
@@ -20,7 +22,8 @@ const splitFontAliasToken = (token, tokenMetadata) => {
             fontSize: category === 'fontSize' && token['font-size'],
             lineHeight: category === 'fontSize' && token['line-height'],
             fontWeight: category === 'fontWeight' && fontWeightMap[token],
-            textDecoration: category === 'fontStyle' && token,
+            textDecoration: category === 'textDecoration' && token,
+            fontStyle: category === 'fontStyle' && token,
             letterSpacing: category === 'letterSpacing' && token,
             paragraphSpacing: category === 'paragraphSpacing' && token,
         };
@@ -32,6 +35,7 @@ const splitFontAliasToken = (token, tokenMetadata) => {
         lineHeight: token.size['line-height'],
         fontWeight: fontWeightMap[token.weight],
         textDecoration: token['text-decoration'],
+        fontStyle: token['font-style'],
         letterSpacing: token['letter-spacing'],
     };
 };
@@ -46,7 +50,7 @@ const splitFontAliasToken = (token, tokenMetadata) => {
 const buildFontExample = (token, tokenMetadata) => {
     const {
         fontFamily, fontSize, lineHeight, fontWeight,
-        textDecoration, letterSpacing, paragraphSpacing,
+        textDecoration, fontStyle, letterSpacing, paragraphSpacing,
     } = splitFontAliasToken(token, tokenMetadata);
     const classes = ['c-tokensTable-example--font'];
     const cssVariables = [
@@ -55,6 +59,7 @@ const buildFontExample = (token, tokenMetadata) => {
         lineHeight && `--example-font-line-height: ${lineHeight}px`,
         fontWeight && `--example-font-weight: ${fontWeight}`,
         textDecoration && `--example-font-text-decoration: ${textDecoration}`,
+        fontStyle && `--example-font-style: ${fontStyle}`,
         letterSpacing && `--example-font-letter-spacing: ${letterSpacing}`,
         paragraphSpacing && `--example-font-paragraph-spacing: ${paragraphSpacing}px`
     ].filter(Boolean);

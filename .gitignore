@@ -169,6 +169,9 @@ custom-elements.json
 **/src/**/react.ts
 **/stats.html
 
+# Vite Timestamp
+**/vite.config.js.timestamp-*
+
 # Yalc
 .yalc
 yalc.lock

@@ -126,8 +126,8 @@ jobs:
 
       - name: Delete Unrelated Markdown Files in Changeset
         run: |
-            for file in $(ls .changeset/*.md); do
-              if ! grep -q "$(basename $file)" changeset_diff.txt; then
+            for file in .changeset/*.md; do
+              if [[ -f "$file" ]] && ! grep -q "$(basename "$file")" "changeset_diff.txt"; then
                 rm "$file"
               fi
             done

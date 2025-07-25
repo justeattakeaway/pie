@@ -1,5 +1,53 @@
 # Changelog
 
+## 1.42.1
+
+### Patch Changes
+
+- Updated dependencies [[`9cb36da`](https://github.com/justeattakeaway/pie/commit/9cb36da59c6f13f860cb1546c4a2671dcf84110b)]:
+  - @justeattakeaway/pie-checkbox@0.16.9
+
+## 1.42.0
+
+### Minor Changes
+
+- [Updated] - `pie-design-token` to v7.1.0 ([#2484](https://github.com/justeattakeaway/pie/pull/2484)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`a9278c3`](https://github.com/justeattakeaway/pie/commit/a9278c3ec67ad66130e6f52cdf881baf0716fbb7)]:
+  - @justeattakeaway/pie-modal@1.9.0
+  - @justeattakeaway/pie-css@0.18.0
+  - @justeattakeaway/pie-cookie-banner@1.6.13
+
+## 1.41.1
+
+### Patch Changes
+
+- [Added] - Input value pitfalls section to readme ([#2478](https://github.com/justeattakeaway/pie/pull/2478)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Font-size example to the design tokens cookbook ([#2482](https://github.com/justeattakeaway/pie/pull/2482)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`8276827`](https://github.com/justeattakeaway/pie/commit/8276827b3614c16d4030413fc0c762e3717863a7)]:
+  - @justeattakeaway/pie-text-input@0.28.9
+  - @justeattakeaway/pie-textarea@0.16.9
+
+## 1.41.0
+
+### Minor Changes
+
+- [Updated] - upgraded the version of `@justeat/pie-design-tokens` to v7.0.2 ([#2459](https://github.com/justeattakeaway/pie/pull/2459)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - Edited test documentation to include yarn/npm commands ([#2475](https://github.com/justeattakeaway/pie/pull/2475)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`d5a4622`](https://github.com/justeattakeaway/pie/commit/d5a4622dce4f0502a5c45aabe23fd1ce19b9beb0), [`7925bb4`](https://github.com/justeattakeaway/pie/commit/7925bb4b80ae88a6f662fbcab7644f5c9c00bcaf), [`9c50321`](https://github.com/justeattakeaway/pie/commit/9c50321ccacf29fed58a3b143a6f1fc6545b8cca)]:
+  - @justeattakeaway/pie-toast-provider@0.6.2
+  - @justeattakeaway/pie-css@0.17.2
+  - @justeattakeaway/pie-modal@1.8.0
+  - @justeattakeaway/pie-cookie-banner@1.6.12
+
 ## 1.40.3
 
 ### Patch Changes

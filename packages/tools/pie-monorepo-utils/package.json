@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-monorepo-utils",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Scripts and utilities used by the PIE monorepo",
   "repository": {
     "type": "git",
@@ -11,6 +11,9 @@
   "files": [
     "dist"
   ],
+  "bin": {
+    "detect-webc-major-version": "./webc-major-versioning/detect-webc-major-version.js"
+  },
   "scripts": {
     "generate:component-statuses": "node ./component-statuses/generate-component-statuses.js",
     "lint:scripts": "run -T eslint .",
@@ -21,5 +24,9 @@
   },
   "volta": {
     "extends": "../../../package.json"
+  },
+  "dependencies": {
+    "@changesets/parse": "0.4.1",
+    "chalk": "4.1.2"
   }
 }

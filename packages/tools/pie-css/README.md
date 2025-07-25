@@ -1,16 +1,13 @@
-<p align="center">
-  <img align="center" src="../../../readme_image.png" height="200" alt="">
-</p>
+# @justeattakeaway/pie-css
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-css) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-css)
 
-<p align="center">
+<p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-css">
-    <img alt="Currently released NPM version" src="https://img.shields.io/npm/v/@justeattakeaway/pie-css.svg">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-css.svg">
   </a>
 </p>
 
-# PIE CSS
-
-`pie-css` is a styling library that provides two distinct features:
+`@justeattakeaway/pie-css` is a styling library that provides two distinct features:
 
 1. A minimal set of CSS styles to help PIE web components display as intended in web applications and providing our design tokens for applications to use.
 2. A set of SCSS style helpers (mixins, functions and variables) to help with common styling tasks when authoring PIE web components.

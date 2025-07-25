@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-webc",
   "description": "Component bundle containing all PIE web components",
-  "version": "0.7.2",
+  "version": "0.7.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -336,17 +336,17 @@
     "@justeattakeaway/pie-breadcrumb": "0.6.3",
     "@justeattakeaway/pie-button": "1.6.6",
     "@justeattakeaway/pie-card": "0.25.5",
-    "@justeattakeaway/pie-checkbox": "0.16.8",
+    "@justeattakeaway/pie-checkbox": "0.16.9",
     "@justeattakeaway/pie-checkbox-group": "0.9.8",
     "@justeattakeaway/pie-chip": "0.12.8",
-    "@justeattakeaway/pie-cookie-banner": "1.6.11",
+    "@justeattakeaway/pie-cookie-banner": "1.6.13",
     "@justeattakeaway/pie-divider": "1.4.5",
     "@justeattakeaway/pie-form-label": "0.16.4",
     "@justeattakeaway/pie-icon-button": "2.0.3",
     "@justeattakeaway/pie-link": "1.2.7",
     "@justeattakeaway/pie-list": "0.0.3",
     "@justeattakeaway/pie-lottie-player": "0.2.4",
-    "@justeattakeaway/pie-modal": "1.7.10",
+    "@justeattakeaway/pie-modal": "1.9.0",
     "@justeattakeaway/pie-notification": "0.14.8",
     "@justeattakeaway/pie-radio": "0.11.4",
     "@justeattakeaway/pie-radio-group": "0.9.11",
@@ -354,11 +354,11 @@
     "@justeattakeaway/pie-spinner": "1.2.4",
     "@justeattakeaway/pie-switch": "2.0.4",
     "@justeattakeaway/pie-tag": "0.17.4",
-    "@justeattakeaway/pie-text-input": "0.28.8",
-    "@justeattakeaway/pie-textarea": "0.16.8",
+    "@justeattakeaway/pie-text-input": "0.28.9",
+    "@justeattakeaway/pie-textarea": "0.16.9",
     "@justeattakeaway/pie-thumbnail": "0.8.4",
     "@justeattakeaway/pie-toast": "0.10.1",
-    "@justeattakeaway/pie-toast-provider": "0.6.1"
+    "@justeattakeaway/pie-toast-provider": "0.6.2"
   },
   "volta": {
     "extends": "../../../package.json"
