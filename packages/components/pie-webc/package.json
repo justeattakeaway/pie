@@ -114,6 +114,16 @@
       "require": "./react/cookie-banner.js",
       "types": "./react/cookie-banner.d.ts"
     },
+    "./components/data-table.js": {
+      "import": "./components/data-table.js",
+      "require": "./components/data-table.js",
+      "types": "./components/data-table.d.ts"
+    },
+    "./react/data-table.js": {
+      "import": "./react/data-table.js",
+      "require": "./react/data-table.js",
+      "types": "./react/data-table.d.ts"
+    },
     "./components/divider.js": {
       "import": "./components/divider.js",
       "require": "./components/divider.js",
@@ -340,6 +350,7 @@
     "@justeattakeaway/pie-checkbox-group": "0.9.8",
     "@justeattakeaway/pie-chip": "0.12.8",
     "@justeattakeaway/pie-cookie-banner": "1.6.13",
+    "@justeattakeaway/pie-data-table": "0.0.0",
     "@justeattakeaway/pie-divider": "1.4.5",
     "@justeattakeaway/pie-form-label": "0.16.4",
     "@justeattakeaway/pie-icon-button": "2.0.3",

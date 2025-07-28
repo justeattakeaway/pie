@@ -57,6 +57,7 @@ env:
   PERCY_TOKEN_PIE_BREADCRUMB: ${{ secrets.PERCY_TOKEN_PIE_BREADCRUMB }}
   PERCY_TOKEN_PIE_LIST: ${{ secrets.PERCY_TOKEN_PIE_LIST }}
   PERCY_TOKEN_PIE_AVATAR: ${{ secrets.PERCY_TOKEN_PIE_AVATAR }}
+  PERCY_TOKEN_PIE_DATA_TABLE: ${{ secrets.PERCY_TOKEN_PIE_DATA_TABLE }}
 
 jobs:
   check-change-type:
@@ -192,7 +193,7 @@ jobs:
           script-name: "test:ci"
 
   deploy-storybook:
-    needs: [unit-tests, check-change-type]
+    needs: [ unit-tests, check-change-type ]
     if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
     uses: ./.github/workflows/amplify-deploy.yml
     with:
@@ -208,7 +209,7 @@ jobs:
 
   # Workflow task that deploys an instance of storybook used for test suites to run against
   deploy-storybook-testing:
-    needs: [unit-tests, check-change-type]
+    needs: [ unit-tests, check-change-type ]
     if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
     uses: ./.github/workflows/amplify-deploy.yml
     with:
@@ -281,7 +282,7 @@ jobs:
       PR_NUMBER: ${{ github.event.number }}
 
   deploy-docs:
-    needs: [unit-tests, check-change-type]
+    needs: [ unit-tests, check-change-type ]
     uses: ./.github/workflows/amplify-deploy.yml
     if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
     with:
