@@ -57,7 +57,7 @@ export abstract class PieIconComponent extends LitElement {
     }
 
     updateIconSize (): void {
-        const svgSize = getSvgProps(this.class, '', this.size, this.name);
+        const svgSize = getSvgProps(this.className, '', this.size, this.name);
         this._svgWidth = svgSize.width;
         this._svgHeight = svgSize.height;
     }
