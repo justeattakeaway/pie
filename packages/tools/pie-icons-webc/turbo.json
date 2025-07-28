@@ -4,27 +4,32 @@
     "//"
   ],
   "pipeline": {
-    "build:icons": {
-      "cache": true,
-      "dependsOn": [
-        "@justeattakeaway/pie-icons#build",
-        "clean"
-      ],
-      "outputs": [
-        "icons/**"
-      ]
-    },
     "build": {
       "cache": true,
       "dependsOn": [
         "^build",
-        "build:icons"
-      ],
-      "inputs": [
-        "icons/**"
+        "clean"
       ],
       "outputs": [
-        "dist/**"
+        "dist/**",
+        "icons/**"
+      ]
+    },
+    "test:browsers:react": {
+      "cache": true,
+      "dependsOn": [
+        "build",
+        "test:browsers-setup"
+      ],
+      "outputs": [
+        "__snapshots__/**"
+      ]
+    },
+    "test:browsers:webc": {
+      "cache": true,
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "../../../apps/pie-storybook/stories/testing/icons.test.stories.ts"
       ]
     },
     "test:browsers": {

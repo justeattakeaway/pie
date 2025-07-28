@@ -84,19 +84,19 @@ jobs:
         run: |
           DOCS_CHANGE=$(npx -y turbo run build --filter='@justeattakeaway/pie-docs[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $DOCS_CHANGE"
-          echo "docs-change=$DOCS_CHANGE" >> $GITHUB_OUTPUT
+          echo "docs-change=$DOCS_CHANGE" >> "$GITHUB_OUTPUT"
       - name: Verify if web components have changes
         id: component-check
         run: |
           COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}...[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $COMPONENT_CHANGE"
-          echo "web-components-change=$COMPONENT_CHANGE" >> $GITHUB_OUTPUT
+          echo "web-components-change=$COMPONENT_CHANGE" >> "$GITHUB_OUTPUT"
       - name: Verify if storybook has changes
         id: storybook-check
         run: |
           STORYBOOK_CHANGE=$(npx -y turbo run build --filter='@justeattakeaway/pie-storybook[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $STORYBOOK_CHANGE"
-          echo "storybook-change=$STORYBOOK_CHANGE" >> $GITHUB_OUTPUT
+          echo "storybook-change=$STORYBOOK_CHANGE" >> "$GITHUB_OUTPUT"
 
   lint-styles:
     runs-on: ubuntu-latest
@@ -134,6 +134,21 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: "lint:scripts"
+
+  lint-workflows:
+    runs-on: ubuntu-latest
+    if: (github.event.repository.fork == false || github.event_name == 'pull_request')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Lint workflows
+        shell: bash
+        env:
+          ACTIONLINT_VERSION: 'v1.6.27'
+        run: |
+          echo "::add-matcher::.github/workflows/actionlint-matcher.json"
+          bash <(curl --silent --show-error "https://raw.githubusercontent.com/rhysd/actionlint/${ACTIONLINT_VERSION}/scripts/download-actionlint.bash")
+          ./actionlint -color
 
   build-windows-node-20:
     uses: ./.github/workflows/install-build.yml
@@ -178,7 +193,7 @@ jobs:
           script-name: "test:ci"
 
   deploy-storybook:
-    needs: unit-tests
+    needs: [unit-tests, check-change-type]
     if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
     uses: ./.github/workflows/amplify-deploy.yml
     with:
@@ -194,7 +209,7 @@ jobs:
 
   # Workflow task that deploys an instance of storybook used for test suites to run against
   deploy-storybook-testing:
-    needs: unit-tests
+    needs: [unit-tests, check-change-type]
     if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
     uses: ./.github/workflows/amplify-deploy.yml
     with:
@@ -212,7 +227,7 @@ jobs:
 
   # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
   browser-tests-components:
-    needs: [ build-ubuntu-node-20, deploy-storybook ]
+    needs: [ build-ubuntu-node-20, deploy-storybook, check-change-type ]
     if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
@@ -234,7 +249,7 @@ jobs:
       - name: Run All System / Component /  a11y Tests
         uses: ./.github/actions/run-script
         with:
-          script-name: "test:browsers:ci --filter='./packages/components/*'"
+          script-name: "test:browsers:ci --filter='./packages/**'"
       - name: Upload Playwright Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
@@ -247,13 +262,13 @@ jobs:
         uses: ./.github/actions/run-script
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='{./packages/components/*}[HEAD^1]' --filter='{./packages/tools/*}[HEAD^1]'"
+          script-name: "test:visual:ci --filter='{./packages/**}[HEAD^1]'"
           concurrency: 1
       - name: Run Changed Package Visual Tests
         uses: ./.github/actions/run-script
         if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='{./packages/components/*}...[origin/main]' --filter='{./packages/tools/*}...[origin/main]'"
+          script-name: "test:visual:ci --filter='{./packages/**}[origin/main]'"
           concurrency: 1
       - name: Upload Playwright Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
@@ -267,7 +282,7 @@ jobs:
       PR_NUMBER: ${{ github.event.number }}
 
   deploy-docs:
-    needs: unit-tests
+    needs: [unit-tests, check-change-type]
     uses: ./.github/workflows/amplify-deploy.yml
     if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
     with:
@@ -350,6 +365,7 @@ jobs:
     needs:
       - lint-styles
       - lint-js
+      - lint-workflows
       - build-ubuntu-node-18
       - build-windows-node-20
       - build-ubuntu-node-20
