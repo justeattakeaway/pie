@@ -58,6 +58,12 @@ const AlcoholFilledLargeIconWithOverrideTemplate: TemplateFunction<LargeIconProp
     </div>
 `;
 
+const AlcoholFilledIconWithClassTemplate: TemplateFunction<RegularIconProps> = ({ size }) => html`
+    <div class="c-iconGrid">
+        <icon-alcohol-filled size=${size} class="custom-class"></icon-alcohol-filled>
+    </div>
+`;
+
 export const AlcoholFilledRegularIcon = createStory(AlcoholFilledRegularIconTemplate, defaultRegularIconProps)({}, {
     layout: 'centered',
     argTypes: {
@@ -119,3 +125,16 @@ const largeIconPropMatrix : Partial<Record<keyof LargeIconProps, unknown[]>> = {
 };
 
 export const AlcoholFilledLargeIconVariations = createVariantStory<LargeIconProps>(AlcoholFilledLargeIconTemplate, largeIconPropMatrix);
+
+export const AlcoholFilledIconWithClass = createStory(AlcoholFilledIconWithClassTemplate, defaultRegularIconProps)({}, {
+    layout: 'centered',
+    argTypes: {
+        size: {
+            control: 'select',
+            options: regularIconSizes,
+            defaultValue: {
+                summary: regularIconSizeDefault,
+            },
+        },
+    },
+});
