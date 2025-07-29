@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-components-config
 
+## 0.21.0
+
+### Minor Changes
+
+- [Added] - Updated `tsconfig.json` from `"moduleResolution": "node"` > `"moduleResolution": "bundler"` ([#2483](https://github.com/justeattakeaway/pie/pull/2483)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
 ## 0.20.1
 
 ### Patch Changes
