@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.42.2
+
+### Patch Changes
+
+- [Fixed] - Issue with `dev` and `dev:testing` were running on the same port, preventing ability to run both instances at the same time ([#2491](https://github.com/justeattakeaway/pie/pull/2491)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 1.42.1
 
 ### Patch Changes

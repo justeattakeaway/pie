@@ -28,7 +28,7 @@
     "lit": "3.2.0"
   },
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.20.1"
+    "@justeattakeaway/pie-components-config": "0.21.0"
   },
   "volta": {
     "extends": "../../../package.json"
