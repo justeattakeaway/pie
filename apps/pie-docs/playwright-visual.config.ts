@@ -1,6 +1,6 @@
-import { PlaywrightTestConfig, devices } from '@playwright/test';
+import { type PlaywrightTestConfig, devices } from '@playwright/test';
 
-const { getBaseUrl } = require('./apps/pie-docs/test/helpers/configuration-helper');
+const { getBaseUrl } = require('./test/helpers/configuration-helper');
 
 const baseURL = getBaseUrl();
 process.env.BASE_URL = baseURL;
