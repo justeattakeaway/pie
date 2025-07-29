@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.83.1
+
+### Patch Changes
+
+- [Fixed] - Issue where `pie-webc` version check was running on Version Packages PRs ([#2487](https://github.com/justeattakeaway/pie/pull/2487)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.83.0
 
 ### Minor Changes
