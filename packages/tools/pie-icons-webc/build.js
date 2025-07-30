@@ -42,6 +42,8 @@ const componentTemplate = (name, svg) => {
         @property({ type: String, reflect: true })
         public size: ${sizeType} = ${defaultSize};
 
+        protected defaultClasses = '${svgClasses}';
+
         // These classes also exist on the internal SVG element. However they are not used for anything on the SVG.
         @property({ type: String, reflect: true })
         public class = '${svgClasses}';

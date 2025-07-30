@@ -81,3 +81,14 @@ test('large should have the default classes applied', async ({ page }) => {
     const icon = page.locator(icons.selectors.alcoholFilledLarge.dataTestId);
     await expect(icon).toHaveClass('c-pieIcon c-pieIcon--alcoholFilledLarge');
 });
+
+test('when extra classes are provided, the icon should render the expected classes', async ({ page }) => {
+    // Arrange
+    const regularIconPage = new BasePage(page, 'icons--alcohol-filled-icon-with-class');
+    await regularIconPage.load();
+    await page.waitForSelector(icons.selectors.alcoholFilled.dataTestId);
+
+    // Assert
+    const icon = page.locator(icons.selectors.alcoholFilled.dataTestId);
+    await expect(icon).toHaveClass('c-pieIcon c-pieIcon--alcoholFilled custom-class');
+});
