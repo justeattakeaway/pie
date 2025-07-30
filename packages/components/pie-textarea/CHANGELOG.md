@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-textarea
 
+## 0.16.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.10.9
+
 ## 0.16.9
 
 ### Patch Changes

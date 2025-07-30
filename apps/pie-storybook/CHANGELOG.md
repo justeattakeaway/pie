@@ -1,5 +1,31 @@
 # Changelog
 
+## 1.42.3
+
+### Patch Changes
+
+- [Added] story for testing custom classes ([#2492](https://github.com/justeattakeaway/pie/pull/2492)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`f1b151b`](https://github.com/justeattakeaway/pie/commit/f1b151b69db048aa6c0668351d5d0f4ad2cde40c), [`9396c3c`](https://github.com/justeattakeaway/pie/commit/9396c3c07fa3d08f3432524c2de5c182fe9a9604), [`f1b151b`](https://github.com/justeattakeaway/pie/commit/f1b151b69db048aa6c0668351d5d0f4ad2cde40c)]:
+  - @justeattakeaway/pie-icons-webc@1.14.0
+  - @justeattakeaway/pie-assistive-text@0.10.9
+  - @justeattakeaway/pie-breadcrumb@0.6.4
+  - @justeattakeaway/pie-chip@0.12.9
+  - @justeattakeaway/pie-icon-button@2.0.4
+  - @justeattakeaway/pie-link@1.2.8
+  - @justeattakeaway/pie-modal@1.9.1
+  - @justeattakeaway/pie-notification@0.14.9
+  - @justeattakeaway/pie-switch@2.0.5
+  - @justeattakeaway/pie-text-input@0.28.10
+  - @justeattakeaway/pie-toast@0.10.2
+  - @justeattakeaway/pie-checkbox@0.16.10
+  - @justeattakeaway/pie-checkbox-group@0.9.9
+  - @justeattakeaway/pie-radio-group@0.9.12
+  - @justeattakeaway/pie-select@0.6.9
+  - @justeattakeaway/pie-textarea@0.16.10
+  - @justeattakeaway/pie-cookie-banner@1.6.14
+  - @justeattakeaway/pie-toast-provider@0.6.3
+
 ## 1.42.2
 
 ### Patch Changes
