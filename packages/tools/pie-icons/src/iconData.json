@@ -1457,6 +1457,10 @@
                     "displayName": "Toilet"
                 },
                 {
+                    "name": "tool",
+                    "displayName": "Tool"
+                },
+                {
                     "name": "toys-games",
                     "displayName": "Toys Games"
                 },
@@ -1995,6 +1999,14 @@
                 {
                     "name": "food-ready",
                     "displayName": "Food Ready"
+                },
+                {
+                    "name": "local-hero",
+                    "displayName": "Local Hero"
+                },
+                {
+                    "name": "local-hero-filled",
+                    "displayName": "Local Hero Filled"
                 },
                 {
                     "name": "management",
