@@ -126,7 +126,7 @@ const buildTokenListElements = ({
     <li class="c-tokensTable-row c-tokensTable-item" style="${getExampleColumnSize(tokenType)}">
         ${tokenExampleElement}
         <div class="c-tokensTable-content">
-            <span class="c-tokensTable-displayName">${tokenDisplayName}${isDeprecated ? `<pie-tag class="c-tokensTable-tokenStatus" variant="error">Deprecated</pie-tag>` : ''}</span>
+            <span class="c-tokensTable-displayName">${tokenDisplayName}${isDeprecated ? '<pie-tag class="c-tokensTable-tokenStatus" variant="error">Deprecated</pie-tag>' : ''}</span>
             ${tokenDescription}
         </div>
         ${tokenPill}

@@ -14,11 +14,11 @@ const normaliseData = (data) => {
 const createTokenList = (tokens, tokenType, path, category, categoryData) => {
     const tokenData = getTokenData(tokens, tokenType, path, category)
         .sort((a, b) => (a.tokenMetadata.status?.name === 'deprecated') - (b.tokenMetadata.status?.name === 'deprecated'));
-    
+
     const data = {
         rows: tokenData.map((item) => {
             const isDeprecated = item.tokenMetadata.status?.name === 'deprecated';
-            return [`${item.tokenScssName} ${isDeprecated ? `<pie-tag class="token-status" variant="error">Deprecated</pie-tag>` : ''}`, item.tokenDescription];
+            return [`${item.tokenScssName} ${isDeprecated ? '<pie-tag class="token-status" variant="error">Deprecated</pie-tag>' : ''}`, item.tokenDescription];
         }),
     };
 
