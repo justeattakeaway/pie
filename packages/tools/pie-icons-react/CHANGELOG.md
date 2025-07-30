@@ -1,5 +1,30 @@
 # Changelog
 
+## 5.15.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2498](https://github.com/justeattakeaway/pie/pull/2498)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Miscellaneous
+
+  - tool-large
+  - tool
+
+  ## Restaurant
+
+  - local-hero-filled-large
+  - local-hero-filled
+  - local-hero-large
+  - local-hero
+
+  [Updated] - Icons
+
+  ## Miscellaneous
+
+  - weight-large
+  - weight
+
 ## 5.14.0
 
 ### Minor Changes
