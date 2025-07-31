@@ -1,5 +1,4 @@
 @use 'sass:color';
-@use '../fozzie-config' as f;
 @use '@justeattakeaway/pie-css/scss' as p;
 
 $toggle-bg: var(--dt-color-container-strong);
@@ -19,7 +18,7 @@ $toggle-item-color--hover: var(--dt-color-content-interactive-dark);
 $toggle-item-color--active: var(--dt-color-content-interactive-dark);
 $toggle-item-color--checked: var(--dt-color-content-interactive-dark);
 $toggle-item-elevation: none;
-$toggle-item-elevation--checked: f.$elevation-02;
+$toggle-item-elevation--checked: var(--dt-elevation-below-10);
 
 .c-toggle {
     display: inline-flex;
