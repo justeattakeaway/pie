@@ -120,12 +120,13 @@ const buildTokenListElements = ({
     // We would likely wanted to move them into a colour specific handler similar to how we build
     // the colour token example. Please consider them placeholder for now.
     const tokenDescription = buildTokenDescriptionElement(tokenMetadata);
+    const isDeprecated = tokenMetadata.status?.name === 'deprecated';
 
     return deindentHTML(`
     <li class="c-tokensTable-row c-tokensTable-item" style="${getExampleColumnSize(tokenType)}">
         ${tokenExampleElement}
         <div class="c-tokensTable-content">
-            <span class="c-tokensTable-displayName">${tokenDisplayName}</span>
+            <span class="c-tokensTable-displayName">${tokenDisplayName}${isDeprecated ? '<pie-tag class="c-tokensTable-tokenStatus" variant="error">Deprecated</pie-tag>' : ''}</span>
             ${tokenDescription}
         </div>
         ${tokenPill}
