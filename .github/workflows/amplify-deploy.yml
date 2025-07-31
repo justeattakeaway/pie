@@ -41,6 +41,8 @@ on:
         required: false
         type: string
 
+permissions: read-all
+
 env:
   AMPLIFY_ID: ${{ inputs.amplify-app-id }}
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}

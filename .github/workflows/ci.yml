@@ -18,6 +18,8 @@ on:
     branches:
       - main
 
+permissions: read-all
+
 concurrency:
   group: CI-${{ github.ref }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
