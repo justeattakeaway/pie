@@ -141,3 +141,5 @@ pie-list:
   - packages/components/pie-list/**/*
 pie-avatar:
   - packages/components/pie-avatar/**/*
+pie-data-table:
+  - packages/components/pie-data-table/**/*
