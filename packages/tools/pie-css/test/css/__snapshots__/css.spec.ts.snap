@@ -554,7 +554,19 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-elevation-box-shadow-10: 0px -4px 6px 0px rgba(0, 0, 0, 0.08),0px -2px 12px -2px rgba(0, 0, 0, 0.32),0px -3px 6px 0px rgba(0, 0, 0, 0.24);
     --dt-elevation-box-shadow-11: 0px 0px 1px 0px rgba(0, 0, 0, 0.12),0px 1px 5px 0px rgba(0, 0, 0, 0.04),0px 0px 4px 0px rgba(0, 0, 0, 0.1);
     --dt-elevation-box-shadow-12: 0px 0px 1px 0px rgba(0, 0, 0, 0.24),0px 1px 5px 0px rgba(0, 0, 0, 0.08),0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+    --dt-elevation-box-shadow-a: 0px 2px 6px 0px rgba(0, 0, 0, 0.01),0px 2px 12px 0px rgba(0, 0, 0, 0.03),0px 2px 6px 2px rgba(0, 0, 0, 0.02);
+    --dt-elevation-box-shadow-b: 0px 4px 6px 0px rgba(0, 0, 0, 0.02),0px 2px 12px 2px rgba(0, 0, 0, 0.04),0px 3px 4px 0px rgba(0, 0, 0, 0.04);
+    --dt-elevation-box-shadow-c: 0px -3px 6px 0px rgba(0, 0, 0, 0.02),0px -2px 12px -2px rgba(0, 0, 0, 0.03),0px -4px 6px 0px rgba(0, 0, 0, 0.01);
+    --dt-elevation-box-shadow-d: 0px 2px 6px 0px rgba(0, 0, 0, 0.04),0px 2px 12px 0px rgba(0, 0, 0, 0.12),0px 2px 6px 2px rgba(0, 0, 0, 0.08),inset 0px 0.5px 0px 0px rgba(255, 255, 255, 0.05),inset 0px 0px 0.5px 0px rgba(255, 255, 255, 0.05);
+    --dt-elevation-box-shadow-e: 0px 4px 6px 0px rgba(0, 0, 0, 0.08),0px 2px 12px 2px rgba(0, 0, 0, 0.24),0px 3px 4px 0px rgba(0, 0, 0, 0.16),inset 0px 0.5px 1px 0px rgba(255, 255, 255, 0.08),inset 0px 0px 0.5px 0px rgba(255, 255, 255, 0.12);
+    --dt-elevation-box-shadow-f: 0px -3px 6px 0px rgba(0, 0, 0, 0.12),0px -2px 12px -2px rgba(0, 0, 0, 0.24),0px -4px 6px 0px rgba(0, 0, 0, 0.06),inset 0px -0.5px 1px 0px rgba(255, 255, 255, 0.08),inset 0px 0px 0.5px 0px rgba(255, 255, 255, 0.12);
     /* Alias tokens - Elevation */
+    --dt-elevation-below-10: var(--dt-elevation-box-shadow-a);
+    --dt-elevation-below-20: var(--dt-elevation-box-shadow-b);
+    --dt-elevation-above-20: var(--dt-elevation-box-shadow-c);
+    --dt-elevation-inverse-below-10: var(--dt-elevation-box-shadow-d);
+    --dt-elevation-inverse-below-20: var(--dt-elevation-box-shadow-e);
+    --dt-elevation-inverse-above-20: var(--dt-elevation-box-shadow-f);
     --dt-elevation-01: var(--dt-elevation-box-shadow-01);
     --dt-elevation-02: var(--dt-elevation-box-shadow-02);
     --dt-elevation-03: var(--dt-elevation-box-shadow-03);
@@ -957,6 +969,12 @@ html[data-highcontrast-enabled] {
 /* Dark elevation theme */
 @media (prefers-color-scheme: dark) {
     html[data-darkmode-enabled] {
+        --dt-elevation-below-10: var(--dt-elevation-box-shadow-d);
+        --dt-elevation-below-20: var(--dt-elevation-box-shadow-e);
+        --dt-elevation-above-20: var(--dt-elevation-box-shadow-f);
+        --dt-elevation-inverse-below-10: var(--dt-elevation-box-shadow-a);
+        --dt-elevation-inverse-below-20: var(--dt-elevation-box-shadow-b);
+        --dt-elevation-inverse-above-20: var(--dt-elevation-box-shadow-c);
         --dt-elevation-01: var(--dt-elevation-box-shadow-06);
         --dt-elevation-02: var(--dt-elevation-box-shadow-07);
         --dt-elevation-03: var(--dt-elevation-box-shadow-08);
