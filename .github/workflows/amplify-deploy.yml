@@ -43,6 +43,8 @@ on:
 
 permissions:
   contents: read
+  deployments: write
+  statuses: write
 
 env:
   AMPLIFY_ID: ${{ inputs.amplify-app-id }}
