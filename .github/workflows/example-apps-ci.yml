@@ -7,6 +7,11 @@ on:
     branches:
       - main
 
+permissions: 
+  contents: read
+  deployments: write
+  statuses: write
+
 concurrency:
   group: CI-Example-Apps-${{ github.ref }}
   cancel-in-progress: true
@@ -16,8 +21,6 @@ env:
 
 jobs:
   build-example-apps:
-    permissions:
-      contents: read
     strategy:
       matrix:
         include:
