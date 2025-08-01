@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-textarea",
   "description": "PIE Design System Textarea built using Web Components",
-  "version": "0.16.10",
+  "version": "0.16.11",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -40,13 +40,13 @@
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
     "@justeattakeaway/pie-components-config": "0.21.0",
-    "@justeattakeaway/pie-css": "0.18.0",
+    "@justeattakeaway/pie-css": "0.19.0",
     "@justeattakeaway/pie-monorepo-utils": "0.6.0",
     "@types/lodash.throttle": "4.1.9",
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-assistive-text": "0.10.9",
+    "@justeattakeaway/pie-assistive-text": "0.10.10",
     "@justeattakeaway/pie-webc-core": "1.0.0",
     "lodash.throttle": "4.1.1"
   },
