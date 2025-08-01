@@ -1,5 +1,40 @@
 # Changelog
 
+## 1.43.0
+
+### Minor Changes
+
+- [Updated] - pie-design-tokens to `v7.2.0` to include a new set of elevation tokens ([#2499](https://github.com/justeattakeaway/pie/pull/2499)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Updated] - update components to use the new brand refresh elevation tokens ([#2504](https://github.com/justeattakeaway/pie/pull/2504)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - basic html markup for data table component ([#2494](https://github.com/justeattakeaway/pie/pull/2494)) by [@thejfreitas](https://github.com/thejfreitas)
+
+### Patch Changes
+
+- Updated dependencies [[`55c94d6`](https://github.com/justeattakeaway/pie/commit/55c94d610fa1b027d4b435640eeeb38fff0c5a1a), [`310b376`](https://github.com/justeattakeaway/pie/commit/310b3763c15a85e6a3a55e4c0cf41cb3db5bbe58), [`7031ae2`](https://github.com/justeattakeaway/pie/commit/7031ae2d37f9234108686a02cbb343ef4aab65c3), [`e78ae24`](https://github.com/justeattakeaway/pie/commit/e78ae24c8795104b06cc10766896b15fa042385d)]:
+  - @justeattakeaway/pie-icons-webc@1.14.1
+  - @justeattakeaway/pie-modal@1.10.0
+  - @justeattakeaway/pie-css@0.19.0
+  - @justeattakeaway/pie-toast@0.11.0
+  - @justeattakeaway/pie-card@0.26.0
+  - @justeattakeaway/pie-data-table@0.1.0
+  - @justeattakeaway/pie-assistive-text@0.10.10
+  - @justeattakeaway/pie-breadcrumb@0.6.5
+  - @justeattakeaway/pie-chip@0.12.10
+  - @justeattakeaway/pie-icon-button@2.0.5
+  - @justeattakeaway/pie-link@1.2.9
+  - @justeattakeaway/pie-notification@0.14.10
+  - @justeattakeaway/pie-switch@2.0.6
+  - @justeattakeaway/pie-text-input@0.28.11
+  - @justeattakeaway/pie-cookie-banner@1.6.15
+  - @justeattakeaway/pie-checkbox@0.16.11
+  - @justeattakeaway/pie-checkbox-group@0.9.10
+  - @justeattakeaway/pie-radio-group@0.9.13
+  - @justeattakeaway/pie-select@0.6.10
+  - @justeattakeaway/pie-textarea@0.16.11
+  - @justeattakeaway/pie-toast-provider@0.6.4
+
 ## 1.42.3
 
 ### Patch Changes

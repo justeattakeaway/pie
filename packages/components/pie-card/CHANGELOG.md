@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-card
 
+## 0.26.0
+
+### Minor Changes
+
+- [Updated] - update components to use the new brand refresh elevation tokens ([#2504](https://github.com/justeattakeaway/pie/pull/2504)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.25.5
 
 ### Patch Changes

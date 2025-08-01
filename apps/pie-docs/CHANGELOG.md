@@ -1,5 +1,21 @@
 # Changelog
 
+## 4.46.0
+
+### Minor Changes
+
+- [Updated] - update components to use the new brand refresh elevation tokens ([#2504](https://github.com/justeattakeaway/pie/pull/2504)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Updated] - pie-design-tokens to `v7.2.0` to include a new set of elevation tokens ([#2499](https://github.com/justeattakeaway/pie/pull/2499)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Updated] - elevation docs to the new brand refresh specs.
+
+### Patch Changes
+
+- Updated dependencies [[`310b376`](https://github.com/justeattakeaway/pie/commit/310b3763c15a85e6a3a55e4c0cf41cb3db5bbe58)]:
+  - @justeattakeaway/pie-css@0.19.0
+  - @justeattakeaway/pie-webc@0.7.8
+
 ## 4.45.2
 
 ### Patch Changes

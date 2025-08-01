@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.19.0
+
+### Minor Changes
+
+- [Updated] - pie-design-tokens to `v7.2.0` to include a new set of elevation tokens ([#2499](https://github.com/justeattakeaway/pie/pull/2499)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.18.0
 
 ### Minor Changes
