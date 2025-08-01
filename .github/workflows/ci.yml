@@ -20,8 +20,6 @@ on:
 
 permissions: 
   contents: read
-  deployments: write
-  statuses: write
 
 concurrency:
   group: CI-${{ github.ref }}

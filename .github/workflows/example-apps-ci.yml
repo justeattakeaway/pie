@@ -9,8 +9,6 @@ on:
 
 permissions: 
   contents: read
-  deployments: write
-  statuses: write
 
 concurrency:
   group: CI-Example-Apps-${{ github.ref }}
