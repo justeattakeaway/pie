@@ -18,6 +18,11 @@ on:
     branches:
       - main
 
+permissions: 
+  contents: read
+  deployments: write
+  statuses: write
+
 concurrency:
   group: CI-${{ github.ref }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}

@@ -41,6 +41,11 @@ on:
         required: false
         type: string
 
+permissions:
+  contents: read
+  deployments: write
+  statuses: write
+
 env:
   AMPLIFY_ID: ${{ inputs.amplify-app-id }}
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
