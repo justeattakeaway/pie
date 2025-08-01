@@ -36,6 +36,10 @@ jobs:
 
   deploy-example-apps:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      deployments: write
+      statuses: write
     strategy:
       matrix:
         include:
