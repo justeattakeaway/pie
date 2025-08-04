@@ -56,10 +56,6 @@ env:
 jobs:
   deploy:
     runs-on: ${{ inputs.os }}
-    permissions:
-      contents: read
-      deployments: write
-      statuses: write
     steps:
       # Process package name to remove prefix
       - name: Remove scope from package name
