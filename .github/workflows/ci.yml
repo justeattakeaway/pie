@@ -381,7 +381,7 @@ jobs:
       - lint-styles
       - lint-js
       - lint-workflows
-      - build-ubuntu-node-20
+      - build-ubuntu-node-22
       - build-windows-node-22
       - build-ubuntu-node-20
       - unit-tests
