@@ -153,7 +153,7 @@ jobs:
           bash <(curl --silent --show-error "https://raw.githubusercontent.com/rhysd/actionlint/${ACTIONLINT_VERSION}/scripts/download-actionlint.bash")
           ./actionlint -color
 
-  build-windows-node-20:
+  build-windows-node-22:
     uses: ./.github/workflows/install-build.yml
     with:
       os: windows-latest
@@ -382,7 +382,7 @@ jobs:
       - lint-js
       - lint-workflows
       - build-ubuntu-node-20
-      - build-windows-node-20
+      - build-windows-node-22
       - build-ubuntu-node-20
       - unit-tests
       - browser-tests-components
