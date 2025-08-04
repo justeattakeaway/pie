@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.14.1
+
+### Patch Changes
+
+- [Fixed] class prop behaviour to ensure base classes are never removed ([#2503](https://github.com/justeattakeaway/pie/pull/2503)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.14.0
 
 ### Minor Changes
