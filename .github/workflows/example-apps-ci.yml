@@ -22,9 +22,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - node-version: 20
+          - node-version: 22
             example-app: wc-react17
-          - node-version: 20
+          - node-version: 22
             example-app: wc-react18
     name: Build ${{matrix.example-app}} - Node ${{ matrix.node-version }}
     uses: ./.github/workflows/install-build.yml
@@ -43,13 +43,13 @@ jobs:
     strategy:
       matrix:
         include:
-          - node-version: 20
+          - node-version: 22
             amplify-app-id: d2a3kuvjs3esad
             build-script: build:examples
             dist-folder: ./apps/examples/wc-react17/dist
             example-app: wc-react17
 
-          - node-version: 20
+          - node-version: 22
             amplify-app-id: d1zlc7g0rtfm9g
             build-script: build:examples
             dist-folder: ./apps/examples/wc-react18/dist
