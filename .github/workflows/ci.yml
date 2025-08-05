@@ -18,7 +18,7 @@ on:
     branches:
       - main
 
-permissions: 
+permissions:
   contents: read
 
 concurrency:
@@ -61,6 +61,7 @@ env:
   PERCY_TOKEN_PIE_LIST: ${{ secrets.PERCY_TOKEN_PIE_LIST }}
   PERCY_TOKEN_PIE_AVATAR: ${{ secrets.PERCY_TOKEN_PIE_AVATAR }}
   PERCY_TOKEN_PIE_DATA_TABLE: ${{ secrets.PERCY_TOKEN_PIE_DATA_TABLE }}
+  PERCY_TOKEN_PIE_TABS: ${{ secrets.PERCY_TOKEN_PIE_TABS }}
 
 jobs:
   check-change-type:
