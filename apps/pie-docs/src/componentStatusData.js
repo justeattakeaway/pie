@@ -79,7 +79,7 @@ const rows = [
         },
         {
             resource: resourceTypes.REACT,
-            link: 'https://snacks.takeaway.com/portal/components/bubble/',
+            link: 'https://snacks.takeaway.com/portal/components/toggler/',
             status: statusTypes.STABLE,
         },
         {
@@ -222,7 +222,7 @@ const rows = [
         },
         {
             resource: resourceTypes.REACT,
-            link: 'https://snacks.takeaway.com/portal/components/bubble/',
+            link: 'https://snacks.takeaway.com/portal/components/badge/',
             status: statusTypes.STABLE,
         },
         {
@@ -1329,7 +1329,7 @@ const rows = [
         },
         {
             resource: resourceTypes.REACT,
-            link: 'https://snacks.takeaway.com/portal/components/modal/overview/',
+            link: 'https://snacks.takeaway.com/portal/components/modal/',
             status: statusTypes.STABLE,
         },
         {
