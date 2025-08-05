@@ -5,7 +5,7 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-notification';
 import {
-    type NotificationProps as NotificationBaseProps, 
+    type NotificationProps as NotificationBaseProps,
     variants,
     headingLevels,
     positions,
