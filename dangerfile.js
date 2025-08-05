@@ -1,11 +1,21 @@
 import { danger, fail } from 'danger';
 const { execSync } = require('child_process');
+const { validatePrTitle } = require('./packages/tools/pie-monorepo-utils/git-hooks/git-hooks-utils.js');
 
 const { pr } = danger.github;
 const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
 
 const isDependabotPR = pr.user.login === 'dependabot[bot]';
 const isPieBotPR = pr.user.login === 'pie-design-system-bot';
+
+// PR Title validation (only for non-bot PRs)
+if (!isDependabotPR && !isPieBotPR) {
+    const title = pr.title;
+    
+    if (!validatePrTitle(title)) {
+        fail(`❌ **PR Title Validation Failed**\n\nThe PR title should follow the same convention used for commits, e.g.:\n\`type(scope): TICKET-123 title\` where \`TICKET-123\` is a valid ticket ID.\n\n**Note:** Ticket IDs cannot be all zeros (e.g. DSW-000 is not allowed).\n\n**Current title:** \`${title}\``);
+    }
+}
 
 // PIE Webc major versioning check (only for non-bot PRs)
 if (!isDependabotPR && !isPieBotPR) {

@@ -2,7 +2,7 @@ import {
     describe, it, expect,
 } from 'vitest';
 import {
-    getTicketIdFromBranchName, validateBranchName, verifyCommitMessage,
+    getTicketIdFromBranchName, validateBranchName, validatePrTitle,
 } from '../../git-hooks/git-hooks-utils';
 
 describe('getTicketIdFromBranchName', () => {
@@ -21,16 +21,18 @@ describe('getTicketIdFromBranchName', () => {
 
                 expect(getTicketIdFromBranchName('random-string')).toBe(expected);
                 expect(getTicketIdFromBranchName('jira000-branch-name')).toBe(expected);
+                expect(getTicketIdFromBranchName('dsw-000-branch-name')).toBe(expected);
+                expect(getTicketIdFromBranchName('jira-000-branch-name')).toBe(expected);
             });
         });
     });
 
     describe('when called with a valid argument', () => {
         it('should return the ticket id in upper case', () => {
-            const expected = 'JIRA-1234';
-
-            expect(getTicketIdFromBranchName('jira-1234-branch-name')).toBe(expected);
-            expect(getTicketIdFromBranchName('JIRA-1234-BRANCH-NAME')).toBe(expected);
+            expect(getTicketIdFromBranchName('dsw-1234-branch-name')).toBe('DSW-1234');
+            expect(getTicketIdFromBranchName('DSW-1234-BRANCH-NAME')).toBe('DSW-1234');
+            expect(getTicketIdFromBranchName('abc-567-branch-name')).toBe('ABC-567');
+            expect(getTicketIdFromBranchName('ABC-567-BRANCH-NAME')).toBe('ABC-567');
         });
     });
 });
@@ -40,63 +42,49 @@ describe('validateBranchName', () => {
         describe('when the string doesnt have the expected format', () => {
             it('should return false', () => {
                 expect(validateBranchName('random-string')).toBe(false);
-                expect(validateBranchName('jira000-branch-name')).toBe(false);
+                expect(validateBranchName('dsw000-branch-name')).toBe(false);
+                expect(validateBranchName('abc000-branch-name')).toBe(false);
             });
         });
     });
 
     describe('when called with a valid argument', () => {
         it('should return true', () => {
-            expect(validateBranchName('jira-1234-branch-name')).toBe(true);
-            expect(validateBranchName('JIRA-1234-BRANCH-NAME')).toBe(true);
+            expect(validateBranchName('dsw-1234-branch-name')).toBe(true);
+            expect(validateBranchName('DSW-1234-BRANCH-NAME')).toBe(true);
+            expect(validateBranchName('abc-567-branch-name')).toBe(true);
+            expect(validateBranchName('ABC-567-BRANCH-NAME')).toBe(true);
         });
     });
 });
 
-describe('verifyCommitMessage', () => {
-    describe('when called with an incompatible argument', () => {
-        describe('when the arguments are missing', () => {
-            it('should throw an error', () => {
-                expect(() => verifyCommitMessage(undefined, 'JIRA-1234'))
-                    .toThrow(new Error('The commitMessage wasn\'t provided'));
-                expect(() => verifyCommitMessage('a commit message', undefined))
-                    .toThrow(new Error('The ticketId wasn\'t provided'));
-            });
+describe('validatePrTitle', () => {
+    describe('when called with invalid arguments', () => {
+        it('should return false for null/undefined', () => {
+            expect(validatePrTitle(null)).toBe(false);
+            expect(validatePrTitle(undefined)).toBe(false);
+            expect(validatePrTitle('')).toBe(false);
         });
-        describe('when the commit message doesnt have the expected format', () => {
-            it('should throw an error', () => {
-                expect(() => verifyCommitMessage('a commit message', 'JIRA-1234'))
-                    .toThrow(new Error('The commitMessage doesn\'t have the expected format. Example: type(scope): DSW-123 title'));
-            });
+
+        it('should return false for invalid formats', () => {
+            expect(validatePrTitle('invalid title')).toBe(false);
+            expect(validatePrTitle('feat(scope): title')).toBe(false);
+            expect(validatePrTitle('feat(scope): DSW-000 title')).toBe(false);
         });
     });
 
-    describe('when called with a valid argument', () => {
-        describe('when the commit message doesnt have a ticket id', () => {
-            it('should return the commit message with the ticket id', () => {
-                const expected = 'feat(package-name): JIRA-1234 commit message';
-                const received = verifyCommitMessage('feat(package-name): commit message', 'JIRA-1234');
-
-                expect(received).toBe(expected);
-            });
+    describe('when called with valid arguments', () => {
+        it('should return true for valid PR titles', () => {
+            expect(validatePrTitle('feat(pie-button): DSW-123 title')).toBe(true);
+            expect(validatePrTitle('fix(pie-button): DSW-456 fix bug')).toBe(true);
+            expect(validatePrTitle('feat(pie-button): ABC-789 title')).toBe(true);
+            expect(validatePrTitle('fix(pie-button): JIRA-101 fix bug')).toBe(true);
+            expect(validatePrTitle('docs(pie-storybook): ABC-202 update docs')).toBe(true);
         });
 
-        describe('when the commit message has a ticket id different from the one provided as argument', () => {
-            it('should return the commit message with the ticket id', () => {
-                const expected = 'feat(package-name): JIRA-1234 commit message';
-                const received = verifyCommitMessage('feat(package-name): DSW-0 commit message', 'JIRA-1234');
-
-                expect(received).toBe(expected);
-            });
-        });
-
-        describe('when the commit message a ticket id equal to the one provided as argument', () => {
-            it('should return the commit message with the ticket id', () => {
-                const expected = 'feat(package-name): JIRA-1234 commit message';
-                const received = verifyCommitMessage('feat(package-name): JIRA-1234 commit message', 'JIRA-1234');
-
-                expect(received).toBe(expected);
-            });
+        it('should return true for Version Packages', () => {
+            expect(validatePrTitle('Version Packages')).toBe(true);
         });
     });
 });
+
