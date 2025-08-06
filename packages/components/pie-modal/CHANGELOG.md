@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 1.10.1
+
+### Patch Changes
+
+- [Fixed] - Ensure that body scroll-locking is not stuck if the modal fails to query the underlying dialog element during the disconnectedCallback lifecycle method. ([#2514](https://github.com/justeattakeaway/pie/pull/2514)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.10.0
 
 ### Minor Changes

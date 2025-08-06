@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-switch
 
+## 2.0.7
+
+### Patch Changes
+
+- [Fixed] - unintended animation on component mount ([#2510](https://github.com/justeattakeaway/pie/pull/2510)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 2.0.6
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.84.0
+
+### Minor Changes
+
+- [Updated] - Volta config for Node 22 support ([#2507](https://github.com/justeattakeaway/pie/pull/2507)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.83.1
 
 ### Patch Changes
