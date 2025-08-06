@@ -8,7 +8,7 @@ export class ModalMissingDialogSimulationPage extends BasePage {
 
     constructor (page: Page) {
         super(page, 'modal--missing-dialog-simulation');
-        this.runTestButton = page.locator('[data-test-id="run-test-button"]');
+        this.runTestButton = page.getByTestId('run-test-button');
         this.topOfPageCopy = page.getByText('Top of page copy');
         this.bottomOfPageCopy = page.getByText('Bottom of page copy');
     }
