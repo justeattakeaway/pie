@@ -487,4 +487,49 @@ test.describe('PieRadio - Component tests', () => {
             });
         });
     });
+
+    test.describe('Programmatic clicks', () => {
+        test('programmatic clicks on the host element check the radio', async ({ page }) => {
+            // Arrange
+            const radioDefaultPage = new BasePage(page, 'radio--default');
+            await radioDefaultPage.load();
+
+            // Act
+            const radioComponent = page.getByTestId(radio.selectors.container.dataTestId);
+            await expect.soft(radioComponent).not.toBeChecked();
+            await radioComponent.click();
+
+            // Assert
+            await expect(radioComponent).toBeChecked();
+        });
+
+        test('programmatic clicks on the input element check the radio', async ({ page }) => {
+            // Arrange
+            const radioDefaultPage = new BasePage(page, 'radio--default');
+            await radioDefaultPage.load();
+
+            // Act
+            const radioInput = page.getByTestId(radio.selectors.input.dataTestId);
+            await expect.soft(radioInput).not.toBeChecked();
+            await radioInput.click();
+
+            // Assert
+            await expect(radioInput).toBeChecked();
+        });
+
+        test('programmatic clicks on the label check the radio', async ({ page }) => {
+            // Arrange
+            const radioDefaultPage = new BasePage(page, 'radio--default');
+            await radioDefaultPage.load();
+
+            // Act
+            const radioComponent = page.getByTestId(radio.selectors.container.dataTestId);
+            await expect.soft(radioComponent).not.toBeChecked();
+            const radioLabel = radioComponent.locator('label');
+            await radioLabel.click();
+
+            // Assert
+            await expect(radioComponent).toBeChecked();
+        });
+    });
 });
