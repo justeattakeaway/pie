@@ -201,7 +201,6 @@ jobs:
     permissions:
       contents: read
       deployments: write
-      statuses: write
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
@@ -221,7 +220,6 @@ jobs:
     permissions:
       contents: read
       deployments: write
-      statuses: write
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
@@ -298,7 +296,6 @@ jobs:
     permissions:
       contents: read
       deployments: write
-      statuses: write
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
