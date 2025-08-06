@@ -39,7 +39,6 @@ jobs:
     permissions:
       contents: read
       deployments: write
-      statuses: write
     strategy:
       matrix:
         include:
