@@ -1,7 +1,46 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 :host {
-    // Note: For consistency sake, the recommended display should be either
-    // "block" or "inline-block", otherwise it can be ommited for floating elements
     display: block;
+}
+
+.c-data-table {
+  --data-table-background-color: var(--dt-color-container-default);
+  --data-table-background-hover-or-active: var(--dt-color-container-subtle);
+  --data-table-border-color: var(--dt-color-border-default);
+  --data-table-border-radius: var(--dt-radius-rounded-c);
+  --data-table-text-color: var(--dt-color-content-default);
+
+  background-color: var(--data-table-background-color);
+  border: 1px solid var(--data-table-border-color);
+  border-radius: var(--data-table-border-radius);
+  color: var(--data-table-text-color);
+
+  width: 100%;
+  
+  table {
+    border-spacing: 0;
+  }
+
+  tbody {
+    overflow: auto;
+  }
+
+  tbody tr:hover {
+    background-color: var(--data-table-background-hover-or-active);
+  }
+}
+
+.c-data-table-header {
+  background-color: transparent;
+  font-weight: var(--dt-font-weight-bold);
+  color: var(--data-table-header-color);
+  text-align: left;
+  padding: var(--dt-spacing-c);
+  border-bottom: 1px solid var(--data-table-border-color);
+}
+
+.c-data-table-cell {
+  padding: var(--dt-spacing-c);
+  border-bottom: 1px solid var(--data-table-border-color);
 }
