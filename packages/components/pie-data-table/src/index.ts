@@ -8,7 +8,6 @@ import styles from './data-table.scss?inline';
 import {
     type DataTableProps,
     type Column,
-    defaultProps,
 } from './defs';
 
 // Valid values available to consumers
@@ -76,6 +75,7 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
 
         return html`
             <div class="${classMap(classes)}">
+                <slot name="table-header"></slot>
                 <table>
                     ${this.columns.length > 0 ? this.renderTableHeader() : nothing}
                     ${this.data.length > 0 ? this.renderTableRows() : nothing}

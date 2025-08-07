@@ -2,11 +2,25 @@ import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-data-table';
+import '@justeattakeaway/pie-data-table/dist/pie-data-table-header';
+import '@justeattakeaway/pie-button';
 import { type DataTableProps } from '@justeattakeaway/pie-data-table';
 
 import { createStory } from '../utilities';
 
 type DataTableStoryMeta = Meta<DataTableProps>;
+
+const headerSlot = html`
+    <pie-data-table-header
+        slot="table-header"
+        title="Data Table Title"
+        subtitle="Optional subtitle text"
+    >
+        <pie-button slot="action-button" variant="secondary" size="xsmall">Action</pie-button>
+        <pie-button slot="action-button" variant="secondary" size="xsmall">Action</pie-button>
+        <pie-button slot="action-button" variant="secondary" size="xsmall">Action</pie-button>
+    </pie-data-table-header>
+`;
 
 const sampleData = [
     {
@@ -138,20 +152,30 @@ const dataTableStoryMeta: DataTableStoryMeta = {
 export default dataTableStoryMeta;
 
 const Template = ({
-    columns, data, hasBorder, isStriped,
+    columns, data,
 }: DataTableProps) => html`
     <pie-data-table
         .columns="${columns}"
         .data="${data}"
-        ?hasBorder="${hasBorder}"
-        ?isStriped="${isStriped}"
         data-test-id="pie-data-table"
     ></pie-data-table>
 `;
 
+const TemplateWithHeader = ({
+    columns, data,
+}: DataTableProps) => html`
+    <pie-data-table
+        .columns="${columns}"
+        .data="${data}"
+        data-test-id="pie-data-table"
+    >
+        ${headerSlot}
+    </pie-data-table>
+`;
+
 export const Default = createStory<DataTableProps>(Template, defaultArgs)();
 
-export const WithData = createStory<DataTableProps>(Template, {
+export const WithData = createStory<DataTableProps>(TemplateWithHeader, {
     columns: sampleColumns,
     data: sampleData,
 })();
