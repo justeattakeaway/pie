@@ -71,6 +71,11 @@ export class PieRadio extends FormControlMixin(RtlMixin(PieElement)) implements 
         const { signal } = this._abortController;
         this.setAttribute('role', 'radio');
         this.addEventListener('pie-radio-group-disabled', (e: CustomEventInit) => { this._disabledByParent = e.detail.disabled; }, { signal });
+
+        // This is required to ensure that programmatic clicks correctly select the radio input in the template. This is primarily
+        // how screen readers such as Apple VoiceOver interact with the component.
+        // Without this, double tapping the radio input would not select it when using VoiceOver.
+        this.addEventListener('click', this._handleClick, { signal });
     }
 
     disconnectedCallback () : void {
@@ -133,6 +138,22 @@ export class PieRadio extends FormControlMixin(RtlMixin(PieElement)) implements 
         this._handleFormAssociation();
     }
 
+    // Triggers a programmatic click on the  underlying radio input.
+    // This is primarily used to ensure that the radio input is selected when using screenreaders like Apple VoiceOver.
+    private _handleClick (event: MouseEvent): void {
+        // This guard prevents an infinite loop by ignoring the programmatic click
+        // that this handler generates as it bubbles back up from the internal input.
+        if (event.composedPath()[0] === this._radio) {
+            return;
+        }
+
+        if (this.disabled || this._disabledByParent) {
+            return;
+        }
+
+        this._radio.click();
+    }
+
     updated () {
         // Ensure aria-checked reflects the checked state
         this.setAttribute('aria-checked', String(this.checked));
@@ -161,8 +182,11 @@ export class PieRadio extends FormControlMixin(RtlMixin(PieElement)) implements 
             'c-radio--allow-animation': _isAnimationAllowed,
         };
 
+        // NOTE: The label element here does not require a `for` attribute. This is because the click logic is handled by the component itself.
+        // Adding a `for` attribute would cause multiple click events to be fired which could lead to unexpected behaviour that might impact accessibility, performance and analytics.
+        // We still use a label element for good semantics.
         return html`
-        <label class=${classMap(classes)} for="radioId">
+        <label class=${classMap(classes)}>
             <input
                 tabindex="-1"
                 class="c-radio-input"
