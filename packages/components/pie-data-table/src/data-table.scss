@@ -17,9 +17,11 @@
   color: var(--data-table-text-color);
 
   width: 100%;
+  overflow: hidden;
   
   table {
     border-spacing: 0;
+    width: 100%;
   }
 
   tbody {
@@ -36,11 +38,11 @@
   font-weight: var(--dt-font-weight-bold);
   color: var(--data-table-header-color);
   text-align: left;
-  padding: var(--dt-spacing-c);
+  padding: var(--dt-spacing-d);
   border-bottom: 1px solid var(--data-table-border-color);
 }
 
 .c-data-table-cell {
-  padding: var(--dt-spacing-c);
+  padding: var(--dt-spacing-d);
   border-bottom: 1px solid var(--data-table-border-color);
 }
