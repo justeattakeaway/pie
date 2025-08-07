@@ -23,8 +23,8 @@ describe('commitlint-plugin-pie', () => {
 
         it('should fail invalid commit messages', () => {
             const invalidMessages = [
-              '(pie-button): DSW-123 missing type',
-              'feat: DSW-123 missing scope',
+                '(pie-button): DSW-123 missing type',
+                'feat: DSW-123 missing scope',
                 'feat(pie-button): missing ticket',
                 'feat(pie-button): DSW-000 invalid ticket',
                 'feat(pie-button): ABC-000 invalid ticket',
