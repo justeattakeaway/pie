@@ -1,6 +1,6 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-export const dataTableHeaderEmphasis = ['subtle', 'strong'];
+export const dataTableHeaderVariant = ['subtle', 'strong'];
 
 export interface DataTableHeaderProps {
   /**
@@ -14,9 +14,9 @@ export interface DataTableHeaderProps {
   /**
    * Emphasis level for the header
    */
-  emphasis?: typeof dataTableHeaderEmphasis[number];
+  variant?: typeof dataTableHeaderVariant[number];
 }
 
 export const defaultProps: ComponentDefaultProps<DataTableHeaderProps, keyof Omit<DataTableHeaderProps, 'title' | 'subtitle'>> = {
-    emphasis: 'subtle',
+    variant: 'subtle',
 };

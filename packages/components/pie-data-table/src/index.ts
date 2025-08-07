@@ -33,19 +33,56 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
     public data: Record<string, unknown>[] = [];
 
     /**
+     * Renders a header cell for the table
+     * @param column - The column definition to render
+     */
+    private renderHeaderCell (column: Column) {
+        const { width, heading, textAlign } = column;
+        const style = width ? `width: ${width}` : nothing;
+        const classes = {
+            'c-data-table-header': true,
+            'c-data-table-header-text-align--left': textAlign === 'left',
+            'c-data-table-header-text-align--right': textAlign === 'right',
+            'c-data-table-header-text-align--center': textAlign === 'center',
+        };
+
+        return html`
+            <th style="${style}" class="${classMap(classes)}">
+                ${heading}
+            </th>
+        `;
+    }
+
+    /**
      * Renders the table header
      */
     private renderTableHeader () {
         return html`
             <thead>
                 <tr>
-                    ${this.columns.map((column) => html`
-                        <th class="c-data-table-header">
-                            ${column.heading}
-                        </th>
-                    `)}
+                    ${this.columns.map((column) => this.renderHeaderCell(column))}
                 </tr>
             </thead>
+        `;
+    }
+
+    /**
+     * Renders a table cell for the given column and row
+     * @param column - The column definition to render
+     * @param row - The data object for the current row
+     */
+    private renderTableCell (column: Column, row: Record<string, unknown>) {
+        const classes = {
+            'c-data-table-cell': true,
+            'c-data-table-cell-text-align--left': column.textAlign === 'left',
+            'c-data-table-cell-text-align--right': column.textAlign === 'right',
+            'c-data-table-cell-text-align--center': column.textAlign === 'center',
+        };
+
+        return html`
+            <td class="${classMap(classes)}">
+                ${column.accessor ? row[column.accessor] : ''}
+            </td>
         `;
     }
 
@@ -57,11 +94,7 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
             <tbody>
                 ${this.data.map((row) => html`
                     <tr class="c-data-table-row">
-                        ${this.columns.map((column) => html`
-                            <td class="c-data-table-cell">
-                                ${column.accessor ? row[column.accessor] : ''}
-                            </td>
-                        `)}
+                        ${this.columns.map((column) => this.renderTableCell(column, row))}
                     </tr>
                 `)} 
             </tbody>

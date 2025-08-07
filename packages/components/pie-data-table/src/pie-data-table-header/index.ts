@@ -7,7 +7,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import styles from './data-table-header.scss?inline';
 import {
     type DataTableHeaderProps,
-    dataTableHeaderEmphasis,
+    dataTableHeaderVariant,
     defaultProps,
 } from './defs';
 
@@ -37,8 +37,8 @@ export class PieDataTableHeader extends PieElement implements DataTableHeaderPro
      * Emphasis level for the header
      */
     @property({ type: String })
-    @validPropertyValues(componentSelector, dataTableHeaderEmphasis, defaultProps.emphasis)
-    public emphasis?: typeof defaultProps.emphasis;
+    @validPropertyValues(componentSelector, dataTableHeaderVariant, defaultProps.variant)
+    public variant?: typeof defaultProps.variant;
 
     @state()
     private hasActionButtons = false;
@@ -54,11 +54,11 @@ export class PieDataTableHeader extends PieElement implements DataTableHeaderPro
     }
 
     render () {
-        const { title, subtitle, emphasis } = this;
+        const { title, subtitle, variant } = this;
 
         const classes = {
             'c-data-table-header': true,
-            'c-data-table-header--strong': emphasis === 'strong',
+            'c-data-table-header--strong': variant === 'strong',
         };
 
         return html`

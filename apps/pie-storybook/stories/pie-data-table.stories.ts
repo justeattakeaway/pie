@@ -22,6 +22,19 @@ const headerSlot = html`
     </pie-data-table-header>
 `;
 
+const headerStrongSlot = html`
+    <pie-data-table-header
+        slot="table-header"
+        title="Data Table Title"
+        subtitle="Optional subtitle text"
+        variant="strong"
+    >
+        <pie-button slot="action-button" variant="secondary" size="xsmall">Action</pie-button>
+        <pie-button slot="action-button" variant="secondary" size="xsmall">Action</pie-button>
+        <pie-button slot="action-button" variant="secondary" size="xsmall">Action</pie-button>
+    </pie-data-table-header>
+`;
+
 const sampleData = [
     {
         name: 'John Doe',
@@ -116,10 +129,27 @@ const sampleData = [
 ];
 
 const sampleColumns = [
-    { id: 'name', heading: 'Name', accessor: 'name' },
-    { id: 'age', heading: 'Age', accessor: 'age' },
-    { id: 'email', heading: 'Email', accessor: 'email' },
-    { id: 'department', heading: 'Department', accessor: 'department' },
+    {
+        id: 'name',
+        heading: 'Name',
+        accessor: 'name',
+    },
+    {
+        id: 'age',
+        heading:  'Age',
+        accessor: 'age',
+    },
+    {
+        id: 'email',
+        heading: 'Email',
+        accessor: 'email',
+    },
+    {
+        id: 'department',
+        heading:  'Department',
+        textAlign: 'right',
+        accessor: 'department',
+    },
 ];
 
 const defaultArgs: DataTableProps = {
@@ -173,9 +203,29 @@ const TemplateWithHeader = ({
     </pie-data-table>
 `;
 
-export const Default = createStory<DataTableProps>(Template, defaultArgs)();
+const TemplateWithStrongHeader = ({
+    columns, data,
+}: DataTableProps) => html`
+    <pie-data-table
+        .columns="${columns}"
+        .data="${data}"
+        data-test-id="pie-data-table"
+    >
+        ${headerStrongSlot}
+    </pie-data-table>
+`;
 
-export const WithData = createStory<DataTableProps>(TemplateWithHeader, {
+export const NoHeader = createStory<DataTableProps>(Template, {
+    columns: sampleColumns,
+    data: sampleData,
+})();
+
+export const WithHeader = createStory<DataTableProps>(TemplateWithHeader, {
+    columns: sampleColumns,
+    data: sampleData,
+})();
+
+export const WithStrongHeader = createStory<DataTableProps>(TemplateWithStrongHeader, {
     columns: sampleColumns,
     data: sampleData,
 })();
@@ -184,3 +234,5 @@ export const EmptyTable = createStory<DataTableProps>(Template, {
     columns: sampleColumns,
     data: [],
 })();
+
+export const EmptyData = createStory<DataTableProps>(Template, defaultArgs)();

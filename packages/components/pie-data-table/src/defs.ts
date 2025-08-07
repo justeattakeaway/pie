@@ -10,6 +10,15 @@ export interface Column {
    * */
   heading: string;
   /**
+   * Optional property to specify the text alignment of the column
+   * */
+  textAlign?: 'left' | 'right' | 'center';
+
+  /**
+   * Optional property to specify the width of the column
+   * */
+  width?: string;
+  /**
    * Optional property to specify the key in the data object to display in this column
    * */
   accessor?: string;
