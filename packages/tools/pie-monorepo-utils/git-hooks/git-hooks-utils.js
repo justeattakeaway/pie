@@ -2,9 +2,9 @@ const TICKET_PATTERNS = {
     // Case insensitive branch name pattern: supports multiple ticket formats like dsw-123, abc-789
     BRANCH: /(^[a-z]{2,4}-(\d{1,7}))-\w.*/i,
     // Case insensitive commit message pattern: type(scope): TICKET-123 title (supports multiple ticket formats)
-    COMMIT: /^(\w*)\((\w.*)\): ([A-Z]{2,4}-(?!0+)\d{1,7}) (\w.*)$/i,
+    COMMIT: /^(\w+)\((\w.*)\): ([A-Z]{2,4}-(?!0+)\d{1,7}) (\w.*)$/i,
     // PR title pattern: type(scope): TICKET-123 title (supports multiple ticket formats)
-    PR_TITLE: /^(\w*)\((\w.*)\): ([A-Z]{2,4}-(?!0+)\d{1,7}) (\w.*)$|^Version Packages.*/,
+    PR_TITLE: /^(\w+)\((\w.*)\): ([A-Z]{2,4}-(?!0+)\d{1,7}) (\w.*)$|^Version Packages.*/,
 };
 
 /**
