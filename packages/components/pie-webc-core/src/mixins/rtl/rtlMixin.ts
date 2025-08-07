@@ -1,4 +1,5 @@
-import { type LitElement, isServer } from 'lit';
+import { type LitElement } from 'lit';
+import { property } from 'lit/decorators.js';
 import { type GenericConstructor } from '../types/GenericConstructor';
 
 /**
@@ -63,26 +64,21 @@ export const RtlMixin =
        * @implements {RTLInterface}
        */
         class RTLElement extends superClass implements RTLInterface {
-            /**
-             * A getter to determine whether the text direction is right-to-left (RTL).
-             * If the `dir` property is present on the component, it will be used to determine the text direction.
-             * If running on the client-side (not SSR) and the `dir` property is not present, the text direction will be inferred
-             * from the document's root element. This inference is not available during SSR.
-             * In all other cases, it will return `false`, indicating a left-to-right (LTR) text direction.
-             *
-             * @returns {boolean} - Returns `true` if the text direction is RTL, otherwise `false`.
-             */
-            get isRTL (): boolean {
+            @property({ type: Boolean })
+            public isRTL = false;
+
+            connectedCallback () {
+                super.connectedCallback();
+                /**
+                 * If the `dir` property is present on the component, it will be used to determine the text direction.
+                 * If the `dir` property is not present, the text direction will be inferred from the document's root element.
+                 * otherwise the default value is `false`, indicating a left-to-right (LTR) text direction.
+                 */
                 if (this.dir) {
-                    return this.dir === 'rtl';
+                    this.isRTL = this.dir === 'rtl';
+                } else {
+                    this.isRTL = document.documentElement.getAttribute('dir') === 'rtl';
                 }
-
-                // If running on client-side and `dir` is not present, infer from the document's root element.
-                if (!isServer && !this.dir) {
-                    return document.documentElement.getAttribute('dir') === 'rtl';
-                }
-
-                return false;
             }
         }
 
