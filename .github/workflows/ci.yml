@@ -18,6 +18,9 @@ on:
     branches:
       - main
 
+permissions: 
+  contents: read
+
 concurrency:
   group: CI-${{ github.ref }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
@@ -77,7 +80,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       - name: Verify if pie-docs has changes
         id: docs-check
@@ -108,7 +111,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       # Lint Styles
       - name: Lint Styles
@@ -127,7 +130,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       # Lint JS
       - name: Lint JavaScript
@@ -150,31 +153,31 @@ jobs:
           bash <(curl --silent --show-error "https://raw.githubusercontent.com/rhysd/actionlint/${ACTIONLINT_VERSION}/scripts/download-actionlint.bash")
           ./actionlint -color
 
-  build-windows-node-20:
+  build-windows-node-22:
     uses: ./.github/workflows/install-build.yml
     with:
       os: windows-latest
-      node-version: 20
-    secrets: inherit
-
-  build-ubuntu-node-18:
-    uses: ./.github/workflows/install-build.yml
-    with:
-      os: ubuntu-latest
-      node-version: 18
+      node-version: 22
     secrets: inherit
 
   build-ubuntu-node-20:
     uses: ./.github/workflows/install-build.yml
-    needs: [ 'lint-js', 'lint-styles', 'check-change-type' ]
     with:
       os: ubuntu-latest
       node-version: 20
+    secrets: inherit
+
+  build-ubuntu-node-22:
+    uses: ./.github/workflows/install-build.yml
+    needs: [ 'lint-js', 'lint-styles', 'check-change-type' ]
+    with:
+      os: ubuntu-latest
+      node-version: 22
       analyse-component-bundles: true
     secrets: inherit
 
   unit-tests:
-    needs: 'build-ubuntu-node-20'
+    needs: 'build-ubuntu-node-22'
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -184,7 +187,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       # Run Unit Tests
       - name: Unit Tests
@@ -195,10 +198,13 @@ jobs:
   deploy-storybook:
     needs: [ unit-tests, check-change-type ]
     if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      deployments: write
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
-      node-version: 20
+      node-version: 22
       amplify-app-id: d17ja0ul7nrdy0
       package-name: '@justeattakeaway/pie-storybook'
       package-dist-directory: ./apps/pie-storybook/dist
@@ -211,10 +217,13 @@ jobs:
   deploy-storybook-testing:
     needs: [ unit-tests, check-change-type ]
     if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      deployments: write
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
-      node-version: 20
+      node-version: 22
       amplify-app-id: d3eyargno6okyn
       package-name: '@justeattakeaway/pie-storybook'
       package-dist-directory: ./apps/pie-storybook/dist
@@ -227,7 +236,7 @@ jobs:
 
   # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
   browser-tests-components:
-    needs: [ build-ubuntu-node-20, deploy-storybook, check-change-type ]
+    needs: [ build-ubuntu-node-22, deploy-storybook, check-change-type ]
     if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
@@ -240,7 +249,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       # Setup Playwright
       - name: Setup Playwright
@@ -282,12 +291,15 @@ jobs:
       PR_NUMBER: ${{ github.event.number }}
 
   deploy-docs:
-    needs: [ unit-tests, check-change-type ]
-    uses: ./.github/workflows/amplify-deploy.yml
+    needs: [  unit-tests, check-change-type  ]
     if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      deployments: write
+    uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
-      node-version: 20
+      node-version: 22
       amplify-app-id: dvskdcoepjoyf
       package-name: '@justeattakeaway/pie-docs'
       package-dist-directory: ./apps/pie-docs/dist
@@ -309,7 +321,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       # Setup Playwright
       - name: Setup Playwright
@@ -356,7 +368,7 @@ jobs:
     uses: ./.github/workflows/changeset-release.yml
     with:
       os: ubuntu-latest
-      node-version: 20
+      node-version: 22
     secrets: inherit
 
   check-all-jobs:
@@ -366,8 +378,8 @@ jobs:
       - lint-styles
       - lint-js
       - lint-workflows
-      - build-ubuntu-node-18
-      - build-windows-node-20
+      - build-ubuntu-node-22
+      - build-windows-node-22
       - build-ubuntu-node-20
       - unit-tests
       - browser-tests-components

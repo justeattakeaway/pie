@@ -4,10 +4,11 @@ on:
   pull_request:
     types: [opened, edited, reopened, synchronize, ready_for_review]
 
+permissions: 
+  contents: read
+
 jobs:
   danger-checks:
-    permissions:
-      contents: read
     if: ${{ github.event.pull_request.draft == false && github.actor != 'dependabot[bot]' }}
     runs-on: ubuntu-latest
     steps:
@@ -20,7 +21,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       # Run Danger Checks
       - name: Danger

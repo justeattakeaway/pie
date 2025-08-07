@@ -36,7 +36,7 @@
     }
 
     &.c-card--default {
-        box-shadow: var(--dt-elevation-card);
+        box-shadow: var(--dt-elevation-below-10);
 
         @include p.interactive-states('--dt-color-container-default');
     }
@@ -51,7 +51,7 @@
         --int-states-mixin-bg-color: var(--dt-color-container-inverse);
         --card-color: var(--dt-color-content-inverse);
 
-        box-shadow: var(--dt-elevation-inverse-card);
+        box-shadow: var(--dt-elevation-inverse-below-10);
 
         @include p.interactive-states('--dt-color-container-inverse', 'inverse', '02');
     }

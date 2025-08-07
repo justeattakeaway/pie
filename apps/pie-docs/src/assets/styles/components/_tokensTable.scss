@@ -194,6 +194,10 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     margin-block-end: var(--dt-spacing-b);
 }
 
+.c-tokensTable-tokenStatus {
+    margin-inline-start: var(--dt-spacing-b);
+}
+
 .c-tokensTable-tokenDescription {
     @include p.font-size(--dt-font-body-s-size);
     @include p.line-height(--dt-font-body-s-line-height);

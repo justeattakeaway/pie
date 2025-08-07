@@ -1,5 +1,27 @@
 # @justeattakeaway/pie-notification
 
+## 0.15.0
+
+### Minor Changes
+
+- [Added] - support `xsmall` size for actions button ([#2512](https://github.com/justeattakeaway/pie/pull/2512)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.14.10
+
+### Patch Changes
+
+- Updated dependencies [[`55c94d6`](https://github.com/justeattakeaway/pie/commit/55c94d610fa1b027d4b435640eeeb38fff0c5a1a)]:
+  - @justeattakeaway/pie-icons-webc@1.14.1
+  - @justeattakeaway/pie-icon-button@2.0.5
+
+## 0.14.9
+
+### Patch Changes
+
+- Updated dependencies [[`f1b151b`](https://github.com/justeattakeaway/pie/commit/f1b151b69db048aa6c0668351d5d0f4ad2cde40c), [`9396c3c`](https://github.com/justeattakeaway/pie/commit/9396c3c07fa3d08f3432524c2de5c182fe9a9604), [`f1b151b`](https://github.com/justeattakeaway/pie/commit/f1b151b69db048aa6c0668351d5d0f4ad2cde40c)]:
+  - @justeattakeaway/pie-icons-webc@1.14.0
+  - @justeattakeaway/pie-icon-button@2.0.4
+
 ## 0.14.8
 
 ### Patch Changes

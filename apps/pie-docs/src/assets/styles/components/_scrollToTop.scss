@@ -10,7 +10,7 @@
     gap: var(--dt-spacing-b);
     justify-content: space-between;
     align-items: center;
-    box-shadow: f.$elevation-03;
+    box-shadow: var(--dt-elevation-below-20);
 
     @include f.media('>=wide') {
         inset-block-end: var(--dt-spacing-f);

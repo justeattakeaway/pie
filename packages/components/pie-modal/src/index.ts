@@ -110,6 +110,8 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
     @query('dialog')
     private _dialog!: HTMLDialogElement;
 
+    private _scrollableContainer: HTMLElement | null = null;
+
     private _backButtonClicked = false;
 
     private _abortController!: AbortController;
@@ -119,7 +121,12 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
     private _escKeyAbortController: AbortController | null = null;
 
     private get _modalScrollContainer (): Element | null {
-        return this._dialog.querySelector('.c-modal-scrollContainer');
+        // Cache the scrollable container to avoid race conditions where it has been removed during disconnectedCallback
+        if (!this._scrollableContainer) {
+            this._scrollableContainer = this._dialog?.querySelector<HTMLElement>('.c-modal-scrollContainer');
+        }
+
+        return this._scrollableContainer;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
@@ -200,7 +207,7 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
                 1. Use requestAnimationFrame to defer non-blocking operations.
                 2. Batch non-blocking updates inside requestAnimationFrame
                 3. Call `showModal()` first and defer `_disableBodyScroll` & `_setupEscKeyListener`
-                   to the next `task`.
+                    to the next `task`.
             */
             requestAnimationFrame(() => {
                 // Read styles before writing them to avoid forced layout recalculations (layout trashing).
@@ -319,8 +326,8 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
      * Enables body scroll by unlocking the scroll container.
      */
     private _enableBodyScroll (): void {
-        if (this._modalScrollContainer) {
-            enableBodyScroll(this._modalScrollContainer);
+        if (this._scrollableContainer) {
+            enableBodyScroll(this._scrollableContainer);
         }
     }
 

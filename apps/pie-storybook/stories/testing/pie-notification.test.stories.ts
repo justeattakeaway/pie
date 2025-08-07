@@ -5,7 +5,12 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-notification';
 import {
-    type NotificationProps as NotificationBaseProps, variants, headingLevels, positions, defaultProps,
+    type NotificationProps as NotificationBaseProps,
+    variants,
+    headingLevels,
+    positions,
+    actionSizes,
+    defaultProps,
 } from '@justeattakeaway/pie-notification';
 
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
@@ -30,10 +35,12 @@ const defaultArgs: NotificationProps = {
     leadingAction: {
         text: 'Confirm',
         ariaLabel: 'Descriptive confirmation text',
+        size: 'small-productive',
     },
     supportingAction: {
         text: 'Cancel',
         ariaLabel: 'Descriptive cancellation text',
+        size: 'small-productive',
     },
     iconSlot: 'None',
     aria: {
@@ -114,12 +121,18 @@ const notificationStoryMeta: NotificationStoryMeta = {
             },
         },
         leadingAction: {
-            description: 'The leading action configuration for the notification.',
+            description: `The leading action configuration for the notification. <br/> The size property can be ${actionSizes.join(', ')}.`,
             control: 'object',
+            defaultValue: {
+                summary: JSON.stringify(defaultProps.leadingAction),
+            },
         },
         supportingAction: {
-            description: 'The supporting action configuration for the notification. Appears only if `leadingAction` is provided.',
+            description: `The supporting action configuration for the notification. Appears only if leadingAction is provided. <br/>The size property can be ${actionSizes.join(', ')}.`,
             control: 'object',
+            defaultValue: {
+                summary: JSON.stringify(defaultProps.supportingAction),
+            },
         },
         hasStackedActions: {
             description: 'When true, the notification will stack the action buttons on narrow screens.',
@@ -228,11 +241,11 @@ export const NotificationRTL = createNotificationStory({
 });
 
 const VariantsTemplate = (propVals: NotificationProps) => html`<pie-notification
-        variant="${propVals.variant}"
+        variant="${ifDefined(propVals.variant)}"
         ?isCompact="${propVals.isCompact}"
         ?isDismissible="${propVals.isDismissible}"
         ?hideIcon="${propVals.hideIcon}"
-        heading="${propVals.heading}">
+        heading="${ifDefined(propVals.heading)}">
             ${propVals.iconSlot}
             ${sanitizeAndRenderHTML(slotContent)}
         </pie-notification>`;

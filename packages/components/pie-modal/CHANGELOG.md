@@ -1,5 +1,33 @@
 # @justeattakeaway/pie-modal
 
+## 1.10.1
+
+### Patch Changes
+
+- [Fixed] - Ensure that body scroll-locking is not stuck if the modal fails to query the underlying dialog element during the disconnectedCallback lifecycle method. ([#2514](https://github.com/justeattakeaway/pie/pull/2514)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 1.10.0
+
+### Minor Changes
+
+- [Updated] - pie-design-tokens to `v7.2.0` to include a new set of elevation tokens ([#2499](https://github.com/justeattakeaway/pie/pull/2499)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Updated] - update components to use the new brand refresh elevation tokens ([#2504](https://github.com/justeattakeaway/pie/pull/2504)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`55c94d6`](https://github.com/justeattakeaway/pie/commit/55c94d610fa1b027d4b435640eeeb38fff0c5a1a)]:
+  - @justeattakeaway/pie-icons-webc@1.14.1
+  - @justeattakeaway/pie-icon-button@2.0.5
+
+## 1.9.1
+
+### Patch Changes
+
+- Updated dependencies [[`f1b151b`](https://github.com/justeattakeaway/pie/commit/f1b151b69db048aa6c0668351d5d0f4ad2cde40c), [`9396c3c`](https://github.com/justeattakeaway/pie/commit/9396c3c07fa3d08f3432524c2de5c182fe9a9604), [`f1b151b`](https://github.com/justeattakeaway/pie/commit/f1b151b69db048aa6c0668351d5d0f4ad2cde40c)]:
+  - @justeattakeaway/pie-icons-webc@1.14.0
+  - @justeattakeaway/pie-icon-button@2.0.4
+
 ## 1.9.0
 
 ### Minor Changes

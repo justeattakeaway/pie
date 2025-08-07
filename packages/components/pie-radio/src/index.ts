@@ -34,6 +34,9 @@ export class PieRadio extends FormControlMixin(RtlMixin(PieElement)) implements 
     @state()
     private _disabledByParent = false;
 
+    @state()
+    private _isAnimationAllowed = false;
+
     @property({ type: Boolean, reflect: true })
     public checked = defaultProps.checked;
 
@@ -94,6 +97,11 @@ export class PieRadio extends FormControlMixin(RtlMixin(PieElement)) implements 
         // This is because some events set `composed` to `false`.
         // Reference: https://javascript.info/shadow-dom-events#event-composed
         const customChangeEvent = wrapNativeEvent(event);
+
+        if (!this._isAnimationAllowed) {
+            this._isAnimationAllowed = true;
+        }
+
         this.dispatchEvent(customChangeEvent);
 
         this._handleFormAssociation();
@@ -137,6 +145,7 @@ export class PieRadio extends FormControlMixin(RtlMixin(PieElement)) implements 
             checked,
             disabled,
             _disabledByParent,
+            _isAnimationAllowed,
             name,
             required,
             value,
@@ -149,6 +158,7 @@ export class PieRadio extends FormControlMixin(RtlMixin(PieElement)) implements 
             'c-radio': true,
             'is-disabled': componentDisabled,
             [`c-radio--status-${status}`]: !componentDisabled,
+            'c-radio--allow-animation': _isAnimationAllowed,
         };
 
         return html`

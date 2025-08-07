@@ -21,7 +21,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
 
       - name: Install dependencies

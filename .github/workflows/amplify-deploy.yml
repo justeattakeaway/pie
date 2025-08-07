@@ -41,6 +41,9 @@ on:
         required: false
         type: string
 
+permissions:
+  contents: read
+
 env:
   AMPLIFY_ID: ${{ inputs.amplify-app-id }}
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
@@ -53,6 +56,9 @@ env:
 jobs:
   deploy:
     runs-on: ${{ inputs.os }}
+    permissions:
+      contents: read
+      deployments: write
     steps:
       # Process package name to remove prefix
       - name: Remove scope from package name

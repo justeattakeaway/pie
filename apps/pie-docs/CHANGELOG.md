@@ -1,5 +1,40 @@
 # Changelog
 
+## 4.46.1
+
+### Patch Changes
+
+- [Fixed] links to Snacks components ([#2511](https://github.com/justeattakeaway/pie/pull/2511)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.9
+
+## 4.46.0
+
+### Minor Changes
+
+- [Updated] - update components to use the new brand refresh elevation tokens ([#2504](https://github.com/justeattakeaway/pie/pull/2504)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Updated] - pie-design-tokens to `v7.2.0` to include a new set of elevation tokens ([#2499](https://github.com/justeattakeaway/pie/pull/2499)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Updated] - elevation docs to the new brand refresh specs.
+
+### Patch Changes
+
+- Updated dependencies [[`310b376`](https://github.com/justeattakeaway/pie/commit/310b3763c15a85e6a3a55e4c0cf41cb3db5bbe58)]:
+  - @justeattakeaway/pie-css@0.19.0
+  - @justeattakeaway/pie-webc@0.7.8
+
+## 4.45.2
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2498](https://github.com/justeattakeaway/pie/pull/2498)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`9396c3c`](https://github.com/justeattakeaway/pie/commit/9396c3c07fa3d08f3432524c2de5c182fe9a9604)]:
+  - @justeattakeaway/pie-icons@5.15.0
+  - @justeattakeaway/pie-webc@0.7.7
+
 ## 4.45.1
 
 ### Patch Changes
