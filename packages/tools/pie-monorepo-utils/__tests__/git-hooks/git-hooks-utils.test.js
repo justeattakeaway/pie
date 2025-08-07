@@ -50,6 +50,7 @@ describe('validateBranchName', () => {
 
     describe('when called with a valid argument', () => {
         it('should return true', () => {
+            expect(validateBranchName('main')).toBe(true);
             expect(validateBranchName('dsw-1234-branch-name')).toBe(true);
             expect(validateBranchName('DSW-1234-BRANCH-NAME')).toBe(true);
             expect(validateBranchName('abc-567-branch-name')).toBe(true);

@@ -20,6 +20,7 @@ function checkBranchName () {
 ${chalk.yellow('The branch name')} ${chalk.bold.red(`"${branchName}"`)} ${chalk.yellow('does not conform to the repository branch naming conventions.')}
 
 ${chalk.cyan('Valid branch name formats:')}
+${chalk.green('•')} Main branch: ${chalk.cyan('"main"')}
 ${chalk.green('•')} Jira ticket ID format: ${chalk.cyan('"DSW-123-feature-description"')}
 ${chalk.green('•')} Special branches: ${chalk.cyan('"beta-*" or "feature-*"')}
 ${chalk.green('•')} Ticket IDs cannot be all zeros (e.g., ${chalk.red('DSW-000')} is not allowed)`;
