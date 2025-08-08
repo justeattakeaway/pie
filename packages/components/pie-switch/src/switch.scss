@@ -131,11 +131,6 @@
     @include p.visually-hidden;
 }
 
-.c-switch-wrapper:dir(rtl) {
-    .c-switch-input:checked + .c-switch-control {
-        transform: translateX(calc(-1 * var(--switch-translation)));
-    }
-}
 
 .c-switch-wrapper--allow-animation {
     /* stylelint-disable-next-line no-descending-specificity */
@@ -165,10 +160,10 @@
             }
         }
     }
+}
 
-    &.c-switch-wrapper:dir(rtl) {
-        .c-switch-input:checked + .c-switch-control {
-            @include switch-transition(transform);
-        }
+.c-switch-wrapper:dir(rtl) {
+    .c-switch-input:checked + .c-switch-control {
+        transform: translateX(calc(-1 * var(--switch-translation)));
     }
 }
