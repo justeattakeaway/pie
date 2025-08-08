@@ -55,6 +55,10 @@
   display: inline-flex;
   color: var(--breadcrumb-separator-color);
   transform: var(--breadcrumb-separator-transform);
+
+  &:dir(rtl) {
+    --breadcrumb-separator-transform: rotate(180deg);
+  }
 }
 
 :host([isCompact]) {

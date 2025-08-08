@@ -9,7 +9,6 @@ import { state, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
 import {
-    RtlMixin,
     dispatchCustomEvent,
     safeCustomElement,
     validPropertyValues,
@@ -37,7 +36,7 @@ const componentSelector = 'pie-toast-provider';
  * @event {CustomEvent} pie-toast-provider-queue-update - when a toast is added or removed from the queue.
  */
 @safeCustomElement('pie-toast-provider')
-export class PieToastProvider extends RtlMixin(PieElement) implements ToastProviderProps {
+export class PieToastProvider extends PieElement implements ToastProviderProps {
     @property({ type: Object })
     public options = defaultProps.options;
 
@@ -128,14 +127,12 @@ export class PieToastProvider extends RtlMixin(PieElement) implements ToastProvi
     render () {
         const {
             position,
-            isRTL,
             _currentToast,
         } = this;
 
         const classes = {
             'c-toast-provider': true,
             [`c-toast-provider--${position}`]: true,
-            'c-toast-provider--rtl': isRTL,
         };
 
         const toastClasses = {

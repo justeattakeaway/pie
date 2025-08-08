@@ -8,8 +8,11 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import 'element-internals-polyfill';
 
 import {
-    RtlMixin, validPropertyValues, FormControlMixin, wrapNativeEvent, type PIEInputElement,
+    validPropertyValues,
+    FormControlMixin,
+    wrapNativeEvent,
     safeCustomElement,
+    type PIEInputElement,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
@@ -26,7 +29,7 @@ const componentSelector = 'pie-switch';
  * @event {CustomEvent} change - when the switch checked state is changed.
  */
 @safeCustomElement('pie-switch')
-export class PieSwitch extends FormControlMixin(RtlMixin(PieElement)) implements SwitchProps, PIEInputElement {
+export class PieSwitch extends FormControlMixin(PieElement) implements SwitchProps, PIEInputElement {
     @property({ type: String })
     public label: SwitchProps['label'];
 
@@ -196,14 +199,12 @@ export class PieSwitch extends FormControlMixin(RtlMixin(PieElement)) implements
             aria,
             checked,
             disabled,
-            isRTL,
             required,
             _isAnimationAllowed,
         } = this;
 
         const classes = {
             'c-switch-wrapper': true,
-            'c-switch-wrapper--rtl': isRTL,
             'c-switch-wrapper--allow-animation': _isAnimationAllowed,
         };
 

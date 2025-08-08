@@ -3,7 +3,7 @@ import {
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { RtlMixin, safeCustomElement, type PIEInputElement } from '@justeattakeaway/pie-webc-core';
+import { safeCustomElement, type PIEInputElement } from '@justeattakeaway/pie-webc-core';
 import { property } from 'lit/decorators.js';
 import styles from './form-label.scss?inline';
 import { type FormLabelProps } from './defs';
@@ -17,7 +17,7 @@ const componentSelector = 'pie-form-label';
  * @tagname pie-form-label
  */
 @safeCustomElement('pie-form-label')
-export class PieFormLabel extends RtlMixin(PieElement) implements FormLabelProps {
+export class PieFormLabel extends PieElement implements FormLabelProps {
     @property({ type: String, reflect: true })
     public for: FormLabelProps['for'];
 
@@ -51,7 +51,6 @@ export class PieFormLabel extends RtlMixin(PieElement) implements FormLabelProps
     render () {
         const {
             trailing,
-            isRTL,
         } = this;
 
         return html`
@@ -60,10 +59,9 @@ export class PieFormLabel extends RtlMixin(PieElement) implements FormLabelProps
                 data-test-id="pie-form-label"
                 class="c-formLabel"
                 for=${ifDefined(this.for)}>
-                    <div>
-                        ${isRTL ? this._renderOptionalLabel() : nothing}
+                    <div class="c-formLabel-leading-wrapper">
                         <span class="c-formLabel-leading" data-test-id="pie-form-label-leading"><slot></slot></span>
-                        ${!isRTL ? this._renderOptionalLabel() : nothing}
+                        ${this._renderOptionalLabel()}
                     </div>
                     ${trailing ? html`<span class="c-formLabel-trailing" data-test-id="pie-form-label-trailing">${trailing}</span>` : nothing}
             </label>`;

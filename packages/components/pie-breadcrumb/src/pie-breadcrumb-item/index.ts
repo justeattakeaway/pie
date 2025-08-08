@@ -1,12 +1,11 @@
 import { html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
+import { safeCustomElement } from '@justeattakeaway/pie-webc-core';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 import '@justeattakeaway/pie-link';
 import '@justeattakeaway/pie-icons-webc/dist/IconChevronRight.js';
-import '@justeattakeaway/pie-icons-webc/dist/IconChevronLeft.js';
 
 import styles from '../breadcrumb.scss?inline';
 import { type BreadcrumbItemProps } from './defs';
@@ -20,7 +19,7 @@ export * from './defs';
  * @tagname pie-breadcrumb-item
  */
 @safeCustomElement('pie-breadcrumb-item')
-export class PieBreadcrumbItem extends RtlMixin(PieElement) implements BreadcrumbItemProps {
+export class PieBreadcrumbItem extends PieElement implements BreadcrumbItemProps {
     @property({ type: String })
     public href: BreadcrumbItemProps['href'];
 
@@ -29,7 +28,6 @@ export class PieBreadcrumbItem extends RtlMixin(PieElement) implements Breadcrum
 
     /**
      * Renders a separator icon between breadcrumb items.
-     * The icon direction depends on the RTL (Right-to-Left) setting.
      *
      * @returns {TemplateResult} HTML template for the separator icon.
      *
@@ -42,7 +40,7 @@ export class PieBreadcrumbItem extends RtlMixin(PieElement) implements Breadcrum
                     role="presentation"
                     aria-hidden="true"
                     data-test-id="pie-breadcrumb-separator">
-                        ${this.isRTL ? html`<icon-chevron-left></icon-chevron-left>` : html`<icon-chevron-right></icon-chevron-right>`}
+                        <icon-chevron-right></icon-chevron-right>
                 </span>
             `;
     }
