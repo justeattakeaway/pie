@@ -79,6 +79,7 @@ export const RtlMixin =
 
                 this.observer.observe(document.documentElement, {
                     attributeFilter: ['dir'],
+                    subtree: true,
                 });
             }
 
@@ -90,10 +91,12 @@ export const RtlMixin =
             }
 
             /**
-             * Infer the dir attribute value from the document's root element.
+             * If the `dir` property is present on the component, it will be used to determine the text direction.
+             * If the `dir` property is not present, the text direction will be inferred from the document's root element.
+             * otherwise the default value is `false`, indicating a left-to-right (LTR) text direction.
              */
             private handleWritingDirectionUpdate () {
-                this.isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+                this.isRTL = this.dir === 'rtl' || document.documentElement.getAttribute('dir') === 'rtl';
             }
         }
 
