@@ -67,18 +67,34 @@ export const RtlMixin =
             @property({ type: Boolean })
             public isRTL = false;
 
+            private observer: MutationObserver | null = null;
+
             connectedCallback () {
                 super.connectedCallback();
-                /**
-                 * If the `dir` property is present on the component, it will be used to determine the text direction.
-                 * If the `dir` property is not present, the text direction will be inferred from the document's root element.
-                 * otherwise the default value is `false`, indicating a left-to-right (LTR) text direction.
-                 */
-                if (this.dir) {
-                    this.isRTL = this.dir === 'rtl';
-                } else {
-                    this.isRTL = document.documentElement.getAttribute('dir') === 'rtl';
-                }
+                this.handleWritingDirectionUpdate();
+
+                this.observer = new MutationObserver(() => {
+                    this.handleWritingDirectionUpdate();
+                });
+
+                this.observer.observe(document.documentElement, {
+                    attributeFilter: ['dir'],
+                });
+            }
+
+            disconnectedCallback () {
+                super.disconnectedCallback();
+                if (!this.observer) return;
+                this.observer.disconnect();
+                this.observer = null;
+            }
+
+
+            /**
+             * Infer the dir attribute value from the document's root element.
+             */
+            private handleWritingDirectionUpdate () {
+                this.isRTL = document.documentElement.getAttribute('dir') === 'rtl';
             }
         }
 
