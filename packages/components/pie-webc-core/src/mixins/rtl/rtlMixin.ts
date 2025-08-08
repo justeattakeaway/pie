@@ -89,7 +89,6 @@ export const RtlMixin =
                 this.observer = null;
             }
 
-
             /**
              * Infer the dir attribute value from the document's root element.
              */
