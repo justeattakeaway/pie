@@ -39,54 +39,31 @@ describe('RtlMixin', () => {
     }
 
     describe('when running in the browser', () => {
-        describe('when the dir attribute is set via the component', () => {
-            scenarios.forEach(({ dir, isRTL }) => {
-                it(`should reflect ${isRTL ? 'RTL' : 'LTR'} if the component dir attribute is set to ${dir}`, () => {
-                    // Arrange
-                    document.body.innerHTML = `<rtl-mixin-mock dir="${dir}"></rtl-mixin-mock>`;
-                    const component = getMockInstance();
+        scenarios.forEach(({ dir, isRTL }) => {
+            it(`should reflect ${isRTL ? 'RTL' : 'LTR'} if the root document dir attribute is set to ${dir}`, () => {
+                // Arrange
+                document.documentElement.setAttribute('dir', dir);
+                document.body.innerHTML = '<rtl-mixin-mock></rtl-mixin-mock>';
+                const component = getMockInstance();
 
-                    // Assert
-                    expect(component.isRTL).toBe(isRTL);
-                });
+                // Assert
+                expect(component.isRTL).toBe(isRTL);
             });
         });
 
-        describe('when the dir attribute is set via the root document and no attribute provided to the component', () => {
-            scenarios.forEach(({ dir, isRTL }) => {
-                it(`should reflect ${isRTL ? 'RTL' : 'LTR'} if the root document dir attribute is set to ${dir}`, () => {
-                    // Arrange
-                    document.documentElement.setAttribute('dir', dir);
-                    document.body.innerHTML = '<rtl-mixin-mock></rtl-mixin-mock>'; // component doesn't set dir
-                    const component = getMockInstance();
-
-                    // Assert
-                    expect(component.isRTL).toBe(isRTL);
-                });
-            });
-        });
-
-        it('should prefer the dir value of the component over the root document when both are set', () => {
+        it('should update the isRTL property when the dir attribute of the document changes', async () => {
             // Arrange
-            const rootDir = 'ltr';
-            const componentDir = 'rtl';
-            document.documentElement.setAttribute('dir', rootDir);
-            document.body.innerHTML = `<rtl-mixin-mock dir="${componentDir}"></rtl-mixin-mock>`;
+            document.documentElement.setAttribute('dir', 'ltr');
+            document.body.innerHTML = '<rtl-mixin-mock></rtl-mixin-mock>';
             const component = getMockInstance();
+            expect(component.isRTL).toBe(false);
+
+            // Act
+            document.documentElement.setAttribute('dir', 'rtl');
+            await component.updateComplete;
 
             // Assert
-            expect(component.isRTL).toBeTruthy();
-        });
-
-        it('should reflect the root document dir attribute if `auto` is provided to the component', () => {
-            // Arrange
-            const rootDir = 'ltr';
-            document.documentElement.setAttribute('dir', rootDir);
-            document.body.innerHTML = '<rtl-mixin-mock dir="auto"></rtl-mixin-mock>';
-            const component = getMockInstance();
-
-            // Assert
-            expect(component.isRTL).toBeFalsy();
+            expect(component.isRTL).toBe(true);
         });
     });
 });
