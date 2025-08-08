@@ -89,10 +89,24 @@ describe('RtlMixin', () => {
             expect(component.isRTL).toBeFalsy();
         });
 
+        it('should update isRTL when the component dir attribute changes', async () => {
+            // Arrange
+            document.body.innerHTML = '<rtl-mixin-mock dir="ltr"></rtl-mixin-mock>';
+            const component = getMockInstance();
+            expect(component.isRTL).toBe(false);
+
+            // Act
+            component.setAttribute('dir', 'rtl');
+            await component.updateComplete;
+
+            // Assert
+            expect(component.isRTL).toBe(true);
+        });
+
         it('should update isRTL when the documentElement dir attribute changes', async () => {
             // Arrange
             document.documentElement.setAttribute('dir', 'ltr');
-            document.body.innerHTML = `<rtl-mixin-mock></rtl-mixin-mock>`;
+            document.body.innerHTML = '<rtl-mixin-mock></rtl-mixin-mock>';
             const component = getMockInstance();
             expect(component.isRTL).toBe(false);
 
