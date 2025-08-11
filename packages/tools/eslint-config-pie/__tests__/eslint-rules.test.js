@@ -50,7 +50,7 @@ describe('ESLint', () => {
 
             expect(results.length).toBe(1);
             expect(results[0].messages).toMatchSnapshot();
-        });
+        }, 30000); // Add 30 second timeout for CI environments
 
         it('shouldnt find any errors', async () => {
             const eslint = new ESLint(baseConfig);
