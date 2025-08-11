@@ -10,7 +10,7 @@ updates:
         update-types: ['version-update:semver-major']
     open-pull-requests-limit: 3
     commit-message:
-      prefix: "deps(npm): DSW-000"
+      prefix: "deps(npm):"
     groups:
       babel:
         patterns:
@@ -49,4 +49,4 @@ updates:
         update-types: ['version-update:semver-major']
     open-pull-requests-limit: 3
     commit-message:
-      prefix: "deps(github-actions): DSW-000"
+      prefix: "deps(github-actions):"

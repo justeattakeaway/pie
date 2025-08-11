@@ -193,7 +193,7 @@ async function updateIcons () {
         if (issuesFilePath) console.info(`🚨🚨🚨 Issues were stored at "${issuesFilePath}"`);
 
         // create and checkout branch
-        const branchName = `dsw-000-update-icons-${Math.floor(Date.now() / 1000)}`;
+        const branchName = `update-icons-${Math.floor(Date.now() / 1000)}`;
         execSync(`git checkout -b ${branchName}`);
 
         // add new icons to iconData.json file
@@ -220,7 +220,7 @@ async function updateIcons () {
             .filter(Boolean).join(' ');
 
         // commit changes
-        execSync(`git add ${gitUpdatedPaths} && git commit --no-verify -m "feat(pie-icons): DSW-000 update icons"`);
+        execSync(`git add ${gitUpdatedPaths} && git commit --no-verify -m "feat(pie-icons): update icons"`);
 
         // push if is running on GHA
         if (process.env.GITHUB_ACTIONS) {

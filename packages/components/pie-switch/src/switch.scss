@@ -49,14 +49,10 @@
     border-radius: var(--switch-radius);
     background-color: var(--int-states-mixin-bg-color);
 
-    @include switch-transition(background-color);
-
     @include p.interactive-states('--dt-color-interactive-form');
 
     &[checked] {
         --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
-
-        @include switch-transition(background-color);
 
         @include p.interactive-states('--dt-color-interactive-brand');
     }
@@ -93,7 +89,6 @@
 .c-switch-control {
     position: absolute;
     left: 2px;
-    @include switch-transition(transform);
     width: var(--switch-control-size);
     height: var(--switch-control-size);
     border-radius: var(--switch-radius);
@@ -111,11 +106,9 @@
     }
 
     .c-switch-input:checked + & {
-        @include switch-transition(transform);
         transform: translateX(var(--switch-translation));
 
         .c-pieIcon--check {
-            @include switch-transition(color);
             color: var(--dt-color-interactive-brand);
         }
     }
@@ -124,7 +117,6 @@
         color: var(--switch-bg-color--disabled);
 
         .c-pieIcon--check {
-            @include switch-transition(color);
             color: var(--switch-bg-color--disabled);
         }
     }
@@ -141,7 +133,42 @@
 
 .c-switch-wrapper--rtl {
     .c-switch-input:checked + .c-switch-control {
-        @include switch-transition(transform);
         transform: translateX(calc(-1 * var(--switch-translation)));
+    }
+}
+
+.c-switch-wrapper--allow-animation {
+    /* stylelint-disable-next-line no-descending-specificity */
+    .c-switch {
+        @include switch-transition(background-color);
+
+        &[checked] {
+            @include switch-transition(background-color);
+        }
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    .c-switch-control {
+        @include switch-transition(transform);
+
+        .c-switch-input:checked + & {
+            @include switch-transition(transform);
+
+            .c-pieIcon--check {
+                @include switch-transition(color);
+            }
+        }
+
+        .c-switch-input:disabled ~ & {
+            .c-pieIcon--check {
+                @include switch-transition(color);
+            }
+        }
+    }
+
+    &.c-switch-wrapper--rtl {
+        .c-switch-input:checked + .c-switch-control {
+            @include switch-transition(transform);
+        }
     }
 }

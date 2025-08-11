@@ -3,6 +3,7 @@ import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 export const variants = ['neutral', 'neutral-alternative', 'info', 'success', 'warning', 'error'] as const;
 export const headingLevels = ['h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const positions = ['inline-content', 'full-width'] as const;
+export const actionSizes = ['small-productive', 'xsmall'] as const;
 
 type AriaProps = {
   close?: string;
@@ -19,6 +20,11 @@ export type ActionProps = {
    * The ARIA label for the button.
    */
   ariaLabel?: string;
+
+  /**
+   * The size of the button.
+   */
+  size?: typeof actionSizes[number];
 };
 
 export interface NotificationProps {
@@ -116,7 +122,13 @@ export const ON_NOTIFICATION_LEADING_ACTION_CLICK_EVENT = `${componentSelector}-
  */
 export const ON_NOTIFICATION_SUPPORTING_ACTION_CLICK_EVENT = `${componentSelector}-supporting-action-click`;
 
-export type DefaultProps = ComponentDefaultProps<NotificationProps, keyof Omit<NotificationProps, 'heading' | 'aria' | 'leadingAction' | 'supportingAction'>>;
+export type DefaultProps = ComponentDefaultProps<NotificationProps, keyof Omit<NotificationProps, 'heading' | 'aria'>>;
+
+export const defaultActionButtonProps: ActionProps = {
+    text: '',
+    ariaLabel: '',
+    size: 'small-productive',
+};
 
 export const defaultProps: DefaultProps = {
     variant: 'neutral',
@@ -127,4 +139,6 @@ export const defaultProps: DefaultProps = {
     hideIcon: false,
     isOpen: true,
     hasStackedActions: false,
+    leadingAction: defaultActionButtonProps,
+    supportingAction: defaultActionButtonProps,
 };
