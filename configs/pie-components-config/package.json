@@ -13,8 +13,8 @@
     "vite.config.js",
     "tsconfig.json",
     "playwright/**",
-    "playwright-lit-config.js",
-    "playwright-lit-visual-config.js"
+    "playwright-native-config.ts",
+    "playwright-native-visual-config.ts"
   ],
   "dependencies": {
     "deepmerge-ts": "5.1.0"

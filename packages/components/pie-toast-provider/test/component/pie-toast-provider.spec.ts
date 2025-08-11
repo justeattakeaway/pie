@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 
-import { type PieToastProvider } from 'src/index.ts';
+import type { PieToastProvider } from 'src/index.ts';
 import { defaultProps as toastDefaultProps } from '@justeattakeaway/pie-toast/src/defs.ts';
 import {
     PRIORITY_ORDER,
