@@ -14,7 +14,7 @@
     },
     "test:browsers:ci": {
       "cache": true,
-      "dependsOn": ["@justeattakeaway/pie-webc-core#build"],
+      "dependsOn": ["^build"],
       "inputs": [
         "$TURBO_DEFAULT$",
         "../../../apps/pie-storybook/stories/testing/pie-notification.test.stories.ts"
@@ -30,7 +30,7 @@
     },
     "test:visual:ci": {
       "cache": false,
-      "dependsOn": ["@justeattakeaway/pie-webc-core#build"],
+      "dependsOn": ["^build"],
       "inputs": [
         "$TURBO_DEFAULT$",
         "../../../apps/pie-storybook/stories/testing/pie-notification.test.stories.ts"
