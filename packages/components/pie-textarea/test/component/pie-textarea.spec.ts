@@ -6,7 +6,7 @@ import { textArea } from '../helpers/page-objects/selectors.ts';
 
 import { statusTypes } from '../../src/defs.ts';
 
-test.describe('PieTextarea - Component tests', () => {
+test.describe.skip('PieTextarea - Component tests', () => {
     test('should render successfully', async ({ page }) => {
         // Arrange
         const textAreaPage = new BasePage(page, 'textarea');

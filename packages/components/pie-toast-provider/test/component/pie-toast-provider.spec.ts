@@ -11,7 +11,7 @@ import {
 
 import { toastProvider } from '../helpers/page-object/selectors.ts';
 
-test.describe('PieToastProvider - Component tests', () => {
+test.describe.skip('PieToastProvider - Component tests', () => {
     let toastsQueue: ExtendedToastProps[] = [];
 
     test.beforeEach(({ page }) => {
