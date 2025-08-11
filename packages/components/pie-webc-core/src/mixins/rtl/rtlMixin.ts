@@ -1,5 +1,4 @@
 import { type LitElement } from 'lit';
-import { property } from 'lit/decorators.js';
 import { type GenericConstructor } from '../types/GenericConstructor';
 
 /**
@@ -64,8 +63,16 @@ export const RtlMixin =
        * @implements {RTLInterface}
        */
         class RTLElement extends superClass implements RTLInterface {
-            @property({ type: Boolean })
-            public isRTL = false;
+            private _isRTL = false;
+
+            get isRTL () {
+                return this._isRTL;
+            }
+
+            set isRTL (val: boolean) {
+                this._isRTL = val;
+                this.requestUpdate();
+            }
 
             private observer: MutationObserver | null = null;
 
