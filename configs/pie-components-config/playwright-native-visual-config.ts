@@ -3,7 +3,7 @@ import { devices } from '@playwright/test';
 /**
  * See https://playwright.dev/docs/test-configuration
  */
-export function getPlaywrightNativeVisualConfig () {
+export function getPlaywrightNativeVisualConfig() {
     return {
         /* Maximum time one test can run for. */
         timeout: 10 * 1000,
