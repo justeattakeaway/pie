@@ -60,7 +60,7 @@ module.exports = async ({ github, branchName, changesetFilePath }) => {
     const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
 
     // Check if it is a branch for updating icons
-    if (!branchName.startsWith('dsw-000-update-icons-')) return;
+    if (!branchName.startsWith('update-icons-')) return;
 
     // Create a PR with the changeset file content
     const changesetStr = readChangesetFile(changesetFilePath);
@@ -70,7 +70,7 @@ module.exports = async ({ github, branchName, changesetFilePath }) => {
         repo,
         base: 'main',
         head: branchName,
-        title: 'feat(pie-icons): DSW-000 Update icons from pie-iconography',
+        title: 'feat(pie-icons): Update icons from pie-iconography',
         body,
         draft: false,
     };
