@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-# Checks branch name for Jira ticket id
-packages/tools/pie-monorepo-utils/git-hooks/check-branch-name.js $(git symbolic-ref --short HEAD)

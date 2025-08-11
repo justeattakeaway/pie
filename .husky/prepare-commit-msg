@@ -1,8 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# Checks branch name for Jira ticket id
-packages/tools/pie-monorepo-utils/git-hooks/check-branch-name.js $(git symbolic-ref --short HEAD)
 
 # Section for git-secrets
 if ! command -v git-secrets &> /dev/null
@@ -15,5 +13,6 @@ fi
 git-secrets --register-aws > /dev/null
 
 echo "Running git-secrets..."
-# Scans all files that are about to be committed.
-git-secrets --pre_commit_hook -- "$@"
+# Determines if merging in a commit will introduce tainted history.
+git-secrets --prepare_commit_msg_hook -- "$@"
+

@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 
 /* eslint-disable @typescript-eslint/no-var-requires */
-const chalk = require('chalk');
 const { validateBranchName } = require('./git-hooks-utils.js');
 
 /**
- * This script is ran by the "post-checkout" git hook and checks if the current branch name has a valid format
+ * This script is ran by the "pre-commit" git hook and checks if the current branch name has a Jira ticket id
  */
 function checkBranchName () {
     try {
@@ -17,17 +16,13 @@ function checkBranchName () {
 
         if (!isValid) {
             const errorMessage = `
-${chalk.yellow('The branch name')} ${chalk.bold.red(`"${branchName}"`)} ${chalk.yellow('does not conform to the repository branch naming conventions.')}
-
-${chalk.cyan('Valid branch name formats:')}
-${chalk.green('•')} Main branch: ${chalk.cyan('"main"')}
-${chalk.green('•')} Jira ticket ID format: ${chalk.cyan('"DSW-123-feature-description"')}
-${chalk.green('•')} Special branches: ${chalk.cyan('"beta-*" or "feature-*"')}
-${chalk.green('•')} Ticket IDs cannot be all zeros (e.g., ${chalk.red('DSW-000')} is not allowed)`;
+The branch name "${branchName}" is not valid.
+It should either start with a Jira ticket id like "dsw-123-..." or "dsw-000-..." if it doesn't have a related ticket.
+`;
             throw new Error(errorMessage);
         }
     } catch (error) {
-        console.error(chalk.red('🚫 Invalid Branch Name 🚫'));
+        console.error('checkBranchName() failed:');
         console.error(error.message);
         process.exit(1);
     }
