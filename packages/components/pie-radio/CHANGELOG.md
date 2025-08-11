@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-radio
 
+## 0.11.5
+
+### Patch Changes
+
+- [Fixed] - unintended animation on component mount ([#2510](https://github.com/justeattakeaway/pie/pull/2510)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.11.4
 
 ### Patch Changes

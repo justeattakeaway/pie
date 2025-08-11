@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
-import { type PieTextarea, type TextareaProps } from '../../src/index.ts';
+import type { PieTextarea, TextareaProps } from '../../src/index.ts';
 
 import { textArea } from '../helpers/page-objects/selectors.ts';
 

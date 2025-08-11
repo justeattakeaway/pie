@@ -1,5 +1,14 @@
 # Changelog
 
+## 4.46.1
+
+### Patch Changes
+
+- [Fixed] links to Snacks components ([#2511](https://github.com/justeattakeaway/pie/pull/2511)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.9
+
 ## 4.46.0
 
 ### Minor Changes

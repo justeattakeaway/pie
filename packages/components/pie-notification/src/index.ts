@@ -16,6 +16,7 @@ import {
     variants,
     positions,
     headingLevels,
+    actionSizes,
     componentSelector,
     componentClass,
     ON_NOTIFICATION_CLOSE_EVENT,
@@ -23,6 +24,7 @@ import {
     ON_NOTIFICATION_LEADING_ACTION_CLICK_EVENT,
     ON_NOTIFICATION_SUPPORTING_ACTION_CLICK_EVENT,
     defaultProps,
+    defaultActionButtonProps,
 } from './defs';
 import styles from './notification.scss?inline';
 
@@ -230,19 +232,20 @@ export class PieNotification extends PieElement implements NotificationProps {
      * @private
      */
     private renderActionButton (action: ActionProps, actionType: 'leading' | 'supporting') : TemplateResult | typeof nothing {
-        const { text, ariaLabel } = action;
+        const { text, ariaLabel, size = defaultActionButtonProps.size } = action;
 
         if (!text) {
             return nothing;
         }
 
         const buttonVariant = actionType === 'leading' ? 'primary' : 'ghost';
+        const buttonSize = size && actionSizes.includes(size) ? size : defaultActionButtonProps.size;
 
         return html`
             <pie-button
                 variant="${buttonVariant}"
-                size="small-productive"
-                aria-label="${ariaLabel || nothing}"
+                size="${ifDefined(buttonSize)}"
+                aria-label="${ifDefined(ariaLabel)}"
                 @click="${() => this.handleActionClick(actionType)}"
                 data-test-id="${componentSelector}-${actionType}-action"
                 ?isFullWidth="${this.hasStackedActions}"

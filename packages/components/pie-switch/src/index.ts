@@ -2,7 +2,7 @@ import {
     html, unsafeCSS, nothing,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { property, query } from 'lit/decorators.js';
+import { property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import 'element-internals-polyfill';
@@ -58,6 +58,9 @@ export class PieSwitch extends FormControlMixin(RtlMixin(PieElement)) implements
     @query('label')
     public focusTarget!: HTMLElement;
 
+    @state()
+    private _isAnimationAllowed = false;
+
     protected firstUpdated (): void {
         this.handleFormAssociation();
         // This ensures that invalid events triggered by checkValidity() are propagated to the custom element
@@ -100,6 +103,10 @@ export class PieSwitch extends FormControlMixin(RtlMixin(PieElement)) implements
         const { checked } = event?.currentTarget as HTMLInputElement;
         this.checked = checked;
         const changedEvent = wrapNativeEvent(event);
+
+        if (!this._isAnimationAllowed) {
+            this._isAnimationAllowed = true;
+        }
 
         this.dispatchEvent(changedEvent);
         this.handleFormAssociation();
@@ -191,11 +198,13 @@ export class PieSwitch extends FormControlMixin(RtlMixin(PieElement)) implements
             disabled,
             isRTL,
             required,
+            _isAnimationAllowed,
         } = this;
 
         const classes = {
             'c-switch-wrapper': true,
             'c-switch-wrapper--rtl': isRTL,
+            'c-switch-wrapper--allow-animation': _isAnimationAllowed,
         };
 
         return html`
