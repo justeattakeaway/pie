@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 
-import { type PieToastProvider } from 'src/index.ts';
+import type { PieToastProvider } from 'src/index.ts';
 import { defaultProps as toastDefaultProps } from '@justeattakeaway/pie-toast/src/defs.ts';
 import {
     PRIORITY_ORDER,
@@ -11,7 +11,7 @@ import {
 
 import { toastProvider } from '../helpers/page-object/selectors.ts';
 
-test.describe.skip('PieToastProvider - Component tests', () => {
+test.describe('PieToastProvider - Component tests', () => {
     let toastsQueue: ExtendedToastProps[] = [];
 
     test.beforeEach(({ page }) => {

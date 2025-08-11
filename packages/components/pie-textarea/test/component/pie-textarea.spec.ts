@@ -1,12 +1,12 @@
 import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
-import { type PieTextarea, type TextareaProps } from '../../src/index.ts';
+import type { PieTextarea, TextareaProps } from '../../src/index.ts';
 
 import { textArea } from '../helpers/page-objects/selectors.ts';
 
 import { statusTypes } from '../../src/defs.ts';
 
-test.describe.skip('PieTextarea - Component tests', () => {
+test.describe('PieTextarea - Component tests', () => {
     test('should render successfully', async ({ page }) => {
         // Arrange
         const textAreaPage = new BasePage(page, 'textarea');
