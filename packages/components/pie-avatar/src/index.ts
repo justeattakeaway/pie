@@ -59,7 +59,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     private renderInitials (initials: Initials): TemplateResult {
         return html`
             <span aria-hidden="true" data-test-id="pie-avatar-initials-visual">${initials.visual}</span>
-            <span class="c-avatar-visually-hidden" data-test-id="pie-avatar-initials-screenreader">${initials.screenreader}</span>
+            <span class="c-avatar-visuallyHidden" data-test-id="pie-avatar-initials-screenreader">${initials.screenreader}</span>
         `;
     }
 
