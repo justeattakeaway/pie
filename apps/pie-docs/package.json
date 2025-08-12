@@ -32,7 +32,7 @@
   "devDependencies": {
     "@11ty/eleventy": "2.0.1",
     "@11ty/eleventy-navigation": "0.3.5",
-    "@justeattakeaway/pie-monorepo-utils": "0.6.0",
+    "@justeattakeaway/pie-monorepo-utils": "0.7.0",
     "autoprefixer": "10.4.20",
     "eleventy-plugin-rev": "1.1.1",
     "eleventy-sass": "2.2.3",
