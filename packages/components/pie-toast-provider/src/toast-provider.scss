@@ -19,7 +19,7 @@
         inset-inline-start: var(--toast-provider-offset);
         inset-block-end: var(--toast-provider-offset);
 
-        &.c-toast-provider--rtl {
+        &:dir(rtl) {
             --pie-animation-slide-translate-start: 100%;
         }
     }

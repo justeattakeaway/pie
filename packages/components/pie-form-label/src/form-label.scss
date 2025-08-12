@@ -27,6 +27,10 @@
     font-weight: var(--dt-font-weight-regular);
 }
 
+.c-formLabel-leading-wrapper {
+    display: flex;
+}
+
 .c-formLabel-leading {
     margin-inline-end: var(--dt-spacing-b);
 }
