@@ -14,7 +14,7 @@
     },
     "test:browsers:ci": {
       "cache": true,
-      "dependsOn": [],
+      "dependsOn": ["build"],
       "inputs": [
         "$TURBO_DEFAULT$",
         "../../../apps/pie-storybook/stories/testing/pie-webc-core.test.stories.ts"

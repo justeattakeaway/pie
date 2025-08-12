@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@justeattakeaway/pie-icons-configs": "4.5.1",
-    "@justeattakeaway/pie-monorepo-utils": "0.6.0",
+    "@justeattakeaway/pie-monorepo-utils": "0.7.0",
     "@storybook/addon-a11y": "8.4.5",
     "@storybook/addon-designs": "8.0.4",
     "@storybook/addon-essentials": "8.4.5",
