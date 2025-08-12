@@ -12,14 +12,12 @@ import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-icon-button';
 import {
     requiredProperty,
-    RtlMixin,
     validPropertyValues,
     dispatchCustomEvent,
     safeCustomElement,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconChevronLeft.js';
-import '@justeattakeaway/pie-icons-webc/dist/IconChevronRight.js';
 import '@justeattakeaway/pie-spinner';
 
 import styles from './modal.scss?inline';
@@ -57,7 +55,7 @@ export interface ModalEventDetail {
  * @slot - Default slot
  */
 @safeCustomElement('pie-modal')
-export class PieModal extends RtlMixin(PieElement) implements ModalProps {
+export class PieModal extends PieElement implements ModalProps {
     @property({ type: Object })
     public aria: ModalProps['aria'];
 
@@ -380,7 +378,7 @@ export class PieModal extends RtlMixin(PieElement) implements ModalProps {
                 class="c-modal-backBtn"
                 aria-label="${ifDefined(this.aria?.back)}"
                 data-test-id="modal-back-button">
-                ${this.isRTL ? html`<icon-chevron-right></icon-chevron-right>` : html`<icon-chevron-left></icon-chevron-left>`}
+                    <icon-chevron-left class="c-modal-backBtn-icon"></icon-chevron-right>
             </pie-icon-button>
         `;
     }

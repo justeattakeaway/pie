@@ -149,7 +149,7 @@
     }
 
 
-    &.c-checkbox-tick--checked.c-checkbox-tick--rtl:before {
+    &.c-checkbox-tick--checked:dir(rtl):before {
         left: unset;
         right: 50%;
     }
@@ -199,7 +199,7 @@
     background-color: white;
 }
 
-.c-checkbox-tick.c-checkbox-tick--rtl:after {
+.c-checkbox-tick:dir(rtl):after {
     left: unset;
     right: 14%;
 }

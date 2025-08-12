@@ -347,4 +347,8 @@
             background: none;
         }
     }
+
+    .c-modal-backBtn-icon:dir(rtl) {
+        transform: rotate(180deg);
+    }
 }
