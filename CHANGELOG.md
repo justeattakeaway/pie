@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.85.1
+
+### Patch Changes
+
+- [Fixed] - Upgrade Turborepo to a version where `$TURBO_DEFAULT# Changelog is fixed - This ensures our component tests actually get their cache invalidated in CI ([#2524](https://github.com/justeattakeaway/pie/pull/2524)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.85.0
 
 ### Minor Changes

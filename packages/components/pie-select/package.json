@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-select",
   "description": "PIE Design System Select built using Web Components",
-  "version": "0.6.10",
+  "version": "0.6.11",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -45,8 +45,8 @@
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-assistive-text": "0.10.10",
-    "@justeattakeaway/pie-webc-core": "1.0.0"
+    "@justeattakeaway/pie-assistive-text": "0.10.11",
+    "@justeattakeaway/pie-webc-core": "1.1.0"
   },
   "volta": {
     "extends": "../../../package.json"
