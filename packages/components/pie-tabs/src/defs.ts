@@ -22,3 +22,4 @@ export const defaultProps: DefaultProps = {
     variant: 'global',
     orientation: 'horizontal',
 };
+

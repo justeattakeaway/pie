@@ -59,8 +59,6 @@ const tabsStoryMeta: TabsStoryMeta = {
 
 export default tabsStoryMeta;
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
 const Template = ({ slot, variant, orientation }: TabsProps) => html`
     <pie-tabs
         variant=${ifDefined(variant)}
