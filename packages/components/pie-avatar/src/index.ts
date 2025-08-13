@@ -23,7 +23,7 @@ const componentSelector = 'pie-avatar';
 export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, tags, defaultProps.tag)
-    public tag = defaultProps.tag; // access modifier
+    public tag = defaultProps.tag;
 
     @property({ type: String })
     public label: AvatarProps['label'];
@@ -34,7 +34,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
      *
      * @private
      */
-    private getInitials(name: string): Initials | null {
+    private getInitials (name: string): Initials | null {
         try {
             if (!name || typeof name !== 'string' || name.trim().length === 0) {
                 return null;
@@ -61,7 +61,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
      *
      * @private
      */
-    private renderInitials(initials: Initials): TemplateResult {
+    private renderInitials (initials: Initials): TemplateResult {
         return html`
             <span aria-hidden="true" data-test-id="pie-avatar-initials-visual">${initials.visual}</span>
             <span class="c-avatar-visuallyHidden" data-test-id="pie-avatar-initials-screenreader">${initials.screenreader}</span>
@@ -73,7 +73,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
      *
      * @private
      */
-    private renderIcon(): TemplateResult {
+    private renderIcon (): TemplateResult {
         return html`<span data-test-id="pie-avatar-icon" class="c-avatar-placeholder">Icon Placeholder</span>`;
     }
 
@@ -83,7 +83,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
      *
      * @private
      */
-    private get avatarContent(): TemplateResult {
+    private get avatarContent (): TemplateResult {
         // TODO: handle unauthenticated and src here
 
         if (this.label) {
@@ -102,7 +102,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
      *
      * @private
      */
-    private renderAvatarWrapper(content: TemplateResult): TemplateResult {
+    private renderAvatarWrapper (content: TemplateResult): TemplateResult {
         const { tag } = this;
 
         if (tag === 'button') {
@@ -116,7 +116,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
         return html`<div class="c-avatar-content" data-test-id="pie-avatar-div">${content}</div>`;
     }
 
-    render() {
+    render () {
         return this.renderAvatarWrapper(this.avatarContent);
     }
 
