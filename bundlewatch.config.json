@@ -211,6 +211,10 @@
     {
       "path": "./packages/components/pie-data-table/dist/*.js",
       "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-tabs/dist/*.js",
+      "maxSize": "3 KB"
     }
   ],
   "defaultCompression": "gzip",
