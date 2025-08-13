@@ -3714,18 +3714,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-monorepo-utils@npm:0.6.0":
-  version: 0.6.0
-  resolution: "@justeattakeaway/pie-monorepo-utils@npm:0.6.0"
-  dependencies:
-    "@changesets/parse": 0.4.1
-    chalk: 4.1.2
-  bin:
-    detect-webc-major-version: webc-major-versioning/detect-webc-major-version.js
-  checksum: 6732546879dfd17a78e94c5d96a7c3f873e6e4bf65476845b093eb9fa5e5f897d1de355d85d09f7b272169839ccd1db430f1f7a1f41241a3597afff4d2b95bce
-  languageName: node
-  linkType: hard
-
 "@justeattakeaway/pie-notification@0.15.1, @justeattakeaway/pie-notification@workspace:packages/components/pie-notification":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-notification@workspace:packages/components/pie-notification"
@@ -3882,8 +3870,8 @@ __metadata:
     "@custom-elements-manifest/analyzer": 0.9.0
     "@justeattakeaway/pie-components-config": 0.21.0
     "@justeattakeaway/pie-css": 0.19.0
-    "@justeattakeaway/pie-monorepo-utils": 0.6.0
-    "@justeattakeaway/pie-webc-core": 1.0.0
+    "@justeattakeaway/pie-monorepo-utils": 0.7.0
+    "@justeattakeaway/pie-webc-core": 1.1.0
     cem-plugin-module-file-extensions: 0.0.5
   languageName: unknown
   linkType: soft
@@ -3987,15 +3975,6 @@ __metadata:
     lit: 3.2.0
   languageName: unknown
   linkType: soft
-
-"@justeattakeaway/pie-webc-core@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@justeattakeaway/pie-webc-core@npm:1.0.0"
-  dependencies:
-    lit: 3.2.0
-  checksum: dd49709ec06059d3cf5ebdf6af0461285b98fee7249a803bee028b3377a608f138a39e5445fcbb12fc5f5fbb2510f81aef4534670342072d26b2dcd7cd9eec6c
-  languageName: node
-  linkType: hard
 
 "@justeattakeaway/pie-webc-testing@0.13.5, @justeattakeaway/pie-webc-testing@workspace:packages/components/pie-webc-testing":
   version: 0.0.0-use.local
