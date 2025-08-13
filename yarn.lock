@@ -3875,7 +3875,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-tabs@workspace:packages/components/pie-tabs":
+"@justeattakeaway/pie-tabs@0.0.0, @justeattakeaway/pie-tabs@workspace:packages/components/pie-tabs":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-tabs@workspace:packages/components/pie-tabs"
   dependencies:
@@ -4036,6 +4036,7 @@ __metadata:
     "@justeattakeaway/pie-select": 0.6.11
     "@justeattakeaway/pie-spinner": 1.2.5
     "@justeattakeaway/pie-switch": 2.1.0
+    "@justeattakeaway/pie-tabs": 0.0.0
     "@justeattakeaway/pie-tag": 0.17.5
     "@justeattakeaway/pie-text-input": 0.28.12
     "@justeattakeaway/pie-textarea": 0.16.12
