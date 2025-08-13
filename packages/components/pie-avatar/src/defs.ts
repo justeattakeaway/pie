@@ -9,7 +9,7 @@ export interface AvatarProps {
      */
     tag: typeof tags[number];
     /**
-     * What variant avatar should be such as link, button or div.
+     * What HTML element the avatar should be such as button, a  or div.
      */
 
 }
@@ -19,3 +19,7 @@ export const defaultProps: DefaultProps = {
     tag: 'div',
 };
 
+export type Initials = {
+    visual: string,
+    screenreader: string
+}

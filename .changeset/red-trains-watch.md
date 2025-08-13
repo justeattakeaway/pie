@@ -4,4 +4,4 @@
 "pie-monorepo": minor
 ---
 
-[Added] Avatar Initials Static type for the pie-avatar component
+[Added] - Avatar Initials Static type for the pie-avatar component

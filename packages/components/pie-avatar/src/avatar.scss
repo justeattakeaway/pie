@@ -15,7 +15,7 @@
     justify-content: center;
     align-items: center;
     @include p.font-size(--dt-font-body-s-size);
-    background-color: var(--dt-color-container-dark);
+    background-color: var(--dt-color-container-inverse);
     color: var(--dt-color-content-interactive-primary); 
     width: 32px;
     height: 32px;

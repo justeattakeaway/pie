@@ -16,7 +16,7 @@ const avatarStoryMeta: AvatarStoryMeta = {
     component: 'pie-avatar',
     argTypes: {
         label: {
-            description: 'Text for user name',
+            description: 'The name to display in the Avatar as initials. Should be a username, first and last name or company name.',
             control: {
                 type: 'text',
             },
@@ -43,7 +43,7 @@ const avatarStoryMeta: AvatarStoryMeta = {
 export default avatarStoryMeta;
 
 const Template = ({ label, tag }: AvatarProps) => html`
-    <pie-avatar label= "${ifDefined(label)}" tag="${ifDefined(tag)}"></pie-avatar>
+    <pie-avatar label="${ifDefined(label)}" tag="${ifDefined(tag)}"></pie-avatar>
 `;
 
 const createAvatarStory = createStory<AvatarProps>(Template, defaultArgs);

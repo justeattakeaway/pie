@@ -14,7 +14,7 @@ const avatarStoryMeta: AvatarStoryMeta = {
     component: 'pie-avatar',
     argTypes: {
         label: {
-            description: 'Text for user name',
+            description: 'The name to display in the Avatar as initials. Should be a username, first and last name or company name.',
             control: {
                 type: 'text',
             },
