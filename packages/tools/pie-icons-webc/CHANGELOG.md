@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.14.2
+
+### Patch Changes
+
+- Updated dependencies [[`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229), [`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229)]:
+  - @justeattakeaway/pie-webc-core@1.1.0
+
 ## 1.14.1
 
 ### Patch Changes
