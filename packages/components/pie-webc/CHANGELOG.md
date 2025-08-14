@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-webc
 
+## 0.7.11
+
+### Patch Changes
+
+- Updated dependencies [[`0ad2724`](https://github.com/justeattakeaway/pie/commit/0ad2724a1db425012b69639c91290c4ed78ca33f)]:
+  - @justeattakeaway/pie-tabs@0.1.0
+
 ## 0.7.10
 
 ### Patch Changes

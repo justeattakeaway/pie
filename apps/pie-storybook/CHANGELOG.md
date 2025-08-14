@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.45.0
+
+### Minor Changes
+
+- [Added] pie-tabs basic html markup ([#2515](https://github.com/justeattakeaway/pie/pull/2515)) by [@thejfreitas](https://github.com/thejfreitas)
+
+### Patch Changes
+
+- Updated dependencies [[`0ad2724`](https://github.com/justeattakeaway/pie/commit/0ad2724a1db425012b69639c91290c4ed78ca33f)]:
+  - @justeattakeaway/pie-tabs@0.1.0
+
 ## 1.44.1
 
 ### Patch Changes
