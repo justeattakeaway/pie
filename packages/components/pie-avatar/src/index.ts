@@ -3,6 +3,7 @@ import {
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { RtlMixin, safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import '@justeattakeaway/pie-icons-webc/dist/IconUser.js';
 
 import { property } from 'lit/decorators.js';
 import styles from './avatar.scss?inline';
@@ -74,7 +75,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
      * @private
      */
     private renderIcon (): TemplateResult {
-        return html`<span data-test-id="pie-avatar-icon" class="c-avatar-placeholder">Icon Placeholder</span>`;
+        return html`<icon-user size="s" data-test-id="pie-avatar-icon"></icon-user>`;
     }
 
     /**
