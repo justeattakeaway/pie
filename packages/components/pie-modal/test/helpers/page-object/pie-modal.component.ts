@@ -10,8 +10,10 @@ export class ModalComponent {
     private readonly headerLocator: Locator;
     private readonly descriptionLocator: Locator;
     readonly footerLocator: Locator;
+    private readonly page: Page;
 
     constructor (page: Page) {
+        this.page = page;
         this.componentLocator = page.getByTestId(modal.selectors.container.dataTestId);
         this.backButtonLocator = page.getByTestId(modal.selectors.backButton.dataTestId);
         this.closeButtonLocator = page.getByTestId(modal.selectors.closeButton.dataTestId);
@@ -129,5 +131,19 @@ export class ModalComponent {
     async getDescriptionTextContent () {
         const descriptionText = await this.descriptionLocator.textContent();
         return descriptionText?.trim();
+    }
+
+    /**
+     * Unfocuses the currently focused element on the page.
+     * Currently required to ensure that the modal's elements are not focused when visual regression tests are run.
+     *
+     * @returns {Promise<void>}
+     */
+    async blurElement (): Promise<void> {
+        await this.page.evaluate(() => {
+            if (document.activeElement instanceof HTMLElement) {
+                document.activeElement.blur();
+            }
+        });
     }
 }
