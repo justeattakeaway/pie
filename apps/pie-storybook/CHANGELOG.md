@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.46.0
+
+### Minor Changes
+
+- [Added] - Avatar Initials Static type for the pie-avatar component ([#2465](https://github.com/justeattakeaway/pie/pull/2465)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies [[`e6ee309`](https://github.com/justeattakeaway/pie/commit/e6ee30973b0cedb68a246483ba7e85339bf11efd)]:
+  - @justeattakeaway/pie-avatar@0.2.0
+
 ## 1.45.0
 
 ### Minor Changes
