@@ -10,10 +10,6 @@
     @include p.visually-hidden;
 }
 
-.c-avatar-visuallyHidden {
-    @include p.visually-hidden;
-}
-
 .c-avatar-content {
     display: flex;
     justify-content: center;
@@ -25,11 +21,4 @@
     height: 32px;
     border-radius:var(--dt-radius-rounded-e);
 
-}
-
-// Basic placeholder styling - will be removed in subsequent ticket
-.c-avatar-placeholder {
-    display: inline-block;
-    text-align: center; 
-    font-size: 6px;
 }
