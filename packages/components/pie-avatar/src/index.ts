@@ -75,7 +75,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
      * @private
      */
     private renderIcon (): TemplateResult {
-        return html`<icon-user size="s" data-test-id="pie-avatar-icon"></icon-user>`;
+        return html`<icon-user size="s" aria-hidden="true" data-test-id="pie-avatar-icon"></icon-user>`;
     }
 
     /**

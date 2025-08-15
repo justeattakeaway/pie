@@ -63,6 +63,18 @@ test.describe('PieAvatar - Component tests', () => {
             // Assert
             await expect(avatarComponentVisual).toBeVisible();
         });
+        test(`should  be ommitted by screenreaders when label is ${input}`, async ({ page }) => {
+            // Arrange
+            const avatarPage = new BasePage(page, 'avatar--default');
+            avatarPage.args = ''; // don't set label
+            await avatarPage.load();
+
+            // Act
+            const avatarComponentVisual = page.getByTestId('pie-avatar-icon');
+
+            // Assert
+            await expect(avatarComponentVisual).toHaveAttribute('aria-hidden');
+        });
     });
 });
 
