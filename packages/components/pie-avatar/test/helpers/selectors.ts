@@ -17,7 +17,7 @@ const avatar = {
             dataTestId: 'pie-avatar-anchor',
         },
         icon: {
-            description: 'Fallback icon placeholder',
+            description: 'Fallback icon when there is no label',
             dataTestId: 'pie-avatar-icon',
         },
         initialsVisual: {
