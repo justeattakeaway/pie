@@ -1,0 +1,40 @@
+{
+    "headings": [
+        "Size",
+        "Height",
+        "Width",
+        "Use cases"
+    ],
+    "rows": [
+        [
+            "XLarge",
+            "48px",
+            "48px",
+            "Use when an entire page requires a spinner"
+        ],
+        [
+            "Large",
+            "32px",
+            "32px",
+            ""
+        ],
+        [
+            "Medium",
+            "24px",
+            "24px",
+            "The default size. We recommend using this size where space allows."
+        ],
+        [
+            "Small",
+            "20px",
+            "20px",
+            "Use within small components such as buttons or chips, or when there are other space constraints."
+        ],
+        [
+            "XSmall",
+            "16px",
+            "16px",
+            ""
+        ]
+    ]
+}

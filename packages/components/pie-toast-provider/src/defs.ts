@@ -17,6 +17,8 @@ export const PRIORITY_ORDER = {
 
 export type Priority = keyof typeof PRIORITY_ORDER;
 
+export const positions = ['default', 'bottom-left', 'bottom-right', 'bottom-center'] as const;
+
 export interface ExtendedToastProps extends ToastProps {
     /**
      * Triggered when the user interacts with the close icon or when the toast auto dismiss.
@@ -39,12 +41,19 @@ export interface ToastProviderProps {
      * Default options for all toasts; accepts all toast props.
      */
     options?: Partial<ExtendedToastProps>;
+
+    /**
+     * Sets the position of the toast provider.
+     * When set to `default`, the toasts will be positioned at bottom-left for RTL languages and bottom-right for LTR languages.
+     */
+    position?: typeof positions[number];
 }
 
 export type DefaultProps = ComponentDefaultProps<ToastProviderProps>;
 
 export const defaultProps: DefaultProps = {
     options: {},
+    position: 'default',
 };
 
 /**

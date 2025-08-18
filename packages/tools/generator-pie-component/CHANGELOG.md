@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.30.6
+
+### Patch Changes
+
+- [Fixed] - Issue where CI test jobs weren't building dependencies as part of setup ([#2522](https://github.com/justeattakeaway/pie/pull/2522)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.30.5
 
 ### Patch Changes

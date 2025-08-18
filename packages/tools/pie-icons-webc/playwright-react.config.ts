@@ -4,6 +4,8 @@ import path from 'path';
 export default defineConfig({
     /* The base directory, relative to the config file, for snapshot files created with toMatchSnapshot and toHaveScreenshot. */
     snapshotDir: './__snapshots__',
+    /* The template for the snapshot file path. */
+    snapshotPathTemplate: '{snapshotDir}/{testFilePath}/{arg}-{projectName}{ext}',
     /* Maximum time one test can run for. */
     timeout: 10 * 1000,
     /* Run tests in files in parallel */

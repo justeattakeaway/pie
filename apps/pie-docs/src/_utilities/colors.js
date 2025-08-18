@@ -34,7 +34,7 @@ const isColorDark = (hexCode) => {
     const color = convertRGBToSassColour(rgb);
     const lightnessThreshold = 40;
 
-    return color.lightness < lightnessThreshold;
+    return color.channel('lightness', { space: 'hsl' }) < lightnessThreshold;
 };
 
 module.exports = {

@@ -1,25 +1,34 @@
-<p align="center">
-  <img align="center" src="../../../readme_image.png" height="200" alt="">
-</p>
+# @justeattakeaway/pie-css
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-css) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-css)
 
-<p align="center">
+<p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-css">
-    <img alt="Currently released NPM version" src="https://img.shields.io/npm/v/@justeattakeaway/pie-css.svg">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-css.svg">
   </a>
 </p>
 
-# PIE CSS
+`@justeattakeaway/pie-css` is a styling library that provides two distinct features:
+
+1. A minimal set of CSS styles to help PIE web components display as intended in web applications and providing our design tokens for applications to use.
+2. A set of SCSS style helpers (mixins, functions and variables) to help with common styling tasks when authoring PIE web components.
+
+The PIE design tokens (and HSL colour variants) are exposed as CSS variables, as these variables are used across the PIE component styles and therefore need to be imported when using the PIE Web Components.
+
 
 # Table of Contents
 
-1. [Introduction](#introduction)
-2. [Installation](#installation)
-3. [Using the `pie-css` CSS stylesheet in your web application](#using-the-pie-css-css-stylesheet-in-your-web-application)
+1. [Installation](#installation)
+2. [Using the `pie-css` CSS stylesheet in your web application](#using-the-pie-css-css-stylesheet-in-your-web-application)
     1. JS or Framework import (via bundler)
     2. Nuxt
     3. Sass /SCSS
     4. Native HTML
-4. [What's included in the `pie-css` base stylesheet](#whats-included-in-the-pie-css-base-stylesheet)
+3. [What's included in the `pie-css` base stylesheet](#whats-included-in-the-pie-css-base-stylesheet)
+    1. [PIE Design Tokens](#pie-design-tokens)
+    2. [box-sizing](#box-sizing)
+    3. [Typography](#typography)
+    4. [z-index variables](#z-index-variables)
+    5. [Reusable Animations](#reusable-animations)
 4. [Using the `pie-css` SCSS helpers (mixins & functions)](#using-the-pie-css-scss-helpers-mixins--functions)
     1. [Importing the `pie-css` SCSS helpers](#importing-the-pie-css-scss-helpers)
     2. [`pie-css` SCSS Helper Definitions](#pie-css-scss-helper-definitions)
@@ -28,13 +37,6 @@
 5. [Testing](#testing)
     - [CSS](#css)
     - [SCSS](#scss)
-
-## Introduction
-
-`pie-css` is a styling library that provides both a minimal set of CSS styles to help PIE Web Components display as intended on web applications, and a set of optional SCSS style helpers (mixins & functions) to help with common styling tasks.
-
-It also includes the PIE design tokens (and HSL colour variants) as CSS variables, as these variables are used across the PIE component styles and therefore need to be imported when using the PIE Web Components.
-
 
 ## Installation
 
@@ -171,6 +173,7 @@ In most cases, a webpage should follow the DOM's natural stacking order and the 
 
 | Token                      | Z-Index Value  |
 | -------------------------- | ---------------|
+| --dt-z-index-base: 1;      | 1              |
 | --dt-z-index-dropdown      | 1000           |
 | --dt-z-index-fab           | 1000           |
 | --dt-z-index-tooltip       | 2000           |
@@ -180,6 +183,22 @@ In most cases, a webpage should follow the DOM's natural stacking order and the 
 | --dt-z-index-modal         | 4000           |
 | --dt-z-index-cookie-banner | 5000           |
 | --dt-z-index-toast         | 6000           |
+
+### Reusable Animations
+
+`pie-css` also ships with a set of reusable animations that can be applied to elements by adding a CSS class.
+
+#### Slide Animation
+
+| Class                      | Description  |
+| -------------------------- | ---------------|
+| `.pie-animation--slide-in` | Slides an element in from the left. |
+| `.pie-animation--slide-out`| Slides an element out to the left. |
+
+
+**Customisation:**
+
+The starting position of the slide animation can be customised by overriding the `--pie-animation-slide-translate-start` CSS variable. The default value is `-100%`.
 
 ---
 

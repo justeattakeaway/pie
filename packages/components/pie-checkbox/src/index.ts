@@ -8,7 +8,6 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 
 import {
-    RtlMixin,
     wrapNativeEvent,
     FormControlMixin,
     validPropertyValues,
@@ -31,7 +30,7 @@ const assistiveTextId = 'assistive-text';
  * @event {CustomEvent} change - when checked state is changed.
  */
 @safeCustomElement('pie-checkbox')
-export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implements CheckboxProps {
+export class PieCheckbox extends FormControlMixin(PieElement) implements CheckboxProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @state()
@@ -39,6 +38,9 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implemen
 
     @state()
     private _visuallyHiddenError = false;
+
+    @state()
+    private _isAnimationAllowed = false;
 
     @property({ type: String })
     public value = defaultProps.value;
@@ -127,6 +129,9 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implemen
     private _handleChange (event: Event) {
         const { checked } = event?.currentTarget as HTMLInputElement;
         this.checked = checked;
+        if (!this._isAnimationAllowed) {
+            this._isAnimationAllowed = true;
+        }
         // This is because some events set `composed` to `false`.
         // Reference: https://javascript.info/shadow-dom-events#event-composed
         const customChangeEvent = wrapNativeEvent(event);
@@ -161,11 +166,11 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implemen
             disabled,
             _disabledByParent,
             _visuallyHiddenError,
+            _isAnimationAllowed,
             required,
             indeterminate,
             assistiveText,
             status,
-            isRTL,
         } = this;
 
         const componentDisabled = disabled || _disabledByParent;
@@ -184,7 +189,7 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implemen
             'is-disabled': componentDisabled,
             'c-checkbox-tick--checked': checked,
             'c-checkbox-tick--indeterminate': indeterminate && !checked,
-            'c-checkbox-tick--rtl': isRTL,
+            'c-checkbox-tick--allow-animation': _isAnimationAllowed,
         };
 
         return html`

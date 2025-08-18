@@ -38,7 +38,7 @@ The PIE monorepo has several distinct sections, including:
 
 ## Contributing
 
-To contribute to the PIE Monorepo, please head to our **[Contributing Guide](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide)**. This guide contains all the information required for you to set up the repository and run everything locally, from the documentation site to Web Components. It also provides information on how to commit code, as well as versioning and publishing.
+To contribute to the PIE Monorepo, please head to our **[Contributing Guide](https://webc.pie.design/?path=/docs/contribution-overview--docs)**. This guide contains all the information required for you to set up the repository and run everything locally, from the documentation site to Web Components. It also provides information on how to commit code, as well as versioning and publishing.
 
 
 ## Code of Conduct

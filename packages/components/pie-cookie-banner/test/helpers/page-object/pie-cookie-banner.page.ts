@@ -301,7 +301,8 @@ export class CookieBannerComponent extends BasePage {
         await this.page.evaluate(([prop, val]) => {
             const component = document.querySelector('pie-cookie-banner');
             if (component) {
-                component[prop] = val;
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                (component as any)[prop as keyof any] = val;
             }
         }, [property, value]);
     }
@@ -309,6 +310,8 @@ export class CookieBannerComponent extends BasePage {
     async waitForLocaleUpdate () {
         await this.page.waitForFunction(() => {
             const component = document.querySelector('pie-cookie-banner');
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             return component && component._locale && Object.keys(component._locale).length > 0;
         });
     }

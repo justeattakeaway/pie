@@ -38,7 +38,13 @@ export abstract class PieIconComponent extends LitElement {
     protected _svgHeight!: string | number;
 
     protected abstract name: string;
+
     public abstract class: string;
+
+    /**
+     * These are the base classes and come from the SVG file during the build phase
+     */
+    protected defaultClasses = '';
 
     firstUpdated (): void {
         this.updateIconSize();
@@ -51,9 +57,18 @@ export abstract class PieIconComponent extends LitElement {
     }
 
     updateIconSize (): void {
-        const svgSize = getSvgProps(this.class, '', this.size, this.name);
+        const svgSize = getSvgProps(this.defaultClasses, '', this.size, this.name);
         this._svgWidth = svgSize.width;
         this._svgHeight = svgSize.height;
+    }
+
+    attributeChangedCallback (name: string, oldVal: string | null, newVal: string | null) {
+        if (name === 'class' && newVal !== null) {
+            const incomingClasses = newVal.trim().split(' ').filter((cls) => !this.defaultClasses.split(' ').includes(cls));
+            this.class = [this.defaultClasses, ...incomingClasses].join(' ');
+        } else {
+            super.attributeChangedCallback(name, oldVal, newVal);
+        }
     }
 
     abstract render(): TemplateResult;

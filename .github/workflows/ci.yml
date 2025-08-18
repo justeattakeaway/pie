@@ -18,6 +18,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 concurrency:
   group: CI-${{ github.ref }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
@@ -56,6 +59,9 @@ env:
   PERCY_TOKEN_PIE_SELECT: ${{ secrets.PERCY_TOKEN_PIE_SELECT }}
   PERCY_TOKEN_PIE_BREADCRUMB: ${{ secrets.PERCY_TOKEN_PIE_BREADCRUMB }}
   PERCY_TOKEN_PIE_LIST: ${{ secrets.PERCY_TOKEN_PIE_LIST }}
+  PERCY_TOKEN_PIE_AVATAR: ${{ secrets.PERCY_TOKEN_PIE_AVATAR }}
+  PERCY_TOKEN_PIE_DATA_TABLE: ${{ secrets.PERCY_TOKEN_PIE_DATA_TABLE }}
+  PERCY_TOKEN_PIE_TABS: ${{ secrets.PERCY_TOKEN_PIE_TABS }}
 
 jobs:
   check-change-type:
@@ -75,26 +81,26 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       - name: Verify if pie-docs has changes
         id: docs-check
         run: |
           DOCS_CHANGE=$(npx -y turbo run build --filter='@justeattakeaway/pie-docs[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $DOCS_CHANGE"
-          echo "docs-change=$DOCS_CHANGE" >> $GITHUB_OUTPUT
+          echo "docs-change=$DOCS_CHANGE" >> "$GITHUB_OUTPUT"
       - name: Verify if web components have changes
         id: component-check
         run: |
           COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}...[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $COMPONENT_CHANGE"
-          echo "web-components-change=$COMPONENT_CHANGE" >> $GITHUB_OUTPUT
+          echo "web-components-change=$COMPONENT_CHANGE" >> "$GITHUB_OUTPUT"
       - name: Verify if storybook has changes
         id: storybook-check
         run: |
           STORYBOOK_CHANGE=$(npx -y turbo run build --filter='@justeattakeaway/pie-storybook[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $STORYBOOK_CHANGE"
-          echo "storybook-change=$STORYBOOK_CHANGE" >> $GITHUB_OUTPUT
+          echo "storybook-change=$STORYBOOK_CHANGE" >> "$GITHUB_OUTPUT"
 
   lint-styles:
     runs-on: ubuntu-latest
@@ -106,7 +112,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       # Lint Styles
       - name: Lint Styles
@@ -125,7 +131,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       # Lint JS
       - name: Lint JavaScript
@@ -133,31 +139,46 @@ jobs:
         with:
           script-name: "lint:scripts"
 
-  build-windows-node-20:
+  lint-workflows:
+    runs-on: ubuntu-latest
+    if: (github.event.repository.fork == false || github.event_name == 'pull_request')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Lint workflows
+        shell: bash
+        env:
+          ACTIONLINT_VERSION: 'v1.6.27'
+        run: |
+          echo "::add-matcher::.github/workflows/actionlint-matcher.json"
+          bash <(curl --silent --show-error "https://raw.githubusercontent.com/rhysd/actionlint/${ACTIONLINT_VERSION}/scripts/download-actionlint.bash")
+          ./actionlint -color
+
+  build-windows-node-22:
     uses: ./.github/workflows/install-build.yml
     with:
       os: windows-latest
-      node-version: 20
-    secrets: inherit
-
-  build-ubuntu-node-18:
-    uses: ./.github/workflows/install-build.yml
-    with:
-      os: ubuntu-latest
-      node-version: 18
+      node-version: 22
     secrets: inherit
 
   build-ubuntu-node-20:
     uses: ./.github/workflows/install-build.yml
-    needs: [ 'lint-js', 'lint-styles', 'check-change-type' ]
     with:
       os: ubuntu-latest
       node-version: 20
+    secrets: inherit
+
+  build-ubuntu-node-22:
+    uses: ./.github/workflows/install-build.yml
+    needs: [ 'lint-js', 'lint-styles', 'check-change-type' ]
+    with:
+      os: ubuntu-latest
+      node-version: 22
       analyse-component-bundles: true
     secrets: inherit
 
   unit-tests:
-    needs: 'build-ubuntu-node-20'
+    needs: 'build-ubuntu-node-22'
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -167,7 +188,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       # Run Unit Tests
       - name: Unit Tests
@@ -176,12 +197,15 @@ jobs:
           script-name: "test:ci"
 
   deploy-storybook:
-    needs: unit-tests
+    needs: [ unit-tests, check-change-type ]
     if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      deployments: write
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
-      node-version: 20
+      node-version: 22
       amplify-app-id: d17ja0ul7nrdy0
       package-name: '@justeattakeaway/pie-storybook'
       package-dist-directory: ./apps/pie-storybook/dist
@@ -192,12 +216,15 @@ jobs:
 
   # Workflow task that deploys an instance of storybook used for test suites to run against
   deploy-storybook-testing:
-    needs: unit-tests
+    needs: [ unit-tests, check-change-type ]
     if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      deployments: write
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
-      node-version: 20
+      node-version: 22
       amplify-app-id: d3eyargno6okyn
       package-name: '@justeattakeaway/pie-storybook'
       package-dist-directory: ./apps/pie-storybook/dist
@@ -210,7 +237,7 @@ jobs:
 
   # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
   browser-tests-components:
-    needs: [ build-ubuntu-node-20, deploy-storybook ]
+    needs: [ build-ubuntu-node-22, deploy-storybook, check-change-type ]
     if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
@@ -223,7 +250,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       # Setup Playwright
       - name: Setup Playwright
@@ -232,7 +259,7 @@ jobs:
       - name: Run All System / Component /  a11y Tests
         uses: ./.github/actions/run-script
         with:
-          script-name: "test:browsers:ci --filter='./packages/components/*'"
+          script-name: "test:browsers:ci --filter='./packages/**'"
       - name: Upload Playwright Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
@@ -245,13 +272,13 @@ jobs:
         uses: ./.github/actions/run-script
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='{./packages/components/*}[HEAD^1]' --filter='{./packages/tools/*}[HEAD^1]'"
+          script-name: "test:visual:ci --filter='{./packages/**}[HEAD^1]'"
           concurrency: 1
       - name: Run Changed Package Visual Tests
         uses: ./.github/actions/run-script
         if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='{./packages/components/*}...[origin/main]' --filter='{./packages/tools/*}...[origin/main]'"
+          script-name: "test:visual:ci --filter='{./packages/**}[origin/main]'"
           concurrency: 1
       - name: Upload Playwright Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
@@ -265,12 +292,15 @@ jobs:
       PR_NUMBER: ${{ github.event.number }}
 
   deploy-docs:
-    needs: unit-tests
-    uses: ./.github/workflows/amplify-deploy.yml
+    needs: [ unit-tests, check-change-type ]
     if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      deployments: write
+    uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
-      node-version: 20
+      node-version: 22
       amplify-app-id: dvskdcoepjoyf
       package-name: '@justeattakeaway/pie-docs'
       package-dist-directory: ./apps/pie-docs/dist
@@ -292,7 +322,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 20
+          node-version: 22
           os: ubuntu-latest
       # Setup Playwright
       - name: Setup Playwright
@@ -339,7 +369,7 @@ jobs:
     uses: ./.github/workflows/changeset-release.yml
     with:
       os: ubuntu-latest
-      node-version: 20
+      node-version: 22
     secrets: inherit
 
   check-all-jobs:
@@ -348,8 +378,9 @@ jobs:
     needs:
       - lint-styles
       - lint-js
-      - build-ubuntu-node-18
-      - build-windows-node-20
+      - lint-workflows
+      - build-ubuntu-node-22
+      - build-windows-node-22
       - build-ubuntu-node-20
       - unit-tests
       - browser-tests-components

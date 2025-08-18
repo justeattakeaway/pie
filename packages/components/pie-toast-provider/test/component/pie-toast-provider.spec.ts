@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 
-import { type PieToastProvider } from 'src/index.ts';
+import type { PieToastProvider } from 'src/index.ts';
 import { defaultProps as toastDefaultProps } from '@justeattakeaway/pie-toast/src/defs.ts';
 import {
     PRIORITY_ORDER,
@@ -144,6 +144,58 @@ test.describe('PieToastProvider - Component tests', () => {
                 expect(toastsQueue[0].isDismissible).toBeTruthy(); // Global option should apply
                 expect(toastsQueue[1].isDismissible).toBeFalsy(); // Override should take precedence
             });
+        });
+    });
+
+    test.describe('Interactivity', () => {
+        test('should keep page interactive when toast is displayed', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--scroll-page');
+            await pieToastProviderPage.load();
+
+            const expectedEventMessage = 'Section button clicked';
+
+            const consoleMessages: string[] = [];
+            page.on('console', (message) => {
+                if (message.type() === 'info') {
+                    consoleMessages.push(message.text());
+                }
+            });
+
+            const toastElement = page.locator('pie-toast');
+            await expect(toastElement).toBeVisible();
+
+            // Act
+            const sectionButton = page.locator('pie-button').filter({ hasText: 'Interactive element' });
+            await expect(sectionButton).toBeVisible();
+            await sectionButton.click();
+
+            // Assert
+            expect(consoleMessages).toEqual([expectedEventMessage]);
+        });
+    });
+
+    test.describe('Position and Scrolling', () => {
+        test('should maintain fixed position when scrolling', async ({ page }) => {
+            // Arrange
+            const pieToastProviderPage = new BasePage(page, 'toast-provider--scroll-page');
+            await pieToastProviderPage.load();
+
+            const toastElement = page.locator('pie-toast');
+            await expect(toastElement).toBeVisible();
+
+            const initialPosition = await toastElement.boundingBox();
+
+            // Act
+            await page.evaluate(() => {
+                window.scrollTo(0, document.body.scrollHeight);
+            });
+
+            // Assert
+            const finalPosition = await toastElement.boundingBox();
+
+            expect(finalPosition?.x).toBe(initialPosition?.x);
+            expect(finalPosition?.y).toBe(initialPosition?.y);
         });
     });
 });

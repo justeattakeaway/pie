@@ -1,5 +1,171 @@
 # Changelog
 
+## 4.46.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.11
+
+## 4.46.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.10
+
+## 4.46.1
+
+### Patch Changes
+
+- [Fixed] links to Snacks components ([#2511](https://github.com/justeattakeaway/pie/pull/2511)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.9
+
+## 4.46.0
+
+### Minor Changes
+
+- [Updated] - update components to use the new brand refresh elevation tokens ([#2504](https://github.com/justeattakeaway/pie/pull/2504)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Updated] - pie-design-tokens to `v7.2.0` to include a new set of elevation tokens ([#2499](https://github.com/justeattakeaway/pie/pull/2499)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Updated] - elevation docs to the new brand refresh specs.
+
+### Patch Changes
+
+- Updated dependencies [[`310b376`](https://github.com/justeattakeaway/pie/commit/310b3763c15a85e6a3a55e4c0cf41cb3db5bbe58)]:
+  - @justeattakeaway/pie-css@0.19.0
+  - @justeattakeaway/pie-webc@0.7.8
+
+## 4.45.2
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2498](https://github.com/justeattakeaway/pie/pull/2498)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`9396c3c`](https://github.com/justeattakeaway/pie/commit/9396c3c07fa3d08f3432524c2de5c182fe9a9604)]:
+  - @justeattakeaway/pie-icons@5.15.0
+  - @justeattakeaway/pie-webc@0.7.7
+
+## 4.45.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.6
+
+## 4.45.0
+
+### Minor Changes
+
+- [Updated] - `pie-design-token` to v7.1.0 ([#2484](https://github.com/justeattakeaway/pie/pull/2484)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`a9278c3`](https://github.com/justeattakeaway/pie/commit/a9278c3ec67ad66130e6f52cdf881baf0716fbb7)]:
+  - @justeattakeaway/pie-css@0.18.0
+  - @justeattakeaway/pie-webc@0.7.5
+
+## 4.44.0
+
+### Minor Changes
+
+- Update Figma links across the site ([#2461](https://github.com/justeattakeaway/pie/pull/2461)) by [@maledr5](https://github.com/maledr5)
+
+- [Updated] - notification overview page to reflect new changes. ([#2479](https://github.com/justeattakeaway/pie/pull/2479)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.4
+
+## 4.43.0
+
+### Minor Changes
+
+- [Fixed] - Sass deprecation warning for usage of `color.lightness` ([#2470](https://github.com/justeattakeaway/pie/pull/2470)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Updated] - upgraded the version of `@justeat/pie-design-tokens` to v7.0.2 ([#2459](https://github.com/justeattakeaway/pie/pull/2459)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`7925bb4`](https://github.com/justeattakeaway/pie/commit/7925bb4b80ae88a6f662fbcab7644f5c9c00bcaf)]:
+  - @justeattakeaway/pie-css@0.17.2
+  - @justeattakeaway/pie-webc@0.7.3
+
+## 4.42.1
+
+### Patch Changes
+
+- Updated dependencies [[`1cb6f81`](https://github.com/justeattakeaway/pie/commit/1cb6f81de20b73c45de75d5f5b5a53dbb8350407)]:
+  - @justeattakeaway/pie-css@0.17.1
+
+## 4.42.0
+
+### Minor Changes
+
+- Updated supported devices ([#2453](https://github.com/justeattakeaway/pie/pull/2453)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.2
+
+## 4.41.1
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2451](https://github.com/justeattakeaway/pie/pull/2451)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`e118da0`](https://github.com/justeattakeaway/pie/commit/e118da0ff66420635f3b5e3cad1cff5884f47632)]:
+  - @justeattakeaway/pie-icons@5.14.0
+  - @justeattakeaway/pie-webc@0.7.1
+
+## 4.41.0
+
+### Minor Changes
+
+- [Added] - toast custom rendering positions docs ([#2436](https://github.com/justeattakeaway/pie/pull/2436)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - correct storybook links for web components on overview pages ([#2448](https://github.com/justeattakeaway/pie/pull/2448)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`024074c`](https://github.com/justeattakeaway/pie/commit/024074cbb428968ffee71c39f7f94cb8828f5156), [`a790653`](https://github.com/justeattakeaway/pie/commit/a790653fabfa9301ea4d0cb89899ee50ae10ffab)]:
+  - @justeattakeaway/pie-webc@0.7.0
+  - @justeattakeaway/pie-css@0.17.0
+
+## 4.40.0
+
+### Minor Changes
+
+- [Added]- Spinner documentation ([#2432](https://github.com/justeattakeaway/pie/pull/2432)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.6.45
+
+## 4.39.2
+
+### Patch Changes
+
+- [Changed] - update code pages to point to webc.pie.design and the snacks portal for a number of components ([#2439](https://github.com/justeattakeaway/pie/pull/2439)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 4.39.1
+
+### Patch Changes
+
+- [Changed] - Updated assistive-text code page to point to storybook ([#2438](https://github.com/justeattakeaway/pie/pull/2438)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 4.39.0
+
+### Minor Changes
+
+- - [Changed] - updates in content for chip, button and textarea ([#2422](https://github.com/justeattakeaway/pie/pull/2422)) by [@maledr5](https://github.com/maledr5)
+
 ## 4.38.0
 
 ### Minor Changes

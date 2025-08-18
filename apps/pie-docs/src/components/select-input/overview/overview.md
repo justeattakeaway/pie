@@ -390,11 +390,6 @@ Here are some examples of select inputs in right-to-left context:
 
 ## Resources
 
-{% notification {
-  type: "warning",
-  message: "We're currently working on updating our Select Input documentation, please see the resources below."
-} %}
-
 {% resourceTable {
     componentName: 'Select Input'
 } %}

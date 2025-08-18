@@ -1,5 +1,66 @@
 # @justeattakeaway/pie-toast
 
+## 0.11.1
+
+### Patch Changes
+
+- Updated dependencies [[`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229), [`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229)]:
+  - @justeattakeaway/pie-webc-core@1.1.0
+  - @justeattakeaway/pie-button@1.6.7
+  - @justeattakeaway/pie-icon-button@2.0.6
+  - @justeattakeaway/pie-icons-webc@1.14.2
+
+## 0.11.0
+
+### Minor Changes
+
+- [Updated] - update components to use the new brand refresh elevation tokens ([#2504](https://github.com/justeattakeaway/pie/pull/2504)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`55c94d6`](https://github.com/justeattakeaway/pie/commit/55c94d610fa1b027d4b435640eeeb38fff0c5a1a)]:
+  - @justeattakeaway/pie-icons-webc@1.14.1
+  - @justeattakeaway/pie-icon-button@2.0.5
+
+## 0.10.2
+
+### Patch Changes
+
+- Updated dependencies [[`f1b151b`](https://github.com/justeattakeaway/pie/commit/f1b151b69db048aa6c0668351d5d0f4ad2cde40c), [`9396c3c`](https://github.com/justeattakeaway/pie/commit/9396c3c07fa3d08f3432524c2de5c182fe9a9604), [`f1b151b`](https://github.com/justeattakeaway/pie/commit/f1b151b69db048aa6c0668351d5d0f4ad2cde40c)]:
+  - @justeattakeaway/pie-icons-webc@1.14.0
+  - @justeattakeaway/pie-icon-button@2.0.4
+
+## 0.10.1
+
+### Patch Changes
+
+- Updated dependencies [[`e118da0`](https://github.com/justeattakeaway/pie/commit/e118da0ff66420635f3b5e3cad1cff5884f47632)]:
+  - @justeattakeaway/pie-icons-webc@1.13.0
+  - @justeattakeaway/pie-icon-button@2.0.3
+
+## 0.10.0
+
+### Minor Changes
+
+- [Changed] - removed the toast animation from the component level in favor of reusable animation classes from `pie-css` to make the component agnostic. ([#2435](https://github.com/justeattakeaway/pie/pull/2435)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - support custom rendering positions for the toast provider ([#2435](https://github.com/justeattakeaway/pie/pull/2435)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`5fd79d4`](https://github.com/justeattakeaway/pie/commit/5fd79d4396b3170d99b20710c97580cee8744cbe)]:
+  - @justeattakeaway/pie-button@1.6.6
+
+## 0.9.7
+
+### Patch Changes
+
+- [Changed] - Add consistent git info and storybook url to package.json file ([#2443](https://github.com/justeattakeaway/pie/pull/2443)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`d63ca7c`](https://github.com/justeattakeaway/pie/commit/d63ca7ccb1a40619f0118bc436550c6c02f70309)]:
+  - @justeattakeaway/pie-icon-button@2.0.2
+  - @justeattakeaway/pie-button@1.6.5
+
 ## 0.9.6
 
 ### Patch Changes

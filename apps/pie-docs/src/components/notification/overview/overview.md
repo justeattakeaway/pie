@@ -226,7 +226,6 @@ When the user is not required to take action against the notification.
 
 {% contentPageImage {
     src:"../../../assets/img/components/notification/modifier-actions-no-actions.svg",
-    alt: "Anatomy of a notification.",
     alt: "A notification with a title, a trailing icon, supporting text, dismiss button and no action buttons",
     width: 1024
 } %}
@@ -255,6 +254,23 @@ Notifications provide limited space for content, and therefore the content must 
 
 - Be concise and avoid repeating or paraphrasing the title.
 - Limit content to one or two short sentences.
+
+### Overrides   
+
+{% contentPageImage {
+    src:"../../../assets/img/components/notification/content-overrides.svg",
+    alt: "a success notification with a title, supporting text, and two action buttons on the right.",
+    width: 845
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Leading icon:** The leading icon’s variants can be overridden.",
+        "**Supporting text:** The supporting text can include a link or bold type, when the string is a complete sentence or more.",
+        "**Buttons:** The [Button’s](/components/button/#sizes) size can be decreased, and if they are kept as a pair, the size of both buttons remaining consistent."
+    ]
+} %}
 
 ---
 

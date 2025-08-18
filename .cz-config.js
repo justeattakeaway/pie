@@ -22,10 +22,16 @@ const getPackages = () => {
 };
 
 const getCurrentTicketNumberFromBranch = () => {
-    const branchName = require('child_process').execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
-    const ticketNumber = branchName.match(/\d{1,7}/)?.[0];
-
-    return ticketNumber;
+    try {
+        const branchName = require('child_process').execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
+        const { getTicketIdFromBranchName } = require('./packages/tools/pie-monorepo-utils/git-hooks/git-hooks-utils.js');
+        const ticketId = getTicketIdFromBranchName(branchName);
+        
+        return ticketId;
+    } catch (error) {
+        console.warn('Warning: Could not determine current branch name:', error.message);
+        return null;
+    }
 };
 
 module.exports = {
@@ -49,10 +55,10 @@ module.exports = {
   scopes: [...getPackages()],
   // override the messages, defaults are as follows
   messages: {
-    type: "Select the type of change that you're committing:",
-    scope: 'Denote the SCOPE of this change:',
-    ticketNumber: `Jira ticket number (${getCurrentTicketNumberFromBranch() || '000'}):`,
-    subject: 'Write a SHORT, IMPERATIVE tense description of the change:',
+    type: '(required) Select the type of change that you\'re committing:',
+    scope: '(required) Denote the SCOPE of this change:',
+    ticketNumber: `(required) Jira ticket number - Cannot be all zeros (${getCurrentTicketNumberFromBranch() || ''}):`,
+    subject: '(required) Write a SHORT, IMPERATIVE tense description of the change:',
     body: '(optional) Provide a LONGER description of the change. Use "|" to break new line:',
     breaking: '(optional) List any BREAKING CHANGES:',
     confirmCommit: 'Are you sure you want to proceed with the commit above?',
@@ -61,8 +67,7 @@ module.exports = {
   allowCustomScopes: false,
   skipQuestions: ['footer'],
   allowTicketNumber: true,
-  fallbackTicketNumber: getCurrentTicketNumberFromBranch() || '000',
+  fallbackTicketNumber: getCurrentTicketNumberFromBranch(),
   isTicketNumberRequired: true,
-  ticketNumberPrefix: 'DSW-',
-  ticketNumberRegExp: '\\d{1,7}',
+  ticketNumberRegExp: '[A-Z]{2,4}-(?!0+$)\\d{1,7}',
 };

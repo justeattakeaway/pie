@@ -1,5 +1,107 @@
 # wc-react17
 
+## 0.5.103
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.11
+
+## 0.5.102
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.10
+
+## 0.5.101
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.9
+
+## 0.5.100
+
+### Patch Changes
+
+- Updated dependencies [[`310b376`](https://github.com/justeattakeaway/pie/commit/310b3763c15a85e6a3a55e4c0cf41cb3db5bbe58)]:
+  - @justeattakeaway/pie-css@0.19.0
+  - @justeattakeaway/pie-webc@0.7.8
+
+## 0.5.99
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.7
+
+## 0.5.98
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.6
+
+## 0.5.97
+
+### Patch Changes
+
+- Updated dependencies [[`a9278c3`](https://github.com/justeattakeaway/pie/commit/a9278c3ec67ad66130e6f52cdf881baf0716fbb7)]:
+  - @justeattakeaway/pie-css@0.18.0
+  - @justeattakeaway/pie-webc@0.7.5
+
+## 0.5.96
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.4
+
+## 0.5.95
+
+### Patch Changes
+
+- Updated dependencies [[`7925bb4`](https://github.com/justeattakeaway/pie/commit/7925bb4b80ae88a6f662fbcab7644f5c9c00bcaf)]:
+  - @justeattakeaway/pie-css@0.17.2
+  - @justeattakeaway/pie-webc@0.7.3
+
+## 0.5.94
+
+### Patch Changes
+
+- Updated dependencies [[`1cb6f81`](https://github.com/justeattakeaway/pie/commit/1cb6f81de20b73c45de75d5f5b5a53dbb8350407)]:
+  - @justeattakeaway/pie-css@0.17.1
+
+## 0.5.93
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.2
+
+## 0.5.92
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.1
+
+## 0.5.91
+
+### Patch Changes
+
+- Updated dependencies [[`024074c`](https://github.com/justeattakeaway/pie/commit/024074cbb428968ffee71c39f7f94cb8828f5156), [`a790653`](https://github.com/justeattakeaway/pie/commit/a790653fabfa9301ea4d0cb89899ee50ae10ffab)]:
+  - @justeattakeaway/pie-webc@0.7.0
+  - @justeattakeaway/pie-css@0.17.0
+
+## 0.5.90
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.6.45
+
 ## 0.5.89
 
 ### Patch Changes

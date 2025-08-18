@@ -88,7 +88,8 @@ export function validateGetRegularIconSize (sizeValue : RegularIconSize) {
  */
 
 export const getSvgProps = (svgClasses: string, staticClasses: string, sizeValue: RegularIconSize | LargeIconSize | null, componentName: string) => {
-    const isLargeIcon = svgClasses.endsWith('Large') || svgClasses.endsWith('-large');
+    // Multiple classes are provided, better check individually if it has the "large" class
+    const isLargeIcon = svgClasses.split(' ').some((cls) => cls.endsWith('Large') || cls.endsWith('-large'));
 
     let isValid;
     let size;

@@ -22,6 +22,8 @@
   - [Displaying error messages](#displaying-error-messages)
   - [Labelling](#labelling)
 - [Usage Examples](#usage-examples)
+- [Pitfalls](#pitfalls)
+  - [Controlled input values](#controlled-input-values)
 - [Questions and Support](#questions-and-support)
 - [Contributing](#contributing)
 
@@ -280,6 +282,27 @@ import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/react/Icon
     value="">
   <IconPlaceholder slot="leadingIcon"></IconPlaceholder>
 </PieTextInput>
+```
+## Pitfalls
+
+### Controlled input values
+
+If we want to add a constraint to what the user can input, then on input/change we perform the condition check and if it succeeds, update the input value. If it fails, then manually assign event.target.value to the last known valid input to prevent it from updating.
+
+> This will need to be done regardless of application framework used.
+
+Example:
+
+```js
+const onInput = (event) => {
+  // For example, users can type only uppercase letters
+  const value = event.target.value
+  if (value === value.toUpperCase()) {
+    inputValue.value = value
+  } else {
+    event.target.value = inputValue.value
+  }
+}
 ```
 
 ## Questions and Support

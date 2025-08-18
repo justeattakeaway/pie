@@ -4,7 +4,13 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-button';
 import {
-    type ButtonProps as ButtonPropsBase, defaultProps, iconPlacements, responsiveSizes, sizes, types, variants,
+    type ButtonProps as ButtonPropsBase,
+    defaultProps,
+    iconPlacements,
+    responsiveSizes,
+    sizes,
+    types,
+    variants,
 } from '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 
@@ -122,7 +128,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
             if: { arg: 'type', eq: 'submit' },
         },
         formenctype: {
-            description: 'If the button is a submit button (it\'s inside/associated with a <form> and doesn\'t have type="button"), specifies how to encode the form data that is submitted.',
+            description: 'If the button is a submit button (it\'s inside/associated with a `<form>` and doesn\'t have type="button"), specifies how to encode the form data that is submitted.',
             control: 'text',
             defaultValue: {
                 summary: '',
@@ -130,7 +136,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
             if: { arg: 'type', eq: 'submit' },
         },
         formmethod: {
-            description: 'If the button is a submit button (it\'s inside/associated with a <form> and doesn\'t have type="button"), this attribute specifies the HTTP method used to submit the form.',
+            description: 'If the button is a submit button (it\'s inside/associated with a `<form>` and doesn\'t have type="button"), this attribute specifies the HTTP method used to submit the form.',
             control: 'text',
             defaultValue: {
                 summary: '',
@@ -395,6 +401,9 @@ export const Anchor = createStory(AnchorTemplate, defaultArgs)({
     argTypes: {
         tag: {
             description: 'Choose the HTML element that will be used to render the button.<br>For this story, the prop has the value of `a`. See the other stories to interact with the component when this prop has a value of `button`.',
+            control: {
+                disable: true,
+            },
         },
     },
     controls: {

@@ -1,5 +1,44 @@
 # Changelog
 
+## 2.85.1
+
+### Patch Changes
+
+- [Fixed] - Upgrade Turborepo to a version where `$TURBO_DEFAULT# Changelog is fixed - This ensures our component tests actually get their cache invalidated in CI ([#2524](https://github.com/justeattakeaway/pie/pull/2524)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.85.0
+
+### Minor Changes
+
+- [Added] - New Husky "post-checkout" hook for branch name validation ([#2513](https://github.com/justeattakeaway/pie/pull/2513)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Updated] - PR Title validation to be handled by Danger instead of custom Github Action
+  [Updated] - `.cz-config.js` to handle non-DSW JIRA ID's
+
+## 2.84.0
+
+### Minor Changes
+
+- [Updated] - Volta config for Node 22 support ([#2507](https://github.com/justeattakeaway/pie/pull/2507)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.83.1
+
+### Patch Changes
+
+- [Fixed] - Issue where `pie-webc` version check was running on Version Packages PRs ([#2487](https://github.com/justeattakeaway/pie/pull/2487)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.83.0
+
+### Minor Changes
+
+- [Updated] - `pie-design-token` to v7.1.0 ([#2484](https://github.com/justeattakeaway/pie/pull/2484)) by [@raoufswe](https://github.com/raoufswe)
+
+## 2.82.0
+
+### Minor Changes
+
+- creating the pie-avatar web component ([#2449](https://github.com/justeattakeaway/pie/pull/2449)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
 ## 2.81.2
 
 ### Patch Changes

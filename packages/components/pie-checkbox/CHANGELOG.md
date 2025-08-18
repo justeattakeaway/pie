@@ -1,5 +1,53 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.17.0
+
+### Minor Changes
+
+- [Updated] - use the :dir() pseudo-class for RTL styling instead of the RTL mixin to ensure proper support during SSR. ([#2518](https://github.com/justeattakeaway/pie/pull/2518)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229), [`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229)]:
+  - @justeattakeaway/pie-webc-core@1.1.0
+  - @justeattakeaway/pie-assistive-text@0.10.11
+
+## 0.16.11
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.10.10
+
+## 0.16.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.10.9
+
+## 0.16.9
+
+### Patch Changes
+
+- [Fixed] Flicker on mount ([#2458](https://github.com/justeattakeaway/pie/pull/2458)) by [@jonatankruszewski](https://github.com/jonatankruszewski)
+
+## 0.16.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.10.8
+
+## 0.16.7
+
+### Patch Changes
+
+- [Changed] - Add consistent git info and storybook url to package.json file ([#2443](https://github.com/justeattakeaway/pie/pull/2443)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`d63ca7c`](https://github.com/justeattakeaway/pie/commit/d63ca7ccb1a40619f0118bc436550c6c02f70309)]:
+  - @justeattakeaway/pie-assistive-text@0.10.7
+
 ## 0.16.6
 
 ### Patch Changes

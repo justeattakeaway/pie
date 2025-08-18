@@ -1,5 +1,51 @@
 # @justeattakeaway/pie-breadcrumb
 
+## 0.7.0
+
+### Minor Changes
+
+- [Updated] - use the :dir() pseudo-class for RTL styling instead of the RTL mixin to ensure proper support during SSR. ([#2518](https://github.com/justeattakeaway/pie/pull/2518)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229), [`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229)]:
+  - @justeattakeaway/pie-webc-core@1.1.0
+  - @justeattakeaway/pie-link@1.2.10
+  - @justeattakeaway/pie-icons-webc@1.14.2
+
+## 0.6.5
+
+### Patch Changes
+
+- Updated dependencies [[`55c94d6`](https://github.com/justeattakeaway/pie/commit/55c94d610fa1b027d4b435640eeeb38fff0c5a1a)]:
+  - @justeattakeaway/pie-icons-webc@1.14.1
+  - @justeattakeaway/pie-link@1.2.9
+
+## 0.6.4
+
+### Patch Changes
+
+- Updated dependencies [[`f1b151b`](https://github.com/justeattakeaway/pie/commit/f1b151b69db048aa6c0668351d5d0f4ad2cde40c), [`9396c3c`](https://github.com/justeattakeaway/pie/commit/9396c3c07fa3d08f3432524c2de5c182fe9a9604), [`f1b151b`](https://github.com/justeattakeaway/pie/commit/f1b151b69db048aa6c0668351d5d0f4ad2cde40c)]:
+  - @justeattakeaway/pie-icons-webc@1.14.0
+  - @justeattakeaway/pie-link@1.2.8
+
+## 0.6.3
+
+### Patch Changes
+
+- Updated dependencies [[`e118da0`](https://github.com/justeattakeaway/pie/commit/e118da0ff66420635f3b5e3cad1cff5884f47632)]:
+  - @justeattakeaway/pie-icons-webc@1.13.0
+  - @justeattakeaway/pie-link@1.2.7
+
+## 0.6.2
+
+### Patch Changes
+
+- [Changed] - Add consistent git info and storybook url to package.json file ([#2443](https://github.com/justeattakeaway/pie/pull/2443)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`d63ca7c`](https://github.com/justeattakeaway/pie/commit/d63ca7ccb1a40619f0118bc436550c6c02f70309)]:
+  - @justeattakeaway/pie-link@1.2.6
+
 ## 0.6.1
 
 ### Patch Changes

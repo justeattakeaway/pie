@@ -7,7 +7,7 @@ export const buildUrl = (
     const prNumber = process.env.PR_NUMBER;
     const branch = process.env.GITHUB_REF;
 
-    let baseURL = 'http://localhost:6006';
+    let baseURL = 'http://localhost:6007';
 
     if (process.env.CI) {
         if (branch === 'refs/heads/main') {

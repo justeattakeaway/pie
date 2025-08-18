@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { LottiePlayerDefaultPage } from '../helpers/page-object/pie-lottie-player-default.page.ts';
-import { type LottiePlayerProps } from '../../src/index.ts';
+import { type LottiePlayerProps } from '../../src/defs.ts';
 
 test.describe('PieLottiePlayer - Component tests', () => {
     test('should render successfully', async ({ page }) => {
@@ -15,7 +15,7 @@ test.describe('PieLottiePlayer - Component tests', () => {
         await expect(lottiePlayerComponent).toBeVisible();
     });
 
-    test.describe('when props are not provided"', () => {
+    test.describe('when props are not provided', () => {
         test('should render the expected default props', async ({ page }) => {
             // Arrange
             const lottiePlayerPage = new LottiePlayerDefaultPage(page);

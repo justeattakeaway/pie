@@ -1,5 +1,37 @@
 # @justeattakeaway/pie-css
 
+## 0.19.0
+
+### Minor Changes
+
+- [Updated] - pie-design-tokens to `v7.2.0` to include a new set of elevation tokens ([#2499](https://github.com/justeattakeaway/pie/pull/2499)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.18.0
+
+### Minor Changes
+
+- [Updated] - `pie-design-token` to v7.1.0 ([#2484](https://github.com/justeattakeaway/pie/pull/2484)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.17.2
+
+### Patch Changes
+
+- [Changed] - Improved formatting of pie-css readme.md file ([#2473](https://github.com/justeattakeaway/pie/pull/2473)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.17.1
+
+### Patch Changes
+
+- [Changed] - Moved introduction to top of readme ([#2467](https://github.com/justeattakeaway/pie/pull/2467)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.17.0
+
+### Minor Changes
+
+- creating the pie-avatar web component ([#2449](https://github.com/justeattakeaway/pie/pull/2449)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+- [Added] - reusable css animation classes ([#2435](https://github.com/justeattakeaway/pie/pull/2435)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.16.0
 
 ### Minor Changes

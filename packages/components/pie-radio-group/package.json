@@ -1,7 +1,13 @@
 {
   "name": "@justeattakeaway/pie-radio-group",
   "description": "PIE Design System Radio Group built using Web Components",
-  "version": "0.9.7",
+  "version": "0.9.14",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/components/pie-radio-group"
+  },
+  "homepage": "https://webc.pie.design/?path=/docs/components-radio-group--overview",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -33,15 +39,15 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
-    "@justeattakeaway/pie-components-config": "0.20.1",
-    "@justeattakeaway/pie-css": "0.16.0",
-    "@justeattakeaway/pie-monorepo-utils": "0.5.1",
-    "@justeattakeaway/pie-radio": "0.11.3",
+    "@justeattakeaway/pie-components-config": "0.21.0",
+    "@justeattakeaway/pie-css": "0.19.0",
+    "@justeattakeaway/pie-monorepo-utils": "0.7.0",
+    "@justeattakeaway/pie-radio": "0.11.6",
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-assistive-text": "0.10.6",
-    "@justeattakeaway/pie-webc-core": "1.0.0"
+    "@justeattakeaway/pie-assistive-text": "0.10.11",
+    "@justeattakeaway/pie-webc-core": "1.1.0"
   },
   "volta": {
     "extends": "../../../package.json"

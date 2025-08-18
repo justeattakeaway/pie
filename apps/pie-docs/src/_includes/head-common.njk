@@ -2,6 +2,7 @@
 <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/PTMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/JETSansVF2-phase1-optimised-extended.woff2' | url }}" as="font" type="font/woff2" crossorigin>
 <link rel="prefetch" href="{{ '/assets/img/heroes/pie-hero.png' | url }}">
 <link rel="prefetch" href="{{ '/assets/img/coming-soon.svg' | url }}">
 <link rel="prefetch" href="{{ '/assets/img/404_narrow.png' | url }}">
@@ -27,6 +28,17 @@
         src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff2') format("woff2"),
         url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff') format("woff");
         font-weight: 800;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: JETSansVF2;
+        src: url('{{ "/assets/fonts/JETSansVF2-phase1-optimised-extended.woff2" | url }}') format("woff2-variations"),
+         url('{{ "/assets/fonts/JETSansVF2-phase1-optimised-extended.woff2" | url }}') format("woff2") tech("variations");
+
+        font-weight: 100 1000;
+        font-stretch: 25% 151%;
+
+        font-style: oblique 0deg 20deg;
         font-display: swap;
     }
     @font-face {

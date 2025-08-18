@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-monorepo-utils
 
+## 0.7.0
+
+### Minor Changes
+
+- [Added] - New `match-pie-commit-pattern` commitlint rule to provide better messaging for invalid commit messages ([#2513](https://github.com/justeattakeaway/pie/pull/2513)) by [@siggerzz](https://github.com/siggerzz)
+
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - CLI to detect breaking changes of `pie-webc` deps and prompt contributors to add a required changeset for `pie-webc` ([#2481](https://github.com/justeattakeaway/pie/pull/2481)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.5.1
 
 ### Patch Changes

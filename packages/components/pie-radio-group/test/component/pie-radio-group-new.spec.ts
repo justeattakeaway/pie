@@ -36,6 +36,20 @@ const keyboardNavigationStorySelectors = {
     button4: 'btn-4',
 };
 
+const keyboardNavigationDisabledStorySelectors = {
+    button1: 'btn-1',
+    radioGroup: {
+        self: 'pie-radio-group',
+        radios: {
+            1: 'radio-1',
+            2: 'radio-2',
+            3: 'radio-3',
+            4: 'radio-4',
+        },
+    },
+    button2: 'btn-2',
+};
+
 const dynamicSlotsStorySelectors = {
     radioGroup1: {
         self: 'radio-group-1',
@@ -308,6 +322,56 @@ test.describe('PieRadioGroup - Component tests new', () => {
 
                     await expect(button).toBeFocused();
                 });
+
+                test.describe('Radio is checked but disabled', () => {
+                    test('Tab should focus the first available radio, not the selected one', async ({ page }) => {
+                        pageObject = new BasePage(page, 'radio-group--keyboard-navigation-disabled-and-checked');
+                        await pageObject.load();
+
+                        await page.keyboard.press('Tab');
+                        await page.keyboard.press('Tab');
+
+                        const radio = page.getByTestId(keyboardNavigationDisabledStorySelectors.radioGroup.radios[1]);
+                        await expect(radio).toBeFocused();
+                    });
+                });
+
+                test.describe('All but one radio is disabled', () => {
+                    test('Tab should focus the single enabled radio', async ({ page }) => {
+                        pageObject = new BasePage(page, 'radio-group--keyboard-navigation-disabled-radios-and-checked');
+                        await pageObject.load();
+
+                        await page.keyboard.press('Tab');
+                        await page.keyboard.press('Tab');
+
+                        const radio = page.getByTestId(keyboardNavigationDisabledStorySelectors.radioGroup.radios[2]);
+                        await expect(radio).toBeFocused();
+                    });
+                });
+                test.describe('All radios are disabled, but one is checked', () => {
+                    test('Tab should not focus the radio group', async ({ page }) => {
+                        pageObject = new BasePage(page, 'radio-group--keyboard-navigation-all-disabled-and-checked');
+                        await pageObject.load();
+
+                        await page.keyboard.press('Tab');
+                        await page.keyboard.press('Tab');
+
+                        const button = page.getByTestId(keyboardNavigationDisabledStorySelectors.button2);
+                        await expect(button).toBeFocused();
+                    });
+                });
+                test.describe('All radios are disabled', () => {
+                    test('Tab should not focus the radio group', async ({ page }) => {
+                        pageObject = new BasePage(page, 'radio-group--keyboard-navigation-all-disabled');
+                        await pageObject.load();
+
+                        await page.keyboard.press('Tab');
+                        await page.keyboard.press('Tab');
+
+                        const button = page.getByTestId(keyboardNavigationDisabledStorySelectors.button2);
+                        await expect(button).toBeFocused();
+                    });
+                });
             });
 
             test.describe('Shift + Tab', () => {
@@ -357,6 +421,99 @@ test.describe('PieRadioGroup - Component tests new', () => {
                     const button = page.getByTestId(keyboardNavigationStorySelectors.button1);
 
                     await expect(button).toBeFocused();
+                });
+
+                test('When an option is set programatically, Shift + Tab focuses the correct radio button', async ({ page }) => {
+                    // First Tab 3 times to go button 1 -> Radio group 1 -> button 2
+                    await page.keyboard.press('Tab');
+                    await page.keyboard.press('Tab');
+                    await page.keyboard.press('Tab');
+
+                    // The radio group should have no value
+                    const radioGroup1Locator = await page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.self);
+                    await expect(radioGroup1Locator).not.toHaveAttribute('value');
+
+                    // Set value to pizza (the third option)
+                    await page.evaluate(() => {
+                        const radioGroup = document.querySelector('pie-radio-group[name="radio-group-1"]');
+                        radioGroup?.setAttribute('value', 'pizza');
+                    });
+
+                    // Ensure the correct value is set
+                    await expect(radioGroup1Locator).toHaveAttribute('value', 'pizza');
+
+                    // Ensure the correct radio is checked but not focused
+                    const radio = page.getByTestId(keyboardNavigationStorySelectors.radioGroup1.radios[3]);
+                    await expect(radio).not.toBeFocused();
+                    await expect(radio).toBeChecked();
+
+                    // Press shift tab, it should focus the radio now
+                    await page.keyboard.press('Shift+Tab');
+                    await expect(radio).toBeFocused();
+                    await expect(radio).toBeChecked();
+
+                    // Press shift tab, it should focus button 1
+                    await page.keyboard.press('Shift+Tab');
+                    const button = page.getByTestId(keyboardNavigationStorySelectors.button1);
+                    await expect(button).toBeFocused();
+                });
+
+                test.describe('Radio is checked but disabled', () => {
+                    test('Shift + Tab should focus the last available radio, not the selected one', async ({ page }) => {
+                        pageObject = new BasePage(page, 'radio-group--keyboard-navigation-disabled-and-checked');
+                        await pageObject.load();
+
+                        await page.keyboard.press('Tab');
+                        await page.keyboard.press('Tab');
+                        await page.keyboard.press('Tab');
+
+                        await page.keyboard.press('Shift+Tab');
+
+                        const radio = page.getByTestId(keyboardNavigationDisabledStorySelectors.radioGroup.radios[4]);
+                        await expect(radio).toBeFocused();
+                    });
+                });
+
+                test.describe('All but one radio is disabled', () => {
+                    test('Shift + Tab should focus the single enabled radio', async ({ page }) => {
+                        pageObject = new BasePage(page, 'radio-group--keyboard-navigation-disabled-radios-and-checked');
+                        await pageObject.load();
+
+                        await page.keyboard.press('Tab');
+                        await page.keyboard.press('Tab');
+                        await page.keyboard.press('Tab');
+
+                        await page.keyboard.press('Shift+Tab');
+
+                        const radio = page.getByTestId(keyboardNavigationDisabledStorySelectors.radioGroup.radios[2]);
+                        await expect(radio).toBeFocused();
+                    });
+                });
+                test.describe('All radios are disabled, but one is checked', () => {
+                    test('Shift + Tab should not focus the radio group', async ({ page }) => {
+                        pageObject = new BasePage(page, 'radio-group--keyboard-navigation-all-disabled-and-checked');
+                        await pageObject.load();
+
+                        await page.keyboard.press('Tab');
+                        await page.keyboard.press('Tab');
+                        await page.keyboard.press('Shift+Tab');
+
+                        const button = page.getByTestId(keyboardNavigationDisabledStorySelectors.button1);
+                        await expect(button).toBeFocused();
+                    });
+                });
+                test.describe('All radios are disabled', () => {
+                    test('Shift + Tab should not focus the radio group', async ({ page }) => {
+                        pageObject = new BasePage(page, 'radio-group--keyboard-navigation-all-disabled');
+                        await pageObject.load();
+
+                        await page.keyboard.press('Tab');
+                        await page.keyboard.press('Tab');
+                        await page.keyboard.press('Shift+Tab');
+
+                        const button = page.getByTestId(keyboardNavigationDisabledStorySelectors.button1);
+                        await expect(button).toBeFocused();
+                    });
                 });
             });
 

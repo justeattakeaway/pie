@@ -1409,12 +1409,12 @@
                     "displayName": "Loading"
                 },
                 {
-                    "name": "paintbrush",
-                    "displayName": "Paintbrush"
-                },
-                {
                     "name": "pacifier",
                     "displayName": "Pacifier"
+                },
+                {
+                    "name": "paintbrush",
+                    "displayName": "Paintbrush"
                 },
                 {
                     "name": "pet-supplies",
@@ -1457,12 +1457,20 @@
                     "displayName": "Toilet"
                 },
                 {
+                    "name": "tool",
+                    "displayName": "Tool"
+                },
+                {
                     "name": "toys-games",
                     "displayName": "Toys Games"
                 },
                 {
                     "name": "tutorial",
                     "displayName": "Tutorial"
+                },
+                {
+                    "name": "weight",
+                    "displayName": "Weight"
                 }
             ]
         },
@@ -1991,6 +1999,14 @@
                 {
                     "name": "food-ready",
                     "displayName": "Food Ready"
+                },
+                {
+                    "name": "local-hero",
+                    "displayName": "Local Hero"
+                },
+                {
+                    "name": "local-hero-filled",
+                    "displayName": "Local Hero Filled"
                 },
                 {
                     "name": "management",

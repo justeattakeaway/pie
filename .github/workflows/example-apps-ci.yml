@@ -7,6 +7,9 @@ on:
     branches:
       - main
 
+permissions: 
+  contents: read
+
 concurrency:
   group: CI-Example-Apps-${{ github.ref }}
   cancel-in-progress: true
@@ -16,14 +19,12 @@ env:
 
 jobs:
   build-example-apps:
-    permissions:
-      contents: read
     strategy:
       matrix:
         include:
-          - node-version: 20
+          - node-version: 22
             example-app: wc-react17
-          - node-version: 20
+          - node-version: 22
             example-app: wc-react18
     name: Build ${{matrix.example-app}} - Node ${{ matrix.node-version }}
     uses: ./.github/workflows/install-build.yml
@@ -35,16 +36,19 @@ jobs:
 
   deploy-example-apps:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      deployments: write
     strategy:
       matrix:
         include:
-          - node-version: 20
+          - node-version: 22
             amplify-app-id: d2a3kuvjs3esad
             build-script: build:examples
             dist-folder: ./apps/examples/wc-react17/dist
             example-app: wc-react17
 
-          - node-version: 20
+          - node-version: 22
             amplify-app-id: d1zlc7g0rtfm9g
             build-script: build:examples
             dist-folder: ./apps/examples/wc-react18/dist

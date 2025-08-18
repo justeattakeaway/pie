@@ -6,6 +6,7 @@ import {
     variants,
     headingLevels,
     positions,
+    actionSizes,
 } from '../../src/defs.ts';
 
 export const screenWidths = {
@@ -111,6 +112,31 @@ test.describe('Props', () => {
 
                 // Assert
                 await percySnapshot(page, 'PieNotification - leadingAction is provided and supportingAction is provided');
+            });
+        });
+
+        test.describe('Action button sizes', () => {
+            actionSizes.forEach((size) => {
+                test(`should render action buttons with ${size} size`, async ({ page }) => {
+                    // Arrange
+                    const basePage = new BasePage(page, 'notification');
+                    const props: NotificationProps = {
+                        ...initialValues,
+                        leadingAction: {
+                            text: 'Leading Action',
+                            size,
+                        },
+                        supportingAction: {
+                            text: 'Supporting Action',
+                            size,
+                        },
+                    };
+
+                    await basePage.load({ ...props });
+
+                    // Assert
+                    await percySnapshot(page, `PieNotification - Action buttons with ${size} size`);
+                });
             });
         });
 

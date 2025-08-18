@@ -1,5 +1,86 @@
 # @justeattakeaway/pie-modal
 
+## 1.11.0
+
+### Minor Changes
+
+- [Updated] - use the :dir() pseudo-class for RTL styling instead of the RTL mixin to ensure proper support during SSR. ([#2518](https://github.com/justeattakeaway/pie/pull/2518)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229), [`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229)]:
+  - @justeattakeaway/pie-webc-core@1.1.0
+  - @justeattakeaway/pie-button@1.6.7
+  - @justeattakeaway/pie-icon-button@2.0.6
+  - @justeattakeaway/pie-spinner@1.2.5
+  - @justeattakeaway/pie-icons-webc@1.14.2
+
+## 1.10.1
+
+### Patch Changes
+
+- [Fixed] - Ensure that body scroll-locking is not stuck if the modal fails to query the underlying dialog element during the disconnectedCallback lifecycle method. ([#2514](https://github.com/justeattakeaway/pie/pull/2514)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 1.10.0
+
+### Minor Changes
+
+- [Updated] - pie-design-tokens to `v7.2.0` to include a new set of elevation tokens ([#2499](https://github.com/justeattakeaway/pie/pull/2499)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Updated] - update components to use the new brand refresh elevation tokens ([#2504](https://github.com/justeattakeaway/pie/pull/2504)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`55c94d6`](https://github.com/justeattakeaway/pie/commit/55c94d610fa1b027d4b435640eeeb38fff0c5a1a)]:
+  - @justeattakeaway/pie-icons-webc@1.14.1
+  - @justeattakeaway/pie-icon-button@2.0.5
+
+## 1.9.1
+
+### Patch Changes
+
+- Updated dependencies [[`f1b151b`](https://github.com/justeattakeaway/pie/commit/f1b151b69db048aa6c0668351d5d0f4ad2cde40c), [`9396c3c`](https://github.com/justeattakeaway/pie/commit/9396c3c07fa3d08f3432524c2de5c182fe9a9604), [`f1b151b`](https://github.com/justeattakeaway/pie/commit/f1b151b69db048aa6c0668351d5d0f4ad2cde40c)]:
+  - @justeattakeaway/pie-icons-webc@1.14.0
+  - @justeattakeaway/pie-icon-button@2.0.4
+
+## 1.9.0
+
+### Minor Changes
+
+- [Updated] - `pie-design-token` to v7.1.0 ([#2484](https://github.com/justeattakeaway/pie/pull/2484)) by [@raoufswe](https://github.com/raoufswe)
+
+## 1.8.0
+
+### Minor Changes
+
+- [Updated] - upgraded the version of `@justeat/pie-design-tokens` to v7.0.2 ([#2459](https://github.com/justeattakeaway/pie/pull/2459)) by [@raoufswe](https://github.com/raoufswe)
+
+## 1.7.10
+
+### Patch Changes
+
+- Updated dependencies [[`e118da0`](https://github.com/justeattakeaway/pie/commit/e118da0ff66420635f3b5e3cad1cff5884f47632)]:
+  - @justeattakeaway/pie-icons-webc@1.13.0
+  - @justeattakeaway/pie-icon-button@2.0.3
+
+## 1.7.9
+
+### Patch Changes
+
+- Updated dependencies [[`5fd79d4`](https://github.com/justeattakeaway/pie/commit/5fd79d4396b3170d99b20710c97580cee8744cbe)]:
+  - @justeattakeaway/pie-button@1.6.6
+
+## 1.7.8
+
+### Patch Changes
+
+- [Changed] - Add consistent git info and storybook url to package.json file ([#2443](https://github.com/justeattakeaway/pie/pull/2443)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`d63ca7c`](https://github.com/justeattakeaway/pie/commit/d63ca7ccb1a40619f0118bc436550c6c02f70309)]:
+  - @justeattakeaway/pie-icon-button@2.0.2
+  - @justeattakeaway/pie-spinner@1.2.4
+  - @justeattakeaway/pie-button@1.6.5
+
 ## 1.7.7
 
 ### Patch Changes

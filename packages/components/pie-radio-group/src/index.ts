@@ -45,7 +45,10 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     private _hasLabel = false;
 
     @state()
-    private _hasFocus = false;
+    private _fieldSetTabIndex = 0;
+
+    @state()
+    private _allRadiosDisabled = false;
 
     @property({ type: String, reflect: true })
     public name: RadioGroupProps['name'];
@@ -80,6 +83,8 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         this._slottedChildren.forEach((child) => child.dispatchEvent(new CustomEvent(ON_RADIO_GROUP_DISABLED, {
             bubbles: false, composed: false, detail: { disabled: this.disabled },
         })));
+
+        this._allRadiosDisabled = this._slottedChildren.every((item) => item.disabled);
     }
 
     /**
@@ -100,11 +105,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         this.value = selectedValue;
 
         this._slottedChildren.forEach((radio) => {
-            if (!radio.disabled) {
-                radio.checked = radio.value === this.value;
-            }
-            // tabIndex should be -1 when the value changes, so a radio doesnt get focus when it doesnt needs it
-            radio.tabIndex = -1;
+            radio.checked = radio.value === this.value;
         });
     }
 
@@ -117,6 +118,7 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         event.stopPropagation();
         const target = event.target as HTMLInputElement;
         this._handleRadioSelection(target.value);
+        this._resetButtonsTabIndex();
         const changedEvent = wrapNativeEvent(event);
         this.dispatchEvent(changedEvent);
     }
@@ -135,22 +137,16 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
      * Ensures all newly added radio buttons are tabbable and inherit the name property
      */
     private _handleRadioSlotChange (): void {
-        this._setTabIndex();
+        this._resetButtonsTabIndex();
         this._applyNameToChildren();
     }
 
     /**
-     * Ensure tabIndex is consistently set to provide the expected handling
-     * whilst using the keyboard
+     * Prevent radio buttons from receiving focus
      */
-    private _setTabIndex () {
-        // Set the selected radio with tabindex 0, and -1 for the others
+    private _resetButtonsTabIndex () {
         this._slottedChildren.forEach((radio) => {
-            if (!radio.disabled) {
-                radio.tabIndex = radio.value === this.value ? 0 : -1;
-            } else {
-                radio.tabIndex = -1;
-            }
+            radio.tabIndex = -1;
         });
     }
 
@@ -207,50 +203,64 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
     }
 
     /**
-     * Handles the `focus` event to manage focus within the radio group.
-     *
      * This method determines the appropriate element to focus when the radio group
      * gains focus. It considers where the focus is coming from, and focuses the
-     * checked option, the first option, or the last option as needed.
+     * the first or the last option as needed.
      */
-    private _handleFocus (event: FocusEvent): void {
-        if (!this.value) {
-            // When no value is assigned, depending on the previously focused element,
-            // transfer focus to the next logical radio
+    private _focusNearestAvailableRadio (enabledChildren: HTMLInputElement[], event:FocusEvent): void {
+        // Workaround for Safari, when body is the active element,
+        // it is not assigned to the event.relatedTarget
+        const previouslyFocusedElement = event.relatedTarget as Node || this.parentNode;
+        const sourceRelativePosition = (this as Node).compareDocumentPosition(previouslyFocusedElement);
 
-            // Bypass all logic if there are no children
-            const enabledChildren = this._slottedChildren.filter((item) => !item.disabled);
-            if (!enabledChildren || enabledChildren.length === 0) return;
+        // Check if focus element was before or after this instance
+        // eslint-disable-next-line no-bitwise
+        const topToBottomOrder = sourceRelativePosition & Node.DOCUMENT_POSITION_PRECEDING; // we need the bitwise operator here
 
-            // Workaround for Safari, when body is the active element,
-            // it is not assigned to the event.relatedTarget
-            const previouslyFocusedElement = event.relatedTarget as Node || this.parentNode;
-            const sourceRelativePosition = (this as Node).compareDocumentPosition(previouslyFocusedElement);
+        // Depending on the focus direction of movement, get the first or last enabled children
+        const firstOrLastChild = topToBottomOrder ? enabledChildren.shift() : enabledChildren.pop();
 
-            // Check if focus element was before or after this instance
-            // eslint-disable-next-line no-bitwise
-            const topToBottomOrder = sourceRelativePosition & Node.DOCUMENT_POSITION_PRECEDING; // we need the bitwise operator here
-
-            // Depending on the focus direction of movement, get the first or last enabled children
-            const firstOrLastChild = topToBottomOrder ? enabledChildren.shift() : enabledChildren.pop();
-
-            this._hasFocus = true;
-
-            if (firstOrLastChild) {
-                firstOrLastChild.tabIndex = 0;
-                firstOrLastChild.focus();
-            }
-
-            // Set the selected radio with tabindex 0, and -1 for the others
-            enabledChildren.forEach((radio) => {
-                radio.tabIndex = -1;
-            });
+        if (firstOrLastChild) {
+            firstOrLastChild.tabIndex = 0;
+            firstOrLastChild.focus();
         }
+
+        // Set the selected radio with tabindex 0, and -1 for the others
+        enabledChildren.forEach((radio) => {
+            radio.tabIndex = -1;
+        });
     }
 
-    private _resetFocus () {
-        this._hasFocus = false;
-        this._setTabIndex();
+    /**
+     * Handles the `focus` event to manage focus within the radio group.
+     *
+     */
+    private _handleFocus (event: FocusEvent): void {
+        // Bypass all logic if there are no children
+        const enabledChildren = this._slottedChildren.filter((item) => !item.disabled);
+        if (!enabledChildren || enabledChildren.length === 0) return;
+
+        const hasNoValueSet = this.value === '' || this.value === undefined;
+
+        if (hasNoValueSet) {
+            // When no value is assigned, depending on the previously focused element,
+            // transfer focus to the next logical radio
+            this._focusNearestAvailableRadio(enabledChildren, event);
+        } else {
+            // When a value is assigned, the matching radio element is focused
+            this._slottedChildren.forEach((radio) => {
+                if (radio.value === this.value) {
+                    if (radio.disabled) {
+                        this._focusNearestAvailableRadio(enabledChildren, event);
+                    } else {
+                        radio.tabIndex = 0;
+                        radio.focus();
+                    }
+                } else {
+                    radio.tabIndex = -1;
+                }
+            });
+        }
     }
 
     /**
@@ -269,7 +279,8 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         // `relatedTarget` is null when focusing the body
         const focusedElement = event.relatedTarget as Node;
         if (!focusedElement) {
-            this._resetFocus();
+            this._resetButtonsTabIndex();
+            this._fieldSetTabIndex = 0;
             return;
         }
 
@@ -281,8 +292,13 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
         const instanceContainsFocusedElement = position & Node.DOCUMENT_POSITION_CONTAINS; // eslint-disable-line no-bitwise
         const radioGroupLostFocus = instanceContainsFocusedElement === 0;
 
+        // Make the fieldset focusable after it loses focus to an element that is not inside itself
         if (radioGroupLostFocus) {
-            this._resetFocus();
+            this._resetButtonsTabIndex();
+            this._fieldSetTabIndex = 0;
+        } else {
+            // If the fieldset lost focus to an element inside itself it should not be focusable
+            this._fieldSetTabIndex = -1;
         }
     }
 
@@ -393,9 +409,9 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             disabled,
             status,
             assistiveText,
-            value,
+            _fieldSetTabIndex,
+            _allRadiosDisabled,
         } = this;
-
         const hasAssistiveText = Boolean(assistiveText?.length);
 
         const classes = {
@@ -404,11 +420,9 @@ export class PieRadioGroup extends FormControlMixin(RtlMixin(PieElement)) implem
             'c-radioGroup--hasAssistiveText': hasAssistiveText,
         };
 
-        const fieldSetTabIndex = value === '' && !this._hasFocus ? 0 : -1;
-
         return html`
             <fieldset
-                tabindex=${fieldSetTabIndex}
+                tabindex=${_allRadiosDisabled ? -1 : _fieldSetTabIndex}
                 role="radiogroup"
                 name=${ifDefined(name)}
                 ?disabled=${disabled}

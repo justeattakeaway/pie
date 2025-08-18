@@ -3,3 +3,4 @@
 import('@justeattakeaway/pie-webc/components/select.js');
 import('@justeattakeaway/pie-webc/components/text-input.js');
 import('@justeattakeaway/pie-webc/components/notification.js');
+import('@justeattakeaway/pie-webc/components/tag.js');

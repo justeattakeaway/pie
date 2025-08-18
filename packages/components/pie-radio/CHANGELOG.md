@@ -1,5 +1,26 @@
 # @justeattakeaway/pie-radio
 
+## 0.11.6
+
+### Patch Changes
+
+- [Fixed] - Ensure screenreaders can double tap the radio to select it by handling click logic in the radio component itself. ([#2517](https://github.com/justeattakeaway/pie/pull/2517)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229), [`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229)]:
+  - @justeattakeaway/pie-webc-core@1.1.0
+
+## 0.11.5
+
+### Patch Changes
+
+- [Fixed] - unintended animation on component mount ([#2510](https://github.com/justeattakeaway/pie/pull/2510)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.11.4
+
+### Patch Changes
+
+- [Changed] - Add consistent git info and storybook url to package.json file ([#2443](https://github.com/justeattakeaway/pie/pull/2443)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.11.3
 
 ### Patch Changes

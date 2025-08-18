@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-webc",
   "description": "Component bundle containing all PIE web components",
-  "version": "0.6.44",
+  "version": "0.7.11",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -23,6 +23,16 @@
       "import": "./react/assistive-text.js",
       "require": "./react/assistive-text.js",
       "types": "./react/assistive-text.d.ts"
+    },
+    "./components/avatar.js": {
+      "import": "./components/avatar.js",
+      "require": "./components/avatar.js",
+      "types": "./components/avatar.d.ts"
+    },
+    "./react/avatar.js": {
+      "import": "./react/avatar.js",
+      "require": "./react/avatar.js",
+      "types": "./react/avatar.d.ts"
     },
     "./components/breadcrumb.js": {
       "import": "./components/breadcrumb.js",
@@ -104,6 +114,16 @@
       "require": "./react/cookie-banner.js",
       "types": "./react/cookie-banner.d.ts"
     },
+    "./components/data-table.js": {
+      "import": "./components/data-table.js",
+      "require": "./components/data-table.js",
+      "types": "./components/data-table.d.ts"
+    },
+    "./react/data-table.js": {
+      "import": "./react/data-table.js",
+      "require": "./react/data-table.js",
+      "types": "./react/data-table.d.ts"
+    },
     "./components/divider.js": {
       "import": "./components/divider.js",
       "require": "./components/divider.js",
@@ -153,6 +173,16 @@
       "import": "./react/list.js",
       "require": "./react/list.js",
       "types": "./react/list.d.ts"
+    },
+    "./components/list-item.js": {
+      "import": "./components/list-item.js",
+      "require": "./components/list-item.js",
+      "types": "./components/list-item.d.ts"
+    },
+    "./react/list-item.js": {
+      "import": "./react/list-item.js",
+      "require": "./react/list-item.js",
+      "types": "./react/list-item.d.ts"
     },
     "./components/lottie-player.js": {
       "import": "./components/lottie-player.js",
@@ -234,6 +264,16 @@
       "require": "./react/switch.js",
       "types": "./react/switch.d.ts"
     },
+    "./components/tabs.js": {
+      "import": "./components/tabs.js",
+      "require": "./components/tabs.js",
+      "types": "./components/tabs.d.ts"
+    },
+    "./react/tabs.js": {
+      "import": "./react/tabs.js",
+      "require": "./react/tabs.js",
+      "types": "./react/tabs.d.ts"
+    },
     "./components/tag.js": {
       "import": "./components/tag.js",
       "require": "./components/tag.js",
@@ -307,37 +347,40 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.20.1",
+    "@justeattakeaway/pie-components-config": "0.21.0",
     "chalk": "5.3.0"
   },
   "dependencies": {
-    "@justeattakeaway/pie-assistive-text": "0.10.6",
-    "@justeattakeaway/pie-breadcrumb": "0.6.1",
-    "@justeattakeaway/pie-button": "1.6.4",
-    "@justeattakeaway/pie-card": "0.25.4",
-    "@justeattakeaway/pie-checkbox": "0.16.6",
-    "@justeattakeaway/pie-checkbox-group": "0.9.6",
-    "@justeattakeaway/pie-chip": "0.12.6",
-    "@justeattakeaway/pie-cookie-banner": "1.6.8",
-    "@justeattakeaway/pie-divider": "1.4.4",
-    "@justeattakeaway/pie-form-label": "0.16.3",
-    "@justeattakeaway/pie-icon-button": "2.0.1",
-    "@justeattakeaway/pie-link": "1.2.5",
-    "@justeattakeaway/pie-list": "0.0.3",
-    "@justeattakeaway/pie-lottie-player": "0.2.3",
-    "@justeattakeaway/pie-modal": "1.7.7",
-    "@justeattakeaway/pie-notification": "0.14.6",
-    "@justeattakeaway/pie-radio": "0.11.3",
-    "@justeattakeaway/pie-radio-group": "0.9.7",
-    "@justeattakeaway/pie-select": "0.6.6",
-    "@justeattakeaway/pie-spinner": "1.2.3",
-    "@justeattakeaway/pie-switch": "2.0.2",
-    "@justeattakeaway/pie-tag": "0.17.3",
-    "@justeattakeaway/pie-text-input": "0.28.6",
-    "@justeattakeaway/pie-textarea": "0.16.6",
-    "@justeattakeaway/pie-thumbnail": "0.8.3",
-    "@justeattakeaway/pie-toast": "0.9.6",
-    "@justeattakeaway/pie-toast-provider": "0.5.6"
+    "@justeattakeaway/pie-assistive-text": "0.10.11",
+    "@justeattakeaway/pie-avatar": "0.1.1",
+    "@justeattakeaway/pie-breadcrumb": "0.7.0",
+    "@justeattakeaway/pie-button": "1.6.7",
+    "@justeattakeaway/pie-card": "0.26.1",
+    "@justeattakeaway/pie-checkbox": "0.17.0",
+    "@justeattakeaway/pie-checkbox-group": "0.9.11",
+    "@justeattakeaway/pie-chip": "0.12.11",
+    "@justeattakeaway/pie-cookie-banner": "1.6.17",
+    "@justeattakeaway/pie-data-table": "0.1.1",
+    "@justeattakeaway/pie-divider": "1.4.6",
+    "@justeattakeaway/pie-form-label": "0.17.0",
+    "@justeattakeaway/pie-icon-button": "2.0.6",
+    "@justeattakeaway/pie-link": "1.2.10",
+    "@justeattakeaway/pie-list": "0.0.4",
+    "@justeattakeaway/pie-lottie-player": "0.2.5",
+    "@justeattakeaway/pie-modal": "1.11.0",
+    "@justeattakeaway/pie-notification": "0.15.1",
+    "@justeattakeaway/pie-radio": "0.11.6",
+    "@justeattakeaway/pie-radio-group": "0.9.14",
+    "@justeattakeaway/pie-select": "0.6.11",
+    "@justeattakeaway/pie-spinner": "1.2.5",
+    "@justeattakeaway/pie-switch": "2.1.0",
+    "@justeattakeaway/pie-tabs": "0.1.0",
+    "@justeattakeaway/pie-tag": "0.17.5",
+    "@justeattakeaway/pie-text-input": "0.28.12",
+    "@justeattakeaway/pie-textarea": "0.16.12",
+    "@justeattakeaway/pie-thumbnail": "0.8.5",
+    "@justeattakeaway/pie-toast": "0.11.1",
+    "@justeattakeaway/pie-toast-provider": "0.7.0"
   },
   "volta": {
     "extends": "../../../package.json"

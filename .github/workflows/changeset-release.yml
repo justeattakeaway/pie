@@ -26,7 +26,7 @@ jobs:
       published: ${{ steps.changesets-main.outputs.published }}
       publishedPackages: ${{ steps.changesets-main.outputs.publishedPackages }}
     runs-on: ${{ inputs.os }}
-    if: github.repository == 'justeattakeaway/pie' && ${{ github.event_name != 'pull_request' }} &&
+    if: github.repository == 'justeattakeaway/pie' && github.event_name != 'pull_request' &&
       (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
     steps:
     # Checkout the Repo
@@ -48,7 +48,7 @@ jobs:
         EOF
     # Build Packages
     - name: Build
-      if: ${{ github.event_name != 'pull_request' }} &&
+      if: github.event_name != 'pull_request' &&
         (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
       uses: ./.github/actions/run-script
       with:
@@ -103,13 +103,12 @@ jobs:
 
     # This script performs the following logic:
     # 1. Defines a list of packages with their versions.
-    # 2. Separates the 'pie-docs' and 'pie-storybook' packages, which have a higher priority, into a distinct list called `PRIORITIZED_PACKAGES`.
-    # 3. Filters out and creates a separate list (`REST_PACKAGES`) excluding:
+    # 2. Filters out and creates a separate list (`REST_PACKAGES`) excluding:
     #    - The aforementioned 'pie-docs' and 'pie-storybook' packages.
     #    - Any package whose name starts with "wc-" (Example apps).
     #    - The 'pie-monorepo' package.
-    # 4. Combines the prioritized and the rest of the packages into one list (`COMBINED_PACKAGES`).
-    # 5. For each package in `COMBINED_PACKAGES`, creates a Slack message block:
+    # 3. Combines the prioritized and the rest of the packages into one list (`COMBINED_PACKAGES`).
+    # 4. For each package in `COMBINED_PACKAGES`, creates a Slack message block:
     #    - For 'pie-docs', a specific message is generated pointing to 'pie.design'.
     #    - For 'pie-storybook', a distinct message is generated pointing to 'webc.pie.design'.
     #    - For all other packages, a generic message is generated, including links to the GitHub release and npm.
@@ -118,10 +117,9 @@ jobs:
       id: generate_payload
       run: |
         PACKAGES='${{ steps.changesets-main.outputs.publishedPackages}}'
-        PRIORITIZED_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select(.name == "@justeattakeaway/pie-docs" or .name == "@justeattakeaway/pie-storybook")]')
-        REST_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select((.name != "@justeattakeaway/pie-docs" and .name != "@justeattakeaway/pie-storybook") and (.name | startswith("wc-") | not) and .name != "pie-monorepo")]')
+        REST_PACKAGES=$(echo "$PACKAGES" | jq -c '[.[] | select((.name != "@justeattakeaway/pie-docs" and .name != "@justeattakeaway/pie-storybook") and (.name | startswith("wc-") | not) and .name != "pie-monorepo")]')
 
-        PRIORITIZED_BLOCKS=$(echo $PACKAGES | jq -c '
+        PRIORITIZED_BLOCKS=$(echo "$PACKAGES" | jq -c '
             map(select(.name == "@justeattakeaway/pie-docs" or .name == "@justeattakeaway/pie-storybook")) |
 
             if length > 0 then
@@ -172,7 +170,7 @@ jobs:
           ')
 
 
-        REST_COMPONENT_BLOCKS=$(echo $REST_PACKAGES | jq -c '
+        REST_COMPONENT_BLOCKS=$(echo "$REST_PACKAGES" | jq -c '
             if length > 0 then
               [{"type": "divider"}] +
               [{"type": "header", "text": {"type": "plain_text", "text": ":parcel: Package Update Summary"}}] +
@@ -186,7 +184,7 @@ jobs:
 
         BLOCKS=$(echo "[${PRIORITIZED_BLOCKS},${REST_COMPONENT_BLOCKS}]" | jq -c 'add')
 
-        echo "BLOCKS=$BLOCKS" >> $GITHUB_ENV
+        echo "BLOCKS=$BLOCKS" >> "$GITHUB_ENV"
 
     - name: Send a Slack notification on publish
       if: steps.changesets-main.outputs.published == 'true'

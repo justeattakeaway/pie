@@ -18,13 +18,14 @@ on:
         required: false
         default: false
 
+permissions: 
+  contents: read
+
 env:
     TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
 jobs:
   install-build:
-    permissions:
-      contents: read
     runs-on: ${{ inputs.os }}
     steps:
       - name: Checkout

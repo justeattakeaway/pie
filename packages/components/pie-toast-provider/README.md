@@ -35,6 +35,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | Prop     | Options | Description                                                                                       | Default |
 |----------|---------|---------------------------------------------------------------------------------------------------|---------|
 | options  | `{}`    | Default options for all toasts; accepts all toast [props](https://webc.pie.design/?path=/story/components-toast).        | `{}`    |
+| position | `"default"`, `"bottom-left"`, `"bottom-right"`, `"bottom-center"` | Sets the position of the toast provider. When set to `default`, the toasts will be positioned at bottom-left for RTL languages and bottom-right for LTR languages. | `default` |
 
 ### Slots
 This component does not have any slots. All content is controlled through properties.
@@ -43,7 +44,8 @@ This component does not have any slots. All content is controlled through proper
 
 | Name                     | Description                                 | Default                     |
 |--------------------------|---------------------------------------------|-----------------------------|
-| `--toast-provider-z-index` | Controls the stacking order of the toast provider. | `--dt-z-index-toast` (6000) |
+| `--toast-provider-z-index` | Controls the stacking order of the toasts. | `--dt-z-index-toast` (6000) |
+| `--toast-provider-offset` | Controls the gap between toasts and the boundary of the viewport. | `--dt-spacing-c  (Desktop)` / `--dt-spacing-d (Mobile)` |
 
 ### Events
 

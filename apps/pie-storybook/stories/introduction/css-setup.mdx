@@ -18,6 +18,7 @@ Most of these CSS variables are what are known as [Design Tokens](https://pie.de
     - [Nuxt](#nuxt)
 - [SCSS](#scss)
 - [CDN](#cdn)
+- [TypeScript usage](#typescript-usage)
 
 
 ## Installation
@@ -97,7 +98,7 @@ export default {
 ### SCSS
 If you are using Sass, you could import the CSS file as part of your styles directly.
 
-```scss
+```css
 @use 'node_modules/@justeattakeaway/pie-css/dist/index.css';
 ```
 
@@ -106,6 +107,14 @@ We also provide a CDN version of the CSS file, which you can include in your HTM
 
 ```html
 <link rel="stylesheet" href="https://pie-design-system-cdn.production.jet-external.com/pie-css/v0.16.0/index.css">
+```
+
+### TypeScript usage
+If you are using TypeScript, you may need to add a declaration file to your project to avoid TypeScript errors when importing the CSS file. How you do this will depend on your project setup, but one way could be to create a types file (e.g. `src/types/pie-css.d.ts`) with the following content:
+
+```ts
+declare module '*.css';
+declare module '@justeattakeaway/pie-css';
 ```
 ---
 

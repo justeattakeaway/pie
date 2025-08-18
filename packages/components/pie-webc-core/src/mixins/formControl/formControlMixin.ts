@@ -50,6 +50,8 @@ export const FormControlMixin =
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             constructor (...args: any[]) {
                 super(...args);
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 this._internals = this.attachInternals();
             }
         }

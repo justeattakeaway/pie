@@ -337,6 +337,55 @@ const CustomFooterStoryTemplate = (props: ModalProps) => {
                 </pie-modal>`;
 };
 
+const MissingDialogSimulationTemplate = (props: ModalProps) => {
+    const { heading, isOpen } = props;
+    return html`
+        <style>
+            /* Ensure the page itself has enough height to demonstrate scrolling */
+            body { min-height: 200vh; }
+        </style>
+
+        <pie-button id="testBtn" data-test-id="run-test-button">Run Test</pie-button>
+
+        <pie-modal
+            id="error-modal"
+            heading="${heading}"
+            ?isOpen="${isOpen}">
+            <p>This modal will be broken intentionally to test race conditions.</p>
+        </pie-modal>
+        ${createScrollablePageHTML()}
+        <script>
+            document.getElementById('testBtn').addEventListener('click', () => {
+                const modal = document.getElementById('error-modal');
+                if (!modal) return;
+
+                console.log('TEST: Opening modal...');
+                modal.isOpen = true;
+
+                requestAnimationFrame(() => {
+                    console.log('TEST: Modal is active. The breaking process will start in 1 second.');
+
+                    setTimeout(() => {
+                        const dialogElement = modal.shadowRoot.querySelector('dialog');
+                        if (dialogElement) {
+                            console.log('TEST: DELAY 1 END - Removing internal <dialog> element...');
+                            dialogElement.remove();
+                        } else {
+                            console.warn('TEST: Could not find the <dialog> element to remove.');
+                        }
+
+                        setTimeout(() => {
+                            console.log('TEST: DELAY 2 END - Removing the main <pie-modal> component...');
+                            modal.remove();
+                            console.log('TEST: Component removed. Check for errors.');
+                        }, 1000); // 1-second wait
+                    }, 1000); // 1-second wait
+                });
+            });
+        </script>
+    `;
+};
+
 const createBaseModalStory = createStory<ModalProps>(BaseStoryTemplate, defaultArgs);
 
 export const Default = createBaseModalStory();
@@ -374,3 +423,8 @@ export const LargeTextContent = createBaseModalStory({
 });
 
 export const CustomFooter = createStory<ModalProps>(CustomFooterStoryTemplate, defaultArgs)();
+
+export const MissingDialogSimulation = createStory<ModalProps>(MissingDialogSimulationTemplate, defaultArgs)({
+    isOpen: false,
+    heading: 'Error Simulation',
+});

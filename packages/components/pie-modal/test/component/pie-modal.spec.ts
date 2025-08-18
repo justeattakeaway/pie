@@ -5,6 +5,7 @@ import { ModalFocusToFirstMatchingElementPage } from 'test/helpers/page-object/p
 import { ModalScrollLockingPage } from 'test/helpers/page-object/pie-modal-scroll-locking.page.ts';
 import { ModalEmbeddedFormPage } from 'test/helpers/page-object/pie-modal-embedded-form.page.ts';
 import { ModalCustomFooterPage } from 'test/helpers/page-object/pie-modal-custom-footer.page.ts';
+import { ModalMissingDialogSimulationPage } from 'test/helpers/page-object/pie-modal-missing-dialog-simulation.page.ts';
 import { type ModalProps, headingLevels } from '../../src/defs.ts';
 
 const sharedProps: ModalProps = {
@@ -465,6 +466,38 @@ test.describe('scrolling logic', () => {
         // Assert
         await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
         await expect(page.getByText('Bottom of page copy')).toBeInViewport();
+    });
+
+    test.describe('When the dialog element is not found', () => {
+        test('should release scroll lock correctly after being removed from the DOM', async ({ page }) => {
+            // Arrange
+            const modalErrorPage = new ModalMissingDialogSimulationPage(page);
+            await modalErrorPage.load();
+
+            // 1. Assert initial state: we can scroll to the bottom
+            await page.mouse.wheel(0, 5000);
+            await page.waitForTimeout(3000); // Wait for scroll to settle
+
+            await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
+            await expect(page.getByText('Bottom of page copy')).toBeInViewport();
+
+            // Reset scroll to top of the page for the main test
+            await page.mouse.wheel(0, 0);
+            await page.waitForTimeout(3000); // Wait for scroll to settle
+
+            // 2. Act: Click the button to run the open/break/close sequence
+            await modalErrorPage.runTestButton.click();
+
+            // Wait for the entire sequence to finish
+            await page.waitForTimeout(6000);
+
+            // 3. Assert final state: we can still scroll to the bottom
+            await page.mouse.wheel(0, 5000);
+            await page.waitForTimeout(3000); // Wait for scroll to settle
+
+            await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
+            await expect(page.getByText('Bottom of page copy')).toBeInViewport();
+        });
     });
 });
 

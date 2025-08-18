@@ -1,5 +1,64 @@
 # @justeattakeaway/pie-toast-provider
 
+## 0.7.0
+
+### Minor Changes
+
+- [Updated] - use the :dir() pseudo-class for RTL styling instead of the RTL mixin to ensure proper support during SSR. ([#2518](https://github.com/justeattakeaway/pie/pull/2518)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229), [`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229)]:
+  - @justeattakeaway/pie-webc-core@1.1.0
+  - @justeattakeaway/pie-toast@0.11.1
+
+## 0.6.4
+
+### Patch Changes
+
+- Updated dependencies [[`7031ae2`](https://github.com/justeattakeaway/pie/commit/7031ae2d37f9234108686a02cbb343ef4aab65c3)]:
+  - @justeattakeaway/pie-toast@0.11.0
+
+## 0.6.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.10.2
+
+## 0.6.2
+
+### Patch Changes
+
+- [Fixed] - setting custom position blocks page interaction and the position is not maintained during page scroll. ([#2469](https://github.com/justeattakeaway/pie/pull/2469)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.6.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.10.1
+
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - support custom rendering positions for the toast provider ([#2435](https://github.com/justeattakeaway/pie/pull/2435)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`a790653`](https://github.com/justeattakeaway/pie/commit/a790653fabfa9301ea4d0cb89899ee50ae10ffab), [`a790653`](https://github.com/justeattakeaway/pie/commit/a790653fabfa9301ea4d0cb89899ee50ae10ffab)]:
+  - @justeattakeaway/pie-toast@0.10.0
+
+## 0.5.7
+
+### Patch Changes
+
+- [Changed] - Add consistent git info and storybook url to package.json file ([#2443](https://github.com/justeattakeaway/pie/pull/2443)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`d63ca7c`](https://github.com/justeattakeaway/pie/commit/d63ca7ccb1a40619f0118bc436550c6c02f70309)]:
+  - @justeattakeaway/pie-toast@0.9.7
+
 ## 0.5.6
 
 ### Patch Changes
