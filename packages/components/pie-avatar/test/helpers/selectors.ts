@@ -28,6 +28,10 @@ const avatar = {
             description: 'The screen reader initials span',
             dataTestId: 'pie-avatar-initials-screenreader',
         },
+        image: {
+            description: 'The image when src is provided',
+            dataTestId: 'pie-avatar-image',
+        },
     },
 };
 export {

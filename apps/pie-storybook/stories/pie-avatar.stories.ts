@@ -29,6 +29,13 @@ const avatarStoryMeta: AvatarStoryMeta = {
                 summary: defaultProps.tag,
             },
         },
+        src: {
+            description: 'Set the src attribute for the avatar image variant',
+            control: 'text',
+            defaultValue: {
+                summary: defaultProps.src,
+            },
+        },
     },
 
     args: defaultArgs,
@@ -42,11 +49,13 @@ const avatarStoryMeta: AvatarStoryMeta = {
 
 export default avatarStoryMeta;
 
-const Template = ({ label, tag }: AvatarProps) => html`
-    <pie-avatar label="${ifDefined(label)}" tag="${ifDefined(tag)}"></pie-avatar>
+const Template = ({ label, tag, src }: AvatarProps) => html`
+    <pie-avatar label="${ifDefined(label)}" tag="${ifDefined(tag)}" src="${ifDefined(src)}"></pie-avatar>
 `;
 
 const createAvatarStory = createStory<AvatarProps>(Template, defaultArgs);
 
 export const Default = createAvatarStory();
+
+export const WithImage = createAvatarStory({ src: './static/images/pie-logo.svg' });
 

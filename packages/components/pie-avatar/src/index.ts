@@ -29,12 +29,15 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     @property({ type: String })
     public label: AvatarProps['label'];
 
+    @property({ type: String })
+    public src = defaultProps.src; // or AvatarProps['src']? Ask Jamie.
+
     /**
-     * Attempts to extract initials from the label string.
-     * If the label is not provided or is invalid, it returns null.
-     *
-     * @private
-     */
+   * Attempts to extract initials from the label string.
+   * If the label is not provided or is invalid, it returns null.
+   *
+   * @private
+   */
     private getInitials (name: string): Initials | null {
         try {
             if (!name || typeof name !== 'string' || name.trim().length === 0) {
@@ -58,10 +61,10 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     }
 
     /**
-     * Renders the initials both for visual display and for screen readers.
-     *
-     * @private
-     */
+   * Renders the initials both for visual display and for screen readers.
+   *
+   * @private
+   */
     private renderInitials (initials: Initials): TemplateResult {
         return html`
             <span aria-hidden="true" data-test-id="pie-avatar-initials-visual">${initials.visual}</span>
@@ -70,22 +73,33 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     }
 
     /**
-     * Renders the icon (placeholder span for now).
-     *
-     * @private
-     */
+   * Renders the icon when no label is provided.
+   *
+   * @private
+   */
     private renderIcon (): TemplateResult {
         return html`<icon-user size="s" aria-hidden="true" data-test-id="pie-avatar-icon"></icon-user>`;
     }
 
     /**
-     * Renders the inner content of the avatar such as initials, an icon or an image.
-     * It is a getter because the value is computed based on properties
-     *
-     * @private
-     */
+   * Renders image.
+   *
+   * @private
+   */
+    private renderImage (imgSrc: string): TemplateResult {
+        return html`<img src="${imgSrc}" class="c-avatar-image" data-test-id="pie-avatar-image" alt=""/>`;
+    }
+
+    /**
+   * Renders the inner content of the avatar such as initials, an icon or an image.
+   * It is a getter because the value is computed based on properties
+   *
+   * @private
+   */
     private get avatarContent (): TemplateResult {
-        // TODO: handle unauthenticated and src here
+        if (this.src) {
+            return this.renderImage(this.src);
+        }
 
         if (this.label) {
             const initials = this.getInitials(this.label);
@@ -98,11 +112,11 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     }
 
     /**
-     * Renders the avatar wrapper element based on the `tag` property.
-     * Can be a `button`, `a` or a `div`.
-     *
-     * @private
-     */
+   * Renders the avatar wrapper element based on the `tag` property.
+   * Can be a `button`, `a` or a `div`.
+   *
+   * @private
+   */
     private renderAvatarWrapper (content: TemplateResult): TemplateResult {
         const { tag } = this;
 
@@ -114,7 +128,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
             return html`<a data-test-id="pie-avatar-anchor">${content}</a>`;
         }
 
-        return html`<div class="c-avatar-content" data-test-id="pie-avatar-div">${content}</div>`;
+        return html`<div class="c-avatar-content" data-test-id="pie-avatar-div" ?aria-hidden="${this.src}">${content}</div>`;
     }
 
     render () {

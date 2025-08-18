@@ -11,12 +11,17 @@ export interface AvatarProps {
      * What HTML element the avatar should be such as button, a  or div.
      */
     tag: typeof tags[number];
+    /**
+     * The src attorbite
+     */
+    src?: string;
 
 }
 
 export type DefaultProps = ComponentDefaultProps<AvatarProps, keyof Omit<AvatarProps, 'label'>>;
 export const defaultProps: DefaultProps = {
     tag: 'div',
+    src: '',
 };
 
 export type Initials = {
