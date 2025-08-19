@@ -29,10 +29,11 @@ const avatarStoryMeta: AvatarStoryMeta = {
 
 export default avatarStoryMeta;
 
-const Template: TemplateFunction<AvatarProps> = ({ label, tag }: AvatarProps) => html`
+const Template: TemplateFunction<AvatarProps> = ({ label, tag, src }: AvatarProps) => html`
     <pie-avatar
     tag="${ifDefined(tag)}"
-    label="${ifDefined(label)}">
+    label="${ifDefined(label)}"
+    src="${ifDefined(src)}">
     </pie-avatar>
 `;
 
@@ -41,5 +42,10 @@ export const Default = createStory<OptionalAvatarProps>(Template, {})();
 export const LabelProvided = createStory<OptionalAvatarProps>(Template, {
     tag: 'div',
     label: 'Alice Johnson',
+})();
+
+export const SRCProvided = createStory<OptionalAvatarProps>(Template, {
+    tag: 'div',
+    src: './static/images/pie-logo.svg',
 })();
 
