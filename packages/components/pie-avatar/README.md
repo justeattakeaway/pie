@@ -30,9 +30,12 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 ## Documentation
 
 ### Properties
-| Prop             | Options                                                                                                                                                                  | Description                                                                                                                                                                                                         | Default        |
-|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
-| | | | |
+
+| Prop | Options | Description | Default |
+|------|---------|-------------|---------|
+| `src` | — | The src attribute for the underlying image tag. | `""` |
+| `tag` | "button",  "a",  "div" | Which HTML element to use when rendering the avatar.| `div` |
+| `label` | - | User or company name that will be rendered as initials inside the avatar.| `""` |
 
 ### Slots
 | Slot     | Description                                                                                                                                                                                                                                                                         |
