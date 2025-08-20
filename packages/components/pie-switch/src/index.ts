@@ -1,5 +1,6 @@
 import {
     html, unsafeCSS, nothing,
+    LitElement,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query, state } from 'lit/decorators.js';
@@ -63,6 +64,8 @@ export class PieSwitch extends FormControlMixin(PieElement) implements SwitchPro
 
     @state()
     private _isAnimationAllowed = false;
+
+    static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     protected firstUpdated (): void {
         this.handleFormAssociation();
@@ -172,8 +175,11 @@ export class PieSwitch extends FormControlMixin(PieElement) implements SwitchPro
             return nothing;
         }
 
+        // Using aria-hidden here to prevent the label from potentially being narrated twice by screen readers such as Apple VoiceOver.
+        // Instead, we apply the label as an aria-label attribute on the input (if no aria.label prop is provided).
         return html`
             <span
+                aria-hidden="true"
                 data-test-id="switch-label-${labelPlacement}"
                 class="c-switch-label">
                 ${label}
@@ -196,6 +202,7 @@ export class PieSwitch extends FormControlMixin(PieElement) implements SwitchPro
 
     render () {
         const {
+            label,
             aria,
             checked,
             disabled,
@@ -226,7 +233,7 @@ export class PieSwitch extends FormControlMixin(PieElement) implements SwitchPro
                         .checked="${checked}"
                         .disabled="${disabled}"
                         @change="${this.handleChange}"
-                        aria-label="${ifDefined(aria?.label)}"
+                        aria-label="${ifDefined(aria?.label || label)}"
                         aria-describedby="${aria?.describedBy ? 'switch-description' : nothing}">
                     <div class="c-switch-control">
                         ${checked ? html`<icon-check></icon-check>` : nothing}
