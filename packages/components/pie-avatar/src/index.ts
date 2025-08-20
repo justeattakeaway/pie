@@ -83,6 +83,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
 
     /**
    * Renders image.
+   * We assign empty string to alt attribute for a11y clarity as it explicitly declares image as decorative
    *
    * @private
    */

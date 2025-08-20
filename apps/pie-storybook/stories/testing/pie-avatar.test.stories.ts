@@ -44,7 +44,7 @@ export const LabelProvided = createStory<OptionalAvatarProps>(Template, {
     label: 'Alice Johnson',
 })();
 
-export const SRCProvided = createStory<OptionalAvatarProps>(Template, {
+export const SrcProvided = createStory<OptionalAvatarProps>(Template, {
     tag: 'div',
     src: './static/images/pie-logo.svg',
 })();

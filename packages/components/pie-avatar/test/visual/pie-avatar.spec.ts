@@ -24,3 +24,4 @@ test.describe('PieAvatar - Visual tests`', () => {
     });
 });
 
+// todo: should display PieAvatar image when src is provided
