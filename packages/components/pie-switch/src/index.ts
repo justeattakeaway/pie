@@ -191,8 +191,11 @@ export class PieSwitch extends FormControlMixin(PieElement) implements SwitchPro
             return nothing;
         }
 
+        // we apply aria-hidden to the element containing the description because it prevent some screen readers such as Apple VoiceOver from announcing the description once
+        // on the input and again separately. The description is still announced once, when the input is focused/selected.
         return html`
             <div
+                aria-hidden="true"
                 id="switch-description"
                 data-test-id="switch-description"
                 class="c-switch-description">

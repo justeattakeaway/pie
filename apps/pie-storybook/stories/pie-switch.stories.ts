@@ -144,9 +144,9 @@ const FormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html
         <pie-button type="submit">Submit</pie-button>
     </form>
     <script>
-        // var is used to prevent storybook from erroring when the script is re-run
-        var form = document.querySelector('#testForm');
-        var formLog = document.querySelector('#formLog');
+        // Prevent storybook from erroring when the script is re-run
+        const form = document.querySelector('#testForm');
+        const formLog = document.querySelector('#formLog');
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -234,8 +234,8 @@ const MultiSwitchFormTemplate: TemplateFunction<SwitchProps> = (props: SwitchPro
         <pie-button type="submit">Submit</pie-button>
     </form>
     <script>
-        // A guard is used to prevent storybook from adding duplicate listeners on hot reloads
-        var form = document.querySelector('#testForm');
+        // Prevent storybook from adding duplicate listeners on hot reloads
+        const form = document.querySelector('#testForm');
         if (form && !form.dataset.listening) {
             form.dataset.listening = 'true';
             form.addEventListener('submit', (e) => {
