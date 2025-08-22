@@ -2,7 +2,7 @@ import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { type Meta } from '@storybook/web-components';
-
+import '@justeattakeaway/pie-chip';
 import '@justeattakeaway/pie-modal';
 import {
     type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, positions, defaultProps,
@@ -11,6 +11,7 @@ import {
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-text-input';
 import '@justeattakeaway/pie-form-label';
+import '@justeattakeaway/pie-icons-webc/dist/IconSearch';
 
 import { type SlottedComponentProps } from '../types';
 import { createStory, sanitizeAndRenderHTML } from '../utilities';
@@ -362,3 +363,192 @@ export const LargeTextContent = createBaseModalStory({
 });
 
 export const CustomFooter = createStory<ModalProps>(CustomFooterStoryTemplate, defaultArgs)();
+
+const renderCategoryChips = () => html`
+        <pie-chip variant="ghost">Afghan</pie-chip>
+        <pie-chip variant="ghost">African</pie-chip>
+        <pie-chip variant="ghost">Alcohol</pie-chip>
+        <pie-chip variant="ghost">All Night Alcohol</pie-chip>
+        <pie-chip variant="ghost">American</pie-chip>
+        <pie-chip variant="ghost">Arabic</pie-chip>
+        <pie-chip variant="ghost">Argentinian</pie-chip>
+        <pie-chip variant="ghost">Asian</pie-chip>
+        <pie-chip variant="ghost">Authentic Pizza</pie-chip>
+        <pie-chip variant="ghost">Bagels</pie-chip>
+        <pie-chip variant="ghost">Bakery</pie-chip>
+        <pie-chip variant="ghost">Bangladeshi</pie-chip>
+        <pie-chip variant="ghost">BBQ</pie-chip>
+        <pie-chip variant="ghost">Biryani</pie-chip>
+        <pie-chip variant="ghost">Brazilian food</pie-chip>
+        <pie-chip variant="ghost">Breakfast</pie-chip>
+        <pie-chip variant="ghost">British</pie-chip>
+        <pie-chip variant="ghost">Brunch</pie-chip>
+        <pie-chip variant="ghost">Bubble Tea</pie-chip>
+        <pie-chip variant="ghost">Burgers</pie-chip>
+        <pie-chip variant="ghost">Burritos</pie-chip>
+        <pie-chip variant="ghost">Business Lunch</pie-chip>
+        <pie-chip variant="ghost">Café</pie-chip>
+        <pie-chip variant="ghost">Cakes</pie-chip>
+        <pie-chip variant="ghost">Cantonese</pie-chip>
+        <pie-chip variant="ghost">Caribbean</pie-chip>
+        <pie-chip variant="ghost">Chicken</pie-chip>
+        <pie-chip variant="ghost">Chinese</pie-chip>
+        <pie-chip variant="ghost">Coffee</pie-chip>
+        <pie-chip variant="ghost">Collect stamps</pie-chip>
+        <pie-chip variant="ghost">Colombian</pie-chip>
+        <pie-chip variant="ghost">Continental</pie-chip>
+        <pie-chip variant="ghost">Convenience</pie-chip>
+        <pie-chip variant="ghost">Crepes</pie-chip>
+        <pie-chip variant="ghost">Curry</pie-chip>
+        <pie-chip variant="ghost">Deals</pie-chip>
+        <pie-chip variant="ghost">Deli</pie-chip>
+        <pie-chip variant="ghost">Desserts</pie-chip>
+        <pie-chip variant="ghost">Dim Sum</pie-chip>
+        <pie-chip variant="ghost">Dinner</pie-chip>
+        <pie-chip variant="ghost">Doughnuts</pie-chip>
+        <pie-chip variant="ghost">Drinks</pie-chip>
+        <pie-chip variant="ghost">Egyptian</pie-chip>
+        <pie-chip variant="ghost">Electronics</pie-chip>
+        <pie-chip variant="ghost">English</pie-chip>
+        <pie-chip variant="ghost">Ethiopian</pie-chip>
+        <pie-chip variant="ghost">European</pie-chip>
+        <pie-chip variant="ghost">Fast Food</pie-chip>
+        <pie-chip variant="ghost">Filipino</pie-chip>
+        <pie-chip variant="ghost">Fish & Chips</pie-chip>
+        <pie-chip variant="ghost">Flowers</pie-chip>
+        <pie-chip variant="ghost">Freebies</pie-chip>
+        <pie-chip variant="ghost">French</pie-chip>
+        <pie-chip variant="ghost">Fusion</pie-chip>
+        <pie-chip variant="ghost">Georgian</pie-chip>
+        <pie-chip variant="ghost">Ghanaian</pie-chip>
+        <pie-chip variant="ghost">Gifts</pie-chip>
+        <pie-chip variant="ghost">Gluten Free</pie-chip>
+        <pie-chip variant="ghost">Gourmet</pie-chip>
+        <pie-chip variant="ghost">Greek</pie-chip>
+        <pie-chip variant="ghost">Grill</pie-chip>
+        <pie-chip variant="ghost">Groceries</pie-chip>
+        <pie-chip variant="ghost">Halal</pie-chip>
+        <pie-chip variant="ghost">Health and Beauty</pie-chip>
+        <pie-chip variant="ghost">Healthy</pie-chip>
+        <pie-chip variant="ghost">Hot Dogs</pie-chip>
+        <pie-chip variant="ghost">Ice Cream</pie-chip>
+        <pie-chip variant="ghost">Indian</pie-chip>
+        <pie-chip variant="ghost">Indo-Chinese Fusion</pie-chip>
+        <pie-chip variant="ghost">Iranian</pie-chip>
+        <pie-chip variant="ghost">Iraqi</pie-chip>
+        <pie-chip variant="ghost">Italian</pie-chip>
+        <pie-chip variant="ghost">Italian Pizza</pie-chip>
+        <pie-chip variant="ghost">Jamaican</pie-chip>
+        <pie-chip variant="ghost">Japanese</pie-chip>
+        <pie-chip variant="ghost">Jerk</pie-chip>
+        <pie-chip variant="ghost">Kebab</pie-chip>
+        <pie-chip variant="ghost">Korean</pie-chip>
+        <pie-chip variant="ghost">Kurdish</pie-chip>
+        <pie-chip variant="ghost">Latin American</pie-chip>
+        <pie-chip variant="ghost">Lebanese</pie-chip>
+        <pie-chip variant="ghost">Low Delivery Fee</pie-chip>
+        <pie-chip variant="ghost">Lunch</pie-chip>
+        <pie-chip variant="ghost">Malaysian</pie-chip>
+        <pie-chip variant="ghost">Mediterranean</pie-chip>
+        <pie-chip variant="ghost">Mexican</pie-chip>
+        <pie-chip variant="ghost">Middle Eastern</pie-chip>
+        <pie-chip variant="ghost">Milkshakes</pie-chip>
+        <pie-chip variant="ghost">Moroccan</pie-chip>
+        <pie-chip variant="ghost">Nepalese</pie-chip>
+        <pie-chip variant="ghost">Nigerian</pie-chip>
+        <pie-chip variant="ghost">Noodles</pie-chip>
+        <pie-chip variant="ghost">Oriental</pie-chip>
+        <pie-chip variant="ghost">Pakistani</pie-chip>
+        <pie-chip variant="ghost">Pan-Asian</pie-chip>
+        <pie-chip variant="ghost">Pancakes</pie-chip>
+        <pie-chip variant="ghost">Pasta</pie-chip>
+        <pie-chip variant="ghost">Peri Peri</pie-chip>
+        <pie-chip variant="ghost">Persian</pie-chip>
+        <pie-chip variant="ghost">Peruvian</pie-chip>
+        <pie-chip variant="ghost">Pharmacy</pie-chip>
+        <pie-chip variant="ghost">Pies</pie-chip>
+        <pie-chip variant="ghost">Pizza</pie-chip>
+        <pie-chip variant="ghost">Poke</pie-chip>
+        <pie-chip variant="ghost">Polish</pie-chip>
+        <pie-chip variant="ghost">Portuguese</pie-chip>
+        <pie-chip variant="ghost">Pub Food</pie-chip>
+        <pie-chip variant="ghost">Russian</pie-chip>
+        <pie-chip variant="ghost">Salads</pie-chip>
+        <pie-chip variant="ghost">Sandwiches</pie-chip>
+        <pie-chip variant="ghost">Seafood</pie-chip>
+        <pie-chip variant="ghost">Shops</pie-chip>
+        <pie-chip variant="ghost">Smoothies</pie-chip>
+        <pie-chip variant="ghost">South American</pie-chip>
+        <pie-chip variant="ghost">South Indian</pie-chip>
+        <pie-chip variant="ghost">Spanish</pie-chip>
+        <pie-chip variant="ghost">Sri Lankan</pie-chip>
+        <pie-chip variant="ghost">Steak</pie-chip>
+        <pie-chip variant="ghost">Street Food</pie-chip>
+        <pie-chip variant="ghost">Sushi</pie-chip>
+        <pie-chip variant="ghost">Sweets</pie-chip>
+        <pie-chip variant="ghost">Syrian</pie-chip>
+        <pie-chip variant="ghost">Tapas</pie-chip>
+        <pie-chip variant="ghost">Thai</pie-chip>
+        <pie-chip variant="ghost">Turkish</pie-chip>
+        <pie-chip variant="ghost">Vegan</pie-chip>
+        <pie-chip variant="ghost">Vegetarian</pie-chip>
+        <pie-chip variant="ghost">Venezuelan</pie-chip>
+        <pie-chip variant="ghost">Vietnamese</pie-chip>
+        <pie-chip variant="ghost">Waffles</pie-chip>
+        <pie-chip variant="ghost">West African</pie-chip>
+        <pie-chip variant="ghost">Wraps</pie-chip>
+`;
+
+const customHeaderContentTemplate = (props: ModalProps) => {
+    const {
+        aria,
+        hasBackButton,
+        hasStackedActions,
+        heading,
+        headingLevel,
+        isDismissible,
+        isFooterPinned,
+        isFullWidthBelowMid,
+        isLoading,
+        isOpen,
+        leadingAction,
+        position,
+        returnFocusAfterCloseSelector,
+        size,
+        slot,
+        supportingAction,
+    } = props;
+    return html`
+        <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
+        <pie-modal
+            .aria="${aria}"
+            heading="${heading}"
+            headingLevel="${ifDefined(headingLevel)}"
+            ?hasBackButton="${hasBackButton}"
+            ?hasStackedActions="${hasStackedActions}"
+            ?isDismissible="${isDismissible}"
+            ?isFooterPinned="${isFooterPinned}"
+            ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+            ?isLoading="${isLoading}"
+            ?isOpen="${isOpen}"
+            position="${ifDefined(position)}"
+            returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
+            size="${ifDefined(size)}"
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}"
+            @pie-modal-back="${backClickAction}">
+                <div slot="headerContent">
+                    <pie-text-input placeholder="search in categories">
+                        <icon-search slot="leadingIcon"></icon-search>
+                    </pie-text-input>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--dt-spacing-b);">
+                    ${renderCategoryChips()}
+                </div>
+            </pie-modal>`;
+};
+
+export const CustomHeaderContent = createStory<ModalProps>(customHeaderContentTemplate, defaultArgs)({
+    isFooterPinned: false,
+    hasBackButton: false,
+});
