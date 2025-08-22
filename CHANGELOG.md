@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.87.0
+
+### Minor Changes
+
+- [Updated] - rendering of user icon when label is not provided ([#2529](https://github.com/justeattakeaway/pie/pull/2529)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
 ## 2.86.0
 
 ### Minor Changes
