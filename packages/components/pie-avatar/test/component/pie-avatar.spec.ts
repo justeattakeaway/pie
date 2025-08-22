@@ -14,9 +14,9 @@ const avatarInitialsTestCases = [
 
 ];
 const avatarEdgeTestCases = [
-    { input: '', expectedVisual: 'Icon Placeholder' },
-    { input: null, expectedVisual: 'Icon Placeholder' },
-    { input: undefined, expectedVisual: 'Icon Placeholder' }
+    { input: '' },
+    { input: null },
+    { input: undefined }
 ];
 
 test.describe('PieAvatar - Component tests', () => {
@@ -50,18 +50,31 @@ test.describe('PieAvatar - Component tests', () => {
         await expect(avatarComponentDiv).toBeVisible();
     });
 
-    avatarEdgeTestCases.forEach(({ input, expectedVisual }) => {
-        test(`should render 'Icon Placeholder' when label is ${input}`, async ({ page }) => {
+    avatarEdgeTestCases.forEach(({ input }) => {
+        test(`should render user icon when label is ${input}`, async ({ page }) => {
             // Arrange
             const avatarPage = new BasePage(page, 'avatar--default');
             avatarPage.args = ''; // don't set label
             await avatarPage.load();
 
             // Act
-            const avatarComponentVisual = page.getByTestId('pie-avatar-icon');
+            const avatarIcon = page.getByTestId('pie-avatar-icon');
 
             // Assert
-            await expect(avatarComponentVisual).toHaveText(expectedVisual);
+            await expect(avatarIcon).toBeVisible();
+        });
+
+        test(`should be ommitted by screenreaders when label is ${input}`, async ({ page }) => {
+            // Arrange
+            const avatarPage = new BasePage(page, 'avatar--default');
+            avatarPage.args = ''; // don't set label
+            await avatarPage.load();
+
+            // Act
+            const avatarIcon = page.getByTestId('pie-avatar-icon');
+
+            // Assert
+            await expect(avatarIcon).toHaveAttribute('aria-hidden');
         });
     });
 });
