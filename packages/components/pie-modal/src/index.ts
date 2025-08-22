@@ -547,6 +547,7 @@ export class PieModal extends PieElement implements ModalProps {
                 ${this.renderBackButton()}
                 ${this.renderHeading()}
                 ${this.renderCloseButton()}
+                <slot name="headerContent"></slot>
             </header>
             ${
             // We need to wrap the remaining content in a shared scrollable container if the footer is not pinned
