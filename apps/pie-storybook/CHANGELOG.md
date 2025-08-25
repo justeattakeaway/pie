@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.46.1
+
+### Patch Changes
+
+- Updated dependencies [[`c5ae5a7`](https://github.com/justeattakeaway/pie/commit/c5ae5a7c1bf52f7687c12325d5aa9111f2019743)]:
+  - @justeattakeaway/pie-avatar@0.3.0
+
 ## 1.46.0
 
 ### Minor Changes
