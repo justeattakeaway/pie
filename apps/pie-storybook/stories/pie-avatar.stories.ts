@@ -7,6 +7,8 @@ import { type AvatarProps, defaultProps, tags } from '@justeattakeaway/pie-avata
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { createStory } from '../utilities';
 
+const ImageUrl = 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+
 type AvatarStoryMeta = Meta<AvatarProps>;
 
 const defaultArgs: AvatarProps = { ...defaultProps, label: 'Foo Bar' };
@@ -29,6 +31,10 @@ const avatarStoryMeta: AvatarStoryMeta = {
                 summary: defaultProps.tag,
             },
         },
+        src: {
+            description: 'Set the src attribute for the avatar image variant',
+            control: 'text',
+        },
     },
 
     args: defaultArgs,
@@ -42,11 +48,12 @@ const avatarStoryMeta: AvatarStoryMeta = {
 
 export default avatarStoryMeta;
 
-const Template = ({ label, tag }: AvatarProps) => html`
-    <pie-avatar label="${ifDefined(label)}" tag="${ifDefined(tag)}"></pie-avatar>
+const Template = ({ label, tag, src }: AvatarProps) => html`
+    <pie-avatar label="${ifDefined(label)}" tag="${ifDefined(tag)}" src="${ifDefined(src)}"></pie-avatar>
 `;
 
 const createAvatarStory = createStory<AvatarProps>(Template, defaultArgs);
 
 export const Default = createAvatarStory();
 
+export const WithImage = createAvatarStory({ src: ImageUrl });
