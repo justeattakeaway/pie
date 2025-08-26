@@ -11,10 +11,12 @@ export interface AvatarProps {
      * What HTML element the avatar should be such as button, a  or div.
      */
     tag: typeof tags[number];
+  
     /**
      * The src attribute for the avatar image. When provided, displays an image instead of initials.
      */
     src?: string;
+
 
 }
 

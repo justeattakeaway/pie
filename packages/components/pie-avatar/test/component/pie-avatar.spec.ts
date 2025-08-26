@@ -75,22 +75,23 @@ test.describe('PieAvatar - Component tests', () => {
             await avatarPage.load();
 
             // Act
-            const avatarComponentVisual = page.getByTestId('pie-avatar-icon');
+            const avatarIcon = page.getByTestId('pie-avatar-icon');
 
             // Assert
-            await expect(avatarComponentVisual).toBeVisible();
+            await expect(avatarIcon).toBeVisible();
         });
-        test(`should  be ommitted by screenreaders when label is ${input}`, async ({ page }) => {
+
+        test(`should be ommitted by screenreaders when label is ${input}`, async ({ page }) => {
             // Arrange
             const avatarPage = new BasePage(page, 'avatar--default');
             avatarPage.args = ''; // don't set label
             await avatarPage.load();
 
             // Act
-            const avatarComponentVisual = page.getByTestId('pie-avatar-icon');
+            const avatarIcon = page.getByTestId('pie-avatar-icon');
 
             // Assert
-            await expect(avatarComponentVisual).toHaveAttribute('aria-hidden');
+            await expect(avatarIcon).toHaveAttribute('aria-hidden');
         });
     });
 });
