@@ -29,6 +29,9 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     @property({ type: String })
     public label: AvatarProps['label'];
 
+    @property({ type: String })
+    public src: AvatarProps['src'];
+
     /**
      * Attempts to extract initials from the label string.
      * If the label is not provided or is invalid, it returns null.
@@ -70,12 +73,23 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     }
 
     /**
-     * Renders the icon (placeholder span for now).
+     * Renders the icon when no label is provided.
      *
      * @private
      */
     private renderIcon (): TemplateResult {
         return html`<icon-user size="s" aria-hidden="true" data-test-id="pie-avatar-icon"></icon-user>`;
+    }
+
+
+    /**
+     * Renders image.
+     * We assign empty string to alt attribute for a11y clarity as it explicitly declares image as decorative
+     *
+     * @private
+    */
+    private renderImage (imgSrc: string): TemplateResult {
+        return html`<img src="${imgSrc}" class="c-avatar-image" data-test-id="pie-avatar-image" alt=""/>`;
     }
 
     /**
@@ -85,7 +99,9 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
      * @private
      */
     private get avatarContent (): TemplateResult {
-        // TODO: handle unauthenticated and src here
+        if (this.src) {
+            return this.renderImage(this.src);
+        }
 
         if (this.label) {
             const initials = this.getInitials(this.label);
@@ -114,7 +130,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
             return html`<a data-test-id="pie-avatar-anchor">${content}</a>`;
         }
 
-        return html`<div class="c-avatar-content" data-test-id="pie-avatar-div">${content}</div>`;
+        return html`<div class="${!this.src ? 'c-avatar-content' : ''}" data-test-id="pie-avatar-div" ?aria-hidden="${this.src}">${content}</div>`
     }
 
     render () {
