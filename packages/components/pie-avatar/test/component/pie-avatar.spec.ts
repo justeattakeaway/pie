@@ -20,6 +20,22 @@ const avatarEdgeTestCases = [
 ];
 
 test.describe('PieAvatar - Component tests', () => {
+    test('should render as image when src is provided', async ({ page }) => {
+        // Arrange
+        const avatarPage = new BasePage(page, 'avatar--with-image');
+        await avatarPage.load();
+
+        // Act
+        const avatarCustomElement = page.locator(avatar.selectors.container.dataTestId); // getting the custom pie-avatar element
+        const avatarImg = page.getByTestId('pie-avatar-image');
+        const avatarComponentDiv = avatarCustomElement.locator('div');
+
+        // Assert
+        await expect(avatarCustomElement).toHaveAttribute('tag');
+        await expect(avatarComponentDiv).toBeVisible();
+        await expect(avatarImg).toHaveAttribute('src');
+        await expect(avatarImg).toHaveAttribute('alt');
+    });
     test('should render as a div when tag is not provided', async ({ page }) => {
         // Arrange
         const avatarPage = new BasePage(page, 'avatar--default');
