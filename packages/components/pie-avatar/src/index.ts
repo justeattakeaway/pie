@@ -129,8 +129,8 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
             return html`<a data-test-id="pie-avatar-anchor">${content}</a>`;
         }
 
-        return html`<div class="${!this.src ? 'c-avatar-content' : ''}" data-test-id="pie-avatar-div" ?aria-hidden="${this.src}">${content}</div>`
-    };
+        return html`<div class="${!this.src ? 'c-avatar-content' : ''}" data-test-id="pie-avatar-div" ?aria-hidden="${this.src}">${content}</div>`;
+    }
 
     render () {
         return this.renderAvatarWrapper(this.avatarContent);
@@ -144,4 +144,4 @@ declare global {
     interface HTMLElementTagNameMap {
         [componentSelector]: PieAvatar;
     }
-};
+}
