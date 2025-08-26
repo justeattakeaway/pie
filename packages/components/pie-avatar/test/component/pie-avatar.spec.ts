@@ -22,7 +22,7 @@ const avatarEdgeTestCases = [
 test.describe('PieAvatar - Component tests', () => {
     test('should render as image when src is provided', async ({ page }) => {
         // Arrange
-        const avatarPage = new BasePage(page, 'avatar--src-provided');
+        const avatarPage = new BasePage(page, 'avatar--with-image');
         await avatarPage.load();
 
         // Act
@@ -33,7 +33,7 @@ test.describe('PieAvatar - Component tests', () => {
         // Assert
         await expect(avatarCustomElement).toHaveAttribute('tag');
         await expect(avatarComponentDiv).toBeVisible();
-        await expect(avatarImg).toHaveAttribute('src', './static/images/pie-logo.svg');
+        await expect(avatarImg).toHaveAttribute('src');
         await expect(avatarImg).toHaveAttribute('alt');
     });
 

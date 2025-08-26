@@ -12,7 +12,7 @@ export interface AvatarProps {
      */
     tag: typeof tags[number];
     /**
-     * The src attorbite
+     * The src attribute for the avatar image. When provided, displays an image instead of initials.
      */
     src?: string;
 
