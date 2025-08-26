@@ -182,7 +182,6 @@ const MultiSwitchFormTemplate: TemplateFunction<SwitchProps> = (props: SwitchPro
             ${Template({
     ...props,
     label: 'Bacon',
-
     name: 'bacon',
     aria: {},
     value: 'bacon_yes',
