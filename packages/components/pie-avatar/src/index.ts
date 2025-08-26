@@ -81,7 +81,6 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
         return html`<icon-user size="s" aria-hidden="true" data-test-id="pie-avatar-icon"></icon-user>`;
     }
 
-
     /**
      * Renders image.
      * We assign empty string to alt attribute for a11y clarity as it explicitly declares image as decorative
@@ -131,7 +130,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
         }
 
         return html`<div class="${!this.src ? 'c-avatar-content' : ''}" data-test-id="pie-avatar-div" ?aria-hidden="${this.src}">${content}</div>`
-    }
+    };
 
     render () {
         return this.renderAvatarWrapper(this.avatarContent);
@@ -145,4 +144,4 @@ declare global {
     interface HTMLElementTagNameMap {
         [componentSelector]: PieAvatar;
     }
-}
+};
