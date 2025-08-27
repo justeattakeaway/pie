@@ -468,7 +468,7 @@ export const LargeTextContent = createBaseModalStory({
 export const CustomFooter = createStory<ModalProps>(CustomFooterStoryTemplate, defaultArgs)();
 
 export const CustomHeaderContent = createStory<ModalProps>(CustomHeaderContentStoryTemplate, defaultArgs)({
-    slot: `<div id="scrollableContent">${createLargeTextContent()}</div>`,
+    slot: `<div id="scrollableContent">${createLargeTextContent()}${createLargeTextContent()}</div>`,
 });
 
 export const MissingDialogSimulation = createStory<ModalProps>(MissingDialogSimulationTemplate, defaultArgs)({
