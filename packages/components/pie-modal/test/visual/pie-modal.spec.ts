@@ -508,7 +508,7 @@ test.describe('Slot: `headerContent`', () => {
 
             await expect.soft(modalCustomHeaderContentPage.modalComponent.componentLocator).toBeVisible();
 
-            await modalCustomHeaderContentPage.headerContentSlotLocator.locator('#scrollableContent').evaluate((el) => {
+            await modalCustomHeaderContentPage.scrollableContentSlotLocator.evaluate((el) => {
                 el.scrollTop = el.scrollHeight;
             });
 
