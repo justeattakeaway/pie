@@ -64,6 +64,7 @@
   &.c-toast--strong {
     --toast-background-color: var(--dt-color-support-error);
     --toast-icon-fill: var(--dt-color-content-inverse);
+    --toast-font-color: var(--dt-color-content-light);
   }
 }
 
