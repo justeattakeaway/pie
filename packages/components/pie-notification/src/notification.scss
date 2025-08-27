@@ -43,7 +43,7 @@
 
     &.c-notification--info {
         --notification-background-color: var(--dt-color-support-info-02);
-        --notification-icon-fill: var(--dt-support-info);
+        --notification-icon-fill: var(--dt-color-support-info);
     }
 
     &.c-notification--success {
