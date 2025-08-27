@@ -11,7 +11,7 @@ export class ModalCustomHeaderContentPage extends BasePage {
         super(page, 'modal--custom-header-content');
         this.modalComponent = new ModalComponent(page);
         this.openModalButtonLocator = page.locator('#open-modal');
-        this.scrollableContentSlotLocator = page.locator('pie-modal article');
+        this.scrollableContentSlotLocator = page.getByTestId('pie-modal').locator('article');
     }
 
     /**
