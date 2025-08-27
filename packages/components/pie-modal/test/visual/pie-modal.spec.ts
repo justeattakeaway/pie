@@ -512,6 +512,8 @@ test.describe('Slot: `headerContent`', () => {
                 el.scrollTop = el.scrollHeight;
             });
 
+            await page.waitForTimeout(3000); // Wait for scroll to settle
+
             await percySnapshot(page, 'Modal - has headerContent slot content and sticks to top of modal when scrolling');
         });
     });
