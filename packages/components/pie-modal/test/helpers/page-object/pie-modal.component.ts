@@ -132,18 +132,4 @@ export class ModalComponent {
         const descriptionText = await this.descriptionLocator.textContent();
         return descriptionText?.trim();
     }
-
-    /**
-     * Unfocuses the currently focused element on the page.
-     * Currently required to ensure that the modal's elements are not focused when visual regression tests are run.
-     *
-     * @returns {Promise<void>}
-     */
-    async blurElement (): Promise<void> {
-        await this.page.evaluate(() => {
-            if (document.activeElement instanceof HTMLElement) {
-                document.activeElement.blur();
-            }
-        });
-    }
 }
