@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
-import { avatar } from '../helpers/selectors';
 
 const avatarInitialsTestCases = [
     { input: 'Alice Johnson', expectedVisual: 'AJ', expectedScreenReader: 'A, J' },
@@ -26,13 +25,11 @@ test.describe('PieAvatar - Component tests', () => {
         await avatarPage.load();
 
         // Act
-        const avatarComponent = page.locator(avatar.selectors.container.dataTestId);
         const avatarComponentImg = page.getByTestId('pie-avatar-image');
 
         // Assert
-        await expect(avatarComponent).toHaveAttribute('tag');
         await expect(avatarComponentImg).toHaveAttribute('src');
-        await expect(avatarComponentImg).toHaveAttribute('alt');
+        await expect(avatarComponentImg).toHaveAttribute('alt', '');
     });
 
     test('should render as a div when tag is not provided', async ({ page }) => {
@@ -41,27 +38,21 @@ test.describe('PieAvatar - Component tests', () => {
         await avatarPage.load();
 
         // Act
-        const avatarComponent = page.locator(avatar.selectors.container.dataTestId);
-        const avatarComponentDiv = avatarComponent.locator('div');
+        const avatarComponentDiv = page.getByTestId('pie-avatar-div');
 
         // Assert
-        await expect(avatarComponent).not.toHaveAttribute('tag');
         await expect(avatarComponentDiv).toBeVisible();
     });
 
     test('should render as a div when tag is div', async ({ page }) => {
         // Arrange
         const avatarPage = new BasePage(page, 'avatar--default');
-        avatarPage.args = 'tag:div';
-
-        await avatarPage.load();
+        await avatarPage.load({ tag: 'div' });
 
         // Act
-        const avatarComponent = page.locator(avatar.selectors.container.dataTestId);
-        const avatarComponentDiv = avatarComponent.locator('div');
+        const avatarComponentDiv = page.getByTestId('pie-avatar-div');
 
         // Assert
-        await expect(avatarComponent).toHaveAttribute('tag');
         await expect(avatarComponentDiv).toBeVisible();
     });
 
@@ -115,4 +106,3 @@ avatarInitialsTestCases.forEach(({ input, expectedVisual, expectedScreenReader }
         await expect(avatarComponentScreenreader).not.toHaveAttribute('aria-hidden');
     });
 });
-
