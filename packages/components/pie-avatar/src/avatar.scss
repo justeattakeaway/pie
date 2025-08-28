@@ -4,6 +4,7 @@
     // Note: For consistency sake, the recommended display should be either
     // "block" or "inline-block", otherwise it can be ommited for floating elements
     display: block;
+
     --avatar-size: 32px;
 }
 
@@ -12,7 +13,7 @@
 }
 
 .c-avatar {
-    display: flex;
+    display: flex; 
     justify-content: center;
     align-items: center;
     @include p.font-size(--dt-font-body-s-size);
