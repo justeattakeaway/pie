@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-thumbnail
 
+## 0.8.5
+
+### Patch Changes
+
+- Updated dependencies [[`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229), [`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229)]:
+  - @justeattakeaway/pie-webc-core@1.1.0
+
 ## 0.8.4
 
 ### Patch Changes

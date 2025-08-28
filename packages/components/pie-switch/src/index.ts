@@ -1,5 +1,6 @@
 import {
     html, unsafeCSS, nothing,
+    LitElement,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query, state } from 'lit/decorators.js';
@@ -8,8 +9,11 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import 'element-internals-polyfill';
 
 import {
-    RtlMixin, validPropertyValues, FormControlMixin, wrapNativeEvent, type PIEInputElement,
+    validPropertyValues,
+    FormControlMixin,
+    wrapNativeEvent,
     safeCustomElement,
+    type PIEInputElement,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
@@ -26,7 +30,7 @@ const componentSelector = 'pie-switch';
  * @event {CustomEvent} change - when the switch checked state is changed.
  */
 @safeCustomElement('pie-switch')
-export class PieSwitch extends FormControlMixin(RtlMixin(PieElement)) implements SwitchProps, PIEInputElement {
+export class PieSwitch extends FormControlMixin(PieElement) implements SwitchProps, PIEInputElement {
     @property({ type: String })
     public label: SwitchProps['label'];
 
@@ -60,6 +64,8 @@ export class PieSwitch extends FormControlMixin(RtlMixin(PieElement)) implements
 
     @state()
     private _isAnimationAllowed = false;
+
+    static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     protected firstUpdated (): void {
         this.handleFormAssociation();
@@ -169,8 +175,11 @@ export class PieSwitch extends FormControlMixin(RtlMixin(PieElement)) implements
             return nothing;
         }
 
+        // Using aria-hidden here to prevent the label from potentially being narrated twice by screen readers such as Apple VoiceOver.
+        // Instead, we apply the label as an aria-label attribute on the input (if no aria.label prop is provided).
         return html`
             <span
+                aria-hidden="true"
                 data-test-id="switch-label-${labelPlacement}"
                 class="c-switch-label">
                 ${label}
@@ -182,8 +191,11 @@ export class PieSwitch extends FormControlMixin(RtlMixin(PieElement)) implements
             return nothing;
         }
 
+        // we apply aria-hidden to the element containing the description because it prevent some screen readers such as Apple VoiceOver from announcing the description once
+        // on the input and again separately. The description is still announced once, when the input is focused/selected.
         return html`
             <div
+                aria-hidden="true"
                 id="switch-description"
                 data-test-id="switch-description"
                 class="c-switch-description">
@@ -193,17 +205,16 @@ export class PieSwitch extends FormControlMixin(RtlMixin(PieElement)) implements
 
     render () {
         const {
+            label,
             aria,
             checked,
             disabled,
-            isRTL,
             required,
             _isAnimationAllowed,
         } = this;
 
         const classes = {
             'c-switch-wrapper': true,
-            'c-switch-wrapper--rtl': isRTL,
             'c-switch-wrapper--allow-animation': _isAnimationAllowed,
         };
 
@@ -225,7 +236,7 @@ export class PieSwitch extends FormControlMixin(RtlMixin(PieElement)) implements
                         .checked="${checked}"
                         .disabled="${disabled}"
                         @change="${this.handleChange}"
-                        aria-label="${ifDefined(aria?.label)}"
+                        aria-label="${ifDefined(aria?.label || label)}"
                         aria-describedby="${aria?.describedBy ? 'switch-description' : nothing}">
                     <div class="c-switch-control">
                         ${checked ? html`<icon-check></icon-check>` : nothing}

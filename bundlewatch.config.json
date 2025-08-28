@@ -122,7 +122,7 @@
     },
     {
       "path": "./packages/components/pie-radio/dist/index.js",
-      "maxSize": "3.00 KB"
+      "maxSize": "3.08 KB"
     },
     {
       "path": "./packages/components/pie-radio/dist/react.js",
@@ -210,6 +210,10 @@
     },
     {
       "path": "./packages/components/pie-data-table/dist/*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-tabs/dist/*.js",
       "maxSize": "3 KB"
     }
   ],

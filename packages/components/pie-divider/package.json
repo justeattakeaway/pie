@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-divider",
   "description": "PIE Design System Divider built using Web Components",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -40,13 +40,13 @@
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
     "@justeattakeaway/pie-components-config": "0.21.0",
-    "@justeattakeaway/pie-css": "0.19.0",
+    "@justeattakeaway/pie-css": "0.20.0",
     "@justeattakeaway/pie-monorepo-utils": "0.7.0",
     "@justeattakeaway/pie-wrapper-react": "0.14.3",
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "1.0.0"
+    "@justeattakeaway/pie-webc-core": "1.1.0"
   },
   "volta": {
     "extends": "../../../package.json"

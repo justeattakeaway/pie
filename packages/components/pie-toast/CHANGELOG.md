@@ -1,5 +1,21 @@
 # @justeattakeaway/pie-toast
 
+## 0.12.0
+
+### Minor Changes
+
+- [Changed] - use latest version of pie-design-tokens@7.3.0 ([#2534](https://github.com/justeattakeaway/pie/pull/2534)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.11.1
+
+### Patch Changes
+
+- Updated dependencies [[`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229), [`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229)]:
+  - @justeattakeaway/pie-webc-core@1.1.0
+  - @justeattakeaway/pie-button@1.6.7
+  - @justeattakeaway/pie-icon-button@2.0.6
+  - @justeattakeaway/pie-icons-webc@1.14.2
+
 ## 0.11.0
 
 ### Minor Changes

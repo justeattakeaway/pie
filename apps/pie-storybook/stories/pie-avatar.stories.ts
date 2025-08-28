@@ -2,18 +2,35 @@ import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-avatar';
-import { type AvatarProps } from '@justeattakeaway/pie-avatar';
+import { type AvatarProps, defaultProps, tags } from '@justeattakeaway/pie-avatar';
 
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { createStory } from '../utilities';
 
 type AvatarStoryMeta = Meta<AvatarProps>;
 
-const defaultArgs: AvatarProps = {};
+const defaultArgs: AvatarProps = { ...defaultProps, label: 'Foo Bar' };
 
 const avatarStoryMeta: AvatarStoryMeta = {
     title: 'Components/Avatar',
     component: 'pie-avatar',
-    argTypes: {},
+    argTypes: {
+        label: {
+            description: 'The name to display in the Avatar as initials. Should be a username, first and last name or company name.',
+            control: {
+                type: 'text',
+            },
+        },
+        tag: {
+            description: 'Set the element tag of the avatar.',
+            control: 'select',
+            options: tags,
+            defaultValue: {
+                summary: defaultProps.tag,
+            },
+        },
+    },
+
     args: defaultArgs,
     parameters: {
         design: {
@@ -25,10 +42,11 @@ const avatarStoryMeta: AvatarStoryMeta = {
 
 export default avatarStoryMeta;
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
-const Template = ({}: AvatarProps) => html`
-    <pie-avatar></pie-avatar>
+const Template = ({ label, tag }: AvatarProps) => html`
+    <pie-avatar label="${ifDefined(label)}" tag="${ifDefined(tag)}"></pie-avatar>
 `;
 
-export const Default = createStory<AvatarProps>(Template, defaultArgs)();
+const createAvatarStory = createStory<AvatarProps>(Template, defaultArgs);
+
+export const Default = createAvatarStory();
+

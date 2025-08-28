@@ -1,5 +1,29 @@
 # Changelog
 
+## 2.88.0
+
+### Minor Changes
+
+- [Changed] - use latest version of pie-design-tokens@7.3.0 ([#2534](https://github.com/justeattakeaway/pie/pull/2534)) by [@raoufswe](https://github.com/raoufswe)
+
+## 2.87.0
+
+### Minor Changes
+
+- [Updated] - rendering of user icon when label is not provided ([#2529](https://github.com/justeattakeaway/pie/pull/2529)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+## 2.86.0
+
+### Minor Changes
+
+- [Added] - Avatar Initials Static type for the pie-avatar component ([#2465](https://github.com/justeattakeaway/pie/pull/2465)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+## 2.85.1
+
+### Patch Changes
+
+- [Fixed] - Upgrade Turborepo to a version where `$TURBO_DEFAULT# Changelog is fixed - This ensures our component tests actually get their cache invalidated in CI ([#2524](https://github.com/justeattakeaway/pie/pull/2524)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.85.0
 
 ### Minor Changes

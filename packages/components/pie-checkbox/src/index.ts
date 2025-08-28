@@ -8,7 +8,6 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 
 import {
-    RtlMixin,
     wrapNativeEvent,
     FormControlMixin,
     validPropertyValues,
@@ -31,7 +30,7 @@ const assistiveTextId = 'assistive-text';
  * @event {CustomEvent} change - when checked state is changed.
  */
 @safeCustomElement('pie-checkbox')
-export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implements CheckboxProps {
+export class PieCheckbox extends FormControlMixin(PieElement) implements CheckboxProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @state()
@@ -172,7 +171,6 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implemen
             indeterminate,
             assistiveText,
             status,
-            isRTL,
         } = this;
 
         const componentDisabled = disabled || _disabledByParent;
@@ -192,7 +190,6 @@ export class PieCheckbox extends FormControlMixin(RtlMixin(PieElement)) implemen
             'c-checkbox-tick--checked': checked,
             'c-checkbox-tick--indeterminate': indeterminate && !checked,
             'c-checkbox-tick--allow-animation': _isAnimationAllowed,
-            'c-checkbox-tick--rtl': isRTL,
         };
 
         return html`
