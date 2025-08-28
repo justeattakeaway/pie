@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.47.0
+
+### Minor Changes
+
+- [Changed] - use latest version of pie-design-tokens@7.3.0 ([#2534](https://github.com/justeattakeaway/pie/pull/2534)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Added] - Multi-switch form example story ([#2530](https://github.com/justeattakeaway/pie/pull/2530)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`e52d56a`](https://github.com/justeattakeaway/pie/commit/e52d56a68d1075ad1a92e0a4603258e1eaedaf96), [`a58797b`](https://github.com/justeattakeaway/pie/commit/a58797b07e69cdafdee86ea10eac1285f942d600), [`e52d56a`](https://github.com/justeattakeaway/pie/commit/e52d56a68d1075ad1a92e0a4603258e1eaedaf96)]:
+  - @justeattakeaway/pie-switch@2.2.0
+  - @justeattakeaway/pie-modal@1.12.0
+  - @justeattakeaway/pie-tag@0.18.0
+  - @justeattakeaway/pie-notification@0.16.0
+  - @justeattakeaway/pie-toast@0.12.0
+  - @justeattakeaway/pie-css@0.20.0
+  - @justeattakeaway/pie-cookie-banner@1.6.18
+  - @justeattakeaway/pie-toast-provider@0.7.1
+
 ## 1.46.1
 
 ### Patch Changes
