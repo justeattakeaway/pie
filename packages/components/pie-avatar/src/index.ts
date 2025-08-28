@@ -73,7 +73,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     }
 
     /**
-     * Renders the icon when no label is provided.
+     * Renders the user icon.
      *
      * @private
      */
@@ -88,7 +88,7 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
      * @private
     */
     private renderImage (imgSrc: string): TemplateResult {
-        return html`<img src="${imgSrc}" class="c-avatar-image" data-test-id="pie-avatar-image" alt=""/>`;
+        return html`<img class="c-avatar--image" src="${imgSrc}" data-test-id="pie-avatar-image" alt=""/>`;
     }
 
     /**
@@ -122,14 +122,14 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
         const { tag } = this;
 
         if (tag === 'button') {
-            return html`<button data-test-id="pie-avatar-button">${content}</button>`;
+            return html`<button data-test-id="pie-avatar-button" class="c-avatar c-avatar--button">${content}</button>`;
         }
 
         if (tag === 'a') {
-            return html`<a data-test-id="pie-avatar-anchor">${content}</a>`;
+            return html`<a data-test-id="pie-avatar-anchor" class="c-avatar">${content}</a>`;
         }
 
-        return html`<div class="${!this.src ? 'c-avatar-content' : ''}" data-test-id="pie-avatar-div" ?aria-hidden="${this.src}">${content}</div>`;
+        return html`<div class="c-avatar" data-test-id="pie-avatar-div" ?aria-hidden="${this.src}">${content}</div>`;
     }
 
     render () {

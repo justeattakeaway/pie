@@ -4,29 +4,33 @@
     // Note: For consistency sake, the recommended display should be either
     // "block" or "inline-block", otherwise it can be ommited for floating elements
     display: block;
+    --avatar-size: 32px;
 }
 
 .c-avatar-visuallyHidden {
     @include p.visually-hidden;
 }
 
-.c-avatar-content {
+.c-avatar {
     display: flex;
     justify-content: center;
     align-items: center;
     @include p.font-size(--dt-font-body-s-size);
     background-color: var(--dt-color-container-inverse);
     color: var(--dt-color-content-interactive-primary); 
-    width: 32px;
-    height: 32px;
+    width: var(--avatar-size);
+    height: var(--avatar-size);
     border-radius:var(--dt-radius-rounded-e);
-
+    overflow: hidden;
 }
 
-.c-avatar-image {
+.c-avatar--image {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    width: 32px;
-    height: 32px;
-    border-radius:var(--dt-radius-rounded-e);
+}
 
+.c-avatar--button {
+    border: none;
+    font-family: inherit;
 }

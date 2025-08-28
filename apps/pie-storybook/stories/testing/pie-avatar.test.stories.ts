@@ -6,8 +6,6 @@ import { type AvatarProps, tags } from '@justeattakeaway/pie-avatar';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { createStory, type TemplateFunction } from '../../utilities';
 
-const ImageUrl = 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
-
 type AvatarStoryMeta = Meta<AvatarProps>;
 type OptionalAvatarProps = Partial<AvatarProps>; // giving us a type that can have any of the props in the AvatarProps but can miss any of them (allows us to get {})
 
@@ -17,22 +15,17 @@ const avatarStoryMeta: AvatarStoryMeta = {
     argTypes: {
         label: {
             description: 'The name to display in the Avatar as initials. Should be a username, first and last name or company name.',
-            control: {
-                type: 'text',
-            },
+            control: 'text',
         },
         tag: {
             description: 'Set the element tag of the avatar.',
             control: 'select',
             options: tags,
         },
-        /*         src: {
-            description: 'Set the src attribute for the avatar image variant',
-            control: {
-                type: 'text',
-            },
-        }, */
-
+        src: {
+            description: 'Used to load an image to display inside the Avatar',
+            control: 'text',
+        },
     },
 };
 
@@ -55,5 +48,5 @@ export const LabelProvided = createStory<OptionalAvatarProps>(Template, {
 
 export const WithImage = createStory<OptionalAvatarProps>(Template, {
     tag: 'div',
-    src: ImageUrl,
+    src: './static/images/pie-avatar--static-image.jpg',
 })();

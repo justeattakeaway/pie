@@ -22,6 +22,7 @@ test.describe('PieAvatar - Visual tests`', () => {
         await expect.soft(avatarComponent).toBeVisible();
         await percySnapshot(page, 'PieAvatar - Label Provided Test');
     });
+
     test('should display the PieAvatar component when src is provided', async ({ page }) => {
         const avatarPage = new BasePage(page, 'avatar--with-image');
         const avatarComponent = page.locator(avatar.selectors.container.dataTestId);

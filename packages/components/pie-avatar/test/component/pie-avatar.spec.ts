@@ -26,27 +26,26 @@ test.describe('PieAvatar - Component tests', () => {
         await avatarPage.load();
 
         // Act
-        const avatarCustomElement = page.locator(avatar.selectors.container.dataTestId); // getting the custom pie-avatar element
-        const avatarImg = page.getByTestId('pie-avatar-image');
-        const avatarComponentDiv = avatarCustomElement.locator('div');
+        const avatarComponent = page.locator(avatar.selectors.container.dataTestId);
+        const avatarComponentImg = page.getByTestId('pie-avatar-image');
 
         // Assert
-        await expect(avatarCustomElement).toHaveAttribute('tag');
-        await expect(avatarComponentDiv).toBeVisible();
-        await expect(avatarImg).toHaveAttribute('src');
-        await expect(avatarImg).toHaveAttribute('alt');
+        await expect(avatarComponent).toHaveAttribute('tag');
+        await expect(avatarComponentImg).toHaveAttribute('src');
+        await expect(avatarComponentImg).toHaveAttribute('alt');
     });
+
     test('should render as a div when tag is not provided', async ({ page }) => {
         // Arrange
         const avatarPage = new BasePage(page, 'avatar--default');
         await avatarPage.load();
 
         // Act
-        const avatarCustomElement = page.locator(avatar.selectors.container.dataTestId); // getting the custom pie-avatar element
-        const avatarComponentDiv = avatarCustomElement.locator('div');
+        const avatarComponent = page.locator(avatar.selectors.container.dataTestId);
+        const avatarComponentDiv = avatarComponent.locator('div');
 
         // Assert
-        await expect(avatarCustomElement).not.toHaveAttribute('tag');
+        await expect(avatarComponent).not.toHaveAttribute('tag');
         await expect(avatarComponentDiv).toBeVisible();
     });
 
@@ -58,11 +57,11 @@ test.describe('PieAvatar - Component tests', () => {
         await avatarPage.load();
 
         // Act
-        const avatarCustomElement = page.locator(avatar.selectors.container.dataTestId);
-        const avatarComponentDiv = avatarCustomElement.locator('div');
+        const avatarComponent = page.locator(avatar.selectors.container.dataTestId);
+        const avatarComponentDiv = avatarComponent.locator('div');
 
         // Assert
-        await expect(avatarCustomElement).toHaveAttribute('tag');
+        await expect(avatarComponent).toHaveAttribute('tag');
         await expect(avatarComponentDiv).toBeVisible();
     });
 
@@ -74,10 +73,10 @@ test.describe('PieAvatar - Component tests', () => {
             await avatarPage.load();
 
             // Act
-            const avatarIcon = page.getByTestId('pie-avatar-icon');
+            const avatarComponentIcon = page.getByTestId('pie-avatar-icon');
 
             // Assert
-            await expect(avatarIcon).toBeVisible();
+            await expect(avatarComponentIcon).toBeVisible();
         });
 
         test(`should be ommitted by screenreaders when label is ${input}`, async ({ page }) => {
@@ -87,10 +86,10 @@ test.describe('PieAvatar - Component tests', () => {
             await avatarPage.load();
 
             // Act
-            const avatarIcon = page.getByTestId('pie-avatar-icon');
+            const avatarComponentIcon = page.getByTestId('pie-avatar-icon');
 
             // Assert
-            await expect(avatarIcon).toHaveAttribute('aria-hidden');
+            await expect(avatarComponentIcon).toHaveAttribute('aria-hidden');
         });
     });
 });
@@ -103,8 +102,8 @@ avatarInitialsTestCases.forEach(({ input, expectedVisual, expectedScreenReader }
 
         // Act - Have to manually set the label as Storybook doesn't support certain characters when passed via query params
         await page.evaluate(async (input) => {
-            const avatar = document.querySelector('pie-avatar');
-            avatar?.setAttribute('label', `${input}`);
+            const avatarComponent = document.querySelector('pie-avatar');
+            avatarComponent?.setAttribute('label', `${input}`);
         }, input);
         const avatarComponentVisual = page.getByTestId('pie-avatar-initials-visual');
         const avatarComponentScreenreader = page.getByTestId('pie-avatar-initials-screenreader');
