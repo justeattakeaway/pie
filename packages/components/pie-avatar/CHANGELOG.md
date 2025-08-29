@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-avatar
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - static image variant for the avatar component ([#2535](https://github.com/justeattakeaway/pie/pull/2535)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
 ## 0.3.0
 
 ### Minor Changes

@@ -3302,7 +3302,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-avatar@0.3.0, @justeattakeaway/pie-avatar@workspace:packages/components/pie-avatar":
+"@justeattakeaway/pie-avatar@0.4.0, @justeattakeaway/pie-avatar@workspace:packages/components/pie-avatar":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-avatar@workspace:packages/components/pie-avatar"
   dependencies:
@@ -3490,7 +3490,7 @@ __metadata:
     "@justeattakeaway/pie-css": 0.20.0
     "@justeattakeaway/pie-icons": 5.15.0
     "@justeattakeaway/pie-monorepo-utils": 0.7.0
-    "@justeattakeaway/pie-webc": 0.7.15
+    "@justeattakeaway/pie-webc": 0.7.16
     "@lit-labs/eleventy-plugin-lit": 1.0.5
     "@lit-labs/ssr-client": 1.1.7
     "@types/markdown-it": 13.0.2
@@ -3793,7 +3793,7 @@ __metadata:
   dependencies:
     "@justeat/pie-design-tokens": 7.3.0
     "@justeattakeaway/pie-assistive-text": 0.10.11
-    "@justeattakeaway/pie-avatar": 0.3.0
+    "@justeattakeaway/pie-avatar": 0.4.0
     "@justeattakeaway/pie-breadcrumb": 0.7.0
     "@justeattakeaway/pie-button": 1.6.7
     "@justeattakeaway/pie-card": 0.26.1
@@ -3989,12 +3989,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@0.7.15, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@0.7.16, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
     "@justeattakeaway/pie-assistive-text": 0.10.11
-    "@justeattakeaway/pie-avatar": 0.3.0
+    "@justeattakeaway/pie-avatar": 0.4.0
     "@justeattakeaway/pie-breadcrumb": 0.7.0
     "@justeattakeaway/pie-button": 1.6.7
     "@justeattakeaway/pie-card": 0.26.1
@@ -22963,7 +22963,7 @@ __metadata:
   resolution: "wc-react17@workspace:apps/examples/wc-react17"
   dependencies:
     "@justeattakeaway/pie-css": 0.20.0
-    "@justeattakeaway/pie-webc": 0.7.15
+    "@justeattakeaway/pie-webc": 0.7.16
     "@lit/react": 1.0.5
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
@@ -22983,7 +22983,7 @@ __metadata:
   resolution: "wc-react18@workspace:apps/examples/wc-react18"
   dependencies:
     "@justeattakeaway/pie-css": 0.20.0
-    "@justeattakeaway/pie-webc": 0.7.15
+    "@justeattakeaway/pie-webc": 0.7.16
     "@lit/react": 1.0.5
     "@types/react": 18.3.3
     "@types/react-dom": 18.3.0
