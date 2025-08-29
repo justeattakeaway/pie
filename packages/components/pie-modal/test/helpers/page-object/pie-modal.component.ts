@@ -10,8 +10,10 @@ export class ModalComponent {
     private readonly headerLocator: Locator;
     private readonly descriptionLocator: Locator;
     readonly footerLocator: Locator;
+    private readonly page: Page;
 
     constructor (page: Page) {
+        this.page = page;
         this.componentLocator = page.getByTestId(modal.selectors.container.dataTestId);
         this.backButtonLocator = page.getByTestId(modal.selectors.backButton.dataTestId);
         this.closeButtonLocator = page.getByTestId(modal.selectors.closeButton.dataTestId);
