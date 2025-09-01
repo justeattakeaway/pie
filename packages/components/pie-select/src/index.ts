@@ -67,6 +67,8 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
     @property({ type: Array })
     public options: SelectProps['options'] = defaultProps.options;
 
+    private _value: string = defaultProps.value;
+
     @query('select')
     public focusTarget!: HTMLSelectElement;
 
@@ -81,6 +83,25 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
 
     protected firstUpdated (): void {
         this._internals.setFormValue(this._select.value);
+    }
+
+    @property()
+    public get value (): string {
+        // If no value was assigned
+        // and the select element is available
+        // return its value as by default it will pick the first available option
+        if (this._value === '') {
+            if (!this._select) {
+                return '';
+            }
+            return this._select.value;
+        }
+
+        return this._value;
+    }
+
+    public set value (newValue: string) {
+        this._value = newValue;
     }
 
     /**
@@ -139,27 +160,30 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
      */
     private renderChildren (options: SelectProps['options']): TemplateResult {
         return html`
-            ${options.map((option) => {
+    ${options.map((option) => {
             if (option.tag === 'optgroup') {
                 return html`
-                        <optgroup
-                            ?disabled="${option.disabled}"
-                            label="${ifDefined(option.label)}">
-                            ${this.renderChildren(option.options)}
-                        </optgroup>
-                    `;
+                <optgroup
+                    ?disabled="${option.disabled}"
+                    label="${ifDefined(option.label)}">
+                    ${this.renderChildren(option.options)}
+                </optgroup>
+            `;
             }
 
+            const hasValue = this._value !== '';
+            const selected = hasValue ? this._value === option.value : option.selected;
+
             return html`
-                    <option
-                        .value="${live(option.value)}"
-                        ?disabled="${option.disabled}"
-                        ?selected="${option.selected}">
-                        ${option.text}
-                    </option>
-                `;
-        })}
+            <option
+                .value="${live(option.value)}"
+                ?disabled="${option.disabled}"
+                ?selected="${selected}">
+                ${option.text}
+            </option>
         `;
+        })}
+    `;
     }
 
     /**
