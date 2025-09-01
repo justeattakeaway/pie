@@ -31,6 +31,7 @@ import {
     sizes,
     statusTypes,
     type SelectProps,
+    type SelectOptionProps,
 } from './defs';
 
 // Valid values available to consumers
@@ -101,7 +102,10 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
     }
 
     public set value (newValue: string) {
+        this._internals.setFormValue(newValue);
         this._value = newValue;
+
+        this.requestUpdate();
     }
 
     /**
@@ -127,10 +131,24 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
      * Resets the value to the default select value.
      */
     public formResetCallback (): void {
-        const selected = this._select.querySelector('option[selected]');
-        this._select.value = selected?.getAttribute('value') ?? '';
-        this._select.selectedIndex = selected ? this._select.selectedIndex : 0;
-        this._internals.setFormValue(this._select.value);
+        // Flatten a possibly nested options list into a flat one
+        const flatOptions: SelectOptionProps[] = this.options.reduce<SelectOptionProps[]>((acc, option) => {
+            if (option.tag === 'optgroup') {
+                return acc.concat(option.options);
+            }
+            acc.push(option);
+            return acc;
+        }, []);
+
+        // Infer the value to reset to
+        const firstValue = flatOptions ? flatOptions[0].value : '';
+        const selectedValue = flatOptions.find((option) => option.selected === true);
+        const resetValue = selectedValue ? selectedValue.value : firstValue;
+
+        // Perform the necessary updates
+        this._internals.setFormValue(resetValue || null);
+        this._value = resetValue || '';
+        this.requestUpdate();
     }
 
     /**

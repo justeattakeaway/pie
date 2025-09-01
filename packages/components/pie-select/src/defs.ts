@@ -4,7 +4,7 @@ export const sizes = ['small', 'medium', 'large'] as const;
 
 export const statusTypes = ['default', 'error'] as const;
 
-interface SelectOptionProps {
+export interface SelectOptionProps {
    /**
      * What HTML element the option should be such option or optgroup.
      */
@@ -31,7 +31,7 @@ interface SelectOptionProps {
     selected?: boolean;
 }
 
-interface SelectOptionGroupProps {
+export interface SelectOptionGroupProps {
     /**
      * What HTML element the option should be such option or optgroup.
      */
