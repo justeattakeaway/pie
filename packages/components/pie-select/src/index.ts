@@ -67,7 +67,7 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
     @property({ type: Array })
     public options: SelectProps['options'] = defaultProps.options;
 
-    private _value: string = defaultProps.value;
+    private _value: string|number = defaultProps.value;
 
     @query('select')
     public focusTarget!: HTMLSelectElement;
@@ -86,7 +86,7 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
     }
 
     @property()
-    public get value (): string {
+    public get value (): string|number {
         // If no value was assigned
         // and the select element is available
         // return its value as by default it will pick the first available option
@@ -176,7 +176,7 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
 
             return html`
             <option
-                .value="${live(option.value)}"
+                .value="${live(option.value || '')}"
                 ?disabled="${option.disabled}"
                 ?selected="${selected}">
                 ${option.text}
