@@ -8,7 +8,7 @@
     --form-label-font-size: #{p.font-size(--dt-font-size-14)};
     --form-label-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
     --form-label-font-weight: var(--dt-font-weight-bold);
-    --form-label-color: var(--dt-color-content-default);
+    --form-label-color: var(--dt-color-content-default-solid);
 
     display: flex;
     justify-content: space-between;
@@ -23,7 +23,7 @@
 
 .c-formLabel-optional,
 .c-formLabel-trailing {
-    color: var(--dt-color-content-subdued);
+    color: var(--dt-color-content-subdued-solid);
     font-weight: var(--dt-font-weight-regular);
 }
 
