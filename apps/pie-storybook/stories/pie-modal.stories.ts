@@ -364,140 +364,9 @@ export const LargeTextContent = createBaseModalStory({
 
 export const CustomFooter = createStory<ModalProps>(CustomFooterStoryTemplate, defaultArgs)();
 
-const renderCategoryChipsList = () => html`
+const renderCategoryChipsList = (length: number) => html`
     <ul role="list" style="list-style-type: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--dt-spacing-b);">
-        <li role="listitem"><pie-chip variant="ghost">Afghan</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">African</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Alcohol</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">All Night Alcohol</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">American</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Arabic</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Argentinian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Asian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Authentic Pizza</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Bagels</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Bakery</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Bangladeshi</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">BBQ</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Biryani</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Brazilian food</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Breakfast</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">British</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Brunch</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Bubble Tea</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Burgers</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Burritos</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Business Lunch</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Café</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Cakes</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Cantonese</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Caribbean</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Chicken</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Chinese</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Coffee</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Collect stamps</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Colombian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Continental</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Convenience</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Crepes</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Curry</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Deals</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Deli</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Desserts</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Dim Sum</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Dinner</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Doughnuts</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Drinks</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Egyptian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Electronics</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">English</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Ethiopian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">European</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Fast Food</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Filipino</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Fish & Chips</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Flowers</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Freebies</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">French</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Fusion</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Georgian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Ghanaian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Gifts</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Gluten Free</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Gourmet</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Greek</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Grill</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Groceries</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Halal</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Health and Beauty</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Healthy</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Hot Dogs</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Ice Cream</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Indian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Indo-Chinese Fusion</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Iranian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Iraqi</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Italian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Italian Pizza</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Jamaican</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Japanese</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Jerk</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Kebab</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Korean</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Kurdish</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Latin American</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Lebanese</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Low Delivery Fee</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Lunch</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Malaysian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Mediterranean</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Mexican</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Middle Eastern</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Milkshakes</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Moroccan</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Nepalese</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Nigerian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Noodles</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Oriental</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Pakistani</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Pan-Asian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Pancakes</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Pasta</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Peri Peri</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Persian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Peruvian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Pharmacy</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Pies</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Pizza</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Poke</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Polish</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Portuguese</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Pub Food</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Russian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Salads</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Sandwiches</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Seafood</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Shops</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Smoothies</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">South American</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">South Indian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Spanish</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Sri Lankan</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Steak</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Street Food</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Sushi</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Sweets</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Syrian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Tapas</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Thai</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Turkish</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Vegan</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Vegetarian</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Venezuelan</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Vietnamese</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Waffles</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">West African</pie-chip></li>
-        <li role="listitem"><pie-chip variant="ghost">Wraps</pie-chip></li>
+        ${Array.from({ length }, (_, i) => html`<li role="listitem"><pie-chip variant="ghost">Chip ${i + 1}</pie-chip></li>`)}
     </ul>
 `;
 
@@ -537,11 +406,11 @@ const customHeaderContentTemplate = (props: ModalProps) => {
             @pie-modal-open="${openAction}"
             @pie-modal-back="${backClickAction}">
                 <div slot="headerContent">
-                    <pie-text-input placeholder="search in categories">
+                    <pie-text-input autoFocus placeholder="search in categories">
                         <icon-search slot="leadingIcon"></icon-search>
                     </pie-text-input>
                 </div>
-                ${renderCategoryChipsList()}
+                ${renderCategoryChipsList(100)}
             </pie-modal>`;
 };
 
