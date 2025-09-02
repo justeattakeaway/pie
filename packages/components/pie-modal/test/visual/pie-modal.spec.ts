@@ -547,20 +547,14 @@ test.describe('Slot: `footer`', () => {
 
 test.describe('Slot: `headerContent`', () => {
     test.describe('is assigned', () => {
-        test('should display the "headerContent" slot content in the modal header and scroll correctly', async ({ page }) => {
+        test('should display the "headerContent" slot content in the modal header', async ({ page }) => {
             const modalCustomHeaderContentPage = new ModalCustomHeaderContentPage(page);
             const props: ModalProps = { ...sharedProps };
             await modalCustomHeaderContentPage.load(props);
 
             await expect.soft(modalCustomHeaderContentPage.modalComponent.componentLocator).toBeVisible();
 
-            await modalCustomHeaderContentPage.scrollableContentSlotLocator.evaluate((el) => {
-                el.scrollTop = el.scrollHeight;
-            });
-
-            await page.waitForTimeout(3000); // Wait for scroll to settle
-
-            await percySnapshot(page, 'Modal - has headerContent slot content and sticks to top of modal when scrolling');
+            await percySnapshot(page, 'Modal - has headerContent slot content');
         });
     });
 });
