@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.48.0
+
+### Minor Changes
+
+- [Added] - static image variant for the avatar component ([#2535](https://github.com/justeattakeaway/pie/pull/2535)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies [[`dde29c9`](https://github.com/justeattakeaway/pie/commit/dde29c90e438fb8173cca21746463ed7b1147f07)]:
+  - @justeattakeaway/pie-avatar@0.4.0
+
 ## 1.47.1
 
 ### Patch Changes

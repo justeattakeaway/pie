@@ -15,24 +15,27 @@ const avatarStoryMeta: AvatarStoryMeta = {
     argTypes: {
         label: {
             description: 'The name to display in the Avatar as initials. Should be a username, first and last name or company name.',
-            control: {
-                type: 'text',
-            },
+            control: 'text',
         },
         tag: {
             description: 'Set the element tag of the avatar.',
             control: 'select',
             options: tags,
         },
+        src: {
+            description: 'Used to load an image to display inside the Avatar',
+            control: 'text',
+        },
     },
 };
 
 export default avatarStoryMeta;
 
-const Template: TemplateFunction<AvatarProps> = ({ label, tag }: AvatarProps) => html`
+const Template: TemplateFunction<AvatarProps> = ({ label, tag, src }: AvatarProps) => html`
     <pie-avatar
     tag="${ifDefined(tag)}"
-    label="${ifDefined(label)}">
+    label="${ifDefined(label)}"
+    src="${ifDefined(src)}">
     </pie-avatar>
 `;
 
@@ -43,3 +46,7 @@ export const LabelProvided = createStory<OptionalAvatarProps>(Template, {
     label: 'Alice Johnson',
 })();
 
+export const WithImage = createStory<OptionalAvatarProps>(Template, {
+    tag: 'div',
+    src: './static/images/pie-avatar--static-image.jpg',
+})();
