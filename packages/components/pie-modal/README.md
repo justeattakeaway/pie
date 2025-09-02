@@ -56,6 +56,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | Slot      | Description                                                        |
 |-----------|--------------------------------------------------------------------|
 | `default` | The default slot is used to pass content into the modal component. |
+| `headerContent` | Used to pass additional content to the modal header that scrolls with the heading and controls. |
 | `footer`  | Used to pass optional content to the modal component footer area.  |
 
 ### CSS Variables
@@ -107,6 +108,18 @@ With a custom footer slot:
   <div slot="footer">
     <p>Custom footer content!</p>
   </div>
+</pie-modal>
+```
+
+With a custom header content slot:
+
+```html
+<pie-modal heading='My Awesome Heading' headingLevel='h3'>
+  <div slot="headerContent">
+    <p>Custom header content!</p>
+  </div>
+  <!-- The default slot -->
+  <p>Click me!</p>
 </pie-modal>
 ```
 

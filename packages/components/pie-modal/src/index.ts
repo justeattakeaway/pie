@@ -51,8 +51,9 @@ export interface ModalEventDetail {
  * @event {CustomEvent} pie-modal-back - when the modal back button is clicked.
  * @event {CustomEvent} pie-modal-leading-action-click - when the modal leading action is clicked.
  * @event {CustomEvent} pie-modal-supporting-action-click - when the modal supporting action is clicked.
- * @slot footer - The footer slot
- * @slot - Default slot
+ * @slot headerContent - Used to pass additional content to the modal header that scrolls with the heading and controls.
+ * @slot footer - Used to pass optional content to the modal component footer area.
+ * @slot - The default slot is used to pass content into the modal component.
  */
 @safeCustomElement('pie-modal')
 export class PieModal extends PieElement implements ModalProps {
