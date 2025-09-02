@@ -259,7 +259,7 @@ jobs:
       - name: Run All System / Component /  a11y Tests
         uses: ./.github/actions/run-script
         with:
-          script-name: "test:browsers:ci --filter='./packages/**'"
+          script-name: "test:browsers:ci --filter='./packages/components/*' --filter='./packages/tools/*'"
       - name: Upload Playwright Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
@@ -268,17 +268,17 @@ jobs:
           path: lit-browsers-report/
           retention-days: 7
       # Run Visual Tests
-      - name: Run All Visual Tests
+      - name: Run Visual Tests for changed packages and dependents since HEAD^1 (main only)
         uses: ./.github/actions/run-script
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='{./packages/**}[HEAD^1]'"
+          script-name: "test:visual:ci --filter='{./packages/components/*}...[HEAD^1] --filter='{./packages/tools/*}...[HEAD^1]'"
           concurrency: 1
-      - name: Run Changed Package Visual Tests
+      - name: Run Visual Tests for changed packages and dependents since origin/main
         uses: ./.github/actions/run-script
         if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='{./packages/**}[origin/main]'"
+          script-name: "test:visual:ci --filter='{./packages/components/*}...[origin/main]' --filter='{./packages/tools/*}...[origin/main]'"
           concurrency: 1
       - name: Upload Playwright Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

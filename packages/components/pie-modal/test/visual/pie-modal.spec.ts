@@ -4,6 +4,7 @@ import { type ModalProps, sizes, positions } from '../../src/defs.ts';
 import { ModalDefaultPage } from '../helpers/page-object/pie-modal-default.page.ts';
 import { ModalLargeTextContentPage } from '../helpers/page-object/pie-modal-large-text-content.page.ts';
 import { ModalCustomFooterPage } from '../helpers/page-object/pie-modal-custom-footer.page.ts';
+import { ModalCustomHeaderContentPage } from '../helpers/page-object/pie-modal-custom-header-content.page.ts';
 
 const sharedProps: ModalProps = {
     heading: 'This is a modal heading',
@@ -540,6 +541,20 @@ test.describe('Slot: `footer`', () => {
             await page.waitForTimeout(500);
 
             await percySnapshot(page, 'Modal - has footer slot content');
+        });
+    });
+});
+
+test.describe('Slot: `headerContent`', () => {
+    test.describe('is assigned', () => {
+        test('should display the "headerContent" slot content in the modal header', async ({ page }) => {
+            const modalCustomHeaderContentPage = new ModalCustomHeaderContentPage(page);
+            const props: ModalProps = { ...sharedProps };
+            await modalCustomHeaderContentPage.load(props);
+
+            await expect.soft(modalCustomHeaderContentPage.modalComponent.componentLocator).toBeVisible();
+
+            await percySnapshot(page, 'Modal - has headerContent slot content');
         });
     });
 });
