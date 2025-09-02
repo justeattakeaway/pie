@@ -9,8 +9,6 @@ import {
     type CardProps as CardPropsBase, variants, tags, paddingValues, defaultProps,
 } from '@justeattakeaway/pie-card';
 
-
-
 import { type SlottedComponentProps } from '../../types';
 import {
     createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML,

@@ -8,7 +8,7 @@
       "cache": true,
       "dependsOn": [],
       "inputs": [
-        "./**/",
+        "./**",
         "../../../apps/pie-storybook/stories/testing/pie-webc-core.test.stories.ts"
       ]
     },
@@ -16,7 +16,7 @@
       "cache": true,
       "dependsOn": ["build"],
       "inputs": [
-        "./**/",
+        "./**",
         "../../../apps/pie-storybook/stories/testing/pie-webc-core.test.stories.ts"
       ]
     }

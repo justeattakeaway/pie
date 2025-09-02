@@ -28,7 +28,7 @@
     "test:browsers:webc": {
       "cache": true,
       "inputs": [
-        "./**/",
+        "./**",
         "../../../apps/pie-storybook/stories/testing/icons.test.stories.ts"
       ]
     },
@@ -39,7 +39,7 @@
         "test:browsers-setup"
       ],
       "inputs": [
-        "./**/",
+        "./**",
         "../../../apps/pie-storybook/stories/testing/icons.test.stories.ts"
       ],
       "outputs": [
@@ -53,7 +53,7 @@
         "test:browsers-setup"
       ],
       "inputs": [
-        "./**/",
+        "./**",
         "../../../apps/pie-storybook/stories/testing/icons.test.stories.ts"
       ]
     },
@@ -61,7 +61,7 @@
       "cache": false,
       "dependsOn": [],
       "inputs": [
-        "./**/",
+        "./**",
         "../../../apps/pie-storybook/stories/testing/icons.test.stories.ts"
       ]
     },
@@ -69,7 +69,7 @@
       "cache": false,
       "dependsOn": [],
       "inputs": [
-        "./**/",
+        "./**",
         "../../../apps/pie-storybook/stories/testing/icons.test.stories.ts"
       ]
     }
