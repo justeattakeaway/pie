@@ -92,7 +92,7 @@ jobs:
       - name: Verify if web components have changes
         id: component-check
         run: |
-          COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}[origin/main]' --filter='{./packages/tools/*}[origin/main]' --dry=json | jq '.packages | length > 0')
+          COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}...[origin/main]' --filter='{./packages/tools/*}...[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $COMPONENT_CHANGE"
           echo "web-components-change=$COMPONENT_CHANGE" >> "$GITHUB_OUTPUT"
       - name: Verify if storybook has changes
