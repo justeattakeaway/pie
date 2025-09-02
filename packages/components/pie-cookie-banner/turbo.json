@@ -19,7 +19,7 @@
       "cache": true,
       "dependsOn": [],
       "inputs": [
-        "$TURBO_DEFAULT$",
+        "./**/",
         "../../../apps/pie-storybook/stories/testing/pie-cookie-banner.test.stories.ts"
       ]
     },
@@ -27,7 +27,7 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": [
-        "$TURBO_DEFAULT$",
+        "./**/",
         "../../../apps/pie-storybook/stories/testing/pie-cookie-banner.test.stories.ts"
       ]
     },
@@ -35,7 +35,7 @@
       "cache": false,
       "dependsOn": [],
       "inputs": [
-        "$TURBO_DEFAULT$",
+        "./**/",
         "../../../apps/pie-storybook/stories/testing/pie-cookie-banner.test.stories.ts"
       ]
     },
@@ -43,7 +43,7 @@
       "cache": false,
       "dependsOn": ["^build"],
       "inputs": [
-        "$TURBO_DEFAULT$",
+        "./**/",
         "../../../apps/pie-storybook/stories/testing/pie-cookie-banner.test.stories.ts"
       ]
     }
