@@ -92,7 +92,7 @@ jobs:
       - name: Verify if web components have changes
         id: component-check
         run: |
-          COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}...[origin/main]' --filter='{./packages/tools/*}...[origin/main]' --dry=json | jq '.packages | length > 0')
+          COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}...[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $COMPONENT_CHANGE"
           echo "web-components-change=$COMPONENT_CHANGE" >> "$GITHUB_OUTPUT"
       - name: Verify if storybook has changes
@@ -259,7 +259,7 @@ jobs:
       - name: Run All System / Component /  a11y Tests
         uses: ./.github/actions/run-script
         with:
-          script-name: "test:browsers:ci --filter='./packages/components/*' --filter='./packages/tools/*'"
+          script-name: "test:browsers:ci --filter='./packages/**'"
       - name: Upload Playwright Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
@@ -272,13 +272,13 @@ jobs:
         uses: ./.github/actions/run-script
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='{./packages/components/*}[HEAD^1]' --filter='{./packages/tools/*}[HEAD^1]'"
+          script-name: "test:visual:ci --filter='{./packages/**}[HEAD^1]'"
           concurrency: 1
       - name: Run Changed Package Visual Tests
         uses: ./.github/actions/run-script
         if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='{./packages/components/*}...[origin/main]' --filter='{./packages/tools/*}...[origin/main]'"
+          script-name: "test:visual:ci --filter='{./packages/**}[origin/main]'"
           concurrency: 1
       - name: Upload Playwright Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
