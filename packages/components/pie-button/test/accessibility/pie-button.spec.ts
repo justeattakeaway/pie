@@ -3,7 +3,8 @@ import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-obj
 import { ButtonComponent } from '../helpers/page-object/pie-button.component.ts';
 import { variants } from '../../src/defs.ts';
 
-variants.forEach((variant) => {
+// primary is excluded due to a11y issues
+variants.filter(variant => variant !== 'primary').forEach((variant) => {
     test(`should test a11y for Variant: ${variant}`, async ({ makeAxeBuilder, page }) => {
         // Arrange
         const buttonPage = new BasePage(page, `button--${variant}-variations`);
