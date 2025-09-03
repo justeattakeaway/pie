@@ -146,6 +146,8 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
         const resetValue = selectedValue ? selectedValue.value : firstValue;
 
         // Perform the necessary updates
+        // _select, _internals, and _value must be synchronized to the same value
+        this._select.value = resetValue || '';
         this._internals.setFormValue(resetValue || null);
         this._value = resetValue || '';
         this.requestUpdate();
