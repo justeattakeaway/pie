@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.49.0
+
+### Minor Changes
+
+- [Added] - New story to demo the modal headerContent slot. ([#2537](https://github.com/justeattakeaway/pie/pull/2537)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`bb88a93`](https://github.com/justeattakeaway/pie/commit/bb88a93544a7b3c3e5a076c60cbdff8c0408d562)]:
+  - @justeattakeaway/pie-modal@1.13.0
+  - @justeattakeaway/pie-cookie-banner@1.6.19
+
 ## 1.48.0
 
 ### Minor Changes

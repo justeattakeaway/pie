@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.88.1
+
+### Patch Changes
+
+- [Revert] - Turbo `1.10.16` as change detection logic was breaking ([#2541](https://github.com/justeattakeaway/pie/pull/2541)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.88.0
 
 ### Minor Changes
