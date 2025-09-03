@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 1.13.0
+
+### Minor Changes
+
+- [Added] - A slot to the header to support additional header content that scrolls with the heading and close/back buttons. ([#2537](https://github.com/justeattakeaway/pie/pull/2537)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.12.0
 
 ### Minor Changes
