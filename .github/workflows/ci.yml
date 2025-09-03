@@ -272,7 +272,7 @@ jobs:
         uses: ./.github/actions/run-script
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='{./packages/components/*}...[HEAD^1] --filter='{./packages/tools/*}...[HEAD^1]'"
+          script-name: "test:visual:ci --filter='{./packages/components/*}...[HEAD^1]' --filter='{./packages/tools/*}...[HEAD^1]'"
           concurrency: 1
       - name: Run Visual Tests for changed packages and dependents since origin/main
         uses: ./.github/actions/run-script
