@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.50.0
+
+### Minor Changes
+
+- [Changed] - upgrade pie-design-tokens to v7.4.0 ([#2545](https://github.com/justeattakeaway/pie/pull/2545)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`2621598`](https://github.com/justeattakeaway/pie/commit/26215982a55f51165e0ce31ea7802b18de9f59cc)]:
+  - @justeattakeaway/pie-modal@1.14.0
+  - @justeattakeaway/pie-css@0.21.0
+  - @justeattakeaway/pie-tag@0.19.0
+  - @justeattakeaway/pie-cookie-banner@1.6.20
+
 ## 1.49.0
 
 ### Minor Changes

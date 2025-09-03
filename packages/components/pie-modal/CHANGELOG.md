@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 1.14.0
+
+### Minor Changes
+
+- [Changed] - upgrade pie-design-tokens to v7.4.0 ([#2545](https://github.com/justeattakeaway/pie/pull/2545)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.13.0
 
 ### Minor Changes

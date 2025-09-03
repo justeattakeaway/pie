@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-tag
 
+## 0.19.0
+
+### Minor Changes
+
+- [Changed] - upgrade pie-design-tokens to v7.4.0 ([#2545](https://github.com/justeattakeaway/pie/pull/2545)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.18.0
 
 ### Minor Changes
