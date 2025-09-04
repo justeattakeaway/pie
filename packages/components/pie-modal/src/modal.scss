@@ -160,9 +160,18 @@
         width: 100%;
     }
 
+    ::slotted([slot="headerContent"]) {
+        grid-area: content;
+        padding-inline-start: var(--dt-spacing-e);
+        padding-inline-end: var(--dt-spacing-e);
+        margin-block-end: var(--dt-spacing-d);
+    }
+
     & .c-modal-header {
         display: grid;
-        grid-template-areas: 'back heading close';
+        grid-template-areas:
+            'back   heading   close'
+            'content content content';
         grid-template-columns: minmax(0, max-content) minmax(0, 1fr) minmax(0, max-content);
         align-items: start;
     }

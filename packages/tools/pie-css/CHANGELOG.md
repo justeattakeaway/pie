@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-css
 
+## 0.21.0
+
+### Minor Changes
+
+- [Changed] - upgrade pie-design-tokens to v7.4.0 ([#2545](https://github.com/justeattakeaway/pie/pull/2545)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.20.0
+
+### Minor Changes
+
+- [Changed] - use latest version of pie-design-tokens@7.3.0 ([#2534](https://github.com/justeattakeaway/pie/pull/2534)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.19.0
 
 ### Minor Changes

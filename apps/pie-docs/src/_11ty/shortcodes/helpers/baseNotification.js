@@ -19,7 +19,7 @@ const notificationSettings = {
         iconName: 'alert-circle',
     },
     warning: {
-        iconFill: 'support-warning',
+        iconFill: 'content-default',
         bgColour: 'support-warning-02',
         iconName: 'alert-triangle',
     },

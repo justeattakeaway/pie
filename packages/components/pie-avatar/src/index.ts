@@ -3,6 +3,7 @@ import {
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { RtlMixin, safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import '@justeattakeaway/pie-icons-webc/dist/IconUser.js';
 
 import { property } from 'lit/decorators.js';
 import styles from './avatar.scss?inline';
@@ -18,6 +19,7 @@ const componentSelector = 'pie-avatar';
 /**
  * @tagname pie-avatar
  */
+
 @safeCustomElement('pie-avatar')
 export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     @property({ type: String })
@@ -26,6 +28,9 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
 
     @property({ type: String })
     public label: AvatarProps['label'];
+
+    @property({ type: String })
+    public src: AvatarProps['src'];
 
     /**
      * Attempts to extract initials from the label string.
@@ -68,12 +73,22 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     }
 
     /**
-     * Renders the icon (placeholder span for now).
+     * Renders the user icon.
      *
      * @private
      */
     private renderIcon (): TemplateResult {
-        return html`<span data-test-id="pie-avatar-icon" class="c-avatar-placeholder">Icon Placeholder</span>`;
+        return html`<icon-user size="s" aria-hidden="true" data-test-id="pie-avatar-icon"></icon-user>`;
+    }
+
+    /**
+     * Renders an image.
+     * We assign an empty string to the alt attribute for a11y clarity as it explicitly declares the image as decorative
+     *
+     * @private
+    */
+    private renderImage (imgSrc: string): TemplateResult {
+        return html`<img class="c-avatar--image" src="${imgSrc}" data-test-id="pie-avatar-image" alt=""/>`;
     }
 
     /**
@@ -83,7 +98,9 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
      * @private
      */
     private get avatarContent (): TemplateResult {
-        // TODO: handle unauthenticated and src here
+        if (this.src) {
+            return this.renderImage(this.src);
+        }
 
         if (this.label) {
             const initials = this.getInitials(this.label);
@@ -105,14 +122,14 @@ export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
         const { tag } = this;
 
         if (tag === 'button') {
-            return html`<button data-test-id="pie-avatar-button">${content}</button>`;
+            return html`<button data-test-id="pie-avatar-button" class="c-avatar c-avatar--button">${content}</button>`;
         }
 
         if (tag === 'a') {
-            return html`<a data-test-id="pie-avatar-anchor">${content}</a>`;
+            return html`<a data-test-id="pie-avatar-anchor" class="c-avatar">${content}</a>`;
         }
 
-        return html`<div class="c-avatar-content" data-test-id="pie-avatar-div">${content}</div>`;
+        return html`<div class="c-avatar" data-test-id="pie-avatar-div" ?aria-hidden="${this.src}">${content}</div>`;
     }
 
     render () {

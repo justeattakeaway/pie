@@ -1,5 +1,35 @@
 # Changelog
 
+## 2.89.0
+
+### Minor Changes
+
+- [Changed] - upgrade pie-design-tokens to v7.4.0 ([#2545](https://github.com/justeattakeaway/pie/pull/2545)) by [@raoufswe](https://github.com/raoufswe)
+
+## 2.88.1
+
+### Patch Changes
+
+- [Revert] - Turbo `1.10.16` as change detection logic was breaking ([#2541](https://github.com/justeattakeaway/pie/pull/2541)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.88.0
+
+### Minor Changes
+
+- [Changed] - use latest version of pie-design-tokens@7.3.0 ([#2534](https://github.com/justeattakeaway/pie/pull/2534)) by [@raoufswe](https://github.com/raoufswe)
+
+## 2.87.0
+
+### Minor Changes
+
+- [Updated] - rendering of user icon when label is not provided ([#2529](https://github.com/justeattakeaway/pie/pull/2529)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+## 2.86.0
+
+### Minor Changes
+
+- [Added] - Avatar Initials Static type for the pie-avatar component ([#2465](https://github.com/justeattakeaway/pie/pull/2465)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
 ## 2.85.1
 
 ### Patch Changes

@@ -1,5 +1,56 @@
 # wc-react17
 
+## 0.5.110
+
+### Patch Changes
+
+- Updated dependencies [[`2621598`](https://github.com/justeattakeaway/pie/commit/26215982a55f51165e0ce31ea7802b18de9f59cc)]:
+  - @justeattakeaway/pie-css@0.21.0
+  - @justeattakeaway/pie-webc@0.7.18
+
+## 0.5.109
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.17
+
+## 0.5.108
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.16
+
+## 0.5.107
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.15
+
+## 0.5.106
+
+### Patch Changes
+
+- Updated dependencies [[`a58797b`](https://github.com/justeattakeaway/pie/commit/a58797b07e69cdafdee86ea10eac1285f942d600)]:
+  - @justeattakeaway/pie-css@0.20.0
+  - @justeattakeaway/pie-webc@0.7.14
+
+## 0.5.105
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.13
+
+## 0.5.104
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.12
+
 ## 0.5.103
 
 ### Patch Changes

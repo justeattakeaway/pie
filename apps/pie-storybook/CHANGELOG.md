@@ -1,5 +1,89 @@
 # Changelog
 
+## 1.50.0
+
+### Minor Changes
+
+- [Changed] - upgrade pie-design-tokens to v7.4.0 ([#2545](https://github.com/justeattakeaway/pie/pull/2545)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`2621598`](https://github.com/justeattakeaway/pie/commit/26215982a55f51165e0ce31ea7802b18de9f59cc)]:
+  - @justeattakeaway/pie-modal@1.14.0
+  - @justeattakeaway/pie-css@0.21.0
+  - @justeattakeaway/pie-tag@0.19.0
+  - @justeattakeaway/pie-cookie-banner@1.6.20
+
+## 1.49.0
+
+### Minor Changes
+
+- [Added] - New story to demo the modal headerContent slot. ([#2537](https://github.com/justeattakeaway/pie/pull/2537)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`bb88a93`](https://github.com/justeattakeaway/pie/commit/bb88a93544a7b3c3e5a076c60cbdff8c0408d562)]:
+  - @justeattakeaway/pie-modal@1.13.0
+  - @justeattakeaway/pie-cookie-banner@1.6.19
+
+## 1.48.0
+
+### Minor Changes
+
+- [Added] - static image variant for the avatar component ([#2535](https://github.com/justeattakeaway/pie/pull/2535)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies [[`dde29c9`](https://github.com/justeattakeaway/pie/commit/dde29c90e438fb8173cca21746463ed7b1147f07)]:
+  - @justeattakeaway/pie-avatar@0.4.0
+
+## 1.47.1
+
+### Patch Changes
+
+- Updated dependencies [[`6b9948d`](https://github.com/justeattakeaway/pie/commit/6b9948d287948d98c11ee81e5d7013bed141a77f)]:
+  - @justeattakeaway/pie-notification@0.16.1
+  - @justeattakeaway/pie-toast@0.12.1
+  - @justeattakeaway/pie-toast-provider@0.7.2
+
+## 1.47.0
+
+### Minor Changes
+
+- [Changed] - use latest version of pie-design-tokens@7.3.0 ([#2534](https://github.com/justeattakeaway/pie/pull/2534)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Added] - Multi-switch form example story ([#2530](https://github.com/justeattakeaway/pie/pull/2530)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`e52d56a`](https://github.com/justeattakeaway/pie/commit/e52d56a68d1075ad1a92e0a4603258e1eaedaf96), [`a58797b`](https://github.com/justeattakeaway/pie/commit/a58797b07e69cdafdee86ea10eac1285f942d600), [`e52d56a`](https://github.com/justeattakeaway/pie/commit/e52d56a68d1075ad1a92e0a4603258e1eaedaf96)]:
+  - @justeattakeaway/pie-switch@2.2.0
+  - @justeattakeaway/pie-modal@1.12.0
+  - @justeattakeaway/pie-tag@0.18.0
+  - @justeattakeaway/pie-notification@0.16.0
+  - @justeattakeaway/pie-toast@0.12.0
+  - @justeattakeaway/pie-css@0.20.0
+  - @justeattakeaway/pie-cookie-banner@1.6.18
+  - @justeattakeaway/pie-toast-provider@0.7.1
+
+## 1.46.1
+
+### Patch Changes
+
+- Updated dependencies [[`c5ae5a7`](https://github.com/justeattakeaway/pie/commit/c5ae5a7c1bf52f7687c12325d5aa9111f2019743)]:
+  - @justeattakeaway/pie-avatar@0.3.0
+
+## 1.46.0
+
+### Minor Changes
+
+- [Added] - Avatar Initials Static type for the pie-avatar component ([#2465](https://github.com/justeattakeaway/pie/pull/2465)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies [[`e6ee309`](https://github.com/justeattakeaway/pie/commit/e6ee30973b0cedb68a246483ba7e85339bf11efd)]:
+  - @justeattakeaway/pie-avatar@0.2.0
+
 ## 1.45.0
 
 ### Minor Changes

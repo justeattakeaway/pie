@@ -17,7 +17,7 @@ const avatar = {
             dataTestId: 'pie-avatar-anchor',
         },
         icon: {
-            description: 'Fallback icon placeholder',
+            description: 'Fallback icon when there is no label',
             dataTestId: 'pie-avatar-icon',
         },
         initialsVisual: {
@@ -27,6 +27,10 @@ const avatar = {
         initialsScreenreader: {
             description: 'The screen reader initials span',
             dataTestId: 'pie-avatar-initials-screenreader',
+        },
+        image: {
+            description: 'The image when src is provided',
+            dataTestId: 'pie-avatar-image',
         },
     },
 };
