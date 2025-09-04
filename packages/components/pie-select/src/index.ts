@@ -141,7 +141,7 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
         }, []);
 
         // Infer the value to reset to
-        const firstValue = flatOptions ? flatOptions[0].value : '';
+        const firstValue = flatOptions.length > 0 ? flatOptions[0].value : '';
         const selectedValue = flatOptions.find((option) => option.selected === true);
         const resetValue = selectedValue ? selectedValue.value : firstValue;
 
