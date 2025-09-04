@@ -41,6 +41,21 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
     public additionalRows?: DataTableAdditionalRow[] = defaultProps.additionalRows;
 
     /**
+     * Maps text alignment values to corresponding CSS classes
+     *
+     * @param prefix - The prefix for the CSS class
+     * @param textAlign - The text alignment value
+     * @returns An object with CSS classes as keys and boolean values indicating whether the class should be applied
+     */
+    private mapTextAlignClasses (prefix: string, textAlign?: string) {
+        return {
+            [`${prefix}-text-align--left`]: textAlign === 'left',
+            [`${prefix}-text-align--right`]: textAlign === 'right',
+            [`${prefix}-text-align--center`]: textAlign === 'center',
+        };
+    }
+
+    /**
      * Renders a header cell for the table
      * @param column - The column definition to render
      */
@@ -49,9 +64,7 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
         const style = width ? `width: ${width}` : nothing;
         const classes = {
             'c-data-table-header': true,
-            'c-data-table-header-text-align--left': textAlign === 'left',
-            'c-data-table-header-text-align--right': textAlign === 'right',
-            'c-data-table-header-text-align--center': textAlign === 'center',
+            ...this.mapTextAlignClasses('c-data-table-header', textAlign),
         };
 
         return html`
@@ -82,9 +95,7 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
     private renderTableCell (column: Column, row: Record<string, unknown>) {
         const classes = {
             'c-data-table-cell': true,
-            'c-data-table-cell-text-align--left': column.textAlign === 'left',
-            'c-data-table-cell-text-align--right': column.textAlign === 'right',
-            'c-data-table-cell-text-align--center': column.textAlign === 'center',
+            ...this.mapTextAlignClasses('c-data-table-cell', column.textAlign),
         };
 
         return html`
@@ -124,9 +135,7 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
                             const cellClasses = {
                                 'c-data-table-cell': true,
                                 'c-data-table-cell--hidden': !!cell.hideCell,
-                                'c-data-table-cell-text-align--left': cell.textAlign === 'left',
-                                'c-data-table-cell-text-align--right': cell.textAlign === 'right',
-                                'c-data-table-cell-text-align--center': cell.textAlign === 'center',
+                                ...this.mapTextAlignClasses('c-data-table-cell', cell.textAlign),
                             };
 
                             return html`
