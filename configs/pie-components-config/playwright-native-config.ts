@@ -3,12 +3,12 @@ import { devices } from '@playwright/test';
 /**
  * See https://playwright.dev/docs/test-configuration
  */
-export function getPlaywrightNativeConfig () {
+export function getPlaywrightNativeConfig() {
     return {
         /* The base directory, relative to the config file, for snapshot files created with toMatchSnapshot and toHaveScreenshot. */
         snapshotDir: './__snapshots__',
         /* Maximum time one test can run for. */
-        timeout: 30 * 1000,
+        timeout: 60 * 1000,
         testIgnore: '*-react.spec.js',
         /* Run tests in files in parallel */
         fullyParallel: true,

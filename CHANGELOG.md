@@ -1,5 +1,26 @@
 # Changelog
 
+## 2.86.0
+
+### Minor Changes
+
+- [Added] - Avatar Initials Static type for the pie-avatar component ([#2465](https://github.com/justeattakeaway/pie/pull/2465)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+## 2.85.1
+
+### Patch Changes
+
+- [Fixed] - Upgrade Turborepo to a version where `$TURBO_DEFAULT# Changelog is fixed - This ensures our component tests actually get their cache invalidated in CI ([#2524](https://github.com/justeattakeaway/pie/pull/2524)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.85.0
+
+### Minor Changes
+
+- [Added] - New Husky "post-checkout" hook for branch name validation ([#2513](https://github.com/justeattakeaway/pie/pull/2513)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Updated] - PR Title validation to be handled by Danger instead of custom Github Action
+  [Updated] - `.cz-config.js` to handle non-DSW JIRA ID's
+
 ## 2.84.0
 
 ### Minor Changes

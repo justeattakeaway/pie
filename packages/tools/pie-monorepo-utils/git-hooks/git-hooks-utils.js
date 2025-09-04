@@ -1,3 +1,12 @@
+const TICKET_PATTERNS = {
+    // Case insensitive branch name pattern: supports multiple ticket formats like dsw-123, abc-789
+    BRANCH: /(^[a-z]{2,4}-(\d{1,7}))-\w.*/i,
+    // Case insensitive commit message pattern: type(scope): TICKET-123 title (supports multiple ticket formats)
+    COMMIT: /^(\w+)\((\w.*)\): ([A-Z]{2,4}-(?!0+)\d{1,7}) (\w.*)$/i,
+    // PR title pattern: type(scope): TICKET-123 title (supports multiple ticket formats)
+    PR_TITLE: /^(\w+)\((\w.*)\): ([A-Z]{2,4}-(?!0+)\d{1,7}) (\w.*)$|^Version Packages.*/,
+};
+
 /**
  * Tries to extract a Jira ticket id from a branch name string
  * @param {string} branchName The branch name
@@ -5,13 +14,14 @@
  */
 function getTicketIdFromBranchName (branchName) {
     if (!branchName) throw new Error('A valid branch name wasn\'t provided');
-    const regexJiraTicket = /(^\w+?-\d+?)-\w.*/;
-
-    const match = regexJiraTicket.exec(branchName);
+    const match = TICKET_PATTERNS.BRANCH.exec(branchName);
 
     if (!match) return null;
 
-    const [, ticketId] = match;
+    const [, ticketId, ticketNumber] = match;
+
+    // Exclude ticket numbers that are all zeros
+    if (/^0+$/.test(ticketNumber)) return null;
 
     return ticketId.toUpperCase();
 }
@@ -22,48 +32,23 @@ function getTicketIdFromBranchName (branchName) {
  * @returns A boolean value that represents if the branch name is valid or not
  */
 function validateBranchName (branchName) {
-    if (branchName.startsWith('beta-') || branchName.startsWith('feature-')) return true;
+    if (branchName === 'main' || branchName.startsWith('beta-') || branchName.startsWith('feature-')) return true;
     return !!getTicketIdFromBranchName(branchName);
 }
 
 /**
- * Verifies if the commit message contains the provided ticket id. If not, replaces the current ticket id with the provided one
- * @param {string} commitMessage The commit message
- * @param {string} ticketId The ticket id
- * @returns A commit message
+ * Validates a PR title format and ticket number
+ * @param {string} prTitle The PR title to validate
+ * @returns {boolean} True if valid, false otherwise
  */
-function verifyCommitMessage (commitMessage, ticketId) {
-    if (!commitMessage) throw new Error('The commitMessage wasn\'t provided');
-    if (!ticketId) throw new Error('The ticketId wasn\'t provided');
-
-    // Process commit message and check if it already has a ticket id
-    const match = commitMessage.match(/^(\w*)\((\w.*)\): (\w+?-\d{1,7}) (\w.*)/);
-
-    const isMergeCommit = commitMessage.trim().match(/^Merge branch '[\w-]+' into [\w-]+\n?/);
-    if (isMergeCommit !== null) return commitMessage.trim();
-
-    // If the commit message doesn't have a ticket id, extract the existing message parts and add the ticket id
-    if (!match) {
-        const commitMessageParts = commitMessage.match(/^(\w*)\((\w.*)\): (\w.*)/);
-
-        if (!commitMessageParts) throw new Error('The commitMessage doesn\'t have the expected format. Example: type(scope): DSW-123 title');
-
-        const [, commitType, commitScope, commitSubject] = commitMessageParts;
-
-        return `${commitType}(${commitScope}): ${ticketId.trim()} ${commitSubject}`.trim();
-    }
-
-    const [, , , commitMessageTicketId] = match;
-
-    if (commitMessageTicketId !== ticketId) {
-        return commitMessage.replace(commitMessageTicketId, ticketId);
-    }
-
-    return commitMessage;
+function validatePrTitle (prTitle) {
+    if (!prTitle) return false;
+    return TICKET_PATTERNS.PR_TITLE.test(prTitle);
 }
 
 module.exports = {
     getTicketIdFromBranchName,
     validateBranchName,
-    verifyCommitMessage,
+    validatePrTitle,
+    TICKET_PATTERNS,
 };

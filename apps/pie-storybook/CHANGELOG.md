@@ -1,5 +1,63 @@
 # Changelog
 
+## 1.46.0
+
+### Minor Changes
+
+- [Added] - Avatar Initials Static type for the pie-avatar component ([#2465](https://github.com/justeattakeaway/pie/pull/2465)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+### Patch Changes
+
+- Updated dependencies [[`e6ee309`](https://github.com/justeattakeaway/pie/commit/e6ee30973b0cedb68a246483ba7e85339bf11efd)]:
+  - @justeattakeaway/pie-avatar@0.2.0
+
+## 1.45.0
+
+### Minor Changes
+
+- [Added] pie-tabs basic html markup ([#2515](https://github.com/justeattakeaway/pie/pull/2515)) by [@thejfreitas](https://github.com/thejfreitas)
+
+### Patch Changes
+
+- Updated dependencies [[`0ad2724`](https://github.com/justeattakeaway/pie/commit/0ad2724a1db425012b69639c91290c4ed78ca33f)]:
+  - @justeattakeaway/pie-tabs@0.1.0
+
+## 1.44.1
+
+### Patch Changes
+
+- Updated dependencies [[`afd39cf`](https://github.com/justeattakeaway/pie/commit/afd39cfd880f10fad92c2e2d8023dace26110229), [`40802c7`](https://github.com/justeattakeaway/pie/commit/40802c7d498310a96fa2f620707b15e06efcc5de)]:
+  - @justeattakeaway/pie-toast-provider@0.7.0
+  - @justeattakeaway/pie-breadcrumb@0.7.0
+  - @justeattakeaway/pie-form-label@0.17.0
+  - @justeattakeaway/pie-checkbox@0.17.0
+  - @justeattakeaway/pie-switch@2.1.0
+  - @justeattakeaway/pie-modal@1.11.0
+  - @justeattakeaway/pie-radio@0.11.6
+  - @justeattakeaway/pie-assistive-text@0.10.11
+  - @justeattakeaway/pie-avatar@0.1.1
+  - @justeattakeaway/pie-button@1.6.7
+  - @justeattakeaway/pie-card@0.26.1
+  - @justeattakeaway/pie-checkbox-group@0.9.11
+  - @justeattakeaway/pie-chip@0.12.11
+  - @justeattakeaway/pie-cookie-banner@1.6.17
+  - @justeattakeaway/pie-data-table@0.1.1
+  - @justeattakeaway/pie-divider@1.4.6
+  - @justeattakeaway/pie-icon-button@2.0.6
+  - @justeattakeaway/pie-link@1.2.10
+  - @justeattakeaway/pie-list@0.0.4
+  - @justeattakeaway/pie-lottie-player@0.2.5
+  - @justeattakeaway/pie-notification@0.15.1
+  - @justeattakeaway/pie-radio-group@0.9.14
+  - @justeattakeaway/pie-select@0.6.11
+  - @justeattakeaway/pie-spinner@1.2.5
+  - @justeattakeaway/pie-tag@0.17.5
+  - @justeattakeaway/pie-text-input@0.28.12
+  - @justeattakeaway/pie-textarea@0.16.12
+  - @justeattakeaway/pie-thumbnail@0.8.5
+  - @justeattakeaway/pie-toast@0.11.1
+  - @justeattakeaway/pie-icons-webc@1.14.2
+
 ## 1.44.0
 
 ### Minor Changes

@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-radio",
   "description": "PIE Design System Radio built using Web Components",
-  "version": "0.11.5",
+  "version": "0.11.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -41,11 +41,11 @@
     "@custom-elements-manifest/analyzer": "0.9.0",
     "@justeattakeaway/pie-components-config": "0.21.0",
     "@justeattakeaway/pie-css": "0.19.0",
-    "@justeattakeaway/pie-monorepo-utils": "0.6.0",
+    "@justeattakeaway/pie-monorepo-utils": "0.7.0",
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "1.0.0"
+    "@justeattakeaway/pie-webc-core": "1.1.0"
   },
   "volta": {
     "extends": "../../../package.json"
