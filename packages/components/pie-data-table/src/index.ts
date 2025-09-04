@@ -132,7 +132,6 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
                             return html`
                                 <td
                                     class="${classMap(cellClasses)}"
-                                    ?hidden=${cell.hideCell}
                                     colspan=${cell.colSpan || 1}
                                 >
                                     ${cell.content}
