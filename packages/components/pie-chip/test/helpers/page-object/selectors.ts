@@ -8,6 +8,14 @@ const chip = {
             description: 'The selector for the chip close button',
             dataTestId: 'chip-close-button',
         },
+        checkboxInput: {
+            description: 'The selector for the chip checkbox input',
+            dataTestId: 'chip-checkbox-input',
+        },
+        static: {
+            description: 'The selector for the chip static content',
+            dataTestId: 'chip-static',
+        },
     },
 };
 export {

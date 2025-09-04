@@ -118,8 +118,30 @@
         }
     }
 
-    &:focus-visible {
+    // Apply focus styles if the chip itself is focused (e.g., dismissible variant)
+    // OR if an element inside it is focused (e.g., the checkbox variant)
+    &:focus-within {
         @include p.focus;
+    }
+}
+
+.c-chip [type="checkbox"] {
+    // the p.visually-hidden mixin doesn't properly work on checkboxes
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+
+    &:focus-visible {
+        outline: none;
     }
 }
 
