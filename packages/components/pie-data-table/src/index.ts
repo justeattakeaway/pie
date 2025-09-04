@@ -8,6 +8,8 @@ import styles from './data-table.scss?inline';
 import {
     type DataTableProps,
     type Column,
+    type DataTableAdditionalRow,
+    defaultProps,
 } from './defs';
 
 // Valid values available to consumers
@@ -31,6 +33,12 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
      */
     @property({ type: Array })
     public data: Record<string, unknown>[] = [];
+
+    /**
+     * Arbitrary additional rows to display at the bottom of the table
+     */
+    @property({ type: Array })
+    public additionalRows?: DataTableAdditionalRow[] = defaultProps.additionalRows;
 
     /**
      * Renders a header cell for the table
@@ -101,6 +109,44 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
         `;
     }
 
+    private renderAdditionalRows () {
+        /* eslint-disable indent */
+        return html`
+            <tfoot>
+                ${this.additionalRows && this.additionalRows.length > 0 && this.additionalRows.map((row) => {
+                    const rowClasses = {
+                        'c-data-table-row': true,
+                        'c-data-table-row--hidden': !!row.hideRow,
+                    };
+                    return html`
+                    <tr class="${classMap(rowClasses)}">
+                        ${row.cells.map((cell) => {
+                            const cellClasses = {
+                                'c-data-table-cell': true,
+                                'c-data-table-cell--hidden': !!cell.hideCell,
+                                'c-data-table-cell-text-align--left': cell.textAlign === 'left',
+                                'c-data-table-cell-text-align--right': cell.textAlign === 'right',
+                                'c-data-table-cell-text-align--center': cell.textAlign === 'center',
+                            };
+
+                            return html`
+                                <td
+                                    class="${classMap(cellClasses)}"
+                                    ?hidden=${cell.hideCell}
+                                    colspan=${cell.colSpan || 1}
+                                >
+                                    ${cell.content}
+                                </td>
+                            `;
+                        })}
+                        </tr>
+                    `;
+                })}
+            </tfoot>
+        `;
+        /* eslint-enable indent */
+    }
+
     render () {
         const classes = {
             'c-data-table': true,
@@ -112,6 +158,7 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
                 <table>
                     ${this.columns.length > 0 ? this.renderTableHeader() : nothing}
                     ${this.data.length > 0 ? this.renderTableRows() : nothing}
+                    ${this.additionalRows && this.additionalRows.length > 0 ? this.renderAdditionalRows() : nothing}
                 </table>
             </div>
         `;

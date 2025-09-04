@@ -42,15 +42,18 @@
   border-bottom: 1px solid var(--data-table-border-color);
 }
 
-.c-data-table-header-text-align--left {
+.c-data-table-header-text-align--left, 
+.c-data-table-cell-text-align--left {
   text-align: left;
 }
 
-.c-data-table-header-text-align--right {
+.c-data-table-header-text-align--right, 
+.c-data-table-cell-text-align--right {
   text-align: right;
 }
 
-.c-data-table-header-text-align--center {
+.c-data-table-header-text-align--center,
+.c-data-table-cell-text-align--center {
   text-align: center;
 }
 
@@ -59,14 +62,10 @@
   border-bottom: 1px solid var(--data-table-border-color);
 }
 
-.c-data-table-cell-text-align--left {
-  text-align: left;
+.c-data-table-cell--hidden {
+  display: none;
 }
 
-.c-data-table-cell-text-align--right {
-  text-align: right;
-}
-
-.c-data-table-cell-text-align--center {
-  text-align: center;
+.c-data-table-row--disabled {
+  background-color: var(--dt-color-content-disabled);
 }
