@@ -121,18 +121,18 @@ export class PieChip extends PieElement implements ChipProps {
         };
 
         return html`
+            <input
+                data-test-id="chip-checkbox-input"
+                type="checkbox"
+                id="${this._id}"
+                aria-label="${ifDefined(this.aria?.label)}"
+                ?checked=${isSelected}
+                ?disabled=${disabled || isLoading}
+                @change="${this._onCheckboxChange}">
             <label
                 for="${this._id}"
                 class=${classMap(classes)}
                 data-test-id="pie-chip">
-                <input
-                    data-test-id="chip-checkbox-input"
-                    type="checkbox"
-                    id="${this._id}"
-                    aria-label="${ifDefined(this.aria?.label)}"
-                    ?checked=${isSelected}
-                    ?disabled=${disabled || isLoading}
-                    @change="${this._onCheckboxChange}">
                 ${this._renderContent()}
             </label>`;
     }
