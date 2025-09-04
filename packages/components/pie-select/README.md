@@ -89,14 +89,19 @@ import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 ```html
 <pie-select
     name="my-select"
-    value="option2"
-    options="[
-      { tag: 'option', text: 'Select an option' },
-      { tag: 'option', text: 'Option 1', value: 'option1' },
-      { tag: 'option', text: 'Option 2', value: 'option2' }
-    ]">
+    value="option2">
   <icon-placeholder slot="leadingIcon"></icon-placeholder>
 </pie-select>
+```
+
+```js
+// Set options programmatically
+const select = document.querySelector('pie-select');
+select.options = [
+  { tag: 'option', text: 'Select an option' },
+  { tag: 'option', text: 'Option 1', value: 'option1' },
+  { tag: 'option', text: 'Option 2', value: 'option2' }
+];
 ```
 
 **For Native JS Applications, Vue, Angular, Svelte, etc.:**
