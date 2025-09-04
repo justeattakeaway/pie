@@ -2,7 +2,7 @@ import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { type Meta } from '@storybook/web-components';
-
+import '@justeattakeaway/pie-chip';
 import '@justeattakeaway/pie-modal';
 import {
     type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, positions, defaultProps,
@@ -11,6 +11,7 @@ import {
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-text-input';
 import '@justeattakeaway/pie-form-label';
+import '@justeattakeaway/pie-icons-webc/dist/IconSearch';
 
 import { type SlottedComponentProps } from '../types';
 import { createStory, sanitizeAndRenderHTML } from '../utilities';
@@ -362,3 +363,58 @@ export const LargeTextContent = createBaseModalStory({
 });
 
 export const CustomFooter = createStory<ModalProps>(CustomFooterStoryTemplate, defaultArgs)();
+
+const renderCategoryChipsList = (length: number) => html`
+    <ul role="list" style="list-style-type: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--dt-spacing-b);">
+        ${Array.from({ length }, (_, i) => html`<li role="listitem"><pie-chip variant="ghost">Chip ${i + 1}</pie-chip></li>`)}
+    </ul>
+`;
+
+const customHeaderContentTemplate = (props: ModalProps) => {
+    const {
+        aria,
+        hasBackButton,
+        hasStackedActions,
+        heading,
+        headingLevel,
+        isDismissible,
+        isFooterPinned,
+        isFullWidthBelowMid,
+        isLoading,
+        isOpen,
+        position,
+        returnFocusAfterCloseSelector,
+        size,
+    } = props;
+    return html`
+        <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
+        <pie-modal
+            .aria="${aria}"
+            heading="${heading}"
+            headingLevel="${ifDefined(headingLevel)}"
+            ?hasBackButton="${hasBackButton}"
+            ?hasStackedActions="${hasStackedActions}"
+            ?isDismissible="${isDismissible}"
+            ?isFooterPinned="${isFooterPinned}"
+            ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+            ?isLoading="${isLoading}"
+            ?isOpen="${isOpen}"
+            position="${ifDefined(position)}"
+            returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
+            size="${ifDefined(size)}"
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}"
+            @pie-modal-back="${backClickAction}">
+                <div slot="headerContent">
+                    <pie-text-input autoFocus placeholder="search in categories">
+                        <icon-search slot="leadingIcon"></icon-search>
+                    </pie-text-input>
+                </div>
+                ${renderCategoryChipsList(100)}
+            </pie-modal>`;
+};
+
+export const CustomHeaderContent = createStory<ModalProps>(customHeaderContentTemplate, defaultArgs)({
+    isFooterPinned: false,
+    hasBackButton: false,
+});

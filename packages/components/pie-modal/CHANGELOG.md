@@ -1,5 +1,23 @@
 # @justeattakeaway/pie-modal
 
+## 1.14.0
+
+### Minor Changes
+
+- [Changed] - upgrade pie-design-tokens to v7.4.0 ([#2545](https://github.com/justeattakeaway/pie/pull/2545)) by [@raoufswe](https://github.com/raoufswe)
+
+## 1.13.0
+
+### Minor Changes
+
+- [Added] - A slot to the header to support additional header content that scrolls with the heading and close/back buttons. ([#2537](https://github.com/justeattakeaway/pie/pull/2537)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 1.12.0
+
+### Minor Changes
+
+- [Changed] - use latest version of pie-design-tokens@7.3.0 ([#2534](https://github.com/justeattakeaway/pie/pull/2534)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.11.0
 
 ### Minor Changes

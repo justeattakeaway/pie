@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-avatar
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - static image variant for the avatar component ([#2535](https://github.com/justeattakeaway/pie/pull/2535)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
+## 0.3.0
+
+### Minor Changes
+
+- [Updated] - rendering of user icon when label is not provided ([#2529](https://github.com/justeattakeaway/pie/pull/2529)) by [@KatarinaNeskovic](https://github.com/KatarinaNeskovic)
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,5 +1,57 @@
 # Changelog
 
+## 4.48.0
+
+### Minor Changes
+
+- [Changed] - upgrade pie-design-tokens to v7.4.0 ([#2545](https://github.com/justeattakeaway/pie/pull/2545)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`2621598`](https://github.com/justeattakeaway/pie/commit/26215982a55f51165e0ce31ea7802b18de9f59cc)]:
+  - @justeattakeaway/pie-css@0.21.0
+  - @justeattakeaway/pie-webc@0.7.18
+
+## 4.47.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.17
+
+## 4.47.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.16
+
+## 4.47.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.15
+
+## 4.47.0
+
+### Minor Changes
+
+- [Changed] - use latest version of pie-design-tokens@7.3.0 ([#2534](https://github.com/justeattakeaway/pie/pull/2534)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`a58797b`](https://github.com/justeattakeaway/pie/commit/a58797b07e69cdafdee86ea10eac1285f942d600)]:
+  - @justeattakeaway/pie-css@0.20.0
+  - @justeattakeaway/pie-webc@0.7.14
+
+## 4.46.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.13
+
 ## 4.46.4
 
 ### Patch Changes
