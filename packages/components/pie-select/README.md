@@ -34,10 +34,11 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 |----------------|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
 | `size`         | `"small"`, `"medium"`, `"large"`       | The size of the select component.                                                                                                                                          | `medium`    |
 | `disabled`     | `boolean`                              | Whether the select is disabled.                                                                                                                                            | `false`     |
-| `assistiveText`| `string`                               | An optional assistive text to display below the select element. Must be provided when the status is `error`.                                                              | `undefined` |
+| `assistiveText`| `string`                               | An optional assistive text to display below the select element. Must be provided when the status is `error`.                                                               | `undefined` |
 | `status`       | `"default"`, `"error"`                 | The status of the select component / assistive text.                                                                                                                       | `default`   |
-| `name`         | `string`                               | The name of the select (used as a key/value pair with `value`). This is required in order to work properly with forms.                                                    | `undefined` |
-| `options`      | `array`                                | The options to display in the select. Can be an array of option objects or option group objects. See [Using the options prop](#using-the-options-prop) for more details. | `[]`        |
+| `name`         | `string`                               | The name of the select (used as a key/value pair with `value`). This is required in order to work properly with forms.                                                     | `undefined` |
+| `options`      | `array`                                | The options to display in the select. Can be an array of option objects or option group objects. See [Using the options prop](#using-the-options-prop) for more details.   | `[]`        |
+| `value`        | `string`                               | The programatically set value of the select. It overrides any option set as selected.                                                                                      | ``          |
 
 #### Using the options prop
 The `options` prop accepts an array of option objects or option group objects:
@@ -88,9 +89,11 @@ import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 ```html
 <pie-select
     name="my-select"
+    value="option2"
     options="[
       { tag: 'option', text: 'Select an option' },
-      { tag: 'option', text: 'Option 1', value: 'option1' }
+      { tag: 'option', text: 'Option 1', value: 'option1' },
+      { tag: 'option', text: 'Option 2', value: 'option2' }
     ]">
   <icon-placeholder slot="leadingIcon"></icon-placeholder>
 </pie-select>
@@ -105,9 +108,11 @@ import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
 <pie-select
     name="my-select"
+    value="option2"
     :options="[
       { tag: 'option', text: 'Select an option' },
       { tag: 'option', text: 'Option 1', value: 'option1' }
+      { tag: 'option', text: 'Option 2', value: 'option2' }
     ]">
 <icon-placeholder slot="leadingIcon"></icon-placeholder>
 </pie-select>
@@ -120,9 +125,11 @@ import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/react/Icon
 
 <PieSelect
     name="my-select"
+    value="option2"
     options={[
       { tag: 'option', text: 'Select an option' },
-      { tag: 'option', text: 'Option 1', value: 'option1' }
+      { tag: 'option', text: 'Option 1', value: 'option1' },
+      { tag: 'option', text: 'Option 2', value: 'option2' },
     ]}>
   <IconPlaceholder slot="leadingIcon"></IconPlaceholder>
 </PieSelect>
