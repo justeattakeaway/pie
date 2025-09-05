@@ -86,7 +86,6 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
         this._internals.setFormValue(this._select.value);
     }
 
-    @property()
     public get value (): SelectProps['value'] {
         // If no value was assigned
         // and the select element is available
