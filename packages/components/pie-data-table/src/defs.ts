@@ -26,8 +26,8 @@ export interface Column {
   accessor?: string;
 }
 
-type AdditionalCell = {
-  content: string;
+export type AdditionalCell = {
+  content: string | number;
   textAlign?: TextAlign;
   colSpan?: number;
   hideCell?: boolean;
