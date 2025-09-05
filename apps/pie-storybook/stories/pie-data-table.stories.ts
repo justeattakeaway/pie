@@ -325,4 +325,29 @@ export const WithExtraRows = createStory<DataTableProps>(Template, {
     additionalRows,
 })();
 
+export const WithComponentsInCells = createStory<DataTableProps>(Template, {
+    columns: sampleColumns,
+    data: [
+        {
+            name: 'John Doe',
+            age: 30,
+            email: 'john.doe@example.com',
+            department: '<pie-button variant="primary" size="xsmall">Action</pie-button>',
+        },
+        {
+            name: 'Jose Smith',
+            age: 28,
+            email: 'jane.smith@example.com',
+            department: html`<pie-button @click="${() => alert('Button clicked!')}" variant="secondary" size="xsmall">Action</pie-button>`,
+        },
+        {
+            name: 'Bob Johnson',
+            age: 35,
+            email: 'bob.johnson@example.com',
+            department: () => html`<pie-button @click="${() => alert('Button clicked!')}" variant="secondary" size="xsmall">Action</pie-button>`,
+        },
+    ],
+})();
+
 export const EmptyData = createStory<DataTableProps>(Template, defaultArgs)();
+

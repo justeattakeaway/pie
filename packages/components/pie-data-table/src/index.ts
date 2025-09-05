@@ -1,4 +1,5 @@
 import { html, nothing, unsafeCSS } from 'lit';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { property } from 'lit/decorators.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
@@ -100,7 +101,7 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
 
         return html`
             <td class="${classMap(classes)}">
-                ${column.accessor ? row[column.accessor] : ''}
+                ${column.accessor ? this.renderCellContent(row[column.accessor]) : ''}
             </td>
         `;
     }
@@ -120,6 +121,9 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
         `;
     }
 
+    /**
+     * Renders the additional rows for the table
+     */
     private renderAdditionalRows () {
         /* eslint-disable indent */
         return html`
@@ -130,7 +134,7 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
                         'c-data-table-row--hidden': !!row.hideRow,
                     };
                     return html`
-                    <tr class="${classMap(rowClasses)}">
+                        <tr class="${classMap(rowClasses)}">
                         ${row.cells.map((cell) => {
                             const cellClasses = {
                                 'c-data-table-cell': true,
@@ -153,6 +157,38 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
             </tfoot>
         `;
         /* eslint-enable indent */
+    }
+
+    /**
+     * Util method that checks if a string contains HTML tags
+     */
+    private isHTMLString (str: string): boolean {
+        return /<[a-z][\s\S]*>/i.test(str.trim());
+    }
+
+    /**
+     * Renders the content of a table cell, handling different types of content
+     *
+     * @param value - The content to render in the cell
+     */
+    private renderCellContent (value: unknown): unknown {
+        if (value == null) {
+            return '';
+        }
+
+        if ((value instanceof HTMLElement) || (value && typeof value === 'object')) {
+            return value;
+        }
+
+        if (typeof value === 'function') {
+            return this.renderCellContent(value());
+        }
+
+        if (typeof value === 'string' && this.isHTMLString(value)) {
+            return unsafeHTML(value);
+        }
+
+        return String(value);
     }
 
     render () {
