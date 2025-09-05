@@ -9,8 +9,6 @@ export const positions = ['top', 'center'] as const;
 type AriaProps = {
     close?: string;
     back?: string;
-    loading?: string;
-    label?: string;
 };
 
 type ActionProps = {
