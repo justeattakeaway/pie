@@ -40,6 +40,7 @@ const defaultArgs: ModalProps = {
         back: 'Back',
         close: 'Close',
         loading: 'Loading',
+        label: 'A custom modal label',
     },
 };
 

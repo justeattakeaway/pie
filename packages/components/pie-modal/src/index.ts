@@ -525,7 +525,7 @@ export class PieModal extends PieElement implements ModalProps {
             size,
         } = this;
 
-        const ariaLabel = (isLoading && aria?.loading) || undefined;
+        const ariaLabel = (isLoading && aria?.loading) || this.aria?.label || this.heading || undefined;
 
         const modalClasses = {
             'c-modal': true,
@@ -541,7 +541,7 @@ export class PieModal extends PieElement implements ModalProps {
         <dialog
             id="dialog"
             class="${classMap(modalClasses)}"
-            aria-busy="${isLoading ? 'true' : 'false'}"
+            aria-busy="${ifDefined(isLoading || undefined)}"
             aria-label="${ifDefined(ariaLabel)}"
             data-test-id="pie-modal">
             <header class="c-modal-header" data-test-id="modal-header">

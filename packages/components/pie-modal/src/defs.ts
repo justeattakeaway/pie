@@ -10,6 +10,7 @@ type AriaProps = {
     close?: string;
     back?: string;
     loading?: string;
+    label?: string;
 };
 
 type ActionProps = {
@@ -151,7 +152,7 @@ export const ON_MODAL_SUPPORTING_ACTION_CLICK = 'pie-modal-supporting-action-cli
 
 export type ModalActionType = 'leading' | 'supporting';
 
-export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'heading' | 'leadingAction' | 'supportingAction' | 'returnFocusAfterCloseSelector'>>;
+export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'heading' | 'isLoading' | 'leadingAction' | 'supportingAction' | 'returnFocusAfterCloseSelector'>>;
 
 export const defaultProps: DefaultProps = {
     hasBackButton: false,
@@ -161,7 +162,6 @@ export const defaultProps: DefaultProps = {
     isDismissible: false,
     isFooterPinned: true,
     isFullWidthBelowMid: false,
-    isLoading: false,
     position: 'center',
     size: 'medium',
 };
