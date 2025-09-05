@@ -332,9 +332,79 @@ const CustomFooterStoryTemplate = (props: ModalProps) => {
             </pie-modal>`;
 };
 
+/**
+ * Handles the open event to set isLoading to true,
+ * then sets it to false after a 5-second delay.
+ */
+const handleModalOpenWithLoading = (e: CustomEvent) => {
+    const modal = e.target as PieModal;
+    // When the modal opens, set it to loading
+    modal.isLoading = true;
+
+    // After 5 seconds, remove the loading state
+    setTimeout(() => {
+        modal.isLoading = false;
+    }, 5000);
+
+    // Call the original storybook action
+    openAction(e);
+};
+
+const LoadingStateStoryTemplate = (props: ModalProps) => {
+    const {
+        aria,
+        hasBackButton,
+        hasStackedActions,
+        heading,
+        headingLevel,
+        isDismissible,
+        isFooterPinned,
+        isFullWidthBelowMid,
+        isLoading,
+        isOpen,
+        leadingAction,
+        position,
+        returnFocusAfterCloseSelector,
+        size,
+        slot,
+        supportingAction,
+    } = props;
+    return html`
+        <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
+        <pie-modal
+            .aria="${aria}"
+            heading="${heading}"
+            headingLevel="${ifDefined(headingLevel)}"
+            ?hasBackButton="${hasBackButton}"
+            ?hasStackedActions="${hasStackedActions}"
+            ?isDismissible="${isDismissible}"
+            ?isFooterPinned="${isFooterPinned}"
+            ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+            ?isLoading="${isLoading}"
+            ?isOpen="${isOpen}"
+            .leadingAction=${leadingAction}
+            position="${ifDefined(position)}"
+            returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
+            size="${ifDefined(size)}"
+            .supportingAction="${supportingAction}"
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${handleModalOpenWithLoading}"
+            @pie-modal-back="${backClickAction}"
+            @pie-modal-leading-action-click="${leadingClickAction}"
+            @pie-modal-supporting-action-click="${supportingClickAction}">
+                ${sanitizeAndRenderHTML(slot)}
+            </pie-modal>`;
+};
+
 const createBaseModalStory = createStory<ModalProps>(BaseStoryTemplate, defaultArgs);
 
 export const Default = createBaseModalStory();
+
+export const WithLoadingState = createStory<ModalProps>(LoadingStateStoryTemplate, defaultArgs)({
+    isOpen: false,
+    slot: 'This content will appear after 5 seconds.',
+});
+
 export const EmbeddedForm = createStory<ModalProps>(FormStoryTemplate, defaultArgs)();
 export const ScrollLocking = createStory<ModalProps>(ScrollablePageStoryTemplate, defaultArgs)();
 export const FocusManagement = createStory<ModalProps>(FocusableElementsPageStoryTemplate, defaultArgs)({
