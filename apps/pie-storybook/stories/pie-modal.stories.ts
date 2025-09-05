@@ -39,8 +39,6 @@ const defaultArgs: ModalProps = {
     aria: {
         back: 'Back',
         close: 'Close',
-        loading: 'Loading',
-        label: 'A custom modal label',
     },
 };
 
