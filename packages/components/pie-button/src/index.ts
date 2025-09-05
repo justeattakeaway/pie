@@ -57,6 +57,9 @@ export class PieButton extends FormControlMixin(PieElement) implements ButtonPro
         }
     }
 
+    @property({ type: Object })
+    public aria = defaultProps.aria;
+
     @property({ type: String })
     @validPropertyValues(componentSelector, tags, defaultProps.tag)
     public tag = defaultProps.tag;
@@ -237,7 +240,7 @@ export class PieButton extends FormControlMixin(PieElement) implements ButtonPro
 
     renderAnchor (classes: ClassInfo) {
         const {
-            href, iconPlacement, rel, target,
+            aria, href, iconPlacement, rel, target,
         } = this;
 
         return html`
@@ -245,7 +248,8 @@ export class PieButton extends FormControlMixin(PieElement) implements ButtonPro
                 href="${ifDefined(href)}"
                 rel="${ifDefined(rel)}"
                 target="${ifDefined(target)}"
-                class="${classMap(classes)}">
+                class="${classMap(classes)}"
+                aria-haspopup=${ifDefined(aria.hasPopup)}>
                 ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                 <slot></slot>
                 ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
@@ -254,7 +258,7 @@ export class PieButton extends FormControlMixin(PieElement) implements ButtonPro
 
     renderButton (classes: ClassInfo) {
         const {
-            disabled, iconPlacement, isLoading, type,
+            aria, disabled, iconPlacement, isLoading, type,
         } = this;
 
         const buttonClasses = {
@@ -267,7 +271,8 @@ export class PieButton extends FormControlMixin(PieElement) implements ButtonPro
                 @click=${this._handleClick}
                 class=${classMap(buttonClasses)}
                 type=${type}
-                ?disabled=${disabled}>
+                ?disabled=${disabled}
+                aria-haspopup=${ifDefined(aria.hasPopup)}>
                     ${isLoading ? this.renderSpinner() : nothing}
                     ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                     <span class="o-btn-text"><slot></slot></span>

@@ -103,6 +103,7 @@ export class PieLink extends PieElement implements LinkProps {
                 class="${classMap(classes)}"
                 type=${this.type}
                 aria-label=${ifDefined(this.aria?.label)}
+                aria-haspopup=${ifDefined(this.aria?.hasPopup)}
                 part="base">
                 ${this.renderContent()}
             </button>`;
@@ -122,6 +123,7 @@ export class PieLink extends PieElement implements LinkProps {
                 target=${ifDefined(this.target)}
                 rel=${ifDefined(this.rel)}
                 aria-label=${ifDefined(this.aria?.label)}
+                aria-haspopup=${ifDefined(this.aria?.hasPopup)}
                 part="base">
                 ${this.renderContent()}
             </a>`;

@@ -120,8 +120,8 @@ const linkStoryMeta: LinkStoryMeta = {
             defaultValue: { summary: '' },
         },
         aria: {
-            description: 'Set the aria-label attribute of the link.',
-            control: 'text',
+            description: 'Set the aria attributes of the link.',
+            control: 'object',
         },
 
         /**
