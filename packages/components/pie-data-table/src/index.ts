@@ -1,4 +1,5 @@
 import { html, nothing, unsafeCSS } from 'lit';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { property } from 'lit/decorators.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
@@ -8,6 +9,8 @@ import styles from './data-table.scss?inline';
 import {
     type DataTableProps,
     type Column,
+    type DataTableAdditionalRow,
+    defaultProps,
 } from './defs';
 
 // Valid values available to consumers
@@ -33,6 +36,27 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
     public data: Record<string, unknown>[] = [];
 
     /**
+     * Arbitrary additional rows to display at the bottom of the table
+     */
+    @property({ type: Array })
+    public additionalRows?: DataTableAdditionalRow[] = defaultProps.additionalRows;
+
+    /**
+     * Maps text alignment values to corresponding CSS classes
+     *
+     * @param prefix - The prefix for the CSS class
+     * @param textAlign - The text alignment value
+     * @returns An object with CSS classes as keys and boolean values indicating whether the class should be applied
+     */
+    private mapTextAlignClasses (prefix: string, textAlign?: string) {
+        return {
+            [`${prefix}-text-align--left`]: textAlign === 'left',
+            [`${prefix}-text-align--right`]: textAlign === 'right',
+            [`${prefix}-text-align--center`]: textAlign === 'center',
+        };
+    }
+
+    /**
      * Renders a header cell for the table
      * @param column - The column definition to render
      */
@@ -41,9 +65,7 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
         const style = width ? `width: ${width}` : nothing;
         const classes = {
             'c-data-table-header': true,
-            'c-data-table-header-text-align--left': textAlign === 'left',
-            'c-data-table-header-text-align--right': textAlign === 'right',
-            'c-data-table-header-text-align--center': textAlign === 'center',
+            ...this.mapTextAlignClasses('c-data-table-header', textAlign),
         };
 
         return html`
@@ -74,14 +96,12 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
     private renderTableCell (column: Column, row: Record<string, unknown>) {
         const classes = {
             'c-data-table-cell': true,
-            'c-data-table-cell-text-align--left': column.textAlign === 'left',
-            'c-data-table-cell-text-align--right': column.textAlign === 'right',
-            'c-data-table-cell-text-align--center': column.textAlign === 'center',
+            ...this.mapTextAlignClasses('c-data-table-cell', column.textAlign),
         };
 
         return html`
             <td class="${classMap(classes)}">
-                ${column.accessor ? row[column.accessor] : ''}
+                ${column.accessor ? this.renderCellContent(row[column.accessor]) : ''}
             </td>
         `;
     }
@@ -101,6 +121,76 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
         `;
     }
 
+    /**
+     * Renders the additional rows for the table
+     */
+    private renderAdditionalRows () {
+        /* eslint-disable indent */
+        return html`
+            <tfoot>
+                ${this.additionalRows && this.additionalRows.length > 0 && this.additionalRows.map((row) => {
+                    const rowClasses = {
+                        'c-data-table-row': true,
+                        'c-data-table-row--hidden': !!row.hideRow,
+                    };
+                    return html`
+                        <tr class="${classMap(rowClasses)}">
+                        ${row.cells.map((cell) => {
+                            const cellClasses = {
+                                'c-data-table-cell': true,
+                                'c-data-table-cell--hidden': !!cell.hideCell,
+                                ...this.mapTextAlignClasses('c-data-table-cell', cell.textAlign),
+                            };
+
+                            return html`
+                                <td
+                                    class="${classMap(cellClasses)}"
+                                    colspan=${cell.colSpan || 1}
+                                >
+                                    ${cell.content}
+                                </td>
+                            `;
+                        })}
+                        </tr>
+                    `;
+                })}
+            </tfoot>
+        `;
+        /* eslint-enable indent */
+    }
+
+    /**
+     * Util method that checks if a string contains HTML tags
+     */
+    private isHTMLString (str: string): boolean {
+        return /<[a-z][\s\S]*>/i.test(str.trim());
+    }
+
+    /**
+     * Renders the content of a table cell, handling different types of content
+     *
+     * @param value - The content to render in the cell
+     */
+    private renderCellContent (value: unknown): unknown {
+        if (value == null) {
+            return '';
+        }
+
+        if ((value instanceof HTMLElement) || (value && typeof value === 'object')) {
+            return value;
+        }
+
+        if (typeof value === 'function') {
+            return this.renderCellContent(value());
+        }
+
+        if (typeof value === 'string' && this.isHTMLString(value)) {
+            return unsafeHTML(value);
+        }
+
+        return String(value);
+    }
+
     render () {
         const classes = {
             'c-data-table': true,
@@ -112,6 +202,7 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
                 <table>
                     ${this.columns.length > 0 ? this.renderTableHeader() : nothing}
                     ${this.data.length > 0 ? this.renderTableRows() : nothing}
+                    ${this.additionalRows && this.additionalRows.length > 0 ? this.renderAdditionalRows() : nothing}
                 </table>
             </div>
         `;
