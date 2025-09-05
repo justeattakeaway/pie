@@ -23,7 +23,7 @@ const defaultArgs: ChipProps = {
     },
     showIcon: false,
     slot: 'String',
-    type: 'checkbox',
+    type: 'button',
 };
 
 const chipStoryMeta: ChipStoryMeta = {
@@ -104,6 +104,13 @@ export default chipStoryMeta;
 
 const closeAction = action('pie-chip-close');
 const selectAction = action('pie-chip-selected');
+const clickAction = action('pie-chip-clicked');
+
+const toggleSelected = (e: Event, storybookAction: (e: Event) => void) => {
+    storybookAction(e);
+    const chip = e.target as HTMLElement & { isSelected: boolean };
+    chip.isSelected = !chip.isSelected;
+};
 
 const Template: TemplateFunction<ChipProps> = ({
     aria,
@@ -116,7 +123,7 @@ const Template: TemplateFunction<ChipProps> = ({
     variant,
     type,
 }) => html`
-           <pie-chip
+        <pie-chip
                 .aria="${aria}"
                 ?disabled="${disabled}"
                 ?isSelected="${isSelected}"
@@ -125,10 +132,12 @@ const Template: TemplateFunction<ChipProps> = ({
                 variant="${ifDefined(variant)}"
                 type="${ifDefined(type)}"
                 @pie-chip-close="${closeAction}"
-                @pie-chip-selected="${selectAction}">
+                @pie-chip-selected="${selectAction}"
+                @pie-chip-clicked="${clickAction}"
+                >
                     ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
                     ${sanitizeAndRenderHTML(slot)}
-           </pie-chip>`;
+        </pie-chip>`;
 
 const createChipStory = createStory<ChipProps>(Template, defaultArgs);
 
@@ -136,19 +145,19 @@ export const Default = createChipStory();
 export const Outline = createChipStory({ variant: 'outline' });
 export const Ghost = createChipStory({ variant: 'ghost' });
 
-const GroupTemplate: TemplateFunction<ChipProps> = () => html`
+const CheckboxGroupTemplate: TemplateFunction<ChipProps> = () => html`
     <fieldset style="border: none; padding: 0;">
         <legend style="padding-bottom: 8px; font-weight: bold;">Select your interests</legend>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <pie-chip @pie-chip-selected="${selectAction}">Chip 1</pie-chip>
-            <pie-chip ?isSelected=${true} @pie-chip-selected="${selectAction}">Chip 2</pie-chip>
-            <pie-chip ?disabled=${true} @pie-chip-selected="${selectAction}">Chip 3 (Disabled)</pie-chip>
-            <pie-chip ?disabled=${true} ?isSelected=${true} @pie-chip-selected="${selectAction}">Chip 4 (Disabled and Selected)</pie-chip>
-            <pie-chip @pie-chip-selected="${selectAction}">
+            <pie-chip type="checkbox" @pie-chip-selected="${selectAction}">Chip 1</pie-chip>
+            <pie-chip type="checkbox" ?isSelected=${true} @pie-chip-selected="${selectAction}">Chip 2</pie-chip>
+            <pie-chip type="checkbox" ?disabled=${true} @pie-chip-selected="${selectAction}">Chip 3 (Disabled)</pie-chip>
+            <pie-chip type="checkbox" ?disabled=${true} ?isSelected=${true} @pie-chip-selected="${selectAction}">Chip 4 (Disabled and Selected)</pie-chip>
+            <pie-chip type="checkbox" @pie-chip-selected="${selectAction}">
                 <icon-heart-filled slot="icon"></icon-heart-filled>
                 Chip 5
             </pie-chip>
-            <pie-chip ?isSelected=${true} @pie-chip-selected="${selectAction}">
+            <pie-chip type="checkbox" ?isSelected=${true} @pie-chip-selected="${selectAction}">
                 <icon-heart-filled slot="icon"></icon-heart-filled>
                 Chip 6
             </pie-chip>
@@ -156,5 +165,22 @@ const GroupTemplate: TemplateFunction<ChipProps> = () => html`
     </fieldset>
 `;
 
-export const SelectableGroup = createStory<ChipProps>(GroupTemplate, defaultArgs)();
+export const SelectableCheckboxGroup = createStory<ChipProps>(CheckboxGroupTemplate, defaultArgs)();
 
+const ButtonGroupTemplate: TemplateFunction<ChipProps> = () => html`
+    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <pie-chip type="button" @pie-chip-clicked="${(e: Event) => toggleSelected(e, clickAction)}">Chip 1</pie-chip>
+        <pie-chip type="button" @pie-chip-clicked="${(e: Event) => toggleSelected(e, clickAction)}">Chip 2</pie-chip>
+        <pie-chip type="button" ?disabled=${true} @pie-chip-clicked="${clickAction}">Chip 3 (Disabled)</pie-chip>
+        <pie-chip type="button" @pie-chip-clicked="${(e: Event) => toggleSelected(e, clickAction)}">
+            <icon-heart-filled slot="icon"></icon-heart-filled>
+            Chip 4
+        </pie-chip>
+        <pie-chip type="button" @pie-chip-clicked="${(e: Event) => toggleSelected(e, clickAction)}">
+            <icon-heart-filled slot="icon"></icon-heart-filled>
+            Chip 5
+        </pie-chip>
+    </div>
+`;
+
+export const ButtonGroup = createStory<ChipProps>(ButtonGroupTemplate, defaultArgs)();

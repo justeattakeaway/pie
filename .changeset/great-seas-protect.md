@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-chip": minor
 ---
 
-[Changed] - Chip behaves as a checkbox by default. isSelected state is still a property but also managed by ticking/unticking the chip.
+[Changed] - New `type` property to allow `button` or `checkbox` chips. `button` chips emit a `pie-chip-click` event when clicked. `checkbox` chips can be toggled between selected and unselected states, emitting a `pie-chip-selected` event with the new state.

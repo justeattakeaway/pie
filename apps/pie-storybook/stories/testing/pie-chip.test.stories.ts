@@ -3,7 +3,9 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-chip';
-import { type ChipProps as ChipPropsBase, variants, defaultProps } from '@justeattakeaway/pie-chip';
+import {
+    type ChipProps as ChipPropsBase, variants, defaultProps, types,
+} from '@justeattakeaway/pie-chip';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
 import { type SlottedComponentProps } from '../../types';
@@ -22,6 +24,7 @@ const defaultArgs: ChipProps = {
     },
     showIcon: false,
     slot: 'String',
+    type: 'button',
 };
 
 const chipStoryMeta: ChipStoryMeta = {
@@ -45,6 +48,14 @@ const chipStoryMeta: ChipStoryMeta = {
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.disabled,
+            },
+        },
+        type: {
+            description: 'Set the type of the chip.',
+            control: 'select',
+            options: types,
+            defaultValue: {
+                summary: defaultProps.type,
             },
         },
         isSelected: {
@@ -96,6 +107,7 @@ const closeAction = () => {
 const Template: TemplateFunction<ChipProps> = ({
     aria,
     disabled,
+    type,
     isSelected,
     isLoading,
     isDismissible,
@@ -103,18 +115,19 @@ const Template: TemplateFunction<ChipProps> = ({
     slot,
     variant,
 }) => html`
-           <pie-chip
+        <pie-chip
                 .aria="${aria}"
                 ?disabled="${disabled}"
                 ?isSelected="${isSelected}"
                 ?isLoading="${isLoading}"
                 ?isDismissible="${isDismissible}"
                 variant="${ifDefined(variant)}"
+                type="${ifDefined(type)}"
                 @pie-chip-close="${closeAction}"
                 @click="${clickAction}">
                     ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
                     ${sanitizeAndRenderHTML(slot)}
-           </pie-chip>`;
+        </pie-chip>`;
 const createChipStory = createStory<ChipProps>(Template, defaultArgs);
 
 export const Default = createChipStory();

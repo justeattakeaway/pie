@@ -51,10 +51,45 @@ test.describe('PieChip - Component tests', () => {
         await expect(chipComponent).toBeVisible();
     });
 
-    test.describe('Selectable variant (default)', () => {
+    test.describe('when type="button" (default)', () => {
+        test('should dispatch `pie-chip-clicked` event when clicked', async ({ page }) => {
+            // Arrange
+            const chipComponent = await setupPageWithChip(page, { type: 'button' }, 'pie-chip-clicked');
+
+            // Act
+            await chipComponent.click();
+            const [emittedEvent] = await page.evaluate(() => window.eventLog);
+
+            // Assert
+            expect(emittedEvent).toBe('pie-chip-clicked');
+        });
+
+        test('should have the correct ARIA attributes', async ({ page }) => {
+            // Arrange
+            const chipComponent = await setupPageWithChip(page, {
+                type: 'button',
+                isSelected: true,
+                aria: {
+                    label: 'Button Chip Label',
+                    haspopup: 'true',
+                    expanded: false,
+                },
+            });
+
+            const chipButton = chipComponent.getByTestId(chip.selectors.button.dataTestId);
+
+            // Assert
+            await expect(chipButton).toHaveAttribute('aria-label', 'Button Chip Label');
+            await expect(chipButton).toHaveAttribute('aria-pressed', 'true');
+            await expect(chipButton).toHaveAttribute('aria-haspopup', 'true');
+            await expect(chipButton).toHaveAttribute('aria-expanded', 'false');
+        });
+    });
+
+    test.describe('when type="checkbox"', () => {
         test('should dispatch `pie-chip-selected` event with `isSelected: true` when selected', async ({ page }) => {
             // Arrange
-            const chipComponent = await setupPageWithChip(page, {}, 'pie-chip-selected');
+            const chipComponent = await setupPageWithChip(page, { type: 'checkbox' }, 'pie-chip-selected');
 
             // Act
             await chipComponent.click();
@@ -66,7 +101,7 @@ test.describe('PieChip - Component tests', () => {
 
         test('should dispatch `pie-chip-selected` event with `isSelected: false` when deselected', async ({ page }) => {
             // Arrange
-            const chipComponent = await setupPageWithChip(page, { isSelected: true }, 'pie-chip-selected');
+            const chipComponent = await setupPageWithChip(page, { type: 'checkbox', isSelected: true }, 'pie-chip-selected');
 
             // Act
             await chipComponent.click();
@@ -79,14 +114,15 @@ test.describe('PieChip - Component tests', () => {
         test('should have the correct ARIA attributes', async ({ page }) => {
             // Arrange
             const chipComponent = await setupPageWithChip(page, {
+                type: 'checkbox',
                 isSelected: true,
-                aria: { label: 'Chip Label' },
+                aria: { label: 'Checkbox Chip Label' },
             });
 
-            const chipComponentCheckbox = chipComponent.getByTestId(chip.selectors.checkboxInput.dataTestId);
+            const chipCheckboxInput = chipComponent.getByTestId(chip.selectors.checkboxInput.dataTestId);
 
             // Assert
-            await expect(chipComponentCheckbox).toHaveAttribute('aria-label', 'Chip Label');
+            await expect(chipCheckboxInput).toHaveAttribute('aria-label', 'Checkbox Chip Label');
         });
     });
 
@@ -111,13 +147,13 @@ test.describe('PieChip - Component tests', () => {
                 aria: { label: 'Dismissible Chip' },
             });
 
-            const chipComponentStatic = chipComponent.getByTestId(chip.selectors.static.dataTestId);
+            const chipStatic = chipComponent.getByTestId(chip.selectors.static.dataTestId);
 
             // Assert
-            await expect(chipComponentStatic).toHaveAttribute('aria-live', 'polite');
-            await expect(chipComponentStatic).toHaveAttribute('aria-atomic', 'true');
-            await expect(chipComponentStatic).toHaveAttribute('aria-label', 'Dismissible Chip');
-            await expect(chipComponentStatic).toHaveAttribute('aria-current', 'true');
+            await expect(chipStatic).toHaveAttribute('aria-live', 'polite');
+            await expect(chipStatic).toHaveAttribute('aria-atomic', 'true');
+            await expect(chipStatic).toHaveAttribute('aria-label', 'Dismissible Chip');
+            await expect(chipStatic).toHaveAttribute('aria-current', 'true');
         });
 
         test.describe('aria-busy attribute', () => {
@@ -128,10 +164,10 @@ test.describe('PieChip - Component tests', () => {
                     isLoading: true,
                 });
 
-                const chipComponentStatic = chipComponent.getByTestId(chip.selectors.static.dataTestId);
+                const chipStatic = chipComponent.getByTestId(chip.selectors.static.dataTestId);
 
                 // Assert
-                await expect(chipComponentStatic).toHaveAttribute('aria-busy', 'true');
+                await expect(chipStatic).toHaveAttribute('aria-busy', 'true');
             });
 
             test('should be `false` when isLoading is false', async ({ page }) => {
@@ -140,10 +176,10 @@ test.describe('PieChip - Component tests', () => {
                     ...dismissibleProps,
                     isLoading: false,
                 });
-                const chipComponentStatic = chipComponent.getByTestId(chip.selectors.static.dataTestId);
+                const chipStatic = chipComponent.getByTestId(chip.selectors.static.dataTestId);
 
                 // Assert
-                await expect(chipComponentStatic).toHaveAttribute('aria-busy', 'false');
+                await expect(chipStatic).toHaveAttribute('aria-busy', 'false');
             });
         });
 
@@ -161,9 +197,9 @@ test.describe('PieChip - Component tests', () => {
     });
 
     test.describe('when disabled', () => {
-        test('should not dispatch `pie-chip-selected` event when the chip is clicked', async ({ page }) => {
+        test('should not dispatch `pie-chip-clicked` event when a button chip is clicked', async ({ page }) => {
             // Arrange
-            const chipComponent = await setupPageWithChip(page, { disabled: true }, 'pie-chip-selected');
+            const chipComponent = await setupPageWithChip(page, { type: 'button', disabled: true }, 'pie-chip-clicked');
 
             // Act
             await chipComponent.click({ force: true });
@@ -173,13 +209,34 @@ test.describe('PieChip - Component tests', () => {
             expect(events).toEqual([]);
         });
 
-        test('the internal checkbox input should be disabled', async ({ page }) => {
+        test('should not dispatch `pie-chip-selected` event when a checkbox chip is clicked', async ({ page }) => {
             // Arrange
-            const chipComponent = await setupPageWithChip(page, { disabled: true });
-            const chipComponentCheckbox = chipComponent.getByTestId(chip.selectors.checkboxInput.dataTestId);
+            const chipComponent = await setupPageWithChip(page, { type: 'checkbox', disabled: true }, 'pie-chip-selected');
+
+            // Act
+            await chipComponent.click({ force: true });
+            const events = await page.evaluate(() => window.eventLog);
 
             // Assert
-            await expect(chipComponentCheckbox).toBeDisabled();
+            expect(events).toEqual([]);
+        });
+
+        test('the internal button element should be disabled', async ({ page }) => {
+            // Arrange
+            const chipComponent = await setupPageWithChip(page, { disabled: true });
+            const chipButton = chipComponent.getByTestId(chip.selectors.button.dataTestId);
+
+            // Assert
+            await expect(chipButton).toBeDisabled();
+        });
+
+        test('the internal checkbox input should be disabled', async ({ page }) => {
+            // Arrange
+            const chipComponent = await setupPageWithChip(page, { type: 'checkbox', disabled: true });
+            const chipCheckboxInput = chipComponent.getByTestId(chip.selectors.checkboxInput.dataTestId);
+
+            // Assert
+            await expect(chipCheckboxInput).toBeDisabled();
         });
 
         test('the dismissible close button should be disabled', async ({ page }) => {
@@ -193,9 +250,21 @@ test.describe('PieChip - Component tests', () => {
     });
 
     test.describe('when isLoading', () => {
-        test('should not dispatch `pie-chip-selected` event when a selectable chip is clicked', async ({ page }) => {
+        test('should not dispatch `pie-chip-clicked` event when a button chip is clicked', async ({ page }) => {
             // Arrange
-            const chipComponent = await setupPageWithChip(page, { isLoading: true }, 'pie-chip-selected');
+            const chipComponent = await setupPageWithChip(page, { type: 'button', isLoading: true }, 'pie-chip-clicked');
+
+            // Act
+            await chipComponent.click({ force: true });
+            const events = await page.evaluate(() => window.eventLog);
+
+            // Assert
+            expect(events).toEqual([]);
+        });
+
+        test('should not dispatch `pie-chip-selected` event when a checkbox chip is clicked', async ({ page }) => {
+            // Arrange
+            const chipComponent = await setupPageWithChip(page, { type: 'checkbox', isLoading: true }, 'pie-chip-selected');
 
             // Act
             await chipComponent.click({ force: true });
@@ -206,4 +275,3 @@ test.describe('PieChip - Component tests', () => {
         });
     });
 });
-
