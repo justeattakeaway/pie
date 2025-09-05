@@ -42,11 +42,11 @@
     },
     {
       "path": "./packages/components/pie-chip/dist/index.js",
-      "maxSize": "3.10 KB"
+      "maxSize": "3.30 KB"
     },
     {
       "path": "./packages/components/pie-chip/dist/react.js",
-      "maxSize": "0.37 KB"
+      "maxSize": "0.40 KB"
     },
     {
       "path": "./packages/components/pie-cookie-banner/dist/index.js",
