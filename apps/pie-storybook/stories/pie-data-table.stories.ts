@@ -4,7 +4,11 @@ import { type Meta } from '@storybook/web-components';
 import '@justeattakeaway/pie-data-table';
 import '@justeattakeaway/pie-data-table/dist/pie-data-table-header';
 import '@justeattakeaway/pie-button';
-import { type DataTableProps } from '@justeattakeaway/pie-data-table';
+import type {
+    DataTableProps,
+    Column,
+    DataTableAdditionalRow,
+} from '@justeattakeaway/pie-data-table';
 
 import { createStory } from '../utilities';
 
@@ -128,7 +132,7 @@ const sampleData = [
     },
 ];
 
-const sampleColumns = [
+const sampleColumns: Column[] = [
     {
         id: 'name',
         heading: 'Name',
@@ -152,6 +156,81 @@ const sampleColumns = [
     },
 ];
 
+const productsColumns: Column[] = [
+    {
+        id: 'customer',
+        heading: 'Customer',
+        accessor: 'customer',
+        textAlign: 'left',
+    },
+    {
+        id: 'company',
+        heading: 'Company',
+        accessor: 'company',
+        textAlign: 'left',
+    },
+    {
+        id: 'product',
+        heading: 'Product',
+        accessor: 'product',
+        textAlign: 'left',
+    },
+    {
+        id: 'material',
+        heading: 'Material',
+        accessor: 'material',
+        textAlign: 'center',
+    },
+    {
+        id: 'amount',
+        heading: 'Amount',
+        accessor: 'amount',
+        textAlign: 'right',
+    },
+];
+
+const sampleDataProducts = [
+    {
+        customer: 'Raymond Lebsack',
+        company: 'Boyer - Renner',
+        product: 'Gorgeous Soft Car',
+        material: 'Rubber',
+        amount: 702.00,
+    },
+    {
+        customer: 'Aurelia Predovic',
+        company: 'Tremblay, Fisher and Osinski',
+        product: 'Small Plastic Table',
+        material: 'Granite',
+        amount: 219.00,
+    },
+    {
+        customer: 'Nathanial Wiegand',
+        company: 'Satterfield, Ferry and Rice',
+        product: 'Practical Frozen Sausages',
+        material: 'Rubber',
+        amount: 22.00,
+    },
+];
+
+const totalAmount = sampleDataProducts.reduce((total, item) => total + (typeof item.amount === 'number' ? item.amount : 0), 0);
+const fivePercentTaxRate = 1.05;
+
+const additionalRows: DataTableAdditionalRow[] = [
+    {
+        cells: [
+            { content: 'Taxes', textAlign: 'right', colSpan: 4 },
+            { content: '5%', textAlign: 'right' },
+        ],
+    },
+    {
+        cells: [
+            { content: 'Total', textAlign: 'right', colSpan: 4 },
+            { content: (totalAmount * fivePercentTaxRate).toFixed(2), textAlign: 'right' },
+        ],
+    },
+];
+
 const defaultArgs: DataTableProps = {
     columns: [],
     data: [],
@@ -169,6 +248,10 @@ const dataTableStoryMeta: DataTableStoryMeta = {
             description: 'Array of data objects to display',
             control: 'object',
         },
+        additionalRows: {
+            description: 'Arbitrary array of additional rows to display at the bottom of the table',
+            control: 'object',
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -182,11 +265,12 @@ const dataTableStoryMeta: DataTableStoryMeta = {
 export default dataTableStoryMeta;
 
 const Template = ({
-    columns, data,
+    columns, data, additionalRows,
 }: DataTableProps) => html`
     <pie-data-table
         .columns="${columns}"
         .data="${data}"
+        .additionalRows="${additionalRows}"
         data-test-id="pie-data-table"
     ></pie-data-table>
 `;
@@ -233,6 +317,12 @@ export const WithStrongHeader = createStory<DataTableProps>(TemplateWithStrongHe
 export const EmptyTable = createStory<DataTableProps>(Template, {
     columns: sampleColumns,
     data: [],
+})();
+
+export const WithExtraRows = createStory<DataTableProps>(Template, {
+    columns: productsColumns,
+    data: sampleDataProducts,
+    additionalRows,
 })();
 
 export const EmptyData = createStory<DataTableProps>(Template, defaultArgs)();
