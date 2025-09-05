@@ -1,5 +1,6 @@
 import {
     html, unsafeCSS, nothing, type PropertyValues, type TemplateResult,
+    LitElement,
 } from 'lit';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -120,6 +121,8 @@ export class PieButton extends FormControlMixin(PieElement) implements ButtonPro
 
     @property({ type: String })
     public target: ButtonProps['target'];
+
+    static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     /**
      * This method creates an invisible button of the same type as pie-button. It is then clicked, and immediately removed from the DOM.
@@ -296,10 +299,6 @@ export class PieButton extends FormControlMixin(PieElement) implements ButtonPro
         }
 
         return this.renderButton(classes);
-    }
-
-    focus () {
-        this.shadowRoot?.querySelector('button')?.focus();
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
