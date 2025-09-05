@@ -17,6 +17,7 @@ import {
     types,
     ON_CHIP_CLOSE_EVENT,
     ON_CHIP_SELECTED_EVENT,
+    ON_CHIP_CLICKED_EVENT,
     defaultProps,
 } from './defs';
 import '@justeattakeaway/pie-icons-webc/dist/IconCloseCircleFilled.js';
@@ -32,7 +33,8 @@ const componentSelector = 'pie-chip';
  * @slot icon - The icon slot
  * @slot - Default slot
  * @event {CustomEvent} pie-chip-close - when a user clicks the close button.
- * @event {CustomEvent} pie-chip-selected - when the chip is selected.
+ * @event {CustomEvent} pie-chip-selected - when the chip is selected (for checkboxes).
+ * @event {CustomEvent} pie-chip-clicked - when the chip is clicked (for buttons).
  */
 @safeCustomElement('pie-chip')
 export class PieChip extends PieElement implements ChipProps {
@@ -67,9 +69,21 @@ export class PieChip extends PieElement implements ChipProps {
      * @private
      */
     private _onCheckboxChange (event: Event) {
+        if (this.disabled || this.isLoading) {
+            return;
+        }
+
         const target = event.target as HTMLInputElement;
         this.isSelected = target.checked;
         dispatchCustomEvent(this, ON_CHIP_SELECTED_EVENT, { isSelected: this.isSelected });
+    }
+
+    private _onButtonClick () : void {
+        if (this.disabled || this.isLoading) {
+            return;
+        }
+
+        dispatchCustomEvent(this, ON_CHIP_CLICKED_EVENT);
     }
 
     /**
@@ -106,6 +120,7 @@ export class PieChip extends PieElement implements ChipProps {
      */
     private _renderCheckbox (): TemplateResult {
         const {
+            aria,
             variant,
             disabled,
             isSelected,
@@ -125,9 +140,9 @@ export class PieChip extends PieElement implements ChipProps {
                 data-test-id="chip-checkbox-input"
                 type="checkbox"
                 id="${this._id}"
-                aria-label="${ifDefined(this.aria?.label)}"
+                aria-label="${ifDefined(aria?.label)}"
                 ?checked=${isSelected}
-                ?disabled=${disabled || isLoading}
+                ?disabled=${disabled}
                 @change="${this._onCheckboxChange}">
             <label
                 for="${this._id}"
@@ -135,6 +150,42 @@ export class PieChip extends PieElement implements ChipProps {
                 data-test-id="pie-chip">
                 ${this._renderContent()}
             </label>`;
+    }
+
+    private _renderButton (): TemplateResult {
+        const {
+            aria,
+            variant,
+            disabled,
+            isSelected,
+            isLoading,
+        } = this;
+
+        const classes = {
+            'c-chip': true,
+            [`c-chip--${variant}`]: true,
+            'c-chip--selected': isSelected,
+            'is-disabled': disabled,
+            'is-loading': isLoading,
+        };
+
+        return html`
+            <button
+                id="${this._id}"
+                data-test-id="chip-button"
+                type="button"
+                class=${classMap(classes)}
+                aria-busy="${ifDefined(isLoading)}"
+                aria-haspopup="${ifDefined(aria?.haspopup)}"
+                aria-expanded="${ifDefined(aria?.expanded)}"
+                aria-pressed="${isSelected}"
+                aria-label="${ifDefined(aria?.label)}"
+                aria-live="polite"
+                ?disabled=${disabled}
+                data-test-id="pie-chip"
+                @click="${this._onButtonClick}">
+                ${this._renderContent()}
+            </button>`;
     }
 
     /**
@@ -203,10 +254,12 @@ export class PieChip extends PieElement implements ChipProps {
         }
 
         switch (this.type) {
+            case 'button':
+                return this._renderButton();
             case 'checkbox':
                 return this._renderCheckbox();
             default:
-                return this._renderCheckbox();
+                return this._renderButton();
         }
     }
 

@@ -33,13 +33,13 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 | Prop           | Options                                              | Description                                                                                                  | Default     |
 |----------------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|-------------|
-| `type`         | `"checkbox"`                            | Sets the functional type of the chip. Currently, only `checkbox` is supported.                                                                                   | `"checkbox"`|
+| `type`         | `"button"`, `"checkbox"`                            | Sets the functional type of the chip.                                                                                   | `"button"`|
 | `variant`      | `"default"`, `"outline"`, `"ghost"`                 | Sets the variant of the chip.                                                                                | `"default"` |
 | `disabled`     | `true`, `false`                                     | If true, disables the chip.                                                                                  | `false`     |
 | `isSelected`   | `true`, `false`                                     | If true, the chip component will apply the selected styles and be selected to screen readers.                                                  | `false`     |
 | `isDismissible`| `true`, `false`                                     | If true, displays a close icon. Can be only used if `isSelected` is set to true. When true, the chip itself will not be interactive. Only the close icon will be.                            | `false`     |
-| `isLoading`    | `true`, `false`                                     | If true, displays a loading indicator inside the chip.                                                       | `false`     |
-| `aria`         | `{ label?: string, close?: string }`               | Aria properties for the chip to help with making it accessible.                                              | `undefined` |
+| `isLoading`    | `true`, `false`                                     | If true, displays a loading indicator inside the chip. It is advised to provide an appropriate `aria.label` value during and after loading.                                                       | `false`     |
+| `aria`         | `{ label?: string, close?: string, haspopup?: "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" \| "true" \| "false", expanded?: boolean }`               | Accessibility properties for the chip. Use `haspopup` and `expanded` for chips that trigger a popup like a menu or dialog.                                             | `undefined` |
 
 ### Slots
 
@@ -55,8 +55,9 @@ This component does not expose any CSS variables for style overrides.
 
 | Event             | Type          | Description                                         |
 |-------------------|---------------|-----------------------------------------------------|
+| `pie-chip-click`  | `CustomEvent` | Triggered when the user clicks on the chip. (When the chip `type` is `button`)        |
 | `pie-chip-close`  | `CustomEvent` | Triggered when the user interacts with the close icon. |
-| `pie-chip-selected` | `CustomEvent` | Triggered when the chip's `isSelected` state changes by clicking the chip when it is a `checkbox`. The event detail contains a boolean `isSelected` property. |
+| `pie-chip-selected` | `CustomEvent` | Triggered when the chip's `isSelected` state changes by clicking the chip when the `type` is `checkbox`. The event detail contains a boolean `isSelected` property. |
 
 Visit  [Chip | PIE Design System](https://pie.design/components/chip) to view more information on this component.
 
@@ -93,14 +94,14 @@ import { PieChip } from '@justeattakeaway/pie-webc/react/chip.js';
 ```
 
 ### Groups of chips
-Since the default behaviour of a chip is that of a checkbox, they can be grouped together to act as a set of options. For accessibility, it is recommended to wrap the group in a `<fieldset>`.
+When setting the `type` to `checkbox`, they can be grouped together to act as a set of options. For accessibility, it is recommended to wrap the group in a `<fieldset>`.
 
 ```html
 <fieldset>
   <legend>Filter by dietary requirements</legend>
-  <pie-chip>Vegan</pie-chip>
-  <pie-chip isSelected>Vegetarian</pie-chip>
-  <pie-chip>Gluten Free</pie-chip>
+  <pie-chip type="checkbox">Vegan</pie-chip>
+  <pie-chip type="checkbox" isSelected>Vegetarian</pie-chip>
+  <pie-chip type="checkbox">Gluten Free</pie-chip>
 </fieldset>
 ```
 

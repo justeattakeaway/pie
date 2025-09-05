@@ -39,6 +39,7 @@
     user-select: none;
     min-width: var(--chip-min-width);
 
+    font-family: inherit;
     @include p.font-size(--dt-font-interactive-xs-size);
     @include p.line-height(--dt-font-interactive-xs-line-height);
     font-weight: var(--dt-font-weight-bold);
