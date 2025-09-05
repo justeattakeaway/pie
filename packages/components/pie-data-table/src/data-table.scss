@@ -62,10 +62,7 @@
   border-bottom: 1px solid var(--data-table-border-color);
 }
 
-.c-data-table-cell--hidden {
+.c-data-table-cell--hidden, 
+.c-data-table-row--hidden {
   display: none;
-}
-
-.c-data-table-row--disabled {
-  background-color: var(--dt-color-content-disabled);
 }
