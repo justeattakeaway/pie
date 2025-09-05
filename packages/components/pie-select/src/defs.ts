@@ -4,7 +4,7 @@ export const sizes = ['small', 'medium', 'large'] as const;
 
 export const statusTypes = ['default', 'error'] as const;
 
-interface SelectOptionProps {
+export interface SelectOptionProps {
    /**
      * What HTML element the option should be such option or optgroup.
      */
@@ -31,7 +31,7 @@ interface SelectOptionProps {
     selected?: boolean;
 }
 
-interface SelectOptionGroupProps {
+export interface SelectOptionGroupProps {
     /**
      * What HTML element the option should be such option or optgroup.
      */
@@ -83,6 +83,11 @@ export interface SelectProps {
      * The options to display in the select. Can be an array of option objects or option group objects.
      */
     options: (SelectOptionProps | SelectOptionGroupProps)[];
+
+    /**
+     * The value of the selected option
+     */
+    value?: string | number;
 }
 
 type DefaultProps = ComponentDefaultProps<SelectProps, keyof Omit<SelectProps, 'name' | 'assistiveText'>>;
@@ -92,4 +97,5 @@ export const defaultProps: DefaultProps = {
     status: 'default',
     disabled: false,
     options: [],
+    value: '',
 };

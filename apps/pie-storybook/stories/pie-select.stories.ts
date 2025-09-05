@@ -108,6 +108,13 @@ const selectStoryMeta: SelectStoryMeta = {
                 summary: defaultProps.options,
             },
         },
+        value: {
+            description: 'The programatically set value of the select. It overrides any option set as selected.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -128,6 +135,7 @@ const Template: TemplateFunction<SelectProps> = ({
     name,
     showLeadingIcon,
     options,
+    value,
 }) => {
     function onChange (event: CustomEvent) {
         action('change')({
@@ -144,6 +152,7 @@ const Template: TemplateFunction<SelectProps> = ({
             assistiveText="${ifDefined(assistiveText)}"
             status="${ifDefined(status)}"
             .options="${options}"
+            value="${ifDefined(value)}"
             @change="${onChange}">
                 ${showLeadingIcon ? html`<icon-placeholder slot="leadingIcon"></icon-placeholder>` : nothing}
         </pie-select>

@@ -241,6 +241,63 @@ test.describe('PieSelect - Component tests', () => {
                 });
             });
         });
+
+        test.describe('value', () => {
+            test.describe('an option is set as default', () => {
+                test('value is not set', async ({ page }) => {
+                    const selectFormPage = new BasePage(page, 'select--example-form-with-selected-option');
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+
+                    await selectFormPage.load();
+                    await expect(selectElement).toHaveValue('banana');
+                });
+                test('value is set programatically', async ({ page }) => {
+                    const selectFormPage = new BasePage(page, 'select--example-form-with-selected-option');
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+
+                    await selectFormPage.load();
+                    await selectElement.evaluate((el) => { (el as HTMLSelectElement).value = 'apple'; });
+
+                    await expect(selectElement).toHaveValue('apple');
+                });
+                test('an option is selected', async ({ page }) => {
+                    const selectFormPage = new BasePage(page, 'select--example-form-with-selected-option');
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+
+                    await selectFormPage.load();
+                    await selectElement.selectOption('apple');
+
+                    await expect(selectElement).toHaveValue('apple');
+                });
+            });
+            test.describe('no option is set as default', () => {
+                test('value is not set', async ({ page }) => {
+                    const selectFormPage = new BasePage(page, 'select--example-form');
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+
+                    await selectFormPage.load();
+                    await expect(selectElement).toHaveValue('pizza');
+                });
+                test('value is set programatically', async ({ page }) => {
+                    const selectFormPage = new BasePage(page, 'select--example-form');
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+
+                    await selectFormPage.load();
+                    await selectElement.evaluate((el) => { (el as HTMLSelectElement).value = 'burger'; });
+
+                    await expect(selectElement).toHaveValue('burger');
+                });
+                test('an option is selected', async ({ page }) => {
+                    const selectFormPage = new BasePage(page, 'select--example-form');
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+
+                    await selectFormPage.load();
+                    await selectElement.selectOption('burger');
+
+                    await expect(selectElement).toHaveValue('burger');
+                });
+            });
+        });
     });
 
     test.describe('Attributes:', () => {
@@ -446,6 +503,93 @@ test.describe('PieSelect - Component tests', () => {
 
             // Assert
             await expect(selectElement).toHaveValue('banana');
+        });
+
+        test.describe('should reset to the expected option when the form is reset', async () => {
+            test.describe('an option is set as default', () => {
+                test('value is not set', async ({ page }) => {
+                    const selectFormPage = new BasePage(page, 'select--example-form-with-selected-option');
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+
+                    await selectFormPage.load();
+                    await expect(selectElement).toHaveValue('banana');
+
+                    await page.locator('pie-button', { hasText: 'Reset' }).click();
+
+                    // Assert
+                    await expect(selectElement).toHaveValue('banana');
+                });
+                test('value is set programatically', async ({ page }) => {
+                    const selectFormPage = new BasePage(page, 'select--example-form-with-selected-option');
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+
+                    await selectFormPage.load();
+                    await selectElement.evaluate((el) => { (el as HTMLSelectElement).value = 'apple'; });
+
+                    await expect(selectElement).toHaveValue('apple');
+
+                    await page.locator('pie-button', { hasText: 'Reset' }).click();
+
+                    // Assert
+                    await expect(selectElement).toHaveValue('banana');
+                });
+                test('an option is selected', async ({ page }) => {
+                    const selectFormPage = new BasePage(page, 'select--example-form-with-selected-option');
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+
+                    await selectFormPage.load();
+                    await selectElement.selectOption('apple');
+
+                    await expect(selectElement).toHaveValue('apple');
+
+                    await page.locator('pie-button', { hasText: 'Reset' }).click();
+
+                    // Assert
+                    await expect(selectElement).toHaveValue('banana');
+                });
+            });
+            test.describe('no option is set as default', () => {
+                test('value is not set', async ({ page }) => {
+                    const selectFormPage = new BasePage(page, 'select--example-form');
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+
+                    await selectFormPage.load();
+                    await expect(selectElement).toHaveValue('pizza');
+
+                    await page.locator('pie-button', { hasText: 'Reset' }).click();
+
+                    // Assert
+                    await expect(selectElement).toHaveValue('pizza');
+                });
+                test('value is set programatically', async ({ page }) => {
+                    const selectFormPage = new BasePage(page, 'select--example-form');
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+
+                    await selectFormPage.load();
+                    await selectElement.evaluate((el) => { (el as HTMLSelectElement).value = 'burger'; });
+
+                    await expect(selectElement).toHaveValue('burger');
+
+                    await page.locator('pie-button', { hasText: 'Reset' }).click();
+
+                    // Assert
+                    await expect(selectElement).toHaveValue('pizza');
+                });
+                test('an option is selected', async ({ page }) => {
+                    const selectFormPage = new BasePage(page, 'select--example-form');
+                    const selectElement = page.getByTestId(select.selectors.select.dataTestId);
+
+                    await selectFormPage.load();
+                    await selectElement.selectOption('burger');
+
+                    await expect(selectElement).toHaveValue('burger');
+
+                    await page.locator('pie-button', { hasText: 'Reset' }).click();
+
+                    // Assert
+                    await expect(selectElement).toHaveValue('pizza');
+                });
+            });
         });
     });
 });
