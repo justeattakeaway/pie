@@ -135,7 +135,7 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
     private _customTagEnhancers: CustomTagEnhancers = {
         linkStatement: (tagContent: string) => html`<pie-link href="${this.cookieStatementLink}" variant="inverse" target="_blank" data-test-id="cookie-statement-link">${tagContent}</pie-link>`,
         linkNecessaryOnly: (tagContent: string) => html`<pie-link data-test-id="body-necessary-only" tag="button" variant="inverse" @click="${this._onNecessaryOnly}">${tagContent}</pie-link>`,
-        linkManagePreferences: (tagContent: string) => html`<pie-link data-test-id="body-manage-prefs" tag="button" variant="inverse" @click="${this._openManagePreferencesModal}">${tagContent}</pie-link>`,
+        linkManagePreferences: (tagContent: string) => html`<pie-link data-test-id="body-manage-prefs" tag="button" variant="inverse" @click="${this._openManagePreferencesModal}" .aria=${{ hasPopup: 'dialog' }}>${tagContent}</pie-link>`,
         linkAcceptAll: (tagContent: string) => html`<pie-link data-test-id="body-accept-all" tag="button" variant="inverse" @click="${this._onAcceptAll}">${tagContent}</pie-link>`,
         linkCookieStatement: (tagContent: string) => html`<pie-link href="${this.cookieStatementLink}" size="small" target="_blank" data-test-id="cookie-statement-link">${tagContent}</pie-link>`,
         linkCookieTechList: (tagContent: string) => html`<pie-link href="${this.cookieTechnologiesLink}" size="small" target="_blank" data-test-id="cookie-technology-link">${tagContent}</pie-link>`,
@@ -324,6 +324,7 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
                     @click="${this._openManagePreferencesModal}"
                     tag="button"
                     variant="inverse"
+                    .aria=${{ hasPopup: 'dialog' }}
                     isBold>
                     ${this._localiseText('banner.cta.managePreferences')}
                 </pie-link>
