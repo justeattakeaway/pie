@@ -31,6 +31,7 @@ import {
     sizes,
     statusTypes,
     type SelectProps,
+    type SelectOptionProps,
 } from './defs';
 
 // Valid values available to consumers
@@ -67,6 +68,8 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
     @property({ type: Array })
     public options: SelectProps['options'] = defaultProps.options;
 
+    private _value: SelectProps['value'] = defaultProps.value;
+
     @query('select')
     public focusTarget!: HTMLSelectElement;
 
@@ -81,6 +84,29 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
 
     protected firstUpdated (): void {
         this._internals.setFormValue(this._select.value);
+    }
+
+    @property()
+    public get value (): SelectProps['value'] {
+        // If no value was assigned
+        // and the select element is available
+        // return its value as by default it will pick the first available option
+        if (this._value === '') {
+            if (!this._select) {
+                return '';
+            }
+            return this._select.value;
+        }
+
+        return this._value;
+    }
+
+    public set value (newValue: SelectProps['value']) {
+        const safeNewValue = newValue ? String(newValue) : '';
+        this._internals.setFormValue(safeNewValue);
+        this._value = safeNewValue;
+
+        this.requestUpdate();
     }
 
     /**
@@ -106,10 +132,26 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
      * Resets the value to the default select value.
      */
     public formResetCallback (): void {
-        const selected = this._select.querySelector('option[selected]');
-        this._select.value = selected?.getAttribute('value') ?? '';
-        this._select.selectedIndex = selected ? this._select.selectedIndex : 0;
-        this._internals.setFormValue(this._select.value);
+        // Flatten a possibly nested options list into a flat one
+        const flatOptions: SelectOptionProps[] = this.options.reduce<SelectOptionProps[]>((acc, option) => {
+            if (option.tag === 'optgroup') {
+                return acc.concat(option.options);
+            }
+            acc.push(option);
+            return acc;
+        }, []);
+
+        // Infer the value to reset to
+        const firstValue = flatOptions.length > 0 ? flatOptions[0].value : '';
+        const selectedValue = flatOptions.find((option) => option.selected === true);
+        const resetValue = selectedValue ? selectedValue.value : firstValue;
+
+        // Perform the necessary updates
+        // _select, _internals, and _value must be synchronized to the same value
+        this._select.value = resetValue || '';
+        this._internals.setFormValue(resetValue || null);
+        this._value = resetValue || '';
+        this.requestUpdate();
     }
 
     /**
@@ -139,27 +181,30 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
      */
     private renderChildren (options: SelectProps['options']): TemplateResult {
         return html`
-            ${options.map((option) => {
+    ${options.map((option) => {
             if (option.tag === 'optgroup') {
                 return html`
-                        <optgroup
-                            ?disabled="${option.disabled}"
-                            label="${ifDefined(option.label)}">
-                            ${this.renderChildren(option.options)}
-                        </optgroup>
-                    `;
+                <optgroup
+                    ?disabled="${option.disabled}"
+                    label="${ifDefined(option.label)}">
+                    ${this.renderChildren(option.options)}
+                </optgroup>
+            `;
             }
 
+            const hasValue = this._value !== '';
+            const selected = hasValue ? this._value === option.value : option.selected;
+
             return html`
-                    <option
-                        .value="${live(option.value)}"
-                        ?disabled="${option.disabled}"
-                        ?selected="${option.selected}">
-                        ${option.text}
-                    </option>
-                `;
-        })}
+            <option
+                .value="${live(option.value || '')}"
+                ?disabled="${option.disabled}"
+                ?selected="${selected}">
+                ${option.text}
+            </option>
         `;
+        })}
+    `;
     }
 
     /**
