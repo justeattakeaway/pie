@@ -180,6 +180,10 @@ const buttonStoryMeta: ButtonStoryMeta = {
             description: 'Set the rel attribute for the underlying anchor tag',
             control: 'text',
         },
+        aria: {
+            description: 'Set the aria attributes of the button.',
+            control: 'object',
+        },
     },
     args: defaultArgs,
     parameters: {
