@@ -74,7 +74,7 @@ export class ModalComponent {
    * @returns {Promise<string | null>} A Promise that resolves to the ARIA label of the close button of the modal, or `null` if the ARIA label attribute is not found.
    */
     async getCloseButtonAriaLabel (): Promise<string | null> {
-        return this.closeButtonLocator.getAttribute('aria-label');
+        return this.closeButtonLocator.locator('button').getAttribute('aria-label');
     }
 
     /**
@@ -101,7 +101,7 @@ export class ModalComponent {
    * @returns {Promise<string | null>} A Promise that resolves to the ARIA label of the back button of the modal, or `null` if the ARIA label attribute is not found.
    */
     async getBackButtonAriaLabel (): Promise<string | null> {
-        return this.backButtonLocator.getAttribute('aria-label');
+        return this.backButtonLocator.locator('button').getAttribute('aria-label');
     }
 
     /**

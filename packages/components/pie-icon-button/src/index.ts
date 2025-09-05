@@ -1,5 +1,5 @@
 import {
-    html, unsafeCSS,
+    html, LitElement, unsafeCSS,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { classMap } from 'lit/directives/class-map.js';
@@ -38,6 +38,8 @@ export class PieIconButton extends PieElement implements IconButtonProps {
 
     @property({ type: Boolean })
     public isLoading = defaultProps.isLoading;
+
+    static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     /**
      * Template for the loading state

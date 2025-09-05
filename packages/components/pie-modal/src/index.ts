@@ -355,7 +355,7 @@ export class PieModal extends PieElement implements ModalProps {
                 @click="${() => { this.isOpen = false; }}"
                 variant="ghost-secondary"
                 class="c-modal-closeBtn"
-                aria-label="${this.aria?.close || nothing}"
+                .aria=${ifDefined(this.aria?.close) ? { label: this.aria?.close } : nothing}
                 data-test-id="modal-close-button">
                 <icon-close></icon-close>
             </pie-icon-button>`;
@@ -377,9 +377,9 @@ export class PieModal extends PieElement implements ModalProps {
                 @click="${() => { this._backButtonClicked = true; this.isOpen = false; }}"
                 variant="ghost-secondary"
                 class="c-modal-backBtn"
-                aria-label="${ifDefined(this.aria?.back)}"
+                .aria=${ifDefined(this.aria?.back) ? { label: this.aria?.back } : nothing}
                 data-test-id="modal-back-button">
-                    <icon-chevron-left class="c-modal-backBtn-icon"></icon-chevron-right>
+                    <icon-chevron-left class="c-modal-backBtn-icon"></icon-chevron-left>
             </pie-icon-button>
         `;
     }
