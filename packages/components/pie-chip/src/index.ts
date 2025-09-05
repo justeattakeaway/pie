@@ -180,7 +180,6 @@ export class PieChip extends PieElement implements ChipProps {
                 aria-expanded="${ifDefined(aria?.expanded)}"
                 aria-pressed="${isSelected}"
                 aria-label="${ifDefined(aria?.label)}"
-                aria-live="polite"
                 ?disabled=${disabled}
                 data-test-id="pie-chip"
                 @click="${this._onButtonClick}">
