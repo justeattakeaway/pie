@@ -1,10 +1,13 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const variants = ['default', 'outline', 'ghost'] as const;
+export const types = ['button', 'checkbox'] as const;
 
 type AriaProps = {
     close?: string;
     label?: string;
+    haspopup?: 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog' | 'true' | 'false';
+    expanded?: boolean;
 };
 
 export interface ChipProps {
@@ -33,6 +36,11 @@ export interface ChipProps {
      * Can be only used if `isSelected` is set to true
      */
     isDismissible?: boolean;
+
+    /**
+     * Sets the functional type of the chip. Currently, only `checkbox` is supported.
+     */
+    type?: typeof types[number];
 }
 
 /**
@@ -40,8 +48,17 @@ export interface ChipProps {
  *
  * @constant
  */
-
 export const ON_CHIP_CLOSE_EVENT = 'pie-chip-close';
+
+/**
+ * Event name for when the chip is selected (for checkbox type).
+ */
+export const ON_CHIP_SELECTED_EVENT = 'pie-chip-selected';
+
+/**
+ * Event name for when the chip is clicked (for button type).
+ */
+export const ON_CHIP_CLICKED_EVENT = 'pie-chip-clicked';
 
 export type DefaultProps = ComponentDefaultProps<ChipProps, keyof Omit<ChipProps, 'aria'>>;
 
@@ -51,4 +68,5 @@ export const defaultProps: DefaultProps = {
     isSelected: false,
     isLoading: false,
     isDismissible: false,
+    type: 'button',
 };
