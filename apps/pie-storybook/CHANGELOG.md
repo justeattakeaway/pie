@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.51.0
+
+### Minor Changes
+
+- [Added] - pie-select value property ([#2543](https://github.com/justeattakeaway/pie/pull/2543)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- Updated dependencies [[`40c4fbb`](https://github.com/justeattakeaway/pie/commit/40c4fbb19250c76fe640858f9589b778043e8df4), [`a4017f4`](https://github.com/justeattakeaway/pie/commit/a4017f499d3fbe854806d9a46b8ff320902e3b46), [`40c4fbb`](https://github.com/justeattakeaway/pie/commit/40c4fbb19250c76fe640858f9589b778043e8df4), [`1e5f6ea`](https://github.com/justeattakeaway/pie/commit/1e5f6ea9e982ffac8a56be2f6d554b677bdf72e7)]:
+  - @justeattakeaway/pie-icon-button@2.1.0
+  - @justeattakeaway/pie-modal@1.14.1
+  - @justeattakeaway/pie-button@1.7.0
+  - @justeattakeaway/pie-select@0.7.0
+  - @justeattakeaway/pie-cookie-banner@1.6.21
+  - @justeattakeaway/pie-notification@0.16.2
+  - @justeattakeaway/pie-toast@0.12.2
+  - @justeattakeaway/pie-toast-provider@0.7.3
+
 ## 1.50.0
 
 ### Minor Changes

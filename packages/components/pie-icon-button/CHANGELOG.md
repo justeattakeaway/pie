@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icon-button
 
+## 2.1.0
+
+### Minor Changes
+
+- [Added] - Programmatic focus method that focuses the underlying button element. ([#2546](https://github.com/justeattakeaway/pie/pull/2546)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.0.6
 
 ### Patch Changes

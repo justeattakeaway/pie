@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-modal
 
+## 1.14.1
+
+### Patch Changes
+
+- [Fixed] - Correctly provide aria labels to pie-icon-button instances inside the modal. ([#2547](https://github.com/justeattakeaway/pie/pull/2547)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`40c4fbb`](https://github.com/justeattakeaway/pie/commit/40c4fbb19250c76fe640858f9589b778043e8df4), [`40c4fbb`](https://github.com/justeattakeaway/pie/commit/40c4fbb19250c76fe640858f9589b778043e8df4)]:
+  - @justeattakeaway/pie-icon-button@2.1.0
+  - @justeattakeaway/pie-button@1.7.0
+
 ## 1.14.0
 
 ### Minor Changes
