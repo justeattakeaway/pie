@@ -25,11 +25,11 @@
 }
 
 .c-assistiveText--success {
-    --assistive-text-color: var(--dt-color-content-positive);
+    --assistive-text-color: var(--dt-color-content-positive-solid);
 }
 
 .c-assistiveText--error {
-    --assistive-text-color: var(--dt-color-content-error);
+    --assistive-text-color: var(--dt-color-content-error-solid);
 }
 
 .c-assistiveText--isVisuallyHidden {

@@ -1,6 +1,7 @@
 ---
 "@justeattakeaway/pie-assistive-text": minor
 "@justeattakeaway/pie-icon-button": minor
+"@justeattakeaway/pie-notification": minor
 "@justeattakeaway/pie-form-label": minor
 "@justeattakeaway/pie-checkbox": minor
 "@justeattakeaway/pie-divider": minor

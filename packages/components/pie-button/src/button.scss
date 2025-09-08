@@ -32,7 +32,7 @@
     // The following values set to default background and color
     // currently this sets the primary button styles
     --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
-    --btn-text-color: var(--dt-color-content-interactive-light);
+    --btn-text-color: var(--dt-color-content-interactive-light-solid);
     --icon-display-override: block;
 
     // Vertical and horizontal padding values for the button
@@ -139,7 +139,7 @@
             * update the button backgrounds so that the text is accessible
             **/
             --int-states-mixin-bg-color: var(--dt-color-interactive-primary);
-            --btn-text-color: var(--dt-color-content-interactive-primary);
+            --btn-text-color: var(--dt-color-content-interactive-primary-solid);
 
             @include p.interactive-states('--dt-color-interactive-primary', 'inverse', '02');
         }
@@ -213,7 +213,7 @@
 
     &.o-btn--destructive-ghost {
         --int-states-mixin-bg-color: transparent;
-        --btn-text-color: var(--dt-color-content-interactive-error);
+        --btn-text-color: var(--dt-color-content-interactive-error-solid);
 
         @include p.interactive-states('--dt-color-transparent', 'transparent', '01');
     }

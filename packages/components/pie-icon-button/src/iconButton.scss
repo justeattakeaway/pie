@@ -59,7 +59,7 @@
 
     &.o-iconBtn--outline {
         --int-states-mixin-bg-color: transparent;
-        --btn-icon-fill: var(--dt-color-content-interactive-brand);
+        --btn-icon-fill: var(--dt-color-content-interactive-brand-solid);
 
         border: 1px solid var(--dt-color-border-strong);
 
@@ -68,7 +68,7 @@
 
     &.o-iconBtn--ghost {
         --int-states-mixin-bg-color: transparent;
-        --btn-icon-fill: var(--dt-color-content-interactive-brand);
+        --btn-icon-fill: var(--dt-color-content-interactive-brand-solid);
 
         @include p.interactive-states('--dt-color-transparent', 'transparent');
     }
@@ -82,7 +82,7 @@
 
     &.o-iconBtn--inverse {
         --int-states-mixin-bg-color: var(--dt-color-interactive-inverse);
-        --btn-icon-fill: var(--dt-color-content-interactive-brand);
+        --btn-icon-fill: var(--dt-color-content-interactive-brand-solid);
 
         @include p.interactive-states('--dt-color-interactive-inverse');
     }
