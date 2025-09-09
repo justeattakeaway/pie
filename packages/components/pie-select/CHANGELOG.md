@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-select
 
+## 0.7.0
+
+### Minor Changes
+
+- [Added] - value property ([#2543](https://github.com/justeattakeaway/pie/pull/2543)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.6.11
 
 ### Patch Changes
