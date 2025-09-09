@@ -542,7 +542,6 @@ export class PieModal extends PieElement implements ModalProps {
             id="dialog"
             aria-label="${ifDefined(ariaLabelForLoading)}"
             aria-labelledby="${ifDefined(ariaLabelForLoading ? undefined : 'modal-heading')}"
-            aria-modal="true"
             class="${classMap(modalClasses)}"
             aria-live="polite"
             aria-busy="${isLoading ? 'true' : 'false'}"
