@@ -39,6 +39,7 @@ const defaultArgs: ModalProps = {
     aria: {
         back: 'Back',
         close: 'Close',
+        loading: 'Loading',
     },
 };
 

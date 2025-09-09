@@ -84,7 +84,7 @@ export class PieModal extends PieElement implements ModalProps {
     public isFullWidthBelowMid = defaultProps.isFullWidthBelowMid;
 
     @property({ type: Boolean, reflect: true })
-    public isLoading: ModalProps['isLoading'];
+    public isLoading = defaultProps.isLoading;
 
     @property({ type: Boolean })
     public isOpen = defaultProps.isOpen;
@@ -516,6 +516,7 @@ export class PieModal extends PieElement implements ModalProps {
 
     render () {
         const {
+            aria,
             isDismissible,
             isFooterPinned,
             isFullWidthBelowMid,
@@ -534,14 +535,17 @@ export class PieModal extends PieElement implements ModalProps {
             'c-modal--fullWidthBelowMid': isFullWidthBelowMid,
         };
 
+        const ariaLabelForLoading = (isLoading && aria?.loading) || undefined;
+
         return html`
         <dialog
             id="dialog"
-            aria-labelledby="modal-heading"
+            aria-label="${ifDefined(ariaLabelForLoading)}"
+            aria-labelledby="${ifDefined(ariaLabelForLoading ? undefined : 'modal-heading')}"
             aria-modal="true"
             class="${classMap(modalClasses)}"
             aria-live="polite"
-            aria-busy="${ifDefined(isLoading)}"
+            aria-busy="${isLoading ? 'true' : 'false'}"
             data-test-id="pie-modal">
             <header class="c-modal-header" data-test-id="modal-header">
                 ${this.renderBackButton()}
