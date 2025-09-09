@@ -162,3 +162,7 @@ const outlinePropOptions = {
 export const DefaultPropVariations = createVariantStory<Omit<ChipProps, 'aria'> >(Template, defaultPropOptions);
 export const GhostPropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, ghostPropOptions);
 export const OutlinePropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, outlinePropOptions);
+
+export const DefaultCheckboxPropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, { ...defaultPropOptions, type: ['checkbox'] });
+export const GhostCheckboxPropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, { ...ghostPropOptions, type: ['checkbox'] });
+export const OutlineCheckboxPropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, { ...outlinePropOptions, type: ['checkbox'] });
