@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.7.0
+
+### Minor Changes
+
+- [Fixed] - Ensure focus method works when the tag is an anchor. ([#2546](https://github.com/justeattakeaway/pie/pull/2546)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.6.7
 
 ### Patch Changes
