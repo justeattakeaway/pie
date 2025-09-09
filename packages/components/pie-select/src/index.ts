@@ -159,6 +159,11 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
      * @param event - The change event.
      */
     private _handleChange = (event: Event) => {
+        // Update value state
+        const { value } = this._select;
+        this._value = value;
+        this._internals.setFormValue(value);
+
         // We have to create our own change event because the native one
         // does not penetrate the shadow boundary.
 
@@ -166,8 +171,6 @@ export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements
         // Reference: https://javascript.info/shadow-dom-events#event-composed
         const customChangeEvent = wrapNativeEvent(event);
         this.dispatchEvent(customChangeEvent);
-
-        this._internals.setFormValue(this._select.value);
     };
 
     private _handleLeadingIconSlotchange () {
