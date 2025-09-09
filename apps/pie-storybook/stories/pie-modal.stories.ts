@@ -255,11 +255,11 @@ const FormStoryTemplate = (props: ModalProps) => {
             @pie-modal-open="${openAction}"
             @pie-modal-back="${backClickAction}">
                 <form id="testForm" style="display:flex; flex-direction:column;">
-                    <pie-form-label for="name">Name</pie-form-label>
-                    <pie-text-input id="name" name="name"></pie-text-input>
+                    <pie-form-label id="name-label" for="name">Name</pie-form-label>
+                    <pie-text-input aria-labelledby="name-label" autofocus id="name" name="name"></pie-text-input>
 
-                    <pie-form-label for="age">Age</pie-form-label>
-                    <pie-text-input id="age" name="age"></pie-text-input>
+                    <pie-form-label id="age-label" for="age">Age</pie-form-label>
+                    <pie-text-input aria-labelledby="age-label" id="age" name="age"></pie-text-input>
 
                     <pie-button style="margin-top: var(--dt-spacing-d);">Submit</pie-button>
                 </form>
