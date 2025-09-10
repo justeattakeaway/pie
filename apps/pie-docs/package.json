@@ -46,6 +46,7 @@
     "@justeattakeaway/browserslist-config-pie": "0.2.1",
     "@justeattakeaway/pie-css": "0.21.0",
     "@justeattakeaway/pie-icons": "5.15.0",
+    "@justeattakeaway/pie-icons-webc": "1.14.2",
     "@justeattakeaway/pie-webc": "0.7.19",
     "@lit-labs/eleventy-plugin-lit": "1.0.5",
     "@lit-labs/ssr-client": "1.1.7",
