@@ -4,7 +4,7 @@ test.beforeEach(async ({ page, baseURL }) => {
     await page.goto(baseURL);
 });
 
-test.describe('PIE - Back to top button - @desktop', () => {
+test.describe.only('PIE - Back to top button - @desktop', () => {
     test('should not display at the top of the page', async ({ page }) => {
         // Arrange & Act
         const button = await page.getByTestId('scroll-to-top');
@@ -64,7 +64,7 @@ test.describe('PIE - Back to top button - @desktop', () => {
         await page.click('[data-test-id="scroll-to-top"]');
 
         // Assert
-        const focusedElement = await page.locator(':focus');
-        await expect(focusedElement).toHaveAttribute('data-test-id', 'scroll-to-top');
+        const scrollToTop = await page.getByTestId('scroll-to-top');
+        await expect(scrollToTop).toBeFocused();
     });
 });
