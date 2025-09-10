@@ -4,7 +4,7 @@ test.beforeEach(async ({ page, baseURL }) => {
     await page.goto(baseURL);
 });
 
-test.describe.only('PIE - Back to top button - @desktop', () => {
+test.describe('PIE - Back to top button - @desktop', () => {
     test('should not display at the top of the page', async ({ page }) => {
         // Arrange & Act
         const button = await page.getByTestId('scroll-to-top');
