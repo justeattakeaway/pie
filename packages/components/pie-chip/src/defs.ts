@@ -50,16 +50,6 @@ export interface ChipProps {
  */
 export const ON_CHIP_CLOSE_EVENT = 'pie-chip-close';
 
-/**
- * Event name for when the chip is selected (for checkbox type).
- */
-export const ON_CHIP_SELECTED_EVENT = 'pie-chip-selected';
-
-/**
- * Event name for when the chip is clicked (for button type).
- */
-export const ON_CHIP_CLICKED_EVENT = 'pie-chip-clicked';
-
 export type DefaultProps = ComponentDefaultProps<ChipProps, keyof Omit<ChipProps, 'aria'>>;
 
 export const defaultProps: DefaultProps = {
