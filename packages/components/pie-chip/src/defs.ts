@@ -38,7 +38,7 @@ export interface ChipProps {
     isDismissible?: boolean;
 
     /**
-     * Sets the functional type of the chip. Currently, only `checkbox` is supported.
+     * Sets the functional type of the chip. Can be `button` or `checkbox`. Defaults to `button`.
      */
     type?: typeof types[number];
 }
