@@ -103,14 +103,7 @@ const chipStoryMeta: ChipStoryMeta = {
 export default chipStoryMeta;
 
 const closeAction = action('pie-chip-close');
-const selectAction = action('pie-chip-selected');
-const clickAction = action('pie-chip-clicked');
-
-const toggleSelected = (e: Event, storybookAction: (e: Event) => void) => {
-    storybookAction(e);
-    const chip = e.target as HTMLElement & { isSelected: boolean };
-    chip.isSelected = !chip.isSelected;
-};
+const changeAction = action('change');
 
 const Template: TemplateFunction<ChipProps> = ({
     aria,
@@ -132,8 +125,7 @@ const Template: TemplateFunction<ChipProps> = ({
                 variant="${ifDefined(variant)}"
                 type="${ifDefined(type)}"
                 @pie-chip-close="${closeAction}"
-                @pie-chip-selected="${selectAction}"
-                @pie-chip-clicked="${clickAction}"
+                @change=${changeAction}
                 >
                     ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
                     ${sanitizeAndRenderHTML(slot)}
@@ -149,15 +141,15 @@ const CheckboxGroupTemplate: TemplateFunction<ChipProps> = () => html`
     <fieldset style="border: none; padding: 0;">
         <legend style="padding-bottom: 8px; font-weight: bold;">Select your interests</legend>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <pie-chip type="checkbox" @pie-chip-selected="${selectAction}">Chip 1</pie-chip>
-            <pie-chip type="checkbox" ?isSelected=${true} @pie-chip-selected="${selectAction}">Chip 2</pie-chip>
-            <pie-chip type="checkbox" ?disabled=${true} @pie-chip-selected="${selectAction}">Chip 3 (Disabled)</pie-chip>
-            <pie-chip type="checkbox" ?disabled=${true} ?isSelected=${true} @pie-chip-selected="${selectAction}">Chip 4 (Disabled and Selected)</pie-chip>
-            <pie-chip type="checkbox" @pie-chip-selected="${selectAction}">
+            <pie-chip type="checkbox" @change=${changeAction}>Chip 1</pie-chip>
+            <pie-chip type="checkbox" ?isSelected=${true} @change=${changeAction}>Chip 2</pie-chip>
+            <pie-chip type="checkbox" ?disabled=${true} @change=${changeAction}>Chip 3 (Disabled)</pie-chip>
+            <pie-chip type="checkbox" ?disabled=${true} ?isSelected=${true} @change=${changeAction}>Chip 4 (Disabled and Selected)</pie-chip>
+            <pie-chip type="checkbox" @change=${changeAction}>
                 <icon-heart-filled slot="icon"></icon-heart-filled>
                 Chip 5
             </pie-chip>
-            <pie-chip type="checkbox" ?isSelected=${true} @pie-chip-selected="${selectAction}">
+            <pie-chip type="checkbox" ?isSelected=${true} @change=${changeAction}>
                 <icon-heart-filled slot="icon"></icon-heart-filled>
                 Chip 6
             </pie-chip>
@@ -169,14 +161,14 @@ export const SelectableCheckboxGroup = createStory<ChipProps>(CheckboxGroupTempl
 
 const ButtonGroupTemplate: TemplateFunction<ChipProps> = () => html`
     <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-        <pie-chip type="button" @pie-chip-clicked="${(e: Event) => toggleSelected(e, clickAction)}">Chip 1</pie-chip>
-        <pie-chip type="button" @pie-chip-clicked="${(e: Event) => toggleSelected(e, clickAction)}">Chip 2</pie-chip>
-        <pie-chip type="button" ?disabled=${true} @pie-chip-clicked="${clickAction}">Chip 3 (Disabled)</pie-chip>
-        <pie-chip type="button" @pie-chip-clicked="${(e: Event) => toggleSelected(e, clickAction)}">
+        <pie-chip type="button" @change=${changeAction}>Chip 1</pie-chip>
+        <pie-chip type="button" @change=${changeAction}>Chip 2</pie-chip>
+        <pie-chip type="button" ?disabled=${true} @change=${changeAction}>Chip 3 (Disabled)</pie-chip>
+        <pie-chip type="button" @change=${changeAction}>
             <icon-heart-filled slot="icon"></icon-heart-filled>
             Chip 4
         </pie-chip>
-        <pie-chip type="button" @pie-chip-clicked="${(e: Event) => toggleSelected(e, clickAction)}">
+        <pie-chip type="button" @change=${changeAction}>
             <icon-heart-filled slot="icon"></icon-heart-filled>
             Chip 5
         </pie-chip>

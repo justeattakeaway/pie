@@ -4,6 +4,11 @@
     display: inline-block;
 }
 
+:host([disabled]),
+:host([isLoading]) {
+    pointer-events: none;
+}
+
 .c-chip {
     --int-states-mixin-bg-color: var(--dt-color-interactive-secondary);
     --chip-color: var(--dt-color-content-interactive-secondary);

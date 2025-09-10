@@ -100,6 +100,11 @@ export default chipStoryMeta;
 const clickAction = () => {
     console.info('pie-chip clicked');
 };
+
+const changeAction = () => {
+    console.info('pie-chip change');
+};
+
 const closeAction = () => {
     console.info('pie-chip-close clicked');
 };
@@ -124,7 +129,8 @@ const Template: TemplateFunction<ChipProps> = ({
                 variant="${ifDefined(variant)}"
                 type="${ifDefined(type)}"
                 @pie-chip-close="${closeAction}"
-                @click="${clickAction}">
+                @change=${type === 'checkbox' ? changeAction : undefined}
+                @click=${type === 'button' ? clickAction : undefined}>
                     ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
                     ${sanitizeAndRenderHTML(slot)}
         </pie-chip>`;

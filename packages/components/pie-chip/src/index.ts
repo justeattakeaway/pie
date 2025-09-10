@@ -1,5 +1,6 @@
 import {
     html, unsafeCSS, type TemplateResult, nothing,
+    LitElement,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property } from 'lit/decorators.js';
@@ -16,8 +17,6 @@ import {
     variants,
     types,
     ON_CHIP_CLOSE_EVENT,
-    ON_CHIP_SELECTED_EVENT,
-    ON_CHIP_CLICKED_EVENT,
     defaultProps,
 } from './defs';
 import '@justeattakeaway/pie-icons-webc/dist/IconCloseCircleFilled.js';
@@ -33,11 +32,12 @@ const componentSelector = 'pie-chip';
  * @slot icon - The icon slot
  * @slot - Default slot
  * @event {CustomEvent} pie-chip-close - when a user clicks the close button.
- * @event {CustomEvent} pie-chip-selected - when the chip is selected (for checkboxes).
- * @event {CustomEvent} pie-chip-clicked - when the chip is clicked (for buttons).
+ * @event {Event} change - when `isSelected` state is changed via clicking on the chip.
  */
 @safeCustomElement('pie-chip')
 export class PieChip extends PieElement implements ChipProps {
+    static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
+
     private readonly _id = `pie-chip-${crypto.randomUUID()}`;
 
     @property({ type: String })
@@ -69,21 +69,26 @@ export class PieChip extends PieElement implements ChipProps {
      * @private
      */
     private _onCheckboxChange (event: Event) {
-        if (this.disabled || this.isLoading) {
-            return;
-        }
-
         const target = event.target as HTMLInputElement;
         this.isSelected = target.checked;
-        dispatchCustomEvent(this, ON_CHIP_SELECTED_EVENT, { isSelected: this.isSelected });
+
+        // Create and dispatch a new 'change' event to ensure it bubbles and is composed.
+        // This is because the original event from the input does not bubble past the shadow DOM boundary.
+        const changeEvent = new Event('change', { bubbles: true, composed: true });
+
+        this.dispatchEvent(changeEvent);
     }
 
-    private _onButtonClick () : void {
-        if (this.disabled || this.isLoading) {
-            return;
-        }
+    /**
+     * Handles the click event for the button type.
+     * Toggles the isSelected property and dispatches a 'change' event.
+     * @private
+     */
+    private _onButtonToggle () {
+        this.isSelected = !this.isSelected;
 
-        dispatchCustomEvent(this, ON_CHIP_CLICKED_EVENT);
+        const changeEvent = new Event('change', { bubbles: true, composed: true });
+        this.dispatchEvent(changeEvent);
     }
 
     /**
@@ -182,7 +187,7 @@ export class PieChip extends PieElement implements ChipProps {
                 aria-label="${ifDefined(aria?.label)}"
                 ?disabled=${disabled}
                 data-test-id="pie-chip"
-                @click="${this._onButtonClick}">
+                @click="${this._onButtonToggle}">
                 ${this._renderContent()}
             </button>`;
     }

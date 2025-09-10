@@ -32,9 +32,9 @@ const setupPageWithChip = async (page: Page, props: Partial<ChipProps> = {}, eve
         await page.evaluate((event) => {
             window.eventLog = [];
             const component = document.querySelector('pie-chip') as HTMLElement;
-            component.addEventListener(event, (e) => {
-                // Store the detail if it exists, otherwise store the event name
-                window.eventLog.push((e as CustomEvent).detail?.isSelected ?? event);
+            component.addEventListener(event, () => {
+                // Store the event name
+                window.eventLog.push(event);
             });
         }, eventName);
     }
@@ -52,16 +52,16 @@ test.describe('PieChip - Component tests', () => {
     });
 
     test.describe('when type="button" (default)', () => {
-        test('should dispatch `pie-chip-clicked` event when clicked', async ({ page }) => {
+        test('should be able to listen to change event when clicked', async ({ page }) => {
             // Arrange
-            const chipComponent = await setupPageWithChip(page, { type: 'button' }, 'pie-chip-clicked');
+            const chipComponent = await setupPageWithChip(page, { type: 'button' }, 'change');
 
             // Act
             await chipComponent.click();
             const [emittedEvent] = await page.evaluate(() => window.eventLog);
 
             // Assert
-            expect(emittedEvent).toBe('pie-chip-clicked');
+            expect(emittedEvent).toBe('change');
         });
 
         test('should have the correct ARIA attributes', async ({ page }) => {
@@ -87,28 +87,28 @@ test.describe('PieChip - Component tests', () => {
     });
 
     test.describe('when type="checkbox"', () => {
-        test('should dispatch `pie-chip-selected` event with `isSelected: true` when selected', async ({ page }) => {
+        test('should be able to listen to change event when a selected checkbox chip is clicked', async ({ page }) => {
             // Arrange
-            const chipComponent = await setupPageWithChip(page, { type: 'checkbox' }, 'pie-chip-selected');
+            const chipComponent = await setupPageWithChip(page, { type: 'checkbox', isSelected: true }, 'change');
 
             // Act
             await chipComponent.click();
-            const eventPayload = await page.evaluate(() => window.eventLog[0]);
+            const [emittedEvent] = await page.evaluate(() => window.eventLog);
 
             // Assert
-            expect(eventPayload).toBe(true);
+            expect(emittedEvent).toBe('change');
         });
 
-        test('should dispatch `pie-chip-selected` event with `isSelected: false` when deselected', async ({ page }) => {
+        test('should be able to listen to change event when an unselected checkbox chip is clicked', async ({ page }) => {
             // Arrange
-            const chipComponent = await setupPageWithChip(page, { type: 'checkbox', isSelected: true }, 'pie-chip-selected');
+            const chipComponent = await setupPageWithChip(page, { type: 'checkbox', isSelected: false }, 'change');
 
             // Act
             await chipComponent.click();
-            const eventPayload = await page.evaluate(() => window.eventLog[0]);
+            const [emittedEvent] = await page.evaluate(() => window.eventLog);
 
             // Assert
-            expect(eventPayload).toBe(false);
+            expect(emittedEvent).toBe('change');
         });
 
         test('should have the correct ARIA attributes', async ({ page }) => {
@@ -197,9 +197,9 @@ test.describe('PieChip - Component tests', () => {
     });
 
     test.describe('when disabled', () => {
-        test('should not dispatch `pie-chip-clicked` event when a button chip is clicked', async ({ page }) => {
+        test('should not be able to listen to click event when a button chip is clicked', async ({ page }) => {
             // Arrange
-            const chipComponent = await setupPageWithChip(page, { type: 'button', disabled: true }, 'pie-chip-clicked');
+            const chipComponent = await setupPageWithChip(page, { type: 'button', disabled: true }, 'click');
 
             // Act
             await chipComponent.click({ force: true });
@@ -209,9 +209,21 @@ test.describe('PieChip - Component tests', () => {
             expect(events).toEqual([]);
         });
 
-        test('should not dispatch `pie-chip-selected` event when a checkbox chip is clicked', async ({ page }) => {
+        test('should not be able to listen to click event when a checkbox chip is clicked', async ({ page }) => {
             // Arrange
-            const chipComponent = await setupPageWithChip(page, { type: 'checkbox', disabled: true }, 'pie-chip-selected');
+            const chipComponent = await setupPageWithChip(page, { type: 'checkbox', disabled: true }, 'click');
+
+            // Act
+            await chipComponent.click({ force: true });
+            const events = await page.evaluate(() => window.eventLog);
+
+            // Assert
+            expect(events).toEqual([]);
+        });
+
+        test('should not be able to listen to change event when a checkbox chip is clicked', async ({ page }) => {
+            // Arrange
+            const chipComponent = await setupPageWithChip(page, { type: 'checkbox', disabled: true }, 'change');
 
             // Act
             await chipComponent.click({ force: true });
@@ -250,9 +262,9 @@ test.describe('PieChip - Component tests', () => {
     });
 
     test.describe('when isLoading', () => {
-        test('should not dispatch `pie-chip-clicked` event when a button chip is clicked', async ({ page }) => {
+        test('should not be able to listen to click event when a button chip is clicked', async ({ page }) => {
             // Arrange
-            const chipComponent = await setupPageWithChip(page, { type: 'button', isLoading: true }, 'pie-chip-clicked');
+            const chipComponent = await setupPageWithChip(page, { type: 'button', isLoading: true }, 'click');
 
             // Act
             await chipComponent.click({ force: true });
@@ -262,9 +274,21 @@ test.describe('PieChip - Component tests', () => {
             expect(events).toEqual([]);
         });
 
-        test('should not dispatch `pie-chip-selected` event when a checkbox chip is clicked', async ({ page }) => {
+        test('should not be able to listen to click event when a checkbox chip is clicked', async ({ page }) => {
             // Arrange
-            const chipComponent = await setupPageWithChip(page, { type: 'checkbox', isLoading: true }, 'pie-chip-selected');
+            const chipComponent = await setupPageWithChip(page, { type: 'checkbox', isLoading: true }, 'click');
+
+            // Act
+            await chipComponent.click({ force: true });
+            const events = await page.evaluate(() => window.eventLog);
+
+            // Assert
+            expect(events).toEqual([]);
+        });
+
+        test('should not be able to listen to change event when a checkbox chip is clicked', async ({ page }) => {
+            // Arrange
+            const chipComponent = await setupPageWithChip(page, { type: 'checkbox', isLoading: true }, 'change');
 
             // Act
             await chipComponent.click({ force: true });
