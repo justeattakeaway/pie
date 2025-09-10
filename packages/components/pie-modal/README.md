@@ -19,6 +19,9 @@
   - [Events](#events)
 - [Legacy browser support](#legacy-browser-support)
 - [Usage Examples](#usage-examples)
+- [Accessibility](#accessibility)
+  - [The `<dialog>` element](#the-dialog-element)
+  - [Focus management](#focus-management)
 - [Questions and Support](#questions-and-support)
 - [Contributing](#contributing)
 
@@ -139,6 +142,14 @@ import { PieModal } from '@justeattakeaway/pie-webc/react/modal.js';
 
 <PieModal heading='My Awesome Heading' headingLevel='h3'>Click me!</PieModal>
 ```
+## Accessibility
+
+### The `<dialog>` element
+The Modal component is built using an `html` `<dialog>` element. This element provides some nice accessibility features out of the box. More can be learned [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog). Perhaps the most important to know is that it will make all content outside of the modal inaccessible to the keyboard and screen readers.
+What the `<dialog>` does not provide is a circular focus trap. Instead, users can tab/keyboard navigate outside of the web page to access browser controls. Circular focus traps, i.e. going back to the first focusable element inside of the modal after reaching the last, are not a pattern we currently support, as this goes against the build-in behaviour of the element.
+
+### Focus management
+By default, the `<dialog>` element will automatically focus the first focusable element inside of it when opened. Because our Modal can have close and back buttons, these will likely receive focus when opening the modal. To circumvent this, we would suggest using the `autofocus` attribute on the first element you'd like to receive focus when the modal opens. Please be aware that Safari does not support the `autofocus` attribute, so you may need to manage focus manually in this browser.
 
 ## Questions and Support
 
