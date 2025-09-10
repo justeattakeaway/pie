@@ -15,7 +15,7 @@ variants.forEach((variant) => test(`should render all prop variations for Varian
     await percySnapshot(page, `PIE Chip - Variant: ${variant}`, percyWidths);
 }));
 
-variants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
+variants.forEach((variant) => test(`should render all prop variations for Variant: ${variant} when type='checkbox'`, async ({ page }) => {
     const basePage = new BasePage(page, `chip--${variant}-checkbox-prop-variations`);
 
     basePage.load();
