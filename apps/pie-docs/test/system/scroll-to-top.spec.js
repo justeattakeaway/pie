@@ -64,7 +64,7 @@ test.describe('PIE - Back to top button - @desktop', () => {
         await page.click('[data-test-id="scroll-to-top"]');
 
         // Assert
-        const focusedElement = await page.locator(':focus');
-        await expect(focusedElement).toHaveAttribute('data-test-id', 'scroll-to-top');
+        const scrollToTop = await page.getByTestId('scroll-to-top');
+        await expect(scrollToTop).toBeFocused();
     });
 });
