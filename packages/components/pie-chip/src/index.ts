@@ -232,11 +232,9 @@ export class PieChip extends PieElement implements ChipProps {
                 data-test-id="chip-static"
                 role="${ifDefined(showCloseButton ? undefined : 'button')}"
                 tabindex="${ifDefined(showCloseButton ? undefined : '0')}"
-                aria-atomic="true"
                 aria-busy="${isLoading}"
                 aria-current="${isSelected}"
                 aria-label="${ifDefined(this.aria?.label)}"
-                aria-live="polite"
                 class=${classMap(classes)}
                 data-test-id="pie-chip"
                 @click="${onClickHandler}">

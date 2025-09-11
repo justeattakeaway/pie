@@ -150,8 +150,6 @@ test.describe('PieChip - Component tests', () => {
             const chipStatic = chipComponent.getByTestId(chip.selectors.static.dataTestId);
 
             // Assert
-            await expect(chipStatic).toHaveAttribute('aria-live', 'polite');
-            await expect(chipStatic).toHaveAttribute('aria-atomic', 'true');
             await expect(chipStatic).toHaveAttribute('aria-label', 'Dismissible Chip');
             await expect(chipStatic).toHaveAttribute('aria-current', 'true');
         });
