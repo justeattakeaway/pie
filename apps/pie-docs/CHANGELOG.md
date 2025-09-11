@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.49.0
+
+### Minor Changes
+
+- [Changed] - use pie-button instead of fozzie buttons in the docs site ([#2560](https://github.com/justeattakeaway/pie/pull/2560)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - update the base notification shortcode to use pie-notification ([#2559](https://github.com/justeattakeaway/pie/pull/2559)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.20
+
 ## 4.48.1
 
 ### Patch Changes

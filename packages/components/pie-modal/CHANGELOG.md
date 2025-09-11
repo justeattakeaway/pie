@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 1.15.0
+
+### Minor Changes
+
+- [Changed] - Ensure screen readers announce modal labels and add aria-label property. Add aria-live="polite" so loading content is correctly announced by screen readers. ([#2551](https://github.com/justeattakeaway/pie/pull/2551)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.14.1
 
 ### Patch Changes

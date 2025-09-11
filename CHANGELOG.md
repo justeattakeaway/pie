@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.90.0
+
+### Minor Changes
+
+- [Changed] - update the base notification shortcode to use pie-notification ([#2559](https://github.com/justeattakeaway/pie/pull/2559)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 2.89.0
 
 ### Minor Changes
