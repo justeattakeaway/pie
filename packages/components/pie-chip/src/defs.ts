@@ -43,13 +43,6 @@ export interface ChipProps {
     type?: typeof types[number];
 }
 
-/**
- * Event name for when the chip is closed.
- *
- * @constant
- */
-export const ON_CHIP_CLOSE_EVENT = 'pie-chip-close';
-
 export type DefaultProps = ComponentDefaultProps<ChipProps, keyof Omit<ChipProps, 'aria'>>;
 
 export const defaultProps: DefaultProps = {
