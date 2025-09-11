@@ -1,6 +1,5 @@
 import {
     html, unsafeCSS, nothing,
-    LitElement,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query, state } from 'lit/decorators.js';
@@ -11,6 +10,7 @@ import 'element-internals-polyfill';
 import {
     validPropertyValues,
     FormControlMixin,
+    DelegatesFocusMixin,
     wrapNativeEvent,
     safeCustomElement,
     type PIEInputElement,
@@ -30,7 +30,7 @@ const componentSelector = 'pie-switch';
  * @event {CustomEvent} change - when the switch checked state is changed.
  */
 @safeCustomElement('pie-switch')
-export class PieSwitch extends FormControlMixin(PieElement) implements SwitchProps, PIEInputElement {
+export class PieSwitch extends FormControlMixin(DelegatesFocusMixin(PieElement)) implements SwitchProps, PIEInputElement {
     @property({ type: String })
     public label: SwitchProps['label'];
 
@@ -64,8 +64,6 @@ export class PieSwitch extends FormControlMixin(PieElement) implements SwitchPro
 
     @state()
     private _isAnimationAllowed = false;
-
-    static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     protected firstUpdated (): void {
         this.handleFormAssociation();

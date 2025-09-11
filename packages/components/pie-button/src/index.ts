@@ -1,6 +1,5 @@
 import {
     html, unsafeCSS, nothing, type PropertyValues, type TemplateResult,
-    LitElement,
 } from 'lit';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -8,7 +7,9 @@ import { property } from 'lit/decorators.js';
 import 'element-internals-polyfill';
 
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { validPropertyValues, FormControlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
+import {
+    validPropertyValues, FormControlMixin, safeCustomElement, DelegatesFocusMixin,
+} from '@justeattakeaway/pie-webc-core';
 
 import '@justeattakeaway/pie-spinner';
 import { type SpinnerProps } from '@justeattakeaway/pie-spinner';
@@ -29,7 +30,7 @@ const componentSelector = 'pie-button';
  * @slot - Default slot
  */
 @safeCustomElement('pie-button')
-export class PieButton extends FormControlMixin(PieElement) implements ButtonProps {
+export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement)) implements ButtonProps {
     connectedCallback () {
         super.connectedCallback();
 
@@ -121,8 +122,6 @@ export class PieButton extends FormControlMixin(PieElement) implements ButtonPro
 
     @property({ type: String })
     public target: ButtonProps['target'];
-
-    static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     /**
      * This method creates an invisible button of the same type as pie-button. It is then clicked, and immediately removed from the DOM.
