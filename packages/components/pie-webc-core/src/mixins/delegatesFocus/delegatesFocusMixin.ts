@@ -47,7 +47,5 @@ export const DelegatesFocusMixin =
             };
         }
 
-        // The mixin only adds a static property, not any new instance members,
-        // so the original type `T` is returned.
         return DelegatesFocusElement as T;
     };
