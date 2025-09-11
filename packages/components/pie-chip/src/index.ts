@@ -8,7 +8,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
 
 import {
-    validPropertyValues, dispatchCustomEvent,
+    validPropertyValues,
     safeCustomElement,
 } from '@justeattakeaway/pie-webc-core';
 import styles from './chip.scss?inline';
@@ -16,7 +16,6 @@ import {
     type ChipProps,
     variants,
     types,
-    ON_CHIP_CLOSE_EVENT,
     defaultProps,
 } from './defs';
 import '@justeattakeaway/pie-icons-webc/dist/IconCloseCircleFilled.js';
@@ -31,7 +30,7 @@ const componentSelector = 'pie-chip';
  * @tagname pie-chip
  * @slot icon - The icon slot
  * @slot - Default slot
- * @event {CustomEvent} pie-chip-close - when a user clicks the close button.
+ * @event {Event} close - when a user clicks the close button.
  * @event {Event} change - when `isSelected` state is changed via clicking on the chip.
  */
 @safeCustomElement('pie-chip')
@@ -224,7 +223,8 @@ export class PieChip extends PieElement implements ChipProps {
         };
 
         const handleCloseButtonClick = () : void => {
-            dispatchCustomEvent(this, ON_CHIP_CLOSE_EVENT);
+            const closeEvent = new Event('close', { bubbles: true, composed: true });
+            this.dispatchEvent(closeEvent);
         };
 
         return html`

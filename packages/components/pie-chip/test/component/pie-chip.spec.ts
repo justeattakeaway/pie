@@ -127,9 +127,9 @@ test.describe('PieChip - Component tests', () => {
     });
 
     test.describe('Dismissible variant', () => {
-        test('close button should emit the `pie-chip-close` event when clicked', async ({ page }) => {
+        test('close button should emit the `close` event when clicked', async ({ page }) => {
             // Arrange
-            const chipComponent = await setupPageWithChip(page, dismissibleProps, 'pie-chip-close');
+            const chipComponent = await setupPageWithChip(page, dismissibleProps, 'close');
             const closeButton = chipComponent.getByTestId(chip.selectors.closeButton.dataTestId);
 
             // Act
@@ -137,7 +137,7 @@ test.describe('PieChip - Component tests', () => {
             const [emittedEvent] = await page.evaluate(() => window.eventLog);
 
             // Assert
-            expect(emittedEvent).toBe('pie-chip-close');
+            expect(emittedEvent).toBe('close');
         });
 
         test('should have the correct static ARIA attributes', async ({ page }) => {
