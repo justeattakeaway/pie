@@ -56,7 +56,7 @@ This component does not expose any CSS variables for style overrides.
 | Event             | Type          | Description                                         |
 |-------------------|---------------|-----------------------------------------------------|
 | `change`  | `Event` | Triggered when the user clicks on the chip. When a chip is clicked, it will toggle the `isSelected` state and emit this event. Will not occur if the chip is disabled or loading.       |
-| `pie-chip-close`  | `CustomEvent` | Triggered when the user interacts with the close icon. |
+| `close`  | `Event` | Triggered when the user interacts with the close icon. |
 
 Visit  [Chip | PIE Design System](https://pie.design/components/chip) to view more information on this component.
 
