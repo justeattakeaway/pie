@@ -3976,6 +3976,8 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": 0.21.0
     lit: 3.2.0
+  peerDependencies:
+    "@justeattakeaway/pie-css": 0.21.0
   languageName: unknown
   linkType: soft
 
