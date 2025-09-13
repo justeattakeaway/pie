@@ -5,7 +5,7 @@ eleventyNavigation:
     order: 2
 ---
 ## Static spacing
-Static spacing tokens are used in instances where spacing inside, between or around components needs to be the same regardless of the the size of the viewport.
+Static spacing tokens are used in instances where spacing inside, between or around components needs to be the same regardless of the size of the viewport.
 
 ---
 
