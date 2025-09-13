@@ -283,7 +283,7 @@ Use sentence-style capitalisation (only the first world in a phrase and any prop
 
 ### Singular word overflow
 
-When a single word extends beyond the the available horizontal space, the word truncates and an ellipsis is displayed.
+When a single word extends beyond the available horizontal space, the word truncates and an ellipsis is displayed.
 
 {% contentPageImage {
     src:"../../../assets/img/components/button/overflow-singular.svg",

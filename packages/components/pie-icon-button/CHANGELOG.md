@@ -749,7 +749,7 @@
 
 ### Minor Changes
 
-- [Changed] - Added slot info the the readme and peerDep added ([#604](https://github.com/justeattakeaway/pie/pull/604)) by [@ashleynolan](https://github.com/ashleynolan)
+- [Changed] - Added slot info the readme and peerDep added ([#604](https://github.com/justeattakeaway/pie/pull/604)) by [@ashleynolan](https://github.com/ashleynolan)
 
 - [Changed] - Ensure component implements it's props interface ([#611](https://github.com/justeattakeaway/pie/pull/611)) by [@jamieomaguire](https://github.com/jamieomaguire)
 
