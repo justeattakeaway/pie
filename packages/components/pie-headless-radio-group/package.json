@@ -21,8 +21,6 @@
     "create:manifest": "yarn cem analyze --litelement",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
-    "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
-    "lint:style:fix": "yarn lint:style --fix",
     "watch": "run -T vite build --watch",
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
@@ -35,7 +33,7 @@
     "@custom-elements-manifest/analyzer": "0.9.0",
     "@justeattakeaway/pie-components-config": "0.21.0",
     "@justeattakeaway/pie-css": "0.21.0",
-    "@justeattakeaway/pie-monorepo-utils": "0.7.0",
+    "@justeattakeaway/pie-monorepo-utils": "0.7\.0",
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
