@@ -206,14 +206,18 @@ export class PieHeadlessRadioGroup extends LitElement {
             const enabledRadios = this._radioButtons.filter((rb) => !rb.disabled);
             if (enabledRadios.length === 0) return;
 
-            const currentIndex = enabledRadios.findIndex((rb) => rb.checked);
+            // Find the currently focused radio, NOT the checked one, for robust navigation.
+            const currentFocusedIndex = enabledRadios.findIndex((rb) => rb === document.activeElement);
 
             let nextIndex;
-            if (currentIndex === -1) {
+
+            // If no radio is focused (e.g., tabbing into the group), or if the focused item
+            // is not in our list, default to the first available radio.
+            if (currentFocusedIndex === -1) {
                 nextIndex = direction === 1 ? 0 : enabledRadios.length - 1;
             } else {
                 const numRadios = enabledRadios.length;
-                nextIndex = (currentIndex + direction + numRadios) % numRadios;
+                nextIndex = (currentFocusedIndex + direction + numRadios) % numRadios;
             }
 
             this.value = enabledRadios[nextIndex].value;
@@ -266,4 +270,3 @@ declare global {
         'pie-headless-radio-button': PieHeadlessRadioButton;
     }
 }
-
