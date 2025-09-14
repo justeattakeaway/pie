@@ -12,8 +12,6 @@ import { property, queryAssignedElements } from 'lit/decorators.js';
 // Valid values available to consumers
 export * from './defs';
 
-let radioGroupCounter = 0;
-
 /**
  * A headless radio button component. It provides the logic and accessibility
  * for a radio button, but allows for any presentational markup via slots.
@@ -71,7 +69,7 @@ export class PieHeadlessRadioGroup extends LitElement {
     @queryAssignedElements({ selector: 'pie-headless-radio-button', flatten: true })
     private _radioButtons!: PieHeadlessRadioButton[];
 
-    private _groupId = `radio-group-${radioGroupCounter++}`;
+    private _groupId = `radio-group-${crypto.randomUUID()}`;
 
     connectedCallback () {
         super.connectedCallback();
@@ -202,4 +200,3 @@ declare global {
         'pie-headless-radio-button': PieHeadlessRadioButton;
     }
 }
-
