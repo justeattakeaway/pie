@@ -4,7 +4,7 @@ import { type Meta } from '@storybook/web-components';
 // Note: We are importing the components from a package,
 // so you will need to ensure `@justeattakeaway/pie-headless-radio-group` is installed.
 import '@justeattakeaway/pie-headless-radio-group';
-import { type HeadlessRadioGroupProps } from '@justeattakeaway/pie-headless-radio-group';
+import { type HeadlessRadioGroupProps, type PieHeadlessRadioButton } from '@justeattakeaway/pie-headless-radio-group';
 
 import { createStory } from '../utilities';
 
@@ -321,6 +321,7 @@ const sharedStyles = html`
     /* --- Dynamic Controls Style --- */
     .dynamic-controls {
         display: flex;
+        flex-wrap: wrap;
         gap: 0.5rem;
         margin-top: 1rem;
     }
@@ -426,7 +427,7 @@ const VerticalRTLTemplate = ({ name, value, label }: HeadlessRadioGroupProps): T
                         <span class="custom-radio-indicator"></span>
                         Standard
                     </span>
-                </pie-headless-radio-button>
+                </pipe-headless-radio-button>
                 <pie-headless-radio-button value="express">
                     <span class="radio-label">
                         <span class="custom-radio-indicator"></span>
@@ -539,7 +540,7 @@ const DynamicControlsTemplate = ({ name, value, label }: HeadlessRadioGroupProps
         const group = document.querySelector('#dynamic-group');
         if (group) {
             const radioCount = group.querySelectorAll('pie-headless-radio-button').length;
-            const newRadio = document.createElement('pie-headless-radio-button');
+            const newRadio = document.createElement('pie-headless-radio-button') as PieHeadlessRadioButton;
             newRadio.value = `dynamic-${radioCount + 1}`;
             newRadio.innerHTML = `
                 <span class="radio-label">
@@ -558,11 +559,29 @@ const DynamicControlsTemplate = ({ name, value, label }: HeadlessRadioGroupProps
         }
     };
 
+    const disableRandomRadio = () => {
+        const group = document.querySelector('#dynamic-group');
+        const radios = group?.querySelectorAll<PieHeadlessRadioButton>('pie-headless-radio-button:not([disabled])');
+        if (radios && radios.length > 0) {
+            const randomIndex = Math.floor(Math.random() * radios.length);
+            radios[randomIndex].disabled = true;
+        }
+    };
+
+    const enableRandomRadio = () => {
+        const group = document.querySelector('#dynamic-group');
+        const disabledRadios = group?.querySelectorAll<PieHeadlessRadioButton>('pie-headless-radio-button[disabled]');
+        if (disabledRadios && disabledRadios.length > 0) {
+            const randomIndex = Math.floor(Math.random() * disabledRadios.length);
+            disabledRadios[randomIndex].disabled = false;
+        }
+    };
+
     return html`
     ${sharedStyles}
     <div class="card">
         <h2>Dynamic Radios</h2>
-        <p>This example demonstrates how the radio group handles radio buttons being added or removed at runtime.</p>
+        <p>This example demonstrates how the radio group handles radio buttons being added, removed, enabled, or disabled at runtime.</p>
         <pie-headless-radio-group id="dynamic-group" .name=${name} .value=${value} .label=${label} class="vertical-group">
             <pie-headless-radio-button value="dynamic-1">
                 <span class="radio-label">
@@ -574,6 +593,8 @@ const DynamicControlsTemplate = ({ name, value, label }: HeadlessRadioGroupProps
         <div class="dynamic-controls">
             <button @click=${addRadio}>Add Radio</button>
             <button @click=${removeRadio}>Remove Radio</button>
+            <button @click=${disableRandomRadio}>Disable Random</button>
+            <button @click=${enableRandomRadio}>Enable Random</button>
         </div>
     </div>
     `;
