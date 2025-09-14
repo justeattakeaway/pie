@@ -1,8 +1,7 @@
+/* eslint-disable no-restricted-syntax */
 import { createWriteStream } from 'fs';
 import path from 'path';
 import fs from 'fs-extra';
-
-let componentSrc;
 
 // fetches custom-elements.json file
 export function loadCustomElementsFile (customElementsDirectory = process.argv[2] || process.cwd()) {
@@ -91,57 +90,51 @@ function formatEventName (eventName) {
         .join('');
 }
 
+// format tag names in a React friendly way - removes hyphens and capitalises
+// i.e. foo-bar-baz becomes FooBarBaz
+function kebabToPascalCase (str) {
+    return str
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join('');
+}
+
 /**
  * This function generates a react wrapper to enable custom lit components to be used in react apps.
  *
  * @param {JSON} - A JSON file of custom components and their attributes, generated from the @custom-elements-manifest/analyzer package
- * @param {string} - component folder name fetched from package.json script
  * @return {string} - The source code of the react wrapper
  *
  */
 export function addReactWrapper (customElementsObject) {
-    const components = [];
     const customElements = Object.entries(customElementsObject);
 
-    let sortedModules;
+    // Group components by their file path
+    const componentsByPath = new Map();
 
-    // sort through customElements array and put all components into a separate array
     customElements.forEach(([key, value]) => {
-        let componentObject;
         if (key === 'modules') {
-            sortedModules = value.sort((a, b) => a.path.length - b.path.length);
-
             value.forEach((k) => {
+                const moduleComponents = [];
                 k.declarations.forEach((decl) => {
                     if (decl.customElement === true) {
                         const componentSelector = k.declarations.find((i) => i.kind === 'variable' && i.name === 'componentSelector');
                         const componentData = {
                             class: { ...decl, tagName: componentSelector?.default.replace(/'/g, '') ?? decl.tagName },
-                            path: k.path.replace('index.js', 'react.ts'),
+                            path: k.path,
                             reactBaseType: getReactBaseType(k.path),
                         };
-
-                        components.push(componentData);
+                        moduleComponents.push(componentData);
                     }
                 });
+
+                if (moduleComponents.length > 0) {
+                    const reactPath = k.path.replace('index.js', 'react.ts');
+                    componentsByPath.set(reactPath, moduleComponents);
+                }
             });
         }
-
-        return componentObject;
     });
-
-    // replace custom-elements.json with an ordered object
-    const customElementsCopy = Object.fromEntries(customElements);
-    customElementsCopy.modules = sortedModules;
-
-    const customElementsFile = createWriteStream(
-        'custom-elements.json',
-        (err) => {
-            throw (err);
-        },
-    );
-
-    customElementsFile.write(JSON.stringify(customElementsCopy, null, 4));
 
     /**
      * Fetch events from the component
@@ -160,78 +153,65 @@ export function addReactWrapper (customElementsObject) {
                     description: event.description,
                 })));
         }
-
         return events;
     }
 
-    // create wrapper src code and add to react.ts file
-    if (components.length > 0) {
-        components.forEach((component) => {
+    // Iterate over each file path and generate a single wrapper file for all components within it
+    for (const [reactPath, componentsInFile] of componentsByPath.entries()) {
+        const componentClasses = componentsInFile.map((c) => c.class.name);
+        const propTypeDefs = componentsInFile.map((c) => {
+            const { tagName } = c.class;
+            const tagNameWithoutPrefix = tagName.replace(/^pie-/, '');
+            const pascalCaseName = kebabToPascalCase(tagNameWithoutPrefix);
+            return `${pascalCaseName}Props`;
+        });
+
+        const imports = `import * as React from 'react';
+import { createComponent, type EventName } from '@lit/react';
+import { ${componentClasses.join(', ')} } from './index';
+import { ${propTypeDefs.map((p) => `type ${p}`).join(', ')} } from './defs';`;
+
+        const exportDefs = 'export * from \'./defs\';';
+
+        const wrapperSnippets = componentsInFile.map((component) => {
             const events = getEvents(component.class);
 
-            // Prepare the event names and comments
             let eventNames = '';
-            if (component.class.events && component.class.events.length > 0) {
-                eventNames = events?.flat().reduce((pre, event) => `${pre
+            if (events.flat().length > 0) {
+                eventNames = events.flat().reduce((pre, event) => `${pre
                     }        ${`on${formatEventName(event.name)}`}: '${event.name}' as EventName<${event.type}>,${event.description ? ` // ${event.description}` : ''}\n`, '');
             }
 
-            let eventsObject = '{}';
-            if (eventNames) {
-                eventsObject = `{\n${eventNames}    }`;
-            }
+            const eventsObject = eventNames ? `{\n${eventNames}    }` : '{}';
+            const [eventsTypeDefinition, eventsTypeName] = getEventsTypeDefinition(events, component.class.name);
 
-            // This is a workaround for the missing events in the component TS api
-            const [eventsTypeDefinition, eventsTypeName] = eventNames && getEventsTypeDefinition(events, component.class.name);
+            const { tagName } = component.class;
+            const tagNameWithoutPrefix = tagName.replace(/^pie-/, '');
+            const pascalCaseName = kebabToPascalCase(tagNameWithoutPrefix);
+            const componentPropsExportName = `${pascalCaseName}Props`;
 
-            const componentPropsExportName = `${component.class.name.replace(/^Pie/, '')}Props`;
-
-            // Create the main source code
-            componentSrc = `import * as React from 'react';
-import { createComponent${component.class.events?.length > 0 ? ', type EventName' : ''} } from '@lit/react';
-import { ${component.class.name} as ${component.class.name}Lit } from './index';
-import { type ${componentPropsExportName} } from './defs';
-
-export * from './defs';
-
-const ${component.class.name}React = createComponent({
+            return `const ${component.class.name}React = createComponent({
     displayName: '${component.class.name}',
-    elementClass: ${component.class.name}Lit,
+    elementClass: ${component.class.name},
     react: React,
-    tagName: '${component.class.tagName}',
+    tagName: '${tagName}',
     events: ${eventsObject},
-});${// weird indentation here so we don't end up with extra whitespace in the generated file
-    component.reactBaseType ? `
-
-${component.reactBaseType}` : ''
-}${
-    eventsTypeDefinition ? `
-
-${eventsTypeDefinition}` : ''
-}
-
+});
+${component.reactBaseType ? `\n${component.reactBaseType}` : ''}
+${eventsTypeDefinition ? `\n${eventsTypeDefinition}` : ''}
 export const ${component.class.name} = ${component.class.name}React as React.ForwardRefExoticComponent<React.PropsWithoutRef<${componentPropsExportName}>
-    & React.RefAttributes<${component.class.name}Lit>${eventsTypeDefinition ? ` & ${eventsTypeName}` : ''}${component.reactBaseType ? ' & ReactBaseType' : ''}>;
-`;
-            let reactFile;
+    & React.RefAttributes<${component.class.name}>${eventsTypeDefinition ? ` & ${eventsTypeName}` : ''}${component.reactBaseType ? ' & ReactBaseType' : ''}>;`;
+        }).join('\n\n');
 
-            if (component.path !== 'pie-wrapper-react') {
-                reactFile = createWriteStream(
-                    component.path,
-                    (err) => {
-                        throw (err);
-                    },
-                );
-            }
+        const finalFileContent = [imports, exportDefs, wrapperSnippets].join('\n\n');
 
-            if (componentSrc.length > 0 && reactFile !== undefined) {
-                reactFile.write(componentSrc);
-                console.info('React wrapper has been added!');
-            }
-        });
-    } else {
-        componentSrc = '';
+        if (reactPath !== 'pie-wrapper-react') {
+            const reactFile = createWriteStream(reactPath, (err) => {
+                if (err) throw err;
+            });
+            reactFile.write(finalFileContent);
+            console.info(`React wrapper for ${reactPath} has been added!`);
+        }
     }
-
-    return componentSrc;
 }
+
