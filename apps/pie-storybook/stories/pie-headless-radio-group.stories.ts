@@ -258,30 +258,62 @@ const sharedStyles = html`
         fill: currentColor;
     }
 
-    /* When a star is checked, fill it and all the stars that have it as a following sibling. */
-    /* This is effectively a "previous siblings" selector. */
     .star-rating-group pie-headless-radio-button:has(~ pie-headless-radio-button[checked]) .star-label,
     .star-rating-group pie-headless-radio-button[checked] .star-label {
         color: #f59e0b; /* Filled star color */
     }
 
-    /* On hover, do the same for the hovered element. */
-    /* This ensures the visual feedback happens before a click. */
     .star-rating-group:hover pie-headless-radio-button:hover .star-label,
     .star-rating-group:hover pie-headless-radio-button:has(~ pie-headless-radio-button:hover) .star-label {
         color: #f59e0b;
     }
 
-    /* Accessibility: Remove default focus outline from the component itself */
     .star-rating-group pie-headless-radio-button:focus {
         outline: none;
     }
 
-    /* Accessibility: Apply focus ring to the star label inside */
     .star-rating-group pie-headless-radio-button:focus-visible .star-label {
         outline: 2px solid #4299e1;
         outline-offset: 2px;
         border-radius: 2px;
+    }
+
+    /* --- Emoji Rating Style --- */
+    .emoji-rating-group {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .emoji-rating-group .emoji-label {
+        cursor: pointer;
+        font-size: 2.5rem;
+        transition: all 0.2s ease-in-out;
+        filter: grayscale(1);
+        padding: 0.25rem;
+        border-bottom: 4px solid transparent;
+    }
+
+    /* On hover, scale up and remove grayscale */
+    .emoji-rating-group pie-headless-radio-button:not([disabled]):hover .emoji-label {
+        transform: scale(1.2);
+        filter: grayscale(0);
+    }
+
+    /* On checked, permanently scale up, remove grayscale, and add a border */
+    .emoji-rating-group pie-headless-radio-button[checked] .emoji-label {
+        filter: grayscale(0);
+        transform: scale(1.2);
+        border-bottom-color: #3182ce;
+    }
+
+    .emoji-rating-group pie-headless-radio-button:focus {
+        outline: none;
+    }
+
+    .emoji-rating-group pie-headless-radio-button:focus-visible {
+        border-radius: 8px;
+        outline: 2px solid #4299e1;
+        outline-offset: 2px;
     }
 
 </style>
@@ -450,10 +482,38 @@ const StarRatingTemplate = ({ name, value, label }: HeadlessRadioGroupProps): Te
     </div>
 `;
 
+const EmojiRatingTemplate = ({ name, value, label }: HeadlessRadioGroupProps): TemplateResult => {
+    const ratings = [
+        { value: '1', emoji: '😠', description: 'Poor' },
+        { value: '2', emoji: '😟', description: 'Not good' },
+        { value: '3', emoji: '😐', description: 'Okay' },
+        { value: '4', emoji: '🙂', description: 'Good' },
+        { value: '5', emoji: '😄', description: 'Excellent' },
+    ];
+
+    return html`
+        ${sharedStyles}
+        <div class="card">
+            <h2>Emoji Experience Rating</h2>
+            <p>Another example using the :has() selector for a modern, accessible, and keyboard-friendly rating system.</p>
+            <pie-headless-radio-group .name=${name} .value=${value} .label=${label} class="emoji-rating-group">
+                ${ratings.map((rating) => html`
+                    <pie-headless-radio-button
+                        value=${rating.value}
+                        aria-label="${rating.description} (${rating.value} out of 5)">
+                        <span class="emoji-label">${rating.emoji}</span>
+                    </pie-headless-radio-button>
+                `)}
+            </pie-headless-radio-group>
+        </div>
+    `;
+};
+
 export const Vertical = createStory<HeadlessRadioGroupProps>(VerticalTemplate, defaultArgs)();
 export const Horizontal = createStory<HeadlessRadioGroupProps>(HorizontalTemplate, { name: 'view-mode', value: 'list', label: 'View Mode' })();
 export const HorizontalRTL = createStory<HeadlessRadioGroupProps>(HorizontalRTLTemplate, { name: 'language', value: 'he', label: 'Language' })();
 export const VerticalRTL = createStory<HeadlessRadioGroupProps>(VerticalRTLTemplate, { name: 'shipping-rtl', value: 'standard', label: 'Shipping Method' })();
 export const CardLayout = createStory<HeadlessRadioGroupProps>(CardTemplate, { name: 'plan', value: 'business', label: 'Subscription Plan' })();
 export const StarRating = createStory<HeadlessRadioGroupProps>(StarRatingTemplate, { name: 'rating', value: '4', label: 'Product Rating' })();
+export const EmojiRating = createStory<HeadlessRadioGroupProps>(EmojiRatingTemplate, { name: 'experience', value: '4', label: 'Customer Experience' })();
 
