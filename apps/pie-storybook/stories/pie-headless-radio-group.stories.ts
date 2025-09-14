@@ -239,6 +239,51 @@ const sharedStyles = html`
         border-color: #3182ce;
         background-color: #ebf8ff;
     }
+
+    /* --- Star Rating Style --- */
+    .star-rating-group {
+        display: flex;
+    }
+
+    .star-rating-group .star-label {
+        cursor: pointer;
+        color: #e2e8f0; /* Empty star color */
+        transition: color 0.2s ease-in-out;
+        padding: 0 0.125rem;
+    }
+
+    .star-rating-group .star-label svg {
+        width: 2rem;
+        height: 2rem;
+        fill: currentColor;
+    }
+
+    /* When a star is checked, fill it and all the stars that have it as a following sibling. */
+    /* This is effectively a "previous siblings" selector. */
+    .star-rating-group pie-headless-radio-button:has(~ pie-headless-radio-button[checked]) .star-label,
+    .star-rating-group pie-headless-radio-button[checked] .star-label {
+        color: #f59e0b; /* Filled star color */
+    }
+
+    /* On hover, do the same for the hovered element. */
+    /* This ensures the visual feedback happens before a click. */
+    .star-rating-group:hover pie-headless-radio-button:hover .star-label,
+    .star-rating-group:hover pie-headless-radio-button:has(~ pie-headless-radio-button:hover) .star-label {
+        color: #f59e0b;
+    }
+
+    /* Accessibility: Remove default focus outline from the component itself */
+    .star-rating-group pie-headless-radio-button:focus {
+        outline: none;
+    }
+
+    /* Accessibility: Apply focus ring to the star label inside */
+    .star-rating-group pie-headless-radio-button:focus-visible .star-label {
+        outline: 2px solid #4299e1;
+        outline-offset: 2px;
+        border-radius: 2px;
+    }
+
 </style>
 `;
 
@@ -384,9 +429,31 @@ const CardTemplate = ({ name, value, label }: HeadlessRadioGroupProps): Template
     </div>
 `;
 
+const StarRatingTemplate = ({ name, value, label }: HeadlessRadioGroupProps): TemplateResult => html`
+    ${sharedStyles}
+    <div class="card">
+        <h2>Star Rating Example</h2>
+        <p>This example uses modern CSS to create an accessible star rating with correct keyboard navigation.</p>
+        <pie-headless-radio-group .name=${name} .value=${value} .label=${label} class="star-rating-group">
+            ${[1, 2, 3, 4, 5, 6].map((rating) => html`
+                <pie-headless-radio-button
+                    value=${rating.toString()}
+                    aria-label="${rating} out of 6 stars">
+                    <span class="star-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.007z" clip-rule="evenodd" />
+                        </svg>
+                    </span>
+                </pie-headless-radio-button>
+            `)}
+        </pie-headless-radio-group>
+    </div>
+`;
+
 export const Vertical = createStory<HeadlessRadioGroupProps>(VerticalTemplate, defaultArgs)();
 export const Horizontal = createStory<HeadlessRadioGroupProps>(HorizontalTemplate, { name: 'view-mode', value: 'list', label: 'View Mode' })();
 export const HorizontalRTL = createStory<HeadlessRadioGroupProps>(HorizontalRTLTemplate, { name: 'language', value: 'he', label: 'Language' })();
 export const VerticalRTL = createStory<HeadlessRadioGroupProps>(VerticalRTLTemplate, { name: 'shipping-rtl', value: 'standard', label: 'Shipping Method' })();
 export const CardLayout = createStory<HeadlessRadioGroupProps>(CardTemplate, { name: 'plan', value: 'business', label: 'Subscription Plan' })();
+export const StarRating = createStory<HeadlessRadioGroupProps>(StarRatingTemplate, { name: 'rating', value: '4', label: 'Product Rating' })();
 
