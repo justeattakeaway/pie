@@ -284,6 +284,10 @@ const sharedStyles = html`
         gap: 0.5rem;
     }
 
+    .emoji-rating-group pie-headless-radio-button {
+        display: flex; /* Needed for focus outline to wrap content correctly */
+    }
+
     .emoji-rating-group .emoji-label {
         cursor: pointer;
         font-size: 2.5rem;
@@ -293,13 +297,11 @@ const sharedStyles = html`
         border-bottom: 4px solid transparent;
     }
 
-    /* On hover, scale up and remove grayscale */
     .emoji-rating-group pie-headless-radio-button:not([disabled]):hover .emoji-label {
         transform: scale(1.2);
         filter: grayscale(0);
     }
 
-    /* On checked, permanently scale up, remove grayscale, and add a border */
     .emoji-rating-group pie-headless-radio-button[checked] .emoji-label {
         filter: grayscale(0);
         transform: scale(1.2);
@@ -316,6 +318,27 @@ const sharedStyles = html`
         outline-offset: 2px;
     }
 
+    /* --- Dynamic Controls Style --- */
+    .dynamic-controls {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .dynamic-controls button {
+        background-color: #edf2f7;
+        color: #2d3748;
+        padding: 0.5rem 1rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.375rem;
+        font-size: 0.875rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .dynamic-controls button:hover {
+        background-color: #e2e8f0;
+    }
 </style>
 `;
 
@@ -509,6 +532,53 @@ const EmojiRatingTemplate = ({ name, value, label }: HeadlessRadioGroupProps): T
     `;
 };
 
+const DynamicControlsTemplate = ({ name, value, label }: HeadlessRadioGroupProps): TemplateResult => {
+    // These functions will be attached to the buttons' click events.
+    // They manipulate the DOM directly, which is a simple way to demonstrate this in a story.
+    const addRadio = () => {
+        const group = document.querySelector('#dynamic-group');
+        if (group) {
+            const radioCount = group.querySelectorAll('pie-headless-radio-button').length;
+            const newRadio = document.createElement('pie-headless-radio-button');
+            newRadio.value = `dynamic-${radioCount + 1}`;
+            newRadio.innerHTML = `
+                <span class="radio-label">
+                    <span class="custom-radio-indicator"></span>
+                    Dynamic Option ${radioCount + 1}
+                </span>`;
+            group.appendChild(newRadio);
+        }
+    };
+
+    const removeRadio = () => {
+        const group = document.querySelector('#dynamic-group');
+        const lastRadio = group?.querySelector('pie-headless-radio-button:last-child');
+        if (lastRadio) {
+            group.removeChild(lastRadio);
+        }
+    };
+
+    return html`
+    ${sharedStyles}
+    <div class="card">
+        <h2>Dynamic Radios</h2>
+        <p>This example demonstrates how the radio group handles radio buttons being added or removed at runtime.</p>
+        <pie-headless-radio-group id="dynamic-group" .name=${name} .value=${value} .label=${label} class="vertical-group">
+            <pie-headless-radio-button value="dynamic-1">
+                <span class="radio-label">
+                    <span class="custom-radio-indicator"></span>
+                    Dynamic Option 1
+                </span>
+            </pie-headless-radio-button>
+        </pie-headless-radio-group>
+        <div class="dynamic-controls">
+            <button @click=${addRadio}>Add Radio</button>
+            <button @click=${removeRadio}>Remove Radio</button>
+        </div>
+    </div>
+    `;
+};
+
 export const Vertical = createStory<HeadlessRadioGroupProps>(VerticalTemplate, defaultArgs)();
 export const Horizontal = createStory<HeadlessRadioGroupProps>(HorizontalTemplate, { name: 'view-mode', value: 'list', label: 'View Mode' })();
 export const HorizontalRTL = createStory<HeadlessRadioGroupProps>(HorizontalRTLTemplate, { name: 'language', value: 'he', label: 'Language' })();
@@ -516,4 +586,5 @@ export const VerticalRTL = createStory<HeadlessRadioGroupProps>(VerticalRTLTempl
 export const CardLayout = createStory<HeadlessRadioGroupProps>(CardTemplate, { name: 'plan', value: 'business', label: 'Subscription Plan' })();
 export const StarRating = createStory<HeadlessRadioGroupProps>(StarRatingTemplate, { name: 'rating', value: '4', label: 'Product Rating' })();
 export const EmojiRating = createStory<HeadlessRadioGroupProps>(EmojiRatingTemplate, { name: 'experience', value: '4', label: 'Customer Experience' })();
+export const DynamicControls = createStory<HeadlessRadioGroupProps>(DynamicControlsTemplate, { name: 'dynamic-group', value: 'dynamic-1', label: 'Dynamic Radio Group' })();
 
