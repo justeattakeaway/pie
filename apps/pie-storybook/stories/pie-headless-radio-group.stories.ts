@@ -14,6 +14,7 @@ const defaultArgs: HeadlessRadioGroupProps = {
     name: 'storybook-radio-group',
     value: 'm',
     label: 'Default Radio Group',
+    disabled: false,
 };
 
 const PieHeadlessRadioGroupStoryMeta: PieHeadlessRadioGroupStoryMeta = {
@@ -31,6 +32,10 @@ const PieHeadlessRadioGroupStoryMeta: PieHeadlessRadioGroupStoryMeta = {
         label: {
             description: 'An accessible label for the radio group for screen readers.',
             control: 'text',
+        },
+        disabled: {
+            description: 'If true, the entire radio group and all its options will be disabled.',
+            control: 'boolean',
         },
     },
     args: defaultArgs,
@@ -68,6 +73,12 @@ const sharedStyles = html`
         font-size: 0.875rem;
     }
 
+    pie-headless-radio-group[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
     .radio-label {
         display: flex;
         align-items: center;
@@ -82,7 +93,7 @@ const sharedStyles = html`
         border-color: #a0aec0;
     }
 
-    pie-headless-radio-button:focus-within .radio-label {
+    pie-headless-radio-button:not([disabled]):focus-within .radio-label {
         border-color: #4299e1;
         box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
     }
@@ -190,7 +201,7 @@ const sharedStyles = html`
         z-index: 2;
     }
 
-    .button-group pie-headless-radio-button:focus-within .button-label {
+    .button-group pie-headless-radio-button:not([disabled]):focus-within .button-label {
         z-index: 3;
         border-color: #4299e1;
         box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
@@ -232,7 +243,7 @@ const sharedStyles = html`
         border-color: #a0aec0;
     }
 
-    pie-headless-radio-button:focus-within .card-radio-label {
+    pie-headless-radio-button:not([disabled]):focus-within .card-radio-label {
         border-color: #4299e1;
         box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
     }
@@ -265,8 +276,8 @@ const sharedStyles = html`
         color: #f59e0b; /* Filled star color */
     }
 
-    .star-rating-group:hover pie-headless-radio-button:hover .star-label,
-    .star-rating-group:hover pie-headless-radio-button:has(~ pie-headless-radio-button:hover) .star-label {
+    .star-rating-group:not([disabled]):hover pie-headless-radio-button:not([disabled]):hover .star-label,
+    .star-rating-group:not([disabled]):hover pie-headless-radio-button:not([disabled]):has(~ pie-headless-radio-button:hover) .star-label {
         color: #f59e0b;
     }
 
@@ -274,7 +285,7 @@ const sharedStyles = html`
         outline: none;
     }
 
-    .star-rating-group pie-headless-radio-button:focus-visible .star-label {
+    .star-rating-group pie-headless-radio-button:not([disabled]):focus-visible .star-label {
         outline: 2px solid #4299e1;
         outline-offset: 2px;
         border-radius: 2px;
@@ -314,7 +325,7 @@ const sharedStyles = html`
         outline: none;
     }
 
-    .emoji-rating-group pie-headless-radio-button:focus-visible {
+    .emoji-rating-group pie-headless-radio-button:not([disabled]):focus-visible {
         border-radius: 8px;
         outline: 2px solid #4299e1;
         outline-offset: 2px;
@@ -416,12 +427,14 @@ const sharedStyles = html`
 </style>
 `;
 
-const VerticalTemplate = ({ name, value, label }: HeadlessRadioGroupProps): TemplateResult => html`
+const VerticalTemplate = ({
+    name, value, label, disabled,
+}: HeadlessRadioGroupProps): TemplateResult => html`
     ${sharedStyles}
     <div class="card">
         <h2>Standard Radio Group (Vertical)</h2>
         <p>This is a standard implementation with custom-styled radio indicators.</p>
-        <pie-headless-radio-group .name=${name} .value=${value} .label=${label} class="vertical-group">
+        <pie-headless-radio-group .name=${name} .value=${value} .label=${label} ?disabled=${disabled} class="vertical-group">
             <pie-headless-radio-button value="s">
                 <span class="radio-label">
                     <span class="custom-radio-indicator"></span>
@@ -450,12 +463,14 @@ const VerticalTemplate = ({ name, value, label }: HeadlessRadioGroupProps): Temp
     </div>
 `;
 
-const HorizontalTemplate = ({ name, value, label }: HeadlessRadioGroupProps): TemplateResult => html`
+const HorizontalTemplate = ({
+    name, value, label, disabled,
+}: HeadlessRadioGroupProps): TemplateResult => html`
     ${sharedStyles}
     <div class="card">
         <h2>Button Group Style (Horizontal)</h2>
         <p>Here, the radio buttons are styled to look like a segmented control or button group.</p>
-        <pie-headless-radio-group .name=${name} .value=${value} .label=${label} class="button-group">
+        <pie-headless-radio-group .name=${name} .value=${value} .label=${label} ?disabled=${disabled} class="button-group">
             <pie-headless-radio-button value="list">
                 <span class="button-label">List</span>
             </pie-headless-radio-button>
@@ -469,12 +484,14 @@ const HorizontalTemplate = ({ name, value, label }: HeadlessRadioGroupProps): Te
     </div>
 `;
 
-const HorizontalRTLTemplate = ({ name, value, label }: HeadlessRadioGroupProps): TemplateResult => html`
+const HorizontalRTLTemplate = ({
+    name, value, label, disabled,
+}: HeadlessRadioGroupProps): TemplateResult => html`
     ${sharedStyles}
     <div class="card">
         <h2>RTL (Right-to-Left) Horizontal Example</h2>
         <p>This group has <code>dir="rtl"</code>. The right arrow key will now move selection to the left, and the left arrow key will move it to the right.</p>
-        <pie-headless-radio-group .name=${name} .value=${value} .label=${label} class="button-group" dir="rtl">
+        <pie-headless-radio-group .name=${name} .value=${value} .label=${label} ?disabled=${disabled} class="button-group" dir="rtl">
             <pie-headless-radio-button value="en">
                 <span class="button-label">1</span>
             </pie-headless-radio-button>
@@ -488,13 +505,15 @@ const HorizontalRTLTemplate = ({ name, value, label }: HeadlessRadioGroupProps):
     </div>
 `;
 
-const VerticalRTLTemplate = ({ name, value, label }: HeadlessRadioGroupProps): TemplateResult => html`
+const VerticalRTLTemplate = ({
+    name, value, label, disabled,
+}: HeadlessRadioGroupProps): TemplateResult => html`
     ${sharedStyles}
     <div class="card">
         <h2>Vertical RTL Example</h2>
         <p>A vertically-oriented group in a right-to-left context.</p>
         <div dir="rtl">
-            <pie-headless-radio-group .name=${name} .value=${value} .label=${label} class="vertical-group">
+            <pie-headless-radio-group .name=${name} .value=${value} .label=${label} ?disabled=${disabled} class="vertical-group">
                 <pie-headless-radio-button value="standard">
                     <span class="radio-label">
                         <span class="custom-radio-indicator"></span>
@@ -518,12 +537,14 @@ const VerticalRTLTemplate = ({ name, value, label }: HeadlessRadioGroupProps): T
     </div>
 `;
 
-const CardTemplate = ({ name, value, label }: HeadlessRadioGroupProps): TemplateResult => html`
+const CardTemplate = ({
+    name, value, label, disabled,
+}: HeadlessRadioGroupProps): TemplateResult => html`
     ${sharedStyles}
     <div class="card">
         <h2>Card Layout Example</h2>
         <p>A more complex layout where each radio option is a selectable card with detailed information.</p>
-        <pie-headless-radio-group .name=${name} .value=${value} .label=${label} class="vertical-group">
+        <pie-headless-radio-group .name=${name} .value=${value} .label=${label} ?disabled=${disabled} class="vertical-group">
             <pie-headless-radio-button value="startup">
                 <div class="card-radio-label">
                     <span class="custom-radio-indicator"></span>
@@ -558,12 +579,14 @@ const CardTemplate = ({ name, value, label }: HeadlessRadioGroupProps): Template
     </div>
 `;
 
-const StarRatingTemplate = ({ name, value, label }: HeadlessRadioGroupProps): TemplateResult => html`
+const StarRatingTemplate = ({
+    name, value, label, disabled,
+}: HeadlessRadioGroupProps): TemplateResult => html`
     ${sharedStyles}
     <div class="card">
         <h2>Star Rating Example</h2>
         <p>This example uses modern CSS to create an accessible star rating with correct keyboard navigation.</p>
-        <pie-headless-radio-group .name=${name} .value=${value} .label=${label} class="star-rating-group">
+        <pie-headless-radio-group .name=${name} .value=${value} .label=${label} ?disabled=${disabled} class="star-rating-group">
             ${[1, 2, 3, 4, 5, 6].map((rating) => html`
                 <pie-headless-radio-button
                     value=${rating.toString()}
@@ -579,7 +602,9 @@ const StarRatingTemplate = ({ name, value, label }: HeadlessRadioGroupProps): Te
     </div>
 `;
 
-const EmojiRatingTemplate = ({ name, value, label }: HeadlessRadioGroupProps): TemplateResult => {
+const EmojiRatingTemplate = ({
+    name, value, label, disabled,
+}: HeadlessRadioGroupProps): TemplateResult => {
     const ratings = [
         { value: '1', emoji: '😠', description: 'Poor' },
         { value: '2', emoji: '😟', description: 'Not good' },
@@ -593,7 +618,7 @@ const EmojiRatingTemplate = ({ name, value, label }: HeadlessRadioGroupProps): T
         <div class="card">
             <h2>Emoji Experience Rating</h2>
             <p>Another example using the :has() selector for a modern, accessible, and keyboard-friendly rating system.</p>
-            <pie-headless-radio-group .name=${name} .value=${value} .label=${label} class="emoji-rating-group">
+            <pie-headless-radio-group .name=${name} .value=${value} .label=${label} ?disabled=${disabled} class="emoji-rating-group">
                 ${ratings.map((rating) => html`
                     <pie-headless-radio-button
                         value=${rating.value}
@@ -783,6 +808,36 @@ const FormIntegrationTemplate = (): TemplateResult => {
     `;
 };
 
+const DisabledGroupTemplate = ({
+    name, value, label, disabled,
+}: HeadlessRadioGroupProps): TemplateResult => html`
+    ${sharedStyles}
+    <div class="card">
+        <h2>Disabled Group</h2>
+        <p>This shows a radio group where the entire group is disabled. It also contains one option that is individually disabled.</p>
+        <pie-headless-radio-group .name=${name} .value=${value} .label=${label} ?disabled=${disabled} class="vertical-group">
+            <pie-headless-radio-button value="s">
+                <span class="radio-label">
+                    <span class="custom-radio-indicator"></span>
+                    Small
+                </span>
+            </pie-headless-radio-button>
+            <pie-headless-radio-button value="m">
+                <span class="radio-label">
+                    <span class="custom-radio-indicator"></span>
+                    Medium
+                </span>
+            </pie-headless-radio-button>
+            <pie-headless-radio-button value="l" disabled>
+                <span class="radio-label">
+                    <span class="custom-radio-indicator"></span>
+                    Large (Individually Disabled)
+                </span>
+            </pie-headless-radio-button>
+        </pie-headless-radio-group>
+    </div>
+`;
+
 export const Vertical = createStory<HeadlessRadioGroupProps>(VerticalTemplate, defaultArgs)();
 export const Horizontal = createStory<HeadlessRadioGroupProps>(HorizontalTemplate, { name: 'view-mode', value: 'list', label: 'View Mode' })();
 export const HorizontalRTL = createStory<HeadlessRadioGroupProps>(HorizontalRTLTemplate, { name: 'language', value: 'he', label: 'Language' })();
@@ -792,4 +847,10 @@ export const StarRating = createStory<HeadlessRadioGroupProps>(StarRatingTemplat
 export const EmojiRating = createStory<HeadlessRadioGroupProps>(EmojiRatingTemplate, { name: 'experience', value: '4', label: 'Customer Experience' })();
 export const DynamicControls = createStory<HeadlessRadioGroupProps>(DynamicControlsTemplate, { name: 'dynamic-group', value: 'dynamic-1', label: 'Dynamic Radio Group' })();
 export const FormIntegration = createStory<HeadlessRadioGroupProps>(FormIntegrationTemplate, {})();
+export const DisabledGroup = createStory<HeadlessRadioGroupProps>(DisabledGroupTemplate, {
+    name: 'disabled-group',
+    value: 's',
+    label: 'Disabled Radio Group',
+    disabled: true,
+})();
 

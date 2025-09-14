@@ -29,12 +29,14 @@ export class PieHeadlessRadioButton extends PieElement {
     connectedCallback () {
         super.connectedCallback();
         this.setAttribute('role', 'radio');
+        // The tabindex is now exclusively managed by the parent group component
+        // to ensure roving tabindex works correctly under all conditions.
+        this.tabIndex = -1;
     }
 
     protected updated (changedProperties: PropertyValues<this>): void {
         if (changedProperties.has('checked')) {
             this.ariaChecked = this.checked ? 'true' : 'false';
-            this.tabIndex = this.checked ? 0 : -1;
         }
         if (changedProperties.has('disabled')) {
             this.ariaDisabled = this.disabled ? 'true' : 'false';
@@ -59,6 +61,9 @@ export class PieHeadlessRadioGroup extends LitElement {
 
     private _internals: ElementInternals;
     private _initialValue = '';
+    private _initialStates = new Map<PieHeadlessRadioButton, { disabled: boolean }>();
+    private _initialDisabled = false;
+    private _mutationObserver: MutationObserver | null = null;
 
     constructor () {
         super();
@@ -67,6 +72,8 @@ export class PieHeadlessRadioGroup extends LitElement {
 
     @property({ type: String }) value = '';
     @property({ type: String }) label = '';
+    @property({ type: Boolean, reflect: true }) disabled = false;
+
     @queryAssignedElements({ selector: 'pie-headless-radio-button', flatten: true })
     private _radioButtons!: PieHeadlessRadioButton[];
 
@@ -76,37 +83,65 @@ export class PieHeadlessRadioGroup extends LitElement {
     // It is called when the parent form is reset.
     formResetCallback () {
         this.value = this._initialValue;
+        this.disabled = this._initialDisabled;
+
+        // Restore the initial disabled state of each radio button
+        this._radioButtons.forEach((rb) => {
+            const initialState = this._initialStates.get(rb);
+            if (initialState) {
+                rb.disabled = initialState.disabled;
+            }
+        });
     }
 
     protected firstUpdated (): void {
-        // Store the initial value so the form can be reset correctly.
+        // Store the initial values so the form can be reset correctly.
         this._initialValue = this.value;
+        this._initialDisabled = this.disabled;
     }
 
     connectedCallback () {
         super.connectedCallback();
         this.setAttribute('role', 'radiogroup');
-        this.addEventListener('click', this._handleClick);
+        this.addEventListener('click', this._handleClick, true); // Use capture phase
         this.addEventListener('keydown', this._handleKeyDown);
+
+        // Set up the mutation observer to watch for changes to the disabled attribute of child radio buttons
+        this._mutationObserver = new MutationObserver(() => {
+            this._updateRadioStates();
+        });
+
+        this._mutationObserver.observe(this, {
+            attributes: true,
+            subtree: true,
+            attributeFilter: ['disabled'],
+        });
     }
 
     disconnectedCallback (): void {
         super.disconnectedCallback();
-        this.removeEventListener('click', this._handleClick);
+        this.removeEventListener('click', this._handleClick, true);
         this.removeEventListener('keydown', this._handleKeyDown);
+
+        // Clean up the observer
+        if (this._mutationObserver) {
+            this._mutationObserver.disconnect();
+            this._mutationObserver = null;
+        }
     }
 
     private _handleSlotChange () {
         this._radioButtons.forEach((rb) => {
+            if (!this._initialStates.has(rb)) {
+                this._initialStates.set(rb, { disabled: rb.disabled });
+            }
             rb.id = rb.id || `${this._groupId}-item-${rb.value}`;
-            rb.checked = rb.value === this.value;
         });
-        this._updateCheckedRadio();
+        this._updateRadioStates();
     }
 
     protected updated (changedProperties: PropertyValues<this>) {
         if (changedProperties.has('value')) {
-            this._updateCheckedRadio();
             this._internals.setFormValue(this.value);
         }
         if (changedProperties.has('label')) {
@@ -116,9 +151,19 @@ export class PieHeadlessRadioGroup extends LitElement {
                 this.removeAttribute('aria-label');
             }
         }
+        if (changedProperties.has('disabled')) {
+            this.setAttribute('aria-disabled', String(this.disabled));
+        }
+
+        this._updateRadioStates();
     }
 
     private _handleClick (event: Event) {
+        if (this.disabled) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            return;
+        }
         const target = event.target as HTMLElement;
         const radioButton = target.closest('pie-headless-radio-button') as PieHeadlessRadioButton | null;
         if (radioButton && !radioButton.disabled) {
@@ -128,7 +173,6 @@ export class PieHeadlessRadioGroup extends LitElement {
     }
 
     private _getDirection (): 'ltr' | 'rtl' {
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
         let element: HTMLElement | null = this;
         while (element) {
             const dir = element.getAttribute('dir');
@@ -141,16 +185,18 @@ export class PieHeadlessRadioGroup extends LitElement {
     }
 
     private _handleKeyDown (event: KeyboardEvent) {
+        if (this.disabled) {
+            return;
+        }
+
         if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
             const isRtl = this._getDirection() === 'rtl';
-            let direction = 0; // 0 = no move, 1 = next, -1 = prev
+            let direction = 0;
 
-            // Per ARIA specs for a radio group, Up/Down arrows navigate sequentially,
-            // and Left/Right arrows do the same but are inverted for RTL.
             if (event.key === 'ArrowDown' || (!isRtl && event.key === 'ArrowRight') || (isRtl && event.key === 'ArrowLeft')) {
-                direction = 1; // "Next" radio
+                direction = 1;
             } else if (event.key === 'ArrowUp' || (!isRtl && event.key === 'ArrowLeft') || (isRtl && event.key === 'ArrowRight')) {
-                direction = -1; // "Previous" radio
+                direction = -1;
             }
 
             if (direction === 0) return;
@@ -186,19 +232,27 @@ export class PieHeadlessRadioGroup extends LitElement {
         }
     }
 
-    private _updateCheckedRadio () {
-        let checkedRadio: PieHeadlessRadioButton | undefined;
+    private _updateRadioStates () {
+        // 1. Update the checked state of all buttons based on the group's value.
+        // Also ensure the group's disabled state is respected by the children.
         this._radioButtons.forEach((rb) => {
             rb.checked = rb.value === this.value;
-            if (rb.checked) {
-                checkedRadio = rb;
+            if (this.disabled) {
+                rb.disabled = true;
             }
         });
 
-        if (!checkedRadio && this._radioButtons.length > 0) {
-            const firstEnabled = this._radioButtons.find((rb) => !rb.disabled);
-            if (firstEnabled) firstEnabled.tabIndex = 0;
-        }
+        // 2. Determine which radio should be focusable (roving tabindex).
+        // This is either the currently checked radio (if enabled) or the first enabled radio.
+        const focusableRadio =
+            this._radioButtons.find((rb) => rb.checked && !rb.disabled) ||
+            this._radioButtons.find((rb) => !rb.disabled);
+
+        // 3. Apply the roving tabindex state to all radio buttons.
+        this._radioButtons.forEach((rb) => {
+            // The focusableRadio is the only one with tabIndex=0, all others are -1.
+            rb.tabIndex = (rb === focusableRadio) ? 0 : -1;
+        });
     }
 
     render () {
