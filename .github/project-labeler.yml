@@ -145,3 +145,5 @@ pie-data-table:
   - packages/components/pie-data-table/**/*
 pie-tabs:
   - packages/components/pie-tabs/**/*
+pie-headless-radio-group:
+  - packages/components/pie-headless-radio-group/**/*

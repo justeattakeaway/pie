@@ -215,6 +215,10 @@
     {
       "path": "./packages/components/pie-tabs/dist/*.js",
       "maxSize": "3 KB"
+    },
+    {
+      "path": "./packages/components/pie-headless-radio-group/dist/*.js",
+      "maxSize": "3 KB"
     }
   ],
   "defaultCompression": "gzip",
