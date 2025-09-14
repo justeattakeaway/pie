@@ -31,7 +31,7 @@ export class PieHeadlessRadioButton extends PieElement {
         this.setAttribute('role', 'radio');
     }
 
-    protected updated (changedProperties: PropertyValues<this> | Map<PropertyKey, unknown>): void {
+    protected updated (changedProperties: PropertyValues<this>): void {
         if (changedProperties.has('checked')) {
             this.ariaChecked = this.checked ? 'true' : 'false';
             this.tabIndex = this.checked ? 0 : -1;
@@ -58,6 +58,7 @@ export class PieHeadlessRadioGroup extends LitElement {
     static formAssociated = true;
 
     private _internals: ElementInternals;
+    private _initialValue = '';
 
     constructor () {
         super();
@@ -70,6 +71,17 @@ export class PieHeadlessRadioGroup extends LitElement {
     private _radioButtons!: PieHeadlessRadioButton[];
 
     private _groupId = `radio-group-${crypto.randomUUID()}`;
+
+    // This is a lifecycle method for form-associated custom elements.
+    // It is called when the parent form is reset.
+    formResetCallback () {
+        this.value = this._initialValue;
+    }
+
+    protected firstUpdated (): void {
+        // Store the initial value so the form can be reset correctly.
+        this._initialValue = this.value;
+    }
 
     connectedCallback () {
         super.connectedCallback();
@@ -200,3 +212,4 @@ declare global {
         'pie-headless-radio-button': PieHeadlessRadioButton;
     }
 }
+

@@ -137,7 +137,9 @@ const sharedStyles = html`
     }
 
     .button-group {
-        display: inline-flex;
+        display: flex;
+        width: fit-content;
+        align-items: start;
     }
 
     .button-group pie-headless-radio-button:not(:first-child) {
@@ -340,6 +342,77 @@ const sharedStyles = html`
     .dynamic-controls button:hover {
         background-color: #e2e8f0;
     }
+
+    /* --- Form Integration Style --- */
+    .form-integration-story form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .form-integration-story .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .form-integration-story .form-field > label {
+        font-weight: 600;
+        font-size: 0.875rem;
+    }
+
+    .form-integration-story input[type="text"],
+    .form-integration-story select {
+        padding: 0.5rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.375rem;
+    }
+
+    .form-integration-story .form-actions {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .form-integration-story button[type="submit"] {
+        background-color: #3182ce;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 0.375rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        align-self: flex-start;
+    }
+
+    .form-integration-story button[type="submit"]:hover {
+        background-color: #2b6cb0;
+    }
+
+    .form-integration-story button[type="reset"] {
+        background-color: #a0aec0;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 0.375rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        align-self: flex-start;
+    }
+
+    .form-integration-story button[type="reset"]:hover {
+        background-color: #718096;
+    }
+
+    .form-integration-story #form-output {
+        background-color: #f7fafc;
+        border: 1px solid #e2e8f0;
+        padding: 1rem;
+        border-radius: 0.375rem;
+        margin-top: 1rem;
+        white-space: pre-wrap;
+    }
 </style>
 `;
 
@@ -427,7 +500,7 @@ const VerticalRTLTemplate = ({ name, value, label }: HeadlessRadioGroupProps): T
                         <span class="custom-radio-indicator"></span>
                         Standard
                     </span>
-                </pipe-headless-radio-button>
+                </pie-headless-radio-button>
                 <pie-headless-radio-button value="express">
                     <span class="radio-label">
                         <span class="custom-radio-indicator"></span>
@@ -589,6 +662,12 @@ const DynamicControlsTemplate = ({ name, value, label }: HeadlessRadioGroupProps
                     Dynamic Option 1
                 </span>
             </pie-headless-radio-button>
+            <pie-headless-radio-button value="dynamic-2">
+                <span class="radio-label">
+                    <span class="custom-radio-indicator"></span>
+                    Dynamic Option 2
+                </span>
+            </pie-headless-radio-button>
         </pie-headless-radio-group>
         <div class="dynamic-controls">
             <button @click=${addRadio}>Add Radio</button>
@@ -596,6 +675,110 @@ const DynamicControlsTemplate = ({ name, value, label }: HeadlessRadioGroupProps
             <button @click=${disableRandomRadio}>Disable Random</button>
             <button @click=${enableRandomRadio}>Enable Random</button>
         </div>
+    </div>
+    `;
+};
+
+const FormIntegrationTemplate = (): TemplateResult => {
+    const handleFormSubmit = (event: SubmitEvent) => {
+        event.preventDefault();
+        const form = event.target as HTMLFormElement;
+        const formData = new FormData(form);
+        const data: { [key: string]: any } = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        const output = form.querySelector('#form-output');
+        if (output) {
+            output.textContent = JSON.stringify(data, null, 2);
+        }
+    };
+
+    const handleFormReset = () => {
+        const form = document.querySelector('.form-integration-story form') as HTMLFormElement;
+        const output = form.querySelector('#form-output');
+        if (output) {
+            output.textContent = '';
+        }
+    };
+
+    return html`
+    ${sharedStyles}
+    <div class="card form-integration-story">
+        <h2>Form Integration</h2>
+        <p>This demonstrates how the component works within a native form. Submit to see the data.</p>
+        <form @submit=${handleFormSubmit} @reset=${handleFormReset}>
+            <div class="form-field">
+                <label for="name-input">Name</label>
+                <input type="text" id="name-input" name="customer-name" value="Jane Doe">
+            </div>
+
+            <div class="form-field">
+                <label>T-Shirt Size</label>
+                <pie-headless-radio-group name="tshirt-size" value="m" label="T-Shirt Size" class="vertical-group">
+                    <pie-headless-radio-button value="s">
+                        <span class="radio-label">
+                            <span class="custom-radio-indicator"></span>
+                            Small
+                        </span>
+                    </pie-headless-radio-button>
+                    <pie-headless-radio-button value="m">
+                        <span class="radio-label">
+                            <span class="custom-radio-indicator"></span>
+                            Medium
+                        </span>
+                    </pie-headless-radio-button>
+                    <pie-headless-radio-button value="l">
+                        <span class="radio-label">
+                            <span class="custom-radio-indicator"></span>
+                            Large
+                        </span>
+                    </pie-headless-radio-button>
+                </pie-headless-radio-group>
+            </div>
+
+            <div class="form-field">
+                <label>Subscription Plan</label>
+                 <pie-headless-radio-group name="plan" value="business" label="Subscription Plan" class="vertical-group">
+                    <pie-headless-radio-button value="startup">
+                        <div class="card-radio-label">
+                            <span class="custom-radio-indicator"></span>
+                            <div class="content">
+                                <h4>Startup</h4>
+                                <p>A plan that scales with your business.</p>
+                            </div>
+                            <span class="price">$25</span>
+                        </div>
+                    </pie-headless-radio-button>
+                    <pie-headless-radio-button value="business">
+                        <div class="card-radio-label">
+                            <span class="custom-radio-indicator"></span>
+                            <div class="content">
+                                <h4>Business</h4>
+                                <p>A plan for growing businesses.</p>
+                            </div>
+                            <span class="price">$50</span>
+                        </div>
+                    </pie-headless-radio-button>
+                </pie-headless-radio-group>
+            </div>
+
+            <div class="form-field">
+                <label for="country-select">Country</label>
+                <select name="country" id="country-select">
+                    <option value="uk">United Kingdom</option>
+                    <option value="nl">Netherlands</option>
+                    <option value="es">Spain</option>
+                </select>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+            <pre id="form-output"></pre>
+        </form>
     </div>
     `;
 };
@@ -608,4 +791,5 @@ export const CardLayout = createStory<HeadlessRadioGroupProps>(CardTemplate, { n
 export const StarRating = createStory<HeadlessRadioGroupProps>(StarRatingTemplate, { name: 'rating', value: '4', label: 'Product Rating' })();
 export const EmojiRating = createStory<HeadlessRadioGroupProps>(EmojiRatingTemplate, { name: 'experience', value: '4', label: 'Customer Experience' })();
 export const DynamicControls = createStory<HeadlessRadioGroupProps>(DynamicControlsTemplate, { name: 'dynamic-group', value: 'dynamic-1', label: 'Dynamic Radio Group' })();
+export const FormIntegration = createStory<HeadlessRadioGroupProps>(FormIntegrationTemplate, {})();
 
