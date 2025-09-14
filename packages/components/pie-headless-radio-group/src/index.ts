@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 
 import {
-    html, LitElement, type PropertyValueMap,
+    html, LitElement, PropertyValues,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import {
@@ -33,7 +33,7 @@ export class PieHeadlessRadioButton extends PieElement {
         this.setAttribute('role', 'radio');
     }
 
-    protected updated (changedProperties: PropertyValueMap<this> | Map<PropertyKey, unknown>): void {
+    protected updated (changedProperties: PropertyValues<this> | Map<PropertyKey, unknown>): void {
         if (changedProperties.has('checked')) {
             this.ariaChecked = this.checked ? 'true' : 'false';
             this.tabIndex = this.checked ? 0 : -1;
@@ -94,7 +94,7 @@ export class PieHeadlessRadioGroup extends LitElement {
         this._updateCheckedRadio();
     }
 
-    protected updated (changedProperties: Map<string, any>) {
+    protected updated (changedProperties: PropertyValues<this>) {
         if (changedProperties.has('value')) {
             this._updateCheckedRadio();
             this._internals.setFormValue(this.value);
