@@ -173,15 +173,10 @@ export class PieHeadlessRadioGroup extends LitElement {
     }
 
     private _getDirection (): 'ltr' | 'rtl' {
-        let element: HTMLElement | null = this;
-        while (element) {
-            const dir = element.getAttribute('dir');
-            if (dir === 'rtl' || dir === 'ltr') {
-                return dir;
-            }
-            element = element.parentElement || (element.getRootNode() as ShadowRoot)?.host as HTMLElement | null;
-        }
-        return 'ltr';
+        const hostWithDir = this.closest('[dir]') as HTMLElement | null;
+        const dir = hostWithDir?.getAttribute('dir');
+
+        return (dir === 'rtl') ? 'rtl' : 'ltr';
     }
 
     private _handleKeyDown (event: KeyboardEvent) {
