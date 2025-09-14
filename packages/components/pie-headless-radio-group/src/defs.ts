@@ -16,6 +16,11 @@ export interface HeadlessRadioGroupProps {
      * An accessible label for the radio group that is announced by screen readers.
      */
     label?: string;
+
+    /**
+     * If true, all radio buttons in the group will be in a disabled state.
+     */
+    disabled?: boolean;
 }
 
 /**
