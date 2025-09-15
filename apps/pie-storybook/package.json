@@ -16,7 +16,7 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "@justeat/pie-design-tokens": "7.6.0",
+    "@justeat/pie-design-tokens": "7.6.1",
     "@justeattakeaway/pie-assistive-text": "0.10.11",
     "@justeattakeaway/pie-avatar": "0.4.0",
     "@justeattakeaway/pie-breadcrumb": "0.7.0",

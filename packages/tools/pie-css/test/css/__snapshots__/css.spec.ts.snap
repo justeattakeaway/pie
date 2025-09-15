@@ -237,9 +237,9 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-content-link-visited: var(--dt-color-system-purple);
     --dt-color-content-link-visited-inverse: var(--dt-color-system-purple-10);
     --dt-color-content-error: var(--dt-color-red);
-    --dt-color-content-placeholder: rgb(0,0,0,0.5);
+    --dt-color-content-placeholder: rgb(0,0,0,0.55);
     --dt-color-content-positive: var(--dt-color-green);
-    --dt-color-content-disabled: rgb(0,0,0,0.24);
+    --dt-color-content-disabled: rgb(0,0,0,0.30);
     --dt-color-content-brand: var(--dt-color-orange);
     --dt-color-content-default-solid: var(--dt-color-charcoal-80);
     --dt-color-content-subdued-solid: var(--dt-color-charcoal-70);
@@ -873,9 +873,9 @@ html[data-highcontrast-enabled] {
         --dt-color-content-link-visited: var(--dt-color-system-purple-10);
         --dt-color-content-link-visited-inverse: var(--dt-color-system-purple);
         --dt-color-content-error: var(--dt-color-red-10);
-        --dt-color-content-placeholder: rgb(255,255,255,0.5);
+        --dt-color-content-placeholder: rgb(255,255,255,0.55);
         --dt-color-content-positive: var(--dt-color-green-10);
-        --dt-color-content-disabled: rgb(255,255,255,0.24);
+        --dt-color-content-disabled: rgb(255,255,255,0.30);
         --dt-color-content-brand: var(--dt-color-orange-30);
         --dt-color-content-default-solid: var(--dt-color-white);
         --dt-color-content-subdued-solid: var(--dt-color-charcoal-30);

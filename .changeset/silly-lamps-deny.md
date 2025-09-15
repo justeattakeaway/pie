@@ -18,5 +18,5 @@
 "pie-monorepo": minor
 ---
 
-[Changed] - Upgrade pie-design-tokens to v7.4.0 
+[Changed] - Upgrade pie-design-tokens to v7.6.1 
 [Changed] - Refactor several core component styles to use the new brand refresh content opacity tokens
