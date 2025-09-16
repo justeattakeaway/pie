@@ -10,6 +10,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import {
     validPropertyValues,
     safeCustomElement,
+    DelegatesFocusMixin,
 } from '@justeattakeaway/pie-webc-core';
 import styles from './chip.scss?inline';
 import {
@@ -34,9 +35,7 @@ const componentSelector = 'pie-chip';
  * @event {Event} change - when `isSelected` state is changed via clicking on the chip.
  */
 @safeCustomElement('pie-chip')
-export class PieChip extends PieElement implements ChipProps {
-    static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
-
+export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProps {
     private readonly _id = `pie-chip-${crypto.randomUUID()}`;
 
     @property({ type: String })
