@@ -2,6 +2,7 @@ import { html } from 'lit';
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-webc-core/src/test/functions/dispatchCustomEvent/MockComponent';
 import '@justeattakeaway/pie-webc-core/src/test/mixins/formControlMixin/MockComponent';
+import '@justeattakeaway/pie-webc-core/src/test/mixins/delegatesFocusMixin/MockComponent';
 import { EXPECTED_MOCK_EVENT_MESSAGE } from '@justeattakeaway/pie-webc-core/src/test/functions/dispatchCustomEvent/constants';
 /**
  * Mock stories for testing pie-webc-core functionality
@@ -78,3 +79,8 @@ FormControlMixinOutsideForm.storyName = 'Form Control Mixin - Outside Form';
  */
 export const PieElementVersionProperty = () => html`<pie-button data-test-id="pie-element">Test</pie-button>`;
 PieElementVersionProperty.storyName = 'Pie Elements contain correct version number';
+
+export const DelegatesFocusMixinElement = () => html`
+    <button id="first-focusable">First Focusable Element</button>
+    <delegates-focus-mixin-mock></delegates-focus-mixin-mock>
+`;
