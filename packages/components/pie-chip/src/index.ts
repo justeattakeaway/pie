@@ -46,13 +46,13 @@ export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProp
     @validPropertyValues(componentSelector, types, defaultProps.type)
     public type = defaultProps.type;
 
-    @property({ type: Boolean })
+    @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
 
     @property({ type: Boolean, reflect: true })
     public isSelected = defaultProps.isSelected;
 
-    @property({ type: Boolean })
+    @property({ type: Boolean, reflect: true })
     public isLoading = defaultProps.isLoading;
 
     @property({ type: Boolean })
