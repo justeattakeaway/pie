@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.31.0
+
+### Minor Changes
+
+- [Added] - FormControl and DelegatesFocus mixin options to the template and prompts. ([#2561](https://github.com/justeattakeaway/pie/pull/2561)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.30.6
 
 ### Patch Changes
