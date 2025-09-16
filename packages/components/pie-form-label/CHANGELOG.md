@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-form-label
 
+## 0.18.0
+
+### Minor Changes
+
+- [Changed] - Upgrade pie-design-tokens to v7.6.1 ([#2556](https://github.com/justeattakeaway/pie/pull/2556)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - Refactor several core component styles to use the new brand refresh content opacity tokens
+
+### Patch Changes
+
+- Updated dependencies [[`6d7157b`](https://github.com/justeattakeaway/pie/commit/6d7157b6a2fb54f8136427c76220e5beaeee8575), [`e68681a`](https://github.com/justeattakeaway/pie/commit/e68681ac1b3242e88240a65446164522d048c26e)]:
+  - @justeattakeaway/pie-webc-core@2.0.0
+
 ## 0.17.0
 
 ### Minor Changes

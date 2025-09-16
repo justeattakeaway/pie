@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.91.0
+
+### Minor Changes
+
+- [Changed] - Upgrade pie-design-tokens to v7.6.1 ([#2556](https://github.com/justeattakeaway/pie/pull/2556)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - Refactor several core component styles to use the new brand refresh content opacity tokens
+
 ## 2.90.0
 
 ### Minor Changes
