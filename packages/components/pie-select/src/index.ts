@@ -1,5 +1,4 @@
 import {
-    LitElement,
     html,
     nothing,
     unsafeCSS,
@@ -9,6 +8,7 @@ import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElem
 import {
     FormControlMixin,
     RtlMixin,
+    DelegatesFocusMixin,
     safeCustomElement,
     validPropertyValues,
     wrapNativeEvent,
@@ -45,9 +45,7 @@ const assistiveTextIdValue = 'assistive-text';
  * @event {CustomEvent} change - when the selected option is changed.
  */
 @safeCustomElement('pie-select')
-export class PieSelect extends FormControlMixin(RtlMixin(PieElement)) implements SelectProps {
-    static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
-
+export class PieSelect extends FormControlMixin(RtlMixin(DelegatesFocusMixin(PieElement))) implements SelectProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, sizes, defaultProps.size)
     public size = defaultProps.size;

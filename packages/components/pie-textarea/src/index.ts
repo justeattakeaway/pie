@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, type PropertyValues, nothing,
+    html, unsafeCSS, type PropertyValues, nothing,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, query } from 'lit/decorators.js';
@@ -12,6 +12,7 @@ import '@justeattakeaway/pie-assistive-text';
 import {
     validPropertyValues, RtlMixin, FormControlMixin, wrapNativeEvent, type PIEInputElement,
     safeCustomElement,
+    DelegatesFocusMixin,
 } from '@justeattakeaway/pie-webc-core';
 
 import styles from './textarea.scss?inline';
@@ -31,9 +32,7 @@ const assistiveTextIdValue = 'assistive-text';
  * @event {CustomEvent} change - when the textarea value is changed.
  */
 @safeCustomElement('pie-textarea')
-export class PieTextarea extends FormControlMixin(RtlMixin(PieElement)) implements TextareaProps, PIEInputElement {
-    static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
-
+export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(PieElement))) implements TextareaProps, PIEInputElement {
     @property({ type: String })
     public value = defaultProps.value;
 
