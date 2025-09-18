@@ -1,6 +1,5 @@
 import {
     html, unsafeCSS, type TemplateResult, nothing,
-    LitElement,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property } from 'lit/decorators.js';
