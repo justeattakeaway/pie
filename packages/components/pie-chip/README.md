@@ -31,32 +31,32 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 ### Properties
 
-| Prop           | Options                                              | Description                                                                                                  | Default     |
-|----------------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|-------------|
-| `type`         | `"button"`, `"checkbox"`                            | Sets the functional type of the chip.                                                                                   | `"button"`|
-| `variant`      | `"default"`, `"outline"`, `"ghost"`                 | Sets the variant of the chip.                                                                                | `"default"` |
-| `disabled`     | `true`, `false`                                     | If true, disables the chip.                                                                                  | `false`     |
-| `isSelected`   | `true`, `false`                                     | If true, the chip component will apply the selected styles. **This is a controlled property, meaning you are responsible for updating its value in response to user interaction events.** | `false`     |
-| `isDismissible`| `true`, `false`                                     | If true, displays a close icon. Can be only used if `isSelected` is set to true. When true, the chip itself will not be interactive. Only the close icon will be.                            | `false`     |
-| `isLoading`    | `true`, `false`                                     | If true, displays a loading indicator inside the chip. It is advised to provide an appropriate `aria.label` value during and after loading.                                                       | `false`     |
-| `aria`         | `{ label?: string, close?: string, haspopup?: "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" \| "true" \| "false", expanded?: boolean }`               | Accessibility properties for the chip. Use `haspopup` and `expanded` for chips that trigger a popup like a menu or dialog.                                             | `undefined` |
+| Prop            | Options                                                                                                                                       | Description                                                                                                                                                                               | Default     |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| `type`          | `"button"`, `"checkbox"`                                                                                                                      | Sets the functional type of the chip.                                                                                                                                                     | `"button"`  |
+| `variant`       | `"default"`, `"outline"`, `"ghost"`                                                                                                           | Sets the variant of the chip.                                                                                                                                                             | `"default"` |
+| `disabled`      | `true`, `false`                                                                                                                               | If true, disables the chip.                                                                                                                                                               | `false`     |
+| `isSelected`    | `true`, `false`                                                                                                                               | If true, the chip component will apply the selected styles. **This is a controlled property, meaning you are responsible for updating its value in response to user interaction events.** | `false`     |
+| `isDismissible` | `true`, `false`                                                                                                                               | If true, displays a close icon. Can be only used if `isSelected` is set to true. When true, the chip itself will not be interactive. Only the close icon will be.                         | `false`     |
+| `isLoading`     | `true`, `false`                                                                                                                               | If true, displays a loading indicator inside the chip. It is advised to provide an appropriate `aria.label` value during and after loading.                                               | `false`     |
+| `aria`          | `{ label?: string, close?: string, haspopup?: "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" \| "true" \| "false", expanded?: boolean }` | Accessibility properties for the chip. Use `haspopup` and `expanded` for chips that trigger a popup like a menu or dialog.                                                                | `undefined` |
 
 ### Slots
 
-| Slot      | Description                                               |
-|-----------|-----------------------------------------------------------|
+| Slot      | Description                                                    |
+|-----------|----------------------------------------------------------------|
 | `default` | The default slot is used to pass text into the chip component. |
-| `icon`    | Used to pass an icon into the chip component.             |
+| `icon`    | Used to pass an icon into the chip component.                  |
 
 ### CSS Variables
 This component does not expose any CSS variables for style overrides.
 
 ### Events
 
-| Event             | Type          | Description                                         |
-|-------------------|---------------|-----------------------------------------------------|
-| `change`  | `Event`       | **Emitted when a `type="checkbox"` chip is interacted with.** The component will not change its own `isSelected` state. You should use this event to toggle the `isSelected` property in your application's state. |
-| `close`           | `Event`       | Triggered when the user interacts with the close icon on a dismissible chip. |
+| Event    | Type    | Description                                                                                                                                                                                                        |
+|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `change` | `Event` | **Emitted when a `type="checkbox"` chip is interacted with.** The component will not change its own `isSelected` state. You should use this event to toggle the `isSelected` property in your application's state. |
+| `close`  | `Event` | Triggered when the user interacts with the close icon on a dismissible chip.                                                                                                                                       |
 
 Visit  [Chip | PIE Design System](https://pie.design/components/chip) to view more information on this component.
 
