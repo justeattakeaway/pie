@@ -4,6 +4,11 @@
     display: inline-block;
 }
 
+:host([disabled]),
+:host([isLoading]) {
+    pointer-events: none;
+}
+
 .c-chip {
     --int-states-mixin-bg-color: var(--dt-color-interactive-secondary);
     --chip-color: var(--dt-color-content-interactive-secondary);
@@ -39,6 +44,7 @@
     user-select: none;
     min-width: var(--chip-min-width);
 
+    font-family: inherit;
     @include p.font-size(--dt-font-interactive-xs-size);
     @include p.line-height(--dt-font-interactive-xs-line-height);
     font-weight: var(--dt-font-weight-bold);
@@ -121,6 +127,30 @@
     &:focus-visible {
         @include p.focus;
     }
+}
+
+[type="checkbox"] {
+    // the p.visually-hidden mixin doesn't properly work on checkboxes
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+[type="checkbox"]:focus-visible + .c-chip {
+    @include p.focus;
 }
 
 ::slotted(svg) {
