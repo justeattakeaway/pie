@@ -31,7 +31,7 @@ const componentSelector = 'pie-chip';
  * @slot icon - The icon slot
  * @slot - Default slot
  * @event {Event} close - when a user clicks the close button.
- * @event {Event} change - when `isSelected` state is changed via clicking on the chip.
+ * @event {Event} change - when a user interacts with the chip of type checkbox.
  */
 @safeCustomElement('pie-chip')
 export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProps {
@@ -62,28 +62,14 @@ export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProp
 
     /**
      * Handles the change event for the native checkbox.
-     * Updates the isSelected property and dispatches an event.
+     * This component is controlled, so it does not set its own state.
+     * It simply forwards the native change event.
      * @private
      */
-    private _onCheckboxChange (event: Event) {
-        const target = event.target as HTMLInputElement;
-        this.isSelected = target.checked;
-
-        // Create and dispatch a new 'change' event to ensure it bubbles and is composed.
-        // This is because the original event from the input does not bubble past the shadow DOM boundary.
-        const changeEvent = new Event('change', { bubbles: true, composed: true });
-
-        this.dispatchEvent(changeEvent);
-    }
-
-    /**
-     * Handles the click event for the button type.
-     * Toggles the isSelected property and dispatches a 'change' event.
-     * @private
-     */
-    private _onButtonToggle () {
-        this.isSelected = !this.isSelected;
-
+    private _onCheckboxChange () {
+        // The original event from the input does not bubble past the shadow DOM boundary.
+        // We create and dispatch a new 'change' event to ensure it bubbles and is composed,
+        // allowing consumers to respond to the interaction.
         const changeEvent = new Event('change', { bubbles: true, composed: true });
         this.dispatchEvent(changeEvent);
     }
@@ -183,8 +169,7 @@ export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProp
                 aria-pressed="${isSelected}"
                 aria-label="${ifDefined(aria?.label)}"
                 ?disabled=${disabled}
-                data-test-id="pie-chip"
-                @click="${this._onButtonToggle}">
+                data-test-id="pie-chip">
                 ${this._renderContent()}
             </button>`;
     }

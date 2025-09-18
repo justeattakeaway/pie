@@ -5,7 +5,7 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-chip';
 import {
-    type ChipProps as ChipPropsBase, variants, types, defaultProps,
+    type ChipProps as ChipPropsBase, variants, types, defaultProps, type PieChip,
 } from '@justeattakeaway/pie-chip';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
@@ -104,6 +104,7 @@ export default chipStoryMeta;
 
 const closeAction = action('close');
 const changeAction = action('change');
+const clickAction = action('click');
 
 const Template: TemplateFunction<ChipProps> = ({
     aria,
@@ -125,8 +126,8 @@ const Template: TemplateFunction<ChipProps> = ({
                 variant="${ifDefined(variant)}"
                 type="${ifDefined(type)}"
                 @close="${closeAction}"
-                @change=${changeAction}
-                >
+                @change=${type === 'checkbox' ? changeAction : nothing}
+                @click=${type === 'button' ? clickAction : nothing}>
                     ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
                     ${sanitizeAndRenderHTML(slot)}
         </pie-chip>`;
@@ -137,19 +138,25 @@ export const Default = createChipStory();
 export const Outline = createChipStory({ variant: 'outline' });
 export const Ghost = createChipStory({ variant: 'ghost' });
 
+const handleCheckboxChange = (event: Event) => {
+    const chip = event.currentTarget as PieChip;
+    chip.isSelected = !chip.isSelected;
+    changeAction({ isSelected: chip.isSelected, label: chip.textContent?.trim() });
+};
+
 const CheckboxGroupTemplate: TemplateFunction<ChipProps> = () => html`
     <fieldset style="border: none; padding: 0;">
-        <legend style="padding-bottom: 8px; font-weight: bold;">Select your interests</legend>
+        <legend style="padding-bottom: 8px; font-weight: bold;">Select your interests (multi-select)</legend>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <pie-chip type="checkbox" @change=${changeAction}>Chip 1</pie-chip>
-            <pie-chip type="checkbox" ?isSelected=${true} @change=${changeAction}>Chip 2</pie-chip>
-            <pie-chip type="checkbox" ?disabled=${true} @change=${changeAction}>Chip 3 (Disabled)</pie-chip>
-            <pie-chip type="checkbox" ?disabled=${true} ?isSelected=${true} @change=${changeAction}>Chip 4 (Disabled and Selected)</pie-chip>
-            <pie-chip type="checkbox" @change=${changeAction}>
+            <pie-chip type="checkbox" @change=${handleCheckboxChange}>Chip 1</pie-chip>
+            <pie-chip type="checkbox" ?isSelected=${true} @change=${handleCheckboxChange}>Chip 2</pie-chip>
+            <pie-chip type="checkbox" ?disabled=${true}>Chip 3 (Disabled)</pie-chip>
+            <pie-chip type="checkbox" ?disabled=${true} ?isSelected=${true}>Chip 4 (Disabled and Selected)</pie-chip>
+            <pie-chip type="checkbox" @change=${handleCheckboxChange}>
                 <icon-heart-filled slot="icon"></icon-heart-filled>
                 Chip 5
             </pie-chip>
-            <pie-chip type="checkbox" ?isSelected=${true} @change=${changeAction}>
+            <pie-chip type="checkbox" ?isSelected=${true} @change=${handleCheckboxChange}>
                 <icon-heart-filled slot="icon"></icon-heart-filled>
                 Chip 6
             </pie-chip>
@@ -159,20 +166,45 @@ const CheckboxGroupTemplate: TemplateFunction<ChipProps> = () => html`
 
 export const SelectableCheckboxGroup = createStory<ChipProps>(CheckboxGroupTemplate, defaultArgs)();
 
-const ButtonGroupTemplate: TemplateFunction<ChipProps> = () => html`
-    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-        <pie-chip type="button" @change=${changeAction}>Chip 1</pie-chip>
-        <pie-chip type="button" @change=${changeAction}>Chip 2</pie-chip>
-        <pie-chip type="button" ?disabled=${true} @change=${changeAction}>Chip 3 (Disabled)</pie-chip>
-        <pie-chip type="button" @change=${changeAction}>
-            <icon-heart-filled slot="icon"></icon-heart-filled>
-            Chip 4
-        </pie-chip>
-        <pie-chip type="button" @change=${changeAction}>
-            <icon-heart-filled slot="icon"></icon-heart-filled>
-            Chip 5
-        </pie-chip>
-    </div>
-`;
+const ButtonGroupTemplate: TemplateFunction<ChipProps> = () => {
+    const handleButtonClick = (event: MouseEvent) => {
+        const clickedChip = (event.target as HTMLElement).closest('pie-chip') as PieChip;
+
+        if (!clickedChip || clickedChip.disabled) {
+            return;
+        }
+
+        const wasSelected = clickedChip.isSelected;
+        const group = clickedChip.parentElement;
+
+        // Deselect all chips in the group
+        group?.querySelectorAll('pie-chip').forEach((chip: any) => {
+            chip.isSelected = false;
+        });
+
+        // Toggle the selected state of the clicked chip
+        clickedChip.isSelected = !wasSelected;
+
+        // Log the action to the Storybook actions panel
+        clickAction({ isSelected: clickedChip.isSelected, label: clickedChip.textContent?.trim() });
+    };
+
+    return html`
+        <div style="font-family: sans-serif; font-size: 14px; margin-bottom: 8px;">This group uses a single event listener on the container to manage selection (single-select with toggle off).</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;" @click=${handleButtonClick}>
+            <pie-chip type="button">Chip 1</pie-chip>
+            <pie-chip type="button">Chip 2</pie-chip>
+            <pie-chip type="button" ?disabled=${true}>Chip 3 (Disabled)</pie-chip>
+            <pie-chip type="button">
+                <icon-heart-filled slot="icon"></icon-heart-filled>
+                Chip 4
+            </pie-chip>
+            <pie-chip type="button">
+                <icon-heart-filled slot="icon"></icon-heart-filled>
+                Chip 5
+            </pie-chip>
+        </div>
+    `;
+};
 
 export const ButtonGroup = createStory<ChipProps>(ButtonGroupTemplate, defaultArgs)();

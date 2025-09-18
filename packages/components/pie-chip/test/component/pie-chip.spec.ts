@@ -52,16 +52,16 @@ test.describe('PieChip - Component tests', () => {
     });
 
     test.describe('when type="button" (default)', () => {
-        test('should be able to listen to change event when clicked', async ({ page }) => {
+        test('should be able to listen to click event when a button chip is clicked', async ({ page }) => {
             // Arrange
-            const chipComponent = await setupPageWithChip(page, { type: 'button' }, 'change');
+            const chipComponent = await setupPageWithChip(page, { type: 'button' }, 'click');
 
             // Act
             await chipComponent.click();
             const [emittedEvent] = await page.evaluate(() => window.eventLog);
 
             // Assert
-            expect(emittedEvent).toBe('change');
+            expect(emittedEvent).toBe('click');
         });
 
         test('should have the correct ARIA attributes', async ({ page }) => {
