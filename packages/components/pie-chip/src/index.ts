@@ -35,8 +35,6 @@ const componentSelector = 'pie-chip';
  */
 @safeCustomElement('pie-chip')
 export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProps {
-    private readonly _id = `pie-chip-${crypto.randomUUID()}`;
-
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, defaultProps.variant)
     public variant = defaultProps.variant;
@@ -127,13 +125,13 @@ export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProp
             <input
                 data-test-id="chip-checkbox-input"
                 type="checkbox"
-                id="${this._id}"
+                id="pie-chip"
                 aria-label="${ifDefined(aria?.label)}"
                 ?checked=${isSelected}
                 ?disabled=${disabled}
                 @change="${this._onCheckboxChange}">
             <label
-                for="${this._id}"
+                for="pie-chip"
                 class=${classMap(classes)}
                 data-test-id="pie-chip">
                 ${this._renderContent()}
@@ -159,7 +157,7 @@ export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProp
 
         return html`
             <button
-                id="${this._id}"
+                id="pie-chip"
                 data-test-id="chip-button"
                 type="button"
                 class=${classMap(classes)}
