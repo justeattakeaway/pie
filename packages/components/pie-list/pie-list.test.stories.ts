@@ -25,10 +25,28 @@ const listStoryMeta: ListStoryMeta = {
 
 export default listStoryMeta;
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
-const Template = ({}: ListProps) => html`
-    <pie-list></pie-list>
+const Template = ({ variant, hasDividers }: ListProps) => html`
+    <pie-list variant=${variant} ?has-dividers=${hasDividers}>
+        <pie-list-item>Item 1</pie-list-item>
+        <pie-list-item>Item 2</pie-list-item>
+        <pie-list-item>Item 3</pie-list-item>
+    </pie-list>
 `;
 
 export const Default = createStory<ListProps>(Template, defaultArgs)();
+
+export const Compact = createStory<ListProps>(Template, {
+    ...defaultArgs,
+    variant: 'compact',
+})();
+
+export const WithDividers = createStory<ListProps>(Template, {
+    ...defaultArgs,
+    hasDividers: true,
+})();
+
+export const CompactWithDividers = createStory<ListProps>(Template, {
+    ...defaultArgs,
+    variant: 'compact',
+    hasDividers: true,
+})();
