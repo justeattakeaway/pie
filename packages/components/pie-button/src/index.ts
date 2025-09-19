@@ -7,7 +7,9 @@ import { property } from 'lit/decorators.js';
 import 'element-internals-polyfill';
 
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { validPropertyValues, FormControlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
+import {
+    validPropertyValues, FormControlMixin, safeCustomElement, DelegatesFocusMixin,
+} from '@justeattakeaway/pie-webc-core';
 
 import '@justeattakeaway/pie-spinner';
 import { type SpinnerProps } from '@justeattakeaway/pie-spinner';
@@ -28,7 +30,7 @@ const componentSelector = 'pie-button';
  * @slot - Default slot
  */
 @safeCustomElement('pie-button')
-export class PieButton extends FormControlMixin(PieElement) implements ButtonProps {
+export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement)) implements ButtonProps {
     connectedCallback () {
         super.connectedCallback();
 
@@ -296,10 +298,6 @@ export class PieButton extends FormControlMixin(PieElement) implements ButtonPro
         }
 
         return this.renderButton(classes);
-    }
-
-    focus () {
-        this.shadowRoot?.querySelector('button')?.focus();
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

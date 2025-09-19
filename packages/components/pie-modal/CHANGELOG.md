@@ -1,5 +1,38 @@
 # @justeattakeaway/pie-modal
 
+## 1.16.0
+
+### Minor Changes
+
+- [Changed] - Upgrade pie-design-tokens to v7.6.1 ([#2556](https://github.com/justeattakeaway/pie/pull/2556)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - Refactor several core component styles to use the new brand refresh content opacity tokens
+
+### Patch Changes
+
+- Updated dependencies [[`6d7157b`](https://github.com/justeattakeaway/pie/commit/6d7157b6a2fb54f8136427c76220e5beaeee8575), [`e68681a`](https://github.com/justeattakeaway/pie/commit/e68681ac1b3242e88240a65446164522d048c26e), [`6d7157b`](https://github.com/justeattakeaway/pie/commit/6d7157b6a2fb54f8136427c76220e5beaeee8575), [`e68681a`](https://github.com/justeattakeaway/pie/commit/e68681ac1b3242e88240a65446164522d048c26e), [`d060486`](https://github.com/justeattakeaway/pie/commit/d060486296ffcb85a69717785c1605f0062b4d66)]:
+  - @justeattakeaway/pie-webc-core@2.0.0
+  - @justeattakeaway/pie-icon-button@2.2.0
+  - @justeattakeaway/pie-button@1.8.0
+  - @justeattakeaway/pie-spinner@1.3.0
+  - @justeattakeaway/pie-icons-webc@1.15.0
+
+## 1.15.0
+
+### Minor Changes
+
+- [Changed] - Ensure screen readers announce modal labels and add aria-label property. Add aria-live="polite" so loading content is correctly announced by screen readers. ([#2551](https://github.com/justeattakeaway/pie/pull/2551)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 1.14.1
+
+### Patch Changes
+
+- [Fixed] - Correctly provide aria labels to pie-icon-button instances inside the modal. ([#2547](https://github.com/justeattakeaway/pie/pull/2547)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`40c4fbb`](https://github.com/justeattakeaway/pie/commit/40c4fbb19250c76fe640858f9589b778043e8df4), [`40c4fbb`](https://github.com/justeattakeaway/pie/commit/40c4fbb19250c76fe640858f9589b778043e8df4)]:
+  - @justeattakeaway/pie-icon-button@2.1.0
+  - @justeattakeaway/pie-button@1.7.0
+
 ## 1.14.0
 
 ### Minor Changes

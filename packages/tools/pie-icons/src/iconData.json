@@ -1165,6 +1165,10 @@
                     "displayName": "Sort Descending"
                 },
                 {
+                    "name": "swap",
+                    "displayName": "Swap"
+                },
+                {
                     "name": "switch-product",
                     "displayName": "Switch Product"
                 },

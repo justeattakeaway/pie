@@ -165,6 +165,13 @@ const selectStoryMeta: SelectStoryMeta = {
                 summary: defaultProps.options,
             },
         },
+        value: {
+            description: 'The programatically set value of the select. It overrides any option set as selected.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -204,16 +211,18 @@ const Template: TemplateFunction<SelectProps> = ({
     name,
     options,
     showLeadingIcon,
+    value,
 }) => html`
         <pie-select
             id="${ifDefined(name)}"
-            name="${ifDefined(name)}"   
+            name="${ifDefined(name)}"
             ?disabled="${disabled}"
             size="${ifDefined(size)}"
             assistiveText="${ifDefined(assistiveText)}"
             status="${ifDefined(status)}"
             .options="${options}"
-            @change="${onChange}">   
+            value="${ifDefined(value)}"
+            @change="${onChange}">
                 ${showLeadingIcon ? html`<icon-placeholder slot="leadingIcon"></icon-placeholder>` : nothing}
         </pie-select>
     `;
@@ -221,6 +230,7 @@ const Template: TemplateFunction<SelectProps> = ({
 const ExampleFormTemplate: TemplateFunction<SelectProps> = ({
     disabled,
     options,
+    value,
 }: SelectProps) => html`
   <form id="testForm" @submit="${onSubmit}">
       <pie-form-label for="food">Food:</pie-form-label>
@@ -230,6 +240,7 @@ const ExampleFormTemplate: TemplateFunction<SelectProps> = ({
           name="food"
           ?disabled="${disabled}"
           .options="${options}"
+          value="${ifDefined(value)}"
           data-test-id="pie-select-container">
           <icon-placeholder slot="leadingIcon"></icon-placeholder>
       </pie-select>
@@ -245,6 +256,7 @@ const ExampleFormTemplate: TemplateFunction<SelectProps> = ({
 const ExampleFormWithSelectedOptionTemplate: TemplateFunction<SelectProps> = ({
     disabled,
     options,
+    value,
 }: SelectProps) => html`
   <form id="testForm" @submit="${onSubmit}">
       <pie-form-label for="food">Food:</pie-form-label>
@@ -254,6 +266,7 @@ const ExampleFormWithSelectedOptionTemplate: TemplateFunction<SelectProps> = ({
           name="food"
           ?disabled="${disabled}"
           .options="${options}"
+          value="${ifDefined(value)}"
           data-test-id="pie-select-container">
           <icon-placeholder slot="leadingIcon"></icon-placeholder>
       </pie-select>

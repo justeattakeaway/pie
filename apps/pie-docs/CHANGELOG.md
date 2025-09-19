@@ -1,5 +1,43 @@
 # Changelog
 
+## 4.50.0
+
+### Minor Changes
+
+- [Changed] - Upgrade pie-design-tokens to v7.6.1 ([#2556](https://github.com/justeattakeaway/pie/pull/2556)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - Refactor several core component styles to use the new brand refresh content opacity tokens
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2564](https://github.com/justeattakeaway/pie/pull/2564)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`e68681a`](https://github.com/justeattakeaway/pie/commit/e68681ac1b3242e88240a65446164522d048c26e), [`d060486`](https://github.com/justeattakeaway/pie/commit/d060486296ffcb85a69717785c1605f0062b4d66)]:
+  - @justeattakeaway/pie-css@0.22.0
+  - @justeattakeaway/pie-icons@5.16.0
+  - @justeattakeaway/pie-icons-webc@1.15.0
+  - @justeattakeaway/pie-webc@0.7.21
+
+## 4.49.0
+
+### Minor Changes
+
+- [Changed] - use pie-button instead of fozzie buttons in the docs site ([#2560](https://github.com/justeattakeaway/pie/pull/2560)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - update the base notification shortcode to use pie-notification ([#2559](https://github.com/justeattakeaway/pie/pull/2559)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.20
+
+## 4.48.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.19
+
 ## 4.48.0
 
 ### Minor Changes

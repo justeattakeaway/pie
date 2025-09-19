@@ -212,7 +212,7 @@
 
     &.c-tag--outline {
         --int-states-mixin-bg-color: var(--tag-transparent-bg-color);
-        --tag-color: var(--dt-color-content-default);
+        --tag-color: var(--dt-color-content-default-solid);
 
         &.c-tag--interactive {
             @include p.interactive-states('--tag-transparent-bg-color', 'transparent');
@@ -226,7 +226,7 @@
 
     &.c-tag--ghost {
         --int-states-mixin-bg-color: var(--tag-transparent-bg-color);
-        --tag-color: var(--dt-color-content-default);
+        --tag-color: var(--dt-color-content-default-solid);
 
         &.c-tag--interactive {
             @include p.interactive-states('--tag-transparent-bg-color', 'transparent');
