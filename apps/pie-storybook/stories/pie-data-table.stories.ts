@@ -3,6 +3,7 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-data-table';
 import '@justeattakeaway/pie-data-table/dist/pie-data-table-header';
+import '@justeattakeaway/pie-data-table/dist/pie-data-table-row';
 import '@justeattakeaway/pie-button';
 import type {
     DataTableProps,

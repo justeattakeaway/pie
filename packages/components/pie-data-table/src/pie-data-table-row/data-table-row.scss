@@ -1,0 +1,40 @@
+@use '@justeattakeaway/pie-css/scss' as p;
+
+:host {
+  display: table-row;
+}
+
+.c-data-table-row {
+  display: table-row;
+  
+  &:hover {
+    background-color: var(--data-table-background-hover-or-active);
+  }
+  
+  &--selected {
+    background-color: var(--data-table-background-hover-or-active);
+  }
+}
+
+.c-data-table-cell {
+  padding: var(--dt-spacing-d);
+  border-bottom: 1px solid var(--data-table-border-color);
+  vertical-align: middle;
+  
+  // Support for any content type including components
+  > * {
+    vertical-align: middle;
+  }
+}
+
+.c-data-table-cell-text-align--left {
+  text-align: left;
+}
+
+.c-data-table-cell-text-align--right {
+  text-align: right;
+}
+
+.c-data-table-cell-text-align--center {
+  text-align: center;
+}
