@@ -355,7 +355,7 @@ export class PieModal extends PieElement implements ModalProps {
                 @click="${() => { this.isOpen = false; }}"
                 variant="ghost-secondary"
                 class="c-modal-closeBtn"
-                aria-label="${this.aria?.close || nothing}"
+                .aria=${ifDefined(this.aria?.close) ? { label: this.aria?.close } : nothing}
                 data-test-id="modal-close-button">
                 <icon-close></icon-close>
             </pie-icon-button>`;
@@ -377,9 +377,9 @@ export class PieModal extends PieElement implements ModalProps {
                 @click="${() => { this._backButtonClicked = true; this.isOpen = false; }}"
                 variant="ghost-secondary"
                 class="c-modal-backBtn"
-                aria-label="${ifDefined(this.aria?.back)}"
+                .aria=${ifDefined(this.aria?.back) ? { label: this.aria?.back } : nothing}
                 data-test-id="modal-back-button">
-                    <icon-chevron-left class="c-modal-backBtn-icon"></icon-chevron-right>
+                    <icon-chevron-left class="c-modal-backBtn-icon"></icon-chevron-left>
             </pie-icon-button>
         `;
     }
@@ -508,7 +508,7 @@ export class PieModal extends PieElement implements ModalProps {
         const headingTag = unsafeStatic(headingLevel);
 
         return html`
-            <${headingTag} class="c-modal-heading">
+            <${headingTag} id="modal-heading" class="c-modal-heading">
                 ${heading}
             </${headingTag}>
         `;
@@ -525,8 +525,6 @@ export class PieModal extends PieElement implements ModalProps {
             size,
         } = this;
 
-        const ariaLabel = (isLoading && aria?.loading) || undefined;
-
         const modalClasses = {
             'c-modal': true,
             [`c-modal--${size}`]: true,
@@ -537,12 +535,16 @@ export class PieModal extends PieElement implements ModalProps {
             'c-modal--fullWidthBelowMid': isFullWidthBelowMid,
         };
 
+        const ariaLabelForLoading = (isLoading && aria?.loading) || undefined;
+
         return html`
         <dialog
             id="dialog"
+            aria-label="${ifDefined(ariaLabelForLoading)}"
+            aria-labelledby="${ifDefined(ariaLabelForLoading ? undefined : 'modal-heading')}"
             class="${classMap(modalClasses)}"
+            aria-live="polite"
             aria-busy="${isLoading ? 'true' : 'false'}"
-            aria-label="${ifDefined(ariaLabel)}"
             data-test-id="pie-modal">
             <header class="c-modal-header" data-test-id="modal-header">
                 ${this.renderBackButton()}

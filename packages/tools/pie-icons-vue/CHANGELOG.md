@@ -1,5 +1,16 @@
 # Changelog
 
+## 5.16.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2564](https://github.com/justeattakeaway/pie/pull/2564)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Functionality
+
+  - swap-large
+  - swap
+
 ## 5.15.0
 
 ### Minor Changes

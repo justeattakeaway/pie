@@ -6,14 +6,15 @@
     inset-inline-end: var(--dt-spacing-d);
     z-index: var(--dt-z-index-fab);
     display: none; // Hidden by default, will be set to flex by scroll-to-top.js
-    flex-direction: row;
-    gap: var(--dt-spacing-b);
-    justify-content: space-between;
-    align-items: center;
     box-shadow: var(--dt-elevation-below-20);
+    border-radius: var(--dt-radius-rounded-e);
 
     @include f.media('>=wide') {
         inset-block-end: var(--dt-spacing-f);
         inset-inline-end: var(--dt-spacing-e);
+    }
+
+    .icon {
+        color: var(--dt-color-interactive-brand);
     }
 }

@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-assistive-text
 
+## 0.11.0
+
+### Minor Changes
+
+- [Changed] - Upgrade pie-design-tokens to v7.6.1 ([#2556](https://github.com/justeattakeaway/pie/pull/2556)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - Refactor several core component styles to use the new brand refresh content opacity tokens
+
+### Patch Changes
+
+- Updated dependencies [[`6d7157b`](https://github.com/justeattakeaway/pie/commit/6d7157b6a2fb54f8136427c76220e5beaeee8575), [`e68681a`](https://github.com/justeattakeaway/pie/commit/e68681ac1b3242e88240a65446164522d048c26e), [`d060486`](https://github.com/justeattakeaway/pie/commit/d060486296ffcb85a69717785c1605f0062b4d66)]:
+  - @justeattakeaway/pie-webc-core@2.0.0
+  - @justeattakeaway/pie-icons-webc@1.15.0
+
 ## 0.10.11
 
 ### Patch Changes

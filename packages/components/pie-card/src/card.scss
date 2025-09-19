@@ -26,10 +26,6 @@
 
         cursor: not-allowed;
 
-        ::slotted(*) {
-            color: var(--dt-color-content-disabled);
-        }
-
         img {
             opacity: 0.5;
         }

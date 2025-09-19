@@ -1,5 +1,29 @@
 # @justeattakeaway/pie-select
 
+## 0.8.0
+
+### Minor Changes
+
+- [Changed] - Use new DelegatesFocusMixin to delegate focus to the nearest focusable element instead of directly configuring shadowroot options in class ([#2561](https://github.com/justeattakeaway/pie/pull/2561)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`6d7157b`](https://github.com/justeattakeaway/pie/commit/6d7157b6a2fb54f8136427c76220e5beaeee8575), [`e68681a`](https://github.com/justeattakeaway/pie/commit/e68681ac1b3242e88240a65446164522d048c26e), [`e68681a`](https://github.com/justeattakeaway/pie/commit/e68681ac1b3242e88240a65446164522d048c26e)]:
+  - @justeattakeaway/pie-webc-core@2.0.0
+  - @justeattakeaway/pie-assistive-text@0.11.0
+
+## 0.7.1
+
+### Patch Changes
+
+- [Fixed] - change event dispatch ([#2557](https://github.com/justeattakeaway/pie/pull/2557)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.7.0
+
+### Minor Changes
+
+- [Added] - value property ([#2543](https://github.com/justeattakeaway/pie/pull/2543)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.6.11
 
 ### Patch Changes

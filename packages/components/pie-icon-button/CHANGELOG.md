@@ -1,5 +1,28 @@
 # @justeattakeaway/pie-icon-button
 
+## 2.2.0
+
+### Minor Changes
+
+- [Changed] - Use new DelegatesFocusMixin to delegate focus to the nearest focusable element instead of directly configuring shadowroot options in class ([#2561](https://github.com/justeattakeaway/pie/pull/2561)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Upgrade pie-design-tokens to v7.6.1 ([#2556](https://github.com/justeattakeaway/pie/pull/2556)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - Refactor several core component styles to use the new brand refresh content opacity tokens
+
+### Patch Changes
+
+- Updated dependencies [[`6d7157b`](https://github.com/justeattakeaway/pie/commit/6d7157b6a2fb54f8136427c76220e5beaeee8575), [`e68681a`](https://github.com/justeattakeaway/pie/commit/e68681ac1b3242e88240a65446164522d048c26e), [`e68681a`](https://github.com/justeattakeaway/pie/commit/e68681ac1b3242e88240a65446164522d048c26e), [`d060486`](https://github.com/justeattakeaway/pie/commit/d060486296ffcb85a69717785c1605f0062b4d66)]:
+  - @justeattakeaway/pie-webc-core@2.0.0
+  - @justeattakeaway/pie-spinner@1.3.0
+  - @justeattakeaway/pie-icons-webc@1.15.0
+
+## 2.1.0
+
+### Minor Changes
+
+- [Added] - Programmatic focus method that focuses the underlying button element. ([#2546](https://github.com/justeattakeaway/pie/pull/2546)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.0.6
 
 ### Patch Changes
