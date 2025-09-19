@@ -12,6 +12,8 @@ export default viteConfig({
                 'pie-data-table-row/react': 'src/pie-data-table-row/react.ts',
                 'pie-data-table-body/index': 'src/pie-data-table-body/index.ts',
                 'pie-data-table-body/react': 'src/pie-data-table-body/react.ts',
+                'pie-data-table-cell/index': 'src/pie-data-table-cell/index.ts',
+                'pie-data-table-cell/react': 'src/pie-data-table-cell/react.ts',
             },
         },
     },
