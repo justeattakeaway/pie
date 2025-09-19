@@ -2,10 +2,6 @@
 
 :host {
   display: block;
-}
-
-.c-list {
-  display: block;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -13,25 +9,20 @@
 
   // Default padding - will be inherited by child list items
   --list-item-padding: var(--dt-spacing-d) var(--dt-spacing-d) var(--dt-spacing-d) var(--dt-spacing-d);
-
-  // Remove default browser list padding/margin
-  &:where(ul, ol) {
-    margin: 0;
-    padding: 0;
-  }
 }
 
 // Variant: Compact
-.c-list--compact {
+:host([variant='compact']) {
   --list-item-padding: var(--dt-spacing-b) var(--dt-spacing-d) var(--dt-spacing-b) var(--dt-spacing-d);
 }
 
-// Interactive items
-.c-list--interactive ::slotted(*) {
-  cursor: pointer;
+// Dividers between items
+:host([has-dividers]) ::slotted(pie-list-item:not(:last-child)),
+:host([has-dividers]) ::slotted(li:not(:last-child)) {
+  border-bottom: 1px solid var(--dt-color-border-subtle);
 }
 
-// Dividers between items
-.has--dividers ::slotted(*:not(:last-child)) {
-  border-bottom: 1px solid var(--dt-color-border-subtle);
+// Interactive items (reserved for future interactive states via attribute)
+:host([interactive]) ::slotted(*) {
+  cursor: pointer;
 }

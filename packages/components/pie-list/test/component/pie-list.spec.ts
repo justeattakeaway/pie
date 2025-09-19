@@ -37,7 +37,7 @@ test.describe('PieList - Component tests', () => {
 
         // Assert
         await expect(listComponent).toBeVisible();
-        await expect(listComponent).toHaveAttribute('dividers');
+        await expect(listComponent).toHaveAttribute('has-dividers');
     });
 
     test('should render compact variant with dividers', async ({ page }) => {
@@ -51,6 +51,6 @@ test.describe('PieList - Component tests', () => {
         // Assert
         await expect(listComponent).toBeVisible();
         await expect(listComponent).toHaveAttribute('variant', 'compact');
-        await expect(listComponent).toHaveAttribute('dividers');
+        await expect(listComponent).toHaveAttribute('has-dividers');
     });
 });

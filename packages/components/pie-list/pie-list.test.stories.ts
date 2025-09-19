@@ -25,8 +25,8 @@ const listStoryMeta: ListStoryMeta = {
 
 export default listStoryMeta;
 
-const Template = ({ variant, dividers }: ListProps) => html`
-    <pie-list variant=${variant} ?dividers=${dividers}>
+const Template = ({ variant, hasDividers }: ListProps) => html`
+    <pie-list variant=${variant} ?has-dividers=${hasDividers}>
         <pie-list-item>Item 1</pie-list-item>
         <pie-list-item>Item 2</pie-list-item>
         <pie-list-item>Item 3</pie-list-item>
@@ -42,11 +42,11 @@ export const Compact = createStory<ListProps>(Template, {
 
 export const WithDividers = createStory<ListProps>(Template, {
     ...defaultArgs,
-    dividers: true,
+    hasDividers: true,
 })();
 
 export const CompactWithDividers = createStory<ListProps>(Template, {
     ...defaultArgs,
     variant: 'compact',
-    dividers: true,
+    hasDividers: true,
 })();

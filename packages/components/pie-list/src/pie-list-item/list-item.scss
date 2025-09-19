@@ -1,5 +1,6 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+
 :host {
   // These variables can be overridden by the parent list component
   --list-item-leading-margin: var(--dt-spacing-c);
@@ -9,9 +10,7 @@
   --list-item-focus-outline: 2px solid var(--dt-color-focus);
   --list-item-focus-offset: -2px;
   --list-item-touch-target-height: 48px;
-}
 
-.c-listItem {
   display: flex;
   align-items: center;
   padding: var(--list-item-padding, var(--dt-spacing-d));
@@ -49,20 +48,20 @@
 
 
 // Selected state
-.c-listItem--selected {
+:host([selected]) {
   background-color: var(--dt-color-active-1);
-  
-  .c-listItem-primary span {
-    color: var(--dt-color-content-default);
-  }
 }
 
 // Disabled state
-.c-listItem--disabled {
+:host([disabled]) {
   opacity: 0.5;
   pointer-events: none;
-  
-  .c-listItem-primary span {
-    color: var(--dt-color-content-disabled);
-  }
+}
+
+:host([disabled]) .c-listItem-primary span {
+  color: var(--dt-color-content-disabled);
+}
+
+:host([selected]) .c-listItem-primary span {
+  color: var(--dt-color-content-default);
 }

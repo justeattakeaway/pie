@@ -2,7 +2,7 @@ import { html, unsafeCSS } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
 import { property } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import type { PropertyValues } from 'lit';
 
 import styles from './list-item.scss?inline';
 import { type ListItemProps, defaultProps } from './defs';
@@ -30,29 +30,42 @@ export class PieListItem extends RtlMixin(PieElement) implements ListItemProps {
 
     connectedCallback () {
         super.connectedCallback();
+
+        if (!this.hasAttribute('role')) {
+            this.setAttribute('role', 'listitem');
+        }
+
+        if (!this.hasAttribute('data-test-id')) {
+            this.setAttribute('data-test-id', 'pie-list-item');
+        }
+
+        this._syncAriaDisabled();
+    }
+
+    protected updated (changedProperties: PropertyValues) {
+        super.updated(changedProperties);
+
+        if (changedProperties.has('disabled')) {
+            this._syncAriaDisabled();
+        }
+    }
+
+    private _syncAriaDisabled () {
+        if (this.disabled) {
+            this.setAttribute('aria-disabled', 'true');
+        } else {
+            this.removeAttribute('aria-disabled');
+        }
     }
 
     render () {
-        const classes = {
-            'c-listItem': true,
-            'c-listItem--selected': this.selected,
-            'c-listItem--disabled': this.disabled,
-        };
-
         return html`
-            <li
-                class=${classMap(classes)}
-                role="listitem"
-                aria-disabled=${this.disabled ? 'true' : 'false'}
-                data-test-id="pie-list-item">
-                
-                <div class="c-listItem-content">
-                    <div class="c-listItem-primary">
-                        <slot></slot>
-                        ${!this.querySelector(':not([slot])') && this.primaryText ? html`<span>${this.primaryText}</span>` : ''}
-                    </div>
+            <div class="c-listItem-content">
+                <div class="c-listItem-primary">
+                    <slot></slot>
+                    ${!this.querySelector(':not([slot])') && this.primaryText ? html`<span>${this.primaryText}</span>` : ''}
                 </div>
-            </li>
+            </div>
         `;
     }
 

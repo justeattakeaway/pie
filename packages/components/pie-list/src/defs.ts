@@ -11,12 +11,12 @@ export interface ListProps {
     /**
      * Whether to show dividers between list items
      */
-    dividers?: boolean;
+    hasDividers?: boolean;
 }
 
-export type DefaultProps = ComponentDefaultProps<ListProps, 'variant' | 'dividers'>;
+export type DefaultProps = ComponentDefaultProps<ListProps, 'variant' | 'hasDividers'>;
 
 export const defaultProps: DefaultProps = {
     variant: 'default',
-    dividers: false,
+    hasDividers: false,
 };
