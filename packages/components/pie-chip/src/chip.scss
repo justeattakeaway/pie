@@ -56,6 +56,7 @@
     &.c-chip--outline,
     &.c-chip--ghost {
         --int-states-mixin-bg-color: transparent;
+        --chip-color: var(--dt-color-content-interactive-secondary-solid);
 
         @include p.interactive-states('--dt-color-transparent', 'transparent');
     }
@@ -88,6 +89,7 @@
 
         &.c-chip--ghost {
             --int-states-mixin-bg-color: transparent;
+            --chip-color: var(--dt-color-content-disabled-solid);
         }
     }
 

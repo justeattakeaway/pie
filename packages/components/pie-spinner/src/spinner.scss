@@ -39,7 +39,7 @@
     will-change: transform;
     animation: rotate360 1.15s linear infinite;
 
-    @include spinner-base-colors('--dt-color-content-brand');
+    @include spinner-base-colors('--dt-color-content-brand-solid');
 
     &.c-spinner--medium,
     &.c-spinner--brand {
@@ -47,11 +47,11 @@
     }
 
     &.c-spinner--secondary {
-        @include spinner-base-colors('--dt-color-content-interactive-secondary');
+        @include spinner-base-colors('--dt-color-content-interactive-secondary-solid');
     }
 
     &.c-spinner--inverse {
-        @include spinner-base-colors('--dt-color-content-inverse');
+        @include spinner-base-colors('--dt-color-content-inverse-solid');
     }
 
     &.c-spinner--xsmall {

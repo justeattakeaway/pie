@@ -1,5 +1,21 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.15.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2564](https://github.com/justeattakeaway/pie/pull/2564)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Functionality
+
+  - swap-large
+  - swap
+
+### Patch Changes
+
+- Updated dependencies [[`6d7157b`](https://github.com/justeattakeaway/pie/commit/6d7157b6a2fb54f8136427c76220e5beaeee8575), [`e68681a`](https://github.com/justeattakeaway/pie/commit/e68681ac1b3242e88240a65446164522d048c26e)]:
+  - @justeattakeaway/pie-webc-core@2.0.0
+
 ## 1.14.2
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.0.0
+
+### Minor Changes
+
+- [Added] - DelegatesFocusMixin for components that need to pass focus to the first focusable element in the template ([#2561](https://github.com/justeattakeaway/pie/pull/2561)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - mark pie-css as a peer-dependency ([#2556](https://github.com/justeattakeaway/pie/pull/2556)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`e68681a`](https://github.com/justeattakeaway/pie/commit/e68681ac1b3242e88240a65446164522d048c26e)]:
+  - @justeattakeaway/pie-css@0.22.0
+
 ## 1.1.0
 
 ### Minor Changes
