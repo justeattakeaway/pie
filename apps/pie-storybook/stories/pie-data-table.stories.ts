@@ -351,4 +351,3 @@ export const WithComponentsInCells = createStory<DataTableProps>(Template, {
 })();
 
 export const EmptyData = createStory<DataTableProps>(Template, defaultArgs)();
-

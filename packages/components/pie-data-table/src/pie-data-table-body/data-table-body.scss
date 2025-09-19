@@ -1,0 +1,9 @@
+@use '@justeattakeaway/pie-css/scss' as p;
+
+:host {
+  display: table-row-group;
+}
+
+.c-data-table-body {
+  display: table-row-group;
+}
