@@ -32,11 +32,12 @@ const getHighlightIndicator = (highlightColour, index) => {
  * @param {string} type - Type of list: ordered, pill, icon
  * @param {string} iconName - icon name such as "close-circle-filled" if type is icon
  * @param {string} iconFill - fill token name such as "support-positive" if type is icon
+ * @param {boolean} isCompact - boolean to indicate if the list is compact
  * @param {string[]} items - An array of list items
  * @returns {string}
  */
 const list = ({
-    type, items, iconName, iconFill, highlightColour,
+    type, items, iconName, iconFill, highlightColour, isCompact,
 }) => {
     if (!type || !listTypes[type]) {
         throw new Error(`List 'type = ${type}' not recognised. Try ${Object.values(listTypes).join(', ')}`);
@@ -55,7 +56,8 @@ const list = ({
     const listTag = type === listTypes.ordered ? 'ol' : 'ul';
     const listClasses = [
         'c-list',
-        `c-list--${type}`
+        `c-list--${type}`,
+        isCompact ? 'c-list--compact' : '',
     ];
 
     return `<${listTag} class="${listClasses.join(' ')}"  ${isIconType ? `style="--icon-fill: ${iconFillHexcode}";` : ''}>
