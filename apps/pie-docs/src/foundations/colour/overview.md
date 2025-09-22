@@ -160,6 +160,7 @@ To ensure accessibility, content tokens must be paired correctly with product an
 {% contentLayout %}
   {% contentItem %}
     <h4>$background-interactive-brand</h4>
+    <p>When using product orange in the design, a solid content token must be applied to meet accessibility requirements.</p>
     {% contentPageImage {
       src:"../../../assets/img/foundations/colour/brand-button.svg",
       alt: "A primary button with brand orange background and white text.",
@@ -168,6 +169,7 @@ To ensure accessibility, content tokens must be paired correctly with product an
   {% endcontentItem %}
   {% contentItem %}
     <h4>$support-brand-01</h4>
+    <p>For brand orange, which has a lighter shade than product orange, a dark content colour must be applied (which can be opacity in this case), since light content tokens do not meet accessibility standards.</p>
     {% contentPageImage {
       src:"../../../assets/img/foundations/colour/brand-avatar.svg",
       alt: "An avatar with brand orange background and black text.",
@@ -190,7 +192,6 @@ To switch themes in Figma, you can click on the “Apply variable mode” icon i
 
 {% contentLayout %}
   {% contentItem %}
-    <h4>$background-interactive-brand</h4>
     {% contentPageImage {
       src:"../../../assets/img/foundations/colour/design-tip-1.svg",
       alt: "A screenshot of the Figma Appearance panel with a tooltip highlighting the 'Apply variable mode' icon.",
@@ -198,7 +199,6 @@ To switch themes in Figma, you can click on the “Apply variable mode” icon i
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h4>$support-brand-01</h4>
     {% contentPageImage {
       src:"../../../assets/img/foundations/colour/design-tip-2.svg",
       alt: "A screenshot of the Figma menu for variable modes, showing 'Dark Theme' being selected.",
