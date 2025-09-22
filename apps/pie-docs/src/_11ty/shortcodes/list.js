@@ -60,7 +60,7 @@ const list = ({
         isCompact ? 'c-list--compact' : '',
     ];
 
-    return `<${listTag} class="${listClasses.join(' ')}"  ${isIconType ? `style="--icon-fill: ${iconFillHexcode}";` : ''}>
+    return `<${listTag} class="${listClasses.join(' ').trim()}"  ${isIconType ? `style="--icon-fill: ${iconFillHexcode}";` : ''}>
         ${listItems}
     </${listTag}>`;
 };
