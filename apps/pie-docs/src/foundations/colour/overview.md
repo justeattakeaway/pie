@@ -202,8 +202,7 @@ To switch themes in Figma, you can click on the “Apply variable mode” icon i
     {% contentPageImage {
       src:"../../../assets/img/foundations/colour/design-tip-2.svg",
       alt: "A screenshot of the Figma menu for variable modes, showing 'Dark Theme' being selected.",
-      width: 177,
-      variant: "inverse"
+      width: 177
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
