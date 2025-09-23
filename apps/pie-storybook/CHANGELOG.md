@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.54.0
+
+### Minor Changes
+
+- [Added] - Multi-chip options stories for checkboxes and buttons. ([#2549](https://github.com/justeattakeaway/pie/pull/2549)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`a148bb8`](https://github.com/justeattakeaway/pie/commit/a148bb8dd327b395f786e762463038234340db80)]:
+  - @justeattakeaway/pie-chip@0.14.0
+
 ## 1.53.0
 
 ### Minor Changes
