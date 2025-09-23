@@ -4,7 +4,12 @@ import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
 import { property } from 'lit/decorators.js';
 
 import styles from './list.scss?inline';
-import { type ListProps, defaultProps, type variants } from './defs';
+import {
+    defaultProps,
+    type ListProps,
+    type ListType,
+    type ListVariant,
+} from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -19,7 +24,7 @@ const componentSelector = 'pie-list';
 @safeCustomElement('pie-list')
 export class PieList extends RtlMixin(PieElement) implements ListProps {
     @property({ type: String, reflect: true })
-    public variant: typeof variants[number] = defaultProps.variant;
+    public variant: ListVariant = defaultProps.variant;
 
     @property({
         type: Boolean,
@@ -28,12 +33,15 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
     })
     public hasDividers = defaultProps.hasDividers;
 
+    @property({
+        type: String,
+        reflect: true,
+        attribute: 'list-type',
+    })
+    public listType: ListType = defaultProps.listType;
+
     connectedCallback () {
         super.connectedCallback();
-
-        if (!this.hasAttribute('role')) {
-            this.setAttribute('role', 'list');
-        }
 
         if (!this.hasAttribute('data-test-id')) {
             this.setAttribute('data-test-id', 'pie-list');
@@ -41,7 +49,19 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
     }
 
     render () {
-        return html`<slot></slot>`;
+        const isOrderedList = this.listType === 'ordered';
+
+        return isOrderedList
+            ? html`
+                <ol class="c-list" data-test-id="pie-list-content" role="list">
+                    <slot></slot>
+                </ol>
+            `
+            : html`
+                <ul class="c-list" data-test-id="pie-list-content" role="list">
+                    <slot></slot>
+                </ul>
+            `;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

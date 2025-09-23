@@ -53,4 +53,22 @@ test.describe('PieList - Component tests', () => {
         await expect(listComponent).toHaveAttribute('variant', 'compact');
         await expect(listComponent).toHaveAttribute('has-dividers');
     });
+
+    test('should render as an ordered list when listType="ordered"', async ({ page }) => {
+        // Arrange
+        const listPage = new BasePage(page, 'list--ordered');
+        await listPage.load();
+
+        // Act
+        const listComponent = page.locator('pie-list');
+
+        // Assert
+        await expect(listComponent).toBeVisible();
+        await expect(listComponent).toHaveAttribute('list-type', 'ordered');
+
+        const hasOrderedList = await listComponent.evaluate((element) => (
+            element.shadowRoot?.querySelector('ol') !== null
+        ));
+        expect(hasOrderedList).toBe(true);
+    });
 });

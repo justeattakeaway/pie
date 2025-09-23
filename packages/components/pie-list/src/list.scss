@@ -2,13 +2,17 @@
 
 :host {
   display: block;
-  margin: 0;
-  padding: 0;
-  list-style: none;
   width: 100%;
 
   // Default padding - will be inherited by child list items
   --list-item-padding: var(--dt-spacing-d) var(--dt-spacing-d) var(--dt-spacing-d) var(--dt-spacing-d);
+}
+
+.c-list {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
 }
 
 // Variant: Compact
@@ -25,4 +29,9 @@
 // Interactive items (reserved for future interactive states via attribute)
 :host([interactive]) ::slotted(*) {
   cursor: pointer;
+}
+
+:host([list-type='ordered']) .c-list {
+  list-style: decimal;
+  list-style-position: inside;
 }

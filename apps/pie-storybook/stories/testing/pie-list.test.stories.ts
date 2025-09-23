@@ -12,6 +12,7 @@ type ListStoryMeta = Meta<ListProps>;
 const defaultArgs: ListProps = {
     variant: 'default',
     hasDividers: false,
+    listType: 'unordered',
 };
 
 const listStoryMeta: ListStoryMeta = {
@@ -25,6 +26,10 @@ const listStoryMeta: ListStoryMeta = {
         hasDividers: {
             control: 'boolean',
         },
+        listType: {
+            control: 'select',
+            options: ['unordered', 'ordered'],
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -37,8 +42,11 @@ const listStoryMeta: ListStoryMeta = {
 
 export default listStoryMeta;
 
-const Template = ({ variant, hasDividers }: ListProps) => html`
-    <pie-list variant=${variant} ?has-dividers=${hasDividers}>
+const Template = ({ variant, hasDividers, listType }: ListProps) => html`
+    <pie-list
+        variant=${variant}
+        list-type=${listType ?? 'unordered'}
+        ?has-dividers=${hasDividers}>
         <pie-list-item primaryText="First item"></pie-list-item>
         <pie-list-item primaryText="Second item"></pie-list-item>
         <pie-list-item primaryText="Third item"></pie-list-item>
@@ -66,6 +74,7 @@ export const CompactWithDividers = createStory<ListProps>(Template, {
 const propsMatrix: Partial<Record<keyof ListProps, unknown[]>> = {
     variant: ['default', 'compact'],
     hasDividers: [true, false],
+    listType: ['unordered', 'ordered'],
 };
 
 export const Variants = createVariantStory<ListProps>(Template, propsMatrix);

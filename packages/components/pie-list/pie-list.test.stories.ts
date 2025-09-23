@@ -25,8 +25,11 @@ const listStoryMeta: ListStoryMeta = {
 
 export default listStoryMeta;
 
-const Template = ({ variant, hasDividers }: ListProps) => html`
-    <pie-list variant=${variant} ?has-dividers=${hasDividers}>
+const Template = ({ variant, hasDividers, listType }: ListProps) => html`
+    <pie-list
+        variant=${variant}
+        list-type=${listType ?? 'unordered'}
+        ?has-dividers=${hasDividers}>
         <pie-list-item>Item 1</pie-list-item>
         <pie-list-item>Item 2</pie-list-item>
         <pie-list-item>Item 3</pie-list-item>
@@ -49,4 +52,9 @@ export const CompactWithDividers = createStory<ListProps>(Template, {
     ...defaultArgs,
     variant: 'compact',
     hasDividers: true,
+})();
+
+export const Ordered = createStory<ListProps>(Template, {
+    ...defaultArgs,
+    listType: 'ordered',
 })();
