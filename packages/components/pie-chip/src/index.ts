@@ -129,7 +129,7 @@ export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProp
                 aria-label="${ifDefined(aria?.label)}"
                 ?checked=${isSelected}
                 ?disabled=${disabled}
-                @change="${this._onCheckboxChange}">
+                @change="${this._onCheckboxChange}"/>
             <label
                 for="pie-chip"
                 class=${classMap(classes)}
