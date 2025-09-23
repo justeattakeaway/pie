@@ -71,6 +71,11 @@ export const CompactWithDividers = createStory<ListProps>(Template, {
     hasDividers: true,
 })();
 
+export const OrderedList = createStory<ListProps>(Template, {
+    ...defaultArgs,
+    listType: 'ordered',
+})();
+
 const propsMatrix: Partial<Record<keyof ListProps, unknown[]>> = {
     variant: ['default', 'compact'],
     hasDividers: [true, false],

@@ -48,7 +48,7 @@
 
 
 // Selected state
-:host([selected]) {
+:host([is-selected]) {
   background-color: var(--dt-color-active-1);
 }
 
@@ -62,6 +62,6 @@
   color: var(--dt-color-content-disabled);
 }
 
-:host([selected]) .c-listItem-primary span {
+:host([is-selected]) .c-listItem-primary span {
   color: var(--dt-color-content-default);
 }

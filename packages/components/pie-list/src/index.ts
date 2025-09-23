@@ -20,6 +20,9 @@ const componentSelector = 'pie-list';
  * @tagname pie-list
  *
  * PIE List component for displaying collections of related items.
+ *
+ * @slot - List items to render inside the component. Supports `<pie-list-item>`
+ * elements or custom markup that behaves like a native list item.
  */
 @safeCustomElement('pie-list')
 export class PieList extends RtlMixin(PieElement) implements ListProps {

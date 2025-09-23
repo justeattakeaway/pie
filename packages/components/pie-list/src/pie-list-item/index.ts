@@ -5,7 +5,7 @@ import { property } from 'lit/decorators.js';
 import type { PropertyValues } from 'lit';
 
 import styles from './list-item.scss?inline';
-import { type ListItemProps, defaultProps } from './defs';
+import { defaultProps, type ListItemProps } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -16,6 +16,15 @@ const componentSelector = 'pie-list-item';
  * @tagname pie-list-item
  *
  * PIE List Item component for use within pie-list.
+ *
+ * @slot - Primary content of the list item. Falls back to `primaryText` when
+ * no light DOM content is provided.
+ * @slot leading - Optional leading content such as icons, avatars, or
+ * thumbnails.
+ * @slot secondary - Optional secondary text displayed beneath the primary
+ * content.
+ * @slot trailing - Optional trailing content such as meta text or controls
+ * (e.g., checkbox, radio, switch).
  */
 @safeCustomElement('pie-list-item')
 export class PieListItem extends RtlMixin(PieElement) implements ListItemProps {
@@ -23,7 +32,7 @@ export class PieListItem extends RtlMixin(PieElement) implements ListItemProps {
     public primaryText = defaultProps.primaryText;
 
     @property({ type: Boolean, reflect: true })
-    public selected = defaultProps.selected;
+    public isSelected = defaultProps.isSelected;
 
     @property({ type: Boolean, reflect: true })
     public disabled = defaultProps.disabled;
@@ -33,10 +42,6 @@ export class PieListItem extends RtlMixin(PieElement) implements ListItemProps {
 
         if (!this.hasAttribute('role')) {
             this.setAttribute('role', 'listitem');
-        }
-
-        if (!this.hasAttribute('data-test-id')) {
-            this.setAttribute('data-test-id', 'pie-list-item');
         }
 
         this._syncAriaDisabled();

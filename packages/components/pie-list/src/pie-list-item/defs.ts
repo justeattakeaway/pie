@@ -9,7 +9,7 @@ export interface ListItemProps {
     /**
      * Whether the item is selected
      */
-    selected?: boolean;
+    isSelected?: boolean;
 
     /**
      * Whether the item is disabled
@@ -17,10 +17,10 @@ export interface ListItemProps {
     disabled?: boolean;
 }
 
-export type DefaultProps = ComponentDefaultProps<ListItemProps, 'primaryText' | 'selected' | 'disabled'>;
+export type DefaultProps = ComponentDefaultProps<ListItemProps, 'primaryText' | 'isSelected' | 'disabled'>;
 
 export const defaultProps: DefaultProps = {
     primaryText: '',
-    selected: false,
+    isSelected: false,
     disabled: false,
 };

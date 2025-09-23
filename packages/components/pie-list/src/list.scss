@@ -2,7 +2,6 @@
 
 :host {
   display: block;
-  width: 100%;
 
   // Default padding - will be inherited by child list items
   --list-item-padding: var(--dt-spacing-d) var(--dt-spacing-d) var(--dt-spacing-d) var(--dt-spacing-d);
@@ -11,7 +10,6 @@
 .c-list {
   margin: 0;
   padding: 0;
-  width: 100%;
   list-style: none;
 }
 
@@ -22,6 +20,7 @@
 
 // Dividers between items
 :host([has-dividers]) ::slotted(pie-list-item:not(:last-child)),
+// Allow bespoke markup that renders native `<li>` elements.
 :host([has-dividers]) ::slotted(li:not(:last-child)) {
   border-bottom: 1px solid var(--dt-color-border-subtle);
 }
