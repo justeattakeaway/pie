@@ -1,5 +1,9 @@
 const chip = {
     selectors: {
+        host: {
+            description: 'The selector for the chip host element',
+            dataTestId: 'test-chip',
+        },
         container: {
             description: 'The selector for the chip container',
             dataTestId: 'pie-chip',
@@ -11,14 +15,6 @@ const chip = {
         checkboxInput: {
             description: 'The selector for the chip checkbox input',
             dataTestId: 'chip-checkbox-input',
-        },
-        button: {
-            description: 'The selector for the chip button',
-            dataTestId: 'chip-button',
-        },
-        static: {
-            description: 'The selector for the chip static content',
-            dataTestId: 'chip-static',
         },
     },
 };

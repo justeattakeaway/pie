@@ -158,7 +158,6 @@ export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProp
         return html`
             <button
                 id="pie-chip"
-                data-test-id="chip-button"
                 type="button"
                 class=${classMap(classes)}
                 aria-busy="${ifDefined(isLoading)}"
@@ -197,28 +196,26 @@ export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProp
         };
 
         const handleClick = (event: Event) => {
-            if (this.disabled) {
+            if (disabled || isDismissible) {
                 event.preventDefault();
                 event.stopPropagation();
             }
         };
 
-        const handleCloseButtonClick = () : void => {
+        const handleCloseButtonClick = (event: Event) : void => {
+            event.stopPropagation();
             const closeEvent = new Event('close', { bubbles: true, composed: true });
             this.dispatchEvent(closeEvent);
         };
 
         return html`
             <div
-                data-test-id="chip-static"
-                role="${ifDefined(showCloseButton ? undefined : 'button')}"
-                tabindex="${ifDefined(showCloseButton ? undefined : '0')}"
                 aria-busy="${isLoading}"
                 aria-current="${isSelected}"
                 aria-label="${ifDefined(this.aria?.label)}"
                 class=${classMap(classes)}
                 data-test-id="pie-chip"
-                @click="${handleClick}">
+                @click=${handleClick}>
                 ${this._renderContent()}
                 ${showCloseButton ? html`<button
                         @click="${handleCloseButtonClick}"
@@ -236,14 +233,11 @@ export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProp
             return this._renderDismissible();
         }
 
-        switch (this.type) {
-            case 'button':
-                return this._renderButton();
-            case 'checkbox':
-                return this._renderCheckbox();
-            default:
-                return this._renderButton();
+        if (this.type === 'checkbox') {
+            return this._renderCheckbox();
         }
+
+        return this._renderButton();
     }
 
     static styles = unsafeCSS(styles);

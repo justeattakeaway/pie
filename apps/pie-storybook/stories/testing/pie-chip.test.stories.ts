@@ -121,6 +121,7 @@ const Template: TemplateFunction<ChipProps> = ({
     variant,
 }) => html`
         <pie-chip
+                data-test-id="test-chip"
                 .aria="${aria}"
                 ?disabled="${disabled}"
                 ?isSelected="${isSelected}"

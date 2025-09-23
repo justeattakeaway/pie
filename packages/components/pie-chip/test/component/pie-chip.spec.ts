@@ -26,7 +26,11 @@ const dismissibleProps: Partial<ChipProps> = {
 const setupPageWithChip = async (page: Page, props: Partial<ChipProps> = {}, eventName?: string) => {
     const pieChipPage = new BasePage(page, 'chip--default');
     await pieChipPage.load(props);
-    const chipComponent = page.locator(chip.selectors.container.dataTestId);
+    const chipComponent = page.getByTestId(chip.selectors.host.dataTestId);
+
+    if (!chipComponent) {
+        throw new Error('Chip component not found on the page');
+    }
 
     if (eventName) {
         await page.evaluate((event) => {
@@ -76,13 +80,13 @@ test.describe('PieChip - Component tests', () => {
                 },
             });
 
-            const chipButton = chipComponent.getByTestId(chip.selectors.button.dataTestId);
+            const button = chipComponent.getByTestId(chip.selectors.container.dataTestId);
 
             // Assert
-            await expect(chipButton).toHaveAttribute('aria-label', 'Button Chip Label');
-            await expect(chipButton).toHaveAttribute('aria-pressed', 'true');
-            await expect(chipButton).toHaveAttribute('aria-haspopup', 'true');
-            await expect(chipButton).toHaveAttribute('aria-expanded', 'false');
+            await expect(button).toHaveAttribute('aria-label', 'Button Chip Label');
+            await expect(button).toHaveAttribute('aria-pressed', 'true');
+            await expect(button).toHaveAttribute('aria-haspopup', 'true');
+            await expect(button).toHaveAttribute('aria-expanded', 'false');
         });
     });
 
@@ -119,10 +123,10 @@ test.describe('PieChip - Component tests', () => {
                 aria: { label: 'Checkbox Chip Label' },
             });
 
-            const chipCheckboxInput = chipComponent.getByTestId(chip.selectors.checkboxInput.dataTestId);
+            const checkboxInput = chipComponent.getByTestId(chip.selectors.checkboxInput.dataTestId);
 
             // Assert
-            await expect(chipCheckboxInput).toHaveAttribute('aria-label', 'Checkbox Chip Label');
+            await expect(checkboxInput).toHaveAttribute('aria-label', 'Checkbox Chip Label');
         });
     });
 
@@ -140,6 +144,18 @@ test.describe('PieChip - Component tests', () => {
             expect(emittedEvent).toBe('close');
         });
 
+        test('cannot click the div container', async ({ page }) => {
+            // Arrange
+            const chipComponent = await setupPageWithChip(page, dismissibleProps, 'click');
+
+            // Act
+            await chipComponent.click();
+            const [emittedEvent] = await page.evaluate(() => window.eventLog);
+
+            // Assert
+            expect(emittedEvent).toBe(undefined);
+        });
+
         test('should have the correct static ARIA attributes', async ({ page }) => {
             // Arrange
             const chipComponent = await setupPageWithChip(page, {
@@ -147,11 +163,11 @@ test.describe('PieChip - Component tests', () => {
                 aria: { label: 'Dismissible Chip' },
             });
 
-            const chipStatic = chipComponent.getByTestId(chip.selectors.static.dataTestId);
+            const innerContainer = chipComponent.getByTestId(chip.selectors.container.dataTestId);
 
             // Assert
-            await expect(chipStatic).toHaveAttribute('aria-label', 'Dismissible Chip');
-            await expect(chipStatic).toHaveAttribute('aria-current', 'true');
+            await expect(innerContainer).toHaveAttribute('aria-label', 'Dismissible Chip');
+            await expect(innerContainer).toHaveAttribute('aria-current', 'true');
         });
 
         test.describe('aria-busy attribute', () => {
@@ -162,10 +178,10 @@ test.describe('PieChip - Component tests', () => {
                     isLoading: true,
                 });
 
-                const chipStatic = chipComponent.getByTestId(chip.selectors.static.dataTestId);
+                const innerContainer = chipComponent.getByTestId(chip.selectors.container.dataTestId);
 
                 // Assert
-                await expect(chipStatic).toHaveAttribute('aria-busy', 'true');
+                await expect(innerContainer).toHaveAttribute('aria-busy', 'true');
             });
 
             test('should be `false` when isLoading is false', async ({ page }) => {
@@ -174,10 +190,11 @@ test.describe('PieChip - Component tests', () => {
                     ...dismissibleProps,
                     isLoading: false,
                 });
-                const chipStatic = chipComponent.getByTestId(chip.selectors.static.dataTestId);
+
+                const innerContainer = chipComponent.getByTestId(chip.selectors.container.dataTestId);
 
                 // Assert
-                await expect(chipStatic).toHaveAttribute('aria-busy', 'false');
+                await expect(innerContainer).toHaveAttribute('aria-busy', 'false');
             });
         });
 
@@ -234,19 +251,21 @@ test.describe('PieChip - Component tests', () => {
         test('the internal button element should be disabled', async ({ page }) => {
             // Arrange
             const chipComponent = await setupPageWithChip(page, { disabled: true });
-            const chipButton = chipComponent.getByTestId(chip.selectors.button.dataTestId);
+
+            const button = chipComponent.getByTestId(chip.selectors.container.dataTestId);
 
             // Assert
-            await expect(chipButton).toBeDisabled();
+            await expect(button).toBeDisabled();
         });
 
         test('the internal checkbox input should be disabled', async ({ page }) => {
             // Arrange
             const chipComponent = await setupPageWithChip(page, { type: 'checkbox', disabled: true });
-            const chipCheckboxInput = chipComponent.getByTestId(chip.selectors.checkboxInput.dataTestId);
+
+            const checkboxInput = chipComponent.getByTestId(chip.selectors.checkboxInput.dataTestId);
 
             // Assert
-            await expect(chipCheckboxInput).toBeDisabled();
+            await expect(checkboxInput).toBeDisabled();
         });
 
         test('the dismissible close button should be disabled', async ({ page }) => {
@@ -297,3 +316,4 @@ test.describe('PieChip - Component tests', () => {
         });
     });
 });
+
