@@ -127,7 +127,7 @@ const Template: TemplateFunction<ChipProps> = ({
                 type="${ifDefined(type)}"
                 @close="${closeAction}"
                 @change=${type === 'checkbox' ? changeAction : nothing}
-                @click=${type === 'button' ? clickAction : nothing}>
+                @click=${type === 'button' && !isDismissible ? clickAction : nothing}>
                     ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
                     ${sanitizeAndRenderHTML(slot)}
         </pie-chip>`;

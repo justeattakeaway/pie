@@ -196,7 +196,7 @@ export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProp
             'is-loading': isLoading,
         };
 
-        const onClickHandler = (event: Event) => {
+        const handleClick = (event: Event) => {
             if (this.disabled) {
                 event.preventDefault();
                 event.stopPropagation();
@@ -218,7 +218,7 @@ export class PieChip extends DelegatesFocusMixin(PieElement) implements ChipProp
                 aria-label="${ifDefined(this.aria?.label)}"
                 class=${classMap(classes)}
                 data-test-id="pie-chip"
-                @click="${onClickHandler}">
+                @click="${handleClick}">
                 ${this._renderContent()}
                 ${showCloseButton ? html`<button
                         @click="${handleCloseButtonClick}"
