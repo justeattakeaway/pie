@@ -248,3 +248,8 @@
     height: var(--icon-size-override);
     width: var(--icon-size-override);
 }
+
+[part="leadingIcon"] {
+    display: inline-flex; // Makes the span a flex container
+    align-items: center;  // Centers the svg inside the span
+}
