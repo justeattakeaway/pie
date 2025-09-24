@@ -1,20 +1,74 @@
 import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 
-const componentSelector = '[data-test-id="pie-list"]';
-
 test.describe('PieList - Component tests', () => {
     test('should render successfully', async ({ page }) => {
         // Arrange
         const basePage = new BasePage(page, 'list--default');
-
-        basePage.load();
-        await page.waitForTimeout(2500);
+        await basePage.load();
 
         // Act
-        const list = page.locator(componentSelector);
+        const listComponent = page.locator('pie-list');
 
         // Assert
-        expect(list).toBeVisible();
+        await expect(listComponent).toBeVisible();
+    });
+
+    test('should render with variant="compact"', async ({ page }) => {
+        // Arrange
+        const listPage = new BasePage(page, 'list--compact');
+        await listPage.load();
+
+        // Act
+        const listComponent = page.locator('pie-list');
+
+        // Assert
+        await expect(listComponent).toBeVisible();
+        await expect(listComponent).toHaveAttribute('variant', 'compact');
+    });
+
+    test('should render with dividers enabled', async ({ page }) => {
+        // Arrange
+        const listPage = new BasePage(page, 'list--with-dividers');
+        await listPage.load();
+
+        // Act
+        const listComponent = page.locator('pie-list');
+
+        // Assert
+        await expect(listComponent).toBeVisible();
+        await expect(listComponent).toHaveAttribute('has-dividers');
+    });
+
+    test('should render compact variant with dividers', async ({ page }) => {
+        // Arrange
+        const listPage = new BasePage(page, 'list--compact-with-dividers');
+        await listPage.load();
+
+        // Act
+        const listComponent = page.locator('pie-list');
+
+        // Assert
+        await expect(listComponent).toBeVisible();
+        await expect(listComponent).toHaveAttribute('variant', 'compact');
+        await expect(listComponent).toHaveAttribute('has-dividers');
+    });
+
+    test('should render as an ordered list when listType="ordered"', async ({ page }) => {
+        // Arrange
+        const listPage = new BasePage(page, 'list--ordered');
+        await listPage.load();
+
+        // Act
+        const listComponent = page.locator('pie-list');
+
+        // Assert
+        await expect(listComponent).toBeVisible();
+        await expect(listComponent).toHaveAttribute('list-type', 'ordered');
+
+        const hasOrderedList = await listComponent.evaluate((element) => (
+            element.shadowRoot?.querySelector('ol') !== null
+        ));
+        expect(hasOrderedList).toBe(true);
     });
 });
