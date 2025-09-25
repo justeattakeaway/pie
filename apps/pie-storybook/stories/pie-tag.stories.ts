@@ -201,7 +201,7 @@ const allCustomStyles = `
         font-feature-settings: 'liga' off, 'clig' off;
         line-height: 1;
     }
-    pie-tag.custom-style::part(leadingIcon) {
+    pie-tag.custom-style::part(icon) {
         all: initial;
         box-sizing: border-box;
         display: flex;
@@ -216,8 +216,8 @@ const allCustomStyles = `
     pie-tag.custom-2::part(body) {
         color: var(--dt-color-white);
     }
-    pie-tag.custom-1::part(leadingIcon),
-    pie-tag.custom-2::part(leadingIcon) {
+    pie-tag.custom-1::part(icon),
+    pie-tag.custom-2::part(icon) {
         --icon-size-override: 14px;
 
         color: var(--dt-color-content-dark-solid);
@@ -236,7 +236,7 @@ const allCustomStyles = `
         color: var(--dt-color-content-default);
         font-weight: var(--dt-font-weight-regular);
     }
-    pie-tag.custom-3::part(leadingIcon) {
+    pie-tag.custom-3::part(icon) {
         color: var(--dt-color-support-positive);
         background-color: var(--dt-color-support-positive-02);
         padding: 2px;
@@ -246,7 +246,7 @@ const allCustomStyles = `
 const CombinedCustomTemplate: TemplateFunction<TagProps> = (args) => html`
     <div style="text-align: center;">
         <style>${allCustomStyles}</style>
-        <p style="color: #fff">We are using the CSS parts ::body and ::leadingIcon to customise the tag.</p>
+        <p style="color: #fff">We are using the CSS parts ::body and ::icon to customise the tag.</p>
         <p style="color: #fff">Please use with caution. Updates to the core component styles could override custom styles.</p>
         <p style="color: #fff">When using CSS parts we strongly recommend removing base styles by applying the css: <code>all: initial</code> to reduce risk of regression when core styles are updated.</p>
 
@@ -264,7 +264,7 @@ const CombinedCustomTemplate: TemplateFunction<TagProps> = (args) => html`
 const CustomTagAlternateTemplate: TemplateFunction<TagProps> = (args) => html`
     <div style="text-align: center;">
         <style>${allCustomStyles}</style>
-        <p style="color: #000">We are using the CSS parts ::body and ::leadingIcon to customise the tag.</p>
+        <p style="color: #000">We are using the CSS parts ::body and ::icon to customise the tag.</p>
         <p style="color: #000">Please use with caution. Updates to the core component styles could override custom styles.</p>
         <p style="color: #000">When using CSS parts we strongly recommend removing base styles by applying the css: <code>all: initial</code> to reduce risk of regression when core styles are updated.</p>
 

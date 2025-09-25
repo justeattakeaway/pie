@@ -245,7 +245,7 @@ const allCustomStyles = `
         font-feature-settings: 'liga' off, 'clig' off;
         line-height: 1;
     }
-    pie-tag.custom-style::part(leadingIcon) {
+    pie-tag.custom-style::part(icon) {
         all: initial;
         box-sizing: border-box;
         display: flex;
@@ -260,8 +260,8 @@ const allCustomStyles = `
     pie-tag.custom-2::part(body) {
         color: var(--dt-color-white);
     }
-    pie-tag.custom-1::part(leadingIcon),
-    pie-tag.custom-2::part(leadingIcon) {
+    pie-tag.custom-1::part(icon),
+    pie-tag.custom-2::part(icon) {
         --icon-size-override: 14px;
 
         color: var(--dt-color-content-dark-solid);

@@ -53,7 +53,7 @@ This component does not expose any CSS variables for style overrides.
 | Part      | Description                                                  |
 |-----------|--------------------------------------------------------------|
 | `body` | This part allows consumers to fully rewrite the styles of the tag container element. This allows for a lot of customisation, but should be used with caution. |
-| `leadingIcon`    | Allows full customisation of the tag icon container.                |
+| `icon`    | Allows full customisation of the tag icon container.                |
 
 ### Events
 

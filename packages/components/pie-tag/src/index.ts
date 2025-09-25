@@ -24,7 +24,7 @@ const componentSelector = 'pie-tag';
  * @slot icon - The icon slot
  * @slot - Default slot
  * @csspart body - The main container of the tag.
- * @csspart leadingIcon - The container for the icon slot.
+ * @csspart icon - The container for the icon slot.
  */
 @safeCustomElement('pie-tag')
 export class PieTag extends PieElement implements TagProps {
@@ -96,7 +96,7 @@ export class PieTag extends PieElement implements TagProps {
         if (this.size !== 'large') return nothing;
 
         return html`
-            <div part="leadingIcon">
+            <div part="icon">
                 <slot name="icon" @slotchange=${this.handleSlotChange}></slot>
             </div>`;
     }
