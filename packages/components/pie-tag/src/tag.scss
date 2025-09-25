@@ -256,6 +256,10 @@
 // Used instead of gap on the flex container so that we don't have to figure out if the
 // slot is empty or has an icon. Otherwise flex gap would always take effect even when no icon is in the slot
 // as we cannot use :has yet due to browser support.
-::slotted(.c-pieIcon)  {
+.c-tag:not(.c-tag--icon-placement--trailing) ::slotted(.c-pieIcon)  {
     margin-inline-end: var(--dt-spacing-a);
+}
+
+.c-tag--icon-placement--trailing ::slotted(.c-pieIcon)  {
+    margin-inline-start: var(--dt-spacing-a);
 }
