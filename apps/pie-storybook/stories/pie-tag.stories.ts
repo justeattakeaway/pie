@@ -201,23 +201,24 @@ const allCustomStyles = `
         font-feature-settings: 'liga' off, 'clig' off;
         line-height: 1;
     }
+    pie-tag.custom-style::part(leadingIcon) {
+        all: initial;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        border-radius: 50%;
+        aspect-ratio: 1/1;
+    }
     pie-tag.custom-1::part(body),
     pie-tag.custom-2::part(body) {
         color: var(--dt-color-white);
     }
     pie-tag.custom-1::part(leadingIcon),
     pie-tag.custom-2::part(leadingIcon) {
-        all: initial;
-        box-sizing: border-box;
-
         --icon-size-override: 14px;
 
-        display: flex;
-        align-items: center;
         color: var(--dt-color-content-dark-solid);
         background-color: var(--dt-color-support-brand-05);
-        border-radius: 50%;
-        aspect-ratio: 1/1;
         padding: 3px;
     }
     pie-tag.custom-1::part(body) {
@@ -235,8 +236,6 @@ const allCustomStyles = `
     pie-tag.custom-3::part(leadingIcon) {
         color: var(--dt-color-support-positive);
         background-color: var(--dt-color-support-positive-02);
-        border-radius: 50%;
-        aspect-ratio: 1/1;
         padding: 2px;
     }
 `;
