@@ -19,7 +19,7 @@ export type StoryBackgrounds = {
 type StorybookControls = {
     exclude?: string[],
     include?: string[],
-    disable: boolean;
+    disable?: boolean;
 }
 export interface StoryOptions {
     bgColor?: BackgroundColor;
