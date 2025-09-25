@@ -30,7 +30,6 @@
     vertical-align: middle;
     align-items: center;
     justify-content: center;
-    gap: var(--dt-spacing-a);
     padding: var(--tag-padding-block) var(--tag-padding-inline);
     border-radius: var(--tag-border-radius);
     background-color: var(--int-states-mixin-bg-color);
@@ -252,4 +251,11 @@
 [part="leadingIcon"] {
     display: inline-flex;
     align-items: center;
+}
+
+// Used instead of gap on the flex container so that we don't have to figure out if the
+// slot is empty or has an icon. Otherwise flex gap would always take effect even when no icon is in the slot
+// as we cannot use :has yet due to browser support.
+::slotted(.c-pieIcon)  {
+    margin-inline-end: var(--dt-spacing-a);
 }
