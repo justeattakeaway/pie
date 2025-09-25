@@ -181,11 +181,24 @@ const allCustomStyles = `
         display: inline-flex;
     }
     pie-tag.custom-style::part(body) {
+        all: initial;
+        font-family: inherit;
+        box-sizing: border-box;
+        text-rendering: inherit;
+        -webkit-font-smoothing: inherit;
+
+        --custom-tag-whitespace: var(--dt-spacing-a);
+
+        display: flex;
+        align-items: center;
+        gap: var(--custom-tag-whitespace);
         border-radius: var(--dt-radius-rounded-e);
         padding-inline-start: 0;
-        padding-inline-end: var(--dt-spacing-a);
+        padding-inline-end: var(--custom-tag-whitespace);
         padding-block: 0;
         font-size: calc(var(--dt-font-size-12) * 1px);
+        font-variant-numeric: lining-nums tabular-nums;
+        font-feature-settings: 'liga' off, 'clig' off;
         line-height: 1;
     }
     pie-tag.custom-1::part(body),
@@ -194,7 +207,13 @@ const allCustomStyles = `
     }
     pie-tag.custom-1::part(leadingIcon),
     pie-tag.custom-2::part(leadingIcon) {
+        all: initial;
+        box-sizing: border-box;
+
         --icon-size-override: 14px;
+
+        display: flex;
+        align-items: center;
         color: var(--dt-color-content-dark-solid);
         background-color: var(--dt-color-support-brand-05);
         border-radius: 50%;
@@ -202,7 +221,6 @@ const allCustomStyles = `
         padding: 3px;
     }
     pie-tag.custom-1::part(body) {
-        background: none;
         font-weight: var(--dt-font-weight-bold);
     }
     pie-tag.custom-2::part(body) {
@@ -210,10 +228,9 @@ const allCustomStyles = `
         font-weight: var(--dt-font-weight-regular);
     }
     pie-tag.custom-3::part(body) {
-        background: none;
+        --icon-size-override: 12px;
         color: var(--dt-color-content-default);
         font-weight: var(--dt-font-weight-regular);
-        --icon-size-override: 12px;
     }
     pie-tag.custom-3::part(leadingIcon) {
         color: var(--dt-color-support-positive);
@@ -229,6 +246,8 @@ const CombinedCustomTemplate: TemplateFunction<TagProps> = (args) => html`
         <style>${allCustomStyles}</style>
         <p style="color: #fff">We are using the CSS parts ::body and ::leadingIcon to customise the tag.</p>
         <p style="color: #fff">Please use with caution. Updates to the core component styles could override custom styles.</p>
+        <p style="color: #fff">When using CSS parts we strongly recommend removing base styles by applying the css: <code>all: initial</code> to reduce risk of regression when core styles are updated.</p>
+
         <pie-tag class="custom-style custom-1" .args=${args}>
             <icon-offer-filled slot="icon"></icon-offer-filled>
             <span>Label 1</span>
@@ -240,11 +259,13 @@ const CombinedCustomTemplate: TemplateFunction<TagProps> = (args) => html`
     </div>
 `;
 
-const CustomTag3Template: TemplateFunction<TagProps> = (args) => html`
+const CustomTagAlternateTemplate: TemplateFunction<TagProps> = (args) => html`
     <div style="text-align: center;">
         <style>${allCustomStyles}</style>
         <p style="color: #000">We are using the CSS parts ::body and ::leadingIcon to customise the tag.</p>
         <p style="color: #000">Please use with caution. Updates to the core component styles could override custom styles.</p>
+        <p style="color: #000">When using CSS parts we strongly recommend removing base styles by applying the css: <code>all: initial</code> to reduce risk of regression when core styles are updated.</p>
+
         <pie-tag class="custom-style custom-3" .args=${args}>
             <icon-vegan slot="icon"></icon-vegan>
             <span>Vegan</span>
@@ -261,8 +282,8 @@ export const CustomStyledTags = createCombinedCustomStory({
     controls: { disable: true },
 });
 
-const createCustomTag3Story = createStory<TagProps>(CustomTag3Template, defaultArgs);
-export const CustomStyledTag3 = createCustomTag3Story({
+const createCustomTagAlternateStory = createStory<TagProps>(CustomTagAlternateTemplate, defaultArgs);
+export const CustomStyledTagAlternate = createCustomTagAlternateStory({
     size: 'large',
     showIcon: true,
 }, {
