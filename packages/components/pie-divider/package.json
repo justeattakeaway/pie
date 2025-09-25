@@ -19,7 +19,12 @@
     "**/*.d.ts"
   ],
   "pieMetadata": {
-    "componentStatus": "stable"
+    "componentStatus": "stable",
+    "replaces": {
+      "snacks": [
+        "Divider"
+      ]
+    }
   },
   "scripts": {
     "build": "run -T vite build",
