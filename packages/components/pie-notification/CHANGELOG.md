@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-notification
 
+## 0.18.0
+
+### Minor Changes
+
+- [Updated] - change the background color tokens of the info, success, warning and error variants to the tonal set ([#2569](https://github.com/justeattakeaway/pie/pull/2569)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.17.0
 
 ### Minor Changes
