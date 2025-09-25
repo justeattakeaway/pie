@@ -12,7 +12,6 @@ import {
 } from '@justeattakeaway/pie-tag';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconOfferFilled.js';
-import '@justeattakeaway/pie-icons-webc/dist/IconVegan.js';
 
 import { type SlottedComponentProps } from '../../types';
 import {
