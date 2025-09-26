@@ -13,3 +13,11 @@ variants.forEach((variant) => {
         await percySnapshot(page, `PIE Tag - Variant: ${variant}`, percyWidths);
     });
 });
+
+test('should allow for custom styling using CSS parts', async ({ page }) => {
+    const tagVariationsPage = new BasePage(page, 'tag--custom-styled-tags');
+
+    await tagVariationsPage.load();
+
+    await percySnapshot(page, 'PIE Tag - CSS parts styles', percyWidths);
+});
