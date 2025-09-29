@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.52.0
+
+### Minor Changes
+
+- [Changed] - refactor component status to use pie-tag ([#2573](https://github.com/justeattakeaway/pie/pull/2573)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 4.51.1
 
 ### Patch Changes
