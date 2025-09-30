@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.31.1
+
+### Patch Changes
+
+- [Updated] - package.json template with replaces.snacks field ([#2570](https://github.com/justeattakeaway/pie/pull/2570)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.31.0
 
 ### Minor Changes
