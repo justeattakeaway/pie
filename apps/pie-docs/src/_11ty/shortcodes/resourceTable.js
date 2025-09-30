@@ -8,11 +8,11 @@ const buildRow = (row) => {
     }
 
     const { icon, resource } = resourceSettings[row.resource];
-    const { bgColor, status } = statusSettings[row.status];
+    const { variant, status } = statusSettings[row.status];
 
     const resourceText = row.link ? `<a href="${row.link}">${resource}</a>` : `<span>${resource}</span>`;
     const resourceComponent = `<div class="c-resourceTable-resource"><img src="${icon}"></img>${resourceText}</div>`;
-    const statusComponent = `<span class="c-resourceTable-status" style="--bg-colour: ${bgColor}">${row.note ? `${status}: ${row.note}` : status}</span>`;
+    const statusComponent = `<pie-tag variant="${variant}">${row.note ? `${status}: ${row.note}` : status}</pie-tag>`;
 
     return `<tr>
                 <td>

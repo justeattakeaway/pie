@@ -19,7 +19,13 @@
     "**/*.d.ts"
   ],
   "pieMetadata": {
-    "componentStatus": "stable"
+    "componentStatus": "stable",
+    "replaces": {
+      "snacks": [
+        "Button",
+        "ButtonLink"
+      ]
+    }
   },
   "scripts": {
     "build": "run -T vite build",

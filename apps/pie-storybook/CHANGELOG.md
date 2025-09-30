@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.54.1
+
+### Patch Changes
+
+- Updated dependencies [[`b9c7a96`](https://github.com/justeattakeaway/pie/commit/b9c7a9672a6c3b02383956227bc9b0b95d877ed0)]:
+  - @justeattakeaway/pie-notification@0.18.0
+
 ## 1.54.0
 
 ### Minor Changes

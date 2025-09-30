@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.91.1
+
+### Patch Changes
+
+- [Added] - metadata to components regarding which Snacks component it replaces ([#2570](https://github.com/justeattakeaway/pie/pull/2570)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 2.91.0
 
 ### Minor Changes

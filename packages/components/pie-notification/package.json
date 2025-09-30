@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-notification",
   "description": "PIE Design System Notification built using Web Components",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -19,7 +19,12 @@
     "**/*.d.ts"
   ],
   "pieMetadata": {
-    "componentStatus": "beta"
+    "componentStatus": "beta",
+    "replaces": {
+      "snacks": [
+        "Notification"
+      ]
+    }
   },
   "scripts": {
     "build": "run -T vite build",

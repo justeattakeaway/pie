@@ -1,9 +1,9 @@
 const statusSettings = require('../../_data/statusSettings');
 
 const buildDescription = (row) => {
-    const { bgColor, status } = statusSettings[row.term];
+    const { variant, status } = statusSettings[row.term];
 
-    const statusComponent = `<span class="c-resourceTable-status" style="--bg-colour: ${bgColor}">${status}</span>`;
+    const statusComponent = `<pie-tag variant="${variant}">${status}</pie-tag>`;
 
     return `
         <tr>
