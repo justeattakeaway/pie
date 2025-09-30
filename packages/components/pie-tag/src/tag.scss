@@ -263,3 +263,7 @@
 .c-tag:not(.c-tag--icon-placement--trailing) ::slotted(.c-pieIcon)  {
     margin-inline-end: var(--dt-spacing-a);
 }
+
+.c-tag.c-tag--icon-only ::slotted(.c-pieIcon) {
+    margin-inline: 0;
+}
