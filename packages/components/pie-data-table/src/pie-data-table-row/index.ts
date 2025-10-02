@@ -8,7 +8,6 @@ import {
     type DataTableRowProps,
 } from './defs';
 
-// Valid values available to consumers
 export * from './defs';
 
 const componentSelector = 'pie-data-table-row';

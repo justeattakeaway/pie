@@ -10,7 +10,6 @@ import {
     defaultProps,
 } from './defs';
 
-// Valid values available to consumers
 export * from './defs';
 
 const componentSelector = 'pie-data-table-cell';

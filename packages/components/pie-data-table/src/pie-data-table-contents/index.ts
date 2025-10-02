@@ -5,7 +5,6 @@ import { safeCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './data-table-contents.scss?inline';
 import { type DataTableContentsProps } from './defs';
 
-// Valid values available to consumers
 export * from './defs';
 
 const componentSelector = 'pie-data-table-contents';

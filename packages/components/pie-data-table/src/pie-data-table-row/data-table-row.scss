@@ -1,13 +1,10 @@
-@use '@justeattakeaway/pie-css/scss' as p;
-
 :host {
   display: table-row;
   border-bottom: 1px solid var(--data-table-border-color);
 
   ::slotted(pie-data-table-cell) {
     background-color: var(--data-table-background-hover-or-active, transparent);
-  }
-  
+  }  
 }
 
 :host([isSelected]) {

@@ -5,7 +5,6 @@ import { safeCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './data-table-head.scss?inline';
 import { type DataTableHeadProps } from './defs';
 
-// Valid values available to consumers
 export * from './defs';
 
 const componentSelector = 'pie-data-table-head';

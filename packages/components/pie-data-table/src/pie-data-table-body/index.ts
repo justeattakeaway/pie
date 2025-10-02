@@ -5,7 +5,6 @@ import { safeCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './data-table-body.scss?inline';
 import { type DataTableBodyProps } from './defs';
 
-// Valid values available to consumers
 export * from './defs';
 
 const componentSelector = 'pie-data-table-body';
@@ -16,11 +15,7 @@ const componentSelector = 'pie-data-table-body';
 @safeCustomElement('pie-data-table-body')
 export class PieDataTableBody extends PieElement implements DataTableBodyProps {
     render () {
-        return html`
-            <!-- <tbody role="rowgroup" class="c-data-table-body"> -->
-                <slot></slot>
-            <!-- </tbody> -->
-        `;
+        return html`<slot></slot>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
