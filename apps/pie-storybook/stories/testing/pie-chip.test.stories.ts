@@ -3,7 +3,9 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-chip';
-import { type ChipProps as ChipPropsBase, variants, defaultProps } from '@justeattakeaway/pie-chip';
+import {
+    type ChipProps as ChipPropsBase, variants, defaultProps, types,
+} from '@justeattakeaway/pie-chip';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
 import { type SlottedComponentProps } from '../../types';
@@ -22,6 +24,7 @@ const defaultArgs: ChipProps = {
     },
     showIcon: false,
     slot: 'String',
+    type: 'button',
 };
 
 const chipStoryMeta: ChipStoryMeta = {
@@ -45,6 +48,14 @@ const chipStoryMeta: ChipStoryMeta = {
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.disabled,
+            },
+        },
+        type: {
+            description: 'Set the type of the chip.',
+            control: 'select',
+            options: types,
+            defaultValue: {
+                summary: defaultProps.type,
             },
         },
         isSelected: {
@@ -87,15 +98,21 @@ const chipStoryMeta: ChipStoryMeta = {
 export default chipStoryMeta;
 
 const clickAction = () => {
-    console.info('pie-chip clicked');
+    console.info('pie-chip click');
 };
+
+const changeAction = () => {
+    console.info('pie-chip change');
+};
+
 const closeAction = () => {
-    console.info('pie-chip-close clicked');
+    console.info('pie-chip close');
 };
 
 const Template: TemplateFunction<ChipProps> = ({
     aria,
     disabled,
+    type,
     isSelected,
     isLoading,
     isDismissible,
@@ -103,18 +120,21 @@ const Template: TemplateFunction<ChipProps> = ({
     slot,
     variant,
 }) => html`
-           <pie-chip
+        <pie-chip
+                data-test-id="test-chip"
                 .aria="${aria}"
                 ?disabled="${disabled}"
                 ?isSelected="${isSelected}"
                 ?isLoading="${isLoading}"
                 ?isDismissible="${isDismissible}"
                 variant="${ifDefined(variant)}"
-                @pie-chip-close="${closeAction}"
-                @click="${clickAction}">
+                type="${ifDefined(type)}"
+                @close="${closeAction}"
+                @change=${type === 'checkbox' ? changeAction : undefined}
+                @click=${type === 'button' ? clickAction : undefined}>
                     ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
                     ${sanitizeAndRenderHTML(slot)}
-           </pie-chip>`;
+        </pie-chip>`;
 const createChipStory = createStory<ChipProps>(Template, defaultArgs);
 
 export const Default = createChipStory();
@@ -149,3 +169,7 @@ const outlinePropOptions = {
 export const DefaultPropVariations = createVariantStory<Omit<ChipProps, 'aria'> >(Template, defaultPropOptions);
 export const GhostPropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, ghostPropOptions);
 export const OutlinePropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, outlinePropOptions);
+
+export const DefaultCheckboxPropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, { ...defaultPropOptions, type: ['checkbox'] });
+export const GhostCheckboxPropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, { ...ghostPropOptions, type: ['checkbox'] });
+export const OutlineCheckboxPropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, { ...outlinePropOptions, type: ['checkbox'] });

@@ -1,55 +1,48 @@
 const statusTypes = require('./statusTypes');
-const pieDesignTokenColours = require('../_11ty/filters/pieDesignTokenColours');
 
-const getStatusColour = (tokenName) => {
-    const tokenPath = ['alias', 'default'];
-
-    return pieDesignTokenColours({ tokenName, tokenPath });
-};
-
-const statusColours = {
-    active: getStatusColour('support-positive-02'),
-    planned: getStatusColour('support-info-02'),
-    next: getStatusColour('support-warning-02'),
-    done: getStatusColour('support-error-02'),
-    other: getStatusColour('container-strong'),
+const statusVariants = {
+    active: 'success',
+    planned: 'information',
+    next: 'brand-05',
+    done: 'error',
+    other: 'neutral',
 };
 
 module.exports = {
     [statusTypes.STABLE]: {
-        bgColor: statusColours.active,
+        variant: statusVariants.active,
         status: 'Stable',
     },
     [statusTypes.PLANNED]: {
-        bgColor: statusColours.planned,
+        variant: statusVariants.planned,
         status: 'Planned',
     },
     [statusTypes.ALPHA]: {
-        bgColor: statusColours.next,
+        variant: statusVariants.next,
         status: 'Alpha',
     },
     [statusTypes.BETA]: {
-        bgColor: statusColours.next,
+        variant: statusVariants.next,
         status: 'Beta',
     },
     [statusTypes.PRE_RELEASE]: {
-        bgColor: statusColours.next,
+        variant: statusVariants.next,
         status: 'Pre-release',
     },
     [statusTypes.REMOVED]: {
-        bgColor: statusColours.done,
+        variant: statusVariants.done,
         status: 'Removed',
     },
     [statusTypes.DEPRECATED]: {
-        bgColor: statusColours.done,
+        variant: statusVariants.done,
         status: 'Deprecated',
     },
     [statusTypes.NOT_APPLICABLE]: {
-        bgColor: statusColours.other,
+        variant: statusVariants.other,
         status: 'N/A',
     },
     [statusTypes.TBC]: {
-        bgColor: statusColours.other,
+        variant: statusVariants.other,
         status: 'TBC',
     },
 };

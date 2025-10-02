@@ -108,6 +108,12 @@
     }
 }
 
+.c-list--compact {
+    .c-list-item + .c-list-item {
+        margin-block-start: var(--dt-spacing-b);
+    }
+}
+
 .c-list--highlight .c-list-item + .c-list-item {
     margin-block-start: var(--dt-spacing-b);
 }

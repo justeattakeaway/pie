@@ -42,21 +42,21 @@
     }
 
     &.c-notification--info {
-        --notification-background-color: var(--dt-color-support-info-02);
+        --notification-background-color: var(--dt-color-support-info-tonal);
         --notification-icon-fill: var(--dt-color-support-info);
     }
 
     &.c-notification--success {
-        --notification-background-color: var(--dt-color-support-positive-02);
+        --notification-background-color: var(--dt-color-support-positive-tonal);
         --notification-icon-fill: var(--dt-color-support-positive);
     }
 
     &.c-notification--warning {
-        --notification-background-color: var(--dt-color-support-warning-02);
+        --notification-background-color: var(--dt-color-support-warning-tonal);
     }
 
     &.c-notification--error {
-        --notification-background-color: var(--dt-color-support-error-02);
+        --notification-background-color: var(--dt-color-support-error-tonal);
         --notification-icon-fill: var(--dt-color-support-error);
     }
 

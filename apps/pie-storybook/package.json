@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-storybook",
-  "version": "1.53.0",
+  "version": "1.54.1",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
@@ -24,7 +24,7 @@
     "@justeattakeaway/pie-card": "0.26.2",
     "@justeattakeaway/pie-checkbox": "0.18.0",
     "@justeattakeaway/pie-checkbox-group": "0.9.12",
-    "@justeattakeaway/pie-chip": "0.13.0",
+    "@justeattakeaway/pie-chip": "0.14.0",
     "@justeattakeaway/pie-cookie-banner": "1.6.23",
     "@justeattakeaway/pie-css": "0.22.0",
     "@justeattakeaway/pie-data-table": "0.1.2",
@@ -36,7 +36,7 @@
     "@justeattakeaway/pie-list": "0.0.5",
     "@justeattakeaway/pie-lottie-player": "0.2.6",
     "@justeattakeaway/pie-modal": "1.16.0",
-    "@justeattakeaway/pie-notification": "0.17.0",
+    "@justeattakeaway/pie-notification": "0.18.0",
     "@justeattakeaway/pie-radio": "0.12.0",
     "@justeattakeaway/pie-radio-group": "0.9.15",
     "@justeattakeaway/pie-select": "0.8.0",

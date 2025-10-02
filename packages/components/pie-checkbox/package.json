@@ -19,7 +19,12 @@
     "**/*.d.ts"
   ],
   "pieMetadata": {
-    "componentStatus": "beta"
+    "componentStatus": "beta",
+    "replaces": {
+      "snacks": [
+        "Checkbox"
+      ]
+    }
   },
   "scripts": {
     "build": "run -T vite build",
