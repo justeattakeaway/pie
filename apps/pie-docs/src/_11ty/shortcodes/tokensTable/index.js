@@ -1,6 +1,7 @@
 /* eslint-disable no-trailing-spaces */
 const pieTokenCategories = require('@justeat/pie-design-tokens/metadata/tokenCategories.json');
 const tokenTypes = require('../../../_data/tokenTypes');
+const { buildBlurExample } = require('./tokenTypes/blur');
 const { buildColorExample } = require('./tokenTypes/colour');
 const { buildElevationExample } = require('./tokenTypes/elevation');
 const { buildSpacingExample } = require('./tokenTypes/spacing');
@@ -29,6 +30,7 @@ const { getTokenData, getTokenCategories } = require('../../../_utilities/tokens
 const buildTokenExampleElement = (token, tokenType, tokenMetadata, path = {}) => {
     const tokenExampleElementHandler = {
         [tokenTypes.COLOR]: buildColorExample,
+        [tokenTypes.BLUR]: buildBlurExample,
         [tokenTypes.ELEVATION]: buildElevationExample,
         [tokenTypes.FONT]: buildFontExample,
         [tokenTypes.RADIUS]: buildRadiusExample,

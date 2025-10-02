@@ -65,6 +65,12 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     }
 }
 
+.c-tokensTable-example-container--blur {
+    position: relative;
+    display: flex;
+
+}
+
 .c-tokensTable-example {
     background-color: var(--example-background-color, var(--dt-color-background-subtle));
     overflow: hidden;
@@ -153,6 +159,18 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     @include f.media('>=wide') {
         margin-block-start: 0;
     }
+}
+
+.c-tokensTable-example--blur {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: var(--dt-radius-rounded-b);
+    background-color: var(--example-blur-background-color);
+    height: 85px;
+    width: 85px;
+    backdrop-filter: blur(var(--example-blur));
 }
 
 .c-tokensTable-example--font {
