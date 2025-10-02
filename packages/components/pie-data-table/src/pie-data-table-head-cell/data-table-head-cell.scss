@@ -4,25 +4,7 @@
   padding: var(--dt-spacing-d);
   border-bottom: 1px solid var(--data-table-border-color);
   display: table-cell;
-  --colspan: 1;
 }
-
-:host([colSpan="2"]) {
-  --colspan: 2;
-}
-
-:host([colSpan="3"]) {
-  --colspan: 3;
-}
-
-:host([colSpan="4"]) {
-  --colspan: 4;
-}
-
-:host([colSpan="5"]) {
-  --colspan: 5;
-}
-
 
 :host([textAlign="right"]) {
   text-align: right;

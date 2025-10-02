@@ -42,12 +42,12 @@ export interface DataTableProps {
   /**
    * Array of column definitions
    */
-  columns: Column[];
+  columns?: Column[];
 
   /**
    * Array of data objects to display
    */
-  data: Record<string, unknown>[];
+  data?: Record<string, unknown>[];
 
   /**
    * Arbitrary additional rows to display at the bottom of the table

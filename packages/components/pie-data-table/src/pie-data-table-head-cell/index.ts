@@ -3,47 +3,40 @@ import { property } from 'lit/decorators.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 
-import styles from './data-table-cell.scss?inline';
+import styles from './data-table-head-cell.scss?inline';
 import {
-    type DataTableCellProps,
-    dataTableCellTextAlign,
+    type DataTableHeadCellProps,
+    dataTableHeadCellTextAlign,
     defaultProps,
 } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
 
-const componentSelector = 'pie-data-table-cell';
+const componentSelector = 'pie-data-table-head-cell';
 
 /**
- * @tagname pie-data-table-cell
+ * @tagname pie-data-table-head-cell
  */
-@safeCustomElement('pie-data-table-cell')
-export class PieDataTableCell extends PieElement implements DataTableCellProps {
+@safeCustomElement('pie-data-table-head-cell')
+export class PieDataTableHeadCell extends PieElement implements DataTableHeadCellProps {
     /**
      * Text alignment for the cell content
      */
     @property({ type: String })
-    @validPropertyValues(componentSelector, dataTableCellTextAlign, defaultProps.textAlign)
-    public textAlign?: DataTableCellProps['textAlign'];
+    @validPropertyValues(componentSelector, dataTableHeadCellTextAlign, defaultProps.textAlign)
+    public textAlign?: DataTableHeadCellProps['textAlign'];
 
     /**
      * Whether the cell is hidden
      */
     @property({ type: Boolean })
-    public isHidden?: DataTableCellProps['isHidden'];
-
-    /**
-     * Number of columns the cell should span
-     */
-    @property({ type: Number })
-    public colSpan?: DataTableCellProps['colSpan'];
+    public isHidden?: DataTableHeadCellProps['isHidden'];
 
     connectedCallback () {
         if (!this.hasAttribute('role')) {
-            this.setAttribute('role', 'cell');
+            this.setAttribute('role', 'columnheader');
         }
-
         super.connectedCallback();
     }
 
@@ -57,12 +50,11 @@ export class PieDataTableCell extends PieElement implements DataTableCellProps {
         return html`<slot></slot>`;
     }
 
-    // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
 
 declare global {
     interface HTMLElementTagNameMap {
-        [componentSelector]: PieDataTableCell;
+        [componentSelector]: PieDataTableHeadCell;
     }
 }

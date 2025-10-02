@@ -17,9 +17,9 @@ const componentSelector = 'pie-data-table-body';
 export class PieDataTableBody extends PieElement implements DataTableBodyProps {
     render () {
         return html`
-            <tbody class="c-data-table-body">
+            <!-- <tbody role="rowgroup" class="c-data-table-body"> -->
                 <slot></slot>
-            </tbody>
+            <!-- </tbody> -->
         `;
     }
 

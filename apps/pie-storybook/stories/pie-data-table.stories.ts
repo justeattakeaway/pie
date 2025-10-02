@@ -4,6 +4,11 @@ import { type Meta } from '@storybook/web-components';
 import '@justeattakeaway/pie-data-table';
 import '@justeattakeaway/pie-data-table/dist/pie-data-table-header';
 import '@justeattakeaway/pie-data-table/dist/pie-data-table-row';
+import '@justeattakeaway/pie-data-table/dist/pie-data-table-body';
+import '@justeattakeaway/pie-data-table/dist/pie-data-table-cell';
+import '@justeattakeaway/pie-data-table/dist/pie-data-table-head';
+import '@justeattakeaway/pie-data-table/dist/pie-data-table-head-cell';
+import '@justeattakeaway/pie-data-table/dist/pie-data-table-contents';
 import '@justeattakeaway/pie-button';
 import type {
     DataTableProps,
@@ -38,6 +43,39 @@ const headerStrongSlot = html`
         <pie-button slot="action-button" variant="secondary" size="xsmall">Action</pie-button>
         <pie-button slot="action-button" variant="secondary" size="xsmall">Action</pie-button>
     </pie-data-table-header>
+`;
+
+const tableBodySlot = html`
+    <pie-data-table-contents>
+        <pie-data-table-head>
+            <pie-data-table-row>
+                <pie-data-table-head-cell>Name</pie-data-table-head-cell>
+                <pie-data-table-head-cell textAlign="right">Age</pie-data-table-head-cell>
+                <pie-data-table-head-cell textAlign="center">Department</pie-data-table-head-cell>
+                <pie-data-table-head-cell textAlign="center">Action</pie-data-table-head-cell>
+            </pie-data-table-row>
+        </pie-data-table-head>
+        <pie-data-table-body>
+            <pie-data-table-row>
+                <pie-data-table-cell>John Doe</pie-data-table-cell>
+                <pie-data-table-cell textAlign="right">30</pie-data-table-cell>
+                <pie-data-table-cell textAlign="center">test</pie-data-table-cell>
+                <pie-data-table-cell textAlign="center"><pie-button @click=${() => alert('Action clicked')} variant="secondary" size="xsmall">Action</pie-button></pie-data-table-cell>
+            </pie-data-table-row>
+            <pie-data-table-row>
+                <pie-data-table-cell>Jose Smith</pie-data-table-cell>
+                <pie-data-table-cell textAlign="right">28</pie-data-table-cell>
+                <pie-data-table-cell textAlign="center">test</pie-data-table-cell>
+                <pie-data-table-cell textAlign="center"><pie-button variant="secondary" size="xsmall">Action</pie-button></pie-data-table-cell>
+            </pie-data-table-row> 
+            <pie-data-table-row>
+                <pie-data-table-cell>Bob Johnson</pie-data-table-cell>
+                <pie-data-table-cell textAlign="right">35</pie-data-table-cell>
+                <pie-data-table-cell textAlign="center" aria-colspan="4" colSpan="4">super test</pie-data-table-cell>
+                <pie-data-table-cell textAlign="center"><pie-button variant="secondary" size="xsmall">Action</pie-button></pie-data-table-cell>
+            </pie-data-table-row>
+        </pie-data-table-body>
+    </pie-data-table-contents>
 `;
 
 const sampleData = [
@@ -235,6 +273,7 @@ const additionalRows: DataTableAdditionalRow[] = [
 const defaultArgs: DataTableProps = {
     columns: [],
     data: [],
+    slo
 };
 
 const dataTableStoryMeta: DataTableStoryMeta = {
@@ -300,6 +339,15 @@ const TemplateWithStrongHeader = ({
     </pie-data-table>
 `;
 
+const TemplateWithTableBody = () => html`
+    <pie-data-table
+        data-test-id="pie-data-table"
+    >
+        ${headerStrongSlot}
+        ${tableBodySlot}
+    </pie-data-table>
+`;
+
 export const NoHeader = createStory<DataTableProps>(Template, {
     columns: sampleColumns,
     data: sampleData,
@@ -315,39 +363,20 @@ export const WithStrongHeader = createStory<DataTableProps>(TemplateWithStrongHe
     data: sampleData,
 })();
 
-export const EmptyTable = createStory<DataTableProps>(Template, {
-    columns: sampleColumns,
-    data: [],
-})();
-
 export const WithExtraRows = createStory<DataTableProps>(Template, {
     columns: productsColumns,
     data: sampleDataProducts,
     additionalRows,
 })();
 
-export const WithComponentsInCells = createStory<DataTableProps>(Template, {
+export const WithCustomTableBody = createStory<DataTableProps>(TemplateWithTableBody, {
     columns: sampleColumns,
-    data: [
-        {
-            name: 'John Doe',
-            age: 30,
-            email: 'john.doe@example.com',
-            department: '<pie-button variant="primary" size="xsmall">Action</pie-button>',
-        },
-        {
-            name: 'Jose Smith',
-            age: 28,
-            email: 'jane.smith@example.com',
-            department: html`<pie-button @click="${() => alert('Button clicked!')}" variant="secondary" size="xsmall">Action</pie-button>`,
-        },
-        {
-            name: 'Bob Johnson',
-            age: 35,
-            email: 'bob.johnson@example.com',
-            department: () => html`<pie-button @click="${() => alert('Button clicked!')}" variant="secondary" size="xsmall">Action</pie-button>`,
-        },
-    ],
 })();
 
-export const EmptyData = createStory<DataTableProps>(Template, defaultArgs)();
+export const EmptyDataWithColumns = createStory<DataTableProps>(Template, {
+    columns: sampleColumns,
+    data: [],
+})();
+
+export const EmptyDataAndColumns = createStory<DataTableProps>(Template, defaultArgs)();
+

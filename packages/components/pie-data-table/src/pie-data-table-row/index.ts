@@ -2,7 +2,6 @@ import { html, nothing, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { safeCustomElement } from '@justeattakeaway/pie-webc-core';
-import { classMap } from 'lit/directives/class-map.js';
 
 import styles from './data-table-row.scss?inline';
 import {
@@ -31,23 +30,41 @@ export class PieDataTableRow extends PieElement implements DataTableRowProps {
     @property({ type: Boolean })
     public isHidden?: DataTableRowProps['isHidden'];
 
+    connectedCallback () {
+        if (!this.hasAttribute('role')) {
+            this.setAttribute('role', 'row');
+        }
+
+        this.addEventListener('mouseenter', this._handleMouseEnter);
+        this.addEventListener('mouseleave', this._handleMouseLeave);
+        this.style.setProperty('--data-table-background-hover-or-active', 'transparent');
+
+        super.connectedCallback();
+    }
+
+    disconnectedCallback () {
+        super.disconnectedCallback();
+
+        this.removeEventListener('mouseenter', this._handleMouseEnter);
+        this.removeEventListener('mouseleave', this._handleMouseLeave);
+    }
+
+    private _handleMouseEnter = () => {
+        this.style.setProperty('--data-table-background-hover-or-active', 'var(--dt-color-container-subtle)');
+    };
+
+    private _handleMouseLeave = () => {
+        this.style.setProperty('--data-table-background-hover-or-active', 'transparent');
+    };
+
     render () {
-        const { isSelected, isHidden } = this;
+        const { isHidden } = this;
 
         if (isHidden) {
             return nothing;
         }
 
-        const rowClasses = {
-            'c-data-table-row': true,
-            'c-data-table-row--selected': Boolean(isSelected),
-        };
-
-        return html`
-            <tr class="${classMap(rowClasses)}">
-                <slot></slot>
-            </tr>
-        `;
+        return html`<slot></slot>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

@@ -15,9 +15,14 @@ export interface DataTableCellProps {
    * Content value to render in the cell
    */
   value?: unknown;
+  /**
+   * Number of columns the cell should span
+   */
+  colSpan?: number;
 }
 
-export const defaultProps: ComponentDefaultProps<DataTableCellProps, 'textAlign' | 'isHidden'> = {
+export const defaultProps: ComponentDefaultProps<DataTableCellProps, 'textAlign' | 'isHidden' | 'colSpan'> = {
     textAlign: 'left',
     isHidden: false,
+    colSpan: 1,
 };

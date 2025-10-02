@@ -1,9 +1,15 @@
 import { html, nothing, unsafeCSS } from 'lit';
-import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { property } from 'lit/decorators.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
+
+// import '@justeattakeaway/pie-data-table-contents';
+// import '@justeattakeaway/pie-data-table-head';
+// import '@justeattakeaway/pie-data-table-head-cell';
+// import '@justeattakeaway/pie-data-table-body';
+// import '@justeattakeaway/pie-data-table-row';
+// import '@justeattakeaway/pie-data-table-cell';
 
 import styles from './data-table.scss?inline';
 import {
@@ -64,12 +70,12 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
         const { width, heading, textAlign } = column;
         const style = width ? `width: ${width}` : nothing;
         const classes = {
-            'c-data-table-header': true,
-            ...this.mapTextAlignClasses('c-data-table-header', textAlign),
+            'c-data-table-head-cell': true,
+            ...this.mapTextAlignClasses('c-data-table-head-cell', textAlign),
         };
 
         return html`
-            <th style="${style}" class="${classMap(classes)}">
+            <th style="${String(style)}" class="${classMap(classes)}">
                 ${heading}
             </th>
         `;
@@ -101,7 +107,7 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
 
         return html`
             <td class="${classMap(classes)}">
-                ${column.accessor ? this.renderCellContent(row[column.accessor]) : ''}
+                ${column.accessor ? row[column.accessor] : ''}
             </td>
         `;
     }
@@ -159,36 +165,14 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
         /* eslint-enable indent */
     }
 
-    /**
-     * Util method that checks if a string contains HTML tags
-     */
-    private isHTMLString (str: string): boolean {
-        return /<[a-z][\s\S]*>/i.test(str.trim());
-    }
-
-    /**
-     * Renders the content of a table cell, handling different types of content
-     *
-     * @param value - The content to render in the cell
-     */
-    private renderCellContent (value: unknown): unknown {
-        if (value == null) {
-            return '';
-        }
-
-        if ((value instanceof HTMLElement) || (value && typeof value === 'object')) {
-            return value;
-        }
-
-        if (typeof value === 'function') {
-            return this.renderCellContent(value());
-        }
-
-        if (typeof value === 'string' && this.isHTMLString(value)) {
-            return unsafeHTML(value);
-        }
-
-        return String(value);
+    private renderHTMLTable () {
+        return html`
+            <table>
+                ${this.columns.length > 0 ? this.renderTableHeader() : nothing}
+                ${this.data.length > 0 ? this.renderTableRows() : nothing}
+                ${this.additionalRows && this.additionalRows.length > 0 ? this.renderAdditionalRows() : nothing}
+            </table>
+        `;
     }
 
     render () {
@@ -199,11 +183,7 @@ export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps
         return html`
             <div class="${classMap(classes)}">
                 <slot name="table-header"></slot>
-                <table>
-                    ${this.columns.length > 0 ? this.renderTableHeader() : nothing}
-                    ${this.data.length > 0 ? this.renderTableRows() : nothing}
-                    ${this.additionalRows && this.additionalRows.length > 0 ? this.renderAdditionalRows() : nothing}
-                </table>
+                ${this.data.length > 0 && this.columns.length > 0 ? this.renderHTMLTable() : html`<slot></slot>`}
             </div>
         `;
     }

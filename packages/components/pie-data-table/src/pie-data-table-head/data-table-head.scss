@@ -1,0 +1,10 @@
+/* No specific styles for table head component */
+
+:host {
+  background-color: transparent;
+  font-weight: var(--dt-font-weight-bold);
+  color: var(--data-table-header-color);
+  border-bottom: 1px solid var(--data-table-border-color);
+  display: table-header-group;
+}
+
