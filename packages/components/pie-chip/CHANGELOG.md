@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-chip
 
+## 0.14.0
+
+### Minor Changes
+
+- [Changed] - New `type` property to allow `button` or `checkbox` chips. Checkbox type will emit a `change` event (but not change `isSelected`) when clicked. ([#2549](https://github.com/justeattakeaway/pie/pull/2549)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Changed] - **BREAKING** `pie-chip-close` event renamed to `close` for dismissible chips.
+
 ## 0.13.0
 
 ### Minor Changes

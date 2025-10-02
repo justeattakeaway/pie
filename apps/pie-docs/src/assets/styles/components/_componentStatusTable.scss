@@ -38,15 +38,6 @@ $breakpoint-wide: 992px;
     }
 }
 
-.c-componentStatus-status {
-    display: inline;
-    background: var(--bg-colour);
-    padding-block: 2px;
-    padding-inline-start: var(--dt-spacing-a);
-    padding-inline-end: var(--dt-spacing-a);
-    border-radius: var(--dt-radius-rounded-b);
-}
-
 .c-componentStatus-table {
     border-collapse: collapse;
     max-inline-size: 100%;

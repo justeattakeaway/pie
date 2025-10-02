@@ -19,7 +19,10 @@
     "**/*.d.ts"
   ],
   "pieMetadata": {
-    "componentStatus": "beta"
+    "componentStatus": "beta",
+    "replaces": {
+      "snacks": []
+    }
   },
   "scripts": {
     "build": "run -T vite build",

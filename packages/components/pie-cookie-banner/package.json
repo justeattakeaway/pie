@@ -24,7 +24,10 @@
     "componentStatus": "stable",
     "cdnPublish": true,
     "cdnSourceFolder": "cdn_dist",
-    "cdnContentType": "text/javascript"
+    "cdnContentType": "text/javascript",
+    "replaces": {
+      "snacks": []
+    }
   },
   "scripts": {
     "build": "run -T vite build && yarn build:cdn",

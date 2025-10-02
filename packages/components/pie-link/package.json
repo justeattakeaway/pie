@@ -19,7 +19,12 @@
     "**/*.d.ts"
   ],
   "pieMetadata": {
-    "componentStatus": "stable"
+    "componentStatus": "stable",
+    "replaces": {
+      "snacks": [
+        "TextLink"
+      ]
+    }
   },
   "scripts": {
     "build": "run -T vite build",

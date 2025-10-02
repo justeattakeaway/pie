@@ -26,6 +26,7 @@ concurrency:
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 env:
+  PERCY_GZIP: true
   PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
   PERCY_TOKEN_PIE_ASSISTIVE_TEXT: ${{ secrets.PERCY_TOKEN_PIE_ASSISTIVE_TEXT }}
   PERCY_TOKEN_PIE_BUTTON: ${{ secrets.PERCY_TOKEN_PIE_BUTTON }}

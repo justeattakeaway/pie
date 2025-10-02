@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-chip",
   "description": "PIE Design System Chip built using Web Components",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -19,7 +19,12 @@
     "**/*.d.ts"
   ],
   "pieMetadata": {
-    "componentStatus": "beta"
+    "componentStatus": "beta",
+    "replaces": {
+      "snacks": [
+        "Chip"
+      ]
+    }
   },
   "scripts": {
     "build": "run -T vite build",
