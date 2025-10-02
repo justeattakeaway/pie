@@ -27,6 +27,7 @@
 
     display: inline-flex;
     flex-direction: row;
+    gap: var(--dt-spacing-a);
     vertical-align: middle;
     align-items: center;
     justify-content: center;
@@ -251,19 +252,4 @@
 [part="icon"] {
     display: inline-flex;
     align-items: center;
-}
-
-// Used instead of gap on the flex container so that we don't have to figure out if the
-// slot is empty or has an icon. Otherwise flex gap would always take effect even when no icon is in the slot
-// as we cannot use :has yet due to browser support.
-.c-tag--icon-placement--trailing ::slotted(.c-pieIcon)  {
-    margin-inline-start: var(--dt-spacing-a);
-}
-
-.c-tag:not(.c-tag--icon-placement--trailing) ::slotted(.c-pieIcon)  {
-    margin-inline-end: var(--dt-spacing-a);
-}
-
-.c-tag.c-tag--icon-only ::slotted(.c-pieIcon) {
-    margin-inline: 0;
 }

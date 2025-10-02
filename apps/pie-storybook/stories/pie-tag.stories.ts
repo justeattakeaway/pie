@@ -209,9 +209,6 @@ const allCustomStyles = `
         border-radius: 50%;
         aspect-ratio: 1/1;
     }
-    pie-tag.custom-style .c-pieIcon {
-        margin-inline-end: 0;
-    }
     pie-tag.custom-1::part(body),
     pie-tag.custom-2::part(body) {
         color: var(--dt-color-white);
