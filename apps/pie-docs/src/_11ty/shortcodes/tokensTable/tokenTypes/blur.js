@@ -6,9 +6,9 @@
 const buildBlurExample = (tokenValue) => {
     const containerTokensMapping = {
         9: 'dt-color-container-neutral',
-        '12.5': 'dt-color-container-prominent',
+        12.5: 'dt-color-container-prominent',
         24: 'dt-color-container-base',
-    }
+    };
     const style = `--example-blur: ${tokenValue}px; --example-blur-background-color: var(--${containerTokensMapping[tokenValue]});`;
 
     return `
