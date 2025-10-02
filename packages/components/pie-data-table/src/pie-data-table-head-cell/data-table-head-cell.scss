@@ -9,12 +9,15 @@
 :host([textAlign="right"]) {
   text-align: right;
 }
+
 :host([textAlign="center"]) {
   text-align: center;
 }
+
 :host([textAlign="left"]) {
   text-align: left; 
 }
+
 :host([isHidden]) {
   display: none;
 }
