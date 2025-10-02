@@ -33,12 +33,6 @@ export class PieDataTableCell extends PieElement implements DataTableCellProps {
     @property({ type: Boolean })
     public isHidden?: DataTableCellProps['isHidden'];
 
-    /**
-     * Number of columns the cell should span
-     */
-    @property({ type: Number })
-    public colSpan?: DataTableCellProps['colSpan'];
-
     connectedCallback () {
         if (!this.hasAttribute('role')) {
             this.setAttribute('role', 'cell');

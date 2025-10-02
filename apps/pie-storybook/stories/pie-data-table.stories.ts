@@ -71,7 +71,7 @@ const tableBodySlot = html`
             <pie-data-table-row>
                 <pie-data-table-cell>Bob Johnson</pie-data-table-cell>
                 <pie-data-table-cell textAlign="right">35</pie-data-table-cell>
-                <pie-data-table-cell textAlign="center" aria-colspan="4" colSpan="4">super test</pie-data-table-cell>
+                <pie-data-table-cell textAlign="center">super test</pie-data-table-cell>
                 <pie-data-table-cell textAlign="center"><pie-button variant="secondary" size="xsmall">Action</pie-button></pie-data-table-cell>
             </pie-data-table-row>
         </pie-data-table-body>
