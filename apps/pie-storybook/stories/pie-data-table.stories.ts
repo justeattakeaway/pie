@@ -273,7 +273,6 @@ const additionalRows: DataTableAdditionalRow[] = [
 const defaultArgs: DataTableProps = {
     columns: [],
     data: [],
-    slo
 };
 
 const dataTableStoryMeta: DataTableStoryMeta = {
