@@ -16,7 +16,16 @@ export const formEncodingtypes = ['application/x-www-form-urlencoded', 'multipar
 export const formMethodTypes = ['post', 'get', 'dialog'] as const;
 export const formTargetTypes = ['_self', '_blank', '_parent', '_top'] as const;
 
+type AriaProps = {
+    hasPopup?: 'false' | 'true' | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+};
+
 export interface ButtonProps {
+    /**
+     * The ARIA attributes used for various parts of the button.
+     */
+    aria?: AriaProps;
+
     /**
      * Which HTML element to use when rendering the button.
      */
@@ -131,9 +140,10 @@ export interface ButtonProps {
     target?: string;
 }
 
-export type DefaultProps = ComponentDefaultProps<ButtonProps, 'tag' | 'size' | 'type' | 'variant' | 'iconPlacement' | 'disabled' | 'isFullWidth' | 'isLoading' | 'isResponsive'>;
+export type DefaultProps = ComponentDefaultProps<ButtonProps, 'aria' | 'tag' | 'size' | 'type' | 'variant' | 'iconPlacement' | 'disabled' | 'isFullWidth' | 'isLoading' | 'isResponsive'>;
 
 export const defaultProps: DefaultProps = {
+    aria: {},
     tag: 'button',
     size: 'medium',
     type:  'submit',
