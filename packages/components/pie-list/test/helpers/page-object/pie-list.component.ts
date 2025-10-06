@@ -28,17 +28,4 @@ export class ListComponent {
     getItemByText (text: string) {
         return this.listItems().filter({ hasText: text });
     }
-
-    /**
-     * Checks if the list has the specified attribute
-     */
-    async hasAttribute (page: Page, attribute: string): Promise<boolean> {
-        return page.evaluate(
-            ([selector, attr]) => {
-                const element = document.querySelector(selector);
-                return element?.hasAttribute(attr) ?? false;
-            },
-            ['pie-list', attribute],
-        );
-    }
 }
