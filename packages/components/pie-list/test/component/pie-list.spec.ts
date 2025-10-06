@@ -24,7 +24,7 @@ test.describe('PieList - Component tests', () => {
 
         // Assert
         await expect(listComponent).toBeVisible();
-        await expect(listComponent).toHaveAttribute('variant', 'compact');
+        await expect(listComponent).toHaveClass(/c-list--variant-compact/);
     });
 
     test('should render with dividers enabled', async ({ page }) => {
@@ -37,7 +37,7 @@ test.describe('PieList - Component tests', () => {
 
         // Assert
         await expect(listComponent).toBeVisible();
-        await expect(listComponent).toHaveAttribute('has-dividers');
+        await expect(listComponent).toHaveClass(/c-list--with-dividers/);
     });
 
     test('should render compact variant with dividers', async ({ page }) => {
@@ -50,8 +50,8 @@ test.describe('PieList - Component tests', () => {
 
         // Assert
         await expect(listComponent).toBeVisible();
-        await expect(listComponent).toHaveAttribute('variant', 'compact');
-        await expect(listComponent).toHaveAttribute('has-dividers');
+        await expect(listComponent).toHaveClass(/c-list--variant-compact/);
+        await expect(listComponent).toHaveClass(/c-list--with-dividers/);
     });
 
     test('should render as an ordered list when listType="ordered"', async ({ page }) => {
@@ -64,7 +64,7 @@ test.describe('PieList - Component tests', () => {
 
         // Assert
         await expect(listComponent).toBeVisible();
-        await expect(listComponent).toHaveAttribute('list-type', 'ordered');
+        await expect(listComponent).toHaveClass(/c-list--ordered/);
 
         const hasOrderedList = await listComponent.evaluate((element) => (
             element.shadowRoot?.querySelector('ol') !== null
