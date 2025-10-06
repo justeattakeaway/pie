@@ -6,4 +6,4 @@
 "pie-monorepo": minor
 ---
 
-[Updated] - pie-design-tokens to v7.7.1
+[Updated] - pie-design-tokens to v7.8.0
