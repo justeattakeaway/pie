@@ -1,7 +1,13 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import { type ListProps } from '@justeattakeaway/pie-list';
+import {
+    type ListProps,
+    defaultProps,
+    variants,
+    listTypes,
+} from '@justeattakeaway/pie-list';
 import '@justeattakeaway/pie-list';
 import '@justeattakeaway/pie-list/dist/pie-list-item';
 
@@ -9,11 +15,7 @@ import { createStory, createVariantStory } from '../../utilities';
 
 type ListStoryMeta = Meta<ListProps>;
 
-const defaultArgs: ListProps = {
-    variant: 'default',
-    hasDividers: false,
-    listType: 'unordered',
-};
+const defaultArgs: ListProps = { ...defaultProps };
 
 const listStoryMeta: ListStoryMeta = {
     title: 'List',
@@ -21,14 +23,23 @@ const listStoryMeta: ListStoryMeta = {
     argTypes: {
         variant: {
             control: 'select',
-            options: ['default', 'compact'],
+            options: variants,
+            defaultValue: {
+                summary: defaultProps.variant,
+            },
         },
         hasDividers: {
             control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.hasDividers,
+            },
         },
         listType: {
             control: 'select',
-            options: ['unordered', 'ordered'],
+            options: listTypes,
+            defaultValue: {
+                summary: defaultProps.listType,
+            },
         },
     },
     args: defaultArgs,
@@ -44,8 +55,8 @@ export default listStoryMeta;
 
 const Template = ({ variant, hasDividers, listType }: ListProps) => html`
     <pie-list
-        variant=${variant}
-        list-type=${listType ?? 'unordered'}
+        variant="${ifDefined(variant)}"
+        list-type="${ifDefined(listType)}"
         ?has-dividers=${hasDividers}>
         <pie-list-item primaryText="First item"></pie-list-item>
         <pie-list-item primaryText="Second item"></pie-list-item>
@@ -77,9 +88,9 @@ export const OrderedList = createStory<ListProps>(Template, {
 })();
 
 const propsMatrix: Partial<Record<keyof ListProps, unknown[]>> = {
-    variant: ['default', 'compact'],
+    variant: [...variants],
     hasDividers: [true, false],
-    listType: ['unordered', 'ordered'],
+    listType: [...listTypes],
 };
 
 export const Variants = createVariantStory<ListProps>(Template, propsMatrix);
