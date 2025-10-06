@@ -49,10 +49,6 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
         super.connectedCallback();
 
         this.updateHostClasses();
-
-        if (!this.hasAttribute('data-test-id')) {
-            this.setAttribute('data-test-id', 'pie-list');
-        }
     }
 
     protected updated (changedProperties: PropertyValues<ListProps>) {

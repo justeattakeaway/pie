@@ -1,4 +1,4 @@
-import { html, unsafeCSS } from 'lit';
+import { html, unsafeCSS, nothing } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
 import { property } from 'lit/decorators.js';
@@ -67,8 +67,9 @@ export class PieListItem extends RtlMixin(PieElement) implements ListItemProps {
         return html`
             <div class="c-listItem-content">
                 <div class="c-listItem-primary">
-                    <slot></slot>
-                    ${!this.querySelector(':not([slot])') && this.primaryText ? html`<span>${this.primaryText}</span>` : ''}
+                    <slot>
+                        ${this.primaryText ? html`<span>${this.primaryText}</span>` : nothing}
+                    </slot>
                 </div>
             </div>
         `;
