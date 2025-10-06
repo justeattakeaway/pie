@@ -14,14 +14,14 @@
 }
 
 // Variant: Compact
-:host([variant='compact']) {
+:host(.c-list--variant-compact) {
   --list-item-padding: var(--dt-spacing-b) var(--dt-spacing-d) var(--dt-spacing-b) var(--dt-spacing-d);
 }
 
 // Dividers between items
-:host([has-dividers]) ::slotted(pie-list-item:not(:last-child)),
+:host(.c-list--with-dividers) ::slotted(pie-list-item:not(:last-child)),
 // Allow bespoke markup that renders native `<li>` elements.
-:host([has-dividers]) ::slotted(li:not(:last-child)) {
+:host(.c-list--with-dividers) ::slotted(li:not(:last-child)) {
   border-bottom: 1px solid var(--dt-color-border-subtle);
 }
 
@@ -30,7 +30,7 @@
   cursor: pointer;
 }
 
-:host([list-type='ordered']) .c-list {
+:host(.c-list--ordered) .c-list {
   list-style: decimal;
   list-style-position: inside;
 }

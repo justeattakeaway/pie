@@ -1,5 +1,4 @@
 import { html } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-list';
@@ -29,9 +28,9 @@ export default listStoryMeta;
 
 const Template = ({ variant, hasDividers, listType }: ListProps) => html`
     <pie-list
-        variant="${ifDefined(variant)}"
-        list-type="${ifDefined(listType)}"
-        ?has-dividers=${hasDividers}>
+        .variant=${variant}
+        .listType=${listType}
+        .hasDividers=${hasDividers}>
         <pie-list-item>Item 1</pie-list-item>
         <pie-list-item>Item 2</pie-list-item>
         <pie-list-item>Item 3</pie-list-item>

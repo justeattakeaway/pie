@@ -1,4 +1,4 @@
-import { html, unsafeCSS } from 'lit';
+import { html, unsafeCSS, type PropertyValues } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
 import { property } from 'lit/decorators.js';
@@ -16,6 +16,10 @@ export * from './defs';
 
 const componentSelector = 'pie-list';
 
+const HOST_CLASS_COMPACT = 'c-list--variant-compact';
+const HOST_CLASS_WITH_DIVIDERS = 'c-list--with-dividers';
+const HOST_CLASS_ORDERED = 'c-list--ordered';
+
 /**
  * @tagname pie-list
  *
@@ -26,19 +30,17 @@ const componentSelector = 'pie-list';
  */
 @safeCustomElement('pie-list')
 export class PieList extends RtlMixin(PieElement) implements ListProps {
-    @property({ type: String, reflect: true })
+    @property({ type: String })
     public variant: ListVariant = defaultProps.variant;
 
     @property({
         type: Boolean,
-        reflect: true,
         attribute: 'has-dividers',
     })
     public hasDividers = defaultProps.hasDividers;
 
     @property({
         type: String,
-        reflect: true,
         attribute: 'list-type',
     })
     public listType: ListType = defaultProps.listType;
@@ -46,8 +48,18 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
     connectedCallback () {
         super.connectedCallback();
 
+        this.updateHostClasses();
+
         if (!this.hasAttribute('data-test-id')) {
             this.setAttribute('data-test-id', 'pie-list');
+        }
+    }
+
+    protected updated (changedProperties: PropertyValues<ListProps>) {
+        super.updated(changedProperties);
+
+        if (changedProperties.has('variant') || changedProperties.has('hasDividers') || changedProperties.has('listType')) {
+            this.updateHostClasses();
         }
     }
 
@@ -69,6 +81,12 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
+
+    private updateHostClasses () {
+        this.classList.toggle(HOST_CLASS_COMPACT, this.variant === 'compact');
+        this.classList.toggle(HOST_CLASS_WITH_DIVIDERS, this.hasDividers);
+        this.classList.toggle(HOST_CLASS_ORDERED, this.listType === 'ordered');
+    }
 }
 
 declare global {
