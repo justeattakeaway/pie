@@ -9,4 +9,5 @@ module.exports = {
     FONT: 'font',
     RADIUS: 'radius',
     SPACING: 'spacing',
+    BLUR: 'blur',
 };

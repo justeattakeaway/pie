@@ -1,8 +1,8 @@
 ---
 eleventyNavigation:
-    key: Colour
+    key: Blur
     parent: Foundations
-    url: /foundations/colour/
-    order: 3
+    url: /foundations/blur/
+    order: 2
 permalink: false
 ---
