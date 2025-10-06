@@ -55,3 +55,9 @@
         }
     }
 }
+
+.c-componentDetailsTable-token {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dt-spacing-c);
+}
