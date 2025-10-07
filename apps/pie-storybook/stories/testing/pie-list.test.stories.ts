@@ -57,7 +57,7 @@ const Template = ({ variant, hasDividers, listType }: ListProps) => html`
     <pie-list
         variant=${ifDefined(variant)}
         listType=${ifDefined(listType)}
-        ?hasDividers=${hasDividers}>
+        ?has-dividers=${hasDividers}>
         <pie-list-item primaryText="First item"></pie-list-item>
         <pie-list-item primaryText="Second item"></pie-list-item>
         <pie-list-item primaryText="Third item"></pie-list-item>

@@ -31,7 +31,7 @@ export class PieListItem extends RtlMixin(PieElement) implements ListItemProps {
     @property({ type: String })
     public primaryText = defaultProps.primaryText;
 
-    @property({ type: Boolean, reflect: true })
+    @property({ type: Boolean })
     public isSelected = defaultProps.isSelected;
 
     @property({ type: Boolean, reflect: true })
@@ -44,11 +44,16 @@ export class PieListItem extends RtlMixin(PieElement) implements ListItemProps {
             this.setAttribute('role', 'listitem');
         }
 
+        this._syncHostClasses();
         this._syncAriaDisabled();
     }
 
     protected updated (changedProperties: PropertyValues) {
         super.updated(changedProperties);
+
+        if (changedProperties.has('isSelected')) {
+            this._syncHostClasses();
+        }
 
         if (changedProperties.has('disabled')) {
             this._syncAriaDisabled();
@@ -61,6 +66,10 @@ export class PieListItem extends RtlMixin(PieElement) implements ListItemProps {
         } else {
             this.removeAttribute('aria-disabled');
         }
+    }
+
+    private _syncHostClasses () {
+        this.classList.toggle('is-selected', this.isSelected);
     }
 
     render () {

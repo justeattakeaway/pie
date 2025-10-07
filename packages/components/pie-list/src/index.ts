@@ -37,10 +37,7 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
     })
     public hasDividers = defaultProps.hasDividers;
 
-    @property({
-        type: String,
-        attribute: 'list-type',
-    })
+    @property({ type: String })
     public listType: ListType = defaultProps.listType;
 
     render () {
@@ -50,6 +47,7 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
             'c-list': true,
             [`c-list--${this.variant}`]: true,
             'c-list--ordered': isOrderedList,
+            'c-list--with-dividers': this.hasDividers,
         };
 
         return isOrderedList

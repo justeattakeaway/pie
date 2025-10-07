@@ -24,7 +24,9 @@ test.describe('PieList - Component tests', () => {
 
         // Assert
         await expect(listComponent).toBeVisible();
-        await expect(listComponent).toHaveClass(/c-list--variant-compact/);
+
+        const listElement = await listComponent.evaluate((element) => element.shadowRoot?.querySelector('[data-test-id="pie-list-content"]')?.className);
+        expect(listElement).toMatch(/c-list--compact/);
     });
 
     test('should render with dividers enabled', async ({ page }) => {
@@ -37,7 +39,9 @@ test.describe('PieList - Component tests', () => {
 
         // Assert
         await expect(listComponent).toBeVisible();
-        await expect(listComponent).toHaveClass(/c-list--with-dividers/);
+
+        const listElement = await listComponent.evaluate((element) => element.shadowRoot?.querySelector('[data-test-id="pie-list-content"]')?.className);
+        expect(listElement).toMatch(/c-list--with-dividers/);
     });
 
     test('should render compact variant with dividers', async ({ page }) => {
@@ -50,8 +54,10 @@ test.describe('PieList - Component tests', () => {
 
         // Assert
         await expect(listComponent).toBeVisible();
-        await expect(listComponent).toHaveClass(/c-list--variant-compact/);
-        await expect(listComponent).toHaveClass(/c-list--with-dividers/);
+
+        const listElement = await listComponent.evaluate((element) => element.shadowRoot?.querySelector('[data-test-id="pie-list-content"]')?.className);
+        expect(listElement).toMatch(/c-list--compact/);
+        expect(listElement).toMatch(/c-list--with-dividers/);
     });
 
     test('should render as an ordered list when listType="ordered"', async ({ page }) => {
@@ -64,7 +70,9 @@ test.describe('PieList - Component tests', () => {
 
         // Assert
         await expect(listComponent).toBeVisible();
-        await expect(listComponent).toHaveClass(/c-list--ordered/);
+
+        const listElement = await listComponent.evaluate((element) => element.shadowRoot?.querySelector('[data-test-id="pie-list-content"]')?.className);
+        expect(listElement).toMatch(/c-list--ordered/);
 
         const hasOrderedList = await listComponent.evaluate((element) => (
             element.shadowRoot?.querySelector('ol') !== null

@@ -23,9 +23,9 @@
 }
 
 // Dividers between items
-:host([hasDividers]) ::slotted(pie-list-item:not(:last-child)),
+:host([has-dividers]) ::slotted(pie-list-item:not(:last-child)),
 // Allow bespoke markup that renders native `<li>` elements.
-:host([hasDividers]) ::slotted(li:not(:last-child)) {
+:host([has-dividers]) ::slotted(li:not(:last-child)) {
   border-bottom: 1px solid var(--dt-color-border-subtle);
 }
 
