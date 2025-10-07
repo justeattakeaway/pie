@@ -15,7 +15,7 @@ const buildRow = (cells) => cells.map((cell) => {
     let hasMinWidth = cell.item?.length > 30;
 
     if (cell.type === 'token') {
-        content = `<span class="c-componentDetailsTable-token">${cell.item}</span>`;
+        content = `<span class="c-componentDetailsTable-token">${cell.item.map((element) => `<pie-tag isStrong>${element}</pie-tag>`).join('')}</span>`;
     } else if (cell.type === 'image') {
         const { src, alt } = cell.item;
         content = `<img src=${src} alt=${alt}>`;
@@ -44,7 +44,7 @@ const buildRow = (cells) => cells.map((cell) => {
  *       "Element name",
  *       {
  *         "type": "token",
- *         "item": "$token"
+ *         "item": ["$token"]
  *       },
  *       {
  *         "type": "image",
