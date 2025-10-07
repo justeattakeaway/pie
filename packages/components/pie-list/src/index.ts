@@ -1,7 +1,8 @@
-import { html, unsafeCSS, type PropertyValues } from 'lit';
+import { html, unsafeCSS } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
 import { property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 
 import styles from './list.scss?inline';
 import {
@@ -15,10 +16,6 @@ import {
 export * from './defs';
 
 const componentSelector = 'pie-list';
-
-const HOST_CLASS_COMPACT = 'c-list--variant-compact';
-const HOST_CLASS_WITH_DIVIDERS = 'c-list--with-dividers';
-const HOST_CLASS_ORDERED = 'c-list--ordered';
 
 /**
  * @tagname pie-list
@@ -36,6 +33,7 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
     @property({
         type: Boolean,
         attribute: 'has-dividers',
+        reflect: true,
     })
     public hasDividers = defaultProps.hasDividers;
 
@@ -45,31 +43,23 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
     })
     public listType: ListType = defaultProps.listType;
 
-    connectedCallback () {
-        super.connectedCallback();
-
-        this.updateHostClasses();
-    }
-
-    protected updated (changedProperties: PropertyValues<ListProps>) {
-        super.updated(changedProperties);
-
-        if (changedProperties.has('variant') || changedProperties.has('hasDividers') || changedProperties.has('listType')) {
-            this.updateHostClasses();
-        }
-    }
-
     render () {
         const isOrderedList = this.listType === 'ordered';
 
+        const classes = {
+            'c-list': true,
+            [`c-list--${this.variant}`]: true,
+            'c-list--ordered': isOrderedList,
+        };
+
         return isOrderedList
             ? html`
-                <ol class="c-list" data-test-id="pie-list-content" role="list">
+                <ol class=${classMap(classes)} data-test-id="pie-list-content" role="list">
                     <slot></slot>
                 </ol>
             `
             : html`
-                <ul class="c-list" data-test-id="pie-list-content" role="list">
+                <ul class=${classMap(classes)} data-test-id="pie-list-content" role="list">
                     <slot></slot>
                 </ul>
             `;
@@ -77,12 +67,6 @@ export class PieList extends RtlMixin(PieElement) implements ListProps {
 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
-
-    private updateHostClasses () {
-        this.classList.toggle(HOST_CLASS_COMPACT, this.variant === 'compact');
-        this.classList.toggle(HOST_CLASS_WITH_DIVIDERS, this.hasDividers);
-        this.classList.toggle(HOST_CLASS_ORDERED, this.listType === 'ordered');
-    }
 }
 
 declare global {

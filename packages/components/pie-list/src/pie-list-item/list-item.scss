@@ -5,8 +5,6 @@
   // These variables can be overridden by the parent list component
   --list-item-leading-margin: var(--dt-spacing-c);
   --list-item-trailing-margin: var(--dt-spacing-c);
-  --list-item-hover-bg: var(--dt-color-hover-01);
-  --list-item-active-bg: var(--dt-color-active-01);
   --list-item-focus-outline: 2px solid var(--dt-color-focus);
   --list-item-focus-offset: -2px;
   --list-item-touch-target-height: 48px;
@@ -49,7 +47,11 @@
 
 // Selected state
 :host([is-selected]) {
-  background-color: var(--dt-color-active-01);
+  background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) - var(--dt-color-active-01)));
+
+  @supports (background-color: color-mix(in srgb, black, white)) {
+    background-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-container-default));
+  }
 }
 
 // Disabled state
