@@ -129,6 +129,12 @@ export interface ButtonProps {
      * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target)
      */
     target?: string;
+
+    /**
+     * If the button is rendered as an anchor element, this attribute will be applied to the `download` attribute on the anchor.
+     * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download)
+     */
+    download?: string;
 }
 
 export type DefaultProps = ComponentDefaultProps<ButtonProps, 'tag' | 'size' | 'type' | 'variant' | 'iconPlacement' | 'disabled' | 'isFullWidth' | 'isLoading' | 'isResponsive'>;

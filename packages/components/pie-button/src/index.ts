@@ -123,6 +123,9 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
     @property({ type: String })
     public target: ButtonProps['target'];
 
+    @property({ type: String })
+    public download: ButtonProps['download'];
+
     /**
      * This method creates an invisible button of the same type as pie-button. It is then clicked, and immediately removed from the DOM.
      * This is done so that we trigger native form actions, such as submit and reset in the browser. The performance impact of adding and removing a single button to the DOM
@@ -236,7 +239,7 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
 
     renderAnchor (classes: ClassInfo) {
         const {
-            href, iconPlacement, rel, target,
+            href, iconPlacement, rel, target, download,
         } = this;
 
         return html`
@@ -244,6 +247,7 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
                 href="${ifDefined(href)}"
                 rel="${ifDefined(rel)}"
                 target="${ifDefined(target)}"
+                download="${ifDefined(download?.trim() || undefined)}"
                 class="${classMap(classes)}">
                 ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                 <slot></slot>

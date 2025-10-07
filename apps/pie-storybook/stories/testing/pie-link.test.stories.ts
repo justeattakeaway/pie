@@ -73,6 +73,11 @@ const linkStoryMeta: LinkStoryMeta = {
             control: 'text',
             if: { arg: 'tag', eq: 'a' },
         },
+        download: {
+            description: 'Suggests the link will be downloaded and can set a filename.',
+            control: 'text',
+            if: { arg: 'tag', eq: 'a' },
+        },
         target: {
             description: 'Set where to display the linked URL.',
             control: 'text',
@@ -137,6 +142,7 @@ const Template : TemplateFunction<LinkProps> = ({
     href,
     target,
     rel,
+    download,
     size,
     variant,
     underline,
@@ -155,6 +161,7 @@ const Template : TemplateFunction<LinkProps> = ({
             underline="${ifDefined(underline)}"
             iconPlacement="${ifDefined(iconPlacement)}"
             href="${ifDefined(href)}"
+            download="${ifDefined(download)}"
             target="${ifDefined(target)}"
             rel="${ifDefined(rel)}"
             type="${ifDefined(type)}"

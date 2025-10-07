@@ -87,6 +87,10 @@ const linkStoryMeta: LinkStoryMeta = {
             description: 'Set where to display the linked URL. Only applies if `tag` is `a`.',
             control: 'text',
         },
+        download: {
+            description: 'Suggests the target will be downloaded and can set a filename. Only applies if `tag` is `a`.',
+            control: 'text',
+        },
         rel: {
             description:
                 'Set what the relationship of the linked URL is. Only applies if `tag` is `a`.',
@@ -150,6 +154,7 @@ const Template: TemplateFunction<ExtendedLinkProps> = ({
     href,
     target,
     rel,
+    download,
     size,
     variant,
     underline,
@@ -170,6 +175,7 @@ const Template: TemplateFunction<ExtendedLinkProps> = ({
         iconPlacement="${ifDefined(iconPlacement)}"
         href="${ifDefined(href)}"
         target="${ifDefined(target)}"
+        download="${ifDefined(download)}"
         rel="${ifDefined(rel)}"
         type="${ifDefined(type)}"
         ?isBold="${isBold}"
