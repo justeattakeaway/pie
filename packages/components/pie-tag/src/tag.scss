@@ -27,10 +27,10 @@
 
     display: inline-flex;
     flex-direction: row;
+    gap: var(--dt-spacing-a);
     vertical-align: middle;
     align-items: center;
     justify-content: center;
-    gap: var(--dt-spacing-a);
     padding: var(--tag-padding-block) var(--tag-padding-inline);
     border-radius: var(--tag-border-radius);
     background-color: var(--int-states-mixin-bg-color);
