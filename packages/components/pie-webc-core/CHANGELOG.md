@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`da89aa6`](https://github.com/justeattakeaway/pie/commit/da89aa6010281bc7f37560cabfcd2c7fb70c86df)]:
+  - @justeattakeaway/pie-css@0.23.1
+
 ## 3.0.0
 
 ### Patch Changes
