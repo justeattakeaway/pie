@@ -125,6 +125,9 @@ const buttonStoryMeta: ButtonStoryMeta = {
         href: {
             control: 'text',
         },
+        download: {
+            control: 'text',
+        },
         target: {
             control: 'text',
         },
@@ -167,7 +170,7 @@ const Template: TemplateFunction<ButtonProps> = ({
 }) => html`
 <pie-button
     tag="button"
-    data-test-id="pie-button-${type}"  
+    data-test-id="pie-button-${type}"
     size="${ifDefined(size)}"
     variant="${ifDefined(variant)}"
     type="${ifDefined(type)}"
@@ -194,6 +197,7 @@ const AnchorTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => ht
         ?isResponsive="${props.isResponsive}"
         responsiveSize="${ifDefined(props.responsiveSize)}"
         href="${ifDefined(props.href)}"
+        download="${ifDefined(props.download)}"
         rel="${ifDefined(props.rel)}"
         target="${ifDefined(props.target)}">
         ${props.iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}

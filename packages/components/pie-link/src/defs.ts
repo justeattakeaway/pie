@@ -45,6 +45,13 @@ export interface LinkProps {
      * What the relationship of the linked URL is
      */
     rel?: string;
+
+    /**
+     * Suggests that the target will be downloaded when a user clicks on the hyperlink.
+     * May be set to a filename to suggest a name for the downloaded file.
+     * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download)
+     */
+    download?: string;
     /**
      * When true, the link text will be bold.
      */

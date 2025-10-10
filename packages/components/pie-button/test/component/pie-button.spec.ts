@@ -333,6 +333,40 @@ test.describe('props', () => {
                 await expect.soft(anchor).not.toHaveAttribute('type');
                 await expect(spinner).not.toBeVisible();
             });
+
+            test('should render anchor with download attribute when provided', async ({ page }) => {
+                // Arrange
+                const props: ButtonProps = {
+                    href: undefined,
+                    download: 'file',
+                };
+
+                const buttonAnchorPage = new ButtonAnchorPage(page);
+                await buttonAnchorPage.load({ ...props });
+
+                // Act
+                const anchor = buttonAnchorPage.buttonComponent.componentLocator.locator('a');
+
+                // Assert
+                await expect(anchor).toHaveAttribute('download', 'file');
+            });
+
+            test('should not render anchor with download attribute when provided', async ({ page }) => {
+                // Arrange
+                const props: ButtonProps = {
+                    href: undefined,
+                    download: '',
+                };
+
+                const buttonAnchorPage = new ButtonAnchorPage(page);
+                await buttonAnchorPage.load({ ...props });
+
+                // Act
+                const anchor = buttonAnchorPage.buttonComponent.componentLocator.locator('a');
+
+                // Assert
+                await expect(anchor).not.toHaveAttribute('download');
+            });
         });
     });
 });

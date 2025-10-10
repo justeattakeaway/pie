@@ -172,6 +172,10 @@ const buttonStoryMeta: ButtonStoryMeta = {
             description: 'Set the href attribute for the underlying anchor tag.',
             control: 'text',
         },
+        download: {
+            description: 'Set the download attribute for the underlying anchor tag.',
+            control: 'text',
+        },
         target: {
             description: 'Set the target attribute for the underlying anchor tag.',
             control: 'text',
@@ -243,6 +247,7 @@ const AnchorTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => ht
         ?isResponsive="${props.isResponsive}"
         responsiveSize="${ifDefined(props.responsiveSize)}"
         href="${ifDefined(props.href)}"
+        download="${ifDefined(props.download)}"
         rel="${ifDefined(props.rel)}"
         target="${ifDefined(props.target)}">
         ${props.iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
@@ -347,7 +352,7 @@ const createButtonStory = createStory<ButtonProps>(Template, defaultArgs);
 
 const createButtonStoryWithForm = createStory<ButtonProps>(FormTemplate, defaultArgs);
 
-const anchorOnlyProps : Array<keyof ButtonProps> = ['href', 'target', 'rel'];
+const anchorOnlyProps : Array<keyof ButtonProps> = ['href', 'target', 'rel', 'download'];
 
 export const Primary = createButtonStory({}, {
     controls: { exclude: ['variant', ...anchorOnlyProps] },
