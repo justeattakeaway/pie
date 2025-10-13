@@ -22,6 +22,7 @@ describe('IconAlcohol (Regular variant) ::', () => {
     });
 
     test.each([
+        ['xxs', sizeToValueMap.xxs],
         ['xs', sizeToValueMap.xs],
         ['s', sizeToValueMap.s],
         ['m', sizeToValueMap.m],

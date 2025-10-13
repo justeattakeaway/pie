@@ -1,9 +1,10 @@
 // TODO: DSW-1025 - Use this file instead of the JS file
-export const regularIconSizes = ['xs', 's', 'm', 'l', 'xl', 'xxl'] as const;
+export const regularIconSizes = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl'] as const;
 export type RegularIconSize = typeof regularIconSizes[number];
 export type LargeIconSize = number | string;
 
 export const sizeToValueMap : Record<RegularIconSize, number> = {
+    xxs: 12,
     xs: 16,
     s: 20,
     m: 24,

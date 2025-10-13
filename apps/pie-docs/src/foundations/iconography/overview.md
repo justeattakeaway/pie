@@ -64,6 +64,7 @@ Our small icon set can be used at the following sizes:
 {% list {
     type: listTypes.pill,
     items: [
+        "12px",
         "16px",
         "20px",
         "24px",
