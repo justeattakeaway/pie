@@ -16,5 +16,7 @@ export const getReactSvgProps = (svgClasses, staticClasses, sizeValue, component
         className: result.class,
         width: result.width,
         height: result.height,
+        // default styles
+        style: { flexShrink: 0 },
     };
 };
