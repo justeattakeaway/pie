@@ -213,8 +213,8 @@ jobs:
       bucket-name-preview: 'pie-storybook-preview'
       bucket-name-main: 'pie-storybook'
       sub-domain-suffix: 'storybook'
+      aws-role-arn: ${{ vars.AWS_ROLE_ARN }} # Use repository variable instead
     secrets: inherit
-
   # Workflow task that deploys an instance of storybook used for test suites to run against
   deploy-storybook-testing:
     needs: [ unit-tests, check-change-type ]
@@ -234,6 +234,7 @@ jobs:
       destination-dir: 'testing'
       build-script: 'build:testing'
       sub-domain-suffix: 'storybook-testing'
+      aws-role-arn: ${{ vars.AWS_ROLE_ARN }} # Use repository variable instead
     secrets: inherit
 
   # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
@@ -294,7 +295,7 @@ jobs:
 
   deploy-docs:
     needs: [ unit-tests, check-change-type ]
-    if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
+    if: needs.check_change_type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
     permissions:
       contents: read
       deployments: write
@@ -308,6 +309,7 @@ jobs:
       bucket-name-preview: 'pie-docs-preview'
       bucket-name-main: 'pie-docs'
       sub-domain-suffix: 'docs'
+      aws-role-arn: ${{ vars.AWS_ROLE_ARN }} # Use repository variable instead
     secrets: inherit
 
   browser-tests-docs:
@@ -371,6 +373,7 @@ jobs:
     with:
       os: ubuntu-latest
       node-version: 22
+      aws-role-arn: ${{ vars.AWS_ROLE_ARN }}
     secrets: inherit
 
   check-all-jobs:

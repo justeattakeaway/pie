@@ -4,11 +4,19 @@ on:
   pull_request:
     types: [closed]
 
+# Add permissions for OIDC
+permissions:
+  contents: read
+  id-token: write
+
 concurrency: preview-teardown-${{ github.ref }}
 
 jobs:
   list-environments:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # Required for OIDC
     outputs:
       hasDocsEnv: ${{ steps.list-environments.outputs.hasDocsEnv }}
       hasStorybookEnv: ${{ steps.list-environments.outputs.hasStorybookEnv }}
@@ -39,9 +47,11 @@ jobs:
             // Check for existence of specific environments
             const hasDocsEnv = envList.includes(`docs-pr-${pull_number}`);
             const hasStorybookEnv = envList.includes(`storybook-pr-${pull_number}`);
+            const hasStorybookTestingEnv = envList.includes(`storybook-testing-pr-${pull_number}`);
 
             core.setOutput('hasDocsEnv', hasDocsEnv);
             core.setOutput('hasStorybookEnv', hasStorybookEnv);
+            core.setOutput('hasStorybookTestingEnv', hasStorybookTestingEnv);
 
       - name: Delete associated docs environments
         if: steps.list-environments.outputs.hasDocsEnv == 'true'
@@ -51,8 +61,7 @@ jobs:
           gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
           amplify-app-id: dvskdcoepjoyf
           aws-region: 'eu-west-1'
-          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-role-arn: ${{ vars.AWS_ROLE_ARN }}
           environment-name: docs-pr-${{ github.event.number }}
           branch-name: 'pr${{ github.event.number }}'
 
@@ -64,20 +73,18 @@ jobs:
           gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
           amplify-app-id: d17ja0ul7nrdy0
           aws-region: 'eu-west-1'
-          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-role-arn: ${{ vars.AWS_ROLE_ARN }}
           environment-name: storybook-pr-${{ github.event.number }}
           branch-name: 'pr${{ github.event.number }}'
 
       - name: Delete associated storybook testing environments
-        if: steps.list-environments.outputs.hasStorybookEnv == 'true'
+        if: steps.list-environments.outputs.hasStorybookTestingEnv == 'true'
         uses: ./.github/actions/amplify-teardown
         with:
           gh-app-id: ${{ secrets.GH_APP_ID }}
           gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
           amplify-app-id: d3eyargno6okyn
           aws-region: 'eu-west-1'
-          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-role-arn: ${{ vars.AWS_ROLE_ARN }}
           environment-name: storybook-testing-pr-${{ github.event.number }}
           branch-name: 'pr${{ github.event.number }}'
