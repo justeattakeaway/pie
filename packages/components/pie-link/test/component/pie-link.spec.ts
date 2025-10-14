@@ -25,7 +25,6 @@ test.describe('PieLink - Component tests', () => {
             href: 'https://pie.design',
             target: '_blank',
             rel: 'nofollow',
-            download: 'file',
         };
 
         await linkPage.load({ ...props });
@@ -38,8 +37,24 @@ test.describe('PieLink - Component tests', () => {
         await expect(linkComponent).toHaveAttribute('href', 'https://pie.design');
         await expect(linkComponent).toHaveAttribute('target', '_blank');
         await expect(linkComponent).toHaveAttribute('rel', 'nofollow');
-        await expect(linkComponent).toHaveAttribute('download', 'file');
         await expect(linkComponent).not.toHaveAttribute('type', 'submit');
+    });
+
+    test('should correctly download files when download is provided', async ({ page }) => {
+        // Arrange
+        const linkPage = new BasePage(page, 'link--download');
+
+        await linkPage.load();
+
+        // Act
+        const linkComponent = page.getByTestId(link.selectors.anchor.dataTestId);
+        const downloadPromise = page.waitForEvent('download');
+        await linkComponent.click();
+        const download = await downloadPromise;
+
+        // Assert
+        expect(download.suggestedFilename()).toBe('foo.svg');
+        expect(download.url()).toContain('/static/images/logo--pie--dark.svg');
     });
 
     test('should not render a download attribute when value is empty', async ({ page }) => {

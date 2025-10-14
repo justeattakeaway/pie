@@ -178,6 +178,12 @@ export const Default = createLinkStory();
 export const HighVisibility = createLinkStory({ variant:  'high-visibility' });
 export const Inverse = createLinkStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
 
+export const Download = createLinkStory({
+    tag: 'a',
+    href: '/static/images/logo--pie--dark.svg',
+    download: 'foo.svg',
+});
+
 // Base shared props without variant or size
 const baseSharedPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
     tag: [...tags],

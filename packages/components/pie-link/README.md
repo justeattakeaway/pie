@@ -37,7 +37,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `tag`          | `"a"`, `"button"`                                                         | Which HTML tag to use for the link.                                                                                                                                                                                                                                                                                                                             | `"a"`       |
 | `href`         | —                                                                          | The `href` attribute to apply.<br>Cannot be used if `tag` is set to `"button"`.                                                                                                                                                                                                                                                                                | `undefined` |
 | `target`       | —                                                                          | The `target` attribute to apply.<br>Cannot be used if `tag` is set to `"button"`.                                                                                                                                                                                                                                                                               | `undefined` |
-| `download`     | —                                                                          | The `download` attribute to apply. Suggests the target will be downloaded and may define a filename.<br>Cannot be used if `tag` is set to `"button"`.                                                                                                                                                                                                           | `undefined` |
+| `download`     | —                                                                          | Suggests the target will be downloaded; can specify a filename. Only available when `tag` is `a`. Use relative paths.                                                                                                                                                                                                          | `undefined` |
 | `rel`          | —                                                                          | The `rel` attribute to apply.<br>Cannot be used if `tag` is set to `"button"`.                                                                                                                                                                                                                                                                                  | `undefined` |
 | `type`         | `"button"`, `"reset"`, `"submit"`                                         | The `type` attribute to apply when `tag` is set to `"button"`.                                                                                                                                                                                                                                                                                                  | `"submit"`  |
 | `underline`    | `"default"`, `"reversed"`                                                 | The underline behaviour of the link. The default behaviour has the link text underlined, with the underline disappearing on hover. `"reversed"` will only take effect if `isStandalone` is set to `true`.                                                                                                               | `"default"` |
@@ -57,7 +57,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 ### CSS Variables
 
 | Name                     | Description                                 |
-|--------------------------|---------------------------------------------|  
+|--------------------------|---------------------------------------------|
 | `--link-font-weight`      | Controls the font weight of the link text.   |
 | `--link-text-color`       | Controls the color of the link text.        |
 | `--link-text-decoration`  | Controls the text decoration of the link.   |
@@ -110,6 +110,28 @@ import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/react/Icon
 </PieLink>
 ```
 
+## Downloading files
+Combine the `href` and `download` properties to create a link that prompts the user to download a file when clicked. The `href` should point to the file's URL, and the `download` attribute can specify a default filename for the downloaded file.
+
+### With a custom filename
+```html
+<pie-link
+  tag="a"
+  href="/path/to/file.pdf"
+  download="custom-filename.pdf">
+  Download PDF
+</pie-link>
+```
+
+### Without a custom filename
+```html
+<pie-link
+  tag="a"
+  href="/path/to/file.pdf"
+  download>
+  Download PDF
+</pie-link>
+```
 
 ## Questions and Support
 

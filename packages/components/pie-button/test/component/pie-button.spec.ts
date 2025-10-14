@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { ButtonDefaultPage } from '../helpers/page-object/pie-button-default.page.ts';
 import { ButtonAnchorPage } from '../helpers/page-object/pie-button-anchor.page.ts';
+import { ButtonAnchorWithDownloadPage } from '../helpers/page-object/pie-button-anchor-download.page.ts';
 import { FormIntegrationPage, type FormInput } from '../helpers/page-object/pie-button-form-integration.page.ts';
 import { FormAttributesPage } from '../helpers/page-object/pie-button-form-attributes.page.ts';
 import { FormSubmissionPage } from '../helpers/page-object/pie-button-form-submission.page.ts';
@@ -334,24 +335,23 @@ test.describe('props', () => {
                 await expect(spinner).not.toBeVisible();
             });
 
-            test('should render anchor with download attribute when provided', async ({ page }) => {
+            test('should correctly download files when download is provided', async ({ page }) => {
                 // Arrange
-                const props: ButtonProps = {
-                    href: undefined,
-                    download: 'file',
-                };
-
-                const buttonAnchorPage = new ButtonAnchorPage(page);
-                await buttonAnchorPage.load({ ...props });
+                const buttonAnchorPage = new ButtonAnchorWithDownloadPage(page);
+                await buttonAnchorPage.load();
 
                 // Act
-                const anchor = buttonAnchorPage.buttonComponent.componentLocator.locator('a');
+                const anchor = buttonAnchorPage.buttonComponent.componentLocator;
+                const downloadPromise = page.waitForEvent('download');
+                await anchor.click();
+                const download = await downloadPromise;
 
                 // Assert
-                await expect(anchor).toHaveAttribute('download', 'file');
+                expect(download.suggestedFilename()).toBe('foo.svg');
+                expect(download.url()).toContain('/static/images/logo--pie--dark.svg');
             });
 
-            test('should not render anchor with download attribute when provided', async ({ page }) => {
+            test('should not render anchor with download attribute when its an empty string', async ({ page }) => {
                 // Arrange
                 const props: ButtonProps = {
                     href: undefined,

@@ -323,6 +323,12 @@ export const Anchor = createStory(AnchorTemplate, defaultArgs)({
     },
 });
 
+// Download specific Story
+export const AnchorWithDownload = createStory(AnchorTemplate, defaultArgs)({
+    href: '/static/images/logo--pie--dark.svg',
+    download: 'foo.svg',
+});
+
 export const FormIntegration = createButtonStoryWithForm({ type: 'submit' });
 
 const FormSubmissionTemplate: TemplateFunction<ButtonProps> = () => html`
