@@ -132,7 +132,7 @@ A leading icon is placed in front of a piece of text or content. It provides con
 {% contentPageImage {
     src: "../../../assets/img/foundations/iconography/placement-leading.svg",
     width: "467px",
-    alt: "The image shows three examples: a dark chip with a leading pizza emoji labeled "Pizza", a green tag with a leading checkmark icon labeled "Approved", and a search bar with a leading magnifying glass icon"
+    alt: "The image shows three examples: a dark chip with a leading pizza emoji labeled 'Pizza', a green tag with a leading checkmark icon labeled 'Approved', and a search bar with a leading magnifying glass icon"
 } %}
 
 ### Trailing
@@ -142,7 +142,7 @@ A trailing icon is positioned at the end of a piece of text or content. It offer
 {% contentPageImage {
     src: "../../../assets/img/foundations/iconography/placement-trailing.svg",
     width: "469px",
-    alt: "The image shows three examples: a black tag labeled "Pizza" with a trailing 'x' icon to clear it, an orange button labeled "Next" with a trailing arrow icon, and a dropdown menu with a trailing chevron-down icon to indicate it can be expanded"
+    alt: "The image shows three examples: a black tag labeled 'Pizza' with a trailing 'x' icon to clear it, an orange button labeled 'Next' with a trailing arrow icon, and a dropdown menu with a trailing chevron-down icon to indicate it can be expanded"
 } %}
 
 ---
@@ -225,9 +225,9 @@ Icons act as a visual cue to improve the legibility and scannability of your pro
     dont: {
         type: usageTypes.image,
         items: [{
-        src:"../../../assets/img/foundations/iconography/pairing-text-with-icons-dont.svg",
-        width: "375px",
-        alt: "This image shows an app menu with four icons. Only one icon has a label, which makes it clear it is a link to the home page. The other icons, such as the icon representing a wrapped gift, are not so clear without labels."
+            src: "../../../assets/img/foundations/iconography/pairing-text-with-icons-dont.svg",
+            width: "375px",
+            alt: "This image shows an app menu with four icons. Only one icon has a label, which makes it clear it is a link to the home page. The other icons, such as the icon representing a wrapped gift, are not so clear without labels."
         }]
     }
 } %}
