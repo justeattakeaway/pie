@@ -1,5 +1,31 @@
 # Changelog
 
+## 4.53.1
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens to v7.8.1 ([#2579](https://github.com/justeattakeaway/pie/pull/2579)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`da89aa6`](https://github.com/justeattakeaway/pie/commit/da89aa6010281bc7f37560cabfcd2c7fb70c86df)]:
+  - @justeattakeaway/pie-css@0.23.1
+  - @justeattakeaway/pie-webc@0.7.25
+  - @justeattakeaway/pie-icons-webc@1.15.2
+
+## 4.53.0
+
+### Minor Changes
+
+- [Added] - blur docs ([#2575](https://github.com/justeattakeaway/pie/pull/2575)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Updated] - pie-design-tokens to v7.8.0 ([#2575](https://github.com/justeattakeaway/pie/pull/2575)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`e41ea88`](https://github.com/justeattakeaway/pie/commit/e41ea88f6f40e2b166d044ddb54180f10fee5835)]:
+  - @justeattakeaway/pie-css@0.23.0
+  - @justeattakeaway/pie-webc@0.7.24
+  - @justeattakeaway/pie-icons-webc@1.15.1
+
 ## 4.52.0
 
 ### Minor Changes

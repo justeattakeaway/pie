@@ -1,0 +1,57 @@
+{
+  "headings": [
+    "Container fill token",
+    "Blur token",
+    "Recommended usage"
+  ],
+  "rows": [
+    [
+      {
+        "type": "token",
+        "item": [
+          "$ios-container-base",
+          "$web-container-base"
+        ]
+      },
+      {
+        "type": "token",
+        "item": [
+          "$blur-base"
+        ]
+      },
+      "It ensures strong attention is drawn to foreground content by minimising background detail."
+    ],
+    [
+      {
+        "type": "token",
+        "item": [
+          "$ios-container-neutral",
+          "$web-container-neutral"
+        ]
+      },
+      {
+        "type": "token",
+        "item": [
+          "$blur-neutral"
+        ]
+      },
+      "Ideal for balanced background effects where you want a moderate level of obscurity. It allows some background detail to still be perceived without being a distraction."
+    ],
+    [
+      {
+        "type": "token",
+        "item": [
+          "$ios-container-prominent",
+          "$web-container-prominent"
+        ]
+      },
+      {
+        "type": "token",
+        "item": [
+          "$blur-prominent"
+        ]
+      },
+      "Use for visible and striking background blur effect. This pairing is suitable for components where the blur effect is combined with a higher level of transparency as a fill, allowing the blur effect to stand out more."
+    ]
+  ]
+}

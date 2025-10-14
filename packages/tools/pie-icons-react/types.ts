@@ -7,5 +7,5 @@ export interface LargeIconProps extends SVGProps<SVGSVGElement> {
 
 export interface RegularIconProps extends SVGProps<SVGSVGElement> {
   className?: string;
-  size: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl'
+  size: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl'
 }

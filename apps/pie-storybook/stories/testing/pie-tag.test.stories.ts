@@ -11,6 +11,7 @@ import {
     iconPlacements,
 } from '@justeattakeaway/pie-tag';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconOfferFilled.js';
 
 import { type SlottedComponentProps } from '../../types';
 import {
@@ -218,6 +219,77 @@ const iconOnlyPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
     isInteractive: [false],
 };
 
+// Custom styled tags using CSS parts
+const allCustomStyles = `
+    pie-tag.custom-style {
+        display: inline-flex;
+    }
+    pie-tag.custom-style::part(body) {
+        all: initial;
+        font-family: inherit;
+        box-sizing: border-box;
+        text-rendering: inherit;
+        -webkit-font-smoothing: inherit;
+
+        --custom-tag-whitespace: var(--dt-spacing-a);
+
+        display: flex;
+        align-items: center;
+        gap: var(--custom-tag-whitespace);
+        border-radius: var(--dt-radius-rounded-e);
+        padding-inline-start: 0;
+        padding-inline-end: var(--custom-tag-whitespace);
+        padding-block: 0;
+        font-size: calc(var(--dt-font-size-12) * 1px);
+        font-variant-numeric: lining-nums tabular-nums;
+        font-feature-settings: 'liga' off, 'clig' off;
+        line-height: 1;
+    }
+    pie-tag.custom-style::part(icon) {
+        all: initial;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        border-radius: 50%;
+        aspect-ratio: 1/1;
+    }
+    pie-tag.custom-1::part(body),
+    pie-tag.custom-2::part(body) {
+        color: var(--dt-color-white);
+    }
+    pie-tag.custom-1::part(icon),
+    pie-tag.custom-2::part(icon) {
+        --icon-size-override: 14px;
+
+        color: var(--dt-color-content-dark-solid);
+        background-color: var(--dt-color-support-brand-05);
+        padding: 3px;
+    }
+    pie-tag.custom-1::part(body) {
+        font-weight: var(--dt-font-weight-bold);
+    }
+    pie-tag.custom-2::part(body) {
+        background-color: var(--dt-color-turmeric-90);
+        font-weight: var(--dt-font-weight-regular);
+    }
+`;
+
+const CombinedCustomTemplate: TemplateFunction<TagProps> = (args) => html`
+    <div style="text-align: center;">
+        <style>${allCustomStyles}</style>
+        <pie-tag class="custom-style custom-1" .args=${args}>
+            <icon-offer-filled slot="icon"></icon-offer-filled>
+            <span>Label 1</span>
+        </pie-tag>
+        <pie-tag class="custom-style custom-2" .args=${args}>
+            <icon-offer-filled slot="icon"></icon-offer-filled>
+            <span>Label 2</span>
+        </pie-tag>
+    </div>
+`;
+
+const createCombinedCustomStory = createStory<TagProps>(CombinedCustomTemplate, defaultArgs);
+
 export const NeutralVariations = createVariantStory<TagProps>(Template, neutralPropsMatrix);
 export const InformationVariations = createVariantStory<TagProps>(Template, informationPropsMatrix);
 export const SuccessVariations = createVariantStory<TagProps>(Template, successPropsMatrix);
@@ -231,3 +303,7 @@ export const Brand04Variations = createVariantStory<TagProps>(Template, brand04P
 export const Brand05Variations = createVariantStory<TagProps>(Template, brand05PropsMatrix);
 export const Brand06Variations = createVariantStory<TagProps>(Template, brand06PropsMatrix);
 export const IconOnlyVariations = createVariantStory<TagProps>(Template, iconOnlyPropsMatrix);
+export const CustomStyledTags = createCombinedCustomStory({}, {
+    bgColor: 'dark (container-dark)',
+    controls: { disable: true },
+});
