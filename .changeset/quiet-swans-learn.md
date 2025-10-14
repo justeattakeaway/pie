@@ -6,4 +6,4 @@
 "@justeattakeaway/pie-icons-webc": minor
 ---
 
-[Added] - support xxs size for regualr icons
+[Added] - support xxs size for regular icons

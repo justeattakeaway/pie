@@ -65,7 +65,7 @@ Icons are made available in different size variants:
 - small
 - large, when its name has the `Large` suffix
 
-Small icons default size is `xs` and can use one of the following pre-determined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](/foundations/iconography/#small-icon-set).
+Small icons default size is `xs` and can use one of the following pre-determined values for `size`: `xxs`, `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](/foundations/iconography/#small-icon-set).
 
 Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise they will fallback to the default value. You can learn more about large icon sizes [here](/foundations/iconography/#large-icon-set).
 
@@ -233,7 +233,7 @@ Icons are made available in different size variants:
 - small
 - large, when its name has the `Large` suffix
 
-Small icons default size is `xs` and can use one of the following pre-determined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](/foundations/iconography/#small-icon-set).
+Small icons default size is `xs` and can use one of the following pre-determined values for `size`: `xxs`, `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](/foundations/iconography/#small-icon-set).
 
 Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise they will fallback to the default value. You can learn more about large icon sizes [here](/foundations/iconography/#large-icon-set).
 
@@ -305,7 +305,7 @@ Icons are made available in different size variants:
 - small
 - large, when its name has the `Large` suffix
 
-Small icons default size is `xs` and can use one of the following pre-determined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](/foundations/iconography/#small-icon-set).
+Small icons default size is `xs` and can use one of the following pre-determined values for `size`: `xxs`, `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](/foundations/iconography/#small-icon-set).
 
 Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise they will fallback to the default value. You can learn more about large icon sizes [here](/foundations/iconography/#large-icon-set).
 
