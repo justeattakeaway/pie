@@ -46,24 +46,25 @@ When exporting icons for your products, please export the whole bounding box, in
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Icon area:** (small (default size): 14x14px / large (default size): 28x28px).",
-        "**Bounding box:** (small (default size): 16x16px / large (default size): 32x32px)."
+        "**Icon area:** Small (default size) is 14x14px and Large (default size) is 28x28px.",
+        "**Bounding box:** Small (default size) is 16x16px and Large (default size) is 32x32px."
     ]
 } %}
 
 ---
 
-## Sizing
+## Size
 
 When using icons there will be instances where the default sizes assigned to our icon sets aren’t enough. In these instances you can use the following sizes:
 
-### Sizes for the Small icon set
+### Small icon set
 
 Our small icon set can be used at the following sizes:
 
 {% list {
     type: listTypes.pill,
     items: [
+        "12px",
         "16px",
         "20px",
         "24px",
@@ -73,13 +74,18 @@ Our small icon set can be used at the following sizes:
     ]
 } %}
 
+{% notification {
+    type: "warning",
+    message: "Don't use icons smaller than 24px for interactive touch targets, as it impacts accessibility."
+} %}
+
 {% contentPageImage {
     src: "../../../assets/img/foundations/iconography/small-icon-set-sizes.svg",
     width: "40px",
     caption: "The example above shows the multiple sizes at which icons from the Small icon set can be placed at."
 } %}
 
-## Sizes for the Large icon set
+### Large icon set
 
 The minimum for this set of icons is 32px. However, because they can be used as supporting icons in communications and marketing materials, they can be resized at any scale, sticking to 8px increments.
 
@@ -111,6 +117,32 @@ Fill icons should be used sparingly, mainly for icons that need to present inter
 {% contentPageImage {
     src: "../../../assets/img/foundations/iconography/appearance-fill.svg",
     width: "35px"
+} %}
+
+---
+
+## Placement
+
+In the case of icon usage with a component or element, different placements have different functionality.
+
+### Leading
+
+A leading icon is placed in front of a piece of text or content. It provides context and visually supports the content or indicates the input or action of the element. For example, using a check mark for a completed task, or a magnifying glass for a search bar.
+
+{% contentPageImage {
+    src: "../../../assets/img/foundations/iconography/placement-leading.svg",
+    width: "467px",
+    alt: "The image shows three examples: a dark chip with a leading pizza icon labeled 'Pizza', a green tag with a leading checkmark icon labeled 'Approved', and a search bar with a leading magnifying glass icon"
+} %}
+
+### Trailing
+
+A trailing icon is positioned at the end of a piece of text or content. It offers additional actions or indicates further interactions. For example, clearing selections, expanding or collapsing content, continuing a user flow etc.
+
+{% contentPageImage {
+    src: "../../../assets/img/foundations/iconography/placement-trailing.svg",
+    width: "469px",
+    alt: "The image shows three examples: a black tag labeled 'Pizza' with a trailing 'x' icon to clear it, an orange button labeled 'Next' with a trailing arrow icon, and a dropdown menu with a trailing chevron-down icon to indicate it can be expanded"
 } %}
 
 ---
@@ -147,6 +179,7 @@ This instance uses the fill appearance of the icon to indicate the change in its
 } %}
 
 ---
+
 ## Using icons in your products
 
 Choosing and using icons for your products isn’t an easy task. An excellent icon can extract the most important visual characteristics of a product or idea, making the depiction instantly recognisable.
@@ -192,9 +225,9 @@ Icons act as a visual cue to improve the legibility and scannability of your pro
     dont: {
         type: usageTypes.image,
         items: [{
-        src:"../../../assets/img/foundations/iconography/pairing-text-with-icons-dont.svg",
-        width: "375px",
-        alt: "This image shows an app menu with four icons. Only one icon has a label, which makes it clear it is a link to the home page. The other icons, such as the icon representing a wrapped gift, are not so clear without labels."
+            src: "../../../assets/img/foundations/iconography/pairing-text-with-icons-dont.svg",
+            width: "375px",
+            alt: "This image shows an app menu with four icons. Only one icon has a label, which makes it clear it is a link to the home page. The other icons, such as the icon representing a wrapped gift, are not so clear without labels."
         }]
     }
 } %}
