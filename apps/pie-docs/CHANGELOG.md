@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.53.1
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens to v7.8.1 ([#2579](https://github.com/justeattakeaway/pie/pull/2579)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`da89aa6`](https://github.com/justeattakeaway/pie/commit/da89aa6010281bc7f37560cabfcd2c7fb70c86df)]:
+  - @justeattakeaway/pie-css@0.23.1
+  - @justeattakeaway/pie-webc@0.7.25
+  - @justeattakeaway/pie-icons-webc@1.15.2
+
 ## 4.53.0
 
 ### Minor Changes
