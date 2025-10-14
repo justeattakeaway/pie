@@ -1,4 +1,5 @@
 export const sizeToValueMap = {
+    xxs: 12,
     xs: 16,
     s: 20,
     m: 24,
