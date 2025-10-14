@@ -168,9 +168,9 @@ Icons are made available in different size variants:
 - regular
 - large, when its name has the `Large` suffix
 
-A `regular` icon's default size is `xs` and can use one of the following pre-defined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about regular icon sizes [here](https://www.pie.design/foundations/iconography/#sizes-for-the-small-icon-set).
+A `regular` icon's default size is `xs` and can use one of the following pre-defined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about regular icon sizes [here](https://www.pie.design/foundations/iconography/#small-icon-set).
 
-A `large` icon's default (and minimum) `size` is `32`. Values larger than the minimum **must** be multiples of `8`, otherwise the default size will be used. You can learn more about large icon sizes [here](https://www.pie.design/foundations/iconography/#sizes-for-the-large-icon-set).
+A `large` icon's default (and minimum) `size` is `32`. Values larger than the minimum **must** be multiples of `8`, otherwise the default size will be used. You can learn more about large icon sizes [here](https://www.pie.design/foundations/iconography/#large-icon-set).
 
 **Example:**
 

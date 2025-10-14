@@ -42,6 +42,7 @@ describe('IconAlcohol (Regular variant) ::', () => {
     });
 
     test.each([
+        'xxxs',
         'xxxl',
         '',
     ])('should not allow invalid sizes - %s', (size) => {

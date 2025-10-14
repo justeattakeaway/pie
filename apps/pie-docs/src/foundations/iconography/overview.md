@@ -46,7 +46,7 @@ When exporting icons for your products, please export the whole bounding box, in
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Icon area:** Small (default size) is 14x14px and Large (default size)is 28x28px.",
+        "**Icon area:** Small (default size) is 14x14px and Large (default size) is 28x28px.",
         "**Bounding box:** Small (default size) is 16x16px and Large (default size) is 32x32px."
     ]
 } %}
@@ -85,7 +85,7 @@ Our small icon set can be used at the following sizes:
     caption: "The example above shows the multiple sizes at which icons from the Small icon set can be placed at."
 } %}
 
-## Large icon set
+### Large icon set
 
 The minimum for this set of icons is 32px. However, because they can be used as supporting icons in communications and marketing materials, they can be resized at any scale, sticking to 8px increments.
 
@@ -132,7 +132,7 @@ A leading icon is placed in front of a piece of text or content. It provides con
 {% contentPageImage {
     src: "../../../assets/img/foundations/iconography/placement-leading.svg",
     width: "467px",
-    alt: "The image shows three examples: a dark chip with a leading pizza emoji labeled 'Pizza', a green tag with a leading checkmark icon labeled 'Approved', and a search bar with a leading magnifying glass icon"
+    alt: "The image shows three examples: a dark chip with a leading pizza icon labeled 'Pizza', a green tag with a leading checkmark icon labeled 'Approved', and a search bar with a leading magnifying glass icon"
 } %}
 
 ### Trailing
