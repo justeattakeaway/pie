@@ -9,13 +9,11 @@ on:
       node-version:
         required: true
         type: string
-      # Add new input for the IAM role ARN
       aws-role-arn:
         description: "ARN of the AWS IAM role to assume for OIDC"
         required: true
         type: string
 
-# Add permissions for OIDC
 permissions:
   contents: read
   id-token: write
@@ -38,7 +36,7 @@ jobs:
     runs-on: ${{ inputs.os }}
     permissions:
       contents: read
-      id-token: write # Required for OIDC
+      id-token: write
     if: github.repository == 'justeattakeaway/pie' && github.event_name != 'pull_request' &&
       (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
     steps:

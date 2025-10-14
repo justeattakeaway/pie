@@ -4,7 +4,6 @@ on:
   pull_request:
     types: [closed]
 
-# Add permissions for OIDC
 permissions:
   contents: read
   id-token: write
@@ -16,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write # Required for OIDC
+      id-token: write
     outputs:
       hasDocsEnv: ${{ steps.list-environments.outputs.hasDocsEnv }}
       hasStorybookEnv: ${{ steps.list-environments.outputs.hasStorybookEnv }}

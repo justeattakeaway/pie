@@ -62,7 +62,7 @@ jobs:
     permissions:
       contents: read
       deployments: write
-      id-token: write # Required for OIDC
+      id-token: write
     steps:
       # Add AWS credentials configuration step after checkout
       - name: Checkout
@@ -121,7 +121,7 @@ jobs:
         run: |
           cd ${{ inputs.package-dist-directory }}
           zip -r ./${{ env.ZIP_NAME }} .
-      # Upload zip to S3 - remove role-to-assume as it's handled by configure-aws-credentials
+      # Upload zip to S3
       - name: Upload to S3
         id: upload-s3
         uses: hkusu/s3-upload-action@df0d0d688ce4593c477be764d08f63566dfd968e # v2.1.0
