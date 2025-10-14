@@ -123,7 +123,7 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
     @property({ type: String })
     public target: ButtonProps['target'];
 
-    @property({ type: String })
+    @property({ type: Boolean })
     public download: ButtonProps['download'];
 
     /**
@@ -247,7 +247,7 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
                 href="${ifDefined(href)}"
                 rel="${ifDefined(rel)}"
                 target="${ifDefined(target)}"
-                download="${ifDefined(download?.trim() || undefined)}"
+                ?download="${download}"
                 class="${classMap(classes)}">
                 ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                 <slot></slot>

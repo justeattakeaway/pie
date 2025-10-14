@@ -347,25 +347,8 @@ test.describe('props', () => {
                 const download = await downloadPromise;
 
                 // Assert
-                expect(download.suggestedFilename()).toBe('foo.svg');
+                expect(download.suggestedFilename()).toBe('logo--pie--dark.svg');
                 expect(download.url()).toContain('/static/images/logo--pie--dark.svg');
-            });
-
-            test('should not render anchor with download attribute when its an empty string', async ({ page }) => {
-                // Arrange
-                const props: ButtonProps = {
-                    href: undefined,
-                    download: '',
-                };
-
-                const buttonAnchorPage = new ButtonAnchorPage(page);
-                await buttonAnchorPage.load({ ...props });
-
-                // Act
-                const anchor = buttonAnchorPage.buttonComponent.componentLocator.locator('a');
-
-                // Assert
-                await expect(anchor).not.toHaveAttribute('download');
             });
         });
     });

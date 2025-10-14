@@ -53,7 +53,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `formtarget`     | `"_self"`, `"_blank"`, `"_parent"`, `"_top"`                                                                                                                             | If the button is a submit button, this attribute is an author-defined name or standardized, underscore-prefixed keyword indicating where to display the response from submitting the form.                          | `undefined`    |
 | `tag` | `"button"`, `"a"` | Which HTML element to use when rendering the button. | `"button"` |
 | `href` | `string` | The URL to direct the user to. Only available when `tag` is `a`. | `undefined` |
-| `download` | – | Suggests the target will be downloaded; can specify a filename. Only available when `tag` is `a`. Use relative paths. | `undefined` |
+| `download` | `true`, `false` | Suggests the target will be downloaded. Only available when `tag` is `a`. **Use same origin URLs** and point to the file using the `href` property. | `false` |
 | `target` | `string` | Where to display the linked URL. Only available when `tag` is `a`. | `undefined` |
 | `rel` | `string` | The relationship of the linked URL as space-separated link types. Only available when `tag` is `a`. | `undefined` |
 
@@ -150,19 +150,7 @@ import { PieButton } from '@justeattakeaway/pie-webc/react/button.js';
 ```
 
 ## Downloading files
-Combine the `href` and `download` properties to create a link that prompts the user to download a file when clicked. The `href` should point to the file's URL, and the `download` attribute can specify a default filename for the downloaded file.
 
-### With a custom filename
-```html
-<pie-button
-  tag="a"
-  href="/path/to/file.pdf"
-  download="custom-filename.pdf">
-  Download PDF
-</pie-button>
-```
-
-### Without a custom filename
 ```html
 <pie-button
   tag="a"

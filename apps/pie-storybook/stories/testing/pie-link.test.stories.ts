@@ -74,8 +74,8 @@ const linkStoryMeta: LinkStoryMeta = {
             if: { arg: 'tag', eq: 'a' },
         },
         download: {
-            description: 'Suggests the link will be downloaded and can set a filename.',
-            control: 'text',
+            description: 'Suggests the link will be downloaded.',
+            control: 'boolean',
             if: { arg: 'tag', eq: 'a' },
         },
         target: {
@@ -161,7 +161,7 @@ const Template : TemplateFunction<LinkProps> = ({
             underline="${ifDefined(underline)}"
             iconPlacement="${ifDefined(iconPlacement)}"
             href="${ifDefined(href)}"
-            download="${ifDefined(download)}"
+            ?download="${download}"
             target="${ifDefined(target)}"
             rel="${ifDefined(rel)}"
             type="${ifDefined(type)}"
@@ -181,7 +181,7 @@ export const Inverse = createLinkStory({ variant: 'inverse' }, { bgColor: 'dark 
 export const Download = createLinkStory({
     tag: 'a',
     href: '/static/images/logo--pie--dark.svg',
-    download: 'foo.svg',
+    download: true,
 });
 
 // Base shared props without variant or size

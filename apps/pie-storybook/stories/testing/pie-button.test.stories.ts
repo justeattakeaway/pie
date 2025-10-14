@@ -126,7 +126,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
             control: 'text',
         },
         download: {
-            control: 'text',
+            control: 'boolean',
         },
         target: {
             control: 'text',
@@ -326,7 +326,7 @@ export const Anchor = createStory(AnchorTemplate, defaultArgs)({
 // Download specific Story
 export const AnchorWithDownload = createStory(AnchorTemplate, defaultArgs)({
     href: '/static/images/logo--pie--dark.svg',
-    download: 'foo.svg',
+    download: true,
 });
 
 export const FormIntegration = createButtonStoryWithForm({ type: 'submit' });
@@ -340,7 +340,7 @@ const FormSubmissionTemplate: TemplateFunction<ButtonProps> = () => html`
             name="submitButton"
             value="submitValue"
         >
-          Submit
+        Submit
         </pie-button>
     </form>
 `;

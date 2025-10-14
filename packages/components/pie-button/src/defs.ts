@@ -131,13 +131,13 @@ export interface ButtonProps {
     target?: string;
 
     /**
-     * If the button is rendered as an anchor element, this attribute will be applied to the `download` attribute on the anchor.
+     * If the button is rendered as an anchor element, this attribute will be applied to the `download` attribute on the anchor. Use the href attribute to provide the file path.
      * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download)
      */
-    download?: string;
+    download?: boolean;
 }
 
-export type DefaultProps = ComponentDefaultProps<ButtonProps, 'tag' | 'size' | 'type' | 'variant' | 'iconPlacement' | 'disabled' | 'isFullWidth' | 'isLoading' | 'isResponsive'>;
+export type DefaultProps = ComponentDefaultProps<ButtonProps, 'tag' | 'size' | 'type' | 'variant' | 'iconPlacement' | 'disabled' | 'isFullWidth' | 'isLoading' | 'isResponsive' | 'download'>;
 
 export const defaultProps: DefaultProps = {
     tag: 'button',
@@ -149,4 +149,5 @@ export const defaultProps: DefaultProps = {
     isLoading: false,
     isFullWidth: false,
     isResponsive: false,
+    download: false,
 };

@@ -53,25 +53,8 @@ test.describe('PieLink - Component tests', () => {
         const download = await downloadPromise;
 
         // Assert
-        expect(download.suggestedFilename()).toBe('foo.svg');
+        expect(download.suggestedFilename()).toBe('logo--pie--dark.svg');
         expect(download.url()).toContain('/static/images/logo--pie--dark.svg');
-    });
-
-    test('should not render a download attribute when value is empty', async ({ page }) => {
-        // Arrange
-        const linkPage = new BasePage(page, 'link');
-        const props: LinkProps = {
-            tag: 'a',
-            download: '',
-        };
-
-        await linkPage.load({ ...props });
-
-        // Act
-        const linkComponent = page.getByTestId(link.selectors.anchor.dataTestId);
-
-        // Assert
-        await expect(linkComponent).not.toHaveAttribute('download');
     });
 
     test('should render as button when tag="button"', async ({ page }) => {

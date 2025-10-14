@@ -47,11 +47,10 @@ export interface LinkProps {
     rel?: string;
 
     /**
-     * Suggests that the target will be downloaded when a user clicks on the hyperlink.
-     * May be set to a filename to suggest a name for the downloaded file.
+     * Suggests that the file path provided to href will be downloaded when a user clicks on the hyperlink.
      * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download)
      */
-    download?: string;
+    download?: boolean;
     /**
      * When true, the link text will be bold.
      */
@@ -87,4 +86,5 @@ export const defaultProps: DefaultProps = {
     hasVisited: false,
     iconPlacement: 'leading',
     type: 'submit',
+    download: false,
 };

@@ -60,7 +60,7 @@ export class PieLink extends PieElement implements LinkProps {
     @property({ type: String, reflect: true })
     public rel: LinkProps['rel'];
 
-    @property({ type: String, reflect: true })
+    @property({ type: Boolean, reflect: true })
     public download: LinkProps['download'];
 
     @property({ type: Boolean })
@@ -124,7 +124,7 @@ export class PieLink extends PieElement implements LinkProps {
                 href=${ifDefined(this.href)}
                 target=${ifDefined(this.target)}
                 rel=${ifDefined(this.rel)}
-                download=${ifDefined(this.download?.trim() || undefined)}
+                ?download="${this.download}"
                 aria-label=${ifDefined(this.aria?.label)}
                 part="base">
                 ${this.renderContent()}
