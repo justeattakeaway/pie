@@ -1,0 +1,21 @@
+:host {
+  padding: var(--dt-spacing-d);
+  border-bottom: 1px solid var(--data-table-border-color);
+  display: table-cell;
+}
+
+:host([textAlign="right"]) {
+  text-align: right;
+}
+
+:host([textAlign="center"]) {
+  text-align: center;
+}
+
+:host([textAlign="left"]) {
+  text-align: left; 
+}
+
+:host([isHidden]) {
+  display: none;
+}
