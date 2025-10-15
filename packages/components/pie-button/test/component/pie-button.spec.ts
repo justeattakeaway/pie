@@ -336,7 +336,7 @@ test.describe('props', () => {
                 await expect(spinner).not.toBeVisible();
             });
 
-            test('should correctly download files when isDownload is provided', async ({ page }) => {
+            test('should correctly download files when download is an empty string', async ({ page }) => {
                 // Arrange
                 const buttonAnchorPage = new ButtonAnchorWithDownloadPage(page);
                 await buttonAnchorPage.load();
@@ -352,7 +352,7 @@ test.describe('props', () => {
                 expect(download.url()).toContain('/static/images/logo--pie--dark.svg');
             });
 
-            test('should correctly download files with custom filename when downloadFilename is provided', async ({ page }) => {
+            test('should correctly download files with custom filename when download is a non-empty string', async ({ page }) => {
                 // Arrange
                 const buttonAnchorPage = new ButtonAnchorWithDownloadFilenamePage(page);
                 await buttonAnchorPage.load();

@@ -123,11 +123,8 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
     @property({ type: String })
     public target: ButtonProps['target'];
 
-    @property({ type: Boolean })
-    public isDownload = defaultProps.isDownload;
-
     @property({ type: String })
-    public downloadFilename: ButtonProps['downloadFilename'];
+    public download: ButtonProps['download'];
 
     /**
      * This method creates an invisible button of the same type as pie-button. It is then clicked, and immediately removed from the DOM.
@@ -242,7 +239,7 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
 
     renderAnchor (classes: ClassInfo) {
         const {
-            href, iconPlacement, rel, target, isDownload, downloadFilename,
+            href, iconPlacement, rel, target, download,
         } = this;
 
         return html`
@@ -250,8 +247,7 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
                 href="${ifDefined(href)}"
                 rel="${ifDefined(rel)}"
                 target="${ifDefined(target)}"
-                ?download="${downloadFilename && downloadFilename.trim() ? false : isDownload}"
-                download="${ifDefined(downloadFilename && downloadFilename.trim() ? downloadFilename : undefined)}"
+                download="${ifDefined(download !== undefined ? download : undefined)}"
                 class="${classMap(classes)}">
                 ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                 <slot></slot>

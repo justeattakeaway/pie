@@ -53,8 +53,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `formtarget`     | `"_self"`, `"_blank"`, `"_parent"`, `"_top"`                                                                                                                             | If the button is a submit button, this attribute is an author-defined name or standardized, underscore-prefixed keyword indicating where to display the response from submitting the form.                          | `undefined`    |
 | `tag` | `"button"`, `"a"` | Which HTML element to use when rendering the button. | `"button"` |
 | `href` | `string` | The URL to direct the user to. Only available when `tag` is `a`. | `undefined` |
-| `isDownload` | `true`, `false` | Sets the download attribute (without value) to trigger file downloads. Only available when `tag` is `a`. **Use same origin URLs** and point to the file using the `href` property. | `false` |
-| `downloadFilename` | `string` | Sets the download attribute with a custom filename to trigger file downloads. Takes priority over `isDownload` when both are set. Only available when `tag` is `a`. | `undefined` |
+| `download` | `string` | Sets the download attribute to trigger file downloads. When an empty string, sets the download attribute without a value. When a non-empty string, sets the download attribute with the specified filename. Only available when `tag` is `a`. **Use same origin URLs** and point to the file using the `href` property. | `undefined` |
 | `target` | `string` | Where to display the linked URL. Only available when `tag` is `a`. | `undefined` |
 | `rel` | `string` | The relationship of the linked URL as space-separated link types. Only available when `tag` is `a`. | `undefined` |
 
@@ -157,7 +156,7 @@ import { PieButton } from '@justeattakeaway/pie-webc/react/button.js';
 <pie-button
   tag="a"
   href="/path/to/file.pdf"
-  isDownload>
+  download="">
   Download PDF
 </pie-button>
 ```
@@ -167,7 +166,7 @@ import { PieButton } from '@justeattakeaway/pie-webc/react/button.js';
 <pie-button
   tag="a"
   href="/path/to/file.pdf"
-  downloadFilename="my-custom-name.pdf">
+  download="my-custom-name.pdf">
   Download PDF
 </pie-button>
 ```

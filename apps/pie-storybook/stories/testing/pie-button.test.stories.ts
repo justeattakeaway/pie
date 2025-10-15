@@ -31,8 +31,7 @@ const defaultArgs: ButtonProps = {
     showNativeResetButton: false,
     showSubmitButton: true,
     renderIncorrectForm: false,
-    isDownload: false,
-    downloadFilename: undefined,
+    download: undefined,
 };
 
 const buttonStoryMeta: ButtonStoryMeta = {
@@ -127,11 +126,11 @@ const buttonStoryMeta: ButtonStoryMeta = {
         href: {
             control: 'text',
         },
-        isDownload: {
-            control: 'boolean',
-        },
-        downloadFilename: {
-            control: 'text',
+        download: {
+            control: {
+                type: 'select',
+            },
+            options: [undefined, '', 'custom-filename.svg'],
         },
         target: {
             control: 'text',
@@ -202,8 +201,7 @@ const AnchorTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => ht
         ?isResponsive="${props.isResponsive}"
         responsiveSize="${ifDefined(props.responsiveSize)}"
         href="${ifDefined(props.href)}"
-        ?isDownload="${props.isDownload}"
-        downloadFilename="${ifDefined(props.downloadFilename)}"
+        download="${ifDefined(props.download)}"
         rel="${ifDefined(props.rel)}"
         target="${ifDefined(props.target)}">
         ${props.iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
@@ -320,7 +318,7 @@ const createButtonStoryWithForm = createStory<ButtonProps>(FormTemplate, default
 export const Primary = createButtonStory();
 
 export const Anchor = createStory(AnchorTemplate, defaultArgs)({
-    href: '/?path=/story/button--anchor',
+    href: '/static/images/logo--pie--dark.svg',
 }, {
     argTypes: {
         tag: {
@@ -332,12 +330,12 @@ export const Anchor = createStory(AnchorTemplate, defaultArgs)({
 // Download specific Stories
 export const AnchorWithDownload = createStory(AnchorTemplate, defaultArgs)({
     href: '/static/images/logo--pie--dark.svg',
-    isDownload: true,
+    download: '',
 });
 
 export const AnchorWithDownloadFilename = createStory(AnchorTemplate, defaultArgs)({
     href: '/static/images/logo--pie--dark.svg',
-    downloadFilename: 'pie-logo.svg',
+    download: 'pie-logo.svg',
 });
 
 export const FormIntegration = createButtonStoryWithForm({ type: 'submit' });
