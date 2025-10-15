@@ -32,8 +32,6 @@ interface ExtendedLinkProps extends SlottedComponentProps<LinkBaseProps> {
      * If `true`, display a note about needing `isStandalone`.
      */
     showStandaloneNote?: boolean;
-    isDownload?: boolean;
-    downloadFilename?: string;
 }
 
 type LinkStoryMeta = Meta<ExtendedLinkProps>;
