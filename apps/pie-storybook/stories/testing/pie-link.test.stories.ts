@@ -13,10 +13,7 @@ import {
     createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML,
 } from '../../utilities';
 
-type LinkProps = SlottedComponentProps<LinkBaseProps> & {
-    isDownload?: boolean;
-    downloadFilename?: string;
-};
+type LinkProps = SlottedComponentProps<LinkBaseProps>;
 type LinkStoryMeta = Meta<LinkProps>;
 
 const defaultArgs: LinkProps = {
