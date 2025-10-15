@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.16.0
+
+### Minor Changes
+
+- [Added] - support xxs size for regular icons ([#2585](https://github.com/justeattakeaway/pie/pull/2585)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.15.2
 
 ### Patch Changes
