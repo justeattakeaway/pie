@@ -31,6 +31,8 @@ const defaultArgs: ButtonProps = {
     showNativeResetButton: false,
     showSubmitButton: true,
     renderIncorrectForm: false,
+    isDownload: false,
+    downloadFilename: undefined,
 };
 
 const buttonStoryMeta: ButtonStoryMeta = {
@@ -125,8 +127,11 @@ const buttonStoryMeta: ButtonStoryMeta = {
         href: {
             control: 'text',
         },
-        download: {
+        isDownload: {
             control: 'boolean',
+        },
+        downloadFilename: {
+            control: 'text',
         },
         target: {
             control: 'text',
@@ -187,7 +192,11 @@ const Template: TemplateFunction<ButtonProps> = ({
     ${sanitizeAndRenderHTML(slot)}
 </pie-button>`;
 
-const AnchorTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => html`
+const AnchorTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => {
+    console.log('AnchorTemplate props:', props);
+    console.log('isDownload:', props.isDownload);
+    console.log('downloadFilename:', props.downloadFilename);
+    return html`
     <pie-button
         tag="a"
         size="${ifDefined(props.size)}"
@@ -197,12 +206,14 @@ const AnchorTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => ht
         ?isResponsive="${props.isResponsive}"
         responsiveSize="${ifDefined(props.responsiveSize)}"
         href="${ifDefined(props.href)}"
-        ?download="${props.download}"
+        ?isDownload="${props.isDownload}"
+        downloadFilename="${ifDefined(props.downloadFilename)}"
         rel="${ifDefined(props.rel)}"
         target="${ifDefined(props.target)}">
         ${props.iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
         ${sanitizeAndRenderHTML(props.slot)}
     </pie-button>`;
+};
 
 const FormTemplate: TemplateFunction<ButtonProps> = ({
     showSubmitButton,
@@ -323,10 +334,15 @@ export const Anchor = createStory(AnchorTemplate, defaultArgs)({
     },
 });
 
-// Download specific Story
+// Download specific Stories
 export const AnchorWithDownload = createStory(AnchorTemplate, defaultArgs)({
     href: '/static/images/logo--pie--dark.svg',
-    download: true,
+    isDownload: true,
+});
+
+export const AnchorWithDownloadFilename = createStory(AnchorTemplate, defaultArgs)({
+    href: '/static/images/logo--pie--dark.svg',
+    downloadFilename: 'pie-logo.svg',
 });
 
 export const FormIntegration = createButtonStoryWithForm({ type: 'submit' });

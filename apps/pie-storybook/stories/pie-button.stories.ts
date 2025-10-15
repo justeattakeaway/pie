@@ -172,9 +172,13 @@ const buttonStoryMeta: ButtonStoryMeta = {
             description: 'Set the href attribute for the underlying anchor tag.',
             control: 'text',
         },
-        download: {
-            description: 'Set the download attribute for the underlying anchor tag.',
+        isDownload: {
+            description: 'Set the download attribute (without value) for the underlying anchor tag to trigger file downloads.',
             control: 'boolean',
+        },
+        downloadFilename: {
+            description: 'Set the download attribute with a custom filename for the underlying anchor tag. Takes priority over isDownload.',
+            control: 'text',
         },
         target: {
             description: 'Set the target attribute for the underlying anchor tag.',
@@ -247,7 +251,8 @@ const AnchorTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => ht
         ?isResponsive="${props.isResponsive}"
         responsiveSize="${ifDefined(props.responsiveSize)}"
         href="${ifDefined(props.href)}"
-        ?download="${props.download}"
+        ?isDownload="${props.isDownload}"
+        downloadFilename="${ifDefined(props.downloadFilename)}"
         rel="${ifDefined(props.rel)}"
         target="${ifDefined(props.target)}">
         ${props.iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
@@ -352,7 +357,7 @@ const createButtonStory = createStory<ButtonProps>(Template, defaultArgs);
 
 const createButtonStoryWithForm = createStory<ButtonProps>(FormTemplate, defaultArgs);
 
-const anchorOnlyProps : Array<keyof ButtonProps> = ['href', 'target', 'rel', 'download'];
+const anchorOnlyProps = ['href', 'target', 'rel', 'isDownload', 'downloadFilename'] as const;
 
 export const Primary = createButtonStory({}, {
     controls: { exclude: ['variant', ...anchorOnlyProps] },

@@ -131,13 +131,20 @@ export interface ButtonProps {
     target?: string;
 
     /**
-     * If the button is rendered as an anchor element, this attribute will be applied to the `download` attribute on the anchor. Use the href attribute to provide the file path.
+     * If the button is rendered as an anchor element, this will set the download attribute on the anchor element to trigger file downloads. When true, sets the download attribute without a value.
      * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download)
      */
-    download?: boolean;
+    isDownload?: boolean;
+
+    /**
+     * If the button is rendered as an anchor element, this will set the download attribute on the anchor element with the specified filename.
+     * When both isDownload and downloadFilename are set, downloadFilename takes priority.
+     * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download)
+     */
+    downloadFilename?: string;
 }
 
-export type DefaultProps = ComponentDefaultProps<ButtonProps, 'tag' | 'size' | 'type' | 'variant' | 'iconPlacement' | 'disabled' | 'isFullWidth' | 'isLoading' | 'isResponsive' | 'download'>;
+export type DefaultProps = ComponentDefaultProps<ButtonProps, 'tag' | 'size' | 'type' | 'variant' | 'iconPlacement' | 'disabled' | 'isFullWidth' | 'isLoading' | 'isResponsive' | 'isDownload'>;
 
 export const defaultProps: DefaultProps = {
     tag: 'button',
@@ -149,5 +156,5 @@ export const defaultProps: DefaultProps = {
     isLoading: false,
     isFullWidth: false,
     isResponsive: false,
-    download: false,
+    isDownload: false,
 };
