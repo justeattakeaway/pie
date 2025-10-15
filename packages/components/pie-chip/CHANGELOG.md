@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-chip
 
+## 0.14.3
+
+### Patch Changes
+
+- Updated dependencies [[`6bda90d`](https://github.com/justeattakeaway/pie/commit/6bda90d2ca60d1b6d74fd93b46a9dc1cfda2bda9)]:
+  - @justeattakeaway/pie-icons-webc@1.16.0
+
 ## 0.14.2
 
 ### Patch Changes
