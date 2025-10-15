@@ -47,10 +47,17 @@ export interface LinkProps {
     rel?: string;
 
     /**
-     * Suggests that the file path provided to href will be downloaded when a user clicks on the hyperlink.
+     * Sets the download attribute (without value) to trigger file downloads. Only available when `tag` is `a`.
      * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download)
      */
-    download?: boolean;
+    isDownload?: boolean;
+
+    /**
+     * Sets the download attribute with a custom filename to trigger file downloads.
+     * Takes priority over `isDownload` when both are set. Only available when `tag` is `a`.
+     * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download)
+     */
+    downloadFilename?: string;
     /**
      * When true, the link text will be bold.
      */
@@ -74,7 +81,7 @@ export interface LinkProps {
     type?: typeof buttonTypes[number];
 }
 
-export type DefaultProps = ComponentDefaultProps<LinkProps, keyof Omit<LinkProps, 'aria' | 'href' | 'target' | 'rel'>>;
+export type DefaultProps = ComponentDefaultProps<LinkProps, keyof Omit<LinkProps, 'aria' | 'href' | 'target' | 'rel' | 'downloadFilename'>>;
 
 export const defaultProps: DefaultProps = {
     tag: 'a',
@@ -86,5 +93,5 @@ export const defaultProps: DefaultProps = {
     hasVisited: false,
     iconPlacement: 'leading',
     type: 'submit',
-    download: false,
+    isDownload: false,
 };

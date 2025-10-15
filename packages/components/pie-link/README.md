@@ -37,7 +37,8 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `tag`          | `"a"`, `"button"`                                                         | Which HTML tag to use for the link.                                                                                                                                                                                                                                                                                                                             | `"a"`       |
 | `href`         | —                                                                          | The `href` attribute to apply.<br>Cannot be used if `tag` is set to `"button"`.                                                                                                                                                                                                                                                                                | `undefined` |
 | `target`       | —                                                                          | The `target` attribute to apply.<br>Cannot be used if `tag` is set to `"button"`.                                                                                                                                                                                                                                                                               | `undefined` |
-| `download`     | `true`, `false`                                                             | Suggests the target will be downloaded. Only available when `tag` is `a`. **Use same origin URLs** and point to the file using the `href` property.                                                                                                                                                                                                          | `false`    |
+| `isDownload`   | `true`, `false`                                                           | Sets the download attribute (without value) to trigger file downloads. Only available when `tag` is `a`. **Use same origin URLs** and point to the file using the `href` property.                                                                                                                                                                          | `false`    |
+| `downloadFilename` | `string`                                                               | Sets the download attribute with a custom filename to trigger file downloads. Takes priority over `isDownload` when both are set. Only available when `tag` is `a`.                                                                                                                                                                                         | `undefined` |
 | `rel`          | —                                                                          | The `rel` attribute to apply.<br>Cannot be used if `tag` is set to `"button"`.                                                                                                                                                                                                                                                                                  | `undefined` |
 | `type`         | `"button"`, `"reset"`, `"submit"`                                         | The `type` attribute to apply when `tag` is set to `"button"`.                                                                                                                                                                                                                                                                                                  | `"submit"`  |
 | `underline`    | `"default"`, `"reversed"`                                                 | The underline behaviour of the link. The default behaviour has the link text underlined, with the underline disappearing on hover. `"reversed"` will only take effect if `isStandalone` is set to `true`.                                                                                                               | `"default"` |
@@ -112,11 +113,22 @@ import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/react/Icon
 
 ## Downloading files
 
+### Basic download
 ```html
 <pie-link
   tag="a"
   href="/path/to/file.pdf"
-  download>
+  isDownload>
+  Download PDF
+</pie-link>
+```
+
+### Download with custom filename
+```html
+<pie-link
+  tag="a"
+  href="/path/to/file.pdf"
+  downloadFilename="my-custom-name.pdf">
   Download PDF
 </pie-link>
 ```

@@ -32,6 +32,8 @@ interface ExtendedLinkProps extends SlottedComponentProps<LinkBaseProps> {
      * If `true`, display a note about needing `isStandalone`.
      */
     showStandaloneNote?: boolean;
+    isDownload?: boolean;
+    downloadFilename?: string;
 }
 
 type LinkStoryMeta = Meta<ExtendedLinkProps>;
@@ -42,6 +44,8 @@ const defaultArgs: ExtendedLinkProps = {
     href: 'https://pie.design',
     target: '_blank',
     slot: 'Link',
+    isDownload: false,
+    downloadFilename: undefined,
 };
 
 const linkStoryMeta: LinkStoryMeta = {
@@ -87,9 +91,13 @@ const linkStoryMeta: LinkStoryMeta = {
             description: 'Set where to display the linked URL. Only applies if `tag` is `a`.',
             control: 'text',
         },
-        download: {
-            description: 'Suggests the target will be downloaded. Only applies if `tag` is `a`.',
+        isDownload: {
+            description: 'Sets the download attribute (without value) to trigger file downloads. Only applies if `tag` is `a`.',
             control: 'boolean',
+        },
+        downloadFilename: {
+            description: 'Sets the download attribute with a custom filename. Takes priority over isDownload. Only applies if `tag` is `a`.',
+            control: 'text',
         },
         rel: {
             description:
@@ -154,7 +162,8 @@ const Template: TemplateFunction<ExtendedLinkProps> = ({
     href,
     target,
     rel,
-    download,
+    isDownload,
+    downloadFilename,
     size,
     variant,
     underline,
@@ -175,7 +184,8 @@ const Template: TemplateFunction<ExtendedLinkProps> = ({
         iconPlacement="${ifDefined(iconPlacement)}"
         href="${ifDefined(href)}"
         target="${ifDefined(target)}"
-        ?download="${download}"
+        ?isDownload="${isDownload}"
+        downloadFilename="${ifDefined(downloadFilename)}"
         rel="${ifDefined(rel)}"
         type="${ifDefined(type)}"
         ?isBold="${isBold}"

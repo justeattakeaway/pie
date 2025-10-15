@@ -60,8 +60,11 @@ export class PieLink extends PieElement implements LinkProps {
     @property({ type: String, reflect: true })
     public rel: LinkProps['rel'];
 
-    @property({ type: Boolean, reflect: true })
-    public download: LinkProps['download'];
+    @property({ type: Boolean })
+    public isDownload = defaultProps.isDownload;
+
+    @property({ type: String })
+    public downloadFilename: LinkProps['downloadFilename'];
 
     @property({ type: Boolean })
     public isBold = defaultProps.isBold;
@@ -117,6 +120,8 @@ export class PieLink extends PieElement implements LinkProps {
      * @private
      */
     private renderAnchor (classes: ClassInfo) {
+        const { isDownload, downloadFilename } = this;
+
         return html`
             <a
                 data-test-id="pie-link-anchor"
@@ -124,7 +129,8 @@ export class PieLink extends PieElement implements LinkProps {
                 href=${ifDefined(this.href)}
                 target=${ifDefined(this.target)}
                 rel=${ifDefined(this.rel)}
-                ?download="${this.download}"
+                ?download="${downloadFilename && downloadFilename.trim() ? false : isDownload}"
+                download="${ifDefined(downloadFilename && downloadFilename.trim() ? downloadFilename : undefined)}"
                 aria-label=${ifDefined(this.aria?.label)}
                 part="base">
                 ${this.renderContent()}

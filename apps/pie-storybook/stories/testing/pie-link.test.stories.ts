@@ -13,7 +13,10 @@ import {
     createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML,
 } from '../../utilities';
 
-type LinkProps = SlottedComponentProps<LinkBaseProps>;
+type LinkProps = SlottedComponentProps<LinkBaseProps> & {
+    isDownload?: boolean;
+    downloadFilename?: string;
+};
 type LinkStoryMeta = Meta<LinkProps>;
 
 const defaultArgs: LinkProps = {
@@ -23,6 +26,8 @@ const defaultArgs: LinkProps = {
     target: '_blank',
     slot: 'Link',
     aria: { label: 'Link' },
+    isDownload: false,
+    downloadFilename: undefined,
 };
 
 const linkStoryMeta: LinkStoryMeta = {
@@ -73,9 +78,14 @@ const linkStoryMeta: LinkStoryMeta = {
             control: 'text',
             if: { arg: 'tag', eq: 'a' },
         },
-        download: {
-            description: 'Suggests the link will be downloaded.',
+        isDownload: {
+            description: 'Sets the download attribute (without value) to trigger file downloads.',
             control: 'boolean',
+            if: { arg: 'tag', eq: 'a' },
+        },
+        downloadFilename: {
+            description: 'Sets the download attribute with a custom filename. Takes priority over isDownload.',
+            control: 'text',
             if: { arg: 'tag', eq: 'a' },
         },
         target: {
@@ -142,7 +152,8 @@ const Template : TemplateFunction<LinkProps> = ({
     href,
     target,
     rel,
-    download,
+    isDownload,
+    downloadFilename,
     size,
     variant,
     underline,
@@ -161,7 +172,8 @@ const Template : TemplateFunction<LinkProps> = ({
             underline="${ifDefined(underline)}"
             iconPlacement="${ifDefined(iconPlacement)}"
             href="${ifDefined(href)}"
-            ?download="${download}"
+            ?isDownload="${isDownload}"
+            downloadFilename="${ifDefined(downloadFilename)}"
             target="${ifDefined(target)}"
             rel="${ifDefined(rel)}"
             type="${ifDefined(type)}"
@@ -181,7 +193,13 @@ export const Inverse = createLinkStory({ variant: 'inverse' }, { bgColor: 'dark 
 export const Download = createLinkStory({
     tag: 'a',
     href: '/static/images/logo--pie--dark.svg',
-    download: true,
+    isDownload: true,
+});
+
+export const DownloadWithFilename = createLinkStory({
+    tag: 'a',
+    href: '/static/images/logo--pie--dark.svg',
+    downloadFilename: 'pie-logo.svg',
 });
 
 // Base shared props without variant or size

@@ -192,11 +192,7 @@ const Template: TemplateFunction<ButtonProps> = ({
     ${sanitizeAndRenderHTML(slot)}
 </pie-button>`;
 
-const AnchorTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => {
-    console.log('AnchorTemplate props:', props);
-    console.log('isDownload:', props.isDownload);
-    console.log('downloadFilename:', props.downloadFilename);
-    return html`
+const AnchorTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => html`
     <pie-button
         tag="a"
         size="${ifDefined(props.size)}"
@@ -213,7 +209,6 @@ const AnchorTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => {
         ${props.iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
         ${sanitizeAndRenderHTML(props.slot)}
     </pie-button>`;
-};
 
 const FormTemplate: TemplateFunction<ButtonProps> = ({
     showSubmitButton,
