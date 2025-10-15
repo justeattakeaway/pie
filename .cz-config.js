@@ -26,7 +26,7 @@ const getCurrentTicketNumberFromBranch = () => {
         const branchName = require('child_process').execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
         const { getTicketIdFromBranchName } = require('./packages/tools/pie-monorepo-utils/git-hooks/git-hooks-utils.js');
         const ticketId = getTicketIdFromBranchName(branchName);
-        
+
         return ticketId;
     } catch (error) {
         console.warn('Warning: Could not determine current branch name:', error.message);
@@ -69,5 +69,5 @@ module.exports = {
   allowTicketNumber: true,
   fallbackTicketNumber: getCurrentTicketNumberFromBranch(),
   isTicketNumberRequired: true,
-  ticketNumberRegExp: '[A-Z]{2,4}-(?!0+$)\\d{1,7}',
+  ticketNumberRegExp: '[A-Z]{2,10}-(?!0+$)\\d{1,7}',
 };

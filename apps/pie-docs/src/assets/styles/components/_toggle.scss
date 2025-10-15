@@ -1,10 +1,14 @@
 @use 'sass:color';
 @use '@justeattakeaway/pie-css/scss' as p;
+@use '../fozzie-config' as f;
 
 $toggle-bg: var(--dt-color-container-strong);
 $toggle-radius: var(--dt-radius-rounded-e);
 $toggle-padding: 2px;
 $toggle-item-height: 44px;
+$toggle-sticky-offset--base: var(--dt-spacing-d);
+$toggle-sticky-offset--narrow: calc($toggle-sticky-offset--base + 56px); // 56px is height of nav tabs
+$toggle-elevation: var(--dt-elevation-below-20);
 $toggle-item-fw: var(--dt-font-weight-regular);
 $toggle-item-fw--checked: var(--dt-font-weight-bold);
 $toggle-item-padding-y: 10px;
@@ -27,6 +31,17 @@ $toggle-item-elevation--checked: var(--dt-elevation-below-10);
     padding: $toggle-padding;
     border-radius: $toggle-radius;
     background-color: $toggle-bg;
+    position: sticky;
+    inset-block-start: $toggle-sticky-offset--narrow;
+    z-index: var(--dt-z-index-base);
+
+    @include f.media('>=wide') {
+        inset-block-start: $toggle-sticky-offset--base;
+    }
+}
+
+.c-toggle--stuck {
+    box-shadow: $toggle-elevation;
 }
 
 .c-toggle-label {
