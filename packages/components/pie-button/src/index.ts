@@ -247,7 +247,7 @@ export class PieButton extends DelegatesFocusMixin(FormControlMixin(PieElement))
                 href="${ifDefined(href)}"
                 rel="${ifDefined(rel)}"
                 target="${ifDefined(target)}"
-                download="${ifDefined(download !== undefined ? download : undefined)}"
+                download="${ifDefined(this.download)}"
                 class="${classMap(classes)}">
                 ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                 <slot></slot>

@@ -40,7 +40,7 @@ test.describe('PieLink - Component tests', () => {
         await expect(linkComponent).not.toHaveAttribute('type', 'submit');
     });
 
-    test('should correctly download files when isDownload is provided', async ({ page }) => {
+    test('should correctly download files when download is an empty string', async ({ page }) => {
         // Arrange
         const linkPage = new BasePage(page, 'link--download');
 
@@ -57,7 +57,7 @@ test.describe('PieLink - Component tests', () => {
         expect(download.url()).toContain('/static/images/logo--pie--dark.svg');
     });
 
-    test('should correctly download files with custom filename when downloadFilename is provided', async ({ page }) => {
+    test('should correctly download files with custom filename when download is a non-empty string', async ({ page }) => {
         // Arrange
         const linkPage = new BasePage(page, 'link--download-with-filename');
 

@@ -23,8 +23,7 @@ const defaultArgs: LinkProps = {
     target: '_blank',
     slot: 'Link',
     aria: { label: 'Link' },
-    isDownload: false,
-    downloadFilename: undefined,
+    download: undefined,
 };
 
 const linkStoryMeta: LinkStoryMeta = {
@@ -75,14 +74,12 @@ const linkStoryMeta: LinkStoryMeta = {
             control: 'text',
             if: { arg: 'tag', eq: 'a' },
         },
-        isDownload: {
-            description: 'Sets the download attribute (without value) to trigger file downloads.',
-            control: 'boolean',
-            if: { arg: 'tag', eq: 'a' },
-        },
-        downloadFilename: {
-            description: 'Sets the download attribute with a custom filename. Takes priority over isDownload.',
-            control: 'text',
+        download: {
+            description: 'Sets the download attribute to trigger file downloads. When an empty string, sets the download attribute without a value. When a non-empty string, sets the download attribute with the specified filename.',
+            control: {
+                type: 'select',
+            },
+            options: [undefined, '', 'custom-filename.svg'],
             if: { arg: 'tag', eq: 'a' },
         },
         target: {
@@ -143,14 +140,13 @@ const linkStoryMeta: LinkStoryMeta = {
 
 export default linkStoryMeta;
 
-const Template : TemplateFunction<LinkProps> = ({
+const Template: TemplateFunction<LinkProps> = ({
     aria,
     tag,
     href,
     target,
     rel,
-    isDownload,
-    downloadFilename,
+    download,
     size,
     variant,
     underline,
@@ -169,8 +165,7 @@ const Template : TemplateFunction<LinkProps> = ({
             underline="${ifDefined(underline)}"
             iconPlacement="${ifDefined(iconPlacement)}"
             href="${ifDefined(href)}"
-            ?isDownload="${isDownload}"
-            downloadFilename="${ifDefined(downloadFilename)}"
+            download="${ifDefined(download)}"
             target="${ifDefined(target)}"
             rel="${ifDefined(rel)}"
             type="${ifDefined(type)}"
@@ -190,13 +185,13 @@ export const Inverse = createLinkStory({ variant: 'inverse' }, { bgColor: 'dark 
 export const Download = createLinkStory({
     tag: 'a',
     href: '/static/images/logo--pie--dark.svg',
-    isDownload: true,
+    download: '',
 });
 
 export const DownloadWithFilename = createLinkStory({
     tag: 'a',
     href: '/static/images/logo--pie--dark.svg',
-    downloadFilename: 'pie-logo.svg',
+    download: 'pie-logo.svg',
 });
 
 // Base shared props without variant or size
