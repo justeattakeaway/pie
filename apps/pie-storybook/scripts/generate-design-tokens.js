@@ -30,60 +30,51 @@ function parseTokensFromCSS () {
         // Detect when we enter the main :root block
         if (line === ':root {') {
             insideRootBlock = true;
-            continue;
-        }
-
-        // Reset category context when we exit the root block or encounter new theme sections
-        if (line.startsWith('}') ||
+        } else if (line.startsWith('}') ||
             line.includes('/* Dark color theme */') ||
             line.includes('html[data-color-mode=') ||
             line.includes('@media (prefers-color-scheme:')) {
+            // Reset category context when we exit the root block or encounter new theme sections
             currentCategory = null;
             currentSubCategory = null;
             if (line.startsWith('}')) {
                 insideRootBlock = false;
             }
-            continue;
-        }
+        } else if (insideRootBlock) {
+            // Only process tokens when we're inside the main root block
 
-        // Only process tokens when we're inside the main root block
-        if (!insideRootBlock) {
-            continue;
-        }
+            // Detect category headers (e.g., "/* Global tokens - Color */" or "/* Alias tokens - Color */")
+            if (line.match(/\/\*\s*(Global|Alias)\s+tokens\s+-\s+.*\s*\*\//)) {
+                const match = line.match(/\/\*\s*(Global|Alias)\s+tokens\s+-\s+(.*?)\s*\*\//);
+                if (match) {
+                    const [, tokenType, tokenCategory] = match;
 
-        // Detect category headers (e.g., "/* Global tokens - Color */" or "/* Alias tokens - Color */")
-        if (line.match(/\/\*\s*(Global|Alias)\s+tokens\s+-\s+.*\s*\*\//)) {
-            const match = line.match(/\/\*\s*(Global|Alias)\s+tokens\s+-\s+(.*?)\s*\*\//);
-            if (match) {
-                const [, tokenType, tokenCategory] = match;
+                    currentCategory = tokenCategory;
+                    currentSubCategory = tokenType;
 
-                currentCategory = tokenCategory;
-                currentSubCategory = tokenType;
-
-                if (!categories[currentCategory]) {
-                    categories[currentCategory] = {
-                        global: [],
-                        alias: [],
-                    };
+                    if (!categories[currentCategory]) {
+                        categories[currentCategory] = {
+                            global: [],
+                            alias: [],
+                        };
+                    }
                 }
-            }
-        }
+            } else if (line.match(/^\s*--dt-.*?:\s*.*?;/)) {
+                // Detect CSS variables (--dt-*)
+                const match = line.match(/^\s*(--dt-.*?):\s*(.*?);/);
+                if (match && currentCategory && currentSubCategory) {
+                    const [, variableName, variableValue] = match;
 
-        // Detect CSS variables (--dt-*)
-        if (line.match(/^\s*--dt-.*?:\s*.*?;/)) {
-            const match = line.match(/^\s*(--dt-.*?):\s*(.*?);/);
-            if (match && currentCategory && currentSubCategory) {
-                const [, variableName, variableValue] = match;
+                    const tokenInfo = {
+                        name: variableName,
+                        value: variableValue,
+                    };
 
-                const tokenInfo = {
-                    name: variableName,
-                    value: variableValue,
-                };
-
-                if (currentSubCategory.toLowerCase() === 'global') {
-                    categories[currentCategory].global.push(tokenInfo);
-                } else if (currentSubCategory.toLowerCase() === 'alias') {
-                    categories[currentCategory].alias.push(tokenInfo);
+                    if (currentSubCategory.toLowerCase() === 'global') {
+                        categories[currentCategory].global.push(tokenInfo);
+                    } else if (currentSubCategory.toLowerCase() === 'alias') {
+                        categories[currentCategory].alias.push(tokenInfo);
+                    }
                 }
             }
         }
@@ -174,14 +165,14 @@ These tokens are automatically generated from the \`@justeat/pie-design-tokens\`
     // Helper function to extract color value for swatch
     const getColorForSwatch = (value, tokenName) => {
         // Check if the value is actually a color value before proceeding
-        const isValidColor = (val) =>
+        const isValidColor = (val) => (
             // Valid color formats: hex, rgb, rgba, hsl, hsla, named colors, var() references to colors
             val.match(/^#[0-9a-fA-F]{3,8}$/) || // hex colors
-                   val.match(/^rgb/) || // rgb/rgba colors
-                   val.match(/^hsl/) || // hsl/hsla colors
-                   val.includes('var(--dt-color-') || // CSS variable references to colors
-                   ['transparent', 'black', 'white', 'red', 'green', 'blue'].includes(val.toLowerCase()) // basic named colors
-        ;
+            val.match(/^rgb/) || // rgb/rgba colors
+            val.match(/^hsl/) || // hsl/hsla colors
+            val.includes('var(--dt-color-') || // CSS variable references to colors
+            ['transparent', 'black', 'white', 'red', 'green', 'blue'].includes(val.toLowerCase()) // basic named colors
+        );
 
         // If the raw value is not a valid color (like percentages, numbers, etc.), don't show preview
         if (!isValidColor(value)) {
@@ -329,6 +320,7 @@ These tokens are automatically generated from the \`@justeat/pie-design-tokens\`
 }
 
 function main () {
+    // eslint-disable-next-line no-console
     console.log('🚀 Generating design tokens documentation...');
 
     try {
@@ -351,11 +343,13 @@ function main () {
         const outputPath = path.join(process.cwd(), 'stories', 'design-tokens.mdx');
         fs.writeFileSync(outputPath, mdxContent);
 
+        // eslint-disable-next-line no-console
         console.log('✅ Design tokens documentation generated at:', outputPath);
 
         // Log summary
         const totalTokens = Object.values(categories).reduce((total, category) => total + category.global.length + category.alias.length, 0);
 
+        // eslint-disable-next-line no-console
         console.log(`📊 Summary: ${totalTokens} tokens across ${Object.keys(categories).length} categories`);
     } catch (error) {
         console.error('❌ Error generating design tokens documentation:', error);
