@@ -116,7 +116,7 @@ jobs:
       id: generate_payload
       run: |
         PACKAGES='${{ steps.changesets-main.outputs.publishedPackages}}'
-        REST_PACKAGES=$(echo "$PACKAGES" | jq -c '[.[] | select((.name != "@justeattakeaway/pie-docs" and .name != "@justeattakeaway/pie-storybook") and .name != "pie-monorepo")]')
+        REST_PACKAGES=$(echo "$PACKAGES" | jq -c '[.[] | select((.name != "@justeattakeaway/pie-docs" and .name != "@justeattakeaway/pie-storybook" and .name != "pie-monorepo"))]')
 
         PRIORITIZED_BLOCKS=$(echo "$PACKAGES" | jq -c '
             map(select(.name == "@justeattakeaway/pie-docs" or .name == "@justeattakeaway/pie-storybook")) |
