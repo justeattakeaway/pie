@@ -129,6 +129,14 @@ export interface ButtonProps {
      * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target)
      */
     target?: string;
+
+    /**
+     * If the button is rendered as an anchor element, this will set the download attribute on the anchor element.
+     * When an empty string, sets the download attribute without a value to trigger file downloads.
+     * When a non-empty string, sets the download attribute with the specified filename.
+     * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download)
+     */
+    download?: string;
 }
 
 export type DefaultProps = ComponentDefaultProps<ButtonProps, 'tag' | 'size' | 'type' | 'variant' | 'iconPlacement' | 'disabled' | 'isFullWidth' | 'isLoading' | 'isResponsive'>;

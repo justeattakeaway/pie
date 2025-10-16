@@ -23,6 +23,7 @@ const defaultArgs: LinkProps = {
     target: '_blank',
     slot: 'Link',
     aria: { label: 'Link' },
+    download: undefined,
 };
 
 const linkStoryMeta: LinkStoryMeta = {
@@ -71,6 +72,14 @@ const linkStoryMeta: LinkStoryMeta = {
         href: {
             description: 'The URL that the hyperlink should point to.',
             control: 'text',
+            if: { arg: 'tag', eq: 'a' },
+        },
+        download: {
+            description: 'Sets the download attribute to trigger file downloads. When an empty string, sets the download attribute without a value. When a non-empty string, sets the download attribute with the specified filename.',
+            control: {
+                type: 'select',
+            },
+            options: [undefined, '', 'custom-filename.svg'],
             if: { arg: 'tag', eq: 'a' },
         },
         target: {
@@ -131,12 +140,13 @@ const linkStoryMeta: LinkStoryMeta = {
 
 export default linkStoryMeta;
 
-const Template : TemplateFunction<LinkProps> = ({
+const Template: TemplateFunction<LinkProps> = ({
     aria,
     tag,
     href,
     target,
     rel,
+    download,
     size,
     variant,
     underline,
@@ -155,6 +165,7 @@ const Template : TemplateFunction<LinkProps> = ({
             underline="${ifDefined(underline)}"
             iconPlacement="${ifDefined(iconPlacement)}"
             href="${ifDefined(href)}"
+            download="${ifDefined(download)}"
             target="${ifDefined(target)}"
             rel="${ifDefined(rel)}"
             type="${ifDefined(type)}"
@@ -170,6 +181,18 @@ const createLinkStory = createStory<LinkProps>(Template, defaultArgs);
 export const Default = createLinkStory();
 export const HighVisibility = createLinkStory({ variant:  'high-visibility' });
 export const Inverse = createLinkStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
+
+export const Download = createLinkStory({
+    tag: 'a',
+    href: '/static/images/logo--pie--dark.svg',
+    download: '',
+});
+
+export const DownloadWithFilename = createLinkStory({
+    tag: 'a',
+    href: '/static/images/logo--pie--dark.svg',
+    download: 'pie-logo.svg',
+});
 
 // Base shared props without variant or size
 const baseSharedPropsMatrix: Partial<Record<keyof LinkProps, unknown[]>> = {
