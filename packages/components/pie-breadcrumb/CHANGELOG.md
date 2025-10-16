@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-breadcrumb
 
+## 0.7.5
+
+### Patch Changes
+
+- Updated dependencies [[`3c1da54`](https://github.com/justeattakeaway/pie/commit/3c1da545d48e106f5b5307707a12fd4512c56293)]:
+  - @justeattakeaway/pie-link@1.3.0
+
 ## 0.7.4
 
 ### Patch Changes

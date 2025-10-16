@@ -49,7 +49,7 @@
     "test:watch": "cross-env-shell turbo run test:watch --filter=!pie-monorepo",
     "test:ci": "cross-env-shell turbo run test:ci --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "test:coverage": "turbo run test:coverage --filter=!pie-monorepo",
-    "test:generate-routes":  "turbo run test:generate-routes --filter=!pie-monorepo --token=${TURBO_TOKEN}",
+    "test:generate-routes": "turbo run test:generate-routes --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "test:browsers-setup": "turbo run test:browsers-setup --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "test:browsers": "cross-env-shell turbo run test:browsers --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "test:browsers:react": "cross-env-shell turbo run test:browsers:react --filter=!pie-monorepo --token=${TURBO_TOKEN}",
