@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.55.3
+
+### Patch Changes
+
+- Updated dependencies [[`3c1da54`](https://github.com/justeattakeaway/pie/commit/3c1da545d48e106f5b5307707a12fd4512c56293)]:
+  - @justeattakeaway/pie-button@1.9.0
+  - @justeattakeaway/pie-link@1.3.0
+  - @justeattakeaway/pie-cookie-banner@1.6.27
+  - @justeattakeaway/pie-modal@1.17.3
+  - @justeattakeaway/pie-toast@0.12.7
+  - @justeattakeaway/pie-breadcrumb@0.7.5
+  - @justeattakeaway/pie-toast-provider@0.7.8
+
 ## 1.55.2
 
 ### Patch Changes

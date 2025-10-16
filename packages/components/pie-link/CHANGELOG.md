@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-link
 
+## 1.3.0
+
+### Minor Changes
+
+- [Added] - `download` attribute for providing filenames. ([#2578](https://github.com/justeattakeaway/pie/pull/2578)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.2.14
 
 ### Patch Changes
