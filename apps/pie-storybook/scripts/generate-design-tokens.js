@@ -86,7 +86,6 @@ function parseTokensFromCSS () {
 function generateMDXContent (categories, packageVersion) {
     let mdxContent = `import { Meta } from '@storybook/addon-docs';
 import '@justeattakeaway/pie-webc/components/notification.js';
-import '@justeattakeaway/pie-webc/components/tag.js';
 
 export const spacingBelow = {
     marginBlockEnd: 'var(--dt-spacing-d)',
@@ -99,7 +98,7 @@ export const spacingBelow = {
 [Design Documentation](https://pie.design/foundations/design-tokens/) | [NPM](https://www.npmjs.com/package/@justeat/pie-design-tokens)
 
 This page provides a comprehensive overview of all CSS custom properties (design tokens) available in the PIE Design System.
-These tokens are automatically generated from the \`@justeat/pie-design-tokens\` package version <pie-tag variant="information" isstrong>${packageVersion}</pie-tag>.
+These tokens are automatically generated from the \`@justeat/pie-design-tokens\` package version \`${packageVersion}\`.
 
 <pie-notification style={spacingBelow} variant="warning">Remember, please avoid using Global tokens directly in your projects. Instead, always prefer using Alias tokens.</pie-notification>
 
