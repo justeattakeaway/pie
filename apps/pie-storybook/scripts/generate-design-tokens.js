@@ -247,7 +247,7 @@ These tokens are automatically generated from the \`@justeat/pie-design-tokens\`
 
             sortedGlobalTokens.forEach((token) => {
                 // Escape pipe characters in values for markdown tables
-                const escapedValue = token.value.replace(/\|/g, '\\|');
+                const escapedValue = token.value.replace(/\\/g, '\\\\').replace(/\|/g, '\\|');
 
                 if (categoryName.toLowerCase() === 'color') {
                     const colorValue = getColorForSwatch(token.value, token.name);
@@ -287,7 +287,7 @@ These tokens are automatically generated from the \`@justeat/pie-design-tokens\`
 
             sortedAliasTokens.forEach((token) => {
                 // Escape pipe characters in values for markdown tables
-                const escapedValue = token.value.replace(/\|/g, '\\|');
+                const escapedValue = token.value.replace(/([\\|])/g, '\\$1');
 
                 if (categoryName.toLowerCase() === 'color') {
                     const colorValue = getColorForSwatch(token.value, token.name);
