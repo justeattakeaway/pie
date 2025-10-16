@@ -75,6 +75,7 @@ export default {
                         'Typography',
                         'CSS setup',
                         'Events',
+                        'Design tokens',
                         'Design tokens cookbook',
                         'CSS variables',
                         'Customising components',

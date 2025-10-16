@@ -4,6 +4,7 @@
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
+    "generate:design-tokens": "node scripts/generate-design-tokens.js",
     "dev": "storybook dev -p 6006",
     "dev:testing": "BROWSER_TESTING=true storybook dev -p 6007",
     "build": "storybook build --output-dir dist && cp -R ./static ./dist",
