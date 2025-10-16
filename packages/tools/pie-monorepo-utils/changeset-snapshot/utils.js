@@ -53,7 +53,7 @@ const publishSnapshot = async (execa) => {
     const newTags = Array
         .from(stdout.matchAll(/New tag:\s+([^\s\n]+)/g))
         .map(([, tag]) => tag)
-        .filter((tag) => !/^wc-.+$|pie-(monorepo|docs|storybook)|@justeattakeaway\/pie-docs/.test(tag));
+        .filter((tag) => !/pie-(monorepo|docs|storybook)|@justeattakeaway\/pie-docs/.test(tag));
 
     return newTags;
 };
