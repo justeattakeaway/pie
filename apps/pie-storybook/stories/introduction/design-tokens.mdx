@@ -1,0 +1,157 @@
+import { Meta } from '@storybook/addon-docs';
+import { useMemo } from 'react';
+import pieTokensMetadata from '@justeat/pie-design-tokens/metadata/tokensMetadata.json';
+import pieDesignTokens from '@justeat/pie-design-tokens/dist/tokens.json';
+
+<Meta title="Introduction/Design Tokens" />
+
+# Design Tokens
+
+Design tokens are the visual design atoms of the design system — specifically, they are named entities that store visual design attributes. We use them in place of hard-coded values in order to maintain a scalable and consistent visual system.
+
+export const DesignTokensTable = () => {
+  const TOKEN_PREFIX = '--dt-color-';
+  
+  const tokens = useMemo(() => {
+    const aliasTokens = pieTokensMetadata.color?.alias?.default || {};
+    const lightThemeValues = pieDesignTokens.theme?.jet?.color?.alias?.default || {};
+    const darkThemeValues = pieDesignTokens.theme?.jet?.color?.alias?.dark || {};
+    
+    // Helper function to convert color value with opacity to rgba
+    const resolveTokenValue = (tokenValue) => {
+      if (!tokenValue) return null;
+      
+      // Check if token has opacity (format: "#hex|opacity")
+      if (tokenValue.includes('|')) {
+        const [hex, opacity] = tokenValue.split('|');
+        let cleanHex = hex.replace('#', '');
+        
+        // Handle 3-character hex codes by expanding them
+        if (cleanHex.length === 3) {
+          cleanHex = cleanHex.split('').map(c => c + c).join('');
+        }
+        
+        // Ensure we have a valid 6-character hex
+        if (cleanHex.length !== 6) return tokenValue;
+        
+        const r = parseInt(cleanHex.slice(0, 2), 16);
+        const g = parseInt(cleanHex.slice(2, 4), 16);
+        const b = parseInt(cleanHex.slice(4, 6), 16);
+        return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+      }
+      
+      return tokenValue;
+    };
+    
+    const tokensList = Object.entries(aliasTokens).map(([name, details]) => ({
+      name,
+      lightValue: resolveTokenValue(lightThemeValues[name]),
+      darkValue: resolveTokenValue(darkThemeValues[name]),
+      category: details.category,
+      description: details.description
+    }));
+    
+    return tokensList;
+  }, []);
+  const renderColorPreview = (resolvedColor) => {
+    if (!resolvedColor) {
+      return (
+        <div style={{
+          width: '40px',
+          height: '40px',
+          border: '1px solid #ccc',
+          borderRadius: '4px',
+          backgroundColor: '#f0f0f0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '10px',
+          color: '#666',
+          margin: '0 auto'
+        }}>
+          N/A
+        </div>
+      );
+    }
+    
+    return (
+      <div style={{
+        width: '40px',
+        height: '40px',
+        border: '1px solid #ccc',
+        borderRadius: '4px',
+        backgroundColor: resolvedColor,
+        boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+        margin: '0 auto'
+      }} title={resolvedColor} />
+    );
+  };
+  return (
+    <div>
+      <table style={{ 
+        width: '100%', 
+        borderCollapse: 'collapse',
+        marginBottom: '20px'
+      }}>
+        <thead>
+          <tr style={{ backgroundColor: '#f5f5f5' }}>
+            <th style={{ 
+              padding: '12px', 
+              textAlign: 'left', 
+              borderBottom: '2px solid #ddd',
+              fontWeight: '600'
+            }}>Token Name</th>
+            <th style={{ 
+              padding: '12px', 
+              textAlign: 'center', 
+              borderBottom: '2px solid #ddd',
+              fontWeight: '600'
+            }}>Light Theme</th>
+            <th style={{ 
+              padding: '12px', 
+              textAlign: 'center', 
+              borderBottom: '2px solid #ddd',
+              fontWeight: '600'
+            }}>Dark Theme</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tokens.map((token) => (
+            <tr key={token.name} style={{ borderBottom: '1px solid #eee' }}>
+              <td style={{ 
+                padding: '12px',
+                fontFamily: 'monospace',
+                fontSize: '14px'
+              }}>
+                {TOKEN_PREFIX}{token.name}
+              </td>
+              <td style={{ 
+                padding: '12px',
+                textAlign: 'center'
+              }}>
+                {renderColorPreview(token.lightValue)}
+              </td>
+              <td style={{ 
+                padding: '12px',
+                textAlign: 'center'
+              }}>
+                {renderColorPreview(token.darkValue)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+## Alias Color Tokens
+
+The following table shows all alias color tokens with previews for both light and dark themes. These tokens provide semantic meaning to colors used throughout the design system.
+
+<DesignTokensTable />
+
+## Additional Resources
+
+- [Design Tokens Cookbook](?path=/docs/introduction-design-tokens-cookbook--docs)
+- [CSS Variables](?path=/docs/introduction-css-variables--docs)
