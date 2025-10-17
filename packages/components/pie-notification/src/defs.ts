@@ -81,6 +81,7 @@ export interface NotificationProps {
 
   /**
    * When true, action buttons will stack on narrow screens.
+   * Not available when `isCompact` is true.
    */
   hasStackedActions?: boolean;
 

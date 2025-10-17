@@ -14,8 +14,8 @@
     --notification-font-size: #{p.font-size(--dt-font-body-l-size)};
     --notification-line-height: #{p.line-height(--dt-font-body-l-line-height)};
     --notification-close-icon-offset: var(--dt-spacing-b);
-    --notification-icon-fill: var(--dt-color-content-default);
-    --notification-icon-offset: 2px;
+    --notification-icon-fill: var(--dt-color-content-inverse);
+    --notification-icon-background-color: var(--dt-color-container-inverse);
     --icon-size-override: 24px;
 
     padding: var(--dt-spacing-d);
@@ -43,21 +43,24 @@
 
     &.c-notification--info {
         --notification-background-color: var(--dt-color-support-info-tonal);
-        --notification-icon-fill: var(--dt-color-support-info);
+        --notification-icon-background-color: var(--dt-color-support-info);
     }
 
     &.c-notification--success {
         --notification-background-color: var(--dt-color-support-positive-tonal);
-        --notification-icon-fill: var(--dt-color-support-positive);
+        --notification-icon-background-color: var(--dt-color-support-positive);
     }
 
     &.c-notification--warning {
         --notification-background-color: var(--dt-color-support-warning-tonal);
+        --notification-icon-background-color: var(--dt-color-support-warning);
+        --notification-icon-fill: var(--dt-color-content-dark);
     }
 
     &.c-notification--error {
         --notification-background-color: var(--dt-color-support-error-tonal);
-        --notification-icon-fill: var(--dt-color-support-error);
+        --notification-icon-background-color: var(--dt-color-support-error);
+        --notification-icon-fill: var(--dt-color-content-light);
     }
 
 
@@ -76,6 +79,7 @@
     &-content-section {
         display: flex;
         flex-direction: row;
+        align-items: center;
         gap: var(--dt-spacing-c);
 
         &.c-notification-content-section--dismissible {
@@ -96,7 +100,7 @@
         gap: var(--dt-spacing-d);
 
         &.c-notification-footer--compact {
-            align-self: flex-end;
+            align-self: center;
         }
 
         @include media('<md') {
@@ -110,10 +114,9 @@
 .icon,
 ::slotted([slot="icon"]) {
     display: inline-flex;
+    align-self: flex-start;
+    background-color: var(--notification-icon-background-color);
     color: var(--notification-icon-fill);
-    margin-block-start: var(--notification-icon-offset);
-
-    @include media('<md') {
-        margin-block-start: 0;
-    }
+    border-radius: var(--dt-radius-rounded-b);
+    padding: var(--dt-spacing-a);
 }
