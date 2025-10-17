@@ -34,7 +34,7 @@ Notifications often include options for users to interact with the displayed inf
     dont: {
         type: usageTypes.text,
         items: [
-            "Use notification pinned to the top of the interface. See below for full usage guidelines between notification and toast."
+            "Don’t use notification pinned to the top of the interface. See below for full usage guidelines between notification and toast."
         ]
     }
 } %}
@@ -63,7 +63,7 @@ Notifications often include options for users to interact with the displayed inf
 
 ---
 
-## Variations
+## Variants
 
 ### Neutral
 
@@ -83,6 +83,16 @@ Exists as an alternative option to Neutral that can be visible over grey backgro
 {% contentPageImage {
     src:"../../../assets/img/components/notification/variation-neutral-alternative.svg",
     alt: "The neutral alternative variant of the notification component.",
+    width: 1024
+} %}
+
+### Translucent
+
+Translucent notifications appear on top of content, creating a layered effect.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/notification/variation-translucent.svg",
+    alt: "The translucent variant of the notification component.",
     width: 1024
 } %}
 
@@ -140,13 +150,13 @@ The action(s) relocate to be in line with the supporting text, which helps to re
 } %}
 
 {% contentPageImage {
-    src:"../../../assets/img/components/notification/modifier-compact-with-title.svg",
+    src:"../../../assets/img/components/notification/modifiers-compact-top.svg",
     alt: "The compact variant of the notification where the trailing icon, title, supporting text and actions are on the same line.",
     width: 1024
 } %}
 
 {% contentPageImage {
-    src:"../../../assets/img/components/notification/modifier-compact-without-title.svg",
+    src:"../../../assets/img/components/notification/modifiers-compact-bottom.svg",
     alt: "The compact variant of the notification where the trailing icon, supporting text and actions are on the same line.",
     width: 1024
 } %}
@@ -266,11 +276,32 @@ Notifications provide limited space for content, and therefore the content must 
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Leading icon:** The leading icon’s variants can be overridden.",
-        "**Supporting text:** The supporting text can include a link or bold type, when the string is a complete sentence or more.",
+        "**Leading icon:** Variants of the leading icon can be overridden, but the chosen icon must align with the message context. Find more information in the [Modifiers: Icon](#icons) section.",
+        "**Supporting text:** The supporting text can include a [link](/components/link) or bold type, when the string is a complete sentence or more.",
         "**Buttons:** The [Button’s](/components/button/#sizes) size can be decreased, and if they are kept as a pair, the size of both buttons remaining consistent."
     ]
 } %}
+
+### Alignments
+
+Text content is top-aligned with the icon by default. If there is only a single line of content (without a title), the text is centre-aligned with the icon for visual balance.
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/notification/alignment-left.svg",
+      width: "609px",
+      alt: "Two examples demonstrating the default top-alignment of text with an icon. The top example shows an icon with a title and supporting text, where the title is top-aligned with the icon. The bottom example shows an icon with two lines of supporting text, where the first line is top-aligned with the icon."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/notification/alignment-right.svg",
+      width: "603px",
+      alt: "An example showing a special alignment case. An icon is displayed next to a single line of supporting text, and a dotted line indicates that the text is vertically center-aligned with the icon."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ---
 
@@ -311,7 +342,7 @@ All props are available in narrow screen sizes.
 ### Compact
 
 {% notification {
-  type: "information",
+  type: "warning",
   message: "It’s recommended that the compact prop isn’t used below 600px, due to available horizontal space."
 } %}
 
@@ -410,11 +441,6 @@ Here are some examples of Buttons in left-to-right context:
 ---
 
 ## Resources
-
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Notification documentation, please see the resources below."
-} %}
 
 {% resourceTable {
     componentName: 'Notification'
