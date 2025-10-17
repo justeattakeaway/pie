@@ -37,8 +37,9 @@ export const DesignTokensTable = ({ tokenType = 'color', tokenPrefix = '--dt-' }
   };
 
   const tokens = useMemo(() => {
-    const aliasTokens = pieTokensMetadata[tokenType]?.alias?.default || {};
-    const lightThemeValues = pieDesignTokens.theme?.jet?.[tokenType]?.alias?.default || {};
+    // Some token types (like radius, spacing) don't have default/dark sub-structure
+    const aliasTokens = pieTokensMetadata[tokenType]?.alias?.default || pieTokensMetadata[tokenType]?.alias || {};
+    const lightThemeValues = pieDesignTokens.theme?.jet?.[tokenType]?.alias?.default || pieDesignTokens.theme?.jet?.[tokenType]?.alias || {};
     const darkThemeValues = pieDesignTokens.theme?.jet?.[tokenType]?.alias?.dark || {};
     
     const tokensList = Object.entries(aliasTokens).map(([name, details]) => ({
@@ -52,10 +53,14 @@ export const DesignTokensTable = ({ tokenType = 'color', tokenPrefix = '--dt-' }
     
     return tokensList;
   }, [tokenType]);
+
+  // Check if dark theme exists for this token type
+  const hasDarkTheme = useMemo(() => {
+    return tokens.some(token => token.darkValue !== undefined && token.darkValue !== null);
+  }, [tokens]);
   // Preview renderers for different token types
-  const renderColorPreview = (colorValue) => {
-    const resolvedColor = resolveColorValue(colorValue);
-    if (!resolvedColor) {
+  const renderColorPreview = (colorValue, tokenName) => {
+    if (!colorValue) {
       return (
         <div style={{
           width: '40px',
@@ -75,49 +80,49 @@ export const DesignTokensTable = ({ tokenType = 'color', tokenPrefix = '--dt-' }
       );
     }
     
+    // Use CSS variable instead of hard-coded value
+    const cssVarName = `${tokenPrefix}${tokenType}-${tokenName}`;
+    
     return (
       <div style={{
         width: '40px',
         height: '40px',
         border: '1px solid #ccc',
         borderRadius: '4px',
-        backgroundColor: resolvedColor,
+        backgroundColor: `var(${cssVarName})`,
         boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
         margin: '0 auto'
-      }} title={resolvedColor} />
+      }} title={cssVarName} />
     );
   };
 
-  const renderElevationPreview = (elevationValue) => {
+  const renderElevationPreview = (elevationValue, tokenName) => {
     if (!elevationValue || !elevationValue.shadows) {
       return <div style={{ margin: '0 auto', fontSize: '10px', color: '#666' }}>N/A</div>;
     }
 
-    const formatShadow = ({ x, y, blur, spread, r, g, b, opacity }) => 
-      `${x}px ${y}px ${blur}px ${spread}px rgba(${r}, ${g}, ${b}, ${opacity})`;
-
-    const { shadows = [], insets = [] } = elevationValue;
-    const boxShadow = [
-      ...shadows.map(formatShadow),
-      ...insets.map((inset) => `inset ${formatShadow(inset)}`),
-    ].join(', ');
+    // Use CSS variable for elevation
+    const cssVarName = `${tokenPrefix}${tokenType}-${tokenName}`;
 
     return (
       <div style={{
         width: '60px',
         height: '60px',
-        backgroundColor: '#fff',
-        borderRadius: '4px',
-        boxShadow,
+        backgroundColor: 'var(--dt-color-container-default)',
+        borderRadius: 'var(--dt-radius-rounded-c)',
+        boxShadow: `var(${cssVarName})`,
         margin: '0 auto'
       }} />
     );
   };
 
-  const renderSpacingPreview = (spacingValue) => {
+  const renderSpacingPreview = (spacingValue, tokenName) => {
     if (!spacingValue) {
       return <div style={{ margin: '0 auto', fontSize: '10px', color: '#666' }}>N/A</div>;
     }
+
+    // Use CSS variable for spacing
+    const cssVarName = `${tokenPrefix}${tokenType}-${tokenName}`;
 
     return (
       <div style={{
@@ -127,28 +132,85 @@ export const DesignTokensTable = ({ tokenType = 'color', tokenPrefix = '--dt-' }
         margin: '0 auto'
       }}>
         <div style={{
-          width: `${spacingValue}px`,
+          width: `var(${cssVarName})`,
           height: '24px',
           backgroundColor: '#FF8000',
-          borderRadius: '2px'
+          borderRadius: 'var(--dt-radius-rounded-a)'
         }} />
       </div>
     );
   };
 
-  const renderRadiusPreview = (radiusValue) => {
+  const renderRadiusPreview = (radiusValue, tokenName) => {
     if (!radiusValue) {
       return <div style={{ margin: '0 auto', fontSize: '10px', color: '#666' }}>N/A</div>;
     }
+
+    // Use CSS variable for radius
+    const cssVarName = `${tokenPrefix}${tokenType}-${tokenName}`;
 
     return (
       <div style={{
         width: '40px',
         height: '40px',
         backgroundColor: '#FF8000',
-        borderRadius: `${radiusValue}px`,
+        borderRadius: `var(${cssVarName})`,
         margin: '0 auto'
       }} />
+    );
+  };
+
+  const renderFontPreview = (fontValue, tokenName) => {
+    if (!fontValue) {
+      return <div style={{ margin: '0 auto', fontSize: '10px', color: '#666' }}>N/A</div>;
+    }
+
+    // Font tokens have size--wide and size--narrow properties
+    const hasWideNarrow = fontValue['size--wide'] && fontValue['size--narrow'];
+    
+    if (hasWideNarrow) {
+      // Render both wide and narrow previews
+      return (
+        <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', alignItems: 'center' }}>
+          <div style={{ textAlign: 'center' }}>
+            <div style={{
+              fontFamily: `var(--dt-font-family-${fontValue.family?.toLowerCase().replace('jetsansdigital', 'primary').replace('jetsansvf2', 'alternative').replace('ptmono', 'code') || 'primary'})`,
+              fontSize: `var(--dt-font-size-${fontValue['size--wide']['font-size']})`,
+              lineHeight: `var(--dt-font-line-height-${fontValue['size--wide']['line-height']})`,
+              fontWeight: `var(--dt-font-weight-${fontValue.weight?.toLowerCase() || 'regular'})`,
+              fontStyle: fontValue.style || 'normal'
+            }}>
+              Aa
+            </div>
+            <div style={{ fontSize: '10px', color: '#666', marginTop: '4px' }}>Wide</div>
+          </div>
+          <div style={{ textAlign: 'center' }}>
+            <div style={{
+              fontFamily: `var(--dt-font-family-${fontValue.family?.toLowerCase().replace('jetsansdigital', 'primary').replace('jetsansvf2', 'alternative').replace('ptmono', 'code') || 'primary'})`,
+              fontSize: `var(--dt-font-size-${fontValue['size--narrow']['font-size']})`,
+              lineHeight: `var(--dt-font-line-height-${fontValue['size--narrow']['line-height']})`,
+              fontWeight: `var(--dt-font-weight-${fontValue.weight?.toLowerCase() || 'regular'})`,
+              fontStyle: fontValue.style || 'normal'
+            }}>
+              Aa
+            </div>
+            <div style={{ fontSize: '10px', color: '#666', marginTop: '4px' }}>Narrow</div>
+          </div>
+        </div>
+      );
+    }
+
+    // Fallback for tokens without wide/narrow
+    return (
+      <div style={{
+        fontFamily: `var(--dt-font-family-${fontValue.family?.toLowerCase() || 'primary'})`,
+        fontSize: `var(--dt-font-size-${fontValue['font-size'] || '16'})`,
+        lineHeight: `var(--dt-font-line-height-${fontValue['line-height'] || '24'})`,
+        fontWeight: `var(--dt-font-weight-${fontValue.weight?.toLowerCase() || 'regular'})`,
+        textAlign: 'center'
+      }}>
+        Aa
+      </div>
     );
   };
 
@@ -157,10 +219,14 @@ export const DesignTokensTable = ({ tokenType = 'color', tokenPrefix = '--dt-' }
     color: renderColorPreview,
     elevation: renderElevationPreview,
     spacing: renderSpacingPreview,
-    radius: renderRadiusPreview
+    radius: renderRadiusPreview,
+    font: renderFontPreview
   };
 
-  const renderPreview = previewRenderers[tokenType] || renderColorPreview;
+  const renderPreview = (value, tokenName) => {
+    const renderer = previewRenderers[tokenType] || renderColorPreview;
+    return renderer(value, tokenName);
+  };
   return (
     <div>
       <table style={{ 
@@ -181,13 +247,15 @@ export const DesignTokensTable = ({ tokenType = 'color', tokenPrefix = '--dt-' }
               textAlign: 'center', 
               borderBottom: '2px solid #ddd',
               fontWeight: '600'
-            }}>Light Theme</th>
-            <th style={{ 
-              padding: '12px', 
-              textAlign: 'center', 
-              borderBottom: '2px solid #ddd',
-              fontWeight: '600'
-            }}>Dark Theme</th>
+            }}>{hasDarkTheme ? 'Light Theme' : 'Preview'}</th>
+            {hasDarkTheme && (
+              <th style={{ 
+                padding: '12px', 
+                textAlign: 'center', 
+                borderBottom: '2px solid #ddd',
+                fontWeight: '600'
+              }}>Dark Theme</th>
+            )}
           </tr>
         </thead>
         <tbody>
@@ -214,14 +282,16 @@ export const DesignTokensTable = ({ tokenType = 'color', tokenPrefix = '--dt-' }
                 padding: '12px',
                 textAlign: 'center'
               }}>
-                {renderPreview(token.lightValue)}
+                {renderPreview(token.lightValue, token.name)}
               </td>
-              <td style={{ 
-                padding: '12px',
-                textAlign: 'center'
-              }}>
-                {renderPreview(token.darkValue)}
-              </td>
+              {hasDarkTheme && (
+                <td style={{ 
+                  padding: '12px',
+                  textAlign: 'center'
+                }}>
+                  {renderPreview(token.darkValue, token.name)}
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
@@ -245,6 +315,182 @@ export const DesignTokensTable = ({ tokenType = 'color', tokenPrefix = '--dt-' }
 ## Radius
 
 <DesignTokensTable tokenType="radius" />
+
+## Typography
+
+export const TypographyTokensTable = () => {
+  const tokens = useMemo(() => {
+    // Font tokens are under alias.wide in metadata
+    const wideTokens = pieTokensMetadata.font?.alias?.wide || {};
+    const fontValues = pieDesignTokens.theme?.jet?.font?.alias || {};
+    
+    const tokensList = Object.entries(wideTokens).map(([name, details]) => ({
+      name,
+      value: fontValues[name],
+      category: details.category,
+      description: details.description,
+      displayName: details.displayName,
+      status: details.status
+    }));
+    
+    return tokensList;
+  }, []);
+
+  const getTokenVariables = (token, variant) => {
+    if (!token.value) return [];
+
+    const value = token.value;
+    const tokens = [];
+
+    // Add size token for the specific variant
+    if (variant === 'wide' && value['size--wide']) {
+      tokens.push(`--dt-font-${token.name}-size--wide`);
+    } else if (variant === 'narrow' && value['size--narrow']) {
+      tokens.push(`--dt-font-${token.name}-size--narrow`);
+    }
+
+    // Add family
+    if (value.family) {
+      tokens.push(`--dt-font-${token.name}-family`);
+    }
+
+    // Add weight
+    if (value.weight) {
+      tokens.push(`--dt-font-${token.name}-weight`);
+    }
+
+    // Add line-height for the specific variant
+    if (variant === 'wide' && value['size--wide']) {
+      tokens.push(`--dt-font-${token.name}-line-height--wide`);
+    } else if (variant === 'narrow' && value['size--narrow']) {
+      tokens.push(`--dt-font-${token.name}-line-height--narrow`);
+    }
+
+    // Add style if present
+    if (value['font-style']) {
+      tokens.push(`--dt-font-${token.name}-style`);
+    }
+
+    return tokens;
+  };
+
+  return (
+    <div>
+      <table style={{ 
+        width: '100%', 
+        borderCollapse: 'collapse',
+        marginBottom: '20px'
+      }}>
+        <thead>
+          <tr style={{ backgroundColor: '#f5f5f5' }}>
+            <th style={{ 
+              padding: '16px', 
+              textAlign: 'left', 
+              borderBottom: '2px solid #ddd',
+              fontWeight: '600',
+              width: '70%'
+            }}>Token Name</th>
+            <th style={{ 
+              padding: '16px', 
+              textAlign: 'center', 
+              borderBottom: '2px solid #ddd',
+              fontWeight: '600',
+              width: '30%'
+            }}>Preview</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tokens.map((token) => {
+            if (!token.value) return null;
+
+            const hasWideNarrow = token.value['size--wide'] && token.value['size--narrow'];
+            if (!hasWideNarrow) return null;
+
+            return (
+              <>
+                {/* Wide row */}
+                <tr key={`${token.name}-wide`} style={{ borderBottom: '1px solid #eee' }}>
+                  <td style={{ 
+                    padding: '16px',
+                    verticalAlign: 'top'
+                  }}>
+                    <div style={{ marginBottom: '8px' }}>
+                      <strong>{token.displayName || token.name} - Wide</strong>
+                      {token.status?.name === 'deprecated' && (
+                        <span style={{ marginLeft: '8px' }}>
+                          <PieTag 
+                            variant="error" 
+                            size="small"
+                          >
+                            Deprecated
+                          </PieTag>
+                        </span>
+                      )}
+                    </div>
+                    <div style={{ fontSize: '13px', color: '#666' }}>
+                      <strong>Tokens:</strong> {getTokenVariables(token, 'wide').map((t, i) => (
+                        <code key={i} style={{ marginLeft: '4px', marginRight: '4px' }}>{t}</code>
+                      ))}
+                    </div>
+                  </td>
+                  <td style={{ 
+                    padding: '16px',
+                    textAlign: 'center',
+                    verticalAlign: 'middle'
+                  }}>
+                    <div style={{
+                      fontFamily: `var(--dt-font-${token.name}-family)`,
+                      fontSize: `calc(var(--dt-font-${token.name}-size--wide) * 1px)`,
+                      lineHeight: `calc(var(--dt-font-${token.name}-line-height--wide) * 1px)`,
+                      fontWeight: `var(--dt-font-${token.name}-weight)`,
+                      fontStyle: token.value['font-style'] || 'normal'
+                    }}>
+                      String
+                    </div>
+                  </td>
+                </tr>
+
+                {/* Narrow row */}
+                <tr key={`${token.name}-narrow`} style={{ borderBottom: '1px solid #eee' }}>
+                  <td style={{ 
+                    padding: '16px',
+                    verticalAlign: 'top'
+                  }}>
+                    <div style={{ marginBottom: '8px' }}>
+                      <strong>{token.displayName || token.name} - Narrow</strong>
+                    </div>
+                    <div style={{ fontSize: '13px', color: '#666' }}>
+                      <strong>Tokens:</strong> {getTokenVariables(token, 'narrow').map((t, i) => (
+                        <code key={i} style={{ marginLeft: '4px', marginRight: '4px' }}>{t}</code>
+                      ))}
+                    </div>
+                  </td>
+                  <td style={{ 
+                    padding: '16px',
+                    textAlign: 'center',
+                    verticalAlign: 'middle'
+                  }}>
+                    <div style={{
+                      fontFamily: `var(--dt-font-${token.name}-family)`,
+                      fontSize: `calc(var(--dt-font-${token.name}-size--narrow) * 1px)`,
+                      lineHeight: `calc(var(--dt-font-${token.name}-line-height--narrow) * 1px)`,
+                      fontWeight: `var(--dt-font-${token.name}-weight)`,
+                      fontStyle: token.value['font-style'] || 'normal'
+                    }}>
+                      String
+                    </div>
+                  </td>
+                </tr>
+              </>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+<TypographyTokensTable />
 
 ## Additional Resources
 
