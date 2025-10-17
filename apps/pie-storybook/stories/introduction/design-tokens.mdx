@@ -2,58 +2,59 @@ import { Meta } from '@storybook/addon-docs';
 import { useMemo } from 'react';
 import pieTokensMetadata from '@justeat/pie-design-tokens/metadata/tokensMetadata.json';
 import pieDesignTokens from '@justeat/pie-design-tokens/dist/tokens.json';
+import { PieTag } from '@justeattakeaway/pie-webc/react/tag.js';
 
 <Meta title="Introduction/Design Tokens" />
 
 # Design Tokens
 
-Design tokens are the visual design atoms of the design system — specifically, they are named entities that store visual design attributes. We use them in place of hard-coded values in order to maintain a scalable and consistent visual system.
-
-export const DesignTokensTable = () => {
-  const TOKEN_PREFIX = '--dt-color-';
+export const DesignTokensTable = ({ tokenType = 'color', tokenPrefix = '--dt-' }) => {
   
-  const tokens = useMemo(() => {
-    const aliasTokens = pieTokensMetadata.color?.alias?.default || {};
-    const lightThemeValues = pieDesignTokens.theme?.jet?.color?.alias?.default || {};
-    const darkThemeValues = pieDesignTokens.theme?.jet?.color?.alias?.dark || {};
+  // Helper function to convert color value with opacity to rgba
+  const resolveColorValue = (tokenValue) => {
+    if (!tokenValue) return null;
     
-    // Helper function to convert color value with opacity to rgba
-    const resolveTokenValue = (tokenValue) => {
-      if (!tokenValue) return null;
+    // Check if token has opacity (format: "#hex|opacity")
+    if (tokenValue.includes('|')) {
+      const [hex, opacity] = tokenValue.split('|');
+      let cleanHex = hex.replace('#', '');
       
-      // Check if token has opacity (format: "#hex|opacity")
-      if (tokenValue.includes('|')) {
-        const [hex, opacity] = tokenValue.split('|');
-        let cleanHex = hex.replace('#', '');
-        
-        // Handle 3-character hex codes by expanding them
-        if (cleanHex.length === 3) {
-          cleanHex = cleanHex.split('').map(c => c + c).join('');
-        }
-        
-        // Ensure we have a valid 6-character hex
-        if (cleanHex.length !== 6) return tokenValue;
-        
-        const r = parseInt(cleanHex.slice(0, 2), 16);
-        const g = parseInt(cleanHex.slice(2, 4), 16);
-        const b = parseInt(cleanHex.slice(4, 6), 16);
-        return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+      // Handle 3-character hex codes by expanding them
+      if (cleanHex.length === 3) {
+        cleanHex = cleanHex.split('').map(c => c + c).join('');
       }
       
-      return tokenValue;
-    };
+      // Ensure we have a valid 6-character hex
+      if (cleanHex.length !== 6) return tokenValue;
+      
+      const r = parseInt(cleanHex.slice(0, 2), 16);
+      const g = parseInt(cleanHex.slice(2, 4), 16);
+      const b = parseInt(cleanHex.slice(4, 6), 16);
+      return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+    }
+    
+    return tokenValue;
+  };
+
+  const tokens = useMemo(() => {
+    const aliasTokens = pieTokensMetadata[tokenType]?.alias?.default || {};
+    const lightThemeValues = pieDesignTokens.theme?.jet?.[tokenType]?.alias?.default || {};
+    const darkThemeValues = pieDesignTokens.theme?.jet?.[tokenType]?.alias?.dark || {};
     
     const tokensList = Object.entries(aliasTokens).map(([name, details]) => ({
       name,
-      lightValue: resolveTokenValue(lightThemeValues[name]),
-      darkValue: resolveTokenValue(darkThemeValues[name]),
+      lightValue: lightThemeValues[name],
+      darkValue: darkThemeValues[name],
       category: details.category,
-      description: details.description
+      description: details.description,
+      status: details.status
     }));
     
     return tokensList;
-  }, []);
-  const renderColorPreview = (resolvedColor) => {
+  }, [tokenType]);
+  // Preview renderers for different token types
+  const renderColorPreview = (colorValue) => {
+    const resolvedColor = resolveColorValue(colorValue);
     if (!resolvedColor) {
       return (
         <div style={{
@@ -86,6 +87,80 @@ export const DesignTokensTable = () => {
       }} title={resolvedColor} />
     );
   };
+
+  const renderElevationPreview = (elevationValue) => {
+    if (!elevationValue || !elevationValue.shadows) {
+      return <div style={{ margin: '0 auto', fontSize: '10px', color: '#666' }}>N/A</div>;
+    }
+
+    const formatShadow = ({ x, y, blur, spread, r, g, b, opacity }) => 
+      `${x}px ${y}px ${blur}px ${spread}px rgba(${r}, ${g}, ${b}, ${opacity})`;
+
+    const { shadows = [], insets = [] } = elevationValue;
+    const boxShadow = [
+      ...shadows.map(formatShadow),
+      ...insets.map((inset) => `inset ${formatShadow(inset)}`),
+    ].join(', ');
+
+    return (
+      <div style={{
+        width: '60px',
+        height: '60px',
+        backgroundColor: '#fff',
+        borderRadius: '4px',
+        boxShadow,
+        margin: '0 auto'
+      }} />
+    );
+  };
+
+  const renderSpacingPreview = (spacingValue) => {
+    if (!spacingValue) {
+      return <div style={{ margin: '0 auto', fontSize: '10px', color: '#666' }}>N/A</div>;
+    }
+
+    return (
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: '0 auto'
+      }}>
+        <div style={{
+          width: `${spacingValue}px`,
+          height: '24px',
+          backgroundColor: '#FF8000',
+          borderRadius: '2px'
+        }} />
+      </div>
+    );
+  };
+
+  const renderRadiusPreview = (radiusValue) => {
+    if (!radiusValue) {
+      return <div style={{ margin: '0 auto', fontSize: '10px', color: '#666' }}>N/A</div>;
+    }
+
+    return (
+      <div style={{
+        width: '40px',
+        height: '40px',
+        backgroundColor: '#FF8000',
+        borderRadius: `${radiusValue}px`,
+        margin: '0 auto'
+      }} />
+    );
+  };
+
+  // Map token types to their preview renderers
+  const previewRenderers = {
+    color: renderColorPreview,
+    elevation: renderElevationPreview,
+    spacing: renderSpacingPreview,
+    radius: renderRadiusPreview
+  };
+
+  const renderPreview = previewRenderers[tokenType] || renderColorPreview;
   return (
     <div>
       <table style={{ 
@@ -123,19 +198,29 @@ export const DesignTokensTable = () => {
                 fontFamily: 'monospace',
                 fontSize: '14px'
               }}>
-                {TOKEN_PREFIX}{token.name}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span>{tokenPrefix}{tokenType}-{token.name}</span>
+                  {token.status?.name === 'deprecated' && (
+                    <PieTag 
+                      variant="error" 
+                      size="small"
+                    >
+                      Deprecated
+                    </PieTag>
+                  )}
+                </div>
               </td>
               <td style={{ 
                 padding: '12px',
                 textAlign: 'center'
               }}>
-                {renderColorPreview(token.lightValue)}
+                {renderPreview(token.lightValue)}
               </td>
               <td style={{ 
                 padding: '12px',
                 textAlign: 'center'
               }}>
-                {renderColorPreview(token.darkValue)}
+                {renderPreview(token.darkValue)}
               </td>
             </tr>
           ))}
@@ -145,11 +230,21 @@ export const DesignTokensTable = () => {
   );
 };
 
-## Alias Color Tokens
+## Colours
 
-The following table shows all alias color tokens with previews for both light and dark themes. These tokens provide semantic meaning to colors used throughout the design system.
+<DesignTokensTable tokenType="color" />
 
-<DesignTokensTable />
+## Elevation
+
+<DesignTokensTable tokenType="elevation" />
+
+## Spacing
+
+<DesignTokensTable tokenType="spacing" />
+
+## Radius
+
+<DesignTokensTable tokenType="radius" />
 
 ## Additional Resources
 
