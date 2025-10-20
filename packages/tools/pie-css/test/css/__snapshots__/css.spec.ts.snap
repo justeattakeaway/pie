@@ -4,12 +4,14 @@ exports[`index.css > should render the expected CSS content 1`] = `
 ":root {
     /* Global tokens - Color */
     --dt-color-aubergine-10: #e3cfe3;
+    --dt-color-aubergine-100: #241e24;
     --dt-color-aubergine-20: #d0b2d0;
     --dt-color-aubergine-30: #b993b8;
     --dt-color-aubergine-5: #f3e7f3;
     --dt-color-aubergine-70: #5b3d5b;
     --dt-color-aubergine-75: #493949;
     --dt-color-aubergine-80: #3c313c;
+    --dt-color-aubergine-90: #322932;
     --dt-color-berry-10: #fbdfe3;
     --dt-color-berry-20: #f9d2d7;
     --dt-color-berry-40: #f2a6b0;
@@ -135,7 +137,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-white: #fff;
     --dt-color-yellow: #ffd600;
     --dt-color-yellow-10: #fff8d6;
-    --dt-color-yellow-30: #ffeb80;
+    --dt-color-yellow-30: #ffee94;
     --dt-color-yellow-40: #ffde33;
     --dt-color-yellow-75: #a38900;
     --dt-color-yellow-80: #6b5a00;
@@ -739,8 +741,8 @@ html[data-color-mode="dark"] {
     --dt-color-support-brand-05-subtle: var(--dt-color-turmeric-80);
     --dt-color-support-brand-05-tonal: var(--dt-color-turmeric-90);
     --dt-color-support-brand-06: var(--dt-color-aubergine-70);
-    --dt-color-support-brand-06-subtle: var(--dt-color-aubergine-75);
-    --dt-color-support-brand-06-tonal: var(--dt-color-aubergine-80);
+    --dt-color-support-brand-06-subtle: var(--dt-color-aubergine-90);
+    --dt-color-support-brand-06-tonal: var(--dt-color-aubergine-100);
     --dt-color-support-brand-07: var(--dt-color-tomato-50);
     --dt-color-support-brand-07-subtle: var(--dt-color-tomato-90);
     --dt-color-support-brand-08: var(--dt-color-latte-30);
@@ -913,8 +915,8 @@ html[data-color-mode="dark"] {
         --dt-color-support-brand-05-subtle: var(--dt-color-turmeric-80);
         --dt-color-support-brand-05-tonal: var(--dt-color-turmeric-90);
         --dt-color-support-brand-06: var(--dt-color-aubergine-70);
-        --dt-color-support-brand-06-subtle: var(--dt-color-aubergine-75);
-        --dt-color-support-brand-06-tonal: var(--dt-color-aubergine-80);
+        --dt-color-support-brand-06-subtle: var(--dt-color-aubergine-90);
+        --dt-color-support-brand-06-tonal: var(--dt-color-aubergine-100);
         --dt-color-support-brand-07: var(--dt-color-tomato-50);
         --dt-color-support-brand-07-subtle: var(--dt-color-tomato-90);
         --dt-color-support-brand-08: var(--dt-color-latte-30);
@@ -1090,6 +1092,9 @@ html[data-color-mode="dark"] {
     --dt-color-aubergine-10-h: 300;
     --dt-color-aubergine-10-s: 26.3%;
     --dt-color-aubergine-10-l: 85.1%;
+    --dt-color-aubergine-100-h: 300;
+    --dt-color-aubergine-100-s: 9.1%;
+    --dt-color-aubergine-100-l: 12.9%;
     --dt-color-aubergine-20-h: 300;
     --dt-color-aubergine-20-s: 24.2%;
     --dt-color-aubergine-20-l: 75.7%;
@@ -1108,6 +1113,9 @@ html[data-color-mode="dark"] {
     --dt-color-aubergine-80-h: 300;
     --dt-color-aubergine-80-s: 10.1%;
     --dt-color-aubergine-80-l: 21.4%;
+    --dt-color-aubergine-90-h: 300;
+    --dt-color-aubergine-90-s: 9.9%;
+    --dt-color-aubergine-90-l: 17.8%;
     --dt-color-berry-10-h: 351;
     --dt-color-berry-10-s: 77.8%;
     --dt-color-berry-10-l: 92.9%;
@@ -1483,9 +1491,9 @@ html[data-color-mode="dark"] {
     --dt-color-yellow-10-h: 50;
     --dt-color-yellow-10-s: 100%;
     --dt-color-yellow-10-l: 92%;
-    --dt-color-yellow-30-h: 51;
+    --dt-color-yellow-30-h: 50;
     --dt-color-yellow-30-s: 100%;
-    --dt-color-yellow-30-l: 75.1%;
+    --dt-color-yellow-30-l: 79%;
     --dt-color-yellow-40-h: 50;
     --dt-color-yellow-40-s: 100%;
     --dt-color-yellow-40-l: 60%;
@@ -2067,12 +2075,12 @@ html[data-color-mode="dark"] {
     --dt-color-support-brand-06-h: var(--dt-color-aubergine-70-h);
     --dt-color-support-brand-06-s: var(--dt-color-aubergine-70-s);
     --dt-color-support-brand-06-l: var(--dt-color-aubergine-70-l);
-    --dt-color-support-brand-06-subtle-h: var(--dt-color-aubergine-75-h);
-    --dt-color-support-brand-06-subtle-s: var(--dt-color-aubergine-75-s);
-    --dt-color-support-brand-06-subtle-l: var(--dt-color-aubergine-75-l);
-    --dt-color-support-brand-06-tonal-h: var(--dt-color-aubergine-80-h);
-    --dt-color-support-brand-06-tonal-s: var(--dt-color-aubergine-80-s);
-    --dt-color-support-brand-06-tonal-l: var(--dt-color-aubergine-80-l);
+    --dt-color-support-brand-06-subtle-h: var(--dt-color-aubergine-90-h);
+    --dt-color-support-brand-06-subtle-s: var(--dt-color-aubergine-90-s);
+    --dt-color-support-brand-06-subtle-l: var(--dt-color-aubergine-90-l);
+    --dt-color-support-brand-06-tonal-h: var(--dt-color-aubergine-100-h);
+    --dt-color-support-brand-06-tonal-s: var(--dt-color-aubergine-100-s);
+    --dt-color-support-brand-06-tonal-l: var(--dt-color-aubergine-100-l);
     --dt-color-support-brand-07-h: var(--dt-color-tomato-50-h);
     --dt-color-support-brand-07-s: var(--dt-color-tomato-50-s);
     --dt-color-support-brand-07-l: var(--dt-color-tomato-50-l);
@@ -2463,12 +2471,12 @@ html[data-color-mode="dark"] {
         --dt-color-support-brand-06-h: var(--dt-color-aubergine-70-h);
         --dt-color-support-brand-06-s: var(--dt-color-aubergine-70-s);
         --dt-color-support-brand-06-l: var(--dt-color-aubergine-70-l);
-        --dt-color-support-brand-06-subtle-h: var(--dt-color-aubergine-75-h);
-        --dt-color-support-brand-06-subtle-s: var(--dt-color-aubergine-75-s);
-        --dt-color-support-brand-06-subtle-l: var(--dt-color-aubergine-75-l);
-        --dt-color-support-brand-06-tonal-h: var(--dt-color-aubergine-80-h);
-        --dt-color-support-brand-06-tonal-s: var(--dt-color-aubergine-80-s);
-        --dt-color-support-brand-06-tonal-l: var(--dt-color-aubergine-80-l);
+        --dt-color-support-brand-06-subtle-h: var(--dt-color-aubergine-90-h);
+        --dt-color-support-brand-06-subtle-s: var(--dt-color-aubergine-90-s);
+        --dt-color-support-brand-06-subtle-l: var(--dt-color-aubergine-90-l);
+        --dt-color-support-brand-06-tonal-h: var(--dt-color-aubergine-100-h);
+        --dt-color-support-brand-06-tonal-s: var(--dt-color-aubergine-100-s);
+        --dt-color-support-brand-06-tonal-l: var(--dt-color-aubergine-100-l);
         --dt-color-support-brand-07-h: var(--dt-color-tomato-50-h);
         --dt-color-support-brand-07-s: var(--dt-color-tomato-50-s);
         --dt-color-support-brand-07-l: var(--dt-color-tomato-50-l);
