@@ -268,7 +268,7 @@ Notifications provide limited space for content, and therefore the content must 
 ### Overrides   
 
 {% contentPageImage {
-    src:"../../../assets/img/components/notification/content-overrides.svg",
+    src:"../../../assets/img/components/notification/content-overrides-anatomy.svg",
     alt: "a success notification with a title, supporting text, and two action buttons on the right.",
     width: 845
 } %}
@@ -364,14 +364,14 @@ Actions have the option to wrap on narrow screens due to the available horizonta
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/notification/narrow-dual-actions.svg",
+      src: "../../../assets/img/components/notification/narrow-dual-actions-example.svg",
       width: "360px",
       alt: "A notification component for narrow screens that includes a leading icon, title, supporting text, a dismiss button, and action buttons. The action buttons are stacked and span the entire available space."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/notification/narrow-single-action.svg",
+      src: "../../../assets/img/components/notification/narrow-single-action-example.svg",
       width: "360px",
       alt: "A notification component for narrow screens that includes a leading icon, title, supporting text, a dismiss button, and one action button that spans the entire available space."
     } %}
