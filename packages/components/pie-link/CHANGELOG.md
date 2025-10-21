@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-link
 
+## 1.3.0
+
+### Minor Changes
+
+- [Added] - `download` attribute for providing filenames. ([#2578](https://github.com/justeattakeaway/pie/pull/2578)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 1.2.14
+
+### Patch Changes
+
+- Updated dependencies [[`6bda90d`](https://github.com/justeattakeaway/pie/commit/6bda90d2ca60d1b6d74fd93b46a9dc1cfda2bda9)]:
+  - @justeattakeaway/pie-icons-webc@1.16.0
+
 ## 1.2.13
 
 ### Patch Changes

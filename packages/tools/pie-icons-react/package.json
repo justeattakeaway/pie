@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-react",
-  "version": "5.16.0",
+  "version": "5.17.0",
   "description": "PIE Design System Icon set for React",
   "main": "dist/index.js",
   "module": "esm/index.js",
@@ -61,7 +61,7 @@
     "@babel/node": "7.24.7",
     "@babel/preset-react": "7.24.7",
     "@justeattakeaway/pie-icons": "5.16.0",
-    "@justeattakeaway/pie-icons-configs": "4.5.1",
+    "@justeattakeaway/pie-icons-configs": "5.17.0",
     "@rollup/plugin-node-resolve": "15.1.0",
     "@svgr/core": "6.4.0",
     "pascal-case": "3.1.2",
