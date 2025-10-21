@@ -276,9 +276,9 @@ Notifications provide limited space for content, and therefore the content must 
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Leading icon:** Variants of the leading icon can be overridden, but the chosen icon must align with the message context. Find more information in the [Modifiers: Icon](#icons) section. <br>However, the icon placeholder variant cannot be replaced with a different one",
+        "**Leading icon:** Leading icon can be overridden, but the chosen icon must be appropriate for the message context. Find more information in the [Modifiers: Icon](#icons) section.",
         "**Supporting text:** The supporting text can include a [link](/components/link) or bold type, when the string is a complete sentence or more.",
-        "**Buttons:** The [Button’s](/components/button/#sizes) size can be decreased, and if they are kept as a pair, the size of both buttons remaining consistent."
+        "**Buttons:** The default [Button’s](/components/button/#sizes) size is Small-Productive, it can be decreased to XS. When used as a pair, ensure both buttons are the same size."
     ]
 } %}
 
