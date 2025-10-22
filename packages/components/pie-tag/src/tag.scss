@@ -7,7 +7,7 @@
 
 // Base tag styles
 .c-tag {
-    --int-states-mixin-bg-color: var(--dt-color-container-strong);
+    --bg-color: var(--dt-color-container-strong);
     --tag-color: var(--dt-color-content-default);
     --tag-border-radius: var(--dt-radius-rounded-b);
     --tag-padding-block: 2px;
@@ -16,7 +16,6 @@
     --tag-font-weight: var(--dt-font-body-s-weight);
     --tag-font-size: #{p.font-size(--dt-font-body-s-size)};
     --tag-line-height: #{p.line-height(--dt-font-body-s-line-height)};
-    --tag-cursor: text;
 
     // transparent to variable to function properly in component tests
     --tag-transparent-bg-color: transparent;
@@ -33,28 +32,12 @@
     justify-content: center;
     padding: var(--tag-padding-block) var(--tag-padding-inline);
     border-radius: var(--tag-border-radius);
-    background-color: var(--int-states-mixin-bg-color);
+    background-color: var(--bg-color);
     color: var(--tag-color);
     font-family: var(--tag-font-family);
     font-weight: var(--tag-font-weight);
     font-size: var(--tag-font-size);
     line-height: var(--tag-line-height);
-    cursor: var(--tag-cursor);
-
-    &.c-tag--interactive {
-        --tag-cursor: pointer;
-
-        border: none;
-        user-select: none;
-
-        &:focus-visible {
-            @include p.focus;
-        }
-    }
-
-    &.c-tag--icon-placement--leading {
-        // same as default styles
-    }
 
     &.c-tag--icon-placement--trailing {
         flex-direction: row-reverse;
@@ -69,154 +52,86 @@
         --tag-line-height: #{p.line-height(--dt-font-caption-line-height)};
     }
 
-    &.c-tag--large {
-        // same as default styles
-    }
-
     &.c-tag--icon-only {
         --tag-padding-block: var(--dt-spacing-a);
     }
 
     // Variant
     &.c-tag--neutral {
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-container-strong');
-        }
-
         &.c-tag--strong {
-            --int-states-mixin-bg-color: var(--dt-color-container-inverse);
+            --bg-color: var(--dt-color-container-inverse);
             --tag-color: var(--dt-color-content-inverse);
-
-            &.c-tag--interactive {
-                @include p.interactive-states('--dt-color-container-inverse', 'inverse', '02');
-            }
         }
     }
 
     &.c-tag--information {
-        --int-states-mixin-bg-color: var(--dt-color-support-info-02);
+        --bg-color: var(--dt-color-support-info-02);
         --tag-color: var(--dt-color-content-default);
 
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-support-info-02');
-        }
-
         &.c-tag--strong {
-            --int-states-mixin-bg-color: var(--dt-color-support-info);
+            --bg-color: var(--dt-color-support-info);
             --tag-color: var(--dt-color-content-inverse);
-
-            &.c-tag--interactive {
-                @include p.interactive-states('--dt-color-support-info');
-            }
         }
     }
 
     &.c-tag--success {
-        --int-states-mixin-bg-color: var(--dt-color-support-positive-02);
+        --bg-color: var(--dt-color-support-positive-02);
         --tag-color: var(--dt-color-content-default);
 
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-support-positive-02');
-        }
-
         &.c-tag--strong {
-            --int-states-mixin-bg-color: var(--dt-color-support-positive);
+            --bg-color: var(--dt-color-support-positive);
             --tag-color: var(--dt-color-content-inverse);
-
-            &.c-tag--interactive {
-                @include p.interactive-states('--dt-color-support-positive');
-            }
         }
     }
 
     &.c-tag--error {
-        --int-states-mixin-bg-color: var(--dt-color-support-error-02);
+        --bg-color: var(--dt-color-support-error-02);
         --tag-color: var(--dt-color-content-default);
 
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-support-error-02');
-        }
-
         &.c-tag--strong {
-            --int-states-mixin-bg-color: var(--dt-color-support-error);
+            --bg-color: var(--dt-color-support-error);
             --tag-color: var(--dt-color-content-light);
-
-            &.c-tag--interactive {
-                @include p.interactive-states('--dt-color-support-error');
-            }
         }
     }
 
     &.c-tag--brand-02 {
-        --int-states-mixin-bg-color: var(--dt-color-support-brand-02);
+        --bg-color: var(--dt-color-support-brand-02);
         --tag-color: var(--dt-color-content-default);
-
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-support-brand-02');
-        }
     }
 
     &.c-tag--brand-03 {
-        --int-states-mixin-bg-color: var(--dt-color-support-brand-03);
+        --bg-color: var(--dt-color-support-brand-03);
         --tag-color: var(--dt-color-content-dark);
-
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-support-brand-03');
-        }
     }
 
     &.c-tag--brand-04 {
-        --int-states-mixin-bg-color: var(--dt-color-support-brand-04);
+        --bg-color: var(--dt-color-support-brand-04);
         --tag-color: var(--dt-color-content-dark);
-
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-support-brand-04');
-        }
     }
 
     &.c-tag--brand-05 {
-        --int-states-mixin-bg-color: var(--dt-color-support-warning-02);
+        --bg-color: var(--dt-color-support-warning-02);
         --tag-color: var(--dt-color-content-default);
 
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-support-warning-02');
-        }
-
         &.c-tag--strong {
-            --int-states-mixin-bg-color: var(--dt-color-support-warning);
+            --bg-color: var(--dt-color-support-warning);
             --tag-color: var(--dt-color-content-dark);
-
-            &.c-tag--interactive {
-                @include p.interactive-states('--dt-color-support-warning');
-            }
         }
     }
 
     &.c-tag--brand-06 {
-        --int-states-mixin-bg-color: var(--dt-color-support-brand-06);
+        --bg-color: var(--dt-color-support-brand-06);
         --tag-color: var(--dt-color-content-light);
-
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-support-brand-06', 'inverse', '02-light');
-        }
     }
 
     &.c-tag--neutral-alternative {
-        --int-states-mixin-bg-color: var(--dt-color-container-default);
+        --bg-color: var(--dt-color-container-default);
         --tag-color: var(--dt-color-content-default);
-
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-container-default');
-        }
     }
 
     &.c-tag--outline {
-        --int-states-mixin-bg-color: var(--tag-transparent-bg-color);
+        --bg-color: var(--tag-transparent-bg-color);
         --tag-color: var(--dt-color-content-default-solid);
-
-        &.c-tag--interactive {
-            @include p.interactive-states('--tag-transparent-bg-color', 'transparent');
-        }
 
         // the outline in design specs is part of the total component
         // height calculation, thus, we use box-shadow to mimic borders
@@ -225,20 +140,12 @@
     }
 
     &.c-tag--ghost {
-        --int-states-mixin-bg-color: var(--tag-transparent-bg-color);
+        --bg-color: var(--tag-transparent-bg-color);
         --tag-color: var(--dt-color-content-default-solid);
-
-        &.c-tag--interactive {
-            @include p.interactive-states('--tag-transparent-bg-color', 'transparent');
-        }
     }
 
     &.is-disabled {
         opacity: 0.5;
-    }
-
-    &[disabled] {
-        --tag-cursor: not-allowed;
     }
 }
 
