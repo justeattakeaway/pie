@@ -73,13 +73,12 @@ const tagStoryMeta: TagStoryMeta = {
             control: 'text',
         },
         iconPlacement: {
-            description: 'The placement of the icon slot such as leading or trailing. <br /><br /> Can be only used if `isInteractive` is set to true',
+            description: 'The placement of the icon slot such as leading or trailing.',
             control: 'select',
             options: iconPlacements,
             defaultValue: {
                 summary: defaultArgs.iconPlacement,
             },
-            if: { arg: 'isInteractive', eq: true },
         },
     },
     args: defaultArgs,
@@ -96,7 +95,6 @@ export default tagStoryMeta;
 const Template : TemplateFunction<TagProps> = ({
     variant,
     size,
-    isInteractive,
     isStrong,
     disabled,
     showIcon,
@@ -107,7 +105,6 @@ const Template : TemplateFunction<TagProps> = ({
         variant="${ifDefined(variant)}"
         size="${ifDefined(size)}"
         iconPlacement="${ifDefined(iconPlacement)}"
-        ?isInteractive="${isInteractive}"
         ?isStrong="${isStrong}"
         ?disabled="${disabled}">
         ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
@@ -172,7 +169,6 @@ export const IconOnly = createTagStory({
     size: 'large',
     showIcon: true,
     slot: '',
-    isInteractive: false,
     variant: 'brand-06',
 }, {});
 

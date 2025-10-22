@@ -16,11 +16,6 @@ export interface TagProps {
     isStrong?: boolean;
 
     /**
-     * When `true`, the tag will be rendered as a button and can be interacted with.
-     */
-    isInteractive?: boolean;
-
-    /**
      * For an interactive tag, this applies the disabled attribute to the button and styles it appropriately.
      * For a non-interactive tag, this only applies the disabled styling.
      */
@@ -32,7 +27,7 @@ export interface TagProps {
     size?: typeof sizes[number];
 
     /**
-     * The placement of the icon slot such as leading (default) or trailing. Available only if `isInteractive` is set to true.
+     * The placement of the icon slot such as leading (default) or trailing.
      */
     iconPlacement?: typeof iconPlacements[number];
 }
@@ -42,7 +37,6 @@ export type DefaultProps = ComponentDefaultProps<TagProps>;
 export const defaultProps: DefaultProps = {
     variant: 'neutral',
     isStrong: false,
-    isInteractive: false,
     disabled: false,
     size: 'large',
     iconPlacement: 'leading',

@@ -3,7 +3,7 @@ import {
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, queryAssignedElements } from 'lit/decorators.js';
-import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './tag.scss?inline';
 import {
@@ -41,9 +41,6 @@ export class PieTag extends PieElement implements TagProps {
 
     @property({ type: Boolean })
     public disabled = defaultProps.disabled;
-
-    @property({ type: Boolean })
-    public isInteractive = defaultProps.isInteractive;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, iconPlacements, defaultProps.iconPlacement)
@@ -98,7 +95,26 @@ export class PieTag extends PieElement implements TagProps {
         return html`<slot part="icon" name="icon" @slotchange=${this.handleSlotChange}></slot>`;
     }
 
-    private renderTag (classes: ClassInfo) {
+    render () {
+        const {
+            disabled,
+            isStrong,
+            size,
+            variant,
+            iconPlacement,
+            isIconOnly,
+        } = this;
+
+        const classes = {
+            'c-tag': true,
+            [`c-tag--${size}`]: true,
+            [`c-tag--${variant}`]: true,
+            'is-disabled': disabled,
+            'c-tag--strong': isStrong,
+            'c-tag--icon-only': isIconOnly,
+            [`c-tag--icon-placement--${iconPlacement}`]: iconPlacement,
+        };
+
         return html`
         <div
             part="body"
@@ -107,51 +123,6 @@ export class PieTag extends PieElement implements TagProps {
             ${this.renderIconSlot()}
             <slot @slotchange=${this.handleSlotChange}></slot>
         </div>`;
-    }
-
-    private renderButtonTag (classes: ClassInfo) {
-        return html`
-        <button
-            part="body"
-            type="button"
-            ?disabled="${this.disabled}"
-            class="${classMap(classes)}"
-            data-test-id="pie-tag">
-            ${this.renderIconSlot()}
-            <slot></slot>
-        </button>`;
-    }
-
-    render () {
-        const {
-            disabled,
-            isInteractive,
-            isStrong,
-            size,
-            variant,
-            iconPlacement,
-            isIconOnly,
-        } = this;
-
-        // isInteractive can only be true when isIconOnly is false
-        const _isInteractive = isIconOnly ? false : isInteractive;
-
-        const classes = {
-            'c-tag': true,
-            [`c-tag--${size}`]: true,
-            [`c-tag--${variant}`]: true,
-            'is-disabled': disabled,
-            'c-tag--strong': isStrong,
-            'c-tag--interactive': _isInteractive,
-            'c-tag--icon-only': isIconOnly,
-            [`c-tag--icon-placement--${iconPlacement}`]: _isInteractive && iconPlacement,
-        };
-
-        if (_isInteractive) {
-            return this.renderButtonTag(classes);
-        }
-
-        return this.renderTag(classes);
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
