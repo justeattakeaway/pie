@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.23.2
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens to v7.8.2 ([#2593](https://github.com/justeattakeaway/pie/pull/2593)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.23.1
 
 ### Patch Changes

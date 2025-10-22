@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-radio
 
+## 0.12.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@3.0.2
+
 ## 0.12.2
 
 ### Patch Changes
