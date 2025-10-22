@@ -16,10 +16,9 @@ export interface TagProps {
     isStrong?: boolean;
 
     /**
-     * For an interactive tag, this applies the disabled attribute to the button and styles it appropriately.
-     * For a non-interactive tag, this only applies the disabled styling.
+     * When true, applies a dimmed styling to the tag.
      */
-    disabled?: boolean;
+    isDimmed?: boolean;
 
     /**
      * What size the tag should be.
@@ -37,7 +36,7 @@ export type DefaultProps = ComponentDefaultProps<TagProps>;
 export const defaultProps: DefaultProps = {
     variant: 'neutral',
     isStrong: false,
-    disabled: false,
+    isDimmed: false,
     size: 'large',
     iconPlacement: 'leading',
 };

@@ -40,7 +40,7 @@ export class PieTag extends PieElement implements TagProps {
     public isStrong = defaultProps.isStrong;
 
     @property({ type: Boolean })
-    public disabled = defaultProps.disabled;
+    public isDimmed = defaultProps.isDimmed;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, iconPlacements, defaultProps.iconPlacement)
@@ -97,7 +97,7 @@ export class PieTag extends PieElement implements TagProps {
 
     render () {
         const {
-            disabled,
+            isDimmed,
             isStrong,
             size,
             variant,
@@ -109,7 +109,7 @@ export class PieTag extends PieElement implements TagProps {
             'c-tag': true,
             [`c-tag--${size}`]: true,
             [`c-tag--${variant}`]: true,
-            'is-disabled': disabled,
+            'is-dimmed': isDimmed,
             'c-tag--strong': isStrong,
             'c-tag--icon-only': isIconOnly,
             [`c-tag--icon-placement--${iconPlacement}`]: iconPlacement,

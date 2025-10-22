@@ -53,11 +53,11 @@ const tagStoryMeta: TagStoryMeta = {
                 summary: defaultProps.isStrong,
             },
         },
-        disabled: {
-            description: 'For an interactive tag, this applies the disabled attribute to the button and styles it appropriately.<br>For a non-interactive tag, this only applies the disabled styling.',
+        isDimmed: {
+            description: 'When true, applies a dimmed styling to the tag.',
             control: 'boolean',
             defaultValue: {
-                summary: defaultProps.disabled,
+                summary: defaultProps.isDimmed,
             },
         },
         showIcon: {
@@ -96,7 +96,7 @@ const Template : TemplateFunction<TagProps> = ({
     variant,
     size,
     isStrong,
-    disabled,
+    isDimmed,
     showIcon,
     slot,
     iconPlacement,
@@ -106,7 +106,7 @@ const Template : TemplateFunction<TagProps> = ({
         size="${ifDefined(size)}"
         iconPlacement="${ifDefined(iconPlacement)}"
         ?isStrong="${isStrong}"
-        ?disabled="${disabled}">
+        ?isDimmed="${isDimmed}">
         ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
         ${sanitizeAndRenderHTML(slot)}
     </pie-tag>
