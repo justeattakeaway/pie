@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.9.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.3.3
+  - @justeattakeaway/pie-webc-core@3.0.2
+
 ## 1.9.0
 
 ### Minor Changes
