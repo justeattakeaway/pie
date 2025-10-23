@@ -8,7 +8,6 @@ import {
     variants,
     sizes,
     defaultProps,
-    iconPlacements,
 } from '@justeattakeaway/pie-tag';
 import '@justeattakeaway/pie-icons-webc/dist/IconOfferFilled.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconFingerprint.js';
@@ -73,14 +72,6 @@ const tagStoryMeta: TagStoryMeta = {
             description: 'Content to place within the tag',
             control: 'text',
         },
-        iconPlacement: {
-            description: 'The placement of the icon slot such as leading or trailing.',
-            control: 'select',
-            options: iconPlacements,
-            defaultValue: {
-                summary: defaultArgs.iconPlacement,
-            },
-        },
     },
     args: defaultArgs,
 };
@@ -94,12 +85,10 @@ const Template: TemplateFunction<TagProps> = ({
     isDimmed,
     showIcon,
     slot,
-    iconPlacement,
 }) => html`
     <pie-tag
         variant="${ifDefined(variant)}"
         size="${ifDefined(size)}"
-        iconPlacement="${ifDefined(iconPlacement)}"
         ?isStrong="${isStrong}"
         ?isDimmed="${isDimmed}">
         ${showIcon ? html`<icon-fingerprint slot="icon"></icon-fingerprint>` : nothing}
@@ -125,7 +114,6 @@ export const DefaultWithIcon = createTagStory({ slot: `Label ${icon}` });
 // Base shared props matrix
 const baseSharedPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
     size: [...sizes],
-    iconPlacement: ['leading', 'trailing'],
     isStrong: [true, false],
     isDimmed: [true, false],
     showIcon: [true, false],
@@ -208,7 +196,6 @@ const brand06PropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
 const iconOnlyPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     size: ['large'],
-    iconPlacement: ['leading'],
     showIcon: [true],
     slot: [''],
     variant: ['information'],

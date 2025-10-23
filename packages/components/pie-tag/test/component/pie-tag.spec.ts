@@ -57,7 +57,7 @@ test.describe('PieTag - Component tests', () => {
             await expect(tagIcon).toBeVisible();
         });
 
-        test('should NOT render icon when size is small', async ({ page }) => {
+        test('should render icon when size is small', async ({ page }) => {
             // Arrange
             const tagPage = new BasePage(page, 'tag--default-with-icon');
             const props: TagProps = {
@@ -70,7 +70,7 @@ test.describe('PieTag - Component tests', () => {
             const tagIcon = page.getByTestId(tag.selectors.icon.dataTestId);
 
             // Assert
-            await expect(tagIcon).toBeHidden();
+            await expect(tagIcon).toBeVisible();
         });
 
         test('should NOT render icon when not provided', async ({ page }) => {

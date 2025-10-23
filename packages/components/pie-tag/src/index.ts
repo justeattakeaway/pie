@@ -1,5 +1,5 @@
 import {
-    html, unsafeCSS, nothing, type PropertyValues,
+    html, unsafeCSS, type PropertyValues,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { property, queryAssignedElements } from 'lit/decorators.js';
@@ -10,7 +10,6 @@ import {
     variants,
     sizes,
     defaultProps,
-    iconPlacements,
     type TagProps,
 } from './defs';
 
@@ -41,10 +40,6 @@ export class PieTag extends PieElement implements TagProps {
 
     @property({ type: Boolean })
     public isDimmed = defaultProps.isDimmed;
-
-    @property({ type: String })
-    @validPropertyValues(componentSelector, iconPlacements, defaultProps.iconPlacement)
-    public iconPlacement = defaultProps.iconPlacement;
 
     @queryAssignedElements({ slot: 'icon', flatten: true }) _iconSlotNodes!: Array<HTMLElement>;
 
@@ -99,7 +94,6 @@ export class PieTag extends PieElement implements TagProps {
             isStrong,
             size,
             variant,
-            iconPlacement,
             isIconOnly,
             hasIcon,
         } = this;
@@ -112,7 +106,6 @@ export class PieTag extends PieElement implements TagProps {
             'c-tag--strong': isStrong,
             'c-tag--icon-only': isIconOnly,
             'c-tag--has-icon': hasIcon,
-            [`c-tag--icon-placement--${iconPlacement}`]: iconPlacement,
         };
 
         return html`

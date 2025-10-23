@@ -8,7 +8,6 @@ import {
     variants,
     sizes,
     defaultProps,
-    iconPlacements,
 } from '@justeattakeaway/pie-tag';
 import '@justeattakeaway/pie-icons-webc/dist/IconOfferFilled.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconVegan.js';
@@ -71,14 +70,6 @@ const tagStoryMeta: TagStoryMeta = {
             description: 'Content to place within the tag',
             control: 'text',
         },
-        iconPlacement: {
-            description: 'The placement of the icon slot such as leading or trailing.',
-            control: 'select',
-            options: iconPlacements,
-            defaultValue: {
-                summary: defaultArgs.iconPlacement,
-            },
-        },
     },
     args: defaultArgs,
     parameters: {
@@ -98,12 +89,10 @@ const Template : TemplateFunction<TagProps> = ({
     isDimmed,
     showIcon,
     slot,
-    iconPlacement,
 }) => html`
     <pie-tag
         variant="${ifDefined(variant)}"
         size="${ifDefined(size)}"
-        iconPlacement="${ifDefined(iconPlacement)}"
         ?isStrong="${isStrong}"
         ?isDimmed="${isDimmed}">
         ${showIcon ? html`<icon-fingerprint slot="icon"></icon-fingerprint>` : nothing}
