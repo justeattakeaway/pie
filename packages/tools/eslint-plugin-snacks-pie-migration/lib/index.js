@@ -26,6 +26,21 @@ module.exports = {
     rules : {
         'snacks-pie-migration': snacksPieMigration,
     },
+    configs: {
+        recommended: {
+            plugins: ['@justeattakeaway/snacks-pie-migration'],
+            rules: {
+                '@justeattakeaway/snacks-pie-migration/snacks-pie-migration': 'error',
+            },
+        },
+        // Alternative: less aggressive enforcement
+        warn: {
+            plugins: ['@justeattakeaway/snacks-pie-migration'],
+            rules: {
+                '@justeattakeaway/snacks-pie-migration/snacks-pie-migration': 'warn',
+            },
+        },
+    },
     processors: {
        // add your processors here
     }
