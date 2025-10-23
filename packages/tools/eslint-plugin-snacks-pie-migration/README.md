@@ -18,41 +18,38 @@ npm install @justeattakeaway/eslint-plugin-snacks-pie-migration --save-dev
 
 ## Usage
 
-In your [configuration file](https://eslint.org/docs/latest/use/configure/configuration-files#configuration-file), import the plugin `@justeattakeaway/eslint-plugin-snacks-pie-migration` and add `snacks-pie-migration` to the `plugins` key:
+- In your [configuration file](https://eslint.org/docs/latest/use/configure/configuration-files#configuration-file), import the plugin `@justeattakeaway/eslint-plugin-snacks-pie-migration` and add `snacks-pie-migration` to the `plugins` key
+- Then configure the rules you want to use under the `rules` key
 
 ```js
 import { defineConfig } from "eslint/config";
-import snacks-pie-migration from "@justeattakeaway/eslint-plugin-snacks-pie-migration";
+import snacksPieMigration from "@justeattakeaway/eslint-plugin-snacks-pie-migration";
 
 export default defineConfig([
     {
         plugins: {
-            snacks-pie-migration
-        }
-    }
-]);
-```
-
-
-Then configure the rules you want to use under the `rules` key.
-
-```js
-import { defineConfig } from "eslint/config";
-import snacks-pie-migration from "@justeattakeaway/eslint-plugin-snacks-pie-migration";
-
-export default defineConfig([
-    {
-        plugins: {
-            snacks-pie-migration
+            snacksPieMigration
         },
         rules: {
-            "snacks-pie-migration/rule-name": "warn"
+            "snacks-pie-migration/snacks-pie-migration": "error"
         }
     }
 ]);
 ```
 
+### Usage with deprecated configuration file formats
+You can also use the plugin with [deprecated configuration file formats](https://eslint.org/docs/latest/use/configure/configuration-files-deprecated) such as `.eslintrc.js`.
 
+```js
+module.exports = {
+    plugins: [
+        '@justeattakeaway/snacks-pie-migration'
+    ],
+    rules: {
+        '@justeattakeaway/snacks-pie-migration/snacks-pie-migration': 'error',
+    },
+};
+```
 
 ## Configurations
 
