@@ -19,7 +19,7 @@
     "lint": "npm-run-all \"lint:*\"",
     "lint:eslint-docs": "npm-run-all \"update:eslint-docs -- --check\"",
     "lint:js": "eslint .",
-    "test": "mocha tests --recursive",
+    "test": "node tests/lib/rules/snacks-pie-migration.test.js",
     "update:eslint-docs": "eslint-doc-generator"
   },
   "dependencies": {
@@ -31,7 +31,6 @@
     "eslint-doc-generator": "2.0.0",
     "eslint-plugin-eslint-plugin": "6.0.0",
     "eslint-plugin-n": "17.0.0",
-    "mocha": "11.0.0",
     "npm-run-all2": "6.1.2"
   },
   "engines": {
