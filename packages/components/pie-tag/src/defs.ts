@@ -26,7 +26,7 @@ export interface TagProps {
     variant?: typeof variants[number];
 
     /**
-     * When true, the "information", "success", "error", "brand-05", and "neutral" variants change their styles and become bolder
+     * When true, the "neutral", "information", "success", "error", "warning", "brand-03", "brand-04", "brand-05", "brand-06", and "brand-08" variants change their styles and become bolder
      */
     isStrong?: boolean;
 
