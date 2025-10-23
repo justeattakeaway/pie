@@ -8,25 +8,25 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const requireIndex = require("requireindex");
+// const requireIndex = require("requireindex");
 
 const packageData = require('../package.json');
+const snacksPieMigration = require('./rules/snacks-pie-migration');
 
 //------------------------------------------------------------------------------
 // Plugin Definition
 //------------------------------------------------------------------------------
 
-module.exports.meta = {
+module.exports = {
+    meta: {
 		name: packageData.name,
 		version: packageData.version,
 		namespace: packageData.name,
-	}
-
-// import all rules in lib/rules
-module.exports.rules = requireIndex(__dirname + "/rules");
-
-// import processors
-module.exports.processors = {
-  // add your processors here
-};
-
+	},
+    rules : {
+        'snacks-pie-migration': snacksPieMigration,
+    },
+    processors: {
+       // add your processors here
+    }
+}
