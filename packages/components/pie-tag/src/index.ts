@@ -50,15 +50,14 @@ export class PieTag extends PieElement implements TagProps {
 
     private isIconOnly = false;
 
+    private hasIcon = false;
+
     updated (changedProperties: PropertyValues<this>) {
         if (changedProperties.has('size')) this.checkIfIsIconOnly();
     }
 
     private checkIfIsIconOnly () {
-        const { size, textContent, _iconSlotNodes } = this;
-
-        // The instance size must be large
-        const isLargeSize = size === 'large';
+        const { textContent, _iconSlotNodes } = this;
 
         // The default slot must be empty
         const defaultSlotText = textContent?.trim();
@@ -66,8 +65,9 @@ export class PieTag extends PieElement implements TagProps {
 
         // The icon slot must have some content
         const iconsSlotNotEmpty = _iconSlotNodes.length > 0;
+        this.hasIcon = iconsSlotNotEmpty;
 
-        if (isLargeSize && isDefaultSlotEmpty && iconsSlotNotEmpty) {
+        if (isDefaultSlotEmpty && iconsSlotNotEmpty) {
             // The icon slot content must be an icon
             if (_iconSlotNodes && _iconSlotNodes.length === 1) {
                 const firstNode = (_iconSlotNodes[0] as Element);
@@ -101,6 +101,7 @@ export class PieTag extends PieElement implements TagProps {
             variant,
             iconPlacement,
             isIconOnly,
+            hasIcon,
         } = this;
 
         const classes = {
@@ -110,6 +111,7 @@ export class PieTag extends PieElement implements TagProps {
             'is-dimmed': isDimmed,
             'c-tag--strong': isStrong,
             'c-tag--icon-only': isIconOnly,
+            'c-tag--has-icon': hasIcon,
             [`c-tag--icon-placement--${iconPlacement}`]: iconPlacement,
         };
 

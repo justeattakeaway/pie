@@ -13,6 +13,7 @@ import {
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconOfferFilled.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconVegan.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
 import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
@@ -106,7 +107,7 @@ const Template : TemplateFunction<TagProps> = ({
         iconPlacement="${ifDefined(iconPlacement)}"
         ?isStrong="${isStrong}"
         ?isDimmed="${isDimmed}">
-        ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
+        ${showIcon ? html`<icon-placeholder slot="icon"></icon-placeholder>` : nothing}
         ${sanitizeAndRenderHTML(slot)}
     </pie-tag>
 `;
