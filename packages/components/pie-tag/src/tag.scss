@@ -212,6 +212,10 @@
     }
 }
 
+slot[name="icon"] {
+    color: var(--tag-icon-color);
+}
+
 .c-tag.c-tag--large {
     --tag-font-family: var(--dt-font-body-s-family);
     --tag-font-weight: var(--dt-font-body-s-weight);
@@ -294,10 +298,6 @@
         aspect-ratio: 1;
         border-radius: inherit;
     }
-}
-
-slot[name="icon"] {
-    color: var(--tag-icon-color);
 }
 
 // Used to size an SVG if one is passed in (when not using the component icons)
