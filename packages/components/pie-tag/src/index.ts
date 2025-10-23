@@ -90,8 +90,6 @@ export class PieTag extends PieElement implements TagProps {
     }
 
     private renderIconSlot () {
-        if (this.size !== 'large') return nothing;
-
         return html`<slot part="icon" name="icon" @slotchange=${this.handleSlotChange}></slot>`;
     }
 

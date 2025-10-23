@@ -66,7 +66,6 @@ const tagStoryMeta: TagStoryMeta = {
             defaultValue: {
                 summary: defaultArgs.showIcon,
             },
-            if: { arg: 'size', eq: 'large' },
         },
         slot: {
             description: 'Content to place within the tag',

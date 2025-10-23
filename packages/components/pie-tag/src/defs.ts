@@ -1,6 +1,22 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-export const variants = ['neutral-alternative', 'neutral', 'outline', 'ghost', 'information', 'success', 'error', 'brand-02', 'brand-03', 'brand-04', 'brand-05', 'brand-06'] as const;
+export const variants = [
+    'neutral',
+    'neutral-alternative',
+    'ghost',
+    'outline',
+    'translucent',
+    'information',
+    'success',
+    'error',
+    'warning',
+    'brand-02',
+    'brand-03',
+    'brand-04',
+    'brand-05',
+    'brand-06',
+    'brand-08'
+] as const;
 export const sizes = ['small', 'large'] as const;
 export const iconPlacements = ['leading', 'trailing'] as const;
 
