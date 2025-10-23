@@ -125,6 +125,11 @@ const ghostInverseVariantPropsMatrix : Partial<Record<keyof IconButtonProps, unk
     variant: ['ghost-inverse'],
 };
 
+const translucentVariantPropsMatrix : Partial<Record<keyof IconButtonProps, unknown[]>> = {
+    ...sharedPropsMatrix,
+    variant: ['translucent'],
+};
+
 export const PrimaryVariations = createVariantStory<IconButtonProps>(Template, primaryVariantPropsMatrix);
 export const SecondaryVariations = createVariantStory<IconButtonProps>(Template, secondaryVariantPropsMatrix);
 export const OutlineVariations = createVariantStory<IconButtonProps>(Template, outlineVariantPropsMatrix, { bgColor: 'background-subtle' });
@@ -132,3 +137,4 @@ export const GhostVariations = createVariantStory<IconButtonProps>(Template, gho
 export const GhostSecondaryVariations = createVariantStory<IconButtonProps>(Template, ghostSecondaryVariantPropsMatrix, { bgColor: 'background-subtle' });
 export const InverseVariations = createVariantStory<IconButtonProps>(Template, inverseVariantPropsMatrix, { bgColor: 'dark (container-dark)' });
 export const GhostInverseVariations = createVariantStory<IconButtonProps>(Template, ghostInverseVariantPropsMatrix, { bgColor: 'dark (container-dark)' });
+export const TranslucentInverseVariations = createVariantStory<IconButtonProps>(Template, translucentVariantPropsMatrix);

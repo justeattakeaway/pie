@@ -23,9 +23,6 @@
     --chip-cursor: pointer;
     --chip-close-btn-cursor: pointer;
 
-    // Pie Webc Icon var that is used to ensure the correctly sized icon passed in a slot
-    --icon-display-override: block;
-
     position: relative;
     display: inline-flex;
     align-items: center;

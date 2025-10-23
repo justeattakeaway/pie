@@ -17,12 +17,10 @@
     --btn-border-radius: var(--dt-radius-rounded-e);
     --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
     --btn-icon-fill: var(--dt-color-content-interactive-light);
-    --icon-display-override: block;
 
     block-size: var(--btn-dimension, var(--btn-dimension-default));
     inline-size: var(--btn-dimension, var(--btn-dimension-default));
 
-    border-color: var(--btn-border-color);
     border-radius: var(--btn-border-radius);
     background-color: var(--int-states-mixin-bg-color);
     color: var(--btn-icon-fill);
@@ -37,11 +35,6 @@
 
     &:focus-visible {
         @include p.focus;
-    }
-
-    svg {
-        height: var(--icon-size-override);
-        width: var(--icon-size-override);
     }
 
     &.o-iconBtn--primary {
@@ -94,6 +87,16 @@
         @include p.interactive-states('--dt-color-transparent', 'transparent', '02');
     }
 
+    &.o-iconBtn--translucent {
+        --int-states-mixin-bg-color: var(--dt-color-container-neutral);
+        --btn-icon-fill: var(--dt-color-content-interactive-secondary-solid);
+
+        backdrop-filter: blur(var(--dt-blur-neutral));
+        border: 1px solid var(--dt-color-border-neutral);
+
+        @include p.interactive-states('--dt-color-container-neutral');
+    }
+
     &[disabled] {
         --btn-icon-fill: var(--dt-color-content-disabled-solid);
 
@@ -106,7 +109,8 @@
         }
 
         // For outline variants, set the border to the disabled color
-        &.o-iconBtn--outline {
+        &.o-iconBtn--outline, 
+        &.o-iconBtn--truculent {
             border-color: var(--dt-color-disabled-01);
         }
     }

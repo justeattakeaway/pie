@@ -211,3 +211,4 @@ export const Info = createNotificationStory({ variant: 'info' });
 export const Success = createNotificationStory({ variant: 'success' });
 export const Error = createNotificationStory({ variant: 'error' });
 export const Warning = createNotificationStory({ variant: 'warning' });
+export const Translucent = createNotificationStory({ variant: 'translucent' });
