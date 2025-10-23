@@ -10,8 +10,8 @@ import {
     defaultProps,
     iconPlacements,
 } from '@justeattakeaway/pie-tag';
-import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconOfferFilled.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconFingerprint.js';
 
 import { type SlottedComponentProps } from '../../types';
 import {
@@ -102,7 +102,7 @@ const Template: TemplateFunction<TagProps> = ({
         iconPlacement="${ifDefined(iconPlacement)}"
         ?isStrong="${isStrong}"
         ?isDimmed="${isDimmed}">
-        ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
+        ${showIcon ? html`<icon-fingerprint slot="icon"></icon-fingerprint>` : nothing}
         ${sanitizeAndRenderHTML(slot)}
     </pie-tag>
 `;

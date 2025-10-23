@@ -10,10 +10,9 @@ import {
     defaultProps,
     iconPlacements,
 } from '@justeattakeaway/pie-tag';
-import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconOfferFilled.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconVegan.js';
-import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconFingerprint.js';
 
 import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
@@ -107,7 +106,7 @@ const Template : TemplateFunction<TagProps> = ({
         iconPlacement="${ifDefined(iconPlacement)}"
         ?isStrong="${isStrong}"
         ?isDimmed="${isDimmed}">
-        ${showIcon ? html`<icon-placeholder slot="icon"></icon-placeholder>` : nothing}
+        ${showIcon ? html`<icon-fingerprint slot="icon"></icon-fingerprint>` : nothing}
         ${sanitizeAndRenderHTML(slot)}
     </pie-tag>
 `;
@@ -168,6 +167,7 @@ export const Brand06 = createTagStory({ variant: 'brand-06' }, {
 export const Brand08 = createTagStory({ variant: 'brand-08' });
 
 export const Translucent = createTagStory({ variant: 'translucent' }, {
+    bgColor: 'brand orange',
     controls: {
         exclude: ['isStrong'],
     },
