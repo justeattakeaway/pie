@@ -10,13 +10,20 @@
 
 const requireIndex = require("requireindex");
 
+const packageData = require('../package.json');
+
 //------------------------------------------------------------------------------
 // Plugin Definition
 //------------------------------------------------------------------------------
 
+module.exports.meta = {
+		name: packageData.name,
+		version: packageData.version,
+		namespace: packageData.name,
+	}
+
 // import all rules in lib/rules
 module.exports.rules = requireIndex(__dirname + "/rules");
-
 
 // import processors
 module.exports.processors = {
