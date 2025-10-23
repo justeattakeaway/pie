@@ -165,6 +165,14 @@ export const Brand06 = createTagStory({ variant: 'brand-06' }, {
     },
 });
 
+export const Brand08 = createTagStory({ variant: 'brand-08' });
+
+export const Translucent = createTagStory({ variant: 'translucent' }, {
+    controls: {
+        exclude: ['isStrong'],
+    },
+});
+
 export const IconOnly = createTagStory({
     size: 'large',
     showIcon: true,

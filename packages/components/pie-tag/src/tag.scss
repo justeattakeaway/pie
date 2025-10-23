@@ -20,7 +20,7 @@
     --icon-display-override: block;
 
     // Only used for outline variant
-    --tag-outline-border-width: 1px;
+    --tag-border-width: 1px;
 
     display: inline-flex;
     flex-direction: row;
@@ -47,6 +47,16 @@
             --tag-icon-bg-color: var(--dt-color-container-strong);
             --tag-icon-color: var(--dt-color-content-default);
             --tag-color: var(--dt-color-content-inverse);
+
+            &.c-tag--icon-only {
+                --tag-bg-color: var(--dt-color-container-inverse);
+                --tag-icon-color: var(--dt-color-content-inverse);
+            }
+        }
+
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-container-strong);
+            --tag-icon-color: var(--dt-color-content-default);
         }
     }
 
@@ -55,10 +65,27 @@
         --tag-icon-bg-color: var(--dt-color-container-strong);
         --tag-icon-color: var(--dt-color-content-default);
         --tag-color: var(--dt-color-content-default);
+
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-container-default);
+            --tag-icon-color: var(--dt-color-content-default);
+        }
     }
 
-    // &.c-tag--translucent {
-    // }
+    &.c-tag--translucent {
+        --tag-bg-color: var(--dt-color-container-prominent);
+        --tag-icon-bg-color: var(--dt-color-border-neutral);
+        --tag-icon-color: var(--dt-color-content-default-solid);
+        --tag-color: var(--dt-color-content-default-solid);
+
+        backdrop-filter: var(--dt-blur-prominent);
+        box-shadow: 0 0 0 var(--tag-border-width) var(--dt-color-border-neutral);
+
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-container-prominent);
+            --tag-icon-color: var(--dt-color-content-default-solid);
+        }
+    }
 
     &.c-tag--information {
         --tag-bg-color: var(--dt-color-support-info-02);
@@ -71,6 +98,16 @@
             --tag-icon-bg-color: var(--dt-color-support-info-02);
             --tag-icon-color: var(--dt-color-content-default);
             --tag-color: var(--dt-color-content-inverse);
+
+            &.c-tag--icon-only {
+                --tag-bg-color: var(--dt-color-support-info);
+                --tag-icon-color: var(--dt-color-content-inverse);
+            }
+        }
+
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-info-02);
+            --tag-icon-color: var(--dt-color-content-default);
         }
     }
 
@@ -85,6 +122,16 @@
             --tag-icon-bg-color: var(--dt-color-support-positive-02);
             --tag-icon-color: var(--dt-color-content-default);
             --tag-color: var(--dt-color-content-inverse);
+
+            &.c-tag--icon-only {
+                --tag-bg-color: var(--dt-color-support-positive);
+                --tag-icon-color: var(--dt-color-content-inverse);
+            }
+        }
+
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-positive-02);
+            --tag-icon-color: var(--dt-color-content-default);
         }
     }
 
@@ -99,6 +146,16 @@
             --tag-icon-bg-color: var(--dt-color-support-error-02);
             --tag-icon-color: var(--dt-color-content-default);
             --tag-color: var(--dt-color-content-light);
+
+            &.c-tag--icon-only {
+                --tag-bg-color: var(--dt-color-support-error);
+                --tag-icon-color: var(--dt-color-content-light);
+            }
+        }
+
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-error-02);
+            --tag-icon-color: var(--dt-color-content-default);
         }
     }
 
@@ -113,14 +170,29 @@
             --tag-icon-bg-color: var(--dt-color-support-warning-tonal);
             --tag-icon-color: var(--dt-color-content-default);
             --tag-color: var(--dt-color-content-dark);
+
+            &.c-tag--icon-only {
+                --tag-bg-color: var(--dt-color-support-warning);
+                --tag-icon-color: var(--dt-color-content-dark);
+            }
+        }
+
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-warning-02);
+            --tag-icon-color: var(--dt-color-content-default);
         }
     }
 
     &.c-tag--brand-02 {
-        --tag-bg-color: var(--dt-color-support-brand-02);
+        --tag-bg-color: var(--dt-color-support-brand-02-subtle);
         --tag-icon-bg-color: var(--dt-color-support-brand-01);
-        --tag-icon-color: var(--dt-color-content-dark);
+        --tag-icon-color: var(--dt-color-content-default);
         --tag-color: var(--dt-color-content-default);
+
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-brand-02-subtle);
+            --tag-icon-color: var(--dt-color-content-default);
+        }
     }
 
     &.c-tag--brand-03 {
@@ -134,6 +206,16 @@
             --tag-icon-bg-color: var(--dt-color-support-brand-03-tonal);
             --tag-icon-color: var(--dt-color-content-default);
             --tag-color: var(--dt-color-content-dark);
+
+            &.c-tag--icon-only {
+                --tag-bg-color: var(--dt-color-support-brand-03);
+                --tag-icon-color: var(--dt-color-content-dark);
+            }
+        }
+
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-brand-03-subtle);
+            --tag-icon-color: var(--dt-color-content-default);
         }
     }
 
@@ -148,6 +230,16 @@
             --tag-icon-bg-color: var(--dt-color-support-brand-04-tonal);
             --tag-icon-color: var(--dt-color-content-default);
             --tag-color: var(--dt-color-content-dark);
+
+            &.c-tag--icon-only {
+                --tag-bg-color: var(--dt-color-support-brand-04);
+                --tag-icon-color: var(--dt-color-content-dark);
+            }
+        }
+
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-brand-04-subtle);
+            --tag-icon-color: var(--dt-color-content-dark);
         }
     }
 
@@ -162,6 +254,16 @@
             --tag-icon-bg-color: var(--dt-color-support-brand-05-tonal);
             --tag-icon-color: var(--dt-color-content-default);
             --tag-color: var(--dt-color-content-dark);
+
+            &.c-tag--icon-only {
+                --tag-bg-color: var(--dt-color-support-brand-05);
+                --tag-icon-color: var(--dt-color-content-dark);
+            }
+        }
+
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-brand-05-subtle);
+            --tag-icon-color: var(--dt-color-content-default);
         }
     }
 
@@ -176,6 +278,16 @@
             --tag-icon-bg-color: var(--dt-color-support-brand-06-subtle);
             --tag-icon-color: var(--dt-color-content-default);
             --tag-color: var(--dt-color-content-light);
+
+            &.c-tag--icon-only {
+                --tag-bg-color: var(--dt-color-support-brand-06);
+                --tag-icon-color: var(--dt-color-content-light);
+            }
+        }
+
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-brand-06-subtle);
+            --tag-icon-color: var(--dt-color-content-default);
         }
     }
 
@@ -190,6 +302,16 @@
             --tag-icon-bg-color: var(--dt-color-support-brand-08-tonal);
             --tag-icon-color: var(--dt-color-content-default);
             --tag-color: var(--dt-color-content-light);
+
+            &.c-tag--icon-only {
+                --tag-bg-color: var(--dt-color-support-brand-08);
+                --tag-icon-color: var(--dt-color-content-dark);
+            }
+        }
+
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-brand-08-subtle);
+            --tag-icon-color: var(--dt-color-content-default);
         }
     }
 
@@ -199,7 +321,12 @@
         --tag-icon-color: var(--dt-color-content-default);
         --tag-color: var(--dt-color-content-default-solid);
 
-        box-shadow: 0 0 0 var(--tag-outline-border-width) var(--dt-color-border-strong);
+        box-shadow: 0 0 0 var(--tag-border-width) var(--dt-color-border-strong);
+
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--tag-transparent-bg-color);
+            --tag-icon-color: var(--dt-color-content-default-solid);
+        }
     }
 
     &.c-tag--ghost {
@@ -207,6 +334,11 @@
         --tag-icon-bg-color: var(--tag-transparent-bg-color);
         --tag-icon-color: var(--dt-color-content-default-solid);
         --tag-color: var(--dt-color-content-default-solid);
+
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--tag-transparent-bg-color);
+            --tag-icon-color: var(--dt-color-content-default-solid);
+        }
     }
 
     // Dimmed
@@ -280,8 +412,8 @@ slot[name="icon"] {
     &.c-tag--icon-only {
         padding-inline-start: var(--dt-spacing-a);
         padding-inline-end: var(--dt-spacing-a);
-        padding-block-start: 1px;
-        padding-block-end: 1px;
+        padding-block-start: var(--dt-spacing-a-small);
+        padding-block-end: var(--dt-spacing-a-small);
     }
 }
 
@@ -304,15 +436,17 @@ slot[name="icon"] {
     width: var(--icon-size-override);
 }
 
-// Outline variant with icons should have zero block and inline-start padding so the icon container is flush with the box shadow
-.c-tag.c-tag--outline.c-tag--has-icon:not(.c-tag--icon-only) {
+// Outline and Translucent variant with icons should have zero padding on specific sides
+.c-tag.c-tag--outline.c-tag--has-icon:not(.c-tag--icon-only),
+.c-tag.c-tag--translucent.c-tag--has-icon:not(.c-tag--icon-only) {
     padding-block-start: 0;
     padding-block-end: 0;
     padding-inline-start: 0;
 }
 
-// Outline icon-only variant needs reduced block padding to account for box-shadow
-.c-tag.c-tag--large.c-tag--outline.c-tag--icon-only {
-    padding-block-start: calc(var(--dt-spacing-a) - var(--tag-outline-border-width));
-    padding-block-end: calc(var(--dt-spacing-a) - var(--tag-outline-border-width));
+// Large Outline and Translucent Icon Only tags need adjusted vertical padding to account for border
+.c-tag.c-tag--large.c-tag.c-tag--outline.c-tag--icon-only,
+.c-tag.c-tag--large.c-tag.c-tag--translucent.c-tag--icon-only {
+    padding-block-start: calc(var(--dt-spacing-a) - var(--tag-border-width));
+    padding-block-end: calc(var(--dt-spacing-a) - var(--tag-border-width));
 }
