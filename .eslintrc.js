@@ -5,7 +5,8 @@ module.exports = {
     ],
     plugins: [
         'json-format',
-        '@typescript-eslint'
+        '@typescript-eslint',
+        '@justeattakeaway/snacks-pie-migration'
     ],
     root: true,
     settings: {
@@ -19,6 +20,9 @@ module.exports = {
         'no-shadow': 'off',
         'no-use-before-define': 'off',
         '@typescript-eslint/no-var-requires': 'off',
+        // Custom rule from snacks-pie-migration plugin
+        '@justeattakeaway/snacks-pie-migration/snacks-pie-migration': 'error',
+        '@justeattakeaway/snacks-pie-migration/deprecated-components': 'error',
     },
     overrides: [
         {
