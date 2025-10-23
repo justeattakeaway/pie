@@ -1,0 +1,49 @@
+{
+  "name": "@justeattakeaway/eslint-plugin-snacks-pie-migration",
+  "version": "0.0.1",
+  "description": "This plugin helps developers to identify deprecated Snacks components and provides suggestions of replacement PIE components",
+  "author": "Just Eat Takeaway.com - Design System Team",
+  "scripts": {
+    "lint": "npm-run-all \"lint:*\"",
+    "lint:eslint-docs": "npm-run-all \"update:eslint-docs -- --check\"",
+    "lint:js": "eslint .",
+    "test": "node tests/lib/rules/snacks-pie-migration.test.js",
+    "extract-component-data": "node scripts/extract-component-data.js",
+    "update:eslint-docs": "eslint-doc-generator"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "snacks",
+    "PIE"
+  ],
+  "main": "./lib/index.cjs",
+  "exports": "./lib/index.cjs",
+  "files": [
+    "lib",
+    "snacks-components-data.json"
+  ],
+  "type": "module",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@eslint/js": "7.32.0",
+    "eslint": "7.32.0",
+    "eslint-doc-generator": "2.0.0",
+    "eslint-plugin-eslint-plugin": "6.0.0",
+    "eslint-plugin-n": "17.0.0",
+    "glob": "11.0.3",
+    "npm-run-all2": "6.1.2"
+  },
+  "engines": {
+    "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.32.0"
+  },
+  "license": "Apache-2.0",
+  "volta": {
+    "extends": "../../../package.json"
+  }
+}
