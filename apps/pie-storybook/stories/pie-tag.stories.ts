@@ -202,6 +202,9 @@ const allCustomStyles = `
         border-radius: 50%;
         aspect-ratio: 1/1;
     }
+    pie-tag.custom-style::part(icon)::before {
+        all: initial;
+    }
     pie-tag.custom-1::part(body),
     pie-tag.custom-2::part(body) {
         color: var(--dt-color-white);
