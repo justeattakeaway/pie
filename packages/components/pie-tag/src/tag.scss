@@ -70,8 +70,8 @@
         --icon-size-override: 12px;
 
         // whitespace
-        --tag-padding-block-start: calc(var(--dt-spacing-a-small) - var(--tag-border-width));
-        --tag-padding-block-end: calc(var(--dt-spacing-a-small) - var(--tag-border-width));
+        --tag-padding-block-start: 0;
+        --tag-padding-block-end: 0;
         --tag-padding-inline-start: calc(var(--dt-spacing-a) - var(--tag-border-width));
         --tag-padding-inline-end: calc(var(--dt-spacing-a) - var(--tag-border-width));
         --tag-gap: var(--dt-spacing-a-small);
@@ -104,10 +104,12 @@
 
         &.c-tag--large {
             --tag-padding-inline-end: calc(var(--dt-spacing-b) - var(--tag-border-width));
+            --tag-icon-container-size: 22px;
         }
 
         &.c-tag--small {
             --tag-padding-inline-end: calc(var(--dt-spacing-a) - var(--tag-border-width));
+            --tag-icon-container-size: 16px;
         }
 
         slot[name="icon"] {
@@ -115,8 +117,7 @@
             display: grid;
             place-items: center;
             border-radius: inherit;
-            padding-inline-start: calc(var(--dt-spacing-a) - var(--tag-border-width));
-            padding-inline-end: calc(var(--dt-spacing-a) - var(--tag-border-width));
+            height: var(--tag-icon-container-size);
             aspect-ratio: 1 / 1;
         }
     }
@@ -133,7 +134,7 @@
             content: '';
             position: absolute;
             left: -0.25px;
-            height: 100%;
+            height: var(--tag-icon-container-size);
             aspect-ratio: 1;
             z-index: -1;
             border-radius: inherit;
