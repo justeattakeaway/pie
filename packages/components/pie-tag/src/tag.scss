@@ -159,6 +159,33 @@
 
     }
 
+    &.c-tag--information {
+        --tag-bg-color: var(--dt-color-support-info-02);
+        --tag-icon-bg-color: var(--dt-color-support-info);
+        --tag-icon-color: var(--dt-color-content-inverse);
+        --tag-color: var(--dt-color-content-default);
+
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-info-02);
+            --tag-icon-color: var(--dt-color-content-default);
+        }
+
+        // Strong icon only
+        &.c-tag--icon-only.c-tag--strong {
+            --tag-bg-color: var(--dt-color-support-info);
+            --tag-icon-color: var(--dt-color-content-inverse);
+        }
+
+        // Strong
+        &.c-tag--strong:not(.c-tag--icon-only) {
+            --tag-bg-color: var(--dt-color-support-info);
+            --tag-icon-bg-color: var(--dt-color-support-info-02);
+            --tag-icon-color: var(--dt-color-content-default);
+            --tag-color: var(--dt-color-content-inverse);
+        }
+    }
+
     &.c-tag--outline {
         --tag-bg-color: var(--dt-color-transparent);
         --tag-border-color: var(--dt-color-border-strong);
