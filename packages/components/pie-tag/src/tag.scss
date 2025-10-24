@@ -463,6 +463,23 @@
 
 slot[name="icon"] {
     color: var(--tag-icon-color);
+    position: relative;
+}
+
+.c-tag--has-icon:not(.c-tag--icon-only).c-tag--outline,
+.c-tag--has-icon:not(.c-tag--icon-only).c-tag--translucent {
+    slot[name="icon"] {
+        &::before {
+            content: '';
+            position: absolute;
+            left: -0.25px;
+            height:var(--tag-icon-container-size);
+            aspect-ratio: 1;
+            z-index: -1;
+            border-radius: inherit;
+            box-shadow: inset 5px 0px 0 0 var(--tag-icon-bg-color);
+        }
+    }
 }
 
 .c-tag--has-icon:not(.c-tag--icon-only) {
