@@ -4,14 +4,9 @@
  */
 "use strict";
 
-//------------------------------------------------------------------------------
-// Requirements
-//------------------------------------------------------------------------------
-
-// const requireIndex = require("requireindex");
-
 const packageData = require('../package.json');
 const snacksPieMigration = require('./rules/snacks-pie-migration');
+const deprecatedComponents = require('./rules/deprecated-components');
 
 //------------------------------------------------------------------------------
 // Plugin Definition
@@ -25,12 +20,14 @@ module.exports = {
 	},
     rules : {
         'snacks-pie-migration': snacksPieMigration,
+        'deprecated-components': deprecatedComponents,
     },
     configs: {
         recommended: {
             plugins: ['@justeattakeaway/snacks-pie-migration'],
             rules: {
                 '@justeattakeaway/snacks-pie-migration/snacks-pie-migration': 'error',
+                '@justeattakeaway/snacks-pie-migration/deprecated-components': 'error',
             },
         },
         // Alternative: less aggressive enforcement
@@ -38,6 +35,7 @@ module.exports = {
             plugins: ['@justeattakeaway/snacks-pie-migration'],
             rules: {
                 '@justeattakeaway/snacks-pie-migration/snacks-pie-migration': 'warn',
+                '@justeattakeaway/snacks-pie-migration/deprecated-components': 'warn',
             },
         },
     },
