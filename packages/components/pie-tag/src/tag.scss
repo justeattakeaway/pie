@@ -435,6 +435,19 @@
         }
     }
 
+    &.c-tag--ghost {
+        --tag-bg-color: var(--dt-color-transparent);
+        --tag-icon-bg-color: var(--dt-color-transparent);
+        --tag-icon-color: var(--dt-color-content-default-solid);
+        --tag-color: var(--dt-color-content-default-solid);
+
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-transparent);
+            --tag-icon-color: var(--dt-color-content-default-solid);
+        }
+    }
+
     &.c-tag--outline {
         --tag-bg-color: var(--dt-color-transparent);
         --tag-border-color: var(--dt-color-border-strong);
