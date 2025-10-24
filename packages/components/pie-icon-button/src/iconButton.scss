@@ -110,7 +110,7 @@
 
         // For outline variants, set the border to the disabled color
         &.o-iconBtn--outline, 
-        &.o-iconBtn--truculent {
+        &.o-iconBtn--translucent {
             border-color: var(--dt-color-disabled-01);
         }
     }

@@ -137,4 +137,4 @@ export const GhostVariations = createVariantStory<IconButtonProps>(Template, gho
 export const GhostSecondaryVariations = createVariantStory<IconButtonProps>(Template, ghostSecondaryVariantPropsMatrix, { bgColor: 'background-subtle' });
 export const InverseVariations = createVariantStory<IconButtonProps>(Template, inverseVariantPropsMatrix, { bgColor: 'dark (container-dark)' });
 export const GhostInverseVariations = createVariantStory<IconButtonProps>(Template, ghostInverseVariantPropsMatrix, { bgColor: 'dark (container-dark)' });
-export const TranslucentInverseVariations = createVariantStory<IconButtonProps>(Template, translucentVariantPropsMatrix);
+export const TranslucentVariations = createVariantStory<IconButtonProps>(Template, translucentVariantPropsMatrix);
