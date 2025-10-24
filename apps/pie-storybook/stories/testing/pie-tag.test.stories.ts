@@ -292,6 +292,51 @@ const CombinedCustomTemplate: TemplateFunction<TagProps> = (args) => html`
 
 const createCombinedCustomStory = createStory<TagProps>(CombinedCustomTemplate, defaultArgs);
 
+// Debug story for raw SVG testing
+const RawSVGSlotTemplate: TemplateFunction<TagProps> = () => html`
+    <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 4px 0; font-size: 14px;">Large Tag</h4>
+            <pie-tag size="large" variant="brand-04" isStrong>
+                <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2a6 6 0 100 12A6 6 0 008 2zM7 7V5h2v2H7zm0 4V9h2v2H7z"/>
+                </svg>
+                Label
+            </pie-tag>
+        </div>
+
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 4px 0; font-size: 14px;">Small Tag</h4>
+            <pie-tag size="small" variant="brand-04" isStrong>
+                <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2a6 6 0 100 12A6 6 0 008 2zM7 7V5h2v2H7zm0 4V9h2v2H7z"/>
+                </svg>
+                Label
+            </pie-tag>
+        </div>
+
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 4px 0; font-size: 14px;">Large Icon Only</h4>
+            <pie-tag size="large" variant="brand-04" isStrong>
+                <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2a6 6 0 100 12A6 6 0 008 2zM7 7V5h2v2H7zm0 4V9h2v2H7z"/>
+                </svg>
+            </pie-tag>
+        </div>
+
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 4px 0; font-size: 14px;">Small Icon Only</h4>
+            <pie-tag size="small" variant="brand-04" isStrong>
+                <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2a6 6 0 100 12A6 6 0 008 2zM7 7V5h2v2H7zm0 4V9h2v2H7z"/>
+                </svg>
+            </pie-tag>
+        </div>
+    </div>
+`;
+
+const createRawSVGSlotStory = createStory<TagProps>(RawSVGSlotTemplate, defaultArgs);
+
 export const NeutralVariations = createVariantStory<TagProps>(Template, neutralPropsMatrix);
 export const InformationVariations = createVariantStory<TagProps>(Template, informationPropsMatrix);
 export const SuccessVariations = createVariantStory<TagProps>(Template, successPropsMatrix);
@@ -308,6 +353,9 @@ export const Brand05Variations = createVariantStory<TagProps>(Template, brand05P
 export const Brand06Variations = createVariantStory<TagProps>(Template, brand06PropsMatrix);
 export const Brand08Variations = createVariantStory<TagProps>(Template, brand08PropsMatrix);
 export const IconOnlyVariations = createVariantStory<TagProps>(Template, iconOnlyPropsMatrix);
+export const RawSVGSlot = createRawSVGSlotStory({}, {
+    controls: { disable: true },
+});
 export const CustomStyledTags = createCombinedCustomStory({}, {
     bgColor: 'dark (container-dark)',
     controls: { disable: true },

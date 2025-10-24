@@ -21,3 +21,11 @@ test('should allow for custom styling using CSS parts', async ({ page }) => {
 
     await percySnapshot(page, 'PIE Tag - CSS parts styles', percyWidths);
 });
+
+test('should render slotted raw SVG icons correctly in all sizes', async ({ page }) => {
+    const rawSVGPage = new BasePage(page, 'tag--raw-svg-slot');
+
+    await rawSVGPage.load();
+
+    await percySnapshot(page, 'PIE Tag - Raw SVG Slot', percyWidths);
+});

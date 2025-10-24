@@ -40,6 +40,13 @@
 
     slot[name="icon"] {
         color: var(--tag-icon-color);
+
+        // Used to size raw SVGs passed into the icon slot
+        &::slotted(svg) {
+            display: block;
+            height: var(--icon-size-override);
+            width: var(--icon-size-override);
+        }
     }
 
     // Sizing, spacing and dimensions
@@ -479,4 +486,3 @@
         }
     }
 }
-
