@@ -1,530 +1,146 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-/**
- * PIE TAG COMPONENT STYLES
- *
- * This file contains all styles for the pie-tag web component.
- *
- * Overview:
- * ├── Host Styles (:host)
- * ├── Base Component (.c-tag)
- * ├── Size Variants (.c-tag--large, .c-tag--small)
- * ├── Color Variants (.c-tag--neutral, .c-tag--information, etc.)
- * ├── Surface Variants (.c-tag--outline, .c-tag--ghost, .c-tag--translucent)
- * ├── States (.c-tag--icon-only, .is-dimmed)
- * ├── Icon Styles (slot[name="icon"], ::slotted)
- * └── Special Adjustments (border compensation, edge cases)
- *
- */
-
-// =============================================================================
-// HOST STYLES
-// =============================================================================
-
 :host {
     display: inline-flex;
 }
 
-// =============================================================================
-// BASE COMPONENT STYLES
-// =============================================================================
-
 .c-tag {
-    // CSS Custom Properties - Default values (neutral, subtle)
+    // CSS Custom Properties - Default values (neutral, subtle, large)
     --tag-bg-color: var(--dt-color-container-strong);
     --tag-icon-bg-color: var(--dt-color-container-inverse);
     --tag-icon-color: var(--dt-color-content-inverse);
     --tag-color: var(--dt-color-content-default);
-    --tag-border-radius: var(--dt-radius-rounded-b);
     --tag-transparent-bg-color: transparent; // Used for component tests
+
     --tag-border-width: 1px; // Used for outline variant
-    --icon-display-override: block; // Pie WebC Icon var
+    --tag-border-color: var(--tag-bg-color);
 
-    // Base Layout & Appearance
-    display: inline-flex;
-    flex-direction: row;
-    gap: var(--tag-gap);
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--tag-radius);
-    background-color: var(--tag-bg-color);
-    color: var(--tag-color);
+    border: var(--tag-border-width) solid var(--tag-border-color);
+    border-radius: var(--tag-border-radius);
 
-    // Typography set by size modifiers (large/small)
     font-family: var(--tag-font-family);
     font-weight: var(--tag-font-weight);
     font-size: var(--tag-font-size);
     line-height: var(--tag-line-height);
-}
 
-// =============================================================================
+    color: var(--tag-color);
 
-// =============================================================================
-// SIZE VARIANTS
-// =============================================================================
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.c-tag.c-tag--large {
-    --tag-font-family: var(--dt-font-body-s-family);
-    --tag-font-weight: var(--dt-font-body-s-weight);
-    --tag-font-size: #{p.font-size(--dt-font-body-s-size)};
-    --tag-line-height: #{p.line-height(--dt-font-body-s-line-height)};
-    --tag-radius: var(--dt-radius-rounded-e);
-    --icon-size-override: 16px;
+    background-color: var(--tag-bg-color);
 
-    &.c-tag--has-icon:not(.c-tag--icon-only) {
+    padding-inline-start: var(--tag-padding-inline-start);
+    padding-inline-end: var(--tag-padding-inline-end);
+    padding-block-start: var(--tag-padding-block-start);
+    padding-block-end: var(--tag-padding-block-end);
+
+    slot[name="icon"] {
+        color: var(--tag-icon-color);
+    }
+
+    // Sizing, spacing and dimensions
+    &.c-tag--large {
+        --tag-font-family: var(--dt-font-body-s-family);
+        --tag-font-weight: var(--dt-font-body-s-weight);
+        --tag-font-size: #{p.font-size(--dt-font-body-s-size)};
+        --tag-line-height: #{p.line-height(--dt-font-body-s-line-height)};
+        --tag-border-radius: var(--dt-radius-rounded-e);
+        --icon-size-override: 16px;
+
+        --tag-padding-block-start: calc(var(--dt-spacing-a-small) - var(--tag-border-width));
+        --tag-padding-block-end: calc(var(--dt-spacing-a-small) - var(--tag-border-width));
+        --tag-padding-inline-start: calc(var(--dt-spacing-b) - var(--tag-border-width));
+        --tag-padding-inline-end: calc(var(--dt-spacing-b) - var(--tag-border-width));
+
         --tag-gap: var(--dt-spacing-a);
-        --tag-icon-container-size: 22px;
-
-        padding-block-start: 1px;
-        padding-block-end: 1px;
-        padding-inline-start: 1px;
-        padding-inline-end: var(--dt-spacing-b);
     }
 
-    &:not(.c-tag--has-icon) {
-        padding-inline-start: var(--dt-spacing-b);
-        padding-inline-end: var(--dt-spacing-b);
-        padding-block-start: var(--dt-spacing-a-small);
-        padding-block-end: var(--dt-spacing-a-small);
-    }
+    &.c-tag--small {
+        --tag-font-family: var(--dt-font-caption-family);
+        --tag-font-weight: var(--dt-font-caption-weight);
+        --tag-font-size: #{p.font-size(--dt-font-caption-size)};
+        --tag-line-height: #{p.line-height(--dt-font-caption-line-height)};
+        --tag-border-radius: var(--dt-radius-rounded-c);
+        --icon-size-override: 12px;
 
-    &.c-tag--icon-only {
-        padding-inline-start: var(--dt-spacing-b);
-        padding-inline-end: var(--dt-spacing-b);
-        padding-block-start: var(--dt-spacing-a);
-        padding-block-end: var(--dt-spacing-a);
-    }
-}
+        --tag-padding-block-start: calc(var(--dt-spacing-a-small) - var(--tag-border-width));
+        --tag-padding-block-end: calc(var(--dt-spacing-a-small) - var(--tag-border-width));
+        --tag-padding-inline-start: calc(var(--dt-spacing-a) - var(--tag-border-width));
+        --tag-padding-inline-end: calc(var(--dt-spacing-a) - var(--tag-border-width));
 
-.c-tag.c-tag--small {
-    --tag-font-family: var(--dt-font-caption-family);
-    --tag-font-weight: var(--dt-font-caption-weight);
-    --tag-font-size: #{p.font-size(--dt-font-caption-size)};
-    --tag-line-height: #{p.line-height(--dt-font-caption-line-height)};
-    --tag-radius: var(--dt-radius-rounded-c);
-    --icon-size-override: 12px;
-
-    &.c-tag--has-icon:not(.c-tag--icon-only) {
         --tag-gap: var(--dt-spacing-a-small);
-        --tag-icon-container-size: 16px;
-
-        padding-block-start: 1px;
-        padding-block-end: 1px;
-        padding-inline-start: 1px;
-        padding-inline-end: var(--dt-spacing-a);
-    }
-
-    &:not(.c-tag--has-icon) {
-        padding-inline-start: var(--dt-spacing-a);
-        padding-inline-end: var(--dt-spacing-a);
-        padding-block-start: var(--dt-spacing-a-small);
-        padding-block-end: var(--dt-spacing-a-small);
     }
 
     &.c-tag--icon-only {
-        padding-inline-start: var(--dt-spacing-a);
-        padding-inline-end: var(--dt-spacing-a);
-        padding-block-start: var(--dt-spacing-a-small);
-        padding-block-end: var(--dt-spacing-a-small);
-    }
-}
+        &.c-tag--large {
+            --tag-padding-block-start: calc(var(--dt-spacing-a) - var(--tag-border-width));
+            --tag-padding-block-end: calc(var(--dt-spacing-a) - var(--tag-border-width));
+        }
 
-// =============================================================================
-// COLOR VARIANTS
-// =============================================================================
-
-// Neutral
-.c-tag.c-tag--neutral.c-tag--strong {
-    --tag-bg-color: var(--dt-color-container-inverse);
-    --tag-icon-bg-color: var(--dt-color-container-strong);
-    --tag-icon-color: var(--dt-color-content-default);
-    --tag-color: var(--dt-color-content-inverse);
-}
-
-.c-tag.c-tag--neutral.c-tag--strong.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-container-inverse);
-    --tag-icon-color: var(--dt-color-content-inverse);
-}
-
-.c-tag.c-tag--neutral.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-container-strong);
-    --tag-icon-color: var(--dt-color-content-default);
-}
-
-// Neutral Alternative
-.c-tag.c-tag--neutral-alternative {
-    --tag-bg-color: var(--dt-color-container-default);
-    --tag-icon-bg-color: var(--dt-color-container-strong);
-    --tag-icon-color: var(--dt-color-content-default);
-    --tag-color: var(--dt-color-content-default);
-}
-
-.c-tag.c-tag--neutral-alternative.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-container-default);
-    --tag-icon-color: var(--dt-color-content-default);
-}
-
-// Information
-.c-tag.c-tag--information {
-    --tag-bg-color: var(--dt-color-support-info-02);
-    --tag-icon-bg-color: var(--dt-color-support-info);
-    --tag-icon-color: var(--dt-color-content-inverse);
-    --tag-color: var(--dt-color-content-default);
-}
-
-.c-tag.c-tag--information.c-tag--strong {
-    --tag-bg-color: var(--dt-color-support-info);
-    --tag-icon-bg-color: var(--dt-color-support-info-02);
-    --tag-icon-color: var(--dt-color-content-default);
-    --tag-color: var(--dt-color-content-inverse);
-}
-
-.c-tag.c-tag--information.c-tag--strong.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-info);
-    --tag-icon-color: var(--dt-color-content-inverse);
-}
-
-.c-tag.c-tag--information.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-info-02);
-    --tag-icon-color: var(--dt-color-content-default);
-}
-
-// Success
-.c-tag.c-tag--success {
-    --tag-bg-color: var(--dt-color-support-positive-02);
-    --tag-icon-bg-color: var(--dt-color-support-positive);
-    --tag-icon-color: var(--dt-color-content-inverse);
-    --tag-color: var(--dt-color-content-default);
-}
-
-.c-tag.c-tag--success.c-tag--strong {
-    --tag-bg-color: var(--dt-color-support-positive);
-    --tag-icon-bg-color: var(--dt-color-support-positive-02);
-    --tag-icon-color: var(--dt-color-content-default);
-    --tag-color: var(--dt-color-content-inverse);
-}
-
-.c-tag.c-tag--success.c-tag--strong.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-positive);
-    --tag-icon-color: var(--dt-color-content-inverse);
-}
-
-.c-tag.c-tag--success.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-positive-02);
-    --tag-icon-color: var(--dt-color-content-default);
-}
-
-// Error
-.c-tag.c-tag--error {
-    --tag-bg-color: var(--dt-color-support-error-02);
-    --tag-icon-bg-color: var(--dt-color-support-error);
-    --tag-icon-color: var(--dt-color-content-inverse);
-    --tag-color: var(--dt-color-content-default);
-}
-
-.c-tag.c-tag--error.c-tag--strong {
-    --tag-bg-color: var(--dt-color-support-error);
-    --tag-icon-bg-color: var(--dt-color-support-error-02);
-    --tag-icon-color: var(--dt-color-content-default);
-    --tag-color: var(--dt-color-content-light);
-}
-
-.c-tag.c-tag--error.c-tag--strong.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-error);
-    --tag-icon-color: var(--dt-color-content-light);
-}
-
-.c-tag.c-tag--error.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-error-02);
-    --tag-icon-color: var(--dt-color-content-default);
-}
-
-// Warning
-.c-tag.c-tag--warning {
-    --tag-bg-color: var(--dt-color-support-warning-02);
-    --tag-icon-bg-color: var(--dt-color-support-warning);
-    --tag-icon-color: var(--dt-color-content-dark);
-    --tag-color: var(--dt-color-content-default);
-}
-
-.c-tag.c-tag--warning.c-tag--strong {
-    --tag-bg-color: var(--dt-color-support-warning);
-    --tag-icon-bg-color: var(--dt-color-support-warning-tonal);
-    --tag-icon-color: var(--dt-color-content-default);
-    --tag-color: var(--dt-color-content-dark);
-}
-
-.c-tag.c-tag--warning.c-tag--strong.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-warning);
-    --tag-icon-color: var(--dt-color-content-dark);
-}
-
-.c-tag.c-tag--warning.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-warning-02);
-    --tag-icon-color: var(--dt-color-content-default);
-}
-
-// Brand Colors
-.c-tag.c-tag--brand-02 {
-    --tag-bg-color: var(--dt-color-support-brand-02);
-    --tag-icon-bg-color: var(--dt-color-support-brand-01);
-    --tag-icon-color: var(--dt-color-content-dark);
-    --tag-color: var(--dt-color-content-default);
-}
-
-.c-tag.c-tag--brand-02.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-brand-02-subtle);
-    --tag-icon-color: var(--dt-color-content-default);
-}
-
-.c-tag.c-tag--brand-03 {
-    --tag-bg-color: var(--dt-color-support-brand-03-subtle);
-    --tag-icon-bg-color: var(--dt-color-support-brand-03);
-    --tag-icon-color: var(--dt-color-content-dark);
-    --tag-color: var(--dt-color-content-default);
-}
-
-.c-tag.c-tag--brand-03.c-tag--strong {
-    --tag-bg-color: var(--dt-color-support-brand-03);
-    --tag-icon-bg-color: var(--dt-color-support-brand-03-tonal);
-    --tag-icon-color: var(--dt-color-content-default);
-    --tag-color: var(--dt-color-content-dark);
-}
-
-.c-tag.c-tag--brand-03.c-tag--strong.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-brand-03);
-    --tag-icon-color: var(--dt-color-content-dark);
-}
-
-.c-tag.c-tag--brand-03.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-brand-03-subtle);
-    --tag-icon-color: var(--dt-color-content-default);
-}
-
-.c-tag.c-tag--brand-04 {
-    --tag-bg-color: var(--dt-color-support-brand-04-subtle);
-    --tag-icon-bg-color: var(--dt-color-support-brand-04);
-    --tag-icon-color: var(--dt-color-content-dark);
-    --tag-color: var(--dt-color-content-default);
-}
-
-.c-tag.c-tag--brand-04.c-tag--strong {
-    --tag-bg-color: var(--dt-color-support-brand-04);
-    --tag-icon-bg-color: var(--dt-color-support-brand-04-tonal);
-    --tag-icon-color: var(--dt-color-content-default);
-    --tag-color: var(--dt-color-content-dark);
-}
-
-.c-tag.c-tag--brand-04.c-tag--strong.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-brand-04);
-    --tag-icon-color: var(--dt-color-content-dark);
-}
-
-.c-tag.c-tag--brand-04.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-brand-04-subtle);
-    --tag-icon-color: var(--dt-color-content-dark);
-}
-
-.c-tag.c-tag--brand-05 {
-    --tag-bg-color: var(--dt-color-support-brand-05-subtle);
-    --tag-icon-bg-color: var(--dt-color-support-brand-05);
-    --tag-icon-color: var(--dt-color-content-dark);
-    --tag-color: var(--dt-color-content-default);
-}
-
-.c-tag.c-tag--brand-05.c-tag--strong {
-    --tag-bg-color: var(--dt-color-support-brand-05);
-    --tag-icon-bg-color: var(--dt-color-support-brand-05-tonal);
-    --tag-icon-color: var(--dt-color-content-default);
-    --tag-color: var(--dt-color-content-dark);
-}
-
-.c-tag.c-tag--brand-05.c-tag--strong.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-brand-05);
-    --tag-icon-color: var(--dt-color-content-dark);
-}
-
-.c-tag.c-tag--brand-05.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-brand-05-subtle);
-    --tag-icon-color: var(--dt-color-content-default);
-}
-
-.c-tag.c-tag--brand-06 {
-    --tag-bg-color: var(--dt-color-support-brand-06-subtle);
-    --tag-icon-bg-color: var(--dt-color-support-brand-06);
-    --tag-icon-color: var(--dt-color-content-light);
-    --tag-color: var(--dt-color-content-default);
-}
-
-.c-tag.c-tag--brand-06.c-tag--strong {
-    --tag-bg-color: var(--dt-color-support-brand-06);
-    --tag-icon-bg-color: var(--dt-color-support-brand-06-subtle);
-    --tag-icon-color: var(--dt-color-content-default);
-    --tag-color: var(--dt-color-content-light);
-}
-
-.c-tag.c-tag--brand-06.c-tag--strong.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-brand-06);
-    --tag-icon-color: var(--dt-color-content-light);
-}
-
-.c-tag.c-tag--brand-06.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-brand-06-subtle);
-    --tag-icon-color: var(--dt-color-content-default);
-}
-
-.c-tag.c-tag--brand-08 {
-    --tag-bg-color: var(--dt-color-support-brand-08-subtle);
-    --tag-icon-bg-color: var(--dt-color-support-brand-08);
-    --tag-icon-color: var(--dt-color-content-dark);
-    --tag-color: var(--dt-color-content-default);
-}
-
-.c-tag.c-tag--brand-08.c-tag--strong {
-    --tag-bg-color: var(--dt-color-support-brand-08);
-    --tag-icon-bg-color: var(--dt-color-support-brand-08-tonal);
-    --tag-icon-color: var(--dt-color-content-default);
-    --tag-color: var(--dt-color-content-light);
-}
-
-.c-tag.c-tag--brand-08.c-tag--strong.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-brand-08);
-    --tag-icon-color: var(--dt-color-content-dark);
-}
-
-.c-tag.c-tag--brand-08.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-support-brand-08-subtle);
-    --tag-icon-color: var(--dt-color-content-default);
-}
-
-// =============================================================================
-// SURFACE VARIANTS
-// =============================================================================
-
-// Translucent
-.c-tag.c-tag--translucent {
-    --tag-bg-color: var(--dt-color-container-prominent);
-    --tag-icon-bg-color: var(--dt-color-border-neutral);
-    --tag-icon-color: var(--dt-color-content-default-solid);
-    --tag-color: var(--dt-color-content-default-solid);
-    backdrop-filter: var(--dt-blur-prominent);
-    box-shadow: 0 0 0 var(--tag-border-width) var(--dt-color-border-neutral);
-}
-
-.c-tag.c-tag--translucent.c-tag--icon-only {
-    --tag-bg-color: var(--dt-color-container-prominent);
-    --tag-icon-color: var(--dt-color-content-default-solid);
-}
-
-// Outline
-.c-tag.c-tag--outline {
-    --tag-bg-color: var(--tag-transparent-bg-color);
-    --tag-icon-bg-color: var(--dt-color-container-strong);
-    --tag-icon-color: var(--dt-color-content-default);
-    --tag-color: var(--dt-color-content-default-solid);
-    box-shadow: 0 0 0 var(--tag-border-width) var(--dt-color-border-strong);
-}
-
-.c-tag.c-tag--outline.c-tag--icon-only {
-    --tag-bg-color: var(--tag-transparent-bg-color);
-    --tag-icon-color: var(--dt-color-content-default-solid);
-}
-
-// Ghost
-.c-tag.c-tag--ghost {
-    --tag-bg-color: var(--tag-transparent-bg-color);
-    --tag-icon-bg-color: var(--tag-transparent-bg-color);
-    --tag-icon-color: var(--dt-color-content-default-solid);
-    --tag-color: var(--dt-color-content-default-solid);
-}
-
-.c-tag.c-tag--ghost.c-tag--icon-only {
-    --tag-bg-color: var(--tag-transparent-bg-color);
-    --tag-icon-color: var(--dt-color-content-default-solid);
-}
-
-// =============================================================================
-// STATES
-// =============================================================================
-
-// Icon Only State
-.c-tag.c-tag--icon-only {
-    --tag-icon-bg-color: none;
-}
-
-// Dimmed State
-.c-tag.is-dimmed {
-    opacity: 0.5;
-}
-
-// =============================================================================
-// ICON STYLES
-// =============================================================================
-
-slot[name="icon"] {
-    color: var(--tag-icon-color);
-    position: relative;
-}
-
-.c-tag--has-icon:not(.c-tag--icon-only) {
-    slot[name="icon"] {
-        height: var(--tag-icon-container-size);
-        background-color: var(--tag-icon-bg-color);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        aspect-ratio: 1;
-        border-radius: inherit;
-    }
-}
-
-.c-tag--has-icon:not(.c-tag--icon-only).c-tag--outline,
-.c-tag--has-icon:not(.c-tag--icon-only).c-tag--translucent {
-    slot[name="icon"] {
-        &:before {
-            content: '';
-            position: absolute;
-            left: -0.25px;
-            height:var(--tag-icon-container-size);
-            aspect-ratio: 1;
-            z-index: -1;
-            border-radius: inherit;
-            box-shadow: inset 5px 0 0 0 var(--tag-icon-bg-color);
+        &.c-tag--small {
+            --tag-padding-block-start: calc(var(--dt-spacing-a) - var(--tag-border-width));
+            --tag-padding-block-end: calc(var(--dt-spacing-a) - var(--tag-border-width));
         }
     }
+
+    &.c-tag--has-icon:not(.c-tag--icon-only) {
+        --tag-padding-inline-start: 0;
+        --tag-padding-block-start: 0;
+        --tag-padding-block-end: 0;
+
+        gap: var(--tag-gap);
+
+        &.c-tag--large {
+            --tag-padding-inline-end: calc(var(--dt-spacing-b) - var(--tag-border-width));
+        }
+
+        &.c-tag--small {
+            --tag-padding-inline-end: calc(var(--dt-spacing-a) - var(--tag-border-width));
+        }
+
+        slot[name="icon"] {
+            background-color: var(--tag-icon-bg-color);
+            display: grid;
+            place-items: center;
+            border-radius: inherit;
+            padding-inline-start: calc(var(--dt-spacing-a) - var(--tag-border-width));
+            padding-inline-end: calc(var(--dt-spacing-a) - var(--tag-border-width));
+            aspect-ratio: 1 / 1;
+        }
+    }
+
+    // Variants
+    &.c-tag--neutral {
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-container-strong);
+            --tag-icon-color: var(--dt-color-content-default);
+        }
+
+        // Strong icon only
+        &.c-tag--icon-only.c-tag--strong {
+            --tag-bg-color: var(--dt-color-container-inverse);
+            --tag-icon-color: var(--dt-color-content-inverse);
+        }
+
+        // Strong
+        &.c-tag--strong:not(.c-tag--icon-only) {
+            --tag-bg-color: var(--dt-color-container-inverse);
+            --tag-icon-bg-color: var(--dt-color-container-strong);
+            --tag-icon-color: var(--dt-color-content-default);
+            --tag-color: var(--dt-color-content-inverse);
+        }
+
+    }
+
+    &.c-tag--outline {
+        --tag-bg-color: var(--dt-color-transparent);
+        --tag-border-color: var(--dt-color-border-strong);
+        --tag-icon-bg-color: var(--dt-color-container-strong);
+        --tag-icon-color: var(--dt-color-content-default);
+        --tag-color: var(--dt-color-content-default-solid);
+    }
 }
 
-// Used to size an SVG if one is passed in (when not using the component icons)
-::slotted(svg) {
-    display: block;
-    height: var(--icon-size-override);
-    width: var(--icon-size-override);
-}
-
-// =============================================================================
-// SPECIAL ADJUSTMENTS & EDGE CASES
-// =============================================================================
-
-// Outline and Translucent variant with icons should have zero padding on specific sides
-.c-tag.c-tag--outline.c-tag--has-icon:not(.c-tag--icon-only),
-.c-tag.c-tag--translucent.c-tag--has-icon:not(.c-tag--icon-only) {
-    padding-block-start: 0;
-    padding-block-end: 0;
-    padding-inline-start: 0;
-}
-
-// Outline and Translucent variants without icons need reduced vertical padding to account for border
-.c-tag.c-tag--large.c-tag--outline:not(.c-tag--has-icon),
-.c-tag.c-tag--large.c-tag--translucent:not(.c-tag--has-icon),
-.c-tag.c-tag--small.c-tag--outline:not(.c-tag--has-icon),
-.c-tag.c-tag--small.c-tag--translucent:not(.c-tag--has-icon) {
-    padding-block-start: calc(var(--dt-spacing-a-small) - var(--tag-border-width));
-    padding-block-end: calc(var(--dt-spacing-a-small) - var(--tag-border-width));
-}
-
-// Large Outline and Translucent Icon Only tags need adjusted vertical padding to account for border
-.c-tag.c-tag--large.c-tag--outline.c-tag--icon-only,
-.c-tag.c-tag--large.c-tag--translucent.c-tag--icon-only {
-    padding-block-start: calc(var(--dt-spacing-a) - var(--tag-border-width));
-    padding-block-end: calc(var(--dt-spacing-a) - var(--tag-border-width));
-}
