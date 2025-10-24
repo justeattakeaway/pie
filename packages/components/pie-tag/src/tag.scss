@@ -328,6 +328,33 @@
         }
     }
 
+    &.c-tag--brand-05 {
+        --tag-bg-color: var(--dt-color-support-brand-05-subtle);
+        --tag-icon-bg-color: var(--dt-color-support-brand-05);
+        --tag-icon-color: var(--dt-color-content-dark);
+        --tag-color: var(--dt-color-content-default);
+
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-brand-05-subtle);
+            --tag-icon-color: var(--dt-color-content-default);
+        }
+
+        // Strong icon only
+        &.c-tag--icon-only.c-tag--strong {
+            --tag-bg-color: var(--dt-color-support-brand-05);
+            --tag-icon-color: var(--dt-color-content-dark);
+        }
+
+        // Strong
+        &.c-tag--strong:not(.c-tag--icon-only) {
+            --tag-bg-color: var(--dt-color-support-brand-05);
+            --tag-icon-bg-color: var(--dt-color-support-brand-05-tonal);
+            --tag-icon-color: var(--dt-color-content-default);
+            --tag-color: var(--dt-color-content-dark);
+        }
+    }
+
     &.c-tag--outline {
         --tag-bg-color: var(--dt-color-transparent);
         --tag-border-color: var(--dt-color-border-strong);
