@@ -122,25 +122,7 @@
         }
     }
 
-    // Antialiasing fix - border radius and the icon container slot being flush
-    // can result in a seam/visual artifact letting the background page colour show between the slot and border.
-    // This fix uses a pseudo element to effectively 'fill in' that gap.
-    &.c-tag--has-icon:not(.c-tag--icon-only) slot[name="icon"] {
-        position: relative;
-    }
 
-    &.c-tag--has-icon:not(.c-tag--icon-only) {
-        slot[name="icon"]:before {
-            content: '';
-            position: absolute;
-            left: -0.25px;
-            height: var(--tag-icon-container-size);
-            aspect-ratio: 1;
-            z-index: -1;
-            border-radius: inherit;
-            box-shadow: inset 5px 0 0 0 var(--tag-icon-bg-color);
-        }
-    }
 
     // Variants
     &.c-tag--neutral {
@@ -287,6 +269,19 @@
         }
     }
 
+    &.c-tag--brand-02 {
+        --tag-bg-color: var(--dt-color-support-brand-02);
+        --tag-icon-bg-color: var(--dt-color-support-brand-01);
+        --tag-icon-color: var(--dt-color-content-dark);
+        --tag-color: var(--dt-color-content-default);
+
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-brand-02);
+            --tag-icon-color: var(--dt-color-content-default);
+        }
+    }
+
     &.c-tag--brand-03 {
         --tag-bg-color: var(--dt-color-support-brand-03-subtle);
         --tag-icon-bg-color: var(--dt-color-support-brand-03);
@@ -418,20 +413,7 @@
             --tag-bg-color: var(--dt-color-support-brand-08);
             --tag-icon-bg-color: var(--dt-color-support-brand-08-tonal);
             --tag-icon-color: var(--dt-color-content-default);
-            --tag-color: var(--dt-color-content-default);
-        }
-    }
-
-    &.c-tag--brand-02 {
-        --tag-bg-color: var(--dt-color-support-brand-02);
-        --tag-icon-bg-color: var(--dt-color-support-brand-01);
-        --tag-icon-color: var(--dt-color-content-dark);
-        --tag-color: var(--dt-color-content-default);
-
-        // Subtle icon only
-        &.c-tag--icon-only {
-            --tag-bg-color: var(--dt-color-support-brand-02);
-            --tag-icon-color: var(--dt-color-content-default);
+            --tag-color: var(--dt-color-content-dark);
         }
     }
 
@@ -448,6 +430,22 @@
         }
     }
 
+    &.c-tag--translucent {
+        --tag-bg-color: var(--dt-color-container-prominent);
+        --tag-icon-bg-color: var(--dt-color-container-neutral);
+        --tag-icon-color: var(--dt-color-content-default-solid);
+        --tag-color: var(--dt-color-content-default-solid);
+        --tag-border-color: var(--dt-color-border-neutral);
+        backdrop-filter: blur(var(--dt-blur-prominent));
+
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-container-prominent);
+            --tag-icon-color: var(--dt-color-content-default-solid);
+            --tag-border-color: var(--dt-color-border-neutral);
+        }
+    }
+
     &.c-tag--outline {
         --tag-bg-color: var(--dt-color-transparent);
         --tag-border-color: var(--dt-color-border-strong);
@@ -457,6 +455,24 @@
 
         &.c-tag--icon-only {
             --tag-icon-color: var(--dt-color-content-default-solid);
+        }
+
+        // Antialiasing fix - border radius and the icon container slot being flush
+        // can result in a seam/visual artifact letting the background page colour show between the slot and border.
+        // This fix uses a pseudo element to effectively 'fill in' that gap.
+        &.c-tag--has-icon:not(.c-tag--icon-only) slot[name="icon"] {
+            position: relative;
+        }
+
+        &.c-tag--has-icon:not(.c-tag--icon-only) slot[name="icon"]:before {
+            content: '';
+            position: absolute;
+            left: -0.25px;
+            height: var(--tag-icon-container-size);
+            aspect-ratio: 1;
+            z-index: -1;
+            border-radius: inherit;
+            box-shadow: inset 5px 0 0 0 var(--tag-icon-bg-color);
         }
     }
 }
