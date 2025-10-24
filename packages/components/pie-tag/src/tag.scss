@@ -111,6 +111,26 @@
         }
     }
 
+    // Antialiasing fix - border radius and the icon container slot being flush
+    // can result in a seam/visual artifact letting the background page colour show between the slot and border.
+    // This fix uses a pseudo element to effectively 'fill in' that gap.
+    &.c-tag--has-icon:not(.c-tag--icon-only) slot[name="icon"] {
+        position: relative;
+    }
+
+    &.c-tag--has-icon:not(.c-tag--icon-only) {
+        slot[name="icon"]::before {
+            content: '';
+            position: absolute;
+            left: -0.25px;
+            height: 100%;
+            aspect-ratio: 1;
+            z-index: -1;
+            border-radius: inherit;
+            box-shadow: inset 5px 0 0 0 var(--tag-icon-bg-color);
+        }
+    }
+
     // Variants
     &.c-tag--neutral {
         // Subtle icon only
