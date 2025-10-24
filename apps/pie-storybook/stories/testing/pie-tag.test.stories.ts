@@ -107,8 +107,10 @@ export const NeutralAlternative = createTagStory({ variant: 'neutral-alternative
 export const Information = createTagStory({ variant: 'information' });
 export const Success = createTagStory({ variant: 'success' });
 export const Error = createTagStory({ variant: 'error' });
+export const Warning = createTagStory({ variant: 'warning' });
 export const Outline = createTagStory({ variant: 'outline' });
 export const Ghost = createTagStory({ variant: 'ghost' });
+export const Translucent = createTagStory({ variant: 'translucent' }, { bgColor: 'brand orange' });
 export const DefaultWithIcon = createTagStory({ slot: `Label ${icon}` });
 
 // Base shared props matrix
@@ -142,6 +144,12 @@ const successPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
 const errorPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['error'],
+};
+
+// Warning variant stories
+const warningPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['warning'],
 };
 
 // Neutral Alternative variant stories (with dark background)
@@ -190,6 +198,18 @@ const brand05PropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
 const brand06PropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['brand-06'],
+};
+
+// Brand-08 variant stories
+const brand08PropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['brand-08'],
+};
+
+// Translucent variant stories
+const translucentPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['translucent'],
 };
 
 // IconOnly variant stories
@@ -276,14 +296,17 @@ export const NeutralVariations = createVariantStory<TagProps>(Template, neutralP
 export const InformationVariations = createVariantStory<TagProps>(Template, informationPropsMatrix);
 export const SuccessVariations = createVariantStory<TagProps>(Template, successPropsMatrix);
 export const ErrorVariations = createVariantStory<TagProps>(Template, errorPropsMatrix);
+export const WarningVariations = createVariantStory<TagProps>(Template, warningPropsMatrix);
 export const NeutralAlternativeVariations = createVariantStory<TagProps>(Template, neutralAlternativePropsMatrix, { bgColor: 'dark (container-dark)' });
 export const OutlineVariations = createVariantStory<TagProps>(Template, outlinePropsMatrix);
 export const GhostVariations = createVariantStory<TagProps>(Template, ghostPropsMatrix);
+export const TranslucentVariations = createVariantStory<TagProps>(Template, translucentPropsMatrix, { bgColor: 'brand orange' });
 export const Brand02Variations = createVariantStory<TagProps>(Template, brand02PropsMatrix);
 export const Brand03Variations = createVariantStory<TagProps>(Template, brand03PropsMatrix);
 export const Brand04Variations = createVariantStory<TagProps>(Template, brand04PropsMatrix);
 export const Brand05Variations = createVariantStory<TagProps>(Template, brand05PropsMatrix);
 export const Brand06Variations = createVariantStory<TagProps>(Template, brand06PropsMatrix);
+export const Brand08Variations = createVariantStory<TagProps>(Template, brand08PropsMatrix);
 export const IconOnlyVariations = createVariantStory<TagProps>(Template, iconOnlyPropsMatrix);
 export const CustomStyledTags = createCombinedCustomStory({}, {
     bgColor: 'dark (container-dark)',
