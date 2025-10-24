@@ -122,7 +122,10 @@
         }
     }
 
-
+    // State styles
+    &.c-tag--is-dimmed {
+        opacity: 0.5;
+    }
 
     // Variants
     &.c-tag--neutral {
