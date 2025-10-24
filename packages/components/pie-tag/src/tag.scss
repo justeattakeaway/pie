@@ -6,12 +6,14 @@
 
 .c-tag {
     // CSS Custom Properties - Default values (neutral, subtle, large)
+    // colors
     --tag-bg-color: var(--dt-color-container-strong);
     --tag-icon-bg-color: var(--dt-color-container-inverse);
     --tag-icon-color: var(--dt-color-content-inverse);
     --tag-color: var(--dt-color-content-default);
     --tag-transparent-bg-color: transparent; // Used for component tests
 
+    // borders
     --tag-border-width: 1px; // Used for outline variant
     --tag-border-color: var(--tag-bg-color);
 
@@ -42,6 +44,7 @@
 
     // Sizing, spacing and dimensions
     &.c-tag--large {
+        // typography and shape
         --tag-font-family: var(--dt-font-body-s-family);
         --tag-font-weight: var(--dt-font-body-s-weight);
         --tag-font-size: #{p.font-size(--dt-font-body-s-size)};
@@ -49,15 +52,16 @@
         --tag-border-radius: var(--dt-radius-rounded-e);
         --icon-size-override: 16px;
 
+        // whitespace
         --tag-padding-block-start: calc(var(--dt-spacing-a-small) - var(--tag-border-width));
         --tag-padding-block-end: calc(var(--dt-spacing-a-small) - var(--tag-border-width));
         --tag-padding-inline-start: calc(var(--dt-spacing-b) - var(--tag-border-width));
         --tag-padding-inline-end: calc(var(--dt-spacing-b) - var(--tag-border-width));
-
         --tag-gap: var(--dt-spacing-a);
     }
 
     &.c-tag--small {
+        // typography and shape
         --tag-font-family: var(--dt-font-caption-family);
         --tag-font-weight: var(--dt-font-caption-weight);
         --tag-font-size: #{p.font-size(--dt-font-caption-size)};
@@ -65,11 +69,11 @@
         --tag-border-radius: var(--dt-radius-rounded-c);
         --icon-size-override: 12px;
 
+        // whitespace
         --tag-padding-block-start: calc(var(--dt-spacing-a-small) - var(--tag-border-width));
         --tag-padding-block-end: calc(var(--dt-spacing-a-small) - var(--tag-border-width));
         --tag-padding-inline-start: calc(var(--dt-spacing-a) - var(--tag-border-width));
         --tag-padding-inline-end: calc(var(--dt-spacing-a) - var(--tag-border-width));
-
         --tag-gap: var(--dt-spacing-a-small);
     }
 
@@ -119,7 +123,7 @@
     }
 
     &.c-tag--has-icon:not(.c-tag--icon-only) {
-        slot[name="icon"]::before {
+        slot[name="icon"]:before {
             content: '';
             position: absolute;
             left: -0.25px;
