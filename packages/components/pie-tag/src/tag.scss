@@ -78,14 +78,20 @@
     }
 
     &.c-tag--icon-only {
-        &.c-tag--large {
+        &.c-tag--large,
+        &.c-tag--small {
             --tag-padding-block-start: calc(var(--dt-spacing-a) - var(--tag-border-width));
             --tag-padding-block-end: calc(var(--dt-spacing-a) - var(--tag-border-width));
         }
 
+        // Design do not support a small icon only variant
+        // so we just make it identical to the large icon only styles
         &.c-tag--small {
-            --tag-padding-block-start: calc(var(--dt-spacing-a) - var(--tag-border-width));
-            --tag-padding-block-end: calc(var(--dt-spacing-a) - var(--tag-border-width));
+            --tag-border-radius: var(--dt-radius-rounded-e);
+            --icon-size-override: 16px;
+            --tag-padding-inline-start: calc(var(--dt-spacing-b) - var(--tag-border-width));
+            --tag-padding-inline-end: calc(var(--dt-spacing-b) - var(--tag-border-width));
+            --tag-gap: var(--dt-spacing-a);
         }
     }
 
