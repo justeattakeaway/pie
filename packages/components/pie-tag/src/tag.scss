@@ -141,6 +141,10 @@
         --tag-icon-bg-color: var(--dt-color-container-strong);
         --tag-icon-color: var(--dt-color-content-default);
         --tag-color: var(--dt-color-content-default-solid);
+
+        &.c-tag--icon-only {
+            --tag-icon-color: var(--dt-color-content-default-solid);
+        }
     }
 }
 
