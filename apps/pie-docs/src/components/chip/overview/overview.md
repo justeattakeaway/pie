@@ -9,7 +9,7 @@ permalink: components/chip/
 
 ## Overview
 
-The purpose of chips is to provide a visual representation of a specific entity or attribute, such as a selected option or a labelled category. Chips can also be interactive, allowing users to remove or modify the selected choices.
+The purpose of chips is to provide a visual representation of a specific entity or attribute, such as a selected option or a labelled category. Chips can also be interactive, allowing users to remove or modify the selected choices.In the system, chips are categorised into three types: Selection, Filter, and Action, each serving a distinct purpose.
 
 Chips are commonly used in various contexts, including filtering options, search results or any situation where concise and visually distinct information needs to be displayed.
 
@@ -44,21 +44,94 @@ ___
 {% contentPageImage {
     src:"../../../assets/img/components/chip/anatomy.svg",
     alt: "Anatomy of the chip component.",
-    width: 210
+    width: 456
 } %}
 
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Icon (Optional):** Non-interactive icon that can be used to visually support the string.",
+        "**Leading icon (optional):** Visually supports the label.",
         "**String:** Text label informing the user of the option/selection.",
-        "**Close (optional)**: Allows the Chip to be dismissible, but the application should provide a way for them to easily add it back."
+        "**Close (optional):** Allows the Chip to be dismissible, but the application should provide a way for them to easily add it back.",
+        "**Tick icon (optional):** A tick icon indicates the chip is selected.",
+        "**Trailing action (optional):** A trailing icon indicates further interactions."
     ]
 } %}
 
 ---
 
-## Variations
+## Types of chip
+
+### Selection chip
+
+Selection chips represent choices or inputs made by the user. They can be used for single or multiple selection among predefined options, or to display context-based suggestions and recommendations.
+
+
+{% contentLayout { columns: 3 } %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/chip/usage-selection-left.svg",
+      width: "256px",
+      alt: "A multi-select dropdown menu used as a filter, showing Pizzas and Desserts as the two selected options."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/chip/usage-selection-mid.svg",
+      width: "203px",
+      alt: "A group of selection chips for days of the week, with Wed, Thu, and Fri selected.",
+      variant: "secondary"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/chip/usage-selection-right.svg",
+      width: "301px",
+      alt: "A chatbot interface displaying three suggestion chips: Get help with medication selection, Order medication, and Other.",
+      variant: "secondary"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+### Filter chip
+
+Filter chips allow users to refine or narrow down content. They are commonly used on search or results pages and can also open additional controls or menus for more advanced filtering.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/chip/usage-filter.svg",
+    alt: "A user interface example of filter chips on a food delivery page, with options like Free delivery and No minimum order above a list of restaurant results.",
+    width: 820
+} %}
+
+### Action chip
+
+Action chips behave as interactive elements that trigger navigation or perform an action. They can act as links or anchors leading to another page or view.
+
+{% usage {
+    do: {
+        type: usageTypes.list,
+        items: [
+            "Present action chips in a group that offer relevant contextual options."
+        ]
+    },
+    dont: {
+        type: usageTypes.list,
+        items: [
+            "Don’t use chips for CTAs, use buttons instead.",
+            "Don’t use only one single chip."
+        ]
+    }
+} %}
+
+{% contentPageImage {
+    src:"../../../assets/img/components/chip/type-action.svg",
+    alt: "A user interface example of action chips, showing their use for toggling order status (Prepare, Handover, Done) and navigating settings tabs (Summary, Additional price(s)).",
+    width: 702
+} %}
+
+---
+
+## Variants
 
 ### Default
 
@@ -77,6 +150,14 @@ ___
     width: 63
 } %}
 
+### Translucent
+
+{% contentPageImage {
+    src:"../../../assets/img/components/chip/variation-translucent.svg",
+    alt: "The translucent variant of the chip component.",
+    width: 63
+} %}
+
 ### Ghost
 
 {% contentPageImage {
@@ -89,9 +170,9 @@ ___
 
 ## Modifiers
 
-### Icon
+### Leading icon
 
-Icons are always placed in a leading position.
+Leading icon provides context and visually supports the label. It is available for all variants.
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/modifier-icon.svg",
@@ -99,9 +180,19 @@ Icons are always placed in a leading position.
     width: 87
 } %}
 
+### Trailing icon
+
+A trailing icon can be applied to indicate further interaction, such as opening up a popover or bottom sheet. Only available in Filter chip. 
+
+{% contentPageImage {
+    src:"../../../assets/img/components/chip/modifier-trailing-icon.svg",
+    alt: "A chip component with a chevron icon on the right.",
+    width: 87
+} %}
+
 ### Tick icon
 
-Tick icon can be added for clarity and decision support when using chips to filter or multi-select to the selected state.
+Tick icon can be added for clarity and decision support when using chips to filter or multi-select to the selected state. Only available in selected Selection and Filter chips.
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/modifier-tick-icon.svg",
@@ -111,7 +202,7 @@ Tick icon can be added for clarity and decision support when using chips to filt
 
 ### Close icon
 
-Close icon can be added to the selected state to allow users to remove the selection or filter.
+Close icon can be added to the selected state to allow users to remove the selection. Clicking a chip with a close icon will dismiss the chip. Only available in selected Selection chip.
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/modifier-close-icon.svg",
@@ -127,7 +218,7 @@ Chips have a minimum width of 48px.
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/size.svg",
-    alt: "A chip component with the value of 1.",
+    alt: "A chip component with the value of 48.",
     width: 48
 } %}
 
@@ -135,14 +226,61 @@ Chips have a minimum width of 48px.
 
 ## Content
 
+### String
+
 - Keep the strings short so they are easy to read and scan.
 - Use sentence case.
+
+
+### Overrides
+
+#### Icon
+
+{% contentPageImage {
+    src: "../../../assets/img/components/chip/content-overrides-icon.svg",
+    alt: "A selected chip component with the value of string.",
+    width: 48
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Trailing icon:** In Filter chips, the trailing icon can only be replaced with icons from the [Chevron](/foundations/iconography/library/#category-chevron) section."
+    ]
+} %}
+
+#### Alignment
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/chip/content-overrides-alignment-left.svg",
+      width: 171,
+      alt: "A chip with an icon and text, demonstrating hug content alignment where the container fits tightly around the content"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/chip/content-overrides-alignment-right.svg",
+      width: 184,
+      alt: "A chip with a leading icon, text, and a trailing x icon, demonstrating fill alignment where the container expands to push the trailing icon to the far right."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Overall content:** By default, the chip container is set to Hug the content. If a chip needs to fit within a specific layout or grid, the overall content can be aligned to either centre or left.",
+        "**Trailing content:** When a chip has a trailing icon, content can be set to Fill to expand and match the container width, allowing the trailing icon to align with the right edge."
+    ]
+} %}
 
 ---
 
 ## Layout
 
-If there is a Chip grouping, by default they are laid out horizontally and stack if required. A spacing of 8px is used horizontally, and 12px for vertical stacking.
+If there is a Chip grouping, by default are laid out horizontally and stack if required. A spacing of 8px is used horizontally, and 12px for vertical stacking.
 
 {% contentLayout %}
   {% contentItem %}
@@ -165,53 +303,9 @@ If there is a Chip grouping, by default they are laid out horizontally and stack
 
 ---
 
-## Usage
-
-### Input
-
-Input chips usually represent an entity or different attributes. They can be added or removed within input fields.
-
-{% contentPageImage {
-    src:"../../../assets/img/components/chip/usage-input.svg",
-    alt: "Chip components used in an input field",
-    width: 256
-} %}
-
-### Choice
-
-Choice chips allow users to select one or more chips from a set of options (minimum of 2).
-
-{% contentPageImage {
-    src:"../../../assets/img/components/chip/usage-choice.svg",
-    alt: "Chip components corresponding to a different weekday",
-    width: 274,
-    variant: "secondary"
-} %}
-
-### Filter
-
-Filter chips allow users to refine content by selecting one or more chips from a set.
-
-{% contentPageImage {
-    src:"../../../assets/img/components/chip/usage-filter.svg",
-    alt: "Chip components representing various cuisines",
-    width: 297
-} %}
-
-### Action
-
-Action chips trigger actions related to primary content.
-
-{% contentPageImage {
-    src:"../../../assets/img/components/chip/usage-action.svg",
-    alt: "A chip component with a heart icon, allowing users to save an entity.",
-    width: 266,
-    variant: "secondary"
-} %}
-
-___
-
 ## Interactions
+
+### Close 
 
 The whole chip is interactive, except when the close icon appears, in which case only the close icon is clickable to perform the action.
 
@@ -220,7 +314,8 @@ The whole chip is interactive, except when the close icon appears, in which case
     {% contentPageImage {
       src: "../../../assets/img/components/chip/interactions-whole-chip-interactive.svg",
       width: 63,
-      alt: "A chip component where the entire component is interactive."
+      alt: "A chip component where the entire component is interactive.",
+      variant: "secondary"
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -232,8 +327,34 @@ The whole chip is interactive, except when the close icon appears, in which case
   {% endcontentItem %}
 {% endcontentLayout %}
 
-
 ___
+
+## States
+
+The chip has two states:
+
+{% contentLayout %}
+  {% contentItem %}
+    <h3>Unselected</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/chip/states-unselected.svg",
+      width: 288,
+      alt: "Three visual styles for an unselected chip: default, outline, and ghost.",
+      variant: "secondary"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Selected</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/chip/states-selected.svg",
+      width: 103,
+      alt: "A single selected UI chip shown with a dark, solid background and a checkmark icon.",
+      variant: "secondary"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
 
 ## Interactive states
 
@@ -245,7 +366,7 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/chip/interactive-state-default.svg",
       width: 63,
-      alt: "Four chip components in their default state, with three light-colored chips and one dark-colored chip.",
+      alt: "Five chip components in their default state, with three light-colored chips and one dark-colored chip.",
       variant: "secondary"
     } %}
   {% endcontentItem %}
@@ -254,7 +375,7 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/chip/interactive-state-hover.svg",
       width: 63,
-      alt: "Four chip components in a hover state, showing a slight visual change compared to the default state, with three light-colored chips and one dark-colored chip.",
+      alt: "Five chip components in a hover state, showing a slight visual change compared to the default state, with three light-colored chips and one dark-colored chip.",
       variant: "secondary"
     } %}
   {% endcontentItem %}
@@ -263,7 +384,7 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/chip/interactive-state-active.svg",
       width: 63,
-      alt: "Four chip components in an active state, with three light-colored chips and one dark-colored chip, showing a visual indication of being pressed or selected.",
+      alt: "Five chip components in an active state, with three light-colored chips and one dark-colored chip, showing a visual indication of being pressed or selected.",
       variant: "secondary"
     } %}
   {% endcontentItem %}
@@ -272,7 +393,7 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/chip/interactive-state-focus.svg",
       width: 63,
-      alt: "Four chip components in a focus state, with three light-colored chips and one dark-colored chip, showing a clear outline or highlight indicating keyboard focus.",
+      alt: "Five chip components in a focus state, with three light-colored chips and one dark-colored chip, showing a clear outline or highlight indicating keyboard focus.",
       variant: "secondary"
     } %}
   {% endcontentItem %}
@@ -281,7 +402,7 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/chip/interactive-state-disabled.svg",
       width: 63,
-      alt: "Four chip components in a disabled state, appearing greyed out or muted, indicating they are not interactive.",
+      alt: "Five chip components in a disabled state, appearing greyed out or muted, indicating they are not interactive.",
       variant: "secondary"
     } %}
   {% endcontentItem %}
@@ -290,7 +411,7 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/chip/interactive-state-loading.svg",
       width: 63,
-      alt: "Four chip components in a loading state, showing a spinner or animation within each chip, indicating content is being loaded.",
+      alt: "Five chip components in a loading state, showing a spinner or animation within each chip, indicating content is being loaded.",
       variant: "secondary"
     } %}
   {% endcontentItem %}
@@ -346,11 +467,6 @@ Here are some examples of chips in a right-to-left context:
 ___
 
 ## Resources
-
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Chip documentation, please see the resources below."
-} %}
 
 {% resourceTable {
     componentName: 'Chip'

@@ -38,7 +38,7 @@
     background-color: var(--int-states-mixin-bg-color);
     color: var(--chip-color);
     border-radius: var(--dt-radius-rounded-e);
-    border: 1px solid;
+    border: var(--chip-border-width) solid;
     border-color: var(--chip-border-color);
     cursor: var(--chip-cursor);
     user-select: none;
@@ -55,7 +55,7 @@
         // same as default styles
     }
 
-    &.c-chip--outline:not(.is-disabled, .c-chip--selected) {
+    &.c-chip--outline {
         --chip-border-color: var(--dt-color-border-strong);
     }
 
@@ -67,9 +67,18 @@
         @include p.interactive-states('--dt-color-transparent', 'transparent');
     }
 
+    &.c-chip--translucent {
+        --int-states-mixin-bg-color: var(--dt-color-container-neutral);
+        --chip-color: var(--dt-color-content-interactive-secondary-solid);
+        --chip-border-color: var(--dt-color-border-neutral);
+
+        @include p.interactive-states('--dt-color-container-neutral');
+    }
+
     &.c-chip--selected {
         --int-states-mixin-bg-color: var(--dt-color-interactive-primary);
         --chip-color: var(--dt-color-content-interactive-primary);
+        --chip-border-color: transparent;
 
         @include p.interactive-states('--dt-color-interactive-primary', 'inverse', '02');
     }
@@ -96,6 +105,11 @@
         &.c-chip--ghost {
             --int-states-mixin-bg-color: transparent;
             --chip-color: var(--dt-color-content-disabled-solid);
+        }
+
+        &.c-chip--outline, 
+        &.c-chip--truculent {
+            --chip-border-colo: var(--dt-color-disabled-01);
         }
     }
 
