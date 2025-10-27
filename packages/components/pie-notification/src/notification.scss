@@ -63,6 +63,13 @@
         --notification-icon-fill: var(--dt-color-content-light);
     }
 
+     &.c-notification--translucent {
+        --notification-background-color: var(--dt-color-container-prominent);
+
+        backdrop-filter: blur(var(--dt-blur-prominent));
+
+    }
+
 
     &-heading {
         margin: 0;
