@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-icon-button
 
+## 2.3.0
+
+### Minor Changes
+
+- [Added] - support a new translucent variant ([#2596](https://github.com/justeattakeaway/pie/pull/2596)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Updated] - remove unused css variable and tidy up styles ([#2596](https://github.com/justeattakeaway/pie/pull/2596)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 2.2.4
 
 ### Patch Changes
