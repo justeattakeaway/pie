@@ -108,8 +108,8 @@
         }
 
         &.c-chip--outline, 
-        &.c-chip--truculent {
-            --chip-border-colo: var(--dt-color-disabled-01);
+        &.c-chip--translucent {
+            --chip-border-color: var(--dt-color-disabled-01);
         }
     }
 
