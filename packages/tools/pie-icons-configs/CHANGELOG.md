@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-icons-configs
 
+## 5.17.0
+
+### Minor Changes
+
+- [Added] - support xxs size for regular icons ([#2585](https://github.com/justeattakeaway/pie/pull/2585)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Fixed] - prevent PIE icons react from shrinking ([#2581](https://github.com/justeattakeaway/pie/pull/2581)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 4.5.1
 
 ## 4.5.0

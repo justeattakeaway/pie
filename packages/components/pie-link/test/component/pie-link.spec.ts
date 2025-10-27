@@ -40,6 +40,40 @@ test.describe('PieLink - Component tests', () => {
         await expect(linkComponent).not.toHaveAttribute('type', 'submit');
     });
 
+    test('should correctly download files when download is an empty string', async ({ page }) => {
+        // Arrange
+        const linkPage = new BasePage(page, 'link--download');
+
+        await linkPage.load();
+
+        // Act
+        const linkComponent = page.getByTestId(link.selectors.anchor.dataTestId);
+        const downloadPromise = page.waitForEvent('download');
+        await linkComponent.click();
+        const download = await downloadPromise;
+
+        // Assert
+        expect(download.suggestedFilename()).toBe('logo--pie--dark.svg');
+        expect(download.url()).toContain('/static/images/logo--pie--dark.svg');
+    });
+
+    test('should correctly download files with custom filename when download is a non-empty string', async ({ page }) => {
+        // Arrange
+        const linkPage = new BasePage(page, 'link--download-with-filename');
+
+        await linkPage.load();
+
+        // Act
+        const linkComponent = page.getByTestId(link.selectors.anchor.dataTestId);
+        const downloadPromise = page.waitForEvent('download');
+        await linkComponent.click();
+        const download = await downloadPromise;
+
+        // Assert
+        expect(download.suggestedFilename()).toBe('pie-logo.svg');
+        expect(download.url()).toContain('/static/images/logo--pie--dark.svg');
+    });
+
     test('should render as button when tag="button"', async ({ page }) => {
         // Arrange
         const linkPage = new BasePage(page, 'link');

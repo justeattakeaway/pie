@@ -125,7 +125,6 @@ jobs:
     # 1. Defines a list of packages with their versions.
     # 2. Filters out and creates a separate list (`REST_PACKAGES`) excluding:
     #    - The aforementioned 'pie-docs' and 'pie-storybook' packages.
-    #    - Any package whose name starts with "wc-" (Example apps).
     #    - The 'pie-monorepo' package.
     # 3. Combines the prioritized and the rest of the packages into one list (`COMBINED_PACKAGES`).
     # 4. For each package in `COMBINED_PACKAGES`, creates a Slack message block:
@@ -137,7 +136,7 @@ jobs:
       id: generate_payload
       run: |
         PACKAGES='${{ steps.changesets-main.outputs.publishedPackages}}'
-        REST_PACKAGES=$(echo "$PACKAGES" | jq -c '[.[] | select((.name != "@justeattakeaway/pie-docs" and .name != "@justeattakeaway/pie-storybook") and (.name | startswith("wc-") | not) and .name != "pie-monorepo")]')
+        REST_PACKAGES=$(echo "$PACKAGES" | jq -c '[.[] | select((.name != "@justeattakeaway/pie-docs" and .name != "@justeattakeaway/pie-storybook" and .name != "pie-monorepo"))]')
 
         PRIORITIZED_BLOCKS=$(echo "$PACKAGES" | jq -c '
             map(select(.name == "@justeattakeaway/pie-docs" or .name == "@justeattakeaway/pie-storybook")) |

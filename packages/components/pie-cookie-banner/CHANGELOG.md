@@ -1,5 +1,37 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.6.28
+
+### Patch Changes
+
+- Updated dependencies [[`9250d39`](https://github.com/justeattakeaway/pie/commit/9250d390b1b5c4e6a7a3d68f928b369930b66af3)]:
+  - @justeattakeaway/pie-modal@1.17.4
+  - @justeattakeaway/pie-button@1.9.1
+  - @justeattakeaway/pie-divider@1.5.3
+  - @justeattakeaway/pie-icon-button@2.2.4
+  - @justeattakeaway/pie-link@1.3.1
+  - @justeattakeaway/pie-switch@2.3.4
+  - @justeattakeaway/pie-webc-core@3.0.2
+
+## 1.6.27
+
+### Patch Changes
+
+- Updated dependencies [[`3c1da54`](https://github.com/justeattakeaway/pie/commit/3c1da545d48e106f5b5307707a12fd4512c56293)]:
+  - @justeattakeaway/pie-button@1.9.0
+  - @justeattakeaway/pie-link@1.3.0
+  - @justeattakeaway/pie-modal@1.17.3
+
+## 1.6.26
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.2.3
+  - @justeattakeaway/pie-link@1.2.14
+  - @justeattakeaway/pie-modal@1.17.2
+  - @justeattakeaway/pie-switch@2.3.3
+
 ## 1.6.25
 
 ### Patch Changes

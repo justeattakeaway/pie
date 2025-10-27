@@ -1,5 +1,39 @@
 # Changelog
 
+## 4.55.0
+
+### Minor Changes
+
+- [Updated] - notification docs ([#2592](https://github.com/justeattakeaway/pie/pull/2592)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens to v7.8.2 ([#2593](https://github.com/justeattakeaway/pie/pull/2593)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`9250d39`](https://github.com/justeattakeaway/pie/commit/9250d390b1b5c4e6a7a3d68f928b369930b66af3)]:
+  - @justeattakeaway/pie-css@0.23.2
+  - @justeattakeaway/pie-webc@0.7.28
+  - @justeattakeaway/pie-icons-webc@1.16.1
+
+## 4.54.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.27
+
+## 4.54.0
+
+### Minor Changes
+
+- [Added] - support xxs size for regular icons ([#2585](https://github.com/justeattakeaway/pie/pull/2585)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`6bda90d`](https://github.com/justeattakeaway/pie/commit/6bda90d2ca60d1b6d74fd93b46a9dc1cfda2bda9)]:
+  - @justeattakeaway/pie-icons-webc@1.16.0
+  - @justeattakeaway/pie-webc@0.7.26
+
 ## 4.53.1
 
 ### Patch Changes

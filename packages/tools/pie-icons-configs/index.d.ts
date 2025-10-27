@@ -1,4 +1,4 @@
-declare const regularIconSizes: readonly ['xs', 's', 'm', 'l', 'xl', 'xxl'];
+declare const regularIconSizes: readonly ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl'];
 declare type RegularIconSize = typeof regularIconSizes[number];
 declare type LargeIconSize = number | string;
 

@@ -45,6 +45,13 @@ export interface LinkProps {
      * What the relationship of the linked URL is
      */
     rel?: string;
+
+    /**
+     * Sets the download attribute to trigger file downloads. When an empty string, sets the download attribute without a value.
+     * When a non-empty string, sets the download attribute with the specified filename. Only available when `tag` is `a`.
+     * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download)
+     */
+    download?: string;
     /**
      * When true, the link text will be bold.
      */
@@ -68,7 +75,7 @@ export interface LinkProps {
     type?: typeof buttonTypes[number];
 }
 
-export type DefaultProps = ComponentDefaultProps<LinkProps, keyof Omit<LinkProps, 'aria' | 'href' | 'target' | 'rel'>>;
+export type DefaultProps = ComponentDefaultProps<LinkProps, keyof Omit<LinkProps, 'aria' | 'href' | 'target' | 'rel' | 'download'>>;
 
 export const defaultProps: DefaultProps = {
     tag: 'a',
