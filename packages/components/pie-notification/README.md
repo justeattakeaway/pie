@@ -32,7 +32,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 ### Properties
 | Prop | Options | Description | Default |
 | --- | --- | --- | --- |
-| `variant` | `"neutral"`, `"neutral-alternative"`, `"info"`, `"success"`, `"warning"`, `"error"` | Sets the variant of the notification. | `"neutral"` |
+| `variant` | `"neutral"`, `"neutral-alternative"`, `"info"`, `"success"`, `"warning"`, `"error"`, `"translucent"` | Sets the variant of the notification. | `"neutral"` |
 | `position` | `"inline-content"`, `"full-width"` | Defines the proper styles, whether the component appears within the content or at the top of the interface. | `"inline-content"` |
 | `heading` | — | The heading text of the notification. | `undefined` |
 | `headingLevel` | `h2`, `h3`, `h4`, `h5`, `h6` | The HTML tag to use for the notification's heading. | `h2` |
