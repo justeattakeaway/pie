@@ -436,6 +436,56 @@ const TextTruncationTemplate: TemplateFunction<TagProps> = () => html`
 
 const createTextTruncationStory = createStory<TagProps>(TextTruncationTemplate, defaultArgs);
 
+const TranslucentOverImageTemplate: TemplateFunction<TagProps> = () => html`
+    <div style="display: flex; flex-direction: column; gap: 24px; align-items: flex-start;">
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 8px 0; font-size: 14px;">Translucent Tags Over Gradient</h4>
+            <div style="
+                position: relative;
+                background: linear-gradient(to right, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+                border-radius: 8px;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                padding: 24px;
+                align-items: flex-start;
+                width: max-content;
+            ">
+                <pie-tag variant="translucent" size="large">
+                    <icon-info-circle slot="icon"></icon-info-circle>
+                    Large with icon
+                </pie-tag>
+                <pie-tag variant="translucent" size="large">
+                    Large without icon
+                </pie-tag>
+                <pie-tag variant="translucent" size="small">
+                    <icon-info-circle slot="icon"></icon-info-circle>
+                    Small with icon
+                </pie-tag>
+                <pie-tag variant="translucent" size="small">
+                    Small without icon
+                </pie-tag>
+                <pie-tag variant="translucent" size="large" isDimmed>
+                    <icon-info-circle slot="icon"></icon-info-circle>
+                    Dimmed large with icon
+                </pie-tag>
+                <pie-tag variant="translucent" size="large" isDimmed>
+                    Dimmed large without icon
+                </pie-tag>
+                <pie-tag variant="translucent" size="small" isDimmed>
+                    <icon-info-circle slot="icon"></icon-info-circle>
+                    Dimmed small with icon
+                </pie-tag>
+                <pie-tag variant="translucent" size="small" isDimmed>
+                    Dimmed small without icon
+                </pie-tag>
+            </div>
+        </div>
+    </div>
+`;
+
+const createTranslucentOverImageStory = createStory<TagProps>(TranslucentOverImageTemplate, defaultArgs);
+
 export const NeutralVariations = createVariantStory<TagProps>(Template, neutralPropsMatrix);
 export const InformationVariations = createVariantStory<TagProps>(Template, informationPropsMatrix);
 export const SuccessVariations = createVariantStory<TagProps>(Template, successPropsMatrix);
@@ -460,5 +510,8 @@ export const TextTruncation = createTextTruncationStory({}, {
 });
 export const CustomStyledTags = createCombinedCustomStory({}, {
     bgColor: 'dark (container-dark)',
+    controls: { disable: true },
+});
+export const TranslucentOverImage = createTranslucentOverImageStory({}, {
     controls: { disable: true },
 });

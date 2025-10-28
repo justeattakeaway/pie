@@ -37,3 +37,11 @@ test('should render text truncation correctly for different tag sizes and varian
 
     await percySnapshot(page, 'PIE Tag - Text Truncation', percyWidths);
 });
+
+test('should render translucent tags over images correctly', async ({ page }) => {
+    const translucentOverImagePage = new BasePage(page, 'tag--translucent-over-image');
+
+    await translucentOverImagePage.load();
+
+    await percySnapshot(page, 'PIE Tag - Translucent Over Image', percyWidths);
+});
