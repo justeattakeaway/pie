@@ -233,7 +233,7 @@ jobs:
       package-dist-directory: ./apps/pie-storybook/dist
       bucket-name-preview: 'pie-storybook-preview'
       bucket-name-main: 'pie-storybook'
-      destination-dir: 'testing'
+      destination-dir: '/testing/'
       build-script: 'build:testing'
       sub-domain-suffix: 'storybook-testing'
       aws-role-arn: ${{ vars.AWS_ROLE_ARN }}
