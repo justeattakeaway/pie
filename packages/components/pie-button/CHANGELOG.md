@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.9.2
+
+### Patch Changes
+
+- [Updated] - remove unused css variable and tidy up styles ([#2596](https://github.com/justeattakeaway/pie/pull/2596)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.9.1
 
 ### Patch Changes

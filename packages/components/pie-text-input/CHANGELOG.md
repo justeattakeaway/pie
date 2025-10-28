@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-text-input
 
+## 0.29.5
+
+### Patch Changes
+
+- [Updated] - remove unused css variable and tidy up styles ([#2596](https://github.com/justeattakeaway/pie/pull/2596)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.29.4
 
 ### Patch Changes
