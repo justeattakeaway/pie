@@ -163,9 +163,43 @@ jobs:
         run: |
           echo "SUB_DOMAIN=pr${{ github.event.number }}-${SUB_DOMAIN_SUFFIX}" >> "$GITHUB_ENV"
 
+      # Add debugging step before the domain association operations
+      - name: Debug Amplify and Domain Setup
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          echo "=== AWS Identity ==="
+          aws sts get-caller-identity
+          
+          echo "=== Amplify App Info ==="
+          aws amplify get-app --app-id ${{ env.AMPLIFY_ID }} --region ${{ env.AWS_REGION }}
+          
+          echo "=== List Domain Associations ==="
+          aws amplify list-domain-associations --app-id ${{ env.AMPLIFY_ID }} --region ${{ env.AWS_REGION }} || echo "No domain associations found"
+          
+          echo "=== Try to get pie.design domain association ==="
+          aws amplify get-domain-association \
+            --app-id ${{ env.AMPLIFY_ID }} \
+            --domain-name pie.design \
+            --region ${{ env.AWS_REGION }} || echo "pie.design domain association not found"
+
       - name: Get existing domain associations
         if: github.event_name == 'pull_request'
         run: |
+          # Check if domain exists first
+          DOMAIN_EXISTS=$(aws amplify list-domain-associations \
+            --app-id ${{ env.AMPLIFY_ID }} \
+            --region ${{ env.AWS_REGION }} \
+            --query 'domainAssociations[?domainName==`pie.design`]' \
+            --output text)
+          
+          if [ -z "$DOMAIN_EXISTS" ]; then
+            echo "ERROR: pie.design domain is not associated with this Amplify app"
+            echo "Available domains:"
+            aws amplify list-domain-associations --app-id ${{ env.AMPLIFY_ID }} --region ${{ env.AWS_REGION }}
+            exit 1
+          fi
+          
           DOMAIN_ASSOCIATIONS=$(aws amplify get-domain-association \
             --app-id ${{ env.AMPLIFY_ID }} \
             --domain-name pie.design \
@@ -177,7 +211,7 @@ jobs:
                 . + [{"branchName": "pr${{ github.event.number }}", "prefix": "${{ env.SUB_DOMAIN }}"}]
               else . end
             ' -c)
-            echo "DOMAIN_ASSOCIATIONS=$DOMAIN_ASSOCIATIONS" >> "$GITHUB_ENV"
+          echo "DOMAIN_ASSOCIATIONS=$DOMAIN_ASSOCIATIONS" >> "$GITHUB_ENV"
 
       - name: Create Subdomain Association
         if: github.event_name == 'pull_request'
