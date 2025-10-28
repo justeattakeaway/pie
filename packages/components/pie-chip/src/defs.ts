@@ -1,6 +1,6 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-export const variants = ['default', 'outline', 'ghost'] as const;
+export const variants = ['default', 'outline', 'ghost', 'translucent'] as const;
 export const types = ['button', 'checkbox'] as const;
 
 type AriaProps = {

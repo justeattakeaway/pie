@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.57.0
+
+### Minor Changes
+
+- [Added] - support transulcent vairaint and trailing icon ([#2599](https://github.com/justeattakeaway/pie/pull/2599)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - support a new translucent variant ([#2596](https://github.com/justeattakeaway/pie/pull/2596)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`0485b23`](https://github.com/justeattakeaway/pie/commit/0485b2343c58a68c9783afaa5323dcb5f3f83116), [`6113cbf`](https://github.com/justeattakeaway/pie/commit/6113cbf773bdadbcf051438196e50bfaf26c716c), [`fe51bf9`](https://github.com/justeattakeaway/pie/commit/fe51bf96e23a7db54c5fd923135649ddd5e358ab), [`fe51bf9`](https://github.com/justeattakeaway/pie/commit/fe51bf96e23a7db54c5fd923135649ddd5e358ab)]:
+  - @justeattakeaway/pie-chip@0.15.0
+  - @justeattakeaway/pie-modal@1.17.5
+  - @justeattakeaway/pie-notification@0.20.0
+  - @justeattakeaway/pie-icon-button@2.3.0
+  - @justeattakeaway/pie-text-input@0.29.5
+  - @justeattakeaway/pie-button@1.9.2
+  - @justeattakeaway/pie-select@0.8.5
+  - @justeattakeaway/pie-tag@0.21.3
+  - @justeattakeaway/pie-cookie-banner@1.6.29
+  - @justeattakeaway/pie-toast@0.12.9
+  - @justeattakeaway/pie-toast-provider@0.7.10
+
 ## 1.56.0
 
 ### Minor Changes
