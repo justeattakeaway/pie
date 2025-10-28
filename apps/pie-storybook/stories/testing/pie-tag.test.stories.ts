@@ -11,6 +11,9 @@ import {
 } from '@justeattakeaway/pie-tag';
 import '@justeattakeaway/pie-icons-webc/dist/IconOfferFilled.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconFingerprint.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconInfoCircle.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconAlertTriangleFilled.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconCheckCircleFilled.js';
 
 import { type SlottedComponentProps } from '../../types';
 import {
@@ -337,6 +340,102 @@ const RawSVGSlotTemplate: TemplateFunction<TagProps> = () => html`
 
 const createRawSVGSlotStory = createStory<TagProps>(RawSVGSlotTemplate, defaultArgs);
 
+const TextTruncationTemplate: TemplateFunction<TagProps> = () => html`
+    <div style="display: flex; flex-direction: column; gap: 24px; align-items: flex-start;">
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 8px 0; font-size: 14px;">Large Tags Without Icon - Different Max-Widths</h4>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="max-width: 150px;">
+                    <pie-tag size="large" variant="information" style="width: 100%;">
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+                <div style="max-width: 100px;">
+                    <pie-tag size="large" variant="information" style="width: 100%;">
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+                <div style="max-width: 50px;">
+                    <pie-tag size="large" variant="information" style="width: 100%;">
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 8px 0; font-size: 14px;">Large Tags With Icon - Different Max-Widths</h4>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="max-width: 150px;">
+                    <pie-tag size="large" variant="information" style="width: 100%;">
+                        <icon-info-circle slot="icon"></icon-info-circle>
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+                <div style="max-width: 100px;">
+                    <pie-tag size="large" variant="information" style="width: 100%;">
+                        <icon-info-circle slot="icon"></icon-info-circle>
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+                <div style="max-width: 50px;">
+                    <pie-tag size="large" variant="information" style="width: 100%;">
+                        <icon-info-circle slot="icon"></icon-info-circle>
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 8px 0; font-size: 14px;">Small Tags Without Icon - Different Max-Widths</h4>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="max-width: 150px;">
+                    <pie-tag size="small" variant="information" style="width: 100%;">
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+                <div style="max-width: 100px;">
+                    <pie-tag size="small" variant="information" style="width: 100%;">
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+                <div style="max-width: 50px;">
+                    <pie-tag size="small" variant="information" style="width: 100%;">
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 8px 0; font-size: 14px;">Small Tags With Icon - Different Max-Widths</h4>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="max-width: 150px;">
+                    <pie-tag size="small" variant="information" style="width: 100%;">
+                        <icon-info-circle slot="icon"></icon-info-circle>
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+                <div style="max-width: 100px;">
+                    <pie-tag size="small" variant="information" style="width: 100%;">
+                        <icon-info-circle slot="icon"></icon-info-circle>
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+                <div style="max-width: 50px;">
+                    <pie-tag size="small" variant="information" style="width: 100%;">
+                        <icon-info-circle slot="icon"></icon-info-circle>
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+const createTextTruncationStory = createStory<TagProps>(TextTruncationTemplate, defaultArgs);
+
 export const NeutralVariations = createVariantStory<TagProps>(Template, neutralPropsMatrix);
 export const InformationVariations = createVariantStory<TagProps>(Template, informationPropsMatrix);
 export const SuccessVariations = createVariantStory<TagProps>(Template, successPropsMatrix);
@@ -354,6 +453,9 @@ export const Brand06Variations = createVariantStory<TagProps>(Template, brand06P
 export const Brand08Variations = createVariantStory<TagProps>(Template, brand08PropsMatrix);
 export const IconOnlyVariations = createVariantStory<TagProps>(Template, iconOnlyPropsMatrix);
 export const RawSVGSlot = createRawSVGSlotStory({}, {
+    controls: { disable: true },
+});
+export const TextTruncation = createTextTruncationStory({}, {
     controls: { disable: true },
 });
 export const CustomStyledTags = createCombinedCustomStory({}, {

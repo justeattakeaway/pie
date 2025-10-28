@@ -29,3 +29,11 @@ test('should render slotted raw SVG icons correctly in all sizes', async ({ page
 
     await percySnapshot(page, 'PIE Tag - Raw SVG Slot', percyWidths);
 });
+
+test('should render text truncation correctly for different tag sizes and variants', async ({ page }) => {
+    const textTruncationPage = new BasePage(page, 'tag--text-truncation');
+
+    await textTruncationPage.load();
+
+    await percySnapshot(page, 'PIE Tag - Text Truncation', percyWidths);
+});

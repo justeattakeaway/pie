@@ -20,6 +20,8 @@
     border: var(--tag-border-width) solid var(--tag-border-color);
     border-radius: var(--tag-border-radius);
 
+    width: 100%;
+
     font-family: var(--tag-font-family);
     font-weight: var(--tag-font-weight);
     font-size: var(--tag-font-size);
@@ -47,6 +49,17 @@
             height: var(--icon-size-override);
             width: var(--icon-size-override);
         }
+    }
+
+    // Ensures text content truncates with ellipsis if too long
+    // The width at which this happens is controlled by applying a width/max-width to
+    // the tag component itself
+    slot:not([name="icon"]) {
+        display: inline-block;
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     // Sizing, spacing and dimensions

@@ -19,6 +19,7 @@
   - [CSS Parts](#css-parts)
   - [Events](#events)
 - [Usage Examples](#usage-examples)
+- [Text Truncation](#text-truncation)
 - [Questions and Support](#questions-and-support)
 - [Contributing](#contributing)
 
@@ -102,6 +103,95 @@ import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/react/Icon
   <IconPlaceholder slot="icon"></IconPlaceholder>
 </PieTag>
 ```
+
+## Text Truncation
+
+The pie-tag component automatically handles text truncation when the content exceeds the available width. Text will be truncated with an ellipsis (`...`) to ensure the tag maintains its intended layout.
+
+### How Text Truncation Works
+
+- Text content in the default slot will automatically truncate when it overflows the tag's container
+- The truncation behaviour is controlled by applying a `width` or `max-width` to the tag component
+- Both small and large tag sizes support text truncation
+- Tags with icons will also truncate text content while preserving the icon display
+- The truncation is CSS based, ensuring that the full text content remains accessible to screen readers
+
+### Usage Examples
+
+**Basic Text Truncation:**
+
+```html
+<!-- HTML -->
+<div style="width: 150px;">
+  <pie-tag style="width: 100%;">
+    This is a very long text that will be truncated with ellipsis
+  </pie-tag>
+</div>
+```
+
+```jsx
+// React
+<div style={{ width: '150px' }}>
+  <PieTag style={{ width: '100%' }}>
+    This is a very long text that will be truncated with ellipsis
+  </PieTag>
+</div>
+```
+
+**Text Truncation with Icon:**
+
+```html
+<!-- HTML -->
+<div style="max-width: 120px;">
+  <pie-tag style="width: 100%;">
+    <icon-info-circle slot="icon"></icon-info-circle>
+    This long text will be truncated while keeping the icon visible
+  </pie-tag>
+</div>
+```
+
+```jsx
+// React
+<div style={{ maxWidth: '120px' }}>
+  <PieTag style={{ width: '100%' }}>
+    <IconInfoCircle slot="icon" />
+    This long text will be truncated while keeping the icon visible
+  </PieTag>
+</div>
+```
+
+**Different Container Widths:**
+
+```html
+<!-- HTML -->
+<!-- 150px container -->
+<div style="max-width: 150px;">
+  <pie-tag variant="information" style="width: 100%;">
+    This text will truncate at 150px width
+  </pie-tag>
+</div>
+
+<!-- 100px container -->
+<div style="max-width: 100px;">
+  <pie-tag variant="information" style="width: 100%;">
+    This text will truncate at 100px width
+  </pie-tag>
+</div>
+
+<!-- 50px container -->
+<div style="max-width: 50px;">
+  <pie-tag variant="information" style="width: 100%;">
+    This text will truncate at 50px width
+  </pie-tag>
+</div>
+```
+
+### Best Practices
+
+- Set Container Widths: Apply `width` or `max-width` to the tag component or its parent container to control when truncation occurs
+- Use Meaningful Text: Ensure the beginning of your text contains the most important information, as the end will be truncated
+- Test Different Widths: Consider how your tags will appear across different screen sizes and container widths
+- Accessibility: The full text content remains accessible to screen readers even when visually truncated
 
 ## Questions and Support
 
