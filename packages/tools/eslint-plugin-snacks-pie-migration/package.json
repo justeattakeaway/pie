@@ -7,7 +7,7 @@
     "lint": "npm-run-all \"lint:*\"",
     "lint:eslint-docs": "npm-run-all \"update:eslint-docs -- --check\"",
     "lint:js": "eslint .",
-    "test": "node tests/lib/rules/snacks-pie-migration.test.js",
+    "test": "vitest",
     "extract-component-data": "node scripts/extract-component-data.js",
     "update:eslint-docs": "eslint-doc-generator"
   },
