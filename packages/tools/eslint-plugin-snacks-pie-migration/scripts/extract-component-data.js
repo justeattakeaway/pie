@@ -1,6 +1,7 @@
-import path from 'path';
-import fs from 'fs';
-import { globSync } from 'glob';
+const path = require('path');
+const fs = require('fs');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const { globSync } = require('glob');
 
 const componentsPath = path.resolve(path.join(process.cwd(), '../../components/'));
 

@@ -18,13 +18,12 @@
     "snacks",
     "PIE"
   ],
-  "main": "./lib/index.cjs",
-  "exports": "./lib/index.cjs",
+  "main": "./lib/index.js",
+  "exports": "./lib/index.js",
   "files": [
     "lib",
     "snacks-components-data.json"
   ],
-  "type": "module",
   "dependencies": {
   },
   "devDependencies": {

@@ -4,9 +4,9 @@
  */
 
 const packageData = require('../package.json');
-const snacksPieMigration = require('./rules/snacks-pie-migration.cjs');
-const deprecatedComponents = require('./rules/deprecated-components.cjs');
-const wasLineModified = require('./util/was-line-modified.cjs');
+const snacksPieMigration = require('./rules/snacks-pie-migration');
+const deprecatedComponents = require('./rules/deprecated-components');
+const wasLineModified = require('./util/was-line-modified');
 
 //------------------------------------------------------------------------------
 // Plugin Definition

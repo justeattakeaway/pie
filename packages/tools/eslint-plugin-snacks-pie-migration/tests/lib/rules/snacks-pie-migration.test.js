@@ -1,5 +1,5 @@
 const { RuleTester } = require('eslint');
-const snacksPieMigration = require('../../../lib/rules/snacks-pie-migration.cjs');
+const snacksPieMigration = require('../../../lib/rules/snacks-pie-migration');
 
 const ruleTester = new RuleTester({
     parserOptions: {
