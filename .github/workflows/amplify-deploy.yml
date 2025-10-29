@@ -64,7 +64,7 @@ jobs:
       deployments: write
       id-token: write
     steps:
-      # Add AWS credentials configuration step after checkout
+      # Checkout the repo
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
@@ -166,7 +166,7 @@ jobs:
       # Get existing domain associations
       - name: Get existing domain associations
         if: github.event_name == 'pull_request'
-        run: |        
+        run: |
           DOMAIN_ASSOCIATIONS=$(aws amplify get-domain-association \
             --app-id ${{ env.AMPLIFY_ID }} \
             --domain-name pie.design \
