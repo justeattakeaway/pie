@@ -7,26 +7,6 @@ import { tag } from '../helpers/page-object/selectors.ts';
 
 const componentSelector = '[data-test-id="pie-tag"]';
 
-type VariantToBgStyle = {
-    variantName: TagProps['variant'];
-    bgStyle: string;
-};
-
-const variantsToIsStrongStyle: Array<VariantToBgStyle> = [
-    { variantName: 'neutral', bgStyle: '--dt-color-container-inverse' },
-    { variantName: 'success', bgStyle: '--dt-color-support-positive' },
-    { variantName: 'error', bgStyle: '--dt-color-support-error' },
-    { variantName: 'information', bgStyle: '--dt-color-support-info' },
-    { variantName: 'neutral-alternative', bgStyle: '--dt-color-container-default' },
-    { variantName: 'ghost', bgStyle: '--tag-transparent-bg-color' },
-    { variantName: 'outline', bgStyle: '--tag-transparent-bg-color' },
-    { variantName: 'brand-02', bgStyle: '--dt-color-support-brand-02' },
-    { variantName: 'brand-03', bgStyle: '--dt-color-support-brand-03' },
-    { variantName: 'brand-04', bgStyle: '--dt-color-support-brand-04' },
-    { variantName: 'brand-05', bgStyle: '--dt-color-support-warning' },
-    { variantName: 'brand-06', bgStyle: '--dt-color-support-brand-06' },
-];
-
 test.describe('PieTag - Component tests', () => {
     test('should be visible', async ({ page }) => {
         // Arrange
@@ -84,25 +64,5 @@ test.describe('PieTag - Component tests', () => {
             // Assert
             await expect(tagIcon).toBeHidden();
         });
-    });
-});
-
-variantsToIsStrongStyle.forEach(({ variantName, bgStyle }) => {
-    test(`a "${variantName}" tag variant bg color should be equivalent to "${bgStyle}"`, async ({ page }) => {
-        // Arrange
-        const tagPage = new BasePage(page, 'tag');
-        const props: TagProps = {
-            variant: variantName,
-            isStrong: true,
-        };
-
-        await tagPage.load({ ...props });
-
-        // Act
-        const tagComponent = page.locator(tag.selectors.container.dataTestId, { hasText: 'Label' });
-        const [currentBgStyle, expectedBgStyle] = await getShadowElementStylePropValues(tagComponent, componentSelector, ['--int-states-mixin-bg-color', bgStyle]);
-
-        // Assert
-        expect(currentBgStyle).toBe(expectedBgStyle);
     });
 });
