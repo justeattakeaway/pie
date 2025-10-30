@@ -31,7 +31,7 @@ export default defineConfig([
             snacksPieMigration
         },
         rules: {
-            "snacks-pie-migration/snacks-pie-migration": "error"
+            "snacks-pie-migration/deprecated-components": "error"
         }
     }
 ]);
@@ -46,7 +46,7 @@ module.exports = {
         '@justeattakeaway/snacks-pie-migration'
     ],
     rules: {
-        '@justeattakeaway/snacks-pie-migration/snacks-pie-migration': 'error',
+        '@justeattakeaway/snacks-pie-migration/deprecated-components': 'error',
     },
 };
 ```
