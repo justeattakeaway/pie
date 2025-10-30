@@ -13,7 +13,6 @@ describe('snacks-pie-migration', () => {
                 rules: {
                     '@justeattakeaway/snacks-pie-migration/snacks-pie-migration': 'error'
                 },
-                // processor: '@justeattakeaway/snacks-pie-migration/changed-lines',
                 parserOptions: {
                     ecmaVersion: 2020,
                     sourceType: 'module',
@@ -22,9 +21,6 @@ describe('snacks-pie-migration', () => {
         });
 
         const results = await eslint.lintText(testCode, { filePath: 'test.js' });
-        // console.log('ESLint results:', JSON.stringify(results, null, 2));
         expect(results[0].messages.length).toBe(1);
-
-        console.log(results[0].messages);
     })
 });
