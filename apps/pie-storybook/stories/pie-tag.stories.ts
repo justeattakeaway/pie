@@ -8,11 +8,10 @@ import {
     variants,
     sizes,
     defaultProps,
-    iconPlacements,
 } from '@justeattakeaway/pie-tag';
-import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconOfferFilled.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconVegan.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconFingerprint.js';
 
 import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
@@ -53,11 +52,11 @@ const tagStoryMeta: TagStoryMeta = {
                 summary: defaultProps.isStrong,
             },
         },
-        disabled: {
-            description: 'For an interactive tag, this applies the disabled attribute to the button and styles it appropriately.<br>For a non-interactive tag, this only applies the disabled styling.',
+        isDimmed: {
+            description: 'When true, applies a dimmed styling to the tag.',
             control: 'boolean',
             defaultValue: {
-                summary: defaultProps.disabled,
+                summary: defaultProps.isDimmed,
             },
         },
         showIcon: {
@@ -66,20 +65,10 @@ const tagStoryMeta: TagStoryMeta = {
             defaultValue: {
                 summary: defaultArgs.showIcon,
             },
-            if: { arg: 'size', eq: 'large' },
         },
         slot: {
             description: 'Content to place within the tag',
             control: 'text',
-        },
-        iconPlacement: {
-            description: 'The placement of the icon slot such as leading or trailing. <br /><br /> Can be only used if `isInteractive` is set to true',
-            control: 'select',
-            options: iconPlacements,
-            defaultValue: {
-                summary: defaultArgs.iconPlacement,
-            },
-            if: { arg: 'isInteractive', eq: true },
         },
     },
     args: defaultArgs,
@@ -96,21 +85,17 @@ export default tagStoryMeta;
 const Template : TemplateFunction<TagProps> = ({
     variant,
     size,
-    isInteractive,
     isStrong,
-    disabled,
+    isDimmed,
     showIcon,
     slot,
-    iconPlacement,
 }) => html`
     <pie-tag
         variant="${ifDefined(variant)}"
         size="${ifDefined(size)}"
-        iconPlacement="${ifDefined(iconPlacement)}"
-        ?isInteractive="${isInteractive}"
         ?isStrong="${isStrong}"
-        ?disabled="${disabled}">
-        ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
+        ?isDimmed="${isDimmed}">
+        ${showIcon ? html`<icon-fingerprint slot="icon"></icon-fingerprint>` : nothing}
         ${sanitizeAndRenderHTML(slot)}
     </pie-tag>
 `;
@@ -168,11 +153,19 @@ export const Brand06 = createTagStory({ variant: 'brand-06' }, {
     },
 });
 
+export const Brand08 = createTagStory({ variant: 'brand-08' });
+
+export const Translucent = createTagStory({ variant: 'translucent' }, {
+    bgColor: 'brand orange',
+    controls: {
+        exclude: ['isStrong'],
+    },
+});
+
 export const IconOnly = createTagStory({
     size: 'large',
     showIcon: true,
     slot: '',
-    isInteractive: false,
     variant: 'brand-06',
 }, {});
 
@@ -208,6 +201,9 @@ const allCustomStyles = `
         align-items: center;
         border-radius: 50%;
         aspect-ratio: 1/1;
+    }
+    pie-tag.custom-style::part(icon)::before {
+        all: initial;
     }
     pie-tag.custom-1::part(body),
     pie-tag.custom-2::part(body) {

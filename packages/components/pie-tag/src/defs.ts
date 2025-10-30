@@ -1,8 +1,23 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-export const variants = ['neutral-alternative', 'neutral', 'outline', 'ghost', 'information', 'success', 'error', 'brand-02', 'brand-03', 'brand-04', 'brand-05', 'brand-06'] as const;
+export const variants = [
+    'neutral',
+    'neutral-alternative',
+    'ghost',
+    'outline',
+    'translucent',
+    'information',
+    'success',
+    'error',
+    'warning',
+    'brand-02',
+    'brand-03',
+    'brand-04',
+    'brand-05',
+    'brand-06',
+    'brand-08'
+] as const;
 export const sizes = ['small', 'large'] as const;
-export const iconPlacements = ['leading', 'trailing'] as const;
 
 export interface TagProps {
     /**
@@ -11,30 +26,19 @@ export interface TagProps {
     variant?: typeof variants[number];
 
     /**
-     * When true, the "information", "success", "error", "brand-05", and "neutral" variants change their styles and become bolder
+     * When true, the "neutral", "information", "success", "error", "warning", "brand-03", "brand-04", "brand-05", "brand-06", and "brand-08" variants change their styles and become bolder
      */
     isStrong?: boolean;
 
     /**
-     * When `true`, the tag will be rendered as a button and can be interacted with.
+     * When true, applies a dimmed styling to the tag.
      */
-    isInteractive?: boolean;
-
-    /**
-     * For an interactive tag, this applies the disabled attribute to the button and styles it appropriately.
-     * For a non-interactive tag, this only applies the disabled styling.
-     */
-    disabled?: boolean;
+    isDimmed?: boolean;
 
     /**
      * What size the tag should be.
      */
     size?: typeof sizes[number];
-
-    /**
-     * The placement of the icon slot such as leading (default) or trailing. Available only if `isInteractive` is set to true.
-     */
-    iconPlacement?: typeof iconPlacements[number];
 }
 
 export type DefaultProps = ComponentDefaultProps<TagProps>;
@@ -42,8 +46,6 @@ export type DefaultProps = ComponentDefaultProps<TagProps>;
 export const defaultProps: DefaultProps = {
     variant: 'neutral',
     isStrong: false,
-    isInteractive: false,
-    disabled: false,
+    isDimmed: false,
     size: 'large',
-    iconPlacement: 'leading',
 };
