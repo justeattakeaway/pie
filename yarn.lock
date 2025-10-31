@@ -4068,9 +4068,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/stylelint-pie-design-tokens@0.1.0, @justeattakeaway/stylelint-pie-design-tokens@workspace:packages/tools/stylelint-no-deprecated-tokens":
+"@justeattakeaway/stylelint-pie-design-tokens@0.1.0, @justeattakeaway/stylelint-pie-design-tokens@workspace:packages/tools/stylelint-pie-design-tokens":
   version: 0.0.0-use.local
-  resolution: "@justeattakeaway/stylelint-pie-design-tokens@workspace:packages/tools/stylelint-no-deprecated-tokens"
+  resolution: "@justeattakeaway/stylelint-pie-design-tokens@workspace:packages/tools/stylelint-pie-design-tokens"
   peerDependencies:
     "@justeat/pie-design-tokens": 7.8.2
   languageName: unknown

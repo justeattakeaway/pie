@@ -8,43 +8,43 @@ const { createPlugin, utils: { report, validateOptions } } = stylelint;
 const ruleName = '@justeattakeaway/stylelint-pie-design-tokens';
 
 /**
+ * Traverse tokens metadata recursively
+ */
+function traverse (obj, path, tokens) {
+    Object.entries(obj).forEach(([key, value]) => {
+        if (!value || typeof value !== 'object') return;
+
+        const newPath = [...path, key];
+        const isToken = value.value !== undefined || value.category || value.status;
+
+        if (isToken) {
+            const tokenName = newPath
+                .filter((p) => p !== 'global' && p !== 'alias')
+                .join('-');
+
+            tokens.set(tokenName, {
+                category: path[0] || '',
+                isDeprecated: value.status?.name === 'deprecated',
+                replacement: value.status?.replacementToken,
+            });
+        } else {
+            traverse(value, newPath, tokens);
+        }
+    });
+}
+
+/**
  * Load and normalize tokens metadata
  */
-
-function getTokens() {
+function getTokens () {
     try {
         const metadataPath = require.resolve('@justeat/pie-design-tokens/metadata/tokensMetadata.json');
         const metadata = JSON.parse(readFileSync(metadataPath, 'utf8'));
 
         const tokens = new Map();
-
-        function traverse(obj, path) {
-            for (const [key, value] of Object.entries(obj)) {
-                if (!value || typeof value !== 'object') continue;
-
-                const newPath = [...path, key];
-                const isToken = value.value !== undefined || value.category || value.status;
-
-                if (isToken) {
-                    const tokenName = newPath
-                        .filter((p) => p !== 'global' && p !== 'alias')
-                        .join('-');
-
-                    tokens.set(tokenName, {
-                        category: path[0] || '',
-                        isDeprecated: value.status?.name === 'deprecated',
-                        replacement: value.status?.replacementToken,
-                    });
-                } else {
-                    traverse(value, newPath);
-                }
-            }
-        }
-
-        traverse(metadata, []);
+        traverse(metadata, [], tokens);
 
         return tokens;
-
     } catch (error) {
         return new Map();
     }
@@ -55,8 +55,8 @@ function getTokens() {
  * @param {Boolean} primaryOption - Enables the plugin
  * @returns {Function} Lint function
  */
-function ruleFunction(primaryOption) {
-    return function lint(root, result) {
+function ruleFunction (primaryOption) {
+    return function lint (root, result) {
         const validOptions = validateOptions(result, ruleName, { actual: primaryOption });
 
         if (!validOptions) return;
@@ -64,10 +64,10 @@ function ruleFunction(primaryOption) {
         const tokens = getTokens();
 
         root.walkDecls((decl) => {
-            const regex = new RegExp(`--(dt|xds)-([a-z0-9-]+)`, 'gi');
+            const regex = new RegExp('--(dt|xds)-([a-z0-9-]+)', 'gi');
             const matches = decl.value.matchAll(regex);
 
-            for (const match of matches) {
+            Array.from(matches).forEach((match) => {
                 const [token, prefix, tokenWithoutPrefix] = match;
                 const tokenInfo = tokens.get(tokenWithoutPrefix);
 
@@ -79,7 +79,7 @@ function ruleFunction(primaryOption) {
                         node: decl,
                         word: token,
                     });
-                    continue;
+                    return;
                 }
 
                 if (tokenInfo.isDeprecated) {
@@ -97,7 +97,7 @@ function ruleFunction(primaryOption) {
                         word: token,
                     });
                 }
-            }
+            });
         });
     };
 }
