@@ -5,7 +5,7 @@ import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const { createPlugin, utils: { report, validateOptions, ruleMessages } } = stylelint;
 
-const ruleName = '@justeattakeaway/stylelint-no-deprecated-tokens';
+const ruleName = '@justeattakeaway/stylelint-pie-design-tokens';
 const messages = ruleMessages(ruleName, {
     deprecated: (token, replacement) => `Token "${token}" is deprecated. ${replacement ? `Use "${replacement}" instead.` : 'Please update to a supported token.'}`,
 });

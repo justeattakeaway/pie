@@ -4,4 +4,4 @@
 
 ### Added
 
-- init `@justeattakeaway/stylelint-no-deprecated-tokens`
+- init `@justeattakeaway/stylelint-pie-design-tokens`

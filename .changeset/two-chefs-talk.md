@@ -3,4 +3,4 @@
 "pie-monorepo": minor
 ---
 
-[Added] - init stylelint-no-deprecated-tokens plugin
+[Added] - init stylelint-pie-design-tokens plugin
