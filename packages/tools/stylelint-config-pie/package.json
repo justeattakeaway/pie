@@ -28,8 +28,8 @@
     "stylelint-order": "6.x"
   },
   "dependencies": {
-    "@justeattakeaway/stylelint-no-deprecated-tokens": "0.1.0",
-    "@justeattakeaway/stylelint-no-logical-props-shorthands": "0.3.0"
+    "@justeattakeaway/stylelint-no-logical-props-shorthands": "0.3.0",
+    "@justeattakeaway/stylelint-pie-design-tokens": "0.1.0"
   },
   "scripts": {
     "lint:scripts": "run -T eslint .",
