@@ -172,6 +172,16 @@ const buttonStoryMeta: ButtonStoryMeta = {
             description: 'Set the href attribute for the underlying anchor tag.',
             control: 'text',
         },
+        download: {
+            description: 'Set the download attribute for the underlying anchor tag. When an empty string, sets the download attribute without a value to trigger file downloads. When a non-empty string, sets the download attribute with the specified filename.',
+            control: {
+                type: 'select',
+            },
+            options: [undefined, '', 'custom-filename.svg'],
+            defaultValue: {
+                summary: undefined,
+            },
+        },
         target: {
             description: 'Set the target attribute for the underlying anchor tag.',
             control: 'text',
@@ -243,6 +253,7 @@ const AnchorTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => ht
         ?isResponsive="${props.isResponsive}"
         responsiveSize="${ifDefined(props.responsiveSize)}"
         href="${ifDefined(props.href)}"
+        download="${ifDefined(props.download)}"
         rel="${ifDefined(props.rel)}"
         target="${ifDefined(props.target)}">
         ${props.iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
@@ -347,7 +358,7 @@ const createButtonStory = createStory<ButtonProps>(Template, defaultArgs);
 
 const createButtonStoryWithForm = createStory<ButtonProps>(FormTemplate, defaultArgs);
 
-const anchorOnlyProps : Array<keyof ButtonProps> = ['href', 'target', 'rel'];
+const anchorOnlyProps = ['href', 'target', 'rel', 'download'] as const;
 
 export const Primary = createButtonStory({}, {
     controls: { exclude: ['variant', ...anchorOnlyProps] },
@@ -396,7 +407,7 @@ export const OutlineInverse = createButtonStory({ variant: 'outline-inverse' }, 
 });
 
 export const Anchor = createStory(AnchorTemplate, defaultArgs)({
-    href: '/?path=/story/button--anchor',
+    href: '/static/images/logo--pie--dark.svg',
 }, {
     argTypes: {
         tag: {

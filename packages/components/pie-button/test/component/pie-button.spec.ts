@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { ButtonDefaultPage } from '../helpers/page-object/pie-button-default.page.ts';
 import { ButtonAnchorPage } from '../helpers/page-object/pie-button-anchor.page.ts';
+import { ButtonAnchorWithDownloadPage } from '../helpers/page-object/pie-button-anchor-download.page.ts';
+import { ButtonAnchorWithDownloadFilenamePage } from '../helpers/page-object/pie-button-anchor-download-filename.page.ts';
 import { FormIntegrationPage, type FormInput } from '../helpers/page-object/pie-button-form-integration.page.ts';
 import { FormAttributesPage } from '../helpers/page-object/pie-button-form-attributes.page.ts';
 import { FormSubmissionPage } from '../helpers/page-object/pie-button-form-submission.page.ts';
@@ -332,6 +334,38 @@ test.describe('props', () => {
                 await expect.soft(anchor).not.toHaveAttribute('disabled');
                 await expect.soft(anchor).not.toHaveAttribute('type');
                 await expect(spinner).not.toBeVisible();
+            });
+
+            test('should correctly download files when download is an empty string', async ({ page }) => {
+                // Arrange
+                const buttonAnchorPage = new ButtonAnchorWithDownloadPage(page);
+                await buttonAnchorPage.load();
+
+                // Act
+                const anchor = buttonAnchorPage.buttonComponent.componentLocator;
+                const downloadPromise = page.waitForEvent('download');
+                await anchor.click();
+                const download = await downloadPromise;
+
+                // Assert
+                expect(download.suggestedFilename()).toBe('logo--pie--dark.svg');
+                expect(download.url()).toContain('/static/images/logo--pie--dark.svg');
+            });
+
+            test('should correctly download files with custom filename when download is a non-empty string', async ({ page }) => {
+                // Arrange
+                const buttonAnchorPage = new ButtonAnchorWithDownloadFilenamePage(page);
+                await buttonAnchorPage.load();
+
+                // Act
+                const anchor = buttonAnchorPage.buttonComponent.componentLocator;
+                const downloadPromise = page.waitForEvent('download');
+                await anchor.click();
+                const download = await downloadPromise;
+
+                // Assert
+                expect(download.suggestedFilename()).toBe('pie-logo.svg');
+                expect(download.url()).toContain('/static/images/logo--pie--dark.svg');
             });
         });
     });

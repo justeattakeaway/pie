@@ -132,6 +132,7 @@ const notificationStoryMeta: NotificationStoryMeta = {
             defaultValue: {
                 summary: defaultProps.hasStackedActions,
             },
+            if: { arg: 'isCompact', eq: false },
         },
         slot: {
             description: 'Content to place within the notification.',
@@ -210,3 +211,4 @@ export const Info = createNotificationStory({ variant: 'info' });
 export const Success = createNotificationStory({ variant: 'success' });
 export const Error = createNotificationStory({ variant: 'error' });
 export const Warning = createNotificationStory({ variant: 'warning' });
+export const Translucent = createNotificationStory({ variant: 'translucent' });

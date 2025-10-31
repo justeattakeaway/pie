@@ -1,5 +1,41 @@
 # Changelog
 
+## 1.9.2
+
+### Patch Changes
+
+- [Updated] - remove unused css variable and tidy up styles ([#2596](https://github.com/justeattakeaway/pie/pull/2596)) by [@raoufswe](https://github.com/raoufswe)
+
+## 1.9.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.3.3
+  - @justeattakeaway/pie-webc-core@3.0.2
+
+## 1.9.0
+
+### Minor Changes
+
+- [Added] - `download` attribute for providing filenames. ([#2578](https://github.com/justeattakeaway/pie/pull/2578)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 1.8.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.3.2
+  - @justeattakeaway/pie-webc-core@3.0.1
+
+## 1.8.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.3.1
+  - @justeattakeaway/pie-webc-core@3.0.0
+
 ## 1.8.0
 
 ### Minor Changes

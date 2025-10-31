@@ -137,6 +137,7 @@ const createChipStory = createStory<ChipProps>(Template, defaultArgs);
 export const Default = createChipStory();
 export const Outline = createChipStory({ variant: 'outline' });
 export const Ghost = createChipStory({ variant: 'ghost' });
+export const Translucent = createChipStory({ variant: 'translucent' });
 
 const handleCheckboxChange = (event: Event) => {
     const chip = event.currentTarget as PieChip;

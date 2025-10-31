@@ -3,6 +3,6 @@ eleventyNavigation:
     key: Colour
     parent: Foundations
     url: /foundations/colour/
-    order: 2
+    order: 3
 permalink: false
 ---

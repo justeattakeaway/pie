@@ -85,6 +85,14 @@ Icon buttons feature simple and recognizable icons that represent a specific act
       alt: "Outline variant of an icon button."
     } %}
   {% endcontentItem %}
+    {% contentItem %}
+    <h3>Translucent</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/icon-button/variation-translucent.svg",
+      width: 56,
+      alt: "Translucent variant of an icon button."
+    } %}
+  {% endcontentItem %}
   {% contentItem %}
     <h3>Ghost</h3>
     {% contentPageImage {

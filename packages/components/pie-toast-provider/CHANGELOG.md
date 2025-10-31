@@ -1,5 +1,50 @@
 # @justeattakeaway/pie-toast-provider
 
+## 0.7.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.12.9
+
+## 0.7.9
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.12.8
+  - @justeattakeaway/pie-webc-core@3.0.2
+
+## 0.7.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.12.7
+
+## 0.7.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.12.6
+
+## 0.7.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.12.5
+  - @justeattakeaway/pie-webc-core@3.0.1
+
+## 0.7.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.12.4
+  - @justeattakeaway/pie-webc-core@3.0.0
+
 ## 0.7.4
 
 ### Patch Changes

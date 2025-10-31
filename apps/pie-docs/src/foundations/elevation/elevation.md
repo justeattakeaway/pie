@@ -3,6 +3,6 @@ eleventyNavigation:
     key: Elevation
     parent: Foundations
     url: /foundations/elevation/
-    order: 3
+    order: 4
 permalink: false
 ---

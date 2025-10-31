@@ -1,5 +1,57 @@
 # @justeattakeaway/pie-notification
 
+## 0.20.0
+
+### Minor Changes
+
+- [Added] - support a new translucent variant ([#2596](https://github.com/justeattakeaway/pie/pull/2596)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Updated] - remove unused css variable and tidy up styles ([#2596](https://github.com/justeattakeaway/pie/pull/2596)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`fe51bf9`](https://github.com/justeattakeaway/pie/commit/fe51bf96e23a7db54c5fd923135649ddd5e358ab), [`fe51bf9`](https://github.com/justeattakeaway/pie/commit/fe51bf96e23a7db54c5fd923135649ddd5e358ab)]:
+  - @justeattakeaway/pie-icon-button@2.3.0
+
+## 0.19.0
+
+### Minor Changes
+
+- [Updated] - notificaition icons to have a background container ([#2592](https://github.com/justeattakeaway/pie/pull/2592)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.2.4
+  - @justeattakeaway/pie-webc-core@3.0.2
+  - @justeattakeaway/pie-icons-webc@1.16.1
+
+## 0.18.3
+
+### Patch Changes
+
+- Updated dependencies [[`6bda90d`](https://github.com/justeattakeaway/pie/commit/6bda90d2ca60d1b6d74fd93b46a9dc1cfda2bda9)]:
+  - @justeattakeaway/pie-icons-webc@1.16.0
+  - @justeattakeaway/pie-icon-button@2.2.3
+
+## 0.18.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.2.2
+  - @justeattakeaway/pie-webc-core@3.0.1
+  - @justeattakeaway/pie-icons-webc@1.15.2
+
+## 0.18.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.2.1
+  - @justeattakeaway/pie-webc-core@3.0.0
+  - @justeattakeaway/pie-icons-webc@1.15.1
+
 ## 0.18.0
 
 ### Minor Changes

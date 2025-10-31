@@ -23,6 +23,8 @@ const componentSelector = 'pie-tag';
  * @tagname pie-tag
  * @slot icon - The icon slot
  * @slot - Default slot
+ * @csspart body - The main container of the tag.
+ * @csspart icon - The container for the icon slot.
  */
 @safeCustomElement('pie-tag')
 export class PieTag extends PieElement implements TagProps {
@@ -93,12 +95,13 @@ export class PieTag extends PieElement implements TagProps {
     private renderIconSlot () {
         if (this.size !== 'large') return nothing;
 
-        return html`<slot name="icon" @slotchange=${this.handleSlotChange}></slot>`;
+        return html`<slot part="icon" name="icon" @slotchange=${this.handleSlotChange}></slot>`;
     }
 
     private renderTag (classes: ClassInfo) {
         return html`
         <div
+            part="body"
             class="${classMap(classes)}"
             data-test-id="pie-tag">
             ${this.renderIconSlot()}
@@ -109,6 +112,7 @@ export class PieTag extends PieElement implements TagProps {
     private renderButtonTag (classes: ClassInfo) {
         return html`
         <button
+            part="body"
             type="button"
             ?disabled="${this.disabled}"
             class="${classMap(classes)}"
