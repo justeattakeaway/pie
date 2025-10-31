@@ -1,5 +1,5 @@
 import { html, nothing, unsafeCSS } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { property, state, queryAssignedElements } from 'lit/decorators.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
@@ -40,8 +40,15 @@ export class PieDataTableHeader extends PieElement implements DataTableHeaderPro
     @validPropertyValues(componentSelector, dataTableHeaderVariant, defaultProps.variant)
     public variant?: typeof defaultProps.variant;
 
+    @queryAssignedElements({ slot: 'action-button', flatten: true })
+    private _actionButtonSlot!: Array<HTMLElement>;
+
     @state()
     private hasActionButtons = false;
+
+    private handleActionButtonSlotChange () {
+        this.hasActionButtons = Boolean(this._actionButtonSlot.length);
+    }
 
     /**
      * Handles the slot change event to determine if there are action buttons.
@@ -57,11 +64,7 @@ export class PieDataTableHeader extends PieElement implements DataTableHeaderPro
      * Lit lifecycle: called after the component's DOM has been rendered the first time.
      */
     firstUpdated () {
-        // Get the named slot element after shadowRoot is ready
-        const slot = this.shadowRoot?.querySelector('slot[name="action-button"]') as HTMLSlotElement | null;
-        if (slot) {
-            this.hasActionButtons = slot.assignedElements().length > 0;
-        }
+        this.handleActionButtonSlotChange();
     }
 
     render () {
