@@ -4,19 +4,19 @@ export const dataTableHeaderVariant = ['subtle', 'strong'];
 
 export interface DataTableHeaderProps {
   /**
-   * Title text for the data table header
+   * Heading text for the data table header
    */
-  title: string;
+  heading: string;
   /**
-   * Subtitle text for the data table header
+   * Sub heading text for the data table header
    */
-  subtitle?: string;
+  subHeading?: string;
   /**
    * Emphasis level for the header
    */
   variant?: typeof dataTableHeaderVariant[number];
 }
 
-export const defaultProps: ComponentDefaultProps<DataTableHeaderProps, keyof Omit<DataTableHeaderProps, 'title' | 'subtitle'>> = {
+export const defaultProps: ComponentDefaultProps<DataTableHeaderProps, keyof Omit<DataTableHeaderProps, 'heading' | 'subHeading'>> = {
     variant: 'subtle',
 };

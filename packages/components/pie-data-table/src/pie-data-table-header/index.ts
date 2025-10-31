@@ -1,5 +1,5 @@
 import { html, nothing, unsafeCSS } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { property, state, queryAssignedElements } from 'lit/decorators.js';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
 import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
@@ -22,16 +22,16 @@ const componentSelector = 'pie-data-table-header';
 @safeCustomElement('pie-data-table-header')
 export class PieDataTableHeader extends PieElement implements DataTableHeaderProps {
     /**
-     * Title text for the data table header
+     * heading text for the data table header
      */
     @property({ type: String })
-    public title!: DataTableHeaderProps['title'];
+    public heading!: DataTableHeaderProps['heading'];
 
     /**
-     * Subtitle text for the data table header
+     * Sub heading text for the data table header
      */
     @property({ type: String })
-    public subtitle: DataTableHeaderProps['subtitle'];
+    public subHeading: DataTableHeaderProps['subHeading'];
 
     /**
      * Emphasis level for the header
@@ -40,8 +40,15 @@ export class PieDataTableHeader extends PieElement implements DataTableHeaderPro
     @validPropertyValues(componentSelector, dataTableHeaderVariant, defaultProps.variant)
     public variant?: typeof defaultProps.variant;
 
+    @queryAssignedElements({ slot: 'action-button', flatten: true })
+    private _actionButtonSlot!: Array<HTMLElement>;
+
     @state()
     private hasActionButtons = false;
+
+    private handleActionButtonSlotChange () {
+        this.hasActionButtons = Boolean(this._actionButtonSlot.length);
+    }
 
     /**
      * Handles the slot change event to determine if there are action buttons.
@@ -57,15 +64,11 @@ export class PieDataTableHeader extends PieElement implements DataTableHeaderPro
      * Lit lifecycle: called after the component's DOM has been rendered the first time.
      */
     firstUpdated () {
-        // Get the named slot element after shadowRoot is ready
-        const slot = this.shadowRoot?.querySelector('slot[name="action-button"]') as HTMLSlotElement | null;
-        if (slot) {
-            this.hasActionButtons = slot.assignedElements().length > 0;
-        }
+        this.handleActionButtonSlotChange();
     }
 
     render () {
-        const { title, subtitle, variant } = this;
+        const { heading, subHeading, variant } = this;
 
         const classes = {
             'c-data-table-header': true,
@@ -74,10 +77,10 @@ export class PieDataTableHeader extends PieElement implements DataTableHeaderPro
 
         return html`
             <header class="${classMap(classes)}">
-                <div class="c-data-table-header-title-wrapper">
-                    ${title ? html`<span class="c-data-table-header-title">${title}</span>` : nothing}
+                <div class="c-data-table-header-heading-wrapper">
+                    ${heading ? html`<span class="c-data-table-header-heading">${heading}</span>` : nothing}
 
-                    ${subtitle ? html`<span class="c-data-table-header-subtitle">${subtitle}</span>` : nothing}
+                    ${subHeading ? html`<span class="c-data-table-header-sub-heading">${subHeading}</span>` : nothing}
                 </div>
                 ${this.hasActionButtons ? html`
                     <div class="c-data-table-action-buttons-wrapper">

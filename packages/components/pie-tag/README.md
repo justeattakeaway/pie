@@ -16,6 +16,7 @@
   - [Properties](#properties)
   - [Slots](#slots)
   - [CSS Variables](#css-variables)
+  - [CSS Parts](#css-parts)
   - [Events](#events)
 - [Usage Examples](#usage-examples)
 - [Questions and Support](#questions-and-support)
@@ -47,6 +48,12 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 ### CSS Variables
 This component does not expose any CSS variables for style overrides.
+
+### CSS Parts
+| Part      | Description                                                  |
+|-----------|--------------------------------------------------------------|
+| `body` | This part allows consumers to fully rewrite the styles of the tag container element. This allows for a lot of customisation, but should be used with caution. |
+| `icon`    | Allows full customisation of the tag icon container.                |
 
 ### Events
 

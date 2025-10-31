@@ -3,7 +3,6 @@ const { globSync } = require('glob')
 
 const getPackages = () => {
     const ignore = [
-        'apps/examples/**',
         'node_modules/**', '**/node_modules/**'
     ];
 

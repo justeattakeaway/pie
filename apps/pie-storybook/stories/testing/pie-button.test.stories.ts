@@ -31,6 +31,7 @@ const defaultArgs: ButtonProps = {
     showNativeResetButton: false,
     showSubmitButton: true,
     renderIncorrectForm: false,
+    download: undefined,
 };
 
 const buttonStoryMeta: ButtonStoryMeta = {
@@ -125,6 +126,12 @@ const buttonStoryMeta: ButtonStoryMeta = {
         href: {
             control: 'text',
         },
+        download: {
+            control: {
+                type: 'select',
+            },
+            options: [undefined, '', 'custom-filename.svg'],
+        },
         target: {
             control: 'text',
         },
@@ -167,7 +174,7 @@ const Template: TemplateFunction<ButtonProps> = ({
 }) => html`
 <pie-button
     tag="button"
-    data-test-id="pie-button-${type}"  
+    data-test-id="pie-button-${type}"
     size="${ifDefined(size)}"
     variant="${ifDefined(variant)}"
     type="${ifDefined(type)}"
@@ -194,6 +201,7 @@ const AnchorTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => ht
         ?isResponsive="${props.isResponsive}"
         responsiveSize="${ifDefined(props.responsiveSize)}"
         href="${ifDefined(props.href)}"
+        download="${ifDefined(props.download)}"
         rel="${ifDefined(props.rel)}"
         target="${ifDefined(props.target)}">
         ${props.iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
@@ -310,13 +318,24 @@ const createButtonStoryWithForm = createStory<ButtonProps>(FormTemplate, default
 export const Primary = createButtonStory();
 
 export const Anchor = createStory(AnchorTemplate, defaultArgs)({
-    href: '/?path=/story/button--anchor',
+    href: '/static/images/logo--pie--dark.svg',
 }, {
     argTypes: {
         tag: {
             description: 'Choose the HTML element that will be used to render the button.<br>For this story, the prop has the value of `a`. See the other stories to interact with the component when this prop has a value of `button`.',
         },
     },
+});
+
+// Download specific Stories
+export const AnchorWithDownload = createStory(AnchorTemplate, defaultArgs)({
+    href: '/static/images/logo--pie--dark.svg',
+    download: '',
+});
+
+export const AnchorWithDownloadFilename = createStory(AnchorTemplate, defaultArgs)({
+    href: '/static/images/logo--pie--dark.svg',
+    download: 'pie-logo.svg',
 });
 
 export const FormIntegration = createButtonStoryWithForm({ type: 'submit' });
@@ -330,7 +349,7 @@ const FormSubmissionTemplate: TemplateFunction<ButtonProps> = () => html`
             name="submitButton"
             value="submitValue"
         >
-          Submit
+        Submit
         </pie-button>
     </form>
 `;

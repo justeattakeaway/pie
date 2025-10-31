@@ -8,11 +8,8 @@ inputs:
   aws-region:
     description: 'The AWS region from which to tear down your app'
     required: true
-  aws-access-key-id:
-    description: 'The AWS Access Key for the account that hosts your app'
-    required: true
-  aws-secret-access-key:
-    description: 'The AWS Secret Access Key for the account that hosts your app'
+  aws-role-arn:
+    description: 'The AWS IAM role ARN to assume for OIDC authentication'
     required: true
   environment-name:
     description: 'GitHub environment name to delete'
@@ -37,6 +34,13 @@ runs:
       app-id: ${{ inputs.gh-app-id }}
       private-key: ${{ inputs.gh-app-private-key }}
 
+  - name: Configure AWS credentials
+    uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4.0.2
+    with:
+      role-to-assume: ${{ inputs.aws-role-arn }}
+      role-session-name: github-actions-amplify-teardown-${{ github.run_id }}
+      aws-region: ${{ inputs.aws-region }}
+
   - name: Delete associated GitHub environment
     uses: strumwolf/delete-deployment-environment@a4825dd9648c57da8437a4885c3fcad58beac69c # v3.0.0
     with:
@@ -49,8 +53,6 @@ runs:
     env:
       APP_ID: ${{ inputs.amplify-app-id }}
       BRANCH_NAME: ${{ inputs.branch-name }}
-      AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
-      AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
       AWS_REGION: ${{ inputs.aws-region }}
     run: |
       aws amplify delete-branch \

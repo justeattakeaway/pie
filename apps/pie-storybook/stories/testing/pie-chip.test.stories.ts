@@ -140,6 +140,7 @@ const createChipStory = createStory<ChipProps>(Template, defaultArgs);
 export const Default = createChipStory();
 export const Outline = createChipStory({ variant: 'outline' });
 export const Ghost = createChipStory({ variant: 'ghost' });
+export const Translucent = createChipStory({ variant: 'translucent' });
 
 // Define the prop options for the matrix
 const sharedPropOptions = {
@@ -166,10 +167,17 @@ const outlinePropOptions = {
     variant: ['outline'],
 };
 
+const translucentPropOptions = {
+    ...sharedPropOptions,
+    variant: ['translucent'],
+};
+
 export const DefaultPropVariations = createVariantStory<Omit<ChipProps, 'aria'> >(Template, defaultPropOptions);
 export const GhostPropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, ghostPropOptions);
 export const OutlinePropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, outlinePropOptions);
+export const TranslucentPropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, translucentPropOptions);
 
 export const DefaultCheckboxPropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, { ...defaultPropOptions, type: ['checkbox'] });
 export const GhostCheckboxPropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, { ...ghostPropOptions, type: ['checkbox'] });
 export const OutlineCheckboxPropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, { ...outlinePropOptions, type: ['checkbox'] });
+export const TranslucentCheckboxPropVariations = createVariantStory<Omit<ChipProps, 'aria'>>(Template, { ...translucentPropOptions, type: ['checkbox'] });

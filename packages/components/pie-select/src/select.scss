@@ -83,7 +83,6 @@
     }
 
     ::slotted([slot="leadingIcon"]) {
-        --icon-display-override: block;
         --icon-size-override: 24px;
         inset-inline-start: var(--dt-spacing-d);
     }

@@ -74,7 +74,7 @@
     },
     {
       "path": "./packages/components/pie-icon-button/dist/index.js",
-      "maxSize": "2.29 KB"
+      "maxSize": "2.35 KB"
     },
     {
       "path": "./packages/components/pie-icon-button/dist/react.js",
@@ -154,7 +154,7 @@
     },
     {
       "path": "./packages/components/pie-tag/dist/index.js",
-      "maxSize": "3.25 KB"
+      "maxSize": "3.4 KB"
     },
     {
       "path": "./packages/components/pie-tag/dist/react.js",

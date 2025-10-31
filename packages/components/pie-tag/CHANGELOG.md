@@ -1,5 +1,36 @@
 # @justeattakeaway/pie-tag
 
+## 0.21.3
+
+### Patch Changes
+
+- [Updated] - remove unused css variable and tidy up styles ([#2596](https://github.com/justeattakeaway/pie/pull/2596)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.21.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@3.0.2
+
+## 0.21.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@3.0.1
+
+## 0.21.0
+
+### Minor Changes
+
+- [Changed] - Expose css parts for the tag body and icon slot. ([#2568](https://github.com/justeattakeaway/pie/pull/2568)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@3.0.0
+
 ## 0.20.0
 
 ### Minor Changes

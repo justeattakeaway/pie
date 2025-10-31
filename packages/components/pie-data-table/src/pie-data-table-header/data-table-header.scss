@@ -6,6 +6,8 @@
 
 .c-data-table-header {
   --data-table-header-background: transparent;
+  --data-table-border-color: var(--dt-color-border-default);
+
   padding: var(--dt-spacing-d);
   
   background-color: var(--data-table-header-background);
@@ -16,19 +18,19 @@
   align-items:flex-end;
 }
 
-.c-data-table-header-title-wrapper {
+.c-data-table-header-heading-wrapper {
   display: flex;
   flex-direction: column;
   gap: var(--dt-spacing-b);
 }
 
-.c-data-table-header-title {
+.c-data-table-header-heading {
   font-weight: var(--dt-font-weight-extrabold);
   font-size: #{p.font-size(--dt-font-size-24)};
   line-height: calc(var(--dt-font-size-24-line-height) * 1px);
 }
 
-.c-data-table-header-subtitle {
+.c-data-table-header-sub-heading {
   font-weight: var(--dt-font-weight-regular);
   font-size: #{p.font-size(--dt-font-size-16)};
   line-height: calc(var(--dt-font-size-16-line-height) * 1px);
