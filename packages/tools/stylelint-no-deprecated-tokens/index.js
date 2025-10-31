@@ -7,15 +7,14 @@ const { createPlugin, utils: { report, validateOptions, ruleMessages } } = style
 
 const ruleName = '@justeattakeaway/stylelint-no-deprecated-tokens';
 const messages = ruleMessages(ruleName, {
-    deprecated: (token, replacement) => 
-        `Token "${token}" is deprecated. ${replacement ? `Use "${replacement}" instead.` : 'Please update to a supported token.'}`,
+    deprecated: (token, replacement) => `Token "${token}" is deprecated. ${replacement ? `Use "${replacement}" instead.` : 'Please update to a supported token.'}`,
 });
 
 /**
  * Load and parse the tokens metadata
  * @returns {Object} Parsed tokens metadata
  */
-function loadTokensMetadata() {
+function loadTokensMetadata () {
     try {
         const metadataPath = require.resolve('@justeat/pie-design-tokens/metadata/tokensMetadata.json');
         return JSON.parse(readFileSync(metadataPath, 'utf8'));
@@ -29,18 +28,18 @@ function loadTokensMetadata() {
  * @param {Object} metadata - The tokens metadata object
  * @returns {Map} Map of deprecated token names to their replacement info
  */
-function buildDeprecatedTokensMap(metadata) {
+function buildDeprecatedTokensMap (metadata) {
     const deprecatedTokens = new Map();
 
-    function traverse(obj, path = []) {
-        for (const [key, value] of Object.entries(obj)) {
+    function traverse (obj, path = []) {
+        Object.entries(obj).forEach(([key, value]) => {
             if (value && typeof value === 'object') {
                 if (value?.status?.name === 'deprecated') {
-                    const filteredPath = [...path, key].filter(p => p !== 'global' && p !== 'alias');
+                    const filteredPath = [...path, key].filter((p) => p !== 'global' && p !== 'alias');
                     const tokenName = filteredPath.join('-');
-                    
+
                     const category = path[0] || '';
-                    
+
                     deprecatedTokens.set(tokenName, {
                         replacement: value.status.replacementToken,
                         message: value.status.message,
@@ -50,7 +49,7 @@ function buildDeprecatedTokensMap(metadata) {
                     traverse(value, [...path, key]);
                 }
             }
-        }
+        });
     }
 
     traverse(metadata);
@@ -64,10 +63,10 @@ function buildDeprecatedTokensMap(metadata) {
  * @param {string} secondaryOptions.prefix - Token prefix to check (default: 'dt')
  * @returns {Function} Lint function
  */
-function ruleFunction(primaryOption, secondaryOptions = {}) {
+function ruleFunction (primaryOption, secondaryOptions = {}) {
     const prefix = secondaryOptions.prefix || 'dt';
-    
-    return function lint(root, result) {
+
+    return function lint (root, result) {
         const validOptions = validateOptions(result, ruleName, { actual: primaryOption });
 
         if (!validOptions) return;
@@ -81,17 +80,17 @@ function ruleFunction(primaryOption, secondaryOptions = {}) {
 
         root.walkDecls((decl) => {
             const regex = new RegExp(`--${prefix}-([a-z0-9-]+)`, 'gi');
-            let match;
-            
-            while ((match = regex.exec(decl.value)) !== null) {
-                const tokenName = match[1];
-                
+            const matches = decl.value.matchAll(regex);
+
+            Array.from(matches).forEach((match) => {
+                const [, tokenName] = match;
+
                 if (deprecatedTokens.has(tokenName)) {
                     const { replacement, category } = deprecatedTokens.get(tokenName);
-                    const replacementToken = replacement 
+                    const replacementToken = replacement
                         ? `--${prefix}-${category}-${replacement}`
                         : null;
-                    
+
                     const originalToken = `--${prefix}-${tokenName}`;
                     report({
                         ruleName,
@@ -101,7 +100,7 @@ function ruleFunction(primaryOption, secondaryOptions = {}) {
                         word: originalToken,
                     });
                 }
-            }
+            });
         });
     };
 }
