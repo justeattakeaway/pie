@@ -1,9 +1,9 @@
 {
-  "name": "@justeattakeaway/stylelint-no-deprecated-tokens",
+  "name": "@justeattakeaway/stylelint-pie-design-tokens",
   "version": "0.1.0",
   "main": "index.js",
   "type": "module",
-  "description": "Stylelint plugin for detecting deprecated PIE design tokens.",
+  "description": "Stylelint plugin for validating pie design tokens usage.",
   "license": "Apache-2.0",
   "keywords": [
     "PIE",

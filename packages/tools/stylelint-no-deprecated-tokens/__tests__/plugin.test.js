@@ -9,14 +9,14 @@ import stylelint from 'stylelint';
 
 const config = {
     plugins: [
-        '@justeattakeaway/stylelint-no-deprecated-tokens',
+        '@justeattakeaway/stylelint-pie-design-tokens',
     ],
     rules: {
-        '@justeattakeaway/stylelint-no-deprecated-tokens': true,
+        '@justeattakeaway/stylelint-pie-design-tokens': true,
     },
 };
 
-describe('stylelint-no-deprecated-tokens', () => {
+describe('stylelint-pie-design-tokens', () => {
     let result;
 
     describe('when given non-deprecated tokens', () => {
@@ -108,10 +108,10 @@ describe('stylelint-no-deprecated-tokens', () => {
                 code: invalidCSS,
                 config: {
                     plugins: [
-                        '@justeattakeaway/stylelint-no-deprecated-tokens',
+                        '@justeattakeaway/stylelint-pie-design-tokens',
                     ],
                     rules: {
-                        '@justeattakeaway/stylelint-no-deprecated-tokens': [true, { prefix: 'xds' }],
+                        '@justeattakeaway/stylelint-pie-design-tokens': [true, { prefix: 'xds' }],
                     },
                 },
             });
@@ -157,10 +157,10 @@ describe('stylelint-no-deprecated-tokens', () => {
                 code: invalidCSS,
                 config: {
                     plugins: [
-                        '@justeattakeaway/stylelint-no-deprecated-tokens',
+                        '@justeattakeaway/stylelint-pie-design-tokens',
                     ],
                     rules: {
-                        '@justeattakeaway/stylelint-no-deprecated-tokens': null,
+                        '@justeattakeaway/stylelint-pie-design-tokens': null,
                     },
                 },
             });
