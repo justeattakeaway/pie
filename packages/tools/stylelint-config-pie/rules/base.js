@@ -2,9 +2,11 @@ export default {
     extends: 'stylelint-config-standard-scss',
     plugins: [
         '@justeattakeaway/stylelint-no-logical-props-shorthands',
+        '@justeattakeaway/stylelint-no-deprecated-tokens',
     ],
     rules: {
         '@justeattakeaway/stylelint-no-logical-props-shorthands': true,
+        '@justeattakeaway/stylelint-no-deprecated-tokens': true,
         'alpha-value-notation': 'number',
         'at-rule-empty-line-before': [
             'always',

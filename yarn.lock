@@ -3245,7 +3245,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:7.8.2":
+"@justeat/pie-design-tokens@npm:7.8.2, @justeat/pie-design-tokens@npm:^7.8.2":
   version: 7.8.2
   resolution: "@justeat/pie-design-tokens@npm:7.8.2"
   dependencies:
@@ -4050,11 +4050,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/stylelint-config-pie@workspace:packages/tools/stylelint-config-pie"
   dependencies:
+    "@justeattakeaway/stylelint-no-deprecated-tokens": 0.1.0
     "@justeattakeaway/stylelint-no-logical-props-shorthands": 0.3.0
   peerDependencies:
     stylelint: 16.x
     stylelint-config-standard-scss: 13.x
     stylelint-order: 6.x
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/stylelint-no-deprecated-tokens@0.1.0, @justeattakeaway/stylelint-no-deprecated-tokens@workspace:packages/tools/stylelint-no-deprecated-tokens":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/stylelint-no-deprecated-tokens@workspace:packages/tools/stylelint-no-deprecated-tokens"
+  dependencies:
+    "@justeat/pie-design-tokens": ^7.8.2
   languageName: unknown
   linkType: soft
 
