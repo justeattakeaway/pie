@@ -28,6 +28,7 @@
     "stylelint-order": "6.x"
   },
   "dependencies": {
+    "@justeattakeaway/stylelint-no-deprecated-tokens": "0.1.0",
     "@justeattakeaway/stylelint-no-logical-props-shorthands": "0.3.0"
   },
   "scripts": {
