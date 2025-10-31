@@ -22,16 +22,16 @@ const componentSelector = 'pie-data-table-header';
 @safeCustomElement('pie-data-table-header')
 export class PieDataTableHeader extends PieElement implements DataTableHeaderProps {
     /**
-     * Title text for the data table header
+     * heading text for the data table header
      */
     @property({ type: String })
-    public title!: DataTableHeaderProps['title'];
+    public heading!: DataTableHeaderProps['heading'];
 
     /**
-     * Subtitle text for the data table header
+     * Sub heading text for the data table header
      */
     @property({ type: String })
-    public subtitle: DataTableHeaderProps['subtitle'];
+    public subHeading: DataTableHeaderProps['subHeading'];
 
     /**
      * Emphasis level for the header
@@ -65,7 +65,7 @@ export class PieDataTableHeader extends PieElement implements DataTableHeaderPro
     }
 
     render () {
-        const { title, subtitle, variant } = this;
+        const { heading, subHeading, variant } = this;
 
         const classes = {
             'c-data-table-header': true,
@@ -74,10 +74,10 @@ export class PieDataTableHeader extends PieElement implements DataTableHeaderPro
 
         return html`
             <header class="${classMap(classes)}">
-                <div class="c-data-table-header-title-wrapper">
-                    ${title ? html`<span class="c-data-table-header-title">${title}</span>` : nothing}
+                <div class="c-data-table-header-heading-wrapper">
+                    ${heading ? html`<span class="c-data-table-header-heading">${heading}</span>` : nothing}
 
-                    ${subtitle ? html`<span class="c-data-table-header-subtitle">${subtitle}</span>` : nothing}
+                    ${subHeading ? html`<span class="c-data-table-header-sub-heading">${subHeading}</span>` : nothing}
                 </div>
                 ${this.hasActionButtons ? html`
                     <div class="c-data-table-action-buttons-wrapper">

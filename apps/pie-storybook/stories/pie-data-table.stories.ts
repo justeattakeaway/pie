@@ -13,8 +13,8 @@ type DataTableStoryMeta = Meta<DataTableProps>;
 const headerSlot = html`
     <pie-data-table-header
         slot="table-header"
-        title="Data Table Title"
-        subtitle="Optional subtitle text"
+        heading="Data Table Title"
+        subHeading="Optional subtitle text"
     >
         <pie-button slot="action-button" variant="secondary" size="xsmall">Action</pie-button>
         <pie-button slot="action-button" variant="secondary" size="xsmall">Action</pie-button>
@@ -25,8 +25,8 @@ const headerSlot = html`
 const headerStrongSlot = html`
     <pie-data-table-header
         slot="table-header"
-        title="Data Table Title"
-        subtitle="Optional subtitle text"
+        heading="Data Table Title"
+        subHeading="Optional subtitle text"
         variant="strong"
     >
         <pie-button slot="action-button" variant="secondary" size="xsmall">Action</pie-button>
