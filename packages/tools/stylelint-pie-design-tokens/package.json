@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/stylelint-pie-design-tokens",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "main": "index.js",
   "type": "module",
   "description": "Stylelint plugin for validating pie design tokens usage.",
