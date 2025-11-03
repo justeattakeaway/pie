@@ -1,5 +1,6 @@
 ---
 "@justeattakeaway/stylelint-config-pie": minor
+"@justeattakeaway/stylelint-pie-design-tokens": minor
 "pie-monorepo": minor
 ---
 
