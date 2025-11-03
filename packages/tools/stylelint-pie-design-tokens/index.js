@@ -8,45 +8,73 @@ const { createPlugin, utils: { report, validateOptions } } = stylelint;
 const ruleName = '@justeattakeaway/stylelint-pie-design-tokens';
 
 /**
- * Traverse tokens metadata recursively
+ * Parse CSS file and extract all custom property names
  */
-function traverse (obj, path, tokens) {
+function parseTokensFromCSS (cssContent) {
+    const tokens = new Set();
+    const regex = /--(dt|xds)-([a-z0-9-]+)/gi;
+    const matches = cssContent.matchAll(regex);
+
+    Array.from(matches).forEach((match) => {
+        tokens.add(match[2]);
+    });
+
+    return tokens;
+}
+
+/**
+ * Traverse metadata to extract token information
+ */
+function traverseMetadata (obj, path, tokens) {
     Object.entries(obj).forEach(([key, value]) => {
         if (!value || typeof value !== 'object') return;
 
         const newPath = [...path, key];
-        const isToken = value.value !== undefined || value.category || value.status;
+        const isLeaf = value.description !== undefined;
 
-        if (isToken) {
+        if (isLeaf) {
             const tokenName = newPath
-                .filter((p) => p !== 'global' && p !== 'alias')
+                .filter((p) => p !== 'global' && p !== 'alias' && p !== 'default' && p !== 'dark')
                 .join('-');
 
             tokens.set(tokenName, {
-                category: path[0] || '',
                 isDeprecated: value.status?.name === 'deprecated',
                 replacement: value.status?.replacementToken,
+                category: path[0] || '',
             });
         } else {
-            traverse(value, newPath, tokens);
+            traverseMetadata(value, newPath, tokens);
         }
     });
 }
 
 /**
- * Load and normalize tokens metadata
+ * Load tokens from CSS and metadata
+ *  - CSS provides the list of valid tokens
+ *  - Metadata provides token details
  */
 function getTokens () {
     try {
+        const cssPath = require.resolve('@justeat/pie-design-tokens/dist/jet.css');
+        const cssContent = readFileSync(cssPath, 'utf8');
+        const validTokensFromCSS = parseTokensFromCSS(cssContent);
+
+        const hslCssPath = require.resolve('@justeat/pie-design-tokens/dist/jet-hsl-colors.css');
+        const hslCssContent = readFileSync(hslCssPath, 'utf8');
+        const hslTokens = parseTokensFromCSS(hslCssContent);
+
+        hslTokens.forEach((token) => validTokensFromCSS.add(token));
+
         const metadataPath = require.resolve('@justeat/pie-design-tokens/metadata/tokensMetadata.json');
         const metadata = JSON.parse(readFileSync(metadataPath, 'utf8'));
 
         const tokens = new Map();
-        traverse(metadata, [], tokens);
 
-        return tokens;
+        traverseMetadata(metadata, [], tokens);
+
+        return { tokens, validTokensFromCSS };
     } catch (error) {
-        return new Map();
+        return { tokens: new Map(), validTokensFromCSS: new Set() };
     }
 }
 
@@ -61,7 +89,7 @@ function ruleFunction (primaryOption) {
 
         if (!validOptions) return;
 
-        const tokens = getTokens();
+        const { tokens, validTokensFromCSS } = getTokens();
 
         root.walkDecls((decl) => {
             const regex = new RegExp('--(dt|xds)-([a-z0-9-]+)', 'gi');
@@ -69,20 +97,10 @@ function ruleFunction (primaryOption) {
 
             Array.from(matches).forEach((match) => {
                 const [token, prefix, tokenWithoutPrefix] = match;
+
                 const tokenInfo = tokens.get(tokenWithoutPrefix);
 
-                if (!tokenInfo) {
-                    report({
-                        ruleName,
-                        result,
-                        message: `Token "${token}" is not a valid pie token.`,
-                        node: decl,
-                        word: token,
-                    });
-                    return;
-                }
-
-                if (tokenInfo.isDeprecated) {
+                if (tokenInfo?.isDeprecated) {
                     const replacementToken = tokenInfo.replacement
                         ? `--${prefix}-${tokenInfo.category}-${tokenInfo.replacement}`
                         : null;
@@ -93,6 +111,17 @@ function ruleFunction (primaryOption) {
                         ruleName,
                         result,
                         message,
+                        node: decl,
+                        word: token,
+                    });
+                    return;
+                }
+
+                if (!validTokensFromCSS.has(tokenWithoutPrefix)) {
+                    report({
+                        ruleName,
+                        result,
+                        message: `Token "${token}" is not a valid pie token.`,
                         node: decl,
                         word: token,
                     });
