@@ -59,6 +59,20 @@ const tagStoryMeta: TagStoryMeta = {
                 summary: defaultProps.isDimmed,
             },
         },
+        isIconOnly: {
+            description: 'Indicates whether or not the tag is only an icon. Used for SSR. CSR only users do not need this.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.isIconOnly,
+            },
+        },
+        hasLeadingIcon: {
+            description: 'Indicates whether or not the tag has a leading icon plus text. Used for SSR. CSR only users do not need this.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.hasLeadingIcon,
+            },
+        },
         showIcon: {
             description: '<b>**Not a component prop</b><br><br>Use the `icon` slot to pass a PIE icon component. Available only for large tag size.',
             control: 'boolean',
@@ -87,6 +101,8 @@ const Template : TemplateFunction<TagProps> = ({
     size,
     isStrong,
     isDimmed,
+    isIconOnly,
+    hasLeadingIcon,
     showIcon,
     slot,
 }) => html`
@@ -94,7 +110,9 @@ const Template : TemplateFunction<TagProps> = ({
         variant="${ifDefined(variant)}"
         size="${ifDefined(size)}"
         ?isStrong="${isStrong}"
-        ?isDimmed="${isDimmed}">
+        ?isDimmed="${isDimmed}"
+        ?isIconOnly="${isIconOnly}"
+        ?hasLeadingIcon="${hasLeadingIcon}">
         ${showIcon ? html`<icon-fingerprint slot="icon"></icon-fingerprint>` : nothing}
         ${sanitizeAndRenderHTML(slot)}
     </pie-tag>

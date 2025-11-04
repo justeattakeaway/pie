@@ -39,6 +39,14 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `isStrong`     | `true`, `false`                                                                                                                                          | If true, displays strong tag styles for `"neutral"`, `"information"`, `"success"`, `"error"`, `"warning"`, `"brand-03"`, `"brand-04"`, `"brand-05"`, `"brand-06"`, and `"brand-08"` variants. Has no effect for other variants.                                                                                                                | `false`     |
 | `isDimmed`     | `true`, `false`                                                                                                                                          | When true, applies a dimmed styling to the tag.                                                        | `false`     |
 
+### SSR Hint Properties
+These properties are designed to assist with server-side rendering where DOM APIs are not available to calculate icon states. Client-side rendering consumers do not need to use these properties as the component will automatically detect icon states.
+
+| Prop              | Options                                                                                                                                                 | Description                                                                                                                                                                                                                                                                                                      | Default     |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| `isIconOnly`      | `true`, `false`                                                                                                                                          | Indicates whether or not the tag is only an icon. Used for SSR. CSR only users do not need this.                                                                                                                                                                                                               | `false`     |
+| `hasLeadingIcon`  | `true`, `false`                                                                                                                                          | Indicates whether or not the tag has a leading icon plus text. Used for SSR. CSR only users do not need this.                                                                                                                                                                                                  | `false`     |
+
 ### Slots
 | Slot      | Description                                                  |
 |-----------|--------------------------------------------------------------|
@@ -103,6 +111,46 @@ import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/react/Icon
   <IconPlaceholder slot="icon"></IconPlaceholder>
 </PieTag>
 ```
+
+### SSR Hint Properties Usage
+
+These properties are only needed when using server-side rendering (SSR) where DOM APIs are not available to detect icon states. Client-side rendering users can skip these examples.
+
+**Icon-only tag with SSR hint:**
+
+```html
+<!-- HTML -->
+<pie-tag is-icon-only="true">
+  <icon-placeholder slot="icon"></icon-placeholder>
+</pie-tag>
+```
+
+```jsx
+// React
+<PieTag isIconOnly={true}>
+  <IconPlaceholder slot="icon" />
+</PieTag>
+```
+
+**Tag with leading icon and text using SSR hint:**
+
+```html
+<!-- HTML -->
+<pie-tag has-leading-icon="true">
+  <icon-placeholder slot="icon"></icon-placeholder>
+  Label
+</pie-tag>
+```
+
+```jsx
+// React
+<PieTag hasLeadingIcon={true}>
+  <IconPlaceholder slot="icon" />
+  Label
+</PieTag>
+```
+
+**Note:** These properties are automatically calculated in client-side rendering, so they are only necessary for SSR scenarios.
 
 ## Text Truncation
 

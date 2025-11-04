@@ -218,7 +218,7 @@ const translucentPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
 // IconOnly variant stories
 const iconOnlyPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
-    size: ['large'],
+    size: ['small', 'large'],
     showIcon: [true],
     slot: [''],
     variant: ['information'],

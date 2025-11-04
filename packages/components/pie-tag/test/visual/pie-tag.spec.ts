@@ -45,3 +45,11 @@ test('should render translucent tags over images correctly', async ({ page }) =>
 
     await percySnapshot(page, 'PIE Tag - Translucent Over Image', percyWidths);
 });
+
+test('should render icon-only tags as the large size for both small and large sizes', async ({ page }) => {
+    const iconOnlyPage = new BasePage(page, 'tag--icon-only-variations');
+
+    await iconOnlyPage.load();
+
+    await percySnapshot(page, 'PIE Tag - Icon Only Variations', percyWidths);
+});

@@ -39,6 +39,16 @@ export interface TagProps {
      * What size the tag should be.
      */
     size?: typeof sizes[number];
+
+    /**
+     * Indicates whether or not the tag is only an icon. Used for SSR. CSR only users do not need this.
+     */
+    isIconOnly?: boolean;
+
+    /**
+     * Indicates whether or not the tag has a leading icon plus text. Used for SSR. CSR only users do not need this.
+     */
+    hasLeadingIcon?: boolean;
 }
 
 export type DefaultProps = ComponentDefaultProps<TagProps>;
@@ -48,4 +58,6 @@ export const defaultProps: DefaultProps = {
     isStrong: false,
     isDimmed: false,
     size: 'large',
+    isIconOnly: false,
+    hasLeadingIcon: false,
 };

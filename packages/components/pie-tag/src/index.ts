@@ -41,17 +41,22 @@ export class PieTag extends PieElement implements TagProps {
     @property({ type: Boolean })
     public isDimmed = defaultProps.isDimmed;
 
-    @queryAssignedElements({ slot: 'icon', flatten: true }) _iconSlotNodes!: Array<HTMLElement>;
+    @property({ type: Boolean, attribute: 'is-icon-only', reflect: true })
+    public isIconOnly = defaultProps.isIconOnly;
 
-    private isIconOnly = false;
+    @property({ type: Boolean, attribute: 'has-leading-icon' })
+    public hasLeadingIcon = defaultProps.hasLeadingIcon;
+
+    @queryAssignedElements({ slot: 'icon', flatten: true }) _iconSlotNodes!: Array<HTMLElement>;
 
     private hasIcon = false;
 
-    updated (changedProperties: PropertyValues<this>) {
-        if (changedProperties.has('size')) this.checkIfIsIconOnly();
-    }
-
     private checkIfIsIconOnly () {
+        // If SSR hint properties are set, respect them and skip calculation
+        if (this.isIconOnly || this.hasLeadingIcon) {
+            return;
+        }
+
         const { textContent, _iconSlotNodes } = this;
 
         // The default slot must be empty
@@ -96,6 +101,7 @@ export class PieTag extends PieElement implements TagProps {
             variant,
             isIconOnly,
             hasIcon,
+            hasLeadingIcon,
         } = this;
 
         const classes = {
@@ -105,7 +111,7 @@ export class PieTag extends PieElement implements TagProps {
             'c-tag--is-dimmed': isDimmed,
             'c-tag--strong': isStrong,
             'c-tag--icon-only': isIconOnly,
-            'c-tag--has-icon': hasIcon,
+            'c-tag--has-icon': hasIcon || hasLeadingIcon,
         };
 
         return html`
