@@ -1,34 +1,25 @@
 import { ESLint } from 'eslint';
 import { describe, expect, it } from 'vitest';
 
-function getEslintInstance(options = {}) {
-    const { parser } = options;
-
-    const baseConfig = {
-        plugins: ['@justeattakeaway/snacks-pie-migration'],
-        rules: {
-            '@justeattakeaway/snacks-pie-migration/deprecated-components': 'error'
-        },
-        parserOptions: {
-            ecmaVersion: 2020,
-            sourceType: 'module',
-        }
-    };
-
-    // Add TypeScript parser if specified
-    if (parser === 'ts') {
-        baseConfig.parser = '@typescript-eslint/parser';
-    }
-
+function getEslintInstance() {
     return new ESLint({
         useEslintrc: false,
-        baseConfig,
+        baseConfig: {
+            plugins: ['@justeattakeaway/snacks-pie-migration'],
+            rules: {
+                '@justeattakeaway/snacks-pie-migration/deprecated-components': 'error'
+            },
+            parserOptions: {
+                ecmaVersion: 2020,
+                sourceType: 'module',
+            },
+            parser: '@typescript-eslint/parser', // Handle JS and TS by default
+        }
     });
 }
 
-function lintText(sourceCode, options = {}) {
-    const { parser, filePath = 'test.js' } = options;
-    return getEslintInstance({ parser }).lintText(sourceCode, { filePath });
+function lintText(sourceCode) {
+    return getEslintInstance().lintText(sourceCode);
 }
 
 const tsOptions = {
@@ -37,36 +28,33 @@ const tsOptions = {
 }
 
 describe('deprecated-components rule', () => {
-    describe('plain JavaScript', () => {
-        it('detects deprecated components', async () => {
-            const sourceCode = `import { Button } from 'snacks-design-system';`;
-            const result = await lintText(sourceCode);
-
-            expect(result[0].messages[0]).toMatchSnapshot();
-        });
-
+    describe('with plain JavaScript syntax', () => {
         it('doesnt detect deprecated components when the component is not in the deprecation list', async () => {
             const sourceCode = `import { FooBar } from 'snacks-design-system';`;
             const result = await lintText(sourceCode);
 
             expect(result[0].messages.length).toBe(0);
         });
+        it('detects deprecated components', async () => {
+            const sourceCode = `import { Button } from 'snacks-design-system';`;
+            const result = await lintText(sourceCode);
+
+            expect(result[0].messages[0]).toMatchSnapshot();
+        });
     });
-    describe('TypeScript', () => {
+    describe('with TypeScript syntax', () => {
         it('handles TypeScript syntax without breaking', async () => {
             const sourceCode = `const str:string = '1';`;
             const result = await lintText(sourceCode, tsOptions);
 
             expect(result[0].messages.length).toBe(0);
         });
-
         it('doesnt detect deprecated components when the component is not in the deprecation list', async () => {
             const sourceCode = `import { FooBar } from 'snacks-design-system'; const str:string = '1';`;
             const result = await lintText(sourceCode, tsOptions);
 
             expect(result[0].messages.length).toBe(0);
         });
-
         it('detects deprecated components in TypeScript', async () => {
             const sourceCode = `import { Button } from 'snacks-design-system'; const str:string = '1';`;
             const result = await lintText(sourceCode, tsOptions);
