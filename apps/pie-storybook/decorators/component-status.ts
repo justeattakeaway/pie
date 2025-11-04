@@ -27,7 +27,7 @@ export const ComponentStatus = (story: () => TemplateResult, storybookContext: S
             ${story()}
 
             <div class="${`c-componentStatus ${positionClass} percyHidden`}">
-                <pie-tag variant="${tagVariant}">
+                <pie-tag variant="${tagVariant}" has-leading-icon>
                     Status: ${componentStatus}
                     <a
                         href="https://pie.design/components/component-status/#status-descriptions"

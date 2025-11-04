@@ -41,12 +41,12 @@ export interface TagProps {
     size?: typeof sizes[number];
 
     /**
-     * Indicates whether or not the tag is only an icon. Used for SSR. CSR only users do not need this.
+     * Required to correctly render the tag when it contains only an icon.
      */
     isIconOnly?: boolean;
 
     /**
-     * Indicates whether or not the tag has a leading icon plus text. Used for SSR. CSR only users do not need this.
+     * Required to correctly render the tag when it has a leading icon plus text.
      */
     hasLeadingIcon?: boolean;
 }

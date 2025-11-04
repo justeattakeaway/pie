@@ -86,22 +86,40 @@ const Template: TemplateFunction<TagProps> = ({
     size,
     isStrong,
     isDimmed,
+    isIconOnly,
+    hasLeadingIcon,
     showIcon,
     slot,
-}) => html`
-    <pie-tag
-        variant="${ifDefined(variant)}"
-        size="${ifDefined(size)}"
-        ?isStrong="${isStrong}"
-        ?isDimmed="${isDimmed}">
-        ${showIcon ? html`<icon-fingerprint slot="icon"></icon-fingerprint>` : nothing}
-        ${sanitizeAndRenderHTML(slot)}
-    </pie-tag>
-`;
+}) => {
+    const hasText = slot && slot.trim() !== '';
+    const shouldBeIconOnly = showIcon && !hasText;
+    const shouldHaveLeadingIcon = showIcon && hasText;
+
+    // Use explicit values or determine based on content
+    const effectiveIsIconOnly = isIconOnly ?? shouldBeIconOnly;
+    let effectiveHasLeadingIcon = hasLeadingIcon ?? shouldHaveLeadingIcon;
+
+    // Validation: Both attributes cannot be true simultaneously
+    if (effectiveIsIconOnly && effectiveHasLeadingIcon) {
+        console.warn('Invalid tag configuration: isIconOnly and hasLeadingIcon cannot both be true. Setting hasLeadingIcon to false.');
+        effectiveHasLeadingIcon = false;
+    }
+
+    return html`
+        <pie-tag
+            variant="${ifDefined(variant)}"
+            size="${ifDefined(size)}"
+            ?isStrong="${isStrong}"
+            ?isDimmed="${isDimmed}"
+            ?is-icon-only="${effectiveIsIconOnly}"
+            ?has-leading-icon="${effectiveHasLeadingIcon}">
+            ${showIcon ? html`<icon-fingerprint slot="icon"></icon-fingerprint>` : nothing}
+            ${sanitizeAndRenderHTML(slot)}
+        </pie-tag>
+    `;
+};
 
 const createTagStory = createStory<TagProps>(Template, defaultArgs);
-
-const icon = '<svg slot="icon" data-test-id="tag-icon" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--plusCircle"><path d="M8.656 4.596H7.344v2.748H4.596v1.312h2.748v2.748h1.312V8.656h2.748V7.344H8.656V4.596Z"></path><path d="M12.795 3.205a6.781 6.781 0 1 0 0 9.625 6.79 6.79 0 0 0 0-9.625Zm-.927 8.662a5.469 5.469 0 1 1-7.734-7.735 5.469 5.469 0 0 1 7.734 7.736Z"></path></svg>';
 
 // Individual variant stories
 export const Default = createTagStory();
@@ -114,14 +132,26 @@ export const Warning = createTagStory({ variant: 'warning' });
 export const Outline = createTagStory({ variant: 'outline' });
 export const Ghost = createTagStory({ variant: 'ghost' });
 export const Translucent = createTagStory({ variant: 'translucent' }, { bgColor: 'brand orange' });
-export const DefaultWithIcon = createTagStory({ slot: `Label ${icon}` });
+export const DefaultWithIcon = createTagStory({
+    slot: 'Label',
+    showIcon: true,
+    hasLeadingIcon: true,
+});
+export const IconOnlyStory = createTagStory({
+    slot: '',
+    showIcon: true,
+    isIconOnly: true,
+    variant: 'information',
+});
 
-// Base shared props matrix
+// Base shared props matrix - text only scenarios
 const baseSharedPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
     size: [...sizes],
     isStrong: [true, false],
     isDimmed: [true, false],
-    showIcon: [true, false],
+    showIcon: [false],
+    isIconOnly: [false],
+    hasLeadingIcon: [false],
     slot: ['Tag'],
 };
 
@@ -217,11 +247,26 @@ const translucentPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
 
 // IconOnly variant stories
 const iconOnlyPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
-    ...baseSharedPropsMatrix,
     size: ['small', 'large'],
     showIcon: [true],
     slot: [''],
-    variant: ['information'],
+    isIconOnly: [true],
+    hasLeadingIcon: [false],
+    variant: ['information', 'success', 'error', 'warning', 'brand-05'],
+    isStrong: [true, false],
+    isDimmed: [true, false],
+};
+
+// Icon with text variant stories
+const iconWithTextPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
+    size: ['small', 'large'],
+    showIcon: [true],
+    slot: ['Label'],
+    isIconOnly: [false],
+    hasLeadingIcon: [true],
+    variant: ['information', 'success', 'error', 'warning', 'brand-05'],
+    isStrong: [true, false],
+    isDimmed: [true, false],
 };
 
 // Custom styled tags using CSS parts
@@ -300,7 +345,7 @@ const RawSVGSlotTemplate: TemplateFunction<TagProps> = () => html`
     <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
         <div style="text-align: left;">
             <h4 style="margin: 0 0 4px 0; font-size: 14px;">Large Tag</h4>
-            <pie-tag size="large" variant="brand-04" isStrong>
+            <pie-tag size="large" variant="brand-04" isStrong has-leading-icon>
                 <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
                     <path d="M8 2a6 6 0 100 12A6 6 0 008 2zM7 7V5h2v2H7zm0 4V9h2v2H7z"/>
                 </svg>
@@ -310,7 +355,7 @@ const RawSVGSlotTemplate: TemplateFunction<TagProps> = () => html`
 
         <div style="text-align: left;">
             <h4 style="margin: 0 0 4px 0; font-size: 14px;">Small Tag</h4>
-            <pie-tag size="small" variant="brand-04" isStrong>
+            <pie-tag size="small" variant="brand-04" isStrong has-leading-icon>
                 <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
                     <path d="M8 2a6 6 0 100 12A6 6 0 008 2zM7 7V5h2v2H7zm0 4V9h2v2H7z"/>
                 </svg>
@@ -320,7 +365,7 @@ const RawSVGSlotTemplate: TemplateFunction<TagProps> = () => html`
 
         <div style="text-align: left;">
             <h4 style="margin: 0 0 4px 0; font-size: 14px;">Large Icon Only</h4>
-            <pie-tag size="large" variant="brand-04" isStrong>
+            <pie-tag size="large" variant="brand-04" isStrong is-icon-only>
                 <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
                     <path d="M8 2a6 6 0 100 12A6 6 0 008 2zM7 7V5h2v2H7zm0 4V9h2v2H7z"/>
                 </svg>
@@ -329,7 +374,7 @@ const RawSVGSlotTemplate: TemplateFunction<TagProps> = () => html`
 
         <div style="text-align: left;">
             <h4 style="margin: 0 0 4px 0; font-size: 14px;">Small Icon Only</h4>
-            <pie-tag size="small" variant="brand-04" isStrong>
+            <pie-tag size="small" variant="brand-04" isStrong is-icon-only>
                 <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
                     <path d="M8 2a6 6 0 100 12A6 6 0 008 2zM7 7V5h2v2H7zm0 4V9h2v2H7z"/>
                 </svg>
@@ -367,19 +412,19 @@ const TextTruncationTemplate: TemplateFunction<TagProps> = () => html`
             <h4 style="margin: 0 0 8px 0; font-size: 14px;">Large Tags With Icon - Different Max-Widths</h4>
             <div style="display: flex; flex-direction: column; gap: 8px;">
                 <div style="max-width: 150px;">
-                    <pie-tag size="large" variant="information" style="width: 100%;">
+                    <pie-tag size="large" variant="information" style="width: 100%;" has-leading-icon>
                         <icon-info-circle slot="icon"></icon-info-circle>
                         This is a very long text that should be truncated with ellipsis
                     </pie-tag>
                 </div>
                 <div style="max-width: 100px;">
-                    <pie-tag size="large" variant="information" style="width: 100%;">
+                    <pie-tag size="large" variant="information" style="width: 100%;" has-leading-icon>
                         <icon-info-circle slot="icon"></icon-info-circle>
                         This is a very long text that should be truncated with ellipsis
                     </pie-tag>
                 </div>
                 <div style="max-width: 50px;">
-                    <pie-tag size="large" variant="information" style="width: 100%;">
+                    <pie-tag size="large" variant="information" style="width: 100%;" has-leading-icon>
                         <icon-info-circle slot="icon"></icon-info-circle>
                         This is a very long text that should be truncated with ellipsis
                     </pie-tag>
@@ -412,19 +457,19 @@ const TextTruncationTemplate: TemplateFunction<TagProps> = () => html`
             <h4 style="margin: 0 0 8px 0; font-size: 14px;">Small Tags With Icon - Different Max-Widths</h4>
             <div style="display: flex; flex-direction: column; gap: 8px;">
                 <div style="max-width: 150px;">
-                    <pie-tag size="small" variant="information" style="width: 100%;">
+                    <pie-tag size="small" variant="information" style="width: 100%;" has-leading-icon>
                         <icon-info-circle slot="icon"></icon-info-circle>
                         This is a very long text that should be truncated with ellipsis
                     </pie-tag>
                 </div>
                 <div style="max-width: 100px;">
-                    <pie-tag size="small" variant="information" style="width: 100%;">
+                    <pie-tag size="small" variant="information" style="width: 100%;" has-leading-icon>
                         <icon-info-circle slot="icon"></icon-info-circle>
                         This is a very long text that should be truncated with ellipsis
                     </pie-tag>
                 </div>
                 <div style="max-width: 50px;">
-                    <pie-tag size="small" variant="information" style="width: 100%;">
+                    <pie-tag size="small" variant="information" style="width: 100%;" has-leading-icon>
                         <icon-info-circle slot="icon"></icon-info-circle>
                         This is a very long text that should be truncated with ellipsis
                     </pie-tag>
@@ -451,33 +496,41 @@ const TranslucentOverImageTemplate: TemplateFunction<TagProps> = () => html`
                 align-items: flex-start;
                 width: max-content;
             ">
-                <pie-tag variant="translucent" size="large">
+                <pie-tag variant="translucent" size="large" has-leading-icon>
                     <icon-info-circle slot="icon"></icon-info-circle>
                     Large with icon
                 </pie-tag>
                 <pie-tag variant="translucent" size="large">
                     Large without icon
                 </pie-tag>
-                <pie-tag variant="translucent" size="small">
+                <pie-tag variant="translucent" size="small" has-leading-icon>
                     <icon-info-circle slot="icon"></icon-info-circle>
                     Small with icon
                 </pie-tag>
                 <pie-tag variant="translucent" size="small">
                     Small without icon
                 </pie-tag>
-                <pie-tag variant="translucent" size="large" isDimmed>
+                <pie-tag variant="translucent" size="large" isDimmed has-leading-icon>
                     <icon-info-circle slot="icon"></icon-info-circle>
                     Dimmed large with icon
                 </pie-tag>
                 <pie-tag variant="translucent" size="large" isDimmed>
                     Dimmed large without icon
                 </pie-tag>
-                <pie-tag variant="translucent" size="small" isDimmed>
+                <pie-tag variant="translucent" size="small" isDimmed has-leading-icon>
                     <icon-info-circle slot="icon"></icon-info-circle>
                     Dimmed small with icon
                 </pie-tag>
                 <pie-tag variant="translucent" size="small" isDimmed>
                     Dimmed small without icon
+                </pie-tag>
+
+                <pie-tag variant="translucent" size="large" is-icon-only>
+                    <icon-info-circle slot="icon"></icon-info-circle>
+                </pie-tag>
+
+                <pie-tag variant="translucent" size="large" isDimmed is-icon-only>
+                    <icon-info-circle slot="icon"></icon-info-circle>
                 </pie-tag>
             </div>
         </div>
@@ -502,6 +555,7 @@ export const Brand05Variations = createVariantStory<TagProps>(Template, brand05P
 export const Brand06Variations = createVariantStory<TagProps>(Template, brand06PropsMatrix);
 export const Brand08Variations = createVariantStory<TagProps>(Template, brand08PropsMatrix);
 export const IconOnlyVariations = createVariantStory<TagProps>(Template, iconOnlyPropsMatrix);
+export const IconWithTextVariations = createVariantStory<TagProps>(Template, iconWithTextPropsMatrix);
 export const RawSVGSlot = createRawSVGSlotStory({}, {
     controls: { disable: true },
 });

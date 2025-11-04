@@ -32,20 +32,14 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 ## Documentation
 
 ### Properties
-| Prop           | Options                                                                                                                                                 | Description                                                                                                                                                                                                                                                                                                      | Default     |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `size`         | `"small"`, `"large"`                                                                                                                                    | Sets the size of the tag.                                                                                                                                                                                                                                                                                        | `"large"`   |
-| `variant`      | `"neutral"`, `"neutral-alternative"`, `"outline"`, `"ghost"`, `"information"`, `"success"`, `"error"`, `"brand-02"`, `"brand-03"`, `"brand-04"`, `"brand-05"`, `"brand-06"` | Sets the variant of the tag.                                                                                                                                                                                                                                                                                      | `"neutral"` |
-| `isStrong`     | `true`, `false`                                                                                                                                          | If true, displays strong tag styles for `"neutral"`, `"information"`, `"success"`, `"error"`, `"warning"`, `"brand-03"`, `"brand-04"`, `"brand-05"`, `"brand-06"`, and `"brand-08"` variants. Has no effect for other variants.                                                                                                                | `false`     |
-| `isDimmed`     | `true`, `false`                                                                                                                                          | When true, applies a dimmed styling to the tag.                                                        | `false`     |
-
-### SSR Hint Properties
-These properties are designed to assist with server-side rendering where DOM APIs are not available to calculate icon states. Client-side rendering consumers do not need to use these properties as the component will automatically detect icon states.
-
 | Prop              | Options                                                                                                                                                 | Description                                                                                                                                                                                                                                                                                                      | Default     |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `isIconOnly`      | `true`, `false`                                                                                                                                          | Indicates whether or not the tag is only an icon. Used for SSR. CSR only users do not need this.                                                                                                                                                                                                               | `false`     |
-| `hasLeadingIcon`  | `true`, `false`                                                                                                                                          | Indicates whether or not the tag has a leading icon plus text. Used for SSR. CSR only users do not need this.                                                                                                                                                                                                  | `false`     |
+| `size`            | `"small"`, `"large"`                                                                                                                                    | Sets the size of the tag.                                                                                                                                                                                                                                                                                        | `"large"`   |
+| `variant`         | `"neutral"`, `"neutral-alternative"`, `"outline"`, `"ghost"`, `"information"`, `"success"`, `"error"`, `"brand-02"`, `"brand-03"`, `"brand-04"`, `"brand-05"`, `"brand-06"` | Sets the variant of the tag.                                                                                                                                                                                                                                                                                      | `"neutral"` |
+| `isStrong`        | `true`, `false`                                                                                                                                          | If true, displays strong tag styles for `"neutral"`, `"information"`, `"success"`, `"error"`, `"warning"`, `"brand-03"`, `"brand-04"`, `"brand-05"`, `"brand-06"`, and `"brand-08"` variants. Has no effect for other variants.                                                                                                                | `false`     |
+| `isDimmed`        | `true`, `false`                                                                                                                                          | When true, applies a dimmed styling to the tag.                                                        | `false`     |
+| `isIconOnly`      | `true`, `false`                                                                                                                                          | Required to correctly render the tag when it contains only an icon.                                                                                                                                                                                                                                             | `false`     |
+| `hasLeadingIcon`  | `true`, `false`                                                                                                                                          | Required to correctly render the tag when it has a leading icon plus text.                                                                                                                                                                                                                                      | `false`     |
 
 ### Slots
 | Slot      | Description                                                  |
@@ -112,15 +106,15 @@ import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/react/Icon
 </PieTag>
 ```
 
-### SSR Hint Properties Usage
+### Icon Properties Usage
 
-These properties are only needed when using server-side rendering (SSR) where DOM APIs are not available to detect icon states. Client-side rendering users can skip these examples.
+These properties are required for correct rendering when using icons with tags.
 
-**Icon-only tag with SSR hint:**
+**Icon-only tag:**
 
 ```html
 <!-- HTML -->
-<pie-tag is-icon-only="true">
+<pie-tag is-icon-only>
   <icon-placeholder slot="icon"></icon-placeholder>
 </pie-tag>
 ```
@@ -132,11 +126,11 @@ These properties are only needed when using server-side rendering (SSR) where DO
 </PieTag>
 ```
 
-**Tag with leading icon and text using SSR hint:**
+**Tag with leading icon and text:**
 
 ```html
 <!-- HTML -->
-<pie-tag has-leading-icon="true">
+<pie-tag has-leading-icon>
   <icon-placeholder slot="icon"></icon-placeholder>
   Label
 </pie-tag>
@@ -149,8 +143,6 @@ These properties are only needed when using server-side rendering (SSR) where DO
   Label
 </PieTag>
 ```
-
-**Note:** These properties are automatically calculated in client-side rendering, so they are only necessary for SSR scenarios.
 
 ## Text Truncation
 

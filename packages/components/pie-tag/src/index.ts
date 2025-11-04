@@ -49,48 +49,8 @@ export class PieTag extends PieElement implements TagProps {
 
     @queryAssignedElements({ slot: 'icon', flatten: true }) _iconSlotNodes!: Array<HTMLElement>;
 
-    private hasIcon = false;
-
-    private checkIfIsIconOnly () {
-        // If SSR hint properties are set, respect them and skip calculation
-        if (this.isIconOnly || this.hasLeadingIcon) {
-            return;
-        }
-
-        const { textContent, _iconSlotNodes } = this;
-
-        // The default slot must be empty
-        const defaultSlotText = textContent?.trim();
-        const isDefaultSlotEmpty = defaultSlotText === '';
-
-        // The icon slot must have some content
-        const iconsSlotNotEmpty = _iconSlotNodes.length > 0;
-        this.hasIcon = iconsSlotNotEmpty;
-
-        if (isDefaultSlotEmpty && iconsSlotNotEmpty) {
-            // The icon slot content must be an icon
-            if (_iconSlotNodes && _iconSlotNodes.length === 1) {
-                const firstNode = (_iconSlotNodes[0] as Element);
-                const tag = firstNode.tagName.toUpperCase();
-                const isIcon = tag.startsWith('ICON-') || tag === 'SVG';
-
-                this.isIconOnly = isIcon;
-                this.requestUpdate();
-
-                return;
-            }
-        }
-
-        this.isIconOnly = false;
-        this.requestUpdate();
-    }
-
-    private handleSlotChange () {
-        this.checkIfIsIconOnly();
-    }
-
     private renderIconSlot () {
-        return html`<slot part="icon" name="icon" @slotchange=${this.handleSlotChange}></slot>`;
+        return html`<slot part="icon" name="icon"></slot>`;
     }
 
     render () {
@@ -100,7 +60,6 @@ export class PieTag extends PieElement implements TagProps {
             size,
             variant,
             isIconOnly,
-            hasIcon,
             hasLeadingIcon,
         } = this;
 
@@ -111,7 +70,7 @@ export class PieTag extends PieElement implements TagProps {
             'c-tag--is-dimmed': isDimmed,
             'c-tag--strong': isStrong,
             'c-tag--icon-only': isIconOnly,
-            'c-tag--has-icon': hasIcon || hasLeadingIcon,
+            'c-tag--has-icon': hasLeadingIcon,
         };
 
         return html`
@@ -120,7 +79,7 @@ export class PieTag extends PieElement implements TagProps {
             class="${classMap(classes)}"
             data-test-id="pie-tag">
             ${this.renderIconSlot()}
-            <slot @slotchange=${this.handleSlotChange}></slot>
+            <slot></slot>
         </div>`;
     }
 

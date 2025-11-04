@@ -9,6 +9,7 @@ import {
     sizes,
     defaultProps,
 } from '@justeattakeaway/pie-tag';
+import '@justeattakeaway/pie-notification';
 import '@justeattakeaway/pie-icons-webc/dist/IconOfferFilled.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconVegan.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconFingerprint.js';
@@ -60,14 +61,14 @@ const tagStoryMeta: TagStoryMeta = {
             },
         },
         isIconOnly: {
-            description: 'Indicates whether or not the tag is only an icon. Used for SSR. CSR only users do not need this.',
+            description: 'Required to correctly render the tag when it contains only an icon.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isIconOnly,
             },
         },
         hasLeadingIcon: {
-            description: 'Indicates whether or not the tag has a leading icon plus text. Used for SSR. CSR only users do not need this.',
+            description: 'Required to correctly render the tag when it has a leading icon plus text.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.hasLeadingIcon,
@@ -105,18 +106,60 @@ const Template : TemplateFunction<TagProps> = ({
     hasLeadingIcon,
     showIcon,
     slot,
-}) => html`
-    <pie-tag
-        variant="${ifDefined(variant)}"
-        size="${ifDefined(size)}"
-        ?isStrong="${isStrong}"
-        ?isDimmed="${isDimmed}"
-        ?isIconOnly="${isIconOnly}"
-        ?hasLeadingIcon="${hasLeadingIcon}">
-        ${showIcon ? html`<icon-fingerprint slot="icon"></icon-fingerprint>` : nothing}
-        ${sanitizeAndRenderHTML(slot)}
-    </pie-tag>
-`;
+}) => {
+    const hasText = slot && slot.trim() !== '';
+    const shouldBeIconOnly = showIcon && !hasText;
+    const shouldHaveLeadingIcon = showIcon && hasText;
+
+    // Check for incorrect property settings
+    let instructionalMessage = '';
+
+    if (showIcon) {
+        // When showIcon is enabled, check for missing attributes
+        if (shouldBeIconOnly && !isIconOnly) {
+            instructionalMessage = 'Set "isIconOnly" to true for icon-only tags.';
+        } else if (shouldHaveLeadingIcon && !hasLeadingIcon) {
+            instructionalMessage = 'Set "hasLeadingIcon" to true for tags with icon + text.';
+        } else if (!shouldBeIconOnly && isIconOnly) {
+            instructionalMessage = 'Set "isIconOnly" to false when tag has text content.';
+        } else if (!shouldHaveLeadingIcon && hasLeadingIcon) {
+            instructionalMessage = 'Set "hasLeadingIcon" to false for icon-only tags.';
+        }
+    }
+
+    // When showIcon is disabled, check for incorrectly set attributes
+    if (!showIcon && (isIconOnly || hasLeadingIcon)) {
+        if (isIconOnly) {
+            instructionalMessage = 'Set "isIconOnly" to false when no icon is provided.';
+        } else if (hasLeadingIcon) {
+            instructionalMessage = 'Set "hasLeadingIcon" to false when no icon is provided.';
+        }
+    }
+
+    return html`
+        ${instructionalMessage ? html`
+            <pie-notification
+                variant="warning"
+                position="inline-content"
+                .isOpen="${true}"
+                .isDismissible="${false}"
+                .isCompact="${true}">
+                ${instructionalMessage}
+            </pie-notification>
+            <br>
+        ` : nothing}
+        <pie-tag
+            variant="${ifDefined(variant)}"
+            size="${ifDefined(size)}"
+            ?isStrong="${isStrong}"
+            ?isDimmed="${isDimmed}"
+            ?is-icon-only="${isIconOnly}"
+            ?has-leading-icon="${hasLeadingIcon}">
+            ${showIcon ? html`<icon-fingerprint slot="icon"></icon-fingerprint>` : nothing}
+            ${sanitizeAndRenderHTML(slot)}
+        </pie-tag>
+    `;
+};
 
 const createTagStory = createStory<TagProps>(Template, defaultArgs);
 
@@ -185,6 +228,7 @@ export const IconOnly = createTagStory({
     showIcon: true,
     slot: '',
     variant: 'brand-06',
+    isIconOnly: true,
 }, {});
 
 const allCustomStyles = `
@@ -302,3 +346,4 @@ export const CustomStyledTagAlternate = createCustomTagAlternateStory({
 }, {
     controls: { disable: true },
 });
+
