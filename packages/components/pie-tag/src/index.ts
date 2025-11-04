@@ -1,8 +1,8 @@
 import {
-    html, unsafeCSS, type PropertyValues,
+    html, unsafeCSS,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { property, queryAssignedElements } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './tag.scss?inline';
@@ -46,8 +46,6 @@ export class PieTag extends PieElement implements TagProps {
 
     @property({ type: Boolean, attribute: 'has-leading-icon' })
     public hasLeadingIcon = defaultProps.hasLeadingIcon;
-
-    @queryAssignedElements({ slot: 'icon', flatten: true }) _iconSlotNodes!: Array<HTMLElement>;
 
     private renderIconSlot () {
         return html`<slot part="icon" name="icon"></slot>`;
