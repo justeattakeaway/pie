@@ -41,7 +41,7 @@ export class PieTag extends PieElement implements TagProps {
     @property({ type: Boolean })
     public isDimmed = defaultProps.isDimmed;
 
-    @property({ type: Boolean, attribute: 'is-icon-only', reflect: true })
+    @property({ type: Boolean, attribute: 'is-icon-only' })
     public isIconOnly = defaultProps.isIconOnly;
 
     @property({ type: Boolean, attribute: 'has-leading-icon' })
