@@ -20,7 +20,7 @@ const componentSelector = 'pie-avatar';
  * @tagname pie-avatar
  */
 
-@safeCustomElement(componentSelector)
+@safeCustomElement('pie-avatar')
 export class PieAvatar extends RtlMixin(PieElement) implements AvatarProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, tags, defaultProps.tag)
