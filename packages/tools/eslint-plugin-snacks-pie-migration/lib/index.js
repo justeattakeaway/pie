@@ -29,6 +29,14 @@ module.exports = {
                 '@justeattakeaway/snacks-pie-migration/snacks-pie-migration': 'error',
                 '@justeattakeaway/snacks-pie-migration/deprecated-components': 'error',
             },
+            parserOptions: {
+                ecmaVersion: 2020,
+                sourceType: 'module',
+                ecmaFeatures: {
+                    jsx: true
+                }
+            },
+            parser: '@typescript-eslint/parser', // Handle JS and TS by default
             processor: '@justeattakeaway/snacks-pie-migration/changed-lines',
         },
         // Alternative: less aggressive enforcement
@@ -38,6 +46,14 @@ module.exports = {
                 '@justeattakeaway/snacks-pie-migration/snacks-pie-migration': 'warn',
                 '@justeattakeaway/snacks-pie-migration/deprecated-components': 'warn',
             },
+            parserOptions: {
+                ecmaVersion: 2020,
+                sourceType: 'module',
+                ecmaFeatures: {
+                    jsx: true
+                }
+            },
+            parser: '@typescript-eslint/parser', // Handle JS and TS by default
             processor: '@justeattakeaway/snacks-pie-migration/changed-lines',
         },
     },
