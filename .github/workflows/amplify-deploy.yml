@@ -40,14 +40,17 @@ on:
       sub-domain-suffix:
         required: false
         type: string
+      aws-role-arn:
+        description: "ARN of the AWS IAM role to assume for OIDC"
+        required: true
+        type: string
 
 permissions:
   contents: read
+  id-token: write
 
 env:
   AMPLIFY_ID: ${{ inputs.amplify-app-id }}
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_REGION: 'eu-west-1'
   BRANCH_NAME: ${{ github.event_name == 'pull_request' && format('pr{0}', github.event.number) || (github.ref == 'refs/heads/main' && 'main' || github.ref == 'refs/heads/master' && 'master') }}
   BUCKET_NAME: ${{ github.event_name == 'pull_request' && inputs.bucket-name-preview || (github.ref == 'refs/heads/main' && inputs.bucket-name-main || github.ref == 'refs/heads/master' && inputs.bucket-name-main) }}
@@ -59,7 +62,20 @@ jobs:
     permissions:
       contents: read
       deployments: write
+      id-token: write
     steps:
+      # Checkout the repo
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      # Configure AWS credentials using OIDC
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4.0.2
+        with:
+          role-to-assume: ${{ inputs.aws-role-arn }}
+          role-session-name: github-actions-${{ github.run_id }}
+          aws-region: ${{ env.AWS_REGION }}
+
       # Process package name to remove prefix
       - name: Remove scope from package name
         run: |
@@ -80,9 +96,6 @@ jobs:
             echo "ZIP_NAME=${{ env.PACKAGE_NAME }}-master.zip" >> "$GITHUB_ENV"
           fi
 
-      # Checkout the Repo
-      - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       # Setup Repo
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
@@ -108,21 +121,23 @@ jobs:
         run: |
           cd ${{ inputs.package-dist-directory }}
           zip -r ./${{ env.ZIP_NAME }} .
-      # Upload zip to S3
+      # Upload zip to S3 using AWS CLI
       - name: Upload to S3
         id: upload-s3
-        uses: hkusu/s3-upload-action@df0d0d688ce4593c477be764d08f63566dfd968e # v2.1.0
-        with:
-          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.AWS_REGION }}
-          aws-bucket: ${{ env.BUCKET_NAME }}
-          bucket-root: "/"
-          destination-dir: "${{ inputs.destination-dir }}"
-          file-path: "${{inputs.package-dist-directory}}/${{ env.ZIP_NAME }}"
-          content-type: "application/zip"
-          public: true
-          output-file-url: 'true'
+        shell: bash
+        run: |
+          cd ${{ inputs.package-dist-directory }}
+          
+          # Upload file to S3 with public-read ACL
+          aws s3 cp ./${{ env.ZIP_NAME }} s3://${{ env.BUCKET_NAME }}${{ inputs.destination-dir }}${{ env.ZIP_NAME }} \
+            --content-type "application/zip" \
+            --acl public-read \
+            --region ${{ env.AWS_REGION }}
+          
+          # Construct the public URL
+          FILE_URL="https://${{ env.BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com${{ inputs.destination-dir }}${{ env.ZIP_NAME }}"
+          echo "file-url=$FILE_URL" >> "$GITHUB_OUTPUT"
+          echo "Uploaded to: $FILE_URL"
       # Create branch on Amplify
       - name: Create Amplify branch
         shell: bash
@@ -148,6 +163,7 @@ jobs:
         run: |
           echo "SUB_DOMAIN=pr${{ github.event.number }}-${SUB_DOMAIN_SUFFIX}" >> "$GITHUB_ENV"
 
+      # Get existing domain associations
       - name: Get existing domain associations
         if: github.event_name == 'pull_request'
         run: |
@@ -162,7 +178,7 @@ jobs:
                 . + [{"branchName": "pr${{ github.event.number }}", "prefix": "${{ env.SUB_DOMAIN }}"}]
               else . end
             ' -c)
-            echo "DOMAIN_ASSOCIATIONS=$DOMAIN_ASSOCIATIONS" >> "$GITHUB_ENV"
+          echo "DOMAIN_ASSOCIATIONS=$DOMAIN_ASSOCIATIONS" >> "$GITHUB_ENV"
 
       - name: Create Subdomain Association
         if: github.event_name == 'pull_request'
