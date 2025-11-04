@@ -47,10 +47,6 @@ export class PieTag extends PieElement implements TagProps {
     @property({ type: Boolean, attribute: 'has-leading-icon' })
     public hasLeadingIcon = defaultProps.hasLeadingIcon;
 
-    private renderIconSlot () {
-        return html`<slot part="icon" name="icon"></slot>`;
-    }
-
     render () {
         const {
             isDimmed,
@@ -76,7 +72,7 @@ export class PieTag extends PieElement implements TagProps {
             part="body"
             class="${classMap(classes)}"
             data-test-id="pie-tag">
-            ${this.renderIconSlot()}
+            <slot part="icon" name="icon"></slot>
             <slot></slot>
         </div>`;
     }
