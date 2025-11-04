@@ -6,7 +6,7 @@
 const packageData = require('../package.json');
 const snacksPieMigration = require('./rules/snacks-pie-migration');
 const deprecatedComponents = require('./rules/deprecated-components');
-const wasLineModified = require('./util/was-line-modified');
+const addedComponents = require('./processors/added-components');
 
 //------------------------------------------------------------------------------
 // Plugin Definition
@@ -37,7 +37,7 @@ module.exports = {
                 }
             },
             parser: '@typescript-eslint/parser', // Handle JS and TS by default
-            processor: '@justeattakeaway/snacks-pie-migration/changed-lines',
+            processor: '@justeattakeaway/snacks-pie-migration/added-components',
         },
         // Alternative: less aggressive enforcement
         warn: {
@@ -54,24 +54,10 @@ module.exports = {
                 }
             },
             parser: '@typescript-eslint/parser', // Handle JS and TS by default
-            processor: '@justeattakeaway/snacks-pie-migration/changed-lines',
+            processor: '@justeattakeaway/snacks-pie-migration/added-components',
         },
     },
     processors: {
-        'changed-lines': {
-            // Filter out errors for lines that weren't modified
-            postprocess (messages, filename) {
-                // Ensure to flat the array as it's the expected output of a processor
-                return messages.flat()
-                    .filter(({ ruleId, line, endLine }) => {
-                        // Check if the message has the id from the plugin
-                        if (ruleId === '@justeattakeaway/snacks-pie-migration/deprecated-components') {
-                            // Ignore message if the line wasn't modified
-                            return wasLineModified(filename, line, endLine);
-                        }
-                        return true;
-                    });
-            },
-        },
+        'added-components': addedComponents,
     },
 };

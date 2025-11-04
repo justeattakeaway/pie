@@ -1,5 +1,5 @@
-const snacksPackageName = 'snacks-design-system';
 const snacksComponentsData = require('../../snacks-components-data.json');
+const getImportSpecifiers = require('../util/get-import-specifiers');
 
 module.exports = {
     meta: {
@@ -14,16 +14,15 @@ module.exports = {
         return {
             // Performs action for every import declaration
             ImportDeclaration (node) {
-                if (node.source.value !== snacksPackageName) return;
+                if (node.source.value !== 'snacks-design-system') return;
 
-                node.specifiers.forEach((specifier) => {
-                    const importedSpecifier = specifier.imported.name;
-                    const replacementData = snacksComponentsData[importedSpecifier];
+                getImportSpecifiers(node).forEach((componentName) => {
+                    const replacementData = snacksComponentsData[componentName];
 
                     if (replacementData) {
                         context.report({
                             node,
-                            message: `The Snacks component "${importedSpecifier}" is being deprecated and can be replaced by "${replacementData.piePackage}".`,
+                            message: `The Snacks component "${componentName}" is being deprecated and can be replaced by "${replacementData.piePackage}".`,
                         });
                     }
                 });
