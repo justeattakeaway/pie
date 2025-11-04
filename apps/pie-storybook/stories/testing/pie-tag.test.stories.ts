@@ -69,7 +69,6 @@ const tagStoryMeta: TagStoryMeta = {
             defaultValue: {
                 summary: defaultArgs.showIcon,
             },
-            if: { arg: 'size', eq: 'large' },
         },
         slot: {
             description: 'Content to place within the tag',
@@ -113,7 +112,7 @@ const Template: TemplateFunction<TagProps> = ({
             ?isDimmed="${isDimmed}"
             ?is-icon-only="${effectiveIsIconOnly}"
             ?has-leading-icon="${effectiveHasLeadingIcon}">
-            ${showIcon ? html`<icon-fingerprint slot="icon"></icon-fingerprint>` : nothing}
+            ${showIcon ? html`<icon-fingerprint data-test-id="tag-icon" slot="icon"></icon-fingerprint>` : nothing}
             ${sanitizeAndRenderHTML(slot)}
         </pie-tag>
     `;

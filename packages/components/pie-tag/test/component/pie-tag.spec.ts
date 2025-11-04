@@ -1,11 +1,8 @@
 import { test, expect } from '@playwright/test';
-import { getShadowElementStylePropValues } from '@justeattakeaway/pie-webc-testing/src/helpers/get-shadow-element-style-prop-values.ts';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 import { type TagProps } from '../../src/defs.ts';
 
 import { tag } from '../helpers/page-object/selectors.ts';
-
-const componentSelector = '[data-test-id="pie-tag"]';
 
 test.describe('PieTag - Component tests', () => {
     test('should be visible', async ({ page }) => {
