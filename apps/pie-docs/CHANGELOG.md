@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.56.0
+
+### Minor Changes
+
+- [Added] - support transulcent vairaint and trailing icon ([#2599](https://github.com/justeattakeaway/pie/pull/2599)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Updated] - add the translucent variant to the icons docs ([#2596](https://github.com/justeattakeaway/pie/pull/2596)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.29
+
 ## 4.55.0
 
 ### Minor Changes

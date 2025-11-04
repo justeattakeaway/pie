@@ -9,6 +9,14 @@ on:
       node-version:
         required: true
         type: string
+      aws-role-arn:
+        description: "ARN of the AWS IAM role to assume for OIDC"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  id-token: write
 
 concurrency:
   group: changeset-release-${{ github.ref }}
@@ -26,6 +34,9 @@ jobs:
       published: ${{ steps.changesets-main.outputs.published }}
       publishedPackages: ${{ steps.changesets-main.outputs.publishedPackages }}
     runs-on: ${{ inputs.os }}
+    permissions:
+      contents: read
+      id-token: write
     if: github.repository == 'justeattakeaway/pie' && github.event_name != 'pull_request' &&
       (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
     steps:
@@ -35,6 +46,15 @@ jobs:
       with:
         fetch-depth: 0
         persist-credentials: false
+
+    # Configure AWS credentials using OIDC
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4.0.2
+      with:
+        role-to-assume: ${{ inputs.aws-role-arn }}
+        role-session-name: github-actions-changeset-${{ github.run_id }}
+        aws-region: eu-west-1
+
     # Setup Repo
     - name: Setup Repo
       uses: ./.github/actions/setup-repo
@@ -204,8 +224,6 @@ jobs:
       if: steps.changesets-main.outputs.published == 'true'
       uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
       env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: eu-west-1
         PIE_CDN_BUCKET_NAME: ${{ vars.PIE_CDN_BUCKET_NAME }}
       with:
