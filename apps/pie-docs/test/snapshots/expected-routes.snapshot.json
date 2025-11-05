@@ -139,7 +139,6 @@
     "foundations/spacing/tokens/alias",
     "foundations/spacing/tokens/global",
     "foundations/typography",
-    "foundations/typography/code",
     "foundations/typography/tokens/alias/narrow",
     "foundations/typography/tokens/alias/wide",
     "foundations/typography/tokens/global",
