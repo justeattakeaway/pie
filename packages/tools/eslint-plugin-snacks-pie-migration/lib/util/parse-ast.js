@@ -1,4 +1,5 @@
 const parser = require('@typescript-eslint/parser');
+const { parserOptions } = require('../config');
 
 function traverseAst (node, visitor) {
     if (!node || typeof node.type !== 'string' || !visitor) {
@@ -29,13 +30,7 @@ function traverseAst (node, visitor) {
 
 function parseAst (fileContent, visitor) {
     // Parse the current file state into an AST
-    const currentAST = parser.parse(fileContent, {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        ecmaFeatures: {
-            jsx: true
-        }
-    });
+    const currentAST = parser.parse(fileContent, parserOptions);
 
     traverseAst(currentAST, visitor);
 

@@ -4,7 +4,7 @@
  */
 
 const packageData = require('../package.json');
-const snacksPieMigration = require('./rules/snacks-pie-migration');
+const { parserOptions, parser } = require('./config');
 const deprecatedComponents = require('./rules/deprecated-components');
 const addedComponents = require('./processors/added-components');
 
@@ -19,42 +19,27 @@ module.exports = {
         namespace: packageData.name,
     },
     rules: {
-        'snacks-pie-migration': snacksPieMigration,
         'deprecated-components': deprecatedComponents,
     },
     configs: {
         recommended: {
             plugins: ['@justeattakeaway/snacks-pie-migration'],
             rules: {
-                '@justeattakeaway/snacks-pie-migration/snacks-pie-migration': 'error',
                 '@justeattakeaway/snacks-pie-migration/deprecated-components': 'error',
             },
-            parserOptions: {
-                ecmaVersion: 2020,
-                sourceType: 'module',
-                ecmaFeatures: {
-                    jsx: true
-                }
-            },
-            parser: '@typescript-eslint/parser', // Handle JS and TS by default
             processor: '@justeattakeaway/snacks-pie-migration/added-components',
+            parserOptions,
+            parser,
         },
         // Alternative: less aggressive enforcement
         warn: {
             plugins: ['@justeattakeaway/snacks-pie-migration'],
             rules: {
-                '@justeattakeaway/snacks-pie-migration/snacks-pie-migration': 'warn',
                 '@justeattakeaway/snacks-pie-migration/deprecated-components': 'warn',
             },
-            parserOptions: {
-                ecmaVersion: 2020,
-                sourceType: 'module',
-                ecmaFeatures: {
-                    jsx: true
-                }
-            },
-            parser: '@typescript-eslint/parser', // Handle JS and TS by default
             processor: '@justeattakeaway/snacks-pie-migration/added-components',
+            parserOptions,
+            parser,
         },
     },
     processors: {
