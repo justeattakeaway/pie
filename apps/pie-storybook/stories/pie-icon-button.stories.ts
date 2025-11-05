@@ -90,3 +90,4 @@ export const Ghost = createIconButtonStory({ variant: 'ghost' }, { bgColor: 'bac
 export const GhostSecondary = createIconButtonStory({ variant: 'ghost-secondary' }, { bgColor: 'background-subtle' });
 export const Inverse = createIconButtonStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
 export const GhostInverse = createIconButtonStory({ variant: 'ghost-inverse' }, { bgColor: 'dark (container-dark)' });
+export const Translucent = createIconButtonStory({ variant: 'translucent' });

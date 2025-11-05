@@ -1,5 +1,28 @@
 # @justeattakeaway/pie-modal
 
+## 1.17.5
+
+### Patch Changes
+
+- [Updated] - improve the `hasStackedAction`s type definition description. ([#2595](https://github.com/justeattakeaway/pie/pull/2595)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`fe51bf9`](https://github.com/justeattakeaway/pie/commit/fe51bf96e23a7db54c5fd923135649ddd5e358ab), [`fe51bf9`](https://github.com/justeattakeaway/pie/commit/fe51bf96e23a7db54c5fd923135649ddd5e358ab)]:
+  - @justeattakeaway/pie-icon-button@2.3.0
+  - @justeattakeaway/pie-button@1.9.2
+
+## 1.17.4
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens to v7.8.2 ([#2593](https://github.com/justeattakeaway/pie/pull/2593)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.9.1
+  - @justeattakeaway/pie-icon-button@2.2.4
+  - @justeattakeaway/pie-spinner@1.3.3
+  - @justeattakeaway/pie-webc-core@3.0.2
+  - @justeattakeaway/pie-icons-webc@1.16.1
+
 ## 1.17.3
 
 ### Patch Changes

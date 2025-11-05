@@ -1,5 +1,24 @@
 # @justeattakeaway/pie-chip
 
+## 0.15.0
+
+### Minor Changes
+
+- [Added] - support transulcent vairaint and trailing icon ([#2599](https://github.com/justeattakeaway/pie/pull/2599)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Updated] - remove unused css variable and tidy up styles ([#2596](https://github.com/justeattakeaway/pie/pull/2596)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.14.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.3.3
+  - @justeattakeaway/pie-webc-core@3.0.2
+  - @justeattakeaway/pie-icons-webc@1.16.1
+
 ## 0.14.3
 
 ### Patch Changes

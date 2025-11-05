@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-checkbox-group",
   "description": "PIE Design System Checkbox Group built using Web Components",
-  "version": "0.9.15",
+  "version": "0.9.16",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -44,15 +44,15 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
-    "@justeattakeaway/pie-checkbox": "0.18.3",
+    "@justeattakeaway/pie-checkbox": "0.18.4",
     "@justeattakeaway/pie-components-config": "0.21.0",
-    "@justeattakeaway/pie-css": "0.23.1",
+    "@justeattakeaway/pie-css": "0.23.2",
     "@justeattakeaway/pie-monorepo-utils": "0.7.0",
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-assistive-text": "0.11.3",
-    "@justeattakeaway/pie-webc-core": "3.0.1"
+    "@justeattakeaway/pie-assistive-text": "0.11.4",
+    "@justeattakeaway/pie-webc-core": "3.0.2"
   },
   "volta": {
     "extends": "../../../package.json"
