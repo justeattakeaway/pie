@@ -141,9 +141,7 @@ const Template : TemplateFunction<TagProps> = ({
             <pie-notification
                 variant="warning"
                 position="inline-content"
-                .isOpen="${true}"
-                .isDismissible="${false}"
-                .isCompact="${true}">
+                isOpen>
                 ${instructionalMessage}
             </pie-notification>
             <br>
