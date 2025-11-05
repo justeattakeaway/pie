@@ -151,10 +151,15 @@ jobs:
       - name: Start Amplify Deployment from S3
         shell: bash
         run: |
-          aws amplify start-deployment \
+          DEPLOYMENT_OUTPUT=$(aws amplify start-deployment \
             --app-id ${{ env.AMPLIFY_ID }} \
             --branch-name ${{ env.BRANCH_NAME }} \
-            --source-url ${{ steps.upload-s3.outputs.file-url }}
+            --source-url ${{ steps.upload-s3.outputs.file-url }})
+          
+          JOB_ID=$(echo "$DEPLOYMENT_OUTPUT" | jq -r '.jobSummary.jobId' | tr -d '\n\r' | xargs)
+          echo "Started deployment with Job ID: $JOB_ID"
+          echo "JOB_ID=$JOB_ID" >> "$GITHUB_ENV"
+
       # Set env vars for domain name association
       - name: Set environment variables for domain name association
         if: github.event_name == 'pull_request'
@@ -192,11 +197,16 @@ jobs:
       - name: Wait for Amplify deployment
         if: github.event_name == 'pull_request'
         run: |
-          LATEST_JOB_ID=$(aws amplify list-jobs \
-            --app-id ${{ env.AMPLIFY_ID }} \
-            --branch-name ${{ env.BRANCH_NAME }} \
-            --region ${{ env.AWS_REGION }} --query jobSummaries[0].jobId \
-            --output text)
+          LATEST_JOB_ID="${{ env.JOB_ID }}"
+          LATEST_JOB_ID=$(echo "$LATEST_JOB_ID" | tr -d '\n\r\t ' | xargs)
+          
+          echo "Waiting for deployment with Job ID: $LATEST_JOB_ID"
+        
+          if [[ -z "$LATEST_JOB_ID" || "$LATEST_JOB_ID" == "null" || ! "$LATEST_JOB_ID" =~ ^[0-9]+$ ]]; then
+            echo "Invalid job ID: '$LATEST_JOB_ID'. Exiting."
+            exit 1
+          fi
+          
           MAX_ATTEMPTS=12
           SLEEP_SECONDS=10
 
