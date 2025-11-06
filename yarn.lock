@@ -3245,14 +3245,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:7.8.2":
-  version: 7.8.2
-  resolution: "@justeat/pie-design-tokens@npm:7.8.2"
+"@justeat/pie-design-tokens@npm:7.9.0":
+  version: 7.9.0
+  resolution: "@justeat/pie-design-tokens@npm:7.9.0"
   dependencies:
     jsonc-parser: 3.2.0
     lodash.merge: 4.6.2
     mkdirp: 1.0.4
-  checksum: e198e1ab43c258d2651ea0bb6cf9117535d770ae971599db1e3a13b2764c60459d7530aca2e92ec9368ef07595caf916a9d6f1f6f352fc023d86bbd0d8a5c030
+  checksum: 90f444d109f47b2f96a16ecbc17c45a5a272221450769b9befa3a2fa87feb5ff17a4d42714bf37aba23a1f89023b17d654883b03cbe392254ba90fdfbe135e71
   languageName: node
   linkType: hard
 
@@ -3485,7 +3485,7 @@ __metadata:
     "@docsearch/css": 3.5.2
     "@docsearch/js": 3.5.2
     "@justeat/fozzie": 11.0.2
-    "@justeat/pie-design-tokens": 7.8.2
+    "@justeat/pie-design-tokens": 7.9.0
     "@justeattakeaway/browserslist-config-pie": 0.2.1
     "@justeattakeaway/pie-css": 0.23.2
     "@justeattakeaway/pie-icons": 5.16.0
@@ -3687,7 +3687,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeat/pie-design-tokens": 7.8.2
+    "@justeat/pie-design-tokens": 7.9.0
     "@justeattakeaway/pie-button": 1.9.2
     "@justeattakeaway/pie-components-config": 0.21.0
     "@justeattakeaway/pie-css": 0.23.2
@@ -3792,7 +3792,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-storybook@workspace:apps/pie-storybook"
   dependencies:
-    "@justeat/pie-design-tokens": 7.8.2
+    "@justeat/pie-design-tokens": 7.9.0
     "@justeattakeaway/pie-assistive-text": 0.11.4
     "@justeattakeaway/pie-avatar": 0.4.5
     "@justeattakeaway/pie-breadcrumb": 0.7.6
@@ -18076,7 +18076,7 @@ __metadata:
     "@changesets/cli": 2.27.10
     "@commitlint/cli": 17.5.1
     "@commitlint/config-conventional": 17.4.4
-    "@justeat/pie-design-tokens": 7.8.2
+    "@justeat/pie-design-tokens": 7.9.0
     "@justeattakeaway/browserslist-config-pie": 0.2.1
     "@justeattakeaway/generator-pie-component": 0.31.1
     "@justeattakeaway/pie-icons": 5.16.0
