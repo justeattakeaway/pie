@@ -151,8 +151,8 @@ const Template : TemplateFunction<TagProps> = ({
             size="${ifDefined(size)}"
             ?isStrong="${isStrong}"
             ?isDimmed="${isDimmed}"
-            ?is-icon-only="${isIconOnly}"
-            ?has-leading-icon="${hasLeadingIcon}">
+            ?isIconOnly="${isIconOnly}"
+            ?hasLeadingIcon="${hasLeadingIcon}">
             ${showIcon ? html`<icon-fingerprint slot="icon"></icon-fingerprint>` : nothing}
             ${sanitizeAndRenderHTML(slot)}
         </pie-tag>

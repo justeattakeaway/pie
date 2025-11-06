@@ -110,8 +110,8 @@ const Template: TemplateFunction<TagProps> = ({
             size="${ifDefined(size)}"
             ?isStrong="${isStrong}"
             ?isDimmed="${isDimmed}"
-            ?is-icon-only="${effectiveIsIconOnly}"
-            ?has-leading-icon="${effectiveHasLeadingIcon}">
+            ?isIconOnly="${effectiveIsIconOnly}"
+            ?hasLeadingIcon="${effectiveHasLeadingIcon}">
             ${showIcon ? html`<icon-fingerprint data-test-id="tag-icon" slot="icon"></icon-fingerprint>` : nothing}
             ${sanitizeAndRenderHTML(slot)}
         </pie-tag>
@@ -344,7 +344,7 @@ const RawSVGSlotTemplate: TemplateFunction<TagProps> = () => html`
     <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
         <div style="text-align: left;">
             <h4 style="margin: 0 0 4px 0; font-size: 14px;">Large Tag</h4>
-            <pie-tag size="large" variant="brand-04" isStrong has-leading-icon>
+            <pie-tag size="large" variant="brand-04" isStrong hasLeadingIcon>
                 <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
                     <path d="M8 2a6 6 0 100 12A6 6 0 008 2zM7 7V5h2v2H7zm0 4V9h2v2H7z"/>
                 </svg>
@@ -354,7 +354,7 @@ const RawSVGSlotTemplate: TemplateFunction<TagProps> = () => html`
 
         <div style="text-align: left;">
             <h4 style="margin: 0 0 4px 0; font-size: 14px;">Small Tag</h4>
-            <pie-tag size="small" variant="brand-04" isStrong has-leading-icon>
+            <pie-tag size="small" variant="brand-04" isStrong hasLeadingIcon>
                 <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
                     <path d="M8 2a6 6 0 100 12A6 6 0 008 2zM7 7V5h2v2H7zm0 4V9h2v2H7z"/>
                 </svg>
@@ -364,7 +364,7 @@ const RawSVGSlotTemplate: TemplateFunction<TagProps> = () => html`
 
         <div style="text-align: left;">
             <h4 style="margin: 0 0 4px 0; font-size: 14px;">Large Icon Only</h4>
-            <pie-tag size="large" variant="brand-04" isStrong is-icon-only>
+            <pie-tag size="large" variant="brand-04" isStrong isIconOnly>
                 <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
                     <path d="M8 2a6 6 0 100 12A6 6 0 008 2zM7 7V5h2v2H7zm0 4V9h2v2H7z"/>
                 </svg>
@@ -373,7 +373,7 @@ const RawSVGSlotTemplate: TemplateFunction<TagProps> = () => html`
 
         <div style="text-align: left;">
             <h4 style="margin: 0 0 4px 0; font-size: 14px;">Small Icon Only</h4>
-            <pie-tag size="small" variant="brand-04" isStrong is-icon-only>
+            <pie-tag size="small" variant="brand-04" isStrong isIconOnly>
                 <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
                     <path d="M8 2a6 6 0 100 12A6 6 0 008 2zM7 7V5h2v2H7zm0 4V9h2v2H7z"/>
                 </svg>
@@ -411,19 +411,19 @@ const TextTruncationTemplate: TemplateFunction<TagProps> = () => html`
             <h4 style="margin: 0 0 8px 0; font-size: 14px;">Large Tags With Icon - Different Max-Widths</h4>
             <div style="display: flex; flex-direction: column; gap: 8px;">
                 <div style="max-width: 150px;">
-                    <pie-tag size="large" variant="information" style="width: 100%;" has-leading-icon>
+                    <pie-tag size="large" variant="information" style="width: 100%;" hasLeadingIcon>
                         <icon-info-circle slot="icon"></icon-info-circle>
                         This is a very long text that should be truncated with ellipsis
                     </pie-tag>
                 </div>
                 <div style="max-width: 100px;">
-                    <pie-tag size="large" variant="information" style="width: 100%;" has-leading-icon>
+                    <pie-tag size="large" variant="information" style="width: 100%;" hasLeadingIcon>
                         <icon-info-circle slot="icon"></icon-info-circle>
                         This is a very long text that should be truncated with ellipsis
                     </pie-tag>
                 </div>
                 <div style="max-width: 50px;">
-                    <pie-tag size="large" variant="information" style="width: 100%;" has-leading-icon>
+                    <pie-tag size="large" variant="information" style="width: 100%;" hasLeadingIcon>
                         <icon-info-circle slot="icon"></icon-info-circle>
                         This is a very long text that should be truncated with ellipsis
                     </pie-tag>
@@ -456,19 +456,19 @@ const TextTruncationTemplate: TemplateFunction<TagProps> = () => html`
             <h4 style="margin: 0 0 8px 0; font-size: 14px;">Small Tags With Icon - Different Max-Widths</h4>
             <div style="display: flex; flex-direction: column; gap: 8px;">
                 <div style="max-width: 150px;">
-                    <pie-tag size="small" variant="information" style="width: 100%;" has-leading-icon>
+                    <pie-tag size="small" variant="information" style="width: 100%;" hasLeadingIcon>
                         <icon-info-circle slot="icon"></icon-info-circle>
                         This is a very long text that should be truncated with ellipsis
                     </pie-tag>
                 </div>
                 <div style="max-width: 100px;">
-                    <pie-tag size="small" variant="information" style="width: 100%;" has-leading-icon>
+                    <pie-tag size="small" variant="information" style="width: 100%;" hasLeadingIcon>
                         <icon-info-circle slot="icon"></icon-info-circle>
                         This is a very long text that should be truncated with ellipsis
                     </pie-tag>
                 </div>
                 <div style="max-width: 50px;">
-                    <pie-tag size="small" variant="information" style="width: 100%;" has-leading-icon>
+                    <pie-tag size="small" variant="information" style="width: 100%;" hasLeadingIcon>
                         <icon-info-circle slot="icon"></icon-info-circle>
                         This is a very long text that should be truncated with ellipsis
                     </pie-tag>
@@ -495,28 +495,28 @@ const TranslucentOverImageTemplate: TemplateFunction<TagProps> = () => html`
                 align-items: flex-start;
                 width: max-content;
             ">
-                <pie-tag variant="translucent" size="large" has-leading-icon>
+                <pie-tag variant="translucent" size="large" hasLeadingIcon>
                     <icon-info-circle slot="icon"></icon-info-circle>
                     Large with icon
                 </pie-tag>
                 <pie-tag variant="translucent" size="large">
                     Large without icon
                 </pie-tag>
-                <pie-tag variant="translucent" size="small" has-leading-icon>
+                <pie-tag variant="translucent" size="small" hasLeadingIcon>
                     <icon-info-circle slot="icon"></icon-info-circle>
                     Small with icon
                 </pie-tag>
                 <pie-tag variant="translucent" size="small">
                     Small without icon
                 </pie-tag>
-                <pie-tag variant="translucent" size="large" isDimmed has-leading-icon>
+                <pie-tag variant="translucent" size="large" isDimmed hasLeadingIcon>
                     <icon-info-circle slot="icon"></icon-info-circle>
                     Dimmed large with icon
                 </pie-tag>
                 <pie-tag variant="translucent" size="large" isDimmed>
                     Dimmed large without icon
                 </pie-tag>
-                <pie-tag variant="translucent" size="small" isDimmed has-leading-icon>
+                <pie-tag variant="translucent" size="small" isDimmed hasLeadingIcon>
                     <icon-info-circle slot="icon"></icon-info-circle>
                     Dimmed small with icon
                 </pie-tag>
@@ -524,11 +524,11 @@ const TranslucentOverImageTemplate: TemplateFunction<TagProps> = () => html`
                     Dimmed small without icon
                 </pie-tag>
 
-                <pie-tag variant="translucent" size="large" is-icon-only>
+                <pie-tag variant="translucent" size="large" isIconOnly>
                     <icon-info-circle slot="icon"></icon-info-circle>
                 </pie-tag>
 
-                <pie-tag variant="translucent" size="large" isDimmed is-icon-only>
+                <pie-tag variant="translucent" size="large" isDimmed isIconOnly>
                     <icon-info-circle slot="icon"></icon-info-circle>
                 </pie-tag>
             </div>

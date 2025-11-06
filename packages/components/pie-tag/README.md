@@ -74,7 +74,7 @@ import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
 ```html
 <!-- pass js file into <script> tag -->
-<pie-tag has-leading-icon>
+<pie-tag hasLeadingIcon>
   <icon-placeholder slot="icon"></icon-placeholder>
   Label
 </pie-tag>
@@ -88,7 +88,7 @@ import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 import '@justeattakeaway/pie-webc/components/tag.js'
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
-<pie-tag has-leading-icon>
+<pie-tag hasLeadingIcon>
   <icon-placeholder slot="icon"></icon-placeholder>
   Label
 </pie-tag>
@@ -114,7 +114,7 @@ These properties are required for correct rendering when using icons with tags.
 
 ```html
 <!-- HTML -->
-<pie-tag is-icon-only>
+<pie-tag isIconOnly>
   <icon-placeholder slot="icon"></icon-placeholder>
 </pie-tag>
 ```
@@ -130,7 +130,7 @@ These properties are required for correct rendering when using icons with tags.
 
 ```html
 <!-- HTML -->
-<pie-tag has-leading-icon>
+<pie-tag hasLeadingIcon>
   <icon-placeholder slot="icon"></icon-placeholder>
   Label
 </pie-tag>
@@ -183,7 +183,7 @@ The pie-tag component automatically handles text truncation when the content exc
 ```html
 <!-- HTML -->
 <div style="max-width: 120px;">
-  <pie-tag style="width: 100%;" has-leading-icon>
+  <pie-tag style="width: 100%;" hasLeadingIcon>
     <icon-info-circle slot="icon"></icon-info-circle>
     This long text will be truncated while keeping the icon visible
   </pie-tag>
