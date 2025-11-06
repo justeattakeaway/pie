@@ -46,7 +46,7 @@
 
 
 // Selected state
-:host(.is-selected) {
+:host([is-selected]) {
   background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) - var(--dt-color-active-01)));
 
   @supports (background-color: color-mix(in srgb, black, white)) {
@@ -64,6 +64,6 @@
   color: var(--dt-color-content-disabled);
 }
 
-:host(.is-selected) .c-listItem-primary span {
+:host([is-selected]) .c-listItem-primary span {
   color: var(--dt-color-content-default);
 }
