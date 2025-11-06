@@ -1,16 +1,15 @@
 import {
-    html, unsafeCSS, nothing, type PropertyValues,
+    html, unsafeCSS,
 } from 'lit';
 import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElement';
-import { property, queryAssignedElements } from 'lit/decorators.js';
-import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
+import { property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './tag.scss?inline';
 import {
     variants,
     sizes,
     defaultProps,
-    iconPlacements,
     type TagProps,
 } from './defs';
 
@@ -40,118 +39,42 @@ export class PieTag extends PieElement implements TagProps {
     public isStrong = defaultProps.isStrong;
 
     @property({ type: Boolean })
-    public disabled = defaultProps.disabled;
+    public isDimmed = defaultProps.isDimmed;
 
     @property({ type: Boolean })
-    public isInteractive = defaultProps.isInteractive;
+    public isIconOnly = defaultProps.isIconOnly;
 
-    @property({ type: String })
-    @validPropertyValues(componentSelector, iconPlacements, defaultProps.iconPlacement)
-    public iconPlacement = defaultProps.iconPlacement;
-
-    @queryAssignedElements({ slot: 'icon', flatten: true }) _iconSlotNodes!: Array<HTMLElement>;
-
-    private isIconOnly = false;
-
-    updated (changedProperties: PropertyValues<this>) {
-        if (changedProperties.has('size')) this.checkIfIsIconOnly();
-    }
-
-    private checkIfIsIconOnly () {
-        const { size, textContent, _iconSlotNodes } = this;
-
-        // The instance size must be large
-        const isLargeSize = size === 'large';
-
-        // The default slot must be empty
-        const defaultSlotText = textContent?.trim();
-        const isDefaultSlotEmpty = defaultSlotText === '';
-
-        // The icon slot must have some content
-        const iconsSlotNotEmpty = _iconSlotNodes.length > 0;
-
-        if (isLargeSize && isDefaultSlotEmpty && iconsSlotNotEmpty) {
-            // The icon slot content must be an icon
-            if (_iconSlotNodes && _iconSlotNodes.length === 1) {
-                const firstNode = (_iconSlotNodes[0] as Element);
-                const tag = firstNode.tagName.toUpperCase();
-                const isIcon = tag.startsWith('ICON-') || tag === 'SVG';
-
-                this.isIconOnly = isIcon;
-                this.requestUpdate();
-
-                return;
-            }
-        }
-
-        this.isIconOnly = false;
-        this.requestUpdate();
-    }
-
-    private handleSlotChange () {
-        this.checkIfIsIconOnly();
-    }
-
-    private renderIconSlot () {
-        if (this.size !== 'large') return nothing;
-
-        return html`<slot part="icon" name="icon" @slotchange=${this.handleSlotChange}></slot>`;
-    }
-
-    private renderTag (classes: ClassInfo) {
-        return html`
-        <div
-            part="body"
-            class="${classMap(classes)}"
-            data-test-id="pie-tag">
-            ${this.renderIconSlot()}
-            <slot @slotchange=${this.handleSlotChange}></slot>
-        </div>`;
-    }
-
-    private renderButtonTag (classes: ClassInfo) {
-        return html`
-        <button
-            part="body"
-            type="button"
-            ?disabled="${this.disabled}"
-            class="${classMap(classes)}"
-            data-test-id="pie-tag">
-            ${this.renderIconSlot()}
-            <slot></slot>
-        </button>`;
-    }
+    @property({ type: Boolean })
+    public hasLeadingIcon = defaultProps.hasLeadingIcon;
 
     render () {
         const {
-            disabled,
-            isInteractive,
+            isDimmed,
             isStrong,
             size,
             variant,
-            iconPlacement,
             isIconOnly,
+            hasLeadingIcon,
         } = this;
-
-        // isInteractive can only be true when isIconOnly is false
-        const _isInteractive = isIconOnly ? false : isInteractive;
 
         const classes = {
             'c-tag': true,
             [`c-tag--${size}`]: true,
             [`c-tag--${variant}`]: true,
-            'is-disabled': disabled,
+            'c-tag--is-dimmed': isDimmed,
             'c-tag--strong': isStrong,
-            'c-tag--interactive': _isInteractive,
             'c-tag--icon-only': isIconOnly,
-            [`c-tag--icon-placement--${iconPlacement}`]: _isInteractive && iconPlacement,
+            'c-tag--has-icon': hasLeadingIcon,
         };
 
-        if (_isInteractive) {
-            return this.renderButtonTag(classes);
-        }
-
-        return this.renderTag(classes);
+        return html`
+        <div
+            part="body"
+            class="${classMap(classes)}"
+            data-test-id="pie-tag">
+            <slot part="icon" name="icon"></slot>
+            <slot></slot>
+        </div>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
