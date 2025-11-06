@@ -226,13 +226,6 @@ The pie-tag component automatically handles text truncation when the content exc
 </div>
 ```
 
-### Best Practices
-
-- Set Container Widths: Apply `width` or `max-width` to the tag component or its parent container to control when truncation occurs
-- Use Meaningful Text: Ensure the beginning of your text contains the most important information, as the end will be truncated
-- Test Different Widths: Consider how your tags will appear across different screen sizes and container widths
-- Accessibility: The full text content remains accessible to screen readers even when visually truncated
-
 ## Questions and Support
 
 If you work at Just Eat Takeaway.com, please contact us on **#help-designsystem**. Otherwise, please raise an issue on [Github](https://github.com/justeattakeaway/pie/issues).

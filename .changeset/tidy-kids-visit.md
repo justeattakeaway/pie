@@ -3,4 +3,9 @@
 "@justeattakeaway/pie-storybook": minor
 ---
 
-[Changed] - Updates to tag styles and new translucent + brand-08 variants. Icons now supported at small size, interactive type removed and `iconPlacement` property removed to only allow leading icons. `disabled` property renamed to `isDimmed`.
+[Added] - New translucent + brand-08 variants.
+[Changed] - Updates to tag styles.
+[Changed] - Icons now supported at small size.
+[Changed] - `disabled` property renamed to `isDimmed`.
+[Removed] - `interactive` type removed.
+[Removed] - `iconPlacement` property removed to only allow leading icons.
