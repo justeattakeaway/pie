@@ -4,11 +4,18 @@
     "//"
   ],
   "pipeline": {
+    "generate:design-tokens": {
+      "cache": true,
+      "outputs": [
+        "stories/design-tokens.mdx"
+      ]
+    },
     "dev": {
       "cache": false,
       "dependsOn": [
         "^build",
-        "^generate:component-statuses"
+        "^generate:component-statuses",
+        "generate:design-tokens"
       ]
     },
     "dev:testing": {
@@ -22,7 +29,8 @@
       "cache": true,
       "dependsOn": [
         "^build",
-        "^generate:component-statuses"
+        "^generate:component-statuses",
+        "generate:design-tokens"
       ],
       "outputs": ["dist/**"]
     },
