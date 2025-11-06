@@ -218,6 +218,7 @@ jobs:
               --app-id ${{ env.AMPLIFY_ID }} \
               --branch-name ${{ env.BRANCH_NAME }} \
               --job-id "$LATEST_JOB_ID" \
+              --region ${{ env.AWS_REGION }} \
               --query job.summary.status \
               --output text)
             echo "Attempt $(( attempt_counter+1 )) of $MAX_ATTEMPTS: Status - $status"
