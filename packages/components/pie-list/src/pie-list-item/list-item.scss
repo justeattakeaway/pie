@@ -46,7 +46,7 @@
 
 
 // Selected state
-:host([is-selected]) {
+:host([isSelected]) {
   background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) - var(--dt-color-active-01)));
 
   @supports (background-color: color-mix(in srgb, black, white)) {
