@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-tag
 
+## 0.22.0
+
+### Minor Changes
+
+- [Added] - New translucent + brand-08 variants. ([#2598](https://github.com/justeattakeaway/pie/pull/2598)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Changed] - Updates to tag styles.
+  [Changed] - Icons now supported at small size.
+  [Changed] - `disabled` property renamed to `isDimmed`.
+  [Removed] - `interactive` type removed.
+  [Removed] - `iconPlacement` property removed to only allow leading icons.
+
 ## 0.21.4
 
 ### Patch Changes
