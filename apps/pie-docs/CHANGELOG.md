@@ -1,5 +1,20 @@
 # Changelog
 
+## 4.57.0
+
+### Minor Changes
+
+- [Updated] - font files ([#2600](https://github.com/justeattakeaway/pie/pull/2600)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Updated] - pie-design-tokens to v7.9.0 ([#2600](https://github.com/justeattakeaway/pie/pull/2600)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`36c972d`](https://github.com/justeattakeaway/pie/commit/36c972d9996848bb9529f20cda4367c23a916f9d)]:
+  - @justeattakeaway/pie-css@0.24.0
+  - @justeattakeaway/pie-webc@0.7.30
+  - @justeattakeaway/pie-icons-webc@1.16.2
+
 ## 4.56.0
 
 ### Minor Changes

@@ -401,7 +401,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     /* Heading-xs-italic font theme */
     --dt-font-heading-xs-italic-size--wide: var(--dt-font-size-16);
     --dt-font-heading-xs-italic-size--narrow: var(--dt-font-size-14);
-    --dt-font-heading-xs-italic-family: var(--dt-font-family-alternative);
+    --dt-font-heading-xs-italic-family: var(--dt-font-family-primary);
     --dt-font-heading-xs-italic-weight: var(--dt-font-weight-extrabold);
     --dt-font-heading-xs-italic-font-style: var(--dt-font-style-italic);
     --dt-font-heading-xs-italic-line-height--wide: var(--dt-font-size-16-line-height);
@@ -409,7 +409,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     /* Heading-s-italic font theme */
     --dt-font-heading-s-italic-size--wide: var(--dt-font-size-20);
     --dt-font-heading-s-italic-size--narrow: var(--dt-font-size-16);
-    --dt-font-heading-s-italic-family: var(--dt-font-family-alternative);
+    --dt-font-heading-s-italic-family: var(--dt-font-family-primary);
     --dt-font-heading-s-italic-weight: var(--dt-font-weight-extrabold);
     --dt-font-heading-s-italic-font-style: var(--dt-font-style-italic);
     --dt-font-heading-s-italic-line-height--wide: var(--dt-font-size-20-line-height);
@@ -417,7 +417,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     /* Heading-m-italic font theme */
     --dt-font-heading-m-italic-size--wide: var(--dt-font-size-24);
     --dt-font-heading-m-italic-size--narrow: var(--dt-font-size-20);
-    --dt-font-heading-m-italic-family: var(--dt-font-family-alternative);
+    --dt-font-heading-m-italic-family: var(--dt-font-family-primary);
     --dt-font-heading-m-italic-weight: var(--dt-font-weight-black);
     --dt-font-heading-m-italic-font-style: var(--dt-font-style-italic);
     --dt-font-heading-m-italic-line-height--wide: var(--dt-font-size-24-line-height);
@@ -425,7 +425,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     /* Heading-l-italic font theme */
     --dt-font-heading-l-italic-size--wide: var(--dt-font-size-28);
     --dt-font-heading-l-italic-size--narrow: var(--dt-font-size-24);
-    --dt-font-heading-l-italic-family: var(--dt-font-family-alternative);
+    --dt-font-heading-l-italic-family: var(--dt-font-family-primary);
     --dt-font-heading-l-italic-weight: var(--dt-font-weight-black);
     --dt-font-heading-l-italic-font-style: var(--dt-font-style-italic);
     --dt-font-heading-l-italic-line-height--wide: var(--dt-font-size-28-line-height);
@@ -433,7 +433,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     /* Heading-xl-italic font theme */
     --dt-font-heading-xl-italic-size--wide: var(--dt-font-size-32);
     --dt-font-heading-xl-italic-size--narrow: var(--dt-font-size-28);
-    --dt-font-heading-xl-italic-family: var(--dt-font-family-alternative);
+    --dt-font-heading-xl-italic-family: var(--dt-font-family-primary);
     --dt-font-heading-xl-italic-weight: var(--dt-font-weight-extrablack);
     --dt-font-heading-xl-italic-font-style: var(--dt-font-style-italic);
     --dt-font-heading-xl-italic-line-height--wide: var(--dt-font-size-32-line-height);
@@ -441,7 +441,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     /* Heading-xxl-italic font theme */
     --dt-font-heading-xxl-italic-size--wide: var(--dt-font-size-48);
     --dt-font-heading-xxl-italic-size--narrow: var(--dt-font-size-32);
-    --dt-font-heading-xxl-italic-family: var(--dt-font-family-alternative);
+    --dt-font-heading-xxl-italic-family: var(--dt-font-family-primary);
     --dt-font-heading-xxl-italic-weight: var(--dt-font-weight-extrablack);
     --dt-font-heading-xxl-italic-font-style: var(--dt-font-style-italic);
     --dt-font-heading-xxl-italic-line-height--wide: var(--dt-font-size-48-line-height);
