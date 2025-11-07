@@ -64,6 +64,6 @@
   color: var(--dt-color-content-disabled);
 }
 
-:host([is-selected]) .c-listItem-primary span {
+:host([isSelected]) .c-listItem-primary span {
   color: var(--dt-color-content-default);
 }
