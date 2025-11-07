@@ -77,6 +77,10 @@
                     "displayName": "App Success"
                 },
                 {
+                    "name": "app-unlock",
+                    "displayName": "App Unlock"
+                },
+                {
                     "name": "app-users",
                     "displayName": "App Users"
                 }
@@ -133,6 +137,10 @@
                     "displayName": "Camera"
                 },
                 {
+                    "name": "cc",
+                    "displayName": "Cc"
+                },
+                {
                     "name": "headset",
                     "displayName": "Headset"
                 },
@@ -159,6 +167,10 @@
                 {
                     "name": "microphone-filled",
                     "displayName": "Microphone Filled"
+                },
+                {
+                    "name": "microphone-off",
+                    "displayName": "Microphone Off"
                 },
                 {
                     "name": "pause",
@@ -195,6 +207,10 @@
                 {
                     "name": "sound-on-filled",
                     "displayName": "Sound On Filled"
+                },
+                {
+                    "name": "soundwave",
+                    "displayName": "Soundwave"
                 }
             ]
         },
@@ -1183,6 +1199,16 @@
                 {
                     "name": "trash-filled",
                     "displayName": "Trash Filled"
+                }
+            ]
+        },
+        {
+            "name": "gestures",
+            "displayName": "Gestures",
+            "icons": [
+                {
+                    "name": "do-not-touch",
+                    "displayName": "Do Not Touch"
                 }
             ]
         },
@@ -2363,6 +2389,10 @@
                 {
                     "name": "printer-filled",
                     "displayName": "Printer Filled"
+                },
+                {
+                    "name": "robot",
+                    "displayName": "Robot"
                 }
             ]
         },
