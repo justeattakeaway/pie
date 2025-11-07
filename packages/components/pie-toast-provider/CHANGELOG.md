@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-toast-provider
 
+## 0.7.12
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.12.11
+
 ## 0.7.11
 
 ### Patch Changes
