@@ -4,6 +4,9 @@ const getImportSpecifiers = require('./get-import-specifiers');
 function parseAndGetImportedSpecifiers (fileContent, packageName = 'snacks-design-system') {
     const components = [];
 
+    // Bypass AST parsing when the file is empty
+    if (fileContent === '') return components;
+
     parseAst(fileContent, {
         // Performs action for every import declaration
         ImportDeclaration (node) {
