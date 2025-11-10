@@ -24,7 +24,7 @@ module.exports = {
         const isFileInMain = (() => {
             try {
                 const mergeBase = execSync('git merge-base HEAD main', { encoding: 'utf8' }).trim();
-                return execSync(`git show ${mergeBase}:"${relativeFilePath}"`, { encoding: 'utf8' });
+                return execSync(`git show ${mergeBase}:"${relativeFilePath}"`, { encoding: 'utf8', stdio: 'pipe' });
             } catch (error) {
                 // If the file was added in this branch, this might fail
                 return false;
