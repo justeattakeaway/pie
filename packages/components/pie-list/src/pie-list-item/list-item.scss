@@ -1,1 +1,69 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+
+:host {
+  // These variables can be overridden by the parent list component
+  --list-item-leading-margin: var(--dt-spacing-c);
+  --list-item-trailing-margin: var(--dt-spacing-c);
+  --list-item-focus-outline: 2px solid var(--dt-color-focus);
+  --list-item-focus-offset: -2px;
+  --list-item-touch-target-height: 48px;
+
+  display: flex;
+  align-items: center;
+  padding: var(--list-item-padding, var(--dt-spacing-d));
+  list-style: none;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: var(--list-item-border-bottom, none);
+  position: relative;
+  background-color: var(--dt-color-container-default);
+
+  // Set minimum height for proper touch targets
+  min-height: var(--list-item-touch-target-height);
+}
+
+// Layout container
+.c-listItem-content {
+  flex: 1;
+  min-width: 0; // Ensures text truncation works
+}
+
+// Primary text styles
+.c-listItem-primary {
+  color: var(--dt-color-content-default);
+  font-size: #{p.font-size(--dt-font-body-l-size)};
+  font-weight: var(--dt-font-weight-regular);
+  line-height: #{p.line-height(--dt-font-body-l-line-height)};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  
+  span {
+    color: var(--dt-color-content-default);
+  }
+}
+
+
+// Selected state
+:host([isSelected]) {
+  background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) - var(--dt-color-active-01)));
+
+  @supports (background-color: color-mix(in srgb, black, white)) {
+    background-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-container-default));
+  }
+}
+
+// Disabled state
+:host([disabled]) {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+:host([disabled]) .c-listItem-primary span {
+  color: var(--dt-color-content-disabled);
+}
+
+:host([isSelected]) .c-listItem-primary span {
+  color: var(--dt-color-content-default);
+}
