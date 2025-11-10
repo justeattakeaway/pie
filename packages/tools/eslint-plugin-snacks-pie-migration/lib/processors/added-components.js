@@ -1,6 +1,6 @@
-const { execSync } = require('child_process');
 const { readFileSync } = require('fs');
 const getAddedComponents = require('../util/get-added-components');
+const { isFileNew, getFileStateFromBranch } = require('../util/git-utils');
 
 module.exports = {
     // Filter out errors for components that weren't added
@@ -10,30 +10,10 @@ module.exports = {
 
         // Check if file was added, but not committed yet
         // This is used in the pre-commit hook
-        const isFileNew = (() => {
-            try {
-                // File exists in HEAD
-                execSync(`git cat-file -e HEAD:"${relativeFilePath}"`, { stdio: 'ignore' });
-                return false;
-            } catch {
-                return true;
-            }
-        })();
-
-        // Get file previous state in the main branch or return false
-        const isFileInMain = (() => {
-            try {
-                const mergeBase = execSync('git merge-base HEAD main', { encoding: 'utf8' }).trim();
-                return execSync(`git show ${mergeBase}:"${relativeFilePath}"`, { encoding: 'utf8', stdio: 'pipe' });
-            } catch (error) {
-                // If the file was added in this branch, this might fail
-                return false;
-            }
-        })();
+        const isNewFile = isFileNew(relativeFilePath);
 
         // Get file content before and after
-        // Get the merge base to find the actual parent branch
-        const filePreviousState = isFileNew ? '' : isFileInMain;
+        const filePreviousState = isNewFile ? '' : getFileStateFromBranch(relativeFilePath, 'main');
         const fileCurrentState = readFileSync(relativeFilePath, 'utf8');
 
         // Get list of added components
