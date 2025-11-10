@@ -7,20 +7,35 @@ module.exports = {
     postprocess (messages, filePath) {
         // Get file relative path to the repo
         const relativeFilePath = filePath.replace(process.cwd(), '').substr(1);
+
+        // Check if file was added, but not committed yet
+        // This is used in the pre-commit hook
         const isFileNew = (() => {
             try {
+                // File exists in HEAD
                 execSync(`git cat-file -e HEAD:"${relativeFilePath}"`, { stdio: 'ignore' });
-                return false; // File exists in HEAD
+                return false;
             } catch {
-                return true; // File doesn't exist in HEAD (new file)
+                return true;
+            }
+        })();
+
+        // Get file previous state in the main branch or return false
+        const isFileInMain = (() => {
+            try {
+                const mergeBase = execSync('git merge-base HEAD main', { encoding: 'utf8' }).trim();
+                return execSync(`git show ${mergeBase}:"${relativeFilePath}"`, { encoding: 'utf8' });
+            } catch (error) {
+                // If the file was added in this branch, this might fail
+                return false;
             }
         })();
 
         // Get file content before and after
-        const mergeBase = execSync('git merge-base HEAD main', { encoding: 'utf8' }).trim();
         // Get the merge base to find the actual parent branch
-        const filePreviousState = isFileNew ? '' : execSync(`git show ${mergeBase}:"${relativeFilePath}"`, { encoding: 'utf8' });
+        const filePreviousState = isFileNew ? '' : isFileInMain;
         const fileCurrentState = readFileSync(relativeFilePath, 'utf8');
+
         // Get list of added components
         const addedComponents = getAddedComponents(filePreviousState, fileCurrentState);
 
