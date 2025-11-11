@@ -2,6 +2,12 @@
   "name": "@justeattakeaway/eslint-plugin-snacks-pie-migration",
   "version": "0.0.1",
   "description": "This plugin helps developers to identify deprecated Snacks components and provides suggestions of replacement PIE components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/tools/eslint-plugin-snacks-pie-migration"
+  },
+  "homepage": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/eslint-plugin-snacks-pie-migration",
   "author": "Just Eat Takeaway.com - Design System Team",
   "scripts": {
     "build": "yarn extract-component-data",
