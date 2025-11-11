@@ -7,7 +7,19 @@ module.exports = {
         docs: {
             description: 'Checks imports to prevent reintroducing deprecated Snacks components',
         },
-        schema: [],
+        schema: [
+            // First option - allows bypassing components by their names, receives an array of strings
+            {
+                type: 'array',
+                items: {
+                    type: 'string',
+                },
+                uniqueItems: true,
+            }
+        ],
+        defaultOptions: [
+            [],
+        ],
     },
     create (context) {
         return {
@@ -15,10 +27,13 @@ module.exports = {
             ImportDeclaration (node) {
                 if (node.source.value !== 'snacks-design-system') return;
 
+                const [bypassedComponents] = context.options;
+
                 getImportSpecifiers(node).forEach((componentName) => {
                     const replacementData = snacksComponentsData[componentName];
+                    const isBypassedInOptions = bypassedComponents && bypassedComponents.includes(componentName);
 
-                    if (replacementData) {
+                    if (replacementData && !isBypassedInOptions) {
                         context.report({
                             node,
                             message: `The Snacks component "${componentName}" is being deprecated and can be replaced by "${replacementData.piePackage}".`,
