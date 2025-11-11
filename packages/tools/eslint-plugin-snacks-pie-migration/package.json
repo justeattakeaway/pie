@@ -4,12 +4,10 @@
   "description": "This plugin helps developers to identify deprecated Snacks components and provides suggestions of replacement PIE components",
   "author": "Just Eat Takeaway.com - Design System Team",
   "scripts": {
-    "lint": "npm-run-all \"lint:*\"",
-    "lint:eslint-docs": "npm-run-all \"update:eslint-docs -- --check\"",
-    "lint:js": "eslint .",
+    "build": "yarn extract-component-data",
     "test": "vitest",
-    "extract-component-data": "node scripts/extract-component-data.js",
-    "update:eslint-docs": "eslint-doc-generator"
+    "lint:js": "eslint .",
+    "extract-component-data": "node scripts/extract-component-data.js"
   },
   "keywords": [
     "eslint",
@@ -27,11 +25,8 @@
   "devDependencies": {
     "@typescript-eslint/parser": "8.46.3",
     "eslint": "8.57.0",
-    "eslint-doc-generator": "2.0.0",
     "eslint-plugin-eslint-plugin": "6.0.0",
-    "eslint-plugin-n": "17.0.0",
-    "glob": "11.0.3",
-    "npm-run-all2": "6.1.2"
+    "glob": "11.0.3"
   },
   "engines": {
     "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
