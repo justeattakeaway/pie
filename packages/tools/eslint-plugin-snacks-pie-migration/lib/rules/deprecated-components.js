@@ -7,7 +7,6 @@ module.exports = {
         docs: {
             description: 'Checks imports to prevent reintroducing deprecated Snacks components',
         },
-        fixable: 'code',
         schema: [],
     },
     create (context) {
