@@ -90,6 +90,8 @@ For example, to change the `indentation` to tabs, and turn off the `number-leadi
 `stylelint-config-pie` is a great foundation for your own config. Here is a list of the rules turned on in this config, and what they do:
 
 ### Base
+- [@justeattakeaway/stylelint-no-logical-props-shorthands](https://github.com/justeattakeaway/pie/tree/main/packages/tools/stylelint-no-logical-props-shorthands)
+- [@justeattakeaway/stylelint-pie-design-tokens](https://github.com/justeattakeaway/pie/tree/main/packages/tools/stylelint-pie-design-tokens)
 - [alpha-value-notation](https://stylelint.io/user-guide/rules/alpha-value-notation/)
 - [at-rule-empty-line-before](https://stylelint.io/user-guide/rules/at-rule-empty-line-before/)
 - [at-rule-name-case](https://stylelint.io/user-guide/rules/at-rule-name-case/)
