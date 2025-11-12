@@ -39,7 +39,7 @@ function extractComponentData (startPath = componentsPath) {
     });
 
     if (Object.keys(components).length === 0) {
-        throw new Error('collectComponentData() failed. No components could be found to be listed.');
+        throw new Error('extract-component-data() failed. No components could be found.');
     }
 
     // Create a new object based on components, but sorted by the key
