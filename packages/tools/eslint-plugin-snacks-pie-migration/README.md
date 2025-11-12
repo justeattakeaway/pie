@@ -26,14 +26,23 @@ import { defineConfig } from "eslint/config";
 import snacksPieMigration from "@justeattakeaway/eslint-plugin-snacks-pie-migration";
 
 export default defineConfig([
-    {
-        plugins: {
-            snacksPieMigration
+  {
+    files: ['**/*.jsx', '**/*.tsx', '**/*.js', '**/*.ts'],
+    plugins: {
+      snacksPieMigration
+    },
+    rules: {
+      "snacks-pie-migration/deprecated-components": "error"
+    },
+    processor: '@justeattakeaway/snacks-pie-migration/added-components',
+    languageOptions: {
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true, // Enable JSX parsing
         },
-        rules: {
-            "snacks-pie-migration/deprecated-components": "error"
-        }
-    }
+      },
+    },
+  }
 ]);
 ```
 
@@ -42,27 +51,35 @@ You can also use the plugin with [deprecated configuration file formats](https:/
 
 ```js
 module.exports = {
-    plugins: [
-        '@justeattakeaway/snacks-pie-migration'
-    ],
-    rules: {
-        '@justeattakeaway/snacks-pie-migration/deprecated-components': 'error',
+  files: ['**/*.jsx', '**/*.tsx', '**/*.js', '**/*.ts'],
+  plugins: [
+    '@justeattakeaway/snacks-pie-migration'
+  ],
+  rules: {
+    '@justeattakeaway/snacks-pie-migration/deprecated-components': 'error',
+  },
+  processor: '@justeattakeaway/snacks-pie-migration/added-components',
+  languageOptions: {
+    parserOptions: {
+      ecmaFeatures: {
+        jsx:   true, // Enable JSX parsing
+      },
     },
+  },
 };
 ```
 
 ## Configurations
 
-<!-- begin auto-generated configs list -->
-TODO: Run eslint-doc-generator to generate the configs list (or delete this section if no configs are offered).
-<!-- end auto-generated configs list -->
+It's possible to bypass certain components from being reported by the `deprecated-components` rule by providing an array of component names to ignore.
 
-
-
-## Rules
-
-<!-- begin auto-generated rules list -->
-TODO: Run eslint-doc-generator to generate the rules list.
-<!-- end auto-generated rules list -->
-
-
+```js
+...
+rules: {
+  '@justeattakeaway/snacks-pie-migration/deprecated-components': [
+    'error',
+    ["Table"], // Any new usage if the Table component will be ignored
+  ],
+},
+...
+```
