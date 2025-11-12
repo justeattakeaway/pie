@@ -1,3 +1,6 @@
+/**
+ * Shareable ESLint settings
+ */
 const config = {
     parserOptions: {
         ecmaVersion: 2020,

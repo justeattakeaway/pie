@@ -1,5 +1,5 @@
 /**
- * @fileoverview his plugin helps developers to identify deprecated Snacks components and provides suggestions of replacement PIE components
+ * @fileoverview This plugin helps developers to identify deprecated Snacks components and provides suggestions of replacement PIE components
  * @author Just Eat Takeaway.com - Design System Team
  */
 
@@ -7,10 +7,6 @@ const packageData = require('../package.json');
 const { parserOptions, parser } = require('./config');
 const deprecatedComponents = require('./rules/deprecated-components');
 const addedComponents = require('./processors/added-components');
-
-//------------------------------------------------------------------------------
-// Plugin Definition
-//------------------------------------------------------------------------------
 
 module.exports = {
     meta: {
@@ -31,7 +27,7 @@ module.exports = {
             parserOptions,
             parser,
         },
-        // Alternative: less aggressive enforcement
+        // Alternative and less aggressive enforcement
         warn: {
             plugins: ['@justeattakeaway/snacks-pie-migration'],
             rules: {

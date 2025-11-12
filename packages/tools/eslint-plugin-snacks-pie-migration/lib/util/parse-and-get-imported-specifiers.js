@@ -1,6 +1,12 @@
 const parseAst = require('./parse-ast');
 const getImportSpecifiers = require('./get-import-specifiers');
 
+/**
+ * Parse string as AST and get imported items
+ * @param {string} fileContent File content as string
+ * @param {string} packageName The package name to look for
+ * @returns An array of imported items
+ */
 function parseAndGetImportedSpecifiers (fileContent, packageName = 'snacks-design-system') {
     const components = [];
 

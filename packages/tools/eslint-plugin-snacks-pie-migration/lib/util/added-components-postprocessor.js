@@ -3,6 +3,7 @@ const getAddedComponents = require('./get-added-components');
 /**
  * Processes messages related to deprecated components in a file
  * It filters out error messages for components that weren't added
+ * by the commit or introduced in the branch when compared with main
  * @param messages - array of eslint messages
  * @param filePath - the file path
  * @returns A filtered array of messages based on certain conditions

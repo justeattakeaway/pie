@@ -1,6 +1,9 @@
 const snacksComponentsData = require('../../snacks-components-data.json');
 const getImportSpecifiers = require('../util/get-import-specifiers');
 
+/**
+ * Checks for imports of deprecated Snacks components
+ */
 module.exports = {
     meta: {
         type: 'problem',
@@ -9,6 +12,7 @@ module.exports = {
         },
         schema: [
             // First option - allows bypassing components by their names, receives an array of strings
+            // This is referred below as "bypassedComponents"
             {
                 type: 'array',
                 items: {
@@ -18,12 +22,13 @@ module.exports = {
             }
         ],
         defaultOptions: [
+            // First option default value
             [],
         ],
     },
     create (context) {
         return {
-            // Performs action for every import declaration
+            // Checks every import declaration
             ImportDeclaration (node) {
                 if (node.source.value !== 'snacks-design-system') return;
 
@@ -31,6 +36,7 @@ module.exports = {
 
                 getImportSpecifiers(node).forEach((componentName) => {
                     const replacementData = snacksComponentsData[componentName];
+                    // Specific components can be bypassed if an array of names are provided
                     const isBypassedInOptions = bypassedComponents && bypassedComponents.includes(componentName);
 
                     if (replacementData && !isBypassedInOptions) {

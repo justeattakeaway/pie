@@ -28,6 +28,12 @@ function traverseAst (node, visitor) {
     });
 }
 
+/**
+ * Parse AST from a string, enabling to have a custom visitor function for extracting tree nodes
+ * @param {string} fileContent String for the file content
+ * @param {object} visitor Object with visitor function
+ * @returns AST object
+ */
 function parseAst (fileContent, visitor) {
     // Parse the current file state into an AST
     const currentAST = parser.parse(fileContent, parserOptions);
