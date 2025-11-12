@@ -9,4 +9,4 @@ function getImportSpecifiers (node, packageName = 'snacks-design-system') {
     return node.specifiers.map((specifier) => specifier.imported.name);
 }
 
-module.exports = getImportSpecifiers;
+module.exports = { getImportSpecifiers };

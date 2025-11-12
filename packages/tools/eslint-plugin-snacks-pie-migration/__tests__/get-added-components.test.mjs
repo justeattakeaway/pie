@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { describe, expect, it } from 'vitest';
-import getAddedComponents from '../lib/util/get-added-components';
+import { getAddedComponents } from '../lib/util/get-added-components';
 
 describe('getAddedComponents', () => {
     it('lists the components added to a source code', () => {

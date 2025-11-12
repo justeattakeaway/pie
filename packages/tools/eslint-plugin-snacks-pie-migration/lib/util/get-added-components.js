@@ -1,4 +1,4 @@
-const parseAndGetImportedSpecifiers = require('./parse-and-get-imported-specifiers');
+const { parseAndGetImportedSpecifiers } = require('./parse-and-get-imported-specifiers');
 
 /**
  * Compares the imported items from before and current state
@@ -14,4 +14,4 @@ function getAddedComponents (filePreviousState, fileCurrentState) {
     return currentStateComponents.filter((component) => !previousStateComponents.includes(component));
 }
 
-module.exports = getAddedComponents;
+module.exports = { getAddedComponents };

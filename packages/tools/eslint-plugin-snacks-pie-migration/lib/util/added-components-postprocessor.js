@@ -1,4 +1,4 @@
-const getAddedComponents = require('./get-added-components');
+const { getAddedComponents } = require('./get-added-components');
 
 /**
  * Processes messages related to deprecated components in a file

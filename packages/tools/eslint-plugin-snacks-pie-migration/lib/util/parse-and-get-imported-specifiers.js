@@ -1,5 +1,5 @@
-const parseAst = require('./parse-ast');
-const getImportSpecifiers = require('./get-import-specifiers');
+const { parseAst } = require('./parse-ast');
+const { getImportSpecifiers } = require('./get-import-specifiers');
 
 /**
  * Parse string as AST and get imported items
@@ -27,4 +27,4 @@ function parseAndGetImportedSpecifiers (fileContent, packageName = 'snacks-desig
     return components;
 }
 
-module.exports = parseAndGetImportedSpecifiers;
+module.exports = { parseAndGetImportedSpecifiers };

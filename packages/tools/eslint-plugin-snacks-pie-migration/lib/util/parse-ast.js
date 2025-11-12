@@ -45,4 +45,4 @@ function parseAst (fileContent, visitor) {
 
 parseAst.traverseAst = traverseAst;
 
-module.exports = parseAst;
+module.exports = { parseAst };

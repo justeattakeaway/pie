@@ -1,5 +1,5 @@
 const snacksComponentsData = require('../../snacks-components-data.json');
-const getImportSpecifiers = require('../util/get-import-specifiers');
+const { getImportSpecifiers } = require('../util/get-import-specifiers');
 
 /**
  * Checks for imports of deprecated Snacks components
