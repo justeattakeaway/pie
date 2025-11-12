@@ -20,6 +20,7 @@ This plugin helps developers to identify deprecated Snacks components and provid
 - [Settings](#settings)
   - [Rule options](#rule-options)
   - [Processor](#processor)
+- [How to update the components data](#how-to-update-the-components-data)
 - [VSCode usage](#vscode-usage)
 - [Questions and Support](#questions-and-support)
 - [Contributing](#contributing)
@@ -44,6 +45,8 @@ This plugin requires the following peer dependencies to be installed in your pro
 - `eslint` version 7.32.0 or above
 - `typescript` version 4.8.4 or above, less than 6.0.0
 - `@typescript-eslint/parser` version 8.46.3 or above
+
+`typescript` and `@typescript-eslint/parser` are required for parsing TypeScript files.
 
 ## Usage
 
@@ -76,6 +79,10 @@ export default defineConfig([
 ]);
 ```
 
+### Recommended configs
+
+The plugin offers two sets of configs: `recommended` and `warn`. The later is the same as the former, but with all rules set to `warn` level.
+
 ### Usage with deprecated configuration file formats
 You can also use the plugin with [deprecated configuration file formats](https://eslint.org/docs/latest/use/configure/configuration-files-deprecated) such as `.eslintrc.js`.
 
@@ -107,6 +114,8 @@ When the plugin detects a deprecated Snacks component, you'll see an error like:
 The Snacks component "Button" is being deprecated and can be replaced by "@justeattakeaway/pie-button"
 @justeattakeaway/snacks-pie-migration/deprecated-component
 ```
+
+The plugin handles both Typescript and JavaScript syntax.
 
 ## Settings
 
@@ -153,6 +162,16 @@ To use the processor, add the following line to your ESLint configuration:
 ...
 processor: '@justeattakeaway/snacks-pie-migration/added-components',
 ...
+```
+
+## How to update the components data
+
+The components data used by the plugin is stored in the file `snacks-components-data.jsonz` file. This data is extracted from the PIE repository, based on the `pieMetadata` key of each component `package.json` file.
+
+To update this data, run the following command:
+
+```sh
+yarn build
 ```
 
 ## VSCode usage
