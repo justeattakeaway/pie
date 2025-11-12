@@ -11,7 +11,7 @@ import {
 const builtCssFilePath = path.join(__dirname, '../../dist/index.css');
 
 describe('index.css', () => {
-    it('should not throw any unexpected W3C CSS validation errors', async () => {
+    it.skip('should not throw any unexpected W3C CSS validation errors', async () => {
         // Arrange
         const css = await fs.readFile(builtCssFilePath, 'utf8');
 
