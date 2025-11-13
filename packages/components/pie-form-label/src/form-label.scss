@@ -5,9 +5,9 @@
 }
 
 .c-formLabel {
-    --form-label-font-size: #{p.font-size(--dt-font-size-14)};
-    --form-label-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
-    --form-label-font-weight: var(--dt-font-weight-bold);
+    --form-label-font-size: #{p.font-size(--dt-font-body-strong-s-size)};
+    --form-label-line-height: calc(var(--dt-font-body-strong-s-line-height) * 1px);
+    --form-label-font-weight: var(--dt-font-body-strong-s-weight);
     --form-label-color: var(--dt-color-content-default-solid);
 
     display: flex;
@@ -24,7 +24,9 @@
 .c-formLabel-optional,
 .c-formLabel-trailing {
     color: var(--dt-color-content-subdued-solid);
-    font-weight: var(--dt-font-weight-regular);
+    font-size: #{p.font-size(--dt-font-body-s-size)};
+    line-height: calc(var(--dt-font-body-s-line-height) * 1px);
+    font-weight: var(--dt-font-body-s-weight);
 }
 
 .c-formLabel-leading-wrapper {

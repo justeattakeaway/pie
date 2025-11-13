@@ -3,9 +3,9 @@
 :host {
     display: inline-block;
 
-    --link-font-weight: var(--dt-font-weight-regular);
+    --link-font-weight: var(--dt-font-body-l-link-weight);
     --link-text-color: var(--dt-color-content-link);
-    --link-text-decoration: var(--dt-font-style-underline);
+    --link-text-decoration: var(--dt-font-body-l-link-text-decoration);
 }
 
 :host([isstandalone]) {
@@ -16,7 +16,7 @@
     &:hover,
     &:active {
         @if $mode == 'reversed' {
-            --link-text-decoration: var(--dt-font-style-underline);
+            --link-text-decoration: var(--dt-font-body-l-link-text-decoration);
         } @else {
             --link-text-decoration: none;
         }
@@ -25,8 +25,8 @@
 
 .c-link {
     --link-font-family: var(--dt-font-interactive-l-family);
-    --link-font-size: #{p.font-size(--dt-font-size-16)};
-    --link-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
+    --link-font-size: #{p.font-size(--dt-font-body-l-link-size)};
+    --link-line-height: calc(var(--dt-font-body-l-link-line-height) * 1px);
     --link-icon-size: 16px;
     --link-icon-offset-top: var(--dt-spacing-a);
 
@@ -54,8 +54,10 @@
     }
 
     &.c-link--small {
-        --link-font-size: #{p.font-size(--dt-font-size-14)};
-        --link-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
+        --link-font-size: #{p.font-size(--dt-font-body-strong-s-link-size)};
+        --link-line-height: calc(var(--dt-font-body-strong-s-link-line-height) * 1px);
+        --link-font-weight: var(--dt-font-body-strong-s-link-weight);
+        --link-text-decoration: var(--dt-font-body-strong-s-link-text-decoration);
         --link-icon-offset-top: 2px;
     }
 
@@ -70,7 +72,9 @@
     }
 
     &.c-link--bold {
-        --link-font-weight: var(--dt-font-weight-bold);
+        --link-font-size: #{p.font-size(--dt-font-body-strong-l-link-size)};
+        --link-line-height: calc(var(--dt-font-body-strong-l-link-line-height) * 1px);
+        --link-font-weight: var(--dt-font-body-strong-l-link-weight);
     }
 
     &.c-link--standalone {
