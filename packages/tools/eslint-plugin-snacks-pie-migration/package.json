@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/eslint-plugin-snacks-pie-migration",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "This plugin helps developers to identify deprecated Snacks components and provides suggestions of replacement PIE components",
   "repository": {
     "type": "git",
