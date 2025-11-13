@@ -336,7 +336,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-font-size-14: 14;
     --dt-font-size-14-line-height: 20;
     --dt-font-size-16: 16;
-    --dt-font-size-16-line-height: 20;
+    --dt-font-size-16-line-height: 24;
     --dt-font-size-20: 20;
     --dt-font-size-20-line-height: 24;
     --dt-font-size-24: 24;
