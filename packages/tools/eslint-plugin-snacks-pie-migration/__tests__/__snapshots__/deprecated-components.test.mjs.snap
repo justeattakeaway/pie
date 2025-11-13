@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`deprecated-components rule > with TypeScript syntax > detects deprecated components in TypeScript 1`] = `
+{
+  "column": 1,
+  "endColumn": 47,
+  "endLine": 1,
+  "line": 1,
+  "message": "The Snacks component "Button" is being deprecated and can be replaced by "@justeattakeaway/pie-button".",
+  "nodeType": "ImportDeclaration",
+  "ruleId": "@justeattakeaway/snacks-pie-migration/deprecated-components",
+  "severity": 2,
+}
+`;
+
+exports[`deprecated-components rule > with plain JavaScript syntax > detects deprecated components 1`] = `
+{
+  "column": 1,
+  "endColumn": 47,
+  "endLine": 1,
+  "line": 1,
+  "message": "The Snacks component "Button" is being deprecated and can be replaced by "@justeattakeaway/pie-button".",
+  "nodeType": "ImportDeclaration",
+  "ruleId": "@justeattakeaway/snacks-pie-migration/deprecated-components",
+  "severity": 2,
+}
+`;
