@@ -32,7 +32,21 @@ function getFileStateFromBranch (relativeFilePath, branch = 'main') {
     }
 }
 
+/**
+ * Determines the default branch name in a Git repository by checking if 'main'
+ * exists, otherwise defaults to 'master'.
+ */
+function getDefaultBranchName () {
+    try {
+        execSync('git show-ref --verify --quiet refs/heads/main', { stdio: 'ignore' });
+        return 'main';
+    } catch {
+        return 'master';
+    }
+}
+
 module.exports = {
     isFileNew,
     getFileStateFromBranch,
+    getDefaultBranchName,
 };

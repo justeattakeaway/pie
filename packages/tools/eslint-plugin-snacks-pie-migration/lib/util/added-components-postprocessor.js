@@ -1,4 +1,5 @@
 const { getAddedComponents } = require('./get-added-components');
+const { getDefaultBranchName } = require('./git-utils');
 
 /**
  * Processes messages related to deprecated components in a file
@@ -17,7 +18,8 @@ function addedComponentsPostprocessor (messages, filePath, { readFileSync, isFil
     const isNewFile = isFileNew(relativeFilePath);
 
     // Get file content before and after
-    const filePreviousState = isNewFile ? '' : getFileStateFromBranch(relativeFilePath, 'main');
+    const mainBranchName = getDefaultBranchName();
+    const filePreviousState = isNewFile ? '' : getFileStateFromBranch(relativeFilePath, mainBranchName);
     const fileCurrentState = readFileSync(relativeFilePath, 'utf8');
 
     // Get list of added components

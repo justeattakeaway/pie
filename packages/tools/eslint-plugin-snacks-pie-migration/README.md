@@ -154,7 +154,7 @@ This is particularly useful during migration to PIE components, as it allows you
 - Focus on preventing new deprecated component usage
 - Gradually refactor existing code at your own pace
 
-ℹ️ Changes will be compared against the main branch.
+ℹ️ Changes will be compared against the `main` branch. In case `main` doesn't exist, the `master` branch will be used.
 
 To use the processor, add the following line to your ESLint configuration:
 
