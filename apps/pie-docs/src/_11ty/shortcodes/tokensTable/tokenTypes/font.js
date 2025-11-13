@@ -5,7 +5,7 @@
  * @param {object} tokenMetadata - the metadata for the token. data such as descriptions
  * @returns {object} an object containing the font styles of the token.
  */
-const splitFontAliasToken = (token, tokenMetadata) => {
+const splitFontAliasToken = (token, tokenMetadata, path) => {
     const isGlobal = typeof token === 'string' || Object.keys(token).length === 2;
     const { category } = tokenMetadata;
     const fontWeightMap = {
@@ -15,12 +15,15 @@ const splitFontAliasToken = (token, tokenMetadata) => {
         Black: 900,
         ExtraBlack: 1000,
     };
+    const suffix = path.includes('wide') ? '--wide' : '--narrow';
+    const size = token[`size${suffix}`] ?? token.size;
+    const lineHeight = token[`line-height${suffix}`] ?? token['line-height'];
 
     if (isGlobal) {
         return {
             fontFamily: category === 'fontFamily' && token,
-            fontSize: category === 'fontSize' && token['font-size'],
-            lineHeight: category === 'fontSize' && token['line-height'],
+            fontSize: category === 'fontSize' && size,
+            lineHeight: category === 'lineHeight' && lineHeight,
             fontWeight: category === 'fontWeight' && fontWeightMap[token],
             textDecoration: category === 'textDecoration' && token,
             fontStyle: category === 'fontStyle' && token,
@@ -31,8 +34,8 @@ const splitFontAliasToken = (token, tokenMetadata) => {
 
     return {
         fontFamily: token.family,
-        fontSize: token.size['font-size'],
-        lineHeight: token.size['line-height'],
+        fontSize: size,
+        lineHeight,
         fontWeight: fontWeightMap[token.weight],
         textDecoration: token['text-decoration'],
         fontStyle: token['font-style'],
@@ -47,11 +50,11 @@ const splitFontAliasToken = (token, tokenMetadata) => {
  * @param {object} tokenMetadata - the metadata for the token. data such as descriptions
  * @returns {string} - the typography example HTML string
  */
-const buildFontExample = (token, tokenMetadata) => {
+const buildFontExample = (token, tokenMetadata, path) => {
     const {
         fontFamily, fontSize, lineHeight, fontWeight,
         textDecoration, fontStyle, letterSpacing, paragraphSpacing,
-    } = splitFontAliasToken(token, tokenMetadata);
+    } = splitFontAliasToken(token, tokenMetadata, path);
     const classes = ['c-tokensTable-example--font'];
     const cssVariables = [
         fontFamily && `--example-font-family: ${fontFamily}`,
