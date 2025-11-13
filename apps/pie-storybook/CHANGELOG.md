@@ -1,5 +1,89 @@
 # Changelog
 
+## 1.59.1
+
+### Patch Changes
+
+- Updated dependencies [[`e849f4a`](https://github.com/justeattakeaway/pie/commit/e849f4ac77ec44f3ee94bcbad2ce5fcd40fd6e23)]:
+  - @justeattakeaway/pie-icons-webc@1.17.0
+  - @justeattakeaway/pie-assistive-text@0.11.6
+  - @justeattakeaway/pie-avatar@0.4.7
+  - @justeattakeaway/pie-breadcrumb@0.7.8
+  - @justeattakeaway/pie-chip@0.15.2
+  - @justeattakeaway/pie-icon-button@2.3.2
+  - @justeattakeaway/pie-link@1.3.3
+  - @justeattakeaway/pie-modal@1.18.1
+  - @justeattakeaway/pie-notification@0.20.2
+  - @justeattakeaway/pie-switch@2.3.6
+  - @justeattakeaway/pie-text-input@0.29.7
+  - @justeattakeaway/pie-toast@0.12.11
+  - @justeattakeaway/pie-checkbox@0.18.6
+  - @justeattakeaway/pie-checkbox-group@0.9.18
+  - @justeattakeaway/pie-radio-group@0.9.21
+  - @justeattakeaway/pie-select@0.8.7
+  - @justeattakeaway/pie-textarea@0.17.6
+  - @justeattakeaway/pie-cookie-banner@1.6.31
+  - @justeattakeaway/pie-toast-provider@0.7.12
+
+## 1.59.0
+
+### Minor Changes
+
+- [Added] - New translucent + brand-08 variants. ([#2598](https://github.com/justeattakeaway/pie/pull/2598)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+  [Changed] - Updates to tag styles.
+  [Changed] - Icons now supported at small size.
+  [Changed] - `disabled` property renamed to `isDimmed`.
+  [Removed] - `interactive` type removed.
+  [Removed] - `iconPlacement` property removed to only allow leading icons.
+
+### Patch Changes
+
+- Updated dependencies [[`af8c335`](https://github.com/justeattakeaway/pie/commit/af8c3354909c67da88c8a2101c812da3906bc8eb)]:
+  - @justeattakeaway/pie-tag@0.22.0
+
+## 1.58.0
+
+### Minor Changes
+
+- [Updated] - pie-design-tokens to v7.9.0 ([#2600](https://github.com/justeattakeaway/pie/pull/2600)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`36c972d`](https://github.com/justeattakeaway/pie/commit/36c972d9996848bb9529f20cda4367c23a916f9d)]:
+  - @justeattakeaway/pie-modal@1.18.0
+  - @justeattakeaway/pie-css@0.24.0
+  - @justeattakeaway/pie-cookie-banner@1.6.30
+  - @justeattakeaway/pie-assistive-text@0.11.5
+  - @justeattakeaway/pie-avatar@0.4.6
+  - @justeattakeaway/pie-breadcrumb@0.7.7
+  - @justeattakeaway/pie-button@1.9.3
+  - @justeattakeaway/pie-card@0.26.6
+  - @justeattakeaway/pie-checkbox@0.18.5
+  - @justeattakeaway/pie-checkbox-group@0.9.17
+  - @justeattakeaway/pie-chip@0.15.1
+  - @justeattakeaway/pie-data-table@0.1.6
+  - @justeattakeaway/pie-divider@1.5.4
+  - @justeattakeaway/pie-form-label@0.18.4
+  - @justeattakeaway/pie-icon-button@2.3.1
+  - @justeattakeaway/pie-link@1.3.2
+  - @justeattakeaway/pie-list@0.0.9
+  - @justeattakeaway/pie-lottie-player@0.2.10
+  - @justeattakeaway/pie-notification@0.20.1
+  - @justeattakeaway/pie-radio@0.12.4
+  - @justeattakeaway/pie-radio-group@0.9.20
+  - @justeattakeaway/pie-select@0.8.6
+  - @justeattakeaway/pie-spinner@1.3.4
+  - @justeattakeaway/pie-switch@2.3.5
+  - @justeattakeaway/pie-tabs@0.1.5
+  - @justeattakeaway/pie-tag@0.21.4
+  - @justeattakeaway/pie-text-input@0.29.6
+  - @justeattakeaway/pie-textarea@0.17.5
+  - @justeattakeaway/pie-thumbnail@0.8.10
+  - @justeattakeaway/pie-toast@0.12.10
+  - @justeattakeaway/pie-toast-provider@0.7.11
+  - @justeattakeaway/pie-icons-webc@1.16.2
+
 ## 1.57.0
 
 ### Minor Changes
