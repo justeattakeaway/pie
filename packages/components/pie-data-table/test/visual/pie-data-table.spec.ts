@@ -14,7 +14,7 @@ test.describe('PieDataTable - Visual tests`', () => {
             basePage.load();
             await page.waitForTimeout(2500);
 
-            await percySnapshot(page, 'PieDataTable - Visual Test');
+            await percySnapshot(page, `PieDataTable - ${friendlyStoryName}`);
         });
     });
 });
