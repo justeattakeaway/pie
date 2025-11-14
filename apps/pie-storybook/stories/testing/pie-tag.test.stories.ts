@@ -8,10 +8,12 @@ import {
     variants,
     sizes,
     defaultProps,
-    iconPlacements,
 } from '@justeattakeaway/pie-tag';
-import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconOfferFilled.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconFingerprint.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconInfoCircle.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconAlertTriangleFilled.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconCheckCircleFilled.js';
 
 import { type SlottedComponentProps } from '../../types';
 import {
@@ -54,11 +56,11 @@ const tagStoryMeta: TagStoryMeta = {
                 summary: defaultProps.isStrong,
             },
         },
-        disabled: {
-            description: 'For an interactive tag, this applies the disabled attribute to the button and styles it appropriately.<br>For a non-interactive tag, this only applies the disabled styling.',
+        isDimmed: {
+            description: 'When true, applies a dimmed styling to the tag.',
             control: 'boolean',
             defaultValue: {
-                summary: defaultProps.disabled,
+                summary: defaultProps.isDimmed,
             },
         },
         showIcon: {
@@ -67,20 +69,10 @@ const tagStoryMeta: TagStoryMeta = {
             defaultValue: {
                 summary: defaultArgs.showIcon,
             },
-            if: { arg: 'size', eq: 'large' },
         },
         slot: {
             description: 'Content to place within the tag',
             control: 'text',
-        },
-        iconPlacement: {
-            description: 'The placement of the icon slot such as leading or trailing. <br /><br /> Can be only used if `isInteractive` is set to true',
-            control: 'select',
-            options: iconPlacements,
-            defaultValue: {
-                summary: defaultArgs.iconPlacement,
-            },
-            if: { arg: 'isInteractive', eq: true },
         },
     },
     args: defaultArgs,
@@ -91,28 +83,42 @@ export default tagStoryMeta;
 const Template: TemplateFunction<TagProps> = ({
     variant,
     size,
-    isInteractive,
     isStrong,
-    disabled,
+    isDimmed,
+    isIconOnly,
+    hasLeadingIcon,
     showIcon,
     slot,
-    iconPlacement,
-}) => html`
-    <pie-tag
-        variant="${ifDefined(variant)}"
-        size="${ifDefined(size)}"
-        iconPlacement="${ifDefined(iconPlacement)}"
-        ?isInteractive="${isInteractive}"
-        ?isStrong="${isStrong}"
-        ?disabled="${disabled}">
-        ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
-        ${sanitizeAndRenderHTML(slot)}
-    </pie-tag>
-`;
+}) => {
+    const hasText = slot && slot.trim() !== '';
+    const shouldBeIconOnly = showIcon && !hasText;
+    const shouldHaveLeadingIcon = showIcon && hasText;
+
+    // Use explicit values or determine based on content
+    const effectiveIsIconOnly = isIconOnly ?? shouldBeIconOnly;
+    let effectiveHasLeadingIcon = hasLeadingIcon ?? shouldHaveLeadingIcon;
+
+    // Validation: Both attributes cannot be true simultaneously
+    if (effectiveIsIconOnly && effectiveHasLeadingIcon) {
+        console.warn('Invalid tag configuration: isIconOnly and hasLeadingIcon cannot both be true. Setting hasLeadingIcon to false.');
+        effectiveHasLeadingIcon = false;
+    }
+
+    return html`
+        <pie-tag
+            variant="${ifDefined(variant)}"
+            size="${ifDefined(size)}"
+            ?isStrong="${isStrong}"
+            ?isDimmed="${isDimmed}"
+            ?isIconOnly="${effectiveIsIconOnly}"
+            ?hasLeadingIcon="${effectiveHasLeadingIcon}">
+            ${showIcon ? html`<icon-fingerprint data-test-id="tag-icon" slot="icon"></icon-fingerprint>` : nothing}
+            ${sanitizeAndRenderHTML(slot)}
+        </pie-tag>
+    `;
+};
 
 const createTagStory = createStory<TagProps>(Template, defaultArgs);
-
-const icon = '<svg slot="icon" data-test-id="tag-icon" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--plusCircle"><path d="M8.656 4.596H7.344v2.748H4.596v1.312h2.748v2.748h1.312V8.656h2.748V7.344H8.656V4.596Z"></path><path d="M12.795 3.205a6.781 6.781 0 1 0 0 9.625 6.79 6.79 0 0 0 0-9.625Zm-.927 8.662a5.469 5.469 0 1 1-7.734-7.735 5.469 5.469 0 0 1 7.734 7.736Z"></path></svg>';
 
 // Individual variant stories
 export const Default = createTagStory();
@@ -121,18 +127,30 @@ export const NeutralAlternative = createTagStory({ variant: 'neutral-alternative
 export const Information = createTagStory({ variant: 'information' });
 export const Success = createTagStory({ variant: 'success' });
 export const Error = createTagStory({ variant: 'error' });
+export const Warning = createTagStory({ variant: 'warning' });
 export const Outline = createTagStory({ variant: 'outline' });
 export const Ghost = createTagStory({ variant: 'ghost' });
-export const DefaultWithIcon = createTagStory({ slot: `Label ${icon}` });
+export const Translucent = createTagStory({ variant: 'translucent' }, { bgColor: 'brand orange' });
+export const DefaultWithIcon = createTagStory({
+    slot: 'Label',
+    showIcon: true,
+    hasLeadingIcon: true,
+});
+export const IconOnlyStory = createTagStory({
+    slot: '',
+    showIcon: true,
+    isIconOnly: true,
+    variant: 'information',
+});
 
-// Base shared props matrix
+// Base shared props matrix - text only scenarios
 const baseSharedPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
     size: [...sizes],
-    iconPlacement: ['leading', 'trailing'],
     isStrong: [true, false],
-    isInteractive: [true, false],
-    disabled: [true, false],
-    showIcon: [true, false],
+    isDimmed: [true, false],
+    showIcon: [false],
+    isIconOnly: [false],
+    hasLeadingIcon: [false],
     slot: ['Tag'],
 };
 
@@ -158,6 +176,12 @@ const successPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
 const errorPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
     ...baseSharedPropsMatrix,
     variant: ['error'],
+};
+
+// Warning variant stories
+const warningPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['warning'],
 };
 
 // Neutral Alternative variant stories (with dark background)
@@ -208,15 +232,40 @@ const brand06PropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
     variant: ['brand-06'],
 };
 
+// Brand-08 variant stories
+const brand08PropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['brand-08'],
+};
+
+// Translucent variant stories
+const translucentPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
+    ...baseSharedPropsMatrix,
+    variant: ['translucent'],
+};
+
 // IconOnly variant stories
 const iconOnlyPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
-    ...baseSharedPropsMatrix,
-    size: ['large'],
-    iconPlacement: ['leading'],
+    size: ['small', 'large'],
     showIcon: [true],
     slot: [''],
-    variant: ['information'],
-    isInteractive: [false],
+    isIconOnly: [true],
+    hasLeadingIcon: [false],
+    variant: ['information', 'success', 'error', 'warning', 'brand-05'],
+    isStrong: [true, false],
+    isDimmed: [true, false],
+};
+
+// Icon with text variant stories
+const iconWithTextPropsMatrix: Partial<Record<keyof TagProps, unknown[]>> = {
+    size: ['small', 'large'],
+    showIcon: [true],
+    slot: ['Label'],
+    isIconOnly: [false],
+    hasLeadingIcon: [true],
+    variant: ['information', 'success', 'error', 'warning', 'brand-05'],
+    isStrong: [true, false],
+    isDimmed: [true, false],
 };
 
 // Custom styled tags using CSS parts
@@ -240,7 +289,7 @@ const allCustomStyles = `
         padding-inline-start: 0;
         padding-inline-end: var(--custom-tag-whitespace);
         padding-block: 0;
-        font-size: calc(var(--dt-font-size-12) * 1px);
+        font-size: calc(var(--dt-font-caption-size) * 1px);
         font-variant-numeric: lining-nums tabular-nums;
         font-feature-settings: 'liga' off, 'clig' off;
         line-height: 1;
@@ -290,20 +339,232 @@ const CombinedCustomTemplate: TemplateFunction<TagProps> = (args) => html`
 
 const createCombinedCustomStory = createStory<TagProps>(CombinedCustomTemplate, defaultArgs);
 
+// Debug story for raw SVG testing
+const RawSVGSlotTemplate: TemplateFunction<TagProps> = () => html`
+    <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 4px 0; font-size: 14px;">Large Tag</h4>
+            <pie-tag size="large" variant="brand-04" isStrong hasLeadingIcon>
+                <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2a6 6 0 100 12A6 6 0 008 2zM7 7V5h2v2H7zm0 4V9h2v2H7z"/>
+                </svg>
+                Label
+            </pie-tag>
+        </div>
+
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 4px 0; font-size: 14px;">Small Tag</h4>
+            <pie-tag size="small" variant="brand-04" isStrong hasLeadingIcon>
+                <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2a6 6 0 100 12A6 6 0 008 2zM7 7V5h2v2H7zm0 4V9h2v2H7z"/>
+                </svg>
+                Label
+            </pie-tag>
+        </div>
+
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 4px 0; font-size: 14px;">Large Icon Only</h4>
+            <pie-tag size="large" variant="brand-04" isStrong isIconOnly>
+                <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2a6 6 0 100 12A6 6 0 008 2zM7 7V5h2v2H7zm0 4V9h2v2H7z"/>
+                </svg>
+            </pie-tag>
+        </div>
+
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 4px 0; font-size: 14px;">Small Icon Only</h4>
+            <pie-tag size="small" variant="brand-04" isStrong isIconOnly>
+                <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2a6 6 0 100 12A6 6 0 008 2zM7 7V5h2v2H7zm0 4V9h2v2H7z"/>
+                </svg>
+            </pie-tag>
+        </div>
+    </div>
+`;
+
+const createRawSVGSlotStory = createStory<TagProps>(RawSVGSlotTemplate, defaultArgs);
+
+const TextTruncationTemplate: TemplateFunction<TagProps> = () => html`
+    <div style="display: flex; flex-direction: column; gap: 24px; align-items: flex-start;">
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 8px 0; font-size: 14px;">Large Tags Without Icon - Different Max-Widths</h4>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="max-width: 150px;">
+                    <pie-tag size="large" variant="information" style="width: 100%;">
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+                <div style="max-width: 100px;">
+                    <pie-tag size="large" variant="information" style="width: 100%;">
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+                <div style="max-width: 50px;">
+                    <pie-tag size="large" variant="information" style="width: 100%;">
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 8px 0; font-size: 14px;">Large Tags With Icon - Different Max-Widths</h4>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="max-width: 150px;">
+                    <pie-tag size="large" variant="information" style="width: 100%;" hasLeadingIcon>
+                        <icon-info-circle slot="icon"></icon-info-circle>
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+                <div style="max-width: 100px;">
+                    <pie-tag size="large" variant="information" style="width: 100%;" hasLeadingIcon>
+                        <icon-info-circle slot="icon"></icon-info-circle>
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+                <div style="max-width: 50px;">
+                    <pie-tag size="large" variant="information" style="width: 100%;" hasLeadingIcon>
+                        <icon-info-circle slot="icon"></icon-info-circle>
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 8px 0; font-size: 14px;">Small Tags Without Icon - Different Max-Widths</h4>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="max-width: 150px;">
+                    <pie-tag size="small" variant="information" style="width: 100%;">
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+                <div style="max-width: 100px;">
+                    <pie-tag size="small" variant="information" style="width: 100%;">
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+                <div style="max-width: 50px;">
+                    <pie-tag size="small" variant="information" style="width: 100%;">
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 8px 0; font-size: 14px;">Small Tags With Icon - Different Max-Widths</h4>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="max-width: 150px;">
+                    <pie-tag size="small" variant="information" style="width: 100%;" hasLeadingIcon>
+                        <icon-info-circle slot="icon"></icon-info-circle>
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+                <div style="max-width: 100px;">
+                    <pie-tag size="small" variant="information" style="width: 100%;" hasLeadingIcon>
+                        <icon-info-circle slot="icon"></icon-info-circle>
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+                <div style="max-width: 50px;">
+                    <pie-tag size="small" variant="information" style="width: 100%;" hasLeadingIcon>
+                        <icon-info-circle slot="icon"></icon-info-circle>
+                        This is a very long text that should be truncated with ellipsis
+                    </pie-tag>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+const createTextTruncationStory = createStory<TagProps>(TextTruncationTemplate, defaultArgs);
+
+const TranslucentOverImageTemplate: TemplateFunction<TagProps> = () => html`
+    <div style="display: flex; flex-direction: column; gap: 24px; align-items: flex-start;">
+        <div style="text-align: left;">
+            <h4 style="margin: 0 0 8px 0; font-size: 14px;">Translucent Tags Over Gradient</h4>
+            <div style="
+                position: relative;
+                background: linear-gradient(to right, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+                border-radius: 8px;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                padding: 24px;
+                align-items: flex-start;
+                width: max-content;
+            ">
+                <pie-tag variant="translucent" size="large" hasLeadingIcon>
+                    <icon-info-circle slot="icon"></icon-info-circle>
+                    Large with icon
+                </pie-tag>
+                <pie-tag variant="translucent" size="large">
+                    Large without icon
+                </pie-tag>
+                <pie-tag variant="translucent" size="small" hasLeadingIcon>
+                    <icon-info-circle slot="icon"></icon-info-circle>
+                    Small with icon
+                </pie-tag>
+                <pie-tag variant="translucent" size="small">
+                    Small without icon
+                </pie-tag>
+                <pie-tag variant="translucent" size="large" isDimmed hasLeadingIcon>
+                    <icon-info-circle slot="icon"></icon-info-circle>
+                    Dimmed large with icon
+                </pie-tag>
+                <pie-tag variant="translucent" size="large" isDimmed>
+                    Dimmed large without icon
+                </pie-tag>
+                <pie-tag variant="translucent" size="small" isDimmed hasLeadingIcon>
+                    <icon-info-circle slot="icon"></icon-info-circle>
+                    Dimmed small with icon
+                </pie-tag>
+                <pie-tag variant="translucent" size="small" isDimmed>
+                    Dimmed small without icon
+                </pie-tag>
+
+                <pie-tag variant="translucent" size="large" isIconOnly>
+                    <icon-info-circle slot="icon"></icon-info-circle>
+                </pie-tag>
+
+                <pie-tag variant="translucent" size="large" isDimmed isIconOnly>
+                    <icon-info-circle slot="icon"></icon-info-circle>
+                </pie-tag>
+            </div>
+        </div>
+    </div>
+`;
+
+const createTranslucentOverImageStory = createStory<TagProps>(TranslucentOverImageTemplate, defaultArgs);
+
 export const NeutralVariations = createVariantStory<TagProps>(Template, neutralPropsMatrix);
 export const InformationVariations = createVariantStory<TagProps>(Template, informationPropsMatrix);
 export const SuccessVariations = createVariantStory<TagProps>(Template, successPropsMatrix);
 export const ErrorVariations = createVariantStory<TagProps>(Template, errorPropsMatrix);
+export const WarningVariations = createVariantStory<TagProps>(Template, warningPropsMatrix);
 export const NeutralAlternativeVariations = createVariantStory<TagProps>(Template, neutralAlternativePropsMatrix, { bgColor: 'dark (container-dark)' });
 export const OutlineVariations = createVariantStory<TagProps>(Template, outlinePropsMatrix);
 export const GhostVariations = createVariantStory<TagProps>(Template, ghostPropsMatrix);
+export const TranslucentVariations = createVariantStory<TagProps>(Template, translucentPropsMatrix, { bgColor: 'brand orange' });
 export const Brand02Variations = createVariantStory<TagProps>(Template, brand02PropsMatrix);
 export const Brand03Variations = createVariantStory<TagProps>(Template, brand03PropsMatrix);
 export const Brand04Variations = createVariantStory<TagProps>(Template, brand04PropsMatrix);
 export const Brand05Variations = createVariantStory<TagProps>(Template, brand05PropsMatrix);
 export const Brand06Variations = createVariantStory<TagProps>(Template, brand06PropsMatrix);
+export const Brand08Variations = createVariantStory<TagProps>(Template, brand08PropsMatrix);
 export const IconOnlyVariations = createVariantStory<TagProps>(Template, iconOnlyPropsMatrix);
+export const IconWithTextVariations = createVariantStory<TagProps>(Template, iconWithTextPropsMatrix);
+export const RawSVGSlot = createRawSVGSlotStory({}, {
+    controls: { disable: true },
+});
+export const TextTruncation = createTextTruncationStory({}, {
+    controls: { disable: true },
+});
 export const CustomStyledTags = createCombinedCustomStory({}, {
     bgColor: 'dark (container-dark)',
+    controls: { disable: true },
+});
+export const TranslucentOverImage = createTranslucentOverImageStory({}, {
     controls: { disable: true },
 });

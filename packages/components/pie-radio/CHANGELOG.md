@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-radio
 
+## 0.12.5
+
+### Patch Changes
+
+- [Updated] - esnure styles are using alias font tokens ([#2612](https://github.com/justeattakeaway/pie/pull/2612)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.12.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@4.0.0
+
 ## 0.12.3
 
 ### Patch Changes

@@ -1,5 +1,27 @@
 # @justeattakeaway/pie-chip
 
+## 0.15.3
+
+### Patch Changes
+
+- [Updated] - esnure styles are using alias font tokens ([#2612](https://github.com/justeattakeaway/pie/pull/2612)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.15.2
+
+### Patch Changes
+
+- Updated dependencies [[`e849f4a`](https://github.com/justeattakeaway/pie/commit/e849f4ac77ec44f3ee94bcbad2ce5fcd40fd6e23)]:
+  - @justeattakeaway/pie-icons-webc@1.17.0
+
+## 0.15.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.3.4
+  - @justeattakeaway/pie-webc-core@4.0.0
+  - @justeattakeaway/pie-icons-webc@1.16.2
+
 ## 0.15.0
 
 ### Minor Changes

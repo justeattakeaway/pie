@@ -347,17 +347,17 @@ const TemplateWithTableBody = () => html`
     </pie-data-table>
 `;
 
-export const NoHeader = createStory<DataTableProps>(Template, {
+export const DefaultWithData = createStory<DataTableProps>(Template, {
     columns: sampleColumns,
     data: sampleData,
 })();
 
-export const WithHeader = createStory<DataTableProps>(TemplateWithHeader, {
+export const DataWithHeader = createStory<DataTableProps>(TemplateWithHeader, {
     columns: sampleColumns,
     data: sampleData,
 })();
 
-export const WithStrongHeader = createStory<DataTableProps>(TemplateWithStrongHeader, {
+export const DataWithStrongHeader = createStory<DataTableProps>(TemplateWithStrongHeader, {
     columns: sampleColumns,
     data: sampleData,
 })();
@@ -372,10 +372,9 @@ export const WithCustomTableBody = createStory<DataTableProps>(TemplateWithTable
     columns: sampleColumns,
 })();
 
-export const EmptyDataWithColumns = createStory<DataTableProps>(Template, {
+export const HeadingsNoData = createStory<DataTableProps>(Template, {
     columns: sampleColumns,
     data: [],
 })();
 
-export const EmptyDataAndColumns = createStory<DataTableProps>(Template, defaultArgs)();
-
+export const NoDataOrHeadings = createStory<DataTableProps>(Template, defaultArgs)();

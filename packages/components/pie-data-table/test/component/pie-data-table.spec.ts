@@ -3,10 +3,10 @@ import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-obj
 
 const componentSelector = '[data-test-id="pie-data-table"]';
 
-test.describe('PieDataTable - Component tests', () => {
+test.describe('PieDataTable: Default With Data - Component tests', () => {
     test('should render successfully', async ({ page }) => {
         // Arrange
-        const basePage = new BasePage(page, 'data-table--default');
+        const basePage = new BasePage(page, 'data-table--default-with-data');
 
         basePage.load();
         await page.waitForTimeout(2500);

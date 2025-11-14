@@ -1,5 +1,20 @@
 # @justeattakeaway/pie-data-table
 
+## 0.2.0
+
+### Minor Changes
+
+- [Added] - basic html markup for data table component ([#2519](https://github.com/justeattakeaway/pie/pull/2519)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- [Added] - pie-data-table basic styling and properties structure ([#2519](https://github.com/justeattakeaway/pie/pull/2519)) by [@thejfreitas](https://github.com/thejfreitas)
+
+## 0.1.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@4.0.0
+
 ## 0.1.5
 
 ### Patch Changes
