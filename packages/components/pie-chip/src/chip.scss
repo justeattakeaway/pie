@@ -44,7 +44,7 @@
     font-family: inherit;
     @include p.font-size(--dt-font-interactive-xs-size);
     @include p.line-height(--dt-font-interactive-xs-line-height);
-    font-weight: var(--dt-font-weight-bold);
+    font-weight: var(--dt-font-interactive-xs-weight);
 
     @include p.interactive-states('--dt-color-interactive-secondary');
 

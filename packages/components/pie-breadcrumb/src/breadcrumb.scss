@@ -47,7 +47,7 @@
 
   pie-link {
     --link-text-color: var(--breadcrumb-item-color);
-    --link-font-weight: var(--dt-font-weight-bold);
+    --link-font-weight: var(--dt-font-body-strong-l-link-weight);
   }
 }
 
@@ -80,7 +80,7 @@
 
 :host(:last-of-type) {
   pie-link {
-    --link-font-weight: var(--dt-font-weight-regular);
+    --link-font-weight: var(--dt-font-body-l-link-weight);
 
     &::part(base):hover,
     &::part(base):active {
