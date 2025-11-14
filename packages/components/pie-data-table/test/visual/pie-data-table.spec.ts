@@ -4,17 +4,21 @@ import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-obj
 
 import { dataTableStories } from '../constants.ts';
 
+const readingDirections = ['ltr', 'rtl'];
+
 test.describe('PieDataTable - Visual tests`', () => {
     dataTableStories.forEach((storyUrl: string) => {
-        const friendlyStoryName = storyUrl.replace(/-/g, ' ');
+        readingDirections.forEach((dir) => {
+            const friendlyStoryName = storyUrl.replace(/-/g, ' ');
 
-        test(`should display the PieDataTable component successfully - ${friendlyStoryName}`, async ({ page }) => {
-            const basePage = new BasePage(page, `data-table--${storyUrl}`);
+            test(`should display the PieDataTable component successfully - ${friendlyStoryName} - ${dir}`, async ({ page }) => {
+                const basePage = new BasePage(page, `data-table--${storyUrl}`);
 
-            basePage.load();
-            await page.waitForTimeout(2500);
+                basePage.load({}, { writingDirection: dir });
+                await page.waitForTimeout(2500);
 
-            await percySnapshot(page, `PieDataTable - ${friendlyStoryName}`);
+                await percySnapshot(page, `PieDataTable - ${friendlyStoryName} - ${dir}`);
+            });
         });
     });
 });
