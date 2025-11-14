@@ -296,7 +296,7 @@ jobs:
       PR_NUMBER: ${{ github.event.number }}
 
   deploy-docs:
-    needs: [ unit-tests, check-change-type ]
+    needs: [  unit-tests, check-change-type  ]
     if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
     permissions:
       contents: read

@@ -124,6 +124,16 @@
       "require": "./react/data-table.js",
       "types": "./react/data-table.d.ts"
     },
+    "./components/data-table-header.js": {
+      "import": "./components/data-table-header.js",
+      "require": "./components/data-table-header.js",
+      "types": "./components/data-table-header.d.ts"
+    },
+    "./react/data-table-header.js": {
+      "import": "./react/data-table-header.js",
+      "require": "./react/data-table-header.js",
+      "types": "./react/data-table-header.d.ts"
+    },
     "./components/divider.js": {
       "import": "./components/divider.js",
       "require": "./components/divider.js",
