@@ -34,7 +34,7 @@ const iconGalleryTemplate: TemplateFunction<null> = () => html`
     }
 
     .c-iconGallery-item p {
-        font-size: calc(var(--dt-font-size-12) * 1px);
+        font-size: calc(var(--dt-font-caption-size) * 1px);
         color: var(--dt-color-content);
         margin: 0;
         word-break: break-word;

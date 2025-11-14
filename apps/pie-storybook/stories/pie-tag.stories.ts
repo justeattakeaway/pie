@@ -249,7 +249,7 @@ const allCustomStyles = `
         padding-inline-start: 0;
         padding-inline-end: var(--custom-tag-whitespace);
         padding-block: 0;
-        font-size: calc(var(--dt-font-size-12) * 1px);
+        font-size: calc(var(--dt-font-caption-size) * 1px);
         font-variant-numeric: lining-nums tabular-nums;
         font-feature-settings: 'liga' off, 'clig' off;
         line-height: 1;
