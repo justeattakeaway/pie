@@ -54,10 +54,10 @@
     }
 
     &.c-link--small {
-        --link-font-size: #{p.font-size(--dt-font-body-strong-s-link-size)};
-        --link-line-height: calc(var(--dt-font-body-strong-s-link-line-height) * 1px);
-        --link-font-weight: var(--dt-font-body-strong-s-link-weight);
-        --link-text-decoration: var(--dt-font-body-strong-s-link-text-decoration);
+        --link-font-size: #{p.font-size(--dt-font-body-s-link-size)};
+        --link-line-height: calc(var(--dt-font-body-s-link-line-height) * 1px);
+        --link-font-weight: var(--dt-font-body-s-link-weight);
+        --link-text-decoration: var(--dt-font-body-s-link-text-decoration);
         --link-icon-offset-top: 2px;
     }
 
@@ -75,6 +75,12 @@
         --link-font-size: #{p.font-size(--dt-font-body-strong-l-link-size)};
         --link-line-height: calc(var(--dt-font-body-strong-l-link-line-height) * 1px);
         --link-font-weight: var(--dt-font-body-strong-l-link-weight);
+
+        &.c-link--small {
+            --link-font-size: #{p.font-size(--dt-font-body-strong-s-link-size)};
+            --link-line-height: calc(var(--dt-font-body-strong-s-link-line-height) * 1px);
+            --link-font-weight: var(--dt-font-body-strong-s-link-weight);
+        }
     }
 
     &.c-link--standalone {
