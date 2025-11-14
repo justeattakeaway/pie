@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-checkbox",
   "description": "PIE Design System Checkbox built using Web Components",
-  "version": "0.18.6",
+  "version": "0.18.7",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",

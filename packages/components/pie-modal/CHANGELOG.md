@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-modal
 
+## 1.18.2
+
+### Patch Changes
+
+- [Updated] - esnure styles are using alias font tokens ([#2612](https://github.com/justeattakeaway/pie/pull/2612)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`2f1113b`](https://github.com/justeattakeaway/pie/commit/2f1113bb1a78eceef2aad9e404eb5f7c736fa4fe)]:
+  - @justeattakeaway/pie-button@1.9.4
+
 ## 1.18.1
 
 ### Patch Changes
