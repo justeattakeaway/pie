@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-form-label
 
+## 0.18.5
+
+### Patch Changes
+
+- [Updated] - esnure styles are using alias font tokens ([#2612](https://github.com/justeattakeaway/pie/pull/2612)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.18.4
 
 ### Patch Changes

@@ -1,5 +1,31 @@
 # Changelog
 
+## 1.60.0
+
+### Minor Changes
+
+- [Added] - basic html markup for data table component ([#2519](https://github.com/justeattakeaway/pie/pull/2519)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- [Added] - pie-data-table basic styling and properties structure ([#2519](https://github.com/justeattakeaway/pie/pull/2519)) by [@thejfreitas](https://github.com/thejfreitas)
+
+### Patch Changes
+
+- [Updated] - esnure styles are using alias font tokens ([#2612](https://github.com/justeattakeaway/pie/pull/2612)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`2f1113b`](https://github.com/justeattakeaway/pie/commit/2f1113bb1a78eceef2aad9e404eb5f7c736fa4fe), [`74ef344`](https://github.com/justeattakeaway/pie/commit/74ef34494955ddebc7c2b9e9bf5279121cb702be), [`74ef344`](https://github.com/justeattakeaway/pie/commit/74ef34494955ddebc7c2b9e9bf5279121cb702be)]:
+  - @justeattakeaway/pie-breadcrumb@0.7.9
+  - @justeattakeaway/pie-form-label@0.18.5
+  - @justeattakeaway/pie-checkbox@0.18.7
+  - @justeattakeaway/pie-button@1.9.4
+  - @justeattakeaway/pie-modal@1.18.2
+  - @justeattakeaway/pie-radio@0.12.5
+  - @justeattakeaway/pie-chip@0.15.3
+  - @justeattakeaway/pie-link@1.3.4
+  - @justeattakeaway/pie-data-table@0.2.0
+  - @justeattakeaway/pie-cookie-banner@1.6.32
+  - @justeattakeaway/pie-toast@0.12.12
+  - @justeattakeaway/pie-toast-provider@0.7.13
+
 ## 1.59.1
 
 ### Patch Changes

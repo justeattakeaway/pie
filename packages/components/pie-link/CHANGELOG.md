@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-link
 
+## 1.3.4
+
+### Patch Changes
+
+- [Updated] - esnure styles are using alias font tokens ([#2612](https://github.com/justeattakeaway/pie/pull/2612)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.3.3
 
 ### Patch Changes
