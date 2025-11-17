@@ -1,5 +1,11 @@
 # @justeattakeaway/eslint-plugin-snacks-pie-migration
 
+## 0.1.1
+
+### Patch Changes
+
+- [Fixed] - relative path handling on Windows ([#2614](https://github.com/justeattakeaway/pie/pull/2614)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.1.0
 
 ### Minor Changes
