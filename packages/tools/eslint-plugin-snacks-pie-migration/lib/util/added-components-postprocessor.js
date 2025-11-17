@@ -1,3 +1,4 @@
+const path = require('path');
 const { getAddedComponents } = require('./get-added-components');
 const { getDefaultBranchName } = require('./git-utils');
 
@@ -11,7 +12,8 @@ const { getDefaultBranchName } = require('./git-utils');
  */
 function addedComponentsPostprocessor (messages, filePath, { readFileSync, isFileNew, getFileStateFromBranch }) {
     // Get file relative path to the repo
-    const relativeFilePath = filePath.replace(process.cwd(), '').substr(1);
+    const relativeFilePath = path.relative(process.cwd(), filePath)
+        .replace(/\\/g, '/'); // Fix path handling on Windows
 
     // Check if file was added, but not committed yet
     // This is used in the pre-commit hook
