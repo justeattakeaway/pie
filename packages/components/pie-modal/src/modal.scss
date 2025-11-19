@@ -191,14 +191,14 @@
 
         margin-inline-start: var(--dt-spacing-d);
         margin-inline-end: var(--dt-spacing-d);
-        margin-block: 14px; // This is deliberately not a custom property
+        margin-block: 16px; // This is deliberately not a custom property
 
         @include media('>md') {
             --modal-header-font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
             --modal-header-font-line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
             margin-inline-start: var(--dt-spacing-e);
             margin-inline-end: var(--dt-spacing-e);
-            margin-block: 20px; // This is deliberately not a custom property
+            margin-block: 22px; // This is deliberately not a custom property
         }
 
         &.c-modal-heading--emphasised {

@@ -44,7 +44,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
-    "@justeat/pie-design-tokens": "7.9.0",
+    "@justeat/pie-design-tokens": "7.10.0",
     "@justeattakeaway/pie-button": "1.9.4",
     "@justeattakeaway/pie-components-config": "0.21.0",
     "@justeattakeaway/pie-css": "0.24.0",

@@ -36,9 +36,10 @@
 
     // Vertical and horizontal padding values for the button
     --btn-padding-vertical-xsmall: 6px;
-    --btn-padding-vertical-small: 8px;
-    --btn-padding-vertical-medium: 10px;
-    --btn-padding-vertical-large: 14px;
+    --btn-padding-vertical-small-expressive: 8px;
+    --btn-padding-vertical-small-productive: 10px;
+    --btn-padding-vertical-medium: 12px;
+    --btn-padding-vertical-large: 16px;
     --btn-padding-horizontal-small: var(--dt-spacing-b);
     --btn-padding-horizontal-medium: var(--dt-spacing-d);
     --btn-padding-horizontal-large: var(--dt-spacing-e);
@@ -84,10 +85,10 @@
             $verticalPadding: '--btn-padding-vertical-xsmall';
             $horizontalPadding: '--btn-padding-horizontal-small';
         } @else if $size == 'small-expressive' {
-            $verticalPadding: '--btn-padding-vertical-xsmall';
+            $verticalPadding: '--btn-padding-vertical-small-expressive';
             $horizontalPadding: '--btn-padding-horizontal-medium';
         } @else if $size == 'small-productive' {
-            $verticalPadding: '--btn-padding-vertical-small';
+            $verticalPadding: '--btn-padding-vertical-small-productive';
             $horizontalPadding: '--btn-padding-horizontal-medium';
         } @else if $size == 'medium' {
             $verticalPadding: '--btn-padding-vertical-medium';
