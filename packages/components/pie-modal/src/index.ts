@@ -507,12 +507,15 @@ export class PieModal extends PieElement implements ModalProps {
      * @private
      */
     private renderHeading (): TemplateResult {
-        const { heading, headingLevel, isHeadingEmphasised } = this;
+        const {
+            heading, headingLevel, isHeadingEmphasised, size,
+        } = this;
         const headingTag = unsafeStatic(headingLevel);
 
         const headingClasses = {
             'c-modal-heading': true,
             'c-modal-heading--emphasised': isHeadingEmphasised,
+            'c-modal-heading--emphasised-small': isHeadingEmphasised && size === 'small',
         };
 
         return html`
