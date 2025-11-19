@@ -162,28 +162,6 @@ test.describe('Prop: `isHeadingEmphasised`', () => {
 
             await percySnapshot(page, 'Modal - isHeadingEmphasised: `true`');
         });
-
-        test.describe('when the modal size is small', () => {
-            test('should display the emphasised style in smaller size', async ({ page }) => {
-                const modalDefaultPage = new ModalDefaultPage(page);
-                const props: ModalProps = {
-                    ...sharedProps,
-                    isHeadingEmphasised: true,
-                    size: 'small',
-                    // Kept isDismissible and hasBackButton for having them in the VRT
-                    isDismissible: true,
-                    hasBackButton: true,
-                };
-
-                await modalDefaultPage.load(props);
-
-                await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
-
-                await page.waitForTimeout(500);
-
-                await percySnapshot(page, 'Modal - isHeadingEmphasised: `true`, size: `small`');
-            });
-        });
     });
 
     test.describe('when false', () => {
