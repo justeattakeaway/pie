@@ -27,6 +27,7 @@ import {
     headingLevels,
     positions,
     sizes,
+    backgroundColors,
     defaultProps,
     ON_MODAL_BACK_EVENT,
     ON_MODAL_CLOSE_EVENT,
@@ -108,6 +109,10 @@ export class PieModal extends PieElement implements ModalProps {
 
     @property({ type: Object })
     public supportingAction: ModalProps['supportingAction'];
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, backgroundColors, defaultProps.backgroundColor)
+    public backgroundColor = defaultProps.backgroundColor;
 
     @query('dialog')
     private _dialog!: HTMLDialogElement;
@@ -531,6 +536,7 @@ export class PieModal extends PieElement implements ModalProps {
             isLoading,
             position,
             size,
+            backgroundColor,
         } = this;
 
         const modalClasses = {
@@ -541,6 +547,7 @@ export class PieModal extends PieElement implements ModalProps {
             'c-modal--loading': isLoading,
             'c-modal--pinnedFooter': isFooterPinned,
             'c-modal--fullWidthBelowMid': isFullWidthBelowMid,
+            [`c-modal--bg-${backgroundColor}`]: true,
         };
 
         const ariaLabelForLoading = (isLoading && aria?.loading) || undefined;
