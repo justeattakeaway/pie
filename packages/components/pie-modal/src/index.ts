@@ -27,6 +27,7 @@ import {
     headingLevels,
     positions,
     sizes,
+    backgroundColors,
     defaultProps,
     ON_MODAL_BACK_EVENT,
     ON_MODAL_CLOSE_EVENT,
@@ -108,6 +109,10 @@ export class PieModal extends PieElement implements ModalProps {
 
     @property({ type: Object })
     public supportingAction: ModalProps['supportingAction'];
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, backgroundColors, defaultProps.backgroundColor)
+    public backgroundColor = defaultProps.backgroundColor;
 
     @query('dialog')
     private _dialog!: HTMLDialogElement;
@@ -342,6 +347,13 @@ export class PieModal extends PieElement implements ModalProps {
         }
     }
 
+    private _getHeaderButtonVariant (): 'ghost-secondary' | 'ghost-inverse' {
+        const isInverted = this.backgroundColor === 'brand-06';
+        const variant = isInverted ? 'ghost-inverse' : 'ghost-secondary';
+
+        return variant;
+    }
+
     /**
      * Template for the close button element. Called within the
      * main render function.
@@ -353,10 +365,12 @@ export class PieModal extends PieElement implements ModalProps {
             return nothing;
         }
 
+        const variant = this._getHeaderButtonVariant();
+
         return html`
             <pie-icon-button
                 @click="${() => { this.isOpen = false; }}"
-                variant="ghost-secondary"
+                variant="${variant}"
                 class="c-modal-closeBtn"
                 .aria=${ifDefined(this.aria?.close) ? { label: this.aria?.close } : nothing}
                 data-test-id="modal-close-button">
@@ -375,10 +389,12 @@ export class PieModal extends PieElement implements ModalProps {
             return nothing;
         }
 
+        const variant = this._getHeaderButtonVariant();
+
         return html`
             <pie-icon-button
                 @click="${() => { this._backButtonClicked = true; this.isOpen = false; }}"
-                variant="ghost-secondary"
+                variant="${variant}"
                 class="c-modal-backBtn"
                 .aria=${ifDefined(this.aria?.back) ? { label: this.aria?.back } : nothing}
                 data-test-id="modal-back-button">
@@ -484,7 +500,9 @@ export class PieModal extends PieElement implements ModalProps {
             return nothing;
         }
 
-        return html`<pie-spinner size="xlarge" variant="secondary"></pie-spinner>`;
+        const variant = this.backgroundColor === 'brand-06' ? 'inverse' : 'secondary';
+
+        return html`<pie-spinner size="xlarge" variant="${variant}"></pie-spinner>`;
     }
 
     /**
@@ -531,6 +549,7 @@ export class PieModal extends PieElement implements ModalProps {
             isLoading,
             position,
             size,
+            backgroundColor,
         } = this;
 
         const modalClasses = {
@@ -541,6 +560,7 @@ export class PieModal extends PieElement implements ModalProps {
             'c-modal--loading': isLoading,
             'c-modal--pinnedFooter': isFooterPinned,
             'c-modal--fullWidthBelowMid': isFullWidthBelowMid,
+            [`c-modal--bg-${backgroundColor}`]: true,
         };
 
         const ariaLabelForLoading = (isLoading && aria?.loading) || undefined;
