@@ -318,7 +318,7 @@
         overflow-y: auto;
 
         // These are the shadows used to indicate scrolling above and below content
-        --bg-scroll-end: linear-gradient(rgba(255, 255, 255, 0), var(--dt-color-container-default) 70%) 0 100%;
+        --bg-scroll-end: linear-gradient(rgba(255, 255, 255, 0), var(--modal-bg-color) 70%) 0 100%;
         --bg-scroll-bottom: radial-gradient(farthest-corner at 50% 100%, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)) 0 100%;
 
         // Sizes of the scroll shadows
