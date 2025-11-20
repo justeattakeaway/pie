@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.58.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.35
+
 ## 4.58.0
 
 ### Minor Changes
