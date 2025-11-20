@@ -180,10 +180,12 @@
         --modal-header-font-size: calc(var(--dt-font-heading-m-size--narrow) * 1px);
         --modal-header-font-line-height: calc(var(--dt-font-heading-m-line-height--narrow) * 1px);
         --modal-header-font-weight: var(--dt-font-heading-m-weight);
+        --modal-header-font-style: normal;
 
         font-size: var(--modal-header-font-size);
         line-height: var(--modal-header-font-line-height);
         font-weight: var(--modal-header-font-weight);
+        font-style: var(--modal-header-font-style);
         margin: 0;
         grid-area: heading;
 
@@ -197,6 +199,18 @@
             margin-inline-start: var(--dt-spacing-e);
             margin-inline-end: var(--dt-spacing-e);
             margin-block: 22px; // This is deliberately not a custom property
+        }
+
+        &.c-modal-heading--emphasised {
+            --modal-header-font-size: calc(var(--dt-font-heading-l-italic-size--narrow) * 1px);
+            --modal-header-font-line-height: calc(var(--dt-font-heading-m-italic-line-height--narrow) * 1px);
+            --modal-header-font-weight: var(--dt-font-heading-l-italic-weight);
+            --modal-header-font-style: var(--dt-font-heading-l-italic-font-style);
+
+            @include media('>md') {
+                --modal-header-font-size: calc(var(--dt-font-heading-l-italic-size--wide) * 1px);
+                --modal-header-font-line-height: calc(var(--dt-font-heading-l-italic-line-height--wide) * 1px);
+            }
         }
     }
 

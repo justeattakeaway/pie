@@ -74,6 +74,11 @@ export type ModalProps = {
     isDismissible?: boolean;
 
     /**
+     * When true, displays the heading with emphasised style
+     */
+    isHeadingEmphasised?: boolean;
+
+    /**
      * When false, the modal footer will scroll with the content inside the modal body.
      */
     isFooterPinned?: boolean;
@@ -159,6 +164,7 @@ export const defaultProps: DefaultProps = {
     headingLevel: 'h2',
     isOpen: false,
     isDismissible: false,
+    isHeadingEmphasised: false,
     isFooterPinned: true,
     isFullWidthBelowMid: false,
     isLoading: false,
