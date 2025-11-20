@@ -13,6 +13,7 @@
     // The base modal defaults
     --modal-border-radius: var(--dt-radius-rounded-d);
     --modal-font: var(--dt-font-interactive-l-family);
+    --modal-content-color: var(--dt-color-content-default);
     --modal-bg-color: var(--dt-color-container-default);
     --modal-elevation: var(--dt-elevation-below-20);
 
@@ -42,7 +43,7 @@
     border: none;
     box-shadow: var(--modal-elevation);
     font-family: var(--modal-font);
-    color: var(--dt-color-content-default);
+    color: var(--modal-content-color);
     background-color: var(--modal-bg-color);
 
     padding: 0;
@@ -385,7 +386,10 @@
     &.c-modal--bg-brand-04-subtle { --modal-bg-color: var(--dt-color-support-brand-04-subtle); }
     &.c-modal--bg-brand-05 { --modal-bg-color: var(--dt-color-support-brand-05); }
     &.c-modal--bg-brand-05-subtle { --modal-bg-color: var(--dt-color-support-brand-05-subtle); }
-    &.c-modal--bg-brand-06 { --modal-bg-color: var(--dt-color-support-brand-06); }
+    &.c-modal--bg-brand-06 {
+        --modal-content-color: var(--dt-color-content-inverse);
+        --modal-bg-color: var(--dt-color-support-brand-06);
+    }
     &.c-modal--bg-brand-06-subtle { --modal-bg-color: var(--dt-color-support-brand-06-subtle); }
     &.c-modal--bg-brand-08 { --modal-bg-color: var(--dt-color-support-brand-08); }
     &.c-modal--bg-brand-08-subtle { --modal-bg-color: var(--dt-color-support-brand-08-subtle); }
