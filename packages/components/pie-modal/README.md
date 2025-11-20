@@ -54,7 +54,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `position`                       | `"center"`, `"top"`                               | The position of the modal; this controls where it will appear on the page.                                                                                                                                                          | `"center"`  |
 | `returnFocusAfterCloseSelector` | —                                                 | If provided, focus will be sent to the first element that matches this selector when the modal is closed. If not provided, the `dialog` element will return focus to the element that opened the modal.                            | —           |
 | `size`                           | `"small"`, `"medium"`, `"large"`                  | Determines the maximum width of the modal. Large modals will expand to fill the entire page at narrow viewports.                                                                                                                    | `"medium"`  |
-
+| `backgroundColor`                | `"default"`, `"subtle"`, `"brand-01"`, `"brand-02"`, `"brand-03"`, `"brand-03-subtle"`, `"brand-04"`, `"brand-04-subtle"`, `"brand-05"`, `"brand-05-subtle"`, `"brand-06"`, `"brand-06-subtle"`, `"brand-08"`, `"brand-08-subtle"` | Sets the background color for the modal.                                                                                                                                                                         | `"default"` |
 
 ### Slots
 | Slot      | Description                                                        |
