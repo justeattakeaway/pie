@@ -33,13 +33,13 @@
     // currently this sets the primary button styles
     --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
     --btn-text-color: var(--dt-color-content-interactive-light-solid);
-    --icon-display-override: block;
 
     // Vertical and horizontal padding values for the button
     --btn-padding-vertical-xsmall: 6px;
-    --btn-padding-vertical-small: 8px;
-    --btn-padding-vertical-medium: 10px;
-    --btn-padding-vertical-large: 14px;
+    --btn-padding-vertical-small-expressive: 8px;
+    --btn-padding-vertical-small-productive: 10px;
+    --btn-padding-vertical-medium: 12px;
+    --btn-padding-vertical-large: 16px;
     --btn-padding-horizontal-small: var(--dt-spacing-b);
     --btn-padding-horizontal-medium: var(--dt-spacing-d);
     --btn-padding-horizontal-large: var(--dt-spacing-e);
@@ -50,24 +50,24 @@
     */
     @mixin button-size($size) {
         @if $size == 'xsmall' {
-            --btn-font-size: #{p.font-size(--dt-font-size-14)};
-            --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
+            --btn-font-size: #{p.font-size(--dt-font-interactive-xs-size)};
+            --btn-line-height: calc(var(--dt-font-interactive-xs-line-height) * 1px);
             --icon-size-override: 16px;
         } @else if $size == 'small-expressive' {
-            --btn-font-size: #{p.font-size(--dt-font-size-20)};
-            --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+            --btn-font-size: #{p.font-size(--dt-font-interactive-l-size)};
+            --btn-line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
             --icon-size-override: 20px;
         } @else if $size == 'small-productive' {
-            --btn-font-size: #{p.font-size(--dt-font-size-16)};
-            --btn-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
+            --btn-font-size: #{p.font-size(--dt-font-interactive-s-size)};
+            --btn-line-height: calc(var(--dt-font-interactive-s-line-height) * 1px);
             --icon-size-override: 20px;
         } @else if $size == 'medium' {
-            --btn-font-size: #{p.font-size(--dt-font-size-20)};
-            --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+            --btn-font-size: #{p.font-size(--dt-font-interactive-l-size)};
+            --btn-line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
             --icon-size-override: 24px;
         } @else if $size == 'large' {
-            --btn-font-size: #{p.font-size(--dt-font-size-20)};
-            --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+            --btn-font-size: #{p.font-size(--dt-font-interactive-l-size)};
+            --btn-line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
             --icon-size-override: 24px;
         }
     }
@@ -85,10 +85,10 @@
             $verticalPadding: '--btn-padding-vertical-xsmall';
             $horizontalPadding: '--btn-padding-horizontal-small';
         } @else if $size == 'small-expressive' {
-            $verticalPadding: '--btn-padding-vertical-xsmall';
+            $verticalPadding: '--btn-padding-vertical-small-expressive';
             $horizontalPadding: '--btn-padding-horizontal-medium';
         } @else if $size == 'small-productive' {
-            $verticalPadding: '--btn-padding-vertical-small';
+            $verticalPadding: '--btn-padding-vertical-small-productive';
             $horizontalPadding: '--btn-padding-horizontal-medium';
         } @else if $size == 'medium' {
             $verticalPadding: '--btn-padding-vertical-medium';

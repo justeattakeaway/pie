@@ -1,5 +1,74 @@
 # @justeattakeaway/pie-icon-button
 
+## 2.3.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.3.5
+  - @justeattakeaway/pie-webc-core@5.0.0
+  - @justeattakeaway/pie-icons-webc@1.17.1
+
+## 2.3.2
+
+### Patch Changes
+
+- Updated dependencies [[`e849f4a`](https://github.com/justeattakeaway/pie/commit/e849f4ac77ec44f3ee94bcbad2ce5fcd40fd6e23)]:
+  - @justeattakeaway/pie-icons-webc@1.17.0
+
+## 2.3.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.3.4
+  - @justeattakeaway/pie-webc-core@4.0.0
+  - @justeattakeaway/pie-icons-webc@1.16.2
+
+## 2.3.0
+
+### Minor Changes
+
+- [Added] - support a new translucent variant ([#2596](https://github.com/justeattakeaway/pie/pull/2596)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Updated] - remove unused css variable and tidy up styles ([#2596](https://github.com/justeattakeaway/pie/pull/2596)) by [@raoufswe](https://github.com/raoufswe)
+
+## 2.2.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.3.3
+  - @justeattakeaway/pie-webc-core@3.0.2
+  - @justeattakeaway/pie-icons-webc@1.16.1
+
+## 2.2.3
+
+### Patch Changes
+
+- Updated dependencies [[`6bda90d`](https://github.com/justeattakeaway/pie/commit/6bda90d2ca60d1b6d74fd93b46a9dc1cfda2bda9)]:
+  - @justeattakeaway/pie-icons-webc@1.16.0
+
+## 2.2.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.3.2
+  - @justeattakeaway/pie-webc-core@3.0.1
+  - @justeattakeaway/pie-icons-webc@1.15.2
+
+## 2.2.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.3.1
+  - @justeattakeaway/pie-webc-core@3.0.0
+  - @justeattakeaway/pie-icons-webc@1.15.1
+
 ## 2.2.0
 
 ### Minor Changes

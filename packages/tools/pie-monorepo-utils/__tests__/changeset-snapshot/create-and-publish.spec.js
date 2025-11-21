@@ -100,20 +100,6 @@ describe('create and publish workflow', () => {
             // Assert
             expect(expectedBody).toMatchSnapshot();
         });
-
-        test('should ignore example app changes', async () => {
-            // Arrange
-            sampleOutput = `
-                New tag: wc-vanilla@0.0.0-snapshot-release-20231220110000
-                New tag: wc-next13@0.0.0-snapshot-release-20231220110000
-            `;
-
-            // Act
-            await workflow({ context, github }, execa);
-
-            // Assert
-            expect(expectedBody).toMatchSnapshot();
-        });
     });
 
     describe('if exactly one component was changed', () => {

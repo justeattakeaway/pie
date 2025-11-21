@@ -199,7 +199,7 @@ Select from a range of colour options across the two levels of emphasis.
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>Warning</h3>
+    <h3>05 Warning</h3>
     {% contentPageImage {
       src: "../../../assets/img/components/tag/variation-type-warning.svg",
       width: "164px",

@@ -1,5 +1,155 @@
 # Changelog
 
+## 4.58.0
+
+### Minor Changes
+
+- [Updated] - upgrade pie-design-tokens to include line height changes ([#2609](https://github.com/justeattakeaway/pie/pull/2609)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`4442ade`](https://github.com/justeattakeaway/pie/commit/4442ade25432b4752a412274109fe92c8f6781a0)]:
+  - @justeattakeaway/pie-css@0.25.0
+  - @justeattakeaway/pie-webc@0.7.34
+  - @justeattakeaway/pie-icons-webc@1.17.1
+
+## 4.57.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.33
+
+## 4.57.2
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2607](https://github.com/justeattakeaway/pie/pull/2607)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`e849f4a`](https://github.com/justeattakeaway/pie/commit/e849f4ac77ec44f3ee94bcbad2ce5fcd40fd6e23)]:
+  - @justeattakeaway/pie-icons@5.18.0
+  - @justeattakeaway/pie-icons-webc@1.17.0
+  - @justeattakeaway/pie-webc@0.7.32
+
+## 4.57.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.31
+
+## 4.57.0
+
+### Minor Changes
+
+- [Updated] - font files ([#2600](https://github.com/justeattakeaway/pie/pull/2600)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Updated] - pie-design-tokens to v7.9.0 ([#2600](https://github.com/justeattakeaway/pie/pull/2600)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`36c972d`](https://github.com/justeattakeaway/pie/commit/36c972d9996848bb9529f20cda4367c23a916f9d)]:
+  - @justeattakeaway/pie-css@0.24.0
+  - @justeattakeaway/pie-webc@0.7.30
+  - @justeattakeaway/pie-icons-webc@1.16.2
+
+## 4.56.0
+
+### Minor Changes
+
+- [Added] - support transulcent vairaint and trailing icon ([#2599](https://github.com/justeattakeaway/pie/pull/2599)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Updated] - add the translucent variant to the icons docs ([#2596](https://github.com/justeattakeaway/pie/pull/2596)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.29
+
+## 4.55.0
+
+### Minor Changes
+
+- [Updated] - notification docs ([#2592](https://github.com/justeattakeaway/pie/pull/2592)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens to v7.8.2 ([#2593](https://github.com/justeattakeaway/pie/pull/2593)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`9250d39`](https://github.com/justeattakeaway/pie/commit/9250d390b1b5c4e6a7a3d68f928b369930b66af3)]:
+  - @justeattakeaway/pie-css@0.23.2
+  - @justeattakeaway/pie-webc@0.7.28
+  - @justeattakeaway/pie-icons-webc@1.16.1
+
+## 4.54.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.27
+
+## 4.54.0
+
+### Minor Changes
+
+- [Added] - support xxs size for regular icons ([#2585](https://github.com/justeattakeaway/pie/pull/2585)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`6bda90d`](https://github.com/justeattakeaway/pie/commit/6bda90d2ca60d1b6d74fd93b46a9dc1cfda2bda9)]:
+  - @justeattakeaway/pie-icons-webc@1.16.0
+  - @justeattakeaway/pie-webc@0.7.26
+
+## 4.53.1
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens to v7.8.1 ([#2579](https://github.com/justeattakeaway/pie/pull/2579)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`da89aa6`](https://github.com/justeattakeaway/pie/commit/da89aa6010281bc7f37560cabfcd2c7fb70c86df)]:
+  - @justeattakeaway/pie-css@0.23.1
+  - @justeattakeaway/pie-webc@0.7.25
+  - @justeattakeaway/pie-icons-webc@1.15.2
+
+## 4.53.0
+
+### Minor Changes
+
+- [Added] - blur docs ([#2575](https://github.com/justeattakeaway/pie/pull/2575)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Updated] - pie-design-tokens to v7.8.0 ([#2575](https://github.com/justeattakeaway/pie/pull/2575)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`e41ea88`](https://github.com/justeattakeaway/pie/commit/e41ea88f6f40e2b166d044ddb54180f10fee5835)]:
+  - @justeattakeaway/pie-css@0.23.0
+  - @justeattakeaway/pie-webc@0.7.24
+  - @justeattakeaway/pie-icons-webc@1.15.1
+
+## 4.52.0
+
+### Minor Changes
+
+- [Changed] - refactor component status to use pie-tag ([#2573](https://github.com/justeattakeaway/pie/pull/2573)) by [@raoufswe](https://github.com/raoufswe)
+
+## 4.51.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.23
+
+## 4.51.0
+
+### Minor Changes
+
+- [Updated] - colour docs ([#2566](https://github.com/justeattakeaway/pie/pull/2566)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.22
+
 ## 4.50.0
 
 ### Minor Changes

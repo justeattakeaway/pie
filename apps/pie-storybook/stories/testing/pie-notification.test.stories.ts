@@ -140,6 +140,7 @@ const notificationStoryMeta: NotificationStoryMeta = {
             defaultValue: {
                 summary: defaultProps.hasStackedActions,
             },
+            if: { arg: 'isCompact', eq: false },
         },
         slot: {
             description: 'Content to place within the notification.',
@@ -227,6 +228,7 @@ export const Info = createNotificationStory({ variant: 'info' });
 export const Success = createNotificationStory({ variant: 'success' });
 export const Error = createNotificationStory({ variant: 'error' });
 export const Warning = createNotificationStory({ variant: 'warning' });
+export const Translucent = createNotificationStory({ variant: 'translucent' });
 
 export const NotificationWithSlot = createNotificationStory({
     slot: slotContent,
@@ -288,9 +290,15 @@ const errorPropOptions = {
     ...sharedPropOptions,
 };
 
+const translucentPropOptions = {
+    variant: ['translucent'],
+    ...sharedPropOptions,
+};
+
 export const NeutralPropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, neutralPropOptions);
 export const NeutralAlternativePropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, neutralAlternativePropOptions);
 export const InfoPropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, infoPropOptions);
 export const SuccessPropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, successPropOptions);
 export const WarningPropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, warningPropOptions);
 export const ErrorPropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, errorPropOptions);
+export const TranslucentPropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, translucentPropOptions);

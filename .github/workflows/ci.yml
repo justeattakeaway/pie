@@ -4,7 +4,6 @@ on:
   pull_request:
     types: [ opened, synchronize, reopened, "ready_for_review" ]
     paths-ignore:
-      - "apps/examples/**"
       - ".husky/**"
       - ".idea/**"
       - "stories/**"
@@ -20,12 +19,14 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 concurrency:
   group: CI-${{ github.ref }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 env:
+  PERCY_GZIP: true
   PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
   PERCY_TOKEN_PIE_ASSISTIVE_TEXT: ${{ secrets.PERCY_TOKEN_PIE_ASSISTIVE_TEXT }}
   PERCY_TOKEN_PIE_BUTTON: ${{ secrets.PERCY_TOKEN_PIE_BUTTON }}
@@ -202,6 +203,7 @@ jobs:
     permissions:
       contents: read
       deployments: write
+      id-token: write
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
@@ -212,8 +214,8 @@ jobs:
       bucket-name-preview: 'pie-storybook-preview'
       bucket-name-main: 'pie-storybook'
       sub-domain-suffix: 'storybook'
+      aws-role-arn: ${{ vars.AWS_ROLE_ARN }}
     secrets: inherit
-
   # Workflow task that deploys an instance of storybook used for test suites to run against
   deploy-storybook-testing:
     needs: [ unit-tests, check-change-type ]
@@ -221,6 +223,7 @@ jobs:
     permissions:
       contents: read
       deployments: write
+      id-token: write
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
@@ -230,9 +233,10 @@ jobs:
       package-dist-directory: ./apps/pie-storybook/dist
       bucket-name-preview: 'pie-storybook-preview'
       bucket-name-main: 'pie-storybook'
-      destination-dir: 'testing'
+      destination-dir: '/testing/'
       build-script: 'build:testing'
       sub-domain-suffix: 'storybook-testing'
+      aws-role-arn: ${{ vars.AWS_ROLE_ARN }}
     secrets: inherit
 
   # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
@@ -292,11 +296,12 @@ jobs:
       PR_NUMBER: ${{ github.event.number }}
 
   deploy-docs:
-    needs: [ unit-tests, check-change-type ]
+    needs: [  unit-tests, check-change-type  ]
     if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
     permissions:
       contents: read
       deployments: write
+      id-token: write
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
@@ -307,6 +312,7 @@ jobs:
       bucket-name-preview: 'pie-docs-preview'
       bucket-name-main: 'pie-docs'
       sub-domain-suffix: 'docs'
+      aws-role-arn: ${{ vars.AWS_ROLE_ARN }}
     secrets: inherit
 
   browser-tests-docs:
@@ -366,10 +372,14 @@ jobs:
   release:
     needs: [ 'unit-tests', 'lint-js' ]
     if: github.event_name != 'pull_request'
+    permissions:
+      contents: read
+      id-token: write
     uses: ./.github/workflows/changeset-release.yml
     with:
       os: ubuntu-latest
       node-version: 22
+      aws-role-arn: ${{ vars.AWS_ROLE_ARN }}
     secrets: inherit
 
   check-all-jobs:

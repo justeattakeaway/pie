@@ -1,5 +1,45 @@
 # Changelog
 
+## 5.18.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2607](https://github.com/justeattakeaway/pie/pull/2607)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## App
+
+  - app-unlock-large
+  - app-unlock
+
+  ## Audiovisual (AV)
+
+  - cc-large
+  - cc
+  - microphone-off-large
+  - microphone-off
+  - soundwave-large
+  - soundwave
+
+  ## Gestures
+
+  - do-not-touch-large
+  - do-not-touch
+
+  ## Technology
+
+  - robot-large
+  - robot
+
+## 5.17.0
+
+### Minor Changes
+
+- [Added] - support xxs size for regular icons ([#2585](https://github.com/justeattakeaway/pie/pull/2585)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Fixed] - prevent PIE icons react from shrinking ([#2581](https://github.com/justeattakeaway/pie/pull/2581)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 5.16.0
 
 ### Minor Changes

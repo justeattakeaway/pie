@@ -44,7 +44,7 @@ describe('Regular Icon', () => {
     });
 
     it.each([
-        'xxs',
+        'xxxs',
         'xxxl',
         ''
     ])('should not allow invalid sizes - %s', (size) => {

@@ -142,6 +142,50 @@ test.describe('Prop: `isDismissible`', () => {
     });
 });
 
+test.describe('Prop: `isHeadingEmphasised`', () => {
+    test.describe('when true', () => {
+        test('should display the emphasised style for the heading', async ({ page }) => {
+            const modalDefaultPage = new ModalDefaultPage(page);
+            const props: ModalProps = {
+                ...sharedProps,
+                isHeadingEmphasised: true,
+                // Kept isDismissible and hasBackButton for having them in the VRT
+                isDismissible: true,
+                hasBackButton: true,
+            };
+
+            await modalDefaultPage.load(props);
+
+            await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
+
+            await page.waitForTimeout(500);
+
+            await percySnapshot(page, 'Modal - isHeadingEmphasised: `true`');
+        });
+    });
+
+    test.describe('when false', () => {
+        test('should not display the emphasised style for the heading', async ({ page }) => {
+            const modalDefaultPage = new ModalDefaultPage(page);
+            const props: ModalProps = {
+                ...sharedProps,
+                isHeadingEmphasised: false,
+                // Kept isDismissible and hasBackButton for having them in the VRT
+                isDismissible: true,
+                hasBackButton: true,
+            };
+
+            await modalDefaultPage.load(props);
+
+            await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
+
+            await page.waitForTimeout(500);
+
+            await percySnapshot(page, 'Modal - isHeadingEmphasised: `false`');
+        });
+    });
+});
+
 const directions = ['ltr', 'rtl', 'auto'] as const;
 
 test.describe('Prop: `hasBackButton`', () => {

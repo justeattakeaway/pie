@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-form-label",
   "description": "PIE Design System Form Label built using Web Components",
-  "version": "0.18.0",
+  "version": "0.18.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -19,7 +19,10 @@
     "**/*.d.ts"
   ],
   "pieMetadata": {
-    "componentStatus": "alpha"
+    "componentStatus": "alpha",
+    "replaces": {
+      "snacks": []
+    }
   },
   "scripts": {
     "build": "run -T vite build",
@@ -40,15 +43,15 @@
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
     "@justeattakeaway/pie-components-config": "0.21.0",
-    "@justeattakeaway/pie-css": "0.22.0",
+    "@justeattakeaway/pie-css": "0.25.0",
     "@justeattakeaway/pie-monorepo-utils": "0.7.0",
-    "@justeattakeaway/pie-switch": "2.3.0",
-    "@justeattakeaway/pie-text-input": "0.29.0",
+    "@justeattakeaway/pie-switch": "2.3.7",
+    "@justeattakeaway/pie-text-input": "0.29.8",
     "@justeattakeaway/pie-wrapper-react": "0.14.3",
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "2.0.0"
+    "@justeattakeaway/pie-webc-core": "5.0.0"
   },
   "volta": {
     "extends": "../../../package.json"

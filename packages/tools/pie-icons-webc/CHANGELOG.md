@@ -1,5 +1,76 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.17.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@5.0.0
+
+## 1.17.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2607](https://github.com/justeattakeaway/pie/pull/2607)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## App
+
+  - app-unlock-large
+  - app-unlock
+
+  ## Audiovisual (AV)
+
+  - cc-large
+  - cc
+  - microphone-off-large
+  - microphone-off
+  - soundwave-large
+  - soundwave
+
+  ## Gestures
+
+  - do-not-touch-large
+  - do-not-touch
+
+  ## Technology
+
+  - robot-large
+  - robot
+
+## 1.16.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@4.0.0
+
+## 1.16.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@3.0.2
+
+## 1.16.0
+
+### Minor Changes
+
+- [Added] - support xxs size for regular icons ([#2585](https://github.com/justeattakeaway/pie/pull/2585)) by [@raoufswe](https://github.com/raoufswe)
+
+## 1.15.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@3.0.1
+
+## 1.15.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@3.0.0
+
 ## 1.15.0
 
 ### Minor Changes

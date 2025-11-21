@@ -1,5 +1,120 @@
 # @justeattakeaway/pie-modal
 
+## 1.19.0
+
+### Minor Changes
+
+- [Updated] - upgrade pie-design-tokens to include line height changes ([#2609](https://github.com/justeattakeaway/pie/pull/2609)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Updated] - ensure modal and button heights are aligned with the brand refresh specs ([#2609](https://github.com/justeattakeaway/pie/pull/2609)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`4442ade`](https://github.com/justeattakeaway/pie/commit/4442ade25432b4752a412274109fe92c8f6781a0)]:
+  - @justeattakeaway/pie-button@1.10.0
+  - @justeattakeaway/pie-icon-button@2.3.3
+  - @justeattakeaway/pie-spinner@1.3.5
+  - @justeattakeaway/pie-webc-core@5.0.0
+  - @justeattakeaway/pie-icons-webc@1.17.1
+
+## 1.18.2
+
+### Patch Changes
+
+- [Updated] - esnure styles are using alias font tokens ([#2612](https://github.com/justeattakeaway/pie/pull/2612)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`2f1113b`](https://github.com/justeattakeaway/pie/commit/2f1113bb1a78eceef2aad9e404eb5f7c736fa4fe)]:
+  - @justeattakeaway/pie-button@1.9.4
+
+## 1.18.1
+
+### Patch Changes
+
+- Updated dependencies [[`e849f4a`](https://github.com/justeattakeaway/pie/commit/e849f4ac77ec44f3ee94bcbad2ce5fcd40fd6e23)]:
+  - @justeattakeaway/pie-icons-webc@1.17.0
+  - @justeattakeaway/pie-icon-button@2.3.2
+
+## 1.18.0
+
+### Minor Changes
+
+- [Updated] - pie-design-tokens to v7.9.0 ([#2600](https://github.com/justeattakeaway/pie/pull/2600)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.9.3
+  - @justeattakeaway/pie-icon-button@2.3.1
+  - @justeattakeaway/pie-spinner@1.3.4
+  - @justeattakeaway/pie-webc-core@4.0.0
+  - @justeattakeaway/pie-icons-webc@1.16.2
+
+## 1.17.5
+
+### Patch Changes
+
+- [Updated] - improve the `hasStackedAction`s type definition description. ([#2595](https://github.com/justeattakeaway/pie/pull/2595)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`fe51bf9`](https://github.com/justeattakeaway/pie/commit/fe51bf96e23a7db54c5fd923135649ddd5e358ab), [`fe51bf9`](https://github.com/justeattakeaway/pie/commit/fe51bf96e23a7db54c5fd923135649ddd5e358ab)]:
+  - @justeattakeaway/pie-icon-button@2.3.0
+  - @justeattakeaway/pie-button@1.9.2
+
+## 1.17.4
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens to v7.8.2 ([#2593](https://github.com/justeattakeaway/pie/pull/2593)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.9.1
+  - @justeattakeaway/pie-icon-button@2.2.4
+  - @justeattakeaway/pie-spinner@1.3.3
+  - @justeattakeaway/pie-webc-core@3.0.2
+  - @justeattakeaway/pie-icons-webc@1.16.1
+
+## 1.17.3
+
+### Patch Changes
+
+- Updated dependencies [[`3c1da54`](https://github.com/justeattakeaway/pie/commit/3c1da545d48e106f5b5307707a12fd4512c56293)]:
+  - @justeattakeaway/pie-button@1.9.0
+
+## 1.17.2
+
+### Patch Changes
+
+- Updated dependencies [[`6bda90d`](https://github.com/justeattakeaway/pie/commit/6bda90d2ca60d1b6d74fd93b46a9dc1cfda2bda9)]:
+  - @justeattakeaway/pie-icons-webc@1.16.0
+  - @justeattakeaway/pie-icon-button@2.2.3
+
+## 1.17.1
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens to v7.8.1 ([#2579](https://github.com/justeattakeaway/pie/pull/2579)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.8.2
+  - @justeattakeaway/pie-icon-button@2.2.2
+  - @justeattakeaway/pie-spinner@1.3.2
+  - @justeattakeaway/pie-webc-core@3.0.1
+  - @justeattakeaway/pie-icons-webc@1.15.2
+
+## 1.17.0
+
+### Minor Changes
+
+- [Updated] - pie-design-tokens to v7.8.0 ([#2575](https://github.com/justeattakeaway/pie/pull/2575)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.8.1
+  - @justeattakeaway/pie-icon-button@2.2.1
+  - @justeattakeaway/pie-spinner@1.3.1
+  - @justeattakeaway/pie-webc-core@3.0.0
+  - @justeattakeaway/pie-icons-webc@1.15.1
+
 ## 1.16.0
 
 ### Minor Changes

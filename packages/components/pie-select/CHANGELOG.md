@@ -1,5 +1,65 @@
 # @justeattakeaway/pie-select
 
+## 0.8.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.7
+  - @justeattakeaway/pie-webc-core@5.0.0
+
+## 0.8.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.6
+
+## 0.8.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.5
+  - @justeattakeaway/pie-webc-core@4.0.0
+
+## 0.8.5
+
+### Patch Changes
+
+- [Updated] - remove unused css variable and tidy up styles ([#2596](https://github.com/justeattakeaway/pie/pull/2596)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.8.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.4
+  - @justeattakeaway/pie-webc-core@3.0.2
+
+## 0.8.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.3
+
+## 0.8.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.2
+  - @justeattakeaway/pie-webc-core@3.0.1
+
+## 0.8.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.1
+  - @justeattakeaway/pie-webc-core@3.0.0
+
 ## 0.8.0
 
 ### Minor Changes

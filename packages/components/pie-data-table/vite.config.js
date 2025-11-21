@@ -3,4 +3,16 @@ import getPackageVersion from '@justeattakeaway/pie-monorepo-utils/utils/get-pac
 
 export default viteConfig({
     version: getPackageVersion(__dirname),
+    build: {
+        lib: {
+            entry: {
+                'pie-data-table-header/index': 'src/pie-data-table-header/index.ts',
+                'pie-data-table-header/react': 'src/pie-data-table-header/react.ts',
+            },
+        },
+    },
+    dtsConfig: {
+        entryRoot: 'src',
+        rollupTypes: false,
+    },
 });

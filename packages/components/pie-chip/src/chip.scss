@@ -4,6 +4,11 @@
     display: inline-block;
 }
 
+:host([disabled]),
+:host([isLoading]) {
+    pointer-events: none;
+}
+
 .c-chip {
     --int-states-mixin-bg-color: var(--dt-color-interactive-secondary);
     --chip-color: var(--dt-color-content-interactive-secondary);
@@ -18,9 +23,6 @@
     --chip-cursor: pointer;
     --chip-close-btn-cursor: pointer;
 
-    // Pie Webc Icon var that is used to ensure the correctly sized icon passed in a slot
-    --icon-display-override: block;
-
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -33,15 +35,16 @@
     background-color: var(--int-states-mixin-bg-color);
     color: var(--chip-color);
     border-radius: var(--dt-radius-rounded-e);
-    border: 1px solid;
+    border: var(--chip-border-width) solid;
     border-color: var(--chip-border-color);
     cursor: var(--chip-cursor);
     user-select: none;
     min-width: var(--chip-min-width);
 
+    font-family: inherit;
     @include p.font-size(--dt-font-interactive-xs-size);
     @include p.line-height(--dt-font-interactive-xs-line-height);
-    font-weight: var(--dt-font-weight-bold);
+    font-weight: var(--dt-font-interactive-xs-weight);
 
     @include p.interactive-states('--dt-color-interactive-secondary');
 
@@ -49,7 +52,7 @@
         // same as default styles
     }
 
-    &.c-chip--outline:not(.is-disabled, .c-chip--selected) {
+    &.c-chip--outline {
         --chip-border-color: var(--dt-color-border-strong);
     }
 
@@ -61,9 +64,18 @@
         @include p.interactive-states('--dt-color-transparent', 'transparent');
     }
 
+    &.c-chip--translucent {
+        --int-states-mixin-bg-color: var(--dt-color-container-neutral);
+        --chip-color: var(--dt-color-content-interactive-secondary-solid);
+        --chip-border-color: var(--dt-color-border-neutral);
+
+        @include p.interactive-states('--dt-color-container-neutral');
+    }
+
     &.c-chip--selected {
         --int-states-mixin-bg-color: var(--dt-color-interactive-primary);
         --chip-color: var(--dt-color-content-interactive-primary);
+        --chip-border-color: transparent;
 
         @include p.interactive-states('--dt-color-interactive-primary', 'inverse', '02');
     }
@@ -90,6 +102,11 @@
         &.c-chip--ghost {
             --int-states-mixin-bg-color: transparent;
             --chip-color: var(--dt-color-content-disabled-solid);
+        }
+
+        &.c-chip--outline, 
+        &.c-chip--translucent {
+            --chip-border-color: var(--dt-color-disabled-01);
         }
     }
 
@@ -121,6 +138,30 @@
     &:focus-visible {
         @include p.focus;
     }
+}
+
+[type="checkbox"] {
+    // the p.visually-hidden mixin doesn't properly work on checkboxes
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+[type="checkbox"]:focus-visible + .c-chip {
+    @include p.focus;
 }
 
 ::slotted(svg) {

@@ -36,12 +36,12 @@ export type ModalProps = {
     aria?: AriaProps;
 
     /**
-     * When true, the modal will have a back button. This currently behaves the same as the close button.
+     * When true, the modal will have a back button.
      */
     hasBackButton?: boolean;
 
     /**
-     * When true, the modal will have a back button. This currently behaves the same as the close button.
+     * When true, the actions will expand to full width and stack vertically. Only available below the mid breakpoint.
      */
     hasStackedActions?: boolean;
 
@@ -72,6 +72,11 @@ export type ModalProps = {
      *
      */
     isDismissible?: boolean;
+
+    /**
+     * When true, displays the heading with emphasised style
+     */
+    isHeadingEmphasised?: boolean;
 
     /**
      * When false, the modal footer will scroll with the content inside the modal body.
@@ -159,6 +164,7 @@ export const defaultProps: DefaultProps = {
     headingLevel: 'h2',
     isOpen: false,
     isDismissible: false,
+    isHeadingEmphasised: false,
     isFooterPinned: true,
     isFullWidthBelowMid: false,
     isLoading: false,

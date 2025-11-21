@@ -4,247 +4,498 @@
     display: inline-block;
 }
 
-
-// Base tag styles
 .c-tag {
-    --int-states-mixin-bg-color: var(--dt-color-container-strong);
+    // CSS Custom Properties - Default values (neutral, subtle, large)
+    // colors
+    --tag-bg-color: var(--dt-color-container-strong);
+    --tag-icon-bg-color: var(--dt-color-container-inverse);
+    --tag-icon-color: var(--dt-color-content-inverse);
     --tag-color: var(--dt-color-content-default);
-    --tag-border-radius: var(--dt-radius-rounded-b);
-    --tag-padding-block: 2px;
-    --tag-padding-inline: var(--dt-spacing-b);
-    --tag-font-family: var(--dt-font-body-s-family);
-    --tag-font-weight: var(--dt-font-body-s-weight);
-    --tag-font-size: #{p.font-size(--dt-font-body-s-size)};
-    --tag-line-height: #{p.line-height(--dt-font-body-s-line-height)};
-    --tag-cursor: text;
+    --tag-transparent-bg-color: transparent; // Used for component tests
 
-    // transparent to variable to function properly in component tests
-    --tag-transparent-bg-color: transparent;
+    // borders
+    --tag-border-width: 1px; // Used for outline variant
+    --tag-border-color: var(--tag-bg-color);
 
-    // Pie Webc Icon var that is used to ensure the correctly sized icon passed in a slot
-    --icon-display-override: block;
-    --icon-size-override: 16px;
-
-    display: inline-flex;
-    flex-direction: row;
-    vertical-align: middle;
-    align-items: center;
-    justify-content: center;
-    gap: var(--dt-spacing-a);
-    padding: var(--tag-padding-block) var(--tag-padding-inline);
+    border: var(--tag-border-width) solid var(--tag-border-color);
     border-radius: var(--tag-border-radius);
-    background-color: var(--int-states-mixin-bg-color);
-    color: var(--tag-color);
+
+    width: 100%;
+
     font-family: var(--tag-font-family);
     font-weight: var(--tag-font-weight);
     font-size: var(--tag-font-size);
     line-height: var(--tag-line-height);
-    cursor: var(--tag-cursor);
 
-    &.c-tag--interactive {
-        --tag-cursor: pointer;
+    color: var(--tag-color);
 
-        border: none;
-        user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        &:focus-visible {
-            @include p.focus;
+    background-color: var(--tag-bg-color);
+
+    padding-inline-start: var(--tag-padding-inline-start);
+    padding-inline-end: var(--tag-padding-inline-end);
+    padding-block-start: var(--tag-padding-block-start);
+    padding-block-end: var(--tag-padding-block-end);
+
+    slot[name="icon"] {
+        color: var(--tag-icon-color);
+
+        // Used to size raw SVGs passed into the icon slot
+        &::slotted(svg) {
+            display: block;
+            height: var(--icon-size-override);
+            width: var(--icon-size-override);
         }
     }
 
-    &.c-tag--icon-placement--leading {
-        // same as default styles
+    // Ensures text content truncates with ellipsis if too long
+    // The width at which this happens is controlled by applying a width/max-width to
+    // the tag component itself
+    slot:not([name="icon"]) {
+        display: inline-block;
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
-    &.c-tag--icon-placement--trailing {
-        flex-direction: row-reverse;
+    // Sizing, spacing and dimensions
+    &.c-tag--large {
+        // typography and shape
+        --tag-font-family: var(--dt-font-body-s-family);
+        --tag-font-weight: var(--dt-font-body-s-weight);
+        --tag-font-size: #{p.font-size(--dt-font-body-s-size)};
+        --tag-line-height: #{p.line-height(--dt-font-body-s-line-height)};
+        --tag-border-radius: var(--dt-radius-rounded-e);
+        --icon-size-override: 16px;
+
+        // whitespace
+        --tag-padding-block-start: calc(var(--dt-spacing-a-small) - var(--tag-border-width));
+        --tag-padding-block-end: calc(var(--dt-spacing-a-small) - var(--tag-border-width));
+        --tag-padding-inline-start: calc(var(--dt-spacing-b) - var(--tag-border-width));
+        --tag-padding-inline-end: calc(var(--dt-spacing-b) - var(--tag-border-width));
+        --tag-gap: var(--dt-spacing-a);
     }
 
-    // Size
     &.c-tag--small {
-        --tag-padding-block: 0;
-        --tag-padding-inline: var(--dt-spacing-a);
-        --tag-border-radius: var(--dt-radius-rounded-a);
+        // typography and shape
+        --tag-font-family: var(--dt-font-caption-family);
+        --tag-font-weight: var(--dt-font-caption-weight);
         --tag-font-size: #{p.font-size(--dt-font-caption-size)};
         --tag-line-height: #{p.line-height(--dt-font-caption-line-height)};
-    }
+        --tag-border-radius: var(--dt-radius-rounded-c);
+        --icon-size-override: 12px;
 
-    &.c-tag--large {
-        // same as default styles
+        // whitespace
+        --tag-padding-block-start: 0;
+        --tag-padding-block-end: 0;
+        --tag-padding-inline-start: calc(var(--dt-spacing-a) - var(--tag-border-width));
+        --tag-padding-inline-end: calc(var(--dt-spacing-a) - var(--tag-border-width));
+        --tag-gap: var(--dt-spacing-a-small);
     }
 
     &.c-tag--icon-only {
-        --tag-padding-block: var(--dt-spacing-a);
-    }
-
-    // Variant
-    &.c-tag--neutral {
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-container-strong');
+        &.c-tag--large,
+        &.c-tag--small {
+            --tag-padding-block-start: calc(var(--dt-spacing-a) - var(--tag-border-width));
+            --tag-padding-block-end: calc(var(--dt-spacing-a) - var(--tag-border-width));
         }
 
-        &.c-tag--strong {
-            --int-states-mixin-bg-color: var(--dt-color-container-inverse);
-            --tag-color: var(--dt-color-content-inverse);
+        // Design do not support a small icon only variant
+        // so we just make it identical to the large icon only styles
+        &.c-tag--small {
+            --tag-border-radius: var(--dt-radius-rounded-e);
+            --icon-size-override: 16px;
+            --tag-padding-inline-start: calc(var(--dt-spacing-b) - var(--tag-border-width));
+            --tag-padding-inline-end: calc(var(--dt-spacing-b) - var(--tag-border-width));
+            --tag-gap: var(--dt-spacing-a);
+        }
+    }
 
-            &.c-tag--interactive {
-                @include p.interactive-states('--dt-color-container-inverse', 'inverse', '02');
-            }
+    &.c-tag--has-icon:not(.c-tag--icon-only) {
+        --tag-padding-inline-start: 0;
+        --tag-padding-block-start: 0;
+        --tag-padding-block-end: 0;
+
+        gap: var(--tag-gap);
+
+        &.c-tag--large {
+            --tag-padding-inline-end: calc(var(--dt-spacing-b) - var(--tag-border-width));
+            --tag-icon-container-size: 22px;
+        }
+
+        &.c-tag--small {
+            --tag-padding-inline-end: calc(var(--dt-spacing-a) - var(--tag-border-width));
+            --tag-icon-container-size: 16px;
+        }
+
+        slot[name="icon"] {
+            background-color: var(--tag-icon-bg-color);
+            display: grid;
+            place-items: center;
+            border-radius: inherit;
+            height: var(--tag-icon-container-size);
+            aspect-ratio: 1 / 1;
+        }
+    }
+
+    // State styles
+    &.c-tag--is-dimmed {
+        opacity: 0.5;
+    }
+
+    // Variants
+    &.c-tag--neutral {
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-container-strong);
+            --tag-icon-color: var(--dt-color-content-default);
+        }
+
+        // Strong icon only
+        &.c-tag--icon-only.c-tag--strong {
+            --tag-bg-color: var(--dt-color-container-inverse);
+            --tag-icon-color: var(--dt-color-content-inverse);
+        }
+
+        // Strong
+        &.c-tag--strong:not(.c-tag--icon-only) {
+            --tag-bg-color: var(--dt-color-container-inverse);
+            --tag-icon-bg-color: var(--dt-color-container-strong);
+            --tag-icon-color: var(--dt-color-content-default);
+            --tag-color: var(--dt-color-content-inverse);
+        }
+
+    }
+
+    &.c-tag--neutral-alternative {
+        --tag-bg-color: var(--dt-color-container-default);
+        --tag-icon-bg-color: var(--dt-color-container-strong);
+        --tag-icon-color: var(--dt-color-content-default);
+        --tag-color: var(--dt-color-content-default);
+
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-container-default);
+            --tag-icon-color: var(--dt-color-content-default);
         }
     }
 
     &.c-tag--information {
-        --int-states-mixin-bg-color: var(--dt-color-support-info-02);
+        --tag-bg-color: var(--dt-color-support-info-02);
+        --tag-icon-bg-color: var(--dt-color-support-info);
+        --tag-icon-color: var(--dt-color-content-inverse);
         --tag-color: var(--dt-color-content-default);
 
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-support-info-02');
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-info-02);
+            --tag-icon-color: var(--dt-color-content-default);
         }
 
-        &.c-tag--strong {
-            --int-states-mixin-bg-color: var(--dt-color-support-info);
-            --tag-color: var(--dt-color-content-inverse);
+        // Strong icon only
+        &.c-tag--icon-only.c-tag--strong {
+            --tag-bg-color: var(--dt-color-support-info);
+            --tag-icon-color: var(--dt-color-content-inverse);
+        }
 
-            &.c-tag--interactive {
-                @include p.interactive-states('--dt-color-support-info');
-            }
+        // Strong
+        &.c-tag--strong:not(.c-tag--icon-only) {
+            --tag-bg-color: var(--dt-color-support-info);
+            --tag-icon-bg-color: var(--dt-color-support-info-02);
+            --tag-icon-color: var(--dt-color-content-default);
+            --tag-color: var(--dt-color-content-inverse);
         }
     }
 
     &.c-tag--success {
-        --int-states-mixin-bg-color: var(--dt-color-support-positive-02);
+        --tag-bg-color: var(--dt-color-support-positive-02);
+        --tag-icon-bg-color: var(--dt-color-support-positive);
+        --tag-icon-color: var(--dt-color-content-inverse);
         --tag-color: var(--dt-color-content-default);
 
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-support-positive-02');
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-positive-02);
+            --tag-icon-color: var(--dt-color-content-default);
         }
 
-        &.c-tag--strong {
-            --int-states-mixin-bg-color: var(--dt-color-support-positive);
-            --tag-color: var(--dt-color-content-inverse);
+        // Strong icon only
+        &.c-tag--icon-only.c-tag--strong {
+            --tag-bg-color: var(--dt-color-support-positive);
+            --tag-icon-color: var(--dt-color-content-inverse);
+        }
 
-            &.c-tag--interactive {
-                @include p.interactive-states('--dt-color-support-positive');
-            }
+        // Strong
+        &.c-tag--strong:not(.c-tag--icon-only) {
+            --tag-bg-color: var(--dt-color-support-positive);
+            --tag-icon-bg-color: var(--dt-color-support-positive-02);
+            --tag-icon-color: var(--dt-color-content-default);
+            --tag-color: var(--dt-color-content-inverse);
         }
     }
 
     &.c-tag--error {
-        --int-states-mixin-bg-color: var(--dt-color-support-error-02);
+        --tag-bg-color: var(--dt-color-support-error-02);
+        --tag-icon-bg-color: var(--dt-color-support-error);
+        --tag-icon-color: var(--dt-color-content-inverse);
         --tag-color: var(--dt-color-content-default);
 
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-support-error-02');
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-error-02);
+            --tag-icon-color: var(--dt-color-content-default);
         }
 
-        &.c-tag--strong {
-            --int-states-mixin-bg-color: var(--dt-color-support-error);
-            --tag-color: var(--dt-color-content-light);
+        // Strong icon only
+        &.c-tag--icon-only.c-tag--strong {
+            --tag-bg-color: var(--dt-color-support-error);
+            --tag-icon-color: var(--dt-color-content-light);
+        }
 
-            &.c-tag--interactive {
-                @include p.interactive-states('--dt-color-support-error');
-            }
+        // Strong
+        &.c-tag--strong:not(.c-tag--icon-only) {
+            --tag-bg-color: var(--dt-color-support-error);
+            --tag-icon-bg-color: var(--dt-color-support-error-02);
+            --tag-icon-color: var(--dt-color-content-default);
+            --tag-color: var(--dt-color-content-light);
+        }
+    }
+
+    &.c-tag--warning {
+        --tag-bg-color: var(--dt-color-support-warning-02);
+        --tag-icon-bg-color: var(--dt-color-support-warning);
+        --tag-icon-color: var(--dt-color-content-dark);
+        --tag-color: var(--dt-color-content-default);
+
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-warning-02);
+            --tag-icon-color: var(--dt-color-content-default);
+        }
+
+        // Strong icon only
+        &.c-tag--icon-only.c-tag--strong {
+            --tag-bg-color: var(--dt-color-support-warning);
+            --tag-icon-color: var(--dt-color-content-dark);
+        }
+
+        // Strong
+        &.c-tag--strong:not(.c-tag--icon-only) {
+            --tag-bg-color: var(--dt-color-support-warning);
+            --tag-icon-bg-color: var(--dt-color-support-warning-tonal);
+            --tag-icon-color: var(--dt-color-content-default);
+            --tag-color: var(--dt-color-content-dark);
         }
     }
 
     &.c-tag--brand-02 {
-        --int-states-mixin-bg-color: var(--dt-color-support-brand-02);
+        --tag-bg-color: var(--dt-color-support-brand-02);
+        --tag-icon-bg-color: var(--dt-color-support-brand-01);
+        --tag-icon-color: var(--dt-color-content-dark);
         --tag-color: var(--dt-color-content-default);
 
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-support-brand-02');
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-brand-02);
+            --tag-icon-color: var(--dt-color-content-default);
         }
     }
 
     &.c-tag--brand-03 {
-        --int-states-mixin-bg-color: var(--dt-color-support-brand-03);
-        --tag-color: var(--dt-color-content-dark);
+        --tag-bg-color: var(--dt-color-support-brand-03-subtle);
+        --tag-icon-bg-color: var(--dt-color-support-brand-03);
+        --tag-icon-color: var(--dt-color-content-dark);
+        --tag-color: var(--dt-color-content-default);
 
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-support-brand-03');
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-brand-03-subtle);
+            --tag-icon-color: var(--dt-color-content-default);
+        }
+
+        // Strong icon only
+        &.c-tag--icon-only.c-tag--strong {
+            --tag-bg-color: var(--dt-color-support-brand-03);
+            --tag-icon-color: var(--dt-color-content-dark);
+        }
+
+        // Strong
+        &.c-tag--strong:not(.c-tag--icon-only) {
+            --tag-bg-color: var(--dt-color-support-brand-03);
+            --tag-icon-bg-color: var(--dt-color-support-brand-03-tonal);
+            --tag-icon-color: var(--dt-color-content-default);
+            --tag-color: var(--dt-color-content-dark);
         }
     }
 
     &.c-tag--brand-04 {
-        --int-states-mixin-bg-color: var(--dt-color-support-brand-04);
-        --tag-color: var(--dt-color-content-dark);
+        --tag-bg-color: var(--dt-color-support-brand-04-subtle);
+        --tag-icon-bg-color: var(--dt-color-support-brand-04);
+        --tag-icon-color: var(--dt-color-content-dark);
+        --tag-color: var(--dt-color-content-default);
 
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-support-brand-04');
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-brand-04-subtle);
+            --tag-icon-color: var(--dt-color-content-dark);
+        }
+
+        // Strong icon only
+        &.c-tag--icon-only.c-tag--strong {
+            --tag-bg-color: var(--dt-color-support-brand-04);
+            --tag-icon-color: var(--dt-color-content-dark);
+        }
+
+        // Strong
+        &.c-tag--strong:not(.c-tag--icon-only) {
+            --tag-bg-color: var(--dt-color-support-brand-04);
+            --tag-icon-bg-color: var(--dt-color-support-brand-04-tonal);
+            --tag-icon-color: var(--dt-color-content-default);
+            --tag-color: var(--dt-color-content-dark);
         }
     }
 
     &.c-tag--brand-05 {
-        --int-states-mixin-bg-color: var(--dt-color-support-warning-02);
+        --tag-bg-color: var(--dt-color-support-brand-05-subtle);
+        --tag-icon-bg-color: var(--dt-color-support-brand-05);
+        --tag-icon-color: var(--dt-color-content-dark);
         --tag-color: var(--dt-color-content-default);
 
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-support-warning-02');
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-brand-05-subtle);
+            --tag-icon-color: var(--dt-color-content-default);
         }
 
-        &.c-tag--strong {
-            --int-states-mixin-bg-color: var(--dt-color-support-warning);
-            --tag-color: var(--dt-color-content-dark);
+        // Strong icon only
+        &.c-tag--icon-only.c-tag--strong {
+            --tag-bg-color: var(--dt-color-support-brand-05);
+            --tag-icon-color: var(--dt-color-content-dark);
+        }
 
-            &.c-tag--interactive {
-                @include p.interactive-states('--dt-color-support-warning');
-            }
+        // Strong
+        &.c-tag--strong:not(.c-tag--icon-only) {
+            --tag-bg-color: var(--dt-color-support-brand-05);
+            --tag-icon-bg-color: var(--dt-color-support-brand-05-tonal);
+            --tag-icon-color: var(--dt-color-content-default);
+            --tag-color: var(--dt-color-content-dark);
         }
     }
 
     &.c-tag--brand-06 {
-        --int-states-mixin-bg-color: var(--dt-color-support-brand-06);
-        --tag-color: var(--dt-color-content-light);
+        --tag-bg-color: var(--dt-color-support-brand-06-subtle);
+        --tag-icon-bg-color: var(--dt-color-support-brand-06);
+        --tag-icon-color: var(--dt-color-content-light);
+        --tag-color: var(--dt-color-content-default);
 
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-support-brand-06', 'inverse', '02-light');
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-brand-06-subtle);
+            --tag-icon-color: var(--dt-color-content-default);
+        }
+
+        // Strong icon only
+        &.c-tag--icon-only.c-tag--strong {
+            --tag-bg-color: var(--dt-color-support-brand-06);
+            --tag-icon-color: var(--dt-color-content-light);
+        }
+
+        // Strong
+        &.c-tag--strong:not(.c-tag--icon-only) {
+            --tag-bg-color: var(--dt-color-support-brand-06);
+            --tag-icon-bg-color: var(--dt-color-support-brand-06-subtle);
+            --tag-icon-color: var(--dt-color-content-default);
+            --tag-color: var(--dt-color-content-light);
         }
     }
 
-    &.c-tag--neutral-alternative {
-        --int-states-mixin-bg-color: var(--dt-color-container-default);
+    &.c-tag--brand-08 {
+        --tag-bg-color: var(--dt-color-support-brand-08-subtle);
+        --tag-icon-bg-color: var(--dt-color-support-brand-08);
+        --tag-icon-color: var(--dt-color-content-dark);
         --tag-color: var(--dt-color-content-default);
 
-        &.c-tag--interactive {
-            @include p.interactive-states('--dt-color-container-default');
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-support-brand-08-subtle);
+            --tag-icon-color: var(--dt-color-content-default);
+        }
+
+        // Strong icon only
+        &.c-tag--icon-only.c-tag--strong {
+            --tag-bg-color: var(--dt-color-support-brand-08);
+            --tag-icon-color: var(--dt-color-content-dark);
+        }
+
+        // Strong
+        &.c-tag--strong:not(.c-tag--icon-only) {
+            --tag-bg-color: var(--dt-color-support-brand-08);
+            --tag-icon-bg-color: var(--dt-color-support-brand-08-tonal);
+            --tag-icon-color: var(--dt-color-content-default);
+            --tag-color: var(--dt-color-content-dark);
+        }
+    }
+
+    &.c-tag--ghost {
+        --tag-bg-color: var(--dt-color-transparent);
+        --tag-icon-bg-color: var(--dt-color-transparent);
+        --tag-icon-color: var(--dt-color-content-default-solid);
+        --tag-color: var(--dt-color-content-default-solid);
+
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-transparent);
+            --tag-icon-color: var(--dt-color-content-default-solid);
+        }
+    }
+
+    &.c-tag--translucent {
+        --tag-bg-color: var(--dt-color-container-prominent);
+        --tag-icon-bg-color: var(--dt-color-container-neutral);
+        --tag-icon-color: var(--dt-color-content-default-solid);
+        --tag-color: var(--dt-color-content-default-solid);
+        --tag-border-color: var(--dt-color-border-neutral);
+        backdrop-filter: blur(var(--dt-blur-prominent));
+
+        // Subtle icon only
+        &.c-tag--icon-only {
+            --tag-bg-color: var(--dt-color-container-prominent);
+            --tag-icon-color: var(--dt-color-content-default-solid);
+            --tag-border-color: var(--dt-color-border-neutral);
         }
     }
 
     &.c-tag--outline {
-        --int-states-mixin-bg-color: var(--tag-transparent-bg-color);
+        --tag-bg-color: var(--dt-color-transparent);
+        --tag-border-color: var(--dt-color-border-strong);
+        --tag-icon-bg-color: var(--dt-color-container-strong);
+        --tag-icon-color: var(--dt-color-content-default);
         --tag-color: var(--dt-color-content-default-solid);
 
-        &.c-tag--interactive {
-            @include p.interactive-states('--tag-transparent-bg-color', 'transparent');
+        &.c-tag--icon-only {
+            --tag-icon-color: var(--dt-color-content-default-solid);
         }
 
-        // the outline in design specs is part of the total component
-        // height calculation, thus, we use box-shadow to mimic borders
-        // and avoid the extra 2px from "border: 1px solid" as shadows are applied "internally"
-        box-shadow: 0 0 0 1px var(--dt-color-border-strong);
-    }
+        // Antialiasing fix - border radius and the icon container slot being flush
+        // can result in a seam/visual artifact letting the background page colour show between the slot and border.
+        // This fix uses a pseudo element to effectively 'fill in' that gap.
+        &.c-tag--has-icon:not(.c-tag--icon-only) slot[name="icon"] {
+            position: relative;
+        }
 
-    &.c-tag--ghost {
-        --int-states-mixin-bg-color: var(--tag-transparent-bg-color);
-        --tag-color: var(--dt-color-content-default-solid);
-
-        &.c-tag--interactive {
-            @include p.interactive-states('--tag-transparent-bg-color', 'transparent');
+        &.c-tag--has-icon:not(.c-tag--icon-only) slot[name="icon"]:before {
+            content: '';
+            position: absolute;
+            left: -0.25px;
+            height: var(--tag-icon-container-size);
+            aspect-ratio: 1;
+            z-index: -1;
+            border-radius: inherit;
+            box-shadow: inset 5px 0 0 0 var(--tag-icon-bg-color);
         }
     }
-
-    &.is-disabled {
-        opacity: 0.5;
-    }
-
-    &[disabled] {
-        --tag-cursor: not-allowed;
-    }
-}
-
-// Used to size an SVG if one is passed in (when not using the component icons)
-::slotted(svg) {
-    display: block;
-    height: var(--icon-size-override);
-    width: var(--icon-size-override);
 }

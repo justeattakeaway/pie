@@ -180,23 +180,37 @@
         --modal-header-font-size: calc(var(--dt-font-heading-m-size--narrow) * 1px);
         --modal-header-font-line-height: calc(var(--dt-font-heading-m-line-height--narrow) * 1px);
         --modal-header-font-weight: var(--dt-font-heading-m-weight);
+        --modal-header-font-style: normal;
 
         font-size: var(--modal-header-font-size);
         line-height: var(--modal-header-font-line-height);
         font-weight: var(--modal-header-font-weight);
+        font-style: var(--modal-header-font-style);
         margin: 0;
         grid-area: heading;
 
         margin-inline-start: var(--dt-spacing-d);
         margin-inline-end: var(--dt-spacing-d);
-        margin-block: 14px; // This is deliberately not a custom property
+        margin-block: 16px; // This is deliberately not a custom property
 
         @include media('>md') {
             --modal-header-font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
             --modal-header-font-line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
             margin-inline-start: var(--dt-spacing-e);
             margin-inline-end: var(--dt-spacing-e);
-            margin-block: 20px; // This is deliberately not a custom property
+            margin-block: 22px; // This is deliberately not a custom property
+        }
+
+        &.c-modal-heading--emphasised {
+            --modal-header-font-size: calc(var(--dt-font-heading-l-italic-size--narrow) * 1px);
+            --modal-header-font-line-height: calc(var(--dt-font-heading-m-italic-line-height--narrow) * 1px);
+            --modal-header-font-weight: var(--dt-font-heading-l-italic-weight);
+            --modal-header-font-style: var(--dt-font-heading-l-italic-font-style);
+
+            @include media('>md') {
+                --modal-header-font-size: calc(var(--dt-font-heading-l-italic-size--wide) * 1px);
+                --modal-header-font-line-height: calc(var(--dt-font-heading-l-italic-line-height--wide) * 1px);
+            }
         }
     }
 
@@ -249,9 +263,9 @@
 
     & .c-modal-content {
         // Modal content Custom Props
-        --modal-content-font-size: calc(var(--dt-font-size-16) * 1px);
-        --modal-content-font-weight: var(--dt-font-weight-regular);
-        --modal-content-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
+        --modal-content-font-size: calc(var(--dt-font-body-l-size) * 1px);
+        --modal-content-font-weight: var(--dt-font-body-l-weight);
+        --modal-content-line-height: calc(var(--dt-font-body-l-line-height) * 1px);
         --modal-content-padding-block: var(--dt-spacing-a);
         --modal-content-padding-inline: var(--dt-spacing-d);
         --modal-content-padding-block-end: var(--dt-spacing-e);

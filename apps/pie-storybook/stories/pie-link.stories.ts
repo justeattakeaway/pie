@@ -42,6 +42,7 @@ const defaultArgs: ExtendedLinkProps = {
     href: 'https://pie.design',
     target: '_blank',
     slot: 'Link',
+    download: undefined,
 };
 
 const linkStoryMeta: LinkStoryMeta = {
@@ -86,6 +87,16 @@ const linkStoryMeta: LinkStoryMeta = {
         target: {
             description: 'Set where to display the linked URL. Only applies if `tag` is `a`.',
             control: 'text',
+        },
+        download: {
+            description: 'Set the download attribute for the underlying anchor tag. When an empty string, sets the download attribute without a value to trigger file downloads. When a non-empty string, sets the download attribute with the specified filename. Only applies if `tag` is `a`.',
+            control: {
+                type: 'select',
+            },
+            options: [undefined, '', 'custom-filename.svg'],
+            defaultValue: {
+                summary: undefined,
+            },
         },
         rel: {
             description:
@@ -150,6 +161,7 @@ const Template: TemplateFunction<ExtendedLinkProps> = ({
     href,
     target,
     rel,
+    download,
     size,
     variant,
     underline,
@@ -170,6 +182,7 @@ const Template: TemplateFunction<ExtendedLinkProps> = ({
         iconPlacement="${ifDefined(iconPlacement)}"
         href="${ifDefined(href)}"
         target="${ifDefined(target)}"
+        download="${ifDefined(download)}"
         rel="${ifDefined(rel)}"
         type="${ifDefined(type)}"
         ?isBold="${isBold}"

@@ -1,5 +1,65 @@
 # @justeattakeaway/pie-checkbox
 
+## 0.18.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.7
+  - @justeattakeaway/pie-webc-core@5.0.0
+
+## 0.18.7
+
+### Patch Changes
+
+- [Updated] - esnure styles are using alias font tokens ([#2612](https://github.com/justeattakeaway/pie/pull/2612)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.18.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.6
+
+## 0.18.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.5
+  - @justeattakeaway/pie-webc-core@4.0.0
+
+## 0.18.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.4
+  - @justeattakeaway/pie-webc-core@3.0.2
+
+## 0.18.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.3
+
+## 0.18.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.2
+  - @justeattakeaway/pie-webc-core@3.0.1
+
+## 0.18.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.1
+  - @justeattakeaway/pie-webc-core@3.0.0
+
 ## 0.18.0
 
 ### Minor Changes
