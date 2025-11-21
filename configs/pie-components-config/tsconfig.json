@@ -21,7 +21,7 @@
     "forceConsistentCasingInFileNames": true,
     "allowImportingTsExtensions": true,
     "noEmit": true,
-    "types": ["vitest/globals"],
+    "types": ["node", "vitest/globals"],
     "useDefineForClassFields": false
   },
   "exclude": []

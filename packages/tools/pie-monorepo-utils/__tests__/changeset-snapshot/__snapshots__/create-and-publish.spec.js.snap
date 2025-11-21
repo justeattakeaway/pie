@@ -28,6 +28,4 @@ yarn install
 \`\`\`"
 `;
 
-exports[`create and publish workflow > if other packages were changed > should ignore example app changes 1`] = `"No changed packages found! Please make sure you have added a changeset entry for the packages you would like to snapshot."`;
-
 exports[`create and publish workflow > if other packages were changed > should ignore monorepo/docs/storybook changes 1`] = `"No changed packages found! Please make sure you have added a changeset entry for the packages you would like to snapshot."`;
