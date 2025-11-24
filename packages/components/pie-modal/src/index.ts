@@ -78,6 +78,9 @@ export class PieModal extends PieElement implements ModalProps {
     public isDismissible = defaultProps.isDismissible;
 
     @property({ type: Boolean })
+    public isHeadingEmphasised = defaultProps.isHeadingEmphasised;
+
+    @property({ type: Boolean })
     public isFooterPinned = defaultProps.isFooterPinned;
 
     @property({ type: Boolean })
@@ -504,11 +507,16 @@ export class PieModal extends PieElement implements ModalProps {
      * @private
      */
     private renderHeading (): TemplateResult {
-        const { heading, headingLevel } = this;
+        const { heading, headingLevel, isHeadingEmphasised } = this;
         const headingTag = unsafeStatic(headingLevel);
 
+        const headingClasses = {
+            'c-modal-heading': true,
+            'c-modal-heading--emphasised': isHeadingEmphasised,
+        };
+
         return html`
-            <${headingTag} id="modal-heading" class="c-modal-heading">
+            <${headingTag} id="modal-heading" class="${classMap(headingClasses)}">
                 ${heading}
             </${headingTag}>
         `;

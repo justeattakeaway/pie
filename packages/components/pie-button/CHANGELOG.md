@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.10.0
+
+### Minor Changes
+
+- [Updated] - ensure modal and button heights are aligned with the brand refresh specs ([#2609](https://github.com/justeattakeaway/pie/pull/2609)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.3.5
+  - @justeattakeaway/pie-webc-core@5.0.0
+
 ## 1.9.4
 
 ### Patch Changes

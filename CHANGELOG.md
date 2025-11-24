@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.94.0
+
+### Minor Changes
+
+- [Updated] - upgrade pie-design-tokens to include line height changes ([#2609](https://github.com/justeattakeaway/pie/pull/2609)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 2.93.0
 
 ### Minor Changes

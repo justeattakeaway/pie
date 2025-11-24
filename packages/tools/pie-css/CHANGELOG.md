@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.25.0
+
+### Minor Changes
+
+- [Updated] - upgrade pie-design-tokens to include line height changes ([#2609](https://github.com/justeattakeaway/pie/pull/2609)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.24.0
 
 ### Minor Changes

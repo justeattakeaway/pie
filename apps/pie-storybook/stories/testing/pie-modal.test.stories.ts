@@ -54,6 +54,10 @@ const modalStoryMeta: ModalStoryMeta = {
         hasStackedActions: {
             control: 'boolean',
         },
+        isHeadingEmphasised: {
+            description: 'When true, displays the heading with emphasised style',
+            control: 'boolean',
+        },
         isFooterPinned: {
             description: 'When false, the modal footer will scroll with the content inside the modal body.',
             control: 'boolean',
@@ -200,6 +204,7 @@ const BaseStoryTemplate = (props: ModalProps) => {
         heading,
         headingLevel,
         isDismissible,
+        isHeadingEmphasised,
         isFooterPinned,
         isFullWidthBelowMid,
         isLoading,
@@ -220,6 +225,7 @@ const BaseStoryTemplate = (props: ModalProps) => {
             ?hasBackButton="${hasBackButton}"
             ?hasStackedActions="${hasStackedActions}"
             ?isDismissible="${isDismissible}"
+            ?isHeadingEmphasised="${isHeadingEmphasised}"
             ?isFooterPinned="${isFooterPinned}"
             ?isFullWidthBelowMid="${isFullWidthBelowMid}"
             ?isLoading="${isLoading}"
@@ -261,6 +267,7 @@ const FormStoryTemplate = (props: ModalProps) => {
         heading,
         headingLevel,
         isDismissible,
+        isHeadingEmphasised,
         isFooterPinned,
         isFullWidthBelowMid,
         isLoading,
@@ -278,6 +285,7 @@ const FormStoryTemplate = (props: ModalProps) => {
             ?hasBackButton="${hasBackButton}"
             ?hasStackedActions="${hasStackedActions}"
             ?isDismissible="${isDismissible}"
+            ?isHeadingEmphasised="${isHeadingEmphasised}"
             ?isFooterPinned="${isFooterPinned}"
             ?isFullWidthBelowMid="${isFullWidthBelowMid}"
             ?isLoading="${isLoading}"
@@ -324,6 +332,7 @@ const CustomFooterStoryTemplate = (props: ModalProps) => {
         heading,
         headingLevel,
         isDismissible,
+        isHeadingEmphasised,
         isFooterPinned,
         isFullWidthBelowMid,
         isLoading,
@@ -341,6 +350,7 @@ const CustomFooterStoryTemplate = (props: ModalProps) => {
                 headingLevel="${ifDefined(headingLevel)}"
                 ?hasBackButton="${hasBackButton}"
                 ?isDismissible="${isDismissible}"
+                ?isHeadingEmphasised="${isHeadingEmphasised}"
                 ?isFooterPinned="${isFooterPinned}"
                 ?isFullWidthBelowMid="${isFullWidthBelowMid}"
                 ?isLoading="${isLoading}"
@@ -414,6 +424,7 @@ const CustomHeaderContentStoryTemplate = (props: ModalProps) => {
         heading,
         headingLevel,
         isDismissible,
+        isHeadingEmphasised,
         isFooterPinned,
         isFullWidthBelowMid,
         isLoading,
@@ -431,6 +442,7 @@ const CustomHeaderContentStoryTemplate = (props: ModalProps) => {
                 headingLevel="${ifDefined(headingLevel)}"
                 ?hasBackButton="${hasBackButton}"
                 ?isDismissible="${isDismissible}"
+                ?isHeadingEmphasised="${isHeadingEmphasised}"
                 ?isFooterPinned="${isFooterPinned}"
                 ?isFullWidthBelowMid="${isFullWidthBelowMid}"
                 ?isLoading="${isLoading}"

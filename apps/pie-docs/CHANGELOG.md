@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.58.0
+
+### Minor Changes
+
+- [Updated] - upgrade pie-design-tokens to include line height changes ([#2609](https://github.com/justeattakeaway/pie/pull/2609)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`4442ade`](https://github.com/justeattakeaway/pie/commit/4442ade25432b4752a412274109fe92c8f6781a0)]:
+  - @justeattakeaway/pie-css@0.25.0
+  - @justeattakeaway/pie-webc@0.7.34
+  - @justeattakeaway/pie-icons-webc@1.17.1
+
 ## 4.57.3
 
 ### Patch Changes

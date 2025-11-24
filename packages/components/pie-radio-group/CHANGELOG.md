@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-radio-group
 
+## 0.9.22
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.7
+  - @justeattakeaway/pie-webc-core@5.0.0
+
 ## 0.9.21
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-toast
 
+## 0.12.13
+
+### Patch Changes
+
+- Updated dependencies [[`4442ade`](https://github.com/justeattakeaway/pie/commit/4442ade25432b4752a412274109fe92c8f6781a0)]:
+  - @justeattakeaway/pie-button@1.10.0
+  - @justeattakeaway/pie-icon-button@2.3.3
+  - @justeattakeaway/pie-webc-core@5.0.0
+  - @justeattakeaway/pie-icons-webc@1.17.1
+
 ## 0.12.12
 
 ### Patch Changes
