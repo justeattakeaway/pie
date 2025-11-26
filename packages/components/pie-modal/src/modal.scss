@@ -377,7 +377,8 @@
     }
 
     // Additional background colors
-    &.c-modal--bg-subtle { --modal-bg-color: var(--dt-color-container-subtle); }
+    // TODO: This will be implemented by DSW-3541 since this color only applies to image slot background, not the whole modal
+    // &.c-modal--bg-subtle { --modal-bg-color: var(--dt-color-container-subtle); }
 
     &.c-modal--bg-brand-01 { --modal-bg-color: var(--dt-color-support-brand-01); }
 
