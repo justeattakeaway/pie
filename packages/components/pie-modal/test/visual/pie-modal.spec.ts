@@ -295,7 +295,7 @@ test.describe('Prop: `backgroundColor`', () => {
 
             await page.waitForTimeout(500);
 
-            await percySnapshot(page, 'Modal - backgroundColor: `default`');
+            await percySnapshot(page, 'Modal - default backgroundColor');
         });
     });
 
@@ -316,7 +316,7 @@ test.describe('Prop: `backgroundColor`', () => {
 
                 await page.waitForTimeout(500);
 
-                await percySnapshot(page, `Modal - backgroundColor: ${backgroundColor}`);
+                await percySnapshot(page, `Modal - assigned backgroundColor: ${backgroundColor}`);
             });
         });
     });
