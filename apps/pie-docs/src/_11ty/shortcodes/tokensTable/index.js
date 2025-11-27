@@ -45,46 +45,16 @@ const buildTokenExampleElement = (token, tokenType, tokenMetadata, path = {}) =>
 };
 
 /**
- * Builds the global token used element displayed primarily by alias tokens
- * @param {string} globalToken the global token referenced by this alias token
- * @returns a <span> HTML string containing the global token used
- */
-const buildGlobalTokenUsedElement = (globalToken) => {
-    let tokenMarkup = '';
-    let tokenDescription = 'Global token used:';
-
-    if (Array.isArray(globalToken)) {
-        globalToken.forEach((tokenName) => {
-            tokenMarkup += `<span class="c-tokensTable-token c-tokensTable-token--light c-tokensTable-token--list">${tokenName}</span>`;
-        });
-
-        tokenDescription = 'Global tokens used:';
-    } else {
-        tokenMarkup += `<span class="c-tokensTable-token c-tokensTable-token--light">${globalToken}</span>`;
-    }
-
-    return `
-        <span class="c-tokensTable-tokenDescription">
-            <span class="u-font-bold u-showAboveWide">${tokenDescription}</span>
-            ${tokenMarkup}
-        </span>`;
-};
-
-/**
  * Builds the overall token description element for each type of token. The description content differs based on the type of token.
  * @param {*} tokenMetadata the metadata for the token. data such as descriptions
  * @returns {string} - the description HTML string
  */
 const buildTokenDescriptionElement = (tokenMetadata) => {
-    let description = tokenMetadata.description
+    const description = tokenMetadata.description
         ? `<span class="c-tokensTable-tokenDescription ${tokenMetadata.globalToken ? 'u-spacing-b--bottom' : ''}">
             ${tokenMetadata.description}
-           </span>`
+        </span>`
         : '';
-
-    if (tokenMetadata.globalToken) {
-        description += buildGlobalTokenUsedElement(tokenMetadata.globalToken);
-    }
 
     return description;
 };
