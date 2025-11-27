@@ -29,6 +29,8 @@ import {
     sizes,
     backgroundColors,
     defaultProps,
+    imageSlotModes,
+    imageSlotAspectRatios,
     ON_MODAL_BACK_EVENT,
     ON_MODAL_CLOSE_EVENT,
     ON_MODAL_OPEN_EVENT,
@@ -113,6 +115,14 @@ export class PieModal extends PieElement implements ModalProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, backgroundColors, defaultProps.backgroundColor)
     public backgroundColor = defaultProps.backgroundColor;
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, imageSlotModes, defaultProps.imageSlotMode)
+    public imageSlotMode = defaultProps.imageSlotMode;
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, imageSlotAspectRatios, defaultProps.imageSlotAspectRatio)
+    public imageSlotAspectRatio = defaultProps.imageSlotAspectRatio;
 
     @query('dialog')
     private _dialog!: HTMLDialogElement;
