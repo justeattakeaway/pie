@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.95.0
+
+### Minor Changes
+
+- [Changed] - update repo to use Node LTS v24 ([#2620](https://github.com/justeattakeaway/pie/pull/2620)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.94.0
 
 ### Minor Changes

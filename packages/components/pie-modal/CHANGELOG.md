@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-modal
 
+## 1.20.0
+
+### Minor Changes
+
+- [Added] - backgroundColor prop ([#2619](https://github.com/justeattakeaway/pie/pull/2619)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - isHeadingEmphasised prop, allowing headings to have the emphasised style ([#2616](https://github.com/justeattakeaway/pie/pull/2616)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.19.0
 
 ### Minor Changes
