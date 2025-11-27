@@ -29,6 +29,23 @@ type ActionProps = {
     ariaLabel?: string;
 };
 
+export const backgroundColors = [
+    'default',
+    'subtle',
+    'brand-01',
+    'brand-02',
+    'brand-03',
+    'brand-03-subtle',
+    'brand-04',
+    'brand-04-subtle',
+    'brand-05',
+    'brand-05-subtle',
+    'brand-06',
+    'brand-06-subtle',
+    'brand-08',
+    'brand-08-subtle',
+] as const;
+
 export type ModalProps = {
     /**
      * The ARIA labels used for the modal close and back buttons, as well as for the loading state.
@@ -117,6 +134,11 @@ export type ModalProps = {
      * The size of the modal; this controls how wide it will appear on the page.
      */
     size?: typeof sizes[number];
+
+    /**
+     * The background color for the modal.
+     */
+    backgroundColor?: typeof backgroundColors[number];
 };
 
 /**
@@ -170,4 +192,5 @@ export const defaultProps: DefaultProps = {
     isLoading: false,
     position: 'center',
     size: 'medium',
+    backgroundColor: 'default',
 };
