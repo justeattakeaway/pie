@@ -13,6 +13,7 @@
     // The base modal defaults
     --modal-border-radius: var(--dt-radius-rounded-d);
     --modal-font: var(--dt-font-interactive-l-family);
+    --modal-content-color: var(--dt-color-content-default);
     --modal-bg-color: var(--dt-color-container-default);
     --modal-elevation: var(--dt-elevation-below-20);
 
@@ -42,7 +43,7 @@
     border: none;
     box-shadow: var(--modal-elevation);
     font-family: var(--modal-font);
-    color: var(--dt-color-content-default);
+    color: var(--modal-content-color);
     background-color: var(--modal-bg-color);
 
     padding: 0;
@@ -318,7 +319,7 @@
         overflow-y: auto;
 
         // These are the shadows used to indicate scrolling above and below content
-        --bg-scroll-end: linear-gradient(rgba(255, 255, 255, 0), var(--dt-color-container-default) 70%) 0 100%;
+        --bg-scroll-end: linear-gradient(rgba(255, 255, 255, 0), var(--modal-bg-color) 70%) 0 100%;
         --bg-scroll-bottom: radial-gradient(farthest-corner at 50% 100%, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)) 0 100%;
 
         // Sizes of the scroll shadows
@@ -374,4 +375,35 @@
     .c-modal-backBtn-icon:dir(rtl) {
         transform: rotate(180deg);
     }
+
+    // Additional background colors
+    // TODO: This will be implemented by DSW-3541 since this color only applies to image slot background, not the whole modal
+    // &.c-modal--bg-subtle { --modal-bg-color: var(--dt-color-container-subtle); }
+
+    &.c-modal--bg-brand-01 { --modal-bg-color: var(--dt-color-support-brand-01); }
+
+    &.c-modal--bg-brand-02 { --modal-bg-color: var(--dt-color-support-brand-02); }
+
+    &.c-modal--bg-brand-03 { --modal-bg-color: var(--dt-color-support-brand-03); }
+
+    &.c-modal--bg-brand-03-subtle { --modal-bg-color: var(--dt-color-support-brand-03-subtle); }
+
+    &.c-modal--bg-brand-04 { --modal-bg-color: var(--dt-color-support-brand-04); }
+
+    &.c-modal--bg-brand-04-subtle { --modal-bg-color: var(--dt-color-support-brand-04-subtle); }
+
+    &.c-modal--bg-brand-05 { --modal-bg-color: var(--dt-color-support-brand-05); }
+
+    &.c-modal--bg-brand-05-subtle { --modal-bg-color: var(--dt-color-support-brand-05-subtle); }
+
+    &.c-modal--bg-brand-06 {
+        --modal-content-color: var(--dt-color-content-inverse);
+        --modal-bg-color: var(--dt-color-support-brand-06);
+    }
+
+    &.c-modal--bg-brand-06-subtle { --modal-bg-color: var(--dt-color-support-brand-06-subtle); }
+
+    &.c-modal--bg-brand-08 { --modal-bg-color: var(--dt-color-support-brand-08); }
+
+    &.c-modal--bg-brand-08-subtle { --modal-bg-color: var(--dt-color-support-brand-08-subtle); }
 }

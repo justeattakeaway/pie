@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
-import { type ModalProps, sizes, positions } from '../../src/defs.ts';
+import {
+    type ModalProps, sizes, backgroundColors, positions,
+} from '../../src/defs.ts';
 import { ModalDefaultPage } from '../helpers/page-object/pie-modal-default.page.ts';
 import { ModalLargeTextContentPage } from '../helpers/page-object/pie-modal-large-text-content.page.ts';
 import { ModalCustomFooterPage } from '../helpers/page-object/pie-modal-custom-footer.page.ts';
@@ -276,6 +278,47 @@ test.describe('Prop: `isLoading`', () => {
         await page.waitForTimeout(500);
 
         await percySnapshot(page, `Modal displays loading spinner - isLoading: ${true}`);
+    });
+});
+
+test.describe('Prop: `backgroundColor`', () => {
+    test.describe('when the backgroundColor is not set', () => {
+        test('should render with default background color', async ({ page }) => {
+            const modalDefaultPage = new ModalDefaultPage(page);
+            const props: ModalProps = {
+                ...sharedProps,
+            };
+
+            await modalDefaultPage.load(props);
+
+            await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
+
+            await page.waitForTimeout(500);
+
+            await percySnapshot(page, 'Modal - default backgroundColor');
+        });
+    });
+
+    test.describe('when the backgroundColor is set', () => {
+        backgroundColors.forEach((backgroundColor) => {
+            test(`should render with backgroundColor = ${backgroundColor}`, async ({ page }) => {
+                const modalDefaultPage = new ModalDefaultPage(page);
+                const props: ModalProps = {
+                    ...sharedProps,
+                    backgroundColor,
+                    isDismissible: true,
+                    hasBackButton: true,
+                };
+
+                await modalDefaultPage.load(props);
+
+                await expect.soft(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
+
+                await page.waitForTimeout(500);
+
+                await percySnapshot(page, `Modal - assigned backgroundColor: ${backgroundColor}`);
+            });
+        });
     });
 });
 

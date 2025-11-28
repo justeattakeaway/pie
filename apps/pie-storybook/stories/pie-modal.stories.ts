@@ -5,7 +5,7 @@ import { type Meta } from '@storybook/web-components';
 import '@justeattakeaway/pie-chip';
 import '@justeattakeaway/pie-modal';
 import {
-    type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, positions, defaultProps,
+    type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, backgroundColors, positions, defaultProps,
 } from '@justeattakeaway/pie-modal';
 
 import '@justeattakeaway/pie-button';
@@ -96,6 +96,11 @@ const modalStoryMeta: ModalStoryMeta = {
             control: 'radio',
             options: sizes,
         },
+        backgroundColor: {
+            description: 'The background color of the modal.',
+            control: 'select',
+            options: backgroundColors,
+        },
         position: {
             description: 'The position of the modal; this controls where it will appear on the page.',
             control: 'radio',
@@ -182,6 +187,7 @@ const BaseStoryTemplate = (props: ModalProps) => {
         position,
         returnFocusAfterCloseSelector,
         size,
+        backgroundColor,
         slot,
         supportingAction,
     } = props;
@@ -203,6 +209,7 @@ const BaseStoryTemplate = (props: ModalProps) => {
             position="${ifDefined(position)}"
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             size="${ifDefined(size)}"
+            backgroundColor="${ifDefined(backgroundColor)}"
             .supportingAction="${supportingAction}"
             @pie-modal-close="${closeAction}"
             @pie-modal-open="${openAction}"
@@ -241,6 +248,7 @@ const FormStoryTemplate = (props: ModalProps) => {
         position,
         returnFocusAfterCloseSelector,
         size,
+        backgroundColor,
     } = props;
     return html`
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
@@ -259,6 +267,7 @@ const FormStoryTemplate = (props: ModalProps) => {
             position="${ifDefined(position)}"
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             size="${ifDefined(size)}"
+            backgroundColor="${ifDefined(backgroundColor)}"
             @pie-modal-close="${closeAction}"
             @pie-modal-open="${openAction}"
             @pie-modal-back="${backClickAction}">
@@ -307,6 +316,7 @@ const CustomFooterStoryTemplate = (props: ModalProps) => {
         position,
         returnFocusAfterCloseSelector,
         size,
+        backgroundColor,
         slot,
         supportingAction,
     } = props;
@@ -328,6 +338,7 @@ const CustomFooterStoryTemplate = (props: ModalProps) => {
             position="${ifDefined(position)}"
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             size="${ifDefined(size)}"
+            backgroundColor="${ifDefined(backgroundColor)}"
             .supportingAction="${supportingAction}"
             @pie-modal-close="${closeAction}"
             @pie-modal-open="${openAction}"
@@ -376,6 +387,7 @@ const LoadingStateStoryTemplate = (props: ModalProps) => {
         position,
         returnFocusAfterCloseSelector,
         size,
+        backgroundColor,
         slot,
         supportingAction,
     } = props;
@@ -397,6 +409,7 @@ const LoadingStateStoryTemplate = (props: ModalProps) => {
             position="${ifDefined(position)}"
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             size="${ifDefined(size)}"
+            backgroundColor="${ifDefined(backgroundColor)}"
             .supportingAction="${supportingAction}"
             @pie-modal-close="${closeAction}"
             @pie-modal-open="${handleModalOpenWithLoading}"
@@ -468,6 +481,7 @@ const customHeaderContentTemplate = (props: ModalProps) => {
         position,
         returnFocusAfterCloseSelector,
         size,
+        backgroundColor,
     } = props;
     return html`
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
@@ -486,6 +500,7 @@ const customHeaderContentTemplate = (props: ModalProps) => {
             position="${ifDefined(position)}"
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             size="${ifDefined(size)}"
+            backgroundColor="${ifDefined(backgroundColor)}"
             @pie-modal-close="${closeAction}"
             @pie-modal-open="${openAction}"
             @pie-modal-back="${backClickAction}">
