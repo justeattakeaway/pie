@@ -197,11 +197,11 @@ export class PieLottiePlayer extends PieElement implements LottiePlayerProps {
     }
 
     render () {
-        return html`<div aria-hidden="true" data-test-id="pie-lottie-player"></div>`;
+        return html`<div class="c-lottiePlayer" aria-hidden="true" data-test-id="pie-lottie-player"></div>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
-    static styles = unsafeCSS(''); // Kept as empty to ensure it will be present during SSR testing
+    static styles = unsafeCSS(styles);
 }
 
 declare global {

@@ -32,14 +32,16 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 ### Properties
 
-| Prop               | Options                          | Description                                                                                                                             | Default     |
-|--------------------|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `animationSrc`     | —                                | Lottie animation JSON file URL or relative path. `animationSrc` and `animationData` are mutually exclusive.                           | `-`         |
-| `animationData`    | —                                | Object with Lottie animation data. `animationSrc` and `animationData` are mutually exclusive.                                           | `-`         |
-| `loopDisabled`     | `true`, `false`                  | By default, animations loop. Setting this prop to `true` will prevent that behavior.                                                   | `false`     |
-| `autoPlayDisabled` | `true`, `false`                  | By default, animations start playing as soon as their data is available. Setting this prop to `true` will prevent that behavior.       | `false`     |
-| `speed`            | —                                | Determines the animation playback speed. `1` is normal speed, `2` is twice as fast, etc.                                                | `1`         |
-| `direction`        | `"forward"`, `"reverse"`         | Sets the animation playback direction.                                                                                                 | `"forward"` |
+| Prop | Options | Description | Default |
+| --- | --- | --- | --- |
+| `animationSrc` | — | Lottie animation JSON file URL or relative path. `animationSrc` and `animationData` are mutually exclusive. | `-` |
+| `animationData` | — | Object with Lottie animation data. `animationSrc` and `animationData` are mutually exclusive. | `-` |
+| `loopDisabled` | `true`, `false` | By default, animations loop. Setting this prop to `true` will prevent that behavior. | `false` |
+| `autoPlayDisabled` | `true`, `false` | By default, animations start playing as soon as their data is available. Setting this prop to `true` will prevent that behavior. | `false` |
+| `speed` | — | Determines the animation playback speed. `1` is normal speed, `2` is twice as fast, etc. | `1` |
+| `direction` | `"forward"`, `"reverse"` | Sets the animation playback direction. | `"forward"` |
+
+> **Note:** If you want to change the height or width of the animation, you should pass a class that sets the desired values as the animation will scale to its container size automatically.
 
 ### Slots
 This component does not have any slots. All content is controlled through properties.
