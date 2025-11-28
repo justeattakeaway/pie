@@ -41,6 +41,8 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `speed` | — | Determines the animation playback speed. `1` is normal speed, `2` is twice as fast, etc. | `1` |
 | `direction` | `"forward"`, `"reverse"` | Sets the animation playback direction. | `"forward"` |
 
+> **Note:** If you want to change the height or width of the animation, you should pass a class that sets the desired values as the animation will scale to its container size automatically.
+
 ### Slots
 This component does not have any slots. All content is controlled through properties.
 
