@@ -332,6 +332,14 @@ const CustomImageSlotStoryTemplate = (props: ModalProps) => {
         imageSlotMode,
         imageSlotAspectRatio,
     } = props;
+
+    let imageUrl = '';
+    if (imageSlotMode === 'image') {
+        imageUrl = `./static/images/modal-image-${imageSlotAspectRatio}.jpg`;
+    } else if (imageSlotMode === 'illustration') {
+        imageUrl = './static/images/modal-image-illustration.png';
+    }
+
     return html`
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
         <pie-modal
@@ -359,7 +367,7 @@ const CustomImageSlotStoryTemplate = (props: ModalProps) => {
             @pie-modal-back="${backClickAction}"
             @pie-modal-leading-action-click="${leadingClickAction}"
             @pie-modal-supporting-action-click="${supportingClickAction}">
-                <img slot="image" src="https://images.unsplash.com/photo-1501091975279-8a337f4a2b3b?q=80&w=4117&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Custom image slot content" />
+                <img slot="image" src="${imageUrl}" alt="Custom image slot content" />
                 ${sanitizeAndRenderHTML(slot)}
             </pie-modal>`;
 };
