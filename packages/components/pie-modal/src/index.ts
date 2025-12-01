@@ -356,10 +356,26 @@ export class PieModal extends PieElement implements ModalProps {
         }
     }
 
-    private _getHeaderButtonVariant (): 'ghost-secondary' | 'ghost-inverse' {
-        const isInverted = this.backgroundColor === 'brand-06';
-        const variant = isInverted ? 'ghost-inverse' : 'ghost-secondary';
+    private _getHeaderButtonVariant (): 'ghost-secondary' | 'ghost-inverse' | 'secondary' {
+        const { imageSlotMode, backgroundColor } = this;
 
+        // Handle the combinations of image slot and background color
+        const hasImageSlot = Boolean(imageSlotMode);
+        const hasBackgroundColor = Boolean(backgroundColor) && backgroundColor !== 'default';
+
+        if (hasImageSlot) {
+            if (imageSlotMode === 'illustration') {
+                if (hasBackgroundColor) {
+                    return 'secondary';
+                }
+                return 'ghost-secondary';
+            }
+            return 'secondary';
+        }
+
+        // No image slot present, determine variant based on background color
+        const isInverted = backgroundColor === 'brand-06';
+        const variant = isInverted ? 'ghost-inverse' : 'ghost-secondary';
         return variant;
     }
 
@@ -394,6 +410,7 @@ export class PieModal extends PieElement implements ModalProps {
         return html`
             <div class="c-modal-imageSlot c-modal-imageSlot--${imageSlotMode} c-modal-imageSlot--${imageSlotAspectRatio}">
                 <slot name="image"></slot>
+                ${this.renderCloseButton()}
             </div>
         `;
     }
@@ -570,7 +587,11 @@ export class PieModal extends PieElement implements ModalProps {
             position,
             size,
             backgroundColor,
+            imageSlotMode,
         } = this;
+
+        const hasImageSlot = Boolean(imageSlotMode);
+        const hasCloseButtonInHeader = !hasImageSlot;
 
         const modalClasses = {
             'c-modal': true,
@@ -598,7 +619,7 @@ export class PieModal extends PieElement implements ModalProps {
             <header class="c-modal-header" data-test-id="modal-header">
                 ${this.renderBackButton()}
                 ${this.renderHeading()}
-                ${this.renderCloseButton()}
+                ${hasCloseButtonInHeader ? this.renderCloseButton() : nothing}
                 <slot name="headerContent"></slot>
             </header>
             ${
