@@ -117,8 +117,7 @@ export class PieModal extends PieElement implements ModalProps {
     public backgroundColor = defaultProps.backgroundColor;
 
     @property({ type: String })
-    @validPropertyValues(componentSelector, imageSlotModes, defaultProps.imageSlotMode)
-    public imageSlotMode = defaultProps.imageSlotMode;
+    public imageSlotMode: ModalProps['imageSlotMode'];
 
     @property({ type: String })
     @validPropertyValues(componentSelector, imageSlotAspectRatios, defaultProps.imageSlotAspectRatio)
@@ -388,6 +387,17 @@ export class PieModal extends PieElement implements ModalProps {
             </pie-icon-button>`;
     }
 
+    private renderModalImageSlot (): TemplateResult | typeof nothing {
+        const { imageSlotMode, imageSlotAspectRatio } = this;
+        if (!imageSlotMode) return nothing;
+
+        return html`
+            <div class="c-modal-imageSlot c-modal-imageSlot--${imageSlotMode} c-modal-imageSlot--${imageSlotAspectRatio}">
+                <slot name="image"></slot>
+            </div>
+        `;
+    }
+
     /**
      * Template for the back button element. Called within the
      * main render function.
@@ -584,6 +594,7 @@ export class PieModal extends PieElement implements ModalProps {
             aria-live="polite"
             aria-busy="${isLoading ? 'true' : 'false'}"
             data-test-id="pie-modal">
+            ${this.renderModalImageSlot()}
             <header class="c-modal-header" data-test-id="modal-header">
                 ${this.renderBackButton()}
                 ${this.renderHeading()}

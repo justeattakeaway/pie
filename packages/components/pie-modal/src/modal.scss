@@ -16,6 +16,7 @@
     --modal-content-color: var(--dt-color-content-default);
     --modal-bg-color: var(--dt-color-container-default);
     --modal-elevation: var(--dt-elevation-below-20);
+    --modal-image-slot-bg-color: none;
 
     &:focus-visible {
         outline: none;
@@ -131,6 +132,39 @@
     @supports (hanging-punctuation: first) and (font: -apple-system-body) and (-webkit-appearance: none) {
         &::backdrop {
             background: #{dt.$color-overlay};
+        }
+    }
+
+    & .c-modal-imageSlot {
+        &.c-modal-imageSlot--illustration {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            background-color:var(--modal-image-slot-bg-color);
+
+            ::slotted([slot="image"]) {
+                width: 168px;
+                height: 168px;
+                overflow: hidden;
+            }
+        }
+
+        &.c-modal-imageSlot--image {
+            overflow: hidden;
+            // imageSlot--medium = default
+            aspect-ratio: 3/1;
+
+            &.c-modal-imageSlot--small {
+                aspect-ratio: 4/1;
+            }
+            &.c-modal-imageSlot--large {
+                aspect-ratio: 21/9;
+            }
+
+            ::slotted([slot="image"]) {
+                width: 100%;
+            }
         }
     }
 
@@ -379,7 +413,7 @@
 
     // Additional background colors
     // TODO: This will be implemented by DSW-3541 since this color only applies to image slot background, not the whole modal
-    // &.c-modal--bg-subtle { --modal-bg-color: var(--dt-color-container-subtle); }
+    &.c-modal--bg-subtle { --modal-image-slot-bg-color: var(--dt-color-container-subtle); }
 
     &.c-modal--bg-brand-01 { --modal-bg-color: var(--dt-color-support-brand-01); }
 

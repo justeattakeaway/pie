@@ -5,7 +5,7 @@ import { type Meta } from '@storybook/web-components';
 import '@justeattakeaway/pie-chip';
 import '@justeattakeaway/pie-modal';
 import {
-    type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, backgroundColors, positions, defaultProps,
+    type PieModal, type ModalProps as ModalPropsBase, headingLevels, imageSlotModes, imageSlotAspectRatios, sizes, backgroundColors, positions, defaultProps,
 } from '@justeattakeaway/pie-modal';
 
 import '@justeattakeaway/pie-button';
@@ -77,6 +77,16 @@ const modalStoryMeta: ModalStoryMeta = {
         isLoading: {
             description: 'When true, displays a loading spinner in the modal.',
             control: 'boolean',
+        },
+        imageSlotMode: {
+            description: 'The mode to use for the image slot. "image" mode is for photographic content, while "illustration" mode is for graphic illustrations.',
+            control: 'select',
+            options: ['', ...imageSlotModes],
+        },
+        imageSlotAspectRatio: {
+            description: 'The aspect ratio to use for the image slot. Applies only to the imageSlotMode "image"',
+            control: 'select',
+            options: imageSlotAspectRatios,
         },
         heading: {
             description: 'The text to display in the modal\'s heading.',
@@ -299,6 +309,61 @@ const FocusableElementsPageStoryTemplate = (props: ModalProps) => html`
     ${BaseStoryTemplate(props)}
     ${createFocusableElementsPageHTML()}`;
 
+const CustomImageSlotStoryTemplate = (props: ModalProps) => {
+    const {
+        aria,
+        hasBackButton,
+        hasStackedActions,
+        heading,
+        headingLevel,
+        isDismissible,
+        isHeadingEmphasised,
+        isFooterPinned,
+        isFullWidthBelowMid,
+        isLoading,
+        isOpen,
+        leadingAction,
+        position,
+        returnFocusAfterCloseSelector,
+        size,
+        backgroundColor,
+        slot,
+        supportingAction,
+        imageSlotMode,
+        imageSlotAspectRatio,
+    } = props;
+    return html`
+        <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
+        <pie-modal
+            .aria="${aria}"
+            imageSlotMode="${imageSlotMode}"
+            imageSlotAspectRatio="${imageSlotAspectRatio}"
+            heading="${heading}"
+            headingLevel="${ifDefined(headingLevel)}"
+            ?hasBackButton="${hasBackButton}"
+            ?hasStackedActions="${hasStackedActions}"
+            ?isDismissible="${isDismissible}"
+            ?isHeadingEmphasised="${isHeadingEmphasised}"
+            ?isFooterPinned="${isFooterPinned}"
+            ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+            ?isLoading="${isLoading}"
+            ?isOpen="${isOpen}"
+            .leadingAction=${leadingAction}
+            position="${ifDefined(position)}"
+            returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
+            size="${ifDefined(size)}"
+            backgroundColor="${ifDefined(backgroundColor)}"
+            .supportingAction="${supportingAction}"
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}"
+            @pie-modal-back="${backClickAction}"
+            @pie-modal-leading-action-click="${leadingClickAction}"
+            @pie-modal-supporting-action-click="${supportingClickAction}">
+                <img slot="image" src="https://images.unsplash.com/photo-1501091975279-8a337f4a2b3b?q=80&w=4117&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Custom image slot content" />
+                ${sanitizeAndRenderHTML(slot)}
+            </pie-modal>`;
+};
+
 const CustomFooterStoryTemplate = (props: ModalProps) => {
     const {
         aria,
@@ -457,6 +522,9 @@ export const LargeTextContent = createBaseModalStory({
     Placeat, ad! Quidem error aliquam atque aut, voluptates voluptatibus cumque quia? Laboriosam ab mollitia laborum maxime numquam similique eveniet quaerat? Et, nemo natus officia cum hic adipisci doloremque! Quia, delectus.`,
 });
 
+export const CustomImage = createStory<ModalProps>(CustomImageSlotStoryTemplate, defaultArgs)({
+    imageSlotMode: 'image',
+});
 export const CustomFooter = createStory<ModalProps>(CustomFooterStoryTemplate, defaultArgs)();
 
 const renderCategoryChipsList = (length: number) => html`
