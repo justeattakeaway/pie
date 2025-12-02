@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.59.0
+
+### Minor Changes
+
+- [Updated] - Typography docs ([#2624](https://github.com/justeattakeaway/pie/pull/2624)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Fixed] - ensure italic fonts are rendered correctly on Safari ([#2624](https://github.com/justeattakeaway/pie/pull/2624)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.36
+
 ## 4.58.1
 
 ### Patch Changes
