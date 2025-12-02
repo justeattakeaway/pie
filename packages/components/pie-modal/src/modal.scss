@@ -135,6 +135,21 @@
         }
     }
 
+    & .c-modal-closeBtn {
+        grid-area: close;
+        margin-block-start: var(--dt-spacing-b);
+        margin-block-end: var(--dt-spacing-b);
+        margin-inline-start: var(--dt-spacing-none);
+        margin-inline-end: var(--dt-spacing-b);
+
+        @include media('>md') {
+            margin-block-start: var(--dt-spacing-c);
+            margin-block-end: var(--dt-spacing-c);
+            margin-inline-start: var(--dt-spacing-none);
+            margin-inline-end: var(--dt-spacing-c);
+        }
+    }
+
     & .c-modal-imageSlot {
         &.c-modal-imageSlot--illustration {
             display: flex;
@@ -152,12 +167,14 @@
 
         &.c-modal-imageSlot--image {
             overflow: hidden;
+
             // imageSlot--medium = default
             aspect-ratio: 3/1;
 
             &.c-modal-imageSlot--small {
                 aspect-ratio: 4/1;
             }
+
             &.c-modal-imageSlot--large {
                 aspect-ratio: 21/9;
             }
@@ -288,21 +305,6 @@
             margin-block-end: var(--dt-spacing-c);
             margin-inline-start: var(--dt-spacing-c);
             margin-inline-end: var(--dt-spacing-none);
-        }
-    }
-
-    & .c-modal-closeBtn {
-        grid-area: close;
-        margin-block-start: var(--dt-spacing-b);
-        margin-block-end: var(--dt-spacing-b);
-        margin-inline-start: var(--dt-spacing-none);
-        margin-inline-end: var(--dt-spacing-b);
-
-        @include media('>md') {
-            margin-block-start: var(--dt-spacing-c);
-            margin-block-end: var(--dt-spacing-c);
-            margin-inline-start: var(--dt-spacing-none);
-            margin-inline-end: var(--dt-spacing-c);
         }
     }
 
