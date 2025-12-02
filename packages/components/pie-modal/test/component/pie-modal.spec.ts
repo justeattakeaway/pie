@@ -6,7 +6,8 @@ import { ModalScrollLockingPage } from 'test/helpers/page-object/pie-modal-scrol
 import { ModalEmbeddedFormPage } from 'test/helpers/page-object/pie-modal-embedded-form.page.ts';
 import { ModalCustomFooterPage } from 'test/helpers/page-object/pie-modal-custom-footer.page.ts';
 import { ModalMissingDialogSimulationPage } from 'test/helpers/page-object/pie-modal-missing-dialog-simulation.page.ts';
-import { type ModalProps, headingLevels } from '../../src/defs.ts';
+import { ModalCustomImageSlotContentPage } from 'test/helpers/page-object/pie-modal-custom-image-slot-content.page.ts';
+import { type ModalProps, headingLevels, imageSlotModes } from '../../src/defs.ts';
 
 const sharedProps: ModalProps = {
     heading: 'This is a modal heading',
@@ -817,5 +818,64 @@ test.describe('when the `footer` slot is assigned', () => {
 
         // Assert
         expect(textContent?.trim()).toBe('Footer slotted content');
+    });
+});
+
+test.describe('when the `image` slot is assigned', () => {
+    test('when the imageSlotMode is not set, it should not have the slot `image` available', async ({ page }) => {
+        // Arrange
+        const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+
+        await modalCustomImageSlotContentPage.load();
+
+        // Act
+        const slotLocator = modalCustomImageSlotContentPage.imageSlotLocator;
+
+        // Assert
+        await expect(slotLocator).not.toBeVisible();
+    });
+
+    test.describe('the image slot wrapper', () => {
+        test('should not be available when the imageSlotMode is not set', async ({ page }) => {
+            // Arrange
+            const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+            await modalCustomImageSlotContentPage.load();
+
+            // Assert
+            await expect(modalCustomImageSlotContentPage.imageLocator).not.toBeVisible();
+        });
+
+        test('should be available when the imageSlotMode is set', async ({ page }) => {
+            // Arrange
+            const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+            const props: ModalProps = {
+                ...sharedProps,
+                imageSlotMode: 'illustration',
+            };
+            await modalCustomImageSlotContentPage.load(props);
+
+            // Assert
+            await expect(modalCustomImageSlotContentPage.imageLocator).toBeVisible();
+        });
+    });
+
+    test.describe('when imageSlotMode is set to', () => {
+        [...imageSlotModes].forEach((imageSlotMode) => {
+            test(`"${imageSlotMode}", it should have the slot \`image\` available`, async ({ page }) => {
+                // Arrange
+                const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                const props: ModalProps = {
+                    ...sharedProps,
+                    imageSlotMode,
+                };
+                await modalCustomImageSlotContentPage.load(props);
+
+                // Act
+                const slotLocator = modalCustomImageSlotContentPage.imageSlotLocator;
+
+                // Assert
+                await expect(slotLocator).toBeVisible();
+            });
+        });
     });
 });

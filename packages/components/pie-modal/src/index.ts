@@ -408,7 +408,7 @@ export class PieModal extends PieElement implements ModalProps {
         if (!imageSlotMode) return nothing;
 
         return html`
-            <div class="c-modal-imageSlot c-modal-imageSlot--${imageSlotMode} c-modal-imageSlot--${imageSlotAspectRatio}">
+            <div class="c-modal-imageSlot c-modal-imageSlot--${imageSlotMode} c-modal-imageSlot--${imageSlotAspectRatio}" data-test-id="modal-image">
                 <slot name="image"></slot>
                 ${this.renderCloseButton()}
             </div>
