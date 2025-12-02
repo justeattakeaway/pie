@@ -373,6 +373,60 @@ const SlottedImageContentStoryTemplate = (props: ModalProps) => {
                 ${sanitizeAndRenderHTML(slot)}
             </pie-modal>`;
 };
+const SlottedImageAnimationStoryTemplate = (props: ModalProps) => {
+    const {
+        aria,
+        hasBackButton,
+        hasStackedActions,
+        heading,
+        headingLevel,
+        isDismissible,
+        isHeadingEmphasised,
+        isFooterPinned,
+        isFullWidthBelowMid,
+        isLoading,
+        isOpen,
+        leadingAction,
+        position,
+        returnFocusAfterCloseSelector,
+        size,
+        backgroundColor,
+        slot,
+        supportingAction,
+        imageSlotAspectRatio,
+    } = props;
+
+    return html`
+        <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
+        <pie-modal
+            .aria="${aria}"
+            imageSlotMode="image"
+            imageSlotAspectRatio="${imageSlotAspectRatio}"
+            heading="${heading}"
+            headingLevel="${ifDefined(headingLevel)}"
+            ?hasBackButton="${hasBackButton}"
+            ?hasStackedActions="${hasStackedActions}"
+            ?isDismissible="${isDismissible}"
+            ?isHeadingEmphasised="${isHeadingEmphasised}"
+            ?isFooterPinned="${isFooterPinned}"
+            ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+            ?isLoading="${isLoading}"
+            ?isOpen="${isOpen}"
+            .leadingAction=${leadingAction}
+            position="${ifDefined(position)}"
+            returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
+            size="${ifDefined(size)}"
+            backgroundColor="${ifDefined(backgroundColor)}"
+            .supportingAction="${supportingAction}"
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}"
+            @pie-modal-back="${backClickAction}"
+            @pie-modal-leading-action-click="${leadingClickAction}"
+            @pie-modal-supporting-action-click="${supportingClickAction}">
+                <pie-lottie-player slot="image" animationSrc="./static/animations/courier.json"></pie-lottie-player>
+                ${sanitizeAndRenderHTML(slot)}
+            </pie-modal>`;
+};
 
 const SlottedHeaderContentTemplate = (props: ModalProps) => {
     const {
@@ -583,6 +637,8 @@ export const LargeTextContent = createBaseModalStory({
 export const SlottedImageContent = createStory<ModalProps>(SlottedImageContentStoryTemplate, defaultArgs)({
     imageSlotMode: 'image',
 });
+
+export const SlottedImageAnimation = createStory<ModalProps>(SlottedImageAnimationStoryTemplate, defaultArgs)({});
 
 export const SlottedHeaderContent = createStory<ModalProps>(SlottedHeaderContentTemplate, defaultArgs)({
     isFooterPinned: false,
