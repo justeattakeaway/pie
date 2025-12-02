@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.61.2
+
+### Patch Changes
+
+- [Fixed] - ensure italic fonts are rendered correctly on Safari ([#2624](https://github.com/justeattakeaway/pie/pull/2624)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`abd061f`](https://github.com/justeattakeaway/pie/commit/abd061f315904e84c28c740502a91bd06e7a1fc7)]:
+  - @justeattakeaway/pie-modal@1.20.1
+  - @justeattakeaway/pie-cookie-banner@1.6.35
+
 ## 1.61.1
 
 ### Patch Changes
