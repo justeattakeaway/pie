@@ -4,6 +4,8 @@ import { action } from '@storybook/addon-actions';
 import { type Meta } from '@storybook/web-components';
 import '@justeattakeaway/pie-chip';
 import '@justeattakeaway/pie-modal';
+import '@justeattakeaway/pie-lottie-player';
+
 import {
     type PieModal, type ModalProps as ModalPropsBase, headingLevels, imageSlotModes, imageSlotAspectRatios, sizes, backgroundColors, positions, defaultProps,
 } from '@justeattakeaway/pie-modal';
@@ -309,7 +311,7 @@ const FocusableElementsPageStoryTemplate = (props: ModalProps) => html`
     ${BaseStoryTemplate(props)}
     ${createFocusableElementsPageHTML()}`;
 
-const CustomImageSlotStoryTemplate = (props: ModalProps) => {
+const SlottedImageContentStoryTemplate = (props: ModalProps) => {
     const {
         aria,
         hasBackButton,
@@ -372,7 +374,55 @@ const CustomImageSlotStoryTemplate = (props: ModalProps) => {
             </pie-modal>`;
 };
 
-const CustomFooterStoryTemplate = (props: ModalProps) => {
+const SlottedHeaderContentTemplate = (props: ModalProps) => {
+    const {
+        aria,
+        hasBackButton,
+        hasStackedActions,
+        heading,
+        headingLevel,
+        isDismissible,
+        isHeadingEmphasised,
+        isFooterPinned,
+        isFullWidthBelowMid,
+        isLoading,
+        isOpen,
+        position,
+        returnFocusAfterCloseSelector,
+        size,
+        backgroundColor,
+    } = props;
+    return html`
+        <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
+        <pie-modal
+            .aria="${aria}"
+            heading="${heading}"
+            headingLevel="${ifDefined(headingLevel)}"
+            ?hasBackButton="${hasBackButton}"
+            ?hasStackedActions="${hasStackedActions}"
+            ?isDismissible="${isDismissible}"
+            ?isHeadingEmphasised="${isHeadingEmphasised}"
+            ?isFooterPinned="${isFooterPinned}"
+            ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+            ?isLoading="${isLoading}"
+            ?isOpen="${isOpen}"
+            position="${ifDefined(position)}"
+            returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
+            size="${ifDefined(size)}"
+            backgroundColor="${ifDefined(backgroundColor)}"
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}"
+            @pie-modal-back="${backClickAction}">
+                <div slot="headerContent">
+                    <pie-text-input autoFocus placeholder="search in categories">
+                        <icon-search slot="leadingIcon"></icon-search>
+                    </pie-text-input>
+                </div>
+                ${renderCategoryChipsList(100)}
+            </pie-modal>`;
+};
+
+const SlottedFooterContentStoryTemplate = (props: ModalProps) => {
     const {
         aria,
         hasBackButton,
@@ -530,66 +580,19 @@ export const LargeTextContent = createBaseModalStory({
     Placeat, ad! Quidem error aliquam atque aut, voluptates voluptatibus cumque quia? Laboriosam ab mollitia laborum maxime numquam similique eveniet quaerat? Et, nemo natus officia cum hic adipisci doloremque! Quia, delectus.`,
 });
 
-export const CustomImage = createStory<ModalProps>(CustomImageSlotStoryTemplate, defaultArgs)({
+export const SlottedImageContent = createStory<ModalProps>(SlottedImageContentStoryTemplate, defaultArgs)({
     imageSlotMode: 'image',
 });
-export const CustomFooter = createStory<ModalProps>(CustomFooterStoryTemplate, defaultArgs)();
+
+export const SlottedHeaderContent = createStory<ModalProps>(SlottedHeaderContentTemplate, defaultArgs)({
+    isFooterPinned: false,
+    hasBackButton: false,
+});
+
+export const SlottedFooterContent = createStory<ModalProps>(SlottedFooterContentStoryTemplate, defaultArgs)();
 
 const renderCategoryChipsList = (length: number) => html`
     <ul role="list" style="list-style-type: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--dt-spacing-b);">
         ${Array.from({ length }, (_, i) => html`<li role="listitem"><pie-chip variant="ghost">Chip ${i + 1}</pie-chip></li>`)}
     </ul>
 `;
-
-const customHeaderContentTemplate = (props: ModalProps) => {
-    const {
-        aria,
-        hasBackButton,
-        hasStackedActions,
-        heading,
-        headingLevel,
-        isDismissible,
-        isHeadingEmphasised,
-        isFooterPinned,
-        isFullWidthBelowMid,
-        isLoading,
-        isOpen,
-        position,
-        returnFocusAfterCloseSelector,
-        size,
-        backgroundColor,
-    } = props;
-    return html`
-        <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
-        <pie-modal
-            .aria="${aria}"
-            heading="${heading}"
-            headingLevel="${ifDefined(headingLevel)}"
-            ?hasBackButton="${hasBackButton}"
-            ?hasStackedActions="${hasStackedActions}"
-            ?isDismissible="${isDismissible}"
-            ?isHeadingEmphasised="${isHeadingEmphasised}"
-            ?isFooterPinned="${isFooterPinned}"
-            ?isFullWidthBelowMid="${isFullWidthBelowMid}"
-            ?isLoading="${isLoading}"
-            ?isOpen="${isOpen}"
-            position="${ifDefined(position)}"
-            returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
-            size="${ifDefined(size)}"
-            backgroundColor="${ifDefined(backgroundColor)}"
-            @pie-modal-close="${closeAction}"
-            @pie-modal-open="${openAction}"
-            @pie-modal-back="${backClickAction}">
-                <div slot="headerContent">
-                    <pie-text-input autoFocus placeholder="search in categories">
-                        <icon-search slot="leadingIcon"></icon-search>
-                    </pie-text-input>
-                </div>
-                ${renderCategoryChipsList(100)}
-            </pie-modal>`;
-};
-
-export const CustomHeaderContent = createStory<ModalProps>(customHeaderContentTemplate, defaultArgs)({
-    isFooterPinned: false,
-    hasBackButton: false,
-});
