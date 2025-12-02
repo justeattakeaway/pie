@@ -192,6 +192,10 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     text-decoration: var(--example-font-text-decoration);
     letter-spacing: var(--example-font-letter-spacing);
 
+    &.c-tokensTable-example--font-italic {
+        font-variation-settings: "slnt" -20;
+    }
+
     &.c-tokenTable-example-paragraph--font > p {
         margin-block-start: 0;
         margin-block-end: var(--example-font-paragraph-spacing);
