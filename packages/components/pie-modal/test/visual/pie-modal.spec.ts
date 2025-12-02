@@ -1,12 +1,13 @@
 import { test, expect } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
 import {
-    type ModalProps, sizes, backgroundColors, positions,
+    type ModalProps, sizes, backgroundColors, positions, imageSlotModes, imageSlotAspectRatios,
 } from '../../src/defs.ts';
 import { ModalDefaultPage } from '../helpers/page-object/pie-modal-default.page.ts';
 import { ModalLargeTextContentPage } from '../helpers/page-object/pie-modal-large-text-content.page.ts';
 import { ModalCustomFooterPage } from '../helpers/page-object/pie-modal-custom-footer.page.ts';
 import { ModalCustomHeaderContentPage } from '../helpers/page-object/pie-modal-custom-header-content.page.ts';
+import { ModalCustomImageSlotContentPage } from '../helpers/page-object/pie-modal-custom-image-slot-content.page.ts';
 
 const sharedProps: ModalProps = {
     heading: 'This is a modal heading',
@@ -642,6 +643,61 @@ test.describe('Slot: `headerContent`', () => {
             await expect.soft(modalCustomHeaderContentPage.modalComponent.componentLocator).toBeVisible();
 
             await percySnapshot(page, 'Modal - has headerContent slot content');
+        });
+    });
+});
+
+test.describe('Slot: `image`', () => {
+    test.describe('imageSlotMode', () => {
+        [...imageSlotModes, undefined].forEach((imageSlotMode) => {
+            test(`should render correctly with imageSlotMode = ${imageSlotMode}`, async ({ page }) => {
+                const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                const props: ModalProps = {
+                    ...sharedProps,
+                    imageSlotMode,
+                };
+                await modalCustomImageSlotContentPage.load(props);
+
+                await expect.soft(modalCustomImageSlotContentPage.modalComponent.componentLocator).toBeVisible();
+
+                await percySnapshot(page, `Modal - imageSlotMode: ${imageSlotMode}`);
+            });
+        });
+
+        test.describe('when imageSlotMode is "illustration"', () => {
+            [...backgroundColors, undefined].forEach((backgroundColor) => {
+                test(`should render correctly with backgroundColor = ${backgroundColor}`, async ({ page }) => {
+                    const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                    const props: ModalProps = {
+                        ...sharedProps,
+                        imageSlotMode: 'illustration',
+                        backgroundColor,
+                    };
+                    await modalCustomImageSlotContentPage.load(props);
+
+                    await expect.soft(modalCustomImageSlotContentPage.modalComponent.componentLocator).toBeVisible();
+
+                    await percySnapshot(page, `Modal - illustration with backgroundColor: ${backgroundColor}`);
+                });
+            });
+        });
+    });
+
+    test.describe('imageSlotAspectRatio', () => {
+        [...imageSlotAspectRatios, undefined].forEach((imageSlotAspectRatio) => {
+            test(`should render correctly with imageSlotAspectRatio = ${imageSlotAspectRatio}`, async ({ page }) => {
+                const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                const props: ModalProps = {
+                    ...sharedProps,
+                    imageSlotMode: 'image',
+                    imageSlotAspectRatio,
+                };
+                await modalCustomImageSlotContentPage.load(props);
+
+                await expect.soft(modalCustomImageSlotContentPage.modalComponent.componentLocator).toBeVisible();
+
+                await percySnapshot(page, `Modal - imageSlotAspectRatio: ${imageSlotAspectRatio}`);
+            });
         });
     });
 });
