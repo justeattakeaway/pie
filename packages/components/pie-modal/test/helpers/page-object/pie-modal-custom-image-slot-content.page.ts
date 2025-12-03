@@ -7,6 +7,7 @@ export class ModalCustomImageSlotContentPage extends BasePage {
     readonly modalComponent: ModalComponent;
     readonly openModalButtonLocator: Locator;
     readonly scrollableContentSlotLocator: Locator;
+    readonly closeButtonLocator: Locator;
     readonly imageLocator: Locator;
     readonly imageSlotLocator: Locator;
 
@@ -15,6 +16,7 @@ export class ModalCustomImageSlotContentPage extends BasePage {
         this.modalComponent = new ModalComponent(page);
         this.openModalButtonLocator = page.locator('#open-modal');
         this.scrollableContentSlotLocator = page.getByTestId('pie-modal').locator('article');
+        this.closeButtonLocator = page.getByTestId(modal.selectors.closeButton.dataTestId);
         this.imageLocator = page.getByTestId(modal.selectors.image.dataTestId);
         this.imageSlotLocator = page.locator('pie-modal [slot="image"]');
     }

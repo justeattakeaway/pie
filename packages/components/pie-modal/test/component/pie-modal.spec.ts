@@ -7,7 +7,9 @@ import { ModalEmbeddedFormPage } from 'test/helpers/page-object/pie-modal-embedd
 import { ModalCustomFooterPage } from 'test/helpers/page-object/pie-modal-custom-footer.page.ts';
 import { ModalMissingDialogSimulationPage } from 'test/helpers/page-object/pie-modal-missing-dialog-simulation.page.ts';
 import { ModalCustomImageSlotContentPage } from 'test/helpers/page-object/pie-modal-custom-image-slot-content.page.ts';
-import { type ModalProps, headingLevels, imageSlotModes } from '../../src/defs.ts';
+import {
+    type ModalProps, headingLevels, imageSlotModes, backgroundColors,
+} from '../../src/defs.ts';
 
 const sharedProps: ModalProps = {
     heading: 'This is a modal heading',
@@ -821,22 +823,9 @@ test.describe('when the `footer` slot is assigned', () => {
     });
 });
 
-test.describe('when the `image` slot is assigned', () => {
-    test('when the imageSlotMode is not set, it should not have the slot `image` available', async ({ page }) => {
-        // Arrange
-        const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
-
-        await modalCustomImageSlotContentPage.load();
-
-        // Act
-        const slotLocator = modalCustomImageSlotContentPage.imageSlotLocator;
-
-        // Assert
-        await expect(slotLocator).not.toBeVisible();
-    });
-
-    test.describe('the image slot wrapper', () => {
-        test('should not be available when the imageSlotMode is not set', async ({ page }) => {
+test.describe('`image` slot', () => {
+    test.describe('when the imageSlotMode is not set', () => {
+        test('it should not have the image slot wrapper', async ({ page }) => {
             // Arrange
             const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
             await modalCustomImageSlotContentPage.load();
@@ -844,8 +833,61 @@ test.describe('when the `image` slot is assigned', () => {
             // Assert
             await expect(modalCustomImageSlotContentPage.imageLocator).not.toBeVisible();
         });
+        test('it should not have the slot `image` available', async ({ page }) => {
+            // Arrange
+            const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
 
-        test('should be available when the imageSlotMode is set', async ({ page }) => {
+            await modalCustomImageSlotContentPage.load();
+
+            // Act
+            const slotLocator = modalCustomImageSlotContentPage.imageSlotLocator;
+
+            // Assert
+            await expect(slotLocator).not.toBeVisible();
+        });
+
+        test.describe('when `isDismissible` and the `backgroundColor` is set to', () => {
+            const bgColorToButtonVariant = {
+                default: 'ghost-secondary',
+                subtle: 'ghost-secondary',
+                'brand-01': 'ghost-secondary',
+                'brand-02': 'ghost-secondary',
+                'brand-03': 'ghost-secondary',
+                'brand-03-subtle': 'ghost-secondary',
+                'brand-04': 'ghost-secondary',
+                'brand-04-subtle': 'ghost-secondary',
+                'brand-05': 'ghost-secondary',
+                'brand-05-subtle': 'ghost-secondary',
+                'brand-06': 'ghost-inverse',
+                'brand-06-subtle': 'ghost-secondary',
+                'brand-08': 'ghost-secondary',
+                'brand-08-subtle': 'ghost-secondary',
+            };
+
+            Object.entries(bgColorToButtonVariant).forEach(([backgroundColor, variant]) => {
+                test(`\`${backgroundColor}\`, the dismiss button variant should be "${variant}"`, async ({ page }) => {
+                    // Arrange
+                    const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                    const props: ModalProps = {
+                        ...sharedProps,
+                        isDismissible: true,
+                        backgroundColor: backgroundColor as ModalProps['backgroundColor'],
+                    };
+                    await modalCustomImageSlotContentPage.load(props);
+
+                    // Act
+                    const { closeButtonLocator } = modalCustomImageSlotContentPage;
+
+                    // Assert
+                    await expect(closeButtonLocator).toBeVisible();
+                    await expect(closeButtonLocator).toHaveAttribute('variant', variant);
+                });
+            });
+        });
+    });
+
+    test.describe('when the imageSlotMode is set', () => {
+        test('it should have the image slot wrapper', async ({ page }) => {
             // Arrange
             const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
             const props: ModalProps = {
@@ -857,24 +899,84 @@ test.describe('when the `image` slot is assigned', () => {
             // Assert
             await expect(modalCustomImageSlotContentPage.imageLocator).toBeVisible();
         });
-    });
-
-    test.describe('when imageSlotMode is set to', () => {
         [...imageSlotModes].forEach((imageSlotMode) => {
-            test(`"${imageSlotMode}", it should have the slot \`image\` available`, async ({ page }) => {
-                // Arrange
-                const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
-                const props: ModalProps = {
-                    ...sharedProps,
-                    imageSlotMode,
-                };
-                await modalCustomImageSlotContentPage.load(props);
+            test.describe(`as "${imageSlotMode}"`, () => {
+                test('it should have the slot `image` available', async ({ page }) => {
+                    // Arrange
+                    const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                    const props: ModalProps = {
+                        ...sharedProps,
+                        imageSlotMode,
+                    };
+                    await modalCustomImageSlotContentPage.load(props);
 
-                // Act
-                const slotLocator = modalCustomImageSlotContentPage.imageSlotLocator;
+                    // Act
+                    const slotLocator = modalCustomImageSlotContentPage.imageSlotLocator;
 
-                // Assert
-                await expect(slotLocator).toBeVisible();
+                    // Assert
+                    await expect(slotLocator).toBeVisible();
+                });
+
+                [true, false].forEach((isDismissible) => {
+                    test.describe(`when \`isDismissible\` is set to "${isDismissible}"`, () => {
+                        test(`the dismiss button should ${isDismissible ? 'be' : 'not be'} visible`, async ({ page }) => {
+                            // Arrange
+                            const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                            const props: ModalProps = {
+                                ...sharedProps,
+                                imageSlotMode,
+                                isDismissible,
+                            };
+                            await modalCustomImageSlotContentPage.load(props);
+
+                            // Act
+                            const { closeButtonLocator } = modalCustomImageSlotContentPage;
+
+                            // Assert
+                            if (isDismissible) {
+                                await expect(closeButtonLocator).toBeVisible();
+                            } else {
+                                await expect(closeButtonLocator).not.toBeVisible();
+                            }
+                        });
+                    });
+                });
+
+                test.describe('when `isDismissible` is `true`', () => {
+                    [true, false].forEach((hasBackgroundSet) => {
+                        test.describe(`when \`backgroundColor\` is ${hasBackgroundSet ? 'set' : 'not set'}`, () => {
+                            test(`the dismiss button variant should be "${hasBackgroundSet ? 'ghost-secondary' : 'ghost-inverse'}"`, async ({ page }) => {
+                                // Arrange
+                                const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                                const props: ModalProps = {
+                                    ...sharedProps,
+                                    imageSlotMode,
+                                    isDismissible: true,
+                                    backgroundColor: hasBackgroundSet ? 'brand-03' : undefined,
+                                };
+                                await modalCustomImageSlotContentPage.load(props);
+
+                                // Act
+                                const { closeButtonLocator } = modalCustomImageSlotContentPage;
+
+                                // Assert
+
+                                const isIllustrationMode = imageSlotMode === 'illustration';
+
+                                let expectedVariant: string;
+                                if (!isIllustrationMode) {
+                                    expectedVariant = 'secondary';
+                                } else if (hasBackgroundSet) {
+                                    expectedVariant = 'secondary';
+                                } else {
+                                    expectedVariant = 'ghost-secondary';
+                                }
+
+                                await expect(closeButtonLocator).toHaveAttribute('variant', expectedVariant);
+                            });
+                        });
+                    });
+                });
             });
         });
     });
