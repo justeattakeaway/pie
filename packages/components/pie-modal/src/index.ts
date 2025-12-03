@@ -372,10 +372,7 @@ export class PieModal extends PieElement implements ModalProps {
         }
 
         // image slot is present
-        if (imageSlotMode === 'illustration') {
-            if (hasBackgroundColor) {
-                return 'secondary';
-            }
+        if (imageSlotMode === 'illustration' && !hasBackgroundColor) {
             return 'ghost-secondary';
         }
         return 'secondary';
