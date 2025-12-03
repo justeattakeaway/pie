@@ -363,20 +363,22 @@ export class PieModal extends PieElement implements ModalProps {
         const hasImageSlot = Boolean(imageSlotMode);
         const hasBackgroundColor = Boolean(backgroundColor) && backgroundColor !== 'default';
 
-        if (hasImageSlot) {
-            if (imageSlotMode === 'illustration') {
-                if (hasBackgroundColor) {
-                    return 'secondary';
-                }
-                return 'ghost-secondary';
-            }
-            return 'secondary';
+        // default case: image slot is not present
+        if (!hasImageSlot) {
+            // No image slot present, determine variant based on background color
+            const isInverted = backgroundColor === 'brand-06';
+            const variant = isInverted ? 'ghost-inverse' : 'ghost-secondary';
+            return variant;
         }
 
-        // No image slot present, determine variant based on background color
-        const isInverted = backgroundColor === 'brand-06';
-        const variant = isInverted ? 'ghost-inverse' : 'ghost-secondary';
-        return variant;
+        // image slot is present
+        if (imageSlotMode === 'illustration') {
+            if (hasBackgroundColor) {
+                return 'secondary';
+            }
+            return 'ghost-secondary';
+        }
+        return 'secondary';
     }
 
     /**
