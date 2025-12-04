@@ -5,6 +5,8 @@ import { type Variant as ButtonVariant } from '@justeattakeaway/pie-button/src/d
 export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const sizes = ['small', 'medium', 'large'] as const;
 export const positions = ['top', 'center'] as const;
+export const imageSlotModes = ['image', 'illustration'] as const;
+export const imageSlotAspectRatios = ['small', 'medium', 'large'] as const;
 
 type AriaProps = {
     close?: string;
@@ -139,6 +141,16 @@ export type ModalProps = {
      * The background color for the modal.
      */
     backgroundColor?: typeof backgroundColors[number];
+
+    /**
+     * The mode of the image slot; this controls whether the slot is treated as an image or an illustration.
+     */
+    imageSlotMode?: typeof imageSlotModes[number];
+
+    /**
+     * The aspect ratio of the image slot; applies only when `imageSlotMode` is set to `image`.
+     */
+    imageSlotAspectRatio?: typeof imageSlotAspectRatios[number];
 };
 
 /**
@@ -178,7 +190,7 @@ export const ON_MODAL_SUPPORTING_ACTION_CLICK = 'pie-modal-supporting-action-cli
 
 export type ModalActionType = 'leading' | 'supporting';
 
-export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'heading' | 'leadingAction' | 'supportingAction' | 'returnFocusAfterCloseSelector'>>;
+export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'heading' | 'leadingAction' | 'supportingAction' | 'returnFocusAfterCloseSelector' | 'imageSlotMode'>>;
 
 export const defaultProps: DefaultProps = {
     hasBackButton: false,
@@ -193,4 +205,5 @@ export const defaultProps: DefaultProps = {
     position: 'center',
     size: 'medium',
     backgroundColor: 'default',
+    imageSlotAspectRatio: 'medium',
 };

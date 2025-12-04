@@ -29,6 +29,8 @@ import {
     sizes,
     backgroundColors,
     defaultProps,
+    imageSlotModes,
+    imageSlotAspectRatios,
     ON_MODAL_BACK_EVENT,
     ON_MODAL_CLOSE_EVENT,
     ON_MODAL_OPEN_EVENT,
@@ -113,6 +115,13 @@ export class PieModal extends PieElement implements ModalProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, backgroundColors, defaultProps.backgroundColor)
     public backgroundColor = defaultProps.backgroundColor;
+
+    @property({ type: String })
+    public imageSlotMode: ModalProps['imageSlotMode'];
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, imageSlotAspectRatios, defaultProps.imageSlotAspectRatio)
+    public imageSlotAspectRatio = defaultProps.imageSlotAspectRatio;
 
     @query('dialog')
     private _dialog!: HTMLDialogElement;
@@ -347,11 +356,24 @@ export class PieModal extends PieElement implements ModalProps {
         }
     }
 
-    private _getHeaderButtonVariant (): 'ghost-secondary' | 'ghost-inverse' {
-        const isInverted = this.backgroundColor === 'brand-06';
-        const variant = isInverted ? 'ghost-inverse' : 'ghost-secondary';
+    private _getHeaderButtonVariant (): 'ghost-secondary' | 'ghost-inverse' | 'secondary' {
+        const { imageSlotMode, backgroundColor } = this;
 
-        return variant;
+        // Handle the combinations of image slot and background color
+        const hasImageSlot = Boolean(imageSlotMode);
+        const hasBackgroundColor = Boolean(backgroundColor) && backgroundColor !== 'default';
+        const isInverted = backgroundColor === 'brand-06';
+
+        // default case: image slot is not present
+        if (!hasImageSlot) {
+            return isInverted ? 'ghost-inverse' : 'ghost-secondary';
+        }
+
+        // image slot is present
+        if (imageSlotMode === 'illustration' && !hasBackgroundColor) {
+            return 'ghost-secondary';
+        }
+        return isInverted ? 'ghost-inverse' : 'secondary';
     }
 
     /**
@@ -376,6 +398,18 @@ export class PieModal extends PieElement implements ModalProps {
                 data-test-id="modal-close-button">
                 <icon-close></icon-close>
             </pie-icon-button>`;
+    }
+
+    private renderModalImageSlot (): TemplateResult | typeof nothing {
+        const { imageSlotMode, imageSlotAspectRatio } = this;
+        if (!imageSlotMode) return nothing;
+
+        return html`
+            <div class="c-modal-imageSlot c-modal-imageSlot--${imageSlotMode} c-modal-imageSlot--${imageSlotAspectRatio}" data-test-id="modal-image">
+                <slot name="image"></slot>
+                ${this.renderCloseButton()}
+            </div>
+        `;
     }
 
     /**
@@ -550,7 +584,11 @@ export class PieModal extends PieElement implements ModalProps {
             position,
             size,
             backgroundColor,
+            imageSlotMode,
         } = this;
+
+        const hasImageSlot = Boolean(imageSlotMode);
+        const hasCloseButtonInHeader = !hasImageSlot;
 
         const modalClasses = {
             'c-modal': true,
@@ -574,10 +612,11 @@ export class PieModal extends PieElement implements ModalProps {
             aria-live="polite"
             aria-busy="${isLoading ? 'true' : 'false'}"
             data-test-id="pie-modal">
+            ${this.renderModalImageSlot()}
             <header class="c-modal-header" data-test-id="modal-header">
                 ${this.renderBackButton()}
                 ${this.renderHeading()}
-                ${this.renderCloseButton()}
+                ${hasCloseButtonInHeader ? this.renderCloseButton() : nothing}
                 <slot name="headerContent"></slot>
             </header>
             ${
