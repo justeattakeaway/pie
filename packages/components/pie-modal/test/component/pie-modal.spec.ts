@@ -918,7 +918,7 @@ test.describe('`image` slot', () => {
                 });
 
                 [true, false].forEach((isDismissible) => {
-                    test.describe(`when \`isDismissible\` is set to "${isDismissible}"`, () => {
+                    test.describe(`when \`isDismissible\` is \`${isDismissible}\`   `, () => {
                         test(`the dismiss button should ${isDismissible ? 'be' : 'not be'} visible`, async ({ page }) => {
                             // Arrange
                             const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
@@ -939,20 +939,33 @@ test.describe('`image` slot', () => {
                                 await expect(closeButtonLocator).not.toBeVisible();
                             }
                         });
-                    });
-                });
 
-                test.describe('when `isDismissible` is `true`', () => {
-                    [true, false].forEach((hasBackgroundSet) => {
-                        test.describe(`when \`backgroundColor\` is ${hasBackgroundSet ? 'set' : 'not set'}`, () => {
-                            test(`the dismiss button variant should be "${hasBackgroundSet ? 'ghost-secondary' : 'ghost-inverse'}"`, async ({ page }) => {
+                        const bgColorToButtonVariant = {
+                            default: imageSlotMode === 'illustration' ? 'ghost-secondary' : 'secondary',
+                            subtle: 'secondary',
+                            'brand-01': 'secondary',
+                            'brand-02': 'secondary',
+                            'brand-03': 'secondary',
+                            'brand-03-subtle': 'secondary',
+                            'brand-04': 'secondary',
+                            'brand-04-subtle': 'secondary',
+                            'brand-05': 'secondary',
+                            'brand-05-subtle': 'secondary',
+                            'brand-06': 'ghost-inverse',
+                            'brand-06-subtle': 'secondary',
+                            'brand-08': 'secondary',
+                            'brand-08-subtle': 'secondary',
+                        };
+
+                        Object.entries(bgColorToButtonVariant).forEach(([backgroundColor, variant]) => {
+                            test(`when \`backgroundColor\` is \`${backgroundColor}\`, the dismiss button variant should be \`${variant}\``, async ({ page }) => {
                                 // Arrange
                                 const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
                                 const props: ModalProps = {
                                     ...sharedProps,
                                     imageSlotMode,
                                     isDismissible: true,
-                                    backgroundColor: hasBackgroundSet ? 'brand-03' : undefined,
+                                    backgroundColor: backgroundColor as ModalProps['backgroundColor'],
                                 };
                                 await modalCustomImageSlotContentPage.load(props);
 
@@ -960,19 +973,8 @@ test.describe('`image` slot', () => {
                                 const { closeButtonLocator } = modalCustomImageSlotContentPage;
 
                                 // Assert
-
-                                const isIllustrationMode = imageSlotMode === 'illustration';
-
-                                let expectedVariant: string;
-                                if (!isIllustrationMode) {
-                                    expectedVariant = 'secondary';
-                                } else if (hasBackgroundSet) {
-                                    expectedVariant = 'secondary';
-                                } else {
-                                    expectedVariant = 'ghost-secondary';
-                                }
-
-                                await expect(closeButtonLocator).toHaveAttribute('variant', expectedVariant);
+                                await expect(closeButtonLocator).toBeVisible();
+                                await expect(closeButtonLocator).toHaveAttribute('variant', variant);
                             });
                         });
                     });
