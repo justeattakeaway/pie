@@ -664,7 +664,7 @@ test.describe('Slot: `image`', () => {
 
                             await expect.soft(modalCustomImageSlotContentPage.modalComponent.componentLocator).toBeVisible();
 
-                            await percySnapshot(page, `Modal - imageSlotMode: ${imageSlotMode}`);
+                            await percySnapshot(page, `Modal - imageSlotMode: ${imageSlotMode}, isDismissible: ${isDismissible}`);
                         });
                     });
                 });
@@ -688,7 +688,7 @@ test.describe('Slot: `image`', () => {
 
                                 await expect.soft(modalCustomImageSlotContentPage.modalComponent.componentLocator).toBeVisible();
 
-                                await percySnapshot(page, `Modal - illustration with backgroundColor: ${backgroundColor}`);
+                                await percySnapshot(page, `Modal - illustration with backgroundColor: ${backgroundColor}, isDismissible: ${isDismissible}`);
                             });
                         });
                     });
