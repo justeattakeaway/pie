@@ -20,6 +20,7 @@
   },
   "scripts": {
     "build": "run -T ts-node ./buildCss.ts",
+    "build:type": "sass scss/helpers/typography.scss dist/helpers/typography.css",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./**/*.{css,scss}",
@@ -41,6 +42,7 @@
     "include-media": "2.0.0",
     "postcss": "8.4.32",
     "postcss-import": "15.1.0",
+    "sass": "1.94.2",
     "w3c-css-validator": "1.3.2"
   },
   "volta": {
