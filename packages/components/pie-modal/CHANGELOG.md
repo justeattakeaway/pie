@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 1.21.0
+
+### Minor Changes
+
+- [Added] - the `image` slot, along with `imageSlotMode` and `imageSlotAspectRatio` props ([#2626](https://github.com/justeattakeaway/pie/pull/2626)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.20.1
 
 ### Patch Changes
