@@ -3487,7 +3487,7 @@ __metadata:
     include-media: 2.0.0
     postcss: 8.4.32
     postcss-import: 15.1.0
-    sass: ^1.94.2
+    sass: 1.94.2
     w3c-css-validator: 1.3.2
   languageName: unknown
   linkType: soft
@@ -20704,6 +20704,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sass@npm:1.94.2":
+  version: 1.94.2
+  resolution: "sass@npm:1.94.2"
+  dependencies:
+    "@parcel/watcher": ^2.4.1
+    chokidar: ^4.0.0
+    immutable: ^5.0.2
+    source-map-js: ">=0.6.2 <2.0.0"
+  dependenciesMeta:
+    "@parcel/watcher":
+      optional: true
+  bin:
+    sass: sass.js
+  checksum: 75460a0d24f0ab1054bb1b88cb71cc51b592b48461ec540be9275fd4010b3b708ed734bfd337399bd8ec9c8a56942482eff6c372a3ffb0154417b6f4494522b5
+  languageName: node
+  linkType: hard
+
 "sass@npm:^1.49.7":
   version: 1.89.2
   resolution: "sass@npm:1.89.2"
@@ -20718,23 +20735,6 @@ __metadata:
   bin:
     sass: sass.js
   checksum: 192a97ffe801d9377d10c0a8a129befe637438c5aa979a56db18fd95da2aa32b656715fa8a2959bfaf059b490792a783e605a94449d44fbbf44d8155aa981490
-  languageName: node
-  linkType: hard
-
-"sass@npm:^1.94.2":
-  version: 1.94.2
-  resolution: "sass@npm:1.94.2"
-  dependencies:
-    "@parcel/watcher": ^2.4.1
-    chokidar: ^4.0.0
-    immutable: ^5.0.2
-    source-map-js: ">=0.6.2 <2.0.0"
-  dependenciesMeta:
-    "@parcel/watcher":
-      optional: true
-  bin:
-    sass: sass.js
-  checksum: 75460a0d24f0ab1054bb1b88cb71cc51b592b48461ec540be9275fd4010b3b708ed734bfd337399bd8ec9c8a56942482eff6c372a3ffb0154417b6f4494522b5
   languageName: node
   linkType: hard
 
