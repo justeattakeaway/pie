@@ -4,8 +4,10 @@ import { action } from '@storybook/addon-actions';
 import { type Meta } from '@storybook/web-components';
 import '@justeattakeaway/pie-chip';
 import '@justeattakeaway/pie-modal';
+import '@justeattakeaway/pie-lottie-player';
+
 import {
-    type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, backgroundColors, positions, defaultProps,
+    type PieModal, type ModalProps as ModalPropsBase, headingLevels, imageSlotModes, imageSlotAspectRatios, sizes, backgroundColors, positions, defaultProps,
 } from '@justeattakeaway/pie-modal';
 
 import '@justeattakeaway/pie-button';
@@ -77,6 +79,16 @@ const modalStoryMeta: ModalStoryMeta = {
         isLoading: {
             description: 'When true, displays a loading spinner in the modal.',
             control: 'boolean',
+        },
+        imageSlotMode: {
+            description: 'The mode to use for the image slot. "image" mode is for photographic content, while "illustration" mode is for graphic illustrations.',
+            control: 'select',
+            options: ['', ...imageSlotModes],
+        },
+        imageSlotAspectRatio: {
+            description: 'The aspect ratio to use for the image slot. Applies only to the imageSlotMode "image"',
+            control: 'select',
+            options: imageSlotAspectRatios,
         },
         heading: {
             description: 'The text to display in the modal\'s heading.',
@@ -299,7 +311,172 @@ const FocusableElementsPageStoryTemplate = (props: ModalProps) => html`
     ${BaseStoryTemplate(props)}
     ${createFocusableElementsPageHTML()}`;
 
-const CustomFooterStoryTemplate = (props: ModalProps) => {
+const SlottedImageContentStoryTemplate = (props: ModalProps) => {
+    const {
+        aria,
+        hasBackButton,
+        hasStackedActions,
+        heading,
+        headingLevel,
+        isDismissible,
+        isHeadingEmphasised,
+        isFooterPinned,
+        isFullWidthBelowMid,
+        isLoading,
+        isOpen,
+        leadingAction,
+        position,
+        returnFocusAfterCloseSelector,
+        size,
+        backgroundColor,
+        slot,
+        supportingAction,
+        imageSlotMode,
+        imageSlotAspectRatio,
+    } = props;
+
+    let imageUrl = '';
+    if (imageSlotMode === 'image') {
+        imageUrl = `./static/images/modal-image-${imageSlotAspectRatio}.jpg`;
+    } else if (imageSlotMode === 'illustration') {
+        imageUrl = './static/images/modal-image-illustration.png';
+    }
+
+    return html`
+        <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
+        <pie-modal
+            .aria="${aria}"
+            imageSlotMode="${imageSlotMode}"
+            imageSlotAspectRatio="${imageSlotAspectRatio}"
+            heading="${heading}"
+            headingLevel="${ifDefined(headingLevel)}"
+            ?hasBackButton="${hasBackButton}"
+            ?hasStackedActions="${hasStackedActions}"
+            ?isDismissible="${isDismissible}"
+            ?isHeadingEmphasised="${isHeadingEmphasised}"
+            ?isFooterPinned="${isFooterPinned}"
+            ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+            ?isLoading="${isLoading}"
+            ?isOpen="${isOpen}"
+            .leadingAction=${leadingAction}
+            position="${ifDefined(position)}"
+            returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
+            size="${ifDefined(size)}"
+            backgroundColor="${ifDefined(backgroundColor)}"
+            .supportingAction="${supportingAction}"
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}"
+            @pie-modal-back="${backClickAction}"
+            @pie-modal-leading-action-click="${leadingClickAction}"
+            @pie-modal-supporting-action-click="${supportingClickAction}">
+                <img slot="image" src="${imageUrl}" alt="Custom image slot content" />
+                ${sanitizeAndRenderHTML(slot)}
+            </pie-modal>`;
+};
+const SlottedImageAnimationStoryTemplate = (props: ModalProps) => {
+    const {
+        aria,
+        hasBackButton,
+        hasStackedActions,
+        heading,
+        headingLevel,
+        isDismissible,
+        isHeadingEmphasised,
+        isFooterPinned,
+        isFullWidthBelowMid,
+        isLoading,
+        isOpen,
+        leadingAction,
+        position,
+        returnFocusAfterCloseSelector,
+        size,
+        backgroundColor,
+        slot,
+        supportingAction,
+        imageSlotAspectRatio,
+    } = props;
+
+    return html`
+        <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
+        <pie-modal
+            .aria="${aria}"
+            imageSlotMode="image"
+            imageSlotAspectRatio="${imageSlotAspectRatio}"
+            heading="${heading}"
+            headingLevel="${ifDefined(headingLevel)}"
+            ?hasBackButton="${hasBackButton}"
+            ?hasStackedActions="${hasStackedActions}"
+            ?isDismissible="${isDismissible}"
+            ?isHeadingEmphasised="${isHeadingEmphasised}"
+            ?isFooterPinned="${isFooterPinned}"
+            ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+            ?isLoading="${isLoading}"
+            ?isOpen="${isOpen}"
+            .leadingAction=${leadingAction}
+            position="${ifDefined(position)}"
+            returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
+            size="${ifDefined(size)}"
+            backgroundColor="${ifDefined(backgroundColor)}"
+            .supportingAction="${supportingAction}"
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}"
+            @pie-modal-back="${backClickAction}"
+            @pie-modal-leading-action-click="${leadingClickAction}"
+            @pie-modal-supporting-action-click="${supportingClickAction}">
+                <pie-lottie-player slot="image" animationSrc="./static/animations/courier.json"></pie-lottie-player>
+                ${sanitizeAndRenderHTML(slot)}
+            </pie-modal>`;
+};
+
+const SlottedHeaderContentTemplate = (props: ModalProps) => {
+    const {
+        aria,
+        hasBackButton,
+        hasStackedActions,
+        heading,
+        headingLevel,
+        isDismissible,
+        isHeadingEmphasised,
+        isFooterPinned,
+        isFullWidthBelowMid,
+        isLoading,
+        isOpen,
+        position,
+        returnFocusAfterCloseSelector,
+        size,
+        backgroundColor,
+    } = props;
+    return html`
+        <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
+        <pie-modal
+            .aria="${aria}"
+            heading="${heading}"
+            headingLevel="${ifDefined(headingLevel)}"
+            ?hasBackButton="${hasBackButton}"
+            ?hasStackedActions="${hasStackedActions}"
+            ?isDismissible="${isDismissible}"
+            ?isHeadingEmphasised="${isHeadingEmphasised}"
+            ?isFooterPinned="${isFooterPinned}"
+            ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+            ?isLoading="${isLoading}"
+            ?isOpen="${isOpen}"
+            position="${ifDefined(position)}"
+            returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
+            size="${ifDefined(size)}"
+            backgroundColor="${ifDefined(backgroundColor)}"
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}"
+            @pie-modal-back="${backClickAction}">
+                <div slot="headerContent">
+                    <pie-text-input autoFocus placeholder="search in categories">
+                        <icon-search slot="leadingIcon"></icon-search>
+                    </pie-text-input>
+                </div>
+                ${renderCategoryChipsList(100)}
+            </pie-modal>`;
+};
+
+const SlottedFooterContentStoryTemplate = (props: ModalProps) => {
     const {
         aria,
         hasBackButton,
@@ -457,63 +634,21 @@ export const LargeTextContent = createBaseModalStory({
     Placeat, ad! Quidem error aliquam atque aut, voluptates voluptatibus cumque quia? Laboriosam ab mollitia laborum maxime numquam similique eveniet quaerat? Et, nemo natus officia cum hic adipisci doloremque! Quia, delectus.`,
 });
 
-export const CustomFooter = createStory<ModalProps>(CustomFooterStoryTemplate, defaultArgs)();
+export const SlottedImageContent = createStory<ModalProps>(SlottedImageContentStoryTemplate, defaultArgs)({
+    imageSlotMode: 'image',
+});
+
+export const SlottedImageAnimation = createStory<ModalProps>(SlottedImageAnimationStoryTemplate, defaultArgs)({});
+
+export const SlottedHeaderContent = createStory<ModalProps>(SlottedHeaderContentTemplate, defaultArgs)({
+    isFooterPinned: false,
+    hasBackButton: false,
+});
+
+export const SlottedFooterContent = createStory<ModalProps>(SlottedFooterContentStoryTemplate, defaultArgs)();
 
 const renderCategoryChipsList = (length: number) => html`
     <ul role="list" style="list-style-type: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--dt-spacing-b);">
         ${Array.from({ length }, (_, i) => html`<li role="listitem"><pie-chip variant="ghost">Chip ${i + 1}</pie-chip></li>`)}
     </ul>
 `;
-
-const customHeaderContentTemplate = (props: ModalProps) => {
-    const {
-        aria,
-        hasBackButton,
-        hasStackedActions,
-        heading,
-        headingLevel,
-        isDismissible,
-        isHeadingEmphasised,
-        isFooterPinned,
-        isFullWidthBelowMid,
-        isLoading,
-        isOpen,
-        position,
-        returnFocusAfterCloseSelector,
-        size,
-        backgroundColor,
-    } = props;
-    return html`
-        <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
-        <pie-modal
-            .aria="${aria}"
-            heading="${heading}"
-            headingLevel="${ifDefined(headingLevel)}"
-            ?hasBackButton="${hasBackButton}"
-            ?hasStackedActions="${hasStackedActions}"
-            ?isDismissible="${isDismissible}"
-            ?isHeadingEmphasised="${isHeadingEmphasised}"
-            ?isFooterPinned="${isFooterPinned}"
-            ?isFullWidthBelowMid="${isFullWidthBelowMid}"
-            ?isLoading="${isLoading}"
-            ?isOpen="${isOpen}"
-            position="${ifDefined(position)}"
-            returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
-            size="${ifDefined(size)}"
-            backgroundColor="${ifDefined(backgroundColor)}"
-            @pie-modal-close="${closeAction}"
-            @pie-modal-open="${openAction}"
-            @pie-modal-back="${backClickAction}">
-                <div slot="headerContent">
-                    <pie-text-input autoFocus placeholder="search in categories">
-                        <icon-search slot="leadingIcon"></icon-search>
-                    </pie-text-input>
-                </div>
-                ${renderCategoryChipsList(100)}
-            </pie-modal>`;
-};
-
-export const CustomHeaderContent = createStory<ModalProps>(customHeaderContentTemplate, defaultArgs)({
-    isFooterPinned: false,
-    hasBackButton: false,
-});

@@ -54,14 +54,31 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `position`                       | `"center"`, `"top"`                               | The position of the modal; this controls where it will appear on the page.                                                                                                                                                          | `"center"`  |
 | `returnFocusAfterCloseSelector` | —                                                 | If provided, focus will be sent to the first element that matches this selector when the modal is closed. If not provided, the `dialog` element will return focus to the element that opened the modal.                            | —           |
 | `size`                           | `"small"`, `"medium"`, `"large"`                  | Determines the maximum width of the modal. Large modals will expand to fill the entire page at narrow viewports.                                                                                                                    | `"medium"`  |
-| `backgroundColor`                | `"default"`, `"subtle"`, `"brand-01"`, `"brand-02"`, `"brand-03"`, `"brand-03-subtle"`, `"brand-04"`, `"brand-04-subtle"`, `"brand-05"`, `"brand-05-subtle"`, `"brand-06"`, `"brand-06-subtle"`, `"brand-08"`, `"brand-08-subtle"` | Sets the background color for the modal.                                                                                                                                                                         | `"default"` |
+| `backgroundColor`                | `"default"`, `"subtle"`, `"brand-01"`, `"brand-02"`, `"brand-03"`, `"brand-03-subtle"`, `"brand-04"`, `"brand-04-subtle"`, `"brand-05"`, `"brand-05-subtle"`, `"brand-06"`, `"brand-06-subtle"`, `"brand-08"`, `"brand-08-subtle"` | Sets the background color for the modal.           | `"default"` |
+| `imageSlotMode`                | `"image"`, `"illustration"`                         | This property controls if and how the image slot will display its content. `"image"` will display the slot content in a rectangle, covering the entire width of the modal, while `"illustration"` will display the slot content inside a square container. If not specified it will not display the image slot content. | —           |
+| `imageSlotAspectRatio`         | `"small"`, `"medium"`, `"large"`                    | If the `imageSlotMode` is set to `image`, this property controls the aspect ratio of the image container. The aspect ratios are the following: `"small"` : `4:1`, `"medium"` : `3:1`, `"large"` : `21:9`.                           | `"medium"`     |
 
 ### Slots
 | Slot      | Description                                                        |
 |-----------|--------------------------------------------------------------------|
 | `default` | The default slot is used to pass content into the modal component. |
+| `image`   | Used to pass optional content to the modal component image area.  |
 | `headerContent` | Used to pass additional content to the modal header that scrolls with the heading and controls. |
 | `footer`  | Used to pass optional content to the modal component footer area.  |
+
+#### Slots display order
+
+The order of content rendering is as follows:
+1. `image` slot (if provided)
+2. Modal header (including `heading` prop and `headerContent` slot, if provided)
+3. `default` slot (main content of the modal)
+4. `footer` slot (if provided)
+
+#### Image Slot Guidelines
+> The `image` slot is designed to accommodate various types of visual content, such as images or illustrations.
+> When using the image slot, please ensure the content is appropriately styled to fit within one of the `imageSlotMode`.
+> The image slot can handle any type of content, such as IMG tags, SVGs, or other HTML elements.
+> Animations or videos can be used, however be cautious about performance implications.
 
 ### CSS Variables
 This component does not expose any CSS variables for style overrides.

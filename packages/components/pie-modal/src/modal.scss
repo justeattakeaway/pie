@@ -16,6 +16,7 @@
     --modal-content-color: var(--dt-color-content-default);
     --modal-bg-color: var(--dt-color-container-default);
     --modal-elevation: var(--dt-elevation-below-20);
+    --modal-image-slot-bg-color: none;
 
     &:focus-visible {
         outline: none;
@@ -134,6 +135,65 @@
         }
     }
 
+    & .c-modal-closeBtn {
+        grid-area: close;
+        margin-block-start: var(--dt-spacing-b);
+        margin-block-end: var(--dt-spacing-b);
+        margin-inline-start: var(--dt-spacing-none);
+        margin-inline-end: var(--dt-spacing-b);
+
+        @include media('>md') {
+            margin-block-start: var(--dt-spacing-c);
+            margin-block-end: var(--dt-spacing-c);
+            margin-inline-start: var(--dt-spacing-none);
+            margin-inline-end: var(--dt-spacing-c);
+        }
+    }
+
+    & .c-modal-imageSlot {
+        &.c-modal-imageSlot--illustration {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            background-color:var(--modal-image-slot-bg-color);
+
+            ::slotted([slot="image"]) {
+                width: 168px;
+                height: 168px;
+                overflow: hidden;
+            }
+        }
+
+        &.c-modal-imageSlot--image {
+            overflow: hidden;
+
+            // imageSlot--medium = default
+            aspect-ratio: 3/1;
+
+            &.c-modal-imageSlot--small {
+                aspect-ratio: 4/1;
+            }
+
+            &.c-modal-imageSlot--large {
+                aspect-ratio: 21/9;
+            }
+
+            ::slotted([slot="image"]) {
+                width: 100%;
+            }
+        }
+
+        & .c-modal-closeBtn {
+            position: absolute;
+            inset-block-start: 0;
+            inset-inline-end: 0;
+
+            margin-block-start: var(--dt-spacing-d);
+            margin-inline-end:  var(--dt-spacing-d);
+        }
+    }
+
     & .c-modal-footer {
         --modal-button-spacing: var(--dt-spacing-d);
         --modal-footer-padding: var(--dt-spacing-d);
@@ -245,21 +305,6 @@
             margin-block-end: var(--dt-spacing-c);
             margin-inline-start: var(--dt-spacing-c);
             margin-inline-end: var(--dt-spacing-none);
-        }
-    }
-
-    & .c-modal-closeBtn {
-        grid-area: close;
-        margin-block-start: var(--dt-spacing-b);
-        margin-block-end: var(--dt-spacing-b);
-        margin-inline-start: var(--dt-spacing-none);
-        margin-inline-end: var(--dt-spacing-b);
-
-        @include media('>md') {
-            margin-block-start: var(--dt-spacing-c);
-            margin-block-end: var(--dt-spacing-c);
-            margin-inline-start: var(--dt-spacing-none);
-            margin-inline-end: var(--dt-spacing-c);
         }
     }
 
@@ -378,8 +423,7 @@
     }
 
     // Additional background colors
-    // TODO: This will be implemented by DSW-3541 since this color only applies to image slot background, not the whole modal
-    // &.c-modal--bg-subtle { --modal-bg-color: var(--dt-color-container-subtle); }
+    &.c-modal--bg-subtle { --modal-image-slot-bg-color: var(--dt-color-container-subtle); }
 
     &.c-modal--bg-brand-01 { --modal-bg-color: var(--dt-color-support-brand-01); }
 
