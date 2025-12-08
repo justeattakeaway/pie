@@ -20,8 +20,8 @@ function addedComponentsPostprocessor (messages, filePath, { readFileSync, isFil
     const isNewFile = isFileNew(relativeFilePath);
 
     // Get file content before and after
-    const mainBranchName = getDefaultBranchName();
-    const filePreviousState = isNewFile ? '' : getFileStateFromBranch(relativeFilePath, mainBranchName);
+    const ref = 'BASE_SHA' in process.env && process.env.BASE_SHA;
+    const filePreviousState = isNewFile ? '' : getFileStateFromBranch(relativeFilePath, ref, getDefaultBranchName());
     const fileCurrentState = readFileSync(relativeFilePath, 'utf8');
 
     // Get list of added components
