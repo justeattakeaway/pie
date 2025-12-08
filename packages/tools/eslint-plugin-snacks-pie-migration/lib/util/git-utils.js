@@ -16,13 +16,13 @@ function isFileNew (relativeFilePath) {
 }
 
 /**
- * Get file content from a specific branch
+ * Get file content from a ref
  * @param {string} relativeFilePath - The relative path to the file from the repo root
- * @param {string} ref - SHA check the file content from
- * @param {string} branch - Alternatively, the branch name to check the file content from
+ * @param {string} ref - SHA ref to check the file content from, give preference to this option when running on CI
+ * @param {string} branch - Alternatively, the branch name to check the file content from, give preference to this option when running on local environment
  * @returns
  */
-function getFileStateFromBranch (relativeFilePath, ref, branch = 'main') {
+function getFileStateFromRef (relativeFilePath, ref, branch = 'main') {
     try {
         // If the base sha wasn't provided, try to guess with merge-base
         const sha = ref || execSync(`git merge-base HEAD ${branch}`, { encoding: 'utf8' }).trim();
@@ -48,6 +48,6 @@ function getDefaultBranchName () {
 
 module.exports = {
     isFileNew,
-    getFileStateFromBranch,
+    getFileStateFromRef,
     getDefaultBranchName,
 };

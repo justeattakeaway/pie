@@ -10,7 +10,7 @@ const { getDefaultBranchName } = require('./git-utils');
  * @param filePath - the file path
  * @returns A filtered array of messages based on certain conditions
  */
-function addedComponentsPostprocessor (messages, filePath, { readFileSync, isFileNew, getFileStateFromBranch }) {
+function addedComponentsPostprocessor (messages, filePath, { readFileSync, isFileNew, getFileStateFromRef }) {
     // Get file relative path to the repo
     const relativeFilePath = path.relative(process.cwd(), filePath)
         .replace(/\\/g, '/'); // Fix path handling on Windows
@@ -20,8 +20,10 @@ function addedComponentsPostprocessor (messages, filePath, { readFileSync, isFil
     const isNewFile = isFileNew(relativeFilePath);
 
     // Get file content before and after
+    //   In CI is preferred to use the base SHA as it is easily available
+    //   In local environment it's easier to pull the info with git merge-base from the main branch
     const ref = 'BASE_SHA' in process.env && process.env.BASE_SHA;
-    const filePreviousState = isNewFile ? '' : getFileStateFromBranch(relativeFilePath, ref, getDefaultBranchName());
+    const filePreviousState = isNewFile ? '' : getFileStateFromRef(relativeFilePath, ref, getDefaultBranchName());
     const fileCurrentState = readFileSync(relativeFilePath, 'utf8');
 
     // Get list of added components

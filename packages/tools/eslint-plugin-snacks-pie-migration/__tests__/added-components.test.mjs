@@ -24,7 +24,7 @@ describe('added-components processor', () => {
 
             const mockConfig = {
                 isFileNew: () => false,
-                getFileStateFromBranch: () => 'import { Button } from "snacks-design-system"',
+                getFileStateFromRef: () => 'import { Button } from "snacks-design-system"',
                 readFileSync: () => 'import { Button } from "snacks-design-system"',
             };
 
@@ -47,7 +47,7 @@ describe('added-components processor', () => {
 
             const mockConfig = {
                 isFileNew: () => false,
-                getFileStateFromBranch: () => 'import { Modal } from "snacks-design-system"',
+                getFileStateFromRef: () => 'import { Modal } from "snacks-design-system"',
                 readFileSync: () => 'import { Modal, Button } from "snacks-design-system"',
             };
 
@@ -70,7 +70,7 @@ describe('added-components processor', () => {
 
             const mockConfig = {
                 isFileNew: () => true,
-                getFileStateFromBranch: () => '',
+                getFileStateFromRef: () => '',
                 readFileSync: () => 'import { Button } from "snacks-design-system"',
             };
 
@@ -93,7 +93,7 @@ describe('added-components processor', () => {
 
             const mockConfig = {
                 isFileNew: () => true,
-                getFileStateFromBranch: () => '',
+                getFileStateFromRef: () => '',
                 readFileSync: () => 'import { Button } from "snacks-design-system"',
             };
 
