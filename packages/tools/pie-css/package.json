@@ -19,8 +19,7 @@
     "cdnContentType": "text/css"
   },
   "scripts": {
-    "build": "run -T ts-node ./buildCss.ts && yarn build:type",
-    "build:type": "sass scss/_internal/typography.scss dist/helpers/typography.css --no-source-map",
+    "build": "run -T ts-node ./buildCss.ts && sass scss/_internal/typography.scss dist/helpers/typography.css --no-source-map",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./**/*.{css,scss}",
