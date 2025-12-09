@@ -20,7 +20,7 @@
     "cdnContentType": "text/css"
   },
   "scripts": {
-    "build": "run -T ts-node ./buildCss.ts && sass scss/_internal/typography.scss dist/helpers/typography.css --no-source-map",
+    "build": "run -T ts-node ./buildCss.ts && run -T sass scss/_internal/typography.scss dist/helpers/typography.css --no-source-map",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./**/*.{css,scss}",
@@ -42,7 +42,6 @@
     "include-media": "2.0.0",
     "postcss": "8.4.32",
     "postcss-import": "15.1.0",
-    "sass": "1.94.2",
     "w3c-css-validator": "1.3.2"
   },
   "volta": {
