@@ -10,7 +10,8 @@
   "homepage": "https://webc.pie.design/?path=/docs/additional-libraries-pie-css--docs",
   "author": "Just Eat Takeaway.com - Design System Team",
   "files": [
-    "scss"
+    "scss",
+    "dist"
   ],
   "main": "dist/index.css",
   "pieMetadata": {
