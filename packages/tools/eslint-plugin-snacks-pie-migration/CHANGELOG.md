@@ -1,5 +1,11 @@
 # @justeattakeaway/eslint-plugin-snacks-pie-migration
 
+## 0.1.2
+
+### Patch Changes
+
+- [Added] - possibility of passing the BASE_SHA environment variable for helping to compare files state on CI ([#2629](https://github.com/justeattakeaway/pie/pull/2629)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.1.1
 
 ### Patch Changes

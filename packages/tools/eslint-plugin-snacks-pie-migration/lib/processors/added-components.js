@@ -1,5 +1,5 @@
 const { readFileSync } = require('fs');
-const { isFileNew, getFileStateFromBranch } = require('../util/git-utils');
+const { isFileNew, getFileStateFromRef } = require('../util/git-utils');
 const { addedComponentsPostprocessor } = require('../util/added-components-postprocessor');
 
 /**
@@ -9,6 +9,6 @@ const { addedComponentsPostprocessor } = require('../util/added-components-postp
  */
 module.exports = {
     postprocess (messages, filePath) {
-        return addedComponentsPostprocessor(messages, filePath, { readFileSync, isFileNew, getFileStateFromBranch });
+        return addedComponentsPostprocessor(messages, filePath, { readFileSync, isFileNew, getFileStateFromRef });
     },
 };

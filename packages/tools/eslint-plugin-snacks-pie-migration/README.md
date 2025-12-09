@@ -154,7 +154,9 @@ This is particularly useful during migration to PIE components, as it allows you
 - Focus on preventing new deprecated component usage
 - Gradually refactor existing code at your own pace
 
-ℹ️ Changes will be compared against the `main` branch. In case `main` doesn't exist, the `master` branch will be used.
+> ℹ️ When running locally, the branch changes will be compared against the merge base ref. It assumes the `main` branch exists. Otherwise the `master` branch will be used. In any case, no extra configuration is needed.
+
+> ℹ️ When running on Github CI, the plugin will use the PR base branch SHA since the merge base can't be easily inferred. In this case, ensure to pass the `BASE_SHA` environment variable. Its value should be set to `github.event.pull_request.base.sha`.
 
 To use the processor, add the following line to your ESLint configuration:
 
