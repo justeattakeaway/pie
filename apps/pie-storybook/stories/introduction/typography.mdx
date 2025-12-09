@@ -9,6 +9,7 @@ In order for our components to look and feel like the rest of the Just Eat Takea
 
 - [The JETSansDigital Variable Font](#the-jetsansdigital-variable-font)
 - [Font Loading](#font-loading)
+- [Italic Font Usage](#italic-font-usage)
 - [Font Optimisation (subsetting)](#font-optimisation-subsetting)
 
 ## The JETSansDigital Variable Font
@@ -50,6 +51,19 @@ body {
 ```shell
 # If your application needs extended language support, replace the font URL with the extended version.
 https://pie-design-system-cdn.production.jet-external.com/fonts/JETSansDigital-VF-optimised-extended.woff2
+```
+
+## Italic Font Usage
+
+Safari has a known issue with variable fonts that use the `oblique` angle range syntax in `@font-face` declarations. When applying `font-style: italic`, Safari doesn't properly apply the slant axis and may create a synthetic italic that appears incorrectly rendered or "double bold."
+
+To fix this, you must include `font-variation-settings: "slnt" -20` alongside `font-style: italic` when styling it:
+
+```css
+.italic-text {
+    font-style: italic;
+    font-variation-settings: "slnt" -20;
+}
 ```
 
 ## Font Optimisation (subsetting)

@@ -15,8 +15,8 @@ This is our primary font family.
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/typography/jet-sans-digital.svg",
-    width: "100px",
-    caption: "The example above shows JET Sans Digital in Extra Bold."
+    width: "96px",
+    caption: "The example above shows a sample of JET Sans Digital."
 } %}
 
 ### Arial
@@ -24,8 +24,8 @@ Used only as a fallback font.
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/typography/arial.svg",
-width: "98px",
-caption: "The example above shows Arial Regular, which is used as a fallback font."
+width: "103px",
+caption: "The example above shows a sample of Arial Regular.."
 } %}
 
 ### PT Mono
@@ -33,14 +33,14 @@ Used only for snippets of code.
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/typography/pt-mono.svg",
-    width: "98px",
-    caption: "The example above shows PT Mono, a font used for code snippets."
+    width: "90px",
+    caption: "The example above shows a sample of PT Mono."
 } %}
 
 ---
 
 ## Our type scale
-Our type scale uses multiples of 4 for type sizes and line heights to align with our 4px vertical grid.
+Our type scale uses multiples of 4 for type sizes as well as line height, helping it align to our 4px vertical grid.
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/typography/type-scale.svg",
@@ -52,16 +52,16 @@ Our type scale uses multiples of 4 for type sizes and line heights to align with
 ## Responsive type
 We assign different values to some of our typographic styles depending on the size of users’ screens. Wider screens use bigger type sizes and more generous spacing, while narrow screens use tighter and smaller type settings.
 
-Here’s an example of how our **$heading-L** looks on wide and narrow screens.
+Here’s an example of how our $heading-L looks on wide and narrow screens.
 
 ### Wide screens
 
 Screen size: >768px
-Text size: 28px • Line size: 36px
+Text size: 28px • Line size: 32px
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/typography/responsive-wide.svg",
-    width: "80px",
+    width: "82px",
     caption: "The example above shows how a $heading-l looks on a wide screen."
 } %}
 
@@ -71,11 +71,11 @@ Text size: 24px • Line size: 32px
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/typography/responsive-narrow.svg",
-    width: "68px",
+    width: "70px",
     caption: "The example above shows how a $heading-l looks on a narrow screen."
 } %}
 
-**Only our heading and subheading typographic styles are responsive.** Our body styles are the same for all screens.
+Only our heading and subheading typographic styles are responsive. Our body styles are the same for all screens.
 
 {% notification {
     type: "information",
@@ -85,7 +85,21 @@ Text size: 24px • Line size: 32px
 ---
 
 ## Font weights
-Font weight refers to how bold or light your text will appear; the higher the font weight, the bolder the text. We use three types of font weight.
+Font weight refers to a value assigned to your font which determines how bold or light your text will seem. We use three types of font weight.
+
+### Extra-black
+
+{% contentPageImage {
+    src:"../../../assets/img/foundations/typography/font-weight-extra-black.svg",
+    width: "106px"
+} %}
+
+### Black
+
+{% contentPageImage {
+    src:"../../../assets/img/foundations/typography/font-weight-black.svg",
+    width: "104px"
+} %}
 
 ### Extra-bold
 
@@ -117,6 +131,38 @@ To keep the hierarchy and make things a bit simpler we use bold weights on all o
 ## Font styles
 Font styles refer to the text decorations used to emphasise different features of our typographic styles.
 
+### Italic
+We use italics to make type feel more dynamic and to transfer a JET brand specific moment, it can also be used to imply motion which references our service as a delivery business. 
+
+Think about context and hierarchy, if the information in your heading is the most relevant information and transfers a JET brand moment, then consider using an italic style.
+
+{% contentPageImage {
+    src:"../../../assets/img/foundations/typography/italic.svg",
+    width: "105px",
+    caption: "The example above shows how JET Sans Digital looks when italicised."
+} %}
+
+{% usage {
+    do: {
+        type: usageTypes.text,
+        items: [
+            "JET brand moments",
+            "Marketing and upsell cases",
+            "Time or speed related information"
+        ]
+    },
+    dont: {
+        type: usageTypes.text,
+        items: [
+            "Text below 16pt",
+            "Big blocks of text where readability would be compromised",
+            "Non JET related names or brands",
+            "Functional parts of the UI like CTAs or Tags"
+        ]
+    }
+} %}
+
+
 ### Underline
 We use underlines for interactive elements such as links, especially when they are placed inside a block of text.
 
@@ -141,11 +187,11 @@ We use this style when indicating something is no longer valid, but can still be
 This property defines the horizontal alignment of the text. It includes three types of alignment.
 
 ### Left aligned
-This is the preferred way to align text within our products because it makes it easier to identify the start of a new line (for left-to-right languages).
+This is the preferred way to align text within our products. Left-aligned text performs better for readers because it helps users to easily identify the start of a new line.
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/typography/left-aligned.svg",
-width: "248px"
+width: "247px"
 } %}
 
 ### Centre aligned
@@ -167,45 +213,45 @@ This alignment should also be used sparingly. This approach is usually found in 
 ---
 
 ## Line length
-Setting the right line length is key to the readability of the text in our products. A good practice is to have a maximum line length of between 80 and 100 characters, with a minimum of 60.
+Setting the right line length is key to the readability of the text in our products. With that in mind, a good practice is to keep the length between 80 and 100 characters per line, with a minimum of 60.
 
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/typography/line-length.svg",
     width: "771.4px",
-    caption: "Visual representation of the most common line lengths in our products."
+    caption: "Visual representation of the most common line lenghts in our products."
 } %}
 
 ---
 
 ## Paragraph spacing
-This is the space between two successive paragraphs of text. Keeping consistent paragraph spacing throughout your products will help the user understand the hierarchy of the information and will be easier to read. We use three measures.
+It represents the amount of white spacing between two paragraphs of your text. Keeping consistent paragraph spacing measures throughout your products will help the user understand the hierarchy of the information and will make your texts easier to read. We use three measures.
 
 ### Paragraph Spacing 1
-This is the most common paragraph spacing measure. It uses **16px** between paragraphs.
+This is the most commonly-used paragraph spacing measure. It uses 16px between paragraphs.
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/typography/paragraph-spacing-one.svg",
-    width: "235px"
+    width: "244px"
 } %}
 
 ### Paragraph Spacing 2
-A paragraph spacing measure used for longer bits of text where spacing is key. It uses **14px** between paragraphs.
+A paragraph spacing measure used for longer bits of text where spacing is key. It uses 14px between paragraphs.
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/typography/paragraph-spacing-two.svg",
-    width: "235px"
+    width: "244px"
 } %}
 
 ### Paragraph Spacing 3
-An exceptional measure used only where the other options pose a problem to the overall layout.  It uses **12px** between paragraphs.
+An exceptional measure used only where the other options pose a problem to the overall layout.  It uses 12px between paragraphs.
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/typography/paragraph-spacing-three.svg",
-    width: "235px"
+    width: "244px"
 } %}
 
 ---
 
 ## Letter spacing
-Letter spacing is used to determine the horizontal spacing between text characters. In digital applications this has been kept to **0px** (standard spacing) for all typographic styles.
+Letter spacing is used to determine the horizontal spacing between text characters. In digital applications this has been kept to 0px (standard spacing) for all typographic styles.

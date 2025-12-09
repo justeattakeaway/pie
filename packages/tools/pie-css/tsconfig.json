@@ -9,7 +9,7 @@
       "strictNullChecks": true,
       "sourceMap": false,
       "skipLibCheck": true,
-      "types": ["vitest/globals"]
+      "types": ["node", "vitest/globals"]
   },
   "exclude": [
       "node_modules",

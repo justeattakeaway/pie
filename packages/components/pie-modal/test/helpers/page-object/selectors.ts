@@ -12,6 +12,10 @@ const modal = {
             description: 'The selector for the close button',
             dataTestId: 'modal-close-button',
         },
+        image: {
+            description: 'The selector for the modal image',
+            dataTestId: 'modal-image',
+        },
         header: {
             description: 'The selector for the modal header',
             dataTestId: 'modal-header',

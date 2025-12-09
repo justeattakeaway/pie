@@ -4,7 +4,7 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-modal';
 import {
-    type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, positions, defaultProps,
+    type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, backgroundColors, positions, defaultProps, imageSlotModes, imageSlotAspectRatios,
 } from '@justeattakeaway/pie-modal';
 
 import '@justeattakeaway/pie-button';
@@ -74,6 +74,16 @@ const modalStoryMeta: ModalStoryMeta = {
             description: 'When true, displays a loading spinner in the modal.',
             control: 'boolean',
         },
+        imageSlotMode: {
+            description: 'The mode to use for the image slot. "image" mode is for photographic content, while "illustration" mode is for graphic illustrations.',
+            control: 'select',
+            options: ['', ...imageSlotModes],
+        },
+        imageSlotAspectRatio: {
+            description: 'The aspect ratio to use for the image slot. Applies only to the imageSlotMode "image"',
+            control: 'select',
+            options: imageSlotAspectRatios,
+        },
         heading: {
             description: 'The text to display in the modal\'s heading.',
             control: 'text',
@@ -91,6 +101,11 @@ const modalStoryMeta: ModalStoryMeta = {
             description: 'The size of the modal; this controls how wide it will appear on the page.',
             control: 'radio',
             options: sizes,
+        },
+        backgroundColor: {
+            description: 'The background color of the modal.',
+            control: 'select',
+            options: backgroundColors,
         },
         position: {
             description: 'The position of the modal; this controls where it will appear on the page.',
@@ -213,6 +228,7 @@ const BaseStoryTemplate = (props: ModalProps) => {
         position,
         returnFocusAfterCloseSelector,
         size,
+        backgroundColor,
         slot,
         supportingAction,
     } = props;
@@ -234,6 +250,7 @@ const BaseStoryTemplate = (props: ModalProps) => {
             position="${ifDefined(position)}"
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             size="${ifDefined(size)}"
+            backgroundColor="${ifDefined(backgroundColor)}"
             .supportingAction="${supportingAction}"
             @pie-modal-close="${closeAction}"
             @pie-modal-open="${openAction}"
@@ -275,6 +292,7 @@ const FormStoryTemplate = (props: ModalProps) => {
         position,
         returnFocusAfterCloseSelector,
         size,
+        backgroundColor,
     } = props;
     return html`
         <pie-button @click=${toggleModal} id="open-modal">Toggle Modal</pie-button>
@@ -293,6 +311,7 @@ const FormStoryTemplate = (props: ModalProps) => {
             position="${ifDefined(position)}"
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             size="${ifDefined(size)}"
+            backgroundColor="${ifDefined(backgroundColor)}"
             @pie-modal-close="${closeAction}"
             @pie-modal-open="${openAction}"
             @pie-modal-back="${backClickAction}">
@@ -340,6 +359,7 @@ const CustomFooterStoryTemplate = (props: ModalProps) => {
         position,
         returnFocusAfterCloseSelector,
         size,
+        backgroundColor,
         slot,
     } = props;
     return html`
@@ -358,6 +378,7 @@ const CustomFooterStoryTemplate = (props: ModalProps) => {
                 position="${ifDefined(position)}"
                 returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
                 size="${ifDefined(size)}"
+                backgroundColor="${ifDefined(backgroundColor)}"
                 @pie-modal-close="${closeAction}"
                 @pie-modal-open="${openAction}"
                 @pie-modal-back="${backClickAction}">
@@ -432,6 +453,7 @@ const CustomHeaderContentStoryTemplate = (props: ModalProps) => {
         position,
         returnFocusAfterCloseSelector,
         size,
+        backgroundColor,
         slot,
     } = props;
     return html`
@@ -450,12 +472,68 @@ const CustomHeaderContentStoryTemplate = (props: ModalProps) => {
                 position="${ifDefined(position)}"
                 returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
                 size="${ifDefined(size)}"
+                backgroundColor="${ifDefined(backgroundColor)}"
                 @pie-modal-close="${closeAction}"
                 @pie-modal-open="${openAction}"
                 @pie-modal-back="${backClickAction}">
                     <div slot="headerContent">
                         <div id="custom-header-content" style="padding: var(--dt-spacing-e);">Header slotted content</div>
                     </div>
+                    ${sanitizeAndRenderHTML(slot)}
+                </pie-modal>`;
+};
+
+const CustomImageSlotContentStoryTemplate = (props: ModalProps) => {
+    const {
+        aria,
+        hasBackButton,
+        heading,
+        headingLevel,
+        isDismissible,
+        isHeadingEmphasised,
+        isFooterPinned,
+        isFullWidthBelowMid,
+        isLoading,
+        isOpen,
+        position,
+        returnFocusAfterCloseSelector,
+        size,
+        backgroundColor,
+        slot,
+        imageSlotMode,
+        imageSlotAspectRatio,
+    } = props;
+
+    let imageUrl = '';
+    if (imageSlotMode === 'image') {
+        imageUrl = `./static/images/modal-image-${imageSlotAspectRatio}.jpg`;
+    } else if (imageSlotMode === 'illustration') {
+        imageUrl = './static/images/modal-image-illustration.png';
+    }
+
+    return html`
+            <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
+            <pie-modal
+                .aria="${aria}"
+                imageSlotMode="${ifDefined(imageSlotMode)}"
+                imageSlotAspectRatio="${ifDefined(imageSlotAspectRatio)}"
+                heading="${heading}"
+                headingLevel="${ifDefined(headingLevel)}"
+                ?hasBackButton="${hasBackButton}"
+                ?isDismissible="${isDismissible}"
+                ?isHeadingEmphasised="${isHeadingEmphasised}"
+                ?isFooterPinned="${isFooterPinned}"
+                ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+                ?isLoading="${isLoading}"
+                ?isOpen="${isOpen}"
+                position="${ifDefined(position)}"
+                returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
+                size="${ifDefined(size)}"
+                backgroundColor="${ifDefined(backgroundColor)}"
+                @pie-modal-close="${closeAction}"
+                @pie-modal-open="${openAction}"
+                @pie-modal-back="${backClickAction}">
+                    <img slot="image" src="${imageUrl}" alt="Custom image slot content" />
                     ${sanitizeAndRenderHTML(slot)}
                 </pie-modal>`;
 };
@@ -477,11 +555,13 @@ export const LargeTextContent = createBaseModalStory({
     slot: createLargeTextContent(),
 });
 
-export const CustomFooter = createStory<ModalProps>(CustomFooterStoryTemplate, defaultArgs)();
+export const CustomImageSlotContent = createStory<ModalProps>(CustomImageSlotContentStoryTemplate, defaultArgs)();
 
 export const CustomHeaderContent = createStory<ModalProps>(CustomHeaderContentStoryTemplate, defaultArgs)({
     slot: `<div id="scrollableContent">${createLargeTextContent()}${createLargeTextContent()}</div>`,
 });
+
+export const CustomFooter = createStory<ModalProps>(CustomFooterStoryTemplate, defaultArgs)();
 
 export const MissingDialogSimulation = createStory<ModalProps>(MissingDialogSimulationTemplate, defaultArgs)({
     isOpen: false,

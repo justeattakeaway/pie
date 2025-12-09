@@ -68,6 +68,7 @@ const buildFontExample = (token, tokenMetadata, path) => {
     ].filter(Boolean);
 
     if (paragraphSpacing) classes.push('c-tokenTable-example-paragraph--font');
+    if (fontStyle === 'italic') classes.push('c-tokensTable-example--font-italic');
 
     const content = paragraphSpacing ? '<p>Paragraph</p><p>Paragraph</p>' : 'String';
 

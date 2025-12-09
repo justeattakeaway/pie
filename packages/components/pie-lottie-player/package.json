@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-lottie-player",
   "description": "PIE Design System Lottie Player built using Web Components",
-  "version": "0.2.11",
+  "version": "0.3.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",

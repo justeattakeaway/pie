@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-lottie-player
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - ensure animations can automatically scale to their container size. ([#2621](https://github.com/justeattakeaway/pie/pull/2621)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.2.11
 
 ### Patch Changes

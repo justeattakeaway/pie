@@ -5,6 +5,8 @@ import { type Variant as ButtonVariant } from '@justeattakeaway/pie-button/src/d
 export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const sizes = ['small', 'medium', 'large'] as const;
 export const positions = ['top', 'center'] as const;
+export const imageSlotModes = ['image', 'illustration'] as const;
+export const imageSlotAspectRatios = ['small', 'medium', 'large'] as const;
 
 type AriaProps = {
     close?: string;
@@ -28,6 +30,23 @@ type ActionProps = {
      */
     ariaLabel?: string;
 };
+
+export const backgroundColors = [
+    'default',
+    'subtle',
+    'brand-01',
+    'brand-02',
+    'brand-03',
+    'brand-03-subtle',
+    'brand-04',
+    'brand-04-subtle',
+    'brand-05',
+    'brand-05-subtle',
+    'brand-06',
+    'brand-06-subtle',
+    'brand-08',
+    'brand-08-subtle',
+] as const;
 
 export type ModalProps = {
     /**
@@ -117,6 +136,21 @@ export type ModalProps = {
      * The size of the modal; this controls how wide it will appear on the page.
      */
     size?: typeof sizes[number];
+
+    /**
+     * The background color for the modal.
+     */
+    backgroundColor?: typeof backgroundColors[number];
+
+    /**
+     * The mode of the image slot; this controls whether the slot is treated as an image or an illustration.
+     */
+    imageSlotMode?: typeof imageSlotModes[number];
+
+    /**
+     * The aspect ratio of the image slot; applies only when `imageSlotMode` is set to `image`.
+     */
+    imageSlotAspectRatio?: typeof imageSlotAspectRatios[number];
 };
 
 /**
@@ -156,7 +190,7 @@ export const ON_MODAL_SUPPORTING_ACTION_CLICK = 'pie-modal-supporting-action-cli
 
 export type ModalActionType = 'leading' | 'supporting';
 
-export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'heading' | 'leadingAction' | 'supportingAction' | 'returnFocusAfterCloseSelector'>>;
+export type DefaultProps = ComponentDefaultProps<ModalProps, keyof Omit<ModalProps, 'aria' | 'heading' | 'leadingAction' | 'supportingAction' | 'returnFocusAfterCloseSelector' | 'imageSlotMode'>>;
 
 export const defaultProps: DefaultProps = {
     hasBackButton: false,
@@ -170,4 +204,6 @@ export const defaultProps: DefaultProps = {
     isLoading: false,
     position: 'center',
     size: 'medium',
+    backgroundColor: 'default',
+    imageSlotAspectRatio: 'medium',
 };
