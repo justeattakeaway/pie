@@ -3487,7 +3487,6 @@ __metadata:
     include-media: 2.0.0
     postcss: 8.4.32
     postcss-import: 15.1.0
-    sass: 1.94.2
     w3c-css-validator: 1.3.2
   languageName: unknown
   linkType: soft
@@ -20701,23 +20700,6 @@ __metadata:
   bin:
     sass: sass.js
   checksum: 06e163c37af466ec194cf2ed8dab616372afeb19322d356947d48ea664fc38398ae77c4d91bea9cb0ace954ce289d5518d0f8555ecc49f6bf2539a8ef52fc580
-  languageName: node
-  linkType: hard
-
-"sass@npm:1.94.2":
-  version: 1.94.2
-  resolution: "sass@npm:1.94.2"
-  dependencies:
-    "@parcel/watcher": ^2.4.1
-    chokidar: ^4.0.0
-    immutable: ^5.0.2
-    source-map-js: ">=0.6.2 <2.0.0"
-  dependenciesMeta:
-    "@parcel/watcher":
-      optional: true
-  bin:
-    sass: sass.js
-  checksum: 75460a0d24f0ab1054bb1b88cb71cc51b592b48461ec540be9275fd4010b3b708ed734bfd337399bd8ec9c8a56942482eff6c372a3ffb0154417b6f4494522b5
   languageName: node
   linkType: hard
 
