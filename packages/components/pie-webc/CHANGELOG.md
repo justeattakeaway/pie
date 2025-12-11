@@ -1,5 +1,30 @@
 # @justeattakeaway/pie-webc
 
+## 0.7.37
+
+### Patch Changes
+
+- Updated dependencies [[`b143c14`](https://github.com/justeattakeaway/pie/commit/b143c14647e0083b959237ee10e385f1be16752d)]:
+  - @justeattakeaway/pie-modal@1.21.0
+  - @justeattakeaway/pie-cookie-banner@1.6.36
+
+## 0.7.36
+
+### Patch Changes
+
+- Updated dependencies [[`abd061f`](https://github.com/justeattakeaway/pie/commit/abd061f315904e84c28c740502a91bd06e7a1fc7)]:
+  - @justeattakeaway/pie-modal@1.20.1
+  - @justeattakeaway/pie-cookie-banner@1.6.35
+
+## 0.7.35
+
+### Patch Changes
+
+- Updated dependencies [[`d628c56`](https://github.com/justeattakeaway/pie/commit/d628c568ad04494ed4a2b9168e4f861c7bd15bf3), [`ed5386f`](https://github.com/justeattakeaway/pie/commit/ed5386f207943d866ad1a2de1e50b53adbf5d982), [`4201a63`](https://github.com/justeattakeaway/pie/commit/4201a63832cdf79e8d2795e0061ff95fe5e2ce61)]:
+  - @justeattakeaway/pie-modal@1.20.0
+  - @justeattakeaway/pie-lottie-player@0.3.0
+  - @justeattakeaway/pie-cookie-banner@1.6.34
+
 ## 0.7.34
 
 ### Patch Changes

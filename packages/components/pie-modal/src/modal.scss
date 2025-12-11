@@ -13,8 +13,10 @@
     // The base modal defaults
     --modal-border-radius: var(--dt-radius-rounded-d);
     --modal-font: var(--dt-font-interactive-l-family);
+    --modal-content-color: var(--dt-color-content-default);
     --modal-bg-color: var(--dt-color-container-default);
     --modal-elevation: var(--dt-elevation-below-20);
+    --modal-image-slot-bg-color: none;
 
     &:focus-visible {
         outline: none;
@@ -42,7 +44,7 @@
     border: none;
     box-shadow: var(--modal-elevation);
     font-family: var(--modal-font);
-    color: var(--dt-color-content-default);
+    color: var(--modal-content-color);
     background-color: var(--modal-bg-color);
 
     padding: 0;
@@ -133,6 +135,65 @@
         }
     }
 
+    & .c-modal-closeBtn {
+        grid-area: close;
+        margin-block-start: var(--dt-spacing-b);
+        margin-block-end: var(--dt-spacing-b);
+        margin-inline-start: var(--dt-spacing-none);
+        margin-inline-end: var(--dt-spacing-b);
+
+        @include media('>md') {
+            margin-block-start: var(--dt-spacing-c);
+            margin-block-end: var(--dt-spacing-c);
+            margin-inline-start: var(--dt-spacing-none);
+            margin-inline-end: var(--dt-spacing-c);
+        }
+    }
+
+    & .c-modal-imageSlot {
+        &.c-modal-imageSlot--illustration {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            background-color:var(--modal-image-slot-bg-color);
+
+            ::slotted([slot="image"]) {
+                width: 168px;
+                height: 168px;
+                overflow: hidden;
+            }
+        }
+
+        &.c-modal-imageSlot--image {
+            overflow: hidden;
+
+            // imageSlot--medium = default
+            aspect-ratio: 3/1;
+
+            &.c-modal-imageSlot--small {
+                aspect-ratio: 4/1;
+            }
+
+            &.c-modal-imageSlot--large {
+                aspect-ratio: 21/9;
+            }
+
+            ::slotted([slot="image"]) {
+                width: 100%;
+            }
+        }
+
+        & .c-modal-closeBtn {
+            position: absolute;
+            inset-block-start: 0;
+            inset-inline-end: 0;
+
+            margin-block-start: var(--dt-spacing-d);
+            margin-inline-end:  var(--dt-spacing-d);
+        }
+    }
+
     & .c-modal-footer {
         --modal-button-spacing: var(--dt-spacing-d);
         --modal-footer-padding: var(--dt-spacing-d);
@@ -206,6 +267,7 @@
             --modal-header-font-line-height: calc(var(--dt-font-heading-m-italic-line-height--narrow) * 1px);
             --modal-header-font-weight: var(--dt-font-heading-l-italic-weight);
             --modal-header-font-style: var(--dt-font-heading-l-italic-font-style);
+            font-variation-settings: "slnt" -20;
 
             @include media('>md') {
                 --modal-header-font-size: calc(var(--dt-font-heading-l-italic-size--wide) * 1px);
@@ -243,21 +305,6 @@
             margin-block-end: var(--dt-spacing-c);
             margin-inline-start: var(--dt-spacing-c);
             margin-inline-end: var(--dt-spacing-none);
-        }
-    }
-
-    & .c-modal-closeBtn {
-        grid-area: close;
-        margin-block-start: var(--dt-spacing-b);
-        margin-block-end: var(--dt-spacing-b);
-        margin-inline-start: var(--dt-spacing-none);
-        margin-inline-end: var(--dt-spacing-b);
-
-        @include media('>md') {
-            margin-block-start: var(--dt-spacing-c);
-            margin-block-end: var(--dt-spacing-c);
-            margin-inline-start: var(--dt-spacing-none);
-            margin-inline-end: var(--dt-spacing-c);
         }
     }
 
@@ -318,7 +365,7 @@
         overflow-y: auto;
 
         // These are the shadows used to indicate scrolling above and below content
-        --bg-scroll-end: linear-gradient(rgba(255, 255, 255, 0), var(--dt-color-container-default) 70%) 0 100%;
+        --bg-scroll-end: linear-gradient(rgba(255, 255, 255, 0), var(--modal-bg-color) 70%) 0 100%;
         --bg-scroll-bottom: radial-gradient(farthest-corner at 50% 100%, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)) 0 100%;
 
         // Sizes of the scroll shadows
@@ -374,4 +421,34 @@
     .c-modal-backBtn-icon:dir(rtl) {
         transform: rotate(180deg);
     }
+
+    // Additional background colors
+    &.c-modal--bg-subtle { --modal-image-slot-bg-color: var(--dt-color-container-subtle); }
+
+    &.c-modal--bg-brand-01 { --modal-bg-color: var(--dt-color-support-brand-01); }
+
+    &.c-modal--bg-brand-02 { --modal-bg-color: var(--dt-color-support-brand-02); }
+
+    &.c-modal--bg-brand-03 { --modal-bg-color: var(--dt-color-support-brand-03); }
+
+    &.c-modal--bg-brand-03-subtle { --modal-bg-color: var(--dt-color-support-brand-03-subtle); }
+
+    &.c-modal--bg-brand-04 { --modal-bg-color: var(--dt-color-support-brand-04); }
+
+    &.c-modal--bg-brand-04-subtle { --modal-bg-color: var(--dt-color-support-brand-04-subtle); }
+
+    &.c-modal--bg-brand-05 { --modal-bg-color: var(--dt-color-support-brand-05); }
+
+    &.c-modal--bg-brand-05-subtle { --modal-bg-color: var(--dt-color-support-brand-05-subtle); }
+
+    &.c-modal--bg-brand-06 {
+        --modal-content-color: var(--dt-color-content-inverse);
+        --modal-bg-color: var(--dt-color-support-brand-06);
+    }
+
+    &.c-modal--bg-brand-06-subtle { --modal-bg-color: var(--dt-color-support-brand-06-subtle); }
+
+    &.c-modal--bg-brand-08 { --modal-bg-color: var(--dt-color-support-brand-08); }
+
+    &.c-modal--bg-brand-08-subtle { --modal-bg-color: var(--dt-color-support-brand-08-subtle); }
 }
