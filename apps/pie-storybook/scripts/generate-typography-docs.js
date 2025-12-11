@@ -15,15 +15,16 @@ const OUTPUT_FILE_PATH = path.join(__dirname, '../stories/pie-css-typography.mdx
 /**
  * Parse CSS file and extract utility class information
  */
-function parseCSSFile(cssContent) {
+function parseCSSFile (cssContent) {
     const classMap = new Map(); // Track unique classes by name
     const responsiveClasses = new Set(); // Track which classes have media queries
-    
+
     // First pass: find all unique class definitions
     const classRegex = /^\.(u-font-[a-z0-9-]+)\s*\{/gm;
     let match;
-    while ((match = classRegex.exec(cssContent)) !== null) {
-        const className = match[1];
+    match = classRegex.exec(cssContent);
+    while (match !== null) {
+        const [, className] = match;
         if (!classMap.has(className)) {
             classMap.set(className, {
                 name: className,
@@ -35,22 +36,25 @@ function parseCSSFile(cssContent) {
                 hasStrong: className.includes('-strong'),
             });
         }
+        match = classRegex.exec(cssContent);
     }
-    
+
     // Second pass: find media queries and mark classes as responsive
     const mediaQueryRegex = /@media[^{]*\{[^}]*\.(u-font-[a-z0-9-]+)/g;
-    while ((match = mediaQueryRegex.exec(cssContent)) !== null) {
-        const className = match[1];
+    match = mediaQueryRegex.exec(cssContent);
+    while (match !== null) {
+        const [, className] = match;
         responsiveClasses.add(className);
+        match = mediaQueryRegex.exec(cssContent);
     }
-    
+
     // Mark responsive classes
-    responsiveClasses.forEach(className => {
+    responsiveClasses.forEach((className) => {
         if (classMap.has(className)) {
             classMap.get(className).responsive = true;
         }
     });
-    
+
     // Convert Map to Array
     return Array.from(classMap.values());
 }
@@ -58,7 +62,7 @@ function parseCSSFile(cssContent) {
 /**
  * Categorize a class name into its type
  */
-function categorizeClass(className) {
+function categorizeClass (className) {
     // Check subheading first (before heading) since it contains "heading"
     if (className.includes('subheading')) {
         return 'subheading';
@@ -81,45 +85,64 @@ function categorizeClass(className) {
 /**
  * Get a human-readable description for a class
  */
-function getClassDescription(className) {
+function getClassDescription (className) {
     const parts = className.replace('u-font-', '').split('-');
-    const size = parts.includes('xs') ? 'Extra small' :
-                 parts.includes('s') ? 'Small' :
-                 parts.includes('m') ? 'Medium' :
-                 parts.includes('l') ? 'Large' :
-                 parts.includes('xl') ? 'Extra large' :
-                 parts.includes('xxl') ? 'Extra extra large' : '';
-    
-    const type = parts.includes('heading') ? 'heading' :
-                 parts.includes('subheading') ? 'subheading' :
-                 parts.includes('interactive') ? 'interactive text' :
-                 parts.includes('body') ? 'body text' :
-                 parts.includes('caption') ? 'caption' : 'text';
-    
+    let size = '';
+    if (parts.includes('xs')) {
+        size = 'Extra small';
+    } else if (parts.includes('s')) {
+        size = 'Small';
+    } else if (parts.includes('m')) {
+        size = 'Medium';
+    } else if (parts.includes('l')) {
+        size = 'Large';
+    } else if (parts.includes('xl')) {
+        size = 'Extra large';
+    } else if (parts.includes('xxl')) {
+        size = 'Extra extra large';
+    }
+
+    let type = 'text';
+    if (parts.includes('heading')) {
+        type = 'heading';
+    } else if (parts.includes('subheading')) {
+        type = 'subheading';
+    } else if (parts.includes('interactive')) {
+        type = 'interactive text';
+    } else if (parts.includes('body')) {
+        type = 'body text';
+    } else if (parts.includes('caption')) {
+        type = 'caption';
+    }
+
     const modifiers = [];
     if (parts.includes('italic')) modifiers.push('italic');
     if (parts.includes('strong')) modifiers.push('bold/strong');
     if (parts.includes('link')) modifiers.push('link');
-    
+
     const modifierText = modifiers.length > 0 ? ` ${modifiers.join(' ')}` : '';
     const sizeText = size ? `${size} ` : '';
-    
+
     return `${sizeText}${type}${modifierText}`;
 }
 
 /**
  * Group classes by category
  */
-function groupClassesByCategory(classes) {
+function groupClassesByCategory (classes) {
     const grouped = {
         heading: { standard: [], italic: [] },
         subheading: [],
         interactive: [],
-        body: { standard: [], link: [], strong: [], strongLink: [] },
-        caption: { standard: [], link: [], strong: [], strongLink: [] },
+        body: {
+            standard: [], link: [], strong: [], strongLink: [],
+        },
+        caption: {
+            standard: [], link: [], strong: [], strongLink: [],
+        },
     };
-    
-    classes.forEach(cls => {
+
+    classes.forEach((cls) => {
         if (cls.category === 'heading') {
             if (cls.hasItalic) {
                 grouped.heading.italic.push(cls);
@@ -152,23 +175,23 @@ function groupClassesByCategory(classes) {
             }
         }
     });
-    
+
     return grouped;
 }
 
 /**
  * Generate markdown table for a group of classes
  */
-function generateTable(classes) {
+function generateTable (classes) {
     if (classes.length === 0) return '';
-    
+
     const columns = ['Class', 'Use Case'];
-    const rows = classes.map(cls => {
+    const rows = classes.map((cls) => {
         const className = `\`.${cls.name}\``;
         const useCase = getClassDescription(cls.name);
         return `| ${className} | ${useCase} |`;
     });
-    
+
     const header = `| ${columns.join(' | ')} |\n| ${columns.map(() => '---').join(' | ')} |`;
     return `${header}\n${rows.join('\n')}`;
 }
@@ -176,23 +199,23 @@ function generateTable(classes) {
 /**
  * Generate the complete MDX content
  */
-function generateMDXContent(classes) {
+function generateMDXContent (classes) {
     const grouped = groupClassesByCategory(classes);
-    
+
     // Sort classes within groups by size order
     const sizeOrder = ['xxl', 'xl', 'l', 'm', 's', 'xs'];
     const sortBySize = (a, b) => {
-        const aSize = sizeOrder.find(size => a.name.includes(`-${size}`)) || '';
-        const bSize = sizeOrder.find(size => b.name.includes(`-${size}`)) || '';
+        const aSize = sizeOrder.find((size) => a.name.includes(`-${size}`)) || '';
+        const bSize = sizeOrder.find((size) => b.name.includes(`-${size}`)) || '';
         return sizeOrder.indexOf(aSize) - sizeOrder.indexOf(bSize);
     };
-    
-    Object.values(grouped.heading).forEach(arr => arr.sort(sortBySize));
+
+    Object.values(grouped.heading).forEach((arr) => arr.sort(sortBySize));
     grouped.subheading.sort(sortBySize);
     grouped.interactive.sort(sortBySize);
-    Object.values(grouped.body).forEach(arr => arr.sort(sortBySize));
-    Object.values(grouped.caption).forEach(arr => arr.sort(sortBySize));
-    
+    Object.values(grouped.body).forEach((arr) => arr.sort(sortBySize));
+    Object.values(grouped.caption).forEach((arr) => arr.sort(sortBySize));
+
     return `import { Meta } from '@storybook/addon-docs';
 import { Canvas } from '@storybook/blocks';
 
@@ -464,41 +487,47 @@ If fonts aren't displaying correctly:
 /**
  * Main function
  */
-function main() {
+function main () {
     try {
         // Read CSS file
         if (!fs.existsSync(CSS_FILE_PATH)) {
+            // eslint-disable-next-line no-console
             console.error(`Error: CSS file not found at ${CSS_FILE_PATH}`);
             process.exit(1);
         }
-        
+
         const cssContent = fs.readFileSync(CSS_FILE_PATH, 'utf8');
-        
+
         // Parse CSS and extract classes
         const classes = parseCSSFile(cssContent);
-        
+
         if (classes.length === 0) {
+            // eslint-disable-next-line no-console
             console.error('Error: No utility classes found in CSS file');
             process.exit(1);
         }
-        
+
+        // eslint-disable-next-line no-console
         console.log(`Found ${classes.length} utility classes`);
-        
+
         // Generate MDX content
         const mdxContent = generateMDXContent(classes);
-        
+
         // Ensure output directory exists
         const outputDir = path.dirname(OUTPUT_FILE_PATH);
         if (!fs.existsSync(outputDir)) {
             fs.mkdirSync(outputDir, { recursive: true });
         }
-        
+
         // Write MDX file
         fs.writeFileSync(OUTPUT_FILE_PATH, mdxContent, 'utf8');
-        
+
+        // eslint-disable-next-line no-console
         console.log(`✓ Successfully generated ${OUTPUT_FILE_PATH}`);
+        // eslint-disable-next-line no-console
         console.log(`  - Documented ${classes.length} utility classes`);
     } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('Error generating typography documentation:', error);
         process.exit(1);
     }
