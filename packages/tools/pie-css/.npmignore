@@ -1,0 +1,2 @@
+# Exclude the internal SCSS files as these are not needed by consumers
+scss/_internal/

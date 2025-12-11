@@ -31,6 +31,7 @@
       ]
     },
     "generate:component-statuses": {},
+    "generate:typography-docs": {},
     "watch": {
       "cache": false,
       "dependsOn": []
