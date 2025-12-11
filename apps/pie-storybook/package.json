@@ -4,9 +4,10 @@
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
-    "dev": "storybook dev -p 6006",
+    "generate:typography-docs": "node scripts/generate-typography-docs.js",
+    "dev": "yarn generate:typography-docs && storybook dev -p 6006",
     "dev:testing": "BROWSER_TESTING=true storybook dev -p 6007",
-    "build": "storybook build --output-dir dist && cp -R ./static ./dist",
+    "build": "yarn generate:typography-docs && storybook build --output-dir dist && cp -R ./static ./dist",
     "build:testing": "BROWSER_TESTING=true storybook build --output-dir dist && cp -R ./static ./dist",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",

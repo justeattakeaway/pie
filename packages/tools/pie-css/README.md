@@ -14,29 +14,45 @@
 
 The PIE design tokens (and HSL colour variants) are exposed as CSS variables, as these variables are used across the PIE component styles and therefore need to be imported when using the PIE Web Components.
 
-
 # Table of Contents
 
 1. [Installation](#installation)
-2. [Using the `pie-css` CSS stylesheet in your web application](#using-the-pie-css-css-stylesheet-in-your-web-application)
+2. [Typography Utility Classes](#typography-utility-classes)
+3. [Using the `pie-css` CSS stylesheet in your web application](#using-the-pie-css-css-stylesheet-in-your-web-application)
     1. JS or Framework import (via bundler)
     2. Nuxt
     3. Sass /SCSS
     4. Native HTML
-3. [What's included in the `pie-css` base stylesheet](#whats-included-in-the-pie-css-base-stylesheet)
+4. [What's included in the `pie-css` base stylesheet](#whats-included-in-the-pie-css-base-stylesheet)
     1. [PIE Design Tokens](#pie-design-tokens)
     2. [box-sizing](#box-sizing)
     3. [Typography](#typography)
     4. [z-index variables](#z-index-variables)
     5. [Reusable Animations](#reusable-animations)
-4. [Using the `pie-css` SCSS helpers (mixins & functions)](#using-the-pie-css-scss-helpers-mixins--functions)
+5. [Using the `pie-css` SCSS helpers (mixins & functions)](#using-the-pie-css-scss-helpers-mixins--functions)
     1. [Importing the `pie-css` SCSS helpers](#importing-the-pie-css-scss-helpers)
     2. [`pie-css` SCSS Helper Definitions](#pie-css-scss-helper-definitions)
         -  [`font-size()`](#font-size)
         - [`@include media()`](#include-media)
-5. [Testing](#testing)
+6. [Testing](#testing)
     - [CSS](#css)
     - [SCSS](#scss)
+
+## Typography Utility Classes
+
+`pie-css` includes a comprehensive set of typography utility classes that provide consistent typography styles across your application. These utility classes are built on top of PIE design tokens and automatically apply the correct font family, weight, size, line height, and spacing.
+
+The utility classes follow a simple naming convention: `u-font-{token-name}`, where the token name matches the design token used in Figma. For example, the `body-l-link` token becomes the `.u-font-body-l-link` utility class.
+
+To use the typography utilities, import the typography CSS file:
+
+```js
+import '@justeattakeaway/pie-css/dist/helpers/typography.css';
+```
+
+For complete documentation on all available typography utility classes, including usage examples and best practices, see the [Typography Utilities documentation in Storybook](https://pie.design/storybook/?path=/docs/additional-libraries-pie-css-typography-utility-classes--docs).
+
+---
 
 ## Installation
 

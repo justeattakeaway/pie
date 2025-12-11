@@ -109,6 +109,7 @@ export default {
                     'Additional libraries',
                     [
                         'PIE CSS',
+                        'PIE CSS Typography Utility Classes',
                         'Icons'
                     ],
                     'Contribution',
