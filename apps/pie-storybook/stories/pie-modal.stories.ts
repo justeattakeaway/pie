@@ -647,6 +647,18 @@ export const SlottedHeaderContent = createStory<ModalProps>(SlottedHeaderContent
 
 export const SlottedFooterContent = createStory<ModalProps>(SlottedFooterContentStoryTemplate, defaultArgs)();
 
+export const VoucherImageExample = createStory<ModalProps>(SlottedImageContentStoryTemplate, defaultArgs)({
+    imageSlotMode: 'image',
+    imageSlotAspectRatio: 'large',
+    backgroundColor: 'brand-05-subtle',
+    isHeadingEmphasised: true,
+    leadingAction: {
+        text: 'Confirm',
+        variant: 'primary-alternative',
+        ariaLabel: 'Descriptive confirmation text',
+    },
+});
+
 const renderCategoryChipsList = (length: number) => html`
     <ul role="list" style="list-style-type: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--dt-spacing-b);">
         ${Array.from({ length }, (_, i) => html`<li role="listitem"><pie-chip variant="ghost">Chip ${i + 1}</pie-chip></li>`)}
