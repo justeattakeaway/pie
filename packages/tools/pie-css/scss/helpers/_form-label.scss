@@ -8,26 +8,26 @@
 
 /* Main label container */
 .pie-form-label {
-    @include pie-form-label();
+    @include pie-form-label;
 }
 
 /* Wrapper for leading content */
 .pie-form-label-leading-wrapper {
-    @include pie-form-label-leading-wrapper();
+    @include pie-form-label-leading-wrapper;
 }
 
 /* Leading text (main label) */
 .pie-form-label-leading {
-    @include pie-form-label-leading();
+    @include pie-form-label-leading;
 }
 
 /* Optional text styling */
 .pie-form-label-optional {
-    @include pie-form-label-optional();
+    @include pie-form-label-optional;
 }
 
 /* Trailing text styling */
 .pie-form-label-trailing {
-    @include pie-form-label-trailing();
+    @include pie-form-label-trailing;
 }
 
