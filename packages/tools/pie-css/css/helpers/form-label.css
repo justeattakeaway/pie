@@ -1,0 +1,48 @@
+/* Form Label Utility Classes
+ * These classes provide reusable styling for form labels across PIE components.
+ * Used by pie-form-label and pie-textarea (with internal label).
+ */
+
+/* Main label container */
+.pie-form-label {
+    --form-label-font-size: calc(var(--dt-font-body-strong-s-size) * 1px);
+    --form-label-line-height: calc(var(--dt-font-body-strong-s-line-height) * 1px);
+    --form-label-font-weight: var(--dt-font-body-strong-s-weight);
+    --form-label-color: var(--dt-color-content-default-solid);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--dt-spacing-d);
+    color: var(--form-label-color);
+    font-size: var(--form-label-font-size);
+    line-height: var(--form-label-line-height);
+    font-weight: var(--form-label-font-weight);
+    padding-block-end: var(--dt-spacing-a);
+}
+
+/* Wrapper for leading content */
+.pie-form-label-leading-wrapper {
+    display: flex;
+}
+
+/* Leading text (main label) */
+.pie-form-label-leading {
+    margin-inline-end: var(--dt-spacing-b);
+}
+
+/* Optional and trailing text styling */
+.pie-form-label-optional,
+.pie-form-label-trailing {
+    color: var(--dt-color-content-subdued-solid);
+    font-size: calc(var(--dt-font-body-s-size) * 1px);
+    line-height: calc(var(--dt-font-body-s-line-height) * 1px);
+    font-weight: var(--dt-font-body-s-weight);
+}
+
+/* Trailing text specific */
+.pie-form-label-trailing {
+    flex-shrink: 0;
+    white-space: var(--dt-spacing-d);
+}
+
