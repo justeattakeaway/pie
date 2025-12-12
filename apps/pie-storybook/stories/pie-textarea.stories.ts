@@ -120,6 +120,7 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 type: 'object',
             },
         },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any,
     args: defaultArgs,
     parameters: {
@@ -233,7 +234,7 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
 
 const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => {
     const labelOptionsRef = props.labelOptions ? { ...props.labelOptions } : { text: 'Label' };
-    
+
     return html`
         <pie-textarea
             name="${ifDefined(props.name)}"
@@ -255,14 +256,14 @@ const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps
 };
 
 const WithFullLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => {
-    const labelOptionsRef = props.labelOptions 
-        ? { ...props.labelOptions } 
+    const labelOptionsRef = props.labelOptions
+        ? { ...props.labelOptions }
         : {
             text: 'Description:',
             optional: '(optional)',
             trailing: 'Max 500 characters',
         };
-    
+
     return html`
         <pie-textarea
             name="${ifDefined(props.name)}"
