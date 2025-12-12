@@ -6,21 +6,21 @@
 
 /* Form label styles using pie-css mixins */
 .pie-form-label {
-    @include pie-form-label();
+    @include pie-form-label;
 }
 
 .pie-form-label-leading-wrapper {
-    @include pie-form-label-leading-wrapper();
+    @include pie-form-label-leading-wrapper;
 }
 
 .pie-form-label-leading {
-    @include pie-form-label-leading();
+    @include pie-form-label-leading;
 }
 
 .pie-form-label-optional {
-    @include pie-form-label-optional();
+    @include pie-form-label-optional;
 }
 
 .pie-form-label-trailing {
-    @include pie-form-label-trailing();
+    @include pie-form-label-trailing;
 }
