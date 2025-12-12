@@ -54,7 +54,7 @@
 
 // Trailing text specific mixin
 @mixin pie-form-label-trailing() {
-    @include pie-form-label-optional();
+    @include pie-form-label-optional;
     flex-shrink: 0;
     white-space: var(--dt-spacing-d);
 }
