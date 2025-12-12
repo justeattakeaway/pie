@@ -9,8 +9,6 @@ import {
     type TextareaProps, defaultProps, resizeModes, sizes, statusTypes,
 } from '@justeattakeaway/pie-textarea';
 import '@justeattakeaway/pie-button';
-import '@justeattakeaway/pie-form-label';
-import '@justeattakeaway/pie-link';
 
 import { createStory, type TemplateFunction } from '../utilities';
 
@@ -116,7 +114,11 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: '',
             },
         },
-    },
+        labelOptions: {
+            description: 'Label configuration. When provided, renders a native HTML label internally within the shadow DOM. This is the recommended approach. If not provided, you can use pie-form-label as a sibling component (legacy pattern).',
+            control: 'object',
+        },
+    } as any,
     args: defaultArgs,
     parameters: {
         design: {
@@ -140,6 +142,7 @@ const Template = ({
     assistiveText,
     status,
     placeholder,
+    labelOptions,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -173,6 +176,7 @@ const Template = ({
             ?autoFocus="${autoFocus}"
             ?readonly="${readonly}"
             ?required="${required}"
+            .labelOptions="${labelOptions}"
             @input="${onInput}"
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
@@ -208,8 +212,11 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
     </style>
 
     <form class="form">
-        <pie-form-label for="description">Description:</pie-form-label>
-        <pie-textarea class="form-field" id="description" name="description" defaultValue="${ifDefined(defaultValue)}">
+        <pie-textarea 
+            class="form-field" 
+            name="description" 
+            defaultValue="${ifDefined(defaultValue)}"
+            .labelOptions=${{ text: 'Description:' }}>
         </pie-textarea>
 
         <div class="form-btns">
@@ -220,9 +227,22 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
 `;
 
 const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => html`
-        <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-label</pie-link>.</p>
-        <pie-form-label for="${ifDefined(props.name)}">Label</pie-form-label>
-        ${Template(props)}
+        <pie-textarea
+            name="${ifDefined(props.name)}"
+            .value="${props.value}"
+            defaultValue="${ifDefined(props.defaultValue)}"
+            ?disabled="${props.disabled}"
+            size="${ifDefined(props.size)}"
+            resize="${ifDefined(props.resize)}"
+            autocomplete="${ifDefined(props.autocomplete)}"
+            placeholder="${ifDefined(props.placeholder)}"
+            ?autoFocus="${props.autoFocus}"
+            ?readonly="${props.readonly}"
+            ?required="${props.required}"
+            assistiveText="${ifDefined(props.assistiveText)}"
+            status=${ifDefined(props.status)}
+            .labelOptions=${{ text: 'Label' }}>
+        </pie-textarea>
     `;
 
 const CreateTextareaStory = createStory<TextareaProps>(Template, defaultArgs);

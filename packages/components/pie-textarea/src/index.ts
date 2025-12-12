@@ -75,6 +75,9 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
     @property({ type: String })
     public placeholder: TextareaProps['placeholder'];
 
+    @property({ type: Object })
+    public labelOptions: TextareaProps['labelOptions'];
+
     @query('textarea')
     private _textarea!: HTMLTextAreaElement;
 
@@ -187,6 +190,27 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         }
     };
 
+    private renderLabel () {
+        if (!this.labelOptions) {
+            return nothing;
+        }
+
+        const { text, optional, trailing } = this.labelOptions;
+
+        return html`
+            <label
+                class="pie-form-label"
+                for="${componentSelector}"
+                data-test-id="pie-textarea-label">
+                <div class="pie-form-label-leading-wrapper">
+                    <span class="pie-form-label-leading" data-test-id="pie-textarea-label-leading">${text}</span>
+                    ${optional ? html`<span class="pie-form-label-optional" data-test-id="pie-textarea-label-optional">${optional}</span>` : nothing}
+                </div>
+                ${trailing ? html`<span class="pie-form-label-trailing" data-test-id="pie-textarea-label-trailing">${trailing}</span>` : nothing}
+            </label>
+        `;
+    }
+
     private renderAssistiveText () {
         if (!this.assistiveText) {
             return nothing;
@@ -228,6 +252,7 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         };
 
         return html`<div>
+            ${this.renderLabel()}
             <div
                 class="${classMap(classes)}"
                 data-test-id="pie-textarea-wrapper">
