@@ -26,9 +26,7 @@ describe('index.css', () => {
         // Act
         const result = await cssValidator.validateText(css);
         // Check if error message matches any of the accepted error patterns
-        const validationErrors = result.errors.filter((error) => {
-            return !acceptedErrorPatterns.some(pattern => pattern.test(error.message));
-        });
+        const validationErrors = result.errors.filter((error) => !acceptedErrorPatterns.some((pattern) => pattern.test(error.message)));
 
         // Assert
         expect(validationErrors).toHaveLength(0);
