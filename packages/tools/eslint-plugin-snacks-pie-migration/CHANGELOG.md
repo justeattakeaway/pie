@@ -1,5 +1,15 @@
 # @justeattakeaway/eslint-plugin-snacks-pie-migration
 
+## 0.2.0
+
+### Minor Changes
+
+- [Updated] - settings adding new stable components ([#2636](https://github.com/justeattakeaway/pie/pull/2636)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- [Fixed] - Errors should only be reported when the replacement component status is "stable" ([#2636](https://github.com/justeattakeaway/pie/pull/2636)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.1.2
 
 ### Patch Changes

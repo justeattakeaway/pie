@@ -3382,13 +3382,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-checkbox-group@0.9.19, @justeattakeaway/pie-checkbox-group@workspace:packages/components/pie-checkbox-group":
+"@justeattakeaway/pie-checkbox-group@1.0.0, @justeattakeaway/pie-checkbox-group@workspace:packages/components/pie-checkbox-group":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-checkbox-group@workspace:packages/components/pie-checkbox-group"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
     "@justeattakeaway/pie-assistive-text": 0.11.7
-    "@justeattakeaway/pie-checkbox": 0.18.8
+    "@justeattakeaway/pie-checkbox": 1.0.0
     "@justeattakeaway/pie-components-config": 0.21.0
     "@justeattakeaway/pie-css": 0.25.0
     "@justeattakeaway/pie-monorepo-utils": 0.7.0
@@ -3397,7 +3397,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-checkbox@0.18.8, @justeattakeaway/pie-checkbox@workspace:packages/components/pie-checkbox":
+"@justeattakeaway/pie-checkbox@1.0.0, @justeattakeaway/pie-checkbox@workspace:packages/components/pie-checkbox":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-checkbox@workspace:packages/components/pie-checkbox"
   dependencies:
@@ -3512,7 +3512,7 @@ __metadata:
     "@justeattakeaway/pie-icons": 5.18.0
     "@justeattakeaway/pie-icons-webc": 1.17.1
     "@justeattakeaway/pie-monorepo-utils": 0.7.0
-    "@justeattakeaway/pie-webc": 0.7.37
+    "@justeattakeaway/pie-webc": 0.7.38
     "@lit-labs/eleventy-plugin-lit": 1.0.5
     "@lit-labs/ssr-client": 1.1.7
     "@types/markdown-it": 13.0.2
@@ -3753,7 +3753,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-radio-group@0.9.22, @justeattakeaway/pie-radio-group@workspace:packages/components/pie-radio-group":
+"@justeattakeaway/pie-radio-group@1.0.0, @justeattakeaway/pie-radio-group@workspace:packages/components/pie-radio-group":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-radio-group@workspace:packages/components/pie-radio-group"
   dependencies:
@@ -3762,13 +3762,13 @@ __metadata:
     "@justeattakeaway/pie-components-config": 0.21.0
     "@justeattakeaway/pie-css": 0.25.0
     "@justeattakeaway/pie-monorepo-utils": 0.7.0
-    "@justeattakeaway/pie-radio": 0.12.6
+    "@justeattakeaway/pie-radio": 1.0.0
     "@justeattakeaway/pie-webc-core": 5.0.0
     cem-plugin-module-file-extensions: 0.0.5
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-radio@0.12.6, @justeattakeaway/pie-radio@workspace:packages/components/pie-radio":
+"@justeattakeaway/pie-radio@1.0.0, @justeattakeaway/pie-radio@workspace:packages/components/pie-radio":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-radio@workspace:packages/components/pie-radio"
   dependencies:
@@ -3819,8 +3819,8 @@ __metadata:
     "@justeattakeaway/pie-breadcrumb": 0.7.10
     "@justeattakeaway/pie-button": 1.10.0
     "@justeattakeaway/pie-card": 0.26.7
-    "@justeattakeaway/pie-checkbox": 0.18.8
-    "@justeattakeaway/pie-checkbox-group": 0.9.19
+    "@justeattakeaway/pie-checkbox": 1.0.0
+    "@justeattakeaway/pie-checkbox-group": 1.0.0
     "@justeattakeaway/pie-chip": 0.15.4
     "@justeattakeaway/pie-cookie-banner": 1.6.36
     "@justeattakeaway/pie-css": 0.25.0
@@ -3836,8 +3836,8 @@ __metadata:
     "@justeattakeaway/pie-modal": 1.21.0
     "@justeattakeaway/pie-monorepo-utils": 0.7.0
     "@justeattakeaway/pie-notification": 0.20.3
-    "@justeattakeaway/pie-radio": 0.12.6
-    "@justeattakeaway/pie-radio-group": 0.9.22
+    "@justeattakeaway/pie-radio": 1.0.0
+    "@justeattakeaway/pie-radio-group": 1.0.0
     "@justeattakeaway/pie-select": 0.8.8
     "@justeattakeaway/pie-spinner": 1.3.5
     "@justeattakeaway/pie-switch": 2.3.7
@@ -4013,7 +4013,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@0.7.37, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@0.7.38, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
@@ -4022,8 +4022,8 @@ __metadata:
     "@justeattakeaway/pie-breadcrumb": 0.7.10
     "@justeattakeaway/pie-button": 1.10.0
     "@justeattakeaway/pie-card": 0.26.7
-    "@justeattakeaway/pie-checkbox": 0.18.8
-    "@justeattakeaway/pie-checkbox-group": 0.9.19
+    "@justeattakeaway/pie-checkbox": 1.0.0
+    "@justeattakeaway/pie-checkbox-group": 1.0.0
     "@justeattakeaway/pie-chip": 0.15.4
     "@justeattakeaway/pie-components-config": 0.21.0
     "@justeattakeaway/pie-cookie-banner": 1.6.36
@@ -4036,8 +4036,8 @@ __metadata:
     "@justeattakeaway/pie-lottie-player": 0.3.0
     "@justeattakeaway/pie-modal": 1.21.0
     "@justeattakeaway/pie-notification": 0.20.3
-    "@justeattakeaway/pie-radio": 0.12.6
-    "@justeattakeaway/pie-radio-group": 0.9.22
+    "@justeattakeaway/pie-radio": 1.0.0
+    "@justeattakeaway/pie-radio-group": 1.0.0
     "@justeattakeaway/pie-select": 0.8.8
     "@justeattakeaway/pie-spinner": 1.3.5
     "@justeattakeaway/pie-switch": 2.3.7
