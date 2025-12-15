@@ -9,8 +9,6 @@ import {
     type TextareaProps, defaultProps, resizeModes, sizes, statusTypes,
 } from '@justeattakeaway/pie-textarea';
 import '@justeattakeaway/pie-button';
-import '@justeattakeaway/pie-form-label';
-import '@justeattakeaway/pie-link';
 
 import { createStory, type TemplateFunction } from '../utilities';
 
@@ -116,7 +114,14 @@ const textareaStoryMeta: TextareaStoryMeta = {
                 summary: '',
             },
         },
-    },
+        labelOptions: {
+            description: 'Label configuration. When provided, renders a native HTML label internally within the shadow DOM. This is the recommended approach. If not provided, you can use pie-form-label as a sibling component (legacy pattern).',
+            control: {
+                type: 'object',
+            },
+        },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any,
     args: defaultArgs,
     parameters: {
         design: {
@@ -140,6 +145,7 @@ const Template = ({
     assistiveText,
     status,
     placeholder,
+    labelOptions,
 }: TextareaProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -159,6 +165,9 @@ const Template = ({
         });
     }
 
+    // Create a new object reference to ensure Lit detects changes
+    const labelOptionsRef = labelOptions ? { ...labelOptions } : undefined;
+
     return html`
         <pie-textarea
             id="${ifDefined(name)}"
@@ -173,6 +182,7 @@ const Template = ({
             ?autoFocus="${autoFocus}"
             ?readonly="${readonly}"
             ?required="${required}"
+            .labelOptions="${labelOptionsRef}"
             @input="${onInput}"
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
@@ -208,8 +218,11 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
     </style>
 
     <form class="form">
-        <pie-form-label for="description">Description:</pie-form-label>
-        <pie-textarea class="form-field" id="description" name="description" defaultValue="${ifDefined(defaultValue)}">
+        <pie-textarea 
+            class="form-field" 
+            name="description" 
+            defaultValue="${ifDefined(defaultValue)}"
+            .labelOptions=${{ text: 'Description:' }}>
         </pie-textarea>
 
         <div class="form-btns">
@@ -219,15 +232,62 @@ const ExampleFormTemplate: TemplateFunction<TextareaProps> = ({
     </form>
 `;
 
-const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => html`
-        <p>Please note, the label is a separate component. See <pie-link href="/?path=/story/form-label">pie-form-label</pie-link>.</p>
-        <pie-form-label for="${ifDefined(props.name)}">Label</pie-form-label>
-        ${Template(props)}
+const WithLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => {
+    const labelOptionsRef = props.labelOptions ? { ...props.labelOptions } : { text: 'Label' };
+
+    return html`
+        <pie-textarea
+            name="${ifDefined(props.name)}"
+            .value="${props.value}"
+            defaultValue="${ifDefined(props.defaultValue)}"
+            ?disabled="${props.disabled}"
+            size="${ifDefined(props.size)}"
+            resize="${ifDefined(props.resize)}"
+            autocomplete="${ifDefined(props.autocomplete)}"
+            placeholder="${ifDefined(props.placeholder)}"
+            ?autoFocus="${props.autoFocus}"
+            ?readonly="${props.readonly}"
+            ?required="${props.required}"
+            assistiveText="${ifDefined(props.assistiveText)}"
+            status=${ifDefined(props.status)}
+            .labelOptions="${labelOptionsRef}">
+        </pie-textarea>
     `;
+};
+
+const WithFullLabelTemplate: TemplateFunction<TextareaProps> = (props: TextareaProps) => {
+    const labelOptionsRef = props.labelOptions
+        ? { ...props.labelOptions }
+        : {
+            text: 'Description:',
+            optional: '(optional)',
+            trailing: 'Max 500 characters',
+        };
+
+    return html`
+        <pie-textarea
+            name="${ifDefined(props.name)}"
+            .value="${props.value}"
+            defaultValue="${ifDefined(props.defaultValue)}"
+            ?disabled="${props.disabled}"
+            size="${ifDefined(props.size)}"
+            resize="${ifDefined(props.resize)}"
+            autocomplete="${ifDefined(props.autocomplete)}"
+            placeholder="${ifDefined(props.placeholder)}"
+            ?autoFocus="${props.autoFocus}"
+            ?readonly="${props.readonly}"
+            ?required="${props.required}"
+            assistiveText="${ifDefined(props.assistiveText)}"
+            status=${ifDefined(props.status)}
+            .labelOptions="${labelOptionsRef}">
+        </pie-textarea>
+    `;
+};
 
 const CreateTextareaStory = createStory<TextareaProps>(Template, defaultArgs);
 const CreateTextareaStoryWithForm = createStory<TextareaProps>(ExampleFormTemplate, defaultArgs);
 const CreateTextareaStoryWithLabel = (props: TextareaProps) => createStory<TextareaProps>(WithLabelTemplate, props);
+const CreateTextareaStoryWithFullLabel = (props: TextareaProps) => createStory<TextareaProps>(WithFullLabelTemplate, props);
 
 export const Default = CreateTextareaStory({}, {
     argTypes: {
@@ -235,6 +295,14 @@ export const Default = CreateTextareaStory({}, {
     },
 });
 export const WithLabel = CreateTextareaStoryWithLabel(defaultArgs)();
+export const WithFullLabel = CreateTextareaStoryWithFullLabel({
+    ...defaultArgs,
+    labelOptions: {
+        text: 'Description:',
+        optional: '(optional)',
+        trailing: 'Max 500 characters',
+    },
+})();
 export const ExampleForm = CreateTextareaStoryWithForm();
 
 export default textareaStoryMeta;
