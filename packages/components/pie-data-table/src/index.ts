@@ -4,13 +4,6 @@ import { PieElement } from '@justeattakeaway/pie-webc-core/src/internals/PieElem
 import { RtlMixin, safeCustomElement } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
 
-// import '@justeattakeaway/pie-data-table-contents';
-// import '@justeattakeaway/pie-data-table-head';
-// import '@justeattakeaway/pie-data-table-head-cell';
-// import '@justeattakeaway/pie-data-table-body';
-// import '@justeattakeaway/pie-data-table-row';
-// import '@justeattakeaway/pie-data-table-cell';
-
 import styles from './data-table.scss?inline';
 import {
     type DataTableProps,
@@ -26,6 +19,8 @@ const componentSelector = 'pie-data-table';
 
 /**
  * @tagname pie-data-table
+ * @slot table-header - Slot for custom table header content
+ * @slot - Default slot for when there is no data to display in the table
  */
 @safeCustomElement('pie-data-table')
 export class PieDataTable extends RtlMixin(PieElement) implements DataTableProps {
