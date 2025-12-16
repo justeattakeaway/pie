@@ -7,6 +7,7 @@ import { ModalEmbeddedFormPage } from 'test/helpers/page-object/pie-modal-embedd
 import { ModalCustomFooterPage } from 'test/helpers/page-object/pie-modal-custom-footer.page.ts';
 import { ModalMissingDialogSimulationPage } from 'test/helpers/page-object/pie-modal-missing-dialog-simulation.page.ts';
 import { ModalCustomImageSlotContentPage } from 'test/helpers/page-object/pie-modal-custom-image-slot-content.page.ts';
+import { ModalCustomHeadingStylePage } from 'test/helpers/page-object/pie-modal-custom-heading-style.page.ts';
 import {
     type ModalProps, headingLevels, imageSlotModes, backgroundColors,
 } from '../../src/defs.ts';
@@ -981,5 +982,25 @@ test.describe('`image` slot', () => {
                 });
             });
         });
+    });
+});
+
+test.describe('CSS Parts', () => {
+    test('should expose a `heading` part', async ({ page }) => {
+        // Arrange
+        const modalPage = new ModalCustomHeadingStylePage(page);
+        const props: ModalProps = {
+            ...sharedProps,
+            isDismissible: true,
+        };
+
+        await modalPage.load(props);
+
+        // Assert
+        const { headingLocator } = modalPage;
+        const partAttribute = await headingLocator.getAttribute('part');
+
+        await expect(headingLocator).toBeVisible();
+        expect(partAttribute).toBe('heading');
     });
 });

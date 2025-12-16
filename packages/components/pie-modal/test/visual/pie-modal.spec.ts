@@ -8,6 +8,7 @@ import { ModalLargeTextContentPage } from '../helpers/page-object/pie-modal-larg
 import { ModalCustomFooterPage } from '../helpers/page-object/pie-modal-custom-footer.page.ts';
 import { ModalCustomHeaderContentPage } from '../helpers/page-object/pie-modal-custom-header-content.page.ts';
 import { ModalCustomImageSlotContentPage } from '../helpers/page-object/pie-modal-custom-image-slot-content.page.ts';
+import { ModalCustomHeadingStylePage } from '../helpers/page-object/pie-modal-custom-heading-style.page.ts';
 
 const sharedProps: ModalProps = {
     heading: 'This is a modal heading',
@@ -713,5 +714,17 @@ test.describe('Slot: `image`', () => {
                 await percySnapshot(page, `Modal - imageSlotAspectRatio: ${imageSlotAspectRatio}`);
             });
         });
+    });
+});
+
+test.describe('CSS parts', () => {
+    test('should apply styles to the `heading` part', async ({ page }) => {
+        const modalCustomHeadingStylePage = new ModalCustomHeadingStylePage(page);
+        const props: ModalProps = { ...sharedProps };
+        await modalCustomHeadingStylePage.load(props);
+
+        await expect.soft(modalCustomHeadingStylePage.modalComponent.componentLocator).toBeVisible();
+
+        await percySnapshot(page, 'Modal - part `heading` with custom styles');
     });
 });

@@ -483,6 +483,21 @@ const CustomHeaderContentStoryTemplate = (props: ModalProps) => {
                 </pie-modal>`;
 };
 
+const CustomHeadingStyleTemplate = (props: ModalProps) => html`
+        <style>
+            pie-modal::part(heading) {
+                all: initial;
+                font-family: var(--dt-font-heading-xl-family);
+                font-size: calc(var(--dt-font-heading-xl-size--wide) * 1px);
+                line-height: calc(var(--dt-font-heading-xl-line-height--wide) * 1px);
+                font-weight: var(--dt-font-weight-black);
+                color: var(--dt-color-content-brand-solid);
+                padding: var(--dt-spacing-b);
+            }
+        </style>
+        ${BaseStoryTemplate(props)}
+    `;
+
 const CustomImageSlotContentStoryTemplate = (props: ModalProps) => {
     const {
         aria,
@@ -562,6 +577,8 @@ export const CustomHeaderContent = createStory<ModalProps>(CustomHeaderContentSt
 });
 
 export const CustomFooter = createStory<ModalProps>(CustomFooterStoryTemplate, defaultArgs)();
+
+export const CustomHeadingStyle = createStory<ModalProps>(CustomHeadingStyleTemplate, defaultArgs)();
 
 export const MissingDialogSimulation = createStory<ModalProps>(MissingDialogSimulationTemplate, defaultArgs)({
     isOpen: false,
