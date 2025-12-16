@@ -1,10 +1,14 @@
 :host {
   display: table-row;
   border-bottom: 1px solid var(--data-table-border-color);
+}
 
-  ::slotted(pie-data-table-cell) {
-    background-color: var(--data-table-background-hover-or-active, transparent);
-  }  
+/* 
+* This color is set on 'packages/components/pie-data-table/src/pie-data-table-body/data-table-body.scss'
+* It set a background color variable on the row component when hovered only inside the body component
+*/
+:host(:hover) {
+  background-color: var(--pie-data-table-row-background-hover, transparent);
 }
 
 :host([isSelected]) {

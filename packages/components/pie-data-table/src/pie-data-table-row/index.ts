@@ -30,33 +30,6 @@ export class PieDataTableRow extends PieElement implements DataTableRowProps {
     @property({ type: Boolean })
     public isHidden?: DataTableRowProps['isHidden'];
 
-    connectedCallback () {
-        if (!this.hasAttribute('role')) {
-            this.setAttribute('role', 'row');
-        }
-
-        this.addEventListener('mouseenter', this._handleMouseEnter);
-        this.addEventListener('mouseleave', this._handleMouseLeave);
-        this.style.setProperty('--data-table-background-hover-or-active', 'transparent');
-
-        super.connectedCallback();
-    }
-
-    disconnectedCallback () {
-        super.disconnectedCallback();
-
-        this.removeEventListener('mouseenter', this._handleMouseEnter);
-        this.removeEventListener('mouseleave', this._handleMouseLeave);
-    }
-
-    private _handleMouseEnter = () => {
-        this.style.setProperty('--data-table-background-hover-or-active', 'var(--dt-color-container-subtle)');
-    };
-
-    private _handleMouseLeave = () => {
-        this.style.setProperty('--data-table-background-hover-or-active', 'transparent');
-    };
-
     render () {
         const { isHidden } = this;
 
