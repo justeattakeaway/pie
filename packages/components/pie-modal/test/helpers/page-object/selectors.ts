@@ -20,6 +20,10 @@ const modal = {
             description: 'The selector for the modal header',
             dataTestId: 'modal-header',
         },
+        heading: {
+            description: 'The selector for the modal heading',
+            dataTestId: 'modal-heading',
+        },
         content: {
             description: 'The selector for the modal content',
             dataTestId: 'modal-content-inner',
