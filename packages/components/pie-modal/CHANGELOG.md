@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 1.22.0
+
+### Minor Changes
+
+- [Added] - heading CSS part allowing full style customisation ([#2637](https://github.com/justeattakeaway/pie/pull/2637)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.21.0
 
 ### Minor Changes

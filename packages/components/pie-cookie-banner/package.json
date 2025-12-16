@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-cookie-banner",
   "description": "PIE Design System Cookie Banner built using Web Components",
-  "version": "1.6.36",
+  "version": "1.6.37",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
@@ -61,7 +61,7 @@
     "@justeattakeaway/pie-divider": "1.5.5",
     "@justeattakeaway/pie-icon-button": "2.3.3",
     "@justeattakeaway/pie-link": "1.3.5",
-    "@justeattakeaway/pie-modal": "1.21.0",
+    "@justeattakeaway/pie-modal": "1.22.0",
     "@justeattakeaway/pie-switch": "2.3.7",
     "@justeattakeaway/pie-webc-core": "5.0.0"
   },
