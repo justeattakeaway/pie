@@ -11,6 +11,7 @@ const componentSelector = 'pie-data-table-contents';
 
 /**
  * @tagname pie-data-table-contents
+ * @slot - Default slot
  */
 @safeCustomElement('pie-data-table-contents')
 export class PieDataTableContents extends PieElement implements DataTableContentsProps {

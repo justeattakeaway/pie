@@ -14,6 +14,7 @@ const componentSelector = 'pie-data-table-row';
 
 /**
  * @tagname pie-data-table-row
+ * @slot - Default slot
  */
 @safeCustomElement('pie-data-table-row')
 export class PieDataTableRow extends PieElement implements DataTableRowProps {

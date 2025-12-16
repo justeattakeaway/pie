@@ -11,6 +11,7 @@ const componentSelector = 'pie-data-table-head';
 
 /**
  * @tagname pie-data-table-head
+ * @slot - Default slot
  */
 @safeCustomElement('pie-data-table-head')
 export class PieDataTableHead extends PieElement implements DataTableHeadProps {
