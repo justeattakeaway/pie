@@ -55,6 +55,18 @@
     "piePackage": "@justeattakeaway/pie-modal",
     "status": "stable"
   },
+  "ModalContent": {
+    "piePackage": "@justeattakeaway/pie-modal",
+    "status": "stable"
+  },
+  "ModalFooter": {
+    "piePackage": "@justeattakeaway/pie-modal",
+    "status": "stable"
+  },
+  "ModalScrollContent": {
+    "piePackage": "@justeattakeaway/pie-modal",
+    "status": "stable"
+  },
   "Notification": {
     "piePackage": "@justeattakeaway/pie-notification",
     "status": "beta"

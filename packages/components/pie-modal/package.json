@@ -22,7 +22,10 @@
     "componentStatus": "stable",
     "replaces": {
       "snacks": [
-        "Modal"
+        "Modal",
+        "ModalContent",
+        "ModalFooter",
+        "ModalScrollContent"
       ]
     }
   },
