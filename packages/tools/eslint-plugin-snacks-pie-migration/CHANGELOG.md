@@ -1,5 +1,11 @@
 # @justeattakeaway/eslint-plugin-snacks-pie-migration
 
+## 0.3.0
+
+### Minor Changes
+
+- [Updated] - plugin definitions including `ModalContent`, `ModalFooter` and `ModalScrollContent` ([#2639](https://github.com/justeattakeaway/pie/pull/2639)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.2.0
 
 ### Minor Changes
