@@ -1,0 +1,306 @@
+import { Meta } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/blocks';
+
+<Meta title="Additional libraries/PIE CSS Typography Utility Classes" />
+
+# PIE CSS Typography Utility Classes
+
+[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-css) | [NPM Package](https://www.npmjs.com/package/@justeattakeaway/pie-css)
+
+The PIE CSS Typography Utilities provide a comprehensive set of utility classes for applying consistent typography styles across your application. These classes are built on top of PIE design tokens and ensure your typography follows the design system's guidelines automatically.
+
+## Table of Contents
+
+- [Why?](#why)
+- [Installation](#installation)
+- [Importing](#importing)
+    - [JavaScript/Framework Import (via bundler)](#javascriptframework-import-via-bundler)
+    - [SCSS/Sass Import](#scsssass-import)
+- [Which Class Should I Use?](#which-class-should-i-use)
+    - [If You Have Designs](#if-you-have-designs)
+    - [If You Don't Have Designs](#if-you-dont-have-designs)
+- [Available Classes](#available-classes)
+- [Usage Examples](#usage-examples)
+- [What Each Utility Class Applies](#what-each-utility-class-applies)
+- [Troubleshooting](#troubleshooting)
+    - [Utilities Not Working](#utilities-not-working)
+    - [Font Not Displaying](#font-not-displaying)
+
+## Why?
+
+Our typography utility classes offer several key benefits:
+
+- **Consistency**: Ensures all typography across your application follows the PIE design system standards
+- **Responsive by Default**: Many utilities automatically adjust for narrow and wide viewports (breakpoint at 768px)
+- **Design Token Integration**: Built directly on PIE design tokens, so updates to tokens automatically propagate
+- **Maintainability**: Single source of truth for typography styles reduces duplication and makes updates easier. You don't need to manually apply individual token combinations, it's done for you
+
+## Installation
+
+The typography utilities are included as part of the `@justeattakeaway/pie-css` package. If you haven't already installed it:
+
+```bash
+# Using Yarn
+yarn add @justeattakeaway/pie-css
+
+# Using NPM
+npm install @justeattakeaway/pie-css
+```
+
+## Importing
+
+To use the typography utility classes, you need to import the typography CSS file. The import method depends on your project setup:
+
+### JavaScript/Framework Import (via bundler)
+
+```javascript
+// Import the typography utilities
+import '@justeattakeaway/pie-css/dist/helpers/typography.css';
+```
+
+### SCSS/Sass Import
+
+```scss
+@use '@justeattakeaway/pie-css/dist/helpers/typography.css';
+```
+
+> **Note**: Make sure you've also imported the base `@justeattakeaway/pie-css` package, as the typography utilities depend on the design token CSS variables defined there.
+
+## Which Class Should I Use?
+
+### If You Have Designs
+
+If you have access to Figma designs, the font token used in the design should be available in Figma. The CSS utility class name directly matches the token name by prefixing it with `u-font-`.
+
+**Note**: In Figma, token names may appear differently in the Typography section. For example, the `body-l` token might be displayed as "Body Large", "Large", or "Body Large/Large". The underlying token name will match the CSS class name format.
+
+For example:
+- If the design uses the `body-l-link` token (may appear as "Body Large Link" in Figma) → use the `.u-font-body-l-link` class
+- If the design uses the `heading-m` token (may appear as "Heading Medium" in Figma) → use the `.u-font-heading-m` class
+- If the design uses the `caption-strong` token (may appear as "Caption Strong" in Figma) → use the `.u-font-caption-strong` class
+
+Simply take the token name from Figma and add the `u-font-` prefix to get the corresponding CSS class.
+
+### If You Don't Have Designs
+
+If you don't have access to designs, you have two options:
+
+1. **Use the most appropriate class** by reading the use cases for each utility class in the tables below. Each class is documented with its intended use case to help you make the right choice.
+
+2. **Reach out to the design system team** for guidance on which typography utility class to use for your specific use case.
+
+## Available Classes
+
+The typography utilities are organized into several categories. This documentation is automatically generated from the CSS source file.
+
+### Headings
+
+Heading utilities are designed for page titles, section headers, and other prominent text. All heading utilities are responsive and adjust font size and line height at the 768px breakpoint.
+
+#### Standard Headings
+
+| Class | Use Case |
+| --- | --- |
+| `.u-font-heading-xxl` | Extra extra large heading |
+| `.u-font-heading-xl` | Extra large heading |
+| `.u-font-heading-l` | Large heading |
+| `.u-font-heading-m` | Medium heading |
+| `.u-font-heading-s` | Small heading |
+| `.u-font-heading-xs` | Extra small heading |
+
+#### Italic Headings
+
+| Class | Use Case |
+| --- | --- |
+| `.u-font-heading-xxl-italic` | Extra extra large heading italic |
+| `.u-font-heading-xl-italic` | Extra large heading italic |
+| `.u-font-heading-l-italic` | Large heading italic |
+| `.u-font-heading-m-italic` | Medium heading italic |
+| `.u-font-heading-s-italic` | Small heading italic |
+| `.u-font-heading-xs-italic` | Extra small heading italic |
+
+### Subheadings
+
+Subheadings are used for secondary headings and section titles.
+
+| Class | Use Case |
+| --- | --- |
+| `.u-font-subheading-l` | Large subheading |
+| `.u-font-subheading-s` | Small subheading |
+
+### Interactive Text
+
+Interactive text utilities are optimized for buttons, links, and other interactive elements.
+
+| Class | Use Case |
+| --- | --- |
+| `.u-font-interactive-l` | Large interactive text |
+| `.u-font-interactive-s` | Small interactive text |
+| `.u-font-interactive-xs` | Extra small interactive text |
+
+### Body Text
+
+Body text utilities are for paragraphs and general content. These utilities include automatic paragraph spacing via `margin-block-end`.
+
+| Class | Use Case |
+| --- | --- |
+| `.u-font-body-l` | Large body text |
+| `.u-font-body-s` | Small body text |
+
+### Body Link
+
+Body link utilities combine body text styling with link-specific properties like text decoration.
+
+| Class | Use Case |
+| --- | --- |
+| `.u-font-body-s-link` | Small body text link |
+| `.u-font-body-l-link` | Large body text link |
+
+### Body Strong
+
+Body strong utilities are for bold/emphasized body text.
+
+| Class | Use Case |
+| --- | --- |
+| `.u-font-body-strong-l` | Large body text bold/strong |
+| `.u-font-body-strong-s` | Small body text bold/strong |
+
+### Body Strong Link
+
+Body strong link utilities combine bold body text styling with link properties.
+
+| Class | Use Case |
+| --- | --- |
+| `.u-font-body-strong-s-link` | Small body text bold/strong link |
+| `.u-font-body-strong-l-link` | Large body text bold/strong link |
+
+### Captions
+
+Caption utilities are for small supporting text, labels, and metadata.
+
+| Class | Use Case |
+| --- | --- |
+| `.u-font-caption` | caption |
+
+### Caption Link
+
+Caption link utilities combine caption styling with link properties.
+
+| Class | Use Case |
+| --- | --- |
+| `.u-font-caption-link` | caption link |
+
+### Caption Strong
+
+Caption strong utilities are for bold captions.
+
+| Class | Use Case |
+| --- | --- |
+| `.u-font-caption-strong` | caption bold/strong |
+
+### Caption Strong Link
+
+Caption strong link utilities combine bold caption styling with link properties.
+
+| Class | Use Case |
+| --- | --- |
+| `.u-font-caption-strong-link` | caption bold/strong link |
+
+## Usage Examples
+
+### Basic Usage
+
+Simply add the utility class to your HTML element:
+
+```html
+<h1 class="u-font-heading-xl">Page Title</h1>
+<p class="u-font-body-l">This is a paragraph of body text.</p>
+```
+
+### React Example
+
+```jsx
+function MyComponent() {
+  return (
+    <div>
+      <h1 className="u-font-heading-xl">Welcome</h1>
+      <h2 className="u-font-heading-m">Section Title</h2>
+      <p className="u-font-body-l">
+        This is a paragraph using the body large utility class.
+      </p>
+      <a href="#" className="u-font-body-l-link">Learn more</a>
+    </div>
+  );
+}
+```
+
+### Vue Example
+
+```html
+<template>
+  <div>
+    <h1 class="u-font-heading-xl">Welcome</h1>
+    <h2 class="u-font-heading-m">Section Title</h2>
+    <p class="u-font-body-l">
+      This is a paragraph using the body large utility class.
+    </p>
+    <a href="#" class="u-font-body-l-link">Learn more</a>
+  </div>
+</template>
+```
+
+### Combining with Other Classes
+
+You can combine typography utilities with other CSS classes:
+
+```html
+<div class="card">
+  <h2 class="u-font-heading-m card-title">Card Title</h2>
+  <p class="u-font-body-s card-description">Card description text.</p>
+</div>
+```
+
+### Responsive Behavior
+
+Heading and subheading utilities automatically adjust at the 768px breakpoint:
+
+```html
+<!-- This heading will be smaller on mobile and larger on desktop -->
+<h1 class="u-font-heading-xl">Responsive Heading</h1>
+```
+
+The utility classes handle the responsive behavior automatically, so you don't need to write additional media queries.
+
+## What Each Utility Class Applies
+
+Each typography utility class applies a complete set of typography properties:
+
+- **`font-family`**: Uses the appropriate design token font family ([MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family))
+- **`font-weight`**: Applies the correct font weight from design tokens ([MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight))
+- **`font-size`**: Sets the font size (responsive for headings/subheadings) ([MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size))
+- **`line-height`**: Applies the appropriate line height for readability ([MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height))
+- **`font-style`**: Applied for italic variants ([MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style))
+- **`text-decoration`**: Applied for link variants ([MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration))
+- **`margin-block-end`**: Applied for body and caption variants to provide paragraph spacing ([MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-block-end))
+
+## Troubleshooting
+
+### Utilities Not Working
+
+If the typography utilities aren't applying:
+
+1. Ensure you've imported the typography CSS file: `@justeattakeaway/pie-css/dist/helpers/typography.css`
+2. Verify the base `@justeattakeaway/pie-css` package is imported (required for design tokens)
+3. Check that your build process is including the CSS file
+4. Inspect the element in browser dev tools to see if classes are being applied
+
+### Font Not Displaying
+
+If fonts aren't displaying correctly:
+
+1. Ensure you've set up the JETSansDigital font as described in the [Typography setup guide](?path=/docs/introduction-typography--docs)
+2. Check that font files are loading correctly
+3. Verify font-face declarations are correct
+
+---
+*This documentation is automatically generated from the CSS source file. Last updated: 2025-12-11*
