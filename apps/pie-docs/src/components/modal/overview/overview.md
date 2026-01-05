@@ -291,6 +291,23 @@ Depending on the level of visual prominence you want to give to the Modal, you c
   } %}
 {% endcontentLayout %}
 
+#### Text
+
+The title can be changed to italic for more prominence.
+
+{% contentLayout %}
+  {% contentPageImage {
+    src: "../../../assets/img/components/modal/modifier-emphasis-title-regular.svg",
+    alt: "A Modal with the title in italic style.",
+    width: 478
+  } %}
+  {% contentPageImage {
+      src: "../../../assets/img/components/modal/modifier-emphasis-title-prominent.svg",
+      alt: "A Modal with the standard title style.",
+      width: 478
+  } %}
+{% endcontentLayout %}
+
 ### Footer
 
 You can replace the footer Buttons with any Button or Button pair defined within the Button guidance.
