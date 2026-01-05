@@ -312,9 +312,9 @@ The title can be changed to italic for more prominence.
 
 You can replace the footer Buttons with any Button or Button pair defined within the Button guidance.
 
-#### Double
+#### Dual actions
 
-A maximum of two Buttons are allowed within the Modal’s footer, with the primary Button right-aligned and the lower-emphasis Button on the left.
+A maximum of two Buttons are allowed within the Modal’s footer, with the primary Button right aligned and the lower emphasis Button on the left.
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/modifier-footer-double.svg",
@@ -325,9 +325,25 @@ A maximum of two Buttons are allowed within the Modal’s footer, with the prima
 #### Single
 
 A single Button variant is available when only one action is required.
+
 {% contentPageImage {
     src: "../../../assets/img/components/modal/modifier-footer-single.svg",
     alt: "A Modal with a single primary button in its footer.",
+    width: 600
+} %}
+
+#### Checkbox confirmation
+
+The checkbox control means users must select and acknowledge the required information before proceeding. The primary button remains disabled until the checkbox is checked.
+
+{% notification {
+  type: "warning",
+  message: "It's recommended to use this only on medium and large modals. In narrow modals, it should be used only when buttons are stacked to ensure the checkbox label has enough space."
+} %}
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/modifier-footer-checkbox-confirmation.svg",
+    alt: "A Modal with a checkbox confirmation.",
     width: 600
 } %}
 
