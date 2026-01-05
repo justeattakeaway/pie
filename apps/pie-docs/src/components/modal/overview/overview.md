@@ -73,13 +73,111 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
 } %}
 
 ---
-## Variations
+## Variants
 
-### Default
+### Colours
+
+#### Neutral - alternative
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/variation-default.svg",
-    alt: "Default variation of modal.",
+    src: "../../../assets/img/components/modal/variants-neutral-alternative.svg",
+    alt: "Neutral variation of modal.",
+    width: 600
+} %}
+
+#### 01 Orange
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/variants-01-orange.svg",
+    alt: "01 Orange variation of modal.",
+    width: 600
+} %}
+
+#### 02 Orange
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/variants-02-orange.svg",
+    alt: "02 Orange variation of modal.",
+    width: 600
+} %}
+
+#### 03 Cupcake
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/variants-03-cupcake.svg",
+    alt: "03 Cupcake variation of modal.",
+    width: 600
+} %}
+
+#### 03 Cupcake subtle
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/variants-03-cupcake-subtle.svg",
+    alt: "03 Cupcake subtle variation of modal.",
+    width: 600
+} %}
+
+#### 04 Berry
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/variants-04-berry.svg",
+    alt: "04 Berry variation of modal.",
+    width: 600
+} %}
+
+#### 04 Berry subtle
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/variants-04-berry-subtle.svg",
+    alt: "04 Berry subtle variation of modal.",
+    width: 600
+} %}
+
+#### 05 Turmeric
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/variants-05-turmeric.svg",
+    alt: "05 Turmeric variation of modal.",
+    width: 600
+} %}
+
+#### 05 Turmeric subtle
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/variants-05-turmeric-subtle.svg",
+    alt: "05 Turmeric subtle variation of modal.",
+    width: 600
+} %}
+
+#### 06 Aubergine
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/variants-06-aubergine.svg",
+    alt: "06 Aubergine variation of modal.",
+    width: 600
+} %}
+
+#### 06 Aubergine subtle
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/variants-06-aubergine-subtle.svg",
+    alt: "06 Aubergine subtle variation of modal.",
+    width: 600
+} %}
+
+#### 08 Latte
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/variants-08-latte.svg",
+    alt: "08 Latte variation of modal.",
+    width: 600
+} %}
+
+#### 08 Latte subtle
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/variants-08-latte-subtle.svg",
+    alt: "08 Latte subtle variation of modal.",
     width: 600
 } %}
 
