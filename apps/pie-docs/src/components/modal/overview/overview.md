@@ -60,12 +60,15 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Back (optional)**: The chevron Icon button allows the user to return back a stage in a multi-step modal.",
-        "**Title**: Gives the users an overview of the content.",
-        "**Close (optional)**: The close Icon button will close the Modal without submitting any data.",
-        "**Main content**: Open slot for any content required.",
-        "**CTAs (optional)**: Single or dual call to action buttons to outline the user’s next options.",
-        "**Overlay**: Screen overlay that obscures the on-page content."
+        "**Header (optional):** Adds content to the header. Choose from illustration or imagery.",
+        "**Back (optional):** The chevron icon button allows the user to return back a stage in a multi-step modal.",
+        "**Title:** Gives the users an overview of the content.",
+        "**Close:** The close icon button will close the modal without submitting any data.",
+        "**Main content:** Text input or open slot for any content required",
+        "**CTAs (optional):** Single or dual call to action buttons to outline the user’s next options.",
+        "**Checkbox (optional):** Confirmation checkbox for the primary button.",
+        "**Footer content (optional):** Text can be added to the footer below actions.",
+        "**Overlay:** Screen overlay that obscures the on-page content."
     ]
 } %}
 
