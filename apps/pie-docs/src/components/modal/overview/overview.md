@@ -224,6 +224,8 @@ Header may include an illustration or an image.
   } %}
 {% endcontentLayout %}
 
+### Body
+
 #### Body content
 
 The body can be toggled on and off and may include text or an open slot to add in a specified design.
@@ -240,6 +242,8 @@ The body can be toggled on and off and may include text or an open slot to add i
     width: 478
   } %}
 {% endcontentLayout %}
+
+### Footer
 
 #### Footer content
 
