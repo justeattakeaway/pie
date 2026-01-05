@@ -32,13 +32,16 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
             "Choose variants in brand colours for promotional and non-critical content.",
             "Use dialogs to drive user input or prompt for decisions.",
             "Use dialogs for confirmations for important actions.",
-            "All content meets AA accessibility standards and is read by assistive technologies.",
+            "All content meets AA accessibility standards and is read by assistive technologies."
         ]
     },
     dont: {
         type: usageTypes.text,
         items: [
-            "Modals interrupt a user’s flow by design, so while effective when used correctly, they should be used sparingly to limit disruption to the user."
+            "Don't allow excessive content length. Modals are for focused tasks, so a different component might be more suitable.",
+            "Don't use dialogs for minor notifications.",
+            "Limit and avoid excessive interruptions.",
+            "Don’t add crucial information to images."
         ]
     }
 } %}
