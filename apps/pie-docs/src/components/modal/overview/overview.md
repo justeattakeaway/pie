@@ -207,6 +207,23 @@ Use this Header modifier when the Modal can be dismissed.
     width: 600
 } %}
 
+#### Header Content
+
+Header may include an illustration or an image.
+
+{% contentLayout %}
+  {% contentPageImage {
+      src: "../../../assets/img/components/modal/modifier-header-content-illustration.svg",
+      alt: "A Modal with an image in \"illustration\" mode in the header.",
+      width: 478
+  } %}
+  {% contentPageImage {
+    src: "../../../assets/img/components/modal/modifier-header-content-image.svg",
+    alt: "A Modal with an image in \"image\" mode in the header.",
+    width: 478
+  } %}
+{% endcontentLayout %}
+
 ### Footer
 
 You can replace the footer Buttons with any Button or Button pair defined within the Button guidance.
