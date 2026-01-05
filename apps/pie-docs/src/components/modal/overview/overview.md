@@ -224,6 +224,23 @@ Header may include an illustration or an image.
   } %}
 {% endcontentLayout %}
 
+#### Body content
+
+The body can be toggled on and off and may include text or an open slot to add in a specified design.
+
+{% contentLayout %}
+  {% contentPageImage {
+      src: "../../../assets/img/components/modal/modifier-body-content-slot.svg",
+      alt: "A Modal displaying an empty slot.",
+      width: 478
+  } %}
+  {% contentPageImage {
+    src: "../../../assets/img/components/modal/modifier-body-content-text.svg",
+    alt: "A Modal displaying text content.",
+    width: 478
+  } %}
+{% endcontentLayout %}
+
 ### Footer
 
 You can replace the footer Buttons with any Button or Button pair defined within the Button guidance.
