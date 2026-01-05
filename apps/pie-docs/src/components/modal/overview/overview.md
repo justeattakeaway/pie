@@ -272,6 +272,25 @@ The footer may include buttons stacked or side-by-side buttons, with the option 
   } %}
 {% endcontentLayout %}
 
+### Emphasis
+
+#### Emphasis through colour
+
+Depending on the level of visual prominence you want to give to the Modal, you can choose between strong or subtle emphasis.
+
+{% contentLayout %}
+  {% contentPageImage {
+      src: "../../../assets/img/components/modal/modifier-emphasis-color-aubergine-subtle.svg",
+      alt: "A Modal using the aubergine subtle variant.",
+      width: 478
+  } %}
+  {% contentPageImage {
+    src: "../../../assets/img/components/modal/modifier-emphasis-color-aubergine.svg",
+    alt: "A Modal using the aubergine variant.",
+    width: 478
+  } %}
+{% endcontentLayout %}
+
 ### Footer
 
 You can replace the footer Buttons with any Button or Button pair defined within the Button guidance.
