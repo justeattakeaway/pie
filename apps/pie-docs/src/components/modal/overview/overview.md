@@ -17,7 +17,7 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview.svg",
-    alt: "A Modal containing a heading, body copy and a button placed on the bottom right corner."
+    alt: "A Modal containing a heading, a body slot, and a button placed on the bottom right corner."
 } %}
 
 ---
@@ -28,7 +28,11 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
     do: {
         type: usageTypes.text,
         items: [
-            "Use to inform users about a task can contain information, require decisions or involve multiple tasks."
+            "Use dialogs in the neutral-alternative variant to display critical information and display urgent messages.",
+            "Choose variants in brand colours for promotional and non-critical content.",
+            "Use dialogs to drive user input or prompt for decisions.",
+            "Use dialogs for confirmations for important actions.",
+            "All content meets AA accessibility standards and is read by assistive technologies.",
         ]
     },
     dont: {
