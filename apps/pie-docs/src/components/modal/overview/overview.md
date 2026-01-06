@@ -750,8 +750,8 @@ Outlines the atomic level interactive elements for the component.
 Here are some examples of modals in a left-to-right context:
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/example-ltr-stampcards.svg",
-    alt: "A left-to-right example of a Modal with form fields in the Modal body.",
+    src: "../../../assets/img/components/modal/example-ltr-personal-information.svg",
+    alt: "A left-to-right example of tabs and cards in the Modal body.",
     shouldShowPadding: true
 } %}
 
@@ -762,8 +762,8 @@ Here are some examples of modals in a left-to-right context:
 } %}
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/example-ltr-personal-information.svg",
-    alt: "A left-to-right example of tabs and cards in the Modal body.",
+    src: "../../../assets/img/components/modal/example-ltr-stampcards.svg",
+    alt: "A left-to-right example of a Modal with form fields in the Modal body.",
     shouldShowPadding: true
 } %}
 
@@ -772,8 +772,8 @@ Here are some examples of modals in a left-to-right context:
 Here are some examples of Buttons in right-to-left context:
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/example-rtl-stampcards.svg",
-    alt: "A right-to-left example of a Modal with form fields in the Modal body.",
+    src: "../../../assets/img/components/modal/example-rtl-personal-information.svg",
+    alt: "A right-to-left example of tabs and cards in the Modal body.",
     shouldShowPadding: true
 } %}
 
@@ -784,8 +784,8 @@ Here are some examples of Buttons in right-to-left context:
 } %}
 
 {% contentPageImage {
-    src: "../../../assets/img/components/modal/example-rtl-personal-information.svg",
-    alt: "A right-to-left example of tabs and cards in the Modal body.",
+    src: "../../../assets/img/components/modal/example-rtl-stampcards.svg",
+    alt: "A right-to-left example of a Modal with form fields in the Modal body.",
     shouldShowPadding: true
 } %}
 
