@@ -532,6 +532,25 @@ The wide small and optionally medium size, has the corresponding responsive opti
 
 ---
 
+## Content
+
+### Overrides
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/content-overrides.svg",
+    alt: "A Modal with 75% width on a mobile screen.",
+    width: 336
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Buttons:** The Button’s size can be decreased, and their variant can be changed. But all changes must adhere to the button pair guidelines if they are kept as a pair, including the size of both buttons remaining consistent."
+    ]
+} %}
+
+---
+
 ### Modifiers
 
 #### Footer
