@@ -436,6 +436,38 @@ The wide modal component supports three fixed aspect ratios for imagery. To prev
   {% endcontentItem %}
 {% endcontentLayout %}
 
+## Overrides
+
+### Title
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/overrides-title.svg",
+    alt: "Two Modals are displayed, the first in regular style title, the second in emphasised style.",
+    shouldShowPadding: true
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Title:** Title can be overridden to use any of the **Heading** font tokens. As a  default state, the title will use **Heading M / Narrow**. When the prominent toggle is engaged, **Heading XL / Narrow italic** is applied."
+    ]
+} %}
+
+### Buttons
+
+{% contentPageImage {
+    src: "../../../assets/img/components/modal/overrides-buttons.svg",
+    alt: "A Modal with custom buttons in its footer.",
+    shouldShowPadding: true
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Buttons:** The Button’s size can be decreased, and their variant can be changed. But all changes must adhere to the button pair guidelines if they are kept as a pair, including the size of both buttons remaining consistent."
+    ]
+} %}
+
 ---
 
 #### Sizes
