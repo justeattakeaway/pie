@@ -359,6 +359,85 @@ You can use the Passive modifier for the footer in instances where the user does
 
 ---
 
+## Imagery usage
+
+#### Sizes
+
+{% notification {
+  type: "warning",
+  message: "Aspect ratios vary depending on the modal variant being used. Narrow and Wide component obtain different aspect ratios to maintain the correct visual proportions of the component."
+} %}
+
+#### Narrow modal
+
+The Narrow modal component supports three fixed aspect ratios for imagery. To prevent improper cropping, ensure all images are created to match one of the following ratios:
+- Small: **3:1**
+- Medium: **16:9**
+- Large: **4:3**
+
+{% contentLayout %}
+  {% contentItem %}
+    <h5>Small</h5>
+    {% contentPageImage {
+      src: "../../../assets/img/components/modal/imagery-usage-narrow-ratio-small.svg",
+      alt: "A narrow Modal with an image assigned with a small aspect ratio.",
+      width: 478
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h5>Medium</h5>
+    {% contentPageImage {
+      src: "../../../assets/img/components/modal/imagery-usage-narrow-ratio-medium.svg",
+      alt: "A narrow Modal with an image assigned with a medium aspect ratio.",
+      width: 478
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h5>Large</h5>
+    {% contentPageImage {
+      src: "../../../assets/img/components/modal/imagery-usage-narrow-ratio-large.svg",
+      alt: "A narrow Modal with an image assigned with a large aspect ratio.",
+      width: 478
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+#### Wide modal
+
+The wide modal component supports three fixed aspect ratios for imagery. To prevent improper cropping, ensure all images are created to match one of the following ratios:
+- Small: **4:1**
+- Medium: **3:1**
+- Large: **21:9**
+
+{% contentLayout %}
+  {% contentItem %}
+    <h5>Small</h5>
+    {% contentPageImage {
+      src: "../../../assets/img/components/modal/imagery-usage-wide-ratio-small.svg",
+      alt: "A wide Modal with an image assigned with a small aspect ratio.",
+      width: 478
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h5>Medium</h5>
+    {% contentPageImage {
+      src: "../../../assets/img/components/modal/imagery-usage-wide-ratio-medium.svg",
+      alt: "A wide Modal with an image assigned with a medium aspect ratio.",
+      width: 478
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h5>Large</h5>
+    {% contentPageImage {
+      src: "../../../assets/img/components/modal/imagery-usage-wide-ratio-large.svg",
+      alt: "A wide Modal with an image assigned with a large aspect ratio.",
+      width: 478
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+---
+
 #### Sizes
 
 There are three responsive Modal sizes: large, medium and small. Choose a size that works best for the amount of Modal content you have.
