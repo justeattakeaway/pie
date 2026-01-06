@@ -470,7 +470,7 @@ The wide modal component supports three fixed aspect ratios for imagery. To prev
 
 ---
 
-#### Sizes
+## Sizes
 
 There are three responsive Modal sizes: large, medium and small. Choose a size that works best for the amount of Modal content you have.
 
@@ -512,7 +512,8 @@ Modals with short messages should use the small Modal to avoid long single lines
 
 #### Full screen
 
-Large modals will expand to fill the entire page width at narrow viewports.
+The wide large and optionally medium size, has the corresponding responsive option of fullscreen at narrow.
+
 {% contentPageImage {
     src: "../../../assets/img/components/modal/narrow-size-full-screen.svg",
     alt: "A fullscreen Modal on a mobile screen.",
@@ -521,13 +522,15 @@ Large modals will expand to fill the entire page width at narrow viewports.
 
 #### 75% width
 
-Medium and small modals will expand to 75% page width at narrow viewports.
+The wide small and optionally medium size, has the corresponding responsive option of 75% width at narrow.
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/narrow-size-75-percent.svg",
     alt: "A Modal with 75% width on a mobile screen.",
     width: 336
 } %}
+
+---
 
 ### Modifiers
 
