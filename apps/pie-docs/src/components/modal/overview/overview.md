@@ -558,9 +558,80 @@ The wide small and optionally medium size, has the corresponding responsive opti
 In order to keep the size consistent when the content inside the modal is loading, we have set a fixed height of 360px while the loading spinner is visible.
 
 {% contentPageImage {
-  src: "../../../assets/img/components/modal/behaviour-loading.svg",
+  src: "../../../assets/img/components/modal/behaviours-loading.svg",
   alt: "Loading behaviour of a modal.",
   width: 600
+} %}
+
+### Checkbox confirmation
+
+A maximum of two Buttons are allowed within the Modal’s footer, with the primary Button right aligned and the lower emphasis Button on the left.
+
+#### Disabled continuation
+
+The continue button remains disabled until the user selects the checkbox, ensuring they acknowledge the required information before proceeding.
+
+{% contentPageImage {
+  src: "../../../assets/img/components/modal/behaviours-checkbox-disabled-continuation.svg",
+  alt: "Two Modals are displayed, where the second has a disabled primary button due to an unselected checkbox.",
+  width: 600
+} %}
+
+#### Error on attempted submission
+
+If the user tries to continue without selecting the checkbox, it enters an error state with assistive text, guiding them to complete the required action.
+
+{% contentPageImage {
+  src: "../../../assets/img/components/modal/behaviours-checkbox-error-on-continuation.svg",
+  alt: "Two Modals are displayed, where the second is in an error state due to an unselected checkbox.",
+  width: 600
+} %}
+
+### Slot
+
+Our Dialogs use Slots which ensure the component is flexible without the need to detach it from it’s original instance. If you want to learn more about slots and how to use them, please check the Slots documentation.
+
+{% notification {
+  type: "information",
+  message: "This video will show you the steps you need to use a Slot."
+} %}
+
+#### Quick guide for working with slots
+
+Slots within components can be swapped for any type of content. Here are the steps you need to take when working with slots within your components:
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "Create a new frame.",
+        "Design the contents that will replace the slot inside the new frame.",
+        "Once you’re happy with the contents, make it a ❖ component (Cmnd+Alt+K).",
+        "Give your component a meaningful name so you can find it during step 5.",
+        "Select the nested Slot within the original component and replace it with the component you created.",
+        "Make sure your new component uses Auto layout so it can be resized properly."
+    ]
+} %}
+
+{% contentPageImage {
+  src: "../../../assets/img/components/modal/behaviours-slots-quick-guide.svg",
+  alt: "A diagram showing how to use the Modal content slot.",
+  width: 600
+} %}
+
+### Slots available
+
+{% contentPageImage {
+  src: "../../../assets/img/components/modal/behaviours-slots-slots-available.svg",
+  alt: "A diagram displaying the available slots for the Modal content and footer.",
+  width: 600
+} %}
+
+{% list {
+    type: listTypes.ordered,
+    items: [
+        "**Body Slot:** Available as a variant",
+        "**Footer slot:** Hidden by default"
+    ]
 } %}
 
 ---
