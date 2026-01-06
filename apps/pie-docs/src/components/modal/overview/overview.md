@@ -551,6 +551,20 @@ The wide small and optionally medium size, has the corresponding responsive opti
 
 ---
 
+## Behaviours
+
+### Loading
+
+In order to keep the size consistent when the content inside the modal is loading, we have set a fixed height of 360px while the loading spinner is visible.
+
+{% contentPageImage {
+  src: "../../../assets/img/components/modal/behaviour-loading.svg",
+  alt: "Loading behaviour of a modal.",
+  width: 600
+} %}
+
+---
+
 ### Modifiers
 
 #### Footer
@@ -569,20 +583,6 @@ As well as the standard Modal footer modifiers, at a narrow size you have the op
     width: 288
   } %}
 {% endcontentLayout %}
-
----
-
-## Behaviours
-
-### Loading
-
-In order to keep the size consistent when the content inside the Modal is loading, we have set a fixed height of 360px while the loading spinner is visible.
-
-{% contentPageImage {
-  src: "../../../assets/img/components/modal/behaviour-loading.svg",
-  alt: "Loading behaviour of a modal.",
-  width: 600
-} %}
 
 ---
 
