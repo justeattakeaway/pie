@@ -636,27 +636,6 @@ Slots within components can be swapped for any type of content. Here are the ste
 
 ---
 
-### Modifiers
-
-#### Footer
-
-As well as the standard Modal footer modifiers, at a narrow size you have the option to have full-width buttons that are stacked.
-
-{% contentLayout %}
-  {% contentPageImage {
-      src: "../../../assets/img/components/modal/narrow-modifier-footer-single-action.svg",
-      alt: "A Modal with a single primary button in its footer on a mobile screen.",
-      width: 336
-  } %}
-  {% contentPageImage {
-    src: "../../../assets/img/components/modal/narrow-modifier-footer-dual-action.svg",
-    alt: "A Modal with a single primary button in its footer on a mobile screen.",
-    width: 288
-  } %}
-{% endcontentLayout %}
-
----
-
 ## Layout
 
 ### Position
