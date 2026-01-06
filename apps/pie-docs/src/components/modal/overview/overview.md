@@ -690,7 +690,7 @@ If the actions are required to be sticky, they are pinned to the bottom of the M
 {% contentPageImage {
   src: "../../../assets/img/components/modal/overflow-body-content-footer-pinned.svg",
   alt: "A Modal with a pinned footer.",
-  width: 400
+  width: 600
 } %}
 
 #### Footer pinned = false
@@ -700,7 +700,17 @@ If the actions aren’t required to be sticky and are placed at the bottom of th
 {% contentPageImage {
   src: "../../../assets/img/components/modal/overflow-body-content-footer-not-pinned.svg",
   alt: "A Modal with an unpinned footer.",
-  width: 400
+  width: 600
+} %}
+
+### Checkbox confirmation
+
+When the checkbox label exceeds the available width, it wraps onto a new line, and the height of the footer is increased, with all content remaining centre aligned.
+
+{% contentPageImage {
+  src: "../../../assets/img/components/modal/overflow-checkbox-confirmation.svg",
+  alt: "A Modal with a confirmation checkbox.",
+  width: 600
 } %}
 
 ---
