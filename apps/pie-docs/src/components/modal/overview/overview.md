@@ -454,7 +454,8 @@ The wide modal component supports three fixed aspect ratios for imagery. To prev
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overrides-buttons.svg",
     alt: "A Modal with custom buttons in its footer.",
-    shouldShowPadding: true
+    shouldShowPadding: true,
+    width: 600
 } %}
 
 {% list {
