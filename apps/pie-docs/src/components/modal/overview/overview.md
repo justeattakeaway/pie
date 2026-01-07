@@ -422,15 +422,14 @@ The wide modal component supports three fixed aspect ratios for imagery. To prev
       width: 478
     } %}
   {% endcontentItem %}
-  {% contentItem %}
-    <h5>Large</h5>
-    {% contentPageImage {
-      src: "../../../assets/img/components/modal/imagery-usage-wide-ratio-large.svg",
-      alt: "A wide Modal with an image assigned with a large aspect ratio.",
-      width: 478
-    } %}
-  {% endcontentItem %}
 {% endcontentLayout %}
+
+<h5>Large</h5>
+{% contentPageImage {
+  src: "../../../assets/img/components/modal/imagery-usage-wide-ratio-large.svg",
+  alt: "A wide Modal with an image assigned with a large aspect ratio.",
+  width: 478
+} %}
 
 ### Overrides
 
