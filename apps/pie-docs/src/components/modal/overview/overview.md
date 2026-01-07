@@ -28,8 +28,8 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
     do: {
         type: usageTypes.text,
         items: [
-            "Use dialogs in the neutral-alternative variant to display critical information and display urgent messages.",
-            "Choose variants in brand colours for promotional and non-critical content.",
+            "Use dialogs in the [neutral-alternative variant](#neutral-alternative) to display critical information and display urgent messages.",
+            "Choose variants in [brand colours](#01-orange) for promotional and non-critical content.",
             "Use dialogs to drive user input or prompt for decisions.",
             "Use dialogs for confirmations for important actions.",
             "All content meets AA accessibility standards and is read by assistive technologies."
@@ -38,7 +38,7 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
     dont: {
         type: usageTypes.text,
         items: [
-            "Don't allow excessive content length. Modals are for focused tasks, so a different component might be more suitable.",
+            "Don't allow excessive content length. Modals are for focused tasks, so a [different component](/patterns/overlay-patterns/) might be more suitable.",
             "Don't use dialogs for minor notifications.",
             "Limit and avoid excessive interruptions.",
             "Don’t add crucial information to images."
