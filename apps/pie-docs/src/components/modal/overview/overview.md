@@ -589,7 +589,7 @@ If the user tries to continue without selecting the checkbox, it enters an error
 
 ### Slot
 
-Our Dialogs use Slots which ensure the component is flexible without the need to detach it from it’s original instance. If you want to learn more about slots and how to use them, please check the Slots documentation.
+Our Dialogs use Slots which ensure the component is flexible without the need to detach it from it’s original instance. If you want to learn more about slots and how to use them, please check the [Slots documentation](https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/-Core--Apps-Component-Documentation--PIE-3-?node-id=1186-22660&t=R7r9Jyli06pRl2MI-4).
 
 {% notification {
   type: "information",
