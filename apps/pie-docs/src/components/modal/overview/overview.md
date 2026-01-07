@@ -224,9 +224,7 @@ Header may include an illustration or an image.
   } %}
 {% endcontentLayout %}
 
-### Body
-
-#### Body content
+### Body content
 
 The body can be toggled on and off and may include text or an open slot to add in a specified design.
 
@@ -243,9 +241,7 @@ The body can be toggled on and off and may include text or an open slot to add i
   } %}
 {% endcontentLayout %}
 
-### Footer
-
-#### Footer content
+### Footer content
 
 The footer may include buttons stacked or side-by-side buttons, with the option of adding footer content in the form of either a text input or a slot to add specified content.
 
