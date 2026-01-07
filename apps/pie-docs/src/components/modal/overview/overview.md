@@ -368,7 +368,7 @@ You can use the Passive modifier for the footer in instances where the user does
   message: "Aspect ratios vary depending on the modal variant being used. Narrow and Wide component obtain different aspect ratios to maintain the correct visual proportions of the component."
 } %}
 
-#### Narrow modal
+##### Narrow modal
 
 The Narrow modal component supports three fixed aspect ratios for imagery. To prevent improper cropping, ensure all images are created to match one of the following ratios:
 - Small: **3:1**
@@ -402,7 +402,7 @@ The Narrow modal component supports three fixed aspect ratios for imagery. To pr
   {% endcontentItem %}
 {% endcontentLayout %}
 
-#### Wide modal
+##### Wide modal
 
 The wide modal component supports three fixed aspect ratios for imagery. To prevent improper cropping, ensure all images are created to match one of the following ratios:
 - Small: **4:1**
@@ -436,9 +436,9 @@ The wide modal component supports three fixed aspect ratios for imagery. To prev
   {% endcontentItem %}
 {% endcontentLayout %}
 
-## Overrides
+### Overrides
 
-### Title
+#### Title
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overrides-title.svg",
@@ -453,7 +453,7 @@ The wide modal component supports three fixed aspect ratios for imagery. To prev
     ]
 } %}
 
-### Buttons
+#### Buttons
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overrides-buttons.svg",
@@ -596,7 +596,7 @@ Our Dialogs use Slots which ensure the component is flexible without the need to
   message: "This video will show you the steps you need to use a Slot."
 } %}
 
-#### Quick guide for working with slots
+### Quick guide for working with slots
 
 Slots within components can be swapped for any type of content. Here are the steps you need to take when working with slots within your components:
 
