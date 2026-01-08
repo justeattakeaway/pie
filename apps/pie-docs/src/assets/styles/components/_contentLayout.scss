@@ -21,7 +21,7 @@
 
     > * {
       // stylelint-disable-next-line declaration-block-no-redundant-longhand-properties
-      flex: 0 1 calc(33.333% - var(--dt-spacing-e)); // Three equal-width columns
+      flex: 0 1 calc(calc(100% - (var(--dt-spacing-e) * 2)) / 3); // Three equal-width columns
     }
   }
 
