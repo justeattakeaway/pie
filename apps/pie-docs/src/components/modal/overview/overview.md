@@ -363,14 +363,14 @@ You can use the Passive modifier for the footer in instances where the user does
 
 ## Imagery usage
 
-#### Sizes
+### Sizes
 
 {% notification {
   type: "warning",
   message: "Aspect ratios vary depending on the modal variant being used. Narrow and Wide component obtain different aspect ratios to maintain the correct visual proportions of the component."
 } %}
 
-##### Narrow modal
+#### Narrow modal
 
 The Narrow modal component supports three fixed aspect ratios for imagery. To prevent improper cropping, ensure all images are created to match one of the following ratios:
 - Small: **3:1**
@@ -404,7 +404,7 @@ The Narrow modal component supports three fixed aspect ratios for imagery. To pr
   {% endcontentItem %}
 {% endcontentLayout %}
 
-##### Wide modal
+#### Wide modal
 
 The wide modal component supports three fixed aspect ratios for imagery. To prevent improper cropping, ensure all images are created to match one of the following ratios:
 - Small: **4:1**
