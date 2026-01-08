@@ -251,21 +251,27 @@ The footer may include buttons stacked or side-by-side buttons, with the option 
 } %}
 
 {% contentLayout { columns: 3 } %}
-  {% contentPageImage {
-      src: "../../../assets/img/components/modal/modifier-footer-content-none.svg",
-      alt: "A Modal without content assigned to its footer slot.",
+  {% contentItem %}
+    {% contentPageImage {
+        src: "../../../assets/img/components/modal/modifier-footer-content-none.svg",
+        alt: "A Modal without content assigned to its footer slot.",
+        width: 316
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/modal/modifier-footer-content-text.svg",
+      alt: "A Modal with text content assigned to its footer slot.",
       width: 316
-  } %}
-  {% contentPageImage {
-    src: "../../../assets/img/components/modal/modifier-footer-content-text.svg",
-    alt: "A Modal with text content assigned to its footer slot.",
-    width: 316
-  } %}
-  {% contentPageImage {
-      src: "../../../assets/img/components/modal/modifier-footer-content-slot.svg",
-      alt: "A Modal displaying an empty footer slot.",
-      width: 316
-  } %}
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+        src: "../../../assets/img/components/modal/modifier-footer-content-slot.svg",
+        alt: "A Modal displaying an empty footer slot.",
+        width: 316
+    } %}
+  {% endcontentItem %}
 {% endcontentLayout %}
 
 ### Emphasis
