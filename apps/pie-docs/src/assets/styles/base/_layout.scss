@@ -169,6 +169,11 @@
             margin-block-start: var(--dt-spacing-f);
         }
 
+        .c-contentPage-notification {
+            // Ensure margin bottom consistency between notifications and other elements such as headings
+            margin-block-end: var(--dt-spacing-f);
+        }
+
         .c-contentPage-notification + .c-contentPage-notification {
             margin-block-start: var(--dt-spacing-b);
         }
