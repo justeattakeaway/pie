@@ -250,7 +250,7 @@ The footer may include buttons stacked or side-by-side buttons, with the option 
   message: "Stacked button option will only available for narrow modal components."
 } %}
 
-{% contentLayout %}
+{% contentLayout { columns: 3 } %}
   {% contentPageImage {
       src: "../../../assets/img/components/modal/modifier-footer-content-none.svg",
       alt: "A Modal without content assigned to its footer slot.",
@@ -371,7 +371,7 @@ The Narrow modal component supports three fixed aspect ratios for imagery. To pr
 - Medium: **16:9**
 - Large: **4:3**
 
-{% contentLayout %}
+{% contentLayout { columns: 3 } %}
   {% contentItem %}
     <h5>Small</h5>
     {% contentPageImage {
