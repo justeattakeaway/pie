@@ -4,6 +4,23 @@ export const sizes = ['small', 'medium', 'large'] as const;
 export const resizeModes = ['auto', 'manual'] as const;
 export const statusTypes = ['default', 'success', 'error'] as const;
 
+export interface LabelOptions {
+    /**
+     * The main label text to display.
+     */
+    text: string;
+
+    /**
+     * Optional text to be placed next to the main label (e.g., "(optional)").
+     */
+    optional?: string;
+
+    /**
+     * Trailing text to display at the end of the label.
+     */
+    trailing?: string;
+}
+
 export interface TextareaProps {
     /**
      * Same as the HTML disabled attribute - indicates whether the textarea is disabled.
@@ -75,12 +92,20 @@ export interface TextareaProps {
      * The placeholder text to display when the textarea is empty.
      */
     placeholder?: string;
+
+    /**
+     * Label configuration. When provided, renders a native HTML label internally
+     * within the shadow DOM, enabling native label/input association.
+     * This is the recommended approach. If not provided, you can use
+     * pie-form-label as a sibling component (legacy pattern).
+     */
+    labelOptions?: LabelOptions;
 }
 
 /**
  * The default values for the `TextareaProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'assistiveText' | 'defaultValue'>>;
+type DefaultProps = ComponentDefaultProps<TextareaProps, keyof Omit<TextareaProps, 'name' | 'autocomplete' | 'assistiveText' | 'defaultValue' | 'labelOptions'>>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
