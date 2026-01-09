@@ -141,6 +141,18 @@
                     "displayName": "Cc"
                 },
                 {
+                    "name": "cc-2",
+                    "displayName": "Cc 2"
+                },
+                {
+                    "name": "cc-2-filled",
+                    "displayName": "Cc 2 Filled"
+                },
+                {
+                    "name": "cc-filled",
+                    "displayName": "Cc Filled"
+                },
+                {
                     "name": "headset",
                     "displayName": "Headset"
                 },
@@ -2389,6 +2401,10 @@
                 {
                     "name": "printer-filled",
                     "displayName": "Printer Filled"
+                },
+                {
+                    "name": "pull-request",
+                    "displayName": "Pull Request"
                 },
                 {
                     "name": "robot",
