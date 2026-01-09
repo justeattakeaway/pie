@@ -595,7 +595,7 @@ Our Dialogs use Slots which ensure the component is flexible without the need to
 
 {% notification {
   type: "information",
-  message: "This video will show you the steps you need to use a Slot."
+  message: "This [video](https://www.youtube.com/watch?v=4zchQIxeBNM) will show you the steps you need to use a Slot."
 } %}
 
 ### Quick guide for working with slots
