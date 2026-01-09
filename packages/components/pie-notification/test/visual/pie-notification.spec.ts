@@ -140,6 +140,18 @@ test.describe('Props', () => {
             });
         });
 
+        test.describe('Link actions', () => {
+            test('should render actions as links when href is provided', async ({ page }) => {
+                // Arrange
+                const basePage = new BasePage(page, 'notification--notification-with-link-actions');
+
+                await basePage.load();
+
+                // Assert
+                await percySnapshot(page, 'PieNotification - Actions rendered as links');
+            });
+        });
+
         test.describe('hasStackedActions', () => {
             test('should stack buttons on small screens', async ({ page }) => {
                 // Arrange

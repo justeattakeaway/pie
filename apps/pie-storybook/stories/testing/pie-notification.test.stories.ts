@@ -242,6 +242,25 @@ export const NotificationRTL = createNotificationStory({
     supportingAction: secondaryAction,
 });
 
+export const NotificationWithLinkActions = createNotificationStory({
+    variant: 'info',
+    heading: 'Update Available',
+    slot: 'A new version is available with exciting features.',
+    leadingAction: {
+        text: 'Learn More',
+        ariaLabel: 'Learn more about this update',
+        href: 'https://example.com',
+        target: '_blank',
+        rel: 'noopener noreferrer',
+    },
+    supportingAction: {
+        text: 'Download',
+        ariaLabel: 'Download the file',
+        href: '/static/images/logo--pie--dark.svg',
+        download: 'pie-logo.svg',
+    },
+});
+
 const VariantsTemplate = (propVals: NotificationProps) => html`<pie-notification
         variant="${ifDefined(propVals.variant)}"
         ?isCompact="${propVals.isCompact}"
