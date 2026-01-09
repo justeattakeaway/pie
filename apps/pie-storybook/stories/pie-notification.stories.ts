@@ -113,14 +113,14 @@ const notificationStoryMeta: NotificationStoryMeta = {
             },
         },
         leadingAction: {
-            description: `The leading action configuration for the notification. <br/> The \`size\` property can be ${actionSizes.join(', ')}.`,
+            description: `The leading action configuration for the notification. <br/> The \`size\` property can be ${actionSizes.join(', ')}. <br/> To render as a link, provide \`href\` (and optionally \`target\`, \`rel\`, \`download\`).`,
             control: 'object',
             defaultValue: {
                 summary: JSON.stringify(defaultProps.leadingAction),
             },
         },
         supportingAction: {
-            description: `The supporting action configuration for the notification. Appears only if \`leadingAction\` is provided. <br/> The \`size\` property can be ${actionSizes.join(', ')}.`,
+            description: `The supporting action configuration for the notification. Appears only if \`leadingAction\` is provided. <br/> The \`size\` property can be ${actionSizes.join(', ')}. <br/> To render as a link, provide \`href\` (and optionally \`target\`, \`rel\`, \`download\`).`,
             control: 'object',
             defaultValue: {
                 summary: JSON.stringify(defaultProps.supportingAction),
@@ -212,3 +212,21 @@ export const Success = createNotificationStory({ variant: 'success' });
 export const Error = createNotificationStory({ variant: 'error' });
 export const Warning = createNotificationStory({ variant: 'warning' });
 export const Translucent = createNotificationStory({ variant: 'translucent' });
+export const WithLinkActions = createNotificationStory({
+    variant: 'info',
+    heading: 'Update Available',
+    slot: 'A new version is available with exciting features and improvements.',
+    leadingAction: {
+        text: 'Learn More',
+        ariaLabel: 'Learn more about this update',
+        href: 'https://example.com',
+        target: '_blank',
+        rel: 'noopener noreferrer',
+    },
+    supportingAction: {
+        text: 'Download',
+        ariaLabel: 'Download the update',
+        href: '/path/to/file.pdf',
+        download: 'update-notes.pdf',
+    },
+});

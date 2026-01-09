@@ -25,6 +25,26 @@ export type ActionProps = {
    * The size of the button.
    */
   size?: typeof actionSizes[number];
+
+  /**
+   * The URL to navigate to when the action is clicked. When provided, the action renders as a link.
+   */
+  href?: string;
+
+  /**
+   * Where to display the linked URL when the action is a link.
+   */
+  target?: string;
+
+  /**
+   * The relationship between the current document and the linked URL.
+   */
+  rel?: string;
+
+  /**
+   * Causes the browser to download the linked URL. A string value specifies the filename.
+   */
+  download?: string;
 };
 
 export interface NotificationProps {
