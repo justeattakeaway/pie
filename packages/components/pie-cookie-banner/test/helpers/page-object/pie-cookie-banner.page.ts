@@ -282,6 +282,36 @@ export class CookieBannerComponent extends BasePage {
     }
 
     /**
+     * Retrieves the target attribute from the banner cookie statement link.
+     *
+     * @returns {Promise<string | null>} A Promise that resolves to the value of the target attribute
+     *                                   on the banner cookie statement link, or `null` if the attribute does not exist.
+     */
+    async getBannerCookieStatementLinkTarget () : Promise<string | null> {
+        return this.getBannerCookieStatementLinkAttribute('target');
+    }
+
+    /**
+     * Retrieves the target attribute from the modal cookie statement link.
+     *
+     * @returns {Promise<string | null>} A Promise that resolves to the value of the target attribute
+     *                                   on the modal cookie statement link, or `null` if the attribute does not exist.
+     */
+    async getModalCookieStatementLinkTarget () : Promise<string | null> {
+        return this.getModalCookieStatementLinkAttribute('target');
+    }
+
+    /**
+     * Retrieves the target attribute from the modal cookie technologies link.
+     *
+     * @returns {Promise<string | null>} A Promise that resolves to the value of the target attribute
+     *                                   on the modal cookie technologies link, or `null` if the attribute does not exist.
+     */
+    async getModalCookieTechnologiesLinkTarget () : Promise<string | null> {
+        return this.getModalCookieTechnologiesLinkAttribute('target');
+    }
+
+    /**
      * Checks whether the preference toggle associated with the specified preference IDs is checked.
      *
      * @param {Object[]} preferences An array of preference objects.

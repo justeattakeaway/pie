@@ -21,6 +21,7 @@ const defaultArgs: CookieBannerProps = {
         personalized: true,
         analytical: true,
     },
+    openLinksInNewTab: true,
 };
 
 const cookieBannerStoryMeta: CookieBannerStoryMeta = {
@@ -50,6 +51,13 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
         defaultPreferences: {
             control: 'object',
         },
+        openLinksInNewTab: {
+            description: 'When true (default), external links will open in a new browser tab. When false, links open in the same tab.',
+            control: 'boolean',
+            defaultValue: {
+                summary: defaultProps.openLinksInNewTab,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -76,6 +84,7 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
         cookieStatementLink,
         cookieTechnologiesLink,
         defaultPreferences,
+        openLinksInNewTab,
     } = props;
 
     return html`
@@ -85,6 +94,7 @@ const BaseStoryTemplate = (props: CookieBannerProps) => {
             .cookieStatementLink=${cookieStatementLink}
             .cookieTechnologiesLink=${cookieTechnologiesLink}
             ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"
+            .openLinksInNewTab="${openLinksInNewTab}"
             .defaultPreferences="${defaultPreferences}"
             @pie-cookie-banner-necessary-only="${necessaryOnlyAction}"
             @pie-cookie-banner-accept-all="${acceptAllAction}"
