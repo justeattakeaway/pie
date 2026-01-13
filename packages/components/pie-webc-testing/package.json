@@ -20,7 +20,7 @@
   },
   "peerDependencies": {
     "@axe-core/playwright": "^4.0.0",
-    "@playwright/test": "^1.32.3"
+    "@playwright/test": "^1.57.0"
   },
   "volta": {
     "extends": "../../../package.json"
