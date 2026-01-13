@@ -325,8 +325,8 @@ test.describe('PieCookieBanner - Component tests', () => {
         });
     });
 
-    test.describe('`openLinksInNewTab` prop', () => {
-        test.describe('when true (default)', () => {
+    test.describe('`openLinksInSameTab` prop', () => {
+        test.describe('when false (default)', () => {
             test('should set target="_blank" on the banner cookie statement link', async () => {
                 // Arrange
                 await pieCookieBannerComponent.load();
@@ -363,10 +363,10 @@ test.describe('PieCookieBanner - Component tests', () => {
             });
         });
 
-        test.describe('when false', () => {
+        test.describe('when true', () => {
             test('should set target="_self" on the banner cookie statement link', async () => {
                 // Arrange
-                await pieCookieBannerComponent.load({ openLinksInNewTab: false });
+                await pieCookieBannerComponent.load({ openLinksInSameTab: true });
 
                 // Act
                 const target = await pieCookieBannerComponent.getBannerCookieStatementLinkTarget();
@@ -377,7 +377,7 @@ test.describe('PieCookieBanner - Component tests', () => {
 
             test('should set target="_self" on the modal cookie statement link', async () => {
                 // Arrange
-                await pieCookieBannerComponent.load({ openLinksInNewTab: false });
+                await pieCookieBannerComponent.load({ openLinksInSameTab: true });
 
                 // Act
                 await pieCookieBannerComponent.clickManagePreferencesAction();
@@ -389,7 +389,7 @@ test.describe('PieCookieBanner - Component tests', () => {
 
             test('should set target="_self" on the modal cookie technologies link', async () => {
                 // Arrange
-                await pieCookieBannerComponent.load({ openLinksInNewTab: false });
+                await pieCookieBannerComponent.load({ openLinksInSameTab: true });
 
                 // Act
                 await pieCookieBannerComponent.clickManagePreferencesAction();

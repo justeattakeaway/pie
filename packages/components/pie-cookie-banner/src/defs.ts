@@ -122,11 +122,11 @@ export interface CookieBannerProps {
     defaultPreferences?: Partial<Record<PreferenceIds, boolean>>;
 
     /**
-     * When true (default), external links (Cookie Statement, Cookie Technologies)
-     * will open in a new browser tab (`target="_blank"`).
-     * When false, links open in the same tab (`target="_self"`).
+     * When true, external links (Cookie Statement, Cookie Technologies)
+     * will open in the same tab (`target="_self"`).
+     * When false (default), links open in a new browser tab (`target="_blank"`).
      */
-    openLinksInNewTab?: boolean;
+    openLinksInSameTab?: boolean;
 }
 
 /**
@@ -206,7 +206,7 @@ export const defaultProps: DefaultProps = {
     language: Language.ENGLISH,
     cookieStatementLink: '',
     cookieTechnologiesLink: '',
-    openLinksInNewTab: true,
+    openLinksInSameTab: false,
 };
 
 // Available locale files

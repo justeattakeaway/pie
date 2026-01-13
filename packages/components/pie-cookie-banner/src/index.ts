@@ -83,18 +83,18 @@ export class PieCookieBanner extends PieElement implements CookieBannerProps {
     public language = defaultProps.language;
 
     @property({ type: Boolean })
-    public openLinksInNewTab = defaultProps.openLinksInNewTab;
+    public openLinksInSameTab = defaultProps.openLinksInSameTab;
 
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;
 
     /**
-     * Returns the target attribute value for external links based on the openLinksInNewTab prop.
-     * - true (default): returns '_blank' (new tab)
-     * - false: returns '_self' (same tab)
+     * Returns the target attribute value for external links based on the openLinksInSameTab prop.
+     * - false (default): returns '_blank' (new tab)
+     * - true: returns '_self' (same tab)
      */
     private get _linkTargetAttribute () {
-        return this.openLinksInNewTab ? '_blank' : '_self';
+        return this.openLinksInSameTab ? '_self' : '_blank';
     }
 
     async updated (changedProperties: PropertyValues<this>) {
