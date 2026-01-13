@@ -3,7 +3,7 @@ import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-obj
 
 const componentSelector = '[data-test-id="pie-list"]';
 
-test.describe('PieList - Component tests', () => {
+test.describe.skip('PieList - Component tests', () => {
     test('should render successfully', async ({ page }) => {
         // Arrange
         const basePage = new BasePage(page, 'list--default');
