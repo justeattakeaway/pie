@@ -30,7 +30,7 @@
 
     // --- Mobile-First (Narrow) and Static Properties ---
 
-    // Apply Static Properties (font-family, font-weight)
+    // Apply Static Properties (font-family, font-weight, text-decoration, paragraph and font-style)
     @each $suffix, $css-prop in $static-properties {
         // Example variable structure (assuming $token-name is 'font-heading-l'): --dt-font-heading-l-family
         $scss-name: '#{$token-name}-#{$suffix}';
@@ -39,6 +39,10 @@
         @if meta.variable-exists($scss-name) {
             @if $suffix == 'paragraph' {
                 #{$css-prop}: calc(var(#{$var-name}) * 1px);
+            } @else if $suffix == 'font-style' {
+                // if we're setting font-style: italic, we need to add the font-variation-settings for slant
+                #{$css-prop}: var(#{$var-name});
+                font-variation-settings: 'slnt' -20;
             } @else {
                 #{$css-prop}: var(#{$var-name});
             }
@@ -68,8 +72,6 @@
 
     // Apply wide-screen overrides inside a media query
     @if $wide-var-names != () {
-        @debug $wide-var-names;
-
         @media (min-width: $dt-breakpoint-wide) {
             @each $var-name in $wide-var-names {
                 $css-prop: map.get($var-name, css-prop);
