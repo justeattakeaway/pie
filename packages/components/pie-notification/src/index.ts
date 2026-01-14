@@ -232,7 +232,15 @@ export class PieNotification extends PieElement implements NotificationProps {
      * @private
      */
     private renderActionButton (action: ActionProps, actionType: 'leading' | 'supporting') : TemplateResult | typeof nothing {
-        const { text, ariaLabel, size = defaultActionButtonProps.size } = action;
+        const {
+            text,
+            ariaLabel,
+            size = defaultActionButtonProps.size,
+            href,
+            target,
+            rel,
+            download,
+        } = action;
 
         if (!text) {
             return nothing;
@@ -240,6 +248,7 @@ export class PieNotification extends PieElement implements NotificationProps {
 
         const buttonVariant = actionType === 'leading' ? 'primary' : 'ghost';
         const buttonSize = size && actionSizes.includes(size) ? size : defaultActionButtonProps.size;
+        const isLink = !!href;
 
         return html`
             <pie-button
@@ -249,7 +258,12 @@ export class PieNotification extends PieElement implements NotificationProps {
                 @click="${() => this.handleActionClick(actionType)}"
                 data-test-id="${componentSelector}-${actionType}-action"
                 ?isFullWidth="${this.hasStackedActions}"
-                type="button">
+                tag="${isLink ? 'a' : 'button'}"
+                type="${isLink ? nothing : 'button'}"
+                href="${ifDefined(href)}"
+                target="${ifDefined(target)}"
+                rel="${ifDefined(rel)}"
+                download="${ifDefined(download)}">
                 ${text}
             </pie-button>
         `;

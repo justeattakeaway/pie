@@ -438,6 +438,77 @@ test.describe('PieNotification - Component tests', () => {
                     await expect(footer).toHaveCSS('flex-direction', 'row');
                 });
             });
+
+            test.describe('Link actions', () => {
+                test('should render actions as buttons when href is not provided', async ({ page }) => {
+                    // Arrange
+                    const notificationPage = new BasePage(page, 'notification');
+
+                    const props: NotificationProps = {
+                        leadingAction: mainAction,
+                        supportingAction: secondaryAction,
+                    };
+                    await notificationPage.load({ ...props });
+
+                    // Act
+                    const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                    const actionLeading = notificationComponent.getByTestId(notification.selectors.leadingAction.dataTestId);
+                    const actionSupporting = notificationComponent.getByTestId(notification.selectors.supportingAction.dataTestId);
+                    const leadingButton = actionLeading.locator('button');
+                    const supportingButton = actionSupporting.locator('button');
+
+                    // Assert
+                    await expect(notificationComponent).toBeVisible();
+                    await expect(leadingButton).toBeVisible();
+                    await expect(leadingButton).toHaveAttribute('type', 'button');
+                    await expect(supportingButton).toBeVisible();
+                    await expect(supportingButton).toHaveAttribute('type', 'button');
+                });
+
+                test('should render actions as links when href is provided', async ({ page }) => {
+                    // Arrange
+                    const notificationPage = new BasePage(page, 'notification--notification-with-link-actions');
+                    await notificationPage.load();
+
+                    // Act
+                    const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                    const actionLeading = notificationComponent.getByTestId(notification.selectors.leadingAction.dataTestId);
+                    const actionSupporting = notificationComponent.getByTestId(notification.selectors.supportingAction.dataTestId);
+                    const leadingAnchor = actionLeading.locator('a');
+                    const supportingAnchor = actionSupporting.locator('a');
+
+                    // Assert
+                    await expect(notificationComponent).toBeVisible();
+
+                    // Leading action should be a link with correct attributes
+                    await expect(leadingAnchor).toHaveAttribute('href', 'https://example.com');
+                    await expect(leadingAnchor).toHaveAttribute('target', '_blank');
+                    await expect(leadingAnchor).toHaveAttribute('rel', 'noopener noreferrer');
+
+                    // Supporting action should be a link with download attribute
+                    await expect(supportingAnchor).toHaveAttribute('href', '/static/images/logo--pie--dark.svg');
+                    await expect(supportingAnchor).toHaveAttribute('download', 'pie-logo.svg');
+                });
+
+                test('should trigger a file download when clicking the supporting action with download attribute', async ({ page }) => {
+                    // Arrange
+                    const notificationPage = new BasePage(page, 'notification--notification-with-link-actions');
+                    await notificationPage.load();
+
+                    const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                    const actionSupporting = notificationComponent.getByTestId(notification.selectors.supportingAction.dataTestId);
+                    const supportingAnchor = actionSupporting.locator('a');
+
+                    // Act
+                    const downloadPromise = page.waitForEvent('download');
+                    await supportingAnchor.click();
+                    const download = await downloadPromise;
+
+                    // Assert
+                    expect(download.suggestedFilename()).toBe('pie-logo.svg');
+                    expect(download.url()).toContain('/static/images/logo--pie--dark.svg');
+                });
+            });
         });
 
         test.describe('Aria attributes', () => {
