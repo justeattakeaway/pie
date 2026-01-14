@@ -41,8 +41,8 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `isOpen` | `true`, `false` | When true, the notification is set to be open and visible. | `true` |
 | `hideIcon` | `true`, `false` | When true, the icon will be hidden. | `false` |
 | `hasStackedActions` | `true`, `false` | When true, action buttons will stack on narrow screens. Not available when `isCompact` is true. | `false` |
-| `leadingAction` | `{ text: string, ariaLabel?: string, size?: "small-productive" \| "xsmall" }` | An object representing the leading action of the notification. | `undefined` |
-| `supportingAction` | `{ text: string, ariaLabel?: string, size?: "small-productive" \| "xsmall" }` | An object representing the supporting action of the notification. <br> The action will only render if `leadingAction` is passed. | `undefined` |
+| `leadingAction` | `{`<br>&nbsp;&nbsp;`text: string,`<br>&nbsp;&nbsp;`ariaLabel?: string,`<br>&nbsp;&nbsp;`size?: "small-productive" \| "xsmall",`<br>&nbsp;&nbsp;`href?: string,`<br>&nbsp;&nbsp;`target?: string,`<br>&nbsp;&nbsp;`rel?: string,`<br>&nbsp;&nbsp;`download?: string`<br>`}` | An object representing the leading action of the notification. When `href` is provided, renders as a link. | `undefined` |
+| `supportingAction` | `{`<br>&nbsp;&nbsp;`text: string,`<br>&nbsp;&nbsp;`ariaLabel?: string,`<br>&nbsp;&nbsp;`size?: "small-productive" \| "xsmall",`<br>&nbsp;&nbsp;`href?: string,`<br>&nbsp;&nbsp;`target?: string,`<br>&nbsp;&nbsp;`rel?: string,`<br>&nbsp;&nbsp;`download?: string`<br>`}` | An object representing the supporting action of the notification. When `href` is provided, renders as a link. <br> The action will only render if `leadingAction` is passed. | `undefined` |
 | `aria` | `{ close?: string, label?: string }` | The ARIA labels used for various parts of the notification. Only pass `label` if there is no heading to ensure the region is announced with a title. | `undefined` |
 
 ### Slots
@@ -106,6 +106,78 @@ import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/dist/react/Icon
 <PieNotification title="Heading">
   <IconPlaceholder slot="icon"></IconPlaceholder>
   Content
+</PieNotification>
+```
+
+### With Link Actions
+
+Actions can be rendered as links by providing an `href` property. This is useful when you want to navigate to a URL or trigger a file download.
+
+**For HTML:**
+
+```html
+<pie-notification
+    heading="Update Available"
+    id="my-notification">
+    A new version is available with exciting features.
+</pie-notification>
+
+<script>
+    const notification = document.getElementById('my-notification');
+    notification.leadingAction = {
+        text: 'Learn More',
+        href: 'https://example.com',
+        target: '_blank',
+        rel: 'noopener noreferrer'
+    };
+    notification.supportingAction = {
+        text: 'Download',
+        href: '/path/to/file.pdf',
+        download: 'release-notes.pdf'
+    };
+</script>
+```
+
+**For Native JS Applications, Vue, Angular, Svelte etc.:**
+
+```html
+<!-- Vue templates (using Nuxt 3) -->
+<pie-notification
+    heading="Update Available"
+    :leading-action="{
+        text: 'Learn More',
+        href: 'https://example.com',
+        target: '_blank',
+        rel: 'noopener noreferrer'
+    }"
+    :supporting-action="{
+        text: 'Download',
+        href: '/path/to/file.pdf',
+        download: 'release-notes.pdf'
+    }">
+    A new version is available with exciting features.
+</pie-notification>
+```
+
+**For React Applications:**
+
+```jsx
+import { PieNotification } from '@justeattakeaway/pie-webc/react/notification.js';
+
+<PieNotification
+    heading="Update Available"
+    leadingAction={{
+        text: 'Learn More',
+        href: 'https://example.com',
+        target: '_blank',
+        rel: 'noopener noreferrer'
+    }}
+    supportingAction={{
+        text: 'Download',
+        href: '/path/to/file.pdf',
+        download: 'release-notes.pdf'
+    }}>
+    A new version is available with exciting features.
 </PieNotification>
 ```
 
