@@ -11,8 +11,10 @@
     --notification-direction: column;
     --notification-heading-font-size: #{p.font-size(--dt-font-heading-s-size--narrow)};
     --notification-heading-line-height: #{p.line-height(--dt-font-heading-s-line-height--narrow)};
+    --notification-heading-font-weight: var(--dt-font-heading-s-weight);
     --notification-font-size: #{p.font-size(--dt-font-body-l-size)};
     --notification-line-height: #{p.line-height(--dt-font-body-l-line-height)};
+    --notification-font-weight: var(--dt-font-body-l-weight);
     --notification-close-icon-offset: var(--dt-spacing-b);
     --notification-icon-fill: var(--dt-color-content-inverse);
     --notification-icon-background-color: var(--dt-color-container-inverse);
@@ -27,6 +29,7 @@
     gap: var(--dt-spacing-d);
     font-size: var(--notification-font-size);
     line-height: var(--notification-line-height);
+    font-weight: var(--notification-font-weight);
     color: var(--dt-color-content-default);
 
     &.c-notification--compact {
@@ -76,6 +79,7 @@
         margin-block-end: var(--dt-spacing-a);
         font-size: var(--notification-heading-font-size);
         line-height: var(--notification-heading-line-height);
+        font-weight: var(--notification-heading-font-weight);
 
         @include media('>md') {
             --notification-heading-font-size: #{p.font-size(--dt-font-heading-s-size--wide)};
@@ -108,6 +112,7 @@
 
         &.c-notification-footer--compact {
             align-self: center;
+            margin-inline-start: auto;
         }
 
         @include media('<md') {
