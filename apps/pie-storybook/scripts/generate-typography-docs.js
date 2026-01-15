@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 
 const CSS_FILE_PATH = path.join(__dirname, '../../../packages/tools/pie-css/dist/helpers/typography.css');
-const OUTPUT_FILE_PATH = path.join(__dirname, '../stories/pie-css-typography.mdx');
+const OUTPUT_FILE_PATH = path.join(__dirname, '../stories/additional-libraries/pie-css-typography.mdx');
 
 /**
  * Parse CSS file and extract utility class information
@@ -219,7 +219,7 @@ function generateMDXContent (classes) {
     return `import { Meta } from '@storybook/addon-docs';
 import { Canvas } from '@storybook/blocks';
 
-<Meta title="Additional libraries/PIE CSS Typography Utility Classes" />
+<Meta title="Additional libraries/PIE CSS/Typography Utility Classes" />
 
 # PIE CSS Typography Utility Classes
 
