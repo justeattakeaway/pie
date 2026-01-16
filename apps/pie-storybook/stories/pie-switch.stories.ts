@@ -293,9 +293,7 @@ const createMultiSwitchStory = createStory(MultiSwitchFormTemplate, {
 // Generate the argTypes config to disable all controls
 const controlArgNames = Object.keys(switchStoryMeta.argTypes || {});
 
-const disabledArgTypes = Object.fromEntries(
-    controlArgNames.map((key) => [key, { control: { type: null } }]),
-);
+const disabledArgTypes = Object.fromEntries(controlArgNames.map((key) => [key, { control: { type: null } }]));
 
 export const MultipleSwitchesInAForm = createMultiSwitchStory({}, {
     argTypes: disabledArgTypes,
