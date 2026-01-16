@@ -179,7 +179,7 @@ const ButtonGroupTemplate: TemplateFunction<ChipProps> = () => {
         const group = clickedChip.parentElement;
 
         // Deselect all chips in the group
-        group?.querySelectorAll('pie-chip').forEach((chip: any) => {
+        group?.querySelectorAll<PieChip>('pie-chip').forEach((chip) => {
             chip.isSelected = false;
         });
 
