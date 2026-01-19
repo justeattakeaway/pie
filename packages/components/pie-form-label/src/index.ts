@@ -30,7 +30,7 @@ export class PieFormLabel extends PieElement implements FormLabelProps {
     private _renderOptionalLabel (): TemplateResult | typeof nothing {
         const { optional } = this;
 
-        return optional ? html`<span class="c-formLabel-optional">${optional}</span>` : nothing;
+        return optional ? html`<span class="pie-form-label-optional">${optional}</span>` : nothing;
     }
 
     private handleClick () {
@@ -57,13 +57,13 @@ export class PieFormLabel extends PieElement implements FormLabelProps {
             <label
                 @click=${this.handleClick}
                 data-test-id="pie-form-label"
-                class="c-formLabel"
+                class="pie-form-label"
                 for=${ifDefined(this.for)}>
-                    <div class="c-formLabel-leading-wrapper">
-                        <span class="c-formLabel-leading" data-test-id="pie-form-label-leading"><slot></slot></span>
+                    <div class="pie-form-label-leading-wrapper">
+                        <span class="pie-form-label-leading" data-test-id="pie-form-label-leading"><slot></slot></span>
                         ${this._renderOptionalLabel()}
                     </div>
-                    ${trailing ? html`<span class="c-formLabel-trailing" data-test-id="pie-form-label-trailing">${trailing}</span>` : nothing}
+                    ${trailing ? html`<span class="pie-form-label-trailing" data-test-id="pie-form-label-trailing">${trailing}</span>` : nothing}
             </label>`;
     }
 

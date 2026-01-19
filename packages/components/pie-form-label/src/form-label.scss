@@ -1,43 +1,26 @@
-@use '@justeattakeaway/pie-css/scss' as p;
+@use '@justeattakeaway/pie-css/scss/mixins/form-label' as *;
 
 :host {
     display: block;
 }
 
-.c-formLabel {
-    --form-label-font-size: #{p.font-size(--dt-font-body-strong-s-size)};
-    --form-label-line-height: calc(var(--dt-font-body-strong-s-line-height) * 1px);
-    --form-label-font-weight: var(--dt-font-body-strong-s-weight);
-    --form-label-color: var(--dt-color-content-default-solid);
-
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: var(--dt-spacing-d);
-    color: var(--form-label-color);
-    font-size: var(--form-label-font-size);
-    line-height: var(--form-label-line-height);
-    font-weight: var(--form-label-font-weight);
-    padding-block-end: var(--dt-spacing-a);
+/* Form label styles using pie-css mixins */
+.pie-form-label {
+    @include pie-form-label;
 }
 
-.c-formLabel-optional,
-.c-formLabel-trailing {
-    color: var(--dt-color-content-subdued-solid);
-    font-size: #{p.font-size(--dt-font-body-s-size)};
-    line-height: calc(var(--dt-font-body-s-line-height) * 1px);
-    font-weight: var(--dt-font-body-s-weight);
+.pie-form-label-leading-wrapper {
+    @include pie-form-label-leading-wrapper;
 }
 
-.c-formLabel-leading-wrapper {
-    display: flex;
+.pie-form-label-leading {
+    @include pie-form-label-leading;
 }
 
-.c-formLabel-leading {
-    margin-inline-end: var(--dt-spacing-b);
+.pie-form-label-optional {
+    @include pie-form-label-optional;
 }
 
-.c-formLabel-trailing {
-    flex-shrink: 0;
-    white-space: var(--dt-spacing-d);
+.pie-form-label-trailing {
+    @include pie-form-label-trailing;
 }
