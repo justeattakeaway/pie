@@ -597,6 +597,21 @@ const LoadingStateStoryTemplate = (props: ModalProps) => {
             </pie-modal>`;
 };
 
+const CSSPartsHeadingStoryTemplate = (props: ModalProps) => html`
+        <style>
+            pie-modal::part(heading) {
+                all: initial;
+                font-family: var(--dt-font-heading-xl-family);
+                font-size: calc(var(--dt-font-heading-xl-size--wide) * 1px);
+                line-height: calc(var(--dt-font-heading-xl-line-height--wide) * 1px);
+                font-weight: var(--dt-font-weight-black);
+                color: var(--dt-color-content-brand-solid);
+                padding: var(--dt-spacing-d);
+            }
+        </style>
+        ${BaseStoryTemplate(props)}
+    `;
+
 const createBaseModalStory = createStory<ModalProps>(BaseStoryTemplate, defaultArgs);
 
 export const Default = createBaseModalStory();
@@ -658,6 +673,8 @@ export const VoucherImageExample = createStory<ModalProps>(SlottedImageContentSt
         ariaLabel: 'Descriptive confirmation text',
     },
 });
+
+export const CSSPartsHeadingStyle = createStory<ModalProps>(CSSPartsHeadingStoryTemplate, defaultArgs)();
 
 const renderCategoryChipsList = (length: number) => html`
     <ul role="list" style="list-style-type: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--dt-spacing-b);">

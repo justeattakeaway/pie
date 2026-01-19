@@ -21,11 +21,11 @@
   },
   "Checkbox": {
     "piePackage": "@justeattakeaway/pie-checkbox",
-    "status": "beta"
+    "status": "stable"
   },
   "CheckboxGroup": {
     "piePackage": "@justeattakeaway/pie-checkbox-group",
-    "status": "beta"
+    "status": "stable"
   },
   "Chip": {
     "piePackage": "@justeattakeaway/pie-chip",
@@ -55,17 +55,29 @@
     "piePackage": "@justeattakeaway/pie-modal",
     "status": "stable"
   },
+  "ModalContent": {
+    "piePackage": "@justeattakeaway/pie-modal",
+    "status": "stable"
+  },
+  "ModalFooter": {
+    "piePackage": "@justeattakeaway/pie-modal",
+    "status": "stable"
+  },
+  "ModalScrollContent": {
+    "piePackage": "@justeattakeaway/pie-modal",
+    "status": "stable"
+  },
   "Notification": {
     "piePackage": "@justeattakeaway/pie-notification",
     "status": "beta"
   },
   "Radio": {
     "piePackage": "@justeattakeaway/pie-radio",
-    "status": "beta"
+    "status": "stable"
   },
   "RadioGroup": {
     "piePackage": "@justeattakeaway/pie-radio-group",
-    "status": "beta"
+    "status": "stable"
   },
   "Select": {
     "piePackage": "@justeattakeaway/pie-select",

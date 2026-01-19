@@ -1,5 +1,79 @@
 # Changelog
 
+## 5.19.0
+
+### Minor Changes
+
+- [Updated] - Icons ([#2656](https://github.com/justeattakeaway/pie/pull/2656)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Audiovisual (AV)
+
+  - cc-2-filled-large
+  - cc-2-filled
+  - cc-2-large
+  - cc-2
+  - cc-filled-large
+  - cc-filled
+  - cc-large
+  - cc
+  - microphone-off-large
+  - microphone-off
+  - soundwave-large
+  - soundwave
+
+  ## Gestures
+
+  - do-not-touch-large
+  - do-not-touch
+
+  ## Technology
+
+  - pull-request-large
+  - pull-request
+
+  ## Thumbs
+
+  - thumbs-down-filled-large
+  - thumbs-down-filled
+  - thumbs-down-large
+  - thumbs-down
+  - thumbs-up-filled-large
+  - thumbs-up-filled
+  - thumbs-up-large
+  - thumbs-up
+
+- [Added] - Icons ([#2645](https://github.com/justeattakeaway/pie/pull/2645)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Audiovisual (AV)
+
+  - cc-2-filled-large
+  - cc-2-filled
+  - cc-2-large
+  - cc-2
+  - cc-filled-large
+  - cc-filled
+
+  ## Technology
+
+  - pull-request-large
+  - pull-request
+
+  [Updated] - Icons
+
+  ## App
+
+  - app-unlock-large
+  - app-unlock
+
+  ## Technology
+
+  - robot-large
+  - robot
+
+### Patch Changes
+
+- [Fixed] automation issue happening when icon files were only updated, not added ([#2654](https://github.com/justeattakeaway/pie/pull/2654)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 5.18.0
 
 ### Minor Changes

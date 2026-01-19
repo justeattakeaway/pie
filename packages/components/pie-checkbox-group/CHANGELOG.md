@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-checkbox-group
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.8
+
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - Set package version to stable/first major version ([#2632](https://github.com/justeattakeaway/pie/pull/2632)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.9.19
 
 ### Patch Changes

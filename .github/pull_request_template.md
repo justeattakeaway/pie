@@ -28,6 +28,7 @@ Please move any Author checklist items that do not apply to this pull request he
 | Task                   | Link                             |
 |------------------------|----------------------------------|
 | Aperture PR            | [🔗](#) |
+| NextJS 15 deployment   | [🔗](#) |
 | NextJS 14 deployment   | [🔗](#) |
 | Nuxt 3 deployment      | [🔗](#) |
 | Vanilla deployment     | [🔗](#) |

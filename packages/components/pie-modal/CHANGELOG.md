@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-modal
 
+## 1.22.1
+
+### Patch Changes
+
+- Updated dependencies [[`1b3835c`](https://github.com/justeattakeaway/pie/commit/1b3835c25c019165b0e536897fa3ff4886aa5ebf), [`b95891b`](https://github.com/justeattakeaway/pie/commit/b95891b441a5136caab5a40788e0ca9e1f8ca950)]:
+  - @justeattakeaway/pie-icons-webc@1.18.0
+  - @justeattakeaway/pie-icon-button@2.3.4
+
+## 1.22.0
+
+### Minor Changes
+
+- [Added] - heading CSS part allowing full style customisation ([#2637](https://github.com/justeattakeaway/pie/pull/2637)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.21.0
 
 ### Minor Changes

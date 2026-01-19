@@ -1,5 +1,32 @@
 # Changelog
 
+## 4.59.4
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2645](https://github.com/justeattakeaway/pie/pull/2645)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- [Changed] - updated snapshots after icons update ([#2656](https://github.com/justeattakeaway/pie/pull/2656)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`996740b`](https://github.com/justeattakeaway/pie/commit/996740b85f92ecb3062f7c4e630dc07ca77ed89b), [`1b3835c`](https://github.com/justeattakeaway/pie/commit/1b3835c25c019165b0e536897fa3ff4886aa5ebf), [`b95891b`](https://github.com/justeattakeaway/pie/commit/b95891b441a5136caab5a40788e0ca9e1f8ca950)]:
+  - @justeattakeaway/pie-icons@5.19.0
+  - @justeattakeaway/pie-icons-webc@1.18.0
+  - @justeattakeaway/pie-webc@0.7.40
+
+## 4.59.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.39
+
+## 4.59.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.38
+
 ## 4.59.1
 
 ### Patch Changes

@@ -38,8 +38,9 @@ module.exports = {
                     const replacementData = snacksComponentsData[componentName];
                     // Specific components can be bypassed if an array of names are provided
                     const isBypassedInOptions = bypassedComponents && bypassedComponents.includes(componentName);
+                    const isDeprecated = replacementData && replacementData.status && replacementData.status === 'stable';
 
-                    if (replacementData && !isBypassedInOptions) {
+                    if (!isBypassedInOptions && isDeprecated) {
                         context.report({
                             node,
                             message: `The Snacks component "${componentName}" is being deprecated and can be replaced by "${replacementData.piePackage}".`,

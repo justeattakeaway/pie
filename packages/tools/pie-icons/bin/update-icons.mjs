@@ -200,7 +200,7 @@ async function updateIcons () {
         const changedFilesGroups = getChangedFilesGroups();
         console.info('updating iconData.json file');
         const iconsDataFilePath = path.join(findMonorepoRoot(), 'packages/tools/pie-icons/src/iconData.json');
-        updateIconData(iconsDataFilePath, changedFilesGroups.added, allFilesPathsAndCategories);
+        if (changedFilesGroups.added) updateIconData(iconsDataFilePath, changedFilesGroups.added, allFilesPathsAndCategories);
 
         console.info('updating pie-docs snapshots');
         execSync('cd ../../../ && yarn test --filter=@justeattakeaway/pie-docs -- -u');

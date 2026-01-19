@@ -29,7 +29,6 @@ import {
     sizes,
     backgroundColors,
     defaultProps,
-    imageSlotModes,
     imageSlotAspectRatios,
     ON_MODAL_BACK_EVENT,
     ON_MODAL_CLOSE_EVENT,
@@ -568,7 +567,7 @@ export class PieModal extends PieElement implements ModalProps {
         };
 
         return html`
-            <${headingTag} id="modal-heading" class="${classMap(headingClasses)}">
+            <${headingTag} id="modal-heading" class="${classMap(headingClasses)}" part="heading" data-test-id="modal-heading">
                 ${heading}
             </${headingTag}>
         `;

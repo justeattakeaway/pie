@@ -16,6 +16,7 @@
   - [Properties](#properties)
   - [Slots](#slots)
   - [CSS Variables](#css-variables)
+  - [CSS Parts](#css-parts)
   - [Events](#events)
 - [Legacy browser support](#legacy-browser-support)
 - [Usage Examples](#usage-examples)
@@ -82,6 +83,11 @@ The order of content rendering is as follows:
 
 ### CSS Variables
 This component does not expose any CSS variables for style overrides.
+
+### CSS Parts
+| Part      | Description                                                  |
+|-----------|--------------------------------------------------------------|
+| `heading` | This part allows consumers to fully rewrite the styles of the heading element. |
 
 ### Events
 | Event                                 | Type          | Description                                               |
