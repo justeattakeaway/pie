@@ -1,7 +1,7 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
 export const sizes = ['xsmall', 'small', 'medium', 'large'] as const;
-export const variants = ['primary', 'secondary', 'outline', 'ghost',
+export const variants = ['primary', 'primary-alternative', 'secondary', 'outline', 'ghost',
     'ghost-secondary', 'inverse', 'ghost-inverse', 'translucent'] as const;
 
 type AriaProps = {
