@@ -18,7 +18,7 @@
         'line-height': 'line-height',
     );
 
-    // 2. Define properties that are static (family, weight)
+    // 2. Define properties that are static
     // These use the base suffix only.
     $static-properties: (
         'family': 'font-family',
@@ -49,6 +49,8 @@
         }
     }
 
+    // Setup a list which will be populated only if responsive variables exists
+    // This is then used to generate the wide variants of those properties
     $wide-var-names: ();
 
     // Apply Responsive Properties (font-size, line-height) for the default (Narrow) screen.

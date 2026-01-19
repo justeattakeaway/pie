@@ -20,6 +20,7 @@ The PIE CSS Typography Utilities provide a comprehensive set of utility classes 
     - [If You Have Designs](#if-you-have-designs)
     - [If You Don't Have Designs](#if-you-dont-have-designs)
 - [Available Classes](#available-classes)
+- [the `font-theme` mixin](#the-font-theme-mixin)
 - [Usage Examples](#usage-examples)
 - [What Each Utility Class Applies](#what-each-utility-class-applies)
 - [Troubleshooting](#troubleshooting)
@@ -92,6 +93,34 @@ If you don't have access to designs, you have two options:
 ## Available Classes
 
 The typography utilities are organized into several categories. This documentation is automatically generated from the CSS source file.
+
+### the `font-theme` mixin
+
+In addition to the typography utility classes, the `font-theme` mixin can also be used directly to apply the styles to your SCSS.
+
+**N.b. We recommend only using this when using the classes isn't possible – and only if you are serving your CSS gzipped, to ensure that this code is properly optimised when served to your users.**
+
+Using the `font-theme` mixin will apply the corresponding typography styles to the element selected. It takes a typography token name as an argument.
+
+To use the mixin as part of the full set of PIE SCSS Utilities, you can import the mixin as follows:
+
+```css
+@use '@justeattakeaway/pie-css/scss' as p;
+
+.my-element {
+    @include p.font-theme('heading-l');
+}
+```
+
+Alternatively, you can import the mixin directly, without importing the other SCSS utilities:
+
+```css
+@use '@justeattakeaway/pie-css/scss/mixins/font-theme' as *;
+
+.my-element {
+    @include font-theme('heading-l');
+}
+```
 
 ### Headings
 
@@ -303,4 +332,4 @@ If fonts aren't displaying correctly:
 3. Verify font-face declarations are correct
 
 ---
-*This documentation is automatically generated from the CSS source file. Last updated: 2026-01-15*
+*This documentation is automatically generated from the CSS source file. Last updated: 2026-01-16*
