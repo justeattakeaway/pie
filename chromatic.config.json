@@ -1,0 +1,6 @@
+{
+  "$schema": "https://www.chromatic.com/config-file.schema.json",
+  "projectId": "Project:696e3c73d95be2443ce29115",
+  "buildScriptName": "build:chromatic",
+  "storybookBaseDir": "apps/pie-storybook"
+}

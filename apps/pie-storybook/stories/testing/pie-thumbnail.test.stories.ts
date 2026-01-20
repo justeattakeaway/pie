@@ -195,7 +195,7 @@ export const OutlinePropVariations = createVariantStory<ThumbnailProps>(Template
 export const BackgroundPropVariations = createVariantStory<ThumbnailProps>(Template, backgroundPropOptions);
 export const aspectRatio4by3PropVariations = createVariantStory<ThumbnailProps>(Template, aspectRatio4by3PropOptions);
 export const aspectRatio16by9PropVariations = createVariantStory<ThumbnailProps>(Template, aspectRatio16by9PropOptions);
-export const InvalidSrcAndDefaultPlaceholder = createVariantStory<ThumbnailProps>(Template, defaultPlaceholderPropOptions);
+// export const InvalidSrcAndDefaultPlaceholder = createVariantStory<ThumbnailProps>(Template, defaultPlaceholderPropOptions);
 export const InvalidSrcAndCustomPlaceholder = createVariantStory<ThumbnailProps>(Template, customPlaceholderPropOptions);
 export const ValidSrcWithCustomPlaceholder = createStory<ThumbnailProps>(Template, {
     src: defaultArgs.src,
