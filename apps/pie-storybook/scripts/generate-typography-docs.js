@@ -322,7 +322,7 @@ Using the \`font-theme\` mixin will apply the corresponding typography styles to
 
 To use the mixin as part of the full set of PIE SCSS Utilities, you can import the mixin as follows:
 
-\`\`\`css
+\`\`\`scss
 @use '@justeattakeaway/pie-css/scss' as p;
 
 .my-element {
@@ -332,7 +332,7 @@ To use the mixin as part of the full set of PIE SCSS Utilities, you can import t
 
 Alternatively, you can import the mixin directly, without importing the other SCSS utilities:
 
-\`\`\`css
+\`\`\`scss
 @use '@justeattakeaway/pie-css/scss/mixins/font-theme' as *;
 
 .my-element {
