@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-icon-button
 
+## 2.3.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.3.6
+  - @justeattakeaway/pie-webc-core@6.0.0
+  - @justeattakeaway/pie-icons-webc@1.18.1
+
 ## 2.3.4
 
 ### Patch Changes
