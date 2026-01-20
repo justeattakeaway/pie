@@ -584,6 +584,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-content-interactive-dark-solid: var(--dt-color-charcoal-80);
     --dt-color-content-interactive-brand-solid: var(--dt-color-orange);
     --dt-color-content-interactive-error-solid: var(--dt-color-red);
+    --dt-color-content-interactive-subdued-solid: var(--dt-color-charcoal-60);
     --dt-color-hover-01-bg: #000;
     --dt-color-hover-01: 4%;
     --dt-color-hover-01-dark-bg: #000;
@@ -1116,6 +1117,7 @@ html[data-color-mode="dark"] {
     --dt-color-content-interactive-dark-solid: var(--dt-color-charcoal-80);
     --dt-color-content-interactive-brand-solid: var(--dt-color-orange-30);
     --dt-color-content-interactive-error-solid: var(--dt-color-red-10);
+    --dt-color-content-interactive-subdued-solid: var(--dt-color-charcoal-40);
     --dt-color-hover-01-bg: #fff;
     --dt-color-hover-01: 8%;
     --dt-color-hover-01-dark-bg: #000;
@@ -1291,6 +1293,7 @@ html[data-color-mode="dark"] {
         --dt-color-content-interactive-dark-solid: var(--dt-color-charcoal-80);
         --dt-color-content-interactive-brand-solid: var(--dt-color-orange-30);
         --dt-color-content-interactive-error-solid: var(--dt-color-red-10);
+        --dt-color-content-interactive-subdued-solid: var(--dt-color-charcoal-40);
         --dt-color-hover-01-bg: #fff;
         --dt-color-hover-01: 8%;
         --dt-color-hover-01-dark-bg: #000;
@@ -2128,6 +2131,9 @@ html[data-color-mode="dark"] {
     --dt-color-content-interactive-error-solid-h: var(--dt-color-red-h);
     --dt-color-content-interactive-error-solid-s: var(--dt-color-red-s);
     --dt-color-content-interactive-error-solid-l: var(--dt-color-red-l);
+    --dt-color-content-interactive-subdued-solid-h: var(--dt-color-charcoal-60-h);
+    --dt-color-content-interactive-subdued-solid-s: var(--dt-color-charcoal-60-s);
+    --dt-color-content-interactive-subdued-solid-l: var(--dt-color-charcoal-60-l);
     --dt-color-focus-inner-h: var(--dt-color-white-h);
     --dt-color-focus-inner-s: var(--dt-color-white-s);
     --dt-color-focus-inner-l: var(--dt-color-white-l);
@@ -2526,6 +2532,9 @@ html[data-color-mode="dark"] {
     --dt-color-content-interactive-error-solid-h: var(--dt-color-red-10-h);
     --dt-color-content-interactive-error-solid-s: var(--dt-color-red-10-s);
     --dt-color-content-interactive-error-solid-l: var(--dt-color-red-10-l);
+    --dt-color-content-interactive-subdued-solid-h: var(--dt-color-charcoal-40-h);
+    --dt-color-content-interactive-subdued-solid-s: var(--dt-color-charcoal-40-s);
+    --dt-color-content-interactive-subdued-solid-l: var(--dt-color-charcoal-40-l);
     --dt-color-focus-inner-h: var(--dt-color-black-h);
     --dt-color-focus-inner-s: var(--dt-color-black-s);
     --dt-color-focus-inner-l: var(--dt-color-black-l);
@@ -2925,6 +2934,9 @@ html[data-color-mode="dark"] {
         --dt-color-content-interactive-error-solid-h: var(--dt-color-red-10-h);
         --dt-color-content-interactive-error-solid-s: var(--dt-color-red-10-s);
         --dt-color-content-interactive-error-solid-l: var(--dt-color-red-10-l);
+        --dt-color-content-interactive-subdued-solid-h: var(--dt-color-charcoal-40-h);
+        --dt-color-content-interactive-subdued-solid-s: var(--dt-color-charcoal-40-s);
+        --dt-color-content-interactive-subdued-solid-l: var(--dt-color-charcoal-40-l);
         --dt-color-focus-inner-h: var(--dt-color-black-h);
         --dt-color-focus-inner-s: var(--dt-color-black-s);
         --dt-color-focus-inner-l: var(--dt-color-black-l);
