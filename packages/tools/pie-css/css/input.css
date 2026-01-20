@@ -24,7 +24,6 @@ html {
     box-sizing: inherit;
 }
 
-
 /* The z-index priority order of different components.
 The values start at a high and specific number to avoid any conflicts */
 :root {
