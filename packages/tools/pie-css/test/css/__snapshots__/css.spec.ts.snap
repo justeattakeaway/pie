@@ -1,5 +1,325 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`helpers/typography.css > should render the expected CSS content 1`] = `
+".u-font-heading-xs {
+  font-family: var(--dt-font-heading-xs-family);
+  font-weight: var(--dt-font-heading-xs-weight);
+  font-size: calc(var(--dt-font-heading-xs-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-xs-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-heading-xs {
+    font-size: calc(var(--dt-font-heading-xs-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-xs-line-height--wide) * 1px);
+  }
+}
+
+.u-font-heading-s {
+  font-family: var(--dt-font-heading-s-family);
+  font-weight: var(--dt-font-heading-s-weight);
+  font-size: calc(var(--dt-font-heading-s-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-s-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-heading-s {
+    font-size: calc(var(--dt-font-heading-s-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-s-line-height--wide) * 1px);
+  }
+}
+
+.u-font-heading-m {
+  font-family: var(--dt-font-heading-m-family);
+  font-weight: var(--dt-font-heading-m-weight);
+  font-size: calc(var(--dt-font-heading-m-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-m-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-heading-m {
+    font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
+  }
+}
+
+.u-font-heading-l {
+  font-family: var(--dt-font-heading-l-family);
+  font-weight: var(--dt-font-heading-l-weight);
+  font-size: calc(var(--dt-font-heading-l-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-l-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-heading-l {
+    font-size: calc(var(--dt-font-heading-l-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-l-line-height--wide) * 1px);
+  }
+}
+
+.u-font-heading-xl {
+  font-family: var(--dt-font-heading-xl-family);
+  font-weight: var(--dt-font-heading-xl-weight);
+  font-size: calc(var(--dt-font-heading-xl-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-xl-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-heading-xl {
+    font-size: calc(var(--dt-font-heading-xl-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-xl-line-height--wide) * 1px);
+  }
+}
+
+.u-font-heading-xxl {
+  font-family: var(--dt-font-heading-xxl-family);
+  font-weight: var(--dt-font-heading-xxl-weight);
+  font-size: calc(var(--dt-font-heading-xxl-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-xxl-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-heading-xxl {
+    font-size: calc(var(--dt-font-heading-xxl-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-xxl-line-height--wide) * 1px);
+  }
+}
+
+.u-font-heading-xs-italic {
+  font-family: var(--dt-font-heading-xs-italic-family);
+  font-weight: var(--dt-font-heading-xs-italic-weight);
+  font-style: var(--dt-font-heading-xs-italic-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-heading-xs-italic-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-xs-italic-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-heading-xs-italic {
+    font-size: calc(var(--dt-font-heading-xs-italic-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-xs-italic-line-height--wide) * 1px);
+  }
+}
+
+.u-font-heading-s-italic {
+  font-family: var(--dt-font-heading-s-italic-family);
+  font-weight: var(--dt-font-heading-s-italic-weight);
+  font-style: var(--dt-font-heading-s-italic-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-heading-s-italic-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-s-italic-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-heading-s-italic {
+    font-size: calc(var(--dt-font-heading-s-italic-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-s-italic-line-height--wide) * 1px);
+  }
+}
+
+.u-font-heading-m-italic {
+  font-family: var(--dt-font-heading-m-italic-family);
+  font-weight: var(--dt-font-heading-m-italic-weight);
+  font-style: var(--dt-font-heading-m-italic-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-heading-m-italic-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-m-italic-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-heading-m-italic {
+    font-size: calc(var(--dt-font-heading-m-italic-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-m-italic-line-height--wide) * 1px);
+  }
+}
+
+.u-font-heading-l-italic {
+  font-family: var(--dt-font-heading-l-italic-family);
+  font-weight: var(--dt-font-heading-l-italic-weight);
+  font-style: var(--dt-font-heading-l-italic-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-heading-l-italic-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-l-italic-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-heading-l-italic {
+    font-size: calc(var(--dt-font-heading-l-italic-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-l-italic-line-height--wide) * 1px);
+  }
+}
+
+.u-font-heading-xl-italic {
+  font-family: var(--dt-font-heading-xl-italic-family);
+  font-weight: var(--dt-font-heading-xl-italic-weight);
+  font-style: var(--dt-font-heading-xl-italic-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-heading-xl-italic-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-xl-italic-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-heading-xl-italic {
+    font-size: calc(var(--dt-font-heading-xl-italic-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-xl-italic-line-height--wide) * 1px);
+  }
+}
+
+.u-font-heading-xxl-italic {
+  font-family: var(--dt-font-heading-xxl-italic-family);
+  font-weight: var(--dt-font-heading-xxl-italic-weight);
+  font-style: var(--dt-font-heading-xxl-italic-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-heading-xxl-italic-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-heading-xxl-italic-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-heading-xxl-italic {
+    font-size: calc(var(--dt-font-heading-xxl-italic-size--wide) * 1px);
+    line-height: calc(var(--dt-font-heading-xxl-italic-line-height--wide) * 1px);
+  }
+}
+
+.u-font-subheading-s {
+  font-family: var(--dt-font-subheading-s-family);
+  font-weight: var(--dt-font-subheading-s-weight);
+  font-size: calc(var(--dt-font-subheading-s-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-subheading-s-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-subheading-s {
+    font-size: calc(var(--dt-font-subheading-s-size--wide) * 1px);
+    line-height: calc(var(--dt-font-subheading-s-line-height--wide) * 1px);
+  }
+}
+
+.u-font-subheading-l {
+  font-family: var(--dt-font-subheading-l-family);
+  font-weight: var(--dt-font-subheading-l-weight);
+  font-size: calc(var(--dt-font-subheading-l-size--narrow) * 1px);
+  line-height: calc(var(--dt-font-subheading-l-line-height--narrow) * 1px);
+}
+@media (min-width: 768px) {
+  .u-font-subheading-l {
+    font-size: calc(var(--dt-font-subheading-l-size--wide) * 1px);
+    line-height: calc(var(--dt-font-subheading-l-line-height--wide) * 1px);
+  }
+}
+
+.u-font-interactive-xs {
+  font-family: var(--dt-font-interactive-xs-family);
+  font-weight: var(--dt-font-interactive-xs-weight);
+  font-size: calc(var(--dt-font-interactive-xs-size) * 1px);
+  line-height: calc(var(--dt-font-interactive-xs-line-height) * 1px);
+}
+
+.u-font-interactive-s {
+  font-family: var(--dt-font-interactive-s-family);
+  font-weight: var(--dt-font-interactive-s-weight);
+  font-size: calc(var(--dt-font-interactive-s-size) * 1px);
+  line-height: calc(var(--dt-font-interactive-s-line-height) * 1px);
+}
+
+.u-font-interactive-l {
+  font-family: var(--dt-font-interactive-l-family);
+  font-weight: var(--dt-font-interactive-l-weight);
+  font-size: calc(var(--dt-font-interactive-l-size) * 1px);
+  line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
+}
+
+.u-font-body-s {
+  font-family: var(--dt-font-body-s-family);
+  font-weight: var(--dt-font-body-s-weight);
+  margin-block-end: calc(var(--dt-font-body-s-paragraph) * 1px);
+  font-size: calc(var(--dt-font-body-s-size) * 1px);
+  line-height: calc(var(--dt-font-body-s-line-height) * 1px);
+}
+
+.u-font-body-s-link {
+  font-family: var(--dt-font-body-s-link-family);
+  font-weight: var(--dt-font-body-s-link-weight);
+  text-decoration: var(--dt-font-body-s-link-text-decoration);
+  margin-block-end: calc(var(--dt-font-body-s-link-paragraph) * 1px);
+  font-size: calc(var(--dt-font-body-s-link-size) * 1px);
+  line-height: calc(var(--dt-font-body-s-link-line-height) * 1px);
+}
+
+.u-font-body-l {
+  font-family: var(--dt-font-body-l-family);
+  font-weight: var(--dt-font-body-l-weight);
+  margin-block-end: calc(var(--dt-font-body-l-paragraph) * 1px);
+  font-size: calc(var(--dt-font-body-l-size) * 1px);
+  line-height: calc(var(--dt-font-body-l-line-height) * 1px);
+}
+
+.u-font-body-l-link {
+  font-family: var(--dt-font-body-l-link-family);
+  font-weight: var(--dt-font-body-l-link-weight);
+  text-decoration: var(--dt-font-body-l-link-text-decoration);
+  margin-block-end: calc(var(--dt-font-body-l-link-paragraph) * 1px);
+  font-size: calc(var(--dt-font-body-l-link-size) * 1px);
+  line-height: calc(var(--dt-font-body-l-link-line-height) * 1px);
+}
+
+.u-font-body-strong-s {
+  font-family: var(--dt-font-body-strong-s-family);
+  font-weight: var(--dt-font-body-strong-s-weight);
+  margin-block-end: calc(var(--dt-font-body-strong-s-paragraph) * 1px);
+  font-size: calc(var(--dt-font-body-strong-s-size) * 1px);
+  line-height: calc(var(--dt-font-body-strong-s-line-height) * 1px);
+}
+
+.u-font-body-strong-s-link {
+  font-family: var(--dt-font-body-strong-s-link-family);
+  font-weight: var(--dt-font-body-strong-s-link-weight);
+  text-decoration: var(--dt-font-body-strong-s-link-text-decoration);
+  margin-block-end: calc(var(--dt-font-body-strong-s-link-paragraph) * 1px);
+  font-size: calc(var(--dt-font-body-strong-s-link-size) * 1px);
+  line-height: calc(var(--dt-font-body-strong-s-link-line-height) * 1px);
+}
+
+.u-font-body-strong-l {
+  font-family: var(--dt-font-body-strong-l-family);
+  font-weight: var(--dt-font-body-strong-l-weight);
+  margin-block-end: calc(var(--dt-font-body-strong-l-paragraph) * 1px);
+  font-size: calc(var(--dt-font-body-strong-l-size) * 1px);
+  line-height: calc(var(--dt-font-body-strong-l-line-height) * 1px);
+}
+
+.u-font-body-strong-l-link {
+  font-family: var(--dt-font-body-strong-l-link-family);
+  font-weight: var(--dt-font-body-strong-l-link-weight);
+  text-decoration: var(--dt-font-body-strong-l-link-text-decoration);
+  margin-block-end: calc(var(--dt-font-body-strong-l-link-paragraph) * 1px);
+  font-size: calc(var(--dt-font-body-strong-l-link-size) * 1px);
+  line-height: calc(var(--dt-font-body-strong-l-link-line-height) * 1px);
+}
+
+.u-font-caption {
+  font-family: var(--dt-font-caption-family);
+  font-weight: var(--dt-font-caption-weight);
+  margin-block-end: calc(var(--dt-font-caption-paragraph) * 1px);
+  font-size: calc(var(--dt-font-caption-size) * 1px);
+  line-height: calc(var(--dt-font-caption-line-height) * 1px);
+}
+
+.u-font-caption-link {
+  font-family: var(--dt-font-caption-link-family);
+  font-weight: var(--dt-font-caption-link-weight);
+  text-decoration: var(--dt-font-caption-link-text-decoration);
+  margin-block-end: calc(var(--dt-font-caption-link-paragraph) * 1px);
+  font-size: calc(var(--dt-font-caption-link-size) * 1px);
+  line-height: calc(var(--dt-font-caption-link-line-height) * 1px);
+}
+
+.u-font-caption-strong {
+  font-family: var(--dt-font-caption-strong-family);
+  font-weight: var(--dt-font-caption-strong-weight);
+  margin-block-end: calc(var(--dt-font-caption-strong-paragraph) * 1px);
+  font-size: calc(var(--dt-font-caption-strong-size) * 1px);
+  line-height: calc(var(--dt-font-caption-strong-line-height) * 1px);
+}
+
+.u-font-caption-strong-link {
+  font-family: var(--dt-font-caption-strong-link-family);
+  font-weight: var(--dt-font-caption-strong-link-weight);
+  text-decoration: var(--dt-font-caption-strong-link-text-decoration);
+  margin-block-end: calc(var(--dt-font-caption-strong-link-paragraph) * 1px);
+  font-size: calc(var(--dt-font-caption-strong-link-size) * 1px);
+  line-height: calc(var(--dt-font-caption-strong-link-line-height) * 1px);
+}
+"
+`;
+
 exports[`index.css > should render the expected CSS content 1`] = `
 ":root {
     /* Global tokens - Color */

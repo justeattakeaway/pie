@@ -9,9 +9,15 @@
       "strictNullChecks": true,
       "sourceMap": false,
       "skipLibCheck": true,
-      "resolveJsonModule": true
+      "resolveJsonModule": true,
+      "typeRoots": ["./types", "./node_modules/@types"]
   },
+  "include": [
+      ".storybook/**/*",
+      "stories/**/*",
+      "types/**/*"
+  ],
   "exclude": [
-      "node_modules",
+      "node_modules"
   ]
 }

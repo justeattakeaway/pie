@@ -59,7 +59,7 @@
 
     @supports (background-color: color-mix(in srgb, black, white)) {
         &:hover:not(:disabled, .is-disabled, .is-dismissible) {
-           --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-#{$level}-bg) var(--dt-color-hover-#{$level}),  var(#{$bg-color}));
+            --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-#{$level}-bg) var(--dt-color-hover-#{$level}), var(#{$bg-color}));
         }
 
         &:active:not(:disabled, .is-disabled, .is-dismissible),
