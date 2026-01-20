@@ -47,7 +47,7 @@ export class PieIconButton extends DelegatesFocusMixin(PieElement) implements Ic
         const spinnerSize = size === 'xsmall' ? 'small' : 'medium';
         let spinnerVariant = 'brand';
         if (/secondary|translucent/.test(variant)) spinnerVariant = 'secondary';
-        if ((variant === 'primary' && !disabled) || variant === 'ghost-inverse') spinnerVariant = 'inverse';
+        if ((variant.includes('primary') && !disabled) || variant === 'ghost-inverse') spinnerVariant = 'inverse';
 
         return html`
                 <pie-spinner
