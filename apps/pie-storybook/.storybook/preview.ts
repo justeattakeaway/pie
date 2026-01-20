@@ -8,6 +8,12 @@ import CUSTOM_VIEWPORTS from './viewports';
 import backgrounds from './backgrounds';
 import getTheme from './pieTheme';
 
+// Register SCSS language for syntax highlighting in docs
+import { SyntaxHighlighter } from '@storybook/components';
+import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss';
+
+SyntaxHighlighter.registerLanguage('scss', scss);
+
 export default {
     decorators: [ComponentStatus, WritingDirection],
     globalTypes: {
@@ -109,6 +115,7 @@ export default {
                     'Additional libraries',
                     [
                         'PIE CSS',
+                        'PIE CSS Typography Utility Classes',
                         'Icons'
                     ],
                     'Contribution',
