@@ -4,7 +4,7 @@ import * as icons from '@justeattakeaway/pie-icons-webc';
 import {
     regularIconSizes, largeIconSizeDefault, regularIconSizeDefault, largeIconSizeModule, type LargeIconSize, type RegularIconSize,
 } from '@justeattakeaway/pie-icons-configs';
-import { createStory, type TemplateFunction } from '../utilities';
+import { createStory, type TemplateFunction } from '../../utilities';
 
 const iconsStoryMeta = {
     title: 'Additional libraries/Icons',

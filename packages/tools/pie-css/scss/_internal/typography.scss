@@ -1,0 +1,16 @@
+@use '../mixins/font-theme' as *;
+
+$typography-names:  font-heading-xs font-heading-s font-heading-m font-heading-l font-heading-xl font-heading-xxl
+    font-heading-xs-italic font-heading-s-italic font-heading-m-italic font-heading-l-italic font-heading-xl-italic font-heading-xxl-italic
+    font-subheading-s font-subheading-l
+    font-interactive-xs font-interactive-s font-interactive-l
+    font-body-s font-body-s-link font-body-l font-body-l-link
+    font-body-strong-s font-body-strong-s-link
+    font-body-strong-l font-body-strong-l-link
+    font-caption font-caption-link font-caption-strong font-caption-strong-link;
+
+@each $name in $typography-names {
+    .u-#{$name} {
+        @include font-theme($name);
+    }
+}

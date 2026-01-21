@@ -95,6 +95,11 @@ const primaryVariantPropsMatrix : Partial<Record<keyof IconButtonProps, unknown[
     variant: ['primary'],
 };
 
+const primaryAlternativeVariantPropsMatrix : Partial<Record<keyof IconButtonProps, unknown[]>> = {
+    ...sharedPropsMatrix,
+    variant: ['primary-alternative'],
+};
+
 const secondaryVariantPropsMatrix : Partial<Record<keyof IconButtonProps, unknown[]>> = {
     ...sharedPropsMatrix,
     variant: ['secondary'],
@@ -131,6 +136,7 @@ const translucentVariantPropsMatrix : Partial<Record<keyof IconButtonProps, unkn
 };
 
 export const PrimaryVariations = createVariantStory<IconButtonProps>(Template, primaryVariantPropsMatrix);
+export const PrimaryAlternativeVariations = createVariantStory<IconButtonProps>(Template, primaryAlternativeVariantPropsMatrix);
 export const SecondaryVariations = createVariantStory<IconButtonProps>(Template, secondaryVariantPropsMatrix);
 export const OutlineVariations = createVariantStory<IconButtonProps>(Template, outlineVariantPropsMatrix, { bgColor: 'background-subtle' });
 export const GhostVariations = createVariantStory<IconButtonProps>(Template, ghostVariantPropsMatrix, { bgColor: 'background-subtle' });

@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-tabs",
   "description": "PIE Design System Tabs built using Web Components",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -39,12 +39,12 @@
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
     "@justeattakeaway/pie-components-config": "0.21.0",
-    "@justeattakeaway/pie-css": "0.25.0",
+    "@justeattakeaway/pie-css": "0.26.0",
     "@justeattakeaway/pie-monorepo-utils": "0.7.0",
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "5.0.0"
+    "@justeattakeaway/pie-webc-core": "6.0.0"
   },
   "volta": {
     "extends": "../../../package.json"

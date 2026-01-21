@@ -43,6 +43,13 @@
         @include p.interactive-states('--dt-color-interactive-brand');
     }
 
+    &.o-iconBtn--primary-alternative {
+        --int-states-mixin-bg-color: var(--dt-color-interactive-primary);
+        --btn-icon-fill: var(--dt-color-content-interactive-primary);
+
+        @include p.interactive-states('--dt-color-interactive-primary', 'inverse', '02');
+    }
+
     &.o-iconBtn--secondary {
         --int-states-mixin-bg-color: var(--dt-color-interactive-secondary);
         --btn-icon-fill: var(--dt-color-content-interactive-secondary-solid);
@@ -109,7 +116,7 @@
         }
 
         // For outline variants, set the border to the disabled color
-        &.o-iconBtn--outline, 
+        &.o-iconBtn--outline,
         &.o-iconBtn--translucent {
             border-color: var(--dt-color-disabled-01);
         }

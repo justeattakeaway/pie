@@ -233,6 +233,17 @@ test.describe('Props', () => {
                 await percySnapshot(page, 'PieNotification - hasStackedActions = false, isCompact = true - should not stack buttons');
             });
         });
+
+        test.describe('isCompact', () => {
+            test('should align actions to the edge of the container', async ({ page }) => {
+                // Arrange
+                const basePage = new BasePage(page, 'notification--is-compact');
+                await basePage.load();
+
+                // Assert
+                await percySnapshot(page, 'PieNotification - isCompact - should align actions to the edge of the container');
+            });
+        });
     });
 
     test.describe('PieNotification positions', () => {
