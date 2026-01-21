@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.95.2
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens to v7.10.2 ([#2660](https://github.com/justeattakeaway/pie/pull/2660)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 2.95.1
 
 ### Patch Changes
