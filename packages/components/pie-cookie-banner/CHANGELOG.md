@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.6.40
+
+### Patch Changes
+
+- Updated dependencies [[`30d7e8d`](https://github.com/justeattakeaway/pie/commit/30d7e8da1feb3ab9514b1089cf1bd53f44718d3d), [`e24f74b`](https://github.com/justeattakeaway/pie/commit/e24f74b99a27070a0e27a9440814d4b660631b11)]:
+  - @justeattakeaway/pie-icon-button@2.4.0
+  - @justeattakeaway/pie-modal@1.22.3
+  - @justeattakeaway/pie-button@1.10.2
+  - @justeattakeaway/pie-divider@1.5.7
+  - @justeattakeaway/pie-link@1.3.8
+  - @justeattakeaway/pie-switch@2.3.10
+  - @justeattakeaway/pie-webc-core@6.0.1
+
 ## 1.6.39
 
 ### Patch Changes

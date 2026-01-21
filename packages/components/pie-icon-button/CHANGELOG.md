@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-icon-button
 
+## 2.4.0
+
+### Minor Changes
+
+- [Added] - support primary-alternative ([#2658](https://github.com/justeattakeaway/pie/pull/2658)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.3.7
+  - @justeattakeaway/pie-webc-core@6.0.1
+  - @justeattakeaway/pie-icons-webc@1.18.2
+
 ## 2.3.5
 
 ### Patch Changes
