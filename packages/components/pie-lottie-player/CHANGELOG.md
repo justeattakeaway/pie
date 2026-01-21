@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-lottie-player
 
+## 0.3.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@6.0.1
+
+## 0.3.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@6.0.0
+
 ## 0.3.0
 
 ### Minor Changes
