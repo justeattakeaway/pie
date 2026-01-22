@@ -27,8 +27,8 @@
                 }
             },
             "Small",
-            "16px",
-            "Icons are not available for the small size."
+            "18px",
+            "-"
         ]
     ]
 }
