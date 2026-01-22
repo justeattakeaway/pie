@@ -386,23 +386,14 @@
 
     &.c-modal--loading .c-modal-content {
         pie-spinner {
-            position: absolute;
-            left: 50%;
-
-            // Compensates different block paddings, when footerActions aren't rendered
-            top: calc(50% - (var(--modal-content-padding-block-end) - var(--modal-content-padding-block)) / 2);
-            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: var(--dt-spacing-j) calc(var(--dt-spacing-j) + var(--dt-spacing-d));
         }
 
         & .c-modal-contentInner {
             display: none;
-        }
-
-        // If the footer is rendered, the modal content is not the last child
-        &:not(:last-child) {
-          pie-spinner {
-            top: 50%;
-          }
         }
     }
 
