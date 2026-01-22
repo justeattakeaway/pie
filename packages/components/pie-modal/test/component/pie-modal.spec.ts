@@ -9,7 +9,7 @@ import { ModalMissingDialogSimulationPage } from 'test/helpers/page-object/pie-m
 import { ModalCustomImageSlotContentPage } from 'test/helpers/page-object/pie-modal-custom-image-slot-content.page.ts';
 import { ModalCustomHeadingStylePage } from 'test/helpers/page-object/pie-modal-custom-heading-style.page.ts';
 import {
-    type ModalProps, headingLevels, imageSlotModes, backgroundColors,
+    type ModalProps, headingLevels, imageSlotModes,
 } from '../../src/defs.ts';
 
 const sharedProps: ModalProps = {
