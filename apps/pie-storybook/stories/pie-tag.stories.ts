@@ -161,11 +161,62 @@ const Template : TemplateFunction<TagProps> = ({
 
 const createTagStory = createStory<TagProps>(Template, defaultArgs);
 
+const IconAndTextTemplate : TemplateFunction<TagProps> = (args) => html`
+    <p><b>Note:</b> The <code>isStrong</code> property will change the colours of this variant.</p>
+    ${Template(args)}
+`;
+
+const createIconAndTextStory = createStory<TagProps>(IconAndTextTemplate, defaultArgs);
+
 export const Neutral = createTagStory({ variant: 'neutral' });
+
+export const NeutralIconAndText = createIconAndTextStory({
+    variant: 'neutral',
+    size: 'large',
+    showIcon: true,
+    hasLeadingIcon: true,
+});
+NeutralIconAndText.storyName = 'Neutral - Icon & Text';
+
 export const Information = createTagStory({ variant: 'information' });
+
+export const InformationIconAndText = createIconAndTextStory({
+    variant: 'information',
+    size: 'large',
+    showIcon: true,
+    hasLeadingIcon: true,
+});
+InformationIconAndText.storyName = 'Information - Icon & Text';
+
 export const Success = createTagStory({ variant: 'success' });
+
+export const SuccessIconAndText = createIconAndTextStory({
+    variant: 'success',
+    size: 'large',
+    showIcon: true,
+    hasLeadingIcon: true,
+});
+SuccessIconAndText.storyName = 'Success - Icon & Text';
+
 export const Error = createTagStory({ variant: 'error' });
+
+export const ErrorIconAndText = createIconAndTextStory({
+    variant: 'error',
+    size: 'large',
+    showIcon: true,
+    hasLeadingIcon: true,
+});
+ErrorIconAndText.storyName = 'Error - Icon & Text';
+
 export const Brand05 = createTagStory({ variant: 'brand-05' });
+
+export const Brand05IconAndText = createIconAndTextStory({
+    variant: 'brand-05',
+    size: 'large',
+    showIcon: true,
+    hasLeadingIcon: true,
+});
+Brand05IconAndText.storyName = 'Brand 05 - Icon & Text';
 
 // For the following stories isStrong prop won't have any effect so it is excluded
 
@@ -176,11 +227,36 @@ export const NeutralAlternative = createTagStory({ variant: 'neutral-alternative
     },
 });
 
+export const NeutralAlternativeIconAndText = createTagStory({
+    variant: 'neutral-alternative',
+    size: 'large',
+    showIcon: true,
+    hasLeadingIcon: true,
+}, {
+    bgColor: 'dark (container-dark)',
+    controls: {
+        exclude: ['isStrong'],
+    },
+});
+NeutralAlternativeIconAndText.storyName = 'Neutral Alternative - Icon & Text';
+
 export const Outline = createTagStory({ variant: 'outline' }, {
     controls: {
         exclude: ['isStrong'],
     },
 });
+
+export const OutlineIconAndText = createTagStory({
+    variant: 'outline',
+    size: 'large',
+    showIcon: true,
+    hasLeadingIcon: true,
+}, {
+    controls: {
+        exclude: ['isStrong'],
+    },
+});
+OutlineIconAndText.storyName = 'Outline - Icon & Text';
 
 export const Ghost = createTagStory({ variant: 'ghost' }, {
     controls: {
@@ -188,11 +264,35 @@ export const Ghost = createTagStory({ variant: 'ghost' }, {
     },
 });
 
+export const GhostIconAndText = createTagStory({
+    variant: 'ghost',
+    size: 'large',
+    showIcon: true,
+    hasLeadingIcon: true,
+}, {
+    controls: {
+        exclude: ['isStrong'],
+    },
+});
+GhostIconAndText.storyName = 'Ghost - Icon & Text';
+
 export const Brand02 = createTagStory({ variant: 'brand-02' }, {
     controls: {
         exclude: ['isStrong'],
     },
 });
+
+export const Brand02IconAndText = createTagStory({
+    variant: 'brand-02',
+    size: 'large',
+    showIcon: true,
+    hasLeadingIcon: true,
+}, {
+    controls: {
+        exclude: ['isStrong'],
+    },
+});
+Brand02IconAndText.storyName = 'Brand 02 - Icon & Text';
 
 export const Brand03 = createTagStory({ variant: 'brand-03' }, {
     controls: {
@@ -200,11 +300,35 @@ export const Brand03 = createTagStory({ variant: 'brand-03' }, {
     },
 });
 
+export const Brand03IconAndText = createTagStory({
+    variant: 'brand-03',
+    size: 'large',
+    showIcon: true,
+    hasLeadingIcon: true,
+}, {
+    controls: {
+        exclude: ['isStrong'],
+    },
+});
+Brand03IconAndText.storyName = 'Brand 03 - Icon & Text';
+
 export const Brand04 = createTagStory({ variant: 'brand-04' }, {
     controls: {
         exclude: ['isStrong'],
     },
 });
+
+export const Brand04IconAndText = createTagStory({
+    variant: 'brand-04',
+    size: 'large',
+    showIcon: true,
+    hasLeadingIcon: true,
+}, {
+    controls: {
+        exclude: ['isStrong'],
+    },
+});
+Brand04IconAndText.storyName = 'Brand 04 - Icon & Text';
 
 export const Brand06 = createTagStory({ variant: 'brand-06' }, {
     controls: {
@@ -212,7 +336,27 @@ export const Brand06 = createTagStory({ variant: 'brand-06' }, {
     },
 });
 
+export const Brand06IconAndText = createTagStory({
+    variant: 'brand-06',
+    size: 'large',
+    showIcon: true,
+    hasLeadingIcon: true,
+}, {
+    controls: {
+        exclude: ['isStrong'],
+    },
+});
+Brand06IconAndText.storyName = 'Brand 06 - Icon & Text';
+
 export const Brand08 = createTagStory({ variant: 'brand-08' });
+
+export const Brand08IconAndText = createIconAndTextStory({
+    variant: 'brand-08',
+    size: 'large',
+    showIcon: true,
+    hasLeadingIcon: true,
+});
+Brand08IconAndText.storyName = 'Brand 08 - Icon & Text';
 
 export const Translucent = createTagStory({ variant: 'translucent' }, {
     bgColor: 'brand orange',
@@ -220,6 +364,19 @@ export const Translucent = createTagStory({ variant: 'translucent' }, {
         exclude: ['isStrong'],
     },
 });
+
+export const TranslucentIconAndText = createTagStory({
+    variant: 'translucent',
+    size: 'large',
+    showIcon: true,
+    hasLeadingIcon: true,
+}, {
+    bgColor: 'brand orange',
+    controls: {
+        exclude: ['isStrong'],
+    },
+});
+TranslucentIconAndText.storyName = 'Translucent - Icon & Text';
 
 export const IconOnly = createTagStory({
     size: 'large',
