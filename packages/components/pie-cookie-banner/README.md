@@ -42,6 +42,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `cookieStatementLink`   | —                                                                       | The URL of the cookie statement page the banner should link to.                                                                                                                              | `""`        |
 | `cookieTechnologiesLink`| —                                                                       | The URL for the cookie technology link.                                                                                                                                                                                             | `""`        |
 | `defaultPreferences`    | `all`, `necessary`, `functional`, `analytical`, `personalized`          | Allows default preferences to be passed in by the consumer, for example `{ 'functional': true, 'personalized': true, 'analytical': true }`.                                                  | `{}`        |
+| `openLinksInSameTab`    | `true`, `false`                                                         | When true, external links (Cookie Statement, Cookie Technologies) will open in the same tab (`target="_self"`). When false, links open in a new browser tab (`target="_blank"`).                                                   | `false`     |
 
 ### Slots
 This component does not have any slots. All content is controlled through properties.

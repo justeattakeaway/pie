@@ -325,6 +325,82 @@ test.describe('PieCookieBanner - Component tests', () => {
         });
     });
 
+    test.describe('`openLinksInSameTab` prop', () => {
+        test.describe('when false (default)', () => {
+            test('should set target="_blank" on the banner cookie statement link', async () => {
+                // Arrange
+                await pieCookieBannerComponent.load();
+
+                // Act
+                const target = await pieCookieBannerComponent.getBannerCookieStatementLinkTarget();
+
+                // Assert
+                expect(target).toBe('_blank');
+            });
+
+            test('should set target="_blank" on the modal cookie statement link', async () => {
+                // Arrange
+                await pieCookieBannerComponent.load();
+
+                // Act
+                await pieCookieBannerComponent.clickManagePreferencesAction();
+                const target = await pieCookieBannerComponent.getModalCookieStatementLinkTarget();
+
+                // Assert
+                expect(target).toBe('_blank');
+            });
+
+            test('should set target="_blank" on the modal cookie technologies link', async () => {
+                // Arrange
+                await pieCookieBannerComponent.load();
+
+                // Act
+                await pieCookieBannerComponent.clickManagePreferencesAction();
+                const target = await pieCookieBannerComponent.getModalCookieTechnologiesLinkTarget();
+
+                // Assert
+                expect(target).toBe('_blank');
+            });
+        });
+
+        test.describe('when true', () => {
+            test('should set target="_self" on the banner cookie statement link', async () => {
+                // Arrange
+                await pieCookieBannerComponent.load({ openLinksInSameTab: true });
+
+                // Act
+                const target = await pieCookieBannerComponent.getBannerCookieStatementLinkTarget();
+
+                // Assert
+                expect(target).toBe('_self');
+            });
+
+            test('should set target="_self" on the modal cookie statement link', async () => {
+                // Arrange
+                await pieCookieBannerComponent.load({ openLinksInSameTab: true });
+
+                // Act
+                await pieCookieBannerComponent.clickManagePreferencesAction();
+                const target = await pieCookieBannerComponent.getModalCookieStatementLinkTarget();
+
+                // Assert
+                expect(target).toBe('_self');
+            });
+
+            test('should set target="_self" on the modal cookie technologies link', async () => {
+                // Arrange
+                await pieCookieBannerComponent.load({ openLinksInSameTab: true });
+
+                // Act
+                await pieCookieBannerComponent.clickManagePreferencesAction();
+                const target = await pieCookieBannerComponent.getModalCookieTechnologiesLinkTarget();
+
+                // Assert
+                expect(target).toBe('_self');
+            });
+        });
+    });
+
     test.describe('`defaultPreferences` : prop', () => {
         test.describe('when defaultPreferences are set to three values', () => {
             test('should toggle the position to `on` for all 3 properties', async () => {
