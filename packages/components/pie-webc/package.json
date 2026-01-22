@@ -184,6 +184,16 @@
       "require": "./react/data-table-head.js",
       "types": "./react/data-table-head.d.ts"
     },
+    "./components/data-table-head-cell.js": {
+      "import": "./components/data-table-head-cell.js",
+      "require": "./components/data-table-head-cell.js",
+      "types": "./components/data-table-head-cell.d.ts"
+    },
+    "./react/data-table-head-cell.js": {
+      "import": "./react/data-table-head-cell.js",
+      "require": "./react/data-table-head-cell.js",
+      "types": "./react/data-table-head-cell.d.ts"
+    },
     "./components/divider.js": {
       "import": "./components/divider.js",
       "require": "./components/divider.js",
