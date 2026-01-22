@@ -316,7 +316,6 @@
         --modal-content-padding-block: var(--dt-spacing-a);
         --modal-content-padding-inline: var(--dt-spacing-d);
         --modal-content-padding-block-end: var(--dt-spacing-e);
-        --modal-content-min-block-size: var(--dt-spacing-j);
 
 
         @include media('>md') {
@@ -324,7 +323,6 @@
         }
 
         position: relative;
-        min-block-size: calc(var(--modal-content-min-block-size) + var(--modal-content-padding-block) + var(--modal-content-padding-block-end)); // The sum of the minimum height and block paddings, when footerActions aren't rendered
 
         font-size: var(--modal-content-font-size);
         line-height: var(--modal-content-line-height);
@@ -338,7 +336,6 @@
 
         &:has(+ slot > footer) {
             padding-block-end: var(--modal-content-padding-block);
-            min-block-size: var(--modal-content-min-block-size);
         }
 
         &--scrollable {
