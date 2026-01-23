@@ -161,6 +161,13 @@ const Template : TemplateFunction<TagProps> = ({
 
 const createTagStory = createStory<TagProps>(Template, defaultArgs);
 
+const IconAndTextTemplate : TemplateFunction<TagProps> = (args) => html`
+    <p><b>Note:</b> The <code>isStrong</code> property will change the colours of some variants.</p>
+    ${Template(args)}
+`;
+
+const createIconAndTextStory = createStory<TagProps>(IconAndTextTemplate, defaultArgs);
+
 export const Neutral = createTagStory({ variant: 'neutral' });
 export const Information = createTagStory({ variant: 'information' });
 export const Success = createTagStory({ variant: 'success' });
@@ -228,6 +235,12 @@ export const IconOnly = createTagStory({
     variant: 'brand-06',
     isIconOnly: true,
 }, {});
+
+export const IconAndText = createIconAndTextStory({
+    size: 'large',
+    showIcon: true,
+    hasLeadingIcon: true,
+});
 
 const allCustomStyles = `
     pie-tag.custom-style {
