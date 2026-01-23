@@ -210,7 +210,7 @@ ${component.reactBaseType}` : ''
 ${eventsTypeDefinition}` : ''
 }
 
-export const ${component.class.name} = ${component.class.name}React as React.ForwardRefExoticComponent<React.PropsWithoutRef<${componentPropsExportName}>
+export const ${component.class.name} = ${component.class.name}React as React.ForwardRefExoticComponent<React.PropsWithChildren<React.PropsWithoutRef<${componentPropsExportName}>>
     & React.RefAttributes<${component.class.name}Lit>${eventsTypeDefinition ? ` & ${eventsTypeName}` : ''}${component.reactBaseType ? ' & ReactBaseType' : ''}>;
 `;
             let reactFile;
