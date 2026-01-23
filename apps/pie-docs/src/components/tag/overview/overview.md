@@ -65,7 +65,7 @@ Tags can be embedded in other components such as cards, data tables (among other
 
 ### Icon 
 
-When incorporating an icon into a tag, it is essential to ensure that the icon clearly supports the label. Icons are only available in the large size of the tag. 
+When incorporating an icon into a tag, it is essential to ensure that the icon clearly supports the label.
 
 #### Leading
 
