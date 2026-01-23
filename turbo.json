@@ -1,6 +1,5 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "ui": "stream",
   "tasks": {
     "build": {
       "cache": true,
