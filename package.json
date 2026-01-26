@@ -33,6 +33,7 @@
     "changeset:publish": "changeset publish",
     "changeset:snapshot": "changeset version --snapshot snapshot-release",
     "changeset:version": "changeset version && yarn --mode update-lockfile",
+    "chromatic": "chromatic --exit-zero-on-changes",
     "clean": "turbo run clean --filter=!pie-monorepo",
     "cz": "./packages/tools/pie-monorepo-utils/git-hooks/check-branch-name.js $(git symbolic-ref --short HEAD) && ./node_modules/cz-customizable/standalone.js",
     "dev": "turbo run dev --filter=!pie-monorepo",
