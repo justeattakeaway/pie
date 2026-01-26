@@ -48,9 +48,6 @@
 <feBlend mode="normal" in2="effect2_dropShadow_16720_13620" result="effect3_dropShadow_16720_13620"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect3_dropShadow_16720_13620" result="shape"/>
 </filter>
-<pattern id="pattern0_16720_13620" patternContentUnits="objectBoundingBox" width="1" height="1">
-<use xlink:href="#image0_16720_13620" transform="matrix(0.015625 0 0 0.0404095 0 -0.793103)"/>
-</pattern>
 <clipPath id="clip0_16720_13620">
 <path d="M14 28C14 19.1635 21.1634 12 30 12H448C456.837 12 464 19.1634 464 28V450C464 458.837 456.837 466 448 466H30C21.1634 466 14 458.837 14 450V28Z" fill="white"/>
 </clipPath>
@@ -63,6 +60,12 @@
 <clipPath id="clip3_16720_13620">
 <path d="M342 418C342 404.745 352.745 394 366 394H416C429.255 394 440 404.745 440 418C440 431.255 429.255 442 416 442H366C352.745 442 342 431.255 342 418Z" fill="white"/>
 </clipPath>
-<image id="image0_16720_13620" width="64" height="64" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAA40lEQVR4Xu3bQQ6EQAhEUbj/oXsO8Sdh4XOvJAi/qkF3Zt6E6710++xuiD6T40uACtACqYlzD2IACFKBkoHcgmSQDJJBMngKIT6ADygF6DSYfcCLTzg/z0eGrASogDbT0gKxB2MB5pkiBoBgrEEMwIBjLx9fAAiCIAhygmkkRgYjhWMHditsL2AvYC+QIHjdwzk+BmAABmBAWc1kCF0bKRAEQRAEQRAMGaACbaCUz/P5BRiKxhQaiV07uRjfYgQDMKDpGAhGCMUCzD4CBEEw1iAGYIBPZMJh+g8/P8cKpAJfV4EfMee/sLtaEFIAAAAASUVORK5CYII="/>
-</defs>
+<pattern id="pattern0_16720_13620" patternUnits="userSpaceOnUse" patternTransform="matrix(170 0 0 170 0 0)" preserveAspectRatio="none" viewBox="0 0 170 170" width="1" height="1">
+<g id="pattern0_16720_13620_inner">
+<rect width="85" height="85" fill="black"/>
+<rect y="85" width="85" height="85" fill="white"/>
+<rect x="85" width="85" height="85" fill="white"/>
+<rect x="85" y="85" width="85" height="85" fill="black"/>
+</g>
+</pattern></defs>
 </svg>
