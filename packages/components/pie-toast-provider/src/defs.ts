@@ -1,4 +1,5 @@
 import { type ToastProps } from '@justeattakeaway/pie-toast';
+import { type TemplateResult } from 'lit';
 
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
@@ -20,6 +21,12 @@ export type Priority = keyof typeof PRIORITY_ORDER;
 export const positions = ['default', 'bottom-left', 'bottom-right', 'bottom-center'] as const;
 
 export interface ExtendedToastProps extends ToastProps {
+    /**
+     * Custom content to render inside the toast slot.
+     * Use this for complex content like links, formatted text, or other HTML elements.
+     */
+    slot?: TemplateResult | string;
+
     /**
      * Triggered when the user interacts with the close icon or when the toast auto dismiss.
      */
