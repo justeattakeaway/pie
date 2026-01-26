@@ -1,5 +1,4 @@
 @use '@justeattakeaway/pie-css/scss' as p;
-@use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
 @use '@justeattakeaway/pie-css/scss/settings' as *;
 @use 'dialog-polyfill/dist/dialog-polyfill.css';
 
@@ -17,6 +16,9 @@
     --modal-bg-color: var(--dt-color-container-default);
     --modal-elevation: var(--dt-elevation-below-20);
     --modal-image-slot-bg-color: none;
+    --modal-easing: var(--dt-motion-easing-persistent-functional);
+    --modal-duration: var(--dt-motion-timing-150);
+    --backdrop-duration: var(--dt-motion-timing-200);
 
     &:focus-visible {
         outline: none;
@@ -29,13 +31,34 @@
         }
     }
 
+    opacity: 0;
+    transform: translateY(-40px);
+    transition:
+        opacity var(--modal-duration) var(--modal-easing),
+        transform var(--modal-duration) var(--modal-easing),
+        display var(--modal-duration) allow-discrete,
+        overlay var(--backdrop-duration) allow-discrete;
+
 
     &[open] {
-        // We only apply this when the modal is open,
-        // otherwise it interferes with the native
-        // `display: none;` on the dialog element.
-        display: flex;
-        flex-direction: column;
+        --modal-duration: var(--dt-motion-timing-250);
+        --backdrop-duration: var(--dt-motion-timing-300);
+
+        opacity: 1;
+        transform: translateY(0);
+
+        @starting-style {
+            opacity: 0;
+            transform: translateY(-40px);
+        }
+
+        &::backdrop {
+            opacity: 1;
+    
+            @starting-style {
+                opacity: 0;
+            }
+        }
     }
 
     position: fixed;
@@ -123,16 +146,11 @@
 
     &::backdrop {
         background: var(--dt-color-overlay);
-    }
-
-    // TODO: Can be removed along with pie-design-tokens dependency
-    // after v17.6 becomes the last we support, currently it is v16+
-    // where css vars are not working on ::backdrop
-    // Safari >= 16
-    @supports (hanging-punctuation: first) and (font: -apple-system-body) and (-webkit-appearance: none) {
-        &::backdrop {
-            background: #{dt.$color-overlay};
-        }
+        opacity: 0;
+        transition:
+            opacity var(--backdrop-duration) var(--modal-easing),
+            display var(--backdrop-duration) allow-discrete,
+            overlay var(--backdrop-duration) allow-discrete;
     }
 
     & .c-modal-closeBtn {
