@@ -258,7 +258,10 @@ jobs:
           os: ubuntu-latest
       - name: Run Visual Tests for Chromatic POC
         if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || github.ref == 'refs/heads/main'
-        run: yarn chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          onlyChanged: true # 👈 Required option to enable TurboSnap
 
   # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
   browser-tests-components:
