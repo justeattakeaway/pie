@@ -263,7 +263,7 @@ jobs:
           os: ubuntu-latest
       - name: Run Visual Tests for Chromatic POC
         if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || github.ref == 'refs/heads/main'
-        uses: chromaui/action@latest
+        uses: chromaui/action@07791f8243f4cb2698bf4d00426baf4b2d1cb7e0
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           onlyChanged: true # 👈 Required option to enable TurboSnap
