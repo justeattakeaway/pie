@@ -9,7 +9,7 @@
     "dev:testing": "BROWSER_TESTING=true storybook dev -p 6007",
     "build": "storybook build --output-dir dist && cp -R ./static ./dist",
     "build:testing": "BROWSER_TESTING=true storybook build --output-dir dist && cp -R ./static ./dist",
-    "build:chromatic": "BROWSER_TESTING=true storybook build",
+    "build:chromatic": "BROWSER_TESTING=true storybook build --output-dir dist && cp -R ./static ./dist",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run test",
