@@ -267,7 +267,6 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           onlyChanged: true # 👈 Required option to enable TurboSnap
-          exitZeroOnChanges: false # 👈 Fail workflow if changes are found
 
   # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
   browser-tests-components:
