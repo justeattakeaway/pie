@@ -533,6 +533,7 @@ test.describe('`hasBackButton` prop', () => {
 
             // Act
             await modalDefaultPage.modalComponent.clickBackModal();
+            await page.waitForTimeout(250);
             const isModalVisible = await modalDefaultPage.modalComponent.isModalVisible();
 
             // Assert

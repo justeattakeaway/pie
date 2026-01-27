@@ -457,4 +457,12 @@
     &.c-modal--bg-brand-08 { --modal-bg-color: var(--dt-color-support-brand-08); }
 
     &.c-modal--bg-brand-08-subtle { --modal-bg-color: var(--dt-color-support-brand-08-subtle); }
+
+    @media (prefers-reduced-motion: reduce) {
+        &,
+        &::backdrop {
+          transition: none;
+          transform: none;
+        }
+      }
 }
