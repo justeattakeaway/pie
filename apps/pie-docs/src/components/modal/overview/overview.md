@@ -77,19 +77,13 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
 
 ### Colours
 
+Select from a palette of distinct brand colours for the Modal.
+
 #### Neutral - alternative
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/variants-neutral-alternative.svg",
     alt: "Neutral variation of modal.",
-    width: 600
-} %}
-
-#### 01 Orange
-
-{% contentPageImage {
-    src: "../../../assets/img/components/modal/variants-01-orange.svg",
-    alt: "01 Orange variation of modal.",
     width: 600
 } %}
 
