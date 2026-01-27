@@ -34,7 +34,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 |------|---------|-------------|---------|
 | `aria` | `{ label?: string }`, `{ labelledby?: string }`, `{ describedby?: string }`, `{ expanded?: boolean }`, `{ controls?: string }` | The ARIA attributes available to use on the icon button. Offers `label`, `labelledby`, `describedby`, `expanded` and `controls`. | `undefined` |
 | `size` | `"xsmall"`, `"small"`, `"medium"`, `"large"` | Set the size of the icon button. | `"medium"` |
-| `variant` | `"primary"`, `"secondary"`, `"outline"`, `"ghost"`, `"ghost-secondary"`, `"inverse"`, `"ghost-inverse"`, `"translucent"` | Set the variant of the icon button. | `"primary"` |
+| `variant` | `"primary"`, `"primary-alternative"`, `"secondary"`, `"outline"`, `"ghost"`, `"ghost-secondary"`, `"inverse"`, `"ghost-inverse"`, `"translucent"` | Set the variant of the icon button. | `"primary"` |
 | `disabled` | `true`, `false` | If true, disables the icon button. | `false` |
 | `isLoading` | `true`, `false` | If true, displays a loading indicator inside the icon button. | `false` |
 

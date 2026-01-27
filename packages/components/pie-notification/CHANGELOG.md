@@ -1,5 +1,39 @@
 # @justeattakeaway/pie-notification
 
+## 0.21.2
+
+### Patch Changes
+
+- Updated dependencies [[`30d7e8d`](https://github.com/justeattakeaway/pie/commit/30d7e8da1feb3ab9514b1089cf1bd53f44718d3d)]:
+  - @justeattakeaway/pie-icon-button@2.4.0
+  - @justeattakeaway/pie-webc-core@6.0.1
+  - @justeattakeaway/pie-icons-webc@1.18.2
+
+## 0.21.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.3.5
+  - @justeattakeaway/pie-webc-core@6.0.0
+  - @justeattakeaway/pie-icons-webc@1.18.1
+
+## 0.21.0
+
+### Minor Changes
+
+- [Fixed] - Footer in compact mode should always be aligned with the container edge ([#2655](https://github.com/justeattakeaway/pie/pull/2655)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Updated] - Use correct font-weight tokens
+
+- [Added] - Link support for leading and supporting Notification actions. Includes basic link properties: `href`, `rel`, `download` and `target`. ([#2644](https://github.com/justeattakeaway/pie/pull/2644)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`1b3835c`](https://github.com/justeattakeaway/pie/commit/1b3835c25c019165b0e536897fa3ff4886aa5ebf), [`b95891b`](https://github.com/justeattakeaway/pie/commit/b95891b441a5136caab5a40788e0ca9e1f8ca950)]:
+  - @justeattakeaway/pie-icons-webc@1.18.0
+  - @justeattakeaway/pie-icon-button@2.3.4
+
 ## 0.20.3
 
 ### Patch Changes

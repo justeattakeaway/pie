@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-thumbnail
 
+## 0.8.13
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@6.0.1
+
+## 0.8.12
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@6.0.0
+
 ## 0.8.11
 
 ### Patch Changes

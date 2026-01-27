@@ -321,3 +321,4 @@ export const SuccessPropVariations = createVariantStory<Partial<NotificationProp
 export const WarningPropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, warningPropOptions);
 export const ErrorPropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, errorPropOptions);
 export const TranslucentPropVariations = createVariantStory<Partial<NotificationProps>>(VariantsTemplate, translucentPropOptions);
+export const isCompact = createNotificationStory({ isCompact: true, slot: 'Hello World' }, { layout: 'padded' });

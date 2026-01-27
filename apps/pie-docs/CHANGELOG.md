@@ -1,5 +1,38 @@
 # Changelog
 
+## 4.59.6
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens to v7.10.2 ([#2660](https://github.com/justeattakeaway/pie/pull/2660)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`e24f74b`](https://github.com/justeattakeaway/pie/commit/e24f74b99a27070a0e27a9440814d4b660631b11)]:
+  - @justeattakeaway/pie-css@0.26.1
+  - @justeattakeaway/pie-webc@0.7.42
+  - @justeattakeaway/pie-icons-webc@1.18.2
+
+## 4.59.5
+
+### Patch Changes
+
+- Updated dependencies [[`563a638`](https://github.com/justeattakeaway/pie/commit/563a6389880f88e5fe654b73b8eaac558bdecde5)]:
+  - @justeattakeaway/pie-css@0.26.0
+  - @justeattakeaway/pie-icons-webc@1.18.1
+  - @justeattakeaway/pie-webc@0.7.41
+
+## 4.59.4
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2645](https://github.com/justeattakeaway/pie/pull/2645)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- [Changed] - updated snapshots after icons update ([#2656](https://github.com/justeattakeaway/pie/pull/2656)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`996740b`](https://github.com/justeattakeaway/pie/commit/996740b85f92ecb3062f7c4e630dc07ca77ed89b), [`1b3835c`](https://github.com/justeattakeaway/pie/commit/1b3835c25c019165b0e536897fa3ff4886aa5ebf), [`b95891b`](https://github.com/justeattakeaway/pie/commit/b95891b441a5136caab5a40788e0ca9e1f8ca950)]:
+  - @justeattakeaway/pie-icons@5.19.0
+  - @justeattakeaway/pie-icons-webc@1.18.0
+  - @justeattakeaway/pie-webc@0.7.40
+
 ## 4.59.3
 
 ### Patch Changes

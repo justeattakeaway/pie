@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-css",
-  "version": "0.25.0",
+  "version": "0.26.1",
   "description": "A styling library that provides both a shared collection of ready to use CSS styles to be used across JET web front-ends, and SCSS-based style helpers for our PIE Web Component library.",
   "repository": {
     "type": "git",
@@ -10,7 +10,8 @@
   "homepage": "https://webc.pie.design/?path=/docs/additional-libraries-pie-css--docs",
   "author": "Just Eat Takeaway.com - Design System Team",
   "files": [
-    "scss"
+    "scss",
+    "dist"
   ],
   "main": "dist/index.css",
   "pieMetadata": {
@@ -19,7 +20,7 @@
     "cdnContentType": "text/css"
   },
   "scripts": {
-    "build": "run -T ts-node ./buildCss.ts",
+    "build": "run -T ts-node ./buildCss.ts && run -T sass scss/_internal/typography.scss dist/helpers/typography.css --no-source-map",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./**/*.{css,scss}",

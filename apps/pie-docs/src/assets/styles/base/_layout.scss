@@ -109,6 +109,11 @@
             @include p.line-height(--dt-font-heading-m-line-height--narrow);
         }
 
+        h4 {
+            @include p.font-size(--dt-font-heading-s-size--narrow);
+            @include p.line-height(--dt-font-heading-s-line-height--narrow);
+        }
+
         @include f.media('>=wide') {
             h2 {
                 @include p.font-size(--dt-font-heading-xl-size--wide);
@@ -118,6 +123,11 @@
             h3 {
                 @include p.font-size(--dt-font-heading-m-size--wide);
                 @include p.line-height(--dt-font-heading-m-line-height--wide);
+            }
+
+            h4 {
+                @include p.font-size(--dt-font-heading-s-size--wide);
+                @include p.line-height(--dt-font-heading-s-line-height--wide);
             }
         }
 
