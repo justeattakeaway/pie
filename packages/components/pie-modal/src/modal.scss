@@ -17,8 +17,8 @@
     --modal-elevation: var(--dt-elevation-below-20);
     --modal-image-slot-bg-color: none;
     --modal-easing: var(--dt-motion-easing-persistent-functional);
-    --modal-duration: var(--dt-motion-timing-150);
-    --backdrop-duration: var(--dt-motion-timing-200);
+    --modal-transition-duration: var(--dt-motion-timing-150);
+    --backdrop-transition-duration: var(--dt-motion-timing-200);
 
     &:focus-visible {
         outline: none;
@@ -34,15 +34,15 @@
     opacity: 0;
     transform: translateY(-40px);
     transition:
-        opacity var(--modal-duration) var(--modal-easing),
-        transform var(--modal-duration) var(--modal-easing),
-        display var(--modal-duration) allow-discrete,
-        overlay var(--backdrop-duration) allow-discrete;
+        opacity var(--modal-transition-duration) var(--modal-easing),
+        transform var(--modal-transition-duration) var(--modal-easing),
+        display var(--modal-transition-duration) allow-discrete,
+        overlay var(--backdrop-transition-duration) allow-discrete;
 
 
     &[open] {
-        --modal-duration: var(--dt-motion-timing-250);
-        --backdrop-duration: var(--dt-motion-timing-300);
+        --modal-transition-duration: var(--dt-motion-timing-250);
+        --backdrop-transition-duration: var(--dt-motion-timing-300);
 
         opacity: 1;
         transform: translateY(0);
@@ -69,8 +69,9 @@
     font-family: var(--modal-font);
     color: var(--modal-content-color);
     background-color: var(--modal-bg-color);
-
     padding: 0;
+    display: flex;
+    flex-direction: column;
 
     --modal-margin-none: var(--dt-spacing-none);
     --modal-margin-small: var(--dt-spacing-g);
@@ -148,9 +149,9 @@
         background: var(--dt-color-overlay);
         opacity: 0;
         transition:
-            opacity var(--backdrop-duration) var(--modal-easing),
-            display var(--backdrop-duration) allow-discrete,
-            overlay var(--backdrop-duration) allow-discrete;
+            opacity var(--backdrop-transition-duration) var(--modal-easing),
+            display var(--backdrop-transition-duration) allow-discrete,
+            overlay var(--backdrop-transition-duration) allow-discrete;
     }
 
     & .c-modal-closeBtn {
