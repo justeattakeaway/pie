@@ -3736,6 +3736,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
+    "@justeat/pie-design-tokens": 7.10.2
     "@justeattakeaway/pie-button": 1.10.2
     "@justeattakeaway/pie-components-config": 0.21.0
     "@justeattakeaway/pie-css": 0.26.1
