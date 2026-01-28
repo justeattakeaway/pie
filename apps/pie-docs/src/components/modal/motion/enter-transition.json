@@ -1,0 +1,28 @@
+{
+    "headings": [
+        "Property",
+        "Cubic Bezier",
+        "Easing token",
+        "Notes"
+    ],
+    "rows": [
+        [
+            "Translate Y",
+            "(.45, 0, .55, 1)",
+            "$easing-functional",
+            "Moves down 40px"
+        ],
+        [
+            "Opacity",
+            "(.45, 0, .55, 1)",
+            "$easing-functional",
+            "Modal gently fades in"
+        ],
+        [
+            "Overlay",
+            "(.45, 0, .55, 1)",
+            "$easing-functional",
+            "Overlay / skrim gently fades in"
+        ]
+    ]
+}
