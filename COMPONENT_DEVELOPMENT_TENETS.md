@@ -515,7 +515,7 @@ PIE components intentionally limit style customisation to maintain brand consist
 
 1. **Properties first:** Visual variations should be controlled via component properties (e.g., `variant="primary"`, `size="large"`). This is the preferred approach as it keeps customisation within designed boundaries.
 
-2. **CSS slots (rare):** For targeted override points where property-based control isn't sufficient. These are intentional extension points, not arbitrary styling hooks.
+2. **CSS parts (rare):** For targeted override points where property-based control isn't sufficient. These are intentional extension points exposed via `::part()`, not arbitrary styling hooks.
 
 3. **CSS custom properties (rare):** Exposed variables for specific, justified overrides. These should be documented and used sparingly.
 
