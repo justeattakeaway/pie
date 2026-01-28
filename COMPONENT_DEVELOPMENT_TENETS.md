@@ -20,21 +20,22 @@ These tenets guide every decision in PIE component development:
 10. [**CSS over JavaScript**](#css-over-javascript) — Prefer declarative CSS solutions
 11. [**Logical CSS properties**](#logical-css-properties) — Use logical properties for RTL support
 12. [**Reduced motion**](#reduced-motion-support) — Respect `prefers-reduced-motion`
-13. [**Limited customisation**](#limited-style-customisation) — Consistency over flexibility
-14. [**Use the generator**](#use-the-component-generator) — Always scaffold new components with the generator
-15. [**Composition via mixins**](#mixin-based-composition) — Lean components, shared behaviours
-16. [**Reusable decorators**](#custom-decorators) — Extract property-level logic into decorators
-17. [**Bundle size awareness**](#bundle-size-awareness) — Monitor size, justify increases
-18. [**Semantic HTML**](#semantic-valid-html) — Valid, meaningful markup even inside shadow DOM
-19. [**JSDoc for slots/events**](#jsdoc-for-slots-and-events) — Required for manifest and React type generation
-20. [**Clean up listeners**](#event-listener-cleanup) — Use AbortController for event listener removal
-21. [**React types verified**](#react-integration) — Generated React interfaces must be inspected
-22. [**Browser-tested**](#browser-based-testing) — Real browsers, not simulated environments
-23. [**User-focused testing**](#user-focused-testing) — Test behaviour, not implementation
-24. [**Accessible by default**](#accessibility-testing) — WCAG 2.1 AA compliance
-25. [**Visual regression**](#visual-regression-testing) — Percy tests for visual changes
-26. [**Fully documented**](#storybook-documentation) — Storybook and README for every component
-27. [**Integration proven**](#integration-testing-pie-aperture) — Validated in pie-aperture across frameworks
+13. [**PIE icons only**](#icons-from-pie-icons-webc-only) — Use `pie-icons-webc`, nothing else
+14. [**Limited customisation**](#limited-style-customisation) — Consistency over flexibility
+15. [**Use the generator**](#use-the-component-generator) — Always scaffold new components with the generator
+16. [**Composition via mixins**](#mixin-based-composition) — Lean components, shared behaviours
+17. [**Reusable decorators**](#custom-decorators) — Extract property-level logic into decorators
+18. [**Bundle size awareness**](#bundle-size-awareness) — Monitor size, justify increases
+19. [**Semantic HTML**](#semantic-valid-html) — Valid, meaningful markup even inside shadow DOM
+20. [**JSDoc for slots/events**](#jsdoc-for-slots-and-events) — Required for manifest and React type generation
+21. [**Clean up listeners**](#event-listener-cleanup) — Use AbortController for event listener removal
+22. [**React types verified**](#react-integration) — Generated React interfaces must be inspected
+23. [**Browser-tested**](#browser-based-testing) — Real browsers, not simulated environments
+24. [**User-focused testing**](#user-focused-testing) — Test behaviour, not implementation
+25. [**Accessible by default**](#accessibility-testing) — WCAG 2.1 AA compliance
+26. [**Visual regression**](#visual-regression-testing) — Percy tests for visual changes
+27. [**Fully documented**](#storybook-documentation) — Storybook and README for every component
+28. [**Integration proven**](#integration-testing-pie-aperture) — Validated in pie-aperture across frameworks
 
 ---
 
@@ -219,21 +220,29 @@ isDisabled: boolean
 
 ### Event Conventions
 
-Components emit custom events prefixed with `pie-` to signal user intent or state change requests.
+Components emit events prefixed with `pie-` to signal user intent or state change requests.
 
 **The principle:** Events communicate intent from component to consumer. The consumer decides how to respond.
 
 **Guidelines:**
 - Prefer native events when they bubble naturally and suit the use case
-- Use custom events for component-specific behaviours or when native events don't bubble through shadow DOM
-- Custom events should be prefixed with `pie-` followed by the component name or action
+- Use events for component-specific behaviours or when native events don't bubble through shadow DOM
+- Events should be prefixed with `pie-` followed by the component name or action
 - Events signal intent, not completed actions (aligns with controlled component philosophy)
+- Use `new Event()` rather than `new CustomEvent()` unless you need to pass data via `detail`
 
 ```typescript
-// Emitting a close request (not "closed" — the component doesn't close itself)
-this.dispatchEvent(new CustomEvent('pie-modal-close', {
+// ✅ Good: Simple Event (preferred)
+this.dispatchEvent(new Event('pie-modal-close', {
   bubbles: true,
   composed: true
+}));
+
+// ✅ Also fine: CustomEvent when you need to pass data
+this.dispatchEvent(new CustomEvent('pie-input-change', {
+  bubbles: true,
+  composed: true,
+  detail: { value: this.value }
 }));
 ```
 
@@ -457,6 +466,42 @@ All animations and transitions must respect the user's motion preferences. Users
 - **Accessibility:** Motion can cause nausea, dizziness, or seizures for some users
 - **User respect:** Users explicitly requested reduced motion; honour it
 - **WCAG compliance:** Relates to WCAG 2.1 Success Criterion 2.3.3
+
+---
+
+### Icons from pie-icons-webc Only
+
+All icons used in components must come from `@justeattakeaway/pie-icons-webc`. Do not use SVGs directly, icon fonts, or third-party icon libraries.
+
+**The principle:** A single icon source ensures visual consistency, proper sizing, and alignment with the design system.
+
+**Usage:**
+
+```typescript
+import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
+
+render() {
+  return html`
+    <button>
+      <icon-close></icon-close>
+      Close
+    </button>
+  `;
+}
+```
+
+**Icon sizing:**
+- Small icons: `xxs`, `xs`, `s`, `m`, `l`, `xl`, `xxl`
+- Large icons: multiples of 8 starting from 32 (`32`, `40`, `48`, etc.)
+- Within components, use `--icon-size-override` CSS variable to control sizing
+
+**Why this matters:**
+- **Consistency:** All icons share the same visual style and weight
+- **Accessibility:** PIE icons include proper ARIA attributes
+- **Maintenance:** Icon updates are centralised in one package
+- **Bundle efficiency:** Tree-shaking works correctly with the webc package
+
+**The rule:** If an icon doesn't exist in `pie-icons-webc`, request it from the design team. Don't use alternatives.
 
 ---
 
