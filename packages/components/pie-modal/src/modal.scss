@@ -153,15 +153,15 @@
             opacity var(--backdrop-transition-duration) var(--modal-easing),
             display var(--backdrop-transition-duration) allow-discrete,
             overlay var(--backdrop-transition-duration) allow-discrete;
+    }
 
-        // TODO: Can be removed along with pie-design-tokens dependency
-        // after v17.6 becomes the last we support, currently it is v16+
-        // where css vars are not working on ::backdrop
-        // Safari >= 16
-        @supports (hanging-punctuation: first) and (font: -apple-system-body) and (-webkit-appearance: none) {
-            &::backdrop {
-                background: #{dt.$color-overlay};
-            }
+    // TODO: Can be removed along with pie-design-tokens dependency
+    // after v17.6 becomes the last we support, currently it is v16+
+    // where css vars are not working on ::backdrop
+    // Safari >= 16
+    @supports (hanging-punctuation: first) and (font: -apple-system-body) and (-webkit-appearance: none) {
+        &::backdrop {
+            background: #{dt.$color-overlay};
         }
     }
 
