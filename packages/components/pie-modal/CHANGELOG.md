@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 1.22.4
+
+### Patch Changes
+
+- [Updated] - remove min height in the modal content ([#2665](https://github.com/justeattakeaway/pie/pull/2665)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.22.3
 
 ### Patch Changes
