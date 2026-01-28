@@ -1,5 +1,22 @@
 # Changelog
 
+## 4.60.0
+
+### Minor Changes
+
+- [Updated] - Modal page docs ([#2643](https://github.com/justeattakeaway/pie/pull/2643)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Fixed] calculation for three equal-width columns ([#2643](https://github.com/justeattakeaway/pie/pull/2643)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Changed] - Updated the Tag component overview page with the new designs and copy. ([#2663](https://github.com/justeattakeaway/pie/pull/2663)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Changed] - Images on tag overview page to include leading icons ([#2667](https://github.com/justeattakeaway/pie/pull/2667)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.43
+
 ## 4.59.6
 
 ### Patch Changes
