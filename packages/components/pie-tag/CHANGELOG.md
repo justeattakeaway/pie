@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-tag
 
+## 0.22.4
+
+### Patch Changes
+
+- [Changed] - Explained that the icon only tags will always render as large size ([#2666](https://github.com/justeattakeaway/pie/pull/2666)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.22.3
 
 ### Patch Changes
