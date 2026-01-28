@@ -538,7 +538,11 @@ Always use the component generator when creating new components. Never scaffold 
 **How to use:**
 
 ```bash
-yarn generate:component
+# Build the generator first (recommended to force)
+yarn build --filter=generator-pie-component --force
+
+# Run the generator from the root directory
+npx yo @justeattakeaway/pie-component
 ```
 
 **What the generator provides:**
