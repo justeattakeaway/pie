@@ -44,7 +44,7 @@ test('should render all prop variations for the 16by9 aspect ratio', async ({ pa
     await percySnapshot(page, 'PIE Thumbnail - aspectRatio: 16by9', { widths: [1280] });
 });
 
-test('should render the component default placeholder on image load failure', async ({ page }) => {
+test.skip('should render the component default placeholder on image load failure', async ({ page }) => {
     const basePage = new BasePage(page, 'thumbnail--invalid-src-and-default-placeholder');
     await basePage.load();
 

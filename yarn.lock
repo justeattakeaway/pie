@@ -9820,6 +9820,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chromatic@npm:13.3.5":
+  version: 13.3.5
+  resolution: "chromatic@npm:13.3.5"
+  peerDependencies:
+    "@chromatic-com/cypress": ^0.*.* || ^1.0.0
+    "@chromatic-com/playwright": ^0.*.* || ^1.0.0
+  peerDependenciesMeta:
+    "@chromatic-com/cypress":
+      optional: true
+    "@chromatic-com/playwright":
+      optional: true
+  bin:
+    chroma: dist/bin.js
+    chromatic: dist/bin.js
+    chromatic-cli: dist/bin.js
+  checksum: 782daf2aa3683b018686bb0c6da017cd8d128f676c909bcd629d92ae802d35d1de988a9e6790b59e4f6aa8d38bbcbddaac66607442c9b33a53e6d9bfd0810619
+  languageName: node
+  linkType: hard
+
 "chrome-launcher@npm:^0.15.0":
   version: 0.15.2
   resolution: "chrome-launcher@npm:0.15.2"
@@ -18721,6 +18740,7 @@ __metadata:
     "@typescript-eslint/parser": 5.62.0
     "@vitest/coverage-v8": 4.0.17
     bundlewatch: 0.4.0
+    chromatic: 13.3.5
     commitizen: 4.3.0
     cross-env: 7.0.3
     cz-customizable: 7.2.1
