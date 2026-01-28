@@ -805,6 +805,34 @@ All components are written in TypeScript with strict type checking enabled.
 - Public methods and events are typed
 - No `any` types without justification
 
+**Stick to native JavaScript features.** Avoid TypeScript-only constructs that don't exist in JavaScript. Use TypeScript for types, not runtime features.
+
+| Avoid (TypeScript-only) | Prefer (Native JS + types) |
+|-------------------------|----------------------------|
+| `enum Status { ... }` | `const statuses = [...] as const` |
+| `namespace` | ES modules |
+| Parameter properties | Explicit property declarations |
+
+**Exception:** We do use `private`, `public`, and `protected` access modifiers for class members. These are erased at compile time and don't generate extra code.
+
+```typescript
+// ❌ Bad: TypeScript enum (generates extra JS, doesn't tree-shake well)
+enum Variant {
+  Primary = 'primary',
+  Secondary = 'secondary'
+}
+
+// ✅ Good: Const array with derived type (native JS, tree-shakes correctly)
+export const variants = ['primary', 'secondary'] as const;
+export type Variant = typeof variants[number];
+```
+
+**Why this matters:**
+- **Bundle size:** Enums and namespaces generate additional JavaScript code
+- **Tree-shaking:** Native JS patterns work better with bundlers
+- **Predictability:** What you write is closer to what runs
+- **Interoperability:** Easier for non-TypeScript consumers to understand
+
 ---
 
 ### JSDoc for Slots and Events
