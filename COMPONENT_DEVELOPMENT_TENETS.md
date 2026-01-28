@@ -944,14 +944,15 @@ export class PieExample extends PieElement {
 
 ### React Integration
 
-Every component includes a React-specific interface (`defs-react.ts`) that enables proper TypeScript support in JSX.
+Every component includes a React-specific wrapper that enables proper TypeScript support in JSX.
 
-**The principle:** React/JSX expects events as callback props (`onClose`) rather than event listeners (`@close`). We generate React interfaces to bridge this gap and provide a first-class developer experience for React consumers.
+**The principle:** React/JSX expects events as callback props (`onClose`) rather than event listeners (`@close`). We generate React wrappers to bridge this gap and provide a first-class developer experience for React consumers.
 
 **How it works:**
-- During build, React wrapper types are generated automatically
+- During build, a `react.ts` file is generated in the component's `src/` directory
+- This file is untracked (gitignored) — it's regenerated on every build
 - Custom events are transformed to React callback prop naming conventions
-- The `defs-react.ts` file contains these React-specific interfaces
+- The `defs-react.ts` file is created by the component generator and contains React-specific type definitions — review and adjust as needed for your component's events and props
 
 **Event naming transformation:**
 
