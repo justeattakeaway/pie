@@ -61,7 +61,7 @@ The purpose of the icon only tag is to provide a quick and visually appealing wa
 ### Default
 
 {% contentPageImage {
-    src:"../../../assets/img/components/tag-icon-only/variations-default.svg",
+    src:"../../../assets/img/components/tag-icon-only/default.svg",
     alt: "A tag with a leading icon placeholder and no text",
     width: 32
 } %}
