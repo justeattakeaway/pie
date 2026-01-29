@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icon-button
 
+## 2.5.0
+
+### Minor Changes
+
+- [Added] - Icon button primary-alternative-dark variant ([#2674](https://github.com/justeattakeaway/pie/pull/2674)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.4.0
 
 ### Minor Changes
