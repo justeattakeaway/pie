@@ -18,6 +18,7 @@ const componentSelector = 'pie-data-table-header';
 
 /**
  * @tagname pie-data-table-header
+ * @slot action-button - Slot for action buttons in the header
  */
 @safeCustomElement('pie-data-table-header')
 export class PieDataTableHeader extends PieElement implements DataTableHeaderProps {

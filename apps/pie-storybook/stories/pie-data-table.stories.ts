@@ -3,8 +3,18 @@ import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-data-table';
 import '@justeattakeaway/pie-data-table/dist/pie-data-table-header';
+import '@justeattakeaway/pie-data-table/dist/pie-data-table-row';
+import '@justeattakeaway/pie-data-table/dist/pie-data-table-body';
+import '@justeattakeaway/pie-data-table/dist/pie-data-table-cell';
+import '@justeattakeaway/pie-data-table/dist/pie-data-table-head';
+import '@justeattakeaway/pie-data-table/dist/pie-data-table-head-cell';
+import '@justeattakeaway/pie-data-table/dist/pie-data-table-contents';
 import '@justeattakeaway/pie-button';
-import { type DataTableProps } from '@justeattakeaway/pie-data-table';
+import type {
+    DataTableProps,
+    Column,
+    DataTableAdditionalRow,
+} from '@justeattakeaway/pie-data-table';
 
 import { createStory } from '../utilities';
 
@@ -33,6 +43,39 @@ const headerStrongSlot = html`
         <pie-button slot="action-button" variant="secondary" size="xsmall">Action</pie-button>
         <pie-button slot="action-button" variant="secondary" size="xsmall">Action</pie-button>
     </pie-data-table-header>
+`;
+
+const tableBodySlot = html`
+    <pie-data-table-contents>
+        <pie-data-table-head>
+            <pie-data-table-row>
+                <pie-data-table-head-cell>Name</pie-data-table-head-cell>
+                <pie-data-table-head-cell textAlign="right">Age</pie-data-table-head-cell>
+                <pie-data-table-head-cell textAlign="center">Department</pie-data-table-head-cell>
+                <pie-data-table-head-cell textAlign="center">Action</pie-data-table-head-cell>
+            </pie-data-table-row>
+        </pie-data-table-head>
+        <pie-data-table-body>
+            <pie-data-table-row>
+                <pie-data-table-cell>John Doe</pie-data-table-cell>
+                <pie-data-table-cell textAlign="right">30</pie-data-table-cell>
+                <pie-data-table-cell textAlign="center">test</pie-data-table-cell>
+                <pie-data-table-cell textAlign="center"><pie-button @click=${() => alert('Action clicked')} variant="secondary" size="xsmall">Action</pie-button></pie-data-table-cell>
+            </pie-data-table-row>
+            <pie-data-table-row>
+                <pie-data-table-cell>Jose Smith</pie-data-table-cell>
+                <pie-data-table-cell textAlign="right">28</pie-data-table-cell>
+                <pie-data-table-cell textAlign="center">test</pie-data-table-cell>
+                <pie-data-table-cell textAlign="center"><pie-button variant="secondary" size="xsmall">Action</pie-button></pie-data-table-cell>
+            </pie-data-table-row> 
+            <pie-data-table-row>
+                <pie-data-table-cell>Bob Johnson</pie-data-table-cell>
+                <pie-data-table-cell textAlign="right">35</pie-data-table-cell>
+                <pie-data-table-cell textAlign="center">super test</pie-data-table-cell>
+                <pie-data-table-cell textAlign="center"><pie-button variant="secondary" size="xsmall">Action</pie-button></pie-data-table-cell>
+            </pie-data-table-row>
+        </pie-data-table-body>
+    </pie-data-table-contents>
 `;
 
 const sampleData = [
@@ -128,7 +171,7 @@ const sampleData = [
     },
 ];
 
-const sampleColumns = [
+const sampleColumns: Column[] = [
     {
         id: 'name',
         heading: 'Name',
@@ -152,6 +195,81 @@ const sampleColumns = [
     },
 ];
 
+const productsColumns: Column[] = [
+    {
+        id: 'customer',
+        heading: 'Customer',
+        accessor: 'customer',
+        textAlign: 'left',
+    },
+    {
+        id: 'company',
+        heading: 'Company',
+        accessor: 'company',
+        textAlign: 'left',
+    },
+    {
+        id: 'product',
+        heading: 'Product',
+        accessor: 'product',
+        textAlign: 'left',
+    },
+    {
+        id: 'material',
+        heading: 'Material',
+        accessor: 'material',
+        textAlign: 'center',
+    },
+    {
+        id: 'amount',
+        heading: 'Amount',
+        accessor: 'amount',
+        textAlign: 'right',
+    },
+];
+
+const sampleDataProducts = [
+    {
+        customer: 'Raymond Lebsack',
+        company: 'Boyer - Renner',
+        product: 'Gorgeous Soft Car',
+        material: 'Rubber',
+        amount: 702.00,
+    },
+    {
+        customer: 'Aurelia Predovic',
+        company: 'Tremblay, Fisher and Osinski',
+        product: 'Small Plastic Table',
+        material: 'Granite',
+        amount: 219.00,
+    },
+    {
+        customer: 'Nathanial Wiegand',
+        company: 'Satterfield, Ferry and Rice',
+        product: 'Practical Frozen Sausages',
+        material: 'Rubber',
+        amount: 22.00,
+    },
+];
+
+const totalAmount = sampleDataProducts.reduce((total, item) => total + (typeof item.amount === 'number' ? item.amount : 0), 0);
+const fivePercentTaxRate = 1.05;
+
+const additionalRows: DataTableAdditionalRow[] = [
+    {
+        cells: [
+            { content: 'Taxes', textAlign: 'right', colSpan: 4 },
+            { content: '5%', textAlign: 'right' },
+        ],
+    },
+    {
+        cells: [
+            { content: 'Total', textAlign: 'right', colSpan: 4 },
+            { content: (totalAmount * fivePercentTaxRate).toFixed(2), textAlign: 'right' },
+        ],
+    },
+];
+
 const defaultArgs: DataTableProps = {
     columns: [],
     data: [],
@@ -169,6 +287,10 @@ const dataTableStoryMeta: DataTableStoryMeta = {
             description: 'Array of data objects to display',
             control: 'object',
         },
+        additionalRows: {
+            description: 'Arbitrary array of additional rows to display at the bottom of the table',
+            control: 'object',
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -182,11 +304,12 @@ const dataTableStoryMeta: DataTableStoryMeta = {
 export default dataTableStoryMeta;
 
 const Template = ({
-    columns, data,
+    columns, data, additionalRows,
 }: DataTableProps) => html`
     <pie-data-table
         .columns="${columns}"
         .data="${data}"
+        .additionalRows="${additionalRows}"
         data-test-id="pie-data-table"
     ></pie-data-table>
 `;
@@ -215,6 +338,15 @@ const TemplateWithStrongHeader = ({
     </pie-data-table>
 `;
 
+const TemplateWithTableBody = () => html`
+    <pie-data-table
+        data-test-id="pie-data-table"
+    >
+        ${headerStrongSlot}
+        ${tableBodySlot}
+    </pie-data-table>
+`;
+
 export const DefaultWithData = createStory<DataTableProps>(Template, {
     columns: sampleColumns,
     data: sampleData,
@@ -228,6 +360,16 @@ export const DataWithHeader = createStory<DataTableProps>(TemplateWithHeader, {
 export const DataWithStrongHeader = createStory<DataTableProps>(TemplateWithStrongHeader, {
     columns: sampleColumns,
     data: sampleData,
+})();
+
+export const WithExtraRows = createStory<DataTableProps>(Template, {
+    columns: productsColumns,
+    data: sampleDataProducts,
+    additionalRows,
+})();
+
+export const WithCustomTableBody = createStory<DataTableProps>(TemplateWithTableBody, {
+    columns: sampleColumns,
 })();
 
 export const HeadingsNoData = createStory<DataTableProps>(Template, {
