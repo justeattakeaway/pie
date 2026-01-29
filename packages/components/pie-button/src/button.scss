@@ -167,7 +167,7 @@
         --int-states-mixin-bg-color: var(--dt-color-interactive-dark);
         --btn-text-color: var(--dt-color-content-interactive-light);
 
-        @include p.interactive-states('--dt-color-interactive-primary', 'inverse', '02');
+        @include p.interactive-states('--dt-color-interactive-dark', 'inverse', '02');
     }
 
     &.o-btn--secondary {
