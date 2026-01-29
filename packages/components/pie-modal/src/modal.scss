@@ -169,19 +169,33 @@
             overflow: hidden;
 
             // imageSlot--medium = default
-            aspect-ratio: 3/1;
+            aspect-ratio: 16/9;
 
             &.c-modal-imageSlot--small {
-                aspect-ratio: 4/1;
+                aspect-ratio: 3/1;
             }
 
             &.c-modal-imageSlot--large {
-                aspect-ratio: 21/9;
+                aspect-ratio: 4/3;
             }
 
             ::slotted([slot="image"]) {
                 width: 100%;
             }
+
+            @include media('>md') {
+                // imageSlot--medium = default
+                aspect-ratio: 3/1;
+
+                &.c-modal-imageSlot--small {
+                    aspect-ratio: 4/1;
+                }
+
+                &.c-modal-imageSlot--large {
+                    aspect-ratio: 21/9;
+                }
+            }
+
         }
 
         & .c-modal-closeBtn {
