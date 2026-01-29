@@ -507,9 +507,6 @@ If fonts aren't displaying correctly:
 1. Ensure you've set up the JETSansDigital font as described in the [Typography setup guide](?path=/docs/introduction-typography--docs)
 2. Check that font files are loading correctly
 3. Verify font-face declarations are correct
-
----
-*This documentation is automatically generated from the CSS source file. Last updated: ${new Date().toISOString().split('T')[0]}*
 `;
 }
 
