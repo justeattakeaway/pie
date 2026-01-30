@@ -1,0 +1,28 @@
+{
+  "name": "@justeattakeaway/stylelint-pie-design-tokens",
+  "version": "0.1.0",
+  "main": "index.js",
+  "type": "module",
+  "description": "Stylelint plugin for validating pie design tokens usage.",
+  "license": "Apache-2.0",
+  "keywords": [
+    "PIE",
+    "stylelint",
+    "stylelint-plugin",
+    "design-tokens"
+  ],
+  "author": "Just Eat Takeaway.com - Design System Team",
+  "scripts": {
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix",
+    "test": "run -T vitest run --config ../../../vite.config.js --environment node",
+    "test:ci": "yarn test",
+    "test:watch": "run -T vitest"
+  },
+  "peerDependencies": {
+    "@justeat/pie-design-tokens": "7.8.2"
+  },
+  "volta": {
+    "extends": "../../../package.json"
+  }
+}
