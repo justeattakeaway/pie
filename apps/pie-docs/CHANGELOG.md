@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.61.0
+
+### Minor Changes
+
+- [Changed] - Updated icon-only tag overview page copy for latest designs ([#2671](https://github.com/justeattakeaway/pie/pull/2671)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.44
+
 ## 4.60.0
 
 ### Minor Changes
