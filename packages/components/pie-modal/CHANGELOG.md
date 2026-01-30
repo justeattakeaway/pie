@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-modal
 
+## 1.23.0
+
+### Minor Changes
+
+- [Updated] - image slot aspect ratios for narrow screens ([#2675](https://github.com/justeattakeaway/pie/pull/2675)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Updated] - emphasised title typography
+
 ## 1.22.5
 
 ### Patch Changes
