@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.96.0
+
+### Minor Changes
+
+- [Added] - chromatic setup ([#2669](https://github.com/justeattakeaway/pie/pull/2669)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.95.2
 
 ### Patch Changes
