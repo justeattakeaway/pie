@@ -14,7 +14,7 @@ Illustrates the movement taking place when a modal enters and exit from view. Yo
 
 {% contentPageImage {
     src:"../../../assets/img/components/modal/motion-example.svg",
-    alt: "A modal component skelton displayed in the center the page."
+    alt: "A modal component skeleton displayed in the center the page."
 } %}
 
 ___
