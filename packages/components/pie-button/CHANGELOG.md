@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.11.0
+
+### Minor Changes
+
+- [Added] - primary-alternative-dark button variant ([#2674](https://github.com/justeattakeaway/pie/pull/2674)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.10.2
 
 ### Patch Changes
