@@ -51,6 +51,7 @@
     "components/map-pin",
     "components/modal",
     "components/modal/code",
+    "components/modal/motion",
     "components/notification",
     "components/notification/code",
     "components/numeric-stepper",

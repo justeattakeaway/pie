@@ -28,6 +28,8 @@ export class ModalComponent {
    * @returns {Promise<boolean>} A Promise that resolves to `true` if the modal is visible, and `false` otherwise.
    */
     async isModalVisible (): Promise<boolean> {
+        // wait for the transition/animation to complete
+        await this.page.waitForTimeout(250);
         return this.componentLocator.isVisible();
     }
 
