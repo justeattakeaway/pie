@@ -455,6 +455,12 @@
     }
 
     // Additional background colors
+    // | BACKGROUND | LIGHT THEME                                | DARK THEME                                 |
+    // | ---------- | ------------------------------------------ | ------------------------------------------ |
+    // | SUBTLE     | --dt-color-content-dark                    | --dt-color-content-light                   |
+    // | STRONG     | --dt-color-content-dark (except aubergine) | --dt-color-content-dark (except aubergine) |
+    // Note: --dt-color-content-default already switches automatically between dark and light colors to light and dark theme respectively
+
     &.c-modal--bg-subtle { --modal-image-slot-bg-color: var(--dt-color-container-subtle); }
 
     &.c-modal--bg-brand-01 {
