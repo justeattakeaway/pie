@@ -521,7 +521,7 @@ const CustomImageSlotContentStoryTemplate = (props: ModalProps) => {
 
     let imageUrl = '';
     if (imageSlotMode === 'image') {
-        imageUrl = `./static/images/modal-image-${imageSlotAspectRatio}.jpg`;
+        imageUrl = './static/images/modal-image-4by3.jpg';
     } else if (imageSlotMode === 'illustration') {
         imageUrl = './static/images/modal-image-illustration.png';
     }

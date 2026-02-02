@@ -223,6 +223,18 @@
                 {
                     "name": "soundwave",
                     "displayName": "Soundwave"
+                },
+                {
+                    "name": "stop",
+                    "displayName": "Stop"
+                },
+                {
+                    "name": "stop-circle",
+                    "displayName": "Stop Circle"
+                },
+                {
+                    "name": "stop-circle-filled",
+                    "displayName": "Stop Circle Filled"
                 }
             ]
         },
@@ -405,16 +417,20 @@
                     "displayName": "Chat"
                 },
                 {
-                    "name": "chat-filled",
-                    "displayName": "Chat Filled"
-                },
-                {
                     "name": "chat-bot",
                     "displayName": "Chat Bot"
                 },
                 {
                     "name": "chat-conversation",
                     "displayName": "Chat Conversation"
+                },
+                {
+                    "name": "chat-courier",
+                    "displayName": "Chat Courier"
+                },
+                {
+                    "name": "chat-filled",
+                    "displayName": "Chat Filled"
                 },
                 {
                     "name": "chat-heart",
@@ -707,16 +723,20 @@
             "displayName": "Documents",
             "icons": [
                 {
-                    "name": "document",
-                    "displayName": "Document"
-                },
-                {
                     "name": "consent",
                     "displayName": "Consent"
                 },
                 {
                     "name": "cookie-policy",
                     "displayName": "Cookie Policy"
+                },
+                {
+                    "name": "document",
+                    "displayName": "Document"
+                },
+                {
+                    "name": "document-edit",
+                    "displayName": "Document Edit"
                 },
                 {
                     "name": "terms-and-conditions",
@@ -1539,6 +1559,10 @@
             "displayName": "Number",
             "icons": [
                 {
+                    "name": "number-input",
+                    "displayName": "Number Input"
+                },
+                {
                     "name": "number-symbol",
                     "displayName": "Number Symbol"
                 },
@@ -2113,6 +2137,10 @@
                 {
                     "name": "sign-closed",
                     "displayName": "Sign Closed"
+                },
+                {
+                    "name": "sign-empty",
+                    "displayName": "Sign Empty"
                 },
                 {
                     "name": "sign-open",
