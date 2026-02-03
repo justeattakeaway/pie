@@ -17,6 +17,9 @@
     --modal-bg-color: var(--dt-color-container-default);
     --modal-elevation: var(--dt-elevation-below-20);
     --modal-image-slot-bg-color: none;
+    --modal-easing: var(--dt-motion-easing-persistent-functional);
+    --modal-transition-duration: var(--dt-motion-timing-150);
+    --backdrop-transition-duration: var(--dt-motion-timing-200);
 
     &:focus-visible {
         outline: none;
@@ -29,13 +32,34 @@
         }
     }
 
+    opacity: 0;
+    transform: translateY(-40px);
+    transition:
+        opacity var(--modal-transition-duration) var(--modal-easing),
+        transform var(--modal-transition-duration) var(--modal-easing),
+        display var(--modal-transition-duration) allow-discrete,
+        overlay var(--backdrop-transition-duration) allow-discrete;
+
 
     &[open] {
-        // We only apply this when the modal is open,
-        // otherwise it interferes with the native
-        // `display: none;` on the dialog element.
-        display: flex;
-        flex-direction: column;
+        --modal-transition-duration: var(--dt-motion-timing-250);
+        --backdrop-transition-duration: var(--dt-motion-timing-300);
+
+        opacity: 1;
+        transform: translateY(0);
+
+        @starting-style {
+            opacity: 0;
+            transform: translateY(-40px);
+        }
+
+        &::backdrop {
+            opacity: 1;
+    
+            @starting-style {
+                opacity: 0;
+            }
+        }
     }
 
     position: fixed;
@@ -46,8 +70,9 @@
     font-family: var(--modal-font);
     color: var(--modal-content-color);
     background-color: var(--modal-bg-color);
-
     padding: 0;
+    display: flex;
+    flex-direction: column;
 
     --modal-margin-none: var(--dt-spacing-none);
     --modal-margin-small: var(--dt-spacing-g);
@@ -123,6 +148,11 @@
 
     &::backdrop {
         background: var(--dt-color-overlay);
+        opacity: 0;
+        transition:
+            opacity var(--backdrop-transition-duration) var(--modal-easing),
+            display var(--backdrop-transition-duration) allow-discrete,
+            overlay var(--backdrop-transition-duration) allow-discrete;
     }
 
     // TODO: Can be removed along with pie-design-tokens dependency
@@ -453,4 +483,12 @@
     &.c-modal--bg-brand-08 { --modal-bg-color: var(--dt-color-support-brand-08); }
 
     &.c-modal--bg-brand-08-subtle { --modal-bg-color: var(--dt-color-support-brand-08-subtle); }
+
+    @media (prefers-reduced-motion: reduce) {
+        &,
+        &::backdrop {
+          transition: none;
+          transform: none;
+        }
+      }
 }
