@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-modal
 
+## 1.24.0
+
+### Minor Changes
+
+- [Added] - support modal motion ([#2670](https://github.com/justeattakeaway/pie/pull/2670)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - modal motion docs ([#2670](https://github.com/justeattakeaway/pie/pull/2670)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`b9bd6c8`](https://github.com/justeattakeaway/pie/commit/b9bd6c8bacdcb8e8e8fac69872bdf2a51ba8f5a6)]:
+  - @justeattakeaway/pie-icons-webc@1.19.0
+  - @justeattakeaway/pie-icon-button@2.5.1
+
 ## 1.23.0
 
 ### Minor Changes

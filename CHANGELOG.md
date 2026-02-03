@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.97.0
+
+### Minor Changes
+
+- [Added] - support modal motion ([#2670](https://github.com/justeattakeaway/pie/pull/2670)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - modal motion docs ([#2670](https://github.com/justeattakeaway/pie/pull/2670)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 2.96.0
 
 ### Minor Changes
