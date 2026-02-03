@@ -3,7 +3,7 @@ import './styles/docs.scss';
 import './styles/component-status.scss';
 import './styles/icons.scss';
 
-import { WritingDirection, ComponentStatus } from '../decorators';
+import { WritingDirection, ComponentStatus, ColorMode } from '../decorators';
 import CUSTOM_VIEWPORTS from './viewports';
 import backgrounds from './backgrounds';
 import getTheme from './pieTheme';
@@ -15,7 +15,7 @@ import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss';
 SyntaxHighlighter.registerLanguage('scss', scss);
 
 export default {
-    decorators: [ComponentStatus, WritingDirection],
+    decorators: [ComponentStatus, WritingDirection, ColorMode],
     globalTypes: {
         writingDirection: {
             description: 'Which direction should content be written in',
@@ -63,6 +63,7 @@ export default {
             sort: 'alpha',
         },
         darkMode: {
+            current: 'light',
             // Override the default dark theme
             dark: { ...getTheme('dark') },
             light: { ...getTheme() },

@@ -1,27 +1,30 @@
 import type { StoryBackgrounds } from '../types/StoryOptions';
+import tokens from '@justeat/pie-design-tokens/dist/tokens.json';
+
+const { alias, global } = tokens.theme.jet.color;
 
 const CUSTOM_BACKGROUNDS : StoryBackgrounds = {
   default: 'light (container-default)',
   values: [
     {
       name: 'light (container-default)',
-      value: '#ffffff',
+      value: alias.default['container-default'],
     },
     {
       name: 'dark (container-dark)',
-      value: '#262626',
+      value: alias.default['container-dark'],
     },
     {
       name: 'background-subtle',
-      value: '#f5f3f1',
+      value: alias.default['background-subtle'],
     },
     {
       name: 'background-dark',
-      value: '#1a1a19',
+      value: alias.default['background-dark'],
     },
     {
       name: 'brand orange',
-      value: '#f36805',
+      value: global.orange,
     },
     {
       name: 'saddlebrown',
