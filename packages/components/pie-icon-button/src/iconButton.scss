@@ -88,10 +88,10 @@
     }
 
     &.o-iconBtn--ghost-secondary-dark {
-        --int-states-mixin-bg-color: transparent; // TODO
+        --int-states-mixin-bg-color: transparent;
         --btn-icon-fill: var(--dt-color-content-interactive-dark-solid);
 
-        @include p.interactive-states('--dt-color-transparent', 'transparent'); // TODO
+        @include p.interactive-states('--dt-color-transparent', 'transparent');
     }
 
     &.o-iconBtn--inverse {
