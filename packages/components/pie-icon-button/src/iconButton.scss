@@ -102,12 +102,12 @@
     }
 
     &.o-iconBtn--inverse-outline {
-        --int-states-mixin-bg-color: transparent; // TODO
+        --int-states-mixin-bg-color: transparent;
         --btn-icon-fill: var(--dt-color-content-interactive-primary-solid);
 
         border: 1px solid var(--dt-color-border-strong);
 
-        @include p.interactive-states('--dt-color-transparent', 'transparent-inverse', '02'); // TODO
+        @include p.interactive-states('--dt-color-transparent', 'transparent', '02');
     }
 
     &.o-iconBtn--ghost-inverse {
