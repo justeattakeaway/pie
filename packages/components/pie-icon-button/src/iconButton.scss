@@ -87,6 +87,13 @@
         @include p.interactive-states('--dt-color-transparent', 'transparent');
     }
 
+    &.o-iconBtn--ghost-secondary-dark {
+        --int-states-mixin-bg-color: transparent; // TODO
+        --btn-icon-fill: var(--dt-color-content-interactive-dark-solid);
+
+        @include p.interactive-states('--dt-color-transparent', 'transparent'); // TODO
+    }
+
     &.o-iconBtn--inverse {
         --int-states-mixin-bg-color: var(--dt-color-interactive-inverse);
         --btn-icon-fill: var(--dt-color-content-interactive-brand-solid);
@@ -94,11 +101,27 @@
         @include p.interactive-states('--dt-color-interactive-inverse');
     }
 
+    &.o-iconBtn--inverse-outline {
+        --int-states-mixin-bg-color: transparent; // TODO
+        --btn-icon-fill: var(--dt-color-content-interactive-primary-solid);
+
+        border: 1px solid var(--dt-color-border-strong);
+
+        @include p.interactive-states('--dt-color-transparent', 'transparent-inverse', '02'); // TODO
+    }
+
     &.o-iconBtn--ghost-inverse {
         --int-states-mixin-bg-color: transparent;
         --btn-icon-fill: var(--dt-color-content-interactive-primary-solid);
 
         @include p.interactive-states('--dt-color-transparent', 'transparent', '02');
+    }
+
+    &.o-iconBtn--ghost-inverse-light {
+        --int-states-mixin-bg-color: transparent; // TODO
+        --btn-icon-fill: var(--dt-color-content-interactive-light-solid);
+
+        @include p.interactive-states('--dt-color-transparent', 'transparent-inverse', '02'); // TODO
     }
 
     &.o-iconBtn--translucent {
@@ -124,7 +147,8 @@
 
         // For outline variants, set the border to the disabled color
         &.o-iconBtn--outline,
-        &.o-iconBtn--translucent {
+        &.o-iconBtn--translucent,
+        &.o-iconBtn--inverse-outline {
             border-color: var(--dt-color-disabled-01);
         }
     }
