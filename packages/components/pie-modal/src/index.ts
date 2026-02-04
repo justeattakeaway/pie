@@ -355,7 +355,7 @@ export class PieModal extends PieElement implements ModalProps {
         }
     }
 
-    private _getHeaderButtonVariant (): 'ghost-secondary' | 'ghost-inverse' | 'secondary' {
+    private _getHeaderButtonVariant (): 'ghost'| 'secondary' | 'ghost-secondary' {
         const { imageSlotMode, backgroundColor } = this;
 
         // Handle the combinations of image slot and background color
@@ -363,16 +363,21 @@ export class PieModal extends PieElement implements ModalProps {
         const hasBackgroundColor = Boolean(backgroundColor) && backgroundColor !== 'default';
         const isInverted = backgroundColor === 'brand-06';
 
-        // default case: image slot is not present
+        // The spec 'ghost-inverse' 'light' cannot be achieved on dark theme, using 'ghost-secondary' as replacement
+        const ghostInverseLight = 'ghost-secondary';
+
+        // Default case: image slot is not present
         if (!hasImageSlot) {
-            return isInverted ? 'ghost-inverse' : 'ghost-secondary';
+            return isInverted ? ghostInverseLight : 'ghost';
         }
 
-        // image slot is present
+        // Case: image slot is present, default background color
         if (imageSlotMode === 'illustration' && !hasBackgroundColor) {
-            return 'ghost-secondary';
+            return 'ghost';
         }
-        return isInverted ? 'ghost-inverse' : 'secondary';
+
+        // Case: background color is other than default
+        return isInverted ? ghostInverseLight : 'ghost';
     }
 
     /**
