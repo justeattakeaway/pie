@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "pie-mcp-server": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "./packages/tools/pie-mcp-server/dist/index.js"
+      ],
+      "env": {}
+    }
+  }
+}

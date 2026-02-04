@@ -1,0 +1,49 @@
+{
+  "name": "@justeattakeaway/pie-mcp-server",
+  "version": "0.7.42",
+  "description": "MCP server exposing PIE design system documentation for AI assistants",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justeattakeaway/pie",
+    "directory": "packages/tools/pie-mcp-server"
+  },
+  "homepage": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-mcp-server",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": "./dist/index.js",
+  "files": [
+    "dist",
+    "generated"
+  ],
+  "scripts": {
+    "dev": "DANGEROUSLY_OMIT_AUTH=true npx @modelcontextprotocol/inspector node dist/index.js",
+    "generate:data": "node scripts/generate-data.js",
+    "build": "yarn generate:data && tsc",
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix",
+    "test": "run -T vitest run",
+    "test:ci": "yarn test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "volta": {
+    "extends": "../../../package.json"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "pie",
+    "design-system",
+    "mcp",
+    "ai",
+    "claude"
+  ],
+  "author": "Just Eat Takeaway.com - Design System Team",
+  "license": "Apache-2.0"
+}
