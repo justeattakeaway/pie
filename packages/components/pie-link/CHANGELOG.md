@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-link
 
+## 1.3.9
+
+### Patch Changes
+
+- Updated dependencies [[`b9bd6c8`](https://github.com/justeattakeaway/pie/commit/b9bd6c8bacdcb8e8e8fac69872bdf2a51ba8f5a6)]:
+  - @justeattakeaway/pie-icons-webc@1.19.0
+
 ## 1.3.8
 
 ### Patch Changes
