@@ -1,5 +1,47 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.19.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2677](https://github.com/justeattakeaway/pie/pull/2677)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Audiovisual (AV)
+
+  - stop-circle-filled-large
+  - stop-circle-filled
+  - stop-circle-large
+  - stop-circle
+  - stop-large
+  - stop
+
+  ## Chat
+
+  - chat-courier-large
+  - chat-courier
+
+  ## Documents
+
+  - document-edit-large
+  - document-edit
+
+  ## Number
+
+  - number-input-large
+  - number-input
+
+  ## Restaurant
+
+  - sign-empty-large
+  - sign-empty
+
+  [Updated] - Icons
+
+  ## Location
+
+  - location-pin-filled
+  - location-pin
+
 ## 1.18.2
 
 ### Patch Changes

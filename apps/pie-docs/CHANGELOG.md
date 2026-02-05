@@ -1,5 +1,20 @@
 # Changelog
 
+## 4.62.0
+
+### Minor Changes
+
+- [Added] - modal motion docs ([#2670](https://github.com/justeattakeaway/pie/pull/2670)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2677](https://github.com/justeattakeaway/pie/pull/2677)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`b9bd6c8`](https://github.com/justeattakeaway/pie/commit/b9bd6c8bacdcb8e8e8fac69872bdf2a51ba8f5a6)]:
+  - @justeattakeaway/pie-icons@5.20.0
+  - @justeattakeaway/pie-icons-webc@1.19.0
+  - @justeattakeaway/pie-webc@0.7.46
+
 ## 4.61.1
 
 ### Patch Changes
