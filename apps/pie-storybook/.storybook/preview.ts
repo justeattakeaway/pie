@@ -3,7 +3,7 @@ import './styles/docs.scss';
 import './styles/component-status.scss';
 import './styles/icons.scss';
 
-import { WritingDirection, ComponentStatus } from '../decorators';
+import { WritingDirection, ComponentStatus, ColorMode } from '../decorators';
 import CUSTOM_VIEWPORTS from './viewports';
 import backgrounds from './backgrounds';
 import getTheme from './pieTheme';
@@ -15,7 +15,7 @@ import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss';
 SyntaxHighlighter.registerLanguage('scss', scss);
 
 export default {
-    decorators: [ComponentStatus, WritingDirection],
+    decorators: [ComponentStatus, WritingDirection, ColorMode],
     globalTypes: {
         writingDirection: {
             description: 'Which direction should content be written in',
@@ -63,6 +63,9 @@ export default {
             sort: 'alpha',
         },
         darkMode: {
+            current: 'light',
+            // This forces the addon to initially render in light mode. If we dont do this, there is an initial flicker of the system-preference theme that only stops when the user explicitly clicks light/dark in the Storybook UI.
+            userHasExplicitlySetTheTheme: true,
             // Override the default dark theme
             dark: { ...getTheme('dark') },
             light: { ...getTheme() },
