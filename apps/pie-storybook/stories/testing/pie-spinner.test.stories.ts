@@ -90,7 +90,13 @@ const inversePropsMatrix : Partial<Record<keyof SpinnerProps, unknown[]>> = {
     variant: ['inverse'],
 };
 
+const inverseLightPropsMatrix : Partial<Record<keyof SpinnerProps, unknown[]>> = {
+    ...sharedPropsMatrix,
+    variant: ['inverse-light'],
+};
+
 export const BrandVariations = createVariantStory<SpinnerProps>(Template, brandPropsMatrix);
 export const SecondaryVariations = createVariantStory<SpinnerProps>(Template, secondaryPropsMatrix);
 export const SecondaryDarkVariations = createVariantStory<SpinnerProps>(Template, secondaryDarkPropsMatrix);
 export const InverseVariations = createVariantStory<SpinnerProps>(Template, inversePropsMatrix, { bgColor: 'dark (container-dark)' });
+export const InverseLightVariations = createVariantStory<SpinnerProps>(Template, inverseLightPropsMatrix, { bgColor: 'dark (container-dark)' });
