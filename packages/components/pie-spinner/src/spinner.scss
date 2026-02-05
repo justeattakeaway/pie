@@ -58,6 +58,10 @@
         @include spinner-base-colors('--dt-color-content-inverse-solid');
     }
 
+    &.c-spinner--inverse-light {
+        @include spinner-base-colors('--dt-color-content-light-solid');
+    }
+
     &.c-spinner--xsmall {
         --spinner-size: 16px;
     }
