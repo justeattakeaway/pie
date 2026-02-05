@@ -435,5 +435,5 @@ jobs:
         uses: re-actors/alls-green@05ac9388f0aebcb5727afa17fcccfecd6f8ec5fe # v1.2.2
         with:
           # "allowed-skips" lists jobs that are optional but should not fail
-          allowed-skips: browser-tests-components, deploy-docs, deploy-storybook, browser-tests-docs
+          allowed-skips: browser-tests-components, deploy-docs, deploy-storybook, browser-tests-docs, chromatic-tests
           jobs: ${{ toJSON(needs) }}
