@@ -711,7 +711,7 @@ test.describe('Slot: `image`', () => {
 
                 await expect.soft(modalCustomImageSlotContentPage.modalComponent.componentLocator).toBeVisible();
 
-                await percySnapshot(page, `Modal - imageSlotAspectRatio: ${imageSlotAspectRatio}`);
+                await percySnapshot(page, `Modal - imageSlotAspectRatio: ${imageSlotAspectRatio}`, { widths: [375, 1280] });
             });
         });
     });

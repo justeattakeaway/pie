@@ -1,5 +1,55 @@
 # Changelog
 
+## 4.62.0
+
+### Minor Changes
+
+- [Added] - modal motion docs ([#2670](https://github.com/justeattakeaway/pie/pull/2670)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2677](https://github.com/justeattakeaway/pie/pull/2677)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`b9bd6c8`](https://github.com/justeattakeaway/pie/commit/b9bd6c8bacdcb8e8e8fac69872bdf2a51ba8f5a6)]:
+  - @justeattakeaway/pie-icons@5.20.0
+  - @justeattakeaway/pie-icons-webc@1.19.0
+  - @justeattakeaway/pie-webc@0.7.46
+
+## 4.61.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.45
+
+## 4.61.0
+
+### Minor Changes
+
+- [Changed] - Updated icon-only tag overview page copy for latest designs ([#2671](https://github.com/justeattakeaway/pie/pull/2671)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.44
+
+## 4.60.0
+
+### Minor Changes
+
+- [Updated] - Modal page docs ([#2643](https://github.com/justeattakeaway/pie/pull/2643)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Fixed] calculation for three equal-width columns ([#2643](https://github.com/justeattakeaway/pie/pull/2643)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Changed] - Updated the Tag component overview page with the new designs and copy. ([#2663](https://github.com/justeattakeaway/pie/pull/2663)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Changed] - Images on tag overview page to include leading icons ([#2667](https://github.com/justeattakeaway/pie/pull/2667)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.7.43
+
 ## 4.59.6
 
 ### Patch Changes

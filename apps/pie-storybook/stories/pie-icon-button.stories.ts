@@ -85,6 +85,7 @@ const createIconButtonStory = createStory<IconButtonProps>(Template, defaultArgs
 
 export const Primary = createIconButtonStory();
 export const PrimaryAlternative = createIconButtonStory({ variant: 'primary-alternative' });
+export const PrimaryAlternativeDark = createIconButtonStory({ variant: 'primary-alternative-dark' });
 export const Secondary = createIconButtonStory({ variant: 'secondary' });
 export const Outline = createIconButtonStory({ variant: 'outline' }, { bgColor: 'background-subtle' });
 export const Ghost = createIconButtonStory({ variant: 'ghost' }, { bgColor: 'background-subtle' });

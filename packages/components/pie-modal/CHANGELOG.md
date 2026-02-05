@@ -1,5 +1,41 @@
 # @justeattakeaway/pie-modal
 
+## 1.24.0
+
+### Minor Changes
+
+- [Added] - support modal motion ([#2670](https://github.com/justeattakeaway/pie/pull/2670)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - modal motion docs ([#2670](https://github.com/justeattakeaway/pie/pull/2670)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`b9bd6c8`](https://github.com/justeattakeaway/pie/commit/b9bd6c8bacdcb8e8e8fac69872bdf2a51ba8f5a6)]:
+  - @justeattakeaway/pie-icons-webc@1.19.0
+  - @justeattakeaway/pie-icon-button@2.5.1
+
+## 1.23.0
+
+### Minor Changes
+
+- [Updated] - image slot aspect ratios for narrow screens ([#2675](https://github.com/justeattakeaway/pie/pull/2675)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Updated] - emphasised title typography
+
+## 1.22.5
+
+### Patch Changes
+
+- Updated dependencies [[`4a7eed5`](https://github.com/justeattakeaway/pie/commit/4a7eed591afa3f435125c02c1a487dddb8c5e233), [`4a7eed5`](https://github.com/justeattakeaway/pie/commit/4a7eed591afa3f435125c02c1a487dddb8c5e233)]:
+  - @justeattakeaway/pie-icon-button@2.5.0
+  - @justeattakeaway/pie-button@1.11.0
+
+## 1.22.4
+
+### Patch Changes
+
+- [Updated] - remove min height in the modal content ([#2665](https://github.com/justeattakeaway/pie/pull/2665)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.22.3
 
 ### Patch Changes

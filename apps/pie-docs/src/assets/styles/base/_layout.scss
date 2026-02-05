@@ -169,6 +169,10 @@
             margin-block-start: var(--dt-spacing-f);
         }
 
+        > h5 {
+            margin-block-start: var(--dt-spacing-e);
+        }
+
         .c-contentPage-notification + .c-contentPage-notification {
             margin-block-start: var(--dt-spacing-b);
         }

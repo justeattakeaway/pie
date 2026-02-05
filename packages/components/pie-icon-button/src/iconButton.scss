@@ -50,6 +50,13 @@
         @include p.interactive-states('--dt-color-interactive-primary', 'inverse', '02');
     }
 
+    &.o-iconBtn--primary-alternative-dark {
+        --int-states-mixin-bg-color: var(--dt-color-interactive-dark);
+        --btn-icon-fill: var(--dt-color-content-interactive-light);
+
+        @include p.interactive-states('--dt-color-interactive-dark', 'inverse', '02');
+    }
+
     &.o-iconBtn--secondary {
         --int-states-mixin-bg-color: var(--dt-color-interactive-secondary);
         --btn-icon-fill: var(--dt-color-content-interactive-secondary-solid);

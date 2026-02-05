@@ -26,6 +26,7 @@ concurrency:
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 env:
+  CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
   PERCY_GZIP: true
   PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
   PERCY_TOKEN_PIE_ASSISTIVE_TEXT: ${{ secrets.PERCY_TOKEN_PIE_ASSISTIVE_TEXT }}
@@ -239,6 +240,34 @@ jobs:
       aws-role-arn: ${{ vars.AWS_ROLE_ARN }}
     secrets: inherit
 
+  chromatic-tests:
+    needs: [ build-ubuntu-node-24, check-change-type ]
+    if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref }}
+        env:
+          CHROMATIC_BRANCH: ${{ github.event.pull_request.head.ref || github.ref_name }}
+          CHROMATIC_SHA: ${{ github.event.pull_request.head.sha || github.ref }}
+          CHROMATIC_SLUG: ${{ github.repository }}
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 24
+          os: ubuntu-latest
+      - name: Run Visual Tests for Chromatic POC
+        if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || github.ref == 'refs/heads/main'
+        uses: chromaui/action@07791f8243f4cb2698bf4d00426baf4b2d1cb7e0
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          onlyChanged: true # 👈 Required option to enable TurboSnap
+
   # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
   browser-tests-components:
     needs: [ build-ubuntu-node-24, deploy-storybook, check-change-type ]
@@ -393,6 +422,7 @@ jobs:
       - build-windows-node-24
       - build-ubuntu-node-20
       - unit-tests
+      - chromatic-tests
       - browser-tests-components
       - deploy-docs
       - deploy-storybook
@@ -405,5 +435,5 @@ jobs:
         uses: re-actors/alls-green@05ac9388f0aebcb5727afa17fcccfecd6f8ec5fe # v1.2.2
         with:
           # "allowed-skips" lists jobs that are optional but should not fail
-          allowed-skips: browser-tests-components, deploy-docs, deploy-storybook, browser-tests-docs
+          allowed-skips: browser-tests-components, deploy-docs, deploy-storybook, browser-tests-docs, chromatic-tests
           jobs: ${{ toJSON(needs) }}

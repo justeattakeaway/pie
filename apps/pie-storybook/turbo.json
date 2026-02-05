@@ -38,7 +38,9 @@
         "^generate:component-statuses",
         "generate:typography-docs"
       ],
-      "outputs": ["dist/**"]
+      "outputs": [
+        "dist/**"
+      ]
     },
     "build:testing": {
       "cache": true,
@@ -46,7 +48,19 @@
         "^build",
         "^generate:component-statuses"
       ],
-      "outputs": ["dist/**"]
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "build:chromatic": {
+      "cache": true,
+      "dependsOn": [
+        "^build",
+        "^generate:component-statuses"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
     },
     "test": {
       "cache": true,

@@ -1,5 +1,42 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.7.3
+
+### Patch Changes
+
+- Updated dependencies [[`ca28e6d`](https://github.com/justeattakeaway/pie/commit/ca28e6d353d242a472cb07ac3a7c2ad247a59758), [`ca28e6d`](https://github.com/justeattakeaway/pie/commit/ca28e6d353d242a472cb07ac3a7c2ad247a59758)]:
+  - @justeattakeaway/pie-modal@1.24.0
+  - @justeattakeaway/pie-icon-button@2.5.1
+  - @justeattakeaway/pie-link@1.3.9
+  - @justeattakeaway/pie-switch@2.3.11
+
+## 1.7.2
+
+### Patch Changes
+
+- Updated dependencies [[`4ef6f98`](https://github.com/justeattakeaway/pie/commit/4ef6f982ec6366f7100ca6da5dee569c307e0a64)]:
+  - @justeattakeaway/pie-modal@1.23.0
+
+## 1.7.1
+
+### Patch Changes
+
+- Updated dependencies [[`4a7eed5`](https://github.com/justeattakeaway/pie/commit/4a7eed591afa3f435125c02c1a487dddb8c5e233), [`4a7eed5`](https://github.com/justeattakeaway/pie/commit/4a7eed591afa3f435125c02c1a487dddb8c5e233)]:
+  - @justeattakeaway/pie-icon-button@2.5.0
+  - @justeattakeaway/pie-button@1.11.0
+  - @justeattakeaway/pie-modal@1.22.5
+
+## 1.7.0
+
+### Minor Changes
+
+- [Added] - New Cookie Banner property `openLinksInSameTab` which, when true, opens external links in the same tab and when false opens them in a new tab. ([#2649](https://github.com/justeattakeaway/pie/pull/2649)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`cface11`](https://github.com/justeattakeaway/pie/commit/cface11e9fbb32719354c210f90f2df3a2bf8cea)]:
+  - @justeattakeaway/pie-modal@1.22.4
+
 ## 1.6.40
 
 ### Patch Changes
