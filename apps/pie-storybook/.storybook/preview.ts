@@ -64,6 +64,8 @@ export default {
         },
         darkMode: {
             current: 'light',
+            // This forces the addon to initially render in light mode. If we dont do this, there is an initial flicker of the system-preference theme that only stops when the user explicitly clicks light/dark in the Storybook UI.
+            userHasExplicitlySetTheTheme: true,
             // Override the default dark theme
             dark: { ...getTheme('dark') },
             light: { ...getTheme() },
