@@ -1,24 +1,3 @@
-<script>
-    // Prevent Storybook UI theme flicker by setting initial theme before page renders
-    (function() {
-        const STORAGE_KEY = 'sb-addon-themes-3';
-        const DEFAULT_THEME = 'light';
-        
-        try {
-            const stored = localStorage.getItem(STORAGE_KEY);
-            const isDark = stored ? JSON.parse(stored).current === 'dark' : false;
-            
-            if (!isDark) {
-                // Set light theme class immediately
-                document.documentElement.classList.add('light');
-            } else {
-                document.documentElement.classList.add('dark');
-            }
-        } catch (e) {
-            document.documentElement.classList.add(DEFAULT_THEME);
-        }
-    })();
-</script>
 <link rel="shortcut icon" href="/storybook.ico" type="image/x-icon">
 
 <link rel="preload" href="https://pie-design-system-cdn.production.jet-external.com/fonts/JETSansDigital-VF-optimised-extended.woff2" as="font" type="font/woff2" crossorigin>
