@@ -23,6 +23,10 @@ const CUSTOM_BACKGROUNDS : StoryBackgrounds = {
       value: alias.default['background-dark'],
     },
     {
+      name: 'container-inverse',
+      value: 'var(--dt-color-container-inverse)',
+    },
+    {
       name: 'brand orange',
       value: global.orange,
     },
