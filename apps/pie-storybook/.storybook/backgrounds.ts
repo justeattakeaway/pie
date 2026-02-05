@@ -20,6 +20,10 @@ const CUSTOM_BACKGROUNDS : StoryBackgrounds = {
       value: '#1a1a19',
     },
     {
+      name: 'container-inverse',
+      value: 'var(--dt-color-container-inverse)',
+    },
+    {
       name: 'brand orange',
       value: '#f36805',
     },
