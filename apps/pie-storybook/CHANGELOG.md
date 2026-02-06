@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.66.0
+
+### Minor Changes
+
+- [Added] - basic html markup for data table component ([#2555](https://github.com/justeattakeaway/pie/pull/2555)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- [Added] - additionalRows new property and enabling cells to render components isntead of only primitives ([#2555](https://github.com/justeattakeaway/pie/pull/2555)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- [Added] - Dark mode support to stories and remove hard coded background colours, using imported design tokens instead. ([#2679](https://github.com/justeattakeaway/pie/pull/2679)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - pie-data-table basic styling and properties structure ([#2555](https://github.com/justeattakeaway/pie/pull/2555)) by [@thejfreitas](https://github.com/thejfreitas)
+
+### Patch Changes
+
+- Updated dependencies [[`5f88267`](https://github.com/justeattakeaway/pie/commit/5f8826738b77192020707e0b328c7f67e0719fec), [`5f88267`](https://github.com/justeattakeaway/pie/commit/5f8826738b77192020707e0b328c7f67e0719fec), [`5f88267`](https://github.com/justeattakeaway/pie/commit/5f8826738b77192020707e0b328c7f67e0719fec)]:
+  - @justeattakeaway/pie-data-table@0.3.0
+
 ## 1.65.2
 
 ### Patch Changes

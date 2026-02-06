@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.97.1
+
+### Patch Changes
+
+- [Fixed] - clean amplify job id ([#2555](https://github.com/justeattakeaway/pie/pull/2555)) by [@thejfreitas](https://github.com/thejfreitas)
+
 ## 2.97.0
 
 ### Minor Changes
