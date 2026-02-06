@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-webc": minor
 ---
 
-[Added] - support package.json exports with the js extension
+[Added] - support package.json exports without the js extension
