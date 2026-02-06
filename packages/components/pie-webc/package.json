@@ -134,6 +134,66 @@
       "require": "./react/data-table-header.js",
       "types": "./react/data-table-header.d.ts"
     },
+    "./components/data-table-row.js": {
+      "import": "./components/data-table-row.js",
+      "require": "./components/data-table-row.js",
+      "types": "./components/data-table-row.d.ts"
+    },
+    "./react/data-table-row.js": {
+      "import": "./react/data-table-row.js",
+      "require": "./react/data-table-row.js",
+      "types": "./react/data-table-row.d.ts"
+    },
+    "./components/data-table-body.js": {
+      "import": "./components/data-table-body.js",
+      "require": "./components/data-table-body.js",
+      "types": "./components/data-table-body.d.ts"
+    },
+    "./react/data-table-body.js": {
+      "import": "./react/data-table-body.js",
+      "require": "./react/data-table-body.js",
+      "types": "./react/data-table-body.d.ts"
+    },
+    "./components/data-table-cell.js": {
+      "import": "./components/data-table-cell.js",
+      "require": "./components/data-table-cell.js",
+      "types": "./components/data-table-cell.d.ts"
+    },
+    "./react/data-table-cell.js": {
+      "import": "./react/data-table-cell.js",
+      "require": "./react/data-table-cell.js",
+      "types": "./react/data-table-cell.d.ts"
+    },
+    "./components/data-table-contents.js": {
+      "import": "./components/data-table-contents.js",
+      "require": "./components/data-table-contents.js",
+      "types": "./components/data-table-contents.d.ts"
+    },
+    "./react/data-table-contents.js": {
+      "import": "./react/data-table-contents.js",
+      "require": "./react/data-table-contents.js",
+      "types": "./react/data-table-contents.d.ts"
+    },
+    "./components/data-table-head.js": {
+      "import": "./components/data-table-head.js",
+      "require": "./components/data-table-head.js",
+      "types": "./components/data-table-head.d.ts"
+    },
+    "./react/data-table-head.js": {
+      "import": "./react/data-table-head.js",
+      "require": "./react/data-table-head.js",
+      "types": "./react/data-table-head.d.ts"
+    },
+    "./components/data-table-head-cell.js": {
+      "import": "./components/data-table-head-cell.js",
+      "require": "./components/data-table-head-cell.js",
+      "types": "./components/data-table-head-cell.d.ts"
+    },
+    "./react/data-table-head-cell.js": {
+      "import": "./react/data-table-head-cell.js",
+      "require": "./react/data-table-head-cell.js",
+      "types": "./react/data-table-head-cell.d.ts"
+    },
     "./components/divider.js": {
       "import": "./components/divider.js",
       "require": "./components/divider.js",

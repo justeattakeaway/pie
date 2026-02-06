@@ -1,0 +1,7 @@
+:host {
+  display: table-row-group;
+
+  ::slotted(pie-data-table-row) {
+    --pie-data-table-row-background-hover: var(--dt-color-container-subtle);
+  }
+}
