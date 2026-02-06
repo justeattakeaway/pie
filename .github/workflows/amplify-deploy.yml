@@ -196,7 +196,7 @@ jobs:
             --app-id ${{ env.AMPLIFY_ID }} \
             --branch-name ${{ env.BRANCH_NAME }} \
             --region ${{ env.AWS_REGION }} --query jobSummaries[0].jobId \
-            --output text | tr -dc '0-9')
+            --output text | awk '{print $1}' | head -n 1)
           MAX_ATTEMPTS=12
           SLEEP_SECONDS=10
 
