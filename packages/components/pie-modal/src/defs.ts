@@ -122,7 +122,7 @@ export type ModalProps = {
      */
     supportingAction?: ActionProps;
 
-    /*
+    /**
      * The position of the modal; this controls where it will appear on the page.
      */
     position?: typeof positions[number];

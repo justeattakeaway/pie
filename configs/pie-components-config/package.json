@@ -10,6 +10,7 @@
   },
   "files": [
     "custom-elements-manifest.config.js",
+    "cem-plugin-props-enrichment.js",
     "vite.config.js",
     "tsconfig.json",
     "playwright/**",

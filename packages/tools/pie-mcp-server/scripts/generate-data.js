@@ -6,15 +6,22 @@
  * into a single JSON file that the MCP server can use at runtime.
  *
  * Data sources:
- * - Component custom-elements.json manifests (includes JSDoc descriptions via CEM plugin)
+ * - Component custom-elements.json manifests (enriched by cem-plugin-props-enrichment)
  * - Component package.json metadata
  * - Icon metadata from pie-icons
- * - Real examples from Storybook stories
+ * - Real examples from Storybook stories (extracted via AST parsing)
+ * - Framework examples from pie-aperture repository
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { parseStorybookFile } from './lib/storybook-parser.js';
+import {
+    fetchApertureExamplesForComponents,
+    shouldSkipApertureFetch,
+    createEmptyFrameworkExamples,
+} from './lib/aperture-fetcher.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,181 +34,32 @@ const EXCLUDED_PACKAGES = [
 ];
 
 /**
- * Extract real code examples from Storybook stories
+ * Extract real code examples from Storybook stories using AST parsing
  * These are battle-tested, production-ready examples
  */
-function extractStorybookExamples(monorepoRoot, componentName) {
+function extractStorybookExamples (monorepoRoot, componentName) {
     const storiesPath = path.join(
         monorepoRoot,
         'apps/pie-storybook/stories',
-        `${componentName}.stories.ts`
+        `${componentName}.stories.ts`,
     );
 
     const content = readFile(storiesPath);
     if (!content) return null;
 
-    const examples = {
-        basic: null,
-        variants: [],
-        patterns: [],
-        imports: [],
-    };
-
-    // Extract import statements to understand dependencies
-    const importMatches = content.matchAll(/import\s+(?:'|")([^'"]+)(?:'|");/g);
-    for (const match of importMatches) {
-        if (match[1].includes('@justeattakeaway/pie-')) {
-            examples.imports.push(match[1]);
-        }
+    try {
+        // Use AST-based parsing for robust extraction
+        return parseStorybookFile(content, componentName);
+    } catch (error) {
+        console.warn(`  Warning: Failed to parse ${componentName} stories: ${error.message}`);
+        return null;
     }
-
-    // Extract icon imports
-    const iconImportMatches = content.matchAll(/import\s+(?:'|")(@justeattakeaway\/pie-icons-webc\/dist\/[^'"]+)(?:'|");/g);
-    for (const match of iconImportMatches) {
-        examples.imports.push(match[1]);
-    }
-
-    // Remove duplicates
-    examples.imports = [...new Set(examples.imports)];
-
-    // Extract the main Template function - this is the primary example
-    const templateMatch = content.match(/(?:const|function)\s+Template[^=]*=\s*\([^)]*\)\s*(?:=>)?\s*html`([\s\S]*?)`;/);
-    if (templateMatch) {
-        examples.basic = cleanHtmlTemplate(templateMatch[1]);
-    }
-
-    // Look for named templates that show specific patterns
-    const namedTemplateRegex = /const\s+(\w+Template)\s*[^=]*=\s*(?:\([^)]*\)\s*(?:=>)?\s*)?html`([\s\S]*?)`;/g;
-    let templateMatch2;
-    while ((templateMatch2 = namedTemplateRegex.exec(content)) !== null) {
-        const [, name, template] = templateMatch2;
-        // Skip the basic Template, include others as patterns
-        if (name !== 'Template' && !name.includes('Base')) {
-            const cleanName = name
-                .replace('Template', '')
-                .replace(/([A-Z])/g, ' $1')
-                .trim();
-            
-            const cleanedTemplate = cleanHtmlTemplate(template);
-            if (cleanedTemplate && cleanedTemplate.length > 20) {
-                examples.patterns.push({
-                    name: cleanName,
-                    description: getPatternDescription(name),
-                    code: cleanedTemplate
-                });
-            }
-        }
-    }
-
-    // Extract exported story variants (e.g., export const Primary = ...)
-    const storyExportRegex = /export\s+const\s+(\w+)\s*=\s*create\w*Story[^(]*\((?:[^,]+,\s*)?\{([^}]*)\}/g;
-    let storyMatch;
-    while ((storyMatch = storyExportRegex.exec(content)) !== null) {
-        const [, storyName, propsStr] = storyMatch;
-        // Parse the props if they exist
-        const props = parsePropsString(propsStr);
-        if (Object.keys(props).length > 0 || storyName === 'Default') {
-            examples.variants.push({
-                name: storyName,
-                props
-            });
-        }
-    }
-
-    // Limit variants to avoid bloat
-    if (examples.variants.length > 10) {
-        examples.variants = examples.variants.slice(0, 10);
-    }
-
-    // Limit patterns to avoid bloat
-    if (examples.patterns.length > 5) {
-        examples.patterns = examples.patterns.slice(0, 5);
-    }
-
-    return examples;
-}
-
-/**
- * Clean up a Lit HTML template to be more readable/usable
- */
-function cleanHtmlTemplate(template) {
-    if (!template) return null;
-
-    let cleaned = template
-        // Remove Lit directives and interpolations that won't make sense outside Storybook
-        .replace(/\$\{ifDefined\(([^)]+)\)\}/g, '${$1}')
-        .replace(/\$\{sanitizeAndRenderHTML\([^)]+\)\}/g, '<!-- content -->')
-        .replace(/\?\s*"\$\{[^}]+\}"/g, '')
-        .replace(/\$\{[^}]*nothing[^}]*\}/g, '')
-        // Clean up event handlers - show them but simplify
-        .replace(/@(\w+)="\$\{[^}]+\}"/g, '@$1="handleEvent"')
-        // Clean up conditional rendering
-        .replace(/\$\{[^}]*\?\s*html`([^`]*)`\s*:\s*nothing\s*\}/g, '$1')
-        // Remove .property bindings syntax explanation
-        .replace(/\.(\w+)="\$\{([^}]+)\}"/g, '$1="${$2}"')
-        // Clean up boolean attributes
-        .replace(/\?"(\w+)"="\$\{([^}]+)\}"/g, '$1')
-        // Remove remaining complex interpolations
-        .replace(/\$\{[^}]{50,}\}/g, '<!-- dynamic content -->')
-        // Clean up whitespace
-        .replace(/^\s*\n/gm, '')
-        .replace(/\n\s*\n\s*\n/g, '\n\n')
-        .trim();
-
-    // If still too complex, try to extract just the main component tag
-    if (cleaned.includes('${') && cleaned.length > 500) {
-        const componentMatch = cleaned.match(/<pie-[^>]+>[\s\S]*?<\/pie-[^>]+>/);
-        if (componentMatch) {
-            cleaned = componentMatch[0];
-        }
-    }
-
-    return cleaned;
-}
-
-/**
- * Parse a props string from Storybook story definition
- */
-function parsePropsString(propsStr) {
-    const props = {};
-    if (!propsStr) return props;
-
-    // Match key: value or key: 'value' patterns
-    const propMatches = propsStr.matchAll(/(\w+):\s*(?:'([^']*)'|"([^"]*)"|(\d+)|(\w+))/g);
-    for (const match of propMatches) {
-        const [, key, strVal1, strVal2, numVal, otherVal] = match;
-        const value = strVal1 || strVal2 || numVal || otherVal;
-        if (value && !key.startsWith('_')) {
-            props[key] = value;
-        }
-    }
-
-    return props;
-}
-
-/**
- * Get a description for a pattern based on its name
- */
-function getPatternDescription(templateName) {
-    const descriptions = {
-        'FormTemplate': 'Complete form integration example',
-        'FormStoryTemplate': 'Form inside modal pattern',
-        'ExampleFormTemplate': 'Full form with multiple inputs',
-        'WithLabelTemplate': 'Component with associated label',
-        'AnchorTemplate': 'Button rendered as anchor element',
-        'ScrollablePageStoryTemplate': 'Modal with scroll locking',
-        'LoadingStateStoryTemplate': 'Loading state pattern',
-        'SlottedImageContentStoryTemplate': 'Using the image slot',
-        'SlottedHeaderContentTemplate': 'Custom header content',
-        'SlottedFooterContentStoryTemplate': 'Custom footer content',
-    };
-    return descriptions[templateName] || `${templateName.replace('Template', '')} example`;
 }
 
 /**
  * Find the monorepo root by looking for packages/components directory
  */
-function findMonorepoRoot(startDir) {
+function findMonorepoRoot (startDir) {
     let currentDir = startDir;
 
     while (currentDir !== path.parse(currentDir).root) {
@@ -218,7 +76,7 @@ function findMonorepoRoot(startDir) {
 /**
  * Read and parse JSON file safely
  */
-function readJsonFile(filePath) {
+function readJsonFile (filePath) {
     try {
         const content = fs.readFileSync(filePath, 'utf-8');
         return JSON.parse(content);
@@ -230,7 +88,7 @@ function readJsonFile(filePath) {
 /**
  * Read file content safely
  */
-function readFile(filePath) {
+function readFile (filePath) {
     try {
         return fs.readFileSync(filePath, 'utf-8');
     } catch {
@@ -239,35 +97,103 @@ function readFile(filePath) {
 }
 
 /**
- * Extract component class info from custom-elements.json
- * Now reads descriptions directly from the manifest (added by cem-plugin-interface-jsdoc)
+ * Extract defaultProps from the defs module in custom-elements.json.
+ * Parses the object literal string to get default values for properties.
  */
-function extractComponentInfo(manifest) {
+function extractDefaultProps (manifest) {
+    if (!manifest?.modules) return {};
+
+    for (const module of manifest.modules) {
+        if (!module.path?.includes('defs') || !module.declarations) continue;
+
+        for (const declaration of module.declarations) {
+            if (declaration.kind === 'variable' && declaration.name === 'defaultProps' && declaration.default) {
+                const defaults = {};
+                // Parse "{ size: 'medium', variant: 'primary', disabled: false, ... }"
+                const pairs = declaration.default
+                    .replace(/^\{/, '')
+                    .replace(/\}$/, '')
+                    .split(',')
+                    .map((s) => s.trim())
+                    .filter(Boolean);
+
+                for (const pair of pairs) {
+                    const colonIndex = pair.indexOf(':');
+                    if (colonIndex === -1) continue;
+
+                    const key = pair.substring(0, colonIndex).trim();
+                    const value = pair.substring(colonIndex + 1).trim().replace(/^['"]|['"]$/g, '');
+                    if (key) {
+                        defaults[key] = value;
+                    }
+                }
+
+                return defaults;
+            }
+        }
+    }
+
+    return {};
+}
+
+/**
+ * Extract component class info from custom-elements.json
+ * Now reads descriptions, defaults, events, and methods from the manifest
+ */
+function extractComponentInfo (manifest) {
     if (!manifest?.modules) return null;
+
+    // Get default props from the defs module
+    const defaultProps = extractDefaultProps(manifest);
 
     for (const module of manifest.modules) {
         if (module.declarations) {
             for (const declaration of module.declarations) {
                 if (declaration.kind === 'class' && declaration.tagName) {
-                    // Get public fields from manifest - descriptions are now included!
+                    // Get public fields from manifest
                     const publicFields = (declaration.members || [])
-                        .filter(m => m.privacy === 'public' && m.kind === 'field');
+                        .filter((m) => m.privacy === 'public' && m.kind === 'field');
 
-                    const members = publicFields.map(m => ({
+                    const properties = publicFields.map((m) => ({
                         name: m.name,
                         type: m.type?.text || m.resolvedType || 'unknown',
                         description: m.description || '',
-                        attribute: m.attribute || m.name
+                        attribute: m.attribute || m.name,
+                        default: m.default || defaultProps[m.name] || null,
+                        reflects: m.reflects || false,
+                        readonly: m.readonly || false,
                     }));
+
+                    // Events from declaration.events
+                    const events = (declaration.events || []).map((e) => ({
+                        name: e.name,
+                        type: e.type?.text || 'CustomEvent',
+                        description: e.description || '',
+                    }));
+
+                    // Public methods (exclude render* helpers and lifecycle)
+                    const methods = (declaration.members || [])
+                        .filter((m) => m.kind === 'method' && m.privacy !== 'private' && !m.name.startsWith('render'))
+                        .map((m) => ({
+                            name: m.name,
+                            description: m.description || '',
+                            parameters: (m.parameters || []).map((p) => ({
+                                name: p.name,
+                                type: p.type?.text || 'unknown',
+                            })),
+                            returnType: m.return?.type?.text || 'void',
+                        }));
 
                     return {
                         tagName: declaration.tagName,
                         className: declaration.name,
                         description: declaration.description || '',
                         slots: declaration.slots || [],
-                        members,
+                        properties,
+                        events,
+                        methods,
                         mixins: declaration.mixins || [],
-                        superclass: declaration.superclass || null
+                        superclass: declaration.superclass || null,
                     };
                 }
             }
@@ -281,7 +207,7 @@ function extractComponentInfo(manifest) {
  * Extract valid values for props from the defs module in custom-elements.json
  * e.g., sizes = ['small', 'medium', 'large']
  */
-function extractValidValues(manifest) {
+function extractValidValues (manifest) {
     if (!manifest?.modules) return {};
 
     const validValues = {};
@@ -296,7 +222,7 @@ function extractValidValues(manifest) {
                     if (arrayMatch) {
                         const values = arrayMatch[1]
                             .split(',')
-                            .map(v => v.trim().replace(/['"]/g, ''))
+                            .map((v) => v.trim().replace(/['"]/g, ''))
                             .filter(Boolean);
                         if (values.length > 0) {
                             validValues[declaration.name] = values;
@@ -313,14 +239,14 @@ function extractValidValues(manifest) {
 /**
  * Aggregate all component data
  */
-function aggregateComponents(monorepoRoot) {
+function aggregateComponents (monorepoRoot) {
     const componentsDir = path.join(monorepoRoot, 'packages', 'components');
     const components = {};
 
     const dirs = fs.readdirSync(componentsDir)
-        .filter(dir => !dir.startsWith('.'))
-        .filter(dir => !EXCLUDED_PACKAGES.includes(dir))
-        .filter(dir => fs.statSync(path.join(componentsDir, dir)).isDirectory());
+        .filter((dir) => !dir.startsWith('.'))
+        .filter((dir) => !EXCLUDED_PACKAGES.includes(dir))
+        .filter((dir) => fs.statSync(path.join(componentsDir, dir)).isDirectory());
 
     for (const dir of dirs) {
         const componentPath = path.join(componentsDir, dir);
@@ -329,12 +255,12 @@ function aggregateComponents(monorepoRoot) {
         const packageJson = readJsonFile(path.join(componentPath, 'package.json'));
         if (!packageJson) continue;
 
-        // Read custom-elements.json (now includes descriptions from CEM plugin)
+        // Read custom-elements.json
         const manifest = readJsonFile(path.join(componentPath, 'custom-elements.json'));
         const componentInfo = manifest ? extractComponentInfo(manifest) : null;
         const validValues = manifest ? extractValidValues(manifest) : {};
 
-        // Extract real examples from Storybook stories
+        // Extract real examples from Storybook stories using AST parsing
         const examples = extractStorybookExamples(monorepoRoot, dir);
 
         components[dir] = {
@@ -346,11 +272,15 @@ function aggregateComponents(monorepoRoot) {
             tagName: componentInfo?.tagName || `pie-${dir.replace('pie-', '')}`,
             className: componentInfo?.className || null,
             slots: componentInfo?.slots || [],
-            properties: componentInfo?.members || [],
+            properties: componentInfo?.properties || [],
+            events: componentInfo?.events || [],
+            methods: componentInfo?.methods || [],
             validValues,
             mixins: componentInfo?.mixins || [],
             installation: `npm install ${packageJson.name}`,
-            examples
+            examples,
+            // frameworkExamples will be populated asynchronously
+            frameworkExamples: null,
         };
     }
 
@@ -358,9 +288,38 @@ function aggregateComponents(monorepoRoot) {
 }
 
 /**
+ * Fetch framework examples from pie-aperture for all components
+ */
+async function fetchFrameworkExamples (components) {
+    if (shouldSkipApertureFetch()) {
+        console.log('  Skipping aperture fetch (SKIP_APERTURE_FETCH=true)\n');
+        for (const name of Object.keys(components)) {
+            components[name].frameworkExamples = createEmptyFrameworkExamples(name);
+        }
+        return;
+    }
+
+    console.log('  Fetching framework examples from pie-aperture...');
+
+    const componentNames = Object.keys(components);
+    const examples = await fetchApertureExamplesForComponents(componentNames);
+
+    let fetchedCount = 0;
+    for (const [name, frameworkExamples] of examples) {
+        components[name].frameworkExamples = frameworkExamples;
+
+        // Count how many have at least one framework with code
+        const hasCode = Object.values(frameworkExamples).some((fw) => fw && typeof fw === 'object' && fw.available && fw.code);
+        if (hasCode) fetchedCount++;
+    }
+
+    console.log(`  Fetched aperture examples for ${fetchedCount}/${componentNames.length} components\n`);
+}
+
+/**
  * Aggregate icon metadata
  */
-function aggregateIcons(monorepoRoot) {
+function aggregateIcons (monorepoRoot) {
     const iconDataPath = path.join(monorepoRoot, 'packages', 'tools', 'pie-icons', 'dist', 'iconData.json');
     const iconData = readJsonFile(iconDataPath);
 
@@ -378,14 +337,14 @@ function aggregateIcons(monorepoRoot) {
 
     return {
         categories: iconData.categories || [],
-        count: totalIcons
+        count: totalIcons,
     };
 }
 
 /**
  * Main aggregation function
  */
-async function generateData() {
+async function generateData () {
     console.log('PIE MCP Server - Generating data...\n');
 
     const monorepoRoot = findMonorepoRoot(__dirname);
@@ -396,14 +355,16 @@ async function generateData() {
     const components = aggregateComponents(monorepoRoot);
     console.log(`  Found ${Object.keys(components).length} components\n`);
 
+    // Fetch framework examples from pie-aperture
+    console.log('Fetching framework examples...');
+    await fetchFrameworkExamples(components);
+
     console.log('Aggregating icons...');
     const icons = aggregateIcons(monorepoRoot);
     console.log(`  Found ${icons.count} icons in ${icons.categories.length} categories\n`);
 
     // Read pie-webc version for metadata
-    const webcPackageJson = readJsonFile(
-        path.join(monorepoRoot, 'packages', 'components', 'pie-webc', 'package.json')
-    );
+    const webcPackageJson = readJsonFile(path.join(monorepoRoot, 'packages', 'components', 'pie-webc', 'package.json'));
 
     // Combine into final data structure
     const data = {
@@ -411,10 +372,10 @@ async function generateData() {
             version: webcPackageJson?.version || 'unknown',
             generatedAt: new Date().toISOString(),
             componentCount: Object.keys(components).length,
-            iconCount: icons.count
+            iconCount: icons.count,
         },
         components,
-        icons
+        icons,
     };
 
     // Write output
@@ -427,21 +388,53 @@ async function generateData() {
     fs.writeFileSync(outputPath, JSON.stringify(data));
 
     // Count examples
-    let examplesCount = 0;
+    let storybookExamplesCount = 0;
+    let frameworkExamplesCount = 0;
     for (const comp of Object.values(components)) {
         if (comp.examples) {
-            if (comp.examples.basic) examplesCount++;
-            examplesCount += (comp.examples.patterns?.length || 0);
-            examplesCount += (comp.examples.variants?.length || 0);
+            if (comp.examples.basic) storybookExamplesCount++;
+            storybookExamplesCount += comp.examples.patterns?.length || 0;
+            storybookExamplesCount += comp.examples.variants?.length || 0;
+        }
+        if (comp.frameworkExamples) {
+            const frameworks = ['nextjsV14', 'nextjsV15', 'nuxt', 'vanilla'];
+            for (const fw of frameworks) {
+                if (comp.frameworkExamples[fw]?.available) {
+                    frameworkExamplesCount++;
+                }
+            }
         }
     }
 
+    // Count events, methods, and enriched descriptions
+    let eventsCount = 0;
+    let methodsCount = 0;
+    let propsWithDescription = 0;
+    let totalProps = 0;
+    for (const comp of Object.values(components)) {
+        eventsCount += comp.events?.length || 0;
+        methodsCount += comp.methods?.length || 0;
+        for (const prop of (comp.properties || [])) {
+            totalProps++;
+            if (prop.description) propsWithDescription++;
+        }
+    }
+
+    // Calculate file size
+    const stats = fs.statSync(outputPath);
+    const fileSizeKB = (stats.size / 1024).toFixed(1);
+
     console.log(`Successfully generated data at: ${outputPath}`);
-    console.log(`\nSummary:`);
+    console.log('\nSummary:');
     console.log(`  - PIE Version: ${data.metadata.version}`);
     console.log(`  - Components: ${data.metadata.componentCount}`);
     console.log(`  - Icons: ${data.metadata.iconCount}`);
-    console.log(`  - Real Examples: ${examplesCount}`);
+    console.log(`  - Events: ${eventsCount}`);
+    console.log(`  - Methods: ${methodsCount}`);
+    console.log(`  - Storybook Examples: ${storybookExamplesCount}`);
+    console.log(`  - Framework Examples: ${frameworkExamplesCount}`);
+    console.log(`  - Property Descriptions: ${propsWithDescription}/${totalProps}`);
+    console.log(`  - Output Size: ${fileSizeKB} KB`);
 }
 
 generateData().catch(console.error);

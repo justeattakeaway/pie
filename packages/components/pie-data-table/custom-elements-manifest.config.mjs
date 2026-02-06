@@ -1,4 +1,5 @@
 import { moduleFileExtensionsPlugin } from 'cem-plugin-module-file-extensions';
+import propsEnrichmentPlugin from '@justeattakeaway/pie-components-config/cem-plugin-props-enrichment.js';
 
 export default {
     globs: [
@@ -11,5 +12,5 @@ export default {
         '**/test/**',
         '**/node_modules/**',
     ],
-    plugins: [moduleFileExtensionsPlugin()],
+    plugins: [moduleFileExtensionsPlugin(), propsEnrichmentPlugin()],
 };
