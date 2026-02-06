@@ -127,13 +127,13 @@ jobs:
         shell: bash
         run: |
           cd ${{ inputs.package-dist-directory }}
-          
+
           # Upload file to S3 with public-read ACL
           aws s3 cp ./${{ env.ZIP_NAME }} s3://${{ env.BUCKET_NAME }}${{ inputs.destination-dir }}${{ env.ZIP_NAME }} \
             --content-type "application/zip" \
             --acl public-read \
             --region ${{ env.AWS_REGION }}
-          
+
           # Construct the public URL
           FILE_URL="https://${{ env.BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com${{ inputs.destination-dir }}${{ env.ZIP_NAME }}"
           echo "file-url=$FILE_URL" >> "$GITHUB_OUTPUT"
@@ -196,7 +196,7 @@ jobs:
             --app-id ${{ env.AMPLIFY_ID }} \
             --branch-name ${{ env.BRANCH_NAME }} \
             --region ${{ env.AWS_REGION }} --query jobSummaries[0].jobId \
-            --output text)
+            --output text | xargs)
           MAX_ATTEMPTS=12
           SLEEP_SECONDS=10
 
