@@ -19,7 +19,17 @@
       "require": "./components/assistive-text.js",
       "types": "./components/assistive-text.d.ts"
     },
+    "./components/assistive-text": {
+      "import": "./components/assistive-text.js",
+      "require": "./components/assistive-text.js",
+      "types": "./components/assistive-text.d.ts"
+    },
     "./react/assistive-text.js": {
+      "import": "./react/assistive-text.js",
+      "require": "./react/assistive-text.js",
+      "types": "./react/assistive-text.d.ts"
+    },
+    "./react/assistive-text": {
       "import": "./react/assistive-text.js",
       "require": "./react/assistive-text.js",
       "types": "./react/assistive-text.d.ts"
@@ -29,7 +39,17 @@
       "require": "./components/avatar.js",
       "types": "./components/avatar.d.ts"
     },
+    "./components/avatar": {
+      "import": "./components/avatar.js",
+      "require": "./components/avatar.js",
+      "types": "./components/avatar.d.ts"
+    },
     "./react/avatar.js": {
+      "import": "./react/avatar.js",
+      "require": "./react/avatar.js",
+      "types": "./react/avatar.d.ts"
+    },
+    "./react/avatar": {
       "import": "./react/avatar.js",
       "require": "./react/avatar.js",
       "types": "./react/avatar.d.ts"
@@ -39,7 +59,17 @@
       "require": "./components/breadcrumb.js",
       "types": "./components/breadcrumb.d.ts"
     },
+    "./components/breadcrumb": {
+      "import": "./components/breadcrumb.js",
+      "require": "./components/breadcrumb.js",
+      "types": "./components/breadcrumb.d.ts"
+    },
     "./react/breadcrumb.js": {
+      "import": "./react/breadcrumb.js",
+      "require": "./react/breadcrumb.js",
+      "types": "./react/breadcrumb.d.ts"
+    },
+    "./react/breadcrumb": {
       "import": "./react/breadcrumb.js",
       "require": "./react/breadcrumb.js",
       "types": "./react/breadcrumb.d.ts"
@@ -49,7 +79,17 @@
       "require": "./components/breadcrumb-item.js",
       "types": "./components/breadcrumb-item.d.ts"
     },
+    "./components/breadcrumb-item": {
+      "import": "./components/breadcrumb-item.js",
+      "require": "./components/breadcrumb-item.js",
+      "types": "./components/breadcrumb-item.d.ts"
+    },
     "./react/breadcrumb-item.js": {
+      "import": "./react/breadcrumb-item.js",
+      "require": "./react/breadcrumb-item.js",
+      "types": "./react/breadcrumb-item.d.ts"
+    },
+    "./react/breadcrumb-item": {
       "import": "./react/breadcrumb-item.js",
       "require": "./react/breadcrumb-item.js",
       "types": "./react/breadcrumb-item.d.ts"
@@ -59,7 +99,17 @@
       "require": "./components/button.js",
       "types": "./components/button.d.ts"
     },
+    "./components/button": {
+      "import": "./components/button.js",
+      "require": "./components/button.js",
+      "types": "./components/button.d.ts"
+    },
     "./react/button.js": {
+      "import": "./react/button.js",
+      "require": "./react/button.js",
+      "types": "./react/button.d.ts"
+    },
+    "./react/button": {
       "import": "./react/button.js",
       "require": "./react/button.js",
       "types": "./react/button.d.ts"
@@ -69,7 +119,17 @@
       "require": "./components/card.js",
       "types": "./components/card.d.ts"
     },
+    "./components/card": {
+      "import": "./components/card.js",
+      "require": "./components/card.js",
+      "types": "./components/card.d.ts"
+    },
     "./react/card.js": {
+      "import": "./react/card.js",
+      "require": "./react/card.js",
+      "types": "./react/card.d.ts"
+    },
+    "./react/card": {
       "import": "./react/card.js",
       "require": "./react/card.js",
       "types": "./react/card.d.ts"
@@ -79,7 +139,17 @@
       "require": "./components/checkbox.js",
       "types": "./components/checkbox.d.ts"
     },
+    "./components/checkbox": {
+      "import": "./components/checkbox.js",
+      "require": "./components/checkbox.js",
+      "types": "./components/checkbox.d.ts"
+    },
     "./react/checkbox.js": {
+      "import": "./react/checkbox.js",
+      "require": "./react/checkbox.js",
+      "types": "./react/checkbox.d.ts"
+    },
+    "./react/checkbox": {
       "import": "./react/checkbox.js",
       "require": "./react/checkbox.js",
       "types": "./react/checkbox.d.ts"
@@ -89,7 +159,17 @@
       "require": "./components/checkbox-group.js",
       "types": "./components/checkbox-group.d.ts"
     },
+    "./components/checkbox-group": {
+      "import": "./components/checkbox-group.js",
+      "require": "./components/checkbox-group.js",
+      "types": "./components/checkbox-group.d.ts"
+    },
     "./react/checkbox-group.js": {
+      "import": "./react/checkbox-group.js",
+      "require": "./react/checkbox-group.js",
+      "types": "./react/checkbox-group.d.ts"
+    },
+    "./react/checkbox-group": {
       "import": "./react/checkbox-group.js",
       "require": "./react/checkbox-group.js",
       "types": "./react/checkbox-group.d.ts"
@@ -99,7 +179,17 @@
       "require": "./components/chip.js",
       "types": "./components/chip.d.ts"
     },
+    "./components/chip": {
+      "import": "./components/chip.js",
+      "require": "./components/chip.js",
+      "types": "./components/chip.d.ts"
+    },
     "./react/chip.js": {
+      "import": "./react/chip.js",
+      "require": "./react/chip.js",
+      "types": "./react/chip.d.ts"
+    },
+    "./react/chip": {
       "import": "./react/chip.js",
       "require": "./react/chip.js",
       "types": "./react/chip.d.ts"
@@ -109,7 +199,17 @@
       "require": "./components/cookie-banner.js",
       "types": "./components/cookie-banner.d.ts"
     },
+    "./components/cookie-banner": {
+      "import": "./components/cookie-banner.js",
+      "require": "./components/cookie-banner.js",
+      "types": "./components/cookie-banner.d.ts"
+    },
     "./react/cookie-banner.js": {
+      "import": "./react/cookie-banner.js",
+      "require": "./react/cookie-banner.js",
+      "types": "./react/cookie-banner.d.ts"
+    },
+    "./react/cookie-banner": {
       "import": "./react/cookie-banner.js",
       "require": "./react/cookie-banner.js",
       "types": "./react/cookie-banner.d.ts"
@@ -119,32 +219,27 @@
       "require": "./components/data-table.js",
       "types": "./components/data-table.d.ts"
     },
+    "./components/data-table": {
+      "import": "./components/data-table.js",
+      "require": "./components/data-table.js",
+      "types": "./components/data-table.d.ts"
+    },
     "./react/data-table.js": {
       "import": "./react/data-table.js",
       "require": "./react/data-table.js",
       "types": "./react/data-table.d.ts"
     },
-    "./components/data-table-header.js": {
-      "import": "./components/data-table-header.js",
-      "require": "./components/data-table-header.js",
-      "types": "./components/data-table-header.d.ts"
-    },
-    "./react/data-table-header.js": {
-      "import": "./react/data-table-header.js",
-      "require": "./react/data-table-header.js",
-      "types": "./react/data-table-header.d.ts"
-    },
-    "./components/data-table-row.js": {
-      "import": "./components/data-table-row.js",
-      "require": "./components/data-table-row.js",
-      "types": "./components/data-table-row.d.ts"
-    },
-    "./react/data-table-row.js": {
-      "import": "./react/data-table-row.js",
-      "require": "./react/data-table-row.js",
-      "types": "./react/data-table-row.d.ts"
+    "./react/data-table": {
+      "import": "./react/data-table.js",
+      "require": "./react/data-table.js",
+      "types": "./react/data-table.d.ts"
     },
     "./components/data-table-body.js": {
+      "import": "./components/data-table-body.js",
+      "require": "./components/data-table-body.js",
+      "types": "./components/data-table-body.d.ts"
+    },
+    "./components/data-table-body": {
       "import": "./components/data-table-body.js",
       "require": "./components/data-table-body.js",
       "types": "./components/data-table-body.d.ts"
@@ -154,7 +249,17 @@
       "require": "./react/data-table-body.js",
       "types": "./react/data-table-body.d.ts"
     },
+    "./react/data-table-body": {
+      "import": "./react/data-table-body.js",
+      "require": "./react/data-table-body.js",
+      "types": "./react/data-table-body.d.ts"
+    },
     "./components/data-table-cell.js": {
+      "import": "./components/data-table-cell.js",
+      "require": "./components/data-table-cell.js",
+      "types": "./components/data-table-cell.d.ts"
+    },
+    "./components/data-table-cell": {
       "import": "./components/data-table-cell.js",
       "require": "./components/data-table-cell.js",
       "types": "./components/data-table-cell.d.ts"
@@ -164,7 +269,17 @@
       "require": "./react/data-table-cell.js",
       "types": "./react/data-table-cell.d.ts"
     },
+    "./react/data-table-cell": {
+      "import": "./react/data-table-cell.js",
+      "require": "./react/data-table-cell.js",
+      "types": "./react/data-table-cell.d.ts"
+    },
     "./components/data-table-contents.js": {
+      "import": "./components/data-table-contents.js",
+      "require": "./components/data-table-contents.js",
+      "types": "./components/data-table-contents.d.ts"
+    },
+    "./components/data-table-contents": {
       "import": "./components/data-table-contents.js",
       "require": "./components/data-table-contents.js",
       "types": "./components/data-table-contents.d.ts"
@@ -174,7 +289,17 @@
       "require": "./react/data-table-contents.js",
       "types": "./react/data-table-contents.d.ts"
     },
+    "./react/data-table-contents": {
+      "import": "./react/data-table-contents.js",
+      "require": "./react/data-table-contents.js",
+      "types": "./react/data-table-contents.d.ts"
+    },
     "./components/data-table-head.js": {
+      "import": "./components/data-table-head.js",
+      "require": "./components/data-table-head.js",
+      "types": "./components/data-table-head.d.ts"
+    },
+    "./components/data-table-head": {
       "import": "./components/data-table-head.js",
       "require": "./components/data-table-head.js",
       "types": "./components/data-table-head.d.ts"
@@ -184,7 +309,17 @@
       "require": "./react/data-table-head.js",
       "types": "./react/data-table-head.d.ts"
     },
+    "./react/data-table-head": {
+      "import": "./react/data-table-head.js",
+      "require": "./react/data-table-head.js",
+      "types": "./react/data-table-head.d.ts"
+    },
     "./components/data-table-head-cell.js": {
+      "import": "./components/data-table-head-cell.js",
+      "require": "./components/data-table-head-cell.js",
+      "types": "./components/data-table-head-cell.d.ts"
+    },
+    "./components/data-table-head-cell": {
       "import": "./components/data-table-head-cell.js",
       "require": "./components/data-table-head-cell.js",
       "types": "./components/data-table-head-cell.d.ts"
@@ -194,7 +329,57 @@
       "require": "./react/data-table-head-cell.js",
       "types": "./react/data-table-head-cell.d.ts"
     },
+    "./react/data-table-head-cell": {
+      "import": "./react/data-table-head-cell.js",
+      "require": "./react/data-table-head-cell.js",
+      "types": "./react/data-table-head-cell.d.ts"
+    },
+    "./components/data-table-header.js": {
+      "import": "./components/data-table-header.js",
+      "require": "./components/data-table-header.js",
+      "types": "./components/data-table-header.d.ts"
+    },
+    "./components/data-table-header": {
+      "import": "./components/data-table-header.js",
+      "require": "./components/data-table-header.js",
+      "types": "./components/data-table-header.d.ts"
+    },
+    "./react/data-table-header.js": {
+      "import": "./react/data-table-header.js",
+      "require": "./react/data-table-header.js",
+      "types": "./react/data-table-header.d.ts"
+    },
+    "./react/data-table-header": {
+      "import": "./react/data-table-header.js",
+      "require": "./react/data-table-header.js",
+      "types": "./react/data-table-header.d.ts"
+    },
+    "./components/data-table-row.js": {
+      "import": "./components/data-table-row.js",
+      "require": "./components/data-table-row.js",
+      "types": "./components/data-table-row.d.ts"
+    },
+    "./components/data-table-row": {
+      "import": "./components/data-table-row.js",
+      "require": "./components/data-table-row.js",
+      "types": "./components/data-table-row.d.ts"
+    },
+    "./react/data-table-row.js": {
+      "import": "./react/data-table-row.js",
+      "require": "./react/data-table-row.js",
+      "types": "./react/data-table-row.d.ts"
+    },
+    "./react/data-table-row": {
+      "import": "./react/data-table-row.js",
+      "require": "./react/data-table-row.js",
+      "types": "./react/data-table-row.d.ts"
+    },
     "./components/divider.js": {
+      "import": "./components/divider.js",
+      "require": "./components/divider.js",
+      "types": "./components/divider.d.ts"
+    },
+    "./components/divider": {
       "import": "./components/divider.js",
       "require": "./components/divider.js",
       "types": "./components/divider.d.ts"
@@ -204,7 +389,17 @@
       "require": "./react/divider.js",
       "types": "./react/divider.d.ts"
     },
+    "./react/divider": {
+      "import": "./react/divider.js",
+      "require": "./react/divider.js",
+      "types": "./react/divider.d.ts"
+    },
     "./components/form-label.js": {
+      "import": "./components/form-label.js",
+      "require": "./components/form-label.js",
+      "types": "./components/form-label.d.ts"
+    },
+    "./components/form-label": {
       "import": "./components/form-label.js",
       "require": "./components/form-label.js",
       "types": "./components/form-label.d.ts"
@@ -214,7 +409,17 @@
       "require": "./react/form-label.js",
       "types": "./react/form-label.d.ts"
     },
+    "./react/form-label": {
+      "import": "./react/form-label.js",
+      "require": "./react/form-label.js",
+      "types": "./react/form-label.d.ts"
+    },
     "./components/icon-button.js": {
+      "import": "./components/icon-button.js",
+      "require": "./components/icon-button.js",
+      "types": "./components/icon-button.d.ts"
+    },
+    "./components/icon-button": {
       "import": "./components/icon-button.js",
       "require": "./components/icon-button.js",
       "types": "./components/icon-button.d.ts"
@@ -224,7 +429,17 @@
       "require": "./react/icon-button.js",
       "types": "./react/icon-button.d.ts"
     },
+    "./react/icon-button": {
+      "import": "./react/icon-button.js",
+      "require": "./react/icon-button.js",
+      "types": "./react/icon-button.d.ts"
+    },
     "./components/link.js": {
+      "import": "./components/link.js",
+      "require": "./components/link.js",
+      "types": "./components/link.d.ts"
+    },
+    "./components/link": {
       "import": "./components/link.js",
       "require": "./components/link.js",
       "types": "./components/link.d.ts"
@@ -234,7 +449,17 @@
       "require": "./react/link.js",
       "types": "./react/link.d.ts"
     },
+    "./react/link": {
+      "import": "./react/link.js",
+      "require": "./react/link.js",
+      "types": "./react/link.d.ts"
+    },
     "./components/list.js": {
+      "import": "./components/list.js",
+      "require": "./components/list.js",
+      "types": "./components/list.d.ts"
+    },
+    "./components/list": {
       "import": "./components/list.js",
       "require": "./components/list.js",
       "types": "./components/list.d.ts"
@@ -244,7 +469,17 @@
       "require": "./react/list.js",
       "types": "./react/list.d.ts"
     },
+    "./react/list": {
+      "import": "./react/list.js",
+      "require": "./react/list.js",
+      "types": "./react/list.d.ts"
+    },
     "./components/list-item.js": {
+      "import": "./components/list-item.js",
+      "require": "./components/list-item.js",
+      "types": "./components/list-item.d.ts"
+    },
+    "./components/list-item": {
       "import": "./components/list-item.js",
       "require": "./components/list-item.js",
       "types": "./components/list-item.d.ts"
@@ -254,7 +489,17 @@
       "require": "./react/list-item.js",
       "types": "./react/list-item.d.ts"
     },
+    "./react/list-item": {
+      "import": "./react/list-item.js",
+      "require": "./react/list-item.js",
+      "types": "./react/list-item.d.ts"
+    },
     "./components/lottie-player.js": {
+      "import": "./components/lottie-player.js",
+      "require": "./components/lottie-player.js",
+      "types": "./components/lottie-player.d.ts"
+    },
+    "./components/lottie-player": {
       "import": "./components/lottie-player.js",
       "require": "./components/lottie-player.js",
       "types": "./components/lottie-player.d.ts"
@@ -264,7 +509,17 @@
       "require": "./react/lottie-player.js",
       "types": "./react/lottie-player.d.ts"
     },
+    "./react/lottie-player": {
+      "import": "./react/lottie-player.js",
+      "require": "./react/lottie-player.js",
+      "types": "./react/lottie-player.d.ts"
+    },
     "./components/modal.js": {
+      "import": "./components/modal.js",
+      "require": "./components/modal.js",
+      "types": "./components/modal.d.ts"
+    },
+    "./components/modal": {
       "import": "./components/modal.js",
       "require": "./components/modal.js",
       "types": "./components/modal.d.ts"
@@ -274,7 +529,17 @@
       "require": "./react/modal.js",
       "types": "./react/modal.d.ts"
     },
+    "./react/modal": {
+      "import": "./react/modal.js",
+      "require": "./react/modal.js",
+      "types": "./react/modal.d.ts"
+    },
     "./components/notification.js": {
+      "import": "./components/notification.js",
+      "require": "./components/notification.js",
+      "types": "./components/notification.d.ts"
+    },
+    "./components/notification": {
       "import": "./components/notification.js",
       "require": "./components/notification.js",
       "types": "./components/notification.d.ts"
@@ -284,7 +549,17 @@
       "require": "./react/notification.js",
       "types": "./react/notification.d.ts"
     },
+    "./react/notification": {
+      "import": "./react/notification.js",
+      "require": "./react/notification.js",
+      "types": "./react/notification.d.ts"
+    },
     "./components/radio.js": {
+      "import": "./components/radio.js",
+      "require": "./components/radio.js",
+      "types": "./components/radio.d.ts"
+    },
+    "./components/radio": {
       "import": "./components/radio.js",
       "require": "./components/radio.js",
       "types": "./components/radio.d.ts"
@@ -294,7 +569,17 @@
       "require": "./react/radio.js",
       "types": "./react/radio.d.ts"
     },
+    "./react/radio": {
+      "import": "./react/radio.js",
+      "require": "./react/radio.js",
+      "types": "./react/radio.d.ts"
+    },
     "./components/radio-group.js": {
+      "import": "./components/radio-group.js",
+      "require": "./components/radio-group.js",
+      "types": "./components/radio-group.d.ts"
+    },
+    "./components/radio-group": {
       "import": "./components/radio-group.js",
       "require": "./components/radio-group.js",
       "types": "./components/radio-group.d.ts"
@@ -304,7 +589,17 @@
       "require": "./react/radio-group.js",
       "types": "./react/radio-group.d.ts"
     },
+    "./react/radio-group": {
+      "import": "./react/radio-group.js",
+      "require": "./react/radio-group.js",
+      "types": "./react/radio-group.d.ts"
+    },
     "./components/select.js": {
+      "import": "./components/select.js",
+      "require": "./components/select.js",
+      "types": "./components/select.d.ts"
+    },
+    "./components/select": {
       "import": "./components/select.js",
       "require": "./components/select.js",
       "types": "./components/select.d.ts"
@@ -314,7 +609,17 @@
       "require": "./react/select.js",
       "types": "./react/select.d.ts"
     },
+    "./react/select": {
+      "import": "./react/select.js",
+      "require": "./react/select.js",
+      "types": "./react/select.d.ts"
+    },
     "./components/spinner.js": {
+      "import": "./components/spinner.js",
+      "require": "./components/spinner.js",
+      "types": "./components/spinner.d.ts"
+    },
+    "./components/spinner": {
       "import": "./components/spinner.js",
       "require": "./components/spinner.js",
       "types": "./components/spinner.d.ts"
@@ -324,7 +629,17 @@
       "require": "./react/spinner.js",
       "types": "./react/spinner.d.ts"
     },
+    "./react/spinner": {
+      "import": "./react/spinner.js",
+      "require": "./react/spinner.js",
+      "types": "./react/spinner.d.ts"
+    },
     "./components/switch.js": {
+      "import": "./components/switch.js",
+      "require": "./components/switch.js",
+      "types": "./components/switch.d.ts"
+    },
+    "./components/switch": {
       "import": "./components/switch.js",
       "require": "./components/switch.js",
       "types": "./components/switch.d.ts"
@@ -334,7 +649,17 @@
       "require": "./react/switch.js",
       "types": "./react/switch.d.ts"
     },
+    "./react/switch": {
+      "import": "./react/switch.js",
+      "require": "./react/switch.js",
+      "types": "./react/switch.d.ts"
+    },
     "./components/tabs.js": {
+      "import": "./components/tabs.js",
+      "require": "./components/tabs.js",
+      "types": "./components/tabs.d.ts"
+    },
+    "./components/tabs": {
       "import": "./components/tabs.js",
       "require": "./components/tabs.js",
       "types": "./components/tabs.d.ts"
@@ -344,7 +669,17 @@
       "require": "./react/tabs.js",
       "types": "./react/tabs.d.ts"
     },
+    "./react/tabs": {
+      "import": "./react/tabs.js",
+      "require": "./react/tabs.js",
+      "types": "./react/tabs.d.ts"
+    },
     "./components/tag.js": {
+      "import": "./components/tag.js",
+      "require": "./components/tag.js",
+      "types": "./components/tag.d.ts"
+    },
+    "./components/tag": {
       "import": "./components/tag.js",
       "require": "./components/tag.js",
       "types": "./components/tag.d.ts"
@@ -354,7 +689,17 @@
       "require": "./react/tag.js",
       "types": "./react/tag.d.ts"
     },
+    "./react/tag": {
+      "import": "./react/tag.js",
+      "require": "./react/tag.js",
+      "types": "./react/tag.d.ts"
+    },
     "./components/text-input.js": {
+      "import": "./components/text-input.js",
+      "require": "./components/text-input.js",
+      "types": "./components/text-input.d.ts"
+    },
+    "./components/text-input": {
       "import": "./components/text-input.js",
       "require": "./components/text-input.js",
       "types": "./components/text-input.d.ts"
@@ -364,7 +709,17 @@
       "require": "./react/text-input.js",
       "types": "./react/text-input.d.ts"
     },
+    "./react/text-input": {
+      "import": "./react/text-input.js",
+      "require": "./react/text-input.js",
+      "types": "./react/text-input.d.ts"
+    },
     "./components/textarea.js": {
+      "import": "./components/textarea.js",
+      "require": "./components/textarea.js",
+      "types": "./components/textarea.d.ts"
+    },
+    "./components/textarea": {
       "import": "./components/textarea.js",
       "require": "./components/textarea.js",
       "types": "./components/textarea.d.ts"
@@ -374,7 +729,17 @@
       "require": "./react/textarea.js",
       "types": "./react/textarea.d.ts"
     },
+    "./react/textarea": {
+      "import": "./react/textarea.js",
+      "require": "./react/textarea.js",
+      "types": "./react/textarea.d.ts"
+    },
     "./components/thumbnail.js": {
+      "import": "./components/thumbnail.js",
+      "require": "./components/thumbnail.js",
+      "types": "./components/thumbnail.d.ts"
+    },
+    "./components/thumbnail": {
       "import": "./components/thumbnail.js",
       "require": "./components/thumbnail.js",
       "types": "./components/thumbnail.d.ts"
@@ -384,7 +749,17 @@
       "require": "./react/thumbnail.js",
       "types": "./react/thumbnail.d.ts"
     },
+    "./react/thumbnail": {
+      "import": "./react/thumbnail.js",
+      "require": "./react/thumbnail.js",
+      "types": "./react/thumbnail.d.ts"
+    },
     "./components/toast.js": {
+      "import": "./components/toast.js",
+      "require": "./components/toast.js",
+      "types": "./components/toast.d.ts"
+    },
+    "./components/toast": {
       "import": "./components/toast.js",
       "require": "./components/toast.js",
       "types": "./components/toast.d.ts"
@@ -394,12 +769,27 @@
       "require": "./react/toast.js",
       "types": "./react/toast.d.ts"
     },
+    "./react/toast": {
+      "import": "./react/toast.js",
+      "require": "./react/toast.js",
+      "types": "./react/toast.d.ts"
+    },
     "./components/toast-provider.js": {
       "import": "./components/toast-provider.js",
       "require": "./components/toast-provider.js",
       "types": "./components/toast-provider.d.ts"
     },
+    "./components/toast-provider": {
+      "import": "./components/toast-provider.js",
+      "require": "./components/toast-provider.js",
+      "types": "./components/toast-provider.d.ts"
+    },
     "./react/toast-provider.js": {
+      "import": "./react/toast-provider.js",
+      "require": "./react/toast-provider.js",
+      "types": "./react/toast-provider.d.ts"
+    },
+    "./react/toast-provider": {
       "import": "./react/toast-provider.js",
       "require": "./react/toast-provider.js",
       "types": "./react/toast-provider.d.ts"
