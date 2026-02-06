@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "pie": {
+      "type": "local",
+      "command": [
+        "node",
+        "./packages/tools/pie-mcp-server/dist/index.js"
+      ],
+      "enabled": true
+    }
+  }
+}
