@@ -50,8 +50,16 @@
         @include spinner-base-colors('--dt-color-content-interactive-secondary-solid');
     }
 
+    &.c-spinner--secondary-dark {
+        @include spinner-base-colors('--dt-color-content-interactive-dark-solid');
+    }
+
     &.c-spinner--inverse {
         @include spinner-base-colors('--dt-color-content-inverse-solid');
+    }
+
+    &.c-spinner--inverse-light {
+        @include spinner-base-colors('--dt-color-content-light-solid');
     }
 
     &.c-spinner--xsmall {

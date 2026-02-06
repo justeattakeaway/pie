@@ -69,4 +69,6 @@ const createSpinnerStory = createStory<SpinnerProps>(Template, defaultArgs);
 
 export const Brand = createSpinnerStory();
 export const Secondary = createSpinnerStory({ variant: 'secondary' });
+export const SecondaryDark = createSpinnerStory({ variant: 'secondary-dark' });
 export const Inverse = createSpinnerStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
+export const InverseLight = createSpinnerStory({ variant: 'inverse-light' }, { bgColor: 'dark (container-dark)' });
