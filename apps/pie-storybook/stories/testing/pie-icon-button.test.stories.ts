@@ -155,13 +155,13 @@ const translucentVariantPropsMatrix : Partial<Record<keyof IconButtonProps, unkn
     variant: ['translucent'],
 };
 
-export const PrimaryVariations = createVariantStory<IconButtonProps>(Template, primaryVariantPropsMatrix);
-export const PrimaryAlternativeVariations = createVariantStory<IconButtonProps>(Template, primaryAlternativeVariantPropsMatrix);
+export const PrimaryVariations = createVariantStory<IconButtonProps>(Template, primaryVariantPropsMatrix, { bgColor: 'light (container-default)' });
+export const PrimaryAlternativeVariations = createVariantStory<IconButtonProps>(Template, primaryAlternativeVariantPropsMatrix, { bgColor: 'light (container-default)' });
 export const PrimaryAlternativeDarkVariations = createVariantStory<IconButtonProps>(Template, primaryAlternativeDarkVariantPropsMatrix);
-export const SecondaryVariations = createVariantStory<IconButtonProps>(Template, secondaryVariantPropsMatrix);
-export const OutlineVariations = createVariantStory<IconButtonProps>(Template, outlineVariantPropsMatrix, { bgColor: 'background-subtle' });
-export const GhostVariations = createVariantStory<IconButtonProps>(Template, ghostVariantPropsMatrix, { bgColor: 'background-subtle' });
-export const GhostSecondaryVariations = createVariantStory<IconButtonProps>(Template, ghostSecondaryVariantPropsMatrix, { bgColor: 'background-subtle' });
+export const SecondaryVariations = createVariantStory<IconButtonProps>(Template, secondaryVariantPropsMatrix, { bgColor: 'light (container-default)' });
+export const OutlineVariations = createVariantStory<IconButtonProps>(Template, outlineVariantPropsMatrix, { bgColor: 'light (container-default)' });
+export const GhostVariations = createVariantStory<IconButtonProps>(Template, ghostVariantPropsMatrix, { bgColor: 'light (container-default)' });
+export const GhostSecondaryVariations = createVariantStory<IconButtonProps>(Template, ghostSecondaryVariantPropsMatrix, { bgColor: 'light (container-default)' });
 export const GhostSecondaryDarkVariations = createVariantStory<IconButtonProps>(Template, ghostSecondaryDarkVariantPropsMatrix, { bgColor: 'background-subtle' });
 export const InverseVariations = createVariantStory<IconButtonProps>(Template, inverseVariantPropsMatrix, { bgColor: 'container-inverse' });
 export const InverseOutlineVariations = createVariantStory<IconButtonProps>(Template, inverseOutlineVariantPropsMatrix, { bgColor: 'container-inverse' });
