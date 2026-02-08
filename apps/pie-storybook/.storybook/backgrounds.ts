@@ -8,7 +8,7 @@ const CUSTOM_BACKGROUNDS : StoryBackgrounds = {
   values: [
     {
       name: 'light (container-default)',
-      value: 'var(--dt-color-container-default)',
+      value: 'var(--dt-color-container-default)', // Uses CSS variable for better support of dark/light mode in Storybook
     },
     {
       name: 'dark (container-dark)',
@@ -28,7 +28,7 @@ const CUSTOM_BACKGROUNDS : StoryBackgrounds = {
     },
     {
       name: 'container-inverse',
-      value: 'var(--dt-color-container-inverse)',
+      value: 'var(--dt-color-container-inverse)', // Uses CSS variable for better support of dark/light mode in Storybook
     },
     {
       name: 'brand orange',
