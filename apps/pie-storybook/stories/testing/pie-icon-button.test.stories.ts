@@ -6,7 +6,7 @@ import '@justeattakeaway/pie-icon-button';
 import {
     type IconButtonProps, sizes, variants, defaultProps,
 } from '@justeattakeaway/pie-icon-button';
-import '@justeattakeaway/pie-icons-webc/dist/IconClose.js';
+import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
 import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';
 
@@ -72,7 +72,7 @@ const Template : TemplateFunction<IconButtonProps> = ({
             ?isLoading="${isLoading}"
             .aria="${aria}"
             @click="${handleClick}">
-            <icon-close></icon-close>
+            <icon-placeholder></icon-placeholder>
         </pie-icon-button>
         `;
 
