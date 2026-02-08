@@ -8,7 +8,7 @@ const CUSTOM_BACKGROUNDS : StoryBackgrounds = {
   values: [
     {
       name: 'light (container-default)',
-      value: alias.default['container-default'],
+      value: 'var(--dt-color-container-default)',
     },
     {
       name: 'dark (container-dark)',
