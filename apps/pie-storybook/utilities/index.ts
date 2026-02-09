@@ -157,7 +157,7 @@ export const createVariantStory = <T extends Record<string, any>>(
                     grid-template-columns: repeat(2, 1fr);
                     gap: 8px;
                     font-family: monospace;
-                    background-color: #f9f9f9;
+                    background-color: var(--dt-color-background-default);
                     padding: 8px;
                     border-radius: 4px;
                 }
