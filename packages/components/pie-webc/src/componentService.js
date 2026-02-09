@@ -78,10 +78,20 @@ export class ComponentService {
      */
     createPackageJsonExports (componentName) {
         const exports = {
+            [`./components/${componentName}`]: {
+                import: `./components/${componentName}.js`,
+                require: `./components/${componentName}.js`,
+                types: `./components/${componentName}.d.ts`,
+            },
             [`./components/${componentName}.js`]: {
                 import: `./components/${componentName}.js`,
                 require: `./components/${componentName}.js`,
                 types: `./components/${componentName}.d.ts`,
+            },
+            [`./react/${componentName}`]: {
+                import: `./react/${componentName}.js`,
+                require: `./react/${componentName}.js`,
+                types: `./react/${componentName}.d.ts`,
             },
             [`./react/${componentName}.js`]: {
                 import: `./react/${componentName}.js`,
