@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-icon-button
 
+## 2.6.0
+
+### Minor Changes
+
+- [Added] - "ghost-inverse-light", "inverse-outline", and "ghost-secondary-dark" variants ([#2681](https://github.com/justeattakeaway/pie/pull/2681)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- Updated dependencies [[`dda9b03`](https://github.com/justeattakeaway/pie/commit/dda9b0330125a36eddf1ad48add869aac801470b)]:
+  - @justeattakeaway/pie-spinner@1.4.0
+
 ## 2.5.1
 
 ### Patch Changes

@@ -1,5 +1,41 @@
 # Changelog
 
+## 1.66.0
+
+### Minor Changes
+
+- [Added] - Stories for Spinner and IconButton ([#2681](https://github.com/justeattakeaway/pie/pull/2681)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - basic html markup for data table component ([#2555](https://github.com/justeattakeaway/pie/pull/2555)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- [Updated] "light (container-default)" background to follow the current mode ([#2681](https://github.com/justeattakeaway/pie/pull/2681)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - additionalRows new property and enabling cells to render components isntead of only primitives ([#2555](https://github.com/justeattakeaway/pie/pull/2555)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- [Added] - Dark mode support to stories and remove hard coded background colours, using imported design tokens instead. ([#2679](https://github.com/justeattakeaway/pie/pull/2679)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - pie-data-table basic styling and properties structure ([#2555](https://github.com/justeattakeaway/pie/pull/2555)) by [@thejfreitas](https://github.com/thejfreitas)
+
+### Patch Changes
+
+- [Updated] - testing story background color for icon-button ghost-inverse ([#2681](https://github.com/justeattakeaway/pie/pull/2681)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Updated] - Testing Storybook props-display background color on dark mode ([#2681](https://github.com/justeattakeaway/pie/pull/2681)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Updated] - testing story background color for icon-button inverse ([#2681](https://github.com/justeattakeaway/pie/pull/2681)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`dda9b03`](https://github.com/justeattakeaway/pie/commit/dda9b0330125a36eddf1ad48add869aac801470b), [`5f88267`](https://github.com/justeattakeaway/pie/commit/5f8826738b77192020707e0b328c7f67e0719fec), [`dda9b03`](https://github.com/justeattakeaway/pie/commit/dda9b0330125a36eddf1ad48add869aac801470b), [`5f88267`](https://github.com/justeattakeaway/pie/commit/5f8826738b77192020707e0b328c7f67e0719fec), [`5f88267`](https://github.com/justeattakeaway/pie/commit/5f8826738b77192020707e0b328c7f67e0719fec)]:
+  - @justeattakeaway/pie-icon-button@2.6.0
+  - @justeattakeaway/pie-data-table@0.3.0
+  - @justeattakeaway/pie-spinner@1.4.0
+  - @justeattakeaway/pie-cookie-banner@1.7.4
+  - @justeattakeaway/pie-modal@1.24.1
+  - @justeattakeaway/pie-notification@0.21.5
+  - @justeattakeaway/pie-toast@0.12.19
+  - @justeattakeaway/pie-button@1.11.1
+  - @justeattakeaway/pie-chip@0.15.9
+  - @justeattakeaway/pie-toast-provider@0.7.20
+
 ## 1.65.2
 
 ### Patch Changes

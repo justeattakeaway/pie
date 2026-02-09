@@ -1,5 +1,25 @@
 # @justeattakeaway/pie-webc
 
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - support package.json exports without the js extension ([#2683](https://github.com/justeattakeaway/pie/pull/2683)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`dda9b03`](https://github.com/justeattakeaway/pie/commit/dda9b0330125a36eddf1ad48add869aac801470b), [`5f88267`](https://github.com/justeattakeaway/pie/commit/5f8826738b77192020707e0b328c7f67e0719fec), [`dda9b03`](https://github.com/justeattakeaway/pie/commit/dda9b0330125a36eddf1ad48add869aac801470b), [`5f88267`](https://github.com/justeattakeaway/pie/commit/5f8826738b77192020707e0b328c7f67e0719fec), [`5f88267`](https://github.com/justeattakeaway/pie/commit/5f8826738b77192020707e0b328c7f67e0719fec)]:
+  - @justeattakeaway/pie-icon-button@2.6.0
+  - @justeattakeaway/pie-data-table@0.3.0
+  - @justeattakeaway/pie-spinner@1.4.0
+  - @justeattakeaway/pie-cookie-banner@1.7.4
+  - @justeattakeaway/pie-modal@1.24.1
+  - @justeattakeaway/pie-notification@0.21.5
+  - @justeattakeaway/pie-toast@0.12.19
+  - @justeattakeaway/pie-button@1.11.1
+  - @justeattakeaway/pie-chip@0.15.9
+  - @justeattakeaway/pie-toast-provider@0.7.20
+
 ## 0.7.46
 
 ### Patch Changes
