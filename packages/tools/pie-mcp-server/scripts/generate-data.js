@@ -6,17 +6,17 @@
  * into a single JSON file that the MCP server can use at runtime.
  *
  * Data sources:
- * - Component custom-elements.json manifests (enriched by cem-plugin-props-enrichment)
+ * - Component custom-elements.json manifests (enriched by cem-plugin-props-enrichment and cem-plugin-defs-enrichment)
  * - Component package.json metadata
  * - Icon metadata from pie-icons
- * - Real examples from Storybook stories (extracted via AST parsing)
+ * - Generated code examples from component API metadata
  * - Framework examples from pie-aperture repository
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseStorybookFile } from './lib/storybook-parser.js';
+import { generateExamples } from './lib/example-generator.js';
 import {
     fetchApertureExamplesForComponents,
     shouldSkipApertureFetch,
@@ -32,29 +32,6 @@ const EXCLUDED_PACKAGES = [
     'pie-webc-core',
     'pie-webc-testing'
 ];
-
-/**
- * Extract real code examples from Storybook stories using AST parsing
- * These are battle-tested, production-ready examples
- */
-function extractStorybookExamples (monorepoRoot, componentName) {
-    const storiesPath = path.join(
-        monorepoRoot,
-        'apps/pie-storybook/stories',
-        `${componentName}.stories.ts`,
-    );
-
-    const content = readFile(storiesPath);
-    if (!content) return null;
-
-    try {
-        // Use AST-based parsing for robust extraction
-        return parseStorybookFile(content, componentName);
-    } catch (error) {
-        console.warn(`  Warning: Failed to parse ${componentName} stories: ${error.message}`);
-        return null;
-    }
-}
 
 /**
  * Find the monorepo root by looking for packages/components directory
@@ -86,65 +63,12 @@ function readJsonFile (filePath) {
 }
 
 /**
- * Read file content safely
- */
-function readFile (filePath) {
-    try {
-        return fs.readFileSync(filePath, 'utf-8');
-    } catch {
-        return null;
-    }
-}
-
-/**
- * Extract defaultProps from the defs module in custom-elements.json.
- * Parses the object literal string to get default values for properties.
- */
-function extractDefaultProps (manifest) {
-    if (!manifest?.modules) return {};
-
-    for (const module of manifest.modules) {
-        if (!module.path?.includes('defs') || !module.declarations) continue;
-
-        for (const declaration of module.declarations) {
-            if (declaration.kind === 'variable' && declaration.name === 'defaultProps' && declaration.default) {
-                const defaults = {};
-                // Parse "{ size: 'medium', variant: 'primary', disabled: false, ... }"
-                const pairs = declaration.default
-                    .replace(/^\{/, '')
-                    .replace(/\}$/, '')
-                    .split(',')
-                    .map((s) => s.trim())
-                    .filter(Boolean);
-
-                for (const pair of pairs) {
-                    const colonIndex = pair.indexOf(':');
-                    if (colonIndex === -1) continue;
-
-                    const key = pair.substring(0, colonIndex).trim();
-                    const value = pair.substring(colonIndex + 1).trim().replace(/^['"]|['"]$/g, '');
-                    if (key) {
-                        defaults[key] = value;
-                    }
-                }
-
-                return defaults;
-            }
-        }
-    }
-
-    return {};
-}
-
-/**
  * Extract component class info from custom-elements.json
- * Now reads descriptions, defaults, events, and methods from the manifest
+ * Reads descriptions, defaults, events, and methods from the manifest.
+ * Defaults and validValues are pre-resolved by cem-plugin-defs-enrichment.
  */
 function extractComponentInfo (manifest) {
     if (!manifest?.modules) return null;
-
-    // Get default props from the defs module
-    const defaultProps = extractDefaultProps(manifest);
 
     for (const module of manifest.modules) {
         if (module.declarations) {
@@ -159,7 +83,7 @@ function extractComponentInfo (manifest) {
                         type: m.type?.text || m.resolvedType || 'unknown',
                         description: m.description || '',
                         attribute: m.attribute || m.name,
-                        default: m.default || defaultProps[m.name] || null,
+                        default: m.default ?? null,
                         reflects: m.reflects || false,
                         readonly: m.readonly || false,
                     }));
@@ -204,36 +128,22 @@ function extractComponentInfo (manifest) {
 }
 
 /**
- * Extract valid values for props from the defs module in custom-elements.json
- * e.g., sizes = ['small', 'medium', 'large']
+ * Extract _pieValidValues from the class declaration in custom-elements.json.
+ * These are pre-resolved by cem-plugin-defs-enrichment with keys already
+ * mapped to property names.
  */
 function extractValidValues (manifest) {
     if (!manifest?.modules) return {};
 
-    const validValues = {};
-
     for (const module of manifest.modules) {
-        if (module.path?.includes('defs') && module.declarations) {
-            for (const declaration of module.declarations) {
-                // Look for exported const arrays like: export const sizes = ['a', 'b'] as const
-                if (declaration.kind === 'variable' && declaration.type?.text?.startsWith('[')) {
-                    // Parse the array from the type text: "['small', 'medium', 'large']"
-                    const arrayMatch = declaration.type.text.match(/\[(.*)\]/);
-                    if (arrayMatch) {
-                        const values = arrayMatch[1]
-                            .split(',')
-                            .map((v) => v.trim().replace(/['"]/g, ''))
-                            .filter(Boolean);
-                        if (values.length > 0) {
-                            validValues[declaration.name] = values;
-                        }
-                    }
-                }
+        for (const declaration of (module.declarations || [])) {
+            if (declaration.kind === 'class' && declaration._pieValidValues) {
+                return declaration._pieValidValues;
             }
         }
     }
 
-    return validValues;
+    return {};
 }
 
 /**
@@ -260,10 +170,7 @@ function aggregateComponents (monorepoRoot) {
         const componentInfo = manifest ? extractComponentInfo(manifest) : null;
         const validValues = manifest ? extractValidValues(manifest) : {};
 
-        // Extract real examples from Storybook stories using AST parsing
-        const examples = extractStorybookExamples(monorepoRoot, dir);
-
-        components[dir] = {
+        const componentObj = {
             name: packageJson.name,
             version: packageJson.version,
             description: packageJson.description || '',
@@ -278,10 +185,15 @@ function aggregateComponents (monorepoRoot) {
             validValues,
             mixins: componentInfo?.mixins || [],
             installation: `npm install ${packageJson.name}`,
-            examples,
+            examples: null,
             // frameworkExamples will be populated asynchronously
             frameworkExamples: null,
         };
+
+        // Generate examples from API metadata
+        componentObj.examples = generateExamples(componentObj);
+
+        components[dir] = componentObj;
     }
 
     return components;
@@ -388,13 +300,13 @@ async function generateData () {
     fs.writeFileSync(outputPath, JSON.stringify(data));
 
     // Count examples
-    let storybookExamplesCount = 0;
+    let generatedExamplesCount = 0;
     let frameworkExamplesCount = 0;
     for (const comp of Object.values(components)) {
         if (comp.examples) {
-            if (comp.examples.basic) storybookExamplesCount++;
-            storybookExamplesCount += comp.examples.patterns?.length || 0;
-            storybookExamplesCount += comp.examples.variants?.length || 0;
+            if (comp.examples.quickStart) generatedExamplesCount++;
+            generatedExamplesCount += comp.examples.variants?.length || 0;
+            generatedExamplesCount += comp.examples.slots?.length || 0;
         }
         if (comp.frameworkExamples) {
             const frameworks = ['nextjsV14', 'nextjsV15', 'nuxt', 'vanilla'];
@@ -431,7 +343,7 @@ async function generateData () {
     console.log(`  - Icons: ${data.metadata.iconCount}`);
     console.log(`  - Events: ${eventsCount}`);
     console.log(`  - Methods: ${methodsCount}`);
-    console.log(`  - Storybook Examples: ${storybookExamplesCount}`);
+    console.log(`  - Generated Examples: ${generatedExamplesCount}`);
     console.log(`  - Framework Examples: ${frameworkExamplesCount}`);
     console.log(`  - Property Descriptions: ${propsWithDescription}/${totalProps}`);
     console.log(`  - Output Size: ${fileSizeKB} KB`);

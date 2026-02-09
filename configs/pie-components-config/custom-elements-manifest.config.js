@@ -1,5 +1,6 @@
 import { moduleFileExtensionsPlugin } from 'cem-plugin-module-file-extensions';
 import propsEnrichmentPlugin from './cem-plugin-props-enrichment.js';
+import defsEnrichmentPlugin from './cem-plugin-defs-enrichment.js';
 
 export default {
     globs: [
@@ -12,5 +13,5 @@ export default {
         '**/test/**',
         '**/node_modules/**',
     ],
-    plugins: [moduleFileExtensionsPlugin(), propsEnrichmentPlugin()],
+    plugins: [moduleFileExtensionsPlugin(), propsEnrichmentPlugin(), defsEnrichmentPlugin()],
 };

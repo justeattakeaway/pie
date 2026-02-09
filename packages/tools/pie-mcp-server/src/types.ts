@@ -61,10 +61,10 @@ export interface ComponentData {
 }
 
 export interface ComponentExamples {
-    basic: string | null;
-    variants: Array<{ name: string; props: Record<string, string> }>;
-    patterns: Array<{ name: string; description: string; code: string }>;
-    imports: string[];
+    quickStart: string;
+    variants: Array<{ name: string; value: string; code: string }>;
+    slots: Array<{ name: string; description: string; code: string }>;
+    import: string;
 }
 
 export interface IconCategory {

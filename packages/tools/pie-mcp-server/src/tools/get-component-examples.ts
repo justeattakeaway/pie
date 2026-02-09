@@ -12,8 +12,8 @@ export function register (server: McpServer): void {
             description: 'Get real, production-ready code examples extracted from PIE Storybook. These are battle-tested examples showing actual usage patterns. Also includes framework-specific examples from pie-aperture (Next.js, Nuxt, Vanilla).',
             inputSchema: {
                 component: z.string().describe('Component name (e.g., "pie-button" or "button")'),
-                type: z.enum(['all', 'basic', 'patterns', 'variants']).optional()
-                    .describe('Type of examples to return. "basic" is the main template, "patterns" are complex real-world patterns like forms, "variants" show different prop combinations.'),
+                type: z.enum(['all', 'basic', 'variants']).optional()
+                    .describe('Type of examples to return. "basic" is the quick-start snippet, "variants" show different prop combinations.'),
             },
             annotations: {
                 readOnlyHint: true,
@@ -48,25 +48,25 @@ export function register (server: McpServer): void {
                 '',
             ];
 
-            // Imports
-            if (examples?.imports && examples.imports.length > 0) {
+            // Import
+            if (examples?.import) {
                 sections.push(
-                    '## Imports',
+                    '## Import',
                     '',
-                    '```ts',
-                    ...examples.imports,
+                    '```js',
+                    `import '${examples.import}';`,
                     '```',
                     '',
                 );
             }
 
-            // Basic example
-            if ((requestedType === 'all' || requestedType === 'basic') && examples?.basic) {
+            // Quick Start (aliased as "basic" for backward compat)
+            if ((requestedType === 'all' || requestedType === 'basic') && examples?.quickStart) {
                 sections.push(
-                    '## Basic Usage',
+                    '## Quick Start',
                     '',
                     '```html',
-                    examples.basic,
+                    examples.quickStart,
                     '```',
                     '',
                 );
@@ -76,24 +76,27 @@ export function register (server: McpServer): void {
             if ((requestedType === 'all' || requestedType === 'variants') && examples?.variants && examples.variants.length > 0) {
                 sections.push('## Variants', '');
                 for (const variant of examples.variants) {
-                    const propsStr = Object.entries(variant.props)
-                        .map(([k, v]) => `${k}="${v}"`)
-                        .join(' ');
-                    sections.push(`**${variant.name}:** \`${propsStr}\``);
+                    sections.push(
+                        `### ${variant.name}`,
+                        '',
+                        '```html',
+                        variant.code,
+                        '```',
+                        '',
+                    );
                 }
-                sections.push('');
             }
 
-            // Patterns
-            if ((requestedType === 'all' || requestedType === 'patterns') && examples?.patterns && examples.patterns.length > 0) {
-                sections.push('## Patterns', '');
-                for (const pattern of examples.patterns) {
-                    sections.push(`### ${pattern.name}`);
-                    if (pattern.description) sections.push('', pattern.description);
+            // Slot Examples
+            if (requestedType === 'all' && examples?.slots && examples.slots.length > 0) {
+                sections.push('## Slot Examples', '');
+                for (const slot of examples.slots) {
+                    sections.push(`### ${slot.name}`);
+                    if (slot.description) sections.push('', slot.description);
                     sections.push(
                         '',
                         '```html',
-                        pattern.code,
+                        slot.code,
                         '```',
                         '',
                     );
