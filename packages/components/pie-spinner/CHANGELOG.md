@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-spinner
 
+## 1.4.0
+
+### Minor Changes
+
+- [Added] - "secondary-dark" and "inverse-light" variations ([#2681](https://github.com/justeattakeaway/pie/pull/2681)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.3.7
 
 ### Patch Changes

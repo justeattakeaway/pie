@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-data-table
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - basic html markup for data table component ([#2555](https://github.com/justeattakeaway/pie/pull/2555)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- [Added] - additionalRows new property and enabling cells to render components isntead of only primitives ([#2555](https://github.com/justeattakeaway/pie/pull/2555)) by [@thejfreitas](https://github.com/thejfreitas)
+
+- [Added] - pie-data-table basic styling and properties structure ([#2555](https://github.com/justeattakeaway/pie/pull/2555)) by [@thejfreitas](https://github.com/thejfreitas)
+
 ## 0.2.3
 
 ### Patch Changes
