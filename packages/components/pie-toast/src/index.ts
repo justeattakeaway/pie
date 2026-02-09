@@ -46,7 +46,7 @@ export * from './defs';
 @safeCustomElement('pie-toast')
 export class PieToast extends PieElement implements ToastProps {
     @property({ type: String })
-    public message = defaultProps.message;
+    public message?: string;
 
     @property({ type: Boolean })
     public isOpen = defaultProps.isOpen;
@@ -244,22 +244,6 @@ export class PieToast extends PieElement implements ToastProps {
     }
 
     /**
-     * Template for the toast message. Called within the
-     * main render function.
-     *
-     * @param {string} message - The message to be displayed.
-     *
-     * @private
-     */
-    private renderMessage (message: string): TemplateResult {
-        return html`
-            <span data-test-id="${componentSelector}-message">
-                ${message}
-            </span>
-        `;
-    }
-
-    /**
      * Util method responsible to close the component.
      * It handles the action when user clicks in the close button and triggers an event when is executed.
      *
@@ -336,7 +320,10 @@ export class PieToast extends PieElement implements ToastProps {
                 <div class="${componentClass}-contentArea">
                     <div class="${componentClass}-messageArea">
                         ${this.variantHasIcon(variant) ? this.getVariantIcon() : nothing}
-                        ${message === '' ? nothing : this.renderMessage(message)}
+                        <span data-test-id="${componentSelector}-message">
+                            ${message || nothing}
+                            <slot></slot>
+                        </span>
                     </div>
                     <div class="${componentClass}-actionsArea">
                         ${!isMultiline && leadingAction?.text ? this.renderActionButton(leadingAction) : nothing}
