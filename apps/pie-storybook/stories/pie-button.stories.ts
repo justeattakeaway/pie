@@ -386,6 +386,11 @@ export const Ghost = createButtonStory({ variant: 'ghost' }, {
     controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
 
+export const GhostDark = createButtonStory({ variant: 'ghost-dark' }, {
+    bgColor: 'background-subtle',
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
+});
+
 export const Destructive = createButtonStory({ variant: 'destructive' }, {
     controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
@@ -400,7 +405,17 @@ export const Inverse = createButtonStory({ variant: 'inverse' }, {
     controls: { exclude: ['variant', ...anchorOnlyProps] },
 });
 
+export const InverseLight = createButtonStory({ variant: 'inverse-light' }, {
+    bgColor: 'dark (container-dark)',
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
+});
+
 export const GhostInverse = createButtonStory({ variant: 'ghost-inverse' }, {
+    bgColor: 'dark (container-dark)',
+    controls: { exclude: ['variant', ...anchorOnlyProps] },
+});
+
+export const GhostInverseLight = createButtonStory({ variant: 'ghost-inverse-light' }, {
     bgColor: 'dark (container-dark)',
     controls: { exclude: ['variant', ...anchorOnlyProps] },
 });

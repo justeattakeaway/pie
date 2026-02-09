@@ -465,14 +465,29 @@ export const GhostVariations = createVariantStory<ButtonProps>(Template, {
     variant: ['ghost'],
 }, { multiColumn: true });
 
+export const GhostDarkVariations = createVariantStory<ButtonProps>(Template, {
+    ...sharedPropMatrix,
+    variant: ['ghost-dark'],
+}, { multiColumn: true });
+
 export const InverseVariations = createVariantStory<ButtonProps>(Template, {
     ...sharedPropMatrix,
     variant: ['inverse'],
 }, { bgColor: 'background-dark', multiColumn: true });
 
+export const InverseLightVariations = createVariantStory<ButtonProps>(Template, {
+    ...sharedPropMatrix,
+    variant: ['inverse-light'],
+}, { bgColor: 'background-dark', multiColumn: true });
+
 export const GhostInverseVariations = createVariantStory<ButtonProps>(Template, {
     ...sharedPropMatrix,
     variant: ['ghost-inverse'],
+}, { bgColor: 'background-dark', multiColumn: true });
+
+export const GhostInverseLightVariations = createVariantStory<ButtonProps>(Template, {
+    ...sharedPropMatrix,
+    variant: ['ghost-inverse-light'],
 }, { bgColor: 'background-dark', multiColumn: true });
 
 export const DestructiveVariations = createVariantStory<ButtonProps>(Template, {
