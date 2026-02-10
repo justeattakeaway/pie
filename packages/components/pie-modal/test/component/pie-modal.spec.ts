@@ -851,17 +851,17 @@ test.describe('`image` slot', () => {
             const bgColorToButtonVariant = {
                 default: 'ghost-secondary',
                 subtle: 'ghost-secondary',
-                'brand-01': 'ghost-secondary',
+                'brand-01': 'ghost-secondary-dark',
                 'brand-02': 'ghost-secondary',
-                'brand-03': 'ghost-secondary',
+                'brand-03': 'ghost-secondary-dark',
                 'brand-03-subtle': 'ghost-secondary',
-                'brand-04': 'ghost-secondary',
+                'brand-04': 'ghost-secondary-dark',
                 'brand-04-subtle': 'ghost-secondary',
-                'brand-05': 'ghost-secondary',
+                'brand-05': 'ghost-secondary-dark',
                 'brand-05-subtle': 'ghost-secondary',
-                'brand-06': 'ghost-inverse',
+                'brand-06': 'ghost-inverse-light',
                 'brand-06-subtle': 'ghost-secondary',
-                'brand-08': 'ghost-secondary',
+                'brand-08': 'ghost-secondary-dark',
                 'brand-08-subtle': 'ghost-secondary',
             };
 
@@ -940,9 +940,10 @@ test.describe('`image` slot', () => {
                                 await expect(closeButtonLocator).not.toBeVisible();
                             }
                         });
-
+                    });
+                    test.describe('when `isDismissible` is `true`', () => {
                         const bgColorToButtonVariant = {
-                            default: imageSlotMode === 'illustration' ? 'ghost-secondary' : 'secondary',
+                            default: 'secondary',
                             subtle: 'secondary',
                             'brand-01': 'secondary',
                             'brand-02': 'secondary',
@@ -952,7 +953,7 @@ test.describe('`image` slot', () => {
                             'brand-04-subtle': 'secondary',
                             'brand-05': 'secondary',
                             'brand-05-subtle': 'secondary',
-                            'brand-06': 'ghost-inverse',
+                            'brand-06': 'secondary',
                             'brand-06-subtle': 'secondary',
                             'brand-08': 'secondary',
                             'brand-08-subtle': 'secondary',
