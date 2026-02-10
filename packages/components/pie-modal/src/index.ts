@@ -392,7 +392,8 @@ export class PieModal extends PieElement implements ModalProps {
             return nothing;
         }
 
-        const variant = this._getHeaderButtonVariant();
+        // Override default variant if the image slot is being used
+        const variant = !this.imageSlotMode ? this._getHeaderButtonVariant() : 'secondary';
 
         return html`
             <pie-icon-button
