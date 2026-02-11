@@ -918,6 +918,73 @@ test.describe('`image` slot', () => {
                     await expect(slotLocator).toBeVisible();
                 });
 
+                [true, false].forEach((hasBackButton) => {
+                    test.describe(`when \`hasBackButton\` is \`${hasBackButton}\``, () => {
+                        test(`the back button should ${hasBackButton ? 'be' : 'not be'} visible`, async ({ page }) => {
+                            // Arrange
+                            const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                            const props: ModalProps = {
+                                ...sharedProps,
+                                imageSlotMode,
+                                hasBackButton,
+                            };
+                            await modalCustomImageSlotContentPage.load(props);
+
+                            // Act
+                            const { backButtonLocator } = modalCustomImageSlotContentPage;
+
+                            // Assert
+                            if (hasBackButton) {
+                                await expect(backButtonLocator).toBeVisible();
+                            } else {
+                                await expect(backButtonLocator).not.toBeVisible();
+                            }
+                        });
+                    });
+
+                    if (hasBackButton) {
+                        test.describe('when `hasBackButton` is `true`', () => {
+                            const bgColorToButtonVariant = {
+                                default: 'ghost-secondary',
+                                subtle: 'ghost-secondary',
+                                'brand-01': 'ghost-secondary-dark',
+                                'brand-02': 'ghost-secondary',
+                                'brand-03': 'ghost-secondary-dark',
+                                'brand-03-subtle': 'ghost-secondary',
+                                'brand-04': 'ghost-secondary-dark',
+                                'brand-04-subtle': 'ghost-secondary',
+                                'brand-05': 'ghost-secondary-dark',
+                                'brand-05-subtle': 'ghost-secondary',
+                                'brand-06': 'ghost-inverse-light',
+                                'brand-06-subtle': 'ghost-secondary',
+                                'brand-08': 'ghost-secondary-dark',
+                                'brand-08-subtle': 'ghost-secondary',
+                            };
+
+                            Object.entries(bgColorToButtonVariant).forEach(([backgroundColor, variant]) => {
+                                test(`when \`backgroundColor\` is \`${backgroundColor}\`, the back button variant should be \`${variant}\``, async ({ page }) => {
+                                    // Arrange
+                                    const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                                    const props: ModalProps = {
+                                        ...sharedProps,
+                                        imageSlotMode,
+                                        hasBackButton: true,
+                                        backgroundColor: backgroundColor as ModalProps['backgroundColor'],
+                                    };
+                                    await modalCustomImageSlotContentPage.load(props);
+
+                                    // Act
+                                    const { backButtonLocator } = modalCustomImageSlotContentPage;
+
+                                    // Assert
+                                    await expect(backButtonLocator).toBeVisible();
+                                    await expect(backButtonLocator).toHaveAttribute('variant', variant);
+                                });
+                            });
+                        });
+                    }
+                });
+
                 [true, false].forEach((isDismissible) => {
                     test.describe(`when \`isDismissible\` is \`${isDismissible}\`   `, () => {
                         test(`the dismiss button should ${isDismissible ? 'be' : 'not be'} visible`, async ({ page }) => {
