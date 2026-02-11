@@ -941,45 +941,47 @@ test.describe('`image` slot', () => {
                             }
                         });
                     });
-                    test.describe('when `isDismissible` is `true`', () => {
-                        const bgColorToButtonVariant = {
-                            default: 'secondary',
-                            subtle: 'secondary',
-                            'brand-01': 'secondary',
-                            'brand-02': 'secondary',
-                            'brand-03': 'secondary',
-                            'brand-03-subtle': 'secondary',
-                            'brand-04': 'secondary',
-                            'brand-04-subtle': 'secondary',
-                            'brand-05': 'secondary',
-                            'brand-05-subtle': 'secondary',
-                            'brand-06': 'secondary',
-                            'brand-06-subtle': 'secondary',
-                            'brand-08': 'secondary',
-                            'brand-08-subtle': 'secondary',
-                        };
+                    if (isDismissible) {
+                        test.describe('when `isDismissible` is `true`', () => {
+                            const bgColorToButtonVariant = {
+                                default: 'secondary',
+                                subtle: 'secondary',
+                                'brand-01': 'secondary',
+                                'brand-02': 'secondary',
+                                'brand-03': 'secondary',
+                                'brand-03-subtle': 'secondary',
+                                'brand-04': 'secondary',
+                                'brand-04-subtle': 'secondary',
+                                'brand-05': 'secondary',
+                                'brand-05-subtle': 'secondary',
+                                'brand-06': 'secondary',
+                                'brand-06-subtle': 'secondary',
+                                'brand-08': 'secondary',
+                                'brand-08-subtle': 'secondary',
+                            };
 
-                        Object.entries(bgColorToButtonVariant).forEach(([backgroundColor, variant]) => {
-                            test(`when \`backgroundColor\` is \`${backgroundColor}\`, the dismiss button variant should be \`${variant}\``, async ({ page }) => {
-                                // Arrange
-                                const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
-                                const props: ModalProps = {
-                                    ...sharedProps,
-                                    imageSlotMode,
-                                    isDismissible: true,
-                                    backgroundColor: backgroundColor as ModalProps['backgroundColor'],
-                                };
-                                await modalCustomImageSlotContentPage.load(props);
+                            Object.entries(bgColorToButtonVariant).forEach(([backgroundColor, variant]) => {
+                                test(`when \`backgroundColor\` is \`${backgroundColor}\`, the dismiss button variant should be \`${variant}\``, async ({ page }) => {
+                                    // Arrange
+                                    const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                                    const props: ModalProps = {
+                                        ...sharedProps,
+                                        imageSlotMode,
+                                        isDismissible: true,
+                                        backgroundColor: backgroundColor as ModalProps['backgroundColor'],
+                                    };
+                                    await modalCustomImageSlotContentPage.load(props);
 
-                                // Act
-                                const { closeButtonLocator } = modalCustomImageSlotContentPage;
+                                    // Act
+                                    const { closeButtonLocator } = modalCustomImageSlotContentPage;
 
-                                // Assert
-                                await expect(closeButtonLocator).toBeVisible();
-                                await expect(closeButtonLocator).toHaveAttribute('variant', variant);
+                                    // Assert
+                                    await expect(closeButtonLocator).toBeVisible();
+                                    await expect(closeButtonLocator).toHaveAttribute('variant', variant);
+                                });
                             });
                         });
-                    });
+                    }
                 });
             });
         });
