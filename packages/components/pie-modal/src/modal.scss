@@ -455,32 +455,55 @@
     }
 
     // Additional background colors
+
+    // Map for background to content color
+    // Note: --dt-color-content-default already switches automatically between dark and light colors to light and dark theme respectively
+    // | BACKGROUND | LIGHT THEME                                | DARK THEME                                 |
+    // | ---------- | ------------------------------------------ | ------------------------------------------ |
+    // | SUBTLE     | --dt-color-content-dark                    | --dt-color-content-light                   |
+    // | STRONG     | --dt-color-content-dark (except aubergine) | --dt-color-content-dark (except aubergine) |
+
     &.c-modal--bg-subtle { --modal-image-slot-bg-color: var(--dt-color-container-subtle); }
 
-    &.c-modal--bg-brand-01 { --modal-bg-color: var(--dt-color-support-brand-01); }
+    &.c-modal--bg-brand-01 {
+        --modal-content-color: var(--dt-color-content-dark);
+        --modal-bg-color: var(--dt-color-support-brand-01);
+    }
 
     &.c-modal--bg-brand-02 { --modal-bg-color: var(--dt-color-support-brand-02); }
 
-    &.c-modal--bg-brand-03 { --modal-bg-color: var(--dt-color-support-brand-03); }
+    &.c-modal--bg-brand-03 {
+        --modal-content-color: var(--dt-color-content-dark);
+        --modal-bg-color: var(--dt-color-support-brand-03);
+    }
 
     &.c-modal--bg-brand-03-subtle { --modal-bg-color: var(--dt-color-support-brand-03-subtle); }
 
-    &.c-modal--bg-brand-04 { --modal-bg-color: var(--dt-color-support-brand-04); }
+    &.c-modal--bg-brand-04 {
+        --modal-content-color: var(--dt-color-content-dark);
+        --modal-bg-color: var(--dt-color-support-brand-04);
+    }
 
     &.c-modal--bg-brand-04-subtle { --modal-bg-color: var(--dt-color-support-brand-04-subtle); }
 
-    &.c-modal--bg-brand-05 { --modal-bg-color: var(--dt-color-support-brand-05); }
+    &.c-modal--bg-brand-05 {
+        --modal-content-color: var(--dt-color-content-dark);
+        --modal-bg-color: var(--dt-color-support-brand-05);
+    }
 
     &.c-modal--bg-brand-05-subtle { --modal-bg-color: var(--dt-color-support-brand-05-subtle); }
 
     &.c-modal--bg-brand-06 {
-        --modal-content-color: var(--dt-color-content-inverse);
+        --modal-content-color: var(--dt-color-content-light);
         --modal-bg-color: var(--dt-color-support-brand-06);
     }
 
     &.c-modal--bg-brand-06-subtle { --modal-bg-color: var(--dt-color-support-brand-06-subtle); }
 
-    &.c-modal--bg-brand-08 { --modal-bg-color: var(--dt-color-support-brand-08); }
+    &.c-modal--bg-brand-08 {
+        --modal-content-color: var(--dt-color-content-dark);
+        --modal-bg-color: var(--dt-color-support-brand-08);
+    }
 
     &.c-modal--bg-brand-08-subtle { --modal-bg-color: var(--dt-color-support-brand-08-subtle); }
 

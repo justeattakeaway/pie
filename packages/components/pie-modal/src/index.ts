@@ -355,24 +355,30 @@ export class PieModal extends PieElement implements ModalProps {
         }
     }
 
-    private _getHeaderButtonVariant (): 'ghost-secondary' | 'ghost-inverse' | 'secondary' {
+    private _getHeaderButtonVariant (): 'ghost-secondary' | 'ghost-secondary-dark' | 'ghost-inverse-light' {
         const { imageSlotMode, backgroundColor } = this;
 
         // Handle the combinations of image slot and background color
         const hasImageSlot = Boolean(imageSlotMode);
         const hasBackgroundColor = Boolean(backgroundColor) && backgroundColor !== 'default';
+        const isBackgroundSubtle = backgroundColor.indexOf('subtle') !== -1 || backgroundColor === 'brand-02';
+        const isBackgroundDefault = backgroundColor === 'default';
         const isInverted = backgroundColor === 'brand-06';
 
-        // default case: image slot is not present
+        const ghostSecondary = isBackgroundSubtle || isBackgroundDefault ? 'ghost-secondary' : 'ghost-secondary-dark';
+
+        // Default case: image slot is not present
         if (!hasImageSlot) {
-            return isInverted ? 'ghost-inverse' : 'ghost-secondary';
+            return isInverted ? 'ghost-inverse-light' : ghostSecondary;
         }
 
-        // image slot is present
+        // Case: image slot is present, default background color
         if (imageSlotMode === 'illustration' && !hasBackgroundColor) {
-            return 'ghost-secondary';
+            return ghostSecondary;
         }
-        return isInverted ? 'ghost-inverse' : 'secondary';
+
+        // Case: background color is other than default
+        return isInverted ? 'ghost-inverse-light' : ghostSecondary;
     }
 
     /**
@@ -386,7 +392,8 @@ export class PieModal extends PieElement implements ModalProps {
             return nothing;
         }
 
-        const variant = this._getHeaderButtonVariant();
+        // Override default variant if the image slot is being used
+        const variant = !this.imageSlotMode ? this._getHeaderButtonVariant() : 'secondary';
 
         return html`
             <pie-icon-button
@@ -446,13 +453,36 @@ export class PieModal extends PieElement implements ModalProps {
      * @private
      */
     private renderLeadingAction (): TemplateResult | typeof nothing {
+        const { backgroundColor } = this;
         const { ariaLabel, text, variant = 'primary' } = this.leadingAction || {};
 
         if (!text) return nothing;
 
+        let buttonVariant: string = variant;
+
+        if (variant === 'primary') {
+            const isBackgroundBrand = backgroundColor && backgroundColor.startsWith('brand-');
+            // Despite the name, brand-02 is also a suble background color, so we need to check for that as well
+            const isBackgroundSubtle = backgroundColor && (backgroundColor.endsWith('subtle') || backgroundColor === 'brand-02');
+
+            if (isBackgroundBrand) {
+                // brand-06 is the only dark brand color, so we can apply a specific variant for that case
+                if (backgroundColor === 'brand-06') {
+                    buttonVariant = 'inverse';
+                } else if (isBackgroundSubtle) {
+                    buttonVariant = 'primary-alternative';
+                } else {
+                    // Case for strong brand colors that are not 'brand-06'
+                    buttonVariant = 'primary-alternative-dark';
+                }
+            } else {
+                buttonVariant = 'primary';
+            }
+        }
+
         return html`
             <pie-button
-                variant="${variant}"
+                variant="${buttonVariant}"
                 aria-label="${ifDefined(ariaLabel)}"
                 type="submit"
                 ?isFullWidth="${this.hasStackedActions}"
@@ -474,15 +504,30 @@ export class PieModal extends PieElement implements ModalProps {
      * @private
      */
     private renderSupportingAction (): TemplateResult | typeof nothing {
+        const { backgroundColor } = this;
         const { ariaLabel, text, variant = 'ghost' } = this.supportingAction || {};
 
         if (!text || !this.leadingAction?.text) {
             return nothing;
         }
 
+        let buttonVariant: string = variant;
+
+        // If the variant is a default value, we want to adjust it based on the background color
+        if (variant === 'ghost') {
+            const isBackgroundStrong = backgroundColor && backgroundColor !== 'default' && backgroundColor.indexOf('subtle') === -1 && backgroundColor !== 'brand-02';
+            const isBackgroundDarkBrand = isBackgroundStrong && backgroundColor === 'brand-06';
+
+            if (isBackgroundStrong) {
+                buttonVariant = isBackgroundDarkBrand ? 'ghost-inverse-light' : 'ghost-dark';
+            } else {
+                buttonVariant = 'ghost';
+            }
+        }
+
         return html`
             <pie-button
-                variant="${variant}"
+                variant="${buttonVariant}"
                 aria-label="${ifDefined(ariaLabel)}"
                 type="reset"
                 ?isFullWidth="${this.hasStackedActions}"
