@@ -421,9 +421,11 @@ export const PrimaryAlternativeDarkAnchorVariations = createVariantStory<ButtonP
 export const SecondaryAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['secondary'] });
 export const OutlineAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['outline'] });
 export const GhostAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['ghost'] });
+export const GhostDarkAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['ghost-dark'] });
 export const OutlineInverseAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['outline-inverse'] }, { bgColor: 'background-dark' });
 export const InverseAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['inverse'] }, { bgColor: 'background-dark' });
 export const GhostInverseAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['ghost-inverse'] }, { bgColor: 'background-dark' });
+export const GhostInverseLightAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['ghost-inverse-light'] }, { bgColor: 'background-dark' });
 export const DestructiveAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['destructive'] });
 export const DestructiveGhostAnchorVariations = createVariantStory<ButtonProps>(AnchorTemplate, { ...sharedAnchorPropMatrix, variant: ['destructive-ghost'] });
 
