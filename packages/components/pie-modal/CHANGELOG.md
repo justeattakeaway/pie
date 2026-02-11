@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-modal
 
+## 1.24.2
+
+### Patch Changes
+
+- [Updated] - heading buttons variants to match background colors in light and dark modes ([#2680](https://github.com/justeattakeaway/pie/pull/2680)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Updated] - content color for strong background variants and heading buttons variants ([#2680](https://github.com/justeattakeaway/pie/pull/2680)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Updated] - leading and supporting buttons variants to match background colors in light and dark modes ([#2680](https://github.com/justeattakeaway/pie/pull/2680)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`84bfb40`](https://github.com/justeattakeaway/pie/commit/84bfb4063d5012c234fe5801716c401a5a737ad9)]:
+  - @justeattakeaway/pie-button@1.12.0
+
 ## 1.24.1
 
 ### Patch Changes
