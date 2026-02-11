@@ -475,11 +475,6 @@ export const InverseVariations = createVariantStory<ButtonProps>(Template, {
     variant: ['inverse'],
 }, { bgColor: 'background-dark', multiColumn: true });
 
-export const InverseLightVariations = createVariantStory<ButtonProps>(Template, {
-    ...sharedPropMatrix,
-    variant: ['inverse-light'],
-}, { bgColor: 'background-dark', multiColumn: true });
-
 export const GhostInverseVariations = createVariantStory<ButtonProps>(Template, {
     ...sharedPropMatrix,
     variant: ['ghost-inverse'],

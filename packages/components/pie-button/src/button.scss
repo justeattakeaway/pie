@@ -207,13 +207,6 @@
         @include p.interactive-states('--dt-color-interactive-inverse');
     }
 
-    &.o-btn--inverse-light {
-        --int-states-mixin-bg-color: var(--dt-color-interactive-light);
-        --btn-text-color: var(--dt-color-content-interactive-dark);
-
-        @include p.interactive-states('--dt-color-interactive-light');
-    }
-
     &.o-btn--ghost-inverse,
     &.o-btn--outline-inverse {
         --int-states-mixin-bg-color: transparent;

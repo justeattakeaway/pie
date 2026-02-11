@@ -6,7 +6,7 @@ export const responsiveSizes = ['productive', 'expressive'] as const;
 export const types = ['submit', 'button', 'reset'] as const;
 export const variants = [
     'primary', 'primary-alternative', 'primary-alternative-dark', 'secondary', 'outline', 'outline-inverse', 'ghost', 'ghost-dark',
-    'inverse', 'inverse-light', 'ghost-inverse', 'ghost-inverse-light', 'destructive', 'destructive-ghost',
+    'inverse', 'ghost-inverse', 'ghost-inverse-light', 'destructive', 'destructive-ghost',
 ] as const;
 export const iconPlacements = ['leading', 'trailing'] as const;
 
