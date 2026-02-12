@@ -12,6 +12,7 @@ export const regularIconSizes = Object.keys(sizeToValueMap);
 export const regularIconSizeDefault = 'xs';
 export const largeIconSizeModule = 8;
 export const largeIconSizeDefault = 32;
+export const iconFillDefault = 'currentColor';
 
 /**
  * Validates the size for large icons

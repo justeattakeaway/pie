@@ -1,7 +1,13 @@
 import { html } from 'lit/static-html.js';
 import '@justeattakeaway/pie-icons-webc';
 import {
-    regularIconSizes, largeIconSizeDefault, regularIconSizeDefault, largeIconSizeModule, type LargeIconSize, type RegularIconSize,
+    regularIconSizes,
+    largeIconSizeDefault,
+    regularIconSizeDefault,
+    largeIconSizeModule,
+    iconFillDefault,
+    type LargeIconSize,
+    type RegularIconSize,
 } from '@justeattakeaway/pie-icons-configs';
 import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';
 
@@ -15,54 +21,66 @@ const iconsStoryMeta = {
 export default iconsStoryMeta;
 
 type RegularIconProps = {
-    size: RegularIconSize
+    size: RegularIconSize;
+    fill: string;
 }
 
 const defaultRegularIconProps: RegularIconProps = {
     size: regularIconSizeDefault,
+    fill: iconFillDefault,
 };
 
 type LargeIconProps = {
-    size: LargeIconSize
+    size: LargeIconSize;
+    fill: string;
 }
 
 const defaultLargeIconProps: LargeIconProps = {
     size: largeIconSizeDefault,
+    fill: iconFillDefault,
 };
 
-const AlcoholFilledRegularIconTemplate: TemplateFunction<RegularIconProps> = ({ size }) => html`
+const AlcoholFilledRegularIconTemplate: TemplateFunction<RegularIconProps> = ({ size, fill }) => html`
     <div class="c-iconGrid">
-        <icon-alcohol-filled size=${size}></icon-alcohol-filled>
+        <icon-alcohol-filled size=${size} fill=${fill}></icon-alcohol-filled>
     </div>
 `;
 
-const AlcoholFilledRegularIconWithOverrideTemplate: TemplateFunction<RegularIconProps> = ({ size }) => html`
+const AlcoholFilledRegularIconWithOverrideTemplate: TemplateFunction<RegularIconProps> = ({ size, fill }) => html`
     <div style="--icon-size-override: 200px;">
         <p>size: ${size}</p>
         <p>--icon-size-override: 200px</p>
-        <icon-alcohol-filled size=${size}></icon-alcohol-filled>
+        <icon-alcohol-filled size=${size} fill=${fill}></icon-alcohol-filled>
     </div>
 `;
 
-const AlcoholFilledLargeIconTemplate: TemplateFunction<LargeIconProps> = ({ size }) => html`
+const AlcoholFilledLargeIconTemplate: TemplateFunction<LargeIconProps> = ({ size, fill }) => html`
     <div class="c-iconGrid">
-        <icon-alcohol-filled-large size=${size}></icon-alcohol-filled-large>
+        <icon-alcohol-filled-large size=${size} fill=${fill}></icon-alcohol-filled-large>
     </div>
 `;
 
-const AlcoholFilledLargeIconWithOverrideTemplate: TemplateFunction<LargeIconProps> = ({ size }) => html`
+const AlcoholFilledLargeIconWithOverrideTemplate: TemplateFunction<LargeIconProps> = ({ size, fill }) => html`
     <div style="--icon-size-override: 200px;">
         <p>size: ${size}px</p>
         <p>--icon-size-override: 200px</p>
-        <icon-alcohol-filled-large size=${size}></icon-alcohol-filled-large>
+        <icon-alcohol-filled-large size=${size} fill=${fill}></icon-alcohol-filled-large>
     </div>
 `;
 
-const AlcoholFilledIconWithClassTemplate: TemplateFunction<RegularIconProps> = ({ size }) => html`
+const AlcoholFilledIconWithClassTemplate: TemplateFunction<RegularIconProps> = ({ size, fill }) => html`
     <div class="c-iconGrid">
-        <icon-alcohol-filled size=${size} class="custom-class"></icon-alcohol-filled>
+        <icon-alcohol-filled size=${size} fill=${fill} class="custom-class"></icon-alcohol-filled>
     </div>
 `;
+
+const fillArgType = {
+    description: 'The fill colour of the icon. When overriding, you should rely on PIE colour design tokens, such as `var(--dt-color-content-brand)`.',
+    control: 'text',
+    defaultValue: {
+        summary: 'currentColor',
+    },
+};
 
 export const AlcoholFilledRegularIcon = createStory(AlcoholFilledRegularIconTemplate, defaultRegularIconProps)({}, {
     layout: 'centered',
@@ -74,6 +92,7 @@ export const AlcoholFilledRegularIcon = createStory(AlcoholFilledRegularIconTemp
                 summary: regularIconSizeDefault,
             },
         },
+        fill: fillArgType,
     },
 });
 
@@ -87,6 +106,7 @@ export const AlcoholFilledRegularIconWithOverride = createStory(AlcoholFilledReg
                 summary: regularIconSizeDefault,
             },
         },
+        fill: fillArgType,
     },
 });
 
@@ -99,6 +119,7 @@ export const AlcoholFilledLargeIcon = createStory(AlcoholFilledLargeIconTemplate
                 summary: largeIconSizeDefault,
             },
         },
+        fill: fillArgType,
     },
 });
 
@@ -111,6 +132,7 @@ export const AlcoholFilledLargeIconWithOverride = createStory(AlcoholFilledLarge
                 summary: largeIconSizeDefault,
             },
         },
+        fill: fillArgType,
     },
 });
 
@@ -136,5 +158,6 @@ export const AlcoholFilledIconWithClass = createStory(AlcoholFilledIconWithClass
                 summary: regularIconSizeDefault,
             },
         },
+        fill: fillArgType,
     },
 });
