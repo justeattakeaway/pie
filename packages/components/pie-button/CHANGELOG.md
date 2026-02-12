@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.12.0
+
+### Minor Changes
+
+- [Added] - ghost-dark and ghost-inverse-light variants ([#2680](https://github.com/justeattakeaway/pie/pull/2680)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.11.1
 
 ### Patch Changes
