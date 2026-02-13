@@ -21,7 +21,7 @@ const componentTemplate = (name, svg) => {
 
     // Add width, height, and fill placeholders to the SVG tag
     // eslint-disable-next-line no-template-curly-in-string
-    const svgWithWidthAndHeight = svg.replace('fill="currentColor" ', '').replace('<svg', '<svg width="${this._svgWidth}" height="${this._svgHeight}" fill="${this.fill}"');
+    const svgWithWidthAndHeight = svg.replace('<svg', '<svg width="${this._svgWidth}" height="${this._svgHeight}" fill="${this.fill}"');
     const kebabCaseName = kebabCase(name);
 
     return `import {
