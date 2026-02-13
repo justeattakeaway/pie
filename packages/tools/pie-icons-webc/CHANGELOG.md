@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.20.0
+
+### Minor Changes
+
+- [Added] - support a fill prop ([#2685](https://github.com/justeattakeaway/pie/pull/2685)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.19.0
 
 ### Minor Changes

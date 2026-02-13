@@ -1,5 +1,29 @@
 # @justeattakeaway/pie-webc
 
+## 0.8.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.12
+  - @justeattakeaway/pie-avatar@0.4.13
+  - @justeattakeaway/pie-breadcrumb@0.7.15
+  - @justeattakeaway/pie-chip@0.15.10
+  - @justeattakeaway/pie-icon-button@2.6.1
+  - @justeattakeaway/pie-link@1.3.10
+  - @justeattakeaway/pie-modal@1.24.3
+  - @justeattakeaway/pie-notification@0.21.6
+  - @justeattakeaway/pie-switch@2.3.12
+  - @justeattakeaway/pie-text-input@0.29.13
+  - @justeattakeaway/pie-toast@0.12.21
+  - @justeattakeaway/pie-checkbox@1.0.5
+  - @justeattakeaway/pie-checkbox-group@1.0.5
+  - @justeattakeaway/pie-radio-group@1.0.5
+  - @justeattakeaway/pie-select@0.8.13
+  - @justeattakeaway/pie-textarea@0.17.12
+  - @justeattakeaway/pie-cookie-banner@1.7.6
+  - @justeattakeaway/pie-toast-provider@0.7.22
+
 ## 0.8.1
 
 ### Patch Changes
