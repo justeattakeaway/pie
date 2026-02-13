@@ -179,6 +179,16 @@ A `large` icon's default (and minimum) `size` is `32`. Values larger than the mi
 <icon-alert-triangle-large size="80"></icon-alert-triangle-large>
 ```
 
+### `fill`
+
+You can set a custom fill colour for the icon by providing a `fill` attribute. The default value is `currentColor`, which means the icon will inherit the text colour of its parent element.
+
+**Example:**
+
+```html
+<icon-alert-triangle-large fill="var(--dt-color-support-positive)"></icon-alert-triangle-large>
+```
+
 
 ## Browser support
 

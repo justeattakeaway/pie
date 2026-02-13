@@ -2,7 +2,13 @@ import { html, unsafeStatic } from 'lit/static-html.js';
 import kebabCase from 'just-kebab-case';
 import * as icons from '@justeattakeaway/pie-icons-webc';
 import {
-    regularIconSizes, largeIconSizeDefault, regularIconSizeDefault, largeIconSizeModule, type LargeIconSize, type RegularIconSize,
+    regularIconSizes,
+    largeIconSizeDefault,
+    regularIconSizeDefault,
+    iconFillDefault,
+    largeIconSizeModule,
+    type LargeIconSize,
+    type RegularIconSize,
 } from '@justeattakeaway/pie-icons-configs';
 import { createStory, type TemplateFunction } from '../../utilities';
 
@@ -55,36 +61,48 @@ const iconGalleryTemplate: TemplateFunction<null> = () => html`
 `;
 
 type RegularIconProps = {
-    size: RegularIconSize
+    size: RegularIconSize;
+    fill: string;
 }
 
 const defaultRegularIconProps: RegularIconProps = {
     size: regularIconSizeDefault,
+    fill: iconFillDefault,
 };
 
 type LargeIconProps = {
-    size: LargeIconSize
+    size: LargeIconSize;
+    fill: string;
 }
 
 const defaultLargeIconProps: LargeIconProps = {
     size: largeIconSizeDefault,
+    fill: iconFillDefault,
 };
 
-const regularIconTemplate: TemplateFunction<RegularIconProps> = ({ size }) => html`
+const regularIconTemplate: TemplateFunction<RegularIconProps> = ({ size, fill }) => html`
     <div class="c-iconGrid">
-        <icon-chat-conversation size=${size}></icon-chat-conversation>
+        <icon-chat-conversation size=${size} fill=${fill}></icon-chat-conversation>
         <pre>&lt;icon-chat-conversation&gt;&lt;/icon-chat-conversation&gt;</pre>
     </div>
 `;
 
-const largeIconTemplate: TemplateFunction<LargeIconProps> = ({ size }) => html`
+const largeIconTemplate: TemplateFunction<LargeIconProps> = ({ size, fill }) => html`
     <div class="c-iconGrid">
-        <icon-chat-conversation-large size=${size}></icon-chat-conversation-large>
+        <icon-chat-conversation-large size=${size} fill=${fill}></icon-chat-conversation-large>
         <pre>&lt;icon-chat-conversation-large&gt;&lt;/icon-chat-conversation-large&gt;</pre>
     </div>
 `;
 
 export const AllIcons = createStory(iconGalleryTemplate, {})();
+
+const fillArgType = {
+    description: 'The fill colour of the icon. Defaults to `currentColor`. When overriding, you should rely on PIE colour design tokens, such as `var(--dt-color-content-brand)`.',
+    control: 'text',
+    defaultValue: {
+        summary: 'currentColor',
+    },
+};
 
 export const RegularIcon = createStory(regularIconTemplate, defaultRegularIconProps)({}, {
     layout: 'centered',
@@ -97,6 +115,7 @@ export const RegularIcon = createStory(regularIconTemplate, defaultRegularIconPr
                 summary: regularIconSizeDefault,
             },
         },
+        fill: fillArgType,
     },
 });
 
@@ -110,5 +129,6 @@ export const LargeIcon = createStory(largeIconTemplate, defaultLargeIconProps)({
                 summary: largeIconSizeDefault,
             },
         },
+        fill: fillArgType,
     },
 });
