@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-configs
 
+## 5.21.0
+
+### Minor Changes
+
+- [Added] - support a fill prop ([#2685](https://github.com/justeattakeaway/pie/pull/2685)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 5.17.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-configs",
-  "version": "5.17.0",
+  "version": "5.21.0",
   "private": true,
   "type": "module",
   "types": "./index.d.ts",
