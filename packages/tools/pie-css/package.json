@@ -20,7 +20,7 @@
     "cdnContentType": "text/css"
   },
   "scripts": {
-    "build": "run -T ts-node ./buildCss.ts && run -T sass scss/_internal/typography.scss dist/helpers/typography.css --no-source-map",
+    "build": "run -T ts-node ./buildCss.ts && run -T sass --load-path=../../../node_modules scss/_internal/typography.scss dist/helpers/typography.css --no-source-map",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./**/*.{css,scss}",
@@ -37,6 +37,9 @@
     "SASS"
   ],
   "license": "Apache-2.0",
+  "dependencies": {
+    "@justeat/pie-design-tokens": "7.10.2"
+  },
   "devDependencies": {
     "@types/postcss-import": "14.0.3",
     "include-media": "2.0.0",

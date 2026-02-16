@@ -3490,6 +3490,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-css@workspace:packages/tools/pie-css"
   dependencies:
+    "@justeat/pie-design-tokens": 7.10.2
     "@types/postcss-import": 14.0.3
     include-media: 2.0.0
     postcss: 8.4.32
