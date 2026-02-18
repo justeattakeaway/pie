@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.26.2
+
+### Patch Changes
+
+- [Fixed] - import issue with scss helpers ([#2687](https://github.com/justeattakeaway/pie/pull/2687)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.26.1
 
 ### Patch Changes
