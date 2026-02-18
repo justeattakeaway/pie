@@ -2,9 +2,9 @@
 @use 'sass:list';
 @use 'sass:map';
 
-// N.b. This next @use import is pretty horrible atm (sorry)
-// We could pull in the tokens as a dependency for this package, but that seems worse potentially, so leaving as this for now
-@use '../../../../../node_modules/@justeat/pie-design-tokens/dist/jet.scss' as *;
+// this is imported so that we have access to the SCSS design tokens
+// Used mainly to check if font tokens exist using meta.variable-exists()
+@use '@justeat/pie-design-tokens/dist/jet.scss' as *;
 
 @mixin font-theme($token-name) {
     // Define the wide breakpoint to be used in the responsive media query.
