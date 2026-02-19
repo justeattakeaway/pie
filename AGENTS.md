@@ -254,3 +254,10 @@ yarn cz  # Interactive commit creation (recommended)
 - **React Wrappers:** Auto-generated from `custom-elements.json` via `@justeattakeaway/pie-wrapper-react`
 - **Versioning:** Uses Changesets for independent package versioning
 - **Publishing:** All packages published to npm under `@justeattakeaway` scope
+
+## Active Technologies
+- CSS3, SCSS (Dart Sass), TypeScript 5.9.3 (for build scripts only) (001-pie-radio-css-classes)
+- N/A (CSS files only) (001-pie-radio-css-classes)
+
+## Recent Changes
+- 001-pie-radio-css-classes: Added CSS3, SCSS (Dart Sass), TypeScript 5.9.3 (for build scripts only)

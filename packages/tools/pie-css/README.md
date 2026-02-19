@@ -200,6 +200,70 @@ In most cases, a webpage should follow the DOM's natural stacking order and the 
 
 The starting position of the slide animation can be customised by overriding the `--pie-animation-slide-translate-start` CSS variable. The default value is `-100%`.
 
+### Static Radio CSS Classes
+
+`pie-css` provides CSS-only classes for displaying static radio button visuals. These are intended for non-interactive display contexts such as receipts, confirmations, and documentation.
+
+**Single-element architecture:** The `.c-radio-static` class can be applied directly to either a native `<input type="radio">` element or a non-form element like `<div>`.
+
+#### Basic Usage
+
+```html
+<!-- On a div element -->
+<div class="c-radio-static"></div>
+<div class="c-radio-static c-radio-static--checked"></div>
+
+<!-- On a native input (preserves native functionality) -->
+<input type="radio" class="c-radio-static" />
+<input type="radio" class="c-radio-static" checked />
+```
+
+#### Available Classes
+
+| Class                      | Description  |
+| -------------------------- | ---------------|
+| `.c-radio-static` | Base class - displays unchecked radio button |
+| `.c-radio-static--checked` | Modifier - displays checked state (filled circle with center dot) |
+| `.c-radio-static--disabled` | Modifier - displays disabled appearance (greyed out) |
+| `.c-radio-static--error` | Modifier - displays error state (red border/fill) |
+
+#### State Combinations
+
+```html
+<!-- Checked + Disabled -->
+<div class="c-radio-static c-radio-static--checked c-radio-static--disabled"></div>
+
+<!-- Checked + Error -->
+<div class="c-radio-static c-radio-static--checked c-radio-static--error"></div>
+```
+
+**Note:** For native inputs, the `:checked` and `:disabled` pseudo-classes work automatically:
+
+```html
+<input type="radio" class="c-radio-static" checked disabled />
+```
+
+#### Customisation
+
+The radio appearance can be customised by overriding CSS custom properties:
+
+```css
+.my-custom-radio {
+    --radio-size: 32px; /* Larger size */
+    --radio-dot-size: 12px; /* Larger dot */
+    --radio-bg-color--checked: var(--my-brand-color); /* Custom color */
+}
+```
+
+**Available CSS Custom Properties:**
+- `--radio-size` (default: 24px) - Circle diameter
+- `--radio-dot-size` (default: 8px) - Center dot diameter
+- `--radio-border-width` (default: 1px) - Border thickness
+- `--radio-border-color` - Border color
+- `--radio-bg-color` - Background color (unchecked)
+- `--radio-bg-color--checked` - Filled circle color (checked)
+- `--radio-dot-bg-color` - Center dot color
+
 
 ---
 

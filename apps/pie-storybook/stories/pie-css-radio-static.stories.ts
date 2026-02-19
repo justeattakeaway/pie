@@ -1,0 +1,197 @@
+import { html } from 'lit';
+import { type Meta, type StoryObj } from '@storybook/web-components';
+
+// Import the pie-css styles
+import '@justeattakeaway/pie-css/dist/index.css';
+
+type RadioStaticArgs = {
+    checked: boolean;
+    disabled: boolean;
+    error: boolean;
+    useNativeInput: boolean;
+};
+
+const defaultArgs: RadioStaticArgs = {
+    checked: false,
+    disabled: false,
+    error: false,
+    useNativeInput: false,
+};
+
+const meta: Meta<RadioStaticArgs> = {
+    title: 'CSS/Radio Static',
+    argTypes: {
+        checked: {
+            description: 'Whether the radio appears checked',
+            control: 'boolean',
+        },
+        disabled: {
+            description: 'Whether the radio appears disabled',
+            control: 'boolean',
+        },
+        error: {
+            description: 'Whether the radio appears in error state',
+            control: 'boolean',
+        },
+        useNativeInput: {
+            description: 'Use native <input type="radio"> instead of <div>',
+            control: 'boolean',
+        },
+    },
+    args: defaultArgs,
+    parameters: {
+        docs: {
+            description: {
+                component: 'Static radio button CSS classes for non-interactive display (receipts, confirmations, etc.). These are pure CSS classes that work on both native inputs and divs.',
+            },
+        },
+    },
+};
+
+export default meta;
+
+type Story = StoryObj<RadioStaticArgs>;
+
+const Template = (args: RadioStaticArgs) => {
+    const classes = [
+        'c-radio-static',
+        args.checked && 'c-radio-static--checked',
+        args.disabled && 'c-radio-static--disabled',
+        args.error && 'c-radio-static--error',
+    ].filter(Boolean).join(' ');
+
+    if (args.useNativeInput) {
+        return html`
+            <input 
+                type="radio" 
+                class="${classes}"
+                ?checked="${args.checked}"
+                ?disabled="${args.disabled}"
+            />
+        `;
+    }
+
+    return html`<div class="${classes}"></div>`;
+};
+
+export const Default: Story = {
+    render: Template,
+};
+
+export const Checked: Story = {
+    render: Template,
+    args: {
+        checked: true,
+    },
+};
+
+export const Disabled: Story = {
+    render: Template,
+    args: {
+        disabled: true,
+    },
+};
+
+export const DisabledChecked: Story = {
+    render: Template,
+    args: {
+        checked: true,
+        disabled: true,
+    },
+};
+
+export const Error: Story = {
+    render: Template,
+    args: {
+        error: true,
+    },
+};
+
+export const ErrorChecked: Story = {
+    render: Template,
+    args: {
+        checked: true,
+        error: true,
+    },
+};
+
+export const NativeInputUnchecked: Story = {
+    render: Template,
+    args: {
+        useNativeInput: true,
+    },
+};
+
+export const NativeInputChecked: Story = {
+    render: Template,
+    args: {
+        useNativeInput: true,
+        checked: true,
+    },
+};
+
+export const AllStates: Story = {
+    render: () => html`
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div>
+                <h3 style="margin: 0 0 10px 0;">Div Elements</h3>
+                <div style="display: flex; gap: 20px; align-items: center;">
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <div class="c-radio-static"></div>
+                        <span style="font-size: 12px;">Unchecked</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <div class="c-radio-static c-radio-static--checked"></div>
+                        <span style="font-size: 12px;">Checked</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <div class="c-radio-static c-radio-static--disabled"></div>
+                        <span style="font-size: 12px;">Disabled</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <div class="c-radio-static c-radio-static--checked c-radio-static--disabled"></div>
+                        <span style="font-size: 12px;">Checked + Disabled</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <div class="c-radio-static c-radio-static--error"></div>
+                        <span style="font-size: 12px;">Error</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <div class="c-radio-static c-radio-static--checked c-radio-static--error"></div>
+                        <span style="font-size: 12px;">Checked + Error</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="margin: 0 0 10px 0;">Native Input Elements</h3>
+                <div style="display: flex; gap: 20px; align-items: center;">
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <input type="radio" class="c-radio-static" />
+                        <span style="font-size: 12px;">Unchecked</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <input type="radio" class="c-radio-static" checked />
+                        <span style="font-size: 12px;">Checked (:checked)</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <input type="radio" class="c-radio-static" disabled />
+                        <span style="font-size: 12px;">Disabled (:disabled)</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <input type="radio" class="c-radio-static" checked disabled />
+                        <span style="font-size: 12px;">Checked + Disabled</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <input type="radio" class="c-radio-static c-radio-static--error" />
+                        <span style="font-size: 12px;">Error</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <input type="radio" class="c-radio-static c-radio-static--error" checked />
+                        <span style="font-size: 12px;">Checked + Error</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `,
+};

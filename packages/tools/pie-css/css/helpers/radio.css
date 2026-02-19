@@ -1,0 +1,91 @@
+/* PIE Radio Static CSS Classes
+ * Single-element architecture - works on both <input type="radio"> and <div>
+ * Feature: 001-pie-radio-css-classes
+ */
+
+.c-radio-static {
+    /* CSS Custom Properties - Component-scoped variables */
+    --radio-dot-bg-color: var(--dt-color-content-interactive-primary);
+    --radio-bg-color: transparent;
+    --radio-bg-color--checked: var(--dt-color-interactive-brand);
+    --radio-border-color: var(--dt-color-border-form);
+    --radio-size: 24px;
+    --radio-dot-size: 8px;
+    --radio-border-width: 1px;
+
+    /* Base visual structure */
+    display: inline-block;
+    width: var(--radio-size);
+    height: var(--radio-size);
+    border: var(--radio-border-width) solid var(--radio-border-color);
+    border-radius: 50%;
+    background-color: var(--radio-bg-color);
+    position: relative;
+    flex-shrink: 0;
+    
+    /* Remove native input styling when applied to <input type="radio"> */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    /* Ensure proper cursor for inputs */
+    cursor: inherit;
+    
+    /* Reset margins for inputs */
+    margin: 0;
+}
+
+/* Pseudo-element: Filled background circle */
+.c-radio-static:before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: calc(var(--radio-border-width) * -1) calc(var(--radio-border-width) * -1) calc(var(--radio-border-width) * -1) calc(var(--radio-border-width) * -1);
+    border-radius: inherit;
+    background-color: var(--radio-bg-color--checked);
+    transform: scale(0);
+}
+
+/* Pseudo-element: Center dot */
+.c-radio-static:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--radio-dot-size);
+    height: var(--radio-dot-size);
+    background-color: var(--radio-dot-bg-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+/* Checked State */
+.c-radio-static--checked:before,
+.c-radio-static:checked:before {
+    transform: scale(1);
+}
+
+.c-radio-static--checked:after,
+.c-radio-static:checked:after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Disabled State */
+.c-radio-static--disabled,
+.c-radio-static:disabled {
+    --radio-bg-color: var(--dt-color-disabled-01);
+    --radio-border-color: var(--dt-color-border-default);
+}
+
+/* Disabled + Checked State */
+.c-radio-static--checked.c-radio-static--disabled,
+.c-radio-static:checked:disabled {
+    --radio-dot-bg-color: var(--dt-color-content-disabled);
+    --radio-bg-color--checked: var(--dt-color-disabled-01);
+}
+
+/* Error State */
+.c-radio-static--error {
+    --radio-bg-color--checked: var(--dt-color-support-error);
+    --radio-border-color: var(--dt-color-support-error);
+}
