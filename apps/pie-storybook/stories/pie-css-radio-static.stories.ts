@@ -195,23 +195,23 @@ export const FocusState: Story = {
 export const ParentInteractionDemo: Story = {
     render: () => {
         // Track selected option for demo
-        let selectedOption = 'option2';
+        const selectedOption = 'option2';
 
         const handleCardClick = (e: Event, optionId: string) => {
             const card = e.currentTarget as HTMLElement;
             const radio = card.querySelector('input[type="radio"]') as HTMLInputElement;
-            
+
             // Update checked state
             if (radio) {
                 radio.checked = true;
             }
-            
+
             // Update card selection state
             const allCards = card.parentElement?.querySelectorAll('.interactive-card');
             allCards?.forEach((c) => c.classList.remove('is-selected'));
             card.classList.add('is-selected');
         };
-        
+
         return html`
             <div class="demo-container">
                 <div class="demo-instructions">
