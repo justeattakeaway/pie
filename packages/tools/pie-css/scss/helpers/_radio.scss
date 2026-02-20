@@ -4,6 +4,8 @@
 // Feature: 001-pie-radio-css-classes
 // ----------------------------------------------
 
+@use '../mixins/focus' as *;
+
 // Base radio static mixin
 // Use this mixin to apply base radio styles to native <input type="radio"> elements
 @mixin radio-static() {
@@ -117,8 +119,7 @@
 
     /* Native Interactive States - Focus */
     &:focus-visible:not(:disabled) {
-        box-shadow: 0 0 0 2px transparent, 0 0 0 4px var(--dt-color-focus-inner), 0 0 0 6px var(--dt-color-focus-outer);
-        outline: none;
+        @include focus;
     }
 }
 
@@ -203,7 +204,6 @@
 // Apply focus ring appearance to radio button
 @mixin radio-static-focus() {
     &:not(:disabled) {
-        box-shadow: 0 0 0 2px transparent, 0 0 0 4px var(--dt-color-focus-inner), 0 0 0 6px var(--dt-color-focus-outer);
-        outline: none;
+        @include focus;
     }
 }
