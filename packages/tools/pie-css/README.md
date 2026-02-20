@@ -475,6 +475,182 @@ import '@justeattakeaway/pie-css/dist/helpers/radio.css';
 
 **Note:** The radio input itself already has native `:hover` that activates when you hover directly on it. The parent container pattern above is for when you want the entire card hover to trigger the radio's hover state.
 
+##### How to Import Radio Styles
+
+There are **two main approaches** depending on whether you want to use **CSS classes** or **SCSS mixins**:
+
+###### Option 1: CSS Classes (Recommended for most use cases)
+
+**In TypeScript/JavaScript/Lit files:**
+
+```typescript
+// Import the generated CSS file with classes
+import '@justeattakeaway/pie-css/dist/helpers/radio.css';
+```
+
+**Example in a Lit component:**
+
+```typescript
+// src/my-component.ts
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators.js';
+
+// Import radio CSS classes
+import '@justeattakeaway/pie-css/dist/helpers/radio.css';
+
+@customElement('my-component')
+export class MyComponent extends LitElement {
+    render() {
+        return html`
+            <input type="radio" class="c-radio-static" name="option" checked />
+        `;
+    }
+}
+```
+
+**In SCSS files (importing CSS):**
+
+```scss
+// Import the generated CSS file
+@use '@justeattakeaway/pie-css/dist/helpers/radio.css';
+```
+
+###### Option 2: SCSS Mixins (For advanced customization)
+
+**In SCSS files:**
+
+```scss
+// Import the SCSS mixins (not the generated CSS)
+@use '@justeattakeaway/pie-css/scss/helpers/radio';
+
+.my-custom-radio {
+    // Apply base radio styles
+    @include radio.radio-static;
+    
+    // Apply checked state
+    &:checked {
+        @include radio.radio-static-checked;
+    }
+    
+    // Apply disabled state
+    &:disabled {
+        @include radio.radio-static-disabled;
+    }
+}
+
+// For error state
+.my-error-radio {
+    @include radio.radio-static;
+    @include radio.radio-static-error;
+}
+
+// For parent-driven interactions (e.g., card with radio)
+.selectable-card {
+    // When card is hovered, style the radio
+    &:hover input[type="radio"] {
+        @include radio.radio-static-hover;
+    }
+    
+    // When card is active, style the radio
+    &:active input[type="radio"] {
+        @include radio.radio-static-active;
+    }
+}
+```
+
+###### Import Path Comparison
+
+| Approach | When to Use | Import Path |
+|----------|-------------|-------------|
+| **CSS Classes** | Simple static displays, no build step needed | `@justeattakeaway/pie-css/dist/helpers/radio.css` |
+| **SCSS Mixins** | Custom styling, parent interactions, smaller bundles | `@justeattakeaway/pie-css/scss/helpers/radio` |
+
+###### Complete Framework Examples
+
+**React Component with CSS Classes:**
+
+```tsx
+// App.tsx
+import '@justeattakeaway/pie-css/dist/helpers/radio.css';
+
+function PaymentMethod() {
+    return (
+        <div>
+            <label>
+                <input type="radio" className="c-radio-static" name="payment" checked />
+                Credit Card
+            </label>
+            <label>
+                <input type="radio" className="c-radio-static" name="payment" />
+                PayPal
+            </label>
+        </div>
+    );
+}
+```
+
+**Vue Component with CSS Classes:**
+
+```vue
+<script setup>
+import '@justeattakeaway/pie-css/dist/helpers/radio.css';
+</script>
+
+<template>
+    <input type="radio" class="c-radio-static" name="option" checked />
+</template>
+```
+
+**SCSS with Custom Parent Interaction:**
+
+```scss
+// my-card.scss
+@use '@justeattakeaway/pie-css/scss/helpers/radio';
+
+.selectable-card {
+    border: 2px solid transparent;
+    padding: 16px;
+    cursor: pointer;
+    
+    input[type="radio"] {
+        @include radio.radio-static;
+    }
+    
+    // Parent hover affects radio
+    &:hover input[type="radio"] {
+        @include radio.radio-static-hover;
+    }
+    
+    // Parent active affects radio
+    &:active input[type="radio"] {
+        @include radio.radio-static-active;
+    }
+}
+```
+
+###### Important Notes
+
+1. **Don't forget base styles**: The radio styles depend on PIE design tokens. Make sure you also import the base pie-css:
+   ```typescript
+   import '@justeattakeaway/pie-css';  // Base tokens (required)
+   import '@justeattakeaway/pie-css/dist/helpers/radio.css';  // Radio styles
+   ```
+
+2. **File extensions**: Use `.css` extension when importing generated CSS files, even in SCSS:
+   ```scss
+   // ✅ Correct
+   @use '@justeattakeaway/pie-css/dist/helpers/radio.css';
+   
+   // ❌ Wrong
+   @use '@justeattakeaway/pie-css/dist/helpers/radio';
+   ```
+
+3. **SCSS mixins don't need extension**:
+   ```scss
+   // ✅ Correct
+   @use '@justeattakeaway/pie-css/scss/helpers/radio';
+   ```
+
 ##### Advanced: Using SCSS Mixins
 
 If you're using SCSS and need more control, you can use the mixins directly:
