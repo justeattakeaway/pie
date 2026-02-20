@@ -33,17 +33,20 @@ This document specifies the public API contract for the static radio CSS classes
 
 ## Public CSS Classes
 
-### 1. `.c-radio-static` (Block)
+### 1. `.c-radio-static` (Base)
 
-**Description**: Container class for static radio button visual  
-**Purpose**: Defines component context and CSS custom properties  
-**HTML Element**: `<div>`, `<span>`, or similar non-form element
+**Description**: Base class for static radio button visual  
+**Purpose**: Styles native input elements to match pie-radio appearance  
+**HTML Element**: `<input type="radio">`
 
 **Expected Behavior**:
-- Displays as inline-block by default
+- Removes native browser styling (appearance: none)
+- Displays as inline-block element
 - Defines component-scoped CSS variables
-- Provides context for child element and modifier classes
-- No visual appearance on its own (requires child `.c-radio-static__input`)
+- Renders circular border (24px diameter by default)
+- Contains `:before` pseudo-element (filled background circle, hidden by default)
+- Contains `:after` pseudo-element (center dot, hidden by default)
+- Visibility of pseudo-elements controlled by `:checked` pseudo-class
 
 **CSS Custom Properties Defined**:
 ```css
@@ -56,83 +59,56 @@ This document specifies the public API contract for the static radio CSS classes
 --radio-border-width: 1px
 ```
 
-**Dependencies**:
-- Requires design tokens from `@justeat/pie-design-tokens` (automatically imported via pie-css)
-
-**Example**:
-```html
-<div class="c-radio-static">
-    <span class="c-radio-static__input"></span>
-</div>
-```
-
----
-
-### 2. `.c-radio-static__input` (Element)
-
-**Description**: Visual circle element with border, filled background, and center dot  
-**Purpose**: Renders the radio button appearance using pseudo-elements  
-**HTML Element**: `<span>` (recommended, but any non-form element works)
-
-**Expected Behavior**:
-- Displays as block element
-- Renders circular border (24px diameter by default)
-- Contains `:before` pseudo-element (filled background circle, hidden by default)
-- Contains `:after` pseudo-element (center dot, hidden by default)
-- Visibility of pseudo-elements controlled by parent modifiers
-
 **Visual Layers**:
 1. **Element itself**: Border circle
 2. **`:before`**: Filled background circle (scales 0→1 when checked)
 3. **`:after`**: Center dot (scales 0→1 when checked)
 
-**Requirements**:
-- MUST be direct child of `.c-radio-static`
-- MUST be empty (no text content or child elements)
-- MUST NOT be a form element (`<input>`, `<button>`, etc.)
+**Dependencies**:
+- Requires design tokens from `@justeat/pie-design-tokens` (automatically imported via pie-css)
 
 **Example**:
 ```html
-<span class="c-radio-static__input"></span>
+<input type="radio" class="c-radio-static" />
 ```
 
 ---
 
-### 3. `.c-radio-static--checked` (Modifier)
+### 2. Native `:checked` Pseudo-Class
 
-**Description**: Checked state modifier  
+**Description**: Checked state using native browser pseudo-class  
 **Purpose**: Reveals filled background circle and center dot  
-**Applied To**: `.c-radio-static` (block level)
+**Applied To**: `<input type="radio">` with `.c-radio-static`
 
 **Expected Behavior**:
-- Scales `.c-radio-static__input:before` from 0 to 1 (filled background appears)
-- Scales `.c-radio-static__input:after` from 0 to 1 (center dot appears)
+- Automatically applied when input's `checked` attribute is set
+- Scales `.c-radio-static:before` from 0 to 1 (filled background appears)
+- Scales `.c-radio-static:after` from 0 to 1 (center dot appears)
 - State change is instant (no animation)
-- Can combine with `--disabled` or `--error` modifiers
+- Can combine with `:disabled` or `.c-radio-static--error` modifier
 
 **Visual Result**:
 - Filled blue circle (brand color) with white center dot
 
 **Example**:
 ```html
-<div class="c-radio-static c-radio-static--checked">
-    <span class="c-radio-static__input"></span>
-</div>
+<input type="radio" class="c-radio-static" checked />
 ```
 
 ---
 
-### 4. `.c-radio-static--disabled` (Modifier)
+### 3. Native `:disabled` Pseudo-Class
 
-**Description**: Disabled state modifier  
+**Description**: Disabled state using native browser pseudo-class  
 **Purpose**: Displays greyed-out appearance for inactive/disabled context  
-**Applied To**: `.c-radio-static` (block level)
+**Applied To**: `<input type="radio">` with `.c-radio-static`
 
 **Expected Behavior**:
+- Automatically applied when input's `disabled` attribute is set
 - Overrides CSS custom properties to use disabled design tokens
 - Changes background to light grey
 - Changes border to lighter grey
-- When combined with `--checked`, center dot becomes dark grey
+- When combined with `:checked`, center dot becomes dark grey
 - No cursor changes (static element, not interactive)
 
 **Visual Result** (unchecked):
@@ -143,25 +119,21 @@ This document specifies the public API contract for the static radio CSS classes
 
 **Example (unchecked disabled)**:
 ```html
-<div class="c-radio-static c-radio-static--disabled">
-    <span class="c-radio-static__input"></span>
-</div>
+<input type="radio" class="c-radio-static" disabled />
 ```
 
 **Example (checked disabled)**:
 ```html
-<div class="c-radio-static c-radio-static--checked c-radio-static--disabled">
-    <span class="c-radio-static__input"></span>
-</div>
+<input type="radio" class="c-radio-static" checked disabled />
 ```
 
 ---
 
-### 5. `.c-radio-static--error` (Modifier)
+### 4. `.c-radio-static--error` (Modifier)
 
 **Description**: Error state modifier  
 **Purpose**: Displays error appearance for validation context  
-**Applied To**: `.c-radio-static` (block level)
+**Applied To**: `<input type="radio">` with `.c-radio-static`
 
 **Expected Behavior**:
 - Overrides CSS custom properties to use error design tokens
@@ -178,30 +150,26 @@ This document specifies the public API contract for the static radio CSS classes
 
 **Example (unchecked error)**:
 ```html
-<div class="c-radio-static c-radio-static--error">
-    <span class="c-radio-static__input"></span>
-</div>
+<input type="radio" class="c-radio-static c-radio-static--error" />
 ```
 
 **Example (checked error)**:
 ```html
-<div class="c-radio-static c-radio-static--checked c-radio-static--error">
-    <span class="c-radio-static__input"></span>
-</div>
+<input type="radio" class="c-radio-static c-radio-static--error" checked />
 ```
 
 ---
 
 ## Valid State Combinations
 
-| Classes | Visual Result | Use Case |
-|---------|---------------|----------|
-| `.c-radio-static` | Empty circle, grey border | Default unchecked state |
-| `.c-radio-static .c-radio-static--checked` | Blue filled circle, white dot | Checked state |
-| `.c-radio-static .c-radio-static--disabled` | Light grey background, light border | Disabled unchecked |
-| `.c-radio-static .c-radio-static--checked .c-radio-static--disabled` | Light grey circle, dark grey dot | Disabled checked |
-| `.c-radio-static .c-radio-static--error` | Empty circle, red border | Error unchecked |
-| `.c-radio-static .c-radio-static--checked .c-radio-static--error` | Red filled circle, white dot | Error checked |
+| HTML | Visual Result | Use Case |
+|------|---------------|----------|
+| `<input type="radio" class="c-radio-static">` | Empty circle, grey border | Default unchecked state |
+| `<input type="radio" class="c-radio-static" checked>` | Blue filled circle, white dot | Checked state |
+| `<input type="radio" class="c-radio-static" disabled>` | Light grey background, light border | Disabled unchecked |
+| `<input type="radio" class="c-radio-static" checked disabled>` | Light grey circle, dark grey dot | Disabled checked |
+| `<input type="radio" class="c-radio-static c-radio-static--error">` | Empty circle, red border | Error unchecked |
+| `<input type="radio" class="c-radio-static c-radio-static--error" checked>` | Red filled circle, white dot | Error checked |
 
 ---
 
@@ -212,41 +180,24 @@ This document specifies the public API contract for the static radio CSS classes
 **Why Invalid**: Errors don't apply to disabled fields (semantic conflict)
 
 ```html
-<!-- INVALID: Do not combine --disabled and --error -->
-<div class="c-radio-static c-radio-static--disabled c-radio-static--error">
-    <span class="c-radio-static__input"></span>
-</div>
+<!-- INVALID: Do not combine disabled and --error -->
+<input type="radio" class="c-radio-static c-radio-static--error" disabled />
 ```
 
-**Resolution**: Choose either `--disabled` OR `--error`, not both.
+**Resolution**: Choose either `disabled` OR `.c-radio-static--error`, not both.
 
 ---
 
-### ❌ Modifier Without Block
+### ❌ Using Non-Input Elements
 
-**Why Invalid**: Modifiers require `.c-radio-static` context
-
-```html
-<!-- INVALID: Modifier without block class -->
-<div class="c-radio-static--checked">
-    <span class="c-radio-static__input"></span>
-</div>
-```
-
-**Resolution**: Always include `.c-radio-static` on the same element as modifiers.
-
----
-
-### ❌ Missing `.c-radio-static__input` Child
-
-**Why Invalid**: Visual appearance requires the input element
+**Why Invalid**: The CSS is designed specifically for native radio inputs
 
 ```html
-<!-- INVALID: No child element -->
-<div class="c-radio-static c-radio-static--checked"></div>
+<!-- INVALID: Using div instead of input -->
+<div class="c-radio-static"></div>
 ```
 
-**Resolution**: Always include `<span class="c-radio-static__input"></span>` as child.
+**Resolution**: Always use `<input type="radio">` with the `.c-radio-static` class.
 
 ---
 
@@ -255,24 +206,40 @@ This document specifies the public API contract for the static radio CSS classes
 ### Minimal Valid Structure
 
 ```html
-<div class="c-radio-static">
-    <span class="c-radio-static__input"></span>
-</div>
+<input type="radio" class="c-radio-static" />
 ```
 
 **Requirements**:
-1. Container element with `.c-radio-static` class
-2. Exactly one child element with `.c-radio-static__input` class
-3. Both elements MUST be non-form elements (not `<input>`, `<button>`, etc.)
-4. Input element MUST be empty (no content or children)
+1. MUST be a native `<input type="radio">` element
+2. MUST include `.c-radio-static` class
+3. State management uses native `checked` and `disabled` attributes
+4. Error state uses `.c-radio-static--error` modifier class
+
+### Checked State
+
+```html
+<input type="radio" class="c-radio-static" checked />
+```
+
+### Disabled State
+
+```html
+<input type="radio" class="c-radio-static" disabled />
+```
+
+### Error State
+
+```html
+<input type="radio" class="c-radio-static c-radio-static--error" />
+```
 
 ### With Text Label (Optional)
 
 ```html
-<div class="c-radio-static c-radio-static--checked">
-    <span class="c-radio-static__input"></span>
+<label style="display: flex; align-items: center; gap: 8px;">
+    <input type="radio" class="c-radio-static" checked />
     <span>Option Label</span>
-</div>
+</label>
 ```
 
 **Note**: Layout styling (flexbox, gap, text alignment) is the developer's responsibility. The CSS classes only handle the radio visual.
@@ -370,8 +337,8 @@ If breaking changes are needed in the future:
 ### Browser Compatibility Tests
 
 - **Tool**: Playwright (cross-browser component tests)
-- **Coverage**: Rendering on div and span elements across browsers
-- **Tests**: Structure validation, class application, pseudo-element rendering
+- **Coverage**: Rendering on native input elements across browsers
+- **Tests**: Structure validation, class application, pseudo-element rendering, native pseudo-class states
 
 ---
 
@@ -394,9 +361,9 @@ Consumers MAY override CSS custom properties for advanced theming:
 ### Disallowed Customizations
 
 Consumers MUST NOT:
-- Modify pseudo-element styles directly (`:before`, `:after` on `.c-radio-static__input`)
+- Modify pseudo-element styles directly (`:before`, `:after` on `.c-radio-static`)
 - Add conflicting styles that break circular shape (e.g., changing `border-radius`)
-- Override critical structural properties (e.g., `position`, `display` on input element)
+- Override critical structural properties (e.g., `position`, `display`)
 
 ---
 
@@ -432,7 +399,9 @@ All changes to the CSS classes contract will be documented in:
 
 This contract guarantees:
 
-- ✅ **5 CSS classes** (1 block, 1 element, 3 modifiers)
+- ✅ **1 CSS class** (`.c-radio-static` base)
+- ✅ **1 CSS modifier** (`.c-radio-static--error`)
+- ✅ **2 native pseudo-classes** (`:checked`, `:disabled`)
 - ✅ **7 CSS custom properties** (overridable for advanced theming)
 - ✅ **6 valid state combinations** (unchecked, checked, disabled, error, checked+disabled, checked+error)
 - ✅ **Visual parity** with pie-radio Web Component (±1px)

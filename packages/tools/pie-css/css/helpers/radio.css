@@ -1,5 +1,5 @@
 /* PIE Radio Static CSS Classes
- * Single-element architecture - works on both <input type="radio"> and <div>
+ * Single-element architecture - works on native <input type="radio"> elements
  * Feature: 001-pie-radio-css-classes
  */
 
@@ -23,15 +23,12 @@
     position: relative;
     flex-shrink: 0;
     
-    /* Remove native input styling when applied to <input type="radio"> */
+    /* Remove native input styling */
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     
-    /* Ensure proper cursor for inputs */
-    cursor: inherit;
-    
-    /* Reset margins for inputs */
+    /* Reset margins */
     margin: 0;
 }
 
@@ -59,26 +56,22 @@
     transform: translate(-50%, -50%) scale(0);
 }
 
-/* Checked State */
-.c-radio-static--checked:before,
+/* Checked State - uses :checked pseudo-class */
 .c-radio-static:checked:before {
     transform: scale(1);
 }
 
-.c-radio-static--checked:after,
 .c-radio-static:checked:after {
     transform: translate(-50%, -50%) scale(1);
 }
 
-/* Disabled State */
-.c-radio-static--disabled,
+/* Disabled State - uses :disabled pseudo-class */
 .c-radio-static:disabled {
     --radio-bg-color: var(--dt-color-disabled-01);
     --radio-border-color: var(--dt-color-border-default);
 }
 
 /* Disabled + Checked State */
-.c-radio-static--checked.c-radio-static--disabled,
 .c-radio-static:checked:disabled {
     --radio-dot-bg-color: var(--dt-color-content-disabled);
     --radio-bg-color--checked: var(--dt-color-disabled-01);

@@ -9,16 +9,16 @@
 
 ### User Story 1 - Static Radio Markup for Non-Interactive Displays (Priority: P1)
 
-A developer needs to display a read-only radio button in a confirmation screen, receipt, or summary view where no interaction is required. They want to use static HTML elements (div/span) with CSS classes instead of a full Web Component.
+A developer needs to display a read-only radio button in a confirmation screen, receipt, or summary view where no interaction is required. They want to use native `<input type="radio">` elements styled with CSS classes instead of a full Web Component.
 
 **Why this priority**: This is the core MVP requirement - providing visual-only radio representation without JavaScript overhead for static/read-only contexts like receipts, confirmations, and documentation.
 
-**Independent Test**: Can be fully tested by applying CSS classes to static HTML and verifying visual match with pie-radio component in both unchecked and checked states.
+**Independent Test**: Can be fully tested by applying CSS classes to native radio inputs and verifying visual match with pie-radio component in both unchecked and checked states.
 
 **Acceptance Scenarios**:
 
-1. **Given** a static div with radio CSS classes, **When** rendered on page, **Then** it should visually match the unchecked pie-radio component
-2. **Given** a static div with radio CSS classes and checked modifier, **When** rendered on page, **Then** it should visually match the checked pie-radio component
+1. **Given** a native input with radio CSS classes, **When** rendered on page, **Then** it should visually match the unchecked pie-radio component
+2. **Given** a native input with radio CSS classes in checked state, **When** rendered on page, **Then** it should visually match the checked pie-radio component
 3. **Given** a static radio element in a design system documentation page, **When** viewed, **Then** it should use the same design tokens as the pie-radio Web Component
 
 ---
@@ -55,11 +55,10 @@ A developer building a form validation summary needs to show radio buttons in er
 
 ### Edge Cases
 
-- What happens when CSS classes are applied to elements with unexpected display properties (e.g., inline elements)?
-- How does the CSS handle browser differences in how pseudo-elements render on non-form elements?
+- How does the CSS handle browser differences in how pseudo-elements render on input elements?
 - What happens if design tokens are not loaded but CSS classes are used?
 - How do the classes behave with different font sizes or container constraints?
-- Will RTL (right-to-left) layouts work correctly with static elements?
+- Will RTL (right-to-left) layouts work correctly with native input elements?
 
 ## Requirements *(mandatory)*
 
@@ -68,9 +67,9 @@ A developer building a form validation summary needs to show radio buttons in er
 - **FR-001**: System MUST provide CSS classes that replicate the unchecked visual state of pie-radio component
 - **FR-002**: System MUST provide CSS classes that replicate the checked visual state of pie-radio component
 - **FR-003**: CSS classes MUST use the same design tokens as the pie-radio Web Component for visual consistency
-- **FR-004**: System MUST provide disabled state CSS modifier class
+- **FR-004**: System MUST provide disabled state CSS support using native `:disabled` pseudo-class
 - **FR-005**: System MUST provide error state CSS modifier class
-- **FR-006**: CSS classes MUST work on div and span elements (non-form elements)
+- **FR-006**: CSS classes MUST work on native `<input type="radio">` elements
 - **FR-007**: System MUST export CSS classes from pie-css package (not pie-radio component)
 - **FR-008**: CSS classes MUST follow existing naming conventions (`.c-*` prefix for components)
 - **FR-009**: CSS classes MUST NOT include interactive behaviors (hover, focus, click)
@@ -81,16 +80,14 @@ A developer building a form validation summary needs to show radio buttons in er
 ### Key Entities *(include if feature involves data)*
 
 - **CSS Class Set**: Collection of CSS classes for static radio representation
-  - Base class for radio container
-  - Inner element class for visual circle
-  - Checked state modifier class
-  - Disabled state modifier class
+  - Base class for radio input styling
+  - Checked state support via `:checked` pseudo-class
+  - Disabled state support via `:disabled` pseudo-class
   - Error state modifier class
   
 - **HTML Structure Pattern**: Recommended markup pattern for applying CSS classes
-  - Container element (div/span)
-  - Required child elements for pseudo-element targeting
-  - Class application order
+  - Native `<input type="radio">` element
+  - Required CSS class application
 
 ## Success Criteria *(mandatory)*
 
