@@ -34,6 +34,7 @@ The PIE design tokens (and HSL colour variants) are exposed as CSS variables, as
     2. [`pie-css` SCSS Helper Definitions](#pie-css-scss-helper-definitions)
         -  [`font-size()`](#font-size)
         - [`@include media()`](#include-media)
+        - [Radio Static Mixins](#radio-static-mixins)
 6. [Testing](#testing)
     - [CSS](#css)
     - [SCSS](#scss)
@@ -200,6 +201,70 @@ In most cases, a webpage should follow the DOM's natural stacking order and the 
 
 The starting position of the slide animation can be customised by overriding the `--pie-animation-slide-translate-start` CSS variable. The default value is `-100%`.
 
+### Static Radio CSS Classes
+
+`pie-css` provides CSS-only classes for displaying static radio button visuals. These are intended for non-interactive display contexts such as receipts, confirmations, and documentation.
+
+**Single-element architecture:** The `.c-radio-static` class can be applied directly to either a native `<input type="radio">` element or a non-form element like `<div>`.
+
+#### Basic Usage
+
+```html
+<!-- On a div element -->
+<div class="c-radio-static"></div>
+<div class="c-radio-static c-radio-static--checked"></div>
+
+<!-- On a native input (preserves native functionality) -->
+<input type="radio" class="c-radio-static" />
+<input type="radio" class="c-radio-static" checked />
+```
+
+#### Available Classes
+
+| Class                      | Description  |
+| -------------------------- | ---------------|
+| `.c-radio-static` | Base class - displays unchecked radio button |
+| `.c-radio-static--checked` | Modifier - displays checked state (filled circle with center dot) |
+| `.c-radio-static--disabled` | Modifier - displays disabled appearance (greyed out) |
+| `.c-radio-static--error` | Modifier - displays error state (red border/fill) |
+
+#### State Combinations
+
+```html
+<!-- Checked + Disabled -->
+<div class="c-radio-static c-radio-static--checked c-radio-static--disabled"></div>
+
+<!-- Checked + Error -->
+<div class="c-radio-static c-radio-static--checked c-radio-static--error"></div>
+```
+
+**Note:** For native inputs, the `:checked` and `:disabled` pseudo-classes work automatically:
+
+```html
+<input type="radio" class="c-radio-static" checked disabled />
+```
+
+#### Customisation
+
+The radio appearance can be customised by overriding CSS custom properties:
+
+```css
+.my-custom-radio {
+    --radio-size: 32px; /* Larger size */
+    --radio-dot-size: 12px; /* Larger dot */
+    --radio-bg-color--checked: var(--my-brand-color); /* Custom color */
+}
+```
+
+**Available CSS Custom Properties:**
+- `--radio-size` (default: 24px) - Circle diameter
+- `--radio-dot-size` (default: 8px) - Center dot diameter
+- `--radio-border-width` (default: 1px) - Border thickness
+- `--radio-border-color` - Border color
+- `--radio-bg-color` - Background color (unchecked)
+- `--radio-bg-color--checked` - Filled circle color (checked)
+- `--radio-dot-bg-color` - Center dot color
+
 
 ---
 
@@ -336,6 +401,342 @@ It also lets you write nice expressions like this:
 ```
 
 To see the full list of features `include-media` provides, [check out their website](https://eduardoboucas.github.io/include-media).
+
+#### Radio Static Mixins
+
+`pie-css` provides SCSS mixins and CSS classes for static radio button styling. These are designed for two primary use cases:
+
+1. **Static displays** - Non-interactive radio representations (e.g., in confirmation screens, receipts, read-only forms)
+2. **Parent container interactions** - Applying radio state styles based on parent element interactions (e.g., hover, active, focus states on a card containing a radio)
+
+For comprehensive documentation with visual examples, see the [Radio Static Styling documentation in Storybook](/docs/additional-libraries-pie-css-radio-static-styling--docs).
+
+##### Installation
+
+The radio styles are included as part of the `@justeattakeaway/pie-css` package:
+
+```bash
+# Using Yarn
+yarn add @justeattakeaway/pie-css
+
+# Using NPM
+npm install @justeattakeaway/pie-css
+```
+
+##### Quick Start: Using CSS Classes
+
+For most use cases, we recommend using the pre-generated CSS classes:
+
+**1. Import the radio CSS:**
+
+```javascript
+import '@justeattakeaway/pie-css/dist/helpers/radio.css';
+```
+
+**2. Apply base class to radio input:**
+
+```html
+<!-- Unchecked state -->
+<input type="radio" class="c-radio-static" name="option" />
+
+<!-- Checked state (add checked attribute) -->
+<input type="radio" class="c-radio-static" name="option" checked />
+
+<!-- Disabled state -->
+<input type="radio" class="c-radio-static" name="option" disabled />
+
+<!-- Error state -->
+<input type="radio" class="c-radio-static c-radio-static--error" name="option" />
+```
+
+**3. For parent container interactions (using SCSS mixins):**
+
+```html
+<div class="interactive-card" tabindex="0">
+    <input type="radio" class="c-radio-static" name="card-option" />
+    <span>Select this card</span>
+</div>
+```
+
+```scss
+@use '@justeattakeaway/pie-css/scss/helpers/radio';
+
+.interactive-card {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    
+    // Apply hover state to radio when card is hovered
+    &:hover .c-radio-static {
+        @include radio.radio-static-hover;
+    }
+}
+```
+
+**Note:** The radio input itself already has native `:hover` that activates when you hover directly on it. The parent container pattern above is for when you want the entire card hover to trigger the radio's hover state.
+
+##### How to Import Radio Styles
+
+There are **two main approaches** depending on whether you want to use **CSS classes** or **SCSS mixins**:
+
+###### Option 1: CSS Classes (Recommended for most use cases)
+
+**In TypeScript/JavaScript/Lit files:**
+
+```typescript
+// Import the generated CSS file with classes
+import '@justeattakeaway/pie-css/dist/helpers/radio.css';
+```
+
+**Example in a Lit component:**
+
+```typescript
+// src/my-component.ts
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators.js';
+
+// Import radio CSS classes
+import '@justeattakeaway/pie-css/dist/helpers/radio.css';
+
+@customElement('my-component')
+export class MyComponent extends LitElement {
+    render() {
+        return html`
+            <input type="radio" class="c-radio-static" name="option" checked />
+        `;
+    }
+}
+```
+
+**In SCSS files (importing CSS):**
+
+```scss
+// Import the generated CSS file
+@use '@justeattakeaway/pie-css/dist/helpers/radio.css';
+```
+
+###### Option 2: SCSS Mixins (For advanced customization)
+
+**In SCSS files:**
+
+```scss
+// Import the SCSS mixins (not the generated CSS)
+@use '@justeattakeaway/pie-css/scss/helpers/radio';
+
+.my-custom-radio {
+    // Apply base radio styles
+    @include radio.radio-static;
+    
+    // Apply checked state
+    &:checked {
+        @include radio.radio-static-checked;
+    }
+    
+    // Apply disabled state
+    &:disabled {
+        @include radio.radio-static-disabled;
+    }
+}
+
+// For error state
+.my-error-radio {
+    @include radio.radio-static;
+    @include radio.radio-static-error;
+}
+
+// For parent-driven interactions (e.g., card with radio)
+.selectable-card {
+    // When card is hovered, style the radio
+    &:hover input[type="radio"] {
+        @include radio.radio-static-hover;
+    }
+    
+    // When card is active, style the radio
+    &:active input[type="radio"] {
+        @include radio.radio-static-active;
+    }
+}
+```
+
+###### Import Path Comparison
+
+| Approach | When to Use | Import Path |
+|----------|-------------|-------------|
+| **CSS Classes** | Simple static displays, no build step needed | `@justeattakeaway/pie-css/dist/helpers/radio.css` |
+| **SCSS Mixins** | Custom styling, parent interactions, smaller bundles | `@justeattakeaway/pie-css/scss/helpers/radio` |
+
+###### Complete Framework Examples
+
+**React Component with CSS Classes:**
+
+```tsx
+// App.tsx
+import '@justeattakeaway/pie-css/dist/helpers/radio.css';
+
+function PaymentMethod() {
+    return (
+        <div>
+            <label>
+                <input type="radio" className="c-radio-static" name="payment" checked />
+                Credit Card
+            </label>
+            <label>
+                <input type="radio" className="c-radio-static" name="payment" />
+                PayPal
+            </label>
+        </div>
+    );
+}
+```
+
+**Vue Component with CSS Classes:**
+
+```vue
+<script setup>
+import '@justeattakeaway/pie-css/dist/helpers/radio.css';
+</script>
+
+<template>
+    <input type="radio" class="c-radio-static" name="option" checked />
+</template>
+```
+
+**SCSS with Custom Parent Interaction:**
+
+```scss
+// my-card.scss
+@use '@justeattakeaway/pie-css/scss/helpers/radio';
+
+.selectable-card {
+    border: 2px solid transparent;
+    padding: 16px;
+    cursor: pointer;
+    
+    input[type="radio"] {
+        @include radio.radio-static;
+    }
+    
+    // Parent hover affects radio
+    &:hover input[type="radio"] {
+        @include radio.radio-static-hover;
+    }
+    
+    // Parent active affects radio
+    &:active input[type="radio"] {
+        @include radio.radio-static-active;
+    }
+}
+```
+
+###### Important Notes
+
+1. **Don't forget base styles**: The radio styles depend on PIE design tokens. Make sure you also import the base pie-css:
+   ```typescript
+   import '@justeattakeaway/pie-css';  // Base tokens (required)
+   import '@justeattakeaway/pie-css/dist/helpers/radio.css';  // Radio styles
+   ```
+
+2. **File extensions**: Use `.css` extension when importing generated CSS files, even in SCSS:
+   ```scss
+   // ✅ Correct
+   @use '@justeattakeaway/pie-css/dist/helpers/radio.css';
+   
+   // ❌ Wrong
+   @use '@justeattakeaway/pie-css/dist/helpers/radio';
+   ```
+
+3. **SCSS mixins don't need extension**:
+   ```scss
+   // ✅ Correct
+   @use '@justeattakeaway/pie-css/scss/helpers/radio';
+   ```
+
+##### Advanced: Using SCSS Mixins
+
+If you're using SCSS and need more control, you can use the mixins directly:
+
+**Import the radio helpers:**
+
+```scss
+@use '@justeattakeaway/pie-css/scss/helpers/radio';
+```
+
+**Available mixins:**
+
+| Mixin | Description |
+| ----- | ----------- |
+| `radio-static()` | Base radio styles with `:checked`, `:disabled`, and native interactive states (`:hover`, `:active`, `:focus-visible`) |
+| `radio-static-error()` | Error state appearance (red border/fill) |
+| `radio-static-hover()` | Hover appearance for parent container interactions |
+| `radio-static-active()` | Active appearance for parent container interactions |
+| `radio-static-focus()` | Focus ring for parent container interactions |
+| `radio-static-hover-error()` | Combined hover + error state for parent interactions |
+| `radio-static-active-error()` | Combined active + error state for parent interactions |
+
+**Example - Basic usage:**
+
+```scss
+@use '@justeattakeaway/pie-css/scss/helpers/radio';
+
+.my-radio {
+    @include radio.radio-static;
+}
+
+.my-radio-error {
+    @include radio.radio-static;
+    @include radio.radio-static-error;
+}
+```
+
+**Example - Parent container interaction:**
+
+```scss
+@use '@justeattakeaway/pie-css/scss/helpers/radio';
+
+.interactive-card {
+    // Apply hover state to nested radio when card is hovered
+    &:hover .c-radio-static {
+        @include radio.radio-static-hover;
+    }
+    
+    // Apply active state when card is pressed
+    &:active .c-radio-static {
+        @include radio.radio-static-active;
+    }
+    
+    // Apply focus state when card is keyboard-focused
+    &:focus-visible .c-radio-static {
+        @include radio.radio-static-focus;
+    }
+}
+```
+
+##### Important Notes
+
+**Native Interactive States:**
+- The base `radio-static()` mixin and `.c-radio-static` class include native `:hover`, `:active`, and `:focus-visible` pseudo-classes
+- This means radio inputs automatically respond to direct user interactions (hovering, clicking, keyboard focus)
+- No additional code needed for standard radio button interactions
+
+**Parent Container States:**
+- Use the `-hover`, `-active`, and `-focus` mixins/classes when you want parent elements (like cards) to trigger radio state changes
+- These are separate from native states and intended for custom UI patterns
+
+**Customization:**
+- All styles use CSS custom properties that can be overridden
+- See the full documentation in Storybook for customization examples
+
+##### Available CSS Classes
+
+| Class | Description |
+| ----- | ----------- |
+| `.c-radio-static` | Base radio styles (includes native interactive states) |
+| `.c-radio-static--error` | Error state modifier |
+| `.c-radio-static--hover` | Hover state modifier (for parent interactions) |
+| `.c-radio-static--active` | Active state modifier (for parent interactions) |
+| `.c-radio-static--focus` | Focus state modifier (for parent interactions) |
+| `.c-radio-static--hover.c-radio-static--error` | Combined hover + error (for parent interactions) |
+| `.c-radio-static--active.c-radio-static--error` | Combined active + error (for parent interactions) |
 
 
 ### Other SCSS helpers
