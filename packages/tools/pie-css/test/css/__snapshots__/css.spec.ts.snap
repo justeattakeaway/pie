@@ -103,7 +103,8 @@ exports[`helpers/radio.css > should render the expected CSS content 1`] = `
   }
 }
 .c-radio-static:focus-visible:not(:disabled) {
-  box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
+  box-shadow: 0 0 0 2px transparent, 0 0 0 4px var(--dt-color-focus-inner), 0 0 0 6px var(--dt-color-focus-outer);
+  outline: none;
 }
 
 .c-radio-static--error {
@@ -148,7 +149,8 @@ exports[`helpers/radio.css > should render the expected CSS content 1`] = `
 }
 
 .c-radio-static--focus:not(:disabled) {
-  box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
+  box-shadow: 0 0 0 2px transparent, 0 0 0 4px var(--dt-color-focus-inner), 0 0 0 6px var(--dt-color-focus-outer);
+  outline: none;
 }
 "
 `;
@@ -3327,7 +3329,8 @@ html[data-color-mode="dark"] {
 }
 /* Native Interactive States - Focus */
 .c-radio-static:focus-visible:not(:disabled) {
-    box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
+    box-shadow: 0 0 0 2px transparent, 0 0 0 4px var(--dt-color-focus-inner), 0 0 0 6px var(--dt-color-focus-outer);
+    outline: none;
 }
 /* Error State */
 .c-radio-static--error {
@@ -3402,7 +3405,8 @@ html[data-color-mode="dark"] {
  * Uses box-shadow to create focus ring (matches pie-radio focus implementation)
  */
 .c-radio-static--focus:not(:disabled) {
-    box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
+    box-shadow: 0 0 0 2px transparent, 0 0 0 4px var(--dt-color-focus-inner), 0 0 0 6px var(--dt-color-focus-outer);
+    outline: none;
 }
 html {
     box-sizing: border-box;
