@@ -72,8 +72,8 @@ describe('helpers/radio.css', () => {
         // color-mix() with CSS custom properties is not fully supported by W3C CSS validator
         // however it is valid modern CSS supported by all target browsers
         const acceptedErrors = [
-            "“var(--dt-color-hover-01-bg)” is not a “color” value",
-            "“var(--dt-color-active-01-bg)” is not a “color” value",
+            '“var(--dt-color-hover-01-bg)” is not a “color” value',
+            '“var(--dt-color-active-01-bg)” is not a “color” value',
         ];
 
         // Act
