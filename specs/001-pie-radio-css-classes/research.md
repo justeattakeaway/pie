@@ -1,60 +1,178 @@
-# Research: PIE Radio CSS Classes
+# Research: PIE Radio CSS Mixins and Classes
 
 **Feature**: 001-pie-radio-css-classes  
-**Date**: 2026-02-19  
-**Status**: Complete
+**Date**: 2026-02-20  
+**Status**: Complete (Amended for Mixin Architecture)
 
 ## Research Questions
 
-This document resolves all "NEEDS CLARIFICATION" items from the Technical Context and explores best practices for implementing CSS-only radio button visuals.
+This document resolves technical approach questions for implementing radio button styling as SASS mixins with generated CSS classes, following the typography pattern established in pie-css.
 
 ---
 
-## 1. HTML Structure for Static Radio CSS Classes
+## 1. Mixin-First Architecture (not `@extend` with placeholders)
 
-### Decision: Two-Element Structure with Container and Visual Circle
+### Decision: Use `@mixin` / `@include` Pattern
 
 **Rationale**:
-- The pie-radio Web Component uses a `<label>` wrapper (`.c-radio`) containing an `<input type="radio">` element (`.c-radio-input`)
-- For static CSS classes, we need a similar structure to leverage CSS pseudo-elements (`:before` and `:after`)
-- Pseudo-elements on a single element can only provide 2 additional visual layers; we need 3 layers total:
-  1. Border circle (outer)
-  2. Filled background circle (appears when checked)
-  3. Center dot (appears when checked)
+- Matches existing typography pattern in `scss/_internal/typography.scss` (uses `@mixin font-theme()`)
+- Mixins provide better control for consumers - they can include only what they need
+- Avoids CSS bloat from `@extend` which can create complex selector chains
+- Enables tree-shaking - consumers using mixins directly get smaller bundles
+- Better DX: `@include radio-static()` is more explicit than `@extend %c-radio-static`
+
+**Chosen Pattern** (from typography):
+```scss
+// In helpers/_radio.scss - Define mixins
+@mixin radio-static() {
+    /* base styles */
+}
+
+@mixin radio-static-hover() {
+    /* hover styles */
+}
+// etc.
+
+// In _internal/radio.scss - Generate classes
+.c-radio-static {
+    @include radio-static();
+}
+
+.c-radio-static--hover {
+    @include radio-static-hover();
+}
+```
+
+**Alternatives Considered**:
+- **`@extend` with placeholders** - Original approach in existing code, but:
+  - Creates selector coupling (all extends share same output)
+  - Cannot parameterize (mixins can accept parameters if needed later)
+  - Typography CSS doesn't use this pattern
+  - Harder to tree-shake unused styles
+- **CSS classes only** - Too limiting:
+  - No flexibility for SASS consumers
+  - Forces everyone to load all states even if unused
+  - Can't customize styles at compile time
+
+**References**:
+- Existing file: `packages/tools/pie-css/scss/_internal/typography.scss` (lines 12-16)
+- Typography uses: `@mixin font-theme($token-name)` + loop to generate classes
+
+---
+
+---
+
+## 2. HTML Structure for Native Input Elements
+
+### Decision: Use Native `<input type="radio">` with Single Class
+
+**Rationale**:
+- The existing `helpers/_radio.scss` already implements styles for native radio inputs using `appearance: none`
+- Mixins will work on native `<input type="radio">` elements (not div/span wrappers)
+- Pseudo-elements (`:before`, `:after`) work on inputs in modern browsers
+- Checked state uses native `:checked` pseudo-class (no manual class management)
+- Disabled state uses native `:disabled` pseudo-class
 
 **Chosen Structure**:
 ```html
-<!-- Unchecked state -->
-<div class="c-radio-static">
-    <span class="c-radio-static__input"></span>
-</div>
+<!-- For CSS class users -->
+<input type="radio" class="c-radio-static" name="example">
+<input type="radio" class="c-radio-static" name="example" checked>
+<input type="radio" class="c-radio-static" name="example" disabled>
 
-<!-- Checked state -->
-<div class="c-radio-static c-radio-static--checked">
-    <span class="c-radio-static__input"></span>
-</div>
+<!-- For SASS mixin users -->
+<input type="radio" class="my-custom-radio" name="example">
 ```
 
-**HTML Element Choice**:
-- **Container**: `<div>` or `<span>` (developer's choice based on context)
-- **Visual circle**: `<span>` (semantic choice for inline/phrasing content)
-- Both elements must be non-form elements to avoid accessibility confusion
+```scss
+// Consumer's SCSS
+.my-custom-radio {
+    @include radio-static();
+}
+
+// Parent interaction pattern
+.my-card {
+    &:hover .my-custom-radio {
+        @include radio-static-hover();
+    }
+}
+```
+
+**Key Benefits**:
+- Single element (simpler than two-element structure)
+- Native form functionality preserved (if needed for examples)
+- `:checked` and `:disabled` work automatically
+- Matches existing implementation in `helpers/_radio.scss` (lines 8-80)
 
 **Alternatives Considered**:
-
-| Approach | Pros | Cons | Verdict |
-|----------|------|------|---------|
-| Single element (one class) | Simpler HTML | Cannot create 3 visual layers with only 2 pseudo-elements | **REJECTED** - Insufficient visual layers |
-| Three elements (explicit layers) | Most flexible | Overly verbose HTML, deviates from Web Component structure | **REJECTED** - Too complex |
-| Two elements with BEM naming | Clean structure, matches Web Component pattern, standard methodology | Requires nested element | **ACCEPTED** - Best balance |
-
-**Justification**: Two-element structure mirrors the Web Component's `<label>` + `<input>` pattern and provides the necessary pseudo-elements for all visual layers while maintaining clean, semantic HTML.
+- **Two-element structure (div + span)** - More complex, loses native semantics, not needed for modern browsers
+- **Custom element wrapper** - Would require Web Component, defeats purpose of CSS-only solution
 
 ---
 
-## 2. CSS Pseudo-Element Strategy for Non-Form Elements
+## 3. Mixin Structure and State Handling
 
-### Decision: Leverage `:before` and `:after` Pseudo-Elements on Inner Element
+### Decision: Base Mixin + Separate State Mixins
+
+**Rationale**:
+- Base mixin includes checked/disabled pseudo-classes internally (always needed)
+- Interactive states (hover/active/focus) are separate mixins (optional, for parent interactions)
+- Error state is separate mixin (optional modifier)
+
+**Mixin Inventory**:
+
+1. **`@mixin radio-static()`** - Base styles
+   - Includes `:checked` and `:disabled` pseudo-class handling
+   - Sets up CSS custom properties
+   - Creates border circle, filled circle (`:before`), and center dot (`:after`)
+
+2. **`@mixin radio-static-error()`** - Error state
+   - Overrides color variables for error appearance
+
+3. **`@mixin radio-static-hover()`** - Hover appearance
+   - For parent interaction pattern: `.card:hover .radio { @include radio-static-hover(); }`
+   - Does NOT apply to `:disabled` radios
+
+4. **`@mixin radio-static-active()`** - Active/pressed appearance
+   - For parent interaction pattern: `.card:active .radio { @include radio-static-active(); }`
+
+5. **`@mixin radio-static-focus()`** - Focus ring appearance
+   - For parent interaction pattern: `.card:focus .radio { @include radio-static-focus(); }`
+
+**Why Separate Interactive Mixins?**
+- Enables pattern: `.card:hover .radio { @include radio-static-hover(); }`
+- Prevents unintended interactive behavior on static radios
+- CSS consumers can use modifier classes: `.c-radio-static.c-radio-static--hover`
+- Matches requirement FR-011: "Base mixin MUST NOT include interactive behaviors by default"
+
+**Example Usage**:
+```scss
+// Basic usage
+.my-radio {
+    @include radio-static();
+}
+
+// Parent interaction pattern (from Storybook example)
+.my-card {
+    .my-radio {
+        @include radio-static();
+    }
+    
+    &:hover .my-radio {
+        @include radio-static-hover();
+    }
+    
+    &:active .my-radio {
+        @include radio-static-active();
+    }
+    
+    &:focus .my-radio {
+        @include radio-static-focus();
+    }
+}
+```
+
+---
 
 **Rationale**:
 The pie-radio Web Component uses pseudo-elements on the `<input>` element:
@@ -424,66 +542,108 @@ If use cases emerge where static radios need animations (e.g., JavaScript-driven
 
 | Decision Area | Chosen Approach | Rationale |
 |--------------|-----------------|-----------|
-| **HTML Structure** | Two-element BEM structure | Provides necessary pseudo-elements, mirrors Web Component pattern |
-| **Pseudo-Elements** | `:before` (filled circle), `:after` (dot) on inner element | Matches Web Component implementation, browser-compatible |
-| **Design Tokens** | Component-scoped CSS variables referencing design tokens | Maintainability, consistency, themability |
-| **Naming Convention** | `.c-radio-static` (BEM with `.c-` prefix) | Clear differentiation, follows PIE conventions |
-| **Build Process** | Add to `css/helpers/`, import in `input.css` | Matches existing pattern, automatic bundling |
-| **Interactive States** | Excluded (no hover/focus/active) | Non-interactive purpose, accessibility, simplicity |
-| **Animations** | Excluded | Unnecessary for static displays, reduces complexity |
-| **RTL Support** | Implicit (symmetrical design) | No special handling needed for circles |
+| **Architecture** | Mixin-first (not `@extend`) | Matches typography pattern, better tree-shaking, more flexible |
+| **HTML Structure** | Native `<input type="radio">` with single class | Simpler, uses native `:checked`/`:disabled`, modern browser support |
+| **Mixin Structure** | Base mixin + 4 state mixins (error, hover, active, focus) | Granular control, supports parent interaction patterns |
+| **Dual Output** | SASS mixins + generated CSS classes | Serves both build-time and runtime consumers |
+| **Design Tokens** | CSS custom properties referencing design tokens | Maintainability, consistency with pie-radio component |
+| **Build Process** | New `scss/_internal/radio.scss` + sass compilation script | Mirrors typography pattern, minimal changes |
+| **Interactive States** | Separate mixins (not in base) | Enables parent interaction patterns, prevents false affordances |
 
 ---
 
-## Open Questions & Risks
+## Build Process Integration
 
-### Open Questions
-1. **Documentation Location**: Should usage examples live in Storybook docs, pie-css README, or both?
-   - **Recommendation**: Both - Storybook for visual demos, README for quick reference
+### Decision: Mirror Typography CSS Build Pattern
 
-2. **CSS Class Scope**: Should classes be scoped to prevent conflicts (e.g., via CSS Modules)?
-   - **Recommendation**: No - Global classes align with pie-css pattern and design token usage
+**Implementation**:
 
-3. **Future Component Coverage**: Should we create static CSS classes for other components (checkbox, switch)?
-   - **Recommendation**: Out of scope for this feature - evaluate after assessing radio class adoption
+1. **Mixin Definitions** (`scss/helpers/_radio.scss`):
+   - Refactor existing placeholder selectors (`%c-radio-static`) to mixins (`@mixin radio-static()`)
+   - Keep same CSS logic, just change delivery mechanism
 
-### Risks
+2. **Class Generation** (`scss/_internal/radio.scss` - NEW FILE):
+   ```scss
+   @use '../helpers/radio' as *;
+   
+   .c-radio-static {
+       @include radio-static();
+   }
+   
+   .c-radio-static--error {
+       @include radio-static();
+       @include radio-static-error();
+   }
+   
+   .c-radio-static--hover {
+       @include radio-static-hover();
+   }
+   
+   .c-radio-static--active {
+       @include radio-static-active();
+   }
+   
+   .c-radio-static--focus {
+       @include radio-static-focus();
+   }
+   ```
 
-| Risk | Likelihood | Impact | Mitigation |
-|------|-----------|--------|------------|
-| Consumers use static classes for functional forms | Medium | High - Accessibility violations | **Clear documentation warnings**, naming implies non-interactive (`static`), add Storybook examples showing wrong vs right usage |
-| Design drift between CSS classes and Web Component | Low | Medium - Visual inconsistency | **Visual regression tests** comparing static CSS to Web Component, shared design tokens |
-| Increased pie-css bundle size concerns | Low | Low - Only ~2KB added | **Document file size**, consider separate import in future if feedback warrants |
-| Browser compatibility issues with `inset` property | Low | Low - Modern browser target | **Fallback using `top/right/bottom/left`** if older browser support needed, test across browsers |
+3. **Build Script Update** (`package.json`):
+   ```json
+   "build": "run -T ts-node ./buildCss.ts && run -T sass --load-path=../../../node_modules scss/_internal/typography.scss dist/helpers/typography.css --no-source-map && run -T sass --load-path=../../../node_modules scss/_internal/radio.scss dist/helpers/radio.css --no-source-map"
+   ```
+
+**Output Files**:
+- `scss/helpers/_radio.scss` - Mixins for SASS consumers
+- `dist/helpers/radio.css` - Generated classes for CSS consumers
 
 ---
 
-## Next Steps (Phase 1)
+## Storybook Examples Structure
+
+### Decision: Two Separate Stories
+
+1. **Native Input Example**:
+   - Shows `<input type="radio" class="c-radio-static">` with various states
+   - No custom SCSS needed
+   - Demonstrates drop-in CSS class usage
+
+2. **Parent Interactions Example**:
+   - Shows card component with hover/focus triggering radio state changes
+   - Demonstrates SASS mixin usage for parent-triggered states
+   - Requires `pie-css-radio-static-demo.scss` with mixin calls
+
+---
+
+## Open Questions & Next Steps
+
+### Resolved Questions
+- ✅ Mixin vs extend architecture
+- ✅ HTML structure (native input)
+- ✅ Build process integration
+- ✅ State handling approach
+- ✅ Storybook example structure
+
+### Phase 1 Next Steps
 
 1. **Data Model** (`data-model.md`):
-   - Document CSS class structure (BEM hierarchy)
-   - Define all CSS custom properties and their values
-   - State transition matrix (unchecked, checked, disabled, error combinations)
+   - CSS custom property definitions
+   - Mixin signatures and parameters
+   - State transition matrix
 
-2. **Contracts** (`contracts/css-classes.md`):
-   - CSS API specification (class names, expected behavior)
-   - HTML structure requirements
-   - Design token dependencies
+2. **Contracts** (`contracts/mixins-api.md`):
+   - Mixin API specification
+   - Generated class API specification
+   - Usage examples
 
 3. **Quickstart** (`quickstart.md`):
-   - Usage examples for each state (unchecked, checked, disabled, error)
-   - Wrong vs right usage scenarios
-   - Migration from inline styles or other patterns
+   - Quick reference for both mixin and class usage
+   - Parent interaction pattern examples
 
 4. **Agent Context Update**:
    - Run `.specify/scripts/bash/update-agent-context.sh opencode`
-   - Add CSS class development to agent context
-
-5. **Re-evaluate Constitution Check**:
-   - Verify all design decisions remain compliant
-   - Document any new concerns or exceptions
 
 ---
 
-**Research Status**: ✅ COMPLETE  
+**Research Status**: ✅ COMPLETE (Amended for Mixin Architecture)  
 **Gate Status**: ✅ APPROVED TO PROCEED TO PHASE 1

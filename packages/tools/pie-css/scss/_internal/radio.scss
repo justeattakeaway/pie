@@ -1,0 +1,33 @@
+// ----------------------------------------------
+// PIE Radio Static CSS Classes
+// Generates CSS classes from radio mixins
+// Feature: 001-pie-radio-css-classes
+// Pattern: Mirrors typography.scss (mixin → class generation)
+// ----------------------------------------------
+
+@use '../helpers/radio' as *;
+
+// Base class - includes checked and disabled state handling
+.c-radio-static {
+    @include radio-static;
+}
+
+// Error state modifier - override colors for error appearance
+.c-radio-static--error {
+    @include radio-static-error;
+}
+
+// Interactive state modifiers for parent interaction patterns
+// Example: .card:hover .c-radio-static--hover
+
+.c-radio-static--hover {
+    @include radio-static-hover;
+}
+
+.c-radio-static--active {
+    @include radio-static-active;
+}
+
+.c-radio-static--focus {
+    @include radio-static-focus;
+}

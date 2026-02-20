@@ -77,8 +77,141 @@
     --radio-bg-color--checked: var(--dt-color-disabled-01);
 }
 
+/* Native Interactive States - Hover */
+.c-radio-static:hover:not(:checked, :disabled) {
+    --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
+}
+
+@supports (background-color: color-mix(in srgb, black, white)) {
+    .c-radio-static:hover:not(:checked, :disabled) {
+        --radio-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), transparent);
+    }
+}
+
+.c-radio-static:hover:checked:not(:disabled):before {
+    --radio-bg-color--checked: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
+    --radio-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
+}
+
+@supports (background-color: color-mix(in srgb, black, white)) {
+    .c-radio-static:hover:checked:not(:disabled):before {
+        --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-interactive-brand));
+    }
+}
+
+/* Native Interactive States - Active */
+.c-radio-static:active:not(:checked, :disabled) {
+    --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
+}
+
+@supports (background-color: color-mix(in srgb, black, white)) {
+    .c-radio-static:active:not(:checked, :disabled) {
+        --radio-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), transparent);
+    }
+}
+
+.c-radio-static:active:checked:not(:disabled):before {
+    --radio-bg-color--checked: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
+    --radio-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
+}
+
+@supports (background-color: color-mix(in srgb, black, white)) {
+    .c-radio-static:active:checked:not(:disabled):before {
+        --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-interactive-brand));
+    }
+}
+
+/* Native Interactive States - Focus */
+.c-radio-static:focus-visible:not(:disabled) {
+    box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
+}
+
 /* Error State */
 .c-radio-static--error {
     --radio-bg-color--checked: var(--dt-color-support-error);
     --radio-border-color: var(--dt-color-support-error);
+}
+
+/* Interactive State Modifiers
+ * These classes allow SASS consumers to apply interactive appearances
+ * when parent containers are interacted with (e.g., card:hover > radio)
+ * They replicate the visual states from pie-radio Web Component
+ */
+
+/* Hover State - Unchecked */
+.c-radio-static--hover:not(:checked, :disabled) {
+    --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
+}
+
+@supports (background-color: color-mix(in srgb, black, white)) {
+    .c-radio-static--hover:not(:checked, :disabled) {
+        --radio-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), transparent);
+    }
+}
+
+/* Hover State - Checked */
+.c-radio-static--hover:checked:not(:disabled):before {
+    --radio-bg-color--checked: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
+    --radio-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
+}
+
+@supports (background-color: color-mix(in srgb, black, white)) {
+    .c-radio-static--hover:checked:not(:disabled):before {
+        --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-interactive-brand));
+    }
+}
+
+/* Hover State - Checked + Error */
+.c-radio-static--hover.c-radio-static--error:checked:not(:disabled):before {
+    --radio-bg-color--checked: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) - var(--dt-color-hover-01)));
+    --radio-border-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) - var(--dt-color-hover-01)));
+}
+
+@supports (background-color: color-mix(in srgb, black, white)) {
+    .c-radio-static--hover.c-radio-static--error:checked:not(:disabled):before {
+        --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-support-error));
+    }
+}
+
+/* Active State - Unchecked */
+.c-radio-static--active:not(:checked, :disabled) {
+    --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
+}
+
+@supports (background-color: color-mix(in srgb, black, white)) {
+    .c-radio-static--active:not(:checked, :disabled) {
+        --radio-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), transparent);
+    }
+}
+
+/* Active State - Checked */
+.c-radio-static--active:checked:not(:disabled):before {
+    --radio-bg-color--checked: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
+    --radio-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
+}
+
+@supports (background-color: color-mix(in srgb, black, white)) {
+    .c-radio-static--active:checked:not(:disabled):before {
+        --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-interactive-brand));
+    }
+}
+
+/* Active State - Checked + Error */
+.c-radio-static--active.c-radio-static--error:checked:not(:disabled):before {
+    --radio-bg-color--checked: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) - var(--dt-color-active-01)));
+    --radio-border-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) - var(--dt-color-active-01)));
+}
+
+@supports (background-color: color-mix(in srgb, black, white)) {
+    .c-radio-static--active.c-radio-static--error:checked:not(:disabled):before {
+        --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-support-error));
+    }
+}
+
+/* Focus State
+ * Note: Requires --dt-color-focus-inner and --dt-color-focus-outer design tokens
+ * Uses box-shadow to create focus ring (matches pie-radio focus implementation)
+ */
+.c-radio-static--focus:not(:disabled) {
+    box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
 }

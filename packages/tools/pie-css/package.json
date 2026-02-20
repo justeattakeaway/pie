@@ -20,7 +20,7 @@
     "cdnContentType": "text/css"
   },
   "scripts": {
-    "build": "run -T ts-node ./buildCss.ts && run -T sass --load-path=../../../node_modules scss/_internal/typography.scss dist/helpers/typography.css --no-source-map",
+    "build": "run -T ts-node ./buildCss.ts && run -T sass --load-path=../../../node_modules scss/_internal/typography.scss dist/helpers/typography.css --no-source-map && run -T sass --load-path=../../../node_modules scss/_internal/radio.scss dist/helpers/radio.css --no-source-map",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./**/*.{css,scss}",
