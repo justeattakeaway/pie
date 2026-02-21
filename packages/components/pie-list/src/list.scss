@@ -1,5 +1,35 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 :host {
-    display: block;
+  display: block;
+
+  // Default padding - will be inherited by child list items
+  --list-item-padding: var(--dt-spacing-d) var(--dt-spacing-d) var(--dt-spacing-d) var(--dt-spacing-d);
+}
+
+.c-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &.c-list--compact {
+    --list-item-padding: var(--dt-spacing-b) var(--dt-spacing-d) var(--dt-spacing-b) var(--dt-spacing-d);
+  }
+
+  &.c-list--ordered {
+    list-style: decimal;
+    list-style-position: inside;
+  }
+}
+
+// Dividers between items
+:host([has-dividers]) ::slotted(pie-list-item:not(:last-child)),
+// Allow bespoke markup that renders native `<li>` elements.
+:host([has-dividers]) ::slotted(li:not(:last-child)) {
+  border-bottom: 1px solid var(--dt-color-border-subtle);
+}
+
+// Interactive items (reserved for future interactive states via attribute)
+:host([interactive]) ::slotted(*) {
+  cursor: pointer;
 }
