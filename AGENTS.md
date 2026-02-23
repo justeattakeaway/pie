@@ -103,9 +103,11 @@ dsw-123-my-feature
 Where `dsw-123` is the Jira ticket ID.
 
 **Commit Messages:**
-Use `yarn cz` (commitizen) to generate commits. Format:
+The repo follows committizen standards for commits. Make sure to follow this format:
+
+Format:
 ```
-type(scope): TICKET-123 your message
+type(scope): DSW-123 your message
 ```
 
 **Commit Types:**
@@ -122,6 +124,9 @@ type(scope): TICKET-123 your message
 - `cosmetic` - UI styling changes (design tokens, Sass, SVGs)
 - `test` - Adding missing tests
 - `wip` - Work in progress (use for incomplete commits)
+
+**Commit scope**
+The scope part of each commit message should be the package name changed. e.g. `pie-button`
 
 **Pull Requests:**
 - Use the PR template in `.github/pull_request_template.md`
@@ -180,9 +185,9 @@ Entries must be prefixed with a category in square brackets, followed by a dash 
 - Run visual tests: `yarn test:visual --filter=@justeattakeaway/pie-{component-name}`
 
 ### Linting
-- Lint scripts: `yarn lint:scripts`
+- Lint JS/TS scripts: `yarn lint:scripts`
 - Lint styles: `yarn lint:style`
-- Fix script linting issues: `yarn lint:scripts:fix`
+- Fix JS/TS lint issues: `yarn lint:scripts:fix`
 - Fix style linting issues: `yarn lint:style:fix`
 
 ## Code Style Guidelines
@@ -203,9 +208,12 @@ Entries must be prefixed with a category in square brackets, followed by a dash 
 - Use `DelegatesFocusMixin` when the component needs to delegate focus to an internal element
 - Use `RtlMixin` when the component needs to respond to RTL direction changes
 - Handle events properly using the event utilities from `pie-webc-core` (see [Event Handling](#event-handling))
+- For public type exports, see TypeScript guidelines.
 
 ### Styling
-- Use SCSS with design tokens
+- Use SCSS with design tokens (CSS variables where possible)
+  - Design tokens are defined in the `@justeattakeaway/pie-design-tokens` package
+  - DON'T invent token names
 - Follow BEM-like naming: `c-componentName--modifier`
   - Components are prefixed: `.c-`
   - Descriptors in a classname use camel-case if more than one word (e.g. `c-myComponentName`)
@@ -287,10 +295,10 @@ private _handleChange(event: Event) {
 ## When Making Changes
 
 1. **Check existing patterns** - Look at similar components (e.g., `pie-button`)
-2. **Follow the structure** - Use the generator or copy from existing components
-3. **Write tests first** - Browser tests are primary, not unit tests
-4. **Use page objects** - Follow the `BasePage` / `[Component]Page` / `[Component]Component` pattern
-5. **Test in Storybook** - Verify visually before writing tests
+2. **Follow the structure** - Use `generator-pie-component` (or copy from existing components)
+3. **Test in Storybook** - Verify visually before writing tests
+4. **Prioritize browser tests** - Browser tests are primary, not unit tests
+5. **Use page objects** - Follow the `BasePage` / `[Component]Page` / `[Component]Component` pattern
 6. **Create changeset** - If change affects consumers, using the `[Category] - description` format
 7. **Update README** - Component README becomes the Storybook overview and must meet the required structure enforced by Danger JS
 8. **Test in Aperture** - Use `/test-aperture` command on PR
@@ -300,9 +308,8 @@ private _handleChange(event: Event) {
 ❌ Don't use jsdom for component tests - use real browsers
 ❌ Don't skip browser tests in favor of unit tests
 ❌ Don't change component status without approval
-❌ Don't commit without using `yarn cz`
+❌ Don't use a commit message that does not match `type(scope): TICKET-123 your message`
 ❌ Don't skip changesets for consumer-facing changes
-❌ Don't use physical CSS properties - use logical properties
 ❌ Don't create components manually - use the generator
 ❌ Don't dispatch custom events manually with `new CustomEvent(...)` - use `dispatchCustomEvent` from `pie-webc-core`
 ❌ Don't write a README without all required sections - Danger JS will fail the PR
