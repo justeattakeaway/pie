@@ -179,7 +179,7 @@ Entries must be prefixed with a category in square brackets, followed by a dash 
 - Build all packages: `yarn build`
 
 ### Testing
-- Run once before browser tests (or after config changes): `yarn test:browsers-setup --filter=@justeattakeaway/pie-{component-name}`
+- Run once before browser tests (or after Playwright config changes): `yarn test:browsers-setup --filter=@justeattakeaway/pie-{component-name}`
 - Run browser tests for a component: `yarn test:browsers --filter=@justeattakeaway/pie-{component-name}`
 - Run all tests: `yarn test`
 - Run visual tests: `yarn test:visual --filter=@justeattakeaway/pie-{component-name}`
