@@ -1,3 +1,4 @@
 import type React from 'react';
 
-export type ReactBaseType = React.FieldsetHTMLAttributes<HTMLFieldSetElement>
+// Omit event types to avoid conflicting with PieCheckboxGroup's type definition
+export type ReactBaseType = Omit<React.FieldsetsHTMLAttributes<HTMLFieldSetElement>, 'onChange'>
