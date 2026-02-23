@@ -22,7 +22,7 @@ yarn dev --filter=@justeattakeaway/pie-storybook
 ```
 In another shell:
 ```bash
-yarn watch --filter={{COMPONENT_NAME}}
+yarn watch --filter=@justeattakeaway/{{COMPONENT_NAME}}
 ```
 
 ## Events

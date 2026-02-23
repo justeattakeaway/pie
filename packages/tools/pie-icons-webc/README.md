@@ -207,7 +207,7 @@ The PIE icon set is managed by our PIE Design System team. New icon requests sho
 
 ### Building the module
 
-Run `yarn build --filter=pie-icons-webc` from the root of the monorepo.
+Run `yarn build --filter=@justeattakeaway/pie-icons-webc` from the root of the monorepo.
 
 ## Icon library
 

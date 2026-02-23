@@ -97,7 +97,7 @@ The PIE iconset is managed by our PIE design team and new icon requests should g
 
 ### Building the Module
 
-Run `yarn build --filter=pie-icons-vue` from the project level or `yarn turbo run build --filter=pie-icons-vue` from the root level to compile the module.
+Run `yarn build --filter=@justeattakeaway/pie-icons-vue` from the project level or `yarn turbo run build --filter=@justeattakeaway/pie-icons-vue` from the root level to compile the module.
 
 ## Icon list
 
