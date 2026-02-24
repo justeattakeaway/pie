@@ -1,6 +1,7 @@
 {
   "name": "@justeattakeaway/pie-icons-vue",
   "version": "5.20.0",
+  "deprecated": "This package is deprecated. Please use @justeattakeaway/pie-icons-webc instead. See https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons-webc#vue",
   "description": "PIE Design System Icon set for Vue",
   "homepage": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons-vue",
   "repository": {
