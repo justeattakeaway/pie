@@ -32,8 +32,8 @@ Ask the agent to run this skill and provide the target path, for example:
 
 ## Scoring guidance
 - Only **high-severity** items may be marked `fail`. All other issues should be `can improve`.
-- If any **high severity** item is `fail`, the overall result must be `NEEDS_CHANGES`.
-- Otherwise the overall result should be `PASS`.
+- If any **high severity** item is `fail`, the overall result must be `❌ NEEDS_CHANGES`.
+- Otherwise the overall result should be `✅ PASS`.
 
 ### Checklist items to output
 Output only the checklist items that are not `pass` (i.e., `can improve` or `fail`), and include the evidence for each item.
