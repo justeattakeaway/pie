@@ -7,7 +7,7 @@ This document provides guidance for AI agents working with the PIE (Principles f
 PIE is Just Eat Takeaway's global design system. This monorepo contains:
 - **Web Components** - Framework-agnostic components built with Lit 3
 - **Documentation** - The pie.design documentation site
-- **Storybook** - Component playground and testing environment
+- **Storybook** - Component playground, web engineering documentation and testing environment
 - **Tools** - Shared tooling packages for component development
 
 ## Repository Structure
@@ -29,11 +29,11 @@ pie/
 ## Technology Stack
 
 - **Runtime**: Node.js 22 or 24 (specified in `package.json` engines). Versions are pinned via **Volta** (see `"volta"` field in root `package.json`). Install Volta to have node/yarn versions switched automatically.
-- **Package Manager**: Yarn 3.8.1
+- **Package Manager**: Yarn 3.x (exact version pinned in root `package.json` via `packageManager` and `volta.yarn`)
 - **Monorepo**: Turborepo
 - **Build Tool**: Vite
-- **Web Components**: Lit 3.2.0
-- **TypeScript**: 5.9.3
+- **Web Components**: Lit 3.x (exact version pinned in root `package.json` `resolutions.lit`)
+- **TypeScript**: TypeScript 5.x (exact version defined in root `package.json` `devDependencies.typescript`)
 - **Testing**:
   - Playwright (browser tests)
   - Vitest (unit tests)
@@ -206,7 +206,7 @@ Entries must be prefixed with a category in square brackets, followed by a dash 
 - Implement proper lifecycle methods (`connectedCallback`, `disconnectedCallback`, `updated`)
 - Use `FormControlMixin` for form components
 - Use `DelegatesFocusMixin` when the component needs to delegate focus to an internal element
-- Use `RtlMixin` when the component needs to respond to RTL direction changes
+- Ensure all components support RTL; use `RtlMixin` when programmatic JS awareness of direction changes is needed
 - Handle events properly using the event utilities from `pie-webc-core` (see [Event Handling](#event-handling))
 - For public type exports, see TypeScript guidelines.
 
@@ -234,7 +234,7 @@ Entries must be prefixed with a category in square brackets, followed by a dash 
 ## Important Notes
 
 ### Dependencies
-- **Lit**: Pinned to 3.2.0 in resolutions
+- **Lit**: 3.x (exact version pinned in root `package.json` `resolutions.lit`)
 - **pie-webc-core**: Provides shared base class, mixins, decorators, and utility functions
 - **pie-webc**: Umbrella package — consumers install this to get all components at once
 - **pie-design-tokens**: Design system tokens
@@ -260,24 +260,11 @@ This means you generally only need to run the top-level command (e.g. `yarn test
 
 ### Event Handling
 
-Prefer the utility functions from `pie-webc-core` over constructing events manually:
+Prefer native platform events where possible (for example `Event`/`InputEvent`) and avoid custom events unless there is a concrete requirement for a custom payload shape or cross-boundary behavior.
 
-- **`dispatchCustomEvent(element, 'pie-event-name', detail)`** — the standard way to dispatch custom events. It enforces the `pie-` prefix convention and sets `bubbles: true, composed: true` automatically.
-- **`wrapNativeEvent(event)`** — wraps a native event (e.g. a `change` event inside the shadow DOM that has `composed: false`) in a new `CustomEvent` so it can propagate past the shadow boundary. The original event is available at `event.detail.sourceEvent`.
-
-```typescript
-// Dispatching a custom event
-import { dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
-
-dispatchCustomEvent(this, 'pie-change', { value: this.value });
-
-// Re-dispatching a non-bubbling native event
-import { wrapNativeEvent } from '@justeattakeaway/pie-webc-core';
-
-private _handleChange(event: Event) {
-    this.dispatchEvent(wrapNativeEvent(event));
-}
-```
+- If a native event is sufficient, dispatch/forward the native event.
+- If you need a PIE custom event API, use **`dispatchCustomEvent(element, 'pie-event-name', detail)`** from `pie-webc-core` rather than constructing `CustomEvent` manually.
+- If you need to forward a non-composed native event out of shadow DOM, use **`wrapNativeEvent(event)`** from `pie-webc-core`.
 
 ### React Wrappers
 - React wrappers are auto-generated during build (`build:react-wrapper`)
@@ -305,13 +292,13 @@ private _handleChange(event: Event) {
 
 ## Avoid
 
-❌ Don't use jsdom for component tests - use real browsers
-❌ Don't skip browser tests in favor of unit tests
-❌ Don't change component status without approval
-❌ Don't use a commit message that does not match `type(scope): TICKET-123 your message`
-❌ Don't skip changesets for consumer-facing changes
-❌ Don't create components manually - use the generator
-❌ Don't dispatch custom events manually with `new CustomEvent(...)` - use `dispatchCustomEvent` from `pie-webc-core`
-❌ Don't write a README without all required sections - Danger JS will fail the PR
-❌ Don't leave unchecked PR checklist items outside the "Not-applicable" section - Danger JS will fail the PR
-❌ Don't run browser tests without first running `test:browsers-setup`
+- Don't use jsdom for component tests - use real browsers
+- Don't skip browser tests in favor of unit tests
+- Don't change component status without approval
+- Don't use a commit message that does not match `type(scope): TICKET-123 your message`
+- Don't skip changesets for consumer-facing changes
+- Don't create components manually - use the generator
+- Don't dispatch custom events manually with `new CustomEvent(...)` - use `dispatchCustomEvent` from `pie-webc-core`
+- Don't write a README without all required sections - Danger JS will fail the PR
+- Don't leave unchecked PR checklist items outside the "Not-applicable" section - Danger JS will fail the PR
+- Don't run browser tests without first running `test:browsers-setup`
