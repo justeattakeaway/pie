@@ -1,10 +1,10 @@
 ---
 name: skill-reviewer
-description: Rules and best-practice guidelines for reviewing a PIE agent skill's SKILL.md, focused on required frontmatter validation and qualitative content review, with a checklist-style report output. Use it when asked to review a SKILL.md file.
+description: Rules and best-practice guidelines for reviewing an agent skill's SKILL.md, focused on required frontmatter validation and qualitative content review, with a checklist-style report output. Use it when asked to review a SKILL.md file.
 ---
 
 ## Purpose
-Use this skill to review a target skill's `SKILL.md` in the PIE repository. It performs **hard validation** of required frontmatter rules and a **best-practices review** of the SKILL content. It outputs a **checklist-style report** suitable for pasting into a PR comment.
+It performs hard validation of required frontmatter rules and a best-practices review of the SKILL content. It outputs a checklist-style report suitable for pasting into a PR comment.
 
 ## When to use
 - You're creating or modifying a skill and want a consistent quality review.
@@ -27,12 +27,12 @@ Ask the agent to run this skill and provide the target path, for example:
   - For any `can improve` or `fail`: a brief, actionable suggestion.
 
 ## Scope and constraints
-- Only review `SKILL.md` files **within this PIE repository**.
+- Only review `SKILL.md` files within this repository.
 - DO NOT create or modify files unless the user explicitly asks.
 
 ## Scoring guidance
-- Only **high-severity** items may be marked `fail`. All other issues should be `can improve`.
-- If any **high severity** item is `fail`, the overall result must be `❌ NEEDS_CHANGES`.
+- Only `high-severity` items may be marked `fail`. All other issues should be `can improve`.
+- If any `high-severity` item is `fail`, the overall result must be `❌ NEEDS_CHANGES`.
 - Otherwise the overall result should be `✅ PASS`.
 
 ### Checklist items to output
