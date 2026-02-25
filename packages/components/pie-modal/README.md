@@ -57,7 +57,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `size`                           | `"small"`, `"medium"`, `"large"`                  | Determines the maximum width of the modal. Large modals will expand to fill the entire page at narrow viewports.                                                                                                                    | `"medium"`  |
 | `backgroundColor`                | `"default"`, `"subtle"`, `"brand-01"`, `"brand-02"`, `"brand-03"`, `"brand-03-subtle"`, `"brand-04"`, `"brand-04-subtle"`, `"brand-05"`, `"brand-05-subtle"`, `"brand-06"`, `"brand-06-subtle"`, `"brand-08"`, `"brand-08-subtle"` | Sets the background color for the modal.           | `"default"` |
 | `imageSlotMode`                | `"image"`, `"illustration"`                         | This property controls if and how the image slot will display its content. `"image"` will display the slot content in a rectangle, covering the entire width of the modal, while `"illustration"` will display the slot content inside a square container. If not specified it will not display the image slot content. | —           |
-| `imageSlotAspectRatio`         | `"small"`, `"medium"`, `"large"`                    | If the `imageSlotMode` is set to `image`, this property controls the aspect ratio of the image container. The aspect ratios are the following: `"small"` : `4:1`, `"medium"` : `3:1`, `"large"` : `21:9`.                           | `"medium"`     |
+| `imageSlotAspectRatio`         | `"small"`, `"medium"`, `"large"`                    | If the `imageSlotMode` is set to `image`, this property controls the aspect ratio of the image container. The aspect ratios are for Narrow breakpoints: `"small"` : `3:1`, `"medium"` : `16:9`, `"large"` : `4:3`, and for Wide breakpoints: `"small"` : `4:1`, `"medium"` : `3:1`, `"large"` : `21:9`.                           | `"medium"`     |
 
 ### Slots
 | Slot      | Description                                                        |
@@ -67,8 +67,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `headerContent` | Used to pass additional content to the modal header that scrolls with the heading and controls. |
 | `footer`  | Used to pass optional content to the modal component footer area.  |
 
-#### Slots display order
-
+#### Slots display order˚√˚∫√˚
 The order of content rendering is as follows:
 1. `image` slot (if provided)
 2. Modal header (including `heading` prop and `headerContent` slot, if provided)
