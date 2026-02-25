@@ -67,7 +67,8 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `headerContent` | Used to pass additional content to the modal header that scrolls with the heading and controls. |
 | `footer`  | Used to pass optional content to the modal component footer area.  |
 
-#### Slots display order˚√˚∫√˚
+#### Slots display order
+
 The order of content rendering is as follows:
 1. `image` slot (if provided)
 2. Modal header (including `heading` prop and `headerContent` slot, if provided)
