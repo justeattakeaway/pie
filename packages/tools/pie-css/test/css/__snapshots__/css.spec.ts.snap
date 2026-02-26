@@ -478,6 +478,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-container-base: rgb(255,255,255,0.72);
     --dt-color-container-neutral: rgb(240,236,230,0.72);
     --dt-color-container-prominent: rgb(255,255,255,0.4);
+    --dt-color-container-base-dark: rgb(43,42,40,0.62);
     --dt-color-border-default: var(--dt-color-truffle-20);
     --dt-color-border-subtle: var(--dt-color-truffle-10);
     --dt-color-border-strong: var(--dt-color-truffle-30);
@@ -867,6 +868,13 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-font-caption-strong-family: var(--dt-font-family-primary);
     --dt-font-caption-strong-weight: var(--dt-font-weight-bold);
     --dt-font-caption-strong-paragraph: var(--dt-font-paragraph-spacing-03);
+    /* Caption-strong-italic font theme */
+    --dt-font-caption-strong-italic-size: var(--dt-font-size-12);
+    --dt-font-caption-strong-italic-line-height: var(--dt-font-line-height-16);
+    --dt-font-caption-strong-italic-family: var(--dt-font-family-primary);
+    --dt-font-caption-strong-italic-weight: var(--dt-font-weight-extrabold);
+    --dt-font-caption-strong-italic-font-style: var(--dt-font-style-italic);
+    --dt-font-caption-strong-italic-paragraph: var(--dt-font-paragraph-spacing-03);
     /* Caption-strong-link font theme */
     --dt-font-caption-strong-link-size: var(--dt-font-size-12);
     --dt-font-caption-strong-link-line-height: var(--dt-font-line-height-16);
@@ -1011,6 +1019,7 @@ html[data-color-mode="dark"] {
     --dt-color-container-base: rgb(43,42,40,0.62);
     --dt-color-container-neutral: rgb(89,86,79,0.72);
     --dt-color-container-prominent: rgb(43,42,40,0.42);
+    --dt-color-container-base-dark: rgb(43,42,40,0.62);
     --dt-color-border-default: var(--dt-color-truffle-70);
     --dt-color-border-subtle: var(--dt-color-truffle-75);
     --dt-color-border-strong: var(--dt-color-truffle-65);
@@ -1187,6 +1196,7 @@ html[data-color-mode="dark"] {
         --dt-color-container-base: rgb(43,42,40,0.62);
         --dt-color-container-neutral: rgb(89,86,79,0.72);
         --dt-color-container-prominent: rgb(43,42,40,0.42);
+        --dt-color-container-base-dark: rgb(43,42,40,0.62);
         --dt-color-border-default: var(--dt-color-truffle-70);
         --dt-color-border-subtle: var(--dt-color-truffle-75);
         --dt-color-border-strong: var(--dt-color-truffle-65);
