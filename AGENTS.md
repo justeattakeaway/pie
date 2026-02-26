@@ -72,16 +72,16 @@ component-name/
 1. **Use Lit 3** - All components extend `PieElement` from `@justeattakeaway/pie-webc-core`
 2. **Type Safety** - Define types in `defs.ts`, use TypeScript strictly
 3. **Styling** - Use SCSS files imported as `?inline` in component files
-4. **Design Tokens** - Use `@justeattakeaway/pie-design-tokens` for colors, spacing, etc.
+4. **Design Tokens** - Use `@justeattakeaway/pie-design-tokens` for colours, spacing, etc.
 5. **Mixins** - Use mixins from `pie-webc-core` (e.g., `FormControlMixin`, `RtlMixin`, `DelegatesFocusMixin`)
 
 ### Testing Philosophy
 
 **Primary Testing Strategy: Browser Tests**
 - Test components in **real browsers** using Playwright, not jsdom
-- Test user-facing behavior, not implementation details
+- Test user-facing behaviour, not implementation details
 - Use Storybook stories as test fixtures
-- Focus on accessibility, form behavior, and user interactions
+- Focus on accessibility, form behaviour, and user interactions
 
 **Test Types:**
 - **Browser Tests** (`test/component/*.spec.ts`) - Primary testing method
@@ -90,7 +90,7 @@ component-name/
 - **Unit Tests** - Only for small utilities, not components
 
 **Test Naming:**
-- Use `test.describe` blocks: Component name → Feature → Specific behavior
+- Use `test.describe` blocks: Component name → Feature → Specific behaviour
 - Test names: `should [do something]`, `should [do something] when [condition]`
 - Example: `should submit form when Enter key is pressed`
 
@@ -224,11 +224,14 @@ Entries must be prefixed with a category in square brackets, followed by a dash 
 - Use logical properties (e.g. `margin-inline-start` not `margin-left`)
 - Import styles as `?inline` in component files
 
+### Documentation
+- Write all documentation in British English and use British English spelling consistently.
+
 ### Accessibility
 - Use semantic HTML
 - Support keyboard navigation
 - Include ARIA attributes where needed
-- Test with screen readers
+- Code must be compatible with screen readers
 - Follow WCAG guidelines
 
 ## Important Notes
@@ -260,7 +263,7 @@ This means you generally only need to run the top-level command (e.g. `yarn test
 
 ### Event Handling
 
-Prefer native platform events where possible (for example `Event`/`InputEvent`) and avoid custom events unless there is a concrete requirement for a custom payload shape or cross-boundary behavior.
+Prefer native platform events where possible (for example `Event`/`InputEvent`) and avoid custom events unless there is a concrete requirement for a custom payload shape or cross-boundary behaviour.
 
 - If a native event is sufficient, dispatch/forward the native event.
 - If you need a PIE custom event API, use **`dispatchCustomEvent(element, 'pie-event-name', detail)`** from `pie-webc-core` rather than constructing `CustomEvent` manually.
@@ -284,7 +287,7 @@ Prefer native platform events where possible (for example `Event`/`InputEvent`) 
 1. **Check existing patterns** - Look at similar components (e.g., `pie-button`)
 2. **Follow the structure** - Use `generator-pie-component` (or copy from existing components)
 3. **Test in Storybook** - Verify visually before writing tests
-4. **Prioritize browser tests** - Browser tests are primary, not unit tests
+4. **Prioritise browser tests** - Browser tests are primary, not unit tests
 5. **Use page objects** - Follow the `BasePage` / `[Component]Page` / `[Component]Component` pattern
 6. **Create changeset** - If change affects consumers, using the `[Category] - description` format
 7. **Update README** - Component README becomes the Storybook overview and must meet the required structure enforced by Danger JS
@@ -293,7 +296,7 @@ Prefer native platform events where possible (for example `Event`/`InputEvent`) 
 ## Avoid
 
 - Don't use jsdom for component tests - use real browsers
-- Don't skip browser tests in favor of unit tests
+- Don't skip browser tests in favour of unit tests
 - Don't change component status without approval
 - Don't use a commit message that does not match `type(scope): TICKET-123 your message`
 - Don't skip changesets for consumer-facing changes
