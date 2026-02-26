@@ -6,18 +6,12 @@ const { isColorDark } = require('../../../../_utilities/colors');
  * @returns {object} an object containing a hexcode and opacity value (if opacity was provided)
  */
 const splitColorToken = (token) => {
-    try {
-        console.log('TOKEN: ', token);
-        const [hexcode, opacity] = token.split('|');
+    const [hexcode, opacity] = token.split('|');
 
-        return {
-            hexcode,
-            opacity,
-        };
-    } catch (error) {
-        console.error('Error splitting color token: ', error);
-        return { hexcode: '', opacity: '' };
-    }
+    return {
+        hexcode,
+        opacity,
+    };
 };
 
 /**
