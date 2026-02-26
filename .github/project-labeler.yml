@@ -30,12 +30,6 @@ pie-monorepo-utils:
 pie-icons:
   - 'packages/tools/pie-icons/**/*'
 
-pie-icons-react:
-  - 'packages/tools/pie-icons-react/**/*'
-
-pie-icons-vue:
-  - 'packages/tools/pie-icons-vue/**/*'
-
 browserslist-config-pie:
   - 'packages/tools/browserslist-config-pie/**/*'
 

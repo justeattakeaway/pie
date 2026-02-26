@@ -27,8 +27,6 @@ export function getConfig () {
         ],
         packages: [
             '@justeattakeaway/pie-icons',
-            '@justeattakeaway/pie-icons-react',
-            '@justeattakeaway/pie-icons-vue',
             '@justeattakeaway/pie-icons-webc',
         ],
     };
