@@ -29,7 +29,7 @@ The background blur is a visual effect used to distort the content behind the UI
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/blur/blur-tokens.svg",
-    width: "827px",
+    width: "922px",
     alt: "Visual example of how blur tokens work on an image"
 } %}
 
