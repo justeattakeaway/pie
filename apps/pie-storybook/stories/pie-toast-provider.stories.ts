@@ -140,6 +140,20 @@ const Template = ({ options = defaultProps.options, position, '--toast-provider-
             Trigger Persistent Toast
         </pie-button>
 
+
+        <pie-button
+            variant="outline"
+            @click=${() => {
+        toaster.create({
+            variant: 'info',
+            slot: html`<span>Order <strong>#12345</strong> confirmed! <a href="#" style="color: inherit;">View order</a></span>`,
+            isDismissible: false,
+            duration: null,
+        });
+    }}>
+            Trigger Toast with Slot
+        </pie-button>
+
         <pie-button
             variant="secondary"
             @click=${() => {
