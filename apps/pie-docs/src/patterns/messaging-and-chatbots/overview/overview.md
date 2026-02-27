@@ -22,7 +22,7 @@ Chatbots, powered by AI, simulate human conversations and allow users to request
 
 ## Working with third party platforms
 
-### Customization 
+### Customisation 
 
 Various platforms offer differing UI designs and levels of customisation. This means that your choice of platform will yield different end results, an important factor to consider when making your decision.
 
