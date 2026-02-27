@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.98.0
+
+### Minor Changes
+
+- [Updated] - update design tokens to v7.11.1 ([#2696](https://github.com/justeattakeaway/pie/pull/2696)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+- [Added] - skill-reviewer agent skill ([#2691](https://github.com/justeattakeaway/pie/pull/2691)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 2.97.1
 
 ### Patch Changes
