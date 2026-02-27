@@ -1,0 +1,209 @@
+// ----------------------------------------------
+// PIE Radio Static SCSS Helpers
+// Mixins for radio static styling
+// Feature: 001-pie-radio-css-classes
+// ----------------------------------------------
+
+@use '../mixins/focus' as *;
+
+// Base radio static mixin
+// Use this mixin to apply base radio styles to native <input type="radio"> elements
+@mixin radio-static() {
+    /* CSS Custom Properties - Component-scoped variables */
+    --radio-dot-bg-color: var(--dt-color-content-interactive-primary);
+    --radio-bg-color: transparent;
+    --radio-bg-color--checked: var(--dt-color-interactive-brand);
+    --radio-border-color: var(--dt-color-border-form);
+    --radio-size: 24px;
+    --radio-dot-size: 8px;
+    --radio-border-width: 1px;
+
+    /* Base visual structure */
+    display: inline-block;
+    width: var(--radio-size);
+    height: var(--radio-size);
+    border: var(--radio-border-width) solid var(--radio-border-color);
+    border-radius: 50%;
+    background-color: var(--radio-bg-color);
+    position: relative;
+    flex-shrink: 0;
+    
+    /* Remove native input styling */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    /* Reset margins */
+    margin: 0;
+
+    /* Pseudo-element: Filled background circle */
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        inset: calc(var(--radio-border-width) * -1) calc(var(--radio-border-width) * -1) calc(var(--radio-border-width) * -1) calc(var(--radio-border-width) * -1);
+        border-radius: inherit;
+        background-color: var(--radio-bg-color--checked);
+        transform: scale(0);
+    }
+
+    /* Pseudo-element: Center dot */
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: var(--radio-dot-size);
+        height: var(--radio-dot-size);
+        background-color: var(--radio-dot-bg-color);
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    /* Checked State */
+    &:checked:before {
+        transform: scale(1);
+    }
+
+    &:checked:after {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* Disabled State */
+    &:disabled {
+        --radio-bg-color: var(--dt-color-disabled-01);
+        --radio-border-color: var(--dt-color-border-default);
+    }
+
+    /* Disabled + Checked State */
+    &:checked:disabled {
+        --radio-dot-bg-color: var(--dt-color-content-disabled);
+        --radio-bg-color--checked: var(--dt-color-disabled-01);
+    }
+
+    /* Native Interactive States - Hover */
+    &:hover:not(:checked, :disabled) {
+        --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
+
+        @supports (background-color: color-mix(in srgb, black, white)) {
+            --radio-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), transparent);
+        }
+    }
+
+    &:hover:checked:not(:disabled):before {
+        --radio-bg-color--checked: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
+        --radio-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
+
+        @supports (background-color: color-mix(in srgb, black, white)) {
+            --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-interactive-brand));
+        }
+    }
+
+    /* Native Interactive States - Active */
+    &:active:not(:checked, :disabled) {
+        --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
+
+        @supports (background-color: color-mix(in srgb, black, white)) {
+            --radio-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), transparent);
+        }
+    }
+
+    &:active:checked:not(:disabled):before {
+        --radio-bg-color--checked: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
+        --radio-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
+
+        @supports (background-color: color-mix(in srgb, black, white)) {
+            --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-interactive-brand));
+        }
+    }
+
+    /* Native Interactive States - Focus */
+    &:focus-visible:not(:disabled) {
+        @include focus;
+    }
+}
+
+// Error State Mixin
+// Apply error state appearance to radio button
+@mixin radio-static-error() {
+    --radio-bg-color--checked: var(--dt-color-support-error);
+    --radio-border-color: var(--dt-color-support-error);
+}
+
+// Interactive State Modifiers
+// These mixins allow SASS consumers to apply interactive appearances
+// when parent containers are interacted with (e.g., .card:hover .radio { @include radio-static-hover(); })
+
+// Hover State Mixin - Unchecked and Checked
+@mixin radio-static-hover() {
+    &:not(:checked, :disabled) {
+        --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
+
+        @supports (background-color: color-mix(in srgb, black, white)) {
+            --radio-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), transparent);
+        }
+    }
+
+    // Hover State - Checked
+    &:checked:not(:disabled):before {
+        --radio-bg-color--checked: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
+        --radio-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
+
+        @supports (background-color: color-mix(in srgb, black, white)) {
+            --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-interactive-brand));
+        }
+    }
+}
+
+// Hover State Mixin for Error State - Checked + Error
+@mixin radio-static-hover-error() {
+    &:checked:not(:disabled):before {
+        --radio-bg-color--checked: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) - var(--dt-color-hover-01)));
+        --radio-border-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) - var(--dt-color-hover-01)));
+
+        @supports (background-color: color-mix(in srgb, black, white)) {
+            --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-support-error));
+        }
+    }
+}
+
+// Active State Mixin - Unchecked and Checked
+@mixin radio-static-active() {
+    &:not(:checked, :disabled) {
+        --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
+
+        @supports (background-color: color-mix(in srgb, black, white)) {
+            --radio-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), transparent);
+        }
+    }
+
+    // Active State - Checked
+    &:checked:not(:disabled):before {
+        --radio-bg-color--checked: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
+        --radio-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
+
+        @supports (background-color: color-mix(in srgb, black, white)) {
+            --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-interactive-brand));
+        }
+    }
+}
+
+// Active State Mixin for Error State - Checked + Error
+@mixin radio-static-active-error() {
+    &:checked:not(:disabled):before {
+        --radio-bg-color--checked: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) - var(--dt-color-active-01)));
+        --radio-border-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) - var(--dt-color-active-01)));
+
+        @supports (background-color: color-mix(in srgb, black, white)) {
+            --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-support-error));
+        }
+    }
+}
+
+// Focus State Mixin
+// Apply focus ring appearance to radio button
+@mixin radio-static-focus() {
+    &:not(:disabled) {
+        @include focus;
+    }
+}
