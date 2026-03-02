@@ -1,6 +1,11 @@
 
 # pie-icons-vue
 
+> [!WARNING]
+> **Deprecated:** This package is deprecated and will no longer receive updates.
+> Please migrate to [`@justeattakeaway/pie-icons-webc`](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons-webc), which provides framework-agnostic web components compatible with React, Vue, and vanilla JS.
+> See the [`pie-icons-webc` README](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons-webc#vue) for Vue usage instructions.
+
 Shared PIE Icon Components for Vue.js.
 
 This package generates an iconset for Vue.js applications using the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in pie-icons are compiled into single file components that can be imported into Vue applications.

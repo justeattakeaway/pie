@@ -10,7 +10,9 @@
         "type": "token",
         "item": [
           "$ios-container-base",
-          "$web-container-base"
+          "$ios-container-base-dark",
+          "$web-container-base",
+          "$web-container-base-dark"
         ]
       },
       {
