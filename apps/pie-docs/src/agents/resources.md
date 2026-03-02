@@ -38,7 +38,7 @@ These are skills that are not directly related to PIE but can be useful in a var
 
 Rules and best-practice guidelines for reviewing an agent skill's SKILL.md, focused on required frontmatter validation and qualitative content review, with a checklist-style report output.
 
-Instalation:
+Installation:
 
 `npx skills add git@github.com:justeattakeaway/pie.git --skill skill-reviewer`
 
