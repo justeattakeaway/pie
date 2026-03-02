@@ -26,9 +26,7 @@ These are skills that are specifically designed to help with the migration of Sn
 - `snacks-flex-migration-assistant`
 - `snacks-util-migration-assistant`
 
-Use the interactive CLI to choose and install these skills:
-
-`npx skills add git@github.com:Web/snacks-design-system.git`
+Follow the instruction of the Snacks repo skill README to use these skills.
 
 ### Utility skills
 
