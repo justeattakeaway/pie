@@ -40,7 +40,7 @@ Rules and best-practice guidelines for reviewing an agent skill's SKILL.md, focu
 
 Instalation:
 
-`npx skills add git@github.com:ai-platform/skills.git --skill skill-reviewer`
+`npx skills add git@github.com:justeattakeaway/pie.git --skill skill-reviewer`
 
 ## Artifacts
 
