@@ -1,0 +1,114 @@
+# Events
+Some of our web components emit custom events that can be listened to by the application. These events are used to communicate changes in the component's state or to notify the application of user interactions.
+We use events because they are a browser-native way to communicate between components and applications. They allow for a decoupled architecture, where components can emit events without needing to know who is listening to them.
+This makes it easier to build modular and reusable components that can be used in different contexts.
+
+> If a component emits its own events, they will be documented in the components documentation - look for the "Events" section in the component's README or Overview page in Storybook.
+
+## Table of Contents
+
+- [Naming convention](#naming-convention)
+- [Listening to custom events](#listening-to-custom-events)
+    - [Vanilla JS](#custom-events-in-vanilla-js)
+    - [Vue](#custom-events-in-vue)
+    - [React](#custom-events-in-react)
+- [Listening to native events](#listening-to-native-events)
+    - [Vanilla JS](#native-events-in-vanilla-js)
+    - [Vue](#native-events-in-vue)
+    - [React](#native-events-in-react)
+
+## Naming convention
+The events dispatched by PIE web components are named using `pie-<component-name>-<event-name>`. For example, `pie-modal-leading-action-click` is dispatched when the leading action button in a modal is clicked.
+We follow this naming convention to ensure that events are unique and easily identifiable.
+
+> Sometimes components can simply emit native events, such as `input` or `change`. In these cases, there is no need to create a custom event. The native event will bubble up from the component and can be listened to like any other event.
+
+## Listening to custom events
+Listening to custom events is similar to listening to native events and can be achieved in a number of ways depending on the application framework you are using. Below are some examples of how to listen to events in different frameworks.
+
+### Custom events in Vanilla JS
+```js
+const modal = document.querySelector('pie-modal');
+modal.addEventListener('pie-modal-leading-action-click', (e) => {
+    console.log('Leading action clicked!', e);
+});
+```
+### Custom events in Vue
+```html
+<template>
+    <pie-modal @pie-modal-leading-action-click="handleClick"></pie-modal>
+</template>
+<script>
+export default {
+    methods: {
+        handleClick(event) {
+            console.log('Leading action clicked!', event);
+        }
+    }
+}
+</script>
+```
+
+### Custom events in React
+
+React is a little different to other frameworks, because a common pattern is to pass callback functions as props rather than using event listeners.
+To enable this, we provide a React-specific wrapper for each component that allows engineers to pass callback functions as props.
+The naming convention for these props is `on<EventName>` (camel case). For example, `onPieModalLeadingActionClick` is the prop that can be used to listen to the `pie-modal-leading-action-click` event.
+
+> It is vital that you import the component from the `react` entrypoint.
+
+```jsx
+// Please note the import path for React components
+
+function App() {
+    const handleClick = (event) => {
+        console.log('Leading action clicked!', event);
+    };
+
+    return (
+        <PieModal onPieModalLeadingActionClick={handleClick}></PieModal>
+    );
+}
+```
+## Listening to native events
+You can still attach event listeners to native events that are emitted by the component. These events are not prefixed with `pie-` and can be listened to like any other native event on an HTML element.
+
+### Native events in Vanilla JS
+
+```js
+const divider = document.querySelector('pie-divider');
+divider.addEventListener('click', (e) => {
+    console.log('Divider clicked!', e);
+});
+```
+
+### Native events in Vue
+
+```html
+<template>
+    <pie-divider @click="handleClick"></pie-divider>
+</template>
+<script>
+export default {
+    methods: {
+        handleClick(event) {
+            console.log('Divider clicked!', event);
+        }
+    }
+}
+</script>
+```
+
+### Native events in React
+```jsx
+// Please note the import path for React components
+function App() {
+    const handleClick = (event) => {
+        console.log('Divider clicked!', event);
+    };
+
+    return (
+        <PieDivider onClick={handleClick}></PieDivider>
+    );
+}
+```
