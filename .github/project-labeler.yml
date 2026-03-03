@@ -139,3 +139,5 @@ pie-data-table:
   - packages/components/pie-data-table/**/*
 pie-tabs:
   - packages/components/pie-tabs/**/*
+pie-popover:
+  - packages/components/pie-popover/**/*
