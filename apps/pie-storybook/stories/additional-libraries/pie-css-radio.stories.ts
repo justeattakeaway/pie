@@ -21,27 +21,113 @@ type Story = StoryObj;
 
 export const AllStates: Story = {
     render: () => `
-        <div style="display: grid; grid-template-columns: repeat(3, auto); gap: 24px; align-items: center;">
-            <div id="state-default"><strong>Default</strong></div>
-            <div><label for="default-unchecked">Unchecked</label></div>
-            <div><input type="radio" id="default-unchecked" class="c-radio" name="var1" aria-describedby="state-default"></div>
+        <style>
+            :root {
+                --border-color: #e2e8f0;
+                --text-heading: #64748b;
+                --text-main: #334155;
+            }
 
-            <div style="grid-column: 2;"><label for="default-checked">Checked</label></div>
-            <div><input type="radio" id="default-checked" class="c-radio" name="var1" checked aria-describedby="state-default"></div>
+            .variant-grid {
+                display: grid;
+                /* Three columns: Row Header, Col 1 (Unchecked), Col 2 (Checked) */
+                grid-template-columns: minmax(120px, 1fr) minmax(120px, 1fr) minmax(120px, 1fr);
+                grid-template-rows: auto auto auto auto;
+                row-gap: 24px;
+                align-items: center;
+                font-family: system-ui, sans-serif;
+                max-width: 600px;
+            }
 
-            <div id="state-error"><strong>Error</strong></div>
-            <div><label for="error-unchecked">Unchecked</label></div>
-            <div><input type="radio" id="error-unchecked" class="c-radio c-radio--error" name="var2" aria-describedby="state-error"></div>
+            /* Header Section */
+            .variant-grid__header-row {
+                display: contents; /* Allows children to participate directly in the main grid */
+            }
 
-            <div style="grid-column: 2;"><label for="error-checked">Checked</label></div>
-            <div><input type="radio" id="error-checked" class="c-radio c-radio--error" name="var2" checked aria-describedby="state-error"></div>
+            .col-header {
+                font-size: 0.75rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                color: var(--text-heading);
+                padding-bottom: 12px;
+                border-bottom: 1px solid var(--border-color);
+            }
 
-            <div id="state-disabled"><strong>Disabled</strong></div>
-            <div><label for="disabled-unchecked">Unchecked</label></div>
-            <div><input type="radio" id="disabled-unchecked" class="c-radio" name="var3" disabled aria-describedby="state-disabled"></div>
+            /* Target the first column header (Unchecked) to span 2 columns conceptually, but we offset its start point */
+            .col-header--first {
+                grid-column-start: 2; /* Starts in the second grid column */
+            }
 
-            <div style="grid-column: 2;"><label for="disabled-checked">Checked</label></div>
-            <div><input type="radio" id="disabled-checked" class="c-radio" name="var3" checked disabled aria-describedby="state-disabled"></div>
+            /* Row Headers */
+            .row-header {
+                font-size: 0.875rem;
+                font-weight: 600;
+                color: var(--text-main);
+                text-align: right;
+                padding-right: 24px;
+                border-right: 1px solid var(--border-color);
+                height: 100%; /* Ensures border spans the entire row height */
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+            /* Cell Content */
+            .variant-grid__cell {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding-left: 24px; /* Give breathing room after the row-header border */
+            }
+
+            .variant-grid__cell label {
+                font-size: 0.875rem;
+                color: var(--text-main);
+                cursor: pointer;
+            }
+
+            .variant-grid__cell input:disabled ~ label {
+                cursor: not-allowed;
+                opacity: 0.6;
+            }
+        </style>
+
+        <div class="variant-grid">
+            <div class="variant-grid__header-row">
+                <div class="col-header col-header--first">Unchecked</div>
+                <div class="col-header">Checked</div>
+            </div>
+
+            <div class="row-header">Default</div>
+            <div class="variant-grid__cell">
+                <input type="radio" id="default-unchecked" class="c-radio" name="var-default">
+                <label for="default-unchecked">Radio option</label>
+            </div>
+            <div class="variant-grid__cell">
+                <input type="radio" id="default-checked" class="c-radio" name="var-default" checked>
+                <label for="default-checked">Radio option</label>
+            </div>
+
+            <div class="row-header">Error</div>
+            <div class="variant-grid__cell">
+                <input type="radio" id="error-unchecked" class="c-radio c-radio--error" name="var-error">
+                <label for="error-unchecked">Radio option</label>
+            </div>
+            <div class="variant-grid__cell">
+                <input type="radio" id="error-checked" class="c-radio c-radio--error" name="var-error" checked>
+                <label for="error-checked">Radio option</label>
+            </div>
+
+            <div class="row-header">Disabled</div>
+            <div class="variant-grid__cell">
+                <input type="radio" id="disabled-unchecked" class="c-radio" name="var-disabled" disabled>
+                <label for="disabled-unchecked">Radio option</label>
+            </div>
+            <div class="variant-grid__cell">
+                <input type="radio" id="disabled-checked" class="c-radio" name="var-disabled" disabled checked>
+                <label for="disabled-checked">Radio option</label>
+            </div>
         </div>
     `,
 };
