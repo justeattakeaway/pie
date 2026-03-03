@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-textarea
 
+## 0.17.14
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.14
+  - @justeattakeaway/pie-webc-core@7.0.0
+
 ## 0.17.13
 
 ### Patch Changes
