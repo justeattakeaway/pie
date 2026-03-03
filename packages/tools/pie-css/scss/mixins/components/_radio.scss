@@ -39,7 +39,7 @@
     flex-shrink: 0;
 
     // The filled circle before checking the radio
-    &::before {
+    &:before {
         --circle-size: calc(var(--radio-border-width) * -1);
 
         content: '';
@@ -52,7 +52,7 @@
     }
 
     // The dot in the middle before checking the radio
-    &::after {
+    &:after {
         content: '';
         position: absolute;
         top: 50%;
@@ -67,14 +67,19 @@
     // Checked state
     &:checked {
         // The dot in the middle after checking the radio
-        &::after {
+        &:after {
             transform: translate(-50%, -50%) scale(1);
         }
 
         // The filled circle after checking the radio
-        &::before {
+        &:before {
             transform: scale(1);
         }
+    }
+
+    // Focus state
+    &:focus-visible {
+        @include focus;
     }
 
     // Disabled state
@@ -88,11 +93,6 @@
     &:checked:disabled {
         --radio-dot-bg-color: var(--dt-color-content-disabled);
         --radio-bg-color--checked: var(--dt-color-disabled-01);
-    }
-
-    // Focus state
-    &:focus-visible {
-        @include focus;
     }
 }
 
@@ -129,7 +129,7 @@
 
     // Checked hover state
     &:hover:checked:not(:disabled) {
-        &::before {
+        &:before {
             --radio-bg-color--checked: hsl(var(--#{$bg-color}-h), var(--#{$bg-color}-s), calc(var(--#{$bg-color}-l) - var(--dt-color-hover-01)));
             --radio-border-color: hsl(var(--#{$bg-color}-h), var(--#{$bg-color}-s), calc(var(--#{$bg-color}-l) - var(--dt-color-hover-01)));
 
@@ -142,7 +142,7 @@
 
     // Checked active state
     &:active:checked:not(:disabled) {
-        &::before {
+        &:before {
             --radio-bg-color--checked: hsl(var(--#{$bg-color}-h), var(--#{$bg-color}-s), calc(var(--#{$bg-color}-l) - var(--dt-color-active-01)));
             --radio-border-color: hsl(var(--#{$bg-color}-h), var(--#{$bg-color}-s), calc(var(--#{$bg-color}-l) - var(--dt-color-active-01)));
 
@@ -173,21 +173,21 @@
     transition: background-color var(--dt-motion-timing-100) var(--radio-motion-easing);
 
     // Transition for the filled circle
-    &:not(:disabled)::before {
+    &:not(:disabled):before {
         @media (prefers-reduced-motion: no-preference) {
             transition: all var(--dt-motion-timing-100) var(--radio-motion-easing);
         }
     }
 
     // Transition for the dot when unchecking (scales down at 100ms)
-    &:not(:disabled)::after {
+    &:not(:disabled):after {
         @media (prefers-reduced-motion: no-preference) {
             transition: all var(--dt-motion-timing-100) var(--radio-motion-easing);
         }
     }
 
     // Transition for the dot when checking (scales up at 150ms for emphasis)
-    &:not(:disabled):checked::after {
+    &:not(:disabled):checked:after {
         @media (prefers-reduced-motion: no-preference) {
             transition: all var(--dt-motion-timing-150) var(--radio-motion-easing);
         }
