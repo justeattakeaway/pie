@@ -1,5 +1,47 @@
 # Changelog
 
+## 1.69.0
+
+### Minor Changes
+
+- [Updated] - update design tokens to v7.11.1 ([#2696](https://github.com/justeattakeaway/pie/pull/2696)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+### Patch Changes
+
+- Updated dependencies [[`09b544f`](https://github.com/justeattakeaway/pie/commit/09b544fff345f95d84e11d96b45620411ee99793), [`8e693f3`](https://github.com/justeattakeaway/pie/commit/8e693f3010125d5367584e4e5e8934f8ecf2f42d)]:
+  - @justeattakeaway/pie-modal@1.25.0
+  - @justeattakeaway/pie-css@0.27.0
+  - @justeattakeaway/pie-cookie-banner@1.7.8
+  - @justeattakeaway/pie-assistive-text@0.11.14
+  - @justeattakeaway/pie-avatar@0.4.15
+  - @justeattakeaway/pie-breadcrumb@0.7.17
+  - @justeattakeaway/pie-button@1.12.2
+  - @justeattakeaway/pie-card@0.26.11
+  - @justeattakeaway/pie-checkbox@1.0.7
+  - @justeattakeaway/pie-checkbox-group@1.0.7
+  - @justeattakeaway/pie-chip@0.15.12
+  - @justeattakeaway/pie-data-table@0.3.2
+  - @justeattakeaway/pie-divider@1.5.9
+  - @justeattakeaway/pie-form-label@0.18.10
+  - @justeattakeaway/pie-icon-button@2.6.3
+  - @justeattakeaway/pie-link@1.3.12
+  - @justeattakeaway/pie-list@0.0.14
+  - @justeattakeaway/pie-lottie-player@0.3.4
+  - @justeattakeaway/pie-notification@0.21.8
+  - @justeattakeaway/pie-radio@1.0.4
+  - @justeattakeaway/pie-radio-group@1.0.7
+  - @justeattakeaway/pie-select@0.8.15
+  - @justeattakeaway/pie-spinner@1.4.2
+  - @justeattakeaway/pie-switch@2.3.14
+  - @justeattakeaway/pie-tabs@0.1.10
+  - @justeattakeaway/pie-tag@0.22.6
+  - @justeattakeaway/pie-text-input@0.29.15
+  - @justeattakeaway/pie-textarea@0.17.14
+  - @justeattakeaway/pie-thumbnail@0.8.15
+  - @justeattakeaway/pie-toast@0.12.23
+  - @justeattakeaway/pie-toast-provider@0.7.24
+  - @justeattakeaway/pie-icons-webc@1.20.2
+
 ## 1.68.1
 
 ### Patch Changes

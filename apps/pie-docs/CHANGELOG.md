@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.63.0
+
+### Minor Changes
+
+- [Updated] - update design tokens to v7.11.1 ([#2696](https://github.com/justeattakeaway/pie/pull/2696)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+### Patch Changes
+
+- Updated dependencies [[`09b544f`](https://github.com/justeattakeaway/pie/commit/09b544fff345f95d84e11d96b45620411ee99793)]:
+  - @justeattakeaway/pie-css@0.27.0
+  - @justeattakeaway/pie-webc@0.8.4
+  - @justeattakeaway/pie-icons-webc@1.20.2
+
 ## 4.62.4
 
 ### Patch Changes
