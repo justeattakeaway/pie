@@ -72,7 +72,7 @@ component-name/
 1. **Use Lit 3** - All components extend `PieElement` from `@justeattakeaway/pie-webc-core`
 2. **Type Safety** - Define types in `defs.ts`, use TypeScript strictly
 3. **Styling** - Use SCSS files imported as `?inline` in component files
-4. **Design Tokens** - Use `@justeattakeaway/pie-design-tokens` for colours, spacing, etc.
+4. **Design Tokens** - Use `@justeattakeaway/pie-css` token APIs for colours, spacing, etc. (sourced from `@justeattakeaway/pie-design-tokens`).
 5. **Mixins** - Use mixins from `pie-webc-core` (e.g., `FormControlMixin`, `RtlMixin`, `DelegatesFocusMixin`)
 
 ### Testing Philosophy
@@ -176,6 +176,7 @@ Entries must be prefixed with a category in square brackets, followed by a dash 
 - Install dependencies: `yarn install`
 - Watch a component during development: `yarn watch --filter=@justeattakeaway/pie-{component-name}`
 - Run Storybook: `yarn dev --filter=@justeattakeaway/pie-storybook`
+- Run Storybook in browser-testing mode: `yarn dev:testing --filter=@justeattakeaway/pie-storybook`
 - Build all packages: `yarn build`
 
 ### Testing
@@ -207,8 +208,18 @@ Entries must be prefixed with a category in square brackets, followed by a dash 
 - Use `FormControlMixin` for form components
 - Use `DelegatesFocusMixin` when the component needs to delegate focus to an internal element
 - Ensure all components support RTL; use `RtlMixin` when programmatic JS awareness of direction changes is needed
-- Handle events properly using the event utilities from `pie-webc-core` (see [Event Handling](#event-handling))
 - For public type exports, see TypeScript guidelines.
+- React wrappers are auto-generated during build (`build:react-wrapper`)
+  - Generated files are in `src/react.ts` (untracked)
+  - Uses `@justeattakeaway/pie-wrapper-react`
+
+#### Event Handling
+
+Prefer native platform events where possible (for example `Event`/`InputEvent`) and avoid custom events unless there is a concrete requirement for a custom payload shape or cross-boundary behaviour.
+
+- If a native event is sufficient, dispatch/forward the native event.
+- If you need a PIE custom event API, use **`dispatchCustomEvent(element, 'pie-event-name', detail)`** from `pie-webc-core` rather than constructing `CustomEvent` manually.
+- If you need to forward a non-composed native event out of shadow DOM, use **`wrapNativeEvent(event)`** from `pie-webc-core`.
 
 ### Styling
 - Use SCSS with design tokens (CSS variables where possible)
@@ -260,19 +271,6 @@ Tasks in `turbo.json` have defined dependencies that run automatically. Key rela
 - `test:browsers-setup` must be run manually the first time or after config changes; it copies Playwright fixture files into the component directory
 
 This means you generally only need to run the top-level command (e.g. `yarn test:browsers`) and Turborepo will handle the dependency chain. However, `test:browsers-setup` is a prerequisite that must be run at least once.
-
-### Event Handling
-
-Prefer native platform events where possible (for example `Event`/`InputEvent`) and avoid custom events unless there is a concrete requirement for a custom payload shape or cross-boundary behaviour.
-
-- If a native event is sufficient, dispatch/forward the native event.
-- If you need a PIE custom event API, use **`dispatchCustomEvent(element, 'pie-event-name', detail)`** from `pie-webc-core` rather than constructing `CustomEvent` manually.
-- If you need to forward a non-composed native event out of shadow DOM, use **`wrapNativeEvent(event)`** from `pie-webc-core`.
-
-### React Wrappers
-- React wrappers are auto-generated during build (`build:react-wrapper`)
-- Generated files are in `src/react.ts` (untracked)
-- Uses `@justeattakeaway/pie-wrapper-react`
 
 ## Resources
 
