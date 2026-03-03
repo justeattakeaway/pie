@@ -1,0 +1,195 @@
+// INTERNAL USE ONLY
+// These mixins are intended for internal use by PIE components (e.g., pie-radio).
+// They are not part of the public API and may change without notice.
+// For styling radio inputs in your application, use the pre-compiled CSS classes
+// from @justeattakeaway/pie-css/dist/components/radio.css instead.
+// See: packages/tools/pie-css/docs/components/RADIO.md
+
+@use '../focus' as *;
+@use '../../functions' as *;
+
+/// Core mixin that applies all base radio input styles including pseudo-elements and states
+/// @example scss - Basic usage
+///   .my-radio {
+///     @include radio-input-base();
+///   }
+@mixin radio-input-base() {
+    // CSS custom properties for theming
+    --radio-dot-bg-color: var(--dt-color-content-interactive-primary);
+    --radio-bg-color: transparent;
+    --radio-bg-color--checked: var(--dt-color-interactive-brand);
+    --radio-border-color: var(--dt-color-border-form);
+    --radio-size: 24px;
+    --radio-dot-size: 8px;
+    --radio-cursor: pointer;
+    --radio-motion-easing: var(--dt-motion-easing-persistent-functional);
+    --radio-border-width: 1px;
+
+    // Input element base styles
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    inline-size: var(--radio-size);
+    block-size: var(--radio-size);
+    border: var(--radio-border-width) solid var(--radio-border-color);
+    border-radius: 50%;
+    margin: 0;
+    cursor: var(--radio-cursor);
+    background-color: var(--radio-bg-color);
+    flex-shrink: 0;
+
+    // The filled circle before checking the radio
+    &::before {
+        --circle-size: calc(var(--radio-border-width) * -1);
+
+        content: '';
+        display: block;
+        inset: var(--circle-size);
+        border-radius: inherit;
+        background-color: var(--radio-bg-color--checked);
+        position: absolute;
+        transform: scale(0);
+    }
+
+    // The dot in the middle before checking the radio
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: var(--radio-dot-size);
+        height: var(--radio-dot-size);
+        background-color: var(--radio-dot-bg-color);
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    // Checked state
+    &:checked {
+        // The dot in the middle after checking the radio
+        &::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        // The filled circle after checking the radio
+        &::before {
+            transform: scale(1);
+        }
+    }
+
+    // Disabled state
+    &:disabled {
+        --radio-bg-color: var(--dt-color-disabled-01);
+        --radio-border-color: var(--dt-color-border-default);
+        --radio-cursor: not-allowed;
+    }
+
+    // Checked + disabled combination
+    &:checked:disabled {
+        --radio-dot-bg-color: var(--dt-color-content-disabled);
+        --radio-bg-color--checked: var(--dt-color-disabled-01);
+    }
+
+    // Focus state
+    &:focus-visible {
+        @include focus;
+    }
+}
+
+/// Mixin for interactive states (hover, active) with progressive enhancement
+/// @param {String} $bg-color - The design token name for the background color (without 'var()' wrapper)
+/// @example scss - Using with brand color
+///   .my-radio {
+///     @include radio-interactive-state('dt-color-interactive-brand');
+///   }
+/// @example scss - Using with error color
+///   .my-radio--error {
+///     @include radio-interactive-state('dt-color-support-error');
+///   }
+@mixin radio-interactive-state($bg-color) {
+    // Unchecked hover state
+    &:hover:not(:checked, :disabled) {
+        --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
+
+        // Modern browsers with color-mix support
+        @supports (background-color: color-mix(in srgb, black, white)) {
+            --radio-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), transparent);
+        }
+    }
+
+    // Unchecked active state
+    &:active:not(:checked, :disabled) {
+        --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
+
+        // Modern browsers with color-mix support
+        @supports (background-color: color-mix(in srgb, black, white)) {
+            --radio-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), transparent);
+        }
+    }
+
+    // Checked hover state
+    &:hover:checked:not(:disabled) {
+        &::before {
+            --radio-bg-color--checked: hsl(var(--#{$bg-color}-h), var(--#{$bg-color}-s), calc(var(--#{$bg-color}-l) - var(--dt-color-hover-01)));
+            --radio-border-color: hsl(var(--#{$bg-color}-h), var(--#{$bg-color}-s), calc(var(--#{$bg-color}-l) - var(--dt-color-hover-01)));
+
+            // Modern browsers with color-mix support
+            @supports (background-color: color-mix(in srgb, black, white)) {
+                --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--#{$bg-color}));
+            }
+        }
+    }
+
+    // Checked active state
+    &:active:checked:not(:disabled) {
+        &::before {
+            --radio-bg-color--checked: hsl(var(--#{$bg-color}-h), var(--#{$bg-color}-s), calc(var(--#{$bg-color}-l) - var(--dt-color-active-01)));
+            --radio-border-color: hsl(var(--#{$bg-color}-h), var(--#{$bg-color}-s), calc(var(--#{$bg-color}-l) - var(--dt-color-active-01)));
+
+            // Modern browsers with color-mix support
+            @supports (background-color: color-mix(in srgb, black, white)) {
+                --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--#{$bg-color}));
+            }
+        }
+    }
+}
+
+/// Error state modifier that overrides color custom properties
+/// @example scss - Applying error state
+///   .my-radio--error {
+///     @include radio-error();
+///   }
+@mixin radio-error() {
+    --radio-bg-color--checked: var(--dt-color-support-error);
+    --radio-border-color: var(--dt-color-support-error);
+}
+
+/// Animations for radio state transitions with prefers-reduced-motion support
+/// @example scss - Adding animations
+///   .my-radio {
+///     @include radio-animations();
+///   }
+@mixin radio-animations() {
+    transition: background-color var(--dt-motion-timing-100) var(--radio-motion-easing);
+
+    // Transition for the filled circle
+    &:not(:disabled)::before {
+        @media (prefers-reduced-motion: no-preference) {
+            transition: all var(--dt-motion-timing-100) var(--radio-motion-easing);
+        }
+    }
+
+    // Transition for the dot when unchecking (scales down at 100ms)
+    &:not(:disabled)::after {
+        @media (prefers-reduced-motion: no-preference) {
+            transition: all var(--dt-motion-timing-100) var(--radio-motion-easing);
+        }
+    }
+
+    // Transition for the dot when checking (scales up at 150ms for emphasis)
+    &:not(:disabled):checked::after {
+        @media (prefers-reduced-motion: no-preference) {
+            transition: all var(--dt-motion-timing-150) var(--radio-motion-easing);
+        }
+    }
+}
