@@ -4,10 +4,10 @@
 
 ## 2. Props and Types (`src/defs.ts`)
 
-- [ ] 2.1 Define `placements` const array: `['top', 'bottom', 'left', 'right']`
-- [ ] 2.2 Define `PopoverProps` interface with `isOpen?: boolean`, `placement?: typeof placements[number]`, `triggerSelector?: string`
-- [ ] 2.3 Define `defaultProps` with `isOpen: false`, `placement: 'bottom'`
-- [ ] 2.4 Export all types and consts from `defs.ts`
+- [x] 2.1 Define `placements` const array: `['top', 'bottom', 'left', 'right']`
+- [x] 2.2 Define `PopoverProps` interface with `isOpen?: boolean`, `placement?: typeof placements[number]`, `triggerSelector?: string`
+- [x] 2.3 Define `defaultProps` with `isOpen: false`, `placement: 'bottom'`
+- [x] 2.4 Export all types and consts from `defs.ts`
 
 ## 3. Component Implementation (`src/index.ts`)
 
