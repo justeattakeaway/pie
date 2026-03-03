@@ -7,6 +7,11 @@ const meta: Meta = {
     title: 'Components/Radio/CSS Only/Examples',
     parameters: {
         layout: 'padded',
+        docs: {
+            source: {
+                type: 'code',
+            },
+        },
     },
 };
 
@@ -136,7 +141,7 @@ export const CardBasedSelection: Story = {
     `,
 };
 
-export const ComplexCardBasedSelection: Story = {
+export const ExpandableComplexCardBasedSelection: Story = {
     render: () => `
         <style>
             .delivery-options {
