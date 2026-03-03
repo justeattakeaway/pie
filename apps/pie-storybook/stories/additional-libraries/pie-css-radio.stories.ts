@@ -22,20 +22,20 @@ type Story = StoryObj;
 export const AllStates: Story = {
     render: () => `
         <style>
-            :root {
-                --border-color: #e2e8f0;
-                --text-heading: #64748b;
-                --text-main: #334155;
-            }
-
             .variant-grid {
+                /* Component Variables */
+                --grid-border-color: var(--dt-color-border-default);
+                --grid-text-heading: var(--dt-color-content-subdued);
+                --grid-text-main: var(--dt-color-content-default);
+                --grid-text-disabled: var(--dt-color-content-disabled);
+
                 display: grid;
                 /* Three columns: Row Header, Col 1 (Unchecked), Col 2 (Checked) */
                 grid-template-columns: minmax(120px, 1fr) minmax(120px, 1fr) minmax(120px, 1fr);
                 grid-template-rows: auto auto auto auto;
-                row-gap: 24px;
+                row-gap: var(--dt-spacing-e); /* 24px */
                 align-items: center;
-                font-family: system-ui, sans-serif;
+                font-family: var(--dt-font-family-primary);
                 max-width: 600px;
             }
 
@@ -45,13 +45,15 @@ export const AllStates: Story = {
             }
 
             .col-header {
-                font-size: 0.75rem;
-                font-weight: 600;
+                font-family: var(--dt-font-caption-strong-family);
+                font-size: var(--dt-font-caption-strong-size); /* 12px */
+                font-weight: var(--dt-font-caption-strong-weight);
+                line-height: calc(var(--dt-font-caption-strong-line-height) * 1px);
                 text-transform: uppercase;
-                letter-spacing: 0.05em;
-                color: var(--text-heading);
-                padding-bottom: 12px;
-                border-bottom: 1px solid var(--border-color);
+                letter-spacing: 0.05em; /* Retained as systems rarely tokenize letter-spacing */
+                color: var(--grid-text-heading);
+                padding-bottom: var(--dt-spacing-c); /* 12px */
+                border-bottom: 1px solid var(--grid-border-color);
             }
 
             /* Target the first column header (Unchecked) to span 2 columns conceptually, but we offset its start point */
@@ -61,12 +63,14 @@ export const AllStates: Story = {
 
             /* Row Headers */
             .row-header {
-                font-size: 0.875rem;
-                font-weight: 600;
-                color: var(--text-main);
+                font-family: var(--dt-font-body-strong-s-family);
+                font-size: var(--dt-font-body-strong-s-size); /* 14px */
+                font-weight: var(--dt-font-body-strong-s-weight);
+                line-height: calc(var(--dt-font-body-strong-s-line-height) * 1px);
+                color: var(--grid-text-main);
                 text-align: right;
-                padding-right: 24px;
-                border-right: 1px solid var(--border-color);
+                padding-right: var(--dt-spacing-e); /* 24px */
+                border-right: 1px solid var(--grid-border-color);
                 height: 100%; /* Ensures border spans the entire row height */
                 display: flex;
                 align-items: center;
@@ -77,19 +81,22 @@ export const AllStates: Story = {
             .variant-grid__cell {
                 display: flex;
                 align-items: center;
-                gap: 8px;
-                padding-left: 24px; /* Give breathing room after the row-header border */
+                gap: var(--dt-spacing-b); /* 8px */
+                padding-left: var(--dt-spacing-e); /* 24px */
             }
 
             .variant-grid__cell label {
-                font-size: 0.875rem;
-                color: var(--text-main);
+                font-family: var(--dt-font-body-s-family);
+                font-size: var(--dt-font-body-s-size); /* 14px */
+                font-weight: var(--dt-font-body-s-weight);
+                line-height: calc(var(--dt-font-body-s-line-height) * 1px);
+                color: var(--grid-text-main);
                 cursor: pointer;
             }
 
             .variant-grid__cell input:disabled ~ label {
                 cursor: not-allowed;
-                opacity: 0.6;
+                color: var(--grid-text-disabled); /* Swapped opacity for the dedicated disabled token */
             }
         </style>
 
@@ -135,44 +142,63 @@ export const AllStates: Story = {
 export const CardBasedSelection: Story = {
     render: () => `
         <style>
-            /* Fieldset reset to remove default padding/border if desired */
             fieldset {
+                /* Mapped Component Variables */
+                --card-opt-border-default: var(--dt-color-border-default);
+                --card-opt-border-hover: var(--dt-color-border-strong);
+                --card-opt-border-active: var(--dt-color-support-info); /* Blue border */
+
+                --card-opt-bg-default: var(--dt-color-container-default);
+                --card-opt-bg-hover: var(--dt-color-container-subtle);
+                --card-opt-bg-active: var(--dt-color-support-info-tonal); /* Light blue bg */
+
+                --card-opt-text-legend: var(--dt-color-content-default);
+                --card-opt-text-title: var(--dt-color-content-default);
+                --card-opt-text-desc: var(--dt-color-content-subdued);
+
+                /* Fieldset reset */
                 border: none;
                 padding: 0;
                 margin: 0;
             }
 
             legend {
-                font-size: 1.17em; /* Matches h3 sizing */
-                font-weight: bold;
-                margin-bottom: 12px;
+                font-family: var(--dt-font-family-primary);
+                font-size: var(--dt-font-heading-s-size--narrow); /* 16px to 20px depending on viewport */
+                font-weight: var(--dt-font-heading-s-weight);
+                color: var(--card-opt-text-legend);
+                margin-bottom: var(--dt-spacing-c); /* 12px */
             }
 
             .card-option {
                 display: flex;
                 align-items: flex-start;
-                gap: 12px;
-                padding: 16px;
-                border: 2px solid #e0e0e0;
-                border-radius: 8px;
-                margin-bottom: 12px;
+                gap: var(--dt-spacing-c); /* 12px */
+                padding: var(--dt-spacing-d); /* 16px */
+                border: 2px solid var(--card-opt-border-default);
+                border-radius: var(--dt-radius-rounded-b); /* 8px */
+                margin-bottom: var(--dt-spacing-c); /* 12px */
+                background-color: var(--card-opt-bg-default);
                 cursor: pointer;
-                transition: all 0.2s ease;
+                transition: all var(--dt-motion-timing-200) var(--dt-motion-easing-out);
             }
 
             .card-option:hover {
-                border-color: #c0c0c0;
-                background-color: #fafafa;
+                border-color: var(--card-opt-border-hover);
+                background-color: var(--card-opt-bg-hover);
             }
 
             /* Target the label when the child input is checked */
             .card-option:has(input:checked) {
-                border-color: #007bff;
-                background-color: #f0f7ff;
+                border-color: var(--card-opt-border-active);
+                background-color: var(--card-opt-bg-active);
             }
 
             .card-option:has(input:disabled) {
                 opacity: 0.5;
+                /* If you want to use tokens for disabled states, you could also add:
+                background-color: var(--dt-color-disabled-01);
+                color: var(--dt-color-content-disabled); */
                 cursor: not-allowed;
             }
 
@@ -183,15 +209,20 @@ export const CardBasedSelection: Story = {
             /* Changed to strong/span to avoid nested heading confusion */
             .card-title {
                 display: block;
-                margin: 0 0 4px 0;
-                font-size: 16px;
-                font-weight: 600;
+                font-family: var(--dt-font-family-primary);
+                margin: 0 0 var(--dt-spacing-a) 0; /* 4px bottom margin */
+                font-size: var(--dt-font-body-strong-l-size); /* 16px */
+                font-weight: var(--dt-font-body-strong-l-weight); /* 700 */
+                line-height: calc(var(--dt-font-body-strong-l-line-height) * 1px);
+                color: var(--card-opt-text-title);
             }
 
             .card-description {
                 margin: 0;
-                font-size: 14px;
-                color: #666;
+                font-family: var(--dt-font-family-primary);
+                font-size: var(--dt-font-body-s-size); /* 14px */
+                line-height: calc(var(--dt-font-body-s-line-height) * 1px);
+                color: var(--card-opt-text-desc);
             }
         </style>
 
@@ -231,42 +262,55 @@ export const ExpandableComplexCardBasedSelection: Story = {
     render: () => `
         <style>
             .delivery-options {
+                /* Mapped Component Variables */
+                --delivery-bg-default: var(--dt-color-container-default);
+                --delivery-bg-expanded: var(--dt-color-container-subtle);
+
+                --delivery-border-default: var(--dt-color-border-default);
+                --delivery-border-active: var(--dt-color-border-selected-brand);
+                --delivery-border-top-inactive: var(--dt-color-support-neutral); /* Matches your pale beige */
+
+                --delivery-text-title: var(--dt-color-content-default);
+                --delivery-text-subtitle: var(--dt-color-content-subdued);
+                --delivery-text-expanded: var(--dt-color-content-default);
+
                 /* Reset default fieldset styles */
                 border: none;
                 margin: 0;
                 padding: 0;
-                min-width: 0; /* Prevents overflow issues in some browsers */
+                min-width: 0;
                 display: flex;
                 flex-direction: column;
-                gap: 16px;
-                font-family: system-ui, -apple-system, sans-serif;
+                gap: var(--dt-spacing-d); /* 16px */
+                font-family: var(--dt-font-family-primary);
                 max-width: 500px;
             }
 
             .delivery-card {
                 display: flex;
                 flex-direction: column;
-                border: 1px solid #dcdcdc;
-                border-top: 8px solid #f9ece0; /* Pale beige inactive top border */
-                border-radius: 12px;
-                background-color: #ffffff;
+                border: 1px solid var(--delivery-border-default);
+                border-top: var(--dt-spacing-b) solid var(--delivery-border-top-inactive); /* 8px */
+                border-radius: var(--dt-radius-rounded-c); /* 12px */
+                background-color: var(--delivery-bg-default);
                 cursor: pointer;
                 overflow: hidden;
-                transition: all 0.2s ease;
+                transition: all var(--dt-motion-timing-200) var(--dt-motion-easing-out);
             }
 
             /* Card Selected State */
             .delivery-card:has(input[type="radio"]:checked) {
-                border-color: #df6922;
-                border-top-color: #df6922; /* Solid orange active top border */
+                border-color: var(--delivery-border-active);
+                border-top-color: var(--delivery-border-active);
             }
 
             /* Top half of the card */
             .card-main {
                 display: flex;
                 align-items: center;
-                padding: 20px;
-                gap: 16px;
+                /* Replaced 20px with 24px (e) and 16px (d) to match your token scale */
+                padding: var(--dt-spacing-d) var(--dt-spacing-e);
+                gap: var(--dt-spacing-d); /* 16px */
             }
 
             /* Flex rules for your custom radio */
@@ -278,29 +322,31 @@ export const ExpandableComplexCardBasedSelection: Story = {
             .card-content {
                 display: flex;
                 flex-direction: column;
-                gap: 4px;
+                gap: var(--dt-spacing-a); /* 4px */
                 flex-grow: 1;
             }
 
             .card-title {
-                font-weight: 700;
-                font-size: 1.125rem;
-                color: #222222;
+                font-weight: var(--dt-font-body-strong-l-weight); /* 700 */
+                font-size: var(--dt-font-body-strong-l-size); /* 16px */
+                line-height: calc(var(--dt-font-body-strong-l-line-height) * 1px);
+                color: var(--delivery-text-title);
             }
 
             .card-subtitle {
-                font-size: 0.95rem;
-                color: #555555;
+                font-size: var(--dt-font-body-s-size); /* 14px */
+                line-height: calc(var(--dt-font-body-s-line-height) * 1px);
+                color: var(--delivery-text-subtitle);
             }
 
             /* Bottom half of the card */
             .card-expanded {
-                display: none; /* CSS-only hide */
-                border-top: 1px solid #df6922;
-                background-color: #f9f9f9;
-                padding: 16px 20px;
+                display: none;
+                border-top: 1px solid var(--delivery-border-active);
+                background-color: var(--delivery-bg-expanded);
+                padding: var(--dt-spacing-d) var(--dt-spacing-e);
                 align-items: center;
-                gap: 12px;
+                gap: var(--dt-spacing-c); /* 12px */
             }
 
             /* CSS-only show when parent label's radio is checked */
@@ -310,9 +356,9 @@ export const ExpandableComplexCardBasedSelection: Story = {
 
             .card-expanded p {
                 margin: 0;
-                font-size: 0.95rem;
-                color: #333333;
-                line-height: 1.4;
+                font-size: var(--dt-font-body-s-size); /* 14px */
+                line-height: calc(var(--dt-font-body-s-line-height) * 1px);
+                color: var(--delivery-text-expanded);
                 flex-grow: 1;
             }
         </style>
