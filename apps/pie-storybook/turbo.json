@@ -3,7 +3,7 @@
   "extends": [
     "//"
   ],
-  "pipeline": {
+  "tasks": {
     "generate:typography-docs": {
       "cache": true,
       "dependsOn": [
