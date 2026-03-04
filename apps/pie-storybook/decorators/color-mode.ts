@@ -13,6 +13,7 @@ const BACKGROUND_VALUES: Record<ColorMode, string> = {
 };
 
 let initialized = false;
+let currentColorMode: ColorMode | null = null;
 
 export const ColorMode = (story: () => TemplateResult) => {
     const channel = addons.getChannel();
@@ -23,6 +24,15 @@ export const ColorMode = (story: () => TemplateResult) => {
         channel.on(DARK_MODE_EVENT_NAME, (isDark: boolean) => {
             const colorMode: ColorMode = isDark ? 'dark' : 'light';
 
+            // Guard: only update when the color mode actually changes
+            // to prevent a re-render loop with storybook-dark-mode addon.
+            // Without this, the cycle is: DOCS_RENDERED -> renderTheme -> DARK_MODE_EVENT
+            // -> UPDATE_GLOBALS -> re-render -> DOCS_RENDERED -> ...
+            if (colorMode === currentColorMode) {
+                return;
+            }
+
+            currentColorMode = colorMode;
             document.documentElement.setAttribute('data-color-mode', colorMode);
 
             channel.emit(UPDATE_GLOBALS, {
