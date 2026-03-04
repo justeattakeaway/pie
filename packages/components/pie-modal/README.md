@@ -1,6 +1,7 @@
 # @justeattakeaway/pie-modal
 
 [Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-modal) | [Design Documentation](https://pie.design/components/link) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-modal)
+
 <p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-modal">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-modal.svg">
