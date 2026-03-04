@@ -2,7 +2,7 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-thumbnail';
+import '@justeattakeaway/pie-webc/components/thumbnail';
 import {
     type ThumbnailProps,
     defaultProps,
@@ -10,7 +10,7 @@ import {
     backgroundColors,
     sizes,
     aspectRatios,
-} from '@justeattakeaway/pie-thumbnail';
+} from '@justeattakeaway/pie-webc/components/thumbnail';
 
 import { createStory, type TemplateFunction } from '../utilities';
 

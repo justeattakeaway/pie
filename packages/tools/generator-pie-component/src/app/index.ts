@@ -162,17 +162,13 @@ export default class extends Generator {
     }
 
     async end () {
-        const { componentPath, defaultName } = this.props;
+        const { componentPath } = this.props;
 
         this.log(chalk('Updating pie-webc...'));
         this.spawnCommandSync('npx', ['add-components']);
 
         this.log(chalk('Checking for package updates...'));
         this.spawnCommandSync('npx', ['npm-check-updates', '-u', packagesToUpgrade], { cwd: this.destinationPath(componentPath) });
-
-        this.log(chalk('Updating pie-storybook...'));
-        const packageNameVersion = `@justeattakeaway/pie-${defaultName}@0.0.0`;
-        this.spawnCommandSync('yarn', ['add', packageNameVersion], { cwd: this.destinationPath('apps/pie-storybook/') });
 
         this.log(chalk('Updating lock file...'));
         this.spawnCommandSync('yarn', [], { cwd: this.destinationPath() });

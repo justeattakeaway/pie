@@ -1,8 +1,8 @@
 import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-avatar';
-import { type AvatarProps, tags } from '@justeattakeaway/pie-avatar';
+import '@justeattakeaway/pie-webc/components/avatar';
+import { type AvatarProps, tags } from '@justeattakeaway/pie-webc/components/avatar';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { createStory, type TemplateFunction } from '../../utilities';
 

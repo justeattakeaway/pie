@@ -2,10 +2,10 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-divider';
+import '@justeattakeaway/pie-webc/components/divider';
 import {
     type DividerProps, variants, orientations, defaultProps,
-} from '@justeattakeaway/pie-divider';
+} from '@justeattakeaway/pie-webc/components/divider';
 
 import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';
 

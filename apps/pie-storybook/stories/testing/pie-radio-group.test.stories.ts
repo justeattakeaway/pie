@@ -2,19 +2,20 @@ import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 import { action } from '@storybook/addon-actions';
-import { EXPECTED_CHANGE_EVENT_MESSAGE } from '@justeattakeaway/pie-radio-group/test/helpers/constants.ts';
-import '@justeattakeaway/pie-radio-group';
+import '@justeattakeaway/pie-webc/components/radio-group';
 import {
     defaultProps,
     statusTypes,
     type RadioGroupProps as RadioGroupPropsBase,
-} from '@justeattakeaway/pie-radio-group';
-import '@justeattakeaway/pie-radio';
-import '@justeattakeaway/pie-form-label';
-import '@justeattakeaway/pie-button';
+} from '@justeattakeaway/pie-webc/components/radio-group';
+import '@justeattakeaway/pie-webc/components/radio';
+import '@justeattakeaway/pie-webc/components/form-label';
+import '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle';
 
 import { createStory, createVariantStory, type PropDisplayOptions } from '../../utilities';
+
+const EXPECTED_CHANGE_EVENT_MESSAGE = 'Change event dispatched';
 
 type RadioGroupProps = RadioGroupPropsBase & {
     labelSlot: keyof typeof labelSlotOptions;

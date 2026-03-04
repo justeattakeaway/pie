@@ -2,7 +2,7 @@ import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-webc/components/button';
 import {
     type ButtonProps as ButtonPropsBase,
     defaultProps,
@@ -11,7 +11,7 @@ import {
     sizes,
     types,
     variants,
-} from '@justeattakeaway/pie-button';
+} from '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';

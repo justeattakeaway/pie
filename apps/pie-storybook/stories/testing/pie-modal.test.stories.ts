@@ -2,14 +2,14 @@ import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-modal';
+import '@justeattakeaway/pie-webc/components/modal';
 import {
     type PieModal, type ModalProps as ModalPropsBase, headingLevels, sizes, backgroundColors, positions, defaultProps, imageSlotModes, imageSlotAspectRatios,
-} from '@justeattakeaway/pie-modal';
+} from '@justeattakeaway/pie-webc/components/modal';
 
-import '@justeattakeaway/pie-button';
-import '@justeattakeaway/pie-text-input';
-import '@justeattakeaway/pie-form-label';
+import '@justeattakeaway/pie-webc/components/button';
+import '@justeattakeaway/pie-webc/components/text-input';
+import '@justeattakeaway/pie-webc/components/form-label';
 
 import { type SlottedComponentProps } from '../../types';
 import { createStory, sanitizeAndRenderHTML } from '../../utilities';

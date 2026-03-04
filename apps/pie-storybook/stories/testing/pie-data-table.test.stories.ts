@@ -1,10 +1,10 @@
 import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-data-table';
-import '@justeattakeaway/pie-data-table/dist/pie-data-table-header';
-import '@justeattakeaway/pie-button';
-import { type DataTableProps } from '@justeattakeaway/pie-data-table';
+import '@justeattakeaway/pie-webc/components/data-table';
+import '@justeattakeaway/pie-webc/components/data-table-header';
+import '@justeattakeaway/pie-webc/components/button';
+import { type DataTableProps } from '@justeattakeaway/pie-webc/components/data-table';
 
 import { createStory } from '../../utilities';
 

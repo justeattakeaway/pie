@@ -2,9 +2,9 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-breadcrumb';
-import '@justeattakeaway/pie-breadcrumb/dist/pie-breadcrumb-item';
-import { type BreadcrumbProps as BreadcrumbPropsBase, defaultProps, variants } from '@justeattakeaway/pie-breadcrumb';
+import '@justeattakeaway/pie-webc/components/breadcrumb';
+import '@justeattakeaway/pie-webc/components/breadcrumb-item';
+import { type BreadcrumbProps as BreadcrumbPropsBase, defaultProps, variants } from '@justeattakeaway/pie-webc/components/breadcrumb';
 
 import { type SlottedComponentProps } from '../types';
 import { createStory, sanitizeAndRenderHTML } from '../utilities';

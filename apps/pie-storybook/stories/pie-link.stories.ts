@@ -2,7 +2,7 @@ import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-link';
+import '@justeattakeaway/pie-webc/components/link';
 import {
     type LinkProps as LinkBaseProps,
     sizes,
@@ -12,7 +12,7 @@ import {
     buttonTypes,
     underlineTypes,
     defaultProps,
-} from '@justeattakeaway/pie-link';
+} from '@justeattakeaway/pie-webc/components/link';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
 
 import { type SlottedComponentProps } from '../types';
