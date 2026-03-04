@@ -3,10 +3,11 @@ import { action } from '@storybook/addon-actions';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/cookie-banner';
-import { type CookieBannerProps, defaultProps } from '@justeattakeaway/pie-webc/components/cookie-banner';
 import {
+    type CookieBannerProps,
     Country,
     Language,
+    defaultProps,
 } from '@justeattakeaway/pie-webc/components/cookie-banner';
 import { createStory } from '../../utilities';
 
