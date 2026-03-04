@@ -1,6 +1,6 @@
 import { type ComponentDefaultProps } from '@justeattakeaway/pie-webc-core';
 
-export const placements = ['top', 'bottom', 'left', 'right'] as const;
+export const placements = ['bottom-start', 'bottom-end', 'top-start', 'top-end'] as const;
 
 export interface PopoverProps {
     /**
@@ -26,6 +26,6 @@ export type DefaultProps = ComponentDefaultProps<PopoverProps, keyof Omit<Popove
 
 export const defaultProps: DefaultProps = {
     isOpen: false,
-    placement: 'bottom',
+    placement: 'bottom-start',
 };
 

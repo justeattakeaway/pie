@@ -6,7 +6,6 @@ import {
     RtlMixin,
     safeCustomElement,
     validPropertyValues,
-    dispatchCustomEvent,
 } from '@justeattakeaway/pie-webc-core';
 import styles from './popover.scss?inline';
 import {
@@ -21,10 +20,6 @@ export * from './defs';
 const componentSelector = 'pie-popover';
 const GAP = 8; // px gap between trigger and popover (per spec)
 const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
-const ON_POPOVER_CLOSE_EVENT = `${componentSelector}-close`;
-
-// Module-level singleton tracking — only one popover open at a time
-let currentOpenPopover: WeakRef<PiePopover> | null = null;
 
 /**
  * @tagname pie-popover
@@ -45,6 +40,7 @@ export class PiePopover extends RtlMixin(PieElement) implements PopoverProps {
 
     private _resizeObserver: ResizeObserver | null = null;
     private _scrollHandler: (() => void) | null = null;
+    private _resizeHandler: (() => void) | null = null;
 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
@@ -73,7 +69,13 @@ export class PiePopover extends RtlMixin(PieElement) implements PopoverProps {
     /**
      * Computes popover position using getBoundingClientRect on the trigger
      * and sets CSS custom properties on the host for `position: fixed` placement.
-     * Flips placement if the popover would overflow the viewport.
+     *
+     * Placement values use block-then-inline-axis naming (`bottom-start`, `top-end`, etc.).
+     * "start" and "end" map to the inline-start/end sides of the document — in LTR this
+     * is left/right, in RTL it is right/left — so RTL is handled automatically without
+     * consumers needing to change the prop value.
+     *
+     * Each axis flips independently if the popover would overflow the viewport.
      */
     private _computePosition (): void {
         const trigger = this._getTriggerElement();
@@ -84,65 +86,43 @@ export class PiePopover extends RtlMixin(PieElement) implements PopoverProps {
         const vw = window.innerWidth;
         const vh = window.innerHeight;
 
-        // Resolve effective placement, accounting for RTL
-        let effectivePlacement = this.placement ?? defaultProps.placement;
         const isRTL = (this.getAttribute('dir') || document.dir) === 'rtl';
+        const [blockAxis, inlineAxis] = (this.placement ?? defaultProps.placement).split('-') as ['top' | 'bottom', 'start' | 'end'];
 
-        if (isRTL) {
-            if (effectivePlacement === 'left') effectivePlacement = 'right';
-            else if (effectivePlacement === 'right') effectivePlacement = 'left';
-        }
-
-        // Calculate candidate top/left for preferred placement
-        const candidates: Record<typeof placements[number], { top: number; left: number }> = {
-            bottom: {
-                top: triggerRect.bottom + GAP,
-                left: triggerRect.left,
-            },
-            top: {
-                top: triggerRect.top - popoverRect.height - GAP,
-                left: triggerRect.left,
-            },
-            right: {
-                top: triggerRect.top,
-                left: triggerRect.right + GAP,
-            },
-            left: {
-                top: triggerRect.top,
-                left: triggerRect.left - popoverRect.width - GAP,
-            },
+        // Block axis (top / bottom) candidate positions
+        const blockTop = {
+            top: triggerRect.top - popoverRect.height - GAP,
+            bottom: triggerRect.bottom + GAP,
         };
 
-        const opposites: Record<typeof placements[number], typeof placements[number]> = {
-            bottom: 'top',
-            top: 'bottom',
-            right: 'left',
-            left: 'right',
+        // Inline axis (start / end) candidate left values.
+        // In LTR: start = trigger's left edge, end = trigger's right edge minus popover width.
+        // In RTL: start and end are mirrored.
+        const inlineLeft = {
+            start: isRTL ? triggerRect.right - popoverRect.width : triggerRect.left,
+            end: isRTL ? triggerRect.left : triggerRect.right - popoverRect.width,
         };
 
-        /**
-         * Checks whether a given placement's computed position would overflow the viewport.
-         */
-        const wouldOverflow = (p: typeof placements[number]): boolean => {
-            const { top, left } = candidates[p];
-            if (p === 'bottom') return top + popoverRect.height > vh;
-            if (p === 'top') return top < 0;
-            if (p === 'right') return left + popoverRect.width > vw;
-            if (p === 'left') return left < 0;
-            return false;
+        const blockOverflows = (b: 'top' | 'bottom') => b === 'top'
+            ? blockTop.top < 0
+            : blockTop.bottom + popoverRect.height > vh;
+
+        const inlineOverflows = (i: 'start' | 'end') => {
+            const l = inlineLeft[i];
+            return l < 0 || l + popoverRect.width > vw;
         };
 
-        // Flip if preferred placement overflows
-        let resolvedPlacement = effectivePlacement;
-        if (wouldOverflow(effectivePlacement)) {
-            const opposite = opposites[effectivePlacement];
-            // Prefer the side with more space
-            resolvedPlacement = wouldOverflow(opposite) ? effectivePlacement : opposite;
-        }
+        // Flip each axis independently if the preferred side overflows
+        const resolvedBlock = blockOverflows(blockAxis)
+            ? (blockAxis === 'top' ? 'bottom' : 'top')
+            : blockAxis;
 
-        const { top, left } = candidates[resolvedPlacement];
-        this.style.setProperty('--popover-top', `${top}px`);
-        this.style.setProperty('--popover-left', `${left}px`);
+        const resolvedInline = inlineOverflows(inlineAxis)
+            ? (inlineAxis === 'start' ? 'end' : 'start')
+            : inlineAxis;
+
+        this.style.setProperty('--popover-top', `${blockTop[resolvedBlock]}px`);
+        this.style.setProperty('--popover-left', `${inlineLeft[resolvedInline]}px`);
     }
 
     /**
@@ -176,11 +156,14 @@ export class PiePopover extends RtlMixin(PieElement) implements PopoverProps {
     }
 
     /**
-     * Adds passive scroll and ResizeObserver listeners to recompute position while open.
+     * Adds passive scroll, window resize, and ResizeObserver listeners to recompute position while open.
      */
     private _addListeners (): void {
         this._scrollHandler = () => this._computePosition();
         window.addEventListener('scroll', this._scrollHandler, { passive: true });
+
+        this._resizeHandler = () => this._computePosition();
+        window.addEventListener('resize', this._resizeHandler, { passive: true });
 
         const trigger = this._getTriggerElement();
         if (trigger) {
@@ -190,34 +173,25 @@ export class PiePopover extends RtlMixin(PieElement) implements PopoverProps {
     }
 
     /**
-     * Removes scroll and ResizeObserver listeners.
+     * Removes scroll, window resize, and ResizeObserver listeners.
      */
     private _removeListeners (): void {
         if (this._scrollHandler) {
             window.removeEventListener('scroll', this._scrollHandler);
             this._scrollHandler = null;
         }
+        if (this._resizeHandler) {
+            window.removeEventListener('resize', this._resizeHandler);
+            this._resizeHandler = null;
+        }
         this._resizeObserver?.disconnect();
         this._resizeObserver = null;
-    }
-
-    /**
-     * Enforces singleton: closes any previously open popover before opening this one.
-     */
-    private _enforceSingleton (): void {
-        const previous = currentOpenPopover?.deref();
-        if (previous && previous !== this) {
-            previous.isOpen = false;
-            dispatchCustomEvent(previous, ON_POPOVER_CLOSE_EVENT, { targetPopover: previous });
-        }
-        currentOpenPopover = new WeakRef(this);
     }
 
     updated (changedProperties: PropertyValues<this>): void {
         if (!changedProperties.has('isOpen')) return;
 
         if (this.isOpen) {
-            this._enforceSingleton();
             this._computePosition();
             this._focusFirstFocusable();
             this._addListeners();
