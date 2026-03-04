@@ -184,7 +184,7 @@ const RtlTemplate = ({ isOpen, placement, triggerSelector }: PopoverProps) => {
     };
 
     return html`
-        <div dir="rtl" style="padding: 200px; font-family: sans-serif; text-align: right;">
+        <div style="padding: 200px; font-family: sans-serif; text-align: right;">
             <p style="margin: 0 0 16px; line-height: 1.6; max-width: 480px;">${HEBREW}</p>
 
             <pie-button
@@ -194,12 +194,11 @@ const RtlTemplate = ({ isOpen, placement, triggerSelector }: PopoverProps) => {
             </pie-button>
             <pie-popover
                 id="popover-rtl"
-                dir="rtl"
                 .isOpen="${isOpen ?? false}"
                 placement="${placement ?? defaultProps.placement}"
                 triggerSelector="${triggerSelector ?? '#popover-trigger-rtl'}"
                 @pie-popover-close="${action('pie-popover-close')}">
-                <div style="padding: 8px; font-family: sans-serif; direction: rtl; text-align: right;">
+                <div style="padding: 8px; font-family: sans-serif; text-align: right;">
                     <p style="margin: 0 0 8px;">תוכן הפופאובר</p>
                     <p style="margin: 0 0 8px; font-size: 0.875em; color: #666;">זהו תוכן לדוגמה בעברית.</p>
                     <pie-button size="small-productive" variant="ghost" @click="${toggle}">סגור</pie-button>
@@ -211,7 +210,10 @@ const RtlTemplate = ({ isOpen, placement, triggerSelector }: PopoverProps) => {
     `;
 };
 
-export const Rtl = createStory<PopoverProps>(
-    RtlTemplate,
-    { ...defaultArgs, triggerSelector: '#popover-trigger-rtl' },
-)();
+export const Rtl = {
+    ...createStory<PopoverProps>(
+        RtlTemplate,
+        { ...defaultArgs, triggerSelector: '#popover-trigger-rtl' },
+    )(),
+    globals: { writingDirection: 'rtl' },
+};

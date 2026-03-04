@@ -52,6 +52,7 @@
 ## 8. Known Issues / Backlog
 
 - [ ] 8.1 Live placement update: when the `placement` prop changes on an already-open popover, `_computePosition()` is not re-triggered, so the position only reflects the new placement after a close/reopen cycle. Fix by calling `_computePosition()` in `updated()` when `isOpen` is `true` and `changedProperties` includes `placement`.
+- [ ] 8.2 Outside-click event: when the popover is open and the user clicks outside of it (and outside the trigger), dispatch a `pie-popover-outside-click` custom event. The popover must never close itself — consumers listen and decide. Implement via a `mousedown` listener on `document` added in `_addListeners()` and removed in `_removeListeners()`. Check that `event.composedPath()` contains neither the popover host nor the trigger element before dispatching.
 
 ## 7. Documentation
 
