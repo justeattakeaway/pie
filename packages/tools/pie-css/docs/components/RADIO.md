@@ -100,14 +100,14 @@ Apply the `c-radio` class to a native radio input:
 
 ## Visual States
 
-All states are applied automatically via CSS pseudo-classes:
+All states are applied automatically via CSS pseudo-classes, except for error which is applied with a class.
 
 | State | CSS Selector | Appearance | When Applied |
 |-------|--------------|------------|--------------|
+| **Error** | `.c-radio--error` | Error border color | Add `c-radio--error` class |
 | **Unchecked** | `.c-radio` | Empty circle with border | Default state |
 | **Checked** | `.c-radio:checked` | Filled circle with center dot | When selected |
 | **Disabled** | `.c-radio:disabled` | Faded, not-allowed cursor | When `disabled` attribute is present |
-| **Error** | `.c-radio--error` | Error border color | Add `c-radio--error` class |
 | **Hover** | `.c-radio:hover` | Darkened background overlay | Mouse hover (not disabled) |
 | **Active** | `.c-radio:active` | Further darkened overlay | Mouse press (not disabled) |
 | **Focus** | `.c-radio:focus-visible` | Focus ring | Keyboard navigation only |
