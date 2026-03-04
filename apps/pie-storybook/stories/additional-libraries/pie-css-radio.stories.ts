@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/html';
 
 import '@justeattakeaway/pie-css/dist/components/radio.css';
+import '@justeattakeaway/pie-button';
 
 const meta: Meta = {
     title: 'Components/Radio/CSS Only/Examples',
@@ -382,6 +383,230 @@ export const ExpandableComplexCardBasedSelection: Story = {
                     <p>Nulla vitae <strong>ipsum fermentum</strong> elit vehicula! Cras mattis purus sit <strong>purus</strong></p>
                 </div>
             </label>
+        </fieldset>
+    </form>
+    `,
+};
+
+export const ProductListSelection: Story = {
+    render: () => `
+        <style>
+            .product-list {
+                --product-list-border: var(--dt-color-border-default);
+                --product-list-border-selected: var(--dt-color-interactive-brand);
+                --product-list-bg: var(--dt-color-container-default);
+                --product-list-text-title: var(--dt-color-content-default);
+                --product-list-text-secondary: var(--dt-color-content-subdued);
+                --product-list-text-match: var(--dt-color-content-subdued);
+                --product-list-header-text: var(--dt-color-content-default);
+                --product-list-header-desc: var(--dt-color-content-subdued);
+
+                border: none;
+                margin: 0;
+                padding: 0;
+                min-width: 0;
+                font-family: var(--dt-font-family-primary);
+                max-width: 500px;
+            }
+
+            .product-list__header {
+                margin-bottom: var(--dt-spacing-d);
+            }
+
+            .product-list__heading {
+                display: flex;
+                align-items: center;
+                gap: var(--dt-spacing-b);
+                margin: 0 0 var(--dt-spacing-b) 0;
+                font-size: var(--dt-font-heading-s-size--narrow);
+                font-weight: var(--dt-font-heading-s-weight);
+                line-height: calc(var(--dt-font-heading-s-line-height--narrow) * 1px);
+                color: var(--product-list-header-text);
+            }
+
+            .product-list__description {
+                margin: 0;
+                font-size: var(--dt-font-body-s-size);
+                line-height: calc(var(--dt-font-body-s-line-height) * 1px);
+                color: var(--product-list-header-desc);
+            }
+
+            .product-list__items {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .product-item {
+                display: flex;
+                align-items: center;
+                gap: var(--dt-spacing-d);
+                padding: var(--dt-spacing-d) 0;
+                border-top: 1px solid var(--product-list-border);
+                cursor: pointer;
+                background: var(--product-list-bg);
+                transition: background-color var(--dt-motion-timing-150) var(--dt-motion-easing-out);
+            }
+
+            .product-item:last-child {
+                border-bottom: 1px solid var(--product-list-border);
+            }
+
+            .product-item__image {
+                width: 48px;
+                height: 48px;
+                object-fit: contain;
+                flex-shrink: 0;
+                border-radius: var(--dt-radius-rounded-b);
+            }
+
+            .product-item__image-placeholder {
+                width: 48px;
+                height: 48px;
+                flex-shrink: 0;
+                border-radius: var(--dt-radius-rounded-b);
+                background-color: var(--dt-color-container-subtle);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .product-item__content {
+                display: flex;
+                flex-direction: column;
+                gap: var(--dt-spacing-a);
+                flex: 1;
+                min-width: 0;
+            }
+
+            .product-item__name {
+                font-size: var(--dt-font-body-l-size);
+                font-weight: var(--dt-font-body-strong-l-weight);
+                line-height: calc(var(--dt-font-body-strong-l-line-height) * 1px);
+                color: var(--product-list-text-title);
+            }
+
+            .product-item__gtin-label {
+                font-size: var(--dt-font-caption-size);
+                font-weight: var(--dt-font-caption-strong-weight);
+                line-height: calc(var(--dt-font-caption-line-height) * 1px);
+                color: var(--product-list-text-secondary);
+            }
+
+            .product-item__gtin-row {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                gap: var(--dt-spacing-b);
+            }
+
+            .product-item__gtin-value {
+                font-size: var(--dt-font-caption-size);
+                line-height: calc(var(--dt-font-caption-line-height) * 1px);
+                color: var(--product-list-text-secondary);
+            }
+
+            .product-item__match {
+                font-size: var(--dt-font-caption-size);
+                line-height: calc(var(--dt-font-caption-line-height) * 1px);
+                color: var(--product-list-text-match);
+                flex-shrink: 0;
+            }
+
+            .product-item__radio-wrapper {
+                flex-shrink: 0;
+            }
+
+            .product-list__actions {
+                display: flex;
+                flex-direction: column;
+                gap: var(--dt-spacing-c);
+                margin-top: var(--dt-spacing-e);
+            }
+        </style>
+
+    <form action="#">
+        <fieldset class="product-list">
+            <div class="product-list__header">
+                <legend class="product-list__heading">Menu made easy</legend>
+                <p class="product-list__description">Save time and be part of brand-sponsored ads by selecting the right item from the list and we will do the rest.</p>
+            </div>
+
+            <div class="product-list__items">
+                <label class="product-item">
+                    <span class="product-item__image-placeholder" aria-hidden="true">
+                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="currentColor" opacity="0.15"/></svg>
+                    </span>
+                    <span class="product-item__content">
+                        <span class="product-item__name" id="product-1-name">Pepsi can 330ml</span>
+                        <span class="product-item__gtin-label">GTIN/Barcode</span>
+                        <span class="product-item__gtin-row">
+                            <span id="product-1-gtin" class="product-item__gtin-value" aria-label="4 0 6 2 1 3 9 0 1 7 4 1 6">4062139017416</span>
+                            <span class="product-item__match" id="product-1-match">80% match</span>
+                        </span>
+                    </span>
+                    <span class="product-item__radio-wrapper">
+                        <input
+                            type="radio"
+                            class="c-radio"
+                            name="product"
+                            value="pepsi-330"
+                            aria-labelledby="product-1-name"
+                            aria-describedby="product-1-gtin product-1-match"
+                            checked>
+                    </span>
+                </label>
+
+                <label class="product-item">
+                    <span class="product-item__image-placeholder" aria-hidden="true">
+                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="currentColor" opacity="0.15"/></svg>
+                    </span>
+                    <span class="product-item__content">
+                        <span class="product-item__name" id="product-2-name">Pepsi can 250ml</span>
+                        <span class="product-item__gtin-label">GTIN/Barcode</span>
+                        <span class="product-item__gtin-row">
+                            <span id="product-2-gtin" class="product-item__gtin-value" aria-label="5 0 1 0 1 0 2 2 2 7 1 4 9">5010102227149</span>
+                            <span class="product-item__match" id="product-2-match">50% match</span>
+                        </span>
+                    </span>
+                    <span class="product-item__radio-wrapper">
+                        <input
+                            type="radio"
+                            class="c-radio"
+                            name="product"
+                            value="pepsi-250"
+                            aria-labelledby="product-2-name"
+                            aria-describedby="product-2-gtin product-2-match">
+                    </span>
+                </label>
+
+                <label class="product-item">
+                    <span class="product-item__image-placeholder" aria-hidden="true">
+                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="currentColor" opacity="0.15"/></svg>
+                    </span>
+                    <span class="product-item__content">
+                        <span class="product-item__name" id="product-3-name">Pepsi can 150ml</span>
+                        <span class="product-item__gtin-label">GTIN/Barcode</span>
+                        <span class="product-item__gtin-row">
+                            <span id="product-3-gtin" class="product-item__gtin-value" aria-label="4 0 6 0 8 0 0 1 0 1 4 5 7">4060800101457</span>
+                            <span class="product-item__match" id="product-3-match">50% match</span>
+                        </span>
+                    </span>
+                    <span class="product-item__radio-wrapper">
+                        <input
+                            type="radio"
+                            class="c-radio"
+                            name="product"
+                            value="pepsi-150"
+                            aria-labelledby="product-3-name"
+                            aria-describedby="product-3-gtin product-3-match">
+                    </span>
+                </label>
+            </div>
+
+            <div class="product-list__actions">
+                <pie-button type="submit" isFullWidth>Apply and save</pie-button>
+                <pie-button type="button" variant="ghost" isFullWidth>Maybe later</pie-button>
+            </div>
         </fieldset>
     </form>
     `,
