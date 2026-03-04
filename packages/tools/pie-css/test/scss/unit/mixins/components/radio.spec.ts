@@ -50,7 +50,7 @@ describe('mixins.radio', () => {
             expect(css).toContain(stripCSSWhitespace(expectedCss));
         });
 
-        it('should include ::before pseudo-element for filled circle', () => {
+        it('should include :before pseudo-element for filled circle', () => {
             // Arrange
             const scssToTest = `
               @use 'mixins';
@@ -61,7 +61,7 @@ describe('mixins.radio', () => {
             `;
 
             const expectedCss = stripCSSWhitespace(`
-              .my-radio::before {
+              .my-radio:before {
                 --circle-size: calc(var(--radio-border-width) * -1);
                 content: "";
                 display: block;
@@ -80,7 +80,7 @@ describe('mixins.radio', () => {
             expect(css).toContain(stripCSSWhitespace(expectedCss));
         });
 
-        it('should include ::after pseudo-element for center dot', () => {
+        it('should include :after pseudo-element for center dot', () => {
             // Arrange
             const scssToTest = `
               @use 'mixins';
@@ -91,7 +91,7 @@ describe('mixins.radio', () => {
             `;
 
             const expectedCss = stripCSSWhitespace(`
-              .my-radio::after {
+              .my-radio:after {
                 content: "";
                 position: absolute;
                 top: 50%;
@@ -122,10 +122,10 @@ describe('mixins.radio', () => {
             `;
 
             const expectedCss = stripCSSWhitespace(`
-              .my-radio:checked::after {
+              .my-radio:checked:after {
                 transform: translate(-50%, -50%) scale(1);
               }
-              .my-radio:checked::before {
+              .my-radio:checked:before {
                 transform: scale(1);
               }
             `);
@@ -287,7 +287,7 @@ describe('mixins.radio', () => {
             `;
 
             const expectedCss = stripCSSWhitespace(`
-              .my-radio:hover:checked:not(:disabled)::before {
+              .my-radio:hover:checked:not(:disabled):before {
                 --radio-bg-color--checked: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
                 --radio-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
               }
@@ -311,7 +311,7 @@ describe('mixins.radio', () => {
             `;
 
             const expectedCss = stripCSSWhitespace(`
-              .my-radio:active:checked:not(:disabled)::before {
+              .my-radio:active:checked:not(:disabled):before {
                 --radio-bg-color--checked: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
                 --radio-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
               }
@@ -394,7 +394,7 @@ describe('mixins.radio', () => {
             expect(css).toContain(stripCSSWhitespace(expectedCss));
         });
 
-        it('should include ::before transition with prefers-reduced-motion', () => {
+        it('should include :before transition with prefers-reduced-motion', () => {
             // Arrange
             const scssToTest = `
               @use 'mixins';
@@ -409,11 +409,11 @@ describe('mixins.radio', () => {
 
             // Assert
             expect(css).toContain('@media(prefers-reduced-motion:no-preference)');
-            expect(css).toContain('.my-radio:not(:disabled)::before');
+            expect(css).toContain('.my-radio:not(:disabled):before');
             expect(css).toContain('transition:allvar(--dt-motion-timing-100)var(--radio-motion-easing)');
         });
 
-        it('should include ::after transition with prefers-reduced-motion', () => {
+        it('should include :after transition with prefers-reduced-motion', () => {
             // Arrange
             const scssToTest = `
               @use 'mixins';
@@ -427,10 +427,10 @@ describe('mixins.radio', () => {
             const css = stripCSSWhitespace(compileCss(scssToTest));
 
             // Assert
-            expect(css).toContain('.my-radio:not(:disabled)::after');
+            expect(css).toContain('.my-radio:not(:disabled):after');
         });
 
-        it('should use longer duration for :checked::after', () => {
+        it('should use longer duration for :checked:after', () => {
             // Arrange
             const scssToTest = `
               @use 'mixins';
@@ -444,7 +444,7 @@ describe('mixins.radio', () => {
             const css = stripCSSWhitespace(compileCss(scssToTest));
 
             // Assert
-            expect(css).toContain('.my-radio:not(:disabled):checked::after');
+            expect(css).toContain('.my-radio:not(:disabled):checked:after');
             expect(css).toContain('var(--dt-motion-timing-150)');
         });
     });
