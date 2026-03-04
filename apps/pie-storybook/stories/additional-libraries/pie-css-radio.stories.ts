@@ -527,8 +527,8 @@ export const ProductListSelection: Story = {
     <form action="#">
         <fieldset class="product-list">
             <div class="product-list__header">
-                <legend class="product-list__heading">Menu made easy</legend>
-                <p class="product-list__description">Save time and be part of brand-sponsored ads by selecting the right item from the list and we will do the rest.</p>
+                <legend class="product-list__heading">Lorem ipsum dolor</legend>
+                <p class="product-list__description">Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui.</p>
             </div>
 
             <div class="product-list__items">
@@ -537,7 +537,7 @@ export const ProductListSelection: Story = {
                         <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="currentColor" opacity="0.15"/></svg>
                     </span>
                     <span class="product-item__content">
-                        <span class="product-item__name" id="product-1-name">Pepsi can 330ml</span>
+                        <span class="product-item__name" id="product-1-name">Lorem ipsum 330ml</span>
                         <span class="product-item__gtin-label">GTIN/Barcode</span>
                         <span class="product-item__gtin-row">
                             <span id="product-1-gtin" class="product-item__gtin-value" aria-label="4 0 6 2 1 3 9 0 1 7 4 1 6">4062139017416</span>
@@ -561,7 +561,7 @@ export const ProductListSelection: Story = {
                         <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="currentColor" opacity="0.15"/></svg>
                     </span>
                     <span class="product-item__content">
-                        <span class="product-item__name" id="product-2-name">Pepsi can 250ml</span>
+                        <span class="product-item__name" id="product-2-name">Lorem ipsum 250ml</span>
                         <span class="product-item__gtin-label">GTIN/Barcode</span>
                         <span class="product-item__gtin-row">
                             <span id="product-2-gtin" class="product-item__gtin-value" aria-label="5 0 1 0 1 0 2 2 2 7 1 4 9">5010102227149</span>
@@ -584,7 +584,7 @@ export const ProductListSelection: Story = {
                         <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="currentColor" opacity="0.15"/></svg>
                     </span>
                     <span class="product-item__content">
-                        <span class="product-item__name" id="product-3-name">Pepsi can 150ml</span>
+                        <span class="product-item__name" id="product-3-name">Lorem ipsum 150ml</span>
                         <span class="product-item__gtin-label">GTIN/Barcode</span>
                         <span class="product-item__gtin-row">
                             <span id="product-3-gtin" class="product-item__gtin-value" aria-label="4 0 6 0 8 0 0 1 0 1 4 5 7">4060800101457</span>
@@ -604,8 +604,8 @@ export const ProductListSelection: Story = {
             </div>
 
             <div class="product-list__actions">
-                <pie-button type="submit" isFullWidth>Apply and save</pie-button>
-                <pie-button type="button" variant="ghost" isFullWidth>Maybe later</pie-button>
+                <pie-button type="submit" isFullWidth>Amet consectetur</pie-button>
+                <pie-button type="button" variant="ghost" isFullWidth>Sit amet dolor</pie-button>
             </div>
         </fieldset>
     </form>
