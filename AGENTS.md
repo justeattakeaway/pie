@@ -274,9 +274,9 @@ This means you generally only need to run the top-level command (e.g. `yarn test
 
 ## Resources
 
-- **Documentation**: https://pie.design/
-- **Storybook**: https://webc.pie.design/
-- **Contributing Guide**: https://webc.pie.design/?path=/docs/contribution-overview--docs
+- **Documentation**: `apps/pie-docs/README.md` (public site: https://pie.design/)
+- **Storybook**: `apps/pie-storybook/README.md` (public site: https://webc.pie.design/)
+- **Contributing Guide**: `apps/pie-storybook/stories/contribution/overview.mdx`
 - **Slack**: #help-designsystem
 - **GitHub**: https://github.com/justeattakeaway/pie
 
@@ -289,7 +289,7 @@ This means you generally only need to run the top-level command (e.g. `yarn test
 5. **Use page objects** - Follow the `BasePage` / `[Component]Page` / `[Component]Component` pattern
 6. **Create changeset** - If change affects consumers, using the `[Category] - description` format
 7. **Update README** - Component README becomes the Storybook overview and must meet the required structure enforced by Danger JS
-8. **Test in Aperture** - Use `/test-aperture` command on PR
+8. **Test in Aperture** - Use `/test-aperture` once per PR only (IMPORTANT – rerunning this command is destructive)
 
 ## Avoid
 
