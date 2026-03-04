@@ -11,7 +11,8 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "files": [
     "scss",
-    "dist"
+    "dist",
+    "docs"
   ],
   "main": "dist/index.css",
   "pieMetadata": {
