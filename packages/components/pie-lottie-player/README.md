@@ -1,6 +1,7 @@
 # @justeattakeaway/pie-lottie-player
 
 [Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-lottie-player) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-lottie-player)
+
 <p>
   <a href="https://www.npmjs.com/@justeattakeaway/pie-lottie-player">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-lottie-player.svg">
