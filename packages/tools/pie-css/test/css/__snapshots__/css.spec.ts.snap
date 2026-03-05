@@ -168,7 +168,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-heading-xs-line-height--wide) * 1px);
   }
 }
-
 .u-font-heading-s {
   font-family: var(--dt-font-heading-s-family);
   font-weight: var(--dt-font-heading-s-weight);
@@ -181,7 +180,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-heading-s-line-height--wide) * 1px);
   }
 }
-
 .u-font-heading-m {
   font-family: var(--dt-font-heading-m-family);
   font-weight: var(--dt-font-heading-m-weight);
@@ -194,7 +192,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
   }
 }
-
 .u-font-heading-l {
   font-family: var(--dt-font-heading-l-family);
   font-weight: var(--dt-font-heading-l-weight);
@@ -207,7 +204,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-heading-l-line-height--wide) * 1px);
   }
 }
-
 .u-font-heading-xl {
   font-family: var(--dt-font-heading-xl-family);
   font-weight: var(--dt-font-heading-xl-weight);
@@ -220,7 +216,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-heading-xl-line-height--wide) * 1px);
   }
 }
-
 .u-font-heading-xxl {
   font-family: var(--dt-font-heading-xxl-family);
   font-weight: var(--dt-font-heading-xxl-weight);
@@ -233,7 +228,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-heading-xxl-line-height--wide) * 1px);
   }
 }
-
 .u-font-heading-xs-italic {
   font-family: var(--dt-font-heading-xs-italic-family);
   font-weight: var(--dt-font-heading-xs-italic-weight);
@@ -248,7 +242,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-heading-xs-italic-line-height--wide) * 1px);
   }
 }
-
 .u-font-heading-s-italic {
   font-family: var(--dt-font-heading-s-italic-family);
   font-weight: var(--dt-font-heading-s-italic-weight);
@@ -263,7 +256,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-heading-s-italic-line-height--wide) * 1px);
   }
 }
-
 .u-font-heading-m-italic {
   font-family: var(--dt-font-heading-m-italic-family);
   font-weight: var(--dt-font-heading-m-italic-weight);
@@ -278,7 +270,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-heading-m-italic-line-height--wide) * 1px);
   }
 }
-
 .u-font-heading-l-italic {
   font-family: var(--dt-font-heading-l-italic-family);
   font-weight: var(--dt-font-heading-l-italic-weight);
@@ -293,7 +284,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-heading-l-italic-line-height--wide) * 1px);
   }
 }
-
 .u-font-heading-xl-italic {
   font-family: var(--dt-font-heading-xl-italic-family);
   font-weight: var(--dt-font-heading-xl-italic-weight);
@@ -308,7 +298,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-heading-xl-italic-line-height--wide) * 1px);
   }
 }
-
 .u-font-heading-xxl-italic {
   font-family: var(--dt-font-heading-xxl-italic-family);
   font-weight: var(--dt-font-heading-xxl-italic-weight);
@@ -323,7 +312,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-heading-xxl-italic-line-height--wide) * 1px);
   }
 }
-
 .u-font-subheading-s {
   font-family: var(--dt-font-subheading-s-family);
   font-weight: var(--dt-font-subheading-s-weight);
@@ -336,7 +324,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-subheading-s-line-height--wide) * 1px);
   }
 }
-
 .u-font-subheading-l {
   font-family: var(--dt-font-subheading-l-family);
   font-weight: var(--dt-font-subheading-l-weight);
@@ -349,35 +336,30 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
     line-height: calc(var(--dt-font-subheading-l-line-height--wide) * 1px);
   }
 }
-
 .u-font-interactive-xs {
   font-family: var(--dt-font-interactive-xs-family);
   font-weight: var(--dt-font-interactive-xs-weight);
   font-size: calc(var(--dt-font-interactive-xs-size) * 1px);
   line-height: calc(var(--dt-font-interactive-xs-line-height) * 1px);
 }
-
 .u-font-interactive-s {
   font-family: var(--dt-font-interactive-s-family);
   font-weight: var(--dt-font-interactive-s-weight);
   font-size: calc(var(--dt-font-interactive-s-size) * 1px);
   line-height: calc(var(--dt-font-interactive-s-line-height) * 1px);
 }
-
 .u-font-interactive-l {
   font-family: var(--dt-font-interactive-l-family);
   font-weight: var(--dt-font-interactive-l-weight);
   font-size: calc(var(--dt-font-interactive-l-size) * 1px);
   line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
 }
-
 .u-font-body-s {
   font-family: var(--dt-font-body-s-family);
   font-weight: var(--dt-font-body-s-weight);
   font-size: calc(var(--dt-font-body-s-size) * 1px);
   line-height: calc(var(--dt-font-body-s-line-height) * 1px);
 }
-
 .u-font-body-s.u-typographySpacing {
   margin-block-end: calc(var(--dt-font-body-s-paragraph) * 1px);
 }
@@ -389,7 +371,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   font-size: calc(var(--dt-font-body-s-link-size) * 1px);
   line-height: calc(var(--dt-font-body-s-link-line-height) * 1px);
 }
-
 .u-font-body-s-link.u-typographySpacing {
   margin-block-end: calc(var(--dt-font-body-s-link-paragraph) * 1px);
 }
@@ -400,7 +381,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   font-size: calc(var(--dt-font-body-l-size) * 1px);
   line-height: calc(var(--dt-font-body-l-line-height) * 1px);
 }
-
 .u-font-body-l.u-typographySpacing {
   margin-block-end: calc(var(--dt-font-body-l-paragraph) * 1px);
 }
@@ -412,7 +392,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   font-size: calc(var(--dt-font-body-l-link-size) * 1px);
   line-height: calc(var(--dt-font-body-l-link-line-height) * 1px);
 }
-
 .u-font-body-l-link.u-typographySpacing {
   margin-block-end: calc(var(--dt-font-body-l-link-paragraph) * 1px);
 }
@@ -423,7 +402,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   font-size: calc(var(--dt-font-body-strong-s-size) * 1px);
   line-height: calc(var(--dt-font-body-strong-s-line-height) * 1px);
 }
-
 .u-font-body-strong-s.u-typographySpacing {
   margin-block-end: calc(var(--dt-font-body-strong-s-paragraph) * 1px);
 }
@@ -435,7 +413,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   font-size: calc(var(--dt-font-body-strong-s-link-size) * 1px);
   line-height: calc(var(--dt-font-body-strong-s-link-line-height) * 1px);
 }
-
 .u-font-body-strong-s-link.u-typographySpacing {
   margin-block-end: calc(var(--dt-font-body-strong-s-link-paragraph) * 1px);
 }
@@ -446,7 +423,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   font-size: calc(var(--dt-font-body-strong-l-size) * 1px);
   line-height: calc(var(--dt-font-body-strong-l-line-height) * 1px);
 }
-
 .u-font-body-strong-l.u-typographySpacing {
   margin-block-end: calc(var(--dt-font-body-strong-l-paragraph) * 1px);
 }
@@ -458,7 +434,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   font-size: calc(var(--dt-font-body-strong-l-link-size) * 1px);
   line-height: calc(var(--dt-font-body-strong-l-link-line-height) * 1px);
 }
-
 .u-font-body-strong-l-link.u-typographySpacing {
   margin-block-end: calc(var(--dt-font-body-strong-l-link-paragraph) * 1px);
 }
@@ -469,7 +444,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   font-size: calc(var(--dt-font-caption-size) * 1px);
   line-height: calc(var(--dt-font-caption-line-height) * 1px);
 }
-
 .u-font-caption.u-typographySpacing {
   margin-block-end: calc(var(--dt-font-caption-paragraph) * 1px);
 }
@@ -481,7 +455,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   font-size: calc(var(--dt-font-caption-link-size) * 1px);
   line-height: calc(var(--dt-font-caption-link-line-height) * 1px);
 }
-
 .u-font-caption-link.u-typographySpacing {
   margin-block-end: calc(var(--dt-font-caption-link-paragraph) * 1px);
 }
@@ -492,7 +465,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   font-size: calc(var(--dt-font-caption-strong-size) * 1px);
   line-height: calc(var(--dt-font-caption-strong-line-height) * 1px);
 }
-
 .u-font-caption-strong.u-typographySpacing {
   margin-block-end: calc(var(--dt-font-caption-strong-paragraph) * 1px);
 }
@@ -504,7 +476,6 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   font-size: calc(var(--dt-font-caption-strong-link-size) * 1px);
   line-height: calc(var(--dt-font-caption-strong-link-line-height) * 1px);
 }
-
 .u-font-caption-strong-link.u-typographySpacing {
   margin-block-end: calc(var(--dt-font-caption-strong-link-paragraph) * 1px);
 }
@@ -669,6 +640,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-container-base: rgb(255,255,255,0.72);
     --dt-color-container-neutral: rgb(240,236,230,0.72);
     --dt-color-container-prominent: rgb(255,255,255,0.4);
+    --dt-color-container-base-dark: rgb(43,42,40,0.62);
     --dt-color-border-default: var(--dt-color-truffle-20);
     --dt-color-border-subtle: var(--dt-color-truffle-10);
     --dt-color-border-strong: var(--dt-color-truffle-30);
@@ -1058,6 +1030,13 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-font-caption-strong-family: var(--dt-font-family-primary);
     --dt-font-caption-strong-weight: var(--dt-font-weight-bold);
     --dt-font-caption-strong-paragraph: var(--dt-font-paragraph-spacing-03);
+    /* Caption-strong-italic font theme */
+    --dt-font-caption-strong-italic-size: var(--dt-font-size-12);
+    --dt-font-caption-strong-italic-line-height: var(--dt-font-line-height-16);
+    --dt-font-caption-strong-italic-family: var(--dt-font-family-primary);
+    --dt-font-caption-strong-italic-weight: var(--dt-font-weight-extrabold);
+    --dt-font-caption-strong-italic-font-style: var(--dt-font-style-italic);
+    --dt-font-caption-strong-italic-paragraph: var(--dt-font-paragraph-spacing-03);
     /* Caption-strong-link font theme */
     --dt-font-caption-strong-link-size: var(--dt-font-size-12);
     --dt-font-caption-strong-link-line-height: var(--dt-font-line-height-16);
@@ -1202,6 +1181,7 @@ html[data-color-mode="dark"] {
     --dt-color-container-base: rgb(43,42,40,0.62);
     --dt-color-container-neutral: rgb(89,86,79,0.72);
     --dt-color-container-prominent: rgb(43,42,40,0.42);
+    --dt-color-container-base-dark: rgb(43,42,40,0.62);
     --dt-color-border-default: var(--dt-color-truffle-70);
     --dt-color-border-subtle: var(--dt-color-truffle-75);
     --dt-color-border-strong: var(--dt-color-truffle-65);
@@ -1378,6 +1358,7 @@ html[data-color-mode="dark"] {
         --dt-color-container-base: rgb(43,42,40,0.62);
         --dt-color-container-neutral: rgb(89,86,79,0.72);
         --dt-color-container-prominent: rgb(43,42,40,0.42);
+        --dt-color-container-base-dark: rgb(43,42,40,0.62);
         --dt-color-border-default: var(--dt-color-truffle-70);
         --dt-color-border-subtle: var(--dt-color-truffle-75);
         --dt-color-border-strong: var(--dt-color-truffle-65);
