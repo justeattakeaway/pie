@@ -1,0 +1,41 @@
+import { Meta, Source } from '@storybook/blocks';
+import * as RadioStories from './pie-css-radio.stories';
+
+<Meta title="Components/Radio/CSS Only/Examples/Code" />
+
+# Code Examples
+
+Below are some basic HTML + CSS code examples for styling radio inputs with PIE CSS. They correspond to stories of the same name. It is important to note
+that these examples are simply demonstrations and are not production-ready code. **Do not copy and paste these into your projects!**
+
+---
+
+## Card-Based Selection
+
+Create selectable cards with radio inputs.
+
+<Source of={RadioStories.CardBasedSelection} language="html" dark />
+
+---
+
+## Expandable Complex Card-Based Selection
+
+Advanced card pattern that reveals additional content when selected, using CSS-only `:has()` selector.
+
+<Source of={RadioStories.ExpandableComplexCardBasedSelection} language="html" dark />
+
+---
+
+## Product List Selection
+
+A list of product options with GTIN/barcode details and match percentages. Uses `aria-labelledby` for the product name and `aria-describedby` for GTIN and match information. GTIN numbers use `aria-label` with space-separated digits for better screen reader announcement.
+
+<Source of={RadioStories.ProductListSelection} language="html" dark />
+
+---
+
+## Horizontal Layout
+
+A horizontal card-based layout for radio options. Each option includes a title and description, with hover and checked state styling using `:has()`. Includes a disabled option to demonstrate the disabled state. Uses `flex-wrap` to remain responsive at smaller viewports.
+
+<Source of={RadioStories.HorizontalLayout} language="html" dark />
