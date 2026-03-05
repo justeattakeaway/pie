@@ -1,0 +1,214 @@
+name: DS Review Tracker – Update Project Fields
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  update-project-fields:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Project Data
+        uses: octokit/graphql-action@v2.x
+        id: get_project_data
+        with:
+          query: |
+            query($org: String!, $number: Int!) {
+              organization(login: $org){
+                projectV2(number: $number) {
+                  id
+                  fields(first:20) {
+                    nodes {
+                      ... on ProjectV2Field {
+                        id
+                        name
+                      }
+                      ... on ProjectV2SingleSelectField {
+                        id
+                        name
+                        options {
+                          id
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          variables: |
+            {
+              "org": "${{ github.repository_owner }}",
+              "number": 5
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PROJECTS_SECRET }}
+
+      - name: Extract Project Field IDs
+        id: extract_fields
+        run: |
+          PROJECT_DATA='${{ steps.get_project_data.outputs.data }}'
+          echo "PROJECT_ID=$(echo $PROJECT_DATA | jq -r '.organization.projectV2.id')" >> $GITHUB_OUTPUT
+
+          echo "Available fields:"
+          echo "$PROJECT_DATA" | jq -r '.organization.projectV2.fields.nodes[] | .name + ": " + .id'
+          
+          DATE_FIELD_ID=$(echo "$PROJECT_DATA" | jq -r '.organization.projectV2.fields.nodes[] | select(.name=="Date opened") | .id')
+          echo "Found Date Field ID: $DATE_FIELD_ID"
+          
+          # Check if date field was found
+          if [ -n "$DATE_FIELD_ID" ]; then
+            echo "HAS_DATE_FIELD=true" >> $GITHUB_OUTPUT
+          else
+            echo "HAS_DATE_FIELD=false" >> $GITHUB_OUTPUT
+            echo "Warning: 'Date opened' field not found in project. Date will not be updated."
+          fi
+          
+          echo "PROJECT_ID=$(echo $PROJECT_DATA | jq -r '.organization.projectV2.id')" >> $GITHUB_OUTPUT
+          echo "DATE_FIELD_ID=$DATE_FIELD_ID" >> $GITHUB_OUTPUT
+          echo "PRIORITY_FIELD_ID=$(echo $PROJECT_DATA | jq -r '.organization.projectV2.fields.nodes[] | select(.name=="Priority") | .id')" >> $GITHUB_OUTPUT
+          echo "PRIORITY_OPTION_ID=$(echo $PROJECT_DATA | jq -r '.organization.projectV2.fields.nodes[] | select(.name=="Priority") | .options[] | select(.name=="Medium") | .id')" >> $GITHUB_OUTPUT
+          echo "SIZE_FIELD_ID=$(echo $PROJECT_DATA | jq -r '.organization.projectV2.fields.nodes[] | select(.name=="Size") | .id')" >> $GITHUB_OUTPUT
+          echo "SIZE_OPTION_ID=$(echo $PROJECT_DATA | jq -r '.organization.projectV2.fields.nodes[] | select(.name=="Size") | .options[] | select(.name=="M") | .id')" >> $GITHUB_OUTPUT
+
+      - name: Add PR to Project
+        uses: octokit/graphql-action@v2.x
+        id: add_pr_to_project
+        with:
+          query: |
+            mutation($project:ID!, $pr:ID!) {
+              addProjectV2ItemById(input: {projectId: $project, contentId: $pr}) {
+                item {
+                  id
+                }
+              }
+            }
+          variables: |
+            {
+              "project": "${{ steps.extract_fields.outputs.PROJECT_ID }}",
+              "pr": "${{ github.event.pull_request.node_id }}"
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PROJECTS_SECRET }}
+
+      - name: Get Item ID
+        id: get_item_id
+        run: |
+          ITEM_DATA='${{ steps.add_pr_to_project.outputs.data }}'
+          echo "ITEM_ID=$(echo $ITEM_DATA | jq -r '.addProjectV2ItemById.item.id')" >> $GITHUB_OUTPUT
+
+      - name: Update Project Fields
+        uses: octokit/graphql-action@v2.x
+        if: steps.extract_fields.outputs.HAS_DATE_FIELD == 'true'
+        with:
+          query: |
+            mutation (
+              $project: ID!
+              $item: ID!
+              $dateField: ID!
+              $priorityField: ID!
+              $sizeField: ID!
+              $priorityOption: String!
+              $sizeOption: String!
+              $date: Date!
+            ) {
+              dateUpdate: updateProjectV2ItemFieldValue(input: {
+                projectId: $project
+                itemId: $item
+                fieldId: $dateField
+                value: {
+                  date: $date
+                }
+              }) {
+                projectV2Item {
+                  id
+                }
+              }
+              priorityUpdate: updateProjectV2ItemFieldValue(input: {
+                projectId: $project
+                itemId: $item
+                fieldId: $priorityField
+                value: {
+                  singleSelectOptionId: $priorityOption
+                }
+              }) {
+                projectV2Item {
+                  id
+                }
+              }
+              sizeUpdate: updateProjectV2ItemFieldValue(input: {
+                projectId: $project
+                itemId: $item
+                fieldId: $sizeField
+                value: {
+                  singleSelectOptionId: $sizeOption
+                }
+              }) {
+                projectV2Item {
+                  id
+                }
+              }
+            }
+          variables: |
+            {
+              "project": "${{ steps.extract_fields.outputs.PROJECT_ID }}",
+              "item": "${{ steps.get_item_id.outputs.ITEM_ID }}",
+              "dateField": "${{ steps.extract_fields.outputs.DATE_FIELD_ID }}",
+              "priorityField": "${{ steps.extract_fields.outputs.PRIORITY_FIELD_ID }}",
+              "sizeField": "${{ steps.extract_fields.outputs.SIZE_FIELD_ID }}",
+              "priorityOption": "${{ steps.extract_fields.outputs.PRIORITY_OPTION_ID }}",
+              "sizeOption": "${{ steps.extract_fields.outputs.SIZE_OPTION_ID }}",
+              "date": "${{ github.event.pull_request.created_at }}"
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PROJECTS_SECRET }}
+
+      - name: Update Project Fields (Without Date)
+        uses: octokit/graphql-action@v2.x
+        if: steps.extract_fields.outputs.HAS_DATE_FIELD != 'true'
+        with:
+          query: |
+            mutation (
+              $project: ID!
+              $item: ID!
+              $priorityField: ID!
+              $sizeField: ID!
+              $priorityOption: String!
+              $sizeOption: String!
+            ) {
+              priorityUpdate: updateProjectV2ItemFieldValue(input: {
+                projectId: $project
+                itemId: $item
+                fieldId: $priorityField
+                value: {
+                  singleSelectOptionId: $priorityOption
+                }
+              }) {
+                projectV2Item {
+                  id
+                }
+              }
+              sizeUpdate: updateProjectV2ItemFieldValue(input: {
+                projectId: $project
+                itemId: $item
+                fieldId: $sizeField
+                value: {
+                  singleSelectOptionId: $sizeOption
+                }
+              }) {
+                projectV2Item {
+                  id
+                }
+              }
+            }
+          variables: |
+            {
+              "project": "${{ steps.extract_fields.outputs.PROJECT_ID }}",
+              "item": "${{ steps.get_item_id.outputs.ITEM_ID }}",
+              "priorityField": "${{ steps.extract_fields.outputs.PRIORITY_FIELD_ID }}",
+              "sizeField": "${{ steps.extract_fields.outputs.SIZE_FIELD_ID }}",
+              "priorityOption": "${{ steps.extract_fields.outputs.PRIORITY_OPTION_ID }}",
+              "sizeOption": "${{ steps.extract_fields.outputs.SIZE_OPTION_ID }}"
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PROJECTS_SECRET }}
