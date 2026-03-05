@@ -3,15 +3,15 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 import { action } from '@storybook/addon-actions';
 
-import '@justeattakeaway/pie-radio-group';
+import '@justeattakeaway/pie-webc/components/radio-group';
 import {
     defaultProps,
     statusTypes,
     type RadioGroupProps as RadioGroupPropsBase,
-} from '@justeattakeaway/pie-radio-group';
-import '@justeattakeaway/pie-link';
-import '@justeattakeaway/pie-radio';
-import '@justeattakeaway/pie-form-label';
+} from '@justeattakeaway/pie-webc/components/radio-group';
+import '@justeattakeaway/pie-webc/components/link';
+import '@justeattakeaway/pie-webc/components/radio';
+import '@justeattakeaway/pie-webc/components/form-label';
 
 import { createStory } from '../utilities';
 

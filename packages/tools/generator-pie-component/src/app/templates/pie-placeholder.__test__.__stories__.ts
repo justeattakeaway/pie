@@ -1,8 +1,8 @@
 import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-<%= fileName %>';
-import { type <%= componentName %>Props } from '@justeattakeaway/pie-<%= fileName %>';
+import '@justeattakeaway/pie-webc/components/<%= fileName %>';
+import { type <%= componentName %>Props } from '@justeattakeaway/pie-webc/components/<%= fileName %>';
 
 import { createStory } from '../../utilities';
 

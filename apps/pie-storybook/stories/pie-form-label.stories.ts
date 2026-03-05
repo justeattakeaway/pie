@@ -1,8 +1,8 @@
 import { html, nothing } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-form-label';
-import { type FormLabelProps as FormLabelPropsBase } from '@justeattakeaway/pie-form-label';
+import '@justeattakeaway/pie-webc/components/form-label';
+import { type FormLabelProps as FormLabelPropsBase } from '@justeattakeaway/pie-webc/components/form-label';
 
 import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';

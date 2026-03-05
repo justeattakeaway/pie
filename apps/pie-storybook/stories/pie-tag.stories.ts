@@ -2,14 +2,14 @@ import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-tag';
+import '@justeattakeaway/pie-webc/components/tag';
 import {
     type TagProps as TagBaseProps,
     variants,
     sizes,
     defaultProps,
-} from '@justeattakeaway/pie-tag';
-import '@justeattakeaway/pie-notification';
+} from '@justeattakeaway/pie-webc/components/tag';
+import '@justeattakeaway/pie-webc/components/notification';
 import '@justeattakeaway/pie-icons-webc/dist/IconOfferFilled.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconVegan.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconFingerprint.js';

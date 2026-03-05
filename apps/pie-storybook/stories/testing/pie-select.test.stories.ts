@@ -6,11 +6,11 @@ import {
     sizes,
     statusTypes,
     type SelectProps as SelectBaseProps,
-} from '@justeattakeaway/pie-select';
-import '@justeattakeaway/pie-select';
+} from '@justeattakeaway/pie-webc/components/select';
+import '@justeattakeaway/pie-webc/components/select';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
-import '@justeattakeaway/pie-button';
-import '@justeattakeaway/pie-form-label';
+import '@justeattakeaway/pie-webc/components/button';
+import '@justeattakeaway/pie-webc/components/form-label';
 
 import { ifDefined } from 'lit/directives/if-defined.js';
 import {
