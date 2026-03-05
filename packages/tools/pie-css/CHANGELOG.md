@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.28.0
+
+### Minor Changes
+
+- [Added] - CSS only radio button class for styling native inputs ([#2700](https://github.com/justeattakeaway/pie/pull/2700)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.27.0
 
 ### Minor Changes
