@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.64.0
+
+### Minor Changes
+
+- [Added] - page for agentic AI resources ([#2697](https://github.com/justeattakeaway/pie/pull/2697)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- Updated dependencies [[`4e4e76a`](https://github.com/justeattakeaway/pie/commit/4e4e76a9b667bc62739c089712c9c007287dbb87)]:
+  - @justeattakeaway/pie-css@0.28.0
+  - @justeattakeaway/pie-webc@0.8.5
+  - @justeattakeaway/pie-icons-webc@1.20.3
+
 ## 4.63.0
 
 ### Minor Changes

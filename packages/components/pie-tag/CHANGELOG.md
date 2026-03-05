@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-tag
 
+## 0.22.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@8.0.0
+
 ## 0.22.6
 
 ### Patch Changes

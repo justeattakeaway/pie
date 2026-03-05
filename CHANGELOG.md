@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.99.0
+
+### Minor Changes
+
+- [Changed] - use pie-webc for story imports ([#2703](https://github.com/justeattakeaway/pie/pull/2703)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - AGENTS.md file ([#2690](https://github.com/justeattakeaway/pie/pull/2690)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.98.0
 
 ### Minor Changes
