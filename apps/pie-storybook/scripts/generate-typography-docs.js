@@ -444,9 +444,9 @@ function MyComponent() {
       <p className="u-font-body-l">
         This is a paragraph using the body large utility class.
       </p>
-            <p className="u-font-body-l u-typographySpacing">
-                This paragraph uses the same typography class with opt-in spacing.
-            </p>
+      <p className="u-font-body-l u-typographySpacing">
+        This paragraph uses the same typography class with opt-in spacing.
+      </p>
       <a href="#" className="u-font-body-l-link">Learn more</a>
     </div>
   );
@@ -463,9 +463,9 @@ function MyComponent() {
     <p class="u-font-body-l">
       This is a paragraph using the body large utility class.
     </p>
-        <p class="u-font-body-l u-typographySpacing">
-            This paragraph uses the same typography class with opt-in spacing.
-        </p>
+    <p class="u-font-body-l u-typographySpacing">
+      This paragraph uses the same typography class with opt-in spacing.
+    </p>
     <a href="#" class="u-font-body-l-link">Learn more</a>
   </div>
 </template>
