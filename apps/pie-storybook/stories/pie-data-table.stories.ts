@@ -1,20 +1,20 @@
 import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-data-table';
-import '@justeattakeaway/pie-data-table/dist/pie-data-table-header';
-import '@justeattakeaway/pie-data-table/dist/pie-data-table-row';
-import '@justeattakeaway/pie-data-table/dist/pie-data-table-body';
-import '@justeattakeaway/pie-data-table/dist/pie-data-table-cell';
-import '@justeattakeaway/pie-data-table/dist/pie-data-table-head';
-import '@justeattakeaway/pie-data-table/dist/pie-data-table-head-cell';
-import '@justeattakeaway/pie-data-table/dist/pie-data-table-contents';
-import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-webc/components/data-table';
+import '@justeattakeaway/pie-webc/components/data-table-header';
+import '@justeattakeaway/pie-webc/components/data-table-row';
+import '@justeattakeaway/pie-webc/components/data-table-body';
+import '@justeattakeaway/pie-webc/components/data-table-cell';
+import '@justeattakeaway/pie-webc/components/data-table-head';
+import '@justeattakeaway/pie-webc/components/data-table-head-cell';
+import '@justeattakeaway/pie-webc/components/data-table-contents';
+import '@justeattakeaway/pie-webc/components/button';
 import type {
     DataTableProps,
     Column,
     DataTableAdditionalRow,
-} from '@justeattakeaway/pie-data-table';
+} from '@justeattakeaway/pie-webc/components/data-table';
 
 import { createStory } from '../utilities';
 

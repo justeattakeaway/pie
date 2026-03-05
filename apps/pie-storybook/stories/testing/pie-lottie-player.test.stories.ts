@@ -1,11 +1,11 @@
 import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-lottie-player';
-import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-webc/components/lottie-player';
+import '@justeattakeaway/pie-webc/components/button';
 import {
     type LottiePlayerProps as LottiePlayerBaseProps, type PieLottiePlayer, defaultProps, directions,
-} from '@justeattakeaway/pie-lottie-player';
+} from '@justeattakeaway/pie-webc/components/lottie-player';
 
 import { createStory } from '../../utilities';
 

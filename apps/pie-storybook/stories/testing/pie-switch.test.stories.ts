@@ -1,12 +1,13 @@
 import { html, nothing } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-switch';
-import { type SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-switch';
+import '@justeattakeaway/pie-webc/components/switch';
+import { type SwitchProps, labelPlacements, defaultProps } from '@justeattakeaway/pie-webc/components/switch';
 import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
 
-import { EXPECTED_EVENT_MESSAGE } from '@justeattakeaway/pie-switch/test/helpers/constants';
 import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';
+
+const EXPECTED_EVENT_MESSAGE = 'Switch clicked';
 
 type SwitchStoryMeta = Meta<SwitchProps>;
 

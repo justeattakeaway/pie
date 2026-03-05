@@ -2,13 +2,13 @@ import { html, nothing } from 'lit';
 import { type Meta } from '@storybook/web-components';
 import { action } from '@storybook/addon-actions';
 
-import '@justeattakeaway/pie-select';
+import '@justeattakeaway/pie-webc/components/select';
 import {
     defaultProps,
     sizes,
     statusTypes,
     type SelectProps as SelectBaseProps,
-} from '@justeattakeaway/pie-select';
+} from '@justeattakeaway/pie-webc/components/select';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 

@@ -2,8 +2,8 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-checkbox';
-import { type CheckboxProps as CheckboxBaseProps, defaultProps, statusTypes } from '@justeattakeaway/pie-checkbox';
+import '@justeattakeaway/pie-webc/components/checkbox';
+import { type CheckboxProps as CheckboxBaseProps, defaultProps, statusTypes } from '@justeattakeaway/pie-webc/components/checkbox';
 
 import { action } from '@storybook/addon-actions';
 import { type SlottedComponentProps } from '../types';

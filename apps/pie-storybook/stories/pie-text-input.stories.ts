@@ -4,13 +4,13 @@ import { action } from '@storybook/addon-actions';
 import { useArgs as UseArgs } from '@storybook/preview-api';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-text-input';
+import '@justeattakeaway/pie-webc/components/text-input';
 import {
     type TextInputProps as TextInputPropsBase, types, inputModes, statusTypes, sizes, defaultProps,
-} from '@justeattakeaway/pie-text-input';
-import '@justeattakeaway/pie-button';
-import '@justeattakeaway/pie-link';
-import '@justeattakeaway/pie-form-label';
+} from '@justeattakeaway/pie-webc/components/text-input';
+import '@justeattakeaway/pie-webc/components/button';
+import '@justeattakeaway/pie-webc/components/link';
+import '@justeattakeaway/pie-webc/components/form-label';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconEmail.js';
 import '@justeattakeaway/pie-icons-webc/dist/IconLaptop.js';

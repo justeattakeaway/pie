@@ -1,5 +1,5 @@
 import { type TemplateResult, html } from 'lit';
-import '@justeattakeaway/pie-tag';
+import '@justeattakeaway/pie-webc/components/tag';
 import '@justeattakeaway/pie-icons-webc/dist/IconHelpCircle.js';
 import componentStatusesJson from '@justeattakeaway/pie-monorepo-utils/dist/component-statuses.json';
 import { type StorybookContext } from '../interfaces/storybook-context';

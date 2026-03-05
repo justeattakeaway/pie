@@ -2,10 +2,10 @@ import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-chip';
+import '@justeattakeaway/pie-webc/components/chip';
 import {
     type ChipProps as ChipPropsBase, variants, defaultProps, types,
-} from '@justeattakeaway/pie-chip';
+} from '@justeattakeaway/pie-webc/components/chip';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
 import { type SlottedComponentProps } from '../../types';

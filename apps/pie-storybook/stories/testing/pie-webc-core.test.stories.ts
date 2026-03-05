@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-webc-core/src/test/functions/dispatchCustomEvent/MockComponent';
 import '@justeattakeaway/pie-webc-core/src/test/mixins/formControlMixin/MockComponent';
 import '@justeattakeaway/pie-webc-core/src/test/mixins/delegatesFocusMixin/MockComponent';
