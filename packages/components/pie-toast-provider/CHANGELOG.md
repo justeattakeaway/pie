@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-toast-provider
 
+## 0.7.26
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.12.25
+  - @justeattakeaway/pie-webc-core@8.0.1
+
 ## 0.7.25
 
 ### Patch Changes
