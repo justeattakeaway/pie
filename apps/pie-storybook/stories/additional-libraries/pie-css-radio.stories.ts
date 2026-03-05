@@ -615,33 +615,135 @@ export const ProductListSelection: Story = {
 export const HorizontalLayout: Story = {
     render: () => `
         <style>
-            .horizontal-group {
-                display: flex;
-                gap: 24px;
-                align-items: center;
+            .horizontal-options {
+                --horizontal-border-default: var(--dt-color-border-default);
+                --horizontal-border-hover: var(--dt-color-border-strong);
+                --horizontal-border-active: var(--dt-color-support-info);
+
+                --horizontal-bg-default: var(--dt-color-container-default);
+                --horizontal-bg-hover: var(--dt-color-container-subtle);
+                --horizontal-bg-active: var(--dt-color-support-info-tonal);
+
+                --horizontal-text-legend: var(--dt-color-content-default);
+                --horizontal-text-title: var(--dt-color-content-default);
+                --horizontal-text-desc: var(--dt-color-content-subdued);
+                --horizontal-text-disabled: var(--dt-color-content-disabled);
+
+                border: none;
+                padding: 0;
+                margin: 0;
+                font-family: var(--dt-font-family-primary);
             }
-            .horizontal-group label {
+
+            .horizontal-options legend {
+                font-size: calc(var(--dt-font-heading-s-size--narrow) * 1px);
+                font-weight: var(--dt-font-heading-s-weight);
+                line-height: calc(var(--dt-font-heading-s-line-height--narrow) * 1px);
+                color: var(--horizontal-text-legend);
+                margin-bottom: var(--dt-spacing-d);
+            }
+
+            .horizontal-options__group {
                 display: flex;
-                align-items: center;
-                gap: 8px;
+                gap: var(--dt-spacing-d);
+                flex-wrap: wrap;
+            }
+
+            .horizontal-option {
+                display: flex;
+                align-items: flex-start;
+                gap: var(--dt-spacing-c);
+                padding: var(--dt-spacing-d);
+                border: 2px solid var(--horizontal-border-default);
+                border-radius: var(--dt-radius-rounded-b);
+                background-color: var(--horizontal-bg-default);
                 cursor: pointer;
+                transition: all var(--dt-motion-timing-200) var(--dt-motion-easing-out);
+                flex: 1 1 0;
+                min-width: 0;
+            }
+
+            .horizontal-option:hover {
+                border-color: var(--horizontal-border-hover);
+                background-color: var(--horizontal-bg-hover);
+            }
+
+            .horizontal-option:has(input:checked) {
+                border-color: var(--horizontal-border-active);
+                background-color: var(--horizontal-bg-active);
+            }
+
+            .horizontal-option:has(input:disabled) {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+
+            .horizontal-option__content {
+                display: flex;
+                flex-direction: column;
+                gap: var(--dt-spacing-a);
+            }
+
+            .horizontal-option__title {
+                font-size: calc(var(--dt-font-body-strong-l-size) * 1px);
+                font-weight: var(--dt-font-body-strong-l-weight);
+                line-height: calc(var(--dt-font-body-strong-l-line-height) * 1px);
+                color: var(--horizontal-text-title);
+            }
+
+            .horizontal-option__description {
+                font-size: calc(var(--dt-font-body-s-size) * 1px);
+                line-height: calc(var(--dt-font-body-s-line-height) * 1px);
+                color: var(--horizontal-text-desc);
+            }
+
+            .horizontal-option:has(input:disabled) .horizontal-option__title {
+                color: var(--horizontal-text-disabled);
+            }
+
+            .horizontal-option:has(input:disabled) .horizontal-option__description {
+                color: var(--horizontal-text-disabled);
             }
         </style>
 
-        <div class="horizontal-group" role="radiogroup" aria-labelledby="size-label">
-            <span id="size-label"><strong>Size:</strong></span>
-            <label>
-                <input type="radio" class="c-radio" name="size" value="s" id="size-s">
-                <span>Small</span>
-            </label>
-            <label>
-                <input type="radio" class="c-radio" name="size" value="m" id="size-m" checked>
-                <span>Medium</span>
-            </label>
-            <label>
-                <input type="radio" class="c-radio" name="size" value="l" id="size-l">
-                <span>Large</span>
-            </label>
-        </div>
+    <form>
+        <fieldset class="horizontal-options">
+            <legend>Lorem ipsum dolor sit</legend>
+
+            <div class="horizontal-options__group">
+                <label class="horizontal-option">
+                    <input type="radio" class="c-radio" name="frequency" value="weekly" checked>
+                    <span class="horizontal-option__content">
+                        <strong class="horizontal-option__title">Ipsum dolor</strong>
+                        <span class="horizontal-option__description">Praesent commodo cursus</span>
+                    </span>
+                </label>
+
+                <label class="horizontal-option">
+                    <input type="radio" class="c-radio" name="frequency" value="fortnightly">
+                    <span class="horizontal-option__content">
+                        <strong class="horizontal-option__title">Amet consectetur</strong>
+                        <span class="horizontal-option__description">Vivamus sagittis lacus vel</span>
+                    </span>
+                </label>
+
+                <label class="horizontal-option">
+                    <input type="radio" class="c-radio" name="frequency" value="monthly">
+                    <span class="horizontal-option__content">
+                        <strong class="horizontal-option__title">Vestibulum dolor</strong>
+                        <span class="horizontal-option__description">Nulla vitae elit libero</span>
+                    </span>
+                </label>
+
+                <label class="horizontal-option">
+                    <input type="radio" class="c-radio" name="frequency" value="custom" disabled>
+                    <span class="horizontal-option__content">
+                        <strong class="horizontal-option__title">Cras justo</strong>
+                        <span class="horizontal-option__description">Donec id elit non mi</span>
+                    </span>
+                </label>
+            </div>
+        </fieldset>
+    </form>
     `,
 };
