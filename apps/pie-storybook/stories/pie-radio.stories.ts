@@ -9,6 +9,7 @@ import {
     statusTypes,
     type RadioProps as RadioBaseProps,
 } from '@justeattakeaway/pie-webc/components/radio';
+import '@justeattakeaway/pie-webc/components/button';
 
 import { type SlottedComponentProps } from '../types';
 import { createStory, sanitizeAndRenderHTML, type TemplateFunction } from '../utilities';
