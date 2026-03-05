@@ -1,10 +1,10 @@
 import { html, nothing } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-form-label';
-import '@justeattakeaway/pie-text-input';
-import '@justeattakeaway/pie-switch';
-import { type FormLabelProps as FormLabelPropsBase } from '@justeattakeaway/pie-form-label';
+import '@justeattakeaway/pie-webc/components/form-label';
+import '@justeattakeaway/pie-webc/components/text-input';
+import '@justeattakeaway/pie-webc/components/switch';
+import { type FormLabelProps as FormLabelPropsBase } from '@justeattakeaway/pie-webc/components/form-label';
 
 import { type SlottedComponentProps } from '../../types';
 import {

@@ -2,10 +2,10 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-spinner';
+import '@justeattakeaway/pie-webc/components/spinner';
 import {
     type SpinnerProps, sizes, variants, defaultProps,
-} from '@justeattakeaway/pie-spinner';
+} from '@justeattakeaway/pie-webc/components/spinner';
 
 import { type TemplateFunction, createStory, createVariantStory } from '../../utilities';
 

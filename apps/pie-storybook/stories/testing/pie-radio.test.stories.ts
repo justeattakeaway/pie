@@ -3,13 +3,13 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { useArgs as UseArgs } from '@storybook/preview-api';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-radio';
-import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-webc/components/radio';
+import '@justeattakeaway/pie-webc/components/button';
 import {
     defaultProps,
     statusTypes,
     type RadioProps as RadioBaseProps,
-} from '@justeattakeaway/pie-radio';
+} from '@justeattakeaway/pie-webc/components/radio';
 
 import { type SlottedComponentProps } from '../../types';
 import {

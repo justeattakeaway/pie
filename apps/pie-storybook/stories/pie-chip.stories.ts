@@ -3,10 +3,10 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-chip';
+import '@justeattakeaway/pie-webc/components/chip';
 import {
     type ChipProps as ChipPropsBase, variants, types, defaultProps, type PieChip,
-} from '@justeattakeaway/pie-chip';
+} from '@justeattakeaway/pie-webc/components/chip';
 import '@justeattakeaway/pie-icons-webc/dist/IconHeartFilled.js';
 
 import { type SlottedComponentProps } from '../types';
