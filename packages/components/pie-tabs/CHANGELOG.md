@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-tabs
 
+## 0.1.12
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@8.0.1
+
 ## 0.1.11
 
 ### Patch Changes

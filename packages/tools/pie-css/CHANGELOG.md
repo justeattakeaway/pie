@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.28.1
+
+### Patch Changes
+
+- [Added] - move storybook docs to the packages ([#2702](https://github.com/justeattakeaway/pie/pull/2702)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.28.0
 
 ### Minor Changes
