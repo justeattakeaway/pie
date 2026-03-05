@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/html';
 
 import '@justeattakeaway/pie-css/dist/components/radio.css';
-import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-webc/components/button';
 
 const meta: Meta = {
     title: 'Components/Radio/CSS Only/Examples',
