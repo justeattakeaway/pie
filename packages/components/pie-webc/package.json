@@ -11,7 +11,8 @@
   "type": "module",
   "files": [
     "**/*.js",
-    "**/*.d.ts"
+    "**/*.d.ts",
+    "docs/**/*.md"
   ],
   "exports": {
     "./components/assistive-text.js": {
