@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-radio
 
+## 1.1.0
+
+### Minor Changes
+
+- [Changed] - Refactored to use styles from pie-css rather than writing own for radio input ([#2700](https://github.com/justeattakeaway/pie/pull/2700)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@8.0.0
+
 ## 1.0.4
 
 ### Patch Changes

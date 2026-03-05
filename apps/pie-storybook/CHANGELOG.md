@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.70.0
+
+### Minor Changes
+
+- [Added] - Stories and documentation for a css-only radio input class provided by pie-css ([#2700](https://github.com/justeattakeaway/pie/pull/2700)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - use pie-webc for story imports ([#2703](https://github.com/justeattakeaway/pie/pull/2703)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Fixed] - Prevent ColorMode decorator from triggering a ton of re-renders which locks up the page/causes flickering of code snippets ([#2701](https://github.com/justeattakeaway/pie/pull/2701)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`4e4e76a`](https://github.com/justeattakeaway/pie/commit/4e4e76a9b667bc62739c089712c9c007287dbb87)]:
+  - @justeattakeaway/pie-css@0.28.0
+  - @justeattakeaway/pie-webc@0.8.5
+  - @justeattakeaway/pie-icons-webc@1.20.3
+
 ## 1.69.0
 
 ### Minor Changes

@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-chip
 
+## 0.15.13
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.3
+  - @justeattakeaway/pie-webc-core@8.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.3
+
 ## 0.15.12
 
 ### Patch Changes
