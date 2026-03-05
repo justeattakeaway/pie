@@ -12,5 +12,9 @@ $typography-names:  font-heading-xs font-heading-s font-heading-m font-heading-l
 @each $name in $typography-names {
     .u-#{$name} {
         @include font-theme($name);
+
+        &.u-typographySpacing {
+            @include typography-spacing($name);
+        }
     }
 }

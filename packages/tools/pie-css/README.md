@@ -207,7 +207,9 @@ The starting position of the slide animation can be customised by overriding the
 
 ## Typography Utility Classes
 
-`pie-css` includes a comprehensive set of typography utility classes that provide consistent typography styles across your application. These utility classes are built on top of PIE design tokens and automatically apply the correct font family, weight, size, line height, and spacing.
+`pie-css` includes a comprehensive set of typography utility classes that provide consistent typography styles across your application. These utility classes are built on top of PIE design tokens and automatically apply the correct font family, weight, size, and line height.
+
+Paragraph spacing is now opt-in via the `.u-typographySpacing` utility class, used alongside a typography class on the same element (for example, `<p class="u-font-body-l u-typographySpacing">...</p>`).
 
 The utility classes follow a simple naming convention: `u-font-{token-name}`, where the token name matches the design token used in Figma. For example, the `body-l-link` token becomes the `.u-font-body-l-link` utility class.
 
