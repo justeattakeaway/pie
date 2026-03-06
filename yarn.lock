@@ -3541,7 +3541,7 @@ __metadata:
     "@justeattakeaway/pie-icons": 5.20.0
     "@justeattakeaway/pie-icons-webc": 1.20.4
     "@justeattakeaway/pie-monorepo-utils": 0.7.0
-    "@justeattakeaway/pie-webc": 0.8.6
+    "@justeattakeaway/pie-webc": 0.8.7
     "@lit-labs/eleventy-plugin-lit": 1.0.5
     "@lit-labs/ssr-client": 1.1.7
     "@types/markdown-it": 13.0.2
@@ -3847,7 +3847,7 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": 5.21.0
     "@justeattakeaway/pie-icons-webc": 1.20.4
     "@justeattakeaway/pie-monorepo-utils": 0.7.0
-    "@justeattakeaway/pie-webc": 0.8.6
+    "@justeattakeaway/pie-webc": 0.8.7
     "@storybook/addon-a11y": 8.4.5
     "@storybook/addon-designs": 8.0.4
     "@storybook/addon-essentials": 8.4.5
@@ -4015,7 +4015,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@0.8.6, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@0.8.7, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
