@@ -12,8 +12,7 @@
   "files": [
     "**/*.js",
     "**/*.d.ts",
-    "docs/**/*.md",
-    "docs/*.md"
+    "docs/**/*.md"
   ],
   "exports": {
     "./components/assistive-text.js": {
