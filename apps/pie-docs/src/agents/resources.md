@@ -19,14 +19,13 @@ Feel free to contact us on the `#help-designsystem` channel in you have any ques
 
 Here are some of the skills provided by the PIE Design System team that can be used with agentic AIs:
 
-### Snacks migration skills
+### Snacks migration skill
 
-These are skills that are specifically designed to help with the migration of Snacks components to the PIE Design System components and patterns:
+This skill is specifically designed to help with the migration of Snacks components to the PIE Design System components and patterns.
 
-- `snacks-flex-migration-assistant`
-- `snacks-util-migration-assistant`
+Our team is actively working on this skill, updating it to cover more use cases and scenarios. If you have any specific questions or need assistance with the migration process, please don't hesitate to reach out to us on the `#help-designsystem` channel.
 
-Follow the instruction of the Snacks repo skill README to use these skills.
+Please follow the instructions in the Snacks repo skill folder README file to use this skill.
 
 ### Utility skills
 
@@ -34,7 +33,7 @@ These are skills that are not directly related to PIE but can be useful in a var
 
 #### skill-reviewer
 
-Rules and best-practice guidelines for reviewing an agent skill's SKILL.md, focused on required frontmatter validation and qualitative content review, with a checklist-style report output.
+Rules and best-practice guidelines for reviewing an agent skill's `SKILL.md`, focused on required frontmatter validation and qualitative content review, with a checklist-style report output.
 
 Installation:
 
