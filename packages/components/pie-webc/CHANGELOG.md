@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-webc
 
+## 0.8.7
+
+### Patch Changes
+
+- [Updated] - package docs ([#2706](https://github.com/justeattakeaway/pie/pull/2706)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.8.6
 
 ### Patch Changes
