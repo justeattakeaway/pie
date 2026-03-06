@@ -9,8 +9,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const CSS_FILE_PATH = path.join(__dirname, '../../../packages/tools/pie-css/dist/helpers/typography.css');
-const OUTPUT_FILE_PATH = path.join(__dirname, '../stories/additional-libraries/pie-css-typography.mdx');
+const CSS_FILE_PATH = path.join(__dirname, '../dist/helpers/typography.css');
+const OUTPUT_FILE_PATH = path.join(__dirname, '../docs/typography-utility-classes.md');
 
 /**
  * Parse CSS file and extract utility class information
@@ -197,9 +197,9 @@ function generateTable (classes) {
 }
 
 /**
- * Generate the complete MDX content
+ * Generate the complete markdown content
  */
-function generateMDXContent (classes) {
+function generateMarkdownContent (classes) {
     const grouped = groupClassesByCategory(classes);
 
     // Sort classes within groups by size order
@@ -216,12 +216,7 @@ function generateMDXContent (classes) {
     Object.values(grouped.body).forEach((arr) => arr.sort(sortBySize));
     Object.values(grouped.caption).forEach((arr) => arr.sort(sortBySize));
 
-    return `import { Meta } from '@storybook/addon-docs';
-import { Canvas } from '@storybook/blocks';
-
-<Meta title="Additional libraries/PIE CSS/Typography Utility Classes" />
-
-# PIE CSS Typography Utility Classes
+    return `# PIE CSS Typography Utility Classes
 
 [Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-css) | [NPM Package](https://www.npmjs.com/package/@justeattakeaway/pie-css)
 
@@ -504,7 +499,7 @@ If the typography utilities aren't applying:
 
 If fonts aren't displaying correctly:
 
-1. Ensure you've set up the JETSansDigital font as described in the [Typography setup guide](?path=/docs/introduction-typography--docs)
+1. Ensure you've set up the JETSansDigital font as described in the [Typography setup guide](https://webc.pie.design/?path=/docs/introduction-typography--docs)
 2. Check that font files are loading correctly
 3. Verify font-face declarations are correct
 `;
@@ -536,8 +531,8 @@ function main () {
         // eslint-disable-next-line no-console
         console.log(`Found ${classes.length} utility classes`);
 
-        // Generate MDX content
-        const mdxContent = generateMDXContent(classes);
+        // Generate markdown content
+        const markdownContent = generateMarkdownContent(classes);
 
         // Ensure output directory exists
         const outputDir = path.dirname(OUTPUT_FILE_PATH);
@@ -545,8 +540,8 @@ function main () {
             fs.mkdirSync(outputDir, { recursive: true });
         }
 
-        // Write MDX file
-        fs.writeFileSync(OUTPUT_FILE_PATH, mdxContent, 'utf8');
+        // Write markdown file
+        fs.writeFileSync(OUTPUT_FILE_PATH, markdownContent, 'utf8');
 
         // eslint-disable-next-line no-console
         console.log(`✓ Successfully generated ${OUTPUT_FILE_PATH}`);
@@ -564,4 +559,4 @@ if (require.main === module) {
     main();
 }
 
-module.exports = { parseCSSFile, categorizeClass, generateMDXContent };
+module.exports = { parseCSSFile, categorizeClass, generateMarkdownContent };

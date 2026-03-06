@@ -464,6 +464,16 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   line-height: calc(var(--dt-font-caption-strong-line-height) * 1px);
 }
 
+.u-font-caption-strong-italic {
+  font-family: var(--dt-font-caption-strong-italic-family);
+  font-weight: var(--dt-font-caption-strong-italic-weight);
+  margin-block-end: calc(var(--dt-font-caption-strong-italic-paragraph) * 1px);
+  font-style: var(--dt-font-caption-strong-italic-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-caption-strong-italic-size) * 1px);
+  line-height: calc(var(--dt-font-caption-strong-italic-line-height) * 1px);
+}
+
 .u-font-caption-strong-link {
   font-family: var(--dt-font-caption-strong-link-family);
   font-weight: var(--dt-font-caption-strong-link-weight);

@@ -221,6 +221,7 @@ Caption strong utilities are for bold captions.
 | Class | Use Case |
 | --- | --- |
 | `.u-font-caption-strong` | caption bold/strong |
+| `.u-font-caption-strong-italic` | caption italic bold/strong |
 
 ### Caption Strong Link
 
