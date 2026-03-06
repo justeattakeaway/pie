@@ -22,6 +22,7 @@
   },
   "scripts": {
     "build": "run -T ts-node ./buildCss.ts && run -T sass --load-path=../../../node_modules scss/_internal/typography.scss dist/helpers/typography.css --no-source-map && run -T sass --load-path=../../../node_modules scss/_internal/radio.scss dist/components/radio.css --no-source-map",
+    "generate:typography-docs": "node scripts/generate-typography-docs.js",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./**/*.{css,scss}",
