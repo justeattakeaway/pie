@@ -794,7 +794,8 @@
       "import": "./react/toast-provider.js",
       "require": "./react/toast-provider.js",
       "types": "./react/toast-provider.d.ts"
-    }
+    },
+    "./docs/*": "./docs/*"
   },
   "bin": {
     "add-components": "./src/index.js"
