@@ -12,7 +12,8 @@
   "files": [
     "**/*.js",
     "**/*.d.ts",
-    "docs/**/*.md"
+    "docs/**/*.md",
+    "docs/*.md"
   ],
   "exports": {
     "./components/assistive-text.js": {
@@ -794,7 +795,8 @@
       "import": "./react/toast-provider.js",
       "require": "./react/toast-provider.js",
       "types": "./react/toast-provider.d.ts"
-    }
+    },
+    "./docs/*": "./docs/*"
   },
   "bin": {
     "add-components": "./src/index.js"
