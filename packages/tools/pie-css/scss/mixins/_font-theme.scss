@@ -24,22 +24,19 @@
         'family': 'font-family',
         'weight': 'font-weight',
         'text-decoration': 'text-decoration',
-        'paragraph': 'margin-block-end',
         'font-style': 'font-style',
     );
 
     // --- Mobile-First (Narrow) and Static Properties ---
 
-    // Apply Static Properties (font-family, font-weight, text-decoration, paragraph and font-style)
+    // Apply Static Properties (font-family, font-weight, text-decoration and font-style)
     @each $suffix, $css-prop in $static-properties {
         // Example variable structure (assuming $token-name is 'font-heading-l'): --dt-font-heading-l-family
         $scss-name: '#{$token-name}-#{$suffix}';
         $var-name: '--dt-#{$token-name}-#{$suffix}';
 
         @if meta.variable-exists($scss-name) {
-            @if $suffix == 'paragraph' {
-                #{$css-prop}: calc(var(#{$var-name}) * 1px);
-            } @else if $suffix == 'font-style' {
+            @if $suffix == 'font-style' {
                 // if we're setting font-style: italic, we need to add the font-variation-settings for slant
                 #{$css-prop}: var(#{$var-name});
                 font-variation-settings: 'slnt' -20;
@@ -82,5 +79,14 @@
                 #{$css-prop}: calc(var(#{$wide-var-name}) * 1px);
             }
         }
+    }
+}
+
+@mixin typography-spacing($token-name) {
+    $paragraph-scss-name: '#{$token-name}-paragraph';
+    $paragraph-var-name: '--dt-#{$token-name}-paragraph';
+
+    @if meta.variable-exists($paragraph-scss-name) {
+        margin-block-end: calc(var(#{$paragraph-var-name}) * 1px);
     }
 }

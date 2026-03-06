@@ -74,7 +74,6 @@ describe('mixins.font-theme', () => {
           .foo {
             font-family: var(--dt-font-body-s-family);
             font-weight: var(--dt-font-body-s-weight);
-            margin-block-end: calc(var(--dt-font-body-s-paragraph) * 1px);
             font-size: calc(var(--dt-font-body-s-size) * 1px);
             line-height: calc(var(--dt-font-body-s-line-height) * 1px);
           }
@@ -233,7 +232,7 @@ describe('mixins.font-theme', () => {
         expect(css).toBe(expectedCss);
     });
 
-    it('should render paragraph spacing with calc when available', () => {
+    it('should not render paragraph spacing as part of font-theme', () => {
         // Arrange
         const scssToTest = `
           @use 'mixins';
@@ -261,7 +260,6 @@ describe('mixins.font-theme', () => {
           .foo {
             font-family: var(--dt-font-body-s-family);
             font-weight: var(--dt-font-body-s-weight);
-            margin-block-end: calc(var(--dt-font-body-s-paragraph) * 1px);
             font-size: calc(var(--dt-font-body-s-size) * 1px);
             line-height: calc(var(--dt-font-body-s-line-height) * 1px);
           }
@@ -302,9 +300,41 @@ describe('mixins.font-theme', () => {
           .foo {
             font-family: var(--dt-font-body-l-family);
             font-weight: var(--dt-font-body-l-weight);
-            margin-block-end: calc(var(--dt-font-body-l-paragraph) * 1px);
             font-size: calc(var(--dt-font-body-l-size) * 1px);
             line-height: calc(var(--dt-font-body-l-line-height) * 1px);
+          }
+        `);
+
+        // Act
+        const css = stripCSSWhitespace(compileCss(scssToTest));
+
+        // Assert
+        expect(css).toBe(expectedCss);
+    });
+
+    it('should render paragraph spacing via typography-spacing mixin when available', () => {
+        // Arrange
+        const scssToTest = `
+          @use 'mixins';
+
+          :root {
+            --dt-font-body-l-family: "Helvetica", sans-serif;
+            --dt-font-body-l-paragraph: 26;
+          }
+
+          .foo {
+            @include mixins.typography-spacing('font-body-l');
+          }
+        `;
+
+        const expectedCss = stripCSSWhitespace(`
+          :root {
+            --dt-font-body-l-family: "Helvetica", sans-serif;
+            --dt-font-body-l-paragraph: 26;
+          }
+
+          .foo {
+            margin-block-end: calc(var(--dt-font-body-l-paragraph) * 1px);
           }
         `);
 
