@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-card
 
+## 0.26.14
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@9.0.0
+
 ## 0.26.13
 
 ### Patch Changes

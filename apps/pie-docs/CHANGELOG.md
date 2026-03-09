@@ -1,5 +1,14 @@
 # Changelog
 
+## 4.64.2
+
+### Patch Changes
+
+- Updated dependencies [[`86e5a4d`](https://github.com/justeattakeaway/pie/commit/86e5a4d44ad202d1884d329c9b2b9ceb65ba8488), [`08fb264`](https://github.com/justeattakeaway/pie/commit/08fb2646a3d4f370ff368707e2bab75b0c0fb177)]:
+  - @justeattakeaway/pie-webc@0.9.0
+  - @justeattakeaway/pie-css@0.29.0
+  - @justeattakeaway/pie-icons-webc@1.20.5
+
 ## 4.64.1
 
 ### Patch Changes
