@@ -1,5 +1,41 @@
 # @justeattakeaway/pie-notification
 
+## 0.21.11
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.6.6
+  - @justeattakeaway/pie-webc-core@9.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.5
+
+## 0.21.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.6.5
+  - @justeattakeaway/pie-webc-core@8.0.1
+  - @justeattakeaway/pie-icons-webc@1.20.4
+
+## 0.21.9
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.6.4
+  - @justeattakeaway/pie-webc-core@8.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.3
+
+## 0.21.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.6.3
+  - @justeattakeaway/pie-webc-core@7.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.2
+
 ## 0.21.7
 
 ### Patch Changes

@@ -7,9 +7,9 @@ import {
     defaultProps,
     toaster,
     positions,
-} from '@justeattakeaway/pie-toast-provider';
-import '@justeattakeaway/pie-toast';
-import '@justeattakeaway/pie-button';
+} from '@justeattakeaway/pie-webc/components/toast-provider';
+import '@justeattakeaway/pie-webc/components/toast';
+import '@justeattakeaway/pie-webc/components/button';
 
 import { createStory } from '../../utilities';
 

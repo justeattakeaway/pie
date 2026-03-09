@@ -1,5 +1,90 @@
 # Changelog
 
+## 1.71.0
+
+### Minor Changes
+
+- [Updated] - import some story docs from their packages ([#2706](https://github.com/justeattakeaway/pie/pull/2706)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - pie-css to include new caption italic utility class ([#2708](https://github.com/justeattakeaway/pie/pull/2708)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Updated] - pie-css to store utility class docs
+
+### Patch Changes
+
+- Updated dependencies [[`86e5a4d`](https://github.com/justeattakeaway/pie/commit/86e5a4d44ad202d1884d329c9b2b9ceb65ba8488), [`08fb264`](https://github.com/justeattakeaway/pie/commit/08fb2646a3d4f370ff368707e2bab75b0c0fb177)]:
+  - @justeattakeaway/pie-webc@0.9.0
+  - @justeattakeaway/pie-css@0.29.0
+  - @justeattakeaway/pie-icons-webc@1.20.5
+
+## 1.70.1
+
+### Patch Changes
+
+- Updated dependencies [[`b6b49de`](https://github.com/justeattakeaway/pie/commit/b6b49de3535874a15788380bb4673edc1af9e776)]:
+  - @justeattakeaway/pie-webc@0.8.6
+  - @justeattakeaway/pie-css@0.28.1
+  - @justeattakeaway/pie-icons-webc@1.20.4
+
+## 1.70.0
+
+### Minor Changes
+
+- [Added] - Stories and documentation for a css-only radio input class provided by pie-css ([#2700](https://github.com/justeattakeaway/pie/pull/2700)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - use pie-webc for story imports ([#2703](https://github.com/justeattakeaway/pie/pull/2703)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Fixed] - Prevent ColorMode decorator from triggering a ton of re-renders which locks up the page/causes flickering of code snippets ([#2701](https://github.com/justeattakeaway/pie/pull/2701)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`4e4e76a`](https://github.com/justeattakeaway/pie/commit/4e4e76a9b667bc62739c089712c9c007287dbb87)]:
+  - @justeattakeaway/pie-css@0.28.0
+  - @justeattakeaway/pie-webc@0.8.5
+  - @justeattakeaway/pie-icons-webc@1.20.3
+
+## 1.69.0
+
+### Minor Changes
+
+- [Updated] - update design tokens to v7.11.1 ([#2696](https://github.com/justeattakeaway/pie/pull/2696)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+### Patch Changes
+
+- Updated dependencies [[`09b544f`](https://github.com/justeattakeaway/pie/commit/09b544fff345f95d84e11d96b45620411ee99793), [`8e693f3`](https://github.com/justeattakeaway/pie/commit/8e693f3010125d5367584e4e5e8934f8ecf2f42d)]:
+  - @justeattakeaway/pie-modal@1.25.0
+  - @justeattakeaway/pie-css@0.27.0
+  - @justeattakeaway/pie-cookie-banner@1.7.8
+  - @justeattakeaway/pie-assistive-text@0.11.14
+  - @justeattakeaway/pie-avatar@0.4.15
+  - @justeattakeaway/pie-breadcrumb@0.7.17
+  - @justeattakeaway/pie-button@1.12.2
+  - @justeattakeaway/pie-card@0.26.11
+  - @justeattakeaway/pie-checkbox@1.0.7
+  - @justeattakeaway/pie-checkbox-group@1.0.7
+  - @justeattakeaway/pie-chip@0.15.12
+  - @justeattakeaway/pie-data-table@0.3.2
+  - @justeattakeaway/pie-divider@1.5.9
+  - @justeattakeaway/pie-form-label@0.18.10
+  - @justeattakeaway/pie-icon-button@2.6.3
+  - @justeattakeaway/pie-link@1.3.12
+  - @justeattakeaway/pie-list@0.0.14
+  - @justeattakeaway/pie-lottie-player@0.3.4
+  - @justeattakeaway/pie-notification@0.21.8
+  - @justeattakeaway/pie-radio@1.0.4
+  - @justeattakeaway/pie-radio-group@1.0.7
+  - @justeattakeaway/pie-select@0.8.15
+  - @justeattakeaway/pie-spinner@1.4.2
+  - @justeattakeaway/pie-switch@2.3.14
+  - @justeattakeaway/pie-tabs@0.1.10
+  - @justeattakeaway/pie-tag@0.22.6
+  - @justeattakeaway/pie-text-input@0.29.15
+  - @justeattakeaway/pie-textarea@0.17.14
+  - @justeattakeaway/pie-thumbnail@0.8.15
+  - @justeattakeaway/pie-toast@0.12.23
+  - @justeattakeaway/pie-toast-provider@0.7.24
+  - @justeattakeaway/pie-icons-webc@1.20.2
+
 ## 1.68.1
 
 ### Patch Changes

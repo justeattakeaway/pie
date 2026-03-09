@@ -1,5 +1,41 @@
 # @justeattakeaway/pie-breadcrumb
 
+## 0.7.20
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-link@1.3.15
+  - @justeattakeaway/pie-webc-core@9.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.5
+
+## 0.7.19
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-link@1.3.14
+  - @justeattakeaway/pie-webc-core@8.0.1
+  - @justeattakeaway/pie-icons-webc@1.20.4
+
+## 0.7.18
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-link@1.3.13
+  - @justeattakeaway/pie-webc-core@8.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.3
+
+## 0.7.17
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-link@1.3.12
+  - @justeattakeaway/pie-webc-core@7.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.2
+
 ## 0.7.16
 
 ### Patch Changes

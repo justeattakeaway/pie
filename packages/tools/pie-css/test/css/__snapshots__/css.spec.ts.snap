@@ -1,5 +1,160 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`components/radio.css > should render the expected CSS content 1`] = `
+".c-radio {
+  --radio-dot-bg-color: var(--dt-color-content-interactive-primary);
+  --radio-bg-color: transparent;
+  --radio-bg-color--checked: var(--dt-color-interactive-brand);
+  --radio-border-color: var(--dt-color-border-form);
+  --radio-size: 24px;
+  --radio-dot-size: 8px;
+  --radio-cursor: pointer;
+  --radio-motion-easing: var(--dt-motion-easing-persistent-functional);
+  --radio-border-width: 1px;
+  appearance: none;
+  display: inline-block;
+  position: relative;
+  inline-size: var(--radio-size);
+  block-size: var(--radio-size);
+  border: var(--radio-border-width) solid var(--radio-border-color);
+  border-radius: 50%;
+  margin: 0;
+  cursor: var(--radio-cursor);
+  background-color: var(--radio-bg-color);
+  flex-shrink: 0;
+  transition: background-color var(--dt-motion-timing-100) var(--radio-motion-easing);
+}
+.c-radio:before {
+  --circle-size: calc(var(--radio-border-width) * -1);
+  content: "";
+  display: block;
+  inset: var(--circle-size);
+  border-radius: inherit;
+  background-color: var(--radio-bg-color--checked);
+  position: absolute;
+  transform: scale(0);
+}
+.c-radio:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--radio-dot-size);
+  height: var(--radio-dot-size);
+  background-color: var(--radio-dot-bg-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+}
+.c-radio:checked:after {
+  transform: translate(-50%, -50%) scale(1);
+}
+.c-radio:checked:before {
+  transform: scale(1);
+}
+.c-radio:focus-visible {
+  box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
+  outline: none;
+}
+.c-radio:disabled {
+  --radio-bg-color: var(--dt-color-disabled-01);
+  --radio-border-color: var(--dt-color-border-default);
+  --radio-cursor: not-allowed;
+}
+.c-radio:checked:disabled {
+  --radio-dot-bg-color: var(--dt-color-content-disabled);
+  --radio-bg-color--checked: var(--dt-color-disabled-01);
+}
+.c-radio:hover:not(:checked, :disabled) {
+  --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-radio:hover:not(:checked, :disabled) {
+    --radio-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), transparent);
+  }
+}
+.c-radio:active:not(:checked, :disabled) {
+  --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-radio:active:not(:checked, :disabled) {
+    --radio-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), transparent);
+  }
+}
+.c-radio:hover:checked:not(:disabled):before {
+  --radio-bg-color--checked: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
+  --radio-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-radio:hover:checked:not(:disabled):before {
+    --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-interactive-brand));
+  }
+}
+.c-radio:active:checked:not(:disabled):before {
+  --radio-bg-color--checked: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
+  --radio-border-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-radio:active:checked:not(:disabled):before {
+    --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-interactive-brand));
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .c-radio:not(:disabled):before {
+    transition: all var(--dt-motion-timing-100) var(--radio-motion-easing);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .c-radio:not(:disabled):after {
+    transition: all var(--dt-motion-timing-100) var(--radio-motion-easing);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .c-radio:not(:disabled):checked:after {
+    transition: all var(--dt-motion-timing-150) var(--radio-motion-easing);
+  }
+}
+
+.c-radio--error {
+  --radio-bg-color--checked: var(--dt-color-support-error);
+  --radio-border-color: var(--dt-color-support-error);
+}
+.c-radio--error:hover:not(:checked, :disabled) {
+  --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-radio--error:hover:not(:checked, :disabled) {
+    --radio-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), transparent);
+  }
+}
+.c-radio--error:active:not(:checked, :disabled) {
+  --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-radio--error:active:not(:checked, :disabled) {
+    --radio-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), transparent);
+  }
+}
+.c-radio--error:hover:checked:not(:disabled):before {
+  --radio-bg-color--checked: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) - var(--dt-color-hover-01)));
+  --radio-border-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) - var(--dt-color-hover-01)));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-radio--error:hover:checked:not(:disabled):before {
+    --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-support-error));
+  }
+}
+.c-radio--error:active:checked:not(:disabled):before {
+  --radio-bg-color--checked: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) - var(--dt-color-active-01)));
+  --radio-border-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) - var(--dt-color-active-01)));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-radio--error:active:checked:not(:disabled):before {
+    --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-support-error));
+  }
+}
+"
+`;
+
 exports[`helpers/typography.css > should render the expected CSS content 1`] = `
 ".u-font-heading-xs {
   font-family: var(--dt-font-heading-xs-family);
@@ -307,6 +462,16 @@ exports[`helpers/typography.css > should render the expected CSS content 1`] = `
   margin-block-end: calc(var(--dt-font-caption-strong-paragraph) * 1px);
   font-size: calc(var(--dt-font-caption-strong-size) * 1px);
   line-height: calc(var(--dt-font-caption-strong-line-height) * 1px);
+}
+
+.u-font-caption-strong-italic {
+  font-family: var(--dt-font-caption-strong-italic-family);
+  font-weight: var(--dt-font-caption-strong-italic-weight);
+  margin-block-end: calc(var(--dt-font-caption-strong-italic-paragraph) * 1px);
+  font-style: var(--dt-font-caption-strong-italic-font-style);
+  font-variation-settings: "slnt" -20;
+  font-size: calc(var(--dt-font-caption-strong-italic-size) * 1px);
+  line-height: calc(var(--dt-font-caption-strong-italic-line-height) * 1px);
 }
 
 .u-font-caption-strong-link {

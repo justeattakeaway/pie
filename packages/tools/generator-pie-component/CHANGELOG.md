@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.32.0
+
+### Minor Changes
+
+- [Changed] - use pie-webc for story imports ([#2703](https://github.com/justeattakeaway/pie/pull/2703)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.31.1
 
 ### Patch Changes

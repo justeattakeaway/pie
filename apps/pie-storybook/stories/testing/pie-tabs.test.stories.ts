@@ -1,8 +1,8 @@
 import { html } from 'lit';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-tabs';
-import { type TabsProps } from '@justeattakeaway/pie-tabs';
+import '@justeattakeaway/pie-webc/components/tabs';
+import { type TabsProps } from '@justeattakeaway/pie-webc/components/tabs';
 
 import { createStory } from '../../utilities';
 

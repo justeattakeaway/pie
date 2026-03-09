@@ -1,5 +1,31 @@
 # @justeattakeaway/pie-css
 
+## 0.29.0
+
+### Minor Changes
+
+- [Added] - pie-css to include new caption italic utility class ([#2708](https://github.com/justeattakeaway/pie/pull/2708)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Updated] - pie-css to store utility class docs
+
+## 0.28.1
+
+### Patch Changes
+
+- [Added] - move storybook docs to the packages ([#2702](https://github.com/justeattakeaway/pie/pull/2702)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.28.0
+
+### Minor Changes
+
+- [Added] - CSS only radio button class for styling native inputs ([#2700](https://github.com/justeattakeaway/pie/pull/2700)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.27.0
+
+### Minor Changes
+
+- [Updated] - update design tokens to v7.11.1 ([#2696](https://github.com/justeattakeaway/pie/pull/2696)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
 ## 0.26.2
 
 ### Patch Changes

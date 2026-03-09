@@ -1,5 +1,49 @@
 # Changelog
 
+## 4.64.2
+
+### Patch Changes
+
+- Updated dependencies [[`86e5a4d`](https://github.com/justeattakeaway/pie/commit/86e5a4d44ad202d1884d329c9b2b9ceb65ba8488), [`08fb264`](https://github.com/justeattakeaway/pie/commit/08fb2646a3d4f370ff368707e2bab75b0c0fb177)]:
+  - @justeattakeaway/pie-webc@0.9.0
+  - @justeattakeaway/pie-css@0.29.0
+  - @justeattakeaway/pie-icons-webc@1.20.5
+
+## 4.64.1
+
+### Patch Changes
+
+- Updated dependencies [[`b6b49de`](https://github.com/justeattakeaway/pie/commit/b6b49de3535874a15788380bb4673edc1af9e776)]:
+  - @justeattakeaway/pie-webc@0.8.6
+  - @justeattakeaway/pie-css@0.28.1
+  - @justeattakeaway/pie-icons-webc@1.20.4
+
+## 4.64.0
+
+### Minor Changes
+
+- [Added] - page for agentic AI resources ([#2697](https://github.com/justeattakeaway/pie/pull/2697)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- Updated dependencies [[`4e4e76a`](https://github.com/justeattakeaway/pie/commit/4e4e76a9b667bc62739c089712c9c007287dbb87)]:
+  - @justeattakeaway/pie-css@0.28.0
+  - @justeattakeaway/pie-webc@0.8.5
+  - @justeattakeaway/pie-icons-webc@1.20.3
+
+## 4.63.0
+
+### Minor Changes
+
+- [Updated] - update design tokens to v7.11.1 ([#2696](https://github.com/justeattakeaway/pie/pull/2696)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+### Patch Changes
+
+- Updated dependencies [[`09b544f`](https://github.com/justeattakeaway/pie/commit/09b544fff345f95d84e11d96b45620411ee99793)]:
+  - @justeattakeaway/pie-css@0.27.0
+  - @justeattakeaway/pie-webc@0.8.4
+  - @justeattakeaway/pie-icons-webc@1.20.2
+
 ## 4.62.4
 
 ### Patch Changes

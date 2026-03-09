@@ -2,10 +2,10 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
-import '@justeattakeaway/pie-icon-button';
+import '@justeattakeaway/pie-webc/components/icon-button';
 import {
     type IconButtonProps, sizes, variants, defaultProps,
-} from '@justeattakeaway/pie-icon-button';
+} from '@justeattakeaway/pie-webc/components/icon-button';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlaceholder.js';
 
 import { createStory, createVariantStory, type TemplateFunction } from '../../utilities';

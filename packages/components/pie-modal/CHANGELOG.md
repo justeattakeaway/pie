@@ -1,5 +1,55 @@
 # @justeattakeaway/pie-modal
 
+## 1.25.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.5
+  - @justeattakeaway/pie-icon-button@2.6.6
+  - @justeattakeaway/pie-spinner@1.4.5
+  - @justeattakeaway/pie-webc-core@9.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.5
+
+## 1.25.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.4
+  - @justeattakeaway/pie-icon-button@2.6.5
+  - @justeattakeaway/pie-spinner@1.4.4
+  - @justeattakeaway/pie-webc-core@8.0.1
+  - @justeattakeaway/pie-icons-webc@1.20.4
+
+## 1.25.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.3
+  - @justeattakeaway/pie-icon-button@2.6.4
+  - @justeattakeaway/pie-spinner@1.4.3
+  - @justeattakeaway/pie-webc-core@8.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.3
+
+## 1.25.0
+
+### Minor Changes
+
+- [Updated] - update design tokens to v7.11.1 ([#2696](https://github.com/justeattakeaway/pie/pull/2696)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+### Patch Changes
+
+- Update README with information of new aspect ratios for narrow screens ([#2695](https://github.com/justeattakeaway/pie/pull/2695)) by [@maledr5](https://github.com/maledr5)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.2
+  - @justeattakeaway/pie-icon-button@2.6.3
+  - @justeattakeaway/pie-spinner@1.4.2
+  - @justeattakeaway/pie-webc-core@7.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.2
+
 ## 1.24.4
 
 ### Patch Changes
