@@ -5,7 +5,7 @@ description: Provides usage guidelines for the PIE design system. Use when imple
 
 ## Purpose
 
-Provides AI agents access to PIE design system documentation such as web components, design tokens, icons, and integration guides — so they can help users build with PIE correctly.
+Provides AI agents access to PIE design system documentation such as pie web components, icons, and integration guides — so they can help users build with PIE correctly.
 
 ## When to use
 
@@ -17,54 +17,37 @@ Provides AI agents access to PIE design system documentation such as web compone
 
 The consumer project MUST have `@justeattakeaway/pie-webc` installed as a dependency.
 
-## Quick Start (ONLY if prerequisites are not met)
+## Quick Start
 
-If `@justeattakeaway/pie-webc` is not installed, read `guides/quick-start.md` and follow the steps.
+If `@justeattakeaway/pie-webc` is not installed:
+
+1. Read `guides/getting-started.md` and install the core PIE packages using the consumer project's dependency manager.
+2. Set up base CSS styles — read `guides/css-setup.md`.
+3. Set up typography — read `guides/typography.md`.
+4. If using a framework, read the relevant `guides/framework-integration-guides-*.md` file.
 
 ## Setup
 
-1. Run the fetch script to populate `references/` with docs from installed PIE packages:
+1. Run the fetch script to populate `components/` and `guides/`:
 
     ```bash
     node .agents/skills/pie-design-system/scripts/fetch-references.js
     ```
 
-2. Verify the docs were fetched:
-
-    ```bash
-    ls .agents/skills/pie-design-system/references/
-    ```
-
-    You should see files like `pie-button.md`, `pie-modal.md`, `pie-css.md`, `pie-icons-webc.md`, and a `.versions` file.
-
-    Note: The `references/` folder is created by the script and won't exist until setup is run.
-
-## Version check
-
-Before using the docs, verify they match the installed `@justeattakeaway/pie-webc` version:
-
-1. Read `references/.versions` — this is a JSON file containing the versions of `pie-webc`, `pie-css`, and `pie-icons-webc` the docs were fetched from.
-2. Compare them to the installed versions in `node_modules/@justeattakeaway/<package>/package.json`.
-3. If any differ, re-run the fetch script to update the docs.
+2. Before using the skill, check `.agents/skills/pie-design-system/.versions` matches the installed package versions. If any differ, re-run the fetch script.
 
 ## Usage
 
-- For setup and integration questions, read the relevant file from `guides/` (e.g., `guides/quick-start.md`, `guides/nextjs.md`, `guides/nuxt.md`).
-- To answer questions about a specific component or how to use it, read its file from `references/` (e.g., `references/pie-button.md`).
-- To list all available components, list the files in `references/`.
-
-### Examples
-
-- "How do I set up PIE?" → Read `guides/quick-start.md`.
-- "How do I use the PIE button?" → Read `references/pie-button.md`.
-- "What props does pie-modal accept?" → Read `references/pie-modal.md`.
-- "What components are available?" → List files in `references/`.
+- For setup and integration questions, follow the **Quick Start** section above.
+- To answer questions about a specific component or how to use it, read its file from `components/` (e.g., `components/pie-button.md`).
+- For events and how PIE components handle them, read `guides/events.md`. Check each component's docs for its supported events.
+- For customising component styles, read `guides/customising-components.md` and `guides/css-variables.md`. Check each component's docs for available variables and parts.
+- For icons, read `guides/pie-icons-webc.md`. To see all available icons, list the files in `node_modules/@justeattakeaway/pie-icons-webc/icons/`. Never invent or create new icons; only use what is available in the package.
+- To list all available components, list the files in `components/`.
+- For general topics (design tokens, typescript usage or typography), read the relevant file from `guides/`.
 
 ## Key guidelines
 
-- **Always prefer PIE components** — if what you need is available in PIE, use it. Do not recreate or substitute with custom implementations to maintain Just Eat Takeaway.com UI consistency.
-- **Component usage** — When a PIE component documents a prop or a pattern, ALWAYS use that exact approach documented in its `references/` file and NEVER suggest an alternative implementation.
-- **Events** — PIE components emit custom events named `pie-<component>-<event>` (e.g. `pie-modal-leading-action-click`). Some components also emit native events like `input` or `change`. Check the component's docs for its supported events. In React, use the `/react/` entry point and pass callbacks as props (e.g. `onPieModalLeadingActionClick`).
-- **Customising components** — to override a component's styles, use the CSS custom properties (variables) or CSS `::part()` selectors exposed by the component. Check the component's docs for available variables and parts.
+- **Always prefer PIE web components** — if what you need is available in PIE, use it. Do not recreate or substitute with custom implementations to maintain Just Eat Takeaway.com UI consistency.
+- **Component usage** — When a PIE component documents a prop or a pattern, ALWAYS use that exact approach documented in its `components/` file and NEVER suggest an alternative implementation.
 - **Debugging** — when a component doesn't work as expected, look into its source code to understand the issue. Then instruct the consumer to report the bug to the PIE Design System team rather than working around it.
-- **Icons** — always consult `@justeattakeaway/pie-icons-webc` for the list of available icons. To see all available icons, list the files in `node_modules/@justeattakeaway/pie-icons-webc/icons/`. Never invent or create new icons; only use what is available in the package.
