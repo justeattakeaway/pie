@@ -1,5 +1,49 @@
 # @justeattakeaway/pie-webc
 
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - pie-css to include new caption italic utility class ([#2708](https://github.com/justeattakeaway/pie/pull/2708)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Updated] - pie-css to store utility class docs
+
+### Patch Changes
+
+- [Updated] - package docs ([#2706](https://github.com/justeattakeaway/pie/pull/2706)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.17
+  - @justeattakeaway/pie-avatar@0.4.18
+  - @justeattakeaway/pie-breadcrumb@0.7.20
+  - @justeattakeaway/pie-button@1.12.5
+  - @justeattakeaway/pie-card@0.26.14
+  - @justeattakeaway/pie-checkbox@1.0.10
+  - @justeattakeaway/pie-checkbox-group@1.0.10
+  - @justeattakeaway/pie-chip@0.15.15
+  - @justeattakeaway/pie-cookie-banner@1.7.11
+  - @justeattakeaway/pie-data-table@0.3.5
+  - @justeattakeaway/pie-divider@1.5.12
+  - @justeattakeaway/pie-form-label@0.18.13
+  - @justeattakeaway/pie-icon-button@2.6.6
+  - @justeattakeaway/pie-link@1.3.15
+  - @justeattakeaway/pie-list@0.0.17
+  - @justeattakeaway/pie-lottie-player@0.3.7
+  - @justeattakeaway/pie-modal@1.25.3
+  - @justeattakeaway/pie-notification@0.21.11
+  - @justeattakeaway/pie-radio@1.1.2
+  - @justeattakeaway/pie-radio-group@1.0.10
+  - @justeattakeaway/pie-select@0.8.18
+  - @justeattakeaway/pie-spinner@1.4.5
+  - @justeattakeaway/pie-switch@2.3.17
+  - @justeattakeaway/pie-tabs@0.1.13
+  - @justeattakeaway/pie-tag@0.22.9
+  - @justeattakeaway/pie-text-input@0.29.18
+  - @justeattakeaway/pie-textarea@0.17.17
+  - @justeattakeaway/pie-thumbnail@0.8.18
+  - @justeattakeaway/pie-toast@0.12.26
+  - @justeattakeaway/pie-toast-provider@0.7.27
+
 ## 0.8.6
 
 ### Patch Changes
