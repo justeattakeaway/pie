@@ -3,6 +3,21 @@
 
 PIE Web Components is the web variant of the Just Eat Takeaway.com (JET) Design System, PIE. It is built using native web components to provide a consistent, accessible, and reusable set of components for building UIs across different products and applications.
 
+<figure>
+    <img src="./static/images/brand-colours.svg" alt="Brand colours for Principles for Interfaces and Experiences (PIE)"/>
+    <figcaption>
+        <p>
+        Principles for Interfaces and Experiences (PIE) is Just Eat Takeaway's global design system.
+        </p>
+    </figcaption>
+</figure>
+
+<p align="center">
+    <a href="https://www.npmjs.com/@justeattakeaway/pie-webc">
+        <img alt="npm version" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc.svg" />
+    </a>
+</p>
+
 ## `@justeattakeaway/pie-webc`
 
 `@justeattakeaway/pie-webc` is the web implementation of [JET's PIE Design system](https://pie.design/), built using [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components). Using Web Components allows us to build our components once and use them across all of our web UIs, regardless of the framework they have been built with. Our source code is open source, and can be found on [Github](https://github.com/justeattakeaway/pie).

@@ -7,7 +7,7 @@ $typography-names:  font-heading-xs font-heading-s font-heading-m font-heading-l
     font-body-s font-body-s-link font-body-l font-body-l-link
     font-body-strong-s font-body-strong-s-link
     font-body-strong-l font-body-strong-l-link
-    font-caption font-caption-link font-caption-strong font-caption-strong-link;
+    font-caption font-caption-link font-caption-strong font-caption-strong-italic font-caption-strong-link;
 
 @each $name in $typography-names {
     .u-#{$name} {

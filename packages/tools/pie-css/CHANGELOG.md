@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-css
 
+## 0.29.0
+
+### Minor Changes
+
+- [Added] - pie-css to include new caption italic utility class ([#2708](https://github.com/justeattakeaway/pie/pull/2708)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Updated] - pie-css to store utility class docs
+
 ## 0.28.1
 
 ### Patch Changes

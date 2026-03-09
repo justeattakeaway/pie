@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-form-label
 
+## 0.18.13
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@9.0.0
+
 ## 0.18.12
 
 ### Patch Changes

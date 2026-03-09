@@ -10,6 +10,19 @@
       "dependsOn": [
         "^build"
       ]
+    },
+    "generate:typography-docs": {
+      "cache": true,
+      "dependsOn": [
+        "build"
+      ],
+      "inputs": [
+        "scripts/generate-typography-docs.js",
+        "docs/typography-utility-classes.md"
+      ],
+      "outputs": [
+        "docs/typography-utility-classes.md"
+      ]
     }
   }
 }
