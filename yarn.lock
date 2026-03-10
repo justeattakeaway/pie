@@ -18686,6 +18686,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pie-design-system-skill@workspace:.agents/skills/pie-design-system":
+  version: 0.0.0-use.local
+  resolution: "pie-design-system-skill@workspace:.agents/skills/pie-design-system"
+  languageName: unknown
+  linkType: soft
+
 "pie-monorepo@workspace:.":
   version: 0.0.0-use.local
   resolution: "pie-monorepo@workspace:."

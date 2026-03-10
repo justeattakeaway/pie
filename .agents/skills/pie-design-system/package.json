@@ -1,0 +1,8 @@
+{
+  "name": "pie-design-system-skill",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint:scripts": "run -T eslint ."
+  }
+}

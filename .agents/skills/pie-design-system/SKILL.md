@@ -19,7 +19,7 @@ The consumer project MUST have `@justeattakeaway/pie-webc` installed as a depend
 
 ## Quick Start
 
-If `@justeattakeaway/pie-webc` is not installed:
+If `@justeattakeaway/pie-webc` is not installed or the project needs initial setup, follow these steps:
 
 1. Read `guides/getting-started.md` and install the core PIE packages using the consumer project's dependency manager.
 2. Set up base CSS styles — read `guides/css-setup.md`.
@@ -29,16 +29,12 @@ If `@justeattakeaway/pie-webc` is not installed:
 ## Setup
 
 1. Run the fetch script to populate `components/` and `guides/`:
-
-    ```bash
-    node .agents/skills/pie-design-system/scripts/fetch-references.js
-    ```
+`node .agents/skills/pie-design-system/scripts/fetch-references.js`
 
 2. Before using the skill, check `.agents/skills/pie-design-system/.versions` matches the installed package versions. If any differ, re-run the fetch script.
 
 ## Usage
 
-- For setup and integration questions, follow the **Quick Start** section above.
 - To answer questions about a specific component or how to use it, read its file from `components/` (e.g., `components/pie-button.md`).
 - For events and how PIE components handle them, read `guides/events.md`. Check each component's docs for its supported events.
 - For customising component styles, read `guides/customising-components.md` and `guides/css-variables.md`. Check each component's docs for available variables and parts.

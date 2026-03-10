@@ -4,7 +4,10 @@
  * Copies PIE component and guide docs into the skill.
  */
 
-import { readFileSync, writeFileSync, copyFileSync, mkdirSync, existsSync, rmSync, readdirSync } from 'node:fs';
+import {
+    readFileSync, writeFileSync, copyFileSync,
+    mkdirSync, existsSync, rmSync, readdirSync,
+} from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -18,40 +21,47 @@ const readPkg = (name) => JSON.parse(readFileSync(join(pkg(name), 'package.json'
 const GUIDE_PACKAGES = ['pie-webc', 'pie-css', 'pie-icons-webc'];
 
 // Clean & recreate output
-for (const dir of [COMPONENTS_DIR, GUIDES_DIR]) {
+[COMPONENTS_DIR, GUIDES_DIR].forEach((dir) => {
     if (existsSync(dir)) rmSync(dir, { recursive: true });
     mkdirSync(dir, { recursive: true });
-}
+});
 
 // Copy component READMEs
 const webc = readPkg('pie-webc');
 const versions = { 'pie-webc': webc.version };
 
-for (const dep of Object.keys(webc.dependencies)) {
+Object.keys(webc.dependencies).forEach((dep) => {
     const name = dep.replace('@justeattakeaway/', '');
-    if (readPkg(name).pieMetadata?.componentStatus === 'alpha') continue;
-    copyFileSync(join(pkg(name), 'README.md'), join(COMPONENTS_DIR, `${name}.md`));
-}
+    // Skip copying alpha components
+    const isComponentStatusAlpha = readPkg(name).pieMetadata?.componentStatus === 'alpha';
+    if (!isComponentStatusAlpha) {
+        copyFileSync(join(pkg(name), 'README.md'), join(COMPONENTS_DIR, `${name}.md`));
+    }
+});
 
 // Copy guide READMEs + docs/ folders
-for (const name of GUIDE_PACKAGES) {
+GUIDE_PACKAGES.forEach((name) => {
     const pkgJson = readPkg(name);
     copyFileSync(join(pkg(name), 'README.md'), join(GUIDES_DIR, `${name}.md`));
 
     const docsDir = join(pkg(name), 'docs');
     if (existsSync(docsDir)) {
-        const pending = [docsDir];
-        while (pending.length) {
-            for (const entry of readdirSync(pending.pop(), { withFileTypes: true })) {
+        const directoriesToProcess = [docsDir];
+        while (directoriesToProcess.length) {
+            const currentDir = directoriesToProcess.pop();
+            readdirSync(currentDir, { withFileTypes: true }).forEach((entry) => {
                 const src = join(entry.parentPath, entry.name);
-                if (entry.isDirectory()) { pending.push(src); continue; }
+                if (entry.isDirectory()) {
+                    directoriesToProcess.push(src);
+                    return;
+                }
                 copyFileSync(src, join(GUIDES_DIR, relative(docsDir, src).replaceAll('/', '-')));
-            }
+            });
         }
     }
 
     versions[name] = pkgJson.version;
-}
+});
 
 writeFileSync(VERSIONS_FILE, JSON.stringify(versions, null, 2), 'utf-8');
-console.log('✅ Done');
+console.info('✅ Done');
