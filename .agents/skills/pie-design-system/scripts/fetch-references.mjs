@@ -5,8 +5,13 @@
  */
 
 import {
-    readFileSync, writeFileSync, copyFileSync,
-    mkdirSync, existsSync, rmSync, readdirSync,
+    readFileSync,
+    writeFileSync,
+    copyFileSync,
+    mkdirSync,
+    existsSync,
+    rmSync,
+    readdirSync,
 } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -22,9 +27,8 @@ const OUTPUT_DIRS = {
 
 // Resolve a package path under node_modules
 const resolvePkg = (scope, name) => join(process.cwd(), 'node_modules', scope, name);
-const readPkgJson = (scope, name) => JSON.parse(
-    readFileSync(join(resolvePkg(scope, name), 'package.json'), 'utf-8'),
-);
+const readPkgJson = (scope, name) =>
+    JSON.parse(readFileSync(join(resolvePkg(scope, name), 'package.json'), 'utf-8'));
 
 // Recursively copy all files from src dir into a flat dest dir
 const copyDirFlat = (srcDir, destDir) => {
@@ -59,7 +63,10 @@ Object.keys(webc.dependencies).forEach((dep) => {
     const meta = readPkgJson('@justeattakeaway', name);
     const isAlphaComponent = meta.pieMetadata?.componentStatus === 'alpha';
     if (!isAlphaComponent) {
-        copyFileSync(join(resolvePkg('@justeattakeaway', name), 'README.md'), join(OUTPUT_DIRS.components, `${name}.md`));
+        copyFileSync(
+            join(resolvePkg('@justeattakeaway', name), 'README.md'),
+            join(OUTPUT_DIRS.components, `${name}.md`),
+        );
     }
 });
 
