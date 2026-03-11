@@ -55,7 +55,7 @@ module.exports = {
                                 message: `The Snacks component "${componentName}" is being deprecated and can be replaced by "${replacementComponent}".${solutionDetails}`,
                             });
                         } else if (alternativeSolution) {
-                            const reason = `The Snacks "${componentName}" component is being deprecated and can be replaced with plain HTML and CSS.`;
+                            const reason = `The Snacks component "${componentName}" is being deprecated and can be replaced with plain HTML and CSS.`;
                             const solutionDetails = alternativeSolution ? `\n${alternativeSolution}` : '';
                             context.report({
                                 node,
