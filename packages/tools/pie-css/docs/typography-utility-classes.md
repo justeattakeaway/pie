@@ -15,6 +15,7 @@ The PIE CSS Typography Utilities provide a comprehensive set of utility classes 
     - [If You Have Designs](#if-you-have-designs)
     - [If You Don't Have Designs](#if-you-dont-have-designs)
 - [Available Classes](#available-classes)
+- [Typography Spacing Utility](#typography-spacing-utility)
 - [the `font-theme` mixin](#the-font-theme-mixin)
 - [Usage Examples](#usage-examples)
 - [What Each Utility Class Applies](#what-each-utility-class-applies)
@@ -162,9 +163,17 @@ Interactive text utilities are optimized for buttons, links, and other interacti
 | `.u-font-interactive-s` | Small interactive text |
 | `.u-font-interactive-xs` | Extra small interactive text |
 
+### Typography Spacing Utility
+
+Use `.u-typographySpacing` alongside a typography utility class on the same element to apply paragraph spacing for typography tokens that define a `paragraph` token.
+
+| Class | Use Case |
+| --- | --- |
+| `.u-typographySpacing` | Opt-in paragraph spacing for typography classes that support paragraph tokens |
+
 ### Body Text
 
-Body text utilities are for paragraphs and general content. These utilities include automatic paragraph spacing via `margin-block-end`.
+Body text utilities are for paragraphs and general content.
 
 | Class | Use Case |
 | --- | --- |
@@ -240,6 +249,7 @@ Simply add the utility class to your HTML element:
 ```html
 <h1 class="u-font-heading-xl">Page Title</h1>
 <p class="u-font-body-l">This is a paragraph of body text.</p>
+<p class="u-font-body-l u-typographySpacing">This is body text with opt-in paragraph spacing.</p>
 ```
 
 ### React Example
@@ -252,6 +262,9 @@ function MyComponent() {
       <h2 className="u-font-heading-m">Section Title</h2>
       <p className="u-font-body-l">
         This is a paragraph using the body large utility class.
+      </p>
+      <p className="u-font-body-l u-typographySpacing">
+        This paragraph uses the same typography class with opt-in spacing.
       </p>
       <a href="#" className="u-font-body-l-link">Learn more</a>
     </div>
@@ -268,6 +281,9 @@ function MyComponent() {
     <h2 class="u-font-heading-m">Section Title</h2>
     <p class="u-font-body-l">
       This is a paragraph using the body large utility class.
+    </p>
+    <p class="u-font-body-l u-typographySpacing">
+      This paragraph uses the same typography class with opt-in spacing.
     </p>
     <a href="#" class="u-font-body-l-link">Learn more</a>
   </div>
@@ -306,7 +322,8 @@ Each typography utility class applies a complete set of typography properties:
 - **`line-height`**: Applies the appropriate line height for readability ([MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height))
 - **`font-style`**: Applied for italic variants ([MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style))
 - **`text-decoration`**: Applied for link variants ([MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration))
-- **`margin-block-end`**: Applied for body and caption variants to provide paragraph spacing ([MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-block-end))
+
+Use `.u-typographySpacing` for opt-in paragraph spacing via `margin-block-end` on supported typography tokens ([MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-block-end)).
 
 ## Troubleshooting
 
@@ -323,6 +340,6 @@ If the typography utilities aren't applying:
 
 If fonts aren't displaying correctly:
 
-1. Ensure you've set up the JETSansDigital font as described in the Typography setup guide
+1. Ensure you've set up the JETSansDigital font as described in the [Typography setup guide](https://webc.pie.design/?path=/docs/introduction-typography--docs)
 2. Check that font files are loading correctly
 3. Verify font-face declarations are correct
