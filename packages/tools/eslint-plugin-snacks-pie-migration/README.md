@@ -170,6 +170,8 @@ processor: '@justeattakeaway/snacks-pie-migration/added-components',
 
 The components data used by the plugin is stored in the file `snacks-components-data.json` file. This data is extracted from the PIE repository, based on the `pieMetadata` key of each component `package.json` file.
 
+Please do not update the `snacks-components-data.json` file directly, as it is generated automatically by a script. To update the data, you need to update the `pieMetadata` key of the components in the PIE repository, and then run the build command of this package to regenerate the JSON file.
+
 To update this data, run the following command:
 
 ```sh
