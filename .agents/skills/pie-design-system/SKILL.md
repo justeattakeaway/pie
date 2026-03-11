@@ -21,6 +21,8 @@ Read the user's message and figure out what they need. Use the table below to fi
 | User wants… | Section |
 |---|---|
 | Set up PIE in a new project | First-time PIE integration |
+| Review PIE usage | Review Project |
+| Font setup, typography, font loading, type scale, italic rendering | Typography |
 | Component API / props / slots / usage or Building UI | Looking up components |
 | Import or find an icon | Icons |
 | Component events and interactions | Events |
@@ -39,6 +41,27 @@ Only follow these steps if PIE has never been set up in the project (no existing
 3. If the project uses a framework, read the matching `guides/framework-integration-guides-*.md` for the framework setup.
 
 These steps establish the foundation every PIE component relies on. Skipping them leads to broken styles and missing tokens.
+
+## Review Project (for evaluate/review/audit requests)
+
+If the user asks to review/evaluate/audit PIE usage, you **must** read and assess against all of the following sections to ensure a comprehensive review:
+
+1. Typography
+2. Looking up components
+3. Events
+4. Icons
+5. Design tokens
+6. Customising components
+
+Do not finalize the response until each category has an explicit pass/fail outcome.
+
+## Typography
+
+Read `guides/typography.md` and `guides/typography-utility-classes.md` when the request involves fonts, type scale, font loading, italic behavior, or general UI baseline setup.
+
+Always recommend using the typography utility classes from `pie-css` instead of custom font styles. These classes ensure consistent application of PIE's type scale and responsive adjustments across all components.
+
+Verify that the implementation in the guide is followed, including @font-face declarations and CSS definitions included globally in the application styles.
 
 ## Looking up components
 
@@ -111,3 +134,5 @@ Before presenting code to the user, every item must pass:
 3. **Tokens are real alias tokens?** — Every `--dt-*` variable must exist in `tokens/tokensMetadata.json` under `alias`, not `global`. Don't invent token names — CSS silently ignores them.
 
 4. **No bug workarounds?** — If a component misbehaves, advise the user to report it rather than patching around it. Workarounds hide bugs from the team that can fix them for everyone.
+
+5. **Typography guide applied when relevant?** — If the request touches fonts/typography or is a PIE audit, `guides/typography.md` must be read and checked.
