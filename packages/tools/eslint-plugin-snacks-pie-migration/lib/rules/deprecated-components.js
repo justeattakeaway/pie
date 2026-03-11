@@ -11,10 +11,10 @@ function isReplacedByAnotherComponent (componentName) {
 function isDeprecated (componentName) {
     if (deprecatedComponents[componentName] === undefined) return false;
 
-    const { reason, solution } = deprecatedComponents[componentName] || {};
-    if (!reason || !solution) { return false; }
+    const { solution } = deprecatedComponents[componentName] || {};
+    if (!solution) { return false; }
 
-    return { reason, solution };
+    return { solution };
 }
 
 /**
@@ -62,7 +62,8 @@ module.exports = {
                                 message: `The Snacks component "${componentName}" is being deprecated and can be replaced by "${replacementComponent}".`,
                             });
                         } else if (isDeprecated(componentName)) {
-                            const { reason, solution } = isDeprecated(componentName);
+                            const { solution } = isDeprecated(componentName);
+                            const reason = `The Snacks"${componentName}" component is deprecated and should be replaced with plain HTML and CSS.`;
                             context.report({
                                 node,
                                 message: `${reason}\n${solution}`,
