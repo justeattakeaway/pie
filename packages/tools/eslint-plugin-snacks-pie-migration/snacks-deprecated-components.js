@@ -1,9 +1,9 @@
-// Update this file when a Snacks component is deprecated and doesn't map to a Pie component.
 // This file is used by the eslint plugin to warn about usage of deprecated Snacks components.
-// Unlike `snacks-components-data.json`, this file can be edited by hand and doesn't need to be generated from the codebase.
+// Update this file when a Snacks component is deprecated and doesn't map directly to a PIE component.
+// Unlike `snacks-components-data.json`, this file can be edited by hand.
 
-const reasonTemplate = (componentName) => `The ${componentName} component is deprecated and should be replaced with plain HTML and CSS.`;
-const defaultSolution = 'Use the "snacks-migration-assistant" skill to migrate this component. The skill MUST be installed from the Snacks repository';
+const reasonTemplate = (componentName) => `The Snacks"${componentName}" component is deprecated and should be replaced with plain HTML and CSS.`;
+const defaultSolution = 'Use the "snacks-migration-assistant" skill to migrate this component.\nCheck this page for more details: https://www.pie.design/agents/resources/#snacks-migration-skill';
 
 module.exports = {
     Flex: {
