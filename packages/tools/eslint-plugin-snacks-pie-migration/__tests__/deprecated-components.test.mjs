@@ -1,7 +1,11 @@
 import { ESLint } from 'eslint';
+import { createRequire } from 'node:module';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { describe, expect, it } from 'vitest';
 import plugin from '../lib/index';
+
+const require = createRequire(import.meta.url);
+const solutions = require('../snacks-components-solutions');
 
 function getEslintInstance () {
     return new ESLint({
@@ -42,6 +46,26 @@ describe('deprecated-components rule', () => {
             const result = await lintText(sourceCode);
 
             expect(result[0].messages[0]).toMatchSnapshot();
+        });
+
+        it('components that have a PIE replacement can also use solution guidance', async () => {
+            // Note: The mocking code can be removed as soon as one of the components with a PIE replacement also has a solution guidance.
+            const sourceCode = 'import { Button } from \'snacks-design-system\';';
+            const originalSolution = solutions.Button;
+
+            try {
+                solutions.Button = 'Mocked migration guidance for Button';
+
+                const result = await lintText(sourceCode);
+
+                expect(result[0].messages[0].message).toMatchSnapshot();
+            } finally {
+                if (originalSolution === undefined) {
+                    delete solutions.Button;
+                } else {
+                    solutions.Button = originalSolution;
+                }
+            }
         });
     });
     describe('with TypeScript syntax', () => {

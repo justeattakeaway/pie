@@ -13,6 +13,11 @@ exports[`deprecated-components rule > with TypeScript syntax > detects deprecate
 }
 `;
 
+exports[`deprecated-components rule > with plain JavaScript syntax > components that have a PIE replacement can also use solution guidance 1`] = `
+"The Snacks component "Button" is being deprecated and can be replaced by "@justeattakeaway/pie-button".
+Mocked migration guidance for Button"
+`;
+
 exports[`deprecated-components rule > with plain JavaScript syntax > detects components that have a PIE replacement 1`] = `
 {
   "column": 1,
