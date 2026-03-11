@@ -49,17 +49,17 @@ module.exports = {
                     if (!isBypassedInOptions) {
                         if (isReplacedByAnotherComponent(componentName)) {
                             const replacementComponent = isReplacedByAnotherComponent(componentName);
-                            const solution = alternativeSolution ? `\n${alternativeSolution}` : '';
+                            const solutionDetails = alternativeSolution ? `\n${alternativeSolution}` : '';
                             context.report({
                                 node,
-                                message: `The Snacks component "${componentName}" is being deprecated and can be replaced by "${replacementComponent}".${solution}`,
+                                message: `The Snacks component "${componentName}" is being deprecated and can be replaced by "${replacementComponent}".${solutionDetails}`,
                             });
                         } else if (alternativeSolution) {
-                            const reason = `The Snacks "${componentName}" component is deprecated and should be replaced with plain HTML and CSS.`;
-                            const solution = alternativeSolution ? `\n${alternativeSolution}` : '';
+                            const reason = `The Snacks "${componentName}" component is being deprecated and can be replaced with plain HTML and CSS.`;
+                            const solutionDetails = alternativeSolution ? `\n${alternativeSolution}` : '';
                             context.report({
                                 node,
-                                message: `${reason}${solution}`,
+                                message: `${reason}${solutionDetails}`,
                             });
                         }
                     }
