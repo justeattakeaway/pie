@@ -5,13 +5,7 @@
 const migrateWithSkill = 'Use the "snacks-migration-assistant" skill to migrate this component.\nCheck this page for more details: https://www.pie.design/agents/resources/#snacks-migration-skill';
 
 module.exports = {
-    Flex: {
-        solution: migrateWithSkill,
-    },
-    FlexItem: {
-        solution: migrateWithSkill,
-    },
-    Util: {
-        solution: migrateWithSkill,
-    },
+    Flex: migrateWithSkill,
+    FlexItem: migrateWithSkill,
+    Util: migrateWithSkill,
 };

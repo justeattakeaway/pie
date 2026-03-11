@@ -1,20 +1,11 @@
 const snacksComponentsData = require('../../snacks-components-data.json');
-const deprecatedComponents = require('../../snacks-deprecated-components');
+const solutions = require('../../snacks-components-solutions');
 const { getImportSpecifiers } = require('../util/get-import-specifiers');
 
 function isReplacedByAnotherComponent (componentName) {
     const replacementData = snacksComponentsData[componentName];
     const piePackage = replacementData && replacementData.status && replacementData.status === 'stable' ? replacementData.piePackage : false;
     return piePackage;
-}
-
-function isDeprecated (componentName) {
-    if (deprecatedComponents[componentName] === undefined) return false;
-
-    const { solution } = deprecatedComponents[componentName] || {};
-    if (!solution) { return false; }
-
-    return { solution };
 }
 
 /**
@@ -53,20 +44,22 @@ module.exports = {
                 getImportSpecifiers(node).forEach((componentName) => {
                     // Specific components can be bypassed if an array of names are provided
                     const isBypassedInOptions = bypassedComponents && bypassedComponents.includes(componentName);
+                    const alternativeSolution = solutions[componentName];
 
                     if (!isBypassedInOptions) {
                         if (isReplacedByAnotherComponent(componentName)) {
                             const replacementComponent = isReplacedByAnotherComponent(componentName);
+                            const solution = alternativeSolution ? `\n${alternativeSolution}` : '';
                             context.report({
                                 node,
-                                message: `The Snacks component "${componentName}" is being deprecated and can be replaced by "${replacementComponent}".`,
+                                message: `The Snacks component "${componentName}" is being deprecated and can be replaced by "${replacementComponent}".${solution}`,
                             });
-                        } else if (isDeprecated(componentName)) {
-                            const { solution } = isDeprecated(componentName);
+                        } else if (alternativeSolution) {
                             const reason = `The Snacks"${componentName}" component is deprecated and should be replaced with plain HTML and CSS.`;
+                            const solution = alternativeSolution ? `\n${alternativeSolution}` : '';
                             context.report({
                                 node,
-                                message: `${reason}\n${solution}`,
+                                message: `${reason}${solution}`,
                             });
                         }
                     }
