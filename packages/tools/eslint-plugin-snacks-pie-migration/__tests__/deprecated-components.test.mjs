@@ -30,8 +30,15 @@ describe('deprecated-components rule', () => {
 
             expect(result[0].messages.length).toBe(0);
         });
-        it('detects deprecated components', async () => {
+        it('detects components that have a PIE replacement', async () => {
             const sourceCode = 'import { Button } from \'snacks-design-system\';';
+            const result = await lintText(sourceCode);
+
+            expect(result[0].messages[0]).toMatchSnapshot();
+        });
+
+        it('detects deprecated components that should be replaced with HTML/CSS', async () => {
+            const sourceCode = 'import { Flex } from \'snacks-design-system\';';
             const result = await lintText(sourceCode);
 
             expect(result[0].messages[0]).toMatchSnapshot();
