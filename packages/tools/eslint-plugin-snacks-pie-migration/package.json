@@ -27,7 +27,8 @@
   "exports": "./lib/index.js",
   "files": [
     "lib",
-    "snacks-components-data.json"
+    "snacks-components-data.json",
+    "snacks-components-solutions.js"
   ],
   "devDependencies": {
     "@typescript-eslint/parser": "8.46.3",
