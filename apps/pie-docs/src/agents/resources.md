@@ -13,11 +13,21 @@ Skills can be used to extend the functionality of an AI agent and allow it to pe
 Feel free to contact us on the `#help-designsystem` channel in you have any questions about how to use these skills or if you want to request a new skill to be added to the list.
 
 {% notification {
-  type: "information",
+  type: "warning",
   message: "DO NOT use the `find-skills` skill to search and install skills. Instead, follow the instructions below for each skill."
 } %}
 
 Here are some of the skills provided by the PIE Design System team that can be used with agentic AIs:
+
+### PIE Design System skill
+
+This skill provides AI agents with deep knowledge of PIE component APIs, design tokens, typography, icons, and integration guides to help build apps that adhere to PIE standards.
+
+**Installation:**
+
+`npx skills add git@github.com:justeattakeaway/pie.git --skill pie-design-system`
+
+After installing, ask your AI agent to "set up the PIE design system skill". This runs a bootstrap script that fetches documentation matching your installed PIE package versions.
 
 ### Snacks migration skill
 
