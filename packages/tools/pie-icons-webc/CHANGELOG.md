@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.20.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@10.0.0
+
 ## 1.20.5
 
 ### Patch Changes
