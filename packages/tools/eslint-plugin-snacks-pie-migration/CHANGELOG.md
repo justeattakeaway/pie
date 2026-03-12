@@ -1,5 +1,11 @@
 # @justeattakeaway/eslint-plugin-snacks-pie-migration
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - feature to allow the plugin to propose agent skills as solution for components that have a replacement or not ([#2712](https://github.com/justeattakeaway/pie/pull/2712)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.3.0
 
 ### Minor Changes

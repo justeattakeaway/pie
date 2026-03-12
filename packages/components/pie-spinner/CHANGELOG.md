@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-spinner
 
+## 1.4.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@10.0.0
+
 ## 1.4.5
 
 ### Patch Changes

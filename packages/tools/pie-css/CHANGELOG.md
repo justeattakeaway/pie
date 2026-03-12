@@ -1,5 +1,27 @@
 # @justeattakeaway/pie-css
 
+## 0.30.0
+
+### Minor Changes
+
+- [Changed] - decoupled paragraph spacing from `u-font-*` typography classes. ([#2705](https://github.com/justeattakeaway/pie/pull/2705)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  `margin-block-end` is no longer included in typography utility classes by default. Use `.u-typographySpacing` alongside a typography utility class on the same element to apply paragraph spacing where a `paragraph` token exists.
+
+  Before:
+
+  ```html
+  <p class="u-font-body-l">Text with typography and paragraph spacing</p>
+  ```
+
+  After:
+
+  ```html
+  <p class="u-font-body-l u-typographySpacing">
+    Text with typography and opt-in paragraph spacing
+  </p>
+  ```
+
 ## 0.29.0
 
 ### Minor Changes
