@@ -6,6 +6,7 @@
 
 .c-radio {
     // CSS custom properties for label wrapper and text styling
+    --radio-font-family: var(--dt-font-body-l-family);
     --radio-font-size: #{p.font-size(--dt-font-body-l-size)};
     --radio-line-height: #{p.font-size(--dt-font-body-l-line-height)};
     --radio-font-weight: var(--dt-font-body-l-weight);
@@ -17,6 +18,7 @@
     align-items: center;
     gap: var(--dt-spacing-b);
     cursor: var(--radio-cursor);
+    font-family: var(--radio-font-family);
     font-size: var(--radio-font-size);
     line-height: var(--radio-line-height);
     font-weight: var(--radio-font-weight);

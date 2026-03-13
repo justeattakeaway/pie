@@ -5,6 +5,7 @@
 }
 
 .c-formLabel {
+    --form-label-font-family: var(--dt-font-body-strong-s-family);
     --form-label-font-size: #{p.font-size(--dt-font-body-strong-s-size)};
     --form-label-line-height: calc(var(--dt-font-body-strong-s-line-height) * 1px);
     --form-label-font-weight: var(--dt-font-body-strong-s-weight);
@@ -15,6 +16,7 @@
     align-items: flex-end;
     gap: var(--dt-spacing-d);
     color: var(--form-label-color);
+    font-family: var(--form-label-font-family);
     font-size: var(--form-label-font-size);
     line-height: var(--form-label-line-height);
     font-weight: var(--form-label-font-weight);
@@ -24,6 +26,7 @@
 .c-formLabel-optional,
 .c-formLabel-trailing {
     color: var(--dt-color-content-subdued-solid);
+    font-family: var(--dt-font-body-s-family);
     font-size: #{p.font-size(--dt-font-body-s-size)};
     line-height: calc(var(--dt-font-body-s-line-height) * 1px);
     font-weight: var(--dt-font-body-s-weight);

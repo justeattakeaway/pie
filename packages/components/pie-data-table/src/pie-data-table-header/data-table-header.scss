@@ -25,15 +25,17 @@
 }
 
 .c-data-table-header-heading {
-  font-weight: var(--dt-font-weight-extrabold);
-  font-size: #{p.font-size(--dt-font-size-24)};
-  line-height: calc(var(--dt-font-size-24-line-height) * 1px);
+  font-family: var(--dt-font-body-l-family);
+  font-weight: var(--dt-font-heading-m-weight);
+  font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
+  line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
 }
 
 .c-data-table-header-sub-heading {
-  font-weight: var(--dt-font-weight-regular);
-  font-size: #{p.font-size(--dt-font-size-16)};
-  line-height: calc(var(--dt-font-size-16-line-height) * 1px);
+  font-family: var(--dt-font-body-l-family);
+  font-weight: var(--dt-font-body-l-weight);
+  font-size: calc(var(--dt-font-body-l-size) * 1px);
+  line-height: calc(var(--dt-font-body-l-line-height) * 1px);
 }
 
 .c-data-table-header--strong {
