@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-checkbox
 
+## 1.0.12
+
+### Patch Changes
+
+- [Fixed] - ensure components set a font-family ([#2713](https://github.com/justeattakeaway/pie/pull/2713)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.0.11
 
 ### Patch Changes

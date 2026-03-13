@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-notification
 
+## 0.21.13
+
+### Patch Changes
+
+- [Fixed] - ensure components set a font-family ([#2713](https://github.com/justeattakeaway/pie/pull/2713)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.21.12
 
 ### Patch Changes

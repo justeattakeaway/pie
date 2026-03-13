@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-select
 
+## 0.8.20
+
+### Patch Changes
+
+- [Fixed] - ensure components set a font-family ([#2713](https://github.com/justeattakeaway/pie/pull/2713)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.8.19
 
 ### Patch Changes

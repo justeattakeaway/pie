@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-toast",
   "description": "PIE Design System Toast built using Web Components",
-  "version": "0.12.27",
+  "version": "0.12.28",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",

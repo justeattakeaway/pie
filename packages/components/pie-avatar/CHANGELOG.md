@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-avatar
 
+## 0.4.20
+
+### Patch Changes
+
+- [Fixed] - ensure components set a font-family ([#2713](https://github.com/justeattakeaway/pie/pull/2713)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.4.19
 
 ### Patch Changes
