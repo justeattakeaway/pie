@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-divider
 
+## 1.5.14
+
+### Patch Changes
+
+- [Fixed] - ensure components set a font-family ([#2713](https://github.com/justeattakeaway/pie/pull/2713)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.5.13
 
 ### Patch Changes

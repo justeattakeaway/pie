@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-select",
   "description": "PIE Design System Select built using Web Components",
-  "version": "0.8.19",
+  "version": "0.8.20",
   "repository": {
     "type": "git",
     "url": "https://github.com/justeattakeaway/pie",
