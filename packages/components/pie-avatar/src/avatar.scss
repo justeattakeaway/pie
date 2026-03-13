@@ -16,6 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: var(--dt-font-body-s-family);
     @include p.font-size(--dt-font-body-s-size);
     background-color: var(--dt-color-container-inverse);
     color: var(--dt-color-content-interactive-primary); 
