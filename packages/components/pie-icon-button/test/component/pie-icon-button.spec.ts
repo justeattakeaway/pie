@@ -35,6 +35,7 @@ test('should apply all aria attributes to the underlying button element', async 
             describedby: 'baz',
             expanded: true,
             controls: 'test-controls',
+            haspopup: true,
         },
     };
     const iconButtonPage = new BasePage(page, 'icon-button--default');
@@ -48,4 +49,5 @@ test('should apply all aria attributes to the underlying button element', async 
     await expect(iconButtonComponent).toHaveAttribute('aria-describedby', 'baz');
     await expect(iconButtonComponent).toHaveAttribute('aria-expanded', 'true');
     await expect(iconButtonComponent).toHaveAttribute('aria-controls', 'test-controls');
+    await expect(iconButtonComponent).toHaveAttribute('aria-haspopup', 'true');
 });
