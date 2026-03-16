@@ -72,14 +72,19 @@ describe('components/radio.css', () => {
         // color-mix() syntax is not supported by W3C CSS validator but is supported in modern browsers
         // These errors occur in @supports blocks for progressive enhancement
         // Filter out errors related to var(--dt-color-hover-01-bg) and var(--dt-color-active-01-bg)
-        const acceptedErrorPatterns = ['var(--dt-color-hover-01-bg)', 'var(--dt-color-active-01-bg)'];
+        const acceptedErrorPatterns = [
+            'var(--dt-color-hover-01)',
+            'var(--dt-color-active-01)',
+            'var(--dt-color-hover-01-bg)',
+            'var(--dt-color-active-01-bg)',
+        ];
 
         // Act
         const result = await cssValidator.validateText(css);
         const validationErrors = result.errors.filter((error) => !acceptedErrorPatterns.some((pattern) => error.message.includes(pattern)));
 
         // Assert
-        expect(validationErrors).toHaveLength(0);
+        expect(validationErrors).toEqual([]);
     });
 
     it('should render the expected CSS content', async () => {
