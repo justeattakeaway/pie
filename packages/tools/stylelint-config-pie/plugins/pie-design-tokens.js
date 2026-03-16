@@ -11,7 +11,7 @@ const pieTokenPattern = /--(dt|xds)-([a-z0-9-]+)/gi;
 const calcWrappedPattern = /calc\(\s*var\(|#\{p\.(font-size|line-height)\(/;
 const fontTokenPattern = /--dt-font-.*(?:size|line-height)/i;
 
-const filteredPathSegments = new Set(['global', 'alias', 'default', 'dark', 'wide', 'narrow']);
+const filteredPathSegments = new Set(['global', 'alias', 'default']);
 
 /**
  * Parse CSS content and collect custom property names into the provided set.
