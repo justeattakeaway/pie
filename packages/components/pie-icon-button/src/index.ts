@@ -81,7 +81,8 @@ export class PieIconButton extends DelegatesFocusMixin(PieElement) implements Ic
                 aria-labelledby="${ifDefined(aria?.labelledby)}"
                 aria-describedby="${ifDefined(aria?.describedby)}"
                 aria-expanded="${ifDefined(aria?.expanded)}"
-                aria-controls="${ifDefined(aria?.controls)}">
+                aria-controls="${ifDefined(aria?.controls)}"
+                aria-haspopup="${ifDefined(aria?.haspopup)}">
                 ${isLoading ? this.renderSpinner() : html`<slot></slot>`}
             </button>`;
     }

@@ -10,11 +10,12 @@ type AriaProps = {
     describedby?: string;
     expanded?: boolean;
     controls?: string;
+    haspopup?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
 };
 
 export interface IconButtonProps {
     /**
-     * The ARIA attributes available to use on the icon button. Offers label, labelledby, describedby, expanded and controls.
+     * The ARIA attributes available to use on the icon button. Offers label, labelledby, describedby, expanded, controls and haspopup.
      */
     aria?: AriaProps;
 
