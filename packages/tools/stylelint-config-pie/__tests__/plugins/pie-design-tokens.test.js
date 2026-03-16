@@ -20,7 +20,7 @@ describe('pie-design-tokens', () => {
     color: var(--dt-color-content-default);
     --bg-color: var(--dt-color-container-strong);
 }`);
-            expect(warnings).toHaveLength(0);
+            expect(warnings).toEqual([]);
         });
     });
 
@@ -30,7 +30,7 @@ describe('pie-design-tokens', () => {
     color: var(--dt-color-orange);
     --bg-color: var(--dt-color-blue-30);
 }`);
-            expect(warnings).toHaveLength(2);
+            expect(warnings).toMatchSnapshot();
         });
     });
 
@@ -40,7 +40,7 @@ describe('pie-design-tokens', () => {
     color: var(--dt-color-fake-token-999);
     --custom-prop: var(--dt-color-fake-token-000);
 }`);
-            expect(warnings).toHaveLength(2);
+            expect(warnings).toMatchSnapshot();
         });
     });
 
@@ -50,7 +50,7 @@ describe('pie-design-tokens', () => {
             ['line-height', 'line-height: var(--dt-font-heading-xl-line-height--wide);'],
         ])('should warn when %s uses a font size/line-height token without calc()', async (_label, declaration) => {
             const warnings = await getWarnings(`.element { ${declaration} }`);
-            expect(warnings).toHaveLength(1);
+            expect(warnings).toMatchSnapshot();
         });
 
         it.each([
@@ -60,7 +60,7 @@ describe('pie-design-tokens', () => {
             ['SCSS line-height helper', '--line-height: #{p.line-height(--dt-font-body-s-line-height)};'],
         ])('should not warn when font token is wrapped in %s', async (_label, declaration) => {
             const warnings = await getWarnings(`.element { ${declaration} }`);
-            expect(warnings).toHaveLength(0);
+            expect(warnings).toEqual([]);
         });
     });
 
@@ -73,7 +73,7 @@ describe('pie-design-tokens', () => {
                     rules: { '@justeattakeaway/pie-design-tokens': null },
                 },
             });
-            expect(data.results[0].warnings).toHaveLength(0);
+            expect(data.results[0].warnings).toEqual([]);
         });
     });
 });
