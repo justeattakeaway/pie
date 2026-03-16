@@ -59,6 +59,22 @@ You may only want to use a specific ruleset such as `base`, `strict` or `orderin
 
 _Note:  `@justeattakeaway/stylelint-config-pie` includes all rules. We would strongly recommend using `@justeattakeaway/stylelint-config-pie/base` and going from there._
 
+### Extending the config
+
+Simply add a `"rules"` key to your config, then add your overrides and additions there.
+
+For example, to change the `indentation` to tabs, and turn off the `number-leading-zero` rule:
+
+```json
+{
+  "extends": "@justeattakeaway/stylelint-config-pie/base",
+  "rules": {
+    "indentation": "tab",
+    "number-leading-zero": null
+  }
+}
+```
+
 ### Plugins
 
 #### `@justeattakeaway/pie-design-tokens`
@@ -76,36 +92,12 @@ A built-in plugin that validates the usage of PIE design tokens (`--dt-` prefixe
 
 The plugin performs the following checks:
 
-- **Global tokens** — Warns when global tokens (e.g. `--dt-color-orange`, `--dt-spacing-16`) are used directly. Use alias tokens instead.
+- **Global tokens** — Warns when global tokens (e.g. `--dt-color-orange`, `--dt-spacing-16`) are used directly.
 - **Deprecated tokens** — Warns when a deprecated token is used and suggests a replacement where available.
-- **Invalid tokens** — Warns when a `--dt-` token does not exist in the design token system.
-- **Font token `calc()` enforcement** — Warns when `--dt-font-*-size` or `--dt-font-*-line-height` tokens are used without being wrapped in `calc()` or a pie-css SCSS helper (`#{p.font-size(...)}` / `#{p.line-height(...)}`).
+- **Invalid tokens** — Warns when a `--dt-` token does not exist.
+- **Font token `calc()` enforcement** — Warns when `--dt-font-*-size` or `--dt-font-*-line-height` tokens are used without being wrapped in `calc()`.
 
 > Requires `@justeat/pie-design-tokens` to be installed as a dependency.
-
-If you've globally installed `stylelint-config-pie` using the `-g` flag, then you'll need to use the absolute path to `stylelint-config-pie` in your config e.g.
-
-```json
-{
-  "extends": "/absolute/path/to/@justeattakeaway/stylelint-config-pie/base"
-}
-```
-
-### Extending the config
-
-Simply add a `"rules"` key to your config, then add your overrides and additions there.
-
-For example, to change the `indentation` to tabs, and turn off the `number-leading-zero` rule:
-
-```json
-{
-  "extends": "@justeattakeaway/stylelint-config-pie/base",
-  "rules": {
-    "indentation": "tab",
-    "number-leading-zero": null
-  }
-}
-```
 
 ### Documentation
 
