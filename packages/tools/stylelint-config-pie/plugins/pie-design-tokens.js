@@ -70,12 +70,18 @@ function getTokens () {
         const validTokensFromCSS = parseTokensFromCSS(loadFile('@justeat/pie-design-tokens/dist/jet.css'));
         parseTokensFromCSS(loadFile('@justeat/pie-design-tokens/dist/jet-hsl-colors.css'), validTokensFromCSS);
 
+        try {
+            // pie-css defines extra tokens (e.g. z-index). Only loaded if installed.
+            parseTokensFromCSS(loadFile('@justeattakeaway/pie-css/css/input.css'), validTokensFromCSS);
+        } catch { /* skip if not installed */ }
+
         const metadata = JSON.parse(loadFile('@justeat/pie-design-tokens/metadata/tokensMetadata.json'));
         const tokens = new Map();
         traverseMetadata(metadata, [], tokens, false);
 
         cachedTokenData = { tokens, validTokensFromCSS };
     } catch (error) {
+        console.error(`[stylelint:${ruleName}] Failed to load token data:`, error.message);
         cachedTokenData = { tokens: new Map(), validTokensFromCSS: new Set() };
     }
 
@@ -86,7 +92,7 @@ function getTokens () {
  * Report any global, deprecated, or invalid PIE tokens found in a declaration.
  */
 function reportTokenIssues (decl, result, tokens, validTokensFromCSS) {
-    const { prop, value: declValue } = decl;
+    const { value: declValue } = decl;
 
     pieTokenPattern.lastIndex = 0;
     let match = pieTokenPattern.exec(declValue);
@@ -95,7 +101,8 @@ function reportTokenIssues (decl, result, tokens, validTokensFromCSS) {
         const [token, tokenWithoutPrefix] = match;
         const tokenInfo = tokens.get(tokenWithoutPrefix);
 
-        if (tokenInfo?.isGlobal) {
+        // Skip motion as no alias tokens exist for this category
+        if (tokenInfo?.isGlobal && tokenInfo.category !== 'motion') {
             report({
                 ruleName,
                 result,
@@ -127,9 +134,17 @@ function reportTokenIssues (decl, result, tokens, validTokensFromCSS) {
 
         match = pieTokenPattern.exec(declValue);
     }
+}
 
-    if (fontTokenPattern.test(declValue) &&
-        !calcWrappedPattern.test(declValue)) {
+/**
+ * Report if a font size/line-height token is used without calc() wrapping.
+ */
+function reportFontCalcIssue (decl, result) {
+    const { prop, value: declValue } = decl;
+
+    if (prop.startsWith('--')) return;
+
+    if (fontTokenPattern.test(declValue) && !calcWrappedPattern.test(declValue)) {
         report({
             ruleName,
             result,
@@ -153,6 +168,7 @@ function ruleFunction (primaryOption) {
 
         root.walkDecls((decl) => {
             reportTokenIssues(decl, result, tokens, validTokensFromCSS);
+            reportFontCalcIssue(decl, result);
         });
     };
 }

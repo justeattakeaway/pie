@@ -48,7 +48,6 @@ describe('pie-design-tokens', () => {
         it.each([
             ['font-size', 'font-size: var(--dt-font-heading-xl-size--wide);'],
             ['line-height', 'line-height: var(--dt-font-heading-xl-line-height--wide);'],
-            ['custom property', '--font-size: var(--dt-font-body-s-size);'],
         ])('should warn when %s uses a font size/line-height token without calc()', async (_label, declaration) => {
             const warnings = await getWarnings(`.element { ${declaration} }`);
             expect(warnings).toHaveLength(1);
