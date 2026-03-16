@@ -35,14 +35,12 @@ describe('pie-design-tokens', () => {
     });
 
     describe('invalid tokens', () => {
-        it('should warn for a token that does not exist', async () => {
-            const warnings = await getWarnings('.element { color: var(--dt-color-fake-token-999); }');
-            expect(warnings[0].text).toContain('not a valid pie token');
-        });
-
-        it('should detect tokens in custom property values', async () => {
-            const warnings = await getWarnings('.element { --custom-prop: --dt-color-fake-token-999; }');
-            expect(warnings[0].text).toContain('not a valid pie token');
+        it('should warn when a token does not exist', async () => {
+            const warnings = await getWarnings(`.element {
+    color: var(--dt-color-fake-token-999);
+    --custom-prop: var(--dt-color-fake-token-000);
+}`);
+            expect(warnings).toHaveLength(2);
         });
     });
 
@@ -53,8 +51,7 @@ describe('pie-design-tokens', () => {
             ['custom property', '--font-size: var(--dt-font-body-s-size);'],
         ])('should warn when %s uses a font size/line-height token without calc()', async (_label, declaration) => {
             const warnings = await getWarnings(`.element { ${declaration} }`);
-            const calcWarning = warnings.find((w) => w.text.includes('calc()'));
-            expect(calcWarning).toBeDefined();
+            expect(warnings).toHaveLength(1);
         });
 
         it.each([
@@ -64,8 +61,7 @@ describe('pie-design-tokens', () => {
             ['SCSS line-height helper', '--line-height: #{p.line-height(--dt-font-body-s-line-height)};'],
         ])('should not warn when font token is wrapped in %s', async (_label, declaration) => {
             const warnings = await getWarnings(`.element { ${declaration} }`);
-            const calcWarning = warnings.find((w) => w.text.includes('calc()'));
-            expect(calcWarning).toBeUndefined();
+            expect(warnings).toHaveLength(0);
         });
     });
 
