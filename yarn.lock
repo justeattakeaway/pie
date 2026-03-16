@@ -4091,13 +4091,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/stylelint-pie-design-tokens@0.1.0, @justeattakeaway/stylelint-pie-design-tokens@workspace:packages/tools/stylelint-pie-design-tokens":
-  version: 0.0.0-use.local
-  resolution: "@justeattakeaway/stylelint-pie-design-tokens@workspace:packages/tools/stylelint-pie-design-tokens"
+"@justeattakeaway/stylelint-pie-design-tokens@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@justeattakeaway/stylelint-pie-design-tokens@npm:0.1.0"
   peerDependencies:
     "@justeat/pie-design-tokens": 7.8.2
-  languageName: unknown
-  linkType: soft
+  checksum: 5a69d5ad141eb459d57b5f9ce5a10a8d45fcab9fca36fef8d60177eaf81d97d5d3431e7c9533fcac320886cd62d5b41b8810bd5d075d720d99a76b30e2509ff2
+  languageName: node
+  linkType: hard
 
 "@lit-labs/eleventy-plugin-lit@npm:1.0.5":
   version: 1.0.5
