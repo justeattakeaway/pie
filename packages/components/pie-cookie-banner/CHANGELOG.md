@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.7.14
+
+### Patch Changes
+
+- Updated dependencies [[`443571d`](https://github.com/justeattakeaway/pie/commit/443571d17978a575711cbc73918bc0ee1461ea2b)]:
+  - @justeattakeaway/pie-icon-button@2.7.0
+  - @justeattakeaway/pie-modal@1.25.5
+
 ## 1.7.13
 
 ### Patch Changes

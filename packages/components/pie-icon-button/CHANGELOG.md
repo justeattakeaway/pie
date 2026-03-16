@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icon-button
 
+## 2.7.0
+
+### Minor Changes
+
+- [Added] - haspopup to AriaProps ([#2716](https://github.com/justeattakeaway/pie/pull/2716)) by [@renorram](https://github.com/renorram)
+
 ## 2.6.7
 
 ### Patch Changes
