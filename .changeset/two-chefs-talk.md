@@ -1,6 +1,5 @@
 ---
 "@justeattakeaway/stylelint-config-pie": minor
-"pie-monorepo": minor
 ---
 
-[Added] - add pie design tokens stylelint
+[Added] - `@justeattakeaway/pie-design-tokens` plugin to `stylelint-config-pie` for validating PIE design token usage
