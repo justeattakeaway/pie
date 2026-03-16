@@ -6,134 +6,244 @@ eleventyNavigation:
 shouldShowContents: true
 ---
 
-## About our haptic feedback types
-
-Our entire range of haptic feedback options relies on the system-default haptics provided by Apple in accordance with their [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines).
+## Anatomy
 
 {% notification {
   type: "warning",
   message: "Please note that our default haptic feedback types **cannot be overridden or altered**."
 } %}
 
----
-
-## Soft haptic feedback
-
-Soft haptic feedback can serve various purposes in order to enhance the overall user experience in a subtle and nuanced manner.
-
-{% contentPageImage {
-  src:"../../../../assets/img/patterns/haptic-feedback/soft-haptic-feedback.svg",
-  alt: "An illustration that represents a single haptic pulse of a specific duration and strength by showing a bar of a specific size. This particular pattern represents a soft impact.",
-  width: "344px"
-} %}
-
-#### Where can I use soft haptic feedback?
-
 {% list {
-    type: listTypes.icon,
-    iconName: "check-circle",
+    type: listTypes.ordered,
     items: [
-        "**Button presses:** Provide a gentle confirmation for various button presses to acknowledge user input without being intrusive.",
-        "**Toggle and state changes:** Convey changes in toggle switches or activation of different states in the UI with a moderately pronounced haptic sensation.",
-        "**Dynamic adjustments:** Provide users with tactile feedback when making dynamic adjustments, such as using sliders, to indicate significant changes.",
-        "**Non-critical notifications:** Use soft haptic feedback for non-critical notifications to gently alert users without causing disruption.",
-        "**Subtle transitions:** Enhance subtle transitions or animations between UI elements for a smooth and cohesive experience.",
-        "**Incremental adjustments:** Offer soft haptic feedback for incremental adjustments, like scrolling or volume control, to provide a sense of granularity."
+        "**Header (Optional):** A title and subheading can provide additional context for the user.",
+        "**Body:** This is the area where the user provides information. Various input components can be used to help users submit the right data.",
+        "**Row:** A row of content, in this case split into two by a select input and a text input. ",
+    "**Footer:** Provides important actions such as submitting or saving data. "
     ]
 } %}
 
+
+### Appropriate body inputs
+
+Use the appropriate input where possible for each data piece required. Such as:
+
+{% contentLayout %}
+  {% contentItem %}
+    <h4>Checkboxes</h4>
+    <p>
+    [Checkboxes](/components/checkbox/) allow users to choose multiple options from an extensive list and for binary options that permit multiple selections, such as confirming terms and conditions.
+    </p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
+      width: "256px",
+      alt: "Text input with a leading icon."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Date pickers</h4>
+    <p>
+    [Date pickers](/components/date-picker/) provide an easy way to select specific dates or data ranges in a consistent, risk averse manner (e.g. bookings or appointments). Don't use a date picker if the user already knows or is very familiar with the date, e.g. date of birth.
+    </p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
+      width: "256px",
+      alt: "Text input with a leading icon."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Dropdown</h4>
+    <p>
+    [Dropdowns](/components/dropdown/) are for selecting one option from a long, predefined list of choices when conserving space is important. Dropdowns also allow hiding information which isn’t frequently used.
+    </p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
+      width: "256px",
+      alt: "Text input with a leading icon."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Numeric steppers</h4>
+    <p>
+    [Numeric steppers](/components/numeric-stepper/) are used when users need to input precise numeric data with easy to identify increments and decrements. A defined range or step size works best such as 1, 5, or 10.
+    </p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
+      width: "256px",
+      alt: "Text input with a leading icon."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Radio Buttons</h4>
+    <p>
+    [Radio buttons](/components/radio/) are for selecting one option from a small group of mutually exclusive choices and displaying all of those choices openly. This improves scannability and requires less actions from the user to see all of their options.
+    </p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
+      width: "256px",
+      alt: "Text input with a leading icon."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Select inputs</h4>
+    <p>
+    [Select inputs](/components/select-input/) are for selecting one option from a long, predefined list of choices when conserving space is important. Select inputs also allow hiding information which isn’t frequently used.
+    </p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
+      width: "256px",
+      alt: "Text input with a leading icon."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Switches</h4>
+    <p>
+    [Switches](/components/switch/) are best utilised for binary on/off decisions. Switches are also particularly appropriate when an action has an immediate effect without requiring form submission.
+    </p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
+      width: "256px",
+      alt: "Text input with a leading icon."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Textareas</h4>
+    <p>
+    [Textareas](/components/textarea/) are used for multi-line, open-ended responses where users may need to write longer content. They excel at facilitating the collection of detailed and descriptive data, e.g. feedback and comments.
+    </p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
+      width: "256px",
+      alt: "Text input with a leading icon."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Text inputs</h4>
+    <p>
+    [Text inputs](/components/text-input/) are used for short, open-ended data entry which require precise manual information (e.g. names, email addresses and postcodes). Typically, the input should be used for one line of text.
+    </p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
+      width: "256px",
+      alt: "Text input with a leading icon."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h4>Uploaders</h4>
+    <p>
+    [Uploaders](/components/uploader/) give users the ability to submit more complex data files such as documents, images, and other media easily.
+    </p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
+      width: "256px",
+      alt: "Text input with a leading icon."
+    } %}
+  {% endcontentItem %}
+
+{% endcontentLayout %}
+
 ---
 
-## Medium haptic feedback
+## Body structure
 
-Medium-intensity haptic feedback can convey a sense of importance and grab the user's attention. A good example of this might be the haptic feedback that occurs when a user navigates to a new screen, commonly known as a "screen transition haptic", which is designed to provide a tactile confirmation of the navigation action.
+### Input widths
+
+Define four standardised width options for form inputs to set clear expectations for users. These widths should be consistent across the pillar, and align to the grid.
+Input width should align with the expected length of the user’s entry, the longer the entry, the wider the input, and vice versa.
 
 {% contentPageImage {
-  src:"../../../../assets/img/patterns/haptic-feedback/medium-haptic-feedback.svg",
-  alt: "An illustration that represents a single haptic pulse of a specific duration and strength by showing a bar of a specific size. This particular pattern represents a medium impact.",
-  width: "344px"
+  src:"../../../assets/img/patterns/forms/body-structure-input-widths.svg",
+  alt: "Body structure example showing different form input widths.",
+  width: "790px"
 } %}
 
-#### Where can I use medium haptic feedback?
+### Column layouts
 
-{% list {
-    type: listTypes.icon,
-    iconName: "check-circle",
-    items: [
-        "**Important actions:** Reinforce the significance of actions such as submitting a form, making a purchase, or saving changes with a medium level of haptic feedback.",
-        "**Gesture recognition:** Use medium haptic feedback to confirm the recognition of gestures, such as pinch-to-zoom or swipe gestures."
-    ]
+#### Ordering
+
+Where possible input fields should be arranged in a vertical layout (stacked on top of each other) rather than placed side by side or in a grid-like arrangement.
+Form content should be prepared to be read line by line either LTR or RTL depending on the language of the content to ensure users can easily digest the form.
+
+{% usage {
+  do: {
+    type: usageTypes.image,
+    items: [{
+      src: "../../../assets/img/patterns/forms/column-layouts-ordering-do.svg",
+      width: "380px",
+      alt: "Example showing the recommended ordering for form fields."
+    }]
+  },
+  dont: {
+    type: usageTypes.image,
+    items: [{
+      src: "../../../assets/img/patterns/forms/column-layouts-ordering-dont.svg",
+      width: "380px",
+      alt: "Example showing a form field ordering pattern to avoid."
+    }]
+  }
+} %}
+
+#### Rows
+
+Logically related fields can be placed in the same row, including standard inputs and those with prefixes or suffixes.
+
+{% contentLayout %}
+  {% contentItem %}
+    <p>Logically related fields</p>
+    <p>Two fields can be logically related by belonging to the same category of data. For example, a city and postcode both belong to an address.</p>
+
+    {% contentPageImage {
+      src:"../../../assets/img/patterns/forms/column-layouts-logically-related-fields.svg",
+      alt: "Example showing logically related fields placed in the same row.",
+      width: "380px"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <p>Prefixes and suffixes</p>
+    <p>Two fields with a connected relationship can be linked using an editable prefix or suffix, allowing users to modify the inputs directly.</p>
+
+    {% contentPageImage {
+      src:"../../../assets/img/patterns/forms/column-layouts-prefixes-suffixes.svg",
+      alt: "Example showing related fields with editable prefixes or suffixes.",
+      width: "380px"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+#### Alignment
+
+Input fields which do not fill their row should be aligned in the direction that they are read from based on the language of the content. E.g. LTR forms should align their inputs to the left.
+
+Footers should either be aligned to the opposite side of input content, or fill their container in small viewports. This is to provide contrast with the form body.
+
+---
+
+## Layout
+
+Outlines the internal spacing structure of the component. See the [Spacing](/foundations/spacing/) documentation for token details.
+
+{% contentPageImage {
+  src:"../../../assets/img/patterns/forms/layout-spacing-structure.svg",
+  alt: "Layout example showing the internal spacing structure of a form.",
+  width: "790px"
 } %}
 
 ---
 
-## Success haptic feedback
+## Content
 
-A medium-intensity haptic response used to highlight the confirmation of an action. You can use it for the successful submission of a form or completion of a task, providing users with a reassuring response.
+Use sentence-style capitalisation and active language; strive for clarity and brevity in all copy. For additional guidance, refer to the UX copy team's documentation.
 
-{% contentPageImage {
-  src:"../../../../assets/img/patterns/haptic-feedback/success-haptic-feedback.svg",
-  alt: "An illustration that represents a series of two haptic pulses of various durations and strengths by showing bars of different sizes. This particular pattern represents a success.",
-  width: "344px"
-} %}
+### Button labels
 
-#### Where can I use success haptic feedback?
+[Button labels](/components/button/) should guide users through a clear indication of the action the button will take once clicked. Use active verbs, such as Add or Delete. For a pair of buttons, use specific labels, such as Save or Discard, instead of using OK and Cancel. This is particularly helpful when the user is confirming an action.
 
-{% list {
-    type: listTypes.icon,
-    iconName: "check-circle",
-    items: [
-        "**Task completion:** Use success haptic feedback to celebrate the successful completion of a task or operation, providing positive reinforcement.",
-        "**Confirmation of positive events:** Accompany positive events, such as successful transactions or the completion of a level in a game, with success haptic feedback.",
-        "**Goal achievement:** Celebrate users reaching specific milestones or goals within an app or gamified experience with success haptic feedback."
-    ]
-} %}
+### Form labels
+
+[Form labels](/components/form-label/) are a necessity because sighted users can read them, screen readers users will hear them and motor-impaired users can more accurately set their focus area to them (due to the larger focus area). Avoid using placeholder’s as labels, once a user starts inputting data they won’t be able to read what the label was. Making it difficult to review answers.
+
+### Assistive text
+
+[Assistive text](/components/assistive-text/) should always be clear, concise, and actionable to guide users effectively. Whether offering instructions, highlighting errors, or confirming success, focus on providing users with the information they need to complete their tasks confidently.
 
 ---
-
-## Warning haptic feedback
-
-They can be strategically used in various scenarios where it's essential to alert users to critical information or potential issues that demand their attention before they actually happen.
-
-{% contentPageImage {
-  src:"../../../../assets/img/patterns/haptic-feedback/warning-haptic-feedback.svg",
-  alt: "An illustration that represents a series of two haptic pulses of various durations and strengths by showing bars of different sizes. This particular pattern represents a warning.",
-  width: "344px"
-} %}
-
-#### Where can I use warning haptic feedback?
-
-{% list {
-    type: listTypes.icon,
-    iconName: "check-circle",
-    items: [
-        "**Alerts and warnings:** Use warning haptic feedback to highlight critical information or alerts that require users' attention but are not urgent.",
-        "**Potential issues:** Signal potential issues or warnings that users need to be aware of, such as incomplete form entries or system warnings.",
-        "**Near limits:** Provide warning haptic feedback when users are approaching or exceeding certain limits, such as character count or storage capacity."
-    ]
-} %}
-
----
-
-## Error haptic feedback
-
-A strong, noticeable vibration. You can use this when an error occurs or an invalid action is attempted, signalling to the user that corrective action is needed.
-
-{% contentPageImage {
-  src:"../../../../assets/img/patterns/haptic-feedback/error-haptic-feedback.svg",
-  alt: "An illustration that represents a series of four haptic pulses of various durations and strengths by showing bars of different sizes. This particular pattern represents an error.",
-  width: "344px"
-} %}
-
-#### Where can I use error haptic feedback?
-
-{% list {
-    type: listTypes.icon,
-    iconName: "check-circle",
-    items: [
-        "**Critical errors:** Accompany critical errors or issues that require immediate attention with an intense error haptic feedback.",
-        "**Validation failures:** Use error haptic feedback for validation failures, indicating to users that their input needs correction before proceeding.",
-        "**Loss of critical data:** Use error haptic feedback when there is a risk of losing critical data or when irreversible actions are about to be taken.",
-        "**Security breaches:** Signal security breaches or unauthorised access attempts with an error haptic feedback."
-    ]
-} %}
