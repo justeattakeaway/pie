@@ -1,5 +1,28 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`pie-design-tokens > deprecated tokens > should warn when deprecated tokens are used 1`] = `
+[
+  {
+    "column": 16,
+    "endColumn": 54,
+    "endLine": 2,
+    "line": 2,
+    "rule": "@justeattakeaway/pie-design-tokens",
+    "severity": "error",
+    "text": "Token "--dt-color-content-interactive-primary" is deprecated. Use "--dt-color-content-interactive-brand" instead.",
+  },
+  {
+    "column": 23,
+    "endColumn": 49,
+    "endLine": 3,
+    "line": 3,
+    "rule": "@justeattakeaway/pie-design-tokens",
+    "severity": "error",
+    "text": "Token "--dt-color-content-subdued" is deprecated. Please update to a supported token.",
+  },
+]
+`;
+
 exports[`pie-design-tokens > font token calc() enforcement > should warn when font-size uses a font size/line-height token without calc() 1`] = `
 [
   {

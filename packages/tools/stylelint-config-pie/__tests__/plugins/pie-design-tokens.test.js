@@ -76,4 +76,66 @@ describe('pie-design-tokens', () => {
             expect(data.results[0].warnings).toEqual([]);
         });
     });
+
+    describe('deprecated tokens', () => {
+        const mockMetadata = {
+            color: {
+                alias: {
+                    content: {
+                        'interactive-primary': {
+                            description: 'Interactive primary content colour',
+                            status: { name: 'deprecated', replacementToken: 'content-interactive-brand' },
+                        },
+                        subdued: {
+                            description: 'Subdued content colour',
+                            status: { name: 'deprecated' },
+                        },
+                    },
+                },
+            },
+        };
+
+        const getMockedWarnings = async (code) => {
+            vi.resetModules();
+
+            const mockReadFileSync = (filePath) => {
+                if (filePath.includes('tokensMetadata')) {
+                    return JSON.stringify(mockMetadata);
+                }
+                return ':root { --dt-color-content-interactive-primary: #000; --dt-color-content-subdued: #000; }';
+            };
+
+            vi.doMock('fs', async () => {
+                const actual = await vi.importActual('fs');
+                return {
+                    ...actual,
+                    default: { ...actual, readFileSync: mockReadFileSync },
+                    readFileSync: mockReadFileSync,
+                };
+            });
+
+            const { default: plugin } = await import('../../plugins/pie-design-tokens');
+            const data = await stylelint.lint({
+                code,
+                config: {
+                    plugins: [plugin],
+                    rules: { '@justeattakeaway/pie-design-tokens': true },
+                },
+            });
+
+            return data.results[0].warnings;
+        };
+
+        afterEach(() => {
+            vi.restoreAllMocks();
+        });
+
+        it('should warn when deprecated tokens are used', async () => {
+            const warnings = await getMockedWarnings(`.element {
+    color: var(--dt-color-content-interactive-primary);
+    --text-color: var(--dt-color-content-subdued);
+}`);
+            expect(warnings).toMatchSnapshot();
+        });
+    });
 });
