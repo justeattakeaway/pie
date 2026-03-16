@@ -7,7 +7,7 @@ const { createPlugin, utils: { report, validateOptions } } = stylelint;
 
 const ruleName = '@justeattakeaway/pie-design-tokens';
 
-const pieTokenPattern = /--(dt|xds)-([a-z0-9-]+)/gi;
+const pieTokenPattern = /--dt-([a-z0-9-]+)/gi;
 const calcWrappedPattern = /calc\(\s*var\(|#\{p\.(font-size|line-height)\(/;
 const fontTokenPattern = /--dt-font-.*(?:size|line-height)/i;
 
@@ -21,7 +21,7 @@ function parseTokensFromCSS (cssContent, tokens = new Set()) {
     let match = pieTokenPattern.exec(cssContent);
 
     while (match !== null) {
-        tokens.add(match[2]);
+        tokens.add(match[1]);
         match = pieTokenPattern.exec(cssContent);
     }
 
@@ -92,7 +92,7 @@ function reportTokenIssues (decl, result, tokens, validTokensFromCSS) {
     let match = pieTokenPattern.exec(declValue);
 
     while (match !== null) {
-        const [token, prefix, tokenWithoutPrefix] = match;
+        const [token, tokenWithoutPrefix] = match;
         const tokenInfo = tokens.get(tokenWithoutPrefix);
 
         if (tokenInfo?.isGlobal) {
@@ -105,7 +105,7 @@ function reportTokenIssues (decl, result, tokens, validTokensFromCSS) {
             });
         } else if (tokenInfo?.isDeprecated) {
             const replacementToken = tokenInfo.replacement
-                ? `--${prefix}-${tokenInfo.category}-${tokenInfo.replacement}`
+                ? `--dt-${tokenInfo.category}-${tokenInfo.replacement}`
                 : null;
 
             report({
