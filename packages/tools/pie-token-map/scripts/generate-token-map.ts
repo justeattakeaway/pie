@@ -87,8 +87,16 @@ const COLOR_ALIASES: Record<string, string> = {
     'container-prominent': 'web-container-prominent',
 };
 
+/**
+ * Platform-specific token prefixes that should be excluded from the web map.
+ * These CSS custom properties are not output by pie-css, so they would silently
+ * resolve to empty values if used on the web.
+ */
+const PLATFORM_SPECIFIC_PREFIXES = ['android-', 'ios-'];
+
 function generateColorMap (): void {
-    const colorNames: string[] = Object.keys(tokens.theme.jet.color.alias.default);
+    const colorNames: string[] = Object.keys(tokens.theme.jet.color.alias.default)
+        .filter((name) => !PLATFORM_SPECIFIC_PREFIXES.some((prefix) => name.startsWith(prefix)));
 
     // Add platform-agnostic alias names
     const aliasNames = Object.keys(COLOR_ALIASES).filter((a) => !colorNames.includes(a));
@@ -216,6 +224,9 @@ function generateGradientMap (): void {
 
 // ---------------------------------------------------------------------------
 // Motion map
+// Note: Motion tokens only exist under `global` in tokens.json (there is no
+// `alias` key for motion). Using `global` here is intentional and is the only
+// available source for these tokens.
 // ---------------------------------------------------------------------------
 function generateMotionMap (): void {
     const names: string[] = Object.keys(tokens.theme.jet.motion.global);
