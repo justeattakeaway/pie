@@ -83,6 +83,30 @@ For example, to change the `indentation` to tabs, and turn off the `number-leadi
 }
 ```
 
+### Plugins
+
+#### `@justeattakeaway/pie-design-tokens`
+
+A built-in plugin that validates PIE design token usage (`--dt-` prefixed custom properties). Not enabled by default — opt in via your rules:
+
+```json
+{
+  "extends": "@justeattakeaway/stylelint-config-pie/base",
+  "rules": {
+    "@justeattakeaway/pie-design-tokens": true
+  }
+}
+```
+
+**Checks:**
+
+- **Global tokens** — Warns when global tokens are used directly instead of alias tokens.
+- **Deprecated tokens** — Warns when a deprecated token is used and suggests a replacement.
+- **Invalid tokens** — Warns when a `--dt-` token does not exist.
+- **Font token `calc()` enforcement** — Warns when `--dt-font-*-size` or `--dt-font-*-line-height` tokens are used in `font-size` or `line-height` without `calc()` wrapping.
+
+> Requires `@justeat/pie-design-tokens` as a dependency. Optionally loads `@justeattakeaway/pie-css` for additional tokens (e.g. z-index).
+
 ### Documentation
 
 #### Configured Lints
