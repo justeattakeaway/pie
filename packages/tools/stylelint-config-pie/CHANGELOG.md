@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - `@justeattakeaway/pie-design-tokens` plugin to `stylelint-config-pie` for validating PIE design token usage ([#2603](https://github.com/justeattakeaway/pie/pull/2603)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.8.2
 
 ### Patch Changes
