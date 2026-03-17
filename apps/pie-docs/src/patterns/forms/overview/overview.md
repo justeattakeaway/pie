@@ -19,7 +19,7 @@ our interfaces.
 {% contentPageImage {
   src:"../../../assets/img/patterns/forms/what-are-forms.svg",
   mobileSrc: "../../../assets/img/patterns/haptic-feedback/overview-mobile.svg",
-  alt: ""
+    alt: "Example form with multiple input fields and a primary call-to-action button."
 } %}
 
 ---
@@ -56,7 +56,7 @@ without disruption.
         items: [{
             src: "../../../assets/img/patterns/forms/text-input-do.svg",
             width: "144px",
-            alt: ""
+            alt: "Do example showing clear character count guidance below a text input."
         }]
     },
     dont: {
@@ -64,7 +64,7 @@ without disruption.
         items: [{
             src: "../../../assets/img/patterns/forms/text-input-dont.svg",
             width: "144px",
-            alt: ""
+            alt: "Don't example showing text input feedback that is unclear or not helpful."
         }]
     }
 } %}
