@@ -8,8 +8,7 @@
     "types": "dist/index.d.ts",
     "files": [
         "src",
-        "dist",
-        "**/*.d.ts"
+        "dist"
     ],
     "publishConfig": {
         "access": "public"
@@ -18,7 +17,8 @@
     "sideEffects": false,
     "repository": {
         "type": "git",
-        "url": "https://github.com/justeattakeaway/pie.git"
+        "url": "https://github.com/justeattakeaway/pie.git",
+        "directory": "packages/tools/pie-token-map"
     },
     "pieMetadata": {
         "componentStatus": "alpha"

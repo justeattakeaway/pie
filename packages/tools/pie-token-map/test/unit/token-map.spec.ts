@@ -256,8 +256,10 @@ describe('pie-token-map', () => {
     // Completeness tests — ensure generated maps cover all tokens in source
     // -----------------------------------------------------------------------
     describe('completeness', () => {
-        it('should include all color alias tokens from tokens.json plus platform-agnostic aliases', () => {
-            const sourceNames = Object.keys(tokens.theme.jet.color.alias.default);
+        it('should include all color alias tokens from tokens.json (excluding platform-specific) plus platform-agnostic aliases', () => {
+            const platformPrefixes = ['android-', 'ios-'];
+            const sourceNames = Object.keys(tokens.theme.jet.color.alias.default)
+                .filter((name: string) => !platformPrefixes.some((prefix) => name.startsWith(prefix)));
             const platformAliases = ['container-base', 'container-base-dark', 'container-neutral', 'container-prominent'];
 
             sourceNames.forEach((name) => {
@@ -267,6 +269,15 @@ describe('pie-token-map', () => {
                 expect(colorMap).toHaveProperty(name);
             });
             expect(Object.keys(colorMap)).toHaveLength(sourceNames.length + platformAliases.length);
+        });
+
+        it('should not include platform-specific (android-*, ios-*) color tokens', () => {
+            const platformNames = Object.keys(tokens.theme.jet.color.alias.default)
+                .filter((name: string) => name.startsWith('android-') || name.startsWith('ios-'));
+            expect(platformNames.length).toBeGreaterThan(0); // sanity check
+            platformNames.forEach((name) => {
+                expect(colorMap).not.toHaveProperty(name);
+            });
         });
 
         it('should map platform-agnostic aliases to their web-prefixed CSS vars', () => {
