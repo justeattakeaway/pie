@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.72.3
+
+### Patch Changes
+
+- Updated dependencies [[`25ffbc9`](https://github.com/justeattakeaway/pie/commit/25ffbc9c435d18ae1ee3ae746e2a2dde12aa1371)]:
+  - @justeattakeaway/pie-css@0.31.0
+  - @justeattakeaway/pie-icons-webc@1.20.7
+  - @justeattakeaway/pie-webc@0.9.4
+
 ## 1.72.2
 
 ### Patch Changes

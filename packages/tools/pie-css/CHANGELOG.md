@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.31.0
+
+### Minor Changes
+
+- [Updated] include-media mixin to fix deprecation pie-css warning for media query mixin ([#2718](https://github.com/justeattakeaway/pie/pull/2718)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.30.0
 
 ### Minor Changes
