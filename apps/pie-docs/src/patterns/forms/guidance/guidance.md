@@ -8,9 +8,10 @@ shouldShowContents: true
 
 ## Anatomy
 
-{% notification {
-  type: "warning",
-  message: "Please note that our default haptic feedback types **cannot be overridden or altered**."
+{% contentPageImage {
+  src:"../../../assets/img/patterns/forms/anatomy.svg",
+  alt: "Anatomy diagram showing the header, body, row and footer regions of a form.",
+  width: "699px"
 } %}
 
 {% list {
@@ -31,112 +32,127 @@ Use the appropriate input where possible for each data piece required. Such as:
 {% contentLayout %}
   {% contentItem %}
     <h4>Checkboxes</h4>
-    <p>
-    [Checkboxes](/components/checkbox/) allow users to choose multiple options from an extensive list and for binary options that permit multiple selections, such as confirming terms and conditions.
-    </p>
+    <p><a href="/components/checkbox/">Checkboxes</a> allow users to choose multiple options from an extensive list and for binary options that permit multiple selections, such as confirming terms and conditions.</p>
+
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
-      width: "256px",
-      alt: "Text input with a leading icon."
+      src: "../../../assets/img/patterns/forms/appropriate-body-input-checkboxes.svg",
+      width: "258px",
+      alt: "Checkboxes example."
     } %}
+
   {% endcontentItem %}
   {% contentItem %}
     <h4>Date pickers</h4>
-    <p>
-    [Date pickers](/components/date-picker/) provide an easy way to select specific dates or data ranges in a consistent, risk averse manner (e.g. bookings or appointments). Don't use a date picker if the user already knows or is very familiar with the date, e.g. date of birth.
-    </p>
+    <p><a href="/components/date-picker/">Date pickers</a> provide an easy way to select specific dates or data ranges in a consistent, risk averse manner (e.g. bookings or appointments). Don’t use a date picker if the user already knows or is very familiar with the date, e.g. date of birth.</p>
+
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
-      width: "256px",
-      alt: "Text input with a leading icon."
+      src: "../../../assets/img/patterns/forms/anatomy-appropriatebodyinputs-datepickers.svg",
+      width: "270px",
+      alt: "Date picker example."
     } %}
+
   {% endcontentItem %}
   {% contentItem %}
     <h4>Dropdown</h4>
-    <p>
-    [Dropdowns](/components/dropdown/) are for selecting one option from a long, predefined list of choices when conserving space is important. Dropdowns also allow hiding information which isn’t frequently used.
-    </p>
+    <p><a href="/components/dropdown/">Dropdowns</a> are for selecting one option from a long, predefined list of choices and conserving space is important. Dropdowns also allow hiding information which isn’t frequently used.</p>
+
+    {% notification {
+      type: "information",
+      message: "Dropdowns are for use in apps"
+    } %}
+
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
+      src: "../../../assets/img/patterns/forms/appropriate-body-input-dropdown.svg",
       width: "256px",
-      alt: "Text input with a leading icon."
+      alt: "Dropdown example."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     <h4>Numeric steppers</h4>
-    <p>
-    [Numeric steppers](/components/numeric-stepper/) are used when users need to input precise numeric data with easy to identify increments and decrements. A defined range or step size works best such as 1, 5, or 10.
-    </p>
+    <p><a href="/components/numeric-stepper/">Numeric steppers</a> are used when users need to input precise numeric data with easy to identify increments and decrements. A defined range or step size works best such as 1, 5, or 10.</p>
+
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
+      src: "../../../assets/img/patterns/forms/appropriate-body-input-numeric-stepper.svg",
       width: "256px",
-      alt: "Text input with a leading icon."
+      alt: "Numeric stepper example."
     } %}
+
   {% endcontentItem %}
   {% contentItem %}
-    <h4>Radio Buttons</h4>
-    <p>
-    [Radio buttons](/components/radio/) are for selecting one option from a small group of mutually exclusive choices and displaying all of those choices openly. This improves scannability and requires less actions from the user to see all of their options.
-    </p>
+    <h4>Radio buttons</h4>
+    <p><a href="/components/radio/">Radio buttons</a> are for selecting one option from a small group of mutually exclusive choices and displaying all of those choices openly. This improves scannability and requires less actions from the user to see all of their options.</p>
+
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
-      width: "256px",
-      alt: "Text input with a leading icon."
+      src: "../../../assets/img/patterns/forms/appropriate-body-input-radio-buttons.svg",
+      width: "258px",
+      height: "200px",
+      alt: "Radio buttons example."
     } %}
+
   {% endcontentItem %}
   {% contentItem %}
     <h4>Select inputs</h4>
-    <p>
-    [Select inputs](/components/select-input/) are for selecting one option from a long, predefined list of choices when conserving space is important. Select inputs also allow hiding information which isn’t frequently used.
-    </p>
+    <p><a href="/components/select-input/">Select inputs</a> are for selecting one option from a long, predefined list of choices and conserving space is important. Select inputs also allow hiding information which isn’t frequently used.</p>
+
+    {% notification {
+      type: "information",
+      message: "Select inputs are for use in apps"
+    } %}
+
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
+      src: "../../../assets/img/patterns/forms/appropriate-body-input-selectinputs.svg",
       width: "256px",
-      alt: "Text input with a leading icon."
+      alt: "Select input example."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     <h4>Switches</h4>
-    <p>
-    [Switches](/components/switch/) are best utilised for binary on/off decisions. Switches are also particularly appropriate when an action has an immediate effect without requiring form submission.
-    </p>
+    <p><a href="/components/switch/">Switches</a> are best utilised for binary on/off decisions. Switches are also particularly appropriate when an action has an immediate effect without requiring form submission.</p>
+
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
-      width: "256px",
-      alt: "Text input with a leading icon."
+      src: "../../../assets/img/patterns/forms/appropriate-body-input-switches.svg",
+      width: "94px",
+      alt: "Switch example."
     } %}
+
   {% endcontentItem %}
   {% contentItem %}
     <h4>Textareas</h4>
-    <p>
-    [Textareas](/components/textarea/) are used for multi-line, open-ended responses where users may need to write longer content. They excel at facilitating the collection of detailed and descriptive data, e.g. feedback and comments.
-    </p>
+    <p><a href="/components/textarea/">Textareas</a> are used for multi-line, open-ended responses where users may need to write longer content. They excel at facilitating the collection of detailed and descriptive data, e.g. feedback & comments.</p>
+
+    {% notification {
+      type: "information",
+      message: "Only available in web, if the functionality is required in apps, use the Text input"
+    } %}
+
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
+      src: "../../../assets/img/patterns/forms/appropriate-body-input-textareas.svg",
       width: "256px",
-      alt: "Text input with a leading icon."
+      alt: "Textarea example."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     <h4>Text inputs</h4>
-    <p>
-    [Text inputs](/components/text-input/) are used for short, open-ended data entry which require precise manual information (e.g. names, email addresses and postcodes). Typically, the input should be used for one line of text.
-    </p>
+    <p><a href="/components/text-input/">Text inputs</a> are used for short, open-ended data entry which require precise manual info (e.g. names, email addresses and postcodes). Typically, the input should be used for one line of text.</p>
+
+    {% notification {
+      type: "information",
+      message: "Text inputs also have the functionality of textarea in apps"
+    } %}
+
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
+      src: "../../../assets/img/patterns/forms/appropriate-body-input-textinputs.svg",
       width: "256px",
-      alt: "Text input with a leading icon."
+      alt: "Text input example."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     <h4>Uploaders</h4>
-    <p>
-    [Uploaders](/components/uploader/) give users the ability to submit more complex data files such as documents, images, and other media easily.
-    </p>
+    <p><a href="/components/uploader/">Uploaders</a> give users the ability to submit more complex data files such as documents, images, and other media easily.</p>
     {% contentPageImage {
-      src: "../../../assets/img/components/text-input/modifiers-leading-icon.svg",
-      width: "256px",
-      alt: "Text input with a leading icon."
+      src: "../../../assets/img/patterns/forms/appropriate-body-input-uploaders.svg",
+      width: "384px",
+      alt: "Uploader example."
     } %}
   {% endcontentItem %}
 
@@ -152,9 +168,9 @@ Define four standardised width options for form inputs to set clear expectations
 Input width should align with the expected length of the user’s entry, the longer the entry, the wider the input, and vice versa.
 
 {% contentPageImage {
-  src:"../../../assets/img/patterns/forms/body-structure-input-widths.svg",
+  src:"../../../assets/img/patterns/forms/bodystructure-inputwidths.svg",
   alt: "Body structure example showing different form input widths.",
-  width: "790px"
+  width: "575px"
 } %}
 
 ### Column layouts
@@ -168,16 +184,16 @@ Form content should be prepared to be read line by line either LTR or RTL depend
   do: {
     type: usageTypes.image,
     items: [{
-      src: "../../../assets/img/patterns/forms/column-layouts-ordering-do.svg",
-      width: "380px",
+      src: "../../../assets/img/patterns/forms/bodystrucutre-columnlayouts-ordering-do.svg",
+      width: "504px",
       alt: "Example showing the recommended ordering for form fields."
     }]
   },
   dont: {
     type: usageTypes.image,
     items: [{
-      src: "../../../assets/img/patterns/forms/column-layouts-ordering-dont.svg",
-      width: "380px",
+      src: "../../../assets/img/patterns/forms/bodystrucutre-columnlayouts-ordering-dont.svg",
+      width: "504px",
       alt: "Example showing a form field ordering pattern to avoid."
     }]
   }
@@ -193,9 +209,9 @@ Logically related fields can be placed in the same row, including standard input
     <p>Two fields can be logically related by belonging to the same category of data. For example, a city and postcode both belong to an address.</p>
 
     {% contentPageImage {
-      src:"../../../assets/img/patterns/forms/column-layouts-logically-related-fields.svg",
+      src:"../../../assets/img/patterns/forms/rows-logically-related-fields-city-postcode.svg",
       alt: "Example showing logically related fields placed in the same row.",
-      width: "380px"
+      width: "424px"
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -203,9 +219,9 @@ Logically related fields can be placed in the same row, including standard input
     <p>Two fields with a connected relationship can be linked using an editable prefix or suffix, allowing users to modify the inputs directly.</p>
 
     {% contentPageImage {
-      src:"../../../assets/img/patterns/forms/column-layouts-prefixes-suffixes.svg",
+      src:"../../../assets/img/patterns/forms/rows-prefixes-suffixes-weight-unit.svg",
       alt: "Example showing related fields with editable prefixes or suffixes.",
-      width: "380px"
+      width: "366px"
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -223,9 +239,9 @@ Footers should either be aligned to the opposite side of input content, or fill 
 Outlines the internal spacing structure of the component. See the [Spacing](/foundations/spacing/) documentation for token details.
 
 {% contentPageImage {
-  src:"../../../assets/img/patterns/forms/layout-spacing-structure.svg",
+  src:"../../../assets/img/patterns/forms/layout.svg",
   alt: "Layout example showing the internal spacing structure of a form.",
-  width: "790px"
+  width: "690px"
 } %}
 
 ---
@@ -236,14 +252,172 @@ Use sentence-style capitalisation and active language; strive for clarity and br
 
 ### Button labels
 
-[Button labels](/components/button/) should guide users through a clear indication of the action the button will take once clicked. Use active verbs, such as Add or Delete. For a pair of buttons, use specific labels, such as Save or Discard, instead of using OK and Cancel. This is particularly helpful when the user is confirming an action.
+[Button labels](/components/button/) should guide users through a clear indication of the action the button will take once clicked. Use active verbs, such as Add or Delete. For a pair of buttons, use specific labels, such as Save or Discard, instead of using OK and Cancel. This is particularly helpful when users are confirming an action.
 
 ### Form labels
 
-[Form labels](/components/form-label/) are a necessity because sighted users can read them, screen readers users will hear them and motor-impaired users can more accurately set their focus area to them (due to the larger focus area). Avoid using placeholder’s as labels, once a user starts inputting data they won’t be able to read what the label was. Making it difficult to review answers.
+[Form labels](/components/form-label/) are a necessity because sighted users can read them, screen reader users will hear them, and motor-impaired users can more accurately set their focus area to them (due to the larger focus area). Avoid using placeholders as labels; once a user starts inputting data they will not be able to read what the label was, which makes it difficult to review answers.
 
 ### Assistive text
 
 [Assistive text](/components/assistive-text/) should always be clear, concise, and actionable to guide users effectively. Whether offering instructions, highlighting errors, or confirming success, focus on providing users with the information they need to complete their tasks confidently.
 
 ---
+
+## Behaviour
+
+Autofill, spellcheck and autocorrect are all native HTML features. Therefore, we have limited control over how these elements are styled or interact.
+
+### Autofill
+
+Autofill automatically fills in form fields with previously saved data.
+
+Autofill works best for **static, non-sensitive data** that improves user convenience without compromising privacy or security, such as contact information or general demographic data. Avoid autofilling sensitive, dynamic or confidential data to protect users and maintain trust, such as temporary codes or appointment notes.
+
+{% contentPageImage {
+  src:"../../../assets/img/patterns/forms/behaviours-autofill.svg",
+  alt: "Autofill behaviour example in a text input field.",
+  width: "415px"
+} %}
+
+### Spellcheck
+
+Spellcheck is a feature that detects and **highlights spelling errors** in text fields.
+
+Spellcheck is useful for fields like comments, feedback, or open-ended text responses where correct spelling enhances clarity and professionalism. Avoid using spellcheck for fields which are often grammatically incorrect, such as email addresses.
+
+{% contentPageImage {
+  src:"../../../assets/img/patterns/forms/behaviours-spellcheck.svg",
+  alt: "Spellcheck behaviour example highlighting misspelled text.",
+  width: "256px"
+} %}
+
+### Autocorrect
+
+Autocorrect **automatically changes misspelled words** or phrases as users type, based on a predefined dictionary or context. It aims to improve typing accuracy and reduce errors.
+
+Autocorrect is best used for casual text inputs like a long-form message in a contact form. Avoid using it for precise fields which could be answered with technical terms.
+
+---
+
+## Form feedback and support
+
+### Assistive text
+
+Use assistive text when the information is essential for completing the form field correctly and when immediate context improves usability. When guidance is helpful but not mandatory use the help icon detailed below.
+
+#### Default
+
+Assistive text reduces user confusion by providing additional guidance or context to help users fill out a field correctly.
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src:"../../../assets/img/patterns/forms/assistive-text-default-add-credit.svg",
+      alt: "Default assistive text example for add credit field.",
+      width: "256px"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src:"../../../assets/img/patterns/forms/assitive-text-default-email.svg",
+      alt: "Default assistive text example for email field.",
+      width: "256px"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+#### Error
+
+Error assistive text must be used to alert users of mistakes in their input and provide instructions on how to resolve those issues. To allow users to easily recognise what has gone wrong and identify how to fix it, reducing frustration and abandonment.
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src:"../../../assets/img/patterns/forms/assistive-text-error-password.svg",
+      alt: "Error assistive text example for password input.",
+      width: "265px"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src:"../../../assets/img/patterns/forms/assistive-text-error-offer-time-frame.svg",
+      alt: "Error assistive text example for radio group.",
+      width: "173px"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+#### Success
+
+Success assistive text confirms that the input has been accepted or validated. Positive feedback builds user confidence and ensures clarity that their input passes live validation.
+
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src:"../../../assets/img/patterns/forms/assistive-text-success-verivication-code.svg",
+      alt: "Success assistive text example for verification code input.",
+      width: "256px"
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    {% contentPageImage {
+      src:"../../../assets/img/patterns/forms/assistive-text-success-password.svg",
+      alt: "Success assistive text example for password input.",
+      width: "256px"
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+### Help icon
+
+The help icon provides access to additional, on-demand guidance without overwhelming the user interface. Consider combining these with assistive text when fields require extensive guidance by providing high-level information upfront and additional details on demand.
+
+{% contentPageImage {
+  src:"../../../assets/img/patterns/forms/assistive-text-help-icon.svg",
+  alt: "Help icon example with tooltip guidance on a form label.",
+  width: "278px"
+} %}
+
+---
+
+## Form validation
+
+### Live validation
+
+Wait for users to navigate off their currently selected field, before validating the data which they have entered.
+
+Validating inputs live can be distracting from a task in progress rather than providing required assistance for smooth completion.
+
+{% usage {
+  do: {
+    type: usageTypes.image,
+    items: [{
+      src: "../../../assets/img/patterns/forms/live-validation-do.svg",
+      width: "265px",
+      alt: "Live validation do example showing validation after leaving the field."
+    }]
+  },
+  dont: {
+    type: usageTypes.image,
+    items: [{
+      src: "../../../assets/img/patterns/forms/live-validation-dont.svg",
+      width: "265px",
+      alt: "Live validation don't example showing inline error while typing."
+    }]
+  }
+} %}
+
+### Submission validation
+
+Submission validation ensures that data entered by users is correct and complete before being processed. If errors are detected during submission, it’s essential to provide feedback that helps users resolve these issues efficiently.
+
+When a user has submitted a form with at least one error, it’s important to assist them with finding those errors and identifying what went wrong so that they can fix the problem seamlessly and with minimum frustration.
+
+Therefore, it’s important to use the <u>error summary</u> component once a form has been submitted with incorrect data. Provide anchor links to errors throughout the form, marked via assistive text, error.
+
+{% contentPageImage {
+  src:"../../../assets/img/patterns/forms/formvalidation.svg",
+  alt: "Submission validation example showing an error summary with anchor links to invalid fields.",
+  width: "876px"
+} %}
