@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-data-table
 
+## 0.3.9
+
+### Patch Changes
+
+- [Fixed] - enable pie-design-tokens rule and fix violations ([#2720](https://github.com/justeattakeaway/pie/pull/2720)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@11.0.1
+
 ## 0.3.8
 
 ### Patch Changes
