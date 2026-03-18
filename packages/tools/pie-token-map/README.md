@@ -32,10 +32,6 @@ npm install @justeattakeaway/pie-token-map
 
 Your page must load `pie-css` so that the CSS custom properties (`--dt-color-*`, `--dt-font-*`, etc.) are actually defined. Without `pie-css`, the `var(--dt-...)` strings this package returns will resolve to empty values in the browser.
 
-## Environment Variables
-
-This package does not require any environment variables. Token maps are generated at build time from the `@justeat/pie-design-tokens` package.
-
 ## Usage Examples
 
 ### Basic token lookup
@@ -209,7 +205,3 @@ The `scripts/generate-token-map.ts` script reads `@justeat/pie-design-tokens/dis
 6. **Keep generated files in sync** — if you update the generator script or bump the design tokens version, run `yarn generate` and commit the updated generated files.
 7. **Follow the existing code style** — the project uses ESLint with the shared `@justeattakeaway/pie-components-config` configuration.
 8. **Open a PR** against the main PIE repo with a clear description of what changed and why.
-
-## License
-
-Apache-2.0
