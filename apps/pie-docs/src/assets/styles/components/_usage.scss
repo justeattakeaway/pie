@@ -31,7 +31,7 @@ $usage-bg-minHeight: 280px;
 .c-usage-heading {
     @include p.font-size(--dt-font-heading-s-size--narrow);
     @include p.line-height(--dt-font-heading-s-line-height--narrow);
-    font-weight: var(--dt-font-weight-bold);
+    font-weight: var(--dt-font-heading-s-weight);
     color: var(--style-colour);
     display: flex;
     align-items: center;

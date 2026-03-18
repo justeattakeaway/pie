@@ -23,13 +23,13 @@
             content: counter(item);
             @include p.font-size(--dt-font-body-s-size);
             @include p.line-height(--dt-font-body-s-line-height);
-            font-weight: var(--dt-font-weight-bold);
+            font-weight: var(--dt-font-body-s-weight);
             margin-inline-end: var(--dt-spacing-c);
             width: 25px;
             height: 25px;
             background: var(--dt-color-container-inverse);
             border-radius: 100%;
-            color: var(--dt-color-white);
+            color: var(--dt-color-content-light-solid);
             display: flex;
             align-items: center;
             justify-content: center;

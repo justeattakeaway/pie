@@ -35,7 +35,9 @@
 
 .c-data-table-head-cell {
   background-color: transparent;
-  font-weight: var(--dt-font-weight-bold);
+  font-size: calc(var(--dt-font-body-strong-l-size) * 1px);
+  line-height: calc(var(--dt-font-body-strong-l-line-height) * 1px);
+  font-weight: var(--dt-font-body-strong-l-weight);
   color: var(--data-table-text-color);
   text-align: left;
 }
