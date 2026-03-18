@@ -89,11 +89,9 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
 
 .c-tokensTable-example--checked {
     background-color: var(--dt-color-container-default);
-    /* stylelint-disable @justeattakeaway/pie-design-tokens -- checkerboard pattern requires global colour tokens */
     background-image:
-        linear-gradient(45deg, var(--dt-color-charcoal-30) 25%, transparent 25%, transparent 75%, var(--dt-color-charcoal-30) 75%, var(--dt-color-charcoal-30)),
-        linear-gradient(45deg, var(--dt-color-charcoal-30) 25%, transparent 25%, transparent 75%, var(--dt-color-charcoal-30) 75%, var(--dt-color-charcoal-30));
-    /* stylelint-enable @justeattakeaway/pie-design-tokens */
+        linear-gradient(45deg, var(--dt-color-content-subdued-solid) 25%, transparent 25%, transparent 75%, var(--dt-color-content-subdued-solid) 75%, var(--dt-color-content-subdued-solid)),
+        linear-gradient(45deg, var(--dt-color-content-subdued-solid) 25%, transparent 25%, transparent 75%, var(--dt-color-content-subdued-solid) 75%, var(--dt-color-content-subdued-solid));
     background-size: 20px 20px;
     background-position: 0 0, 30px 30px;
     position: relative;
