@@ -82,7 +82,7 @@ $breakpoint-wide: 700px;
 .c-cookieBanner-body {
     // We have to use a color darker than --dt-color-background-dark.
     // Current the only option is this global token
-    --cb-scroll-shadow-color: var(--dt-color-black);
+    --cb-scroll-shadow-color: var(--dt-color-black); // stylelint-disable-line @justeattakeaway/pie-design-tokens
 
     margin-block-start: var(--dt-spacing-a);
     max-height: 200px;

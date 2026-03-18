@@ -1,7 +1,9 @@
 :host {
   background-color: transparent;
-  font-weight: var(--dt-font-weight-bold);
-  color: var(--data-table-header-color);
+  font-size: calc(var(--dt-font-body-strong-l-size) * 1px);
+  line-height: calc(var(--dt-font-body-strong-l-line-height) * 1px);
+  font-weight: var(--dt-font-body-strong-l-weight);
+  color: var(--dt-color-content-default);
   border-bottom: 1px solid var(--data-table-border-color);
   display: table-header-group;
 }

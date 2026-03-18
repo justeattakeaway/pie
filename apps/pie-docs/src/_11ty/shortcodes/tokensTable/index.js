@@ -65,7 +65,7 @@ const buildGlobalTokenUsedElement = (globalToken) => {
 
     return `
         <span class="c-tokensTable-tokenDescription">
-            <span class="u-font-bold u-showAboveWide">${tokenDescription}</span>
+            <span class="c-tokensTable-label u-showAboveWide">${tokenDescription}</span>
             ${tokenMarkup}
         </span>`;
 };

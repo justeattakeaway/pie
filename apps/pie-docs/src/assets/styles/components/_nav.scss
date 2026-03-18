@@ -88,7 +88,7 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
     }
 
   .c-nav-link {
-      font-weight: var(--dt-font-weight-bold);
+      font-weight: var(--dt-font-body-strong-l-weight);
     }
 }
 
@@ -105,7 +105,7 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
 
     &.is-active {
         background-color: var(--dt-color-container-subtle);
-        font-weight: var(--dt-font-weight-bold);
+        font-weight: var(--dt-font-body-strong-s-weight);
     }
 
     &.is-active,
@@ -163,7 +163,7 @@ button.c-nav-toggles {
 }
 
 .c-nav-category .c-nav-link {
-    font-weight: var(--dt-font-weight-bold);
+    font-weight: var(--dt-font-body-strong-s-weight);
 }
 
 // SideNav accordion toggle

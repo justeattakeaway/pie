@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.65.4
+
+### Patch Changes
+
+- [Fixed] - enable pie-design-tokens rule and fix violations ([#2720](https://github.com/justeattakeaway/pie/pull/2720)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`4e448d4`](https://github.com/justeattakeaway/pie/commit/4e448d48a8c4bdb04f28c136105cb7aa7bc6a0e0)]:
+  - @justeattakeaway/pie-css@0.31.1
+  - @justeattakeaway/pie-webc@0.9.5
+  - @justeattakeaway/pie-icons-webc@1.20.8
+
 ## 4.65.3
 
 ### Patch Changes
