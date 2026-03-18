@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.31.1
+
+### Patch Changes
+
+- [Fixed] - enable pie-design-tokens rule and fix violations ([#2720](https://github.com/justeattakeaway/pie/pull/2720)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.31.0
 
 ### Minor Changes

@@ -1,5 +1,20 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.7.16
+
+### Patch Changes
+
+- [Fixed] - enable pie-design-tokens rule and fix violations ([#2720](https://github.com/justeattakeaway/pie/pull/2720)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.8
+  - @justeattakeaway/pie-divider@1.5.16
+  - @justeattakeaway/pie-icon-button@2.7.2
+  - @justeattakeaway/pie-link@1.3.18
+  - @justeattakeaway/pie-modal@1.25.7
+  - @justeattakeaway/pie-switch@2.3.20
+  - @justeattakeaway/pie-webc-core@11.0.1
+
 ## 1.7.15
 
 ### Patch Changes
