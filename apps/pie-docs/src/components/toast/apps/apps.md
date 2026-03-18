@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Apps
     parent: Toast
     order: 5
+draft: true
 ---
 
 {% notification {

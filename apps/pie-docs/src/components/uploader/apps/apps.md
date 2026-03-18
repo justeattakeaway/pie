@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Apps
     parent: Uploader
     order: 2
+draft: true
 ---
 
 {% notification {
