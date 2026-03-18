@@ -58,7 +58,7 @@
 
 .c-simpleTable--headerless {
     td:first-child {
-        font-weight: var(--dt-font-weight-bold);
+        font-weight: var(--dt-font-body-s-weight);
 
         & ~ td {
             color: var(--dt-color-content-subdued);

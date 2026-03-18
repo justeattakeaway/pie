@@ -100,9 +100,11 @@ function reportTokenIssues (decl, result, tokens, validTokensFromCSS) {
     while (match !== null) {
         const [token, tokenWithoutPrefix] = match;
         const tokenInfo = tokens.get(tokenWithoutPrefix);
+        const isMotion = tokenInfo?.category === 'motion';
+        const isGlobalFontFamily = tokenWithoutPrefix.startsWith('font-family');
 
-        // Skip motion as no alias tokens exist for this category
-        if (tokenInfo?.isGlobal && tokenInfo.category !== 'motion') {
+        // Skip motion as no alias tokens exist for it and global font family tokens as they might be used globally when defining @font faces.
+        if (tokenInfo?.isGlobal && !isMotion && !isGlobalFontFamily) {
             report({
                 ruleName,
                 result,

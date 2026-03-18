@@ -61,7 +61,10 @@
     "test:visual:ci": "turbo run test:visual:ci --filter=!pie-monorepo"
   },
   "stylelint": {
-    "extends": "@justeattakeaway/stylelint-config-pie/base"
+    "extends": "@justeattakeaway/stylelint-config-pie/base",
+    "rules": {
+      "@justeattakeaway/pie-design-tokens": true
+    }
   },
   "devDependencies": {
     "@axe-core/playwright": "4.7.3",

@@ -89,9 +89,11 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
 
 .c-tokensTable-example--checked {
     background-color: var(--dt-color-container-default);
+    /* stylelint-disable @justeattakeaway/pie-design-tokens -- checkerboard pattern requires global colour tokens */
     background-image:
         linear-gradient(45deg, var(--dt-color-charcoal-30) 25%, transparent 25%, transparent 75%, var(--dt-color-charcoal-30) 75%, var(--dt-color-charcoal-30)),
         linear-gradient(45deg, var(--dt-color-charcoal-30) 25%, transparent 25%, transparent 75%, var(--dt-color-charcoal-30) 75%, var(--dt-color-charcoal-30));
+    /* stylelint-enable @justeattakeaway/pie-design-tokens */
     background-size: 20px 20px;
     background-position: 0 0, 30px 30px;
     position: relative;
@@ -211,7 +213,7 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
 
 .c-tokensTable-displayName {
     color: var(--dt-color-content-default);
-    font-weight: var(--dt-font-weight-bold);
+    font-weight: var(--dt-font-body-strong-l-weight);
     margin-block-end: var(--dt-spacing-b);
 }
 
@@ -224,8 +226,14 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     @include p.line-height(--dt-font-body-s-line-height);
 }
 
+.c-tokensTable-label {
+    @include p.font-size(--dt-font-body-strong-s-size);
+    @include p.line-height(--dt-font-body-strong-s-line-height);
+    font-weight: var(--dt-font-body-strong-s-weight);
+}
+
 .c-tokensTable-heading {
-    font-weight: var(--dt-font-weight-bold);
+    font-weight: var(--dt-font-body-strong-s-weight);
     @include p.font-size(--dt-font-body-s-size);
     @include p.line-height(--dt-font-body-s-line-height);
     color: var(--dt-color-content-subdued);
