@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.31.2
+
+### Patch Changes
+
+- [Fixed] - a typo in the fonts mixin docs ([#2723](https://github.com/justeattakeaway/pie/pull/2723)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.31.1
 
 ### Patch Changes

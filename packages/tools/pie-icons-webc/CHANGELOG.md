@@ -1,5 +1,50 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.21.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2727](https://github.com/justeattakeaway/pie/pull/2727)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+  ## Benefits
+
+  - reorder-rewards-large
+  - reorder-rewards
+
+  ## Dietary
+
+  - halal-large
+  - halal
+
+  ## Pay
+
+  - credits-filled-large
+  - credits-filled
+  - credits-large
+  - credits
+
+  ## Payment
+
+  - wero
+
+  ## People
+
+  - face-unhappy-filled-large
+  - face-unhappy-filled
+  - face-unhappy-large
+  - face-unhappy
+
+  [Updated] - Icons
+
+  ## Arrow
+
+  - arrow-up
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@11.0.2
+
 ## 1.20.8
 
 ### Patch Changes
