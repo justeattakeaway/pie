@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.2
+
+### Patch Changes
+
+- [Fixed] - load extra tokens from pie-css correctly ([#2725](https://github.com/justeattakeaway/pie/pull/2725)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.9.1
 
 ### Patch Changes
