@@ -1,5 +1,21 @@
 # Changelog
 
+## 4.66.0
+
+### Minor Changes
+
+- [Added] - Update component pages to include combinations of new tabs: Android, iOS, Apps. ([#2721](https://github.com/justeattakeaway/pie/pull/2721)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2727](https://github.com/justeattakeaway/pie/pull/2727)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`8547a78`](https://github.com/justeattakeaway/pie/commit/8547a789ffddbc950b98d24c1a683feee3a407d8), [`5caa125`](https://github.com/justeattakeaway/pie/commit/5caa12502af479ecb618eb7f64458bcda4c43e74)]:
+  - @justeattakeaway/pie-icons@5.22.0
+  - @justeattakeaway/pie-icons-webc@1.21.0
+  - @justeattakeaway/pie-css@0.31.2
+  - @justeattakeaway/pie-webc@0.9.6
+
 ## 4.65.4
 
 ### Patch Changes
