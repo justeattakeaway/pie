@@ -1,0 +1,95 @@
+@use '../mixins/components/button' as button;
+
+// Base
+.c-button {
+    @include button.button-base;
+}
+
+// Variants
+.c-button--primary {
+    @include button.button-variant('primary');
+}
+
+.c-button--primary-alternative {
+    @include button.button-variant('primary-alternative');
+}
+
+.c-button--primary-alternative-dark {
+    @include button.button-variant('primary-alternative-dark');
+}
+
+.c-button--secondary {
+    @include button.button-variant('secondary');
+}
+
+.c-button--outline {
+    @include button.button-variant('outline');
+}
+
+.c-button--ghost {
+    @include button.button-variant('ghost');
+}
+
+.c-button--ghost-dark {
+    @include button.button-variant('ghost-dark');
+}
+
+.c-button--inverse {
+    @include button.button-variant('inverse');
+}
+
+.c-button--ghost-inverse {
+    @include button.button-variant('ghost-inverse');
+}
+
+.c-button--outline-inverse {
+    @include button.button-variant('outline-inverse');
+}
+
+.c-button--ghost-inverse-light {
+    @include button.button-variant('ghost-inverse-light');
+}
+
+.c-button--destructive {
+    @include button.button-variant('destructive');
+}
+
+.c-button--destructive-ghost {
+    @include button.button-variant('destructive-ghost');
+}
+
+// Sizes
+.c-button--xsmall {
+    @include button.button-size('xsmall');
+}
+
+.c-button--small-expressive {
+    @include button.button-size('small-expressive');
+}
+
+.c-button--small-productive {
+    @include button.button-size('small-productive');
+}
+
+.c-button--medium {
+    @include button.button-size('medium');
+}
+
+.c-button--large {
+    @include button.button-size('large');
+}
+
+// Full width
+.c-button--fullWidth {
+    @include button.button-full-width;
+}
+
+// Disabled
+.c-button--disabled {
+    @include button.button-disabled;
+}
+
+// Truncate
+.c-button--truncate {
+    @include button.button-truncate;
+}
