@@ -104,7 +104,7 @@ To use the mixin as part of the full set of PIE SCSS Utilities, you can import t
 @use '@justeattakeaway/pie-css/scss' as p;
 
 .my-element {
-    @include p.font-theme('heading-l');
+    @include p.font-theme('font-heading-l');
 }
 ```
 
@@ -114,7 +114,7 @@ Alternatively, you can import the mixin directly, without importing the other SC
 @use '@justeattakeaway/pie-css/scss/mixins/font-theme' as *;
 
 .my-element {
-    @include font-theme('heading-l');
+    @include font-theme('font-heading-l');
 }
 ```
 
