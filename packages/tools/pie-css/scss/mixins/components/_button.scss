@@ -15,12 +15,14 @@
 // ============================================================================
 
 /// Core mixin that applies all base button styles including layout, typography,
-/// custom properties, focus ring and icon sizing.
+/// custom properties, and focus ring.
+/// @param {Boolean} $include-icon-selector [true] - Whether to include the `.c-pieIcon` sizing rule.
+///   Set to `false` when consuming from pie-button (which handles icon sizing via `::slotted(svg)`).
 /// @example scss - Basic usage
 ///   .my-button {
 ///     @include button-base();
 ///   }
-@mixin button-base() {
+@mixin button-base($include-icon-selector: true) {
     // CSS custom properties for theming
     --btn-border-radius: var(--dt-radius-rounded-e);
     --btn-font-family: var(--dt-font-interactive-l-family);
@@ -73,10 +75,12 @@
         @include focus;
     }
 
-    // Icon sizing via .c-pieIcon
-    .c-pieIcon {
-        height: var(--btn-icon-size);
-        width: var(--btn-icon-size);
+    // Icon sizing via .c-pieIcon (CSS-only buttons using pie-icons-webc)
+    @if $include-icon-selector {
+        .c-pieIcon {
+            height: var(--btn-icon-size);
+            width: var(--btn-icon-size);
+        }
     }
 }
 
@@ -149,10 +153,11 @@
 }
 
 /// Mixin for responsive behaviour.
-/// When .c-button--responsive is present and viewport is >md, applies the content.
+/// When the responsive modifier class is present and viewport is >md, applies the content.
+/// @param {String} $prefix ['c-button'] - The class prefix for modifier selectors
 /// @access private
-@mixin responsive-wide {
-    &.c-button--responsive {
+@mixin responsive-wide($prefix: 'c-button') {
+    &.#{$prefix}--responsive {
         @include media('>md') {
             @content;
         }
@@ -161,83 +166,84 @@
 
 /// Size mixin that sets font-size, line-height, padding, icon size and responsive behaviour.
 /// @param {String} $size - One of: xsmall, small-productive, small-expressive, medium, large
+/// @param {String} $prefix ['c-button'] - The class prefix for modifier selectors
 /// @example scss - Basic usage
 ///   .my-button--medium {
 ///     @include button-size('medium');
 ///   }
-@mixin button-size($size) {
+@mixin button-size($size, $prefix: 'c-button') {
     @include button-font-size($size);
     @include button-padding($size);
 
     @if $size == 'xsmall' {
-        @include responsive-wide {
+        @include responsive-wide($prefix) {
             // productive is the default responsive size
             @include button-font-size('small-productive');
             @include button-padding('small-productive');
 
-            &.c-button--expressive {
+            &.#{$prefix}--expressive {
                 @include button-font-size('small-expressive');
                 @include button-padding('small-expressive');
             }
         }
 
-        &.c-button--outline,
-        &.c-button--outline-inverse {
+        &.#{$prefix}--outline,
+        &.#{$prefix}--outline-inverse {
             @include button-padding('xsmall', true);
 
-            @include responsive-wide {
+            @include responsive-wide($prefix) {
                 @include button-padding('small-productive', true);
 
-                &.c-button--expressive {
+                &.#{$prefix}--expressive {
                     @include button-padding('small-expressive', true);
                 }
             }
         }
     } @else if $size == 'small-expressive' {
-        @include responsive-wide {
+        @include responsive-wide($prefix) {
             @include button-font-size('medium');
             @include button-padding('medium');
         }
 
-        &.c-button--outline,
-        &.c-button--outline-inverse {
+        &.#{$prefix}--outline,
+        &.#{$prefix}--outline-inverse {
             @include button-padding('small-expressive', true);
 
-            @include responsive-wide {
+            @include responsive-wide($prefix) {
                 @include button-padding('medium', true);
             }
         }
     } @else if $size == 'small-productive' {
-        @include responsive-wide {
+        @include responsive-wide($prefix) {
             @include button-font-size('medium');
             @include button-padding('medium');
         }
 
-        &.c-button--outline,
-        &.c-button--outline-inverse {
+        &.#{$prefix}--outline,
+        &.#{$prefix}--outline-inverse {
             @include button-padding('small-productive', true);
 
-            @include responsive-wide {
+            @include responsive-wide($prefix) {
                 @include button-padding('medium', true);
             }
         }
     } @else if $size == 'medium' {
-        @include responsive-wide {
+        @include responsive-wide($prefix) {
             @include button-font-size('large');
             @include button-padding('large');
         }
 
-        &.c-button--outline,
-        &.c-button--outline-inverse {
+        &.#{$prefix}--outline,
+        &.#{$prefix}--outline-inverse {
             @include button-padding('medium', true);
 
-            @include responsive-wide {
+            @include responsive-wide($prefix) {
                 @include button-padding('large', true);
             }
         }
     } @else if $size == 'large' {
-        &.c-button--outline,
-        &.c-button--outline-inverse {
+        &.#{$prefix}--outline,
+        &.#{$prefix}--outline-inverse {
             @include button-padding('large', true);
         }
     }
@@ -251,18 +257,19 @@
 /// @param {String} $variant - One of: primary, primary-alternative, primary-alternative-dark,
 ///   secondary, outline, ghost, ghost-dark, inverse, ghost-inverse, outline-inverse,
 ///   ghost-inverse-light, destructive, destructive-ghost
+/// @param {String} $prefix ['c-button'] - The class prefix for modifier selectors
 /// @example scss - Basic usage
 ///   .my-button--primary {
 ///     @include button-variant('primary');
 ///   }
-@mixin button-variant($variant) {
+@mixin button-variant($variant, $prefix: 'c-button') {
     @if $variant == 'primary' {
         @include interactive-states('--dt-color-interactive-brand');
 
         // Where the font-size is smaller, update the button backgrounds
         // so that the text is accessible
-        &.c-button--xsmall,
-        &.c-button--small-productive {
+        &.#{$prefix}--xsmall,
+        &.#{$prefix}--small-productive {
             --int-states-mixin-bg-color: var(--dt-color-interactive-primary);
             --btn-text-color: var(--dt-color-content-interactive-primary-solid);
 
@@ -271,9 +278,9 @@
 
         // Handle the background colour change getting overridden above
         // but then being put in responsive mode
-        &.c-button--xsmall.c-button--expressive,
-        &.c-button--small-productive {
-            @include responsive-wide {
+        &.#{$prefix}--xsmall.#{$prefix}--expressive,
+        &.#{$prefix}--small-productive {
+            @include responsive-wide($prefix) {
                 --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
 
                 @include interactive-states('--dt-color-interactive-brand');
@@ -350,33 +357,38 @@
 // ============================================================================
 
 /// Disabled state modifier that overrides colours and cursor.
-/// Uses class-based selectors as the CSS-only button is intended for
-/// non-interactive elements (e.g. divs) where :disabled is not applicable.
+/// @param {String} $prefix ['c-button'] - The class prefix for modifier selectors.
+///   For pie-button, pass 'o-btn'.
+/// @param {Boolean} $include-pointer-events [true] - Whether to set `pointer-events: none`.
+///   Set to `false` for pie-button which uses the native `[disabled]` attribute instead.
 /// @example scss - Basic usage
 ///   .my-button--disabled {
 ///     @include button-disabled();
 ///   }
-@mixin button-disabled() {
+@mixin button-disabled($prefix: 'c-button', $include-pointer-events: true) {
     --btn-text-color: var(--dt-color-content-disabled-solid);
 
     cursor: not-allowed;
-    pointer-events: none;
+
+    @if $include-pointer-events {
+        pointer-events: none;
+    }
 
     // For every variant except ghost variants, set the disabled background colour
     &:not(
-        .c-button--ghost,
-        .c-button--ghost-dark,
-        .c-button--ghost-inverse,
-        .c-button--ghost-inverse-light,
-        .c-button--destructive-ghost
+        .#{$prefix}--ghost,
+        .#{$prefix}--ghost-dark,
+        .#{$prefix}--ghost-inverse,
+        .#{$prefix}--ghost-inverse-light,
+        .#{$prefix}--destructive-ghost
     ) {
         --int-states-mixin-bg-color: var(--dt-color-disabled-01);
         --btn-text-color: var(--dt-color-content-disabled);
     }
 
     // For outline variants, set the border to the disabled colour
-    &.c-button--outline,
-    &.c-button--outline-inverse {
+    &.#{$prefix}--outline,
+    &.#{$prefix}--outline-inverse {
         border-color: var(--dt-color-disabled-01);
     }
 }
