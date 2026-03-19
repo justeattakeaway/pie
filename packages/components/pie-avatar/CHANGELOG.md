@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-avatar
 
+## 0.4.23
+
+### Patch Changes
+
+- Updated dependencies [[`8547a78`](https://github.com/justeattakeaway/pie/commit/8547a789ffddbc950b98d24c1a683feee3a407d8)]:
+  - @justeattakeaway/pie-icons-webc@1.21.0
+  - @justeattakeaway/pie-webc-core@11.0.2
+
 ## 0.4.22
 
 ### Patch Changes
