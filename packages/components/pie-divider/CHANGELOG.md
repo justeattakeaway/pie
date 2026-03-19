@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-divider
 
+## 1.5.17
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@11.0.2
+
 ## 1.5.16
 
 ### Patch Changes
