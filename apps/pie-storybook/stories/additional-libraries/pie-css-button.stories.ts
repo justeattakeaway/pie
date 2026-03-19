@@ -27,8 +27,7 @@ const buttonContent = (label: string, iconPosition: string) => {
     return label;
 };
 
-const buttonHtml = (classes: string, label: string, iconPosition: string) =>
-    `<div class="${classes}">${buttonContent(label, iconPosition)}</div>`;
+const buttonHtml = (classes: string, label: string, iconPosition: string) => `<div class="${classes}">${buttonContent(label, iconPosition)}</div>`;
 
 export const AllVariants: Story = {
     argTypes: {
@@ -67,8 +66,7 @@ export const AllVariants: Story = {
 
         const rows = variants.map(({ name, class: cls, brandBg }) => {
             const bgClass = brandBg ? ' brand-bg' : '';
-            const cells = sizes.map((size) =>
-                `<div class="variant-grid__cell${bgClass}">
+            const cells = sizes.map((size) => `<div class="variant-grid__cell${bgClass}">
                     ${buttonHtml(`c-button c-button--${cls} c-button--${size}`, label, iconPosition)}
                 </div>`).join('\n            ');
 
