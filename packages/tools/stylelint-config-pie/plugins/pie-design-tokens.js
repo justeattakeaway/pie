@@ -67,13 +67,16 @@ function getTokens () {
     try {
         const loadFile = (path) => readFileSync(require.resolve(path), 'utf8');
 
-        const validTokensFromCSS = parseTokensFromCSS(loadFile('@justeat/pie-design-tokens/dist/jet.css'));
-        parseTokensFromCSS(loadFile('@justeat/pie-design-tokens/dist/jet-hsl-colors.css'), validTokensFromCSS);
+        let validTokensFromCSS;
 
         try {
-            // pie-css defines extra tokens (e.g. z-index). Only loaded if installed.
-            parseTokensFromCSS(loadFile('@justeattakeaway/pie-css/css/input.css'), validTokensFromCSS);
-        } catch { /* skip if not installed */ }
+            // pie-css defines all design tokens and extra tokens (e.g. z-index). Use it as a source of truth if available.
+            validTokensFromCSS = parseTokensFromCSS(loadFile('@justeattakeaway/pie-css/dist/index.css'));
+        } catch {
+            // Fall back to the design-tokens package.
+            validTokensFromCSS = parseTokensFromCSS(loadFile('@justeat/pie-design-tokens/dist/jet.css'));
+            parseTokensFromCSS(loadFile('@justeat/pie-design-tokens/dist/jet-hsl-colors.css'), validTokensFromCSS);
+        }
 
         const metadata = JSON.parse(loadFile('@justeat/pie-design-tokens/metadata/tokensMetadata.json'));
         const tokens = new Map();
