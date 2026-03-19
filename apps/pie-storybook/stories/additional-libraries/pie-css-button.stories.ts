@@ -167,6 +167,9 @@ export const FullWidth: Story = {
                 gap: var(--dt-spacing-d);
                 max-width: 400px;
                 font-family: var(--dt-font-family-primary);
+                border: 1px solid var(--dt-color-border-default);
+                padding: var(--dt-spacing-d);
+                border-radius: var(--dt-radius-rounded-c);
             }
         </style>
 

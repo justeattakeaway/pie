@@ -87,7 +87,7 @@
 /// Internal mixin for setting font-size, line-height, and icon size per size.
 /// @param {String} $size - The size name
 /// @access private
-@mixin _button-font-size($size) {
+@mixin button-font-size($size) {
     @if $size == 'xsmall' {
         --btn-font-size: #{font-size(--dt-font-interactive-xs-size)};
         --btn-line-height: calc(var(--dt-font-interactive-xs-line-height) * 1px);
@@ -120,7 +120,7 @@
 /// @param {String} $size - The size name
 /// @param {Boolean} $offset-padding-for-border [false] - Whether to offset padding by 1px for bordered variants
 /// @access private
-@mixin _button-padding($size, $offset-padding-for-border: false) {
+@mixin button-padding($size, $offset-padding-for-border: false) {
     $vertical-padding: '';
     $horizontal-padding: '';
 
@@ -151,7 +151,7 @@
 /// Mixin for responsive behaviour.
 /// When .c-button--responsive is present and viewport is >md, applies the content.
 /// @access private
-@mixin _responsive-wide {
+@mixin responsive-wide {
     &.c-button--responsive {
         @include media('>md') {
             @content;
@@ -166,79 +166,79 @@
 ///     @include button-size('medium');
 ///   }
 @mixin button-size($size) {
-    @include _button-font-size($size);
-    @include _button-padding($size);
+    @include button-font-size($size);
+    @include button-padding($size);
 
     @if $size == 'xsmall' {
-        @include _responsive-wide {
+        @include responsive-wide {
             // productive is the default responsive size
-            @include _button-font-size('small-productive');
-            @include _button-padding('small-productive');
+            @include button-font-size('small-productive');
+            @include button-padding('small-productive');
 
             &.c-button--expressive {
-                @include _button-font-size('small-expressive');
-                @include _button-padding('small-expressive');
+                @include button-font-size('small-expressive');
+                @include button-padding('small-expressive');
             }
         }
 
         &.c-button--outline,
         &.c-button--outline-inverse {
-            @include _button-padding('xsmall', true);
+            @include button-padding('xsmall', true);
 
-            @include _responsive-wide {
-                @include _button-padding('small-productive', true);
+            @include responsive-wide {
+                @include button-padding('small-productive', true);
 
                 &.c-button--expressive {
-                    @include _button-padding('small-expressive', true);
+                    @include button-padding('small-expressive', true);
                 }
             }
         }
     } @else if $size == 'small-expressive' {
-        @include _responsive-wide {
-            @include _button-font-size('medium');
-            @include _button-padding('medium');
+        @include responsive-wide {
+            @include button-font-size('medium');
+            @include button-padding('medium');
         }
 
         &.c-button--outline,
         &.c-button--outline-inverse {
-            @include _button-padding('small-expressive', true);
+            @include button-padding('small-expressive', true);
 
-            @include _responsive-wide {
-                @include _button-padding('medium', true);
+            @include responsive-wide {
+                @include button-padding('medium', true);
             }
         }
     } @else if $size == 'small-productive' {
-        @include _responsive-wide {
-            @include _button-font-size('medium');
-            @include _button-padding('medium');
+        @include responsive-wide {
+            @include button-font-size('medium');
+            @include button-padding('medium');
         }
 
         &.c-button--outline,
         &.c-button--outline-inverse {
-            @include _button-padding('small-productive', true);
+            @include button-padding('small-productive', true);
 
-            @include _responsive-wide {
-                @include _button-padding('medium', true);
+            @include responsive-wide {
+                @include button-padding('medium', true);
             }
         }
     } @else if $size == 'medium' {
-        @include _responsive-wide {
-            @include _button-font-size('large');
-            @include _button-padding('large');
+        @include responsive-wide {
+            @include button-font-size('large');
+            @include button-padding('large');
         }
 
         &.c-button--outline,
         &.c-button--outline-inverse {
-            @include _button-padding('medium', true);
+            @include button-padding('medium', true);
 
-            @include _responsive-wide {
-                @include _button-padding('large', true);
+            @include responsive-wide {
+                @include button-padding('large', true);
             }
         }
     } @else if $size == 'large' {
         &.c-button--outline,
         &.c-button--outline-inverse {
-            @include _button-padding('large', true);
+            @include button-padding('large', true);
         }
     }
 }
@@ -273,7 +273,7 @@
         // but then being put in responsive mode
         &.c-button--xsmall.c-button--expressive,
         &.c-button--small-productive {
-            @include _responsive-wide {
+            @include responsive-wide {
                 --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
 
                 @include interactive-states('--dt-color-interactive-brand');
