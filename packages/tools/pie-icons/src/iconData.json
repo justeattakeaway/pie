@@ -309,6 +309,10 @@
                     "displayName": "Offer Star Filled"
                 },
                 {
+                    "name": "reorder-rewards",
+                    "displayName": "Reorder Rewards"
+                },
+                {
                     "name": "voucher",
                     "displayName": "Voucher"
                 },
@@ -659,6 +663,10 @@
                 {
                     "name": "gluten",
                     "displayName": "Gluten"
+                },
+                {
+                    "name": "halal",
+                    "displayName": "Halal"
                 },
                 {
                     "name": "kosher",
@@ -1647,10 +1655,6 @@
                     "displayName": "Cash"
                 },
                 {
-                    "name": "cash-filled",
-                    "displayName": "Cash Filled"
-                },
-                {
                     "name": "cash-card",
                     "displayName": "Cash Card"
                 },
@@ -1659,12 +1663,24 @@
                     "displayName": "Cash Card Filled"
                 },
                 {
+                    "name": "cash-filled",
+                    "displayName": "Cash Filled"
+                },
+                {
                     "name": "cheque",
                     "displayName": "Cheque"
                 },
                 {
                     "name": "cheque-filled",
                     "displayName": "Cheque Filled"
+                },
+                {
+                    "name": "coins",
+                    "displayName": "Coins"
+                },
+                {
+                    "name": "coins-filled",
+                    "displayName": "Coins Filled"
                 },
                 {
                     "name": "credit-card",
@@ -1683,12 +1699,12 @@
                     "displayName": "Credit Card Home Filled"
                 },
                 {
-                    "name": "coins",
-                    "displayName": "Coins"
+                    "name": "credits",
+                    "displayName": "Credits"
                 },
                 {
-                    "name": "coins-filled",
-                    "displayName": "Coins Filled"
+                    "name": "credits-filled",
+                    "displayName": "Credits Filled"
                 },
                 {
                     "name": "instant-bank",
@@ -1731,12 +1747,12 @@
                     "displayName": "Wallet"
                 },
                 {
-                    "name": "wallet-filled",
-                    "displayName": "Wallet Filled"
-                },
-                {
                     "name": "wallet-add",
                     "displayName": "Wallet Add"
+                },
+                {
+                    "name": "wallet-filled",
+                    "displayName": "Wallet Filled"
                 }
             ]
         },
@@ -1855,6 +1871,11 @@
                     "oneSize": true
                 },
                 {
+                    "name": "wero",
+                    "displayName": "Wero",
+                    "oneSize": true
+                },
+                {
                     "name": "wise",
                     "displayName": "Wise",
                     "oneSize": true
@@ -1897,6 +1918,14 @@
                 {
                     "name": "face-neutral-filled",
                     "displayName": "Face Neutral Filled"
+                },
+                {
+                    "name": "face-unhappy",
+                    "displayName": "Face Unhappy"
+                },
+                {
+                    "name": "face-unhappy-filled",
+                    "displayName": "Face Unhappy Filled"
                 },
                 {
                     "name": "user",
