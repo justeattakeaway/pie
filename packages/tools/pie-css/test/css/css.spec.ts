@@ -133,24 +133,14 @@ describe('components/button.css', () => {
         expect(css).toMatchSnapshot();
     });
 
-    it('should contain a CSS class for every variant defined in pie-button', async () => {
-        // Arrange
+    it.for([...buttonVariants])('should contain a .c-button--%s CSS class for the variant defined in pie-button', async (variant) => {
         const css = await fs.readFile(builtCssButtonFilePath, 'utf8');
-
-        // Act & Assert
-        buttonVariants.forEach((variant) => {
-            expect(css, `Missing CSS class for variant "${variant}". When a new variant is added to pie-button, a corresponding .c-button--${variant} class must be added to pie-css.`).toContain(`.c-button--${variant}`);
-        });
+        expect(css).toContain(`.c-button--${variant}`);
     });
 
-    it('should contain a CSS class for every size defined in pie-button', async () => {
-        // Arrange
+    it.for([...buttonSizes])('should contain a .c-button--%s CSS class for the size defined in pie-button', async (size) => {
         const css = await fs.readFile(builtCssButtonFilePath, 'utf8');
-
-        // Act & Assert
-        buttonSizes.forEach((size) => {
-            expect(css, `Missing CSS class for size "${size}". When a new size is added to pie-button, a corresponding .c-button--${size} class must be added to pie-css.`).toContain(`.c-button--${size}`);
-        });
+        expect(css).toContain(`.c-button--${size}`);
     });
 });
 
