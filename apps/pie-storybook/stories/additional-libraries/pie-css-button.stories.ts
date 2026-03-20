@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/html';
 
 import '@justeattakeaway/pie-css/dist/components/button.css';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
+import { variants, sizes } from '@justeattakeaway/pie-webc/components/button';
 
 const meta: Meta = {
     title: 'Components/Button/CSS Only/Examples',
@@ -46,25 +47,16 @@ export const AllVariants: Story = {
         icon: 'none',
     },
     render: ({ label, icon: iconPosition }: { label: string; icon: string }) => {
-        const variants = [
-            { name: 'Primary', class: 'primary', brandBg: false },
-            { name: 'Primary Alternative', class: 'primary-alternative', brandBg: false },
-            { name: 'Primary Alternative Dark', class: 'primary-alternative-dark', brandBg: false },
-            { name: 'Secondary', class: 'secondary', brandBg: false },
-            { name: 'Outline', class: 'outline', brandBg: false },
-            { name: 'Ghost', class: 'ghost', brandBg: false },
-            { name: 'Destructive', class: 'destructive', brandBg: false },
-            { name: 'Destructive Ghost', class: 'destructive-ghost', brandBg: false },
-            { name: 'Ghost Dark', class: 'ghost-dark', brandBg: true },
-            { name: 'Inverse', class: 'inverse', brandBg: true },
-            { name: 'Ghost Inverse', class: 'ghost-inverse', brandBg: true },
-            { name: 'Outline Inverse', class: 'outline-inverse', brandBg: true },
-            { name: 'Ghost Inverse Light', class: 'ghost-inverse-light', brandBg: true },
-        ];
+        // Variants that need a dark/brand background to be visible
+        const brandBgVariants = new Set(['ghost-dark', 'inverse', 'ghost-inverse', 'outline-inverse', 'ghost-inverse-light']);
 
-        const sizes = ['xsmall', 'small-productive', 'small-expressive', 'medium', 'large'];
+        const variantRows = variants.map((variant) => ({
+            name: variant.split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+            class: variant,
+            brandBg: brandBgVariants.has(variant),
+        }));
 
-        const rows = variants.map(({ name, class: cls, brandBg }) => {
+        const rows = variantRows.map(({ name, class: cls, brandBg }) => {
             const bgClass = brandBg ? ' brand-bg' : '';
             const cells = sizes.map((size) => `<div class="variant-grid__cell${bgClass}">
                     ${buttonHtml(`c-button c-button--${cls} c-button--${size}`, label, iconPosition)}
