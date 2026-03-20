@@ -293,7 +293,7 @@ export const BannerAd: Story = {
             }
         </style>
 
-        <a href="#" class="banner" onclick="return false;">
+        <a href="#" class="banner">
             <div class="banner__content">
                 <h3 class="banner__title">I am a test offer.</h3>
                 <p class="banner__description">Use code <strong>TEST</strong> I am a test offer.</p>
