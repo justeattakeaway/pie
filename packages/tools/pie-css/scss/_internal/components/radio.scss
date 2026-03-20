@@ -1,4 +1,4 @@
-@use '../mixins/components/radio' as radio;
+@use '../../mixins/components/radio' as radio;
 
 .c-radio {
     @include radio.radio-input-base;
