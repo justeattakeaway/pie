@@ -147,6 +147,8 @@
     "patterns",
     "patterns/cookie-banner",
     "patterns/cookie-banner/code",
+    "patterns/forms",
+    "patterns/forms/guidance",
     "patterns/haptic-feedback",
     "patterns/haptic-feedback/guidance",
     "patterns/messaging-and-chatbots",
