@@ -298,49 +298,64 @@ Use assistive text when the information is essential for completing the form fie
 
 Assistive text reduces user confusion by providing additional guidance or context to help users fill out a field correctly.
 
-{% contentPageImage {
-  src:"../../../assets/img/patterns/forms/assistive-text-default-add-credit.svg",
-  alt: "Default assistive text example for add credit field.",
-  width: "256px"
-} %}
-
-{% contentPageImage {
-  src:"../../../assets/img/patterns/forms/assitive-text-default-email.svg",
-  alt: "Default assistive text example for email field.",
-  width: "256px"
-} %}
+{% contentLayout %}
+  {% contentItem %}
+  {% contentPageImage {
+    src:"../../../assets/img/patterns/forms/assistive-text-default-add-credit.svg",
+    alt: "Default assistive text example for add credit field.",
+    width: "256px"
+  } %}
+  {% endcontentItem %}
+{% contentItem %}
+  {% contentPageImage {
+    src:"../../../assets/img/patterns/forms/assitive-text-default-email.svg",
+    alt: "Default assistive text example for email field.",
+    width: "256px"
+  } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 #### Error
 
 Error assistive text must be used to alert users of mistakes in their input and provide instructions on how to resolve those issues. To allow users to easily recognise what has gone wrong and identify how to fix it, reducing frustration and abandonment.
 
-{% contentPageImage {
-  src:"../../../assets/img/patterns/forms/assistive-text-error-password.svg",
-  alt: "Error assistive text example for password input.",
-  width: "265px"
-} %}
-
-{% contentPageImage {
-  src:"../../../assets/img/patterns/forms/assistive-text-error-offer-time-frame.svg",
-  alt: "Error assistive text example for radio group.",
-  width: "173px"
-} %}
+{% contentLayout %}
+  {% contentItem %}
+  {% contentPageImage {
+    src:"../../../assets/img/patterns/forms/assistive-text-error-password.svg",
+    alt: "Error assistive text example for password input.",
+    width: "265px"
+  } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  {% contentPageImage {
+    src:"../../../assets/img/patterns/forms/assistive-text-error-offer-time-frame.svg",
+    alt: "Error assistive text example for radio group.",
+    width: "173px"
+  } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 #### Success
 
 Success assistive text confirms that the input has been accepted or validated. Positive feedback builds user confidence and ensures clarity that their input passes live validation.
 
-{% contentPageImage {
-  src:"../../../assets/img/patterns/forms/assistive-text-success-verivication-code.svg",
-  alt: "Success assistive text example for verification code input.",
-  width: "256px"
-} %}
-
-{% contentPageImage {
-  src:"../../../assets/img/patterns/forms/assistive-text-success-password.svg",
-  alt: "Success assistive text example for password input.",
-  width: "256px"
-} %}
+{% contentLayout %}
+  {% contentItem %}
+  {% contentPageImage {
+    src:"../../../assets/img/patterns/forms/assistive-text-success-verivication-code.svg",
+    alt: "Success assistive text example for verification code input.",
+    width: "256px"
+  } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  {% contentPageImage {
+    src:"../../../assets/img/patterns/forms/assistive-text-success-password.svg",
+    alt: "Success assistive text example for password input.",
+    width: "256px"
+  } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ### Help icon
 
