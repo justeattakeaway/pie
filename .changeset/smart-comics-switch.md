@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-docs": major
 ---
 
-add Forms pages to Patterns section
+[Added] - Forms pages to Patterns section
