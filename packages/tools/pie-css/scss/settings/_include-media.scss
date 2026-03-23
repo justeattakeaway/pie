@@ -1,7 +1,6 @@
 //
 //  !IMPORTANT: This file is a copy of the original include-media SCSS library
 //  !DO NOT directly edit this file/
-//
 //     _            _           _                           _ _
 //    (_)          | |         | |                         | (_)
 //     _ _ __   ___| |_   _  __| | ___   _ __ ___   ___  __| |_  __ _
@@ -178,49 +177,9 @@ $im-no-media-breakpoint: 'desktop' !default;
 $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
 
 ////
-/// Cross-engine logging engine
-/// @author Kitty Giraudel
+/// Determines whether a list of conditions is intercepted by the static breakpoint.
 /// @access private
 ////
-
-///
-/// Log a message either with `@error` if supported
-/// else with `@warn`, using `feature-exists('at-error')`
-/// to detect support.
-///
-/// @param {String} $message - Message to log
-///
-@function im-log($message) {
-  @if meta.feature-exists('at-error') {
-    @error $message;
-  } @else {
-    @warn $message;
-
-    $_: noop();
-  }
-
-  @return $message;
-}
-
-///
-/// Wrapper mixin for the log function so it can be used with a more friendly
-/// API than `@if im-log('..') {}` or `$_: im-log('..')`. Basically, use the function
-/// within functions because it is not possible to include a mixin in a function
-/// and use the mixin everywhere else because it's much more elegant.
-///
-/// @param {String} $message - Message to log
-///
-@mixin log($message) {
-  @if im-log($message) {
-  }
-}
-
-///
-/// Function with no `@return` called next to `@warn` in Sass 3.3
-/// to trigger a compiling error and stop the process.
-///
-@function noop() {
-}
 
 ///
 /// Determines whether a list of conditions is intercepted by the static breakpoint.
@@ -233,8 +192,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
   $no-media-breakpoint-value: map.get($breakpoints, $im-no-media-breakpoint);
 
   @if not $no-media-breakpoint-value {
-    @if im-log('`#{$im-no-media-breakpoint}` is not a valid breakpoint.') {
-    }
+    @error '#{$im-no-media-breakpoint}` is not a valid breakpoint.';
   }
 
   @each $condition in $conditions {
@@ -276,12 +234,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
     }
   }
 
-  // It is not possible to include a mixin inside a function, so we have to
-  // rely on the `im-log(..)` function rather than the `log(..)` mixin. Because
-  // functions cannot be called anywhere in Sass, we need to hack the call in
-  // a dummy variable, such as `$_`. If anybody ever raise a scoping issue with
-  // Sass 3.3, change this line in `@if im-log(..) {}` instead.
-  $_: im-log('No operator found in `#{$expression}`.');
+  @error 'No operator found in `#{$expression}`.';
 }
 
 ///
@@ -295,6 +248,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
 @function get-expression-dimension($expression, $operator) {
   $operator-index: string.index($expression, $operator);
   $parsed-dimension: string.slice($expression, 0, $operator-index - 1);
+  $parsed-dimension: str-trim($parsed-dimension);
   $dimension: 'width';
 
   @if string.length($parsed-dimension) > 0 {
@@ -312,7 +266,11 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
 /// @return {String} - `min` or `max`
 ///
 @function get-expression-prefix($operator) {
-  @return if(list.index(('<', '<=', '≤'), $operator), 'max', 'min');
+  @if list.index(('<', '<=', '≤'), $operator) {
+    @return 'max';
+  } @else {
+    @return 'min';
+  }
 }
 
 ///
@@ -326,22 +284,18 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
 @function get-expression-value($expression, $operator) {
   $operator-index: string.index($expression, $operator);
   $value: string.slice($expression, $operator-index + string.length($operator));
+  $trimmedValue: str-trim($value);
 
-  @if map.has-key($breakpoints, $value) {
-    $value: map.get($breakpoints, $value);
+  @if map.has-key($breakpoints, $trimmedValue) {
+    $value: map.get($breakpoints, $trimmedValue);
   } @else {
-    $value: to-number($value);
+    $value: to-number($trimmedValue);
   }
 
   $interval: map.get($unit-intervals, math.unit($value));
 
   @if not $interval {
-    // It is not possible to include a mixin inside a function, so we have to
-    // rely on the `im-log(..)` function rather than the `log(..)` mixin. Because
-    // functions cannot be called anywhere in Sass, we need to hack the call in
-    // a dummy variable, such as `$_`. If anybody ever raise a scoping issue with
-    // Sass 3.3, change this line in `@if im-log(..) {}` instead.
-    $_: im-log('Unknown unit `#{math.unit($value)}`.');
+    @error 'Unknown unit `#{math.unit($value)}`.';
   }
 
   @if $operator == '>' {
@@ -418,7 +372,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
   @if meta.type-of($value) == 'number' {
     @return $value;
   } @else if meta.type-of($value) != 'string' {
-    $_: im-log('Value for `to-number` should be a number or a string.');
+    @error 'Value for `to-number` should be a number or a string.';
   }
 
   $first-character: string.slice($value, 1, 1);
@@ -439,15 +393,20 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
   );
 
   // Remove +/- sign if present at first character
-  @if $first-character == '+' or $first-character == '-' {
+  @if ($first-character == '+' or $first-character == '-') {
     $value: string.slice($value, 2);
+  }
+
+  $sign: 1;
+  @if $minus {
+    $sign: -1;
   }
 
   @for $i from 1 through string.length($value) {
     $character: string.slice($value, $i, $i);
 
     @if not(list.index(map.keys($numbers), $character) or $character == '.') {
-      @return to-length(if($minus, -$result, $result), string.slice($value, $i));
+      @return to-length($sign * $result, string.slice($value, $i));
     }
 
     @if $character == '.' {
@@ -460,7 +419,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
     }
   }
 
-  @return if($minus, -$result, $result);
+  @return $sign * $result;
 }
 
 ///
@@ -491,10 +450,34 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
   );
 
   @if not list.index(map.keys($units), $unit) {
-    $_: im-log('Invalid unit `#{$unit}`.');
+    @error 'Invalid unit `#{$unit}`.';
   }
 
   @return $value * map.get($units, $unit);
+}
+
+////
+/// String trim
+/// @author Jack McNicol
+/// @access private
+////
+
+///
+/// Trims a string of leading and trailing spaces
+///
+/// @param {String} $string - Value to be trimmed
+///
+/// @return {String}
+///
+
+@function str-trim($string) {
+  @if (string.slice($string, 1, 1) == ' ') {
+    @return str-trim(string.slice($string, 2));
+  } @else if (string.slice($string, string.length($string), -1) == ' ') {
+    @return str-trim(string.slice($string, 1, -2));
+  } @else {
+    @return $string;
+  }
 }
 
 ///
@@ -585,10 +568,11 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
     (not $im-media-support and im-intercepts-static-breakpoint($conditions...))
   {
     @content;
-  } @else if $im-media-support and list.length($conditions) > 0 {
+  } @else if ($im-media-support and list.length($conditions) > 0) {
     @media #{string.unquote(parse-expression(list.nth($conditions, 1)))} {
       // Recursive call
-      @include media(slice($conditions, 2)...) {
+      $sliced-conditions: slice($conditions, 2);
+      @include media($sliced-conditions...) {
         @content;
       }
     }

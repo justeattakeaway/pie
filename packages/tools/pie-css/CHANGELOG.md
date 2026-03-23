@@ -1,5 +1,45 @@
 # @justeattakeaway/pie-css
 
+## 0.31.2
+
+### Patch Changes
+
+- [Fixed] - a typo in the fonts mixin docs ([#2723](https://github.com/justeattakeaway/pie/pull/2723)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.31.1
+
+### Patch Changes
+
+- [Fixed] - enable pie-design-tokens rule and fix violations ([#2720](https://github.com/justeattakeaway/pie/pull/2720)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.31.0
+
+### Minor Changes
+
+- [Updated] include-media mixin to fix deprecation pie-css warning for media query mixin ([#2718](https://github.com/justeattakeaway/pie/pull/2718)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.30.0
+
+### Minor Changes
+
+- [Changed] - decoupled paragraph spacing from `u-font-*` typography classes. ([#2705](https://github.com/justeattakeaway/pie/pull/2705)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  `margin-block-end` is no longer included in typography utility classes by default. Use `.u-typographySpacing` alongside a typography utility class on the same element to apply paragraph spacing where a `paragraph` token exists.
+
+  Before:
+
+  ```html
+  <p class="u-font-body-l">Text with typography and paragraph spacing</p>
+  ```
+
+  After:
+
+  ```html
+  <p class="u-font-body-l u-typographySpacing">
+    Text with typography and opt-in paragraph spacing
+  </p>
+  ```
+
 ## 0.29.0
 
 ### Minor Changes

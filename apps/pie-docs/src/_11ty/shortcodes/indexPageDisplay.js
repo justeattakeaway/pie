@@ -21,10 +21,18 @@ const path = require('path');
 const defaultImageDirectory = '../../assets/img/index';
 const toSlug = (string) => string.toLowerCase().replace(/\s+/g, '-');
 
-const getDraftPagesList = (collection) => {
+const getDraftPagesList = (collection, itemKey) => {
     const draftPages = [];
     collection.forEach((item) => {
-        if (item.data && item.data.draft) draftPages.push(item.data.title);
+        if (item.data && item.data.draft) {
+            const navParent = item.data.eleventyNavigation && item.data.eleventyNavigation.parent;
+            // Only exclude pages that are direct children of the index key
+            // (e.g. a whole component marked as draft under "Components").
+            // Draft sub-pages such as tabs should not hide their parent.
+            if (navParent === itemKey) {
+                draftPages.push(item.data.title);
+            }
+        }
     });
     return draftPages;
 };
@@ -45,7 +53,7 @@ const indexPageDisplay = ({
     imageSrcDirectory,
 }) => {
     const menuItems = find(collection, itemKey);
-    const draftPages = getDraftPagesList(collection);
+    const draftPages = getDraftPagesList(collection, itemKey);
 
     const indexElements = menuItems.map((element) => {
         if (!excludedElements.includes(element.title) && !draftPages.includes(element.title)) {

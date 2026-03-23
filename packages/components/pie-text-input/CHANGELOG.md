@@ -1,5 +1,43 @@
 # @justeattakeaway/pie-text-input
 
+## 0.29.23
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.21
+  - @justeattakeaway/pie-webc-core@11.0.2
+
+## 0.29.22
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.20
+  - @justeattakeaway/pie-webc-core@11.0.1
+
+## 0.29.21
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.19
+  - @justeattakeaway/pie-webc-core@11.0.0
+
+## 0.29.20
+
+### Patch Changes
+
+- [Fixed] - ensure components set a font-family ([#2713](https://github.com/justeattakeaway/pie/pull/2713)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.29.19
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.18
+  - @justeattakeaway/pie-webc-core@10.0.0
+
 ## 0.29.18
 
 ### Patch Changes

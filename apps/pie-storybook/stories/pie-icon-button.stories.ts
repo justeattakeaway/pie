@@ -19,7 +19,7 @@ const iconButtonStoryMeta: IconButtonStoryMeta = {
     component: 'pie-icon-button',
     argTypes: {
         aria: {
-            description: 'The ARIA attributes available to use on the icon button. Offers `label`, `labelledby`, `describedby`, `expanded` and `controls`.',
+            description: 'The ARIA attributes available to use on the icon button. Offers `label`, `labelledby`, `describedby`, `expanded`, `controls` and `haspopup`.',
             control: 'object',
         },
         size: {

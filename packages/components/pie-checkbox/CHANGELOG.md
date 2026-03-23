@@ -1,5 +1,43 @@
 # @justeattakeaway/pie-checkbox
 
+## 1.0.15
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.21
+  - @justeattakeaway/pie-webc-core@11.0.2
+
+## 1.0.14
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.20
+  - @justeattakeaway/pie-webc-core@11.0.1
+
+## 1.0.13
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.19
+  - @justeattakeaway/pie-webc-core@11.0.0
+
+## 1.0.12
+
+### Patch Changes
+
+- [Fixed] - ensure components set a font-family ([#2713](https://github.com/justeattakeaway/pie/pull/2713)) by [@raoufswe](https://github.com/raoufswe)
+
+## 1.0.11
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.18
+  - @justeattakeaway/pie-webc-core@10.0.0
+
 ## 1.0.10
 
 ### Patch Changes

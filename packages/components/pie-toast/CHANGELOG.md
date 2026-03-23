@@ -1,5 +1,58 @@
 # @justeattakeaway/pie-toast
 
+## 0.12.32
+
+### Patch Changes
+
+- Updated dependencies [[`8547a78`](https://github.com/justeattakeaway/pie/commit/8547a789ffddbc950b98d24c1a683feee3a407d8)]:
+  - @justeattakeaway/pie-icons-webc@1.21.0
+  - @justeattakeaway/pie-icon-button@2.7.3
+  - @justeattakeaway/pie-button@1.12.9
+  - @justeattakeaway/pie-webc-core@11.0.2
+
+## 0.12.31
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.8
+  - @justeattakeaway/pie-icon-button@2.7.2
+  - @justeattakeaway/pie-webc-core@11.0.1
+  - @justeattakeaway/pie-icons-webc@1.20.8
+
+## 0.12.30
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.7
+  - @justeattakeaway/pie-icon-button@2.7.1
+  - @justeattakeaway/pie-webc-core@11.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.7
+
+## 0.12.29
+
+### Patch Changes
+
+- Updated dependencies [[`443571d`](https://github.com/justeattakeaway/pie/commit/443571d17978a575711cbc73918bc0ee1461ea2b)]:
+  - @justeattakeaway/pie-icon-button@2.7.0
+
+## 0.12.28
+
+### Patch Changes
+
+- [Fixed] - ensure components set a font-family ([#2713](https://github.com/justeattakeaway/pie/pull/2713)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.12.27
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.6
+  - @justeattakeaway/pie-icon-button@2.6.7
+  - @justeattakeaway/pie-webc-core@10.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.6
+
 ## 0.12.26
 
 ### Patch Changes

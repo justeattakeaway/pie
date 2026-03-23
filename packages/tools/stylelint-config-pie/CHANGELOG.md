@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.9.2
+
+### Patch Changes
+
+- [Fixed] - load extra tokens from pie-css correctly ([#2725](https://github.com/justeattakeaway/pie/pull/2725)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.9.1
+
+### Patch Changes
+
+- [Fixed] - enable pie-design-tokens rule and fix violations ([#2720](https://github.com/justeattakeaway/pie/pull/2720)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - `@justeattakeaway/pie-design-tokens` plugin to `stylelint-config-pie` for validating PIE design token usage ([#2603](https://github.com/justeattakeaway/pie/pull/2603)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.8.2
 
 ### Patch Changes

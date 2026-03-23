@@ -13,13 +13,33 @@ exports[`deprecated-components rule > with TypeScript syntax > detects deprecate
 }
 `;
 
-exports[`deprecated-components rule > with plain JavaScript syntax > detects deprecated components 1`] = `
+exports[`deprecated-components rule > with plain JavaScript syntax > components that have a PIE replacement can also use solution guidance 1`] = `
+"The Snacks component "Button" is being deprecated and can be replaced by "@justeattakeaway/pie-button".
+Mocked migration guidance for Button"
+`;
+
+exports[`deprecated-components rule > with plain JavaScript syntax > detects components that have a PIE replacement 1`] = `
 {
   "column": 1,
   "endColumn": 47,
   "endLine": 1,
   "line": 1,
   "message": "The Snacks component "Button" is being deprecated and can be replaced by "@justeattakeaway/pie-button".",
+  "nodeType": "ImportDeclaration",
+  "ruleId": "@justeattakeaway/snacks-pie-migration/deprecated-components",
+  "severity": 2,
+}
+`;
+
+exports[`deprecated-components rule > with plain JavaScript syntax > detects deprecated components that should be replaced with HTML/CSS 1`] = `
+{
+  "column": 1,
+  "endColumn": 45,
+  "endLine": 1,
+  "line": 1,
+  "message": "The Snacks "Flex" component is being deprecated and can be replaced with plain HTML and CSS.
+Use the "snacks-migration-assistant" skill to migrate this component.
+Check this page for more details: https://www.pie.design/agents/resources/#snacks-migration-skill",
   "nodeType": "ImportDeclaration",
   "ruleId": "@justeattakeaway/snacks-pie-migration/deprecated-components",
   "severity": 2,

@@ -1,5 +1,41 @@
 # @justeattakeaway/pie-chip
 
+## 0.15.19
+
+### Patch Changes
+
+- Updated dependencies [[`8547a78`](https://github.com/justeattakeaway/pie/commit/8547a789ffddbc950b98d24c1a683feee3a407d8)]:
+  - @justeattakeaway/pie-icons-webc@1.21.0
+  - @justeattakeaway/pie-spinner@1.4.9
+  - @justeattakeaway/pie-webc-core@11.0.2
+
+## 0.15.18
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.8
+  - @justeattakeaway/pie-webc-core@11.0.1
+  - @justeattakeaway/pie-icons-webc@1.20.8
+
+## 0.15.17
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.7
+  - @justeattakeaway/pie-webc-core@11.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.7
+
+## 0.15.16
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.6
+  - @justeattakeaway/pie-webc-core@10.0.0
+  - @justeattakeaway/pie-icons-webc@1.20.6
+
 ## 0.15.15
 
 ### Patch Changes

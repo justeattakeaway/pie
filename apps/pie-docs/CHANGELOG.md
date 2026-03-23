@@ -1,5 +1,70 @@
 # Changelog
 
+## 4.66.0
+
+### Minor Changes
+
+- [Added] - Update component pages to include combinations of new tabs: Android, iOS, Apps. ([#2721](https://github.com/justeattakeaway/pie/pull/2721)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Changed] - updated snapshots after icons update ([#2727](https://github.com/justeattakeaway/pie/pull/2727)) by [@pie-design-system-bot](https://github.com/pie-design-system-bot)
+
+- Updated dependencies [[`8547a78`](https://github.com/justeattakeaway/pie/commit/8547a789ffddbc950b98d24c1a683feee3a407d8), [`5caa125`](https://github.com/justeattakeaway/pie/commit/5caa12502af479ecb618eb7f64458bcda4c43e74)]:
+  - @justeattakeaway/pie-icons@5.22.0
+  - @justeattakeaway/pie-icons-webc@1.21.0
+  - @justeattakeaway/pie-css@0.31.2
+  - @justeattakeaway/pie-webc@0.9.6
+
+## 4.65.4
+
+### Patch Changes
+
+- [Fixed] - enable pie-design-tokens rule and fix violations ([#2720](https://github.com/justeattakeaway/pie/pull/2720)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`4e448d4`](https://github.com/justeattakeaway/pie/commit/4e448d48a8c4bdb04f28c136105cb7aa7bc6a0e0)]:
+  - @justeattakeaway/pie-css@0.31.1
+  - @justeattakeaway/pie-webc@0.9.5
+  - @justeattakeaway/pie-icons-webc@1.20.8
+
+## 4.65.3
+
+### Patch Changes
+
+- Updated dependencies [[`25ffbc9`](https://github.com/justeattakeaway/pie/commit/25ffbc9c435d18ae1ee3ae746e2a2dde12aa1371)]:
+  - @justeattakeaway/pie-css@0.31.0
+  - @justeattakeaway/pie-icons-webc@1.20.7
+  - @justeattakeaway/pie-webc@0.9.4
+
+## 4.65.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.9.3
+
+## 4.65.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.9.2
+
+## 4.65.0
+
+### Minor Changes
+
+- [Added] - PIE Design System skill docs ([#2698](https://github.com/justeattakeaway/pie/pull/2698)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - Clarified the Snacks migration skill guidance on the agentic AI resources page. ([#2707](https://github.com/justeattakeaway/pie/pull/2707)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`715efb5`](https://github.com/justeattakeaway/pie/commit/715efb5f685015184a68d95bd702254c8cd4b2b5)]:
+  - @justeattakeaway/pie-css@0.30.0
+  - @justeattakeaway/pie-icons-webc@1.20.6
+  - @justeattakeaway/pie-webc@0.9.1
+
 ## 4.64.2
 
 ### Patch Changes

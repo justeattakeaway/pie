@@ -1,5 +1,39 @@
 # @justeattakeaway/pie-radio
 
+## 1.1.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@11.0.2
+
+## 1.1.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@11.0.1
+
+## 1.1.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@11.0.0
+
+## 1.1.4
+
+### Patch Changes
+
+- [Fixed] - ensure components set a font-family ([#2713](https://github.com/justeattakeaway/pie/pull/2713)) by [@raoufswe](https://github.com/raoufswe)
+
+## 1.1.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@10.0.0
+
 ## 1.1.2
 
 ### Patch Changes

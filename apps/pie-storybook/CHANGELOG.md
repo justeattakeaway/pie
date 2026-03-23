@@ -1,5 +1,59 @@
 # Changelog
 
+## 1.72.5
+
+### Patch Changes
+
+- Updated dependencies [[`8547a78`](https://github.com/justeattakeaway/pie/commit/8547a789ffddbc950b98d24c1a683feee3a407d8), [`5caa125`](https://github.com/justeattakeaway/pie/commit/5caa12502af479ecb618eb7f64458bcda4c43e74)]:
+  - @justeattakeaway/pie-icons-webc@1.21.0
+  - @justeattakeaway/pie-css@0.31.2
+  - @justeattakeaway/pie-webc@0.9.6
+
+## 1.72.4
+
+### Patch Changes
+
+- Updated dependencies [[`4e448d4`](https://github.com/justeattakeaway/pie/commit/4e448d48a8c4bdb04f28c136105cb7aa7bc6a0e0)]:
+  - @justeattakeaway/pie-css@0.31.1
+  - @justeattakeaway/pie-webc@0.9.5
+  - @justeattakeaway/pie-icons-webc@1.20.8
+
+## 1.72.3
+
+### Patch Changes
+
+- Updated dependencies [[`25ffbc9`](https://github.com/justeattakeaway/pie/commit/25ffbc9c435d18ae1ee3ae746e2a2dde12aa1371)]:
+  - @justeattakeaway/pie-css@0.31.0
+  - @justeattakeaway/pie-icons-webc@1.20.7
+  - @justeattakeaway/pie-webc@0.9.4
+
+## 1.72.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.9.3
+
+## 1.72.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.9.2
+
+## 1.72.0
+
+### Minor Changes
+
+- [Added] - Added a Storybook introduction page linking to the agentic AI resources. ([#2707](https://github.com/justeattakeaway/pie/pull/2707)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- Updated dependencies [[`715efb5`](https://github.com/justeattakeaway/pie/commit/715efb5f685015184a68d95bd702254c8cd4b2b5)]:
+  - @justeattakeaway/pie-css@0.30.0
+  - @justeattakeaway/pie-icons-webc@1.20.6
+  - @justeattakeaway/pie-webc@0.9.1
+
 ## 1.71.0
 
 ### Minor Changes

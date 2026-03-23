@@ -1,5 +1,41 @@
 # @justeattakeaway/pie-data-table
 
+## 0.3.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@11.0.2
+
+## 0.3.9
+
+### Patch Changes
+
+- [Fixed] - enable pie-design-tokens rule and fix violations ([#2720](https://github.com/justeattakeaway/pie/pull/2720)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@11.0.1
+
+## 0.3.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@11.0.0
+
+## 0.3.7
+
+### Patch Changes
+
+- [Fixed] - ensure components set a font-family ([#2713](https://github.com/justeattakeaway/pie/pull/2713)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.3.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@10.0.0
+
 ## 0.3.5
 
 ### Patch Changes

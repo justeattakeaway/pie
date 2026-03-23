@@ -53,11 +53,13 @@ h4:has(.c-anchorIcon) {
     }
 }
 
+// stylelint-disable @justeattakeaway/pie-design-tokens -- font tokens in SCSS list, not direct CSS declarations
 $headingSizes: (
     'h2' --dt-font-heading-xl-line-height--wide --dt-font-heading-xl-line-height--narrow,
     'h3' --dt-font-heading-m-line-height--wide --dt-font-heading-m-line-height--wide,
     'h4' --dt-font-heading-s-line-height--wide --dt-font-heading-s-line-height--wide
 );
+// stylelint-enable @justeattakeaway/pie-design-tokens
 
 @each $headingSize, $wideToken, $narrowToken in $headingSizes {
     #{$headingSize}:has(.c-anchorIcon) {

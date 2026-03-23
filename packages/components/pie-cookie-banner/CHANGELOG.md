@@ -1,5 +1,74 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.7.17
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icon-button@2.7.3
+  - @justeattakeaway/pie-link@1.3.19
+  - @justeattakeaway/pie-modal@1.25.8
+  - @justeattakeaway/pie-switch@2.3.21
+  - @justeattakeaway/pie-button@1.12.9
+  - @justeattakeaway/pie-divider@1.5.17
+  - @justeattakeaway/pie-webc-core@11.0.2
+
+## 1.7.16
+
+### Patch Changes
+
+- [Fixed] - enable pie-design-tokens rule and fix violations ([#2720](https://github.com/justeattakeaway/pie/pull/2720)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.8
+  - @justeattakeaway/pie-divider@1.5.16
+  - @justeattakeaway/pie-icon-button@2.7.2
+  - @justeattakeaway/pie-link@1.3.18
+  - @justeattakeaway/pie-modal@1.25.7
+  - @justeattakeaway/pie-switch@2.3.20
+  - @justeattakeaway/pie-webc-core@11.0.1
+
+## 1.7.15
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.7
+  - @justeattakeaway/pie-divider@1.5.15
+  - @justeattakeaway/pie-icon-button@2.7.1
+  - @justeattakeaway/pie-link@1.3.17
+  - @justeattakeaway/pie-modal@1.25.6
+  - @justeattakeaway/pie-switch@2.3.19
+  - @justeattakeaway/pie-webc-core@11.0.0
+
+## 1.7.14
+
+### Patch Changes
+
+- Updated dependencies [[`443571d`](https://github.com/justeattakeaway/pie/commit/443571d17978a575711cbc73918bc0ee1461ea2b)]:
+  - @justeattakeaway/pie-icon-button@2.7.0
+  - @justeattakeaway/pie-modal@1.25.5
+
+## 1.7.13
+
+### Patch Changes
+
+- Updated dependencies [[`e0d34b4`](https://github.com/justeattakeaway/pie/commit/e0d34b489ba7704bc323a15bdbf6dec120c235c2)]:
+  - @justeattakeaway/pie-divider@1.5.14
+
+## 1.7.12
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.12.6
+  - @justeattakeaway/pie-divider@1.5.13
+  - @justeattakeaway/pie-icon-button@2.6.7
+  - @justeattakeaway/pie-link@1.3.16
+  - @justeattakeaway/pie-modal@1.25.4
+  - @justeattakeaway/pie-switch@2.3.18
+  - @justeattakeaway/pie-webc-core@10.0.0
+
 ## 1.7.11
 
 ### Patch Changes

@@ -36,6 +36,9 @@
     }
 
     .c-centredPage-text--bold {
-        font-weight: var(--dt-font-weight-bold);
+        font-size: calc(var(--dt-font-body-strong-l-size) * 1px);
+        line-height: calc(var(--dt-font-body-strong-l-line-height) * 1px);
+        font-weight: var(--dt-font-body-strong-l-weight);
+        font-family: var(--dt-font-body-strong-l-family);
     }
 }
