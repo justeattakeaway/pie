@@ -300,18 +300,18 @@ Assistive text reduces user confusion by providing additional guidance or contex
 
 {% contentLayout %}
   {% contentItem %}
-  {% contentPageImage {
-    src:"../../../assets/img/patterns/forms/assistive-text-default-add-credit.svg",
-    alt: "Default assistive text example for add credit field.",
-    width: "256px"
-  } %}
+    {% contentPageImage {
+      src:"../../../assets/img/patterns/forms/assistive-text-default-add-credit.svg",
+      alt: "Default assistive text example for add credit field.",
+      width: "256px"
+    } %}
   {% endcontentItem %}
-{% contentItem %}
-  {% contentPageImage {
-    src:"../../../assets/img/patterns/forms/assitive-text-default-email.svg",
-    alt: "Default assistive text example for email field.",
-    width: "256px"
-  } %}
+  {% contentItem %}
+    {% contentPageImage {
+      src:"../../../assets/img/patterns/forms/assitive-text-default-email.svg",
+      alt: "Default assistive text example for email field.",
+      width: "256px"
+    } %}
   {% endcontentItem %}
 {% endcontentLayout %}
 
@@ -321,18 +321,18 @@ Error assistive text must be used to alert users of mistakes in their input and 
 
 {% contentLayout %}
   {% contentItem %}
-  {% contentPageImage {
-    src:"../../../assets/img/patterns/forms/assistive-text-error-password.svg",
-    alt: "Error assistive text example for password input.",
-    width: "265px"
-  } %}
-  {% endcontentItem %}
-  {% contentItem %}
-  {% contentPageImage {
-    src:"../../../assets/img/patterns/forms/assistive-text-error-offer-time-frame.svg",
-    alt: "Error assistive text example for radio group.",
-    width: "173px"
-  } %}
+    {% contentPageImage {
+      src:"../../../assets/img/patterns/forms/assistive-text-error-password.svg",
+      alt: "Error assistive text example for password input.",
+      width: "265px"
+    } %}
+    {% endcontentItem %}
+    {% contentItem %}
+    {% contentPageImage {
+      src:"../../../assets/img/patterns/forms/assistive-text-error-offer-time-frame.svg",
+      alt: "Error assistive text example for radio group.",
+      width: "173px"
+    } %}
   {% endcontentItem %}
 {% endcontentLayout %}
 
@@ -342,18 +342,18 @@ Success assistive text confirms that the input has been accepted or validated. P
 
 {% contentLayout %}
   {% contentItem %}
-  {% contentPageImage {
-    src:"../../../assets/img/patterns/forms/assistive-text-success-verivication-code.svg",
-    alt: "Success assistive text example for verification code input.",
-    width: "256px"
-  } %}
-  {% endcontentItem %}
-  {% contentItem %}
-  {% contentPageImage {
-    src:"../../../assets/img/patterns/forms/assistive-text-success-password.svg",
-    alt: "Success assistive text example for password input.",
-    width: "256px"
-  } %}
+    {% contentPageImage {
+      src:"../../../assets/img/patterns/forms/assistive-text-success-verivication-code.svg",
+      alt: "Success assistive text example for verification code input.",
+      width: "256px"
+    } %}
+    {% endcontentItem %}
+    {% contentItem %}
+    {% contentPageImage {
+      src:"../../../assets/img/patterns/forms/assistive-text-success-password.svg",
+      alt: "Success assistive text example for password input.",
+      width: "256px"
+    } %}
   {% endcontentItem %}
 {% endcontentLayout %}
 
