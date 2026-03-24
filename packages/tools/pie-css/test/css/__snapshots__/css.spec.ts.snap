@@ -43,10 +43,6 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
   width: var(--btn-icon-size);
 }
 
-.c-button--primary {
-  /* stylelint-disable @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
-  /* stylelint-enable @justeattakeaway/pie-design-tokens */
-}
 .c-button--primary:hover:not(:disabled, .is-disabled, .is-dismissible) {
   --hover-modifier: calc(-1 * var(--dt-color-hover-01));
   --int-states-mixin-bg-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + var(--hover-modifier)));
@@ -57,17 +53,17 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
   .c-button--primary:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-interactive-brand));
   }
   .c-button--primary:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-interactive-brand));
   }
 }
 .c-button--primary.c-button--xsmall, .c-button--primary.c-button--small-productive {
   --int-states-mixin-bg-color: var(--dt-color-interactive-primary);
   --btn-text-color: var(--dt-color-content-interactive-primary-solid);
-  /* stylelint-disable @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
-  /* stylelint-enable @justeattakeaway/pie-design-tokens */
 }
 .c-button--primary.c-button--xsmall:hover:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--small-productive:hover:not(:disabled, .is-disabled, .is-dismissible) {
   --hover-modifier: var(--dt-color-hover-02);
@@ -79,17 +75,17 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
   .c-button--primary.c-button--xsmall:hover:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--small-productive:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-02-bg) var(--dt-color-hover-02), var(--dt-color-interactive-primary));
   }
   .c-button--primary.c-button--xsmall:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--xsmall.is-loading:not(:disabled, .is-disabled), .c-button--primary.c-button--small-productive:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--small-productive.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-02-bg) var(--dt-color-active-02), var(--dt-color-interactive-primary));
   }
 }
 @media (min-width: 769px) {
   .c-button--primary.c-button--xsmall.c-button--expressive.c-button--responsive, .c-button--primary.c-button--small-productive.c-button--responsive {
     --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
-    /* stylelint-disable @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
-    /* stylelint-enable @justeattakeaway/pie-design-tokens */
   }
   .c-button--primary.c-button--xsmall.c-button--expressive.c-button--responsive:hover:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--small-productive.c-button--responsive:hover:not(:disabled, .is-disabled, .is-dismissible) {
     --hover-modifier: calc(-1 * var(--dt-color-hover-01));
@@ -101,9 +97,11 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
   }
   @supports (background-color: color-mix(in srgb, black, white)) {
     .c-button--primary.c-button--xsmall.c-button--expressive.c-button--responsive:hover:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--small-productive.c-button--responsive:hover:not(:disabled, .is-disabled, .is-dismissible) {
+      /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
       --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-interactive-brand));
     }
     .c-button--primary.c-button--xsmall.c-button--expressive.c-button--responsive:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--xsmall.c-button--expressive.c-button--responsive.is-loading:not(:disabled, .is-disabled), .c-button--primary.c-button--small-productive.c-button--responsive:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--small-productive.c-button--responsive.is-loading:not(:disabled, .is-disabled) {
+      /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
       --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-interactive-brand));
     }
   }
@@ -112,8 +110,6 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 .c-button--primary-alternative {
   --int-states-mixin-bg-color: var(--dt-color-interactive-primary);
   --btn-text-color: var(--dt-color-content-interactive-primary);
-  /* stylelint-disable @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
-  /* stylelint-enable @justeattakeaway/pie-design-tokens */
 }
 .c-button--primary-alternative:hover:not(:disabled, .is-disabled, .is-dismissible) {
   --hover-modifier: var(--dt-color-hover-02);
@@ -125,9 +121,11 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
   .c-button--primary-alternative:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-02-bg) var(--dt-color-hover-02), var(--dt-color-interactive-primary));
   }
   .c-button--primary-alternative:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary-alternative.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-02-bg) var(--dt-color-active-02), var(--dt-color-interactive-primary));
   }
 }
@@ -135,8 +133,6 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 .c-button--primary-alternative-dark {
   --int-states-mixin-bg-color: var(--dt-color-interactive-dark);
   --btn-text-color: var(--dt-color-content-interactive-light);
-  /* stylelint-disable @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
-  /* stylelint-enable @justeattakeaway/pie-design-tokens */
 }
 .c-button--primary-alternative-dark:hover:not(:disabled, .is-disabled, .is-dismissible) {
   --hover-modifier: var(--dt-color-hover-02);
@@ -148,9 +144,11 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
   .c-button--primary-alternative-dark:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-02-bg) var(--dt-color-hover-02), var(--dt-color-interactive-dark));
   }
   .c-button--primary-alternative-dark:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary-alternative-dark.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-02-bg) var(--dt-color-active-02), var(--dt-color-interactive-dark));
   }
 }
@@ -158,8 +156,6 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 .c-button--secondary {
   --int-states-mixin-bg-color: var(--dt-color-interactive-secondary);
   --btn-text-color: var(--dt-color-content-interactive-secondary);
-  /* stylelint-disable @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
-  /* stylelint-enable @justeattakeaway/pie-design-tokens */
 }
 .c-button--secondary:hover:not(:disabled, .is-disabled, .is-dismissible) {
   --hover-modifier: calc(-1 * var(--dt-color-hover-01));
@@ -171,9 +167,11 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
   .c-button--secondary:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-interactive-secondary));
   }
   .c-button--secondary:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--secondary.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-interactive-secondary));
   }
 }
@@ -182,8 +180,6 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
   --int-states-mixin-bg-color: transparent;
   --btn-text-color: var(--dt-color-content-interactive-secondary-solid);
   border: 1px solid var(--dt-color-border-strong);
-  /* stylelint-disable @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
-  /* stylelint-enable @justeattakeaway/pie-design-tokens */
 }
 .c-button--outline:hover:not(:disabled, .is-disabled, .is-dismissible) {
   --hover-modifier: calc(-1 * var(--dt-color-hover-01));
@@ -199,9 +195,11 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
   .c-button--outline:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-transparent));
   }
   .c-button--outline:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--outline.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-transparent));
   }
 }
@@ -209,8 +207,6 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 .c-button--ghost {
   --int-states-mixin-bg-color: transparent;
   --btn-text-color: var(--dt-color-content-interactive-secondary-solid);
-  /* stylelint-disable @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
-  /* stylelint-enable @justeattakeaway/pie-design-tokens */
 }
 .c-button--ghost:hover:not(:disabled, .is-disabled, .is-dismissible) {
   --hover-modifier: calc(-1 * var(--dt-color-hover-01));
@@ -226,9 +222,11 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
   .c-button--ghost:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-transparent));
   }
   .c-button--ghost:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--ghost.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-transparent));
   }
 }
@@ -236,8 +234,6 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 .c-button--ghost-dark {
   --int-states-mixin-bg-color: transparent;
   --btn-text-color: var(--dt-color-content-interactive-dark-solid);
-  /* stylelint-disable @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
-  /* stylelint-enable @justeattakeaway/pie-design-tokens */
 }
 .c-button--ghost-dark:hover:not(:disabled, .is-disabled, .is-dismissible) {
   --hover-modifier: calc(-1 * var(--dt-color-hover-01));
@@ -253,9 +249,11 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
   .c-button--ghost-dark:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-transparent));
   }
   .c-button--ghost-dark:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--ghost-dark.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-transparent));
   }
 }
@@ -263,8 +261,6 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 .c-button--inverse {
   --int-states-mixin-bg-color: var(--dt-color-interactive-inverse);
   --btn-text-color: var(--dt-color-content-interactive-secondary);
-  /* stylelint-disable @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
-  /* stylelint-enable @justeattakeaway/pie-design-tokens */
 }
 .c-button--inverse:hover:not(:disabled, .is-disabled, .is-dismissible) {
   --hover-modifier: calc(-1 * var(--dt-color-hover-01));
@@ -276,9 +272,11 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
   .c-button--inverse:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-interactive-inverse));
   }
   .c-button--inverse:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--inverse.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-interactive-inverse));
   }
 }
@@ -286,8 +284,6 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 .c-button--ghost-inverse {
   --int-states-mixin-bg-color: transparent;
   --btn-text-color: var(--dt-color-content-interactive-primary-solid);
-  /* stylelint-disable @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
-  /* stylelint-enable @justeattakeaway/pie-design-tokens */
 }
 .c-button--ghost-inverse:hover:not(:disabled, .is-disabled, .is-dismissible) {
   --hover-modifier: calc(-1 * var(--dt-color-hover-01));
@@ -301,9 +297,11 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
   .c-button--ghost-inverse:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-02-bg) var(--dt-color-hover-02), var(--dt-color-transparent));
   }
   .c-button--ghost-inverse:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--ghost-inverse.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-02-bg) var(--dt-color-active-02), var(--dt-color-transparent));
   }
 }
@@ -312,8 +310,6 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
   --int-states-mixin-bg-color: transparent;
   --btn-text-color: var(--dt-color-content-interactive-primary-solid);
   border: 1px solid var(--dt-color-border-strong);
-  /* stylelint-disable @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
-  /* stylelint-enable @justeattakeaway/pie-design-tokens */
 }
 .c-button--outline-inverse:hover:not(:disabled, .is-disabled, .is-dismissible) {
   --hover-modifier: calc(-1 * var(--dt-color-hover-01));
@@ -327,9 +323,11 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
   .c-button--outline-inverse:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-02-bg) var(--dt-color-hover-02), var(--dt-color-transparent));
   }
   .c-button--outline-inverse:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--outline-inverse.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-02-bg) var(--dt-color-active-02), var(--dt-color-transparent));
   }
 }
@@ -337,8 +335,6 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 .c-button--ghost-inverse-light {
   --int-states-mixin-bg-color: transparent;
   --btn-text-color: var(--dt-color-content-interactive-light-solid);
-  /* stylelint-disable @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
-  /* stylelint-enable @justeattakeaway/pie-design-tokens */
 }
 .c-button--ghost-inverse-light:hover:not(:disabled, .is-disabled, .is-dismissible) {
   --hover-modifier: calc(-1 * var(--dt-color-hover-01));
@@ -352,17 +348,17 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
   .c-button--ghost-inverse-light:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-02-bg) var(--dt-color-hover-02), var(--dt-color-transparent));
   }
   .c-button--ghost-inverse-light:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--ghost-inverse-light.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-02-bg) var(--dt-color-active-02), var(--dt-color-transparent));
   }
 }
 
 .c-button--destructive {
   --int-states-mixin-bg-color: var(--dt-color-support-error);
-  /* stylelint-disable @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
-  /* stylelint-enable @justeattakeaway/pie-design-tokens */
 }
 .c-button--destructive:hover:not(:disabled, .is-disabled, .is-dismissible) {
   --hover-modifier: calc(-1 * var(--dt-color-hover-01));
@@ -374,9 +370,11 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
   .c-button--destructive:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-support-error));
   }
   .c-button--destructive:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--destructive.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-support-error));
   }
 }
@@ -384,8 +382,6 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 .c-button--destructive-ghost {
   --int-states-mixin-bg-color: transparent;
   --btn-text-color: var(--dt-color-content-interactive-error-solid);
-  /* stylelint-disable @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
-  /* stylelint-enable @justeattakeaway/pie-design-tokens */
 }
 .c-button--destructive-ghost:hover:not(:disabled, .is-disabled, .is-dismissible) {
   --hover-modifier: calc(-1 * var(--dt-color-hover-01));
@@ -401,9 +397,11 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
   .c-button--destructive-ghost:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-transparent));
   }
   .c-button--destructive-ghost:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--destructive-ghost.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
     --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-transparent));
   }
 }
