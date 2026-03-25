@@ -1,5 +1,8 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 @use '@justeattakeaway/pie-css/scss/settings' as *;
+@use '@justeattakeaway/pie-css/scss/mixins/components/button' as btn;
+
+$prefix: 'o-btn';
 
 :host {
     display: inline-block;
@@ -9,217 +12,52 @@
     display: block;
 }
 
-/**
-* Mixin for adding the responsive behaviour.
-* Takes in the the particular settings for the wide breakpoint.
-*/
-@mixin responsive-wide {
-    &.o-btn--responsive {
-        @include media('>md') {
-            @content;
-        }
-    }
-}
-
 // Base button styles
 .o-btn {
-    // Custom Property Declarations
-    // These are defined here instead of :host to encapsulate them inside Shadow DOM
-    --btn-border-radius: var(--dt-radius-rounded-e);
-    --btn-font-family: var(--dt-font-interactive-l-family);
-    --btn-font-weight: var(--dt-font-interactive-l-weight);
-
-    // The following values set to default background and color
-    // currently this sets the primary button styles
-    --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
-    --btn-text-color: var(--dt-color-content-interactive-light-solid);
-
-    // Vertical and horizontal padding values for the button
-    --btn-padding-vertical-xsmall: 6px;
-    --btn-padding-vertical-small-expressive: 8px;
-    --btn-padding-vertical-small-productive: 10px;
-    --btn-padding-vertical-medium: 12px;
-    --btn-padding-vertical-large: 16px;
-    --btn-padding-horizontal-small: var(--dt-spacing-b);
-    --btn-padding-horizontal-medium: var(--dt-spacing-d);
-    --btn-padding-horizontal-large: var(--dt-spacing-e);
-
-    /**
-    * Mixin for updating the button styles based on the size passed in.
-    * Takes in the name of the size to be used.
-    */
-    @mixin button-size($size) {
-        @if $size == 'xsmall' {
-            --btn-font-size: #{p.font-size(--dt-font-interactive-xs-size)};
-            --btn-line-height: calc(var(--dt-font-interactive-xs-line-height) * 1px);
-            --icon-size-override: 16px;
-        } @else if $size == 'small-expressive' {
-            --btn-font-size: #{p.font-size(--dt-font-interactive-l-size)};
-            --btn-line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
-            --icon-size-override: 20px;
-        } @else if $size == 'small-productive' {
-            --btn-font-size: #{p.font-size(--dt-font-interactive-s-size)};
-            --btn-line-height: calc(var(--dt-font-interactive-s-line-height) * 1px);
-            --icon-size-override: 20px;
-        } @else if $size == 'medium' {
-            --btn-font-size: #{p.font-size(--dt-font-interactive-l-size)};
-            --btn-line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
-            --icon-size-override: 24px;
-        } @else if $size == 'large' {
-            --btn-font-size: #{p.font-size(--dt-font-interactive-l-size)};
-            --btn-line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
-            --icon-size-override: 24px;
-        }
-    }
-
-    /**
-    * Mixin for applying the button padding based on the size passed in.
-    * $size: The name of the size to be used.
-    * $offsetPaddingForBorder: A boolean to specify whether the padding should be offset for a border
-    */
-    @mixin button-padding($size, $offsetPaddingForBorder: false) {
-        $verticalPadding: '';
-        $horizontalPadding: '';
-
-        @if $size == 'xsmall' {
-            $verticalPadding: '--btn-padding-vertical-xsmall';
-            $horizontalPadding: '--btn-padding-horizontal-small';
-        } @else if $size == 'small-expressive' {
-            $verticalPadding: '--btn-padding-vertical-small-expressive';
-            $horizontalPadding: '--btn-padding-horizontal-medium';
-        } @else if $size == 'small-productive' {
-            $verticalPadding: '--btn-padding-vertical-small-productive';
-            $horizontalPadding: '--btn-padding-horizontal-medium';
-        } @else if $size == 'medium' {
-            $verticalPadding: '--btn-padding-vertical-medium';
-            $horizontalPadding: '--btn-padding-horizontal-large';
-        } @else if $size == 'large' {
-            $verticalPadding: '--btn-padding-vertical-large';
-            $horizontalPadding: '--btn-padding-horizontal-large';
-        }
-
-        @if $offsetPaddingForBorder {
-            padding: calc(var(#{$verticalPadding}) - 1px) var(#{$horizontalPadding});
-        } @else {
-            padding: var(#{$verticalPadding}) var(#{$horizontalPadding});
-        }
-    }
-
-    position: relative;
-    display: inline-flex;
-    gap: var(--dt-spacing-b);
-    align-items: center;
-    justify-content: center;
-    border: none;
-    border-radius: var(--btn-border-radius);
-    outline: none;
-    background-color: var(--int-states-mixin-bg-color);
-    font-family: var(--btn-font-family);
-    font-size: var(--btn-font-size);
-    font-weight: var(--btn-font-weight);
-    color: var(--btn-text-color);
-    line-height: var(--btn-line-height);
-    cursor: pointer;
-    user-select: none;
-    text-decoration: none;
-
-    // used to specify whether the button should be full width or not
-    inline-size: var(--btn-inline-size);
+    @include btn.button-base($include-icon-selector: false);
 
     // ************************
     // Button Variant Modifiers
     // ************************
     &.o-btn--primary {
-        @include p.interactive-states('--dt-color-interactive-brand');
-
-        &.o-btn--xsmall,
-        &.o-btn--small-productive {
-            /**
-            * Where the font-size is smaller,
-            * update the button backgrounds so that the text is accessible
-            **/
-            --int-states-mixin-bg-color: var(--dt-color-interactive-primary);
-            --btn-text-color: var(--dt-color-content-interactive-primary-solid);
-
-            @include p.interactive-states('--dt-color-interactive-primary', 'inverse', '02');
-        }
-
-        // This is to handle the background colour change getting overridden above, but then being put in responsive mode
-        // can't use :not for this unfortunately, as then the smaller narrow state would lose its background colour too
-        &.o-btn--xsmall.o-btn--expressive,
-        &.o-btn--small-productive {
-            @include responsive-wide {
-                --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
-
-                @include p.interactive-states('--dt-color-interactive-brand');
-            }
-        }
+        @include btn.button-variant('primary', $prefix);
     }
 
     &.o-btn--primary-alternative {
-        --int-states-mixin-bg-color: var(--dt-color-interactive-primary);
-        --btn-text-color: var(--dt-color-content-interactive-primary);
-
-        @include p.interactive-states('--dt-color-interactive-primary', 'inverse', '02');
+        @include btn.button-variant('primary-alternative', $prefix);
     }
 
     &.o-btn--primary-alternative-dark {
-        --int-states-mixin-bg-color: var(--dt-color-interactive-dark);
-        --btn-text-color: var(--dt-color-content-interactive-light);
-
-        @include p.interactive-states('--dt-color-interactive-dark', 'inverse', '02');
+        @include btn.button-variant('primary-alternative-dark', $prefix);
     }
 
     &.o-btn--secondary {
-        --int-states-mixin-bg-color: var(--dt-color-interactive-secondary);
-        --btn-text-color: var(--dt-color-content-interactive-secondary);
-
-        @include p.interactive-states('--dt-color-interactive-secondary');
+        @include btn.button-variant('secondary', $prefix);
     }
 
     &.o-btn--outline {
-        --int-states-mixin-bg-color: transparent;
-        --btn-text-color: var(--dt-color-content-interactive-secondary-solid);
-
-        border: 1px solid var(--dt-color-border-strong);
-
-        @include p.interactive-states('--dt-color-transparent', 'transparent', '01');
+        @include btn.button-variant('outline', $prefix);
     }
 
     &.o-btn--ghost {
-        --int-states-mixin-bg-color: transparent;
-        --btn-text-color: var(--dt-color-content-interactive-secondary-solid);
-
-        @include p.interactive-states('--dt-color-transparent', 'transparent', '01');
+        @include btn.button-variant('ghost', $prefix);
     }
 
     &.o-btn--ghost-dark {
-        --int-states-mixin-bg-color: transparent;
-        --btn-text-color: var(--dt-color-content-interactive-dark-solid);
-
-        @include p.interactive-states('--dt-color-transparent', 'transparent', '01');
+        @include btn.button-variant('ghost-dark', $prefix);
     }
 
     &.o-btn--inverse {
-        --int-states-mixin-bg-color: var(--dt-color-interactive-inverse);
-        --btn-text-color: var(--dt-color-content-interactive-secondary);
-
-        @include p.interactive-states('--dt-color-interactive-inverse');
+        @include btn.button-variant('inverse', $prefix);
     }
 
     &.o-btn--ghost-inverse,
     &.o-btn--outline-inverse {
-        --int-states-mixin-bg-color: transparent;
-        --btn-text-color: var(--dt-color-content-interactive-primary-solid);
-
-        @include p.interactive-states('--dt-color-transparent', 'transparent-inverse', '02');
+        @include btn.button-variant('ghost-inverse', $prefix);
     }
 
     &.o-btn--ghost-inverse-light {
-        --int-states-mixin-bg-color: transparent;
-        --btn-text-color: var(--dt-color-content-interactive-light-solid);
-
-        @include p.interactive-states('--dt-color-transparent', 'transparent-inverse', '02');
+        @include btn.button-variant('ghost-inverse-light', $prefix);
     }
 
     &.o-btn--outline-inverse {
@@ -227,122 +65,41 @@
     }
 
     &.o-btn--destructive {
-        --int-states-mixin-bg-color: var(--dt-color-support-error);
-
-        @include p.interactive-states('--dt-color-support-error');
+        @include btn.button-variant('destructive', $prefix);
     }
 
     &.o-btn--destructive-ghost {
-        --int-states-mixin-bg-color: transparent;
-        --btn-text-color: var(--dt-color-content-interactive-error-solid);
-
-        @include p.interactive-states('--dt-color-transparent', 'transparent', '01');
+        @include btn.button-variant('destructive-ghost', $prefix);
     }
 
     // *********************
     // Button Size Modifiers
     // *********************
     &.o-btn--xsmall {
-        @include button-size(xsmall);
-        @include button-padding(xsmall);
-
-        @include responsive-wide {
-            // productive is the default size when responsive is enabled
-            @include button-size(small-productive);
-            @include button-padding(small-productive);
-
-            &.o-btn--expressive {
-                @include button-size(small-expressive);
-                @include button-padding(small-expressive);
-            }
-        }
-
-        &.o-btn--outline,
-        &.o-btn--outline-inverse {
-            @include button-padding(xsmall, true);
-
-            @include responsive-wide {
-                @include button-padding(small-productive, true);
-
-                &.o-btn--expressive {
-                    @include button-padding(small-expressive, true);
-                }
-            }
-        }
+        @include btn.button-size('xsmall', $prefix);
     }
 
     &.o-btn--small-expressive {
-        @include button-size(small-expressive);
-        @include button-padding(small-expressive);
-
-        @include responsive-wide {
-            @include button-size(medium);
-            @include button-padding(medium);
-        }
-
-        &.o-btn--outline,
-        &.o-btn--outline-inverse {
-            @include button-padding(small-expressive, true);
-
-            @include responsive-wide {
-                @include button-padding(medium, true);
-            }
-        }
+        @include btn.button-size('small-expressive', $prefix);
     }
 
     &.o-btn--small-productive {
-        @include button-size(small-productive);
-        @include button-padding(small-productive);
-
-        @include responsive-wide {
-            @include button-size(medium);
-            @include button-padding(medium);
-        }
-
-        &.o-btn--outline,
-        &.o-btn--outline-inverse {
-            @include button-padding(small-productive, true);
-
-            @include responsive-wide {
-                @include button-padding(medium, true);
-            }
-        }
+        @include btn.button-size('small-productive', $prefix);
     }
 
     &.o-btn--medium {
-        @include button-size(medium);
-        @include button-padding(medium);
-
-        @include responsive-wide {
-            @include button-size(large);
-            @include button-padding(large);
-        }
-
-        &.o-btn--outline,
-        &.o-btn--outline-inverse {
-            @include button-padding(medium, true);
-
-            @include responsive-wide {
-                @include button-padding(large, true);
-            }
-        }
+        @include btn.button-size('medium', $prefix);
     }
 
     &.o-btn--large {
-        @include button-size(large);
-        @include button-padding(large);
-
-        &.o-btn--outline,
-        &.o-btn--outline-inverse {
-            @include button-padding(large, true);
-        }
+        @include btn.button-size('large', $prefix);
     }
 
     // ******************************
     // Additional component modifiers
     // ******************************
     &.o-btn--fullWidth {
-        --btn-inline-size: 100%;
+        @include btn.button-full-width;
     }
 
     // **************
@@ -382,9 +139,7 @@
     // ************
     // Focus styles
     // ************
-    &:focus-visible {
-        @include p.focus;
-    }
+    // Focus is already included via button-base
 }
 
 // The inner span for the button text is needed to handle the text-overflow
