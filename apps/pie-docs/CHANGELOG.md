@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.67.0
+
+### Minor Changes
+
+- point code page to storybook ([#2730](https://github.com/justeattakeaway/pie/pull/2730)) by [@maledr5](https://github.com/maledr5)
+
 ## 4.66.0
 
 ### Minor Changes
