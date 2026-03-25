@@ -23,9 +23,16 @@
     "./ordering": "./rules/ordering.js"
   },
   "peerDependencies": {
+    "@justeat/pie-design-tokens": "*",
+    "@justeattakeaway/pie-css": "*",
     "stylelint": "16.x",
     "stylelint-config-standard-scss": "13.x",
     "stylelint-order": "6.x"
+  },
+  "peerDependenciesMeta": {
+    "@justeattakeaway/pie-css": {
+      "optional": true
+    }
   },
   "dependencies": {
     "@justeattakeaway/stylelint-no-logical-props-shorthands": "0.3.0"
