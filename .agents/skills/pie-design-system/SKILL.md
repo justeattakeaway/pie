@@ -3,7 +3,7 @@ name: pie-design-system
 description: Usage guidelines for the PIE design system by Just Eat Takeaway. Use when building, modifying, debugging any user-facing web UI, referencing @justeattakeaway/pie-* packages or when the user asks for a UI that should follow JET/PIE design standards.
 ---
 
-## Bootstrap (do this first, every time)
+## Bootstrap (IMPORTANT do this first, every time)
 
 > **Paths note:** All paths in this skill are relative to `.agents/skills/pie-design-system/` unless stated otherwise.
 
@@ -12,6 +12,7 @@ description: Usage guidelines for the PIE design system by Just Eat Takeaway. Us
    ```
    node .agents/skills/pie-design-system/scripts/fetch-references.mjs
    ```
+   Make sure to check if the skill is being setup in a monorepo, as the packages may be resolved to the root `node_modules` folder. Also check if the Skill is installed local to the application, or globally as this will affect the path when running the setup script.
 3. **If present** → compare versions in `.versions` against the installed package versions (`node_modules/@justeattakeaway/pie-webc/package.json` etc.). Re-run the script if any version differs. Otherwise proceed to the next section.
 
 ## Answer the question
