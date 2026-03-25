@@ -1,5 +1,561 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`components/button.css > should render the expected CSS content 1`] = `
+".c-button {
+  --btn-border-radius: var(--dt-radius-rounded-e);
+  --btn-font-family: var(--dt-font-interactive-l-family);
+  --btn-font-weight: var(--dt-font-interactive-l-weight);
+  --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
+  --btn-text-color: var(--dt-color-content-interactive-light-solid);
+  --btn-padding-vertical-xsmall: 6px;
+  --btn-padding-vertical-small-expressive: 8px;
+  --btn-padding-vertical-small-productive: 10px;
+  --btn-padding-vertical-medium: 12px;
+  --btn-padding-vertical-large: 16px;
+  --btn-padding-horizontal-small: var(--dt-spacing-b);
+  --btn-padding-horizontal-medium: var(--dt-spacing-d);
+  --btn-padding-horizontal-large: var(--dt-spacing-e);
+  position: relative;
+  display: inline-flex;
+  gap: var(--dt-spacing-b);
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--btn-border-radius);
+  outline: none;
+  background-color: var(--int-states-mixin-bg-color);
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  font-family: var(--btn-font-family);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  color: var(--btn-text-color);
+  line-height: var(--btn-line-height);
+  inline-size: var(--btn-inline-size);
+}
+.c-button:focus-visible {
+  box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
+  outline: none;
+}
+.c-button .c-pieIcon {
+  height: var(--btn-icon-size);
+  width: var(--btn-icon-size);
+}
+
+.c-button--primary:hover:not(:disabled, .is-disabled, .is-dismissible) {
+  --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+  --int-states-mixin-bg-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + var(--hover-modifier)));
+}
+.c-button--primary:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.is-loading:not(:disabled, .is-disabled) {
+  --active-modifier: calc(-1 * var(--dt-color-active-01));
+  --int-states-mixin-bg-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + var(--active-modifier)));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-button--primary:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-interactive-brand));
+  }
+  .c-button--primary:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-interactive-brand));
+  }
+}
+.c-button--primary.c-button--xsmall, .c-button--primary.c-button--small-productive {
+  --int-states-mixin-bg-color: var(--dt-color-interactive-primary);
+  --btn-text-color: var(--dt-color-content-interactive-primary-solid);
+}
+.c-button--primary.c-button--xsmall:hover:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--small-productive:hover:not(:disabled, .is-disabled, .is-dismissible) {
+  --hover-modifier: var(--dt-color-hover-02);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-interactive-primary-h), var(--dt-color-interactive-primary-s), calc(var(--dt-color-interactive-primary-l) + var(--hover-modifier)));
+}
+.c-button--primary.c-button--xsmall:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--xsmall.is-loading:not(:disabled, .is-disabled), .c-button--primary.c-button--small-productive:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--small-productive.is-loading:not(:disabled, .is-disabled) {
+  --active-modifier: var(--dt-color-active-02);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-interactive-primary-h), var(--dt-color-interactive-primary-s), calc(var(--dt-color-interactive-primary-l) + var(--active-modifier)));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-button--primary.c-button--xsmall:hover:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--small-productive:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-02-bg) var(--dt-color-hover-02), var(--dt-color-interactive-primary));
+  }
+  .c-button--primary.c-button--xsmall:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--xsmall.is-loading:not(:disabled, .is-disabled), .c-button--primary.c-button--small-productive:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--small-productive.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-02-bg) var(--dt-color-active-02), var(--dt-color-interactive-primary));
+  }
+}
+@media (min-width: 769px) {
+  .c-button--primary.c-button--xsmall.c-button--expressive.c-button--responsive, .c-button--primary.c-button--small-productive.c-button--responsive {
+    --int-states-mixin-bg-color: var(--dt-color-interactive-brand);
+  }
+  .c-button--primary.c-button--xsmall.c-button--expressive.c-button--responsive:hover:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--small-productive.c-button--responsive:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+    --int-states-mixin-bg-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + var(--hover-modifier)));
+  }
+  .c-button--primary.c-button--xsmall.c-button--expressive.c-button--responsive:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--xsmall.c-button--expressive.c-button--responsive.is-loading:not(:disabled, .is-disabled), .c-button--primary.c-button--small-productive.c-button--responsive:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--small-productive.c-button--responsive.is-loading:not(:disabled, .is-disabled) {
+    --active-modifier: calc(-1 * var(--dt-color-active-01));
+    --int-states-mixin-bg-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) + var(--active-modifier)));
+  }
+  @supports (background-color: color-mix(in srgb, black, white)) {
+    .c-button--primary.c-button--xsmall.c-button--expressive.c-button--responsive:hover:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--small-productive.c-button--responsive:hover:not(:disabled, .is-disabled, .is-dismissible) {
+      /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+      --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-interactive-brand));
+    }
+    .c-button--primary.c-button--xsmall.c-button--expressive.c-button--responsive:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--xsmall.c-button--expressive.c-button--responsive.is-loading:not(:disabled, .is-disabled), .c-button--primary.c-button--small-productive.c-button--responsive:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary.c-button--small-productive.c-button--responsive.is-loading:not(:disabled, .is-disabled) {
+      /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+      --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-interactive-brand));
+    }
+  }
+}
+
+.c-button--primary-alternative {
+  --int-states-mixin-bg-color: var(--dt-color-interactive-primary);
+  --btn-text-color: var(--dt-color-content-interactive-primary);
+}
+.c-button--primary-alternative:hover:not(:disabled, .is-disabled, .is-dismissible) {
+  --hover-modifier: var(--dt-color-hover-02);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-interactive-primary-h), var(--dt-color-interactive-primary-s), calc(var(--dt-color-interactive-primary-l) + var(--hover-modifier)));
+}
+.c-button--primary-alternative:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary-alternative.is-loading:not(:disabled, .is-disabled) {
+  --active-modifier: var(--dt-color-active-02);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-interactive-primary-h), var(--dt-color-interactive-primary-s), calc(var(--dt-color-interactive-primary-l) + var(--active-modifier)));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-button--primary-alternative:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-02-bg) var(--dt-color-hover-02), var(--dt-color-interactive-primary));
+  }
+  .c-button--primary-alternative:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary-alternative.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-02-bg) var(--dt-color-active-02), var(--dt-color-interactive-primary));
+  }
+}
+
+.c-button--primary-alternative-dark {
+  --int-states-mixin-bg-color: var(--dt-color-interactive-dark);
+  --btn-text-color: var(--dt-color-content-interactive-light);
+}
+.c-button--primary-alternative-dark:hover:not(:disabled, .is-disabled, .is-dismissible) {
+  --hover-modifier: var(--dt-color-hover-02);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-interactive-dark-h), var(--dt-color-interactive-dark-s), calc(var(--dt-color-interactive-dark-l) + var(--hover-modifier)));
+}
+.c-button--primary-alternative-dark:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary-alternative-dark.is-loading:not(:disabled, .is-disabled) {
+  --active-modifier: var(--dt-color-active-02);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-interactive-dark-h), var(--dt-color-interactive-dark-s), calc(var(--dt-color-interactive-dark-l) + var(--active-modifier)));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-button--primary-alternative-dark:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-02-bg) var(--dt-color-hover-02), var(--dt-color-interactive-dark));
+  }
+  .c-button--primary-alternative-dark:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--primary-alternative-dark.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-02-bg) var(--dt-color-active-02), var(--dt-color-interactive-dark));
+  }
+}
+
+.c-button--secondary {
+  --int-states-mixin-bg-color: var(--dt-color-interactive-secondary);
+  --btn-text-color: var(--dt-color-content-interactive-secondary);
+}
+.c-button--secondary:hover:not(:disabled, .is-disabled, .is-dismissible) {
+  --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+  --int-states-mixin-bg-color: hsl(var(--dt-color-interactive-secondary-h), var(--dt-color-interactive-secondary-s), calc(var(--dt-color-interactive-secondary-l) + var(--hover-modifier)));
+}
+.c-button--secondary:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--secondary.is-loading:not(:disabled, .is-disabled) {
+  --active-modifier: calc(-1 * var(--dt-color-active-01));
+  --int-states-mixin-bg-color: hsl(var(--dt-color-interactive-secondary-h), var(--dt-color-interactive-secondary-s), calc(var(--dt-color-interactive-secondary-l) + var(--active-modifier)));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-button--secondary:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-interactive-secondary));
+  }
+  .c-button--secondary:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--secondary.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-interactive-secondary));
+  }
+}
+
+.c-button--outline {
+  --int-states-mixin-bg-color: transparent;
+  --btn-text-color: var(--dt-color-content-interactive-secondary-solid);
+  border: 1px solid var(--dt-color-border-strong);
+}
+.c-button--outline:hover:not(:disabled, .is-disabled, .is-dismissible) {
+  --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+  --hover-modifier: var(--dt-color-hover-01);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--hover-modifier));
+  --int-states-mixin-bg-color: hsl(var(--dt-color-transparent-h), var(--dt-color-transparent-s), calc(var(--dt-color-transparent-l) + var(--hover-modifier)));
+}
+.c-button--outline:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--outline.is-loading:not(:disabled, .is-disabled) {
+  --active-modifier: calc(-1 * var(--dt-color-active-01));
+  --active-modifier: var(--dt-color-active-01);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--active-modifier));
+  --int-states-mixin-bg-color: hsl(var(--dt-color-transparent-h), var(--dt-color-transparent-s), calc(var(--dt-color-transparent-l) + var(--active-modifier)));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-button--outline:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-transparent));
+  }
+  .c-button--outline:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--outline.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-transparent));
+  }
+}
+
+.c-button--ghost {
+  --int-states-mixin-bg-color: transparent;
+  --btn-text-color: var(--dt-color-content-interactive-secondary-solid);
+}
+.c-button--ghost:hover:not(:disabled, .is-disabled, .is-dismissible) {
+  --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+  --hover-modifier: var(--dt-color-hover-01);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--hover-modifier));
+  --int-states-mixin-bg-color: hsl(var(--dt-color-transparent-h), var(--dt-color-transparent-s), calc(var(--dt-color-transparent-l) + var(--hover-modifier)));
+}
+.c-button--ghost:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--ghost.is-loading:not(:disabled, .is-disabled) {
+  --active-modifier: calc(-1 * var(--dt-color-active-01));
+  --active-modifier: var(--dt-color-active-01);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--active-modifier));
+  --int-states-mixin-bg-color: hsl(var(--dt-color-transparent-h), var(--dt-color-transparent-s), calc(var(--dt-color-transparent-l) + var(--active-modifier)));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-button--ghost:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-transparent));
+  }
+  .c-button--ghost:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--ghost.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-transparent));
+  }
+}
+
+.c-button--ghost-dark {
+  --int-states-mixin-bg-color: transparent;
+  --btn-text-color: var(--dt-color-content-interactive-dark-solid);
+}
+.c-button--ghost-dark:hover:not(:disabled, .is-disabled, .is-dismissible) {
+  --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+  --hover-modifier: var(--dt-color-hover-01);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--hover-modifier));
+  --int-states-mixin-bg-color: hsl(var(--dt-color-transparent-h), var(--dt-color-transparent-s), calc(var(--dt-color-transparent-l) + var(--hover-modifier)));
+}
+.c-button--ghost-dark:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--ghost-dark.is-loading:not(:disabled, .is-disabled) {
+  --active-modifier: calc(-1 * var(--dt-color-active-01));
+  --active-modifier: var(--dt-color-active-01);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--active-modifier));
+  --int-states-mixin-bg-color: hsl(var(--dt-color-transparent-h), var(--dt-color-transparent-s), calc(var(--dt-color-transparent-l) + var(--active-modifier)));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-button--ghost-dark:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-transparent));
+  }
+  .c-button--ghost-dark:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--ghost-dark.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-transparent));
+  }
+}
+
+.c-button--inverse {
+  --int-states-mixin-bg-color: var(--dt-color-interactive-inverse);
+  --btn-text-color: var(--dt-color-content-interactive-secondary);
+}
+.c-button--inverse:hover:not(:disabled, .is-disabled, .is-dismissible) {
+  --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+  --int-states-mixin-bg-color: hsl(var(--dt-color-interactive-inverse-h), var(--dt-color-interactive-inverse-s), calc(var(--dt-color-interactive-inverse-l) + var(--hover-modifier)));
+}
+.c-button--inverse:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--inverse.is-loading:not(:disabled, .is-disabled) {
+  --active-modifier: calc(-1 * var(--dt-color-active-01));
+  --int-states-mixin-bg-color: hsl(var(--dt-color-interactive-inverse-h), var(--dt-color-interactive-inverse-s), calc(var(--dt-color-interactive-inverse-l) + var(--active-modifier)));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-button--inverse:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-interactive-inverse));
+  }
+  .c-button--inverse:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--inverse.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-interactive-inverse));
+  }
+}
+
+.c-button--ghost-inverse {
+  --int-states-mixin-bg-color: transparent;
+  --btn-text-color: var(--dt-color-content-interactive-primary-solid);
+}
+.c-button--ghost-inverse:hover:not(:disabled, .is-disabled, .is-dismissible) {
+  --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+  --hover-modifier: var(--dt-color-hover-02);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-white-h), var(--dt-color-white-s), var(--dt-color-white-l), var(--active-modifier));
+}
+.c-button--ghost-inverse:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--ghost-inverse.is-loading:not(:disabled, .is-disabled) {
+  --active-modifier: calc(-1 * var(--dt-color-active-01));
+  --active-modifier: var(--dt-color-active-02);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-white-h), var(--dt-color-white-s), var(--dt-color-white-l), var(--active-modifier));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-button--ghost-inverse:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-02-bg) var(--dt-color-hover-02), var(--dt-color-transparent));
+  }
+  .c-button--ghost-inverse:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--ghost-inverse.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-02-bg) var(--dt-color-active-02), var(--dt-color-transparent));
+  }
+}
+
+.c-button--outline-inverse {
+  --int-states-mixin-bg-color: transparent;
+  --btn-text-color: var(--dt-color-content-interactive-primary-solid);
+  border: 1px solid var(--dt-color-border-strong);
+}
+.c-button--outline-inverse:hover:not(:disabled, .is-disabled, .is-dismissible) {
+  --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+  --hover-modifier: var(--dt-color-hover-02);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-white-h), var(--dt-color-white-s), var(--dt-color-white-l), var(--active-modifier));
+}
+.c-button--outline-inverse:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--outline-inverse.is-loading:not(:disabled, .is-disabled) {
+  --active-modifier: calc(-1 * var(--dt-color-active-01));
+  --active-modifier: var(--dt-color-active-02);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-white-h), var(--dt-color-white-s), var(--dt-color-white-l), var(--active-modifier));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-button--outline-inverse:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-02-bg) var(--dt-color-hover-02), var(--dt-color-transparent));
+  }
+  .c-button--outline-inverse:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--outline-inverse.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-02-bg) var(--dt-color-active-02), var(--dt-color-transparent));
+  }
+}
+
+.c-button--ghost-inverse-light {
+  --int-states-mixin-bg-color: transparent;
+  --btn-text-color: var(--dt-color-content-interactive-light-solid);
+}
+.c-button--ghost-inverse-light:hover:not(:disabled, .is-disabled, .is-dismissible) {
+  --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+  --hover-modifier: var(--dt-color-hover-02);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-white-h), var(--dt-color-white-s), var(--dt-color-white-l), var(--active-modifier));
+}
+.c-button--ghost-inverse-light:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--ghost-inverse-light.is-loading:not(:disabled, .is-disabled) {
+  --active-modifier: calc(-1 * var(--dt-color-active-01));
+  --active-modifier: var(--dt-color-active-02);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-white-h), var(--dt-color-white-s), var(--dt-color-white-l), var(--active-modifier));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-button--ghost-inverse-light:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-02-bg) var(--dt-color-hover-02), var(--dt-color-transparent));
+  }
+  .c-button--ghost-inverse-light:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--ghost-inverse-light.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-02-bg) var(--dt-color-active-02), var(--dt-color-transparent));
+  }
+}
+
+.c-button--destructive {
+  --int-states-mixin-bg-color: var(--dt-color-support-error);
+}
+.c-button--destructive:hover:not(:disabled, .is-disabled, .is-dismissible) {
+  --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+  --int-states-mixin-bg-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) + var(--hover-modifier)));
+}
+.c-button--destructive:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--destructive.is-loading:not(:disabled, .is-disabled) {
+  --active-modifier: calc(-1 * var(--dt-color-active-01));
+  --int-states-mixin-bg-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) + var(--active-modifier)));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-button--destructive:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-support-error));
+  }
+  .c-button--destructive:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--destructive.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-support-error));
+  }
+}
+
+.c-button--destructive-ghost {
+  --int-states-mixin-bg-color: transparent;
+  --btn-text-color: var(--dt-color-content-interactive-error-solid);
+}
+.c-button--destructive-ghost:hover:not(:disabled, .is-disabled, .is-dismissible) {
+  --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+  --hover-modifier: var(--dt-color-hover-01);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--hover-modifier));
+  --int-states-mixin-bg-color: hsl(var(--dt-color-transparent-h), var(--dt-color-transparent-s), calc(var(--dt-color-transparent-l) + var(--hover-modifier)));
+}
+.c-button--destructive-ghost:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--destructive-ghost.is-loading:not(:disabled, .is-disabled) {
+  --active-modifier: calc(-1 * var(--dt-color-active-01));
+  --active-modifier: var(--dt-color-active-01);
+  --int-states-mixin-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--active-modifier));
+  --int-states-mixin-bg-color: hsl(var(--dt-color-transparent-h), var(--dt-color-transparent-s), calc(var(--dt-color-transparent-l) + var(--active-modifier)));
+}
+@supports (background-color: color-mix(in srgb, black, white)) {
+  .c-button--destructive-ghost:hover:not(:disabled, .is-disabled, .is-dismissible) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-transparent));
+  }
+  .c-button--destructive-ghost:active:not(:disabled, .is-disabled, .is-dismissible), .c-button--destructive-ghost.is-loading:not(:disabled, .is-disabled) {
+    /* stylelint-disable-next-line @justeattakeaway/pie-design-tokens -- SCSS interpolation produces valid tokens at compile time */
+    --int-states-mixin-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-transparent));
+  }
+}
+
+.c-button--xsmall {
+  --btn-font-size: calc(var(--dt-font-interactive-xs-size) * 1px);
+  --btn-line-height: calc(var(--dt-font-interactive-xs-line-height) * 1px);
+  --btn-icon-size: 16px;
+  --icon-size-override: 16px;
+  padding: var(--btn-padding-vertical-xsmall) var(--btn-padding-horizontal-small);
+}
+@media (min-width: 769px) {
+  .c-button--xsmall.c-button--responsive {
+    --btn-font-size: calc(var(--dt-font-interactive-s-size) * 1px);
+    --btn-line-height: calc(var(--dt-font-interactive-s-line-height) * 1px);
+    --btn-icon-size: 20px;
+    --icon-size-override: 20px;
+    padding: var(--btn-padding-vertical-small-productive) var(--btn-padding-horizontal-medium);
+  }
+  .c-button--xsmall.c-button--responsive.c-button--expressive {
+    --btn-font-size: calc(var(--dt-font-interactive-l-size) * 1px);
+    --btn-line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
+    --btn-icon-size: 20px;
+    --icon-size-override: 20px;
+    padding: var(--btn-padding-vertical-small-expressive) var(--btn-padding-horizontal-medium);
+  }
+}
+.c-button--xsmall.c-button--outline, .c-button--xsmall.c-button--outline-inverse {
+  padding: calc(var(--btn-padding-vertical-xsmall) - 1px) var(--btn-padding-horizontal-small);
+}
+@media (min-width: 769px) {
+  .c-button--xsmall.c-button--outline.c-button--responsive, .c-button--xsmall.c-button--outline-inverse.c-button--responsive {
+    padding: calc(var(--btn-padding-vertical-small-productive) - 1px) var(--btn-padding-horizontal-medium);
+  }
+  .c-button--xsmall.c-button--outline.c-button--responsive.c-button--expressive, .c-button--xsmall.c-button--outline-inverse.c-button--responsive.c-button--expressive {
+    padding: calc(var(--btn-padding-vertical-small-expressive) - 1px) var(--btn-padding-horizontal-medium);
+  }
+}
+
+.c-button--small-expressive {
+  --btn-font-size: calc(var(--dt-font-interactive-l-size) * 1px);
+  --btn-line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
+  --btn-icon-size: 20px;
+  --icon-size-override: 20px;
+  padding: var(--btn-padding-vertical-small-expressive) var(--btn-padding-horizontal-medium);
+}
+@media (min-width: 769px) {
+  .c-button--small-expressive.c-button--responsive {
+    --btn-font-size: calc(var(--dt-font-interactive-l-size) * 1px);
+    --btn-line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
+    --btn-icon-size: 24px;
+    --icon-size-override: 24px;
+    padding: var(--btn-padding-vertical-medium) var(--btn-padding-horizontal-large);
+  }
+}
+.c-button--small-expressive.c-button--outline, .c-button--small-expressive.c-button--outline-inverse {
+  padding: calc(var(--btn-padding-vertical-small-expressive) - 1px) var(--btn-padding-horizontal-medium);
+}
+@media (min-width: 769px) {
+  .c-button--small-expressive.c-button--outline.c-button--responsive, .c-button--small-expressive.c-button--outline-inverse.c-button--responsive {
+    padding: calc(var(--btn-padding-vertical-medium) - 1px) var(--btn-padding-horizontal-large);
+  }
+}
+
+.c-button--small-productive {
+  --btn-font-size: calc(var(--dt-font-interactive-s-size) * 1px);
+  --btn-line-height: calc(var(--dt-font-interactive-s-line-height) * 1px);
+  --btn-icon-size: 20px;
+  --icon-size-override: 20px;
+  padding: var(--btn-padding-vertical-small-productive) var(--btn-padding-horizontal-medium);
+}
+@media (min-width: 769px) {
+  .c-button--small-productive.c-button--responsive {
+    --btn-font-size: calc(var(--dt-font-interactive-l-size) * 1px);
+    --btn-line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
+    --btn-icon-size: 24px;
+    --icon-size-override: 24px;
+    padding: var(--btn-padding-vertical-medium) var(--btn-padding-horizontal-large);
+  }
+}
+.c-button--small-productive.c-button--outline, .c-button--small-productive.c-button--outline-inverse {
+  padding: calc(var(--btn-padding-vertical-small-productive) - 1px) var(--btn-padding-horizontal-medium);
+}
+@media (min-width: 769px) {
+  .c-button--small-productive.c-button--outline.c-button--responsive, .c-button--small-productive.c-button--outline-inverse.c-button--responsive {
+    padding: calc(var(--btn-padding-vertical-medium) - 1px) var(--btn-padding-horizontal-large);
+  }
+}
+
+.c-button--medium {
+  --btn-font-size: calc(var(--dt-font-interactive-l-size) * 1px);
+  --btn-line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
+  --btn-icon-size: 24px;
+  --icon-size-override: 24px;
+  padding: var(--btn-padding-vertical-medium) var(--btn-padding-horizontal-large);
+}
+@media (min-width: 769px) {
+  .c-button--medium.c-button--responsive {
+    --btn-font-size: calc(var(--dt-font-interactive-l-size) * 1px);
+    --btn-line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
+    --btn-icon-size: 24px;
+    --icon-size-override: 24px;
+    padding: var(--btn-padding-vertical-large) var(--btn-padding-horizontal-large);
+  }
+}
+.c-button--medium.c-button--outline, .c-button--medium.c-button--outline-inverse {
+  padding: calc(var(--btn-padding-vertical-medium) - 1px) var(--btn-padding-horizontal-large);
+}
+@media (min-width: 769px) {
+  .c-button--medium.c-button--outline.c-button--responsive, .c-button--medium.c-button--outline-inverse.c-button--responsive {
+    padding: calc(var(--btn-padding-vertical-large) - 1px) var(--btn-padding-horizontal-large);
+  }
+}
+
+.c-button--large {
+  --btn-font-size: calc(var(--dt-font-interactive-l-size) * 1px);
+  --btn-line-height: calc(var(--dt-font-interactive-l-line-height) * 1px);
+  --btn-icon-size: 24px;
+  --icon-size-override: 24px;
+  padding: var(--btn-padding-vertical-large) var(--btn-padding-horizontal-large);
+}
+.c-button--large.c-button--outline, .c-button--large.c-button--outline-inverse {
+  padding: calc(var(--btn-padding-vertical-large) - 1px) var(--btn-padding-horizontal-large);
+}
+
+.c-button--fullWidth {
+  --btn-inline-size: 100%;
+}
+
+.c-button--disabled {
+  --btn-text-color: var(--dt-color-content-disabled-solid);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.c-button--disabled:not(.c-button--ghost,
+.c-button--ghost-dark,
+.c-button--ghost-inverse,
+.c-button--ghost-inverse-light,
+.c-button--destructive-ghost) {
+  --int-states-mixin-bg-color: var(--dt-color-disabled-01);
+  --btn-text-color: var(--dt-color-content-disabled);
+}
+.c-button--disabled.c-button--outline, .c-button--disabled.c-button--outline-inverse {
+  border-color: var(--dt-color-disabled-01);
+}
+
+.c-button--truncate > span {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+"
+`;
+
 exports[`components/radio.css > should render the expected CSS content 1`] = `
 ".c-radio {
   --radio-dot-bg-color: var(--dt-color-content-interactive-primary);

@@ -1,0 +1,49 @@
+import { Meta, Source } from '@storybook/blocks';
+import * as ButtonStories from './pie-css-button.stories';
+
+<Meta title="Components/Button/CSS Only/Examples/Code" />
+
+# Code Examples
+
+Below are some basic HTML + CSS code examples for styling elements as buttons with PIE CSS. They correspond to stories of the same name. It is important to note
+that these examples are simply demonstrations and are not production-ready code. **Do not copy and paste these into your projects!**
+
+---
+
+## All Variants
+
+A grid showing all button variants across all sizes, including disabled states.
+
+<Source of={ButtonStories.AllVariants} language="html" dark />
+
+---
+
+## Full Width
+
+Full-width buttons spanning the width of their container.
+
+<Source of={ButtonStories.FullWidth} language="html" dark />
+
+---
+
+## Text Overflow
+
+Add the `c-button--truncate` modifier to truncate the button label with an ellipsis when it overflows. The button's width must be constrained externally (e.g. via `c-button--fullWidth` inside a sized container, or a `max-width` on a parent element).
+
+<Source of={ButtonStories.TextOverflow} language="html" dark />
+
+---
+
+## Banner Ad
+
+A banner ad example where the entire banner is an anchor tag wrapping a CSS-only button.
+
+<Source of={ButtonStories.BannerAd} language="html" dark />
+
+---
+
+## Responsive Sizes
+
+Buttons using the `c-button--responsive` class to automatically increase in size at wider viewports. Resize the browser to see the size changes.
+
+<Source of={ButtonStories.ResponsiveSizes} language="html" dark />
