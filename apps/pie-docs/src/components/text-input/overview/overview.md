@@ -228,9 +228,9 @@ In forms, aim to standardise widths for text inputs to enhance readability for u
 ### Placeholder
 
 Placeholder text is optional, it should not contain important information, and should only be displayed if it is useful to the user.
-  - Use clear placeholder text for the text input trigger so that users understand its purpose, e.g. example of the input data. 
-  - Placeholder text should not be used as a label 
-  - For additional information or instruction, use [assistive text](/components/assistive-text/) instead. 
+  - Use clear placeholder text for the text input trigger so that users understand its purpose, e.g. example of the input data.
+  - Placeholder text should not be used as a label
+  - For additional information or instruction, use [assistive text](/components/assistive-text/) instead.
 
 {% usage {
     do: {

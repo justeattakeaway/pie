@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-docs": minor
 ---
 
-point code page to storybook
+[Added] - Forms pages to Patterns section
