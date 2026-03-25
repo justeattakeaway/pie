@@ -74,6 +74,8 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
         { language: Language.SPANISH, country: Country.SPAIN, expectedLocale: 'es' },
         { language: Language.DUTCH, country: Country.BELGIUM, expectedLocale: 'nl' },
         { language: Language.FRENCH, country: Country.LUXEMBOURG, expectedLocale: 'fr' },
+        { language: Language.ENGLISH, country: Country.CANADA, expectedLocale: 'en-ca' },
+        { language: Language.FRENCH, country: Country.CANADA, expectedLocale: 'fr-ca' },
         { language: 'CA', country: 'es', expectedLocale: 'ca' }, // Test case-insensitivity
         { language: 'ca', country: 'ES', expectedLocale: 'ca' }, // Test case-insensitivity
         { language: 'ca', country: 'es', expectedLocale: 'ca' }, // Test case-insensitivity
