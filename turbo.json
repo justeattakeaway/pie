@@ -105,6 +105,7 @@
     },
     "lint:style": {
       "cache": true,
+      "dependsOn": ["@justeattakeaway/pie-css#build"],
       "outputs": []
     },
     "lint:style:fix": {
