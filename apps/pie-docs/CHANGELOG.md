@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.68.0
+
+### Minor Changes
+
+- [Added] - Forms pages to Patterns section ([#2711](https://github.com/justeattakeaway/pie/pull/2711)) by [@nindyahapsari](https://github.com/nindyahapsari)
+
+### Patch Changes
+
+- Updated dependencies [[`76e0750`](https://github.com/justeattakeaway/pie/commit/76e0750169bb9894b95548e9acee09a8ab339f5c)]:
+  - @justeattakeaway/pie-css@0.32.0
+  - @justeattakeaway/pie-webc@0.9.7
+  - @justeattakeaway/pie-icons-webc@1.21.1
+
 ## 4.67.0
 
 ### Minor Changes
