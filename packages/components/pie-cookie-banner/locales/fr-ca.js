@@ -4,13 +4,13 @@ export default {
         description: 'Nous utilisons des témoins et autres technologies pour faire fonctionner notre site Web, pour améliorer et personnaliser ton expérience, et pour effectuer des analyses en vue de l’optimisation et des publicités en partenariat avec des tiers. Nous utilisons nos propres témoins et des témoins de tiers. Nous configurons toujours les témoins nécessaires. En choisissant Tout rejeter, tu peux fermer la bannière et seuls les témoins nécessaires seront appliqués. En cliquant sur Gérer les préférences, tu peux ajuster tes préférences et obtenir plus de renseignements à propos de notre politique sur les témoins.',
         cta: {
             managePreferences: 'Gérer les préférences',
-            necessaryOnly: 'Tour rejeter',
+            necessaryOnly: 'Tout rejeter',
             acceptAll: 'Tout accepter',
         },
     },
     preferencesManagement: {
         title: 'Gérer des préférences',
-        description: 'Pour obtenir plus de renseignements au sujet de notre politique sur les témoins, veuillez consulter la section sur les témoins de notre </linkCookieStatement>.',
+        description: 'Pour obtenir plus de renseignements au sujet de notre politique sur les témoins, veuillez consulter la section sur les témoins de notre <linkCookieStatement>politique de confidentialité</linkCookieStatement>.',
         all: {
             title: 'Accepter tous les témoins supplémentaires',
         },
