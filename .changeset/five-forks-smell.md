@@ -3,4 +3,4 @@
 "@justeattakeaway/pie-cookie-banner": patch
 ---
 
-[Added] locale files for Canada to support cookie banner regional content
+[Added] - locale files for Canada to support cookie banner regional content
