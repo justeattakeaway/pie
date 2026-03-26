@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.32.0
+
+### Minor Changes
+
+- [Added] CSS only button classes for use on static, non-interactive HTML elements such as divs ([#2729](https://github.com/justeattakeaway/pie/pull/2729)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.31.2
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.13.0
+
+### Minor Changes
+
+- [Changed] - Refactored to pull base styles in from pie-css ([#2729](https://github.com/justeattakeaway/pie/pull/2729)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-spinner@1.4.10
+  - @justeattakeaway/pie-webc-core@12.0.0
+
 ## 1.12.9
 
 ### Patch Changes
