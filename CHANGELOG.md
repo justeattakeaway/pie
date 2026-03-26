@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.99.2
+
+### Patch Changes
+
+- [Fixed] - add tokens packages as peerDependencies ([#2732](https://github.com/justeattakeaway/pie/pull/2732)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 2.99.1
 
 ### Patch Changes

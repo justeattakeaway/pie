@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/stylelint-config-pie",
-  "version": "0.9.2",
+  "version": "1.0.0",
   "description": "Shareable Stylelint config for use with any front-end web projects across JET.",
   "repository": {
     "type": "git",
@@ -23,9 +23,16 @@
     "./ordering": "./rules/ordering.js"
   },
   "peerDependencies": {
+    "@justeat/pie-design-tokens": "*",
+    "@justeattakeaway/pie-css": "*",
     "stylelint": "16.x",
     "stylelint-config-standard-scss": "13.x",
     "stylelint-order": "6.x"
+  },
+  "peerDependenciesMeta": {
+    "@justeattakeaway/pie-css": {
+      "optional": true
+    }
   },
   "dependencies": {
     "@justeattakeaway/stylelint-no-logical-props-shorthands": "0.3.0"
