@@ -9,7 +9,7 @@ permalink: components/tag-icon-only/
 
 ## Overview
 
-The purpose of the icon only tag is to provide a quick and visually appealing way to highlight or identify specific items, topics or attributes. Icon only tags enhance the user experience by simplifying content organisation and facilitating content discovery and filtering. Icon only tags can be embedded in other components such as cards, data tables (among others) to help users understand and filter information more effectively.
+The purpose of the icon only tag is to provide a quick and visually appealing way to highlight or identify specific items, topics or attributes. Icon only tags are not interactive and enhance the user experience by simplifying content organisation and facilitating content discovery. Icon only tags can be embedded in other components such as cards, data tables (among others) to help users understand information more effectively.
 
 {% contentPageImage {
     src:"../../../../assets/img/components/tag-icon-only/hero.svg",
