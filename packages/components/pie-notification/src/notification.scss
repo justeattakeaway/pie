@@ -119,9 +119,15 @@
             margin-inline-start: auto;
         }
 
-        @include media('<md') {
-            &.c-notification-footer--stacked {
+        &.c-notification-footer--stacked {
+            @include media('<md') {
                 flex-direction: column-reverse;
+            }
+
+            @include media('>=md') {
+                > pie-button {
+                    width: auto;
+                }
             }
         }
     }

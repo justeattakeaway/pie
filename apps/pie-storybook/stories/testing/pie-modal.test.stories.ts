@@ -52,6 +52,7 @@ const modalStoryMeta: ModalStoryMeta = {
             control: 'boolean',
         },
         hasStackedActions: {
+            description: 'When true, the actions will expand to full width and stack vertically. Only available below the mid breakpoint.',
             control: 'boolean',
         },
         isHeadingEmphasised: {
