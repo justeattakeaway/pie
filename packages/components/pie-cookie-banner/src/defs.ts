@@ -212,6 +212,8 @@ export const defaultProps: DefaultProps = {
 // Available locale files
 export const availableLocales = new Set([
     `${Language.BULGARIAN}`,
+    `${Language.ENGLISH}-${Country.CANADA}`,
+    `${Language.FRENCH}-${Country.CANADA}`,
     `${Language.DANISH}`,
     `${Language.ENGLISH}-${Country.FRANCE}`,
     `${Language.FRENCH}-${Country.FRANCE}`,
