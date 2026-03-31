@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-toast
 
+## 0.12.34
+
+### Patch Changes
+
+- Updated dependencies [[`402ec79`](https://github.com/justeattakeaway/pie/commit/402ec79fb3ed5f77c241d19c09cff7bd66fe4e90)]:
+  - @justeattakeaway/pie-button@1.13.1
+
 ## 0.12.33
 
 ### Patch Changes

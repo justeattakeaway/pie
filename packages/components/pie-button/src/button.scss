@@ -10,6 +10,7 @@ $prefix: 'o-btn';
 
 :host([isfullwidth]) {
     display: block;
+    width: 100%;
 }
 
 // Base button styles

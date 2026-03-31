@@ -257,6 +257,12 @@
             @include media('<md') {
                 flex-direction: column;
             }
+
+            @include media('>=md') {
+                > pie-button {
+                    width: auto;
+                }
+            }
         }
     }
 
