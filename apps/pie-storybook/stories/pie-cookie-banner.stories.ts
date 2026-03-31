@@ -9,6 +9,9 @@ import {
     Language,
     defaultProps,
 } from '@justeattakeaway/pie-webc/components/cookie-banner';
+
+import '@justeattakeaway/pie-webc/components/modal';
+
 import { createStory } from '../utilities';
 
 type CookieBannerStoryMeta = Meta<CookieBannerProps>;
@@ -122,5 +125,35 @@ const ScrollablePageStoryTemplate = (props: CookieBannerProps) => html`
     ${BaseStoryTemplate(props)}
     ${createScrollablePageHTML()}`;
 
+/**
+ * Demonstrates the stacking context issue (DSW-3700) where a pie-modal
+ * opens on a page that already has pie-cookie-banner rendered.
+ * The modal's top-layer stacking causes it to appear above the cookie banner,
+ * preventing users from interacting with cookie preferences.
+ */
+const ModalStackingIssueStoryTemplate = (props: CookieBannerProps) => html`
+    ${BaseStoryTemplate(props)}
+    <div style="padding: var(--dt-spacing-e);">
+        <h1>Cookie Banner + Modal Stacking Issue</h1>
+        <p>
+            This story demonstrates the stacking context issue where a modal
+            opens on a page that already has the cookie banner visible.
+            The modal appears above the cookie banner, preventing users from
+            interacting with cookie preferences.
+        </p>
+    </div>
+    <pie-modal
+        heading="Example Modal"
+        headingLevel="h2"
+        ?isDismissible="${true}"
+        ?isOpen="${true}"
+        .leadingAction=${{ text: 'Confirm', variant: 'primary' }}
+        .supportingAction=${{ text: 'Cancel', variant: 'ghost' }}
+        .aria=${{ close: 'Close', loading: 'Loading' }}>
+        <p>This modal content should appear below the cookie banner in the stacking context,
+        but currently the modal's top-layer positioning causes it to render above the cookie banner.</p>
+    </pie-modal>`;
+
 export const Default = createStory<CookieBannerProps>(BaseStoryTemplate, defaultArgs)();
 export const ScrollablePage = createStory<CookieBannerProps>(ScrollablePageStoryTemplate, defaultArgs)();
+export const ModalStackingIssue = createStory<CookieBannerProps>(ModalStackingIssueStoryTemplate, defaultArgs)();
