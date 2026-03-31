@@ -29,7 +29,7 @@ This skill provides AI agents with deep knowledge of PIE component APIs, design 
 
 {% notification {
   type: "warning",
-  message: "We recommend installing the PIE Design System skill at 'Project', rather than 'Global' level.<br><br>Doing this means that the skill won't have to regenerate PIE documentation resources, when switching between applications locally."
+  message: "We recommend installing the PIE Design System skill at 'Project', rather than 'Global' level. Doing this means that the skill won't have to regenerate PIE documentation resources, when switching between applications locally."
 } %}
 
 After installing, ask your AI agent to "set up the PIE design system skill". This runs a bootstrap script that fetches documentation matching your installed PIE package versions.
