@@ -26,6 +26,7 @@
     "scripts": {
         "generate": "run -T ts-node --esm ./scripts/generate-token-map.ts",
         "build": "yarn generate && run -T vite build",
+        "generate:verify": "yarn generate && git diff --exit-code src/generated/",
         "test": "run -T vitest run",
         "lint:scripts": "run -T eslint .",
         "lint:scripts:fix": "yarn lint:scripts --fix",
