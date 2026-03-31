@@ -145,7 +145,7 @@ const ModalStackingIssueStoryTemplate = (props: CookieBannerProps) => html`
     <pie-modal
         heading="Example Modal"
         headingLevel="h2"
-        ?isDismissible="${true}"
+        ?isDismissible="${false}"
         ?isOpen="${true}"
         .leadingAction=${{ text: 'Confirm', variant: 'primary' }}
         .supportingAction=${{ text: 'Cancel', variant: 'ghost' }}
