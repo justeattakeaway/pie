@@ -1,5 +1,27 @@
 # @justeattakeaway/pie-modal
 
+## 1.25.10
+
+### Patch Changes
+
+- [Fixed] - Applied `width: 100%` to the `pie-button` host element when `isFullWidth` is set, ensuring buttons span full width in flex, grid, and block layouts. ([#2736](https://github.com/justeattakeaway/pie/pull/2736)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Updated] - `pie-cookie-banner`, `pie-modal`, and `pie-notification` to reset button width on desktop.
+
+- Updated dependencies [[`402ec79`](https://github.com/justeattakeaway/pie/commit/402ec79fb3ed5f77c241d19c09cff7bd66fe4e90)]:
+  - @justeattakeaway/pie-button@1.13.1
+
+## 1.25.9
+
+### Patch Changes
+
+- Updated dependencies [[`76e0750`](https://github.com/justeattakeaway/pie/commit/76e0750169bb9894b95548e9acee09a8ab339f5c)]:
+  - @justeattakeaway/pie-button@1.13.0
+  - @justeattakeaway/pie-icon-button@2.7.4
+  - @justeattakeaway/pie-spinner@1.4.10
+  - @justeattakeaway/pie-webc-core@12.0.0
+  - @justeattakeaway/pie-icons-webc@1.21.1
+
 ## 1.25.8
 
 ### Patch Changes

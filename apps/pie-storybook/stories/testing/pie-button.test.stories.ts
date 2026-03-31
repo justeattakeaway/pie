@@ -7,6 +7,7 @@ import {
     type ButtonProps as ButtonPropsBase, defaultProps, iconPlacements, responsiveSizes, sizes, types, variants,
 } from '@justeattakeaway/pie-webc/components/button';
 import '@justeattakeaway/pie-icons-webc/dist/IconPlusCircle.js';
+import '@justeattakeaway/pie-css/dist/helpers/typography.css';
 
 import {
     createStory, createVariantStory, type TemplateFunction, sanitizeAndRenderHTML,
@@ -496,3 +497,55 @@ export const DestructiveGhostVariations = createVariantStory<ButtonProps>(Templa
     ...sharedPropMatrix,
     variant: ['destructive-ghost'],
 }, { multiColumn: true });
+
+const IsFullWidthLayoutTemplate: TemplateFunction<ButtonProps> = () => html`
+    <style>
+        .layout-container {
+            margin-block-end: var(--dt-spacing-d);
+            padding: var(--dt-spacing-b);
+            border: 1px solid var(--dt-color-border-default);
+        }
+        .layout-label {
+            margin-block-end: var(--dt-spacing-b);
+        }
+        .flex-container {
+            display: flex;
+        }
+        .grid-container {
+            display: grid;
+        }
+        .block-container {
+            display: block;
+        }
+    </style>
+
+    <div class="layout-container">
+        <p class="layout-label u-font-body-strong-l">Flex container (display: flex)</p>
+        <div class="flex-container">
+            <pie-button isFullWidth data-test-id="pie-button-flex">Full Width in Flex</pie-button>
+        </div>
+    </div>
+
+    <div class="layout-container">
+        <p class="layout-label u-font-body-strong-l">Grid container (display: grid)</p>
+        <div class="grid-container">
+            <pie-button isFullWidth data-test-id="pie-button-grid">Full Width in Grid</pie-button>
+        </div>
+    </div>
+
+    <div class="layout-container">
+        <p class="layout-label u-font-body-strong-l">Block container (display: block)</p>
+        <div class="block-container">
+            <pie-button isFullWidth data-test-id="pie-button-block">Full Width in Block</pie-button>
+        </div>
+    </div>
+
+    <div class="layout-container">
+        <p class="layout-label u-font-body-strong-l">Flex container without isFullWidth (for comparison)</p>
+        <div class="flex-container">
+            <pie-button data-test-id="pie-button-flex-no-fullwidth">Without Full Width in Flex</pie-button>
+        </div>
+    </div>
+`;
+
+export const IsFullWidthLayoutVariations = createStory<ButtonProps>(IsFullWidthLayoutTemplate, defaultArgs)();

@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.73.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.9.8
+
+## 1.73.0
+
+### Minor Changes
+
+- [Added] - CSS only button stories ([#2729](https://github.com/justeattakeaway/pie/pull/2729)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`76e0750`](https://github.com/justeattakeaway/pie/commit/76e0750169bb9894b95548e9acee09a8ab339f5c)]:
+  - @justeattakeaway/pie-css@0.32.0
+  - @justeattakeaway/pie-webc@0.9.7
+  - @justeattakeaway/pie-icons-webc@1.21.1
+
 ## 1.72.5
 
 ### Patch Changes

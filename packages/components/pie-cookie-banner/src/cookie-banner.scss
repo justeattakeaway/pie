@@ -125,6 +125,10 @@ $breakpoint-wide: 700px;
 
         justify-content: flex-start;
         align-items: center;
+
+        > pie-button {
+            width: auto;
+        }
     }
 }
 
