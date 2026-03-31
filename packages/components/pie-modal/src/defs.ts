@@ -151,6 +151,16 @@ export type ModalProps = {
      * The aspect ratio of the image slot; applies only when `imageSlotMode` is set to `image`.
      */
     imageSlotAspectRatio?: typeof imageSlotAspectRatios[number];
+
+    /**
+     * When true, the modal uses `dialog.show()` instead of `dialog.showModal()`,
+     * keeping it in the regular stacking context where `z-index` applies.
+     * This allows higher z-index elements (such as `pie-cookie-banner`) to appear above the modal.
+     *
+     * A custom backdrop is rendered in place of the native `::backdrop` pseudo-element.
+     * No inertness or focus trapping is applied.
+     */
+    nonModal?: boolean;
 };
 
 /**
@@ -206,4 +216,5 @@ export const defaultProps: DefaultProps = {
     size: 'medium',
     backgroundColor: 'default',
     imageSlotAspectRatio: 'medium',
+    nonModal: false,
 };

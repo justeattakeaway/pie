@@ -122,6 +122,9 @@ export class PieModal extends PieElement implements ModalProps {
     @validPropertyValues(componentSelector, imageSlotAspectRatios, defaultProps.imageSlotAspectRatio)
     public imageSlotAspectRatio = defaultProps.imageSlotAspectRatio;
 
+    @property({ type: Boolean })
+    public nonModal = defaultProps.nonModal;
+
     @query('dialog')
     private _dialog!: HTMLDialogElement;
 
@@ -213,7 +216,11 @@ export class PieModal extends PieElement implements ModalProps {
             }
 
             // The ::backdrop pseudoelement is only shown if the modal is opened via JS
-            this._dialog.showModal();
+            if (this.nonModal) {
+                this._dialog.show();
+            } else {
+                this._dialog.showModal();
+            }
 
             /*
                 Performance:
@@ -625,6 +632,7 @@ export class PieModal extends PieElement implements ModalProps {
             isFooterPinned,
             isFullWidthBelowMid,
             isLoading,
+            nonModal,
             position,
             size,
             backgroundColor,
@@ -643,11 +651,16 @@ export class PieModal extends PieElement implements ModalProps {
             'c-modal--pinnedFooter': isFooterPinned,
             'c-modal--fullWidthBelowMid': isFullWidthBelowMid,
             [`c-modal--bg-${backgroundColor}`]: true,
+            'c-modal--nonModal': nonModal,
         };
 
         const ariaLabelForLoading = (isLoading && aria?.loading) || undefined;
 
         return html`
+        ${nonModal ? html`<div
+            class="c-modal-backdrop"
+            @click="${this._handleBackdropClick}"
+            data-test-id="modal-backdrop"></div>` : nothing}
         <dialog
             id="dialog"
             aria-label="${ifDefined(ariaLabelForLoading)}"
@@ -674,6 +687,16 @@ export class PieModal extends PieElement implements ModalProps {
             }
         </dialog>`;
     }
+
+    /**
+     * Dismisses the modal on custom backdrop click if `isDismissible` is `true`.
+     * Used in non-modal mode where there is no native `::backdrop`.
+     */
+    private _handleBackdropClick = (): void => {
+        if (this.isDismissible) {
+            this.isOpen = false;
+        }
+    };
 
     /**
      * Dismisses the modal on backdrop click if `isDismissible` is `true`.

@@ -128,18 +128,23 @@ const ScrollablePageStoryTemplate = (props: CookieBannerProps) => html`
 /**
  * Demonstrates the stacking context issue (DSW-3700) where a pie-modal
  * opens on a page that already has pie-cookie-banner rendered.
- * The modal's top-layer stacking causes it to appear above the cookie banner,
- * preventing users from interacting with cookie preferences.
+ *
+ * The modal uses `<dialog>.showModal()`, which places it in the browser's
+ * top layer — a special layer that always renders above all regular CSS
+ * stacking contexts, including `position: fixed` elements with high z-index.
+ * The cookie banner uses `position: fixed` with `z-index`, so the modal
+ * blocks access to it entirely.
  */
 const ModalStackingIssueStoryTemplate = (props: CookieBannerProps) => html`
     ${BaseStoryTemplate(props)}
     <div style="padding: var(--dt-spacing-e);">
-        <h1>Cookie Banner + Modal Stacking Issue</h1>
+        <h1>Cookie Banner + Modal Stacking Issue (DSW-3700)</h1>
         <p>
             This story demonstrates the stacking context issue where a modal
             opens on a page that already has the cookie banner visible.
-            The modal appears above the cookie banner, preventing users from
-            interacting with cookie preferences.
+            The modal's <code>showModal()</code> places it in the browser's top layer,
+            which always renders above <code>position: fixed</code> elements regardless
+            of <code>z-index</code>. The cookie banner is hidden behind the modal.
         </p>
     </div>
     <pie-modal
@@ -150,10 +155,47 @@ const ModalStackingIssueStoryTemplate = (props: CookieBannerProps) => html`
         .leadingAction=${{ text: 'Confirm', variant: 'primary' }}
         .supportingAction=${{ text: 'Cancel', variant: 'ghost' }}
         .aria=${{ close: 'Close', loading: 'Loading' }}>
-        <p>This modal content should appear below the cookie banner in the stacking context,
-        but currently the modal's top-layer positioning causes it to render above the cookie banner.</p>
+        <p>The cookie banner is rendered on this page but hidden behind this modal
+        because the browser's top layer always sits above <code>position: fixed</code>
+        elements. There is no CSS workaround — <code>z-index</code> has no effect
+        against the top layer.</p>
     </pie-modal>`;
 
 export const Default = createStory<CookieBannerProps>(BaseStoryTemplate, defaultArgs)();
 export const ScrollablePage = createStory<CookieBannerProps>(ScrollablePageStoryTemplate, defaultArgs)();
 export const ModalStackingIssue = createStory<CookieBannerProps>(ModalStackingIssueStoryTemplate, defaultArgs)();
+
+/**
+ * Demonstrates the `nonModal` prop fix for DSW-3700.
+ *
+ * The modal uses `dialog.show()` instead of `dialog.showModal()`, keeping it
+ * in the regular stacking context. The cookie banner's higher `z-index` (5000
+ * vs the modal's 4000) means it naturally renders above the modal and its
+ * custom backdrop, and is fully interactive.
+ */
+const ModalStackingFixStoryTemplate = (props: CookieBannerProps) => html`
+    ${BaseStoryTemplate(props)}
+    <div style="padding: var(--dt-spacing-e);">
+        <h1>Cookie Banner + Modal Stacking Fix (DSW-3700)</h1>
+        <p>
+            The modal has <code>nonModal</code> set, so it uses
+            <code>dialog.show()</code> instead of <code>dialog.showModal()</code>.
+            This keeps the modal in the regular stacking context where
+            <code>z-index</code> applies. The cookie banner (z-index 5000) appears
+            above the modal (z-index 4000) and is fully interactive.
+        </p>
+    </div>
+    <pie-modal
+        heading="Example Modal"
+        headingLevel="h2"
+        ?isDismissible="${false}"
+        ?isOpen="${true}"
+        ?nonModal="${true}"
+        .leadingAction=${{ text: 'Confirm', variant: 'primary' }}
+        .supportingAction=${{ text: 'Cancel', variant: 'ghost' }}
+        .aria=${{ close: 'Close', loading: 'Loading' }}>
+        <p>This modal uses the <code>nonModal</code> prop. The cookie banner should
+        be visible and interactive above the modal and its backdrop.</p>
+    </pie-modal>`;
+
+export const ModalStackingFix = createStory<CookieBannerProps>(ModalStackingFixStoryTemplate, defaultArgs)();

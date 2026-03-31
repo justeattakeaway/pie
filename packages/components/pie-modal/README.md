@@ -24,6 +24,7 @@
 - [Accessibility](#accessibility)
   - [The `<dialog>` element](#the-dialog-element)
   - [Focus management](#focus-management)
+  - [Non-modal mode](#non-modal-mode)
 - [Questions and Support](#questions-and-support)
 - [Contributing](#contributing)
 
@@ -59,6 +60,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 | `backgroundColor`                | `"default"`, `"subtle"`, `"brand-01"`, `"brand-02"`, `"brand-03"`, `"brand-03-subtle"`, `"brand-04"`, `"brand-04-subtle"`, `"brand-05"`, `"brand-05-subtle"`, `"brand-06"`, `"brand-06-subtle"`, `"brand-08"`, `"brand-08-subtle"` | Sets the background color for the modal.           | `"default"` |
 | `imageSlotMode`                | `"image"`, `"illustration"`                         | This property controls if and how the image slot will display its content. `"image"` will display the slot content in a rectangle, covering the entire width of the modal, while `"illustration"` will display the slot content inside a square container. If not specified it will not display the image slot content. | —           |
 | `imageSlotAspectRatio`         | `"small"`, `"medium"`, `"large"`                    | If the `imageSlotMode` is set to `image`, this property controls the aspect ratio of the image container. The aspect ratios are for **narrow** breakpoints: `"small"` : `3:1`, `"medium"` : `16:9`, `"large"` : `4:3`, and for **wide** breakpoints: `"small"` : `4:1`, `"medium"` : `3:1`, `"large"` : `21:9`.                           | `"medium"`     |
+| `nonModal`                     | `true`, `false`                                   | When true, the modal uses `dialog.show()` instead of `dialog.showModal()`. See [Non-modal mode](#non-modal-mode) for details. **This is not a common pattern and should be avoided unless absolutely necessary.** | `false`     |
 
 ### Slots
 | Slot      | Description                                                        |
@@ -175,6 +177,19 @@ What the `<dialog>` does not provide is a circular focus trap. Instead, users ca
 
 ### Focus management
 By default, the `<dialog>` element will automatically focus the first focusable element inside of it when opened. Because our Modal can have close and back buttons, these will likely receive focus when opening the modal. To circumvent this, we would suggest using the `autofocus` attribute on the first element you'd like to receive focus when the modal opens. Please be aware that Safari does not support the `autofocus` attribute, so you may need to manage focus manually in this browser.
+
+### Non-modal mode
+
+When `nonModal` is set to `true`, the modal uses `dialog.show()` instead of `dialog.showModal()`. This keeps the dialog in the regular CSS stacking context rather than the browser's top layer, meaning standard `z-index` rules apply to it.
+
+**This prop exists solely for specific situations where the default `showModal()` behaviour would compete with a higher-priority component.** The primary use case is when a cookie banner (or similar legally required overlay) must remain visible and interactive above the modal. Because `showModal()` places the dialog in the browser's top layer — which always renders above all `position: fixed` elements regardless of `z-index` — the cookie banner would otherwise be completely hidden behind the modal.
+
+#### Important caveats
+
+- **No inertness is applied.** Content behind the modal is not made inert. Users can interact with elements outside the modal via mouse and keyboard.
+- **No focus trapping is applied.** Users can tab to elements outside the modal. This is by design — applying a focus trap would prevent keyboard access to the very component (e.g. the cookie banner) that needs to remain interactive.
+- **A custom backdrop is rendered.** Since the native `::backdrop` pseudo-element is only available with `showModal()`, a custom backdrop overlay is rendered in its place. Clicking the backdrop will dismiss the modal if `isDismissible` is `true`.
+- **This is not a common pattern and should be avoided unless absolutely necessary.** The standard `showModal()` behaviour provides important accessibility guarantees (inertness, focus containment) that `nonModal` deliberately omits. Only use this prop when a higher-priority overlay must remain accessible above the modal.
 
 ## Questions and Support
 

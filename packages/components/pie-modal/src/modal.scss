@@ -520,4 +520,39 @@
           transform: none;
         }
       }
+
+    // Non-modal mode: dialog.show() instead of dialog.showModal()
+    // Stays in the regular stacking context so z-index works against it
+    &.c-modal--nonModal {
+        z-index: var(--dt-z-index-modal);
+        inset: 0;
+        margin: auto;
+    }
+}
+
+// Custom backdrop for non-modal mode (::backdrop is only available with showModal)
+.c-modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: calc(var(--dt-z-index-modal) - 1);
+    background: var(--dt-color-overlay);
+    opacity: 0;
+    transition:
+        opacity var(--dt-motion-timing-200) var(--dt-motion-easing-persistent-functional),
+        display var(--dt-motion-timing-200) allow-discrete;
+
+    &:has(+ dialog[open]) {
+        display: block;
+        opacity: 1;
+
+        @starting-style {
+            opacity: 0;
+        }
+    }
+
+    // Safari >= 16 backdrop color fallback (matching the native ::backdrop workaround)
+    @supports (hanging-punctuation: first) and (font: -apple-system-body) and (-webkit-appearance: none) {
+        background: #{dt.$color-overlay};
+    }
 }
