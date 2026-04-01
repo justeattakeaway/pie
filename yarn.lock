@@ -3466,7 +3466,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-cookie-banner@1.7.19, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
+"@justeattakeaway/pie-cookie-banner@1.7.20, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
   dependencies:
@@ -3541,7 +3541,7 @@ __metadata:
     "@justeattakeaway/pie-icons": 5.22.0
     "@justeattakeaway/pie-icons-webc": 1.21.1
     "@justeattakeaway/pie-monorepo-utils": 0.7.0
-    "@justeattakeaway/pie-webc": 0.9.8
+    "@justeattakeaway/pie-webc": 0.9.9
     "@lit-labs/eleventy-plugin-lit": 1.0.5
     "@lit-labs/ssr-client": 1.1.7
     "@types/markdown-it": 13.0.2
@@ -3847,7 +3847,7 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": 5.21.0
     "@justeattakeaway/pie-icons-webc": 1.21.1
     "@justeattakeaway/pie-monorepo-utils": 0.7.0
-    "@justeattakeaway/pie-webc": 0.9.8
+    "@justeattakeaway/pie-webc": 0.9.9
     "@storybook/addon-a11y": 8.4.5
     "@storybook/addon-designs": 8.0.4
     "@storybook/addon-essentials": 8.4.5
@@ -4024,7 +4024,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc@0.9.8, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+"@justeattakeaway/pie-webc@0.9.9, @justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
@@ -4037,7 +4037,7 @@ __metadata:
     "@justeattakeaway/pie-checkbox-group": 1.0.15
     "@justeattakeaway/pie-chip": 0.15.20
     "@justeattakeaway/pie-components-config": 0.21.0
-    "@justeattakeaway/pie-cookie-banner": 1.7.19
+    "@justeattakeaway/pie-cookie-banner": 1.7.20
     "@justeattakeaway/pie-data-table": 0.3.11
     "@justeattakeaway/pie-divider": 1.5.18
     "@justeattakeaway/pie-form-label": 0.18.19
