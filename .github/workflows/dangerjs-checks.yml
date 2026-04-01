@@ -31,6 +31,6 @@ jobs:
           os: ubuntu-latest
       # Run Danger Checks
       - name: Danger
-        run: yarn danger ci --failOnErrors --id gh-app
+        run: yarn danger ci --failOnErrors --id gh-app --removePreviousComments
         env:
           DANGER_GITHUB_API_TOKEN: ${{ steps.get-token.outputs.token }}
