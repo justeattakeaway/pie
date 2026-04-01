@@ -212,8 +212,11 @@ async function updateIcons () {
         // check if is running on GHA and setup the git user
         if (process.env.GITHUB_ACTIONS) {
             // configure git and push
-            execSync('git config --global user.name "pie-design-system-bot"');
-            execSync('git config --global user.email "username@users.noreply.github.com"');
+            const gitUserName = process.env.GIT_USER_NAME || 'github-actions[bot]';
+            const gitUserEmail = process.env.GIT_USER_EMAIL || '41898282+github-actions[bot]@users.noreply.github.com';
+
+            execSync(`git config --global user.name "${gitUserName}"`);
+            execSync(`git config --global user.email "${gitUserEmail}"`);
         }
 
         const gitUpdatedPaths = [changesetFilePath, iconsDataFilePath, pieDocsTestsPath, pieDocsChangesetFilePath]
