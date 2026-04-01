@@ -1,6 +1,6 @@
 {
     "name": "@justeattakeaway/pie-token-map",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Programmatic lookup of PIE design tokens by name, returning CSS variable references.",
     "type": "module",
     "main": "dist/index.js",

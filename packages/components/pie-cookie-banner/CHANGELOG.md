@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.7.20
+
+### Patch Changes
+
+- [Added] - locale files for Canada to support cookie banner regional content ([#2737](https://github.com/justeattakeaway/pie/pull/2737)) by [@cacuba](https://github.com/cacuba)
+
 ## 1.7.19
 
 ### Patch Changes
