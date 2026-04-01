@@ -64,6 +64,3 @@ The PIE Figma Make template provides a streamlined, low-code environment for ini
 
 Our `guidelines.md` file is specifically focused on how to leverage PIE assets and logic within advanced prototyping tools and custom code environments. These instructions ensure that your AI-driven components maintain visual and functional parity with the PIE Design System. You can download the latest version of our guidelines file on the `#help-designsystem` channel in the **Agentic AI Resources** tab.
 
-## Artifacts
-
-Coming soon.
