@@ -1,0 +1,39 @@
+{
+    "name": "@justeattakeaway/pie-token-map",
+    "version": "0.1.0",
+    "description": "Programmatic lookup of PIE design tokens by name, returning CSS variable references.",
+    "type": "module",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "src",
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "license": "Apache-2.0",
+    "sideEffects": false,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/justeattakeaway/pie.git",
+        "directory": "packages/tools/pie-token-map"
+    },
+    "pieMetadata": {
+        "componentStatus": "alpha"
+    },
+    "scripts": {
+        "generate": "run -T ts-node --esm ./scripts/generate-token-map.ts",
+        "build": "yarn generate && run -T vite build",
+        "generate:verify": "yarn generate && git diff --exit-code src/generated/",
+        "test": "run -T vitest run",
+        "lint:scripts": "run -T eslint .",
+        "lint:scripts:fix": "yarn lint:scripts --fix",
+        "watch": "run -T vite build --watch"
+    },
+    "devDependencies": {
+        "@justeat/pie-design-tokens": "7.11.1",
+        "@justeattakeaway/pie-components-config": "*"
+    }
+}
