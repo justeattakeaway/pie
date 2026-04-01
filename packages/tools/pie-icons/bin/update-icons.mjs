@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 import path from 'path';
-import { execSync } from 'child_process';
+import { execFileSync, execSync } from 'child_process';
 import {
     emptyDirSync, removeSync, readJSONSync, writeJsonSync,
 } from 'fs-extra/esm';
@@ -215,8 +215,8 @@ async function updateIcons () {
             const gitUserName = process.env.GIT_USER_NAME || 'github-actions[bot]';
             const gitUserEmail = process.env.GIT_USER_EMAIL || '41898282+github-actions[bot]@users.noreply.github.com';
 
-            execSync(`git config --global user.name "${gitUserName}"`);
-            execSync(`git config --global user.email "${gitUserEmail}"`);
+            execFileSync('git', ['config', '--global', 'user.name', gitUserName]);
+            execFileSync('git', ['config', '--global', 'user.email', gitUserEmail]);
         }
 
         const gitUpdatedPaths = [changesetFilePath, iconsDataFilePath, pieDocsTestsPath, pieDocsChangesetFilePath]
