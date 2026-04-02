@@ -40,6 +40,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
         with:
+          github-token: ${{ steps.get-token.outputs.token }}
           script: |
             try {
               const pullRequest = await github.rest.pulls.get({
