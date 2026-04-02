@@ -26,7 +26,6 @@ env:
   HUSKY: 0
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-  GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
 
 jobs:
   changesets:
@@ -61,6 +60,12 @@ jobs:
       with:
         node-version: ${{ inputs.node-version }}
         os: ${{ inputs.os }}
+    - name: Generate GitHub App token
+      id: get-token
+      uses: navikt/github-app-token-generator@b96ff604b2300989cd1105e3fad09199fca56681 # v1.2.1
+      with:
+        app-id: ${{ vars.GH_APP_ID }}
+        private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
     - name: Append NPM token to .npmrc
       run: |
         cat << EOF > "$HOME/.npmrc"
@@ -87,6 +92,8 @@ jobs:
       id: changesets-main
       if: contains(github.ref_name, 'main')
       uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1.5.3
+      env:
+        GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
       with:
         version: yarn changeset:version
         publish: yarn changeset:publish
@@ -102,6 +109,8 @@ jobs:
     - name: Create beta release PR
       if: contains(github.ref_name, 'beta')
       uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1.5.3
+      env:
+        GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
       with:
         version: yarn changeset:version
         publish: yarn changeset:publish
@@ -115,6 +124,8 @@ jobs:
     - name: Create feature release PR
       if: contains(github.ref_name, 'feature')
       uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1.5.3
+      env:
+        GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
       with:
         version: yarn changeset:version
         publish: yarn changeset:publish
