@@ -1,5 +1,11 @@
 # @justeattakeaway/eslint-plugin-snacks-pie-migration
 
+## 0.4.1
+
+### Patch Changes
+
+- [Added] - locale files for Canada to support cookie banner regional content ([#2737](https://github.com/justeattakeaway/pie/pull/2737)) by [@cacuba](https://github.com/cacuba)
+
 ## 0.4.0
 
 ### Minor Changes

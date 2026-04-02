@@ -6,10 +6,10 @@ const { pr } = danger.github;
 const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
 
 const isDependabotPR = pr.user.login === 'dependabot[bot]';
-const isPieBotPR = pr.user.login === 'pie-design-system-bot';
+const isAutomationPR = pr.user.type === 'Bot';
 
 // PR Title validation (only for non-bot PRs)
-if (!isDependabotPR && !isPieBotPR) {
+if (!isAutomationPR) {
     const title = pr.title;
     
     if (!validatePrTitle(title)) {
@@ -18,7 +18,7 @@ if (!isDependabotPR && !isPieBotPR) {
 }
 
 // PIE Webc major versioning check (only for non-bot PRs)
-if (!isDependabotPR && !isPieBotPR) {
+if (!isAutomationPR) {
     try {
         execSync('npx detect-webc-major-version', { stdio: 'pipe' });
     } catch (err) {

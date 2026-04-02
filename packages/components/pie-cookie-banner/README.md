@@ -108,6 +108,8 @@ And the following bespoke locales are supported (_sometimes added to accommodate
 ```js
 en-fr (ENGLISH-FRANCE)
 fr-fr (FRENCH-FRANCE)
+en-ca (ENGLISH-CANADA)
+fr-ca (FRENCH-CANADA)
 ```
 (*) This is the logic order for loading the locale;
 

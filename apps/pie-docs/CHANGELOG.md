@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.69.0
+
+### Minor Changes
+
+- [Changed] - Skill docs update and add condition to help with monorepo support ([#2734](https://github.com/justeattakeaway/pie/pull/2734)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.9.9
+
 ## 4.68.1
 
 ### Patch Changes
