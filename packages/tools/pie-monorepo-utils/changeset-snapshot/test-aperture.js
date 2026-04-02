@@ -11,7 +11,10 @@ module.exports = async ({ github, context }, execa) => {
 
         // Extract snapshot version and package names
         const [snapshotVersion] = newTags[0].match(/\d{14}$/);
-        const packageNames = newTags.map((tag) => `@justeattakeaway/${tag.match(/pie-[\w-]+/)[0]}`);
+        const packageNames = newTags
+            .map((tag) => tag.match(/pie-[\w-]+/))
+            .filter(Boolean)
+            .map((match) => `@justeattakeaway/${match[0]}`);
 
         try {
             // Attempt to dispatch event to PIE Aperture
