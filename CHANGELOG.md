@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.100.0
+
+### Minor Changes
+
+- [Changed] - update workflows from bot to gh app ([#2746](https://github.com/justeattakeaway/pie/pull/2746)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.99.2
 
 ### Patch Changes

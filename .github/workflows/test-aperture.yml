@@ -24,10 +24,17 @@ jobs:
         with:
           permission: write
 
+      - name: Generate GitHub App token
+        id: get-token
+        uses: navikt/github-app-token-generator@b96ff604b2300989cd1105e3fad09199fca56681 # v1.2.1
+        with:
+          app-id: ${{ vars.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
       - name: Add initial reaction
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
-          token: ${{ secrets.CHANGESETS_TOKEN }}
+          token: ${{ steps.get-token.outputs.token }}
           comment-id: ${{ github.event.comment.id }}
           reactions: eyes
 
@@ -35,7 +42,7 @@ jobs:
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         id: pr_data
         env:
-          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
         with:
           script: |
             try {
@@ -66,9 +73,9 @@ jobs:
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         id: build-link
         env:
-          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
         with:
-          github-token: ${{ secrets.CHANGESETS_TOKEN }}
+          github-token: ${{ steps.get-token.outputs.token }}
           script: |
             try {
               const buildLink = '${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}';
@@ -91,7 +98,7 @@ jobs:
       - uses: xt0rted/pull-request-comment-branch@d97294d304604fa98a2600a6e2f916a84b596dc7 # v2.0.0
         id: comment-branch
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          repo_token: ${{ steps.get-token.outputs.token }}
 
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -101,7 +108,7 @@ jobs:
       - name: Checkout pull request branch
         run: gh pr checkout ${{ github.event.issue.number }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
 
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
@@ -141,11 +148,11 @@ jobs:
       - name: Create and publish snapshot release and trigger aperture
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         env:
-          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
           PIE_BRANCH: ${{ steps.comment-branch.outputs.head_ref }}
           PIE_PR_NUMBER: ${{ github.event.issue.number }}
         with:
-          github-token: ${{ secrets.CHANGESETS_TOKEN }}
+          github-token: ${{ steps.get-token.outputs.token }}
           script: |
             const execa = require('execa');
             const script = require('./packages/tools/pie-monorepo-utils/changeset-snapshot/test-aperture.js')
@@ -156,5 +163,5 @@ jobs:
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
-          token: ${{ secrets.CHANGESETS_TOKEN }}
+          token: ${{ steps.get-token.outputs.token }}
           body: The build failed, please see the [logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) or take a look at the [Workflow Tooling wiki page](https://github.com/justeattakeaway/pie/wiki/Workflow-Tooling#snapshot-releases) to make sure your PR meets the requirements.
