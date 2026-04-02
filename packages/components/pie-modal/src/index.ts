@@ -638,10 +638,10 @@ export class PieModal extends PieElement implements ModalProps {
             'c-modal': true,
             [`c-modal--${size}`]: true,
             'c-modal--top': position === 'top',
-            'c-modal--dismissible': isDismissible,
-            'c-modal--loading': isLoading,
-            'c-modal--pinnedFooter': isFooterPinned,
-            'c-modal--fullWidthBelowMid': isFullWidthBelowMid,
+            'is-dismissible': isDismissible,
+            'is-loading': isLoading,
+            'is-pinnedFooter': isFooterPinned,
+            'is-fullWidthBelowMid': isFullWidthBelowMid,
             [`c-modal--bg-${backgroundColor}`]: true,
         };
 

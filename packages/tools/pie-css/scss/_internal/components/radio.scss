@@ -6,7 +6,7 @@
     @include radio.radio-animations;
 }
 
-.c-radio--error {
+.has-error {
     @include radio.radio-error;
     @include radio.radio-interactive-state('dt-color-support-error');
 }

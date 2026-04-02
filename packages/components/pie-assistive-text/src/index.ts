@@ -48,7 +48,7 @@ export class PieAssistiveText extends PieElement implements AssistiveTextProps {
 
         const classes = {
             'c-assistiveText': true,
-            'c-assistiveText--isVisuallyHidden': isVisuallyHidden,
+            'is-visuallyHidden': isVisuallyHidden,
             [`c-assistiveText--${variant}`]: true,
         };
 

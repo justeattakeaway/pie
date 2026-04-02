@@ -71,7 +71,7 @@
             border-color var(--dt-motion-timing-100) var(--checkbox-motion-easing);
     }
 
-    &.c-checkbox-tick--allow-animation {
+    &.is-animated {
         @media (prefers-reduced-motion: no-preference) {
             animation: scaleDown var(--dt-motion-timing-100) var(--checkbox-motion-easing);
         }
@@ -86,13 +86,13 @@
         --checkbox-border-color: var(--dt-color-support-error);
     }
 
-    &.c-checkbox-tick--allow-animation.c-checkbox-tick--checked {
+    &.is-animated.is-checked {
         @media (prefers-reduced-motion: no-preference) {
             animation: scaleUp var(--dt-motion-timing-100) var(--checkbox-motion-easing);
         }
     }
 
-    &.c-checkbox-tick--checked {
+    &.is-checked {
         &:not(.is-disabled) {
             --checkbox-bg-color: var(--dt-color-interactive-brand);
             --checkbox-border-color: var(--checkbox-bg-color);
@@ -104,7 +104,7 @@
         }
     }
 
-    &.c-checkbox-tick--checked:before {
+    &.is-checked:before {
         content: "";
         position: relative;
         top: 55%;
@@ -136,11 +136,11 @@
     }
 
 
-    &.c-checkbox-tick--checked.c-checkbox-tick--allow-animation:before {
+    &.is-checked.is-animated:before {
         animation: checkboxCheck var(--dt-motion-timing-150) var(--checkbox-motion-easing) forwards;
     }
     
-    &.c-checkbox-tick--checked:not(.c-checkbox-tick--allow-animation):before {
+    &.is-checked:not(.is-animated):before {
         width: 8px;
         height: 16px;
         border-color: #fff;
@@ -149,12 +149,12 @@
     }
 
 
-    &.c-checkbox-tick--checked:dir(rtl):before {
+    &.is-checked:dir(rtl):before {
         left: unset;
         right: 50%;
     }
 
-    &.c-checkbox-tick--indeterminate {
+    &.is-indeterminate {
         &:not(.is-disabled) {
             --checkbox-bg-color: var(--dt-color-interactive-brand);
             --checkbox-border-color: var(--checkbox-bg-color);
@@ -166,7 +166,7 @@
         }
     }
 
-    &.c-checkbox-tick--indeterminate:after {
+    &.is-indeterminate:after {
         width: 16px;
 
         @media (prefers-reduced-motion: no-preference) {
@@ -329,8 +329,8 @@
         }
     }
 
-    &.c-checkbox--checked,
-    &.c-checkbox--indeterminate {
+    &.is-checked,
+    &.is-indeterminate {
         &:not(.is-disabled):hover {
             .c-checkbox-tick {
                 --checkbox-bg-color: hsl(

@@ -32,6 +32,6 @@
     --assistive-text-color: var(--dt-color-content-error-solid);
 }
 
-.c-assistiveText--isVisuallyHidden {
+.is-visuallyHidden {
     @include p.visually-hidden;
 }

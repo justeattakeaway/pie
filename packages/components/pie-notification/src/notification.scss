@@ -35,7 +35,7 @@
     font-weight: var(--notification-font-weight);
     color: var(--dt-color-content-default);
 
-    &.c-notification--compact {
+    &.is-compact {
         --notification-direction: row;
     }
 
@@ -97,7 +97,7 @@
         align-items: center;
         gap: var(--dt-spacing-c);
 
-        &.c-notification-content-section--dismissible {
+        &.is-dismissible {
             max-width: calc(100% - var(--notification-close-icon-offset) - 40px); // 40px is the size of the medium icon button
         }
     }
@@ -114,7 +114,7 @@
         justify-content: flex-end;
         gap: var(--dt-spacing-d);
 
-        &.c-notification-footer--compact {
+        &.is-compact {
             align-self: center;
             margin-inline-start: auto;
         }

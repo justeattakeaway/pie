@@ -103,7 +103,7 @@
 ///     @include radio-interactive-state('dt-color-interactive-brand');
 ///   }
 /// @example scss - Using with error color
-///   .my-radio--error {
+///   .has-error {
 ///     @include radio-interactive-state('dt-color-support-error');
 ///   }
 @mixin radio-interactive-state($bg-color) {
@@ -156,7 +156,7 @@
 
 /// Error state modifier that overrides color custom properties
 /// @example scss - Applying error state
-///   .my-radio--error {
+///   .has-error {
 ///     @include radio-error();
 ///   }
 @mixin radio-error() {

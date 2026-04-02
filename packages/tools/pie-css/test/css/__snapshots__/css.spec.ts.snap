@@ -531,12 +531,12 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
   --btn-inline-size: 100%;
 }
 
-.c-button--disabled {
+.is-disabled {
   --btn-text-color: var(--dt-color-content-disabled-solid);
   cursor: not-allowed;
   pointer-events: none;
 }
-.c-button--disabled:not(.c-button--ghost,
+.is-disabled:not(.c-button--ghost,
 .c-button--ghost-dark,
 .c-button--ghost-inverse,
 .c-button--ghost-inverse-light,
@@ -544,7 +544,7 @@ exports[`components/button.css > should render the expected CSS content 1`] = `
   --int-states-mixin-bg-color: var(--dt-color-disabled-01);
   --btn-text-color: var(--dt-color-content-disabled);
 }
-.c-button--disabled.c-button--outline, .c-button--disabled.c-button--outline-inverse {
+.is-disabled.c-button--outline, .is-disabled.c-button--outline-inverse {
   border-color: var(--dt-color-disabled-01);
 }
 
@@ -670,41 +670,41 @@ exports[`components/radio.css > should render the expected CSS content 1`] = `
   }
 }
 
-.c-radio--error {
+.has-error {
   --radio-bg-color--checked: var(--dt-color-support-error);
   --radio-border-color: var(--dt-color-support-error);
 }
-.c-radio--error:hover:not(:checked, :disabled) {
+.has-error:hover:not(:checked, :disabled) {
   --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-hover-01));
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
-  .c-radio--error:hover:not(:checked, :disabled) {
+  .has-error:hover:not(:checked, :disabled) {
     --radio-bg-color: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), transparent);
   }
 }
-.c-radio--error:active:not(:checked, :disabled) {
+.has-error:active:not(:checked, :disabled) {
   --radio-bg-color: hsl(var(--dt-color-black-h), var(--dt-color-black-s), var(--dt-color-black-l), var(--dt-color-active-01));
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
-  .c-radio--error:active:not(:checked, :disabled) {
+  .has-error:active:not(:checked, :disabled) {
     --radio-bg-color: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), transparent);
   }
 }
-.c-radio--error:hover:checked:not(:disabled):before {
+.has-error:hover:checked:not(:disabled):before {
   --radio-bg-color--checked: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) - var(--dt-color-hover-01)));
   --radio-border-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) - var(--dt-color-hover-01)));
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
-  .c-radio--error:hover:checked:not(:disabled):before {
+  .has-error:hover:checked:not(:disabled):before {
     --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-hover-01-bg) var(--dt-color-hover-01), var(--dt-color-support-error));
   }
 }
-.c-radio--error:active:checked:not(:disabled):before {
+.has-error:active:checked:not(:disabled):before {
   --radio-bg-color--checked: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) - var(--dt-color-active-01)));
   --radio-border-color: hsl(var(--dt-color-support-error-h), var(--dt-color-support-error-s), calc(var(--dt-color-support-error-l) - var(--dt-color-active-01)));
 }
 @supports (background-color: color-mix(in srgb, black, white)) {
-  .c-radio--error:active:checked:not(:disabled):before {
+  .has-error:active:checked:not(:disabled):before {
     --radio-bg-color--checked: color-mix(in srgb, var(--dt-color-active-01-bg) var(--dt-color-active-01), var(--dt-color-support-error));
   }
 }

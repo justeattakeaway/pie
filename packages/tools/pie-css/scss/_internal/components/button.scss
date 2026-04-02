@@ -85,7 +85,7 @@
 }
 
 // Disabled
-.c-button--disabled {
+.is-disabled {
     @include button.button-disabled;
 }
 

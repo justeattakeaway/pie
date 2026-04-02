@@ -98,7 +98,7 @@ Apply the `c-button` class along with variant and size modifiers to a static ele
 </div>
 
 <!-- Disabled state -->
-<div class="c-button c-button--primary c-button--medium c-button--disabled">
+<div class="c-button c-button--primary c-button--medium is-disabled">
   Disabled
 </div>
 
@@ -148,7 +148,7 @@ Apply the `c-button` class along with variant and size modifiers to a static ele
 
 | Class | Description |
 |-------|-------------|
-| `.c-button--disabled` | Disabled appearance (cursor: not-allowed, pointer-events: none) |
+| `.is-disabled` | Disabled appearance (cursor: not-allowed, pointer-events: none) |
 | `.c-button--fullWidth` | Makes the button span 100% of its container |
 | `.c-button--truncate` | Truncates the label with an ellipsis when text overflows the button's width |
 | `.c-button--responsive` | Enables responsive size bumping at wider viewports |
@@ -194,10 +194,10 @@ Outline variants (`outline`, `outline-inverse`) include a 1px border and automat
 
 ### Disabled
 
-The disabled modifier uses class-based selectors (`.c-button--disabled`) rather than the `:disabled` pseudo-class, because these CSS classes target non-interactive elements where `:disabled` is not applicable.
+The disabled modifier uses class-based selectors (`.is-disabled`) rather than the `:disabled` pseudo-class, because these CSS classes target non-interactive elements where `:disabled` is not applicable.
 
 ```html
-<div class="c-button c-button--primary c-button--medium c-button--disabled">
+<div class="c-button c-button--primary c-button--medium is-disabled">
   Disabled
 </div>
 ```

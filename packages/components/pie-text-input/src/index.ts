@@ -200,7 +200,7 @@ export class PieTextInput extends FormControlMixin(RtlMixin(DelegatesFocusMixin(
             [`c-textInput--${size}`]: true,
             [`c-textInput--${status}`]: true,
             'is-disabled': disabled,
-            'c-textInput--readonly': readonly,
+            'is-readonly': readonly,
         };
 
         return html`

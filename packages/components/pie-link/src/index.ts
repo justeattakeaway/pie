@@ -139,7 +139,7 @@ export class PieLink extends PieElement implements LinkProps {
             'c-link--underline-reversed': this.underline === 'reversed',
             'c-link--bold': this.isBold,
             'c-link--standalone': this.isStandalone,
-            'c-link--hasVisited': this.hasVisited,
+            'has-visited': this.hasVisited,
         };
 
         if (this.tag === 'button') {

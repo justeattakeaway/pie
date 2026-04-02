@@ -116,7 +116,7 @@ export class PieNotification extends PieElement implements NotificationProps {
         } = this;
         const classes = {
             [`${componentClass}-footer`]: true,
-            [`${componentClass}-footer--compact`]: isCompact,
+            'is-compact': isCompact,
             [`${componentClass}-footer--stacked`]: hasStackedActions && !isCompact,
         };
         return html`
@@ -292,12 +292,12 @@ export class PieNotification extends PieElement implements NotificationProps {
             [componentClass]: true,
             [`${componentClass}--${variant}`]: true,
             [`${componentClass}--${position}`]: true,
-            [`${componentClass}--compact`]: isCompact,
+            'is-compact': isCompact,
         };
 
         const contentSectionClasses = {
             [`${componentClass}-content-section`]: true,
-            [`${componentClass}-content-section--dismissible`]: showCloseButton,
+            'is-dismissible': showCloseButton,
         };
 
         return html`

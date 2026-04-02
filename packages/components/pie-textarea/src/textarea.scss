@@ -62,7 +62,7 @@
     }
   }
 
-  &.c-textarea--readonly {
+  &.is-readonly {
     --textarea-background-color: var(--dt-color-container-subtle);
     --textarea-border-color: var(--dt-color-border-form);
   }
@@ -75,7 +75,7 @@
   }
 
   @media (hover: hover) {
-    &:hover:not(.is-disabled, .c-textarea--readonly) {
+    &:hover:not(.is-disabled, .is-readonly) {
       --textarea-background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
 
       @supports (background-color: color-mix(in srgb, black, white)) {
@@ -119,7 +119,7 @@
     --textarea-min-height: var(--textarea-height);
   }
 
-  &.c-textarea--error {
+  &.has-error {
     --textarea-border-color: var(--dt-color-support-error);
   }
 }
