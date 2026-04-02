@@ -1,6 +1,5 @@
 ---
-"@justeattakeaway/pie-icons": minor
 "pie-monorepo": minor
 ---
 
-[Changed] - update workflows from bot to gh app
+[Fixed] - changeset release workflow fix for gh app
