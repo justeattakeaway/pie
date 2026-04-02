@@ -3531,7 +3531,7 @@ __metadata:
     "@justeat/pie-design-tokens": 7.11.1
     "@justeattakeaway/browserslist-config-pie": 0.2.1
     "@justeattakeaway/pie-css": 0.32.0
-    "@justeattakeaway/pie-icons": 5.22.0
+    "@justeattakeaway/pie-icons": 5.23.0
     "@justeattakeaway/pie-icons-webc": 1.21.1
     "@justeattakeaway/pie-monorepo-utils": 0.7.0
     "@justeattakeaway/pie-webc": 0.9.9
@@ -3601,7 +3601,7 @@ __metadata:
     "@babel/core": 7.24.9
     "@babel/node": 7.24.7
     "@babel/preset-react": 7.24.7
-    "@justeattakeaway/pie-icons": 5.22.0
+    "@justeattakeaway/pie-icons": 5.23.0
     "@justeattakeaway/pie-icons-configs": 5.21.0
     "@rollup/plugin-node-resolve": 15.1.0
     "@svgr/core": 6.4.0
@@ -3621,7 +3621,7 @@ __metadata:
     "@babel/cli": 7.24.8
     "@babel/core": 7.24.9
     "@babel/eslint-parser": 7.24.7
-    "@justeattakeaway/pie-icons": 5.22.0
+    "@justeattakeaway/pie-icons": 5.23.0
     "@justeattakeaway/pie-icons-configs": 5.21.0
     "@rollup/plugin-commonjs": 25.0.8
     "@rollup/plugin-node-resolve": 15.1.0
@@ -3646,7 +3646,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc"
   dependencies:
     "@justeattakeaway/pie-components-config": 0.21.0
-    "@justeattakeaway/pie-icons": 5.22.0
+    "@justeattakeaway/pie-icons": 5.23.0
     "@justeattakeaway/pie-icons-configs": 5.21.0
     "@justeattakeaway/pie-webc-core": 12.0.0
     "@rollup/plugin-typescript": 11.1.6
@@ -3661,7 +3661,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons@5.22.0, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
+"@justeattakeaway/pie-icons@5.23.0, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons"
   dependencies:
@@ -18598,7 +18598,7 @@ __metadata:
     "@justeat/pie-design-tokens": 7.11.1
     "@justeattakeaway/browserslist-config-pie": 0.2.1
     "@justeattakeaway/generator-pie-component": 0.32.0
-    "@justeattakeaway/pie-icons": 5.22.0
+    "@justeattakeaway/pie-icons": 5.23.0
     "@justeattakeaway/pie-webc-testing": 0.13.5
     "@justeattakeaway/pie-wrapper-react": 0.14.3
     "@justeattakeaway/stylelint-config-pie": 1.0.0
