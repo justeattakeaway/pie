@@ -1,5 +1,23 @@
 # Changelog
 
+## 4.69.1
+
+### Patch Changes
+
+- Updated dependencies [[`58652bf`](https://github.com/justeattakeaway/pie/commit/58652bf8bb17f0b85e8f099c64290bf9564cb3e8)]:
+  - @justeattakeaway/pie-icons@5.23.0
+
+## 4.69.0
+
+### Minor Changes
+
+- [Changed] - Skill docs update and add condition to help with monorepo support ([#2734](https://github.com/justeattakeaway/pie/pull/2734)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.9.9
+
 ## 4.68.1
 
 ### Patch Changes

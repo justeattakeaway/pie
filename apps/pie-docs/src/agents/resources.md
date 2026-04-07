@@ -54,6 +54,13 @@ Installation:
 
 `npx skills add git@github.com:justeattakeaway/pie.git --skill skill-reviewer`
 
-## Artifacts
+## Prototyping resources
 
-Coming soon.
+### Figma Make template
+
+The PIE Figma Make template provides a streamlined, low-code environment for initial explorations. Check out the template [here](https://www.figma.com/make/talqHe1wBFCwCdxUk5KfNf/Figma-Make-%7C-Web-Template?t=UVohg5HTOn6SvgGG-6).
+
+### Other prototyping tools
+
+Our `guidelines.md` file is specifically focused on how to leverage PIE assets and logic within advanced prototyping tools and custom code environments. These instructions ensure that your AI-driven components maintain visual and functional parity with the PIE Design System. You can download the latest version of our guidelines file on the `#help-designsystem` channel in the **Agentic AI Resources** tab.
+
