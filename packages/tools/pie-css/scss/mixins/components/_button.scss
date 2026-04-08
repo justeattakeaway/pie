@@ -374,6 +374,7 @@
         pointer-events: none;
     }
 
+    /* stylelint-disable @stylistic/indentation */
     // For every variant except ghost variants, set the disabled background colour
     &:not(
         .#{$prefix}--ghost,
@@ -385,6 +386,7 @@
         --int-states-mixin-bg-color: var(--dt-color-disabled-01);
         --btn-text-color: var(--dt-color-content-disabled);
     }
+    /* stylelint-enable @stylistic/indentation */
 
     // For outline variants, set the border to the disabled colour
     &.#{$prefix}--outline,

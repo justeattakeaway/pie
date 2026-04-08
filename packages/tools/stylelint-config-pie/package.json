@@ -20,7 +20,8 @@
     ".": "./index.js",
     "./base": "./rules/base.js",
     "./strict": "./rules/strict.js",
-    "./ordering": "./rules/ordering.js"
+    "./ordering": "./rules/ordering.js",
+    "./style": "./rules/style.js"
   },
   "peerDependencies": {
     "@justeat/pie-design-tokens": "*",

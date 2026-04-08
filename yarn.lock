@@ -2414,7 +2414,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@csstools/css-parser-algorithms@npm:^3.0.4":
+"@csstools/css-parser-algorithms@npm:^3.0.4, @csstools/css-parser-algorithms@npm:^3.0.5":
   version: 3.0.5
   resolution: "@csstools/css-parser-algorithms@npm:3.0.5"
   peerDependencies:
@@ -2430,7 +2430,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@csstools/css-tokenizer@npm:^3.0.3":
+"@csstools/css-tokenizer@npm:^3.0.3, @csstools/css-tokenizer@npm:^3.0.4":
   version: 3.0.4
   resolution: "@csstools/css-tokenizer@npm:3.0.4"
   checksum: adc6681d3a0d7a75dc8e5ee0488c99ad4509e4810ae45dd6549a2e64a996e8d75512e70bb244778dc0c6ee85723e20eaeea8c083bf65b51eb19034e182554243
@@ -2444,6 +2444,16 @@ __metadata:
     "@csstools/css-parser-algorithms": ^2.7.1
     "@csstools/css-tokenizer": ^2.4.1
   checksum: 7754b4b9fcc749a51a2bcd34a167ad16e7227ff087f6c4e15b3593d3342413446b72dad37f1adb99c62538730c77e3e47842987ce453fbb3849d329a39ba9ad7
+  languageName: node
+  linkType: hard
+
+"@csstools/media-query-list-parser@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "@csstools/media-query-list-parser@npm:4.0.3"
+  peerDependencies:
+    "@csstools/css-parser-algorithms": ^3.0.5
+    "@csstools/css-tokenizer": ^3.0.4
+  checksum: dd7dc015a94e0832e5289794f6ab730d1c3fdc85fbd92433eb608dceb91e4977d345c08fe90c487359ce3ba39185fe15789d09c321c799f5c18c6aec7bd8da09
   languageName: node
   linkType: hard
 
@@ -6562,6 +6572,23 @@ __metadata:
     lit: ^2.0.0 || ^3.0.0
     storybook: ^8.4.5
   checksum: 3e25751a2d1276b4d4c32c087a626637aae52d768a91bd7a6e627f2c141462673ec1504ceda7ca15d39b465b649f604ceef1f8274f4db0213d72abb957285f60
+  languageName: node
+  linkType: hard
+
+"@stylistic/stylelint-plugin@npm:4.0.0":
+  version: 4.0.0
+  resolution: "@stylistic/stylelint-plugin@npm:4.0.0"
+  dependencies:
+    "@csstools/css-parser-algorithms": ^3.0.5
+    "@csstools/css-tokenizer": ^3.0.4
+    "@csstools/media-query-list-parser": ^4.0.3
+    postcss: ^8.5.6
+    postcss-selector-parser: ^7.1.0
+    postcss-value-parser: ^4.2.0
+    style-search: ^0.1.0
+  peerDependencies:
+    stylelint: ^16.22.0
+  checksum: a1aa352218bda3f4c0f0fad93d6a00b325ddf0c17224b310e4d3042db12b795b7b8edc1f73445e8b1d2d4e77e741d51ed77cef60fdd70d8bd43d6b9f5720b712
   languageName: node
   linkType: hard
 
@@ -19017,6 +19044,7 @@ __metadata:
     "@percy/playwright": 1.0.9
     "@playwright/experimental-ct-react": 1.57.0
     "@playwright/test": 1.57.0
+    "@stylistic/stylelint-plugin": 4.0.0
     "@types/node": 24.10.1
     "@typescript-eslint/eslint-plugin": 5.62.0
     "@typescript-eslint/parser": 5.62.0
@@ -22187,6 +22215,13 @@ __metadata:
   version: 1.1.2
   resolution: "strnum@npm:1.1.2"
   checksum: a85219eda13e97151c95e343a9e5960eacfb0a0ff98104b4c9cb7a212e3008bddf0c9714c9c37c2e508be78e741a04afc80027c2dc18509d1b5ffd4c37191fc2
+  languageName: node
+  linkType: hard
+
+"style-search@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "style-search@npm:0.1.0"
+  checksum: 3cfefe335033aad6d47da0725cb48f5db91a73935954c77eab77d9e415e6668cdb406da4a4f7ef9f1aca77853cf5ba7952c45e869caa5bd6439691d88098d468
   languageName: node
   linkType: hard
 
