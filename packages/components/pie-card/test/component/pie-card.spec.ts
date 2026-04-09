@@ -105,7 +105,7 @@ test.describe('PieCard - Component tests', () => {
 
     test.describe('Prop: `isDraggable`', () => {
         test.describe('when set to true', () => {
-            test('should set a class of `c-card--draggable`', async ({ page }) => {
+            test('should set a class of `is-draggable`', async ({ page }) => {
                 // Arrange
 
                 const cardDefaultPage = new CardDefaultPage(page);
@@ -115,12 +115,12 @@ test.describe('PieCard - Component tests', () => {
                 });
 
                 // Assert
-                await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveClass(/c-card--draggable/);
+                await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveClass(/is-draggable/);
             });
         });
 
         test.describe('when set to false', () => {
-            test('should not set a class of `c-card--draggable`', async ({ page }) => {
+            test('should not set a class of `is-draggable`', async ({ page }) => {
                 // Arrange
                 const cardDefaultPage = new CardDefaultPage(page);
                 await cardDefaultPage.load({
@@ -129,7 +129,7 @@ test.describe('PieCard - Component tests', () => {
                 });
 
                 // Assert
-                await expect(cardDefaultPage.cardComponent.buttonLocator).not.toHaveClass(/c-card--draggable/);
+                await expect(cardDefaultPage.cardComponent.buttonLocator).not.toHaveClass(/is-draggable/);
             });
         });
     });

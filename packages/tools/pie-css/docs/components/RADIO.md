@@ -86,7 +86,7 @@ Apply the `c-radio` class to a native radio input:
 </label>
 
 <!-- Error state -->
-<input type="radio" class="c-radio c-radio--error" name="option" value="3">
+<input type="radio" class="c-radio has-error" name="option" value="3">
 ```
 
 ## Available Classes
@@ -94,7 +94,7 @@ Apply the `c-radio` class to a native radio input:
 | Class | Description |
 |-------|-------------|
 | `.c-radio` | Base radio input styling with all default states |
-| `.c-radio--error` | Error state styling |
+| `.has-error` | Error state styling |
 
 **Note:** All other visual states (`:checked`, `:disabled`, `:hover`, `:active`, `:focus-visible`) are handled automatically by CSS pseudo-classes.
 
@@ -104,7 +104,7 @@ All states are applied automatically via CSS pseudo-classes, except for error wh
 
 | State | CSS Selector | Appearance | When Applied |
 |-------|--------------|------------|--------------|
-| **Error** | `.c-radio--error` | Error border color | Add `c-radio--error` class |
+| **Error** | `.has-error` | Error border color | Add `has-error` class |
 | **Unchecked** | `.c-radio` | Empty circle with border | Default state |
 | **Checked** | `.c-radio:checked` | Filled circle with center dot | When selected |
 | **Disabled** | `.c-radio:disabled` | Faded, not-allowed cursor | When `disabled` attribute is present |

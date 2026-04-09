@@ -221,8 +221,8 @@ export class PieTextarea extends FormControlMixin(RtlMixin(DelegatesFocusMixin(P
         const classes = {
             'c-textareaWrapper': true,
             'is-disabled': disabled,
-            'c-textarea--readonly': readonly,
-            'c-textarea--error': status === 'error',
+            'is-readonly': readonly,
+            'has-error': status === 'error',
             [`c-textarea--resize-${resize}`]: true,
             [`c-textarea--${size}`]: true,
         };

@@ -39,7 +39,7 @@
     }
 
     // Error state modifier
-    &.c-radio--status-error {
+    &.has-error {
         .c-radio-input {
             @include p.radio-error;
             @include p.radio-interactive-state('dt-color-support-error');
