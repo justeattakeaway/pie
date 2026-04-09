@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-tag
 
+## 0.22.15
+
+### Patch Changes
+
+- [Changed] - Refactored components to use clearer utility class modifiers such as is-loading, is-checked, has-error ([#2748](https://github.com/justeattakeaway/pie/pull/2748)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@13.0.0
+
 ## 0.22.14
 
 ### Patch Changes
