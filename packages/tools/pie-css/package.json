@@ -25,12 +25,18 @@
     "generate:typography-docs": "node scripts/generate-typography-docs.js",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
-    "lint:style": "run -T stylelint ./**/*.{css,scss}",
+    "lint:style": "run -T stylelint './**/*.{css,scss}'",
     "lint:style:fix": "yarn lint:style --fix",
     "prepublishOnly": "yarn lint:style && yarn lint:scripts && yarn build && yarn test",
     "test": "run -T vitest run --config ../../../vite.config.js",
     "test:ci": "yarn test",
     "test:watch": "run -T vitest"
+  },
+  "stylelint": {
+    "extends": [
+      "@justeattakeaway/stylelint-config-pie/base",
+      "@justeattakeaway/stylelint-config-pie/style"
+    ]
   },
   "keywords": [
     "PIE",
