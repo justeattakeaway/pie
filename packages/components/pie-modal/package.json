@@ -50,7 +50,7 @@
     "@justeat/pie-design-tokens": "7.11.1",
     "@justeattakeaway/pie-button": "1.13.1",
     "@justeattakeaway/pie-components-config": "0.21.0",
-    "@justeattakeaway/pie-css": "0.32.0",
+    "@justeattakeaway/pie-css": "1.0.0",
     "@justeattakeaway/pie-monorepo-utils": "0.7.0",
     "@justeattakeaway/pie-text-input": "0.29.24",
     "@justeattakeaway/pie-wrapper-react": "0.14.3",
