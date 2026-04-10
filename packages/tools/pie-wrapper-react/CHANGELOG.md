@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.14.4
+
+### Patch Changes
+
+- [Changed] - Updated minor dependencies ([#2742](https://github.com/justeattakeaway/pie/pull/2742)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.14.3
 
 ### Patch Changes

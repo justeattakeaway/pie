@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.0.0
+
+### Minor Changes
+
+- [Added] - optional stylistic stylelint ruleset ([#2753](https://github.com/justeattakeaway/pie/pull/2753)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`31249c6`](https://github.com/justeattakeaway/pie/commit/31249c613e473c60d534551c7d6f2d768ad0d892)]:
+  - @justeattakeaway/pie-css@1.0.0
+
 ## 1.0.0
 
 ### Patch Changes
