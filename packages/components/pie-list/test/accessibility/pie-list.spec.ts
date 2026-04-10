@@ -6,8 +6,7 @@ test.describe('PieList - Accessibility tests', () => {
         // Arrange
         const basePage = new BasePage(page, 'list--default');
 
-        basePage.load();
-        await page.waitForTimeout(2500);
+        await basePage.load();
 
         // Act
         const results = await makeAxeBuilder().analyze();

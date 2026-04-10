@@ -14,8 +14,7 @@ test.describe('PieDataTable - Visual tests`', () => {
             test(`should display the PieDataTable component successfully - ${friendlyStoryName} - ${dir}`, async ({ page }) => {
                 const basePage = new BasePage(page, `data-table--${storyUrl}`);
 
-                basePage.load({}, { writingDirection: dir });
-                await page.waitForTimeout(2500);
+                await basePage.load({}, { writingDirection: dir });
 
                 await percySnapshot(page, `PieDataTable - ${friendlyStoryName} - ${dir}`);
             });
