@@ -4323,7 +4323,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/stylelint-config-pie@2.0.0, @justeattakeaway/stylelint-config-pie@workspace:packages/tools/stylelint-config-pie":
+"@justeattakeaway/stylelint-config-pie@2.0.1, @justeattakeaway/stylelint-config-pie@workspace:packages/tools/stylelint-config-pie":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/stylelint-config-pie@workspace:packages/tools/stylelint-config-pie"
   dependencies:
@@ -19039,7 +19039,7 @@ __metadata:
     "@justeattakeaway/pie-icons": 5.23.1
     "@justeattakeaway/pie-webc-testing": 0.13.5
     "@justeattakeaway/pie-wrapper-react": 0.14.4
-    "@justeattakeaway/stylelint-config-pie": 2.0.0
+    "@justeattakeaway/stylelint-config-pie": 2.0.1
     "@percy/cli": 1.31.1
     "@percy/playwright": 1.0.9
     "@playwright/experimental-ct-react": 1.57.0
