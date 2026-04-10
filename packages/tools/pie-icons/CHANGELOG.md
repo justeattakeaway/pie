@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.23.1
+
+### Patch Changes
+
+- [Changed] - Updated minor dependencies ([#2742](https://github.com/justeattakeaway/pie/pull/2742)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 5.23.0
 
 ### Minor Changes

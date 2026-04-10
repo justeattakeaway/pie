@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.101.0
+
+### Minor Changes
+
+- [Fixed] - changeset release workflow fix for gh app ([#2749](https://github.com/justeattakeaway/pie/pull/2749)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- [Changed] - Updated minor dependencies ([#2742](https://github.com/justeattakeaway/pie/pull/2742)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.100.0
 
 ### Minor Changes
