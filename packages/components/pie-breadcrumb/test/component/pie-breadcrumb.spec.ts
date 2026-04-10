@@ -6,9 +6,7 @@ test.describe('PieBreadcrumb - Component tests', () => {
     test('should render successfully', async ({ page }) => {
         // Arrange
         const basePage = new BasePage(page, 'breadcrumb--default');
-        basePage.load();
-
-        await page.waitForTimeout(2500);
+        await basePage.load();
 
         // Act
         const breadcrumbComponent = page.getByTestId(breadcrumb.selectors.container.dataTestId);

@@ -6,8 +6,7 @@ test.describe('Pie<%= componentName %> - Accessibility tests', () => {
         // Arrange
         const basePage = new BasePage(page, '<%= fileName %>--default');
 
-        basePage.load();
-        await page.waitForTimeout(2500);
+        await basePage.load();
 
         // Act
         const results = await makeAxeBuilder().analyze();
