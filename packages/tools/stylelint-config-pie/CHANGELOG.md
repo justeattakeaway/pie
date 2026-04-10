@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.1
+
+### Patch Changes
+
+- [Changed] - use pie-css 1.x as peerDep ([#2756](https://github.com/justeattakeaway/pie/pull/2756)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.0.0
 
 ### Minor Changes
