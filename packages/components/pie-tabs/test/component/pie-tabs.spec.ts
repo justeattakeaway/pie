@@ -8,8 +8,7 @@ test.describe('PieTabs - Component tests', () => {
         // Arrange
         const basePage = new BasePage(page, 'tabs--default');
 
-        basePage.load();
-        await page.waitForTimeout(2500);
+        await basePage.load();
 
         // Act
         const tabs = page.locator(componentSelector);
