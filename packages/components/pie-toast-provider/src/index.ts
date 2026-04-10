@@ -148,7 +148,7 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
             html`
                 <pie-toast
                     class=${classMap(toastClasses)}
-                    message="${_currentToast.message}"
+                    message="${ifDefined(_currentToast.message)}"
                     variant="${ifDefined(_currentToast.variant)}"
                     ?isStrong="${_currentToast.isStrong}"
                     ?isDismissible="${_currentToast.isDismissible}"
@@ -158,6 +158,7 @@ export class PieToastProvider extends PieElement implements ToastProviderProps {
                     @pie-toast-close="${this._dismissToast}"
                     @pie-toast-open="${_currentToast.onPieToastOpen}"
                     @pie-toast-leading-action-click="${_currentToast.onPieToastLeadingActionClick}">
+                    ${_currentToast.slot || nothing}
                 </pie-toast>
             `}
             </div>
