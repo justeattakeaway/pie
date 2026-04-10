@@ -226,7 +226,11 @@ Prefer native platform events where possible (for example `Event`/`InputEvent`) 
   - Design tokens are defined in the `@justeattakeaway/pie-design-tokens` package
   - DON'T invent token names
 - Follow the [SUIT-based naming convention](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md):
-  - **Prefixes** — Objects `.o-` (tied to HTML tags, e.g. `.o-btn`), Components `.c-` (everything else, e.g. `.c-rating`), Utilities `.u-` (reusable helpers, e.g. `.u-showAboveMid`), Layout `.l-` (global layout, e.g. `.l-container`)
+  - **Prefixes**
+    - Objects = `.o-` (components tied to HTML tags, e.g. `.o-btn`)
+    - Components = `.c-` (everything else, e.g. `.c-rating`)
+    - Utilities = `.u-` (reusable helpers, e.g. `.u-showAboveMid`)
+    - Layout = `.l-` (global layout, e.g. `.l-container`)
   - **Camel-case** descriptors when multi-word (e.g. `.c-myComponentName`)
   - **Child elements** use a single hyphen `-` (e.g. `.o-form-controlGroup`)
   - **Modifiers** use a double hyphen `--` (e.g. `.o-btn--primary`). Modifiers extend a base class; always apply both (e.g. `class="o-btn o-btn--primary"`)
