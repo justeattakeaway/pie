@@ -225,7 +225,7 @@ Prefer native platform events where possible (for example `Event`/`InputEvent`) 
 - Use SCSS with design tokens (CSS variables where possible)
   - Design tokens are defined in the `@justeattakeaway/pie-design-tokens` package
   - DON'T invent token names
-- Follow the [SUIT-based naming convention](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md):
+- Classnames should follow these naming conventions:
   - **Prefixes**
     - Objects = `.o-` (components tied to HTML tags, e.g. `.o-btn`)
     - Components = `.c-` (everything else, e.g. `.c-rating`)
