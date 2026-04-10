@@ -4330,7 +4330,7 @@ __metadata:
     "@justeattakeaway/stylelint-no-logical-props-shorthands": 0.3.0
   peerDependencies:
     "@justeat/pie-design-tokens": "*"
-    "@justeattakeaway/pie-css": "*"
+    "@justeattakeaway/pie-css": 1.x
     stylelint: 16.x
     stylelint-config-standard-scss: 13.x
     stylelint-order: 6.x
