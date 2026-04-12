@@ -71,13 +71,13 @@ export class BasePage {
      * @returns Globals string to append to the URL.
      */
     composeGlobals (globals: Record<string, unknown>) {
-        if (!globals) {
+        if (!globals || Object.keys(globals).length === 0) {
             return '';
         }
 
         const flattenGlobals = (obj: Record<string, unknown>): string[] => Object.entries(obj).map(([key, value]) => `${key}:${value}`);
 
-        return `&globals=${flattenGlobals(globals).join(';')}`;
+        return flattenGlobals(globals).join(';');
     }
 
     /**

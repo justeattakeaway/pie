@@ -40,6 +40,6 @@ test.describe('PieDivider - Component tests', () => {
         const label = page.getByText('foo label');
 
         // Assert
-        expect(label).not.toBeVisible();
+        await expect(label).not.toBeVisible();
     });
 });

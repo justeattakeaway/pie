@@ -27,7 +27,7 @@ test.describe('PieTextInput - Component tests', () => {
                 const input = page.getByTestId(textInput.selectors.input.dataTestId);
 
                 // Assert
-                expect(input).toHaveAttribute('type', 'text');
+                await expect(input).toHaveAttribute('type', 'text');
             });
 
             test('should apply the type prop to the HTML input rendered', async ({ page }) => {
@@ -546,7 +546,7 @@ test.describe('PieTextInput - Component tests', () => {
                 const assistiveText = page.getByTestId(textInput.selectors.assistiveText.dataTestId);
 
                 // Assert
-                expect(assistiveText).not.toBeVisible();
+                await expect(assistiveText).not.toBeVisible();
             });
 
             test('should apply the "default" variant attribute if no status is provided', async ({ page }) => {

@@ -149,7 +149,7 @@ test.describe('PieCard - Component tests', () => {
                 await cardDefaultPage.load({ ...props });
 
                 // Assert
-                expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('style', 'padding: var(--dt-spacing-a)');
+                await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('style', 'padding: var(--dt-spacing-a)');
             });
         });
     });
