@@ -33,7 +33,7 @@ export class BasePage {
     }
 
     async open (url: string) {
-        await this.page.goto(url, { waitUntil: 'domcontentloaded' });
+        await this.page.goto(url, { waitUntil: 'load' });
         return this;
     }
 

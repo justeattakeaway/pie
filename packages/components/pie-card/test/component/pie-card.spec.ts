@@ -36,6 +36,9 @@ test.describe('PieCard - Component tests', () => {
         const cardDefaultPage = new CardDefaultPage(page);
         await cardDefaultPage.load({ ...props });
 
+        // Wait for the component to be ready before using page.evaluate
+        await cardDefaultPage.cardComponent.componentLocator.waitFor({ state: 'attached' });
+
         // Act - Have to manually set the href as Storybook doesn't support certain characters when passed via query params
         await page.evaluate(() => {
             const card = document.querySelector('pie-card');
@@ -163,6 +166,9 @@ paddingValues.forEach((paddingValue) => {
         await cardDefaultPage.load({ ...props });
 
         const values = paddingValue.split(',');
+
+        // Wait for the component to be ready before using page.evaluate
+        await cardDefaultPage.cardComponent.componentLocator.waitFor({ state: 'attached' });
 
         // Setting this manually due to Storybook limitations - https://storybook.js.org/docs/writing-stories/args#setting-args-through-the-url
         await page.evaluate((paddingValue) => {
@@ -325,6 +331,8 @@ test.describe('Prop: disabled', () => {
 
             const cardDefaultPage = new CardDefaultPage(page);
             await cardDefaultPage.load({ ...props });
+
+            await cardDefaultPage.cardComponent.componentLocator.waitFor({ state: 'attached' });
 
             await page.evaluate(() => {
                 const card = document.querySelector('pie-card');

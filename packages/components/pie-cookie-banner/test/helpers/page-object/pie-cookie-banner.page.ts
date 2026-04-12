@@ -328,6 +328,8 @@ export class CookieBannerComponent extends BasePage {
     }
 
     async setProperty (property: string, value: string) {
+        await this.componentLocator.waitFor({ state: 'attached' });
+
         await this.page.evaluate(([prop, val]) => {
             const component = document.querySelector('pie-cookie-banner');
             if (component) {

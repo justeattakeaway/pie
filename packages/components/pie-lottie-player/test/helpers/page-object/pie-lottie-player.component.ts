@@ -16,6 +16,8 @@ export class LottiePlayerComponent {
   * @param animationSrc - The URL/path of the animation source to set - relative to pie-lottie-player.test.stories.ts
   */
     async setAnimationSource (page: Page, animationSrc: string) {
+        await this.componentLocator.waitFor({ state: 'attached' });
+
         await page.evaluate((src: string) => {
             const lottiePlayer = document.querySelector('pie-lottie-player') as PieLottiePlayer;
             lottiePlayer.animationSrc = src;
