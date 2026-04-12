@@ -14,6 +14,6 @@ test.describe('PieList - Component tests', () => {
         const list = page.locator(componentSelector);
 
         // Assert
-        expect(list).toBeVisible();
+        await expect(list).toBeVisible();
     });
 });

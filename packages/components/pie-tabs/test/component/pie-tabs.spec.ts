@@ -14,6 +14,6 @@ test.describe('PieTabs - Component tests', () => {
         const tabs = page.locator(componentSelector);
 
         // Assert
-        expect(tabs).toBeVisible();
+        await expect(tabs).toBeVisible();
     });
 });

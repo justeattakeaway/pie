@@ -14,6 +14,6 @@ test.describe('PieDataTable: Default With Data - Component tests', () => {
         const dataTable = page.locator(componentSelector);
 
         // Assert
-        expect(dataTable).toBeVisible();
+        await expect(dataTable).toBeVisible();
     });
 });

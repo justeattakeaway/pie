@@ -13,7 +13,7 @@ test.describe('PieTextInput - Component tests', () => {
         const input = page.getByTestId(textInput.selectors.container.dataTestId);
 
         // Assert
-        expect(input).toBeVisible();
+        await expect(input).toBeVisible();
     });
 
     test.describe('Props', () => {

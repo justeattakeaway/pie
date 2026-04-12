@@ -12,7 +12,7 @@ test.describe('PieBreadcrumb - Component tests', () => {
         const breadcrumbComponent = page.getByTestId(breadcrumb.selectors.container.dataTestId);
 
         // Assert
-        expect(breadcrumbComponent).toBeVisible();
+        await expect(breadcrumbComponent).toBeVisible();
     });
 
     test.describe('Props', () => {

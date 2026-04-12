@@ -14,7 +14,7 @@ test.describe('PieDivider - Component tests', () => {
         const divider = page.locator(componentSelector);
 
         // Assert
-        expect(divider).toBeVisible();
+        await expect(divider).toBeVisible();
     });
 
     test('should render the `label` if it is provided', async ({ page }) => {
@@ -27,7 +27,7 @@ test.describe('PieDivider - Component tests', () => {
         const label = page.getByText('foo label');
 
         // Assert
-        expect(label).toBeVisible();
+        await expect(label).toBeVisible();
     });
 
     test('should NOT render the `label` if divider orientation is vertical', async ({ page }) => {
