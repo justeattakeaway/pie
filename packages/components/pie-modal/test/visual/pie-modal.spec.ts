@@ -546,6 +546,8 @@ test.describe('Prop: `isFooterPinned`', () => {
 
             // when !isFooterPinned, the Storybook boolean control has no effect so we need to remove the attribute from the DOM manually.
             if (!isFooterPinned) {
+                await page.locator('pie-modal').waitFor({ state: 'attached' });
+
                 await page.evaluate(() => {
                     document.querySelector('pie-modal')?.removeAttribute('isfooterpinned');
                 });
@@ -573,6 +575,8 @@ test.describe('Prop: `isFooterPinned`', () => {
                 await modalLargeTextContentPage.load(props);
 
                 if (!isFooterPinned) {
+                    await page.locator('pie-modal').waitFor({ state: 'attached' });
+
                     await page.evaluate(() => {
                         document.querySelector('pie-modal')?.removeAttribute('isfooterpinned');
                     });
