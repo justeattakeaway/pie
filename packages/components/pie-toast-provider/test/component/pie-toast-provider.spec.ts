@@ -161,7 +161,7 @@ test.describe('PieToastProvider - Component tests', () => {
 
             const consoleMessages: string[] = [];
             page.on('console', (message) => {
-                if (message.type() === 'info') {
+                if (message.type() === 'info' && !message.text().includes('toast provider queue:')) {
                     consoleMessages.push(message.text());
                 }
             });

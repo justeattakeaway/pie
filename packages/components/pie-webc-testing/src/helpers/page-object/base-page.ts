@@ -48,7 +48,7 @@ export class BasePage {
      *
      */
     composePath (queries: Record<string, unknown>) {
-        if (!queries) {
+        if (!queries || Object.keys(queries).length === 0) {
             return '';
         }
 
