@@ -7,6 +7,7 @@ import { ButtonComponent } from '../helpers/page-object/pie-button.component.ts'
 test('should render all size variations', async ({ page }) => {
     // Arrange
     const buttonPage = new BasePage(page, 'button--responsive-button-variations');
+    buttonPage.waitUntilStrategy = 'networkidle';
     const buttonComponent = new ButtonComponent(page);
     await buttonPage.load();
 
@@ -18,6 +19,7 @@ test('should render all size variations', async ({ page }) => {
 test('should render all size variations, with larger button text string', async ({ page }) => {
     // Arrange
     const buttonPage = new BasePage(page, 'button--double-line-text-button-variations');
+    buttonPage.waitUntilStrategy = 'networkidle';
     const buttonComponent = new ButtonComponent(page);
     await buttonPage.load();
 

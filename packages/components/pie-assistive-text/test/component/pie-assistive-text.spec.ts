@@ -12,7 +12,7 @@ test.describe('PieAssistiveText - Component tests', () => {
         const assistiveTextComponent = page.getByTestId(assistiveText.selectors.container.dataTestId);
 
         // Assert
-        expect(assistiveTextComponent).toBeVisible();
+        await expect(assistiveTextComponent).toBeVisible();
     });
 
     test('should set `variant` to `default` by default', async ({ page }) => {

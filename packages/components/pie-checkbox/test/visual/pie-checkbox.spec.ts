@@ -7,6 +7,7 @@ const checkedStates = [true, false];
 checkedStates.forEach((state) => test(`should render all prop variations for the checked state: ${state}`, async ({ page }) => {
     // Arrange
     const checkboxVariationsPage = new BasePage(page, `checkbox--checked-${state}-variations`);
+    checkboxVariationsPage.waitUntilStrategy = 'networkidle';
     await checkboxVariationsPage.load();
 
     // Assert

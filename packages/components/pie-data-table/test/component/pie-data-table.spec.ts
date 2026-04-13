@@ -8,13 +8,12 @@ test.describe('PieDataTable: Default With Data - Component tests', () => {
         // Arrange
         const basePage = new BasePage(page, 'data-table--default-with-data');
 
-        basePage.load();
-        await page.waitForTimeout(2500);
+        await basePage.load();
 
         // Act
         const dataTable = page.locator(componentSelector);
 
         // Assert
-        expect(dataTable).toBeVisible();
+        await expect(dataTable).toBeVisible();
     });
 });

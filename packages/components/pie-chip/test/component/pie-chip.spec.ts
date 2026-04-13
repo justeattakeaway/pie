@@ -32,6 +32,9 @@ const setupPageWithChip = async (page: Page, props: Partial<ChipProps> = {}, eve
         throw new Error('Chip component not found on the page');
     }
 
+    // Wait for the component to be ready before using page.evaluate
+    await chipComponent.waitFor({ state: 'attached' });
+
     if (eventName) {
         await page.evaluate((event) => {
             window.eventLog = [];

@@ -11,6 +11,7 @@ const percyWidths = {
 variants.forEach((variant) => {
     test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
         const toastVariationsPage = new BasePage(page, `toast--${variant}-variations`);
+        toastVariationsPage.waitUntilStrategy = 'networkidle';
 
         await toastVariationsPage.load();
         await expect.soft(page.getByTestId(toast.selectors.container.dataTestId).first()).toBeVisible();

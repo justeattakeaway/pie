@@ -15,15 +15,12 @@ test.describe('PieCookieBanner - Component tests', () => {
         pieCookieBannerComponent = new CookieBannerComponent(page);
     });
 
-    test('should render successfully', async () => {
+    test('should render successfully', async ({ page }) => {
         // Arrange
         await pieCookieBannerComponent.load();
 
-        // Act
-        const isCookieBannerVisible = await pieCookieBannerComponent.isCookieBannerVisible();
-
         // Assert
-        expect(isCookieBannerVisible).toBe(true);
+        await expect(page.getByTestId('pie-cookie-banner')).toBeVisible();
     });
 
     [{ name: 'action' }, { name: 'body' }].forEach((elementLevel) => {

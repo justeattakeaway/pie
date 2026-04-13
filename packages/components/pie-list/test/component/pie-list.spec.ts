@@ -8,13 +8,12 @@ test.describe('PieList - Component tests', () => {
         // Arrange
         const basePage = new BasePage(page, 'list--default');
 
-        basePage.load();
-        await page.waitForTimeout(2500);
+        await basePage.load();
 
         // Act
         const list = page.locator(componentSelector);
 
         // Assert
-        expect(list).toBeVisible();
+        await expect(list).toBeVisible();
     });
 });

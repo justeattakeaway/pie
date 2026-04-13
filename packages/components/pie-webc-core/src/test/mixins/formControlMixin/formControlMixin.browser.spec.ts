@@ -7,6 +7,7 @@ test.describe('FormControlMixin', () => {
             // Arrange
             const mockComponentPage = new BasePage(page, 'webc-core--form-control-mixin-mock');
             await mockComponentPage.load();
+            await page.locator('form-control-mixin-mock').waitFor({ state: 'visible' });
 
             const isFormAssociated = await page.evaluate(() => {
                 const component = document.querySelector('form-control-mixin-mock');
@@ -21,6 +22,7 @@ test.describe('FormControlMixin', () => {
             // Arrange
             const mockComponentPage = new BasePage(page, 'webc-core--form-control-mixin-in-form');
             await mockComponentPage.load();
+            await page.locator('form-control-mixin-mock').waitFor({ state: 'visible' });
 
             const formId = await page.evaluate(() => {
                 const component = document.querySelector('form-control-mixin-mock');
@@ -35,6 +37,7 @@ test.describe('FormControlMixin', () => {
             // Arrange
             const mockComponentPage = new BasePage(page, 'webc-core--form-control-mixin-outside-form');
             await mockComponentPage.load();
+            await page.locator('form-control-mixin-mock').waitFor({ state: 'visible' });
 
             const isFormAssociated = await page.evaluate(() => {
                 const component = document.querySelector('form-control-mixin-mock');

@@ -372,7 +372,7 @@ test.describe('PieTextarea - Component tests', () => {
                 const assistiveText = page.getByTestId(textArea.selectors.assistiveText.dataTestId);
 
                 // Assert
-                expect(assistiveText).not.toBeVisible();
+                await expect(assistiveText).not.toBeVisible();
             });
 
             test('should apply the `default` variant attribute if no status is provided', async ({ page }) => {
