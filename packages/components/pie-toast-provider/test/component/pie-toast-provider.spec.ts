@@ -40,6 +40,7 @@ test.describe('PieToastProvider - Component tests', () => {
             // Arrange
             const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
             await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
 
             // Act
             await page.evaluate(() => {
@@ -81,6 +82,7 @@ test.describe('PieToastProvider - Component tests', () => {
             // Arrange
             const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
             await pieToastProviderPage.load();
+            await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
 
             // Act
             await page.evaluate(() => {
@@ -108,6 +110,7 @@ test.describe('PieToastProvider - Component tests', () => {
                         isDismissible: true,
                     },
                 });
+                await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
 
                 // Act
                 await page.evaluate(() => {
@@ -131,6 +134,7 @@ test.describe('PieToastProvider - Component tests', () => {
                         isDismissible: true,
                     },
                 });
+                await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
 
                 // Act
                 await page.evaluate(() => {
@@ -157,7 +161,7 @@ test.describe('PieToastProvider - Component tests', () => {
 
             const consoleMessages: string[] = [];
             page.on('console', (message) => {
-                if (message.type() === 'info') {
+                if (message.type() === 'info' && !message.text().includes('toast provider queue:')) {
                     consoleMessages.push(message.text());
                 }
             });

@@ -7,6 +7,7 @@ test.describe('DelegatesFocusMixin', () => {
         const expectedActiveNodeName = 'DELEGATES-FOCUS-MIXIN-MOCK';
         const mockComponentPage = new BasePage(page, 'webc-core--delegates-focus-mixin-element');
         await mockComponentPage.load();
+        await page.locator('delegates-focus-mixin-mock').waitFor({ state: 'visible' });
 
         // Act & Assert
         await page.keyboard.press('Tab');

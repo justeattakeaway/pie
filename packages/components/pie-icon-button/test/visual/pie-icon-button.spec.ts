@@ -9,6 +9,7 @@ variants.forEach((variant) => {
     test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
     // Arrange
         const iconButtonPage = new BasePage(page, `icon-button--${variant}-variations`);
+        iconButtonPage.waitUntilStrategy = 'networkidle';
         await iconButtonPage.load();
 
         const iconButtonComponent = await page.locator(iconButton.selectors.container.dataTestId).first();

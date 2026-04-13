@@ -9,6 +9,7 @@ variants.forEach((variant) => {
     test(`should render all size and variant variations for anchor tag for variant: ${variant}`, async ({ page }) => {
         // Arrange
         const buttonPage = new BasePage(page, `button--${variant}-anchor-variations`);
+        buttonPage.waitUntilStrategy = 'networkidle';
         const buttonComponent = new ButtonComponent(page);
         await buttonPage.load();
 
