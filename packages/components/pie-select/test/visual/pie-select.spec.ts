@@ -9,6 +9,7 @@ test.describe('PieSelect - Visual tests`', () => {
         test(`should render prop variations in writing direction: ${direction}`, async ({ page }) => {
             // Arrange
             const selectVariationsPage = new BasePage(page, 'select--variations');
+            selectVariationsPage.waitUntilStrategy = 'networkidle';
             await selectVariationsPage.load({}, { writingDirection: direction });
 
             // Assert
@@ -20,6 +21,7 @@ test.describe('PieSelect - Visual tests`', () => {
         test(`should render assistive text and status prop variations in writing direction: ${direction}`, async ({ page }) => {
             // Arrange
             const selectVariationsPage = new BasePage(page, 'select--status-variations');
+            selectVariationsPage.waitUntilStrategy = 'networkidle';
             await selectVariationsPage.load({}, { writingDirection: direction });
 
             // Assert

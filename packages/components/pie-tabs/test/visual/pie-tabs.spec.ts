@@ -5,6 +5,7 @@ import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-obj
 test.describe('PieTabs - Visual tests`', () => {
     test('should display the PieTabs component successfully', async ({ page }) => {
         const basePage = new BasePage(page, 'tabs--default');
+        basePage.waitUntilStrategy = 'networkidle';
 
         await basePage.load();
 

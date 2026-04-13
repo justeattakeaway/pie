@@ -9,6 +9,7 @@ readingDirections.forEach((dir) => {
     test(`should render all prop variations for the direction: ${dir}`, async ({ page }) => {
     // Arrange
         const radioVariations = new BasePage(page, 'radio--variations');
+        radioVariations.waitUntilStrategy = 'networkidle';
         await radioVariations.load({}, { writingDirection: dir });
         await page.waitForSelector(radio.selectors.container.dataTestId);
 

@@ -13,6 +13,7 @@ test.describe('PieDataTable - Visual tests`', () => {
 
             test(`should display the PieDataTable component successfully - ${friendlyStoryName} - ${dir}`, async ({ page }) => {
                 const basePage = new BasePage(page, `data-table--${storyUrl}`);
+                basePage.waitUntilStrategy = 'networkidle';
 
                 await basePage.load({}, { writingDirection: dir });
 

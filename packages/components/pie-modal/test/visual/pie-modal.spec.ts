@@ -17,6 +17,7 @@ const sharedProps: ModalProps = {
 sizes.forEach((size) => {
     test(`should render correctly with size = ${size}`, async ({ page }) => {
         const modalDefaultPage = new ModalDefaultPage(page);
+        modalDefaultPage.waitUntilStrategy = 'networkidle';
         const props: ModalProps = {
             ...sharedProps,
             hasStackedActions: false,
@@ -38,6 +39,7 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
     test.describe('when true', () => {
         test('should be full width for a modal with size = medium', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
+            modalDefaultPage.waitUntilStrategy = 'networkidle';
             const props: ModalProps = {
                 ...sharedProps,
                 isFullWidthBelowMid: true,
@@ -58,6 +60,7 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
 
         test('should not be full width when size = small', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
+            modalDefaultPage.waitUntilStrategy = 'networkidle';
             const props: ModalProps = {
                 ...sharedProps,
                 isFullWidthBelowMid: true,
@@ -81,6 +84,7 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
       .forEach((size) => {
           test(`should not be full width for a modal with size = ${size}`, async ({ page }) => {
               const modalDefaultPage = new ModalDefaultPage(page);
+              modalDefaultPage.waitUntilStrategy = 'networkidle';
               const props: ModalProps = {
                   ...sharedProps,
                   isFullWidthBelowMid: false,
@@ -106,6 +110,7 @@ test.describe('Prop: `isDismissible`', () => {
     test.describe('when true', () => {
         test('should display a close button within the modal', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
+            modalDefaultPage.waitUntilStrategy = 'networkidle';
             const props: ModalProps = {
                 ...sharedProps,
                 isDismissible: true,
@@ -127,6 +132,7 @@ test.describe('Prop: `isDismissible`', () => {
     test.describe('when false', () => {
         test('should not display a close button', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
+            modalDefaultPage.waitUntilStrategy = 'networkidle';
             const props: ModalProps = {
                 ...sharedProps,
                 isDismissible: false,
@@ -150,6 +156,7 @@ test.describe('Prop: `isHeadingEmphasised`', () => {
     test.describe('when true', () => {
         test('should display the emphasised style for the heading', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
+            modalDefaultPage.waitUntilStrategy = 'networkidle';
             const props: ModalProps = {
                 ...sharedProps,
                 isHeadingEmphasised: true,
@@ -171,6 +178,7 @@ test.describe('Prop: `isHeadingEmphasised`', () => {
     test.describe('when false', () => {
         test('should not display the emphasised style for the heading', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
+            modalDefaultPage.waitUntilStrategy = 'networkidle';
             const props: ModalProps = {
                 ...sharedProps,
                 isHeadingEmphasised: false,
@@ -197,6 +205,7 @@ test.describe('Prop: `hasBackButton`', () => {
         test.describe('when true', () => {
             test(`should display a back button within the modal and dir is ${dir}`, async ({ page }) => {
                 const modalDefaultPage = new ModalDefaultPage(page);
+                modalDefaultPage.waitUntilStrategy = 'networkidle';
                 const props: ModalProps = {
                     ...sharedProps,
                     hasBackButton: true,
@@ -218,6 +227,7 @@ test.describe('Prop: `hasBackButton`', () => {
         test.describe('when false', () => {
             test(`should not display a back button and dir is ${dir}`, async ({ page }) => {
                 const modalDefaultPage = new ModalDefaultPage(page);
+                modalDefaultPage.waitUntilStrategy = 'networkidle';
                 const props: ModalProps = {
                     ...sharedProps,
                     hasBackButton: false,
@@ -241,6 +251,7 @@ test.describe('Prop: `hasBackButton`', () => {
 test.describe('Prop: `heading`', () => {
     test('should display & render long headings correctly', async ({ page }) => {
         const modalDefaultPage = new ModalDefaultPage(page);
+        modalDefaultPage.waitUntilStrategy = 'networkidle';
         const props: ModalProps = {
             heading: 'This is a modal heading but super long and should span multiple lines - hopefully this should never happen on production',
             hasBackButton: true,
@@ -263,6 +274,7 @@ test.describe('Prop: `heading`', () => {
 test.describe('Prop: `isLoading`', () => {
     test('should display loading spinner when `isLoading` is true', async ({ page }) => {
         const modalDefaultPage = new ModalDefaultPage(page);
+        modalDefaultPage.waitUntilStrategy = 'networkidle';
         const props: ModalProps = {
             ...sharedProps,
             hasBackButton: true,
@@ -287,6 +299,7 @@ test.describe('Prop: `backgroundColor`', () => {
     test.describe('when the backgroundColor is not set', () => {
         test('should render with default background color', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
+            modalDefaultPage.waitUntilStrategy = 'networkidle';
             const props: ModalProps = {
                 ...sharedProps,
             };
@@ -305,6 +318,7 @@ test.describe('Prop: `backgroundColor`', () => {
         backgroundColors.forEach((backgroundColor) => {
             test(`should render with backgroundColor = ${backgroundColor}`, async ({ page }) => {
                 const modalDefaultPage = new ModalDefaultPage(page);
+                modalDefaultPage.waitUntilStrategy = 'networkidle';
                 const props: ModalProps = {
                     ...sharedProps,
                     backgroundColor,
@@ -328,6 +342,7 @@ test.describe('Prop: `leadingAction`', () => {
     test.describe('when prop is passed into component', () => {
         test('should display leading action button', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
+            modalDefaultPage.waitUntilStrategy = 'networkidle';
             const props: ModalProps = {
                 ...sharedProps,
                 leadingAction: {
@@ -348,6 +363,7 @@ test.describe('Prop: `leadingAction`', () => {
     test.describe('when `leadingAction.variant` is set to "destructive"', () => {
         test('should show a "destructive" button', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
+            modalDefaultPage.waitUntilStrategy = 'networkidle';
             const props: ModalProps = {
                 ...sharedProps,
                 leadingAction: {
@@ -369,6 +385,7 @@ test.describe('Prop: `leadingAction`', () => {
     test.describe('when prop is provided empty', () => {
         test('should not render leading action markup', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
+            modalDefaultPage.waitUntilStrategy = 'networkidle';
             const props: ModalProps = {
                 ...sharedProps,
                 leadingAction: {
@@ -389,6 +406,7 @@ test.describe('Prop: `leadingAction`', () => {
     test.describe('when prop is not passed into component', () => {
         test('should not display leading action or footer', async ({ page }) => {
             const modalDefaultPage = new ModalDefaultPage(page);
+            modalDefaultPage.waitUntilStrategy = 'networkidle';
             const props: ModalProps = {
                 ...sharedProps,
                 isOpen: true,
@@ -412,6 +430,7 @@ test.describe('Prop: `supportingAction`', () => {
         test.describe('and `supportingAction.text` is provided but `supportingAction.variant` is not', () => {
             test('should fall back to default variant', async ({ page }) => {
                 const modalDefaultPage = new ModalDefaultPage(page);
+                modalDefaultPage.waitUntilStrategy = 'networkidle';
                 const props: ModalProps = {
                     ...sharedProps,
                     leadingAction: {
@@ -435,6 +454,7 @@ test.describe('Prop: `supportingAction`', () => {
         test.describe('and `supportingAction.text` is provided but empty', () => {
             test('should not render supporting action markup', async ({ page }) => {
                 const modalDefaultPage = new ModalDefaultPage(page);
+                modalDefaultPage.waitUntilStrategy = 'networkidle';
                 const props: ModalProps = {
                     ...sharedProps,
                     leadingAction: {
@@ -458,6 +478,7 @@ test.describe('Prop: `supportingAction`', () => {
         test.describe('and `supportingAction.text` is not provided', () => {
             test('should not render supporting action markup', async ({ page }) => {
                 const modalDefaultPage = new ModalDefaultPage(page);
+                modalDefaultPage.waitUntilStrategy = 'networkidle';
                 const props: ModalProps = {
                     ...sharedProps,
                     leadingAction: {
@@ -480,6 +501,7 @@ test.describe('Prop: `supportingAction`', () => {
 test.describe('when `supportingAction.text` is supplied but `leadingAction.text` is not', () => {
     test('should not render supporting action markup', async ({ page }) => {
         const modalDefaultPage = new ModalDefaultPage(page);
+        modalDefaultPage.waitUntilStrategy = 'networkidle';
         const props: ModalProps = {
             ...sharedProps,
             supportingAction: {
@@ -505,6 +527,7 @@ test.describe('Prop: `position`', () => {
                     [true, false].forEach((isFullWidthBelowMid) => {
                         test(`and isFullWidthBelowMid is ${isFullWidthBelowMid}`, async ({ page }) => {
                             const modalDefaultPage = new ModalDefaultPage(page);
+                            modalDefaultPage.waitUntilStrategy = 'networkidle';
                             const props: ModalProps = {
                                 ...sharedProps,
                                 isFullWidthBelowMid,
@@ -534,6 +557,7 @@ test.describe('Prop: `isFooterPinned`', () => {
     [true, false].forEach((isFooterPinned) => {
         test(`when isFooterPinned is: ${isFooterPinned}`, async ({ page }) => {
             const modalLargeTextContentPage = new ModalLargeTextContentPage(page);
+            modalLargeTextContentPage.waitUntilStrategy = 'networkidle';
             const props: ModalProps = {
                 ...sharedProps,
                 leadingAction: {
@@ -563,6 +587,7 @@ test.describe('Prop: `isFooterPinned`', () => {
         (['medium', 'large'] as Array<ModalProps['size']>).forEach((size) => {
             test(`when modal is fullscreen with size: ${size} and isFooterPinned: ${isFooterPinned}`, async ({ page }) => {
                 const modalLargeTextContentPage = new ModalLargeTextContentPage(page);
+                modalLargeTextContentPage.waitUntilStrategy = 'networkidle';
                 const props: ModalProps = {
                     ...sharedProps,
                     leadingAction: {
@@ -598,6 +623,7 @@ test.describe('Prop: `hasStackedActions`', () => {
       .forEach((size) => {
           test(`should display actions full width (at narrow viewports – with leading action on top) for a modal with size = ${size}`, async ({ page }) => {
               const modalDefaultPage = new ModalDefaultPage(page);
+              modalDefaultPage.waitUntilStrategy = 'networkidle';
               const props: ModalProps = {
                   ...sharedProps,
                   hasStackedActions: true,
@@ -626,6 +652,7 @@ test.describe('Slot: `footer`', () => {
     test.describe('is assigned', () => {
         test('should display the "footer" slot content in the modal footer', async ({ page }) => {
             const modalCustomFooterPage = new ModalCustomFooterPage(page);
+            modalCustomFooterPage.waitUntilStrategy = 'networkidle';
             const props:ModalProps = { ...sharedProps };
             await modalCustomFooterPage.load(props);
 
@@ -642,6 +669,7 @@ test.describe('Slot: `headerContent`', () => {
     test.describe('is assigned', () => {
         test('should display the "headerContent" slot content in the modal header', async ({ page }) => {
             const modalCustomHeaderContentPage = new ModalCustomHeaderContentPage(page);
+            modalCustomHeaderContentPage.waitUntilStrategy = 'networkidle';
             const props: ModalProps = { ...sharedProps };
             await modalCustomHeaderContentPage.load(props);
 
@@ -660,6 +688,7 @@ test.describe('Slot: `image`', () => {
                     test.describe(`when isDismissible = ${isDismissible}`, () => {
                         test('should render correctly ', async ({ page }) => {
                             const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                            modalCustomImageSlotContentPage.waitUntilStrategy = 'networkidle';
                             const props: ModalProps = {
                                 ...sharedProps,
                                 imageSlotMode,
@@ -683,6 +712,7 @@ test.describe('Slot: `image`', () => {
                         test.describe(`when isDismissible = ${isDismissible}`, () => {
                             test('should render correctly', async ({ page }) => {
                                 const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                                modalCustomImageSlotContentPage.waitUntilStrategy = 'networkidle';
                                 const props: ModalProps = {
                                     ...sharedProps,
                                     imageSlotMode: 'illustration',
@@ -706,6 +736,7 @@ test.describe('Slot: `image`', () => {
         [...imageSlotAspectRatios, undefined].forEach((imageSlotAspectRatio) => {
             test(`should render correctly with imageSlotAspectRatio = ${imageSlotAspectRatio}`, async ({ page }) => {
                 const modalCustomImageSlotContentPage = new ModalCustomImageSlotContentPage(page);
+                modalCustomImageSlotContentPage.waitUntilStrategy = 'networkidle';
                 const props: ModalProps = {
                     ...sharedProps,
                     imageSlotMode: 'image',
@@ -724,6 +755,7 @@ test.describe('Slot: `image`', () => {
 test.describe('CSS parts', () => {
     test('should apply styles to the `heading` part', async ({ page }) => {
         const modalCustomHeadingStylePage = new ModalCustomHeadingStylePage(page);
+        modalCustomHeadingStylePage.waitUntilStrategy = 'networkidle';
         const props: ModalProps = { ...sharedProps };
         await modalCustomHeadingStylePage.load(props);
 

@@ -9,6 +9,7 @@ const readingDirections = ['ltr', 'rtl'];
 readingDirections.forEach((direction) => test(`should render all prop variations for the checkbox group component with dir: ${direction}`, async ({ page }) => {
     // Arrange
     const checkboxGroupVariations = new BasePage(page, 'checkbox-group--variations');
+    checkboxGroupVariations.waitUntilStrategy = 'networkidle';
     await checkboxGroupVariations.load({}, { writingDirection: direction });
 
     // Assert

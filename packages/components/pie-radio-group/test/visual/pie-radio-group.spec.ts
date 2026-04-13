@@ -7,6 +7,7 @@ const directions = ['ltr', 'rtl'];
 
 directions.forEach((direction) => test(`should render all prop variations for direction: ${direction}`, async ({ page }) => {
     const radioGroupVariationsPage = new BasePage(page, 'radio-group--variations');
+    radioGroupVariationsPage.waitUntilStrategy = 'networkidle';
     await radioGroupVariationsPage.load({}, { writingDirection: direction });
     await page.waitForSelector('pie-radio-group');
 

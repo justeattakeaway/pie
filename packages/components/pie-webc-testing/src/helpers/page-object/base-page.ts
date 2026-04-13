@@ -12,6 +12,7 @@ export class BasePage {
     path: string;
     args: string;
     globals: string;
+    waitUntilStrategy: 'load' | 'networkidle' = 'load';
 
     constructor (page: Page, componentName: string, componentTag = 'data-test-id') {
         this.page = page;
@@ -33,7 +34,7 @@ export class BasePage {
     }
 
     async open (url: string) {
-        await this.page.goto(url, { waitUntil: 'load' });
+        await this.page.goto(url, { waitUntil: this.waitUntilStrategy });
         return this;
     }
 
