@@ -10,10 +10,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
+    - name: Generate GitHub App token
+      id: get-token
+      uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
+      with:
+        app-id: ${{ vars.GH_APP_ID }}
+        private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
     - name: Labeler
       uses: actions/labeler@ac9175f8a1f3625fd0d4fb234536d26811351594 # v4.3.0
       with:
         configuration-path: '.github/project-labeler.yml'
-        repo-token: '${{ secrets.GITHUB_TOKEN }}'
+        repo-token: '${{ steps.get-token.outputs.token }}'
         # Category labels will be removed if they no longer apply
         sync-labels: true

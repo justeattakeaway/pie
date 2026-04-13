@@ -76,6 +76,13 @@ jobs:
           role-session-name: github-actions-${{ github.run_id }}
           aws-region: ${{ env.AWS_REGION }}
 
+      - name: Generate GitHub App token
+        id: get-token
+        uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
+        with:
+          app-id: ${{ vars.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
       # Process package name to remove prefix
       - name: Remove scope from package name
         run: |
@@ -113,7 +120,7 @@ jobs:
         uses: chrnorm/deployment-action@55729fcebec3d284f60f5bcabbd8376437d696b1 # v2.0.7
         id: deploy
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ steps.get-token.outputs.token }}
           environment: "${{ inputs.sub-domain-suffix }}-pr-${{ github.event.number }}"
       # Zip dist folder
       - name: Zip build output
@@ -236,7 +243,7 @@ jobs:
         if: ${{ github.event_name == 'pull_request' && success() }}
         uses: chrnorm/deployment-status@9a72af4586197112e0491ea843682b5dc280d806 # v2.0.3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ steps.get-token.outputs.token }}
           environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
           deployment-id: ${{ steps.deploy.outputs.deployment_id }}
           state: "success"
@@ -246,7 +253,7 @@ jobs:
         if: ${{ github.event_name == 'pull_request' && failure() }}
         uses: chrnorm/deployment-status@9a72af4586197112e0491ea843682b5dc280d806 # v2.0.3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ steps.get-token.outputs.token }}
           environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
           deployment-id: ${{ steps.deploy.outputs.deployment_id }}
           state: "failure"
