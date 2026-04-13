@@ -433,9 +433,8 @@ test.describe('scrolling logic', () => {
         await modalScrollLockingPage.load(props);
 
         // Act
-        // Scroll to the bottom of the page
-        await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-        await page.waitForTimeout(500);
+        // Scroll the bottom-of-page element into view
+        await page.getByText('Bottom of page copy').scrollIntoViewIfNeeded();
 
         // Assert
         await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
@@ -454,9 +453,8 @@ test.describe('scrolling logic', () => {
         await modalScrollLockingPage.load(props);
 
         // Act
-        // Scroll to the bottom of the page
-        await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-        await page.waitForTimeout(500);
+        // Scroll the bottom-of-page element into view
+        await page.getByText('Bottom of page copy').scrollIntoViewIfNeeded();
 
         // opens the modal
         await modalScrollLockingPage.openModalFromPageBottom();
@@ -476,15 +474,13 @@ test.describe('scrolling logic', () => {
             await modalErrorPage.load();
 
             // 1. Assert initial state: we can scroll to the bottom
-            await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-            await page.waitForTimeout(500);
+            await page.getByText('Bottom of page copy').scrollIntoViewIfNeeded();
 
             await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
             await expect(page.getByText('Bottom of page copy')).toBeInViewport();
 
             // Reset scroll to top of the page for the main test
-            await page.evaluate(() => window.scrollTo(0, 0));
-            await page.waitForTimeout(500);
+            await page.getByText('Top of page copy').scrollIntoViewIfNeeded();
 
             // 2. Act: Click the button to run the open/break/close sequence
             await modalErrorPage.runTestButton.click();
@@ -493,8 +489,7 @@ test.describe('scrolling logic', () => {
             await page.waitForTimeout(6000);
 
             // 3. Assert final state: we can still scroll to the bottom
-            await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-            await page.waitForTimeout(500);
+            await page.getByText('Bottom of page copy').scrollIntoViewIfNeeded();
 
             await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
             await expect(page.getByText('Bottom of page copy')).toBeInViewport();
