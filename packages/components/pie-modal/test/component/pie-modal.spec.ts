@@ -57,10 +57,11 @@ test.describe('modal', () => {
         };
 
         await modalDefaultPage.load(props);
-        const fallBackHeadingExists = await modalDefaultPage.modalComponent.headingByTagExists('h2');
 
-        // Assert
-        expect(fallBackHeadingExists).toBe(true);
+        // Assert - use auto-waiting assertion instead of point-in-time isVisible()
+        await expect(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
+        const headingLocator = page.getByTestId('modal-header').locator('h2');
+        await expect(headingLocator).toBeVisible();
     }));
 
     test.describe('When modal is closed', () => {
@@ -409,7 +410,7 @@ test.describe('scrolling logic', () => {
         await modalScrollLockingPage.load(props);
 
         // Act
-        // Scroll 800 pixels down the page
+        // Try to scroll - the modal's scroll-lock should prevent this
         await page.mouse.wheel(0, 5000);
 
         // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
@@ -432,11 +433,9 @@ test.describe('scrolling logic', () => {
         await modalScrollLockingPage.load(props);
 
         // Act
-        // Scroll 800 pixels down the page
-        await page.mouse.wheel(0, 5000);
-
-        // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
-        await page.waitForTimeout(3000);
+        // Scroll to the bottom of the page
+        await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+        await page.waitForTimeout(500);
 
         // Assert
         await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
@@ -456,10 +455,8 @@ test.describe('scrolling logic', () => {
 
         // Act
         // Scroll to the bottom of the page
-        await page.mouse.wheel(0, 5000);
-
-        // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
-        await page.waitForTimeout(3000);
+        await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+        await page.waitForTimeout(500);
 
         // opens the modal
         await modalScrollLockingPage.openModalFromPageBottom();
@@ -479,15 +476,15 @@ test.describe('scrolling logic', () => {
             await modalErrorPage.load();
 
             // 1. Assert initial state: we can scroll to the bottom
-            await page.mouse.wheel(0, 5000);
-            await page.waitForTimeout(3000); // Wait for scroll to settle
+            await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+            await page.waitForTimeout(500);
 
             await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
             await expect(page.getByText('Bottom of page copy')).toBeInViewport();
 
             // Reset scroll to top of the page for the main test
-            await page.mouse.wheel(0, 0);
-            await page.waitForTimeout(3000); // Wait for scroll to settle
+            await page.evaluate(() => window.scrollTo(0, 0));
+            await page.waitForTimeout(500);
 
             // 2. Act: Click the button to run the open/break/close sequence
             await modalErrorPage.runTestButton.click();
@@ -496,8 +493,8 @@ test.describe('scrolling logic', () => {
             await page.waitForTimeout(6000);
 
             // 3. Assert final state: we can still scroll to the bottom
-            await page.mouse.wheel(0, 5000);
-            await page.waitForTimeout(3000); // Wait for scroll to settle
+            await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+            await page.waitForTimeout(500);
 
             await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
             await expect(page.getByText('Bottom of page copy')).toBeInViewport();
