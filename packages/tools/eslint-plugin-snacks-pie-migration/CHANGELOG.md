@@ -1,5 +1,11 @@
 # @justeattakeaway/eslint-plugin-snacks-pie-migration
 
+## 0.5.0
+
+### Minor Changes
+
+- [Changed] - updating minor pkg deps ([#2754](https://github.com/justeattakeaway/pie/pull/2754)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.4.1
 
 ### Patch Changes

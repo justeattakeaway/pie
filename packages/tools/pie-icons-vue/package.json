@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-vue",
-  "version": "5.20.1",
+  "version": "5.21.0",
   "description": "PIE Design System Icon set for Vue",
   "homepage": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons-vue",
   "repository": {
@@ -60,7 +60,7 @@
     "@babel/cli": "7.28.6",
     "@babel/core": "7.29.0",
     "@babel/eslint-parser": "7.28.6",
-    "@justeattakeaway/pie-icons": "5.23.1",
+    "@justeattakeaway/pie-icons": "5.24.0",
     "@justeattakeaway/pie-icons-configs": "5.21.0",
     "@rollup/plugin-commonjs": "25.0.8",
     "@rollup/plugin-node-resolve": "15.1.0",
