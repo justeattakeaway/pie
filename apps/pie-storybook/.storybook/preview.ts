@@ -124,6 +124,7 @@ export default {
                     'Contribution',
                     [
                         'Overview',
+                        'CI Tooling',
                         'Testing',
                         [
                             'Overview',
