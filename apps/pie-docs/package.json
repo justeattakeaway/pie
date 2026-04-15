@@ -39,8 +39,8 @@
     "markdown-it-attrs": "4.1.6"
   },
   "dependencies": {
-    "@docsearch/css": "3.5.2",
-    "@docsearch/js": "3.5.2",
+    "@docsearch/css": "3.9.0",
+    "@docsearch/js": "3.9.0",
     "@justeat/fozzie": "11.0.2",
     "@justeat/pie-design-tokens": "7.11.1",
     "@justeattakeaway/browserslist-config-pie": "0.2.1",
@@ -61,7 +61,7 @@
     "node-html-parser": "6.1.13",
     "postcss": "8.4.32",
     "postcss-cli": "10.1.0",
-    "slugify": "1.6.6"
+    "slugify": "1.6.9"
   },
   "installConfig": {
     "hoistingLimits": "workspaces"

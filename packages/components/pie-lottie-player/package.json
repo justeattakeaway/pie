@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-webc-core": "13.0.0",
-    "lottie-web": "5.12.2"
+    "lottie-web": "5.13.0"
   },
   "volta": {
     "extends": "../../../package.json"
