@@ -93,44 +93,276 @@ These concepts work just as well inside a Vue or React application.
 
 ## Usage Examples
 
-**For HTML:**
+### HTML / Vanilla JS
 
 ```js
-// import as module into a js file e.g. main.js
-import '@justeattakeaway/pie-webc/components/checkbox.js'
-```
-
-```html
-<pie-checkbox name="mycheckbox">Label</pie-checkbox>
-
-<!-- Always use aria-label if you are not passing a label -->
-<pie-checkbox name="mycheckbox" aria-label="Label"></pie-checkbox>
-<script type="module" src="/main.js"></script>
-```
-
-**For Native JS Applications, Vue, Angular, Svelte etc.:**
-
-```js
-// import as module into a js file that will be loaded on the page where the component is used.
+// Import the component
 import '@justeattakeaway/pie-webc/components/checkbox.js';
 ```
 
-```html
-<pie-checkbox name="mycheckbox">Label</pie-checkbox>
+#### Basic checkbox with a slotted label
 
-<!-- Always use aria-label if you are not passing a label -->
-<pie-checkbox name="mycheckbox" aria-label="Label"></pie-checkbox>
+```html
+<pie-checkbox name="terms" value="accepted">I agree to the terms</pie-checkbox>
 ```
 
-**For React Applications:**
+#### Checkbox without a visible label (always provide an aria-label)
+
+```html
+<pie-checkbox name="subscribe" aria-label="Subscribe to newsletter"></pie-checkbox>
+```
+
+#### Using a native HTML label with the `for` attribute
+
+Because `pie-checkbox` is a form-associated custom element, native `<label>` elements work with it just like a regular `<input>`. Clicking the label will toggle the checkbox.
+
+```html
+<pie-checkbox id="marketing-checkbox" name="marketing" value="yes"></pie-checkbox>
+<label for="marketing-checkbox">Send me marketing emails</label>
+```
+
+#### Wrapping the checkbox inside a native label
+
+```html
+<label>
+    <pie-checkbox name="marketing" value="yes"></pie-checkbox>
+    Send me marketing emails
+</label>
+```
+
+#### Inside a form with validation
+
+```html
+<form id="signup-form">
+    <pie-checkbox
+        name="terms"
+        value="accepted"
+        required
+        assistiveText="You must accept the terms to continue"
+        status="error">
+        I accept the terms and conditions
+    </pie-checkbox>
+
+    <button type="submit">Sign up</button>
+    <button type="reset">Reset</button>
+</form>
+
+<script type="module">
+    import '@justeattakeaway/pie-webc/components/checkbox.js';
+
+    const form = document.querySelector('#signup-form');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const checkbox = form.querySelector('pie-checkbox');
+
+        if (!checkbox.validity.valid) {
+            checkbox.status = 'error';
+            checkbox.assistiveText = 'You must accept the terms to continue';
+            return;
+        }
+
+        checkbox.status = 'default';
+        checkbox.assistiveText = '';
+
+        const formData = new FormData(form);
+        console.log(Object.fromEntries(formData));
+    });
+</script>
+```
+
+#### Prechecked and indeterminate states
+
+```html
+<!-- Checked by default -->
+<pie-checkbox name="notifications" checked>Enable notifications</pie-checkbox>
+
+<!-- Indeterminate (visual only — does not affect form value) -->
+<pie-checkbox name="selectAll" indeterminate>Select all</pie-checkbox>
+
+<!-- defaultChecked controls the state after a form reset -->
+<pie-checkbox name="optin" defaultChecked>Opt in to updates</pie-checkbox>
+```
+
+### Vue
+
+```js
+// Import the component in your main entry file
+import '@justeattakeaway/pie-webc/components/checkbox.js';
+```
+
+#### Basic usage with v-model
+
+```html
+<template>
+    <pie-checkbox
+        name="terms"
+        value="accepted"
+        :checked="isChecked"
+        @change="isChecked = $event.target.checked">
+        I agree to the terms
+    </pie-checkbox>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const isChecked = ref(false);
+</script>
+```
+
+#### With a native label
+
+```html
+<template>
+    <pie-checkbox
+        id="marketing-checkbox"
+        name="marketing"
+        value="yes"
+        :checked="marketingOptIn"
+        @change="marketingOptIn = $event.target.checked">
+    </pie-checkbox>
+    <label for="marketing-checkbox">Send me marketing emails</label>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const marketingOptIn = ref(false);
+</script>
+```
+
+#### Inside a form with validation
+
+```html
+<template>
+    <form @submit.prevent="handleSubmit" @reset="handleReset">
+        <pie-checkbox
+            ref="termsCheckbox"
+            name="terms"
+            value="accepted"
+            required
+            :checked="termsAccepted"
+            :status="status"
+            :assistiveText="assistiveText"
+            @change="termsAccepted = $event.target.checked">
+            I accept the terms and conditions
+        </pie-checkbox>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const termsAccepted = ref(false);
+const status = ref('default');
+const assistiveText = ref('');
+const termsCheckbox = ref(null);
+
+function handleSubmit () {
+    if (!termsCheckbox.value.validity.valid) {
+        status.value = 'error';
+        assistiveText.value = 'You must accept the terms to continue';
+        return;
+    }
+
+    status.value = 'default';
+    assistiveText.value = '';
+    console.log('Form submitted with terms accepted:', termsAccepted.value);
+}
+
+function handleReset () {
+    termsAccepted.value = false;
+    status.value = 'default';
+    assistiveText.value = '';
+}
+</script>
+```
+
+### React
 
 ```jsx
 import { PieCheckbox } from '@justeattakeaway/pie-webc/react/checkbox.js';
+```
 
-<PieCheckbox name="mycheckbox">Label</PieCheckbox>
+#### Basic usage
 
-// Always use aria-label if you are not passing a label
-<PieCheckbox name="mycheckbox" aria-label="Label"></PieCheckbox>
+```jsx
+<PieCheckbox name="terms" value="accepted">
+    I agree to the terms
+</PieCheckbox>
+```
+
+#### Without a visible label
+
+```jsx
+<PieCheckbox name="subscribe" aria-label="Subscribe to newsletter" />
+```
+
+#### With a native HTML label
+
+```jsx
+<PieCheckbox id="marketing-checkbox" name="marketing" value="yes" />
+<label htmlFor="marketing-checkbox">Send me marketing emails</label>
+```
+
+#### Wrapping inside a native label
+
+```jsx
+<label>
+    <PieCheckbox name="marketing" value="yes" />
+    Send me marketing emails
+</label>
+```
+
+#### Inside a form with state and validation
+
+```jsx
+import { useState, useRef } from 'react';
+import { PieCheckbox } from '@justeattakeaway/pie-webc/react/checkbox.js';
+
+function SignupForm () {
+    const [termsAccepted, setTermsAccepted] = useState(false);
+    const [status, setStatus] = useState('default');
+    const [assistiveText, setAssistiveText] = useState('');
+    const checkboxRef = useRef(null);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!checkboxRef.current.validity.valid) {
+            setStatus('error');
+            setAssistiveText('You must accept the terms to continue');
+            return;
+        }
+
+        setStatus('default');
+        setAssistiveText('');
+        console.log('Form submitted with terms accepted:', termsAccepted);
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <PieCheckbox
+                ref={checkboxRef}
+                name="terms"
+                value="accepted"
+                required
+                checked={termsAccepted}
+                status={status}
+                assistiveText={assistiveText}
+                onChange={(e) => setTermsAccepted(e.target.checked)}>
+                I accept the terms and conditions
+            </PieCheckbox>
+
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+    );
+}
 ```
 
 ## Questions and Support

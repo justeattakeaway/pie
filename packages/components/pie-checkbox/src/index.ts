@@ -87,6 +87,31 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
         this._abortController.abort();
     }
 
+    protected firstUpdated () : void {
+        // After the first render, the element is fully connected and
+        // _internals.labels is populated with any associated native <label> elements.
+        // We attach click listeners so that clicking a native label toggles the checkbox,
+        // since delegatesFocus only handles focus, not activation.
+        // The abort controller signal ensures cleanup on disconnect.
+        const { signal } = this._abortController;
+        this._internals?.labels?.forEach((label) => {
+            label.addEventListener('click', this._handleLabelClick, { signal });
+        });
+    }
+
+    private _handleLabelClick = (event: Event) : void => {
+        // When the checkbox is inside a wrapping <label>, clicking the checkbox
+        // itself causes the label to dispatch a second synthetic click on the
+        // associated control, which would double-toggle. We detect this by
+        // checking if the click originated from within this component.
+        const path = event.composedPath();
+        if (path.includes(this)) return;
+
+        if (!this.disabled && !this._disabledByParent) {
+            this._checkbox?.click();
+        }
+    };
+
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.
      * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity

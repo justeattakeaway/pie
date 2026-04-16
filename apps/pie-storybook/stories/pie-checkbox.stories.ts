@@ -3,6 +3,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/checkbox';
+import '@justeattakeaway/pie-webc/components/button';
 import { type CheckboxProps as CheckboxBaseProps, defaultProps, statusTypes } from '@justeattakeaway/pie-webc/components/checkbox';
 
 import { action } from '@storybook/addon-actions';
@@ -176,8 +177,8 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
             status=${ifDefined(status)}>
             ${sanitizeAndRenderHTML(slot)}
         </pie-checkbox>
-        <button type="reset">Reset</button>
-        <button type="submit">Submit</button>
+        <pie-button type="reset" variant="outline">Reset</pie-button>
+        <pie-button type="submit">Submit</pie-button>
         <script>
             // var is used to prevent storybook from erroring when the script is re-run
             var form = document.querySelector('#testForm');
@@ -199,5 +200,225 @@ const ExampleFormTemplate: TemplateFunction<CheckboxProps> = ({
     `;
 };
 
+const NativeLabelTemplate: TemplateFunction<CheckboxProps> = ({
+    value,
+    name,
+    checked,
+    defaultChecked,
+    disabled,
+    indeterminate,
+    required,
+    assistiveText,
+    status,
+}: CheckboxProps) => {
+    function onChange (event: CustomEvent) {
+        action('change')({
+            detail: event.detail,
+        });
+    }
+
+    return html`
+        <p>The checkbox below is associated with a native HTML <code>&lt;label&gt;</code> using the <code>for</code> attribute. Clicking the label text toggles the checkbox.</p>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <pie-checkbox
+                id="native-label-checkbox"
+                .value="${value}"
+                name="${ifDefined(name)}"
+                ?checked="${checked}"
+                ?defaultChecked="${defaultChecked}"
+                ?disabled="${disabled}"
+                ?indeterminate="${indeterminate}"
+                ?required="${required}"
+                @change="${onChange}"
+                assistiveText="${ifDefined(assistiveText)}"
+                status=${ifDefined(status)}>
+            </pie-checkbox>
+            <label for="native-label-checkbox" style="cursor: pointer;">I am a native HTML label — click me!</label>
+        </div>
+    `;
+};
+
+const NativeLabelWrappingTemplate: TemplateFunction<CheckboxProps> = ({
+    value,
+    name,
+    checked,
+    defaultChecked,
+    disabled,
+    indeterminate,
+    required,
+    assistiveText,
+    status,
+}: CheckboxProps) => {
+    function onChange (event: CustomEvent) {
+        action('change')({
+            detail: event.detail,
+        });
+    }
+
+    return html`
+        <p>The checkbox below is wrapped inside a native <code>&lt;label&gt;</code> element. Clicking anywhere in the label toggles the checkbox.</p>
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <pie-checkbox
+                .value="${value}"
+                name="${ifDefined(name)}"
+                ?checked="${checked}"
+                ?defaultChecked="${defaultChecked}"
+                ?disabled="${disabled}"
+                ?indeterminate="${indeterminate}"
+                ?required="${required}"
+                @change="${onChange}"
+                assistiveText="${ifDefined(assistiveText)}"
+                status=${ifDefined(status)}>
+            </pie-checkbox>
+            I am a wrapping native HTML label — click me!
+        </label>
+    `;
+};
+
 export const Default = createStory<CheckboxProps>(Template, defaultArgs)();
 export const ExampleForm = createStory<CheckboxProps>(ExampleFormTemplate, defaultArgs)();
+export const NativeLabel = createStory<CheckboxProps>(NativeLabelTemplate, defaultArgs)();
+export const NativeLabelWrapping = createStory<CheckboxProps>(NativeLabelWrappingTemplate, defaultArgs)();
+
+const CardSelectionTemplate = () => html`
+    <style>
+        .card-selection {
+            border: none;
+            margin: 0;
+            padding: 0;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: var(--dt-spacing-d);
+            font-family: var(--dt-font-family-primary);
+            max-width: 500px;
+        }
+
+        .card-selection__legend {
+            font-size: calc(var(--dt-font-heading-s-size--narrow) * 1px);
+            font-weight: var(--dt-font-heading-s-weight);
+            line-height: calc(var(--dt-font-heading-s-line-height--narrow) * 1px);
+            color: var(--dt-color-content-default);
+            margin-bottom: var(--dt-spacing-b);
+        }
+
+        .card-selection__description {
+            margin: 0 0 var(--dt-spacing-d) 0;
+            font-size: var(--dt-font-body-s-size);
+            line-height: calc(var(--dt-font-body-s-line-height) * 1px);
+            color: var(--dt-color-content-subdued);
+        }
+
+        .selection-card {
+            display: flex;
+            align-items: center;
+            gap: var(--dt-spacing-d);
+            padding: var(--dt-spacing-d) var(--dt-spacing-e);
+            border: 2px solid var(--dt-color-border-default);
+            border-radius: var(--dt-radius-rounded-c);
+            background-color: var(--dt-color-container-default);
+            cursor: pointer;
+            transition: all var(--dt-motion-timing-200) var(--dt-motion-easing-out);
+        }
+
+        .selection-card:hover {
+            border-color: var(--dt-color-border-strong);
+            background-color: var(--dt-color-container-subtle);
+        }
+
+        .selection-card:has(pie-checkbox[checked]) {
+            border-color: var(--dt-color-interactive-brand);
+            background-color: var(--dt-color-support-info-tonal);
+        }
+
+        .selection-card:has(pie-checkbox[disabled]) {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .selection-card__content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--dt-spacing-a);
+            flex: 1;
+            min-width: 0;
+        }
+
+        .selection-card__title {
+            font-weight: var(--dt-font-body-strong-l-weight);
+            font-size: var(--dt-font-body-strong-l-size);
+            line-height: calc(var(--dt-font-body-strong-l-line-height) * 1px);
+            color: var(--dt-color-content-default);
+        }
+
+        .selection-card__subtitle {
+            font-size: var(--dt-font-body-s-size);
+            line-height: calc(var(--dt-font-body-s-line-height) * 1px);
+            color: var(--dt-color-content-subdued);
+        }
+
+        .selection-card__price {
+            font-weight: var(--dt-font-body-strong-l-weight);
+            font-size: var(--dt-font-body-strong-l-size);
+            line-height: calc(var(--dt-font-body-strong-l-line-height) * 1px);
+            color: var(--dt-color-content-default);
+            flex-shrink: 0;
+        }
+
+        .card-selection__actions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--dt-spacing-c);
+            margin-top: var(--dt-spacing-d);
+        }
+    </style>
+
+    <form>
+        <fieldset class="card-selection">
+            <legend class="card-selection__legend">Customise your order</legend>
+            <p class="card-selection__description">Select any extras you would like to add.</p>
+
+            <label class="selection-card">
+                <pie-checkbox name="extras" value="extra-cheese" checked></pie-checkbox>
+                <span class="selection-card__content">
+                    <span class="selection-card__title">Extra cheese</span>
+                    <span class="selection-card__subtitle">Generous portion of mozzarella</span>
+                </span>
+                <span class="selection-card__price">+£1.50</span>
+            </label>
+
+            <label class="selection-card">
+                <pie-checkbox name="extras" value="bacon"></pie-checkbox>
+                <span class="selection-card__content">
+                    <span class="selection-card__title">Crispy bacon</span>
+                    <span class="selection-card__subtitle">Smoked and crispy streaky bacon</span>
+                </span>
+                <span class="selection-card__price">+£2.00</span>
+            </label>
+
+            <label class="selection-card">
+                <pie-checkbox name="extras" value="jalapenos"></pie-checkbox>
+                <span class="selection-card__content">
+                    <span class="selection-card__title">Jalapeños</span>
+                    <span class="selection-card__subtitle">Sliced green jalapeños</span>
+                </span>
+                <span class="selection-card__price">+£0.75</span>
+            </label>
+
+            <label class="selection-card">
+                <pie-checkbox name="extras" value="truffle-oil" disabled></pie-checkbox>
+                <span class="selection-card__content">
+                    <span class="selection-card__title">Truffle oil drizzle</span>
+                    <span class="selection-card__subtitle">Currently unavailable</span>
+                </span>
+                <span class="selection-card__price">+£3.00</span>
+            </label>
+
+            <div class="card-selection__actions">
+                <pie-button type="submit" isFullWidth>Add to basket</pie-button>
+            </div>
+        </fieldset>
+    </form>
+`;
+
+export const CardSelection = createStory(CardSelectionTemplate, {})();

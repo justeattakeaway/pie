@@ -2,6 +2,8 @@ import { test, expect } from '@playwright/test';
 import { CheckboxDefaultPage } from '../helpers/page-object/pie-checkbox-default.page.ts';
 import { CheckboxFormPage } from '../helpers/page-object/pie-checkbox-form.page.ts';
 import { CheckboxFieldsetFormPage } from '../helpers/page-object/pie-checkbox-fieldset-form.page.ts';
+import { CheckboxNativeLabelForPage } from '../helpers/page-object/pie-checkbox-native-label-for.page.ts';
+import { CheckboxNativeLabelWrappingPage } from '../helpers/page-object/pie-checkbox-native-label-wrapping.page.ts';
 import type { PieCheckbox } from '../../src/index.ts';
 import type { CheckboxProps } from '../../src/defs.ts';
 
@@ -565,6 +567,139 @@ test.describe('PieCheckbox - Component tests', () => {
                     // Assert
                     await expect(checkboxFormPage.checkboxComponent.inputLocator).not.toBeChecked();
                 });
+            });
+        });
+    });
+
+    test.describe('Native label association', () => {
+        test.describe('label with for attribute', () => {
+            test('should toggle the checkbox when the native label is clicked', async ({ page }) => {
+                // Arrange
+                const nativeLabelForPage = new CheckboxNativeLabelForPage(page);
+                await nativeLabelForPage.load();
+
+                // Act
+                await nativeLabelForPage.nativeLabel.click();
+
+                // Assert
+                await expect(nativeLabelForPage.checkboxComponent.inputLocator).toBeChecked();
+            });
+
+            test('should uncheck the checkbox when the native label is clicked twice', async ({ page }) => {
+                // Arrange
+                const nativeLabelForPage = new CheckboxNativeLabelForPage(page);
+                await nativeLabelForPage.load();
+
+                // Act
+                await nativeLabelForPage.nativeLabel.click();
+                await nativeLabelForPage.nativeLabel.click();
+
+                // Assert
+                await expect(nativeLabelForPage.checkboxComponent.inputLocator).not.toBeChecked();
+            });
+
+            test('should dispatch a change event when the native label is clicked', async ({ page }) => {
+                // Arrange
+                const nativeLabelForPage = new CheckboxNativeLabelForPage(page);
+                await nativeLabelForPage.load();
+
+                const consoleMessages: string[] = [];
+                page.on('console', (message) => {
+                    if (message.type() === 'info') {
+                        consoleMessages.push(message.text());
+                    }
+                });
+
+                // Act
+                await nativeLabelForPage.nativeLabel.click();
+
+                // Assert
+                expect(consoleMessages.length).toEqual(1);
+            });
+
+            test('should not toggle the checkbox when disabled', async ({ page }) => {
+                // Arrange
+                const nativeLabelForPage = new CheckboxNativeLabelForPage(page);
+                await nativeLabelForPage.load({ disabled: true });
+
+                // Act
+                await nativeLabelForPage.nativeLabel.click();
+
+                // Assert
+                await expect(nativeLabelForPage.checkboxComponent.inputLocator).not.toBeChecked();
+            });
+
+            test('should submit the correct value via the associated form', async ({ page }) => {
+                // Arrange
+                const nativeLabelForPage = new CheckboxNativeLabelForPage(page);
+                await nativeLabelForPage.load({ name: 'testName' });
+
+                // Act
+                await nativeLabelForPage.nativeLabel.click();
+                await nativeLabelForPage.submitButton.click();
+
+                // Assert
+                const expectedFormData = { testName: 'on' };
+                await expect(nativeLabelForPage.formData).toHaveText(JSON.stringify(expectedFormData));
+            });
+        });
+
+        test.describe('wrapping label', () => {
+            test('should toggle the checkbox when the wrapping label is clicked', async ({ page }) => {
+                // Arrange
+                const nativeLabelWrappingPage = new CheckboxNativeLabelWrappingPage(page);
+                await nativeLabelWrappingPage.load();
+
+                // Act
+                await nativeLabelWrappingPage.nativeLabel.click();
+
+                // Assert
+                await expect(nativeLabelWrappingPage.checkboxComponent.inputLocator).toBeChecked();
+            });
+
+            test('should dispatch a change event when the wrapping label is clicked', async ({ page }) => {
+                // Arrange
+                const nativeLabelWrappingPage = new CheckboxNativeLabelWrappingPage(page);
+                await nativeLabelWrappingPage.load();
+
+                const consoleMessages: string[] = [];
+                page.on('console', (message) => {
+                    if (message.type() === 'info') {
+                        consoleMessages.push(message.text());
+                    }
+                });
+
+                // Act
+                await nativeLabelWrappingPage.nativeLabel.click();
+
+                // Assert
+                expect(consoleMessages.length).toEqual(1);
+            });
+
+            test('should not toggle the checkbox when disabled', async ({ page }) => {
+                // Arrange
+                const nativeLabelWrappingPage = new CheckboxNativeLabelWrappingPage(page);
+                await nativeLabelWrappingPage.load({ disabled: true });
+
+                // Act
+                await nativeLabelWrappingPage.nativeLabel.click();
+
+                // Assert
+                await expect(nativeLabelWrappingPage.checkboxComponent.inputLocator).not.toBeChecked();
+            });
+
+            test('should submit the correct value via the associated form', async ({ page }) => {
+                // Arrange
+                const nativeLabelWrappingPage = new CheckboxNativeLabelWrappingPage(page);
+                await nativeLabelWrappingPage.load({ name: 'testName' });
+
+                // Act
+                await nativeLabelWrappingPage.nativeLabel.click();
+                await nativeLabelWrappingPage.submitButton.click();
+
+                // Assert
+                const expectedFormData = { testName: 'on' };
+                await expect(nativeLabelWrappingPage.formData).toHaveText(JSON.stringify(expectedFormData));
             });
         });
     });

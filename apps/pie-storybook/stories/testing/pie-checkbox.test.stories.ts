@@ -250,6 +250,110 @@ export const Default = createStory<CheckboxProps>(Template, defaultArgs)();
 export const ExampleForm = createStory<CheckboxProps>(ExampleFormTemplate, defaultArgs)();
 export const ExampleFieldsetForm = createStory<CheckboxProps>(ExampleFieldsetFormTemplate, defaultArgs)();
 
+const NativeLabelForTemplate: TemplateFunction<CheckboxProps> = ({
+    value,
+    name,
+    checked,
+    defaultChecked,
+    disabled,
+    indeterminate,
+    required,
+    assistiveText,
+    status,
+}: CheckboxProps) => {
+    function onChange (event: CustomEvent) {
+        console.info(JSON.stringify(event));
+    }
+
+    return html`
+    <form id="testForm">
+        <pie-checkbox
+            id="native-label-checkbox"
+            .value="${value}"
+            name="${ifDefined(name)}"
+            ?checked="${checked}"
+            ?defaultChecked="${defaultChecked}"
+            ?disabled="${disabled}"
+            ?indeterminate="${indeterminate}"
+            ?required="${required}"
+            @change="${onChange}"
+            assistiveText="${ifDefined(assistiveText)}"
+            status=${ifDefined(status)}>
+        </pie-checkbox>
+        <label for="native-label-checkbox" data-test-id="native-label">Click me</label>
+        <button type="submit">Submit</button>
+        <script>
+            var form = document.querySelector('#testForm');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(form);
+                const formDataObj = {};
+                formData.forEach((value, key) => {
+                    formDataObj[key] = value;
+                });
+                var output = document.querySelector('#output');
+                output.innerText = JSON.stringify(formDataObj);
+            });
+        </script>
+    </form>
+    <div id="output"></div>
+    `;
+};
+
+const NativeLabelWrappingTemplate: TemplateFunction<CheckboxProps> = ({
+    value,
+    name,
+    checked,
+    defaultChecked,
+    disabled,
+    indeterminate,
+    required,
+    assistiveText,
+    status,
+}: CheckboxProps) => {
+    function onChange (event: CustomEvent) {
+        console.info(JSON.stringify(event));
+    }
+
+    return html`
+    <form id="testForm">
+        <label data-test-id="native-label">
+            <pie-checkbox
+                .value="${value}"
+                name="${ifDefined(name)}"
+                ?checked="${checked}"
+                ?defaultChecked="${defaultChecked}"
+                ?disabled="${disabled}"
+                ?indeterminate="${indeterminate}"
+                ?required="${required}"
+                @change="${onChange}"
+                assistiveText="${ifDefined(assistiveText)}"
+                status=${ifDefined(status)}>
+            </pie-checkbox>
+            Click me
+        </label>
+        <button type="submit">Submit</button>
+        <script>
+            var form = document.querySelector('#testForm');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(form);
+                const formDataObj = {};
+                formData.forEach((value, key) => {
+                    formDataObj[key] = value;
+                });
+                var output = document.querySelector('#output');
+                output.innerText = JSON.stringify(formDataObj);
+            });
+        </script>
+    </form>
+    <div id="output"></div>
+    `;
+};
+
+export const NativeLabelFor = createStory<CheckboxProps>(NativeLabelForTemplate, defaultArgs)();
+export const NativeLabelWrapping = createStory<CheckboxProps>(NativeLabelWrappingTemplate, defaultArgs)();
+
 const sharedPropsMatrix: Partial<Record<keyof CheckboxProps, unknown[]>> = {
     checked: [true, false],
     disabled: [true, false],
