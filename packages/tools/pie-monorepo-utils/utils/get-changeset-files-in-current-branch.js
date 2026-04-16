@@ -2,20 +2,66 @@ const { execSync } = require('child_process');
 const path = require('path');
 const chalk = require('chalk');
 
+function getRefIfExists (monorepoRoot, ref) {
+    try {
+        const resolvedRef = execSync(`git rev-parse --verify --quiet ${ref}`, {
+            encoding: 'utf-8',
+            cwd: monorepoRoot,
+        }).trim();
+
+        return resolvedRef ? ref : null;
+    } catch {
+        return null;
+    }
+}
+
+function getBaseRef (monorepoRoot) {
+    let remoteHeadRef;
+
+    try {
+        remoteHeadRef = execSync('git symbolic-ref --quiet --short refs/remotes/origin/HEAD', {
+            encoding: 'utf-8',
+            cwd: monorepoRoot,
+        }).trim();
+    } catch {
+        remoteHeadRef = null;
+    }
+
+    const refCandidates = [
+        remoteHeadRef,
+        'origin/main',
+        'origin/master',
+        'main',
+        'master',
+    ].filter(Boolean);
+
+    const matchedRef = refCandidates.find((ref) => getRefIfExists(monorepoRoot, ref));
+
+    return matchedRef || null;
+}
+
 function getChangesetFilesInCurrentBranch (monorepoRoot) {
     const changesetFilePaths = new Set();
+    const baseRef = getBaseRef(monorepoRoot);
+
+    if (!baseRef) {
+        // eslint-disable-next-line no-console
+        console.error(chalk.red('Could not determine a base branch ref to diff against.'));
+        process.exit(1);
+    }
+
     /*
   Tracked files in the current branch:
-    git diff --name-only origin/main...HEAD -- .changeset/*.md
+  git diff --name-only <baseRef>...HEAD -- .changeset/*.md
     This command lists all files in the .changeset directory that are in the current branch but not in main.
       diff: Show changes between commits, commit and working tree, etc
       --name-only: Show only the name of each changed file
-      origin/main...HEAD: The range of commits to compare
+    <baseRef>...HEAD: The range of commits to compare
       -- .changeset/*.md: Only include .md files in the .changeset directory
   */
     try {
         const trackedChangesetFiles = execSync(
-            'git diff --name-only origin/main...HEAD -- .changeset/*.md',
+            `git diff --name-only ${baseRef}...HEAD -- .changeset/*.md`,
             { encoding: 'utf-8', cwd: monorepoRoot },
         );
         trackedChangesetFiles.split('\n').filter(Boolean).forEach((filePath) => changesetFilePaths.add(path.join(monorepoRoot, filePath)));
