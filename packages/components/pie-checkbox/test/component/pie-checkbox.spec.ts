@@ -4,6 +4,8 @@ import { CheckboxFormPage } from '../helpers/page-object/pie-checkbox-form.page.
 import { CheckboxFieldsetFormPage } from '../helpers/page-object/pie-checkbox-fieldset-form.page.ts';
 import { CheckboxNativeLabelForPage } from '../helpers/page-object/pie-checkbox-native-label-for.page.ts';
 import { CheckboxNativeLabelWrappingPage } from '../helpers/page-object/pie-checkbox-native-label-wrapping.page.ts';
+import { CheckboxNativeLabelWrappingElementChildrenPage } from '../helpers/page-object/pie-checkbox-native-label-wrapping-element-children.page.ts';
+import { CheckboxNativeLabelForElementChildrenPage } from '../helpers/page-object/pie-checkbox-native-label-for-element-children.page.ts';
 import type { PieCheckbox } from '../../src/index.ts';
 import type { CheckboxProps } from '../../src/defs.ts';
 
@@ -700,6 +702,87 @@ test.describe('PieCheckbox - Component tests', () => {
                 // Assert
                 const expectedFormData = { testName: 'on' };
                 await expect(nativeLabelWrappingPage.formData).toHaveText(JSON.stringify(expectedFormData));
+            });
+        });
+    });
+
+    test.describe('Native label accessible name sync', () => {
+        test.describe('wrapping label with element children (card selection pattern)', () => {
+            test('should set aria-label on the internal input with text from child elements', async ({ page }) => {
+                // Arrange
+                const cardPage = new CheckboxNativeLabelWrappingElementChildrenPage(page);
+                await cardPage.load();
+
+                // Assert
+                await expect(cardPage.checkboxComponent.inputLocator).toHaveAttribute('aria-label', 'Card title Card description');
+            });
+
+            test('should toggle the checkbox when the label is clicked', async ({ page }) => {
+                // Arrange
+                const cardPage = new CheckboxNativeLabelWrappingElementChildrenPage(page);
+                await cardPage.load();
+
+                // Act
+                await cardPage.nativeLabel.click();
+
+                // Assert
+                await expect(cardPage.checkboxComponent.inputLocator).toBeChecked();
+            });
+        });
+
+        test.describe('label with for attribute and element children', () => {
+            test('should set aria-label on the internal input with text from child elements', async ({ page }) => {
+                // Arrange
+                const cardPage = new CheckboxNativeLabelForElementChildrenPage(page);
+                await cardPage.load();
+
+                // Assert
+                await expect(cardPage.checkboxComponent.inputLocator).toHaveAttribute('aria-label', 'Card title Card description');
+            });
+
+            test('should toggle the checkbox when the label is clicked', async ({ page }) => {
+                // Arrange
+                const cardPage = new CheckboxNativeLabelForElementChildrenPage(page);
+                await cardPage.load();
+
+                // Act
+                await cardPage.nativeLabel.click();
+
+                // Assert
+                await expect(cardPage.checkboxComponent.inputLocator).toBeChecked();
+            });
+        });
+
+        test.describe('wrapping label with bare text nodes', () => {
+            test('should NOT set aria-label on the internal input to avoid double announcement', async ({ page }) => {
+                // Arrange
+                const nativeLabelWrappingPage = new CheckboxNativeLabelWrappingPage(page);
+                await nativeLabelWrappingPage.load();
+
+                // Assert
+                await expect(nativeLabelWrappingPage.checkboxComponent.inputLocator).not.toHaveAttribute('aria-label');
+            });
+        });
+
+        test.describe('label with for attribute and bare text nodes', () => {
+            test('should NOT set aria-label on the internal input to avoid double announcement', async ({ page }) => {
+                // Arrange
+                const nativeLabelForPage = new CheckboxNativeLabelForPage(page);
+                await nativeLabelForPage.load();
+
+                // Assert
+                await expect(nativeLabelForPage.checkboxComponent.inputLocator).not.toHaveAttribute('aria-label');
+            });
+        });
+
+        test.describe('checkbox with slotted content', () => {
+            test('should NOT set aria-label on the internal input', async ({ page }) => {
+                // Arrange
+                const checkboxDefaultPage = new CheckboxDefaultPage(page);
+                await checkboxDefaultPage.load();
+
+                // Assert
+                await expect(checkboxDefaultPage.checkboxComponent.inputLocator).not.toHaveAttribute('aria-label');
             });
         });
     });

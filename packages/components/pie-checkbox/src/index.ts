@@ -94,9 +94,95 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
         // since delegatesFocus only handles focus, not activation.
         // The abort controller signal ensures cleanup on disconnect.
         const { signal } = this._abortController;
-        this._internals?.labels?.forEach((label) => {
+        const nativeLabels = this._getNativeLabels();
+        nativeLabels.forEach((label) => {
             label.addEventListener('click', this._handleLabelClick, { signal });
         });
+
+        // When the checkbox is used inside a native <label> without slotted content
+        // (e.g. the card selection pattern), the internal <input> has no accessible name
+        // because the shadow DOM boundary prevents the outer label text from being
+        // associated with it. We bridge this gap by extracting the text content from
+        // the associated native labels and setting aria-label on the internal input.
+        this._syncNativeLabelAccessibleName(nativeLabels);
+    }
+
+    /**
+     * Returns associated native <label> elements. Uses ElementInternals.labels
+     * where supported, with a fallback for browsers (e.g. Safari) where it may
+     * not be populated: checks for a wrapping <label> ancestor and any <label>
+     * elements with a `for` attribute matching this element's `id`.
+     */
+    private _getNativeLabels () : HTMLLabelElement[] {
+        const internalsLabels = this._internals?.labels;
+        if (internalsLabels?.length) {
+            return Array.from(internalsLabels) as HTMLLabelElement[];
+        }
+
+        // Fallback: manually find associated labels
+        const labels: HTMLLabelElement[] = [];
+
+        // Check for a wrapping <label> ancestor
+        const wrappingLabel = this.closest('label');
+        if (wrappingLabel) {
+            labels.push(wrappingLabel);
+        }
+
+        // Check for <label for="..."> pointing to this element's id
+        if (this.id) {
+            const forLabels = document.querySelectorAll<HTMLLabelElement>(`label[for="${this.id}"]`);
+            forLabels.forEach((label) => labels.push(label));
+        }
+
+        return labels;
+    }
+
+    /**
+     * Extracts text content from associated native <label> elements and applies
+     * it as aria-label on the internal input. This is only done when:
+     * 1. No slotted content is provided (the internal label already provides the name)
+     * 2. The label text is inside child elements (e.g. <span>), not bare text nodes.
+     *    VoiceOver in Safari already announces bare text node siblings within a <label>,
+     *    so adding aria-label for those would cause double announcement.
+     */
+    private _syncNativeLabelAccessibleName (labels: HTMLLabelElement[]) : void {
+        if (!labels.length) return;
+
+        const hasSlottedContent = this.textContent?.trim();
+        if (hasSlottedContent) return;
+
+        const labelText = labels
+            .map((label) => {
+                let hasOnlyTextNodes = true;
+                const textParts: string[] = [];
+
+                label.childNodes.forEach((node) => {
+                    if (node === this) return;
+
+                    const text = node.textContent?.trim();
+                    if (!text) return;
+
+                    // Track whether all non-empty text comes from bare text nodes
+                    if (node.nodeType !== Node.TEXT_NODE) {
+                        hasOnlyTextNodes = false;
+                    }
+
+                    textParts.push(text);
+                });
+
+                // If all label text is in bare text nodes, VoiceOver already
+                // announces it natively — skip to avoid double announcement.
+                if (hasOnlyTextNodes) return '';
+
+                return textParts.join(' ');
+            })
+            .filter(Boolean)
+            .join(' ')
+            .trim();
+
+        if (labelText && this._checkbox) {
+            this._checkbox.setAttribute('aria-label', labelText);
+        }
     }
 
     private _handleLabelClick = (event: Event) : void => {
