@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.74.0
+
+### Minor Changes
+
+- [Changed] - updating minor pkg deps ([#2754](https://github.com/justeattakeaway/pie/pull/2754)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`961be67`](https://github.com/justeattakeaway/pie/commit/961be6728cb1e9b5bd4023437b84e6cdeada71b2)]:
+  - @justeattakeaway/pie-webc@0.10.0
+  - @justeattakeaway/pie-css@1.1.0
+  - @justeattakeaway/pie-icons-webc@1.21.3
+
 ## 1.73.3
 
 ### Patch Changes

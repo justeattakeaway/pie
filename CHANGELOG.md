@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.102.0
+
+### Minor Changes
+
+- [Changed] - updating minor pkg deps ([#2754](https://github.com/justeattakeaway/pie/pull/2754)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.101.0
 
 ### Minor Changes

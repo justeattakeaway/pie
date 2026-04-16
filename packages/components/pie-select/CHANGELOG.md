@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-select
 
+## 0.8.26
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.24
+  - @justeattakeaway/pie-webc-core@14.0.0
+
 ## 0.8.25
 
 ### Patch Changes

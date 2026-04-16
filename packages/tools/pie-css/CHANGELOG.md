@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 1.1.0
+
+### Minor Changes
+
+- [Changed] - updating minor pkg deps ([#2754](https://github.com/justeattakeaway/pie/pull/2754)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 1.0.0
 
 ### Major Changes

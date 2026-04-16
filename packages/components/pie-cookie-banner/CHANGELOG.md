@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 1.7.22
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.13.3
+  - @justeattakeaway/pie-divider@1.5.20
+  - @justeattakeaway/pie-icon-button@2.7.6
+  - @justeattakeaway/pie-link@1.3.22
+  - @justeattakeaway/pie-modal@1.25.12
+  - @justeattakeaway/pie-switch@2.3.24
+  - @justeattakeaway/pie-webc-core@14.0.0
+
 ## 1.7.21
 
 ### Patch Changes
