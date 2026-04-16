@@ -754,24 +754,24 @@ test.describe('PieCheckbox - Component tests', () => {
         });
 
         test.describe('wrapping label with bare text nodes', () => {
-            test('should NOT set aria-label on the internal input to avoid double announcement', async ({ page }) => {
+            test('should set aria-label on the internal input', async ({ page }) => {
                 // Arrange
                 const nativeLabelWrappingPage = new CheckboxNativeLabelWrappingPage(page);
                 await nativeLabelWrappingPage.load();
 
                 // Assert
-                await expect(nativeLabelWrappingPage.checkboxComponent.inputLocator).not.toHaveAttribute('aria-label');
+                await expect(nativeLabelWrappingPage.checkboxComponent.inputLocator).toHaveAttribute('aria-label', 'Click me');
             });
         });
 
         test.describe('label with for attribute and bare text nodes', () => {
-            test('should NOT set aria-label on the internal input to avoid double announcement', async ({ page }) => {
+            test('should set aria-label on the internal input', async ({ page }) => {
                 // Arrange
                 const nativeLabelForPage = new CheckboxNativeLabelForPage(page);
                 await nativeLabelForPage.load();
 
                 // Assert
-                await expect(nativeLabelForPage.checkboxComponent.inputLocator).not.toHaveAttribute('aria-label');
+                await expect(nativeLabelForPage.checkboxComponent.inputLocator).toHaveAttribute('aria-label', 'Click me');
             });
         });
 

@@ -94,7 +94,9 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
         // since delegatesFocus only handles focus, not activation.
         // The abort controller signal ensures cleanup on disconnect.
         const { signal } = this._abortController;
+
         const nativeLabels = this._getNativeLabels();
+
         nativeLabels.forEach((label) => {
             label.addEventListener('click', this._handleLabelClick, { signal });
         });
@@ -139,11 +141,9 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
 
     /**
      * Extracts text content from associated native <label> elements and applies
-     * it as aria-label on the internal input. This is only done when:
-     * 1. No slotted content is provided (the internal label already provides the name)
-     * 2. The label text is inside child elements (e.g. <span>), not bare text nodes.
-     *    VoiceOver in Safari already announces bare text node siblings within a <label>,
-     *    so adding aria-label for those would cause double announcement.
+     * it as aria-label on the internal input. This is only done when no slotted
+     * content is provided, since slotted content already provides the accessible
+     * name via the internal label element.
      */
     private _syncNativeLabelAccessibleName (labels: HTMLLabelElement[]) : void {
         if (!labels.length) return;
@@ -153,7 +153,6 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
 
         const labelText = labels
             .map((label) => {
-                let hasOnlyTextNodes = true;
                 const textParts: string[] = [];
 
                 label.childNodes.forEach((node) => {
@@ -162,17 +161,8 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
                     const text = node.textContent?.trim();
                     if (!text) return;
 
-                    // Track whether all non-empty text comes from bare text nodes
-                    if (node.nodeType !== Node.TEXT_NODE) {
-                        hasOnlyTextNodes = false;
-                    }
-
                     textParts.push(text);
                 });
-
-                // If all label text is in bare text nodes, VoiceOver already
-                // announces it natively — skip to avoid double announcement.
-                if (hasOnlyTextNodes) return '';
 
                 return textParts.join(' ');
             })
