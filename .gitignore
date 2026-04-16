@@ -175,3 +175,6 @@ custom-elements.json
 # Yalc
 .yalc
 yalc.lock
+
+# Changeset peer dep range snapshot (temp file)
+.changeset/.peer-dep-ranges-snapshot.json

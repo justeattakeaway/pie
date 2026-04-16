@@ -4267,7 +4267,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": 0.21.0
     lit: 3.2.0
   peerDependencies:
-    "@justeattakeaway/pie-css": 1.1.0
+    "@justeattakeaway/pie-css": 1.x
   languageName: unknown
   linkType: soft
 
@@ -4343,7 +4343,7 @@ __metadata:
     "@justeattakeaway/stylelint-no-logical-props-shorthands": 0.3.0
   peerDependencies:
     "@justeat/pie-design-tokens": "*"
-    "@justeattakeaway/pie-css": 1.1.0
+    "@justeattakeaway/pie-css": 1.x
     stylelint: 16.x
     stylelint-config-standard-scss: 13.x
     stylelint-order: 6.x
