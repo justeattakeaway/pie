@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-css
 
+## 1.1.0
+
+### Minor Changes
+
+- [Changed] - updating minor pkg deps ([#2754](https://github.com/justeattakeaway/pie/pull/2754)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 1.0.0
+
+### Major Changes
+
+- [Changed] - Refactored components to use clearer utility class modifiers such as is-loading, is-checked, has-error ([#2748](https://github.com/justeattakeaway/pie/pull/2748)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.32.0
 
 ### Minor Changes

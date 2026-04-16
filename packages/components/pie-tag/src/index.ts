@@ -61,7 +61,7 @@ export class PieTag extends PieElement implements TagProps {
             'c-tag': true,
             [`c-tag--${size}`]: true,
             [`c-tag--${variant}`]: true,
-            'c-tag--is-dimmed': isDimmed,
+            'is-dimmed': isDimmed,
             'c-tag--strong': isStrong,
             'c-tag--icon-only': isIconOnly,
             'c-tag--has-icon': hasLeadingIcon,

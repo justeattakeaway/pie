@@ -36,6 +36,9 @@ test.describe('PieCard - Component tests', () => {
         const cardDefaultPage = new CardDefaultPage(page);
         await cardDefaultPage.load({ ...props });
 
+        // Wait for the component to be ready before using page.evaluate
+        await cardDefaultPage.cardComponent.componentLocator.waitFor({ state: 'attached' });
+
         // Act - Have to manually set the href as Storybook doesn't support certain characters when passed via query params
         await page.evaluate(() => {
             const card = document.querySelector('pie-card');
@@ -105,7 +108,7 @@ test.describe('PieCard - Component tests', () => {
 
     test.describe('Prop: `isDraggable`', () => {
         test.describe('when set to true', () => {
-            test('should set a class of `c-card--draggable`', async ({ page }) => {
+            test('should set a class of `is-draggable`', async ({ page }) => {
                 // Arrange
 
                 const cardDefaultPage = new CardDefaultPage(page);
@@ -115,12 +118,12 @@ test.describe('PieCard - Component tests', () => {
                 });
 
                 // Assert
-                await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveClass(/c-card--draggable/);
+                await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveClass(/is-draggable/);
             });
         });
 
         test.describe('when set to false', () => {
-            test('should not set a class of `c-card--draggable`', async ({ page }) => {
+            test('should not set a class of `is-draggable`', async ({ page }) => {
                 // Arrange
                 const cardDefaultPage = new CardDefaultPage(page);
                 await cardDefaultPage.load({
@@ -129,7 +132,7 @@ test.describe('PieCard - Component tests', () => {
                 });
 
                 // Assert
-                await expect(cardDefaultPage.cardComponent.buttonLocator).not.toHaveClass(/c-card--draggable/);
+                await expect(cardDefaultPage.cardComponent.buttonLocator).not.toHaveClass(/is-draggable/);
             });
         });
     });
@@ -146,7 +149,7 @@ test.describe('PieCard - Component tests', () => {
                 await cardDefaultPage.load({ ...props });
 
                 // Assert
-                expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('style', 'padding: var(--dt-spacing-a)');
+                await expect(cardDefaultPage.cardComponent.buttonLocator).toHaveAttribute('style', 'padding: var(--dt-spacing-a)');
             });
         });
     });
@@ -163,6 +166,9 @@ paddingValues.forEach((paddingValue) => {
         await cardDefaultPage.load({ ...props });
 
         const values = paddingValue.split(',');
+
+        // Wait for the component to be ready before using page.evaluate
+        await cardDefaultPage.cardComponent.componentLocator.waitFor({ state: 'attached' });
 
         // Setting this manually due to Storybook limitations - https://storybook.js.org/docs/writing-stories/args#setting-args-through-the-url
         await page.evaluate((paddingValue) => {
@@ -325,6 +331,8 @@ test.describe('Prop: disabled', () => {
 
             const cardDefaultPage = new CardDefaultPage(page);
             await cardDefaultPage.load({ ...props });
+
+            await cardDefaultPage.cardComponent.componentLocator.waitFor({ state: 'attached' });
 
             await page.evaluate(() => {
                 const card = document.querySelector('pie-card');

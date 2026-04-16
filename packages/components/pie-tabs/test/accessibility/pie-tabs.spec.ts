@@ -6,8 +6,7 @@ test.describe('PieTabs - Accessibility tests', () => {
         // Arrange
         const basePage = new BasePage(page, 'tabs--default');
 
-        basePage.load();
-        await page.waitForTimeout(2500);
+        await basePage.load();
 
         // Act
         const results = await makeAxeBuilder().analyze();

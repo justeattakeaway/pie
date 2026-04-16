@@ -11,6 +11,7 @@ variants.forEach((variant) => {
     sizes.forEach((size) => {
         test(`should render all prop variations for Variant: ${variant} and Size: ${size}`, async ({ page }) => {
             const linkVariationsPage = new BasePage(page, `link--${variant}-${size}-variations`);
+            linkVariationsPage.waitUntilStrategy = 'networkidle';
 
             await linkVariationsPage.load();
 

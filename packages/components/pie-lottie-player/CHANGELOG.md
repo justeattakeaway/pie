@@ -1,5 +1,23 @@
 # @justeattakeaway/pie-lottie-player
 
+## 0.4.0
+
+### Minor Changes
+
+- [Changed] - updating minor pkg deps ([#2754](https://github.com/justeattakeaway/pie/pull/2754)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@14.0.0
+
+## 0.3.13
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc-core@13.0.0
+
 ## 0.3.12
 
 ### Patch Changes

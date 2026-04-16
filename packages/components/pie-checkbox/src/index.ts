@@ -176,17 +176,17 @@ export class PieCheckbox extends DelegatesFocusMixin(FormControlMixin(PieElement
             'c-checkbox': true,
             [`c-checkbox--status-${status}`]: !componentDisabled,
             'is-disabled': componentDisabled,
-            'c-checkbox--checked': checked,
-            'c-checkbox--indeterminate': indeterminate && !checked,
+            'is-checked': checked,
+            'is-indeterminate': indeterminate && !checked,
         };
 
         const labelClasses = {
             'c-checkbox-tick': true,
             [`c-checkbox-tick--status-${status}`]: !componentDisabled,
             'is-disabled': componentDisabled,
-            'c-checkbox-tick--checked': checked,
-            'c-checkbox-tick--indeterminate': indeterminate && !checked,
-            'c-checkbox-tick--allow-animation': _isAnimationAllowed,
+            'is-checked': checked,
+            'is-indeterminate': indeterminate && !checked,
+            'is-animated': _isAnimationAllowed,
         };
 
         return html`

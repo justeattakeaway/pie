@@ -1,5 +1,27 @@
 # @justeattakeaway/pie-toast
 
+## 0.12.36
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.13.3
+  - @justeattakeaway/pie-icon-button@2.7.6
+  - @justeattakeaway/pie-icons-webc@1.21.3
+  - @justeattakeaway/pie-webc-core@14.0.0
+
+## 0.12.35
+
+### Patch Changes
+
+- [Changed] - Refactored components to use clearer utility class modifiers such as is-loading, is-checked, has-error ([#2748](https://github.com/justeattakeaway/pie/pull/2748)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@1.13.2
+  - @justeattakeaway/pie-icon-button@2.7.5
+  - @justeattakeaway/pie-icons-webc@1.21.2
+  - @justeattakeaway/pie-webc-core@13.0.0
+
 ## 0.12.34
 
 ### Patch Changes

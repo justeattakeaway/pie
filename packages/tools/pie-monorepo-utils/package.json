@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-monorepo-utils",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Scripts and utilities used by the PIE monorepo",
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
     "extends": "../../../package.json"
   },
   "dependencies": {
-    "@changesets/parse": "0.4.1",
+    "@changesets/parse": "0.4.3",
     "chalk": "4.1.2"
   }
 }

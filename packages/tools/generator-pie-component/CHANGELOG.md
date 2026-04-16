@@ -1,5 +1,13 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.33.0
+
+### Minor Changes
+
+- [Fixed] - changing page loads to await ([#2760](https://github.com/justeattakeaway/pie/pull/2760)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - updating minor pkg deps ([#2754](https://github.com/justeattakeaway/pie/pull/2754)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.32.0
 
 ### Minor Changes

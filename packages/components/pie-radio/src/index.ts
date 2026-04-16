@@ -178,8 +178,8 @@ export class PieRadio extends FormControlMixin(RtlMixin(PieElement)) implements 
         const classes = {
             'c-radio': true,
             'is-disabled': componentDisabled,
-            [`c-radio--status-${status}`]: !componentDisabled,
-            'c-radio--allow-animation': _isAnimationAllowed,
+            [`has-${status}`]: !componentDisabled,
+            'is-animated': _isAnimationAllowed,
         };
 
         // NOTE: The label element here does not require a `for` attribute. This is because the click logic is handled by the component itself.

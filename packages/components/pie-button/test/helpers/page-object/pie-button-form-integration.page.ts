@@ -102,6 +102,9 @@ export class FormIntegrationPage extends BasePage {
                 throw new Error(`Invalid button type: ${buttonType}`);
         }
 
+        // Wait for the button to be in the DOM before accessing its form property
+        await this.page.locator(`[data-test-id="${selector}"]`).waitFor({ state: 'attached' });
+
         const associatedFormId = await this.page.evaluate((selector) => {
             const button = document.querySelector(`[data-test-id="${selector}"]`) as PieButton;
             return button.form ? button.form.id : null;

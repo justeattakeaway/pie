@@ -20,10 +20,6 @@ All of our design tokens can be added to your project by following our [CSS setu
     - [Stack items with spacing token](#stack-items-with-spacing-token)
     - [Add padding using spacing alias](#add-padding-using-spacing-alias)
 - [Typography](#typography)
-    - [Font size](#font-size)
-    - [Body text](#body-text)
-    - [Heading example](#heading-example)
-    - [Line height](#line-height)
 - [Radius](#radius)
     - [Rounded card](#rounded-card)
 - [Motion](#motion)
@@ -89,50 +85,8 @@ A spacing token (`--dt-spacing-e`) is applied to padding, providing internal spa
 
 ## Typography
 
-**Note:** Whenever you set a `font-size`, you must also set a compatible `line-height` rule to ensure the font looks correct.
-
-### Font size
-Our font-size tokens only store the raw number, not a `px` unit. Therefore, you must multiply the token by `1px` to create a `px` value that CSS will understand.
-
-```css
-.font-size-example {
-    font-size: calc(var(--dt-font-body-l-size) * 1px);
-}
-```
-
-### Body text
-Font tokens define the typography for body content, including font family, size, weight, and line height. Each token maps to a specific design choice in the type scale, and using them ensures that text remains visually consistent and readable, even as underlying type styles evolve in the system.
-
-```css
-.body-text {
-    font-family: var(--dt-font-body-l-family);
-    font-size: calc(var(--dt-font-body-l-size) * 1px);
-    font-weight: var(--dt-font-body-l-weight);
-    line-height: calc(var(--dt-font-body-l-line-height) * 1px);
-}
-```
-
-### Heading example
-Typography tokens are again used here, but with heading-specific values - including a `--wide` variant for font size and line height. This demonstrates how token modifiers allow flexibility (e.g. tighter vs wider spacing) without diverging from the core type system.
-
-```css
-.heading-m {
-    font-family: var(--dt-font-heading-m-family);
-    font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
-    font-weight: var(--dt-font-heading-m-weight);
-    line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
-}
-```
-
-### Line height
-
-Line height tokens only contain the raw number, not a `px` unit. Therefore they must be multipled by `1px` to create a `px` value CSS will understand.
-
-```css
-.applied-lineheight {
-    line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
-}
-```
+For typography, we recommend using the utility classes provided by `pie-css` instead of directly applying font tokens. These classes ensure consistent application of our type scale and responsive adjustments across all components.
+Documentation and examples can be found in Storybook [here](https://webc.pie.design/?path=/docs/additional-libraries-pie-css-typography-utility-classes--docs).
 
 ## Radius
 

@@ -8,6 +8,7 @@ variants.forEach((variant) => {
     test(`should render all prop variations for Variant: ${variant}`, async ({ page }) => {
         // Arrange
         const buttonPage = new BasePage(page, `button--${variant}-variations`);
+        buttonPage.waitUntilStrategy = 'networkidle';
         const buttonComponent = new ButtonComponent(page);
         await buttonPage.load();
 
@@ -20,6 +21,7 @@ variants.forEach((variant) => {
 test('should render isFullWidth correctly in different layout contexts', async ({ page }) => {
     // Arrange
     const buttonPage = new BasePage(page, 'button--is-full-width-layout-variations');
+    buttonPage.waitUntilStrategy = 'networkidle';
     const buttonComponent = new ButtonComponent(page);
     await buttonPage.load();
 

@@ -9,6 +9,7 @@ readingDirections.forEach(async (dir) => {
     statusTypes.forEach(async (status) => {
         test(`Status - ${status} - ${dir}`, async ({ page }) => {
             const textInputVariations = new BasePage(page, `text-input--${status}-variations`);
+            textInputVariations.waitUntilStrategy = 'networkidle';
             await textInputVariations.load({}, { writingDirection: dir });
             await page.waitForSelector('pie-text-input');
 
@@ -19,6 +20,7 @@ readingDirections.forEach(async (dir) => {
     test(`Content and slots - ${dir}`, async ({ page }) => {
     // Arrange
         const textInputVariations = new BasePage(page, 'text-input--slot-variations');
+        textInputVariations.waitUntilStrategy = 'networkidle';
         await textInputVariations.load({}, { writingDirection: dir });
         await page.waitForSelector('pie-text-input');
 

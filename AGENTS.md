@@ -225,13 +225,16 @@ Prefer native platform events where possible (for example `Event`/`InputEvent`) 
 - Use SCSS with design tokens (CSS variables where possible)
   - Design tokens are defined in the `@justeattakeaway/pie-design-tokens` package
   - DON'T invent token names
-- Follow BEM-like naming: `c-componentName--modifier`
-  - Components are prefixed: `.c-`
-  - Descriptors in a classname use camel-case if more than one word (e.g. `c-myComponentName`)
-  - Child elements use `-` (e.g. `.c-form-controlGroup`)
-  - Modifiers use `--` (e.g. `.c-button--primary`)
-  - Utility classes use `.u-` prefix (e.g. `.u-showAboveMid`)
-  - State classes use `.is-` or `.has-` prefix (e.g. `.is-active`, `.has-error`)
+- Classnames should follow these naming conventions:
+  - **Prefixes**
+    - Objects = `.o-` (components tied to HTML tags, e.g. `.o-btn`)
+    - Components = `.c-` (everything else, e.g. `.c-rating`)
+    - Utilities = `.u-` (reusable helpers, e.g. `.u-showAboveMid`)
+    - Layout = `.l-` (global layout, e.g. `.l-container`)
+  - **Camel-case** descriptors when multi-word (e.g. `.c-myComponentName`)
+  - **Child elements** use a single hyphen `-` (e.g. `.o-form-controlGroup`)
+  - **Modifiers** use a double hyphen `--` (e.g. `.o-btn--primary`). Modifiers extend a base class; always apply both (e.g. `class="o-btn o-btn--primary"`)
+  - **State** uses `.is-` or `.has-` prefix for JS-driven state changes (e.g. `.is-active`, `.has-error`)
 - Use logical properties (e.g. `margin-inline-start` not `margin-left`)
 - Import styles as `?inline` in component files
 

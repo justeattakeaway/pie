@@ -20,6 +20,8 @@ export class CheckboxComponent {
      * @returns {Promise<boolean>}
      */
     async isValid () {
+        await this.componentLocator.waitFor({ state: 'attached' });
+
         return this.page.evaluate(() => {
             const element = document.querySelector('pie-checkbox')?.shadowRoot?.querySelector('input') as HTMLInputElement;
             return element ? element.validity.valid : false;

@@ -5,9 +5,9 @@ import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-obj
 test.describe('PieList - Visual tests`', () => {
     test('should display the PieList component successfully', async ({ page }) => {
         const basePage = new BasePage(page, 'list--default');
+        basePage.waitUntilStrategy = 'networkidle';
 
-        basePage.load();
-        await page.waitForTimeout(2500);
+        await basePage.load();
 
         await percySnapshot(page, 'PieList - Visual Test');
     });

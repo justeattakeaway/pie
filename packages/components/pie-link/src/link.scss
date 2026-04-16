@@ -88,7 +88,7 @@
         width: fit-content;
     }
 
-    &.c-link--hasVisited:visited {
+    &.has-visited:visited {
         color: var(--dt-color-content-link-visited);
 
         &.c-link--inverse {

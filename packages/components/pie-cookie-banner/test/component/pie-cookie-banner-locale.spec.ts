@@ -83,10 +83,21 @@ test.describe('PieCookieBanner - Country and Language Properties', () => {
         { language: 'es', country: 'pt', expectedLocale: 'es' }, // Test for unspported country
         { language: 'fr', country: 'ru', expectedLocale: 'fr' }, // Test for unspported country
     ].forEach((obj) => {
-        test(`should load the correct locale [${obj.expectedLocale}] given language [${obj.language}] & country [${obj.country}]`, async () => {
+        test(`should load the correct locale [${obj.expectedLocale}] given language [${obj.language}] & country [${obj.country}]`, async ({ page }) => {
             // Arrange
             const expectedLocale = (await import(`@justeattakeaway/pie-cookie-banner/locales/${obj.expectedLocale}.js`)).default;
             await pieCookieBannerComponent.load({ country: obj.country, language: obj.language });
+
+            // Wait for the component to finish loading the locale
+            await page.waitForFunction(
+                (expectedAcceptAll) => {
+                    const component = document.querySelector('pie-cookie-banner');
+                    if (!component || !component.shadowRoot) return false;
+                    const btn = component.shadowRoot.querySelector('[data-test-id="actions-accept-all"]');
+                    return btn?.textContent?.trim() === expectedAcceptAll;
+                },
+                expectedLocale.banner.cta.acceptAll,
+            );
 
             // Act
             const acceptAllButtonText = await pieCookieBannerComponent.getAcceptAllTextContent();

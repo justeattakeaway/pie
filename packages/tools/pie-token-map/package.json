@@ -24,7 +24,7 @@
         "componentStatus": "alpha"
     },
     "scripts": {
-        "generate": "run -T ts-node --esm ./scripts/generate-token-map.ts",
+        "generate": "run -T tsx ./scripts/generate-token-map.ts",
         "build": "yarn generate && run -T vite build",
         "generate:verify": "yarn generate && git diff --exit-code src/generated/",
         "test": "run -T vitest run",
