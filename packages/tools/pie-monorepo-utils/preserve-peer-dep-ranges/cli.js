@@ -17,13 +17,13 @@ const { runSnapshot, runRestore } = require('./preserve-peer-dep-ranges');
 
 const root = findMonorepoRoot();
 const SNAPSHOT_PATH = path.join(root, '.changeset', '.peer-dep-ranges-snapshot.json');
-const command = process.argv[2];
+const [,, command] = process.argv;
 
 if (command === 'snapshot') {
     runSnapshot(SNAPSHOT_PATH);
 } else if (command === 'restore') {
     runRestore(SNAPSHOT_PATH);
 } else {
-    console.error('Usage: preserve-peer-dep-ranges <snapshot|restore>');
+    console.error('Usage: preserve-peer-dep-ranges <snapshot|restore>'); // eslint-disable-line no-console
     process.exit(1);
 }

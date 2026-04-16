@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
 const findMonorepoRoot = require('../utils/find-monorepo-root');
@@ -32,16 +33,9 @@ function getWorkspacePackageJsonPaths (root) {
     const rootPkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
     const workspaceGlobs = rootPkg.workspaces?.packages || rootPkg.workspaces || [];
 
-    const paths = [];
-
-    for (const pattern of workspaceGlobs) {
-        if (pattern === './') continue;
-        const globPattern = path.join(root, pattern, 'package.json');
-        const matched = fs.globSync(globPattern);
-        paths.push(...matched);
-    }
-
-    return paths;
+    return workspaceGlobs
+        .filter((pattern) => pattern !== './')
+        .flatMap((pattern) => fs.globSync(path.join(root, pattern, 'package.json')));
 }
 
 /**
@@ -52,20 +46,20 @@ function buildSnapshot (root) {
     const pkgPaths = getWorkspacePackageJsonPaths(root);
     const snapshot = {};
 
-    for (const pkgPath of pkgPaths) {
+    pkgPaths.forEach((pkgPath) => {
         try {
             const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
             const peerDeps = pkg.peerDependencies;
 
-            if (!peerDeps) continue;
+            if (!peerDeps) return;
 
             const rangesToPreserve = {};
 
-            for (const [depName, depVersion] of Object.entries(peerDeps)) {
+            Object.entries(peerDeps).forEach(([depName, depVersion]) => {
                 if (isInternalDep(depName) && isRange(depVersion)) {
                     rangesToPreserve[depName] = depVersion;
                 }
-            }
+            });
 
             if (Object.keys(rangesToPreserve).length > 0) {
                 snapshot[pkgPath] = {
@@ -76,7 +70,7 @@ function buildSnapshot (root) {
         } catch (err) {
             console.warn(`[preserve-peer-dep-ranges] Skipping ${pkgPath}: ${err.message}`);
         }
-    }
+    });
 
     return snapshot;
 }
@@ -103,15 +97,15 @@ function restoreFromSnapshot (snapshotPath) {
     const snapshot = JSON.parse(fs.readFileSync(snapshotPath, 'utf8'));
     const restorations = [];
 
-    for (const [pkgPath, entry] of Object.entries(snapshot)) {
+    Object.entries(snapshot).forEach(([pkgPath, entry]) => {
         try {
             const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
 
-            if (!pkg.peerDependencies) continue;
+            if (!pkg.peerDependencies) return;
 
             let changed = false;
 
-            for (const [dep, originalRange] of Object.entries(entry.ranges)) {
+            Object.entries(entry.ranges).forEach(([dep, originalRange]) => {
                 const currentValue = pkg.peerDependencies[dep];
 
                 if (currentValue !== undefined && currentValue !== originalRange) {
@@ -124,7 +118,7 @@ function restoreFromSnapshot (snapshotPath) {
                         to: originalRange,
                     });
                 }
-            }
+            });
 
             if (changed) {
                 fs.writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`);
@@ -132,7 +126,7 @@ function restoreFromSnapshot (snapshotPath) {
         } catch (err) {
             console.error(`[preserve-peer-dep-ranges] Failed to restore ${pkgPath}: ${err.message}`);
         }
-    }
+    });
 
     fs.unlinkSync(snapshotPath);
 
@@ -154,11 +148,11 @@ function runSnapshot (snapshotPath) {
 
     saveSnapshot(snapshotPath, snapshot);
 
-    for (const [, entry] of Object.entries(snapshot)) {
-        for (const [dep, range] of Object.entries(entry.ranges)) {
+    Object.values(snapshot).forEach((entry) => {
+        Object.entries(entry.ranges).forEach(([dep, range]) => {
             console.log(`[preserve-peer-dep-ranges] Snapshotted ${entry.name} → ${dep}: "${range}"`);
-        }
-    }
+        });
+    });
 }
 
 /**
@@ -179,9 +173,9 @@ function runRestore (snapshotPath) {
         return;
     }
 
-    for (const r of restorations) {
+    restorations.forEach((r) => {
         console.log(`[preserve-peer-dep-ranges] Restored ${r.package} → ${r.dep}: "${r.from}" → "${r.to}"`);
-    }
+    });
 
     console.log('[preserve-peer-dep-ranges] Snapshot cleaned up.');
 }

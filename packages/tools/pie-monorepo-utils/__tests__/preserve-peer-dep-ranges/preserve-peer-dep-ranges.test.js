@@ -1,5 +1,5 @@
 import {
-    describe, it, expect, beforeEach, afterEach,
+    describe, it, expect, afterEach,
 } from 'vitest';
 import fs from 'fs';
 import path from 'path';
@@ -34,14 +34,14 @@ function createTempWorkspace (packages = []) {
 
     // Create each package
     fs.mkdirSync(path.join(root, 'packages'), { recursive: true });
-    for (const pkg of packages) {
+    packages.forEach((pkg) => {
         const pkgDir = path.join(root, 'packages', pkg.dirName);
         fs.mkdirSync(pkgDir, { recursive: true });
         fs.writeFileSync(
             path.join(pkgDir, 'package.json'),
             JSON.stringify(pkg.packageJson, null, 2),
         );
-    }
+    });
 
     const cleanup = () => fs.rmSync(root, { recursive: true, force: true });
 
@@ -251,7 +251,7 @@ describe('preserve-peer-dep-ranges', () => {
             saveSnapshot(snapshotPath, snapshot);
 
             // 2. Simulate changeset clobbering the range
-            const pkgPath = Object.keys(snapshot)[0];
+            const [pkgPath] = Object.keys(snapshot);
             const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
             pkg.peerDependencies['@justeattakeaway/pie-css'] = '1.1.0';
             fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
