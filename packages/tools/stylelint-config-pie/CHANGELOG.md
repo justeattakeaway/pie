@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.1
+
+### Patch Changes
+
+- [Changed] - updated pie-css peerDep to non-pinned version ([#2766](https://github.com/justeattakeaway/pie/pull/2766)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 3.0.0
 
 ### Patch Changes

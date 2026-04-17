@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.103.0
+
+### Minor Changes
+
+- [Changed] - updated commitlint and changeset pkgs ([#2763](https://github.com/justeattakeaway/pie/pull/2763)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Fixed] - updated changeset scripts and lint hooks to work in a git worktree environment
+
 ## 2.102.0
 
 ### Minor Changes
