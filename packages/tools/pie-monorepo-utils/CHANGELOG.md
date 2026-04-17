@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-monorepo-utils
 
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - preserve-peer-dep-ranges which makes changeset preserve fuzzy peerDep ranges when upgrading ([#2766](https://github.com/justeattakeaway/pie/pull/2766)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - updated changeset utility script ([#2763](https://github.com/justeattakeaway/pie/pull/2763)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.8.0
 
 ### Minor Changes
