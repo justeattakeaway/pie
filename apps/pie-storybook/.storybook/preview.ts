@@ -9,7 +9,9 @@ import backgrounds from './backgrounds';
 import getTheme from './pieTheme';
 
 // Register SCSS language for syntax highlighting in docs
-import { SyntaxHighlighter } from '@storybook/components';
+// Must use Storybook's own SyntaxHighlighter (not react-syntax-highlighter directly)
+// so the language is available in docs code blocks.
+import { SyntaxHighlighter } from 'storybook/internal/components';
 import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss';
 
 SyntaxHighlighter.registerLanguage('scss', scss);
@@ -35,16 +37,6 @@ export default {
             config: {
                 rules: [
                     {
-                        id: 'WCAG Rules',
-                        tags: [
-                            'wcag21a',
-                            'wcag21aa',
-                            'wcag143',
-                            'cat.color',
-                            'cat.aria'
-                        ]
-                    },
-                    {
                         // Disabled rule
                         id: 'color-contrast-enhanced',
                         enabled: false,
@@ -55,6 +47,12 @@ export default {
                         enabled: false,
                     },
                 ],
+            },
+            options: {
+                runOnly: {
+                    type: 'tag',
+                    values: ['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'],
+                },
             },
         },
         backgrounds,
@@ -71,7 +69,7 @@ export default {
             light: { ...getTheme() },
         },
         viewport: {
-            viewports: CUSTOM_VIEWPORTS
+            options: CUSTOM_VIEWPORTS
         },
         layout: 'centered',
         options: {

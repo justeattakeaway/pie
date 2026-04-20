@@ -2,7 +2,7 @@ import { nothing } from 'lit';
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type Meta } from '@storybook/web-components';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import '@justeattakeaway/pie-webc/components/card';
 import {

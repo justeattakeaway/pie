@@ -5,7 +5,7 @@ import { type Meta } from '@storybook/web-components';
 import '@justeattakeaway/pie-webc/components/checkbox';
 import { type CheckboxProps as CheckboxBaseProps, defaultProps, statusTypes } from '@justeattakeaway/pie-webc/components/checkbox';
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { type SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
