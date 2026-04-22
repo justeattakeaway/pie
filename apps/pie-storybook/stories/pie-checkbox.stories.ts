@@ -136,7 +136,7 @@ const Template = ({
             ?indeterminate="${indeterminate}"
             ?required="${required}"
             @change="${onChange}"
-            ?assistiveText="${ifDefined(assistiveText)}"
+            assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}>
             ${sanitizeAndRenderHTML(slot)}
         </pie-checkbox>
