@@ -42,12 +42,13 @@ export const createStory = <T>(templateFunc: TemplateFunction<T>, defaultArgs: T
         ...propOverrides,
     },
     parameters: {
-        backgrounds: {
-            ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
-        },
         controls: { ...(storyOpts?.controls ? storyOpts.controls : {}) },
         ...(storyOpts?.layout ? { layout: storyOpts?.layout || 'centered' } : {}),
     },
+    // storyGlobals (set via the `globals` key) take priority over userGlobals in
+    // Storybook v10, so this is the correct way to declare a per-story background.
+    // parameters.backgrounds.default is ignored by the v10 backgrounds decorator.
+    ...(storyOpts?.bgColor ? { globals: { backgrounds: { value: storyOpts.bgColor } } } : {}),
     ...(storyOpts?.argTypes ? { argTypes: storyOpts?.argTypes } : {}),
 });
 

@@ -15,36 +15,9 @@ const BACKGROUND_VALUES: Record<ColorMode, string> = {
 
 let initialized = false;
 let currentColorMode: ColorMode | null = null;
-let storyBackgroundOverride: string | undefined;
 
-/**
- * Returns true when Storybook is running in browser-testing mode
- * (visual regression / Playwright). In that environment, per-story
- * background selections must be preserved — the global dark-mode
- * background override is skipped so stories that declare their own
- * `parameters.backgrounds.default` keep the correct backdrop.
- */
-const isBrowserTestingRuntime = (): boolean => {
-    if (typeof window === 'undefined') {
-        return false;
-    }
-
-    const { hostname, port } = window.location;
-
-    return (hostname === 'localhost' && port === '6007') ||
-        hostname === 'webc-testing.pie.design' ||
-        /pr\d+-storybook-testing\.pie\.design$/.test(hostname);
-};
-
-export const ColorMode = (
-    story: () => TemplateResult,
-    context?: { parameters?: { backgrounds?: { default?: string } } },
-) => {
+export const ColorMode = (story: () => TemplateResult) => {
     const channel = addons.getChannel();
-
-    // Track per-story background so the event handler can honour it
-    // in browser-testing mode instead of forcing the color-mode background.
-    storyBackgroundOverride = context?.parameters?.backgrounds?.default;
 
     if (!initialized) {
         initialized = true;
@@ -63,16 +36,9 @@ export const ColorMode = (
             currentColorMode = colorMode;
             document.documentElement.setAttribute('data-color-mode', colorMode);
 
-            // In browser-testing visual runs, use the story's own background
-            // if defined; otherwise fall back to the color-mode default.
-            // In normal Storybook, always mirror the color-mode background.
-            const backgroundValue = isBrowserTestingRuntime() && storyBackgroundOverride
-                ? storyBackgroundOverride
-                : BACKGROUND_VALUES[colorMode];
-
             channel.emit(UPDATE_GLOBALS, {
                 globals: {
-                    backgrounds: { value: backgroundValue },
+                    backgrounds: { value: BACKGROUND_VALUES[colorMode] },
                 },
             });
         });
