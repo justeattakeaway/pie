@@ -49,7 +49,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 | Slot     | Description                                                  |
 |----------|--------------------------------------------------------------|
-| `default`| The default, unnamed slot is used to pass label content to the component. This can be plain text or rich HTML for more complex labels (e.g., multi-line layouts with a title, price and description). When using rich HTML, use PIE design tokens for styling and typography utility classes from `@justeattakeaway/pie-css` for font styles. It is the consumer's responsibility to test screen reader narration when using complex slotted content. |
+| `default`| The default, unnamed slot is used to pass label content to the component. This can be plain text or rich HTML for more complex labels (e.g., multi-line layouts with a title, price and description). When using rich HTML, use PIE design tokens for styling and typography utility classes from `@justeattakeaway/pie-css` for font styles. It is the consumer's responsibility to test screen reader narration when using complex slotted content. Test that the label reads in a logical order and conveys the intended meaning. |
 
 ### CSS Variables
 This component does not expose any CSS variables for style overrides.
