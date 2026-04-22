@@ -50,7 +50,7 @@ describe('createStory', () => {
         const story = createStory(template, defaultArgs);
 
         const result = story({}, storyOpts);
-        expect(result.parameters.backgrounds.default).toBe('background-subtle');
+        expect(result.globals?.backgrounds?.value).toBe('background-subtle');
     });
 });
 
