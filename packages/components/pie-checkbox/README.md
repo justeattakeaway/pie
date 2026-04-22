@@ -49,7 +49,7 @@ Ideally, you should install the component using the **`@justeattakeaway/pie-webc
 
 | Slot     | Description                                                  |
 |----------|--------------------------------------------------------------|
-| `default`| The default, unnamed slot is used to pass in text to the component. |
+| `default`| The default, unnamed slot is used to pass label content to the component. This can be plain text or rich HTML for more complex labels (e.g., multi-line layouts with a title, price and description). When using rich HTML, use PIE design tokens for styling and typography utility classes from `@justeattakeaway/pie-css` for font styles. It is the consumer's responsibility to test screen reader narration when using complex slotted content. Test that the label reads in a logical order and conveys the intended meaning. |
 
 ### CSS Variables
 This component does not expose any CSS variables for style overrides.
@@ -131,6 +131,58 @@ import { PieCheckbox } from '@justeattakeaway/pie-webc/react/checkbox.js';
 
 // Always use aria-label if you are not passing a label
 <PieCheckbox name="mycheckbox" aria-label="Label"></PieCheckbox>
+```
+
+### Rich Label Slot Content
+
+The default slot accepts HTML, so you can build more complex label layouts such as a product row with a title, price and description. Use PIE design tokens for spacing and `pie-css` typography utility classes for font styles.
+
+> **Accessibility note:** When using rich slotted content, it is the consumer's responsibility to verify screen reader narration is acceptable. Test that the label reads in a logical order and conveys the intended meaning.
+
+**HTML example:**
+
+```html
+<pie-checkbox name="carrots" value="carrots">
+    <div style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: var(--dt-spacing-a);
+    ">
+        <span class="u-font-body-l">A nasty bag of carrots</span>
+        <span class="u-font-body-l">£2.50</span>
+        <span class="u-font-caption" style="
+            width: 100%;
+            color: var(--dt-color-content-subdued);
+        ">
+            Some description as a part of the label
+        </span>
+    </div>
+</pie-checkbox>
+```
+
+**React example:**
+
+```jsx
+import { PieCheckbox } from '@justeattakeaway/pie-webc/react/checkbox.js';
+
+<PieCheckbox name="carrots" value="carrots">
+    <div style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        gap: 'var(--dt-spacing-a)',
+    }}>
+        <span className="u-font-body-l">A nasty bag of carrots</span>
+        <span className="u-font-body-l">£2.50</span>
+        <span className="u-font-caption" style={{
+            width: '100%',
+            color: 'var(--dt-color-content-subdued)',
+        }}>
+            Some description as a part of the label
+        </span>
+    </div>
+</PieCheckbox>
 ```
 
 ## Questions and Support
