@@ -16,6 +16,9 @@ import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss';
 
 SyntaxHighlighter.registerLanguage('scss', scss);
 
+// WCAG Accessibility rules - these are the rules used by AXE to perform Accessibility checks
+const AccessibilityRules = ['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'];
+
 export default {
     decorators: [ComponentStatus, WritingDirection, ColorMode],
     globalTypes: {
@@ -51,7 +54,7 @@ export default {
             options: {
                 runOnly: {
                     type: 'tag',
-                    values: ['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'],
+                    values: AccessibilityRules,
                 },
             },
         },
