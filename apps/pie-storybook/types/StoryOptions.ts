@@ -7,16 +7,6 @@ type BackgroundColor = 'light (container-default)' |
     'saddlebrown' |
     'aquamarine';
 
-export type BackgroundValue = {
-    name: BackgroundColor,
-    value: string,
-};
-
-export type StoryBackgrounds = {
-    default: BackgroundColor,
-    values: Array<BackgroundValue>,
-};
-
 type StorybookControls = {
     exclude?: string[],
     include?: string[],

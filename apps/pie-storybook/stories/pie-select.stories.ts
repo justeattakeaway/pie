@@ -1,6 +1,6 @@
 import { html, nothing } from 'lit';
 import { type Meta } from '@storybook/web-components';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import '@justeattakeaway/pie-webc/components/select';
 import {

@@ -1,4 +1,4 @@
-import type { Globals, Parameters, StoryContext } from '@storybook/types';
+import type { Globals, Parameters, StoryContext } from 'storybook/types';
 
 export interface StorybookContext extends StoryContext {
     component: string;
