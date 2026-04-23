@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: iOS
-  parent: "Modal-native"
+  parent: "Modal - Native"
   order: 2
 draft: true
 shouldShowContents: true

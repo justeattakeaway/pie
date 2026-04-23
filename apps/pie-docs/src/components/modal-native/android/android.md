@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Android
-  parent: "Modal-native"
+  parent: "Modal - Native"
   order: 1
 draft: true
 shouldShowContents: true

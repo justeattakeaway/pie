@@ -1,6 +1,6 @@
 ---
 eleventyNavigation:
-  key: "Modal-native"
+  key: "Modal - Native"
   parent: Components
   order: 28
   url: /components/modal-native/
