@@ -69,10 +69,14 @@ jobs:
   check-change-type:
     name: Get change type
     runs-on: ubuntu-latest
+    env:
+      # Packages per matrix shard for component-tests. Tune to balance runner count vs wall-clock.
+      COMPONENT_CHUNK_SIZE: 5
     outputs:
       pie-docs-change: ${{ steps.docs-check.outputs.docs-change }}
       web-components-change: ${{ steps.component-check.outputs.web-components-change }}
       storybook-change: ${{ steps.storybook-check.outputs.storybook-change }}
+      changed-component-chunks: ${{ steps.component-check.outputs.changed-component-chunks }}
     steps:
       # Checkout the Repo
       - name: Checkout
@@ -95,10 +99,28 @@ jobs:
       - name: Verify if web components have changes
         id: component-check
         run: |
-          # Check if any components, tools, or their dependents have changed since origin/main
-          COMPONENT_CHANGE=$(yarn turbo run build --filter='{./packages/components/*}...[origin/main]' --filter='{./packages/tools/*}...[origin/main]' --dry=json | jq '.packages | length > 0')
+          # Single dry-run drives the boolean gate AND the matrix chunks used by component-tests.
+          # Compare against HEAD^1 on main pushes, origin/main on PRs.
+          if [ "$GITHUB_EVENT_NAME" != "pull_request" ] && [ "$GITHUB_REF" = "refs/heads/main" ]; then
+            DIFF_REF="HEAD^1"
+          else
+            DIFF_REF="origin/main"
+          fi
+          COMPONENTS_JSON=$(yarn turbo run build \
+            --filter="{./packages/components/*}...[$DIFF_REF]" \
+            --filter="{./packages/tools/*}...[$DIFF_REF]" \
+            --dry=json | jq -c '[.packages[]]')
+          COMPONENT_CHANGE=$(echo "$COMPONENTS_JSON" | jq 'length > 0')
+          # Split the changed-packages list into chunks so each matrix shard handles up to
+          # $COMPONENT_CHUNK_SIZE packages. _nwise groups the array; the outer [] wraps it into a
+          # JSON array of arrays consumable by strategy.matrix via fromJson.
+          CHUNKS_JSON=$(echo "$COMPONENTS_JSON" | jq -c "[_nwise($COMPONENT_CHUNK_SIZE)]")
+          echo "Diff ref: $DIFF_REF"
           echo "Change Detected: $COMPONENT_CHANGE"
+          echo "Changed packages: $COMPONENTS_JSON"
+          echo "Chunks: $CHUNKS_JSON"
           echo "web-components-change=$COMPONENT_CHANGE" >> "$GITHUB_OUTPUT"
+          echo "changed-component-chunks=$CHUNKS_JSON" >> "$GITHUB_OUTPUT"
       - name: Verify if storybook has changes
         id: storybook-check
         run: |
@@ -271,56 +293,67 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           onlyChanged: true # 👈 Required option to enable TurboSnap
 
-  # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
-  browser-tests-components:
+  # System/a11y + Percy visual tests sharded across changed component packages.
+  # Matrix shards are chunks of up to COMPONENT_CHUNK_SIZE packages (set in check-change-type).
+  # Bundling both test types per shard avoids duplicated setup (checkout, install, Playwright).
+  # test:browsers:ci is turbo-cached (unchanged-pkg cache hits are cheap); test:visual:ci is not
+  # cached — sharding is what actually parallelises Percy. concurrency: 1 is kept per shard for
+  # Percy stability; wall-clock scales ~inversely with shard count.
+  component-tests:
     needs: [ build-ubuntu-node-24, deploy-storybook, check-change-type ]
-    if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
+    if: >-
+      (needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main')
+      && needs.check-change-type.outputs.changed-component-chunks != ''
+      && needs.check-change-type.outputs.changed-component-chunks != '[]'
+      && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        chunk: ${{ fromJson(needs.check-change-type.outputs.changed-component-chunks) }}
     steps:
-      # Checkout the Repo
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
-      # Setup Repo
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
           node-version: 24
           os: ubuntu-latest
-      # Setup Playwright
       - name: Setup Playwright
         uses: ./.github/actions/setup-playwright
-      # Run System / a11y Tests
-      - name: Run All System / Component /  a11y Tests
+      # Build `--filter=pkgA --filter=pkgB ...` from the matrix chunk array.
+      - name: Build turbo filter args
+        id: filters
+        shell: bash
+        env:
+          CHUNK_JSON: ${{ toJson(matrix.chunk) }}
+        run: |
+          ARGS=$(echo "$CHUNK_JSON" | jq -r 'map("--filter=" + .) | join(" ")')
+          echo "args=$ARGS" >> "$GITHUB_OUTPUT"
+          echo "Shard filters: $ARGS"
+      - name: Run System / Component / a11y Tests
         uses: ./.github/actions/run-script
         with:
-          script-name: "test:browsers:ci --filter='./packages/components/*' --filter='./packages/tools/*'"
-      - name: Upload Playwright Report
+          script-name: "test:browsers:ci ${{ steps.filters.outputs.args }}"
+      - name: Upload Browsers Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
-          name: lit-browsers-report
+          name: lit-browsers-report-${{ strategy.job-index }}
           path: lit-browsers-report/
           retention-days: 7
-      # Run Visual Tests
-      - name: Run Visual Tests for changed packages and dependents since HEAD^1 (main only)
+      - name: Run Visual Tests
         uses: ./.github/actions/run-script
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='{./packages/components/*}...[HEAD^1]' --filter='{./packages/tools/*}...[HEAD^1]'"
+          script-name: "test:visual:ci ${{ steps.filters.outputs.args }}"
           concurrency: 1
-      - name: Run Visual Tests for changed packages and dependents since origin/main
-        uses: ./.github/actions/run-script
-        if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
-        with:
-          script-name: "test:visual:ci --filter='{./packages/components/*}...[origin/main]' --filter='{./packages/tools/*}...[origin/main]'"
-          concurrency: 1
-      - name: Upload Playwright Report
+      - name: Upload Visual Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
-          name: lit-visual-report
+          name: lit-visual-report-${{ strategy.job-index }}
           path: lit-visual-report/
           retention-days: 7
     env:
@@ -426,7 +459,7 @@ jobs:
       - build-ubuntu-node-20
       - unit-tests
       - chromatic-tests
-      - browser-tests-components
+      - component-tests
       - deploy-docs
       - deploy-storybook
       - browser-tests-docs
@@ -438,5 +471,5 @@ jobs:
         uses: re-actors/alls-green@05ac9388f0aebcb5727afa17fcccfecd6f8ec5fe # v1.2.2
         with:
           # "allowed-skips" lists jobs that are optional but should not fail
-          allowed-skips: browser-tests-components, deploy-docs, deploy-storybook, browser-tests-docs, chromatic-tests
+          allowed-skips: component-tests, deploy-docs, deploy-storybook, browser-tests-docs, chromatic-tests
           jobs: ${{ toJSON(needs) }}
