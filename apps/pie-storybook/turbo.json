@@ -3,9 +3,6 @@
   "extends": [
     "//"
   ],
-<<<<<<< HEAD
-  "pipeline": {
-=======
   "tasks": {
     "generate:typography-docs": {
       "cache": true,
@@ -19,7 +16,6 @@
         "stories/pie-css-typography.mdx"
       ]
     },
->>>>>>> 59e7c287b6 (chore(pie-monorepo): DSW-3115 upgrade Turborepo to v2.7.5)
     "dev": {
       "cache": false,
       "dependsOn": [
