@@ -5250,12 +5250,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/playwright@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@percy/playwright@npm:1.1.0"
+"@percy/playwright@npm:1.0.9":
+  version: 1.0.9
+  resolution: "@percy/playwright@npm:1.0.9"
   peerDependencies:
     playwright-core: ">=1"
-  checksum: 885db2eb9c0f3f4df1c0c2f881e6d27369f5809d3d398e50f31a19d856186069e3e4fbb1efca3be39004e261b2b6709b12577f7645d4d4d784e47abe591bce6a
+  checksum: fb63f427bfc03e3ec8f18e7cd111fab7c8d453b20aaf274ba4341a174f90daf620f8cc0133cce0e5c01b8276803ad958f46a52e8cd04d7ec8fe1bc575f8906bb
   languageName: node
   linkType: hard
 
@@ -5283,37 +5283,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/experimental-ct-core@npm:1.59.1":
-  version: 1.59.1
-  resolution: "@playwright/experimental-ct-core@npm:1.59.1"
+"@playwright/experimental-ct-core@npm:1.57.0":
+  version: 1.57.0
+  resolution: "@playwright/experimental-ct-core@npm:1.57.0"
   dependencies:
-    playwright: 1.59.1
-    playwright-core: 1.59.1
+    playwright: 1.57.0
+    playwright-core: 1.57.0
     vite: ^6.4.1
-  checksum: 1e4df96295eead231f164d45f500aef53c1e8bbd215c20d58e902619f59836c6cf38d5bd8141888b48aa1a4863835fe53772c7a454383fd269f415ef6897f0e1
+  checksum: a075b21a6e6125cfc1f6330226e79b1f35354e792a63ec65843203c0da98145808944cf7131cf7ddfe4ad15b31bdca42dc109adfda54fc5e73ac36e4d476df7d
   languageName: node
   linkType: hard
 
-"@playwright/experimental-ct-react@npm:1.59.1":
-  version: 1.59.1
-  resolution: "@playwright/experimental-ct-react@npm:1.59.1"
+"@playwright/experimental-ct-react@npm:1.57.0":
+  version: 1.57.0
+  resolution: "@playwright/experimental-ct-react@npm:1.57.0"
   dependencies:
-    "@playwright/experimental-ct-core": 1.59.1
+    "@playwright/experimental-ct-core": 1.57.0
     "@vitejs/plugin-react": ^4.2.1
   bin:
     playwright: cli.js
-  checksum: 66d3f0aafd6c43e79703dc644656ec147df034795ca43f8bbff44ebf28a903dd3586b964acb0e223ffece0c134ffc604d35761bd1b323c7ac5e8de5f0dcca8dc
+  checksum: 7caf8afa38ef5f6c4485f8e74820c380d72a61d771cb66ba2775f2660da0d90bb13d8126b19d0d3f962c8e628387d44fbdb6cc3b4a6e3b73e69303b7b49b8c56
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.59.1":
-  version: 1.59.1
-  resolution: "@playwright/test@npm:1.59.1"
+"@playwright/test@npm:1.57.0":
+  version: 1.57.0
+  resolution: "@playwright/test@npm:1.57.0"
   dependencies:
-    playwright: 1.59.1
+    playwright: 1.57.0
   bin:
     playwright: cli.js
-  checksum: ce2920786b79985b255991b77af3927ba3f7b41545a4486d1893153ec5e95dffb734871935753c90eb62c8ec3c2159e434d17bda9a609a41af18e8f3f7bdc6f3
+  checksum: 1a84783a240d69c2c8081a127b446f812a8dc86fe6f60a9511dd501cc0e6229cbec7e7753972678f3f063ad2bebb2cedbe9caebc5faa41014aebed35773ea242
   languageName: node
   linkType: hard
 
@@ -18510,9 +18510,9 @@ __metadata:
     "@justeattakeaway/pie-wrapper-react": 0.14.4
     "@justeattakeaway/stylelint-config-pie": 3.0.1
     "@percy/cli": 1.31.1
-    "@percy/playwright": 1.1.0
-    "@playwright/experimental-ct-react": 1.59.1
-    "@playwright/test": 1.59.1
+    "@percy/playwright": 1.0.9
+    "@playwright/experimental-ct-react": 1.57.0
+    "@playwright/test": 1.57.0
     "@stylistic/stylelint-plugin": 4.0.0
     "@types/node": 24.10.1
     "@typescript-eslint/eslint-plugin": 5.62.0
@@ -18625,27 +18625,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.59.1":
-  version: 1.59.1
-  resolution: "playwright-core@npm:1.59.1"
+"playwright-core@npm:1.57.0":
+  version: 1.57.0
+  resolution: "playwright-core@npm:1.57.0"
   bin:
     playwright-core: cli.js
-  checksum: 5835e24d181098b5cd4ee1b65dfc583bbab5724bab6af729ec79b3c24b1d02867010f355b23b1953387bf22bad03230243c4a3e5a52d7c46e8c3305dd9419a8f
+  checksum: 960e80d6ec06305b11a3ca9e78e8e4201cc17f37dd37279cb6fece4df43d74bf589833f4f94535fadd284b427f98c5f1cf09368e22f0f00b6a9477571ce6b03b
   languageName: node
   linkType: hard
 
-"playwright@npm:1.59.1":
-  version: 1.59.1
-  resolution: "playwright@npm:1.59.1"
+"playwright@npm:1.57.0":
+  version: 1.57.0
+  resolution: "playwright@npm:1.57.0"
   dependencies:
     fsevents: 2.3.2
-    playwright-core: 1.59.1
+    playwright-core: 1.57.0
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 71ee1b525536411389860c7077d3757be25965645eb1830a0534da5ae3bf46f286730e3bf023d4ad6510c091c9333510139432d3c9a164531fdf2b81ef1aedfa
+  checksum: 176fd9fd890f390e0aa00d42697b70072d534243b15467d9430f3af329e77b3225b67a0afa12ea76fb440300dabd92d4cf040baf5edceee8eeff0ee1590ae5b7
   languageName: node
   linkType: hard
 
