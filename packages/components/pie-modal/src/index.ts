@@ -154,8 +154,6 @@ export class PieModal extends PieElement implements ModalProps {
 
         this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
 
-        this._setupEscKeyListener();
-
         document.addEventListener(ON_MODAL_OPEN_EVENT, (event) => this._handleModalOpened(<CustomEvent>event), { signal });
         document.addEventListener(ON_MODAL_CLOSE_EVENT, (event) => this._handleModalClosed(<CustomEvent>event), { signal });
         document.addEventListener(ON_MODAL_BACK_EVENT, (event) => this._handleModalClosed(<CustomEvent>event), { signal });
@@ -195,8 +193,8 @@ export class PieModal extends PieElement implements ModalProps {
             this._removeEscKeyEventListener();
         }
 
-        // if the modal is being set to NOT dismissible, add the esc key listener
-        if (oldValue && !newValue) {
+        // if the modal is being set to NOT dismissible, add the esc key listener (only if open)
+        if (oldValue && !newValue && this.isOpen) {
             this._setupEscKeyListener();
         }
     }
