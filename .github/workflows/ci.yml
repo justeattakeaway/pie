@@ -99,23 +99,20 @@ jobs:
       - name: Verify if web components have changes
         id: component-check
         run: |
-          # Single dry-run drives the boolean gate AND the matrix chunks used by component-tests.
           # Compare against HEAD^1 on main pushes, origin/main on PRs.
           if [ "$GITHUB_EVENT_NAME" != "pull_request" ] && [ "$GITHUB_REF" = "refs/heads/main" ]; then
             DIFF_REF="HEAD^1"
           else
             DIFF_REF="origin/main"
           fi
-          # Collect the directly-changed set (tools + components) to drive the boolean gate, then
-          # narrow to packages under packages/components/ for the matrix — only components carry
-          # test:visual:ci / Percy tokens. Using .tasks[].directory avoids including every
-          # transitive dependent (configs, tools, wrappers) in the matrix.
-          DRY_JSON=$(yarn turbo run build \
+          # Dry-run scoped to test:browsers:ci so only packages that define that script appear.
+          # Drives both the boolean gate and the matrix chunks.
+          DRY_JSON=$(yarn turbo run test:browsers:ci \
             --filter="{./packages/components/*}...[$DIFF_REF]" \
             --filter="{./packages/tools/*}...[$DIFF_REF]" \
             --dry=json)
-          COMPONENT_CHANGE=$(echo "$DRY_JSON" | jq '.packages | length > 0')
-          COMPONENTS_JSON=$(echo "$DRY_JSON" | jq -c '[.tasks[] | select(.directory | startswith("packages/components/")) | .package] | unique')
+          COMPONENTS_JSON=$(echo "$DRY_JSON" | jq -c '[.tasks[] | select(.command != "<NONEXISTENT>") | select(.directory | startswith("packages/components/")) | .package] | unique')
+          COMPONENT_CHANGE=$(echo "$COMPONENTS_JSON" | jq 'length > 0')
           # Split the changed-packages list into chunks so each matrix shard handles up to
           # $COMPONENT_CHUNK_SIZE packages. Emit one object per shard with {index,total,packages}
           # so the job name can render "component-tests (N/total)" and the run step has the
@@ -310,10 +307,6 @@ jobs:
 
   # System/a11y + Percy visual tests sharded across changed component packages.
   # Matrix shards are chunks of up to COMPONENT_CHUNK_SIZE packages (set in check-change-type).
-  # Bundling both test types per shard avoids duplicated setup (checkout, install, Playwright).
-  # test:browsers:ci is turbo-cached (unchanged-pkg cache hits are cheap); test:visual:ci is not
-  # cached — sharding is what actually parallelises Percy. concurrency: 1 is kept per shard for
-  # Percy stability; wall-clock scales ~inversely with shard count.
   component-tests:
     name: component-tests (${{ matrix.shard.index }}/${{ matrix.shard.total }})
     needs: [ build-ubuntu-node-24, deploy-storybook, check-change-type ]
