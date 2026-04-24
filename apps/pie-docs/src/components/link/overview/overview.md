@@ -58,7 +58,7 @@ Links are often used to connect various pages, sections, or external resources, 
 
 ---
 
-## Variations
+## Variants
 
 ### Default
 
@@ -89,6 +89,17 @@ It should be used in areas where an inversed background is used, or when contras
     alt: "An inverse link",
     width: 30,
     variant: "inverse"
+} %}
+
+### Inverse light
+
+Inverse Light should be used in areas where in both light and dark mode, a dark container/background is being used for high contrast and to meet accessibility rules.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/link/variation-inverse.svg",
+    alt: "An inverse light link",
+    width: 30,
+    variant: "inverse light"
 } %}
 
 ---
