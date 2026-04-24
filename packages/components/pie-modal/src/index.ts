@@ -282,6 +282,7 @@ export class PieModal extends PieElement implements ModalProps {
      */
     private _preventModalKeyboardDismissal = (event: KeyboardEvent): void => {
         if (event.key === 'Escape') {
+            console.log('Preventing modal dismissal via ESC key', this);
             event.preventDefault();
         }
     };

@@ -677,6 +677,64 @@ export const VoucherImageExample = createStory<ModalProps>(SlottedImageContentSt
 
 export const CSSPartsHeadingStyle = createStory<ModalProps>(CSSPartsHeadingStoryTemplate, defaultArgs)();
 
+const MultipleDismissibleStoryTemplate = () => {
+    const toggleDismissibleModal = () => {
+        const modal = document.querySelector('#modal-dismissible') as PieModal;
+        if (modal) {
+            modal.isOpen = !modal.isOpen;
+        }
+    };
+
+    const toggleNonDismissibleModal = () => {
+        const modal = document.querySelector('#modal-non-dismissible') as PieModal;
+        if (modal) {
+            modal.isOpen = !modal.isOpen;
+        }
+    };
+
+    return html`
+        <h1>Reproduction steps</h1>
+        <ol>
+            <li>Open the dismissible modal</li>
+            <li>Try to close it with the escape key</li>
+            <li>You will see in the console that the non-dismissible modal is preventing the dismissible modal from closing</li>
+        </ol>
+        <pie-button id="open-dismissible" @click=${toggleDismissibleModal}>Open Dismissible Modal</pie-button>
+        <pie-button id="open-non-dismissible" @click=${toggleNonDismissibleModal}>Open Non-Dismissible Modal</pie-button>
+
+        <pie-modal
+            id="modal-dismissible"
+            heading="Dismissible Modal"
+            ?isDismissible="${true}"
+            .aria=${{ close: 'Close', back: 'Back', loading: 'Loading' }}
+            .leadingAction=${{ text: 'Confirm', variant: 'primary', ariaLabel: 'Confirm' }}
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}">
+                <span>This modal is dismissible. You should be able to close it with the Escape key.</span>
+        </pie-modal>
+
+        <pie-modal
+            id="modal-non-dismissible"
+            heading="Non-Dismissible Modal"
+            ?isDismissible="${false}"
+            .aria=${{ close: 'Close', back: 'Back', loading: 'Loading' }}
+            .leadingAction=${{ text: 'Close', variant: 'primary', ariaLabel: 'Close' }}
+            @pie-modal-leading-action-click="${() => {
+        const modal = document.querySelector('#modal-non-dismissible') as PieModal;
+        if (modal) modal.isOpen = false;
+    }}"
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}">
+                <span>This modal is NOT dismissible. You must use the button to close it.</span>
+        </pie-modal>
+    `;
+};
+
+export const MultipleDismissibleModals = {
+    render: MultipleDismissibleStoryTemplate,
+    args: {},
+};
+
 const renderCategoryChipsList = (length: number) => html`
     <ul role="list" style="list-style-type: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--dt-spacing-b);">
         ${Array.from({ length }, (_, i) => html`<li role="listitem"><pie-chip variant="ghost">Chip ${i + 1}</pie-chip></li>`)}
