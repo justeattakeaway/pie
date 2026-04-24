@@ -1,6 +1,6 @@
 import childProcess from 'child_process';
 
-export default async function webcMajorVersion({ fail, flags }) {
+export default async function webcMajorVersion ({ fail, flags }) {
     if (flags.isAutomationPR) return;
 
     try {

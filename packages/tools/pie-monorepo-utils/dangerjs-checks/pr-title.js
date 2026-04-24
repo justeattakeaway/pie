@@ -1,6 +1,6 @@
 import { validatePrTitle } from '../git-hooks/git-hooks-utils.js';
 
-export default async function prTitle({ fail, pr, flags }) {
+export default async function prTitle ({ fail, pr, flags }) {
     if (flags.isAutomationPR) return;
 
     const { title } = pr;

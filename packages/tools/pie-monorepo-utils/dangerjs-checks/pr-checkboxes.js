@@ -1,4 +1,4 @@
-export default async function prCheckboxes({ fail, pr, flags }) {
+export default async function prCheckboxes ({ fail, pr, flags }) {
     if (flags.isDependabotPR) return;
 
     const { body } = pr;

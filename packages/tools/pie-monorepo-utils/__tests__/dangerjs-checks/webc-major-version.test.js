@@ -2,14 +2,14 @@ import {
     describe, it, expect, vi, beforeEach,
 } from 'vitest';
 
+import { execSync } from 'child_process';
+import webcMajorVersion from '../../dangerjs-checks/webc-major-version.js';
+
 const { mockExecSync } = vi.hoisted(() => ({ mockExecSync: vi.fn() }));
 vi.mock('child_process', () => ({
     default: { execSync: mockExecSync },
     execSync: mockExecSync,
 }));
-
-import { execSync } from 'child_process';
-import webcMajorVersion from '../../dangerjs-checks/webc-major-version.js';
 
 describe('webc-major-version check', () => {
     beforeEach(() => {

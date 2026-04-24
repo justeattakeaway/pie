@@ -2,12 +2,12 @@ import {
     describe, it, expect, vi, beforeEach,
 } from 'vitest';
 
+import { validatePrTitle } from '../../git-hooks/git-hooks-utils.js';
+import prTitle from '../../dangerjs-checks/pr-title.js';
+
 vi.mock('../../git-hooks/git-hooks-utils.js', () => ({
     validatePrTitle: vi.fn(),
 }));
-
-import { validatePrTitle } from '../../git-hooks/git-hooks-utils.js';
-import prTitle from '../../dangerjs-checks/pr-title.js';
 
 describe('pr-title check', () => {
     beforeEach(() => {

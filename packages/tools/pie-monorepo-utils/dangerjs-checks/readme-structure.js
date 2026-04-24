@@ -1,6 +1,6 @@
 const readmePathRegex = /^packages\/components\/(?!pie-webc(?:-core|-testing)?\/)[^/]+\/README\.md$/;
 
-async function checkReadmeStructure(danger, fail, filepath) {
+async function checkReadmeStructure (danger, fail, filepath) {
     const diff = await danger.git.diffForFile(filepath);
     const fileContent = diff.after;
 
@@ -24,7 +24,7 @@ async function checkReadmeStructure(danger, fail, filepath) {
     }
 }
 
-export default async function readmeStructure({ danger, fail }) {
+export default async function readmeStructure ({ danger, fail }) {
     const readmeFiles = [...danger.git.created_files, ...danger.git.modified_files]
         .filter((file) => readmePathRegex.test(file));
 

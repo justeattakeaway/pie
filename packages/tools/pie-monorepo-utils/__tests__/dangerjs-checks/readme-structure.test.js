@@ -16,10 +16,12 @@ const validReadme = [
     '## Contributing',
 ].join('\n');
 
-function makeDanger({ created = [], modified = [], diffs = {} }) {
+function makeDanger ({ created = [], modified = [], diffs = {} }) {
     return {
         git: {
+            // eslint-disable-next-line camelcase
             created_files: created,
+            // eslint-disable-next-line camelcase
             modified_files: modified,
             diffForFile: vi.fn((path) => Promise.resolve({ after: diffs[path] ?? '' })),
         },
@@ -94,7 +96,7 @@ describe('readme-structure check', () => {
             flags: { isAutomationPR: false, isDependabotPR: false },
         });
         expect(fail).toHaveBeenCalledOnce();
-        const msg = fail.mock.calls[0][0];
+        const [[msg]] = fail.mock.calls;
         expect(msg).toContain('Missing npm badge');
         expect(msg).toContain('## Table of Contents');
         expect(msg).toContain('## Documentation');

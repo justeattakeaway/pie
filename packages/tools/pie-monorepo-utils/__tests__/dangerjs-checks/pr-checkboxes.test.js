@@ -62,7 +62,7 @@ describe('pr-checkboxes check', () => {
             flags: { isAutomationPR: false, isDependabotPR: false },
         });
         expect(fail).toHaveBeenCalled();
-        expect(fail.mock.calls.some((c) => c[0].includes("Reviewer 1"))).toBe(true);
+        expect(fail.mock.calls.some((c) => c[0].includes('Reviewer 1'))).toBe(true);
     });
 
     it('fails on unchecked in Reviewer 2 section', async () => {
@@ -74,6 +74,6 @@ describe('pr-checkboxes check', () => {
             flags: { isAutomationPR: false, isDependabotPR: false },
         });
         expect(fail).toHaveBeenCalled();
-        expect(fail.mock.calls.some((c) => c[0].includes("Reviewer 2"))).toBe(true);
+        expect(fail.mock.calls.some((c) => c[0].includes('Reviewer 2'))).toBe(true);
     });
 });

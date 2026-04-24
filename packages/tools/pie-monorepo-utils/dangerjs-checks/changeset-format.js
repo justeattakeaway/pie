@@ -1,9 +1,7 @@
 const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
 
-export default async function changesetFormat({ danger, fail, flags }) {
-    const changesetFiles = danger.git.created_files.filter(
-        (filepath) => filepath.includes('.changeset/') && !filepath.includes('.changeset/pre.json'),
-    );
+export default async function changesetFormat ({ danger, fail, flags }) {
+    const changesetFiles = danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') && !filepath.includes('.changeset/pre.json'));
 
     await Promise.all(changesetFiles.map(async (filepath) => {
         const result = await danger.git.diffForFile(filepath);

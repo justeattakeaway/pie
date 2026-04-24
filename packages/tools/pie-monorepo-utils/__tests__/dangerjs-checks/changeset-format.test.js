@@ -3,9 +3,10 @@ import {
 } from 'vitest';
 import changesetFormat from '../../dangerjs-checks/changeset-format.js';
 
-function makeDanger({ createdFiles = [], diffs = {} } = {}) {
+function makeDanger ({ createdFiles = [], diffs = {} } = {}) {
     return {
         git: {
+            // eslint-disable-next-line camelcase
             created_files: createdFiles,
             diffForFile: vi.fn((path) => Promise.resolve({ diff: diffs[path] ?? '' })),
         },
