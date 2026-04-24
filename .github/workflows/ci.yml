@@ -106,11 +106,16 @@ jobs:
           else
             DIFF_REF="origin/main"
           fi
-          COMPONENTS_JSON=$(yarn turbo run build \
+          # Collect the directly-changed set (tools + components) to drive the boolean gate, then
+          # narrow to packages under packages/components/ for the matrix — only components carry
+          # test:visual:ci / Percy tokens. Using .tasks[].directory avoids including every
+          # transitive dependent (configs, tools, wrappers) in the matrix.
+          DRY_JSON=$(yarn turbo run build \
             --filter="{./packages/components/*}...[$DIFF_REF]" \
             --filter="{./packages/tools/*}...[$DIFF_REF]" \
-            --dry=json | jq -c '[.packages[]]')
-          COMPONENT_CHANGE=$(echo "$COMPONENTS_JSON" | jq 'length > 0')
+            --dry=json)
+          COMPONENT_CHANGE=$(echo "$DRY_JSON" | jq '.packages | length > 0')
+          COMPONENTS_JSON=$(echo "$DRY_JSON" | jq -c '[.tasks[] | select(.directory | startswith("packages/components/")) | .package] | unique')
           # Split the changed-packages list into chunks so each matrix shard handles up to
           # $COMPONENT_CHUNK_SIZE packages. _nwise groups the array; the outer [] wraps it into a
           # JSON array of arrays consumable by strategy.matrix via fromJson.
