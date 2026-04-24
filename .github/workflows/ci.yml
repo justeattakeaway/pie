@@ -117,9 +117,19 @@ jobs:
           COMPONENT_CHANGE=$(echo "$DRY_JSON" | jq '.packages | length > 0')
           COMPONENTS_JSON=$(echo "$DRY_JSON" | jq -c '[.tasks[] | select(.directory | startswith("packages/components/")) | .package] | unique')
           # Split the changed-packages list into chunks so each matrix shard handles up to
-          # $COMPONENT_CHUNK_SIZE packages. _nwise groups the array; the outer [] wraps it into a
-          # JSON array of arrays consumable by strategy.matrix via fromJson.
-          CHUNKS_JSON=$(echo "$COMPONENTS_JSON" | jq -c "[_nwise($COMPONENT_CHUNK_SIZE)]")
+          # $COMPONENT_CHUNK_SIZE packages. Emit one object per shard with {index,total,packages}
+          # so the job name can render "component-tests (N/total)" and the run step has the
+          # package list to build --filter args from.
+          CHUNKS_JSON=$(echo "$COMPONENTS_JSON" | jq -c "
+            [ _nwise($COMPONENT_CHUNK_SIZE) ]
+            | . as \$chunks
+            | to_entries
+            | map({
+                index: (.key + 1),
+                total: (\$chunks | length),
+                packages: .value
+              })
+          ")
           echo "Diff ref: $DIFF_REF"
           echo "Change Detected: $COMPONENT_CHANGE"
           echo "Changed packages: $COMPONENTS_JSON"
@@ -305,6 +315,7 @@ jobs:
   # cached — sharding is what actually parallelises Percy. concurrency: 1 is kept per shard for
   # Percy stability; wall-clock scales ~inversely with shard count.
   component-tests:
+    name: component-tests (${{ matrix.shard.index }}/${{ matrix.shard.total }})
     needs: [ build-ubuntu-node-24, deploy-storybook, check-change-type ]
     if: >-
       (needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main')
@@ -315,7 +326,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        chunk: ${{ fromJson(needs.check-change-type.outputs.changed-component-chunks) }}
+        shard: ${{ fromJson(needs.check-change-type.outputs.changed-component-chunks) }}
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -328,16 +339,16 @@ jobs:
           os: ubuntu-latest
       - name: Setup Playwright
         uses: ./.github/actions/setup-playwright
-      # Build `--filter=pkgA --filter=pkgB ...` from the matrix chunk array.
+      # Build `--filter=pkgA --filter=pkgB ...` from the matrix shard's package list.
       - name: Build turbo filter args
         id: filters
         shell: bash
         env:
-          CHUNK_JSON: ${{ toJson(matrix.chunk) }}
+          PACKAGES_JSON: ${{ toJson(matrix.shard.packages) }}
         run: |
-          ARGS=$(echo "$CHUNK_JSON" | jq -r 'map("--filter=" + .) | join(" ")')
+          ARGS=$(echo "$PACKAGES_JSON" | jq -r 'map("--filter=" + .) | join(" ")')
           echo "args=$ARGS" >> "$GITHUB_OUTPUT"
-          echo "Shard filters: $ARGS"
+          echo "Shard ${{ matrix.shard.index }}/${{ matrix.shard.total }} filters: $ARGS"
       - name: Run System / Component / a11y Tests
         uses: ./.github/actions/run-script
         with:
@@ -346,7 +357,7 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
-          name: lit-browsers-report-${{ strategy.job-index }}
+          name: lit-browsers-report-${{ matrix.shard.index }}-of-${{ matrix.shard.total }}
           path: lit-browsers-report/
           retention-days: 7
       - name: Run Visual Tests
@@ -358,7 +369,7 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
-          name: lit-visual-report-${{ strategy.job-index }}
+          name: lit-visual-report-${{ matrix.shard.index }}-of-${{ matrix.shard.total }}
           path: lit-visual-report/
           retention-days: 7
     env:
