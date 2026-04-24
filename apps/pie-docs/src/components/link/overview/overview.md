@@ -211,7 +211,7 @@ You can use icons to reinforce the action that will take place when the user int
     <h3>XSmall (XS)</h3>
     <p>Type size 12dp/sp/px </p>
     {% contentPageImage {
-      src: "../../../assets/img/components/link/size-small.svg",
+      src: "../../../assets/img/components/link/size-extra-small.svg",
       width: 30,
       alt: "An extra small link."
     } %}
