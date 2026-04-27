@@ -1,23 +1,25 @@
 const readmePathRegex = /^packages\/components\/(?!pie-webc(?:-core|-testing)?\/)[^/]+\/README\.md$/;
 
+const requiredReadmeSections = [
+    { regex: /https:\/\/img\.shields\.io\/npm\/v\/@justeattakeaway\//, error: 'Missing npm badge (https://img.shields.io/npm/v/@justeattakeaway/...).' },
+    { regex: /## Table of Contents/, error: 'Missing "## Table of Contents" section.' },
+    { regex: /## Documentation/, error: 'Missing "## Documentation" section.' },
+    { regex: /### Properties/, error: 'Missing "### Properties" sub-section under Documentation.' },
+    { regex: /### Slots/, error: 'Missing "### Slots" sub-section under Documentation.' },
+    { regex: /### Events/, error: 'Missing "### Events" sub-section under Documentation.' },
+    { regex: /### CSS Variables/, error: 'Missing "### CSS Variables" sub-section under Documentation.' },
+    { regex: /## Usage Examples/, error: 'Missing "## Usage Examples" section.' },
+    { regex: /## Questions and Support/, error: 'Missing "## Questions and Support" section.' },
+    { regex: /## Contributing/, error: 'Missing "## Contributing" section.' },
+];
+
 async function checkReadmeStructure (danger, fail, filepath) {
     const diff = await danger.git.diffForFile(filepath);
     const fileContent = diff.after;
 
-    const errors = [];
-
-    if (!/https:\/\/img\.shields\.io\/npm\/v\/@justeattakeaway\//.test(fileContent)) {
-        errors.push('Missing npm badge (https://img.shields.io/npm/v/@justeattakeaway/...).');
-    }
-    if (!/## Table of Contents/.test(fileContent)) errors.push('Missing "## Table of Contents" section.');
-    if (!/## Documentation/.test(fileContent)) errors.push('Missing "## Documentation" section.');
-    if (!/### Properties/.test(fileContent)) errors.push('Missing "### Properties" sub-section under Documentation.');
-    if (!/### Slots/.test(fileContent)) errors.push('Missing "### Slots" sub-section under Documentation.');
-    if (!/### Events/.test(fileContent)) errors.push('Missing "### Events" sub-section under Documentation.');
-    if (!/### CSS Variables/.test(fileContent)) errors.push('Missing "### CSS Variables" sub-section under Documentation.');
-    if (!/## Usage Examples/.test(fileContent)) errors.push('Missing "## Usage Examples" section.');
-    if (!/## Questions and Support/.test(fileContent)) errors.push('Missing "## Questions and Support" section.');
-    if (!/## Contributing/.test(fileContent)) errors.push('Missing "## Contributing" section.');
+    const errors = requiredReadmeSections
+        .filter(({ regex }) => !regex.test(fileContent))
+        .map(({ error }) => error);
 
     if (errors.length > 0) {
         fail(`📘 \`${filepath}\` is missing required README sections:\n- ${errors.join('\n- ')}`);
