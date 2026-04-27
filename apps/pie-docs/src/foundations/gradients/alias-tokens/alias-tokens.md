@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Alias tokens
-  parent: "Gradients"
+  parent: Gradients
   order: 2
 draft: true
 shouldShowContents: true

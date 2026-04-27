@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Overview
-  parent: "Gradients"
+  parent: Gradients
   order: 1
 draft: true
 shouldShowContents: true

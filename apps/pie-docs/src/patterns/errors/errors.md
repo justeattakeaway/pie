@@ -1,10 +1,10 @@
 ---
 eleventyNavigation:
-  key: "Errors"
+  key: Errors
   parent: Patterns
-  #url: /patterns/errors/
+  # url: /patterns/errors/
   order: 6
-title: "Errors"
+title: Errors
 draft: true
 permalink: false
 ---

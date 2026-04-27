@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Overview
-  parent: "Errors"
+  parent: Errors
   order: 1
 draft: true
 shouldShowContents: true
