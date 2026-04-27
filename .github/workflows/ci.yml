@@ -105,9 +105,11 @@ jobs:
           # Dry-run scoped to test:browsers:ci so only packages that define that script appear.
           # `select(.command != "<NONEXISTENT>")` filters out packages without the script —
           # tools/* packages without test:browsers:ci drop out, pie-icons-webc flows through.
+          # `...{path}[ref]` includes packages changed since ref AND their downstream
+          # dependents, so e.g. a change to pie-button also triggers pie-cookie-banner.
           DRY_JSON=$(yarn turbo run test:browsers:ci \
-            --filter="{./packages/components/*}...[$DIFF_REF]" \
-            --filter="{./packages/tools/*}...[$DIFF_REF]" \
+            --filter="...{./packages/components/*}[$DIFF_REF]" \
+            --filter="...{./packages/tools/*}[$DIFF_REF]" \
             --dry=json)
           COMPONENTS_JSON=$(echo "$DRY_JSON" | jq -c '[.tasks[] | select(.command != "<NONEXISTENT>") | .package] | unique')
           COMPONENT_CHANGE=$(echo "$COMPONENTS_JSON" | jq 'length > 0')
@@ -289,7 +291,6 @@ jobs:
           onlyChanged: true # 👈 Required option to enable TurboSnap
 
   # System/a11y + Percy visual tests, one shard per changed component package.
-  # max-parallel caps concurrent runners; remaining shards queue.
   component-tests:
     name: component-tests (${{ matrix.package }})
     needs: [ build-ubuntu-node-24, deploy-storybook, check-change-type ]
@@ -299,7 +300,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      max-parallel: 16
       matrix:
         package: ${{ fromJson(needs.check-change-type.outputs.changed-component-packages) }}
     steps:
