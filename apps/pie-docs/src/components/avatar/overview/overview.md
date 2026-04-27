@@ -19,7 +19,27 @@ Avatars can vary in design and appearance, ranging from simple user icons to ini
     alt: "An avatar that contains initials."
 } %}
 
+
+
 ---
+
+## Do's & don’ts
+
+### Do
+- Prioritise initials avatar over user icon avatar for individuals.
+- Make sure you use the correct size for its placement, whether it's in a list, stand-alone, or any other context.
+- Always maintain equal width and height dimensions.
+
+### Don'ts
+- Don’t use the initials avatar for a non-individuals entity  (e.g. a company).
+
+---
+
+### Anatomy
+
+1. **Container:** Background container that organises the information.
+2. **Initials:** Displays the user's first and last name initials.
+3. **User Icon**
 
 ## Resources
 
