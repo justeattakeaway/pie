@@ -4,18 +4,6 @@
     "//"
   ],
   "tasks": {
-    "generate:typography-docs": {
-      "cache": true,
-      "dependsOn": [
-        "^build"
-      ],
-      "inputs": [
-        "scripts/generate-typography-docs.js"
-      ],
-      "outputs": [
-        "stories/pie-css-typography.mdx"
-      ]
-    },
     "dev": {
       "cache": false,
       "dependsOn": [
