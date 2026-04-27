@@ -30,6 +30,8 @@ Avatars can vary in design and appearance, ranging from simple user icons to ini
 - Make sure you use the correct size for its placement, whether it's in a list, stand-alone, or any other context.
 - Always maintain equal width and height dimensions.
 
+test creating new commit 
+
 ### Don'ts
 - Don’t use the initials avatar for a non-individuals entity  (e.g. a company).
 
