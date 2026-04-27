@@ -69,14 +69,11 @@ jobs:
   check-change-type:
     name: Get change type
     runs-on: ubuntu-latest
-    env:
-      # Packages per matrix shard for component-tests. Tune to balance runner count vs wall-clock.
-      COMPONENT_CHUNK_SIZE: 5
     outputs:
       pie-docs-change: ${{ steps.docs-check.outputs.docs-change }}
       web-components-change: ${{ steps.component-check.outputs.web-components-change }}
       storybook-change: ${{ steps.storybook-check.outputs.storybook-change }}
-      changed-component-chunks: ${{ steps.component-check.outputs.changed-component-chunks }}
+      changed-component-packages: ${{ steps.component-check.outputs.changed-component-packages }}
     steps:
       # Checkout the Repo
       - name: Checkout
@@ -106,33 +103,19 @@ jobs:
             DIFF_REF="origin/main"
           fi
           # Dry-run scoped to test:browsers:ci so only packages that define that script appear.
-          # Drives both the boolean gate and the matrix chunks.
+          # `select(.command != "<NONEXISTENT>")` filters out packages without the script —
+          # tools/* packages without test:browsers:ci drop out, pie-icons-webc flows through.
           DRY_JSON=$(yarn turbo run test:browsers:ci \
             --filter="{./packages/components/*}...[$DIFF_REF]" \
             --filter="{./packages/tools/*}...[$DIFF_REF]" \
             --dry=json)
-          COMPONENTS_JSON=$(echo "$DRY_JSON" | jq -c '[.tasks[] | select(.command != "<NONEXISTENT>") | select(.directory | startswith("packages/components/")) | .package] | unique')
+          COMPONENTS_JSON=$(echo "$DRY_JSON" | jq -c '[.tasks[] | select(.command != "<NONEXISTENT>") | .package] | unique')
           COMPONENT_CHANGE=$(echo "$COMPONENTS_JSON" | jq 'length > 0')
-          # Split the changed-packages list into chunks so each matrix shard handles up to
-          # $COMPONENT_CHUNK_SIZE packages. Emit one object per shard with {index,total,packages}
-          # so the job name can render "component-tests (N/total)" and the run step has the
-          # package list to build --filter args from.
-          CHUNKS_JSON=$(echo "$COMPONENTS_JSON" | jq -c "
-            [ _nwise($COMPONENT_CHUNK_SIZE) ]
-            | . as \$chunks
-            | to_entries
-            | map({
-                index: (.key + 1),
-                total: (\$chunks | length),
-                packages: .value
-              })
-          ")
           echo "Diff ref: $DIFF_REF"
           echo "Change Detected: $COMPONENT_CHANGE"
           echo "Changed packages: $COMPONENTS_JSON"
-          echo "Chunks: $CHUNKS_JSON"
           echo "web-components-change=$COMPONENT_CHANGE" >> "$GITHUB_OUTPUT"
-          echo "changed-component-chunks=$CHUNKS_JSON" >> "$GITHUB_OUTPUT"
+          echo "changed-component-packages=$COMPONENTS_JSON" >> "$GITHUB_OUTPUT"
       - name: Verify if storybook has changes
         id: storybook-check
         run: |
