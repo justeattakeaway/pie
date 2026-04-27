@@ -288,26 +288,25 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           onlyChanged: true # 👈 Required option to enable TurboSnap
 
-  # System/a11y + Percy visual tests sharded across changed component packages.
-  # Matrix shards are chunks of up to COMPONENT_CHUNK_SIZE packages (set in check-change-type).
+  # System/a11y + Percy visual tests, one shard per changed component package.
+  # max-parallel caps concurrent runners; remaining shards queue.
   component-tests:
-    name: component-tests (${{ matrix.shard.index }}/${{ matrix.shard.total }})
+    name: component-tests (${{ matrix.package }})
     needs: [ build-ubuntu-node-24, deploy-storybook, check-change-type ]
     if: >-
       (needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main')
-      && needs.check-change-type.outputs.changed-component-chunks != ''
-      && needs.check-change-type.outputs.changed-component-chunks != '[]'
       && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      max-parallel: 16
       matrix:
-        shard: ${{ fromJson(needs.check-change-type.outputs.changed-component-chunks) }}
+        package: ${{ fromJson(needs.check-change-type.outputs.changed-component-packages) }}
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          fetch-depth: 0
+          fetch-depth: 1
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
@@ -315,38 +314,34 @@ jobs:
           os: ubuntu-latest
       - name: Setup Playwright
         uses: ./.github/actions/setup-playwright
-      # Build `--filter=pkgA --filter=pkgB ...` from the matrix shard's package list.
-      - name: Build turbo filter args
-        id: filters
+      - name: Sanitise package name for artifacts
+        id: pkg
         shell: bash
         env:
-          PACKAGES_JSON: ${{ toJson(matrix.shard.packages) }}
-        run: |
-          ARGS=$(echo "$PACKAGES_JSON" | jq -r 'map("--filter=" + .) | join(" ")')
-          echo "args=$ARGS" >> "$GITHUB_OUTPUT"
-          echo "Shard ${{ matrix.shard.index }}/${{ matrix.shard.total }} filters: $ARGS"
+          PKG: ${{ matrix.package }}
+        run: echo "safe=${PKG//\//__}" >> "$GITHUB_OUTPUT"
       - name: Run System / Component / a11y Tests
         uses: ./.github/actions/run-script
         with:
-          script-name: "test:browsers:ci ${{ steps.filters.outputs.args }}"
+          script-name: "test:browsers:ci --filter=${{ matrix.package }}"
           concurrency: 1
       - name: Upload Browsers Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
-          name: lit-browsers-report-${{ matrix.shard.index }}-of-${{ matrix.shard.total }}
+          name: lit-browsers-report-${{ steps.pkg.outputs.safe }}
           path: lit-browsers-report/
           retention-days: 7
       - name: Run Visual Tests
         uses: ./.github/actions/run-script
         with:
-          script-name: "test:visual:ci ${{ steps.filters.outputs.args }}"
+          script-name: "test:visual:ci --filter=${{ matrix.package }}"
           concurrency: 1
       - name: Upload Visual Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
-          name: lit-visual-report-${{ matrix.shard.index }}-of-${{ matrix.shard.total }}
+          name: lit-visual-report-${{ steps.pkg.outputs.safe }}
           path: lit-visual-report/
           retention-days: 7
     env:
