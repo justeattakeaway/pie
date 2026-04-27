@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Apps
-  parent: "Payment Method Card"
+  parent: 'Payment Method Card'
   order: 1
 draft: true
 shouldShowContents: true

@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Web
-  parent: "Onboarding and Guided Tour"
+  parent: 'Onboarding and Guided Tour'
   order: 1
 draft: true
 shouldShowContents: true

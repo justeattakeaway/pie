@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Overview
-  parent: "Focus State"
+  parent: 'Focus State'
   order: 1
 draft: true
 shouldShowContents: true

@@ -1,6 +1,6 @@
 ---
 eleventyNavigation:
-  key: "Stacked Notification"
+  key: 'Stacked Notification'
   parent: Components
   order: 46
   # url: /components/stacked-notification/

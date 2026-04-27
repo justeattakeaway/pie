@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Android
-  parent: "Bottom Navigation"
+  parent: 'Bottom Navigation'
   order: 1
 draft: true
 shouldShowContents: true

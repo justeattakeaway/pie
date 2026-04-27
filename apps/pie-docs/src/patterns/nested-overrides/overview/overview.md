@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Overview
-  parent: "Nested Overrides"
+  parent: 'Nested Overrides'
   order: 1
 draft: true
 shouldShowContents: true

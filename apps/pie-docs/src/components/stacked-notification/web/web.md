@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Web
-  parent: "Stacked Notification"
+  parent: 'Stacked Notification'
   order: 2
 draft: true
 shouldShowContents: true

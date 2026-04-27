@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Overview
-  parent: "JET AI"
+  parent: 'JET AI'
   order: 1
 draft: true
 shouldShowContents: true

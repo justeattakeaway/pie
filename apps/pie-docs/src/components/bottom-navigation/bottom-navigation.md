@@ -1,6 +1,6 @@
 ---
 eleventyNavigation:
-  key: "Bottom Navigation"
+  key: 'Bottom Navigation'
   parent: Components
   order: 7
   # url: /components/bottom-navigation/

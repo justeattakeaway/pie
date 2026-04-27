@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: iOS
-  parent: "Bottom Navigation"
+  parent: 'Bottom Navigation'
   order: 2
 draft: true
 shouldShowContents: true

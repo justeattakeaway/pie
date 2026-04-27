@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Overview
-  parent: "Just Eat +"
+  parent: 'Just Eat +'
   order: 1
 draft: true
 shouldShowContents: true

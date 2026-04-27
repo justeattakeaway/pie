@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Android
-  parent: "App Bar"
+  parent: 'App Bar'
   order: 1
 draft: true
 shouldShowContents: true

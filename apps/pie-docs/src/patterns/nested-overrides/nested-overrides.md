@@ -1,10 +1,10 @@
 ---
 eleventyNavigation:
-  key: "Nested Overrides"
+  key: 'Nested Overrides'
   parent: Patterns
   # url: /patterns/nested-overrides/
   order: 8
-title: "Nested Overrides"
+title: 'Nested Overrides'
 draft: true
 permalink: false
 ---
