@@ -21,6 +21,66 @@ Avatars can vary in design and appearance, ranging from simple user icons to ini
 
 ---
 
+## Do’s & don’ts
+
+### Do’s 
+- Prioritise initials avatar over user icon avatar for individuals. 
+- Make sure you use the correct size for its placement, whether it's in a list, stand-alone, or any other context.
+- Always maintain equal width and height dimensions.
+
+### Don’ts 
+- Don’t use the initials avatar for a non-individuals entity  (e.g. a company).
+
+---
+
+## Anatomy
+
+1. **Container:** Background container that organises the information. 
+2. **Initials:** Displays the user's first and last name initials.
+3. **User Icon:** It can represent any entity, such as a user or a business.
+4. **Photo:** Displays a picture of the user.
+
+
+---
+
+## Variants
+
+### Initials
+Use the initials avatar variation when you want to represent an individual user. Use it only when the name is known.
+
+### Icon
+Use the user icon avatar variation when you want to represent an individual user whose name has not been specified, or for non-individual entities such as companies, teams or groups.
+
+### Photo
+Use the Photo avatar variation when you want to display a picture of the user. 
+
+### Unauthenticated
+Use the unauthenticated variation when the user hasn't logged in or authenticated their session yet.
+
+
+---
+
+## Modifiers
+
+### Emphasis
+
+Depending on the level of visual prominence you want to give to your avatar, you can choose between strong or subtle emphasis. Only available for Initials and Icon variations.  
+- Strong
+- Subtle
+
+
+### Colour
+Select from a palette of distinct brand colours for your avatar.
+- Neutral
+- 01 Orange
+- 02 Orange subtle
+- 03 Cupcake
+
+
+
+
+
+
 ## Resources
 
 {% notification {
