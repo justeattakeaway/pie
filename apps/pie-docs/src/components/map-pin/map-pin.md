@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Map Pin'
     parent: Components
-    order: 24
+    order: 26
     url: /components/map-pin/
 permalink: false
 ---
