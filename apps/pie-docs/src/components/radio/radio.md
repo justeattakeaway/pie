@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Radio
     parent: Components
-    order: 32
+    order: 36
     url: /components/radio/
 permalink: false
 ---
