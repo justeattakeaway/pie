@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Tooltip'
     parent: Components
-    order: 50
+    order: 56
     url: /components/tooltip/
 permalink: false
 ---

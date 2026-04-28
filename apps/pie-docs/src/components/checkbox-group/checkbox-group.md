@@ -3,6 +3,6 @@ eleventyNavigation:
     key: 'Checkbox Group'
     parent: Components
     url: /components/checkbox-group/
-    order: 13
+    order: 14
 permalink: false
 ---
