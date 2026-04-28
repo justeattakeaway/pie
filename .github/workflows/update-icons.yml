@@ -37,6 +37,8 @@ jobs:
         run: yarn
 
       - name: Update icons
+        env:
+          GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
         run: yarn workspace @justeattakeaway/pie-icons update-icons
 
       - name: Create PR
