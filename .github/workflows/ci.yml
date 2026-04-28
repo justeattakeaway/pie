@@ -88,19 +88,22 @@ jobs:
       - name: Verify if pie-docs has changes
         id: docs-check
         run: |
-          DOCS_CHANGE=$(npx -y turbo run build --filter='@justeattakeaway/pie-docs[origin/main]' --dry=json | jq '.packages | length > 0')
+          # Check if pie-docs has changed since origin/main
+          DOCS_CHANGE=$(yarn turbo run build --filter='@justeattakeaway/pie-docs[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $DOCS_CHANGE"
           echo "docs-change=$DOCS_CHANGE" >> "$GITHUB_OUTPUT"
       - name: Verify if web components have changes
         id: component-check
         run: |
-          COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}...[origin/main]' --filter='{./packages/tools/*}...[origin/main]' --dry=json | jq '.packages | length > 0')
+          # Check if any components, tools, or their dependents have changed since origin/main
+          COMPONENT_CHANGE=$(yarn turbo run build --filter='{./packages/components/*}...[origin/main]' --filter='{./packages/tools/*}...[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $COMPONENT_CHANGE"
           echo "web-components-change=$COMPONENT_CHANGE" >> "$GITHUB_OUTPUT"
       - name: Verify if storybook has changes
         id: storybook-check
         run: |
-          STORYBOOK_CHANGE=$(npx -y turbo run build --filter='@justeattakeaway/pie-storybook[origin/main]' --dry=json | jq '.packages | length > 0')
+          # Check if storybook has changed since origin/main
+          STORYBOOK_CHANGE=$(yarn turbo run build --filter='@justeattakeaway/pie-storybook[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $STORYBOOK_CHANGE"
           echo "storybook-change=$STORYBOOK_CHANGE" >> "$GITHUB_OUTPUT"
 
