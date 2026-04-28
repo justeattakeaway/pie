@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.103.0
+
+### Minor Changes
+
+- [Changed] - split dangerjs into seperate files ([#2776](https://github.com/justeattakeaway/pie/pull/2776)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - updated commitlint and changeset pkgs ([#2763](https://github.com/justeattakeaway/pie/pull/2763)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Fixed] - updated changeset scripts and lint hooks to work in a git worktree environment
+
+- [Updated] changeset snapshot / test-aperture token scopes so use new test-aperture workflow correctly ([#2781](https://github.com/justeattakeaway/pie/pull/2781)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - upgrading to storybook v10 ([#2767](https://github.com/justeattakeaway/pie/pull/2767)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.102.0
 
 ### Minor Changes
