@@ -30,6 +30,10 @@ jobs:
         with:
           app-id: ${{ vars.GH_APP_ID }}
           private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          owner: justeattakeaway
+          repositories: |
+            pie
+            pie-aperture
 
       - name: Add initial reaction
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0

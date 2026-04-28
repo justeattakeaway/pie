@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Badge'
     parent: Components
-    order: 5
+    order: 6
     url: /components/badge/
 permalink: false
 ---
