@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Date Picker'
     parent: Components
-    order: 17
+    order: 18
     url: /components/date-picker/
 permalink: false
 ---

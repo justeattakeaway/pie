@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'FAB'
     parent: Components
-    order: 19
+    order: 21
     url: /components/fab/
 permalink: false
 ---

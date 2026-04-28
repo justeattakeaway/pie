@@ -3,7 +3,7 @@ eleventyNavigation:
     key: 'Checkbox'
     parent: Components
     url: /components/checkbox/
-    order: 12
+    order: 13
 permalink: false
 ---
 

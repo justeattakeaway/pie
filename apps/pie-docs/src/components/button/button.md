@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Button
     parent: Components
-    order: 9
+    order: 10
     url: /components/button/
 permalink: false
 ---
