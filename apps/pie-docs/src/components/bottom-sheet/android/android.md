@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Android
     parent: Bottom Sheet
     order: 2
-
 ---
 
 ## Dos and Don'ts
@@ -69,7 +68,7 @@ This is the default variation of the Bottom Sheet, which features a nested Slot 
  
 {% notification { 
   type: "warning",
-  message:"Don’t detach the header and footer nested components. Make sure you don’t detach the .bottom_sheet-header and .bottom_sheet-footer components, as these are nested components within the main Bottom Sheet component that need to be controlled globally. If you need to customise these, please get in touch with a member of the PIE Design System team."
+  message: "Don’t detach the header and footer nested components. Make sure you don’t detach the .bottom_sheet-header and .bottom_sheet-footer components, as these are nested components within the main Bottom Sheet component that need to be controlled globally. If you need to customise these, please get in touch with a member of the PIE Design System team."
 } %}
 
 ### General modifiers
@@ -119,12 +118,12 @@ This header variation can be used to display small illustrations only. They disp
 {% notification {
   type: "information"
   message: "You can change the colour of the illustration background to any of our brand colours, or remove it entirely."
-}}
+} %}
 
 {% notification {
   type: "warning"
   message: "**Use small illustrations only.** If you need to use large illustrations, use the large illustration property instead.
-}}
+} %}
 
 #### Large illustration 
 
@@ -133,12 +132,12 @@ This header variation can be used to display small illustrations only. They disp
 {% notification {
   type: "information"
   message: "You can change the colour of the illustration background to any of our brand colours, or remove it entirely."
-}}
+} %}
 
 {% notification {
   type: "warning"
   message: "**Use large illustrations only.** If you need to use small illustrations, use the small illustration property instead.
-}}
+} %}
 
 #### Header slot
 
@@ -147,7 +146,7 @@ This variation allows you to display any custom content within the header area. 
 {% notification {
   type: "information"
   message: "When using this variant with a pull tab, ensure your content has sufficient top margin to prevent it from overlapping with the pull tab."
-}}
+} %}
 
 #### Header slot - with margin
 
