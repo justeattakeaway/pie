@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 
 import type { PieToastProvider } from 'src/index.ts';
@@ -11,17 +11,45 @@ import {
 
 import { toastProvider } from '../helpers/page-object/selectors.ts';
 
-test.describe('PieToastProvider - Component tests', () => {
-    let toastsQueue: ExtendedToastProps[] = [];
+declare global {
+    interface Window {
+        __queueSnapshots?: ExtendedToastProps[][];
+    }
+}
 
-    test.beforeEach(({ page }) => {
-        // Set up a listener for the queue update log
-        page.on('console', async (message) => {
-            if (message.text().includes('toast provider queue:')) {
-                toastsQueue = await message.args()[1].jsonValue();
-            }
-        });
+/**
+ * Subscribe to the provider's public `pie-toast-provider-queue-update` event
+ * and stash every detail snapshot on `window.__queueSnapshots`. Snapshots are
+ * structuredClone'd so later mutations to the live queue can't poison earlier
+ * captures.
+ */
+async function installQueueListener (page: Page): Promise<void> {
+    await page.evaluate(() => {
+        window.__queueSnapshots = [];
+        document.querySelector('pie-toast-provider')!.addEventListener(
+            'pie-toast-provider-queue-update',
+            (event) => {
+                const detail = (event as CustomEvent<ExtendedToastProps[]>).detail;
+                window.__queueSnapshots!.push(structuredClone(detail));
+            },
+        );
     });
+}
+
+/** Find the first toast across all captured snapshots whose `message` matches. */
+async function findToastByMessage (page: Page, message: string): Promise<ExtendedToastProps | undefined> {
+    return page.evaluate(
+        (msg) => (window.__queueSnapshots ?? []).flat().find((toast) => toast.message === msg),
+        message,
+    );
+}
+
+/** Read every captured snapshot back into the test runner. */
+async function getQueueSnapshots (page: Page): Promise<ExtendedToastProps[][]> {
+    return page.evaluate(() => window.__queueSnapshots ?? []);
+}
+
+test.describe('PieToastProvider - Component tests', () => {
 
     test('should render successfully', async ({ page }) => {
         // Arrange
@@ -41,6 +69,7 @@ test.describe('PieToastProvider - Component tests', () => {
             const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
             await pieToastProviderPage.load();
             await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+            await installQueueListener(page);
 
             // Act
             await page.evaluate(() => {
@@ -69,12 +98,23 @@ test.describe('PieToastProvider - Component tests', () => {
                 });
             });
 
-            // Assert
-            const queueVariants: Priority[] = toastsQueue.map((toast: ExtendedToastProps): Priority => `${toast.variant || toastDefaultProps.variant}${toast.leadingAction ? '-actionable' : ''}`);
-            for (let i = 1; i < queueVariants.length; i++) {
-                const prevPriority = PRIORITY_ORDER[queueVariants[i - 1]];
-                const currPriority = PRIORITY_ORDER[queueVariants[i]];
-                expect(currPriority).toBeGreaterThanOrEqual(prevPriority); // Ensure the current has a higher priority
+            // Wait for the lowest-priority toast (last created) to surface in
+            // some snapshot — guarantees all create events have been processed.
+            await expect.poll(() => findToastByMessage(page, 'Error toast (Priority 2)')).toBeDefined();
+
+            // Assert — the contract under test is "the queue is always sorted
+            // by priority". Walk every captured snapshot and verify each one
+            // is non-decreasing in priority. This is independent of how many
+            // toasts the provider keeps in the queue vs displays immediately.
+            const snapshots = await getQueueSnapshots(page);
+            for (const snapshot of snapshots) {
+                const priorities: number[] = snapshot.map((toast) => {
+                    const key: Priority = `${toast.variant || toastDefaultProps.variant}${toast.leadingAction ? '-actionable' : ''}`;
+                    return PRIORITY_ORDER[key];
+                });
+                for (let i = 1; i < priorities.length; i++) {
+                    expect(priorities[i]).toBeGreaterThanOrEqual(priorities[i - 1]);
+                }
             }
         });
 
@@ -83,6 +123,7 @@ test.describe('PieToastProvider - Component tests', () => {
             const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
             await pieToastProviderPage.load();
             await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+            await installQueueListener(page);
 
             // Act
             await page.evaluate(() => {
@@ -94,8 +135,11 @@ test.describe('PieToastProvider - Component tests', () => {
                 toastProvider.clearToasts();
             });
 
-            // Assert
-            await expect(toastsQueue.length).toBe(0);
+            // Assert — after clearToasts, the last queue snapshot should be empty.
+            await expect.poll(async () => {
+                const snapshots = await getQueueSnapshots(page);
+                return snapshots[snapshots.length - 1]?.length;
+            }).toBe(0);
         });
     });
 
@@ -111,6 +155,7 @@ test.describe('PieToastProvider - Component tests', () => {
                     },
                 });
                 await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+                await installQueueListener(page);
 
                 // Act
                 await page.evaluate(() => {
@@ -119,8 +164,16 @@ test.describe('PieToastProvider - Component tests', () => {
                     toastProvider.createToast({ message: 'Toast 2' });
                 });
 
-                // Assert
-                toastsQueue.forEach((toast) => {
+                // Assert — every toast we observe should carry the global
+                // options. (We can only verify queued toasts, not the one
+                // popped immediately into `_currentToast`.) Wait for at least
+                // one toast of interest to surface, then iterate every snapshot.
+                await expect.poll(() => findToastByMessage(page, 'Toast 2')).toBeDefined();
+
+                const snapshots = await getQueueSnapshots(page);
+                const seenToasts = snapshots.flat();
+                expect(seenToasts.length).toBeGreaterThan(0);
+                seenToasts.forEach((toast) => {
                     expect(toast.isDismissible).toBeTruthy();
                     expect(toast.variant).toBe('neutral');
                 });
@@ -135,6 +188,7 @@ test.describe('PieToastProvider - Component tests', () => {
                     },
                 });
                 await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
+                await installQueueListener(page);
 
                 // Act
                 await page.evaluate(() => {
@@ -144,9 +198,14 @@ test.describe('PieToastProvider - Component tests', () => {
                     toastProvider.createToast({ message: 'Toast 3', isDismissible: false });
                 });
 
-                // Assert
-                expect(toastsQueue[0].isDismissible).toBeTruthy(); // Global option should apply
-                expect(toastsQueue[1].isDismissible).toBeFalsy(); // Override should take precedence
+                // Assert against toast identity, not queue position. Wait until
+                // both toasts of interest have appeared in some snapshot, then
+                // assert their merged props.
+                await expect.poll(() => findToastByMessage(page, 'Toast 2')).toBeDefined();
+                await expect.poll(() => findToastByMessage(page, 'Toast 3')).toBeDefined();
+
+                expect((await findToastByMessage(page, 'Toast 2'))!.isDismissible).toBeTruthy(); // Global option applies
+                expect((await findToastByMessage(page, 'Toast 3'))!.isDismissible).toBeFalsy();  // Override wins
             });
         });
     });
@@ -188,14 +247,23 @@ test.describe('PieToastProvider - Component tests', () => {
             const toastElement = page.locator('pie-toast');
             await expect(toastElement).toBeVisible();
 
+            // The toast slides in via CSS transform on mount. `toBeVisible`
+            // returns true mid-animation, so reading boundingBox now would
+            // sample a transient position. Wait for all animations on the
+            // toast (and its descendants) to settle before measuring.
+            await toastElement.evaluate((el) => Promise.all(
+                el.getAnimations({ subtree: true }).map((animation) => animation.finished),
+            ));
+
             const initialPosition = await toastElement.boundingBox();
 
-            // Act
-            await page.evaluate(() => {
+            // Act — scroll, then wait two frames so layout commits before measuring.
+            await page.evaluate(() => new Promise<void>((resolve) => {
                 window.scrollTo(0, document.body.scrollHeight);
-            });
+                requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+            }));
 
-            // Assert
+            // Assert — viewport coords should be unchanged after scroll.
             const finalPosition = await toastElement.boundingBox();
 
             expect(finalPosition?.x).toBe(initialPosition?.x);
