@@ -3771,6 +3771,7 @@ __metadata:
     just-pascal-case: 3.2.0
     react: 18.3.1
     react-dom: 18.3.1
+    rimraf: 5.0.10
     rollup: 3.29.5
     rollup-plugin-multi-input: 1.4.1
     typescript: 5.8.3
