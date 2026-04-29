@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.21.5
+
+### Patch Changes
+
+- [Fixed] - adds missing rimraf dependency ([#2783](https://github.com/justeattakeaway/pie/pull/2783)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.21.4
 
 ### Patch Changes

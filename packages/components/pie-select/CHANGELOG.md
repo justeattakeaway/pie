@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-select
 
+## 0.8.28
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-assistive-text@0.11.26
+
 ## 0.8.27
 
 ### Patch Changes
