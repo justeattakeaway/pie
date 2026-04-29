@@ -58,7 +58,7 @@ Links are often used to connect various pages, sections, or external resources, 
 
 ---
 
-## Variations
+## Variants
 
 ### Default
 
@@ -89,6 +89,17 @@ It should be used in areas where an inversed background is used, or when contras
     alt: "An inverse link",
     width: 30,
     variant: "inverse"
+} %}
+
+### Inverse light
+
+Inverse Light should be used in areas where in both light and dark mode, a dark container/background is being used for high contrast and to meet accessibility rules.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/link/variation-inverse-light.svg",
+    alt: "An inverse light link",
+    width: 30,
+    variant: "inverse light"
 } %}
 
 ---
@@ -194,6 +205,15 @@ You can use icons to reinforce the action that will take place when the user int
       src: "../../../assets/img/components/link/size-small.svg",
       width: 30,
       alt: "A small link."
+    } %}
+  {% endcontentItem %}
+   {% contentItem %}
+    <h3>XSmall (XS)</h3>
+    <p>Type size 12dp/sp/px </p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/link/size-extra-small.svg",
+      width: 30,
+      alt: "An extra small link."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
