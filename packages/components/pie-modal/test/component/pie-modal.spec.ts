@@ -8,6 +8,7 @@ import { ModalCustomFooterPage } from 'test/helpers/page-object/pie-modal-custom
 import { ModalMissingDialogSimulationPage } from 'test/helpers/page-object/pie-modal-missing-dialog-simulation.page.ts';
 import { ModalCustomImageSlotContentPage } from 'test/helpers/page-object/pie-modal-custom-image-slot-content.page.ts';
 import { ModalCustomHeadingStylePage } from 'test/helpers/page-object/pie-modal-custom-heading-style.page.ts';
+import { ModalMultipleDismissiblePage } from 'test/helpers/page-object/pie-modal-multiple-dismissible.page.ts';
 import {
     type ModalProps, headingLevels, imageSlotModes,
 } from '../../src/defs.ts';
@@ -363,6 +364,46 @@ test.describe('modal', () => {
                 // Assert
                 await expect(modalDefaultPage.modalComponent.componentLocator).toBeVisible();
             });
+        });
+    });
+
+    test.describe('multiple modals', () => {
+        test('should close a dismissible modal with Escape when a non-dismissible modal is also mounted', async ({ page }) => {
+            // Arrange
+            const multipleDismissiblePage = new ModalMultipleDismissiblePage(page);
+            await multipleDismissiblePage.load();
+
+            // Act
+            await multipleDismissiblePage.openDismissibleModal();
+            const dismissibleModal = page.locator('#modal-dismissible').getByTestId('pie-modal');
+            await expect(dismissibleModal).toBeVisible();
+            await page.keyboard.press('Escape');
+
+            // Assert
+            await expect(dismissibleModal).not.toBeVisible();
+        });
+
+        test('should close a dismissible modal with Escape after a non-dismissible modal has been opened and closed', async ({ page }) => {
+            // Arrange
+            const multipleDismissiblePage = new ModalMultipleDismissiblePage(page);
+            await multipleDismissiblePage.load();
+
+            // Act
+            // Open and close the non-dismissible modal first
+            await multipleDismissiblePage.openNonDismissibleModal();
+            const nonDismissibleModal = page.locator('#modal-non-dismissible').getByTestId('pie-modal');
+            await expect(nonDismissibleModal).toBeVisible();
+            await multipleDismissiblePage.closeNonDismissibleModal();
+            await expect(nonDismissibleModal).not.toBeVisible();
+
+            // Then open the dismissible modal and press Escape
+            await multipleDismissiblePage.openDismissibleModal();
+            const dismissibleModal = page.locator('#modal-dismissible').getByTestId('pie-modal');
+            await expect(dismissibleModal).toBeVisible();
+            await page.keyboard.press('Escape');
+
+            // Assert
+            await expect(dismissibleModal).not.toBeVisible();
         });
     });
 });

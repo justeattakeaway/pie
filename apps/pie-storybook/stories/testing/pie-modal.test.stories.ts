@@ -585,3 +585,55 @@ export const MissingDialogSimulation = createStory<ModalProps>(MissingDialogSimu
     isOpen: false,
     heading: 'Error Simulation',
 });
+
+const MultipleDismissibleStoryTemplate = () => {
+    const toggleDismissibleModal = () => {
+        const modal = document.querySelector('#modal-dismissible') as PieModal;
+        if (modal) {
+            modal.isOpen = !modal.isOpen;
+        }
+    };
+
+    const toggleNonDismissibleModal = () => {
+        const modal = document.querySelector('#modal-non-dismissible') as PieModal;
+        if (modal) {
+            modal.isOpen = !modal.isOpen;
+        }
+    };
+
+    return html`
+        <pie-button id="open-dismissible" @click=${toggleDismissibleModal}>Open Dismissible Modal</pie-button>
+        <pie-button id="open-non-dismissible" @click=${toggleNonDismissibleModal}>Open Non-Dismissible Modal</pie-button>
+
+        <pie-modal
+            id="modal-dismissible"
+            heading="Dismissible Modal"
+            ?isDismissible="${true}"
+            .aria=${{ close: 'Close', back: 'Back', loading: 'Loading' }}
+            .leadingAction=${{ text: 'Confirm', variant: 'primary', ariaLabel: 'Confirm' }}
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}">
+                <span>This modal is dismissible. You should be able to close it with the Escape key.</span>
+        </pie-modal>
+
+        <pie-modal
+            id="modal-non-dismissible"
+            heading="Non-Dismissible Modal"
+            ?isDismissible="${false}"
+            .aria=${{ close: 'Close', back: 'Back', loading: 'Loading' }}
+            .leadingAction=${{ text: 'Close', variant: 'primary', ariaLabel: 'Close' }}
+            @pie-modal-leading-action-click="${() => {
+        const modal = document.querySelector('#modal-non-dismissible') as PieModal;
+        if (modal) modal.isOpen = false;
+    }}"
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}">
+                <span>This modal is NOT dismissible. You must use the button to close it.</span>
+        </pie-modal>
+    `;
+};
+
+export const MultipleDismissibleModals = {
+    render: MultipleDismissibleStoryTemplate,
+    args: {},
+};
