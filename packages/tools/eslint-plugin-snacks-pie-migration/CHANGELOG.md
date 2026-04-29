@@ -1,5 +1,13 @@
 # @justeattakeaway/eslint-plugin-snacks-pie-migration
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - support message suggesting the use of skills to help in the migration of Snacks Button components ([#2786](https://github.com/justeattakeaway/pie/pull/2786)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Fixed] - snapshot tests to reflect the new message
+
 ## 0.5.0
 
 ### Minor Changes
