@@ -6,7 +6,9 @@ exports[`deprecated-components rule > with TypeScript syntax > detects deprecate
   "endColumn": 47,
   "endLine": 1,
   "line": 1,
-  "message": "The Snacks component "Button" is being deprecated and can be replaced by "@justeattakeaway/pie-button".",
+  "message": "The Snacks component "Button" is being deprecated and can be replaced by "@justeattakeaway/pie-button".
+Use the "snacks-migration-assistant" skill to migrate this component.
+Check this page for more details: https://www.pie.design/agents/resources/#snacks-migration-skill",
   "nodeType": "ImportDeclaration",
   "ruleId": "@justeattakeaway/snacks-pie-migration/deprecated-components",
   "severity": 2,
@@ -24,7 +26,9 @@ exports[`deprecated-components rule > with plain JavaScript syntax > detects com
   "endColumn": 47,
   "endLine": 1,
   "line": 1,
-  "message": "The Snacks component "Button" is being deprecated and can be replaced by "@justeattakeaway/pie-button".",
+  "message": "The Snacks component "Button" is being deprecated and can be replaced by "@justeattakeaway/pie-button".
+Use the "snacks-migration-assistant" skill to migrate this component.
+Check this page for more details: https://www.pie.design/agents/resources/#snacks-migration-skill",
   "nodeType": "ImportDeclaration",
   "ruleId": "@justeattakeaway/snacks-pie-migration/deprecated-components",
   "severity": 2,
@@ -37,7 +41,7 @@ exports[`deprecated-components rule > with plain JavaScript syntax > detects dep
   "endColumn": 45,
   "endLine": 1,
   "line": 1,
-  "message": "The Snacks "Flex" component is being deprecated and can be replaced with plain HTML and CSS.
+  "message": "The Snacks component "Flex" is being deprecated and can be replaced with plain HTML and CSS.
 Use the "snacks-migration-assistant" skill to migrate this component.
 Check this page for more details: https://www.pie.design/agents/resources/#snacks-migration-skill",
   "nodeType": "ImportDeclaration",
