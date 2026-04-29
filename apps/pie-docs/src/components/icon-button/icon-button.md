@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Icon Button
     parent: Components
-    order: 21
+    order: 23
     url: /components/icon-button/
 permalink: false
 ---

@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-      "module": "CommonJS",
+      "module": "ESNext",
       "target": "es6",
       "lib": ["es6", "dom"],
       "esModuleInterop": true,
-      "moduleResolution": "node",
+      "moduleResolution": "bundler",
       "noImplicitAny": true,
       "strictNullChecks": true,
       "sourceMap": false,

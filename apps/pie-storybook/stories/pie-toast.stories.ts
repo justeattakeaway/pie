@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { useArgs } from '@storybook/preview-api';
-import { action } from '@storybook/addon-actions';
+import { useArgs } from 'storybook/preview-api';
+import { action } from 'storybook/actions';
 import { type Meta } from '@storybook/web-components';
 import { type ToastProps, defaultProps, variants } from '@justeattakeaway/pie-webc/components/toast';
 

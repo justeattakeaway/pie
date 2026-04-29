@@ -1,6 +1,6 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { useArgs as UseArgs } from '@storybook/preview-api';
+import { useArgs as UseArgs } from 'storybook/preview-api';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/radio';

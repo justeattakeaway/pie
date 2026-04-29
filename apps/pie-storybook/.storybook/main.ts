@@ -14,9 +14,7 @@ const config: StorybookConfig = {
             "../stories/!(testing)/**/*.stories.@(js|ts|tsx)",
         ],
     addons: [
-        "@storybook/addon-essentials",
         "@storybook/addon-a11y",
-        "@storybook/addon-actions",
         "@storybook/addon-designs",
         "@storybook/addon-links",
         "storybook-dark-mode",

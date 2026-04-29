@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: 'Dropdown'
     parent: Components
-    order: 18
+    order: 20
     url: /components/dropdown/
 permalink: false
 ---

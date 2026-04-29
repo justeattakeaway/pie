@@ -1,6 +1,6 @@
 import { html, nothing, type TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { type Meta } from '@storybook/web-components';
 
 import '@justeattakeaway/pie-webc/components/notification';

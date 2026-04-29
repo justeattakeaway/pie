@@ -50,7 +50,7 @@ describe('createStory', () => {
         const story = createStory(template, defaultArgs);
 
         const result = story({}, storyOpts);
-        expect(result.parameters.backgrounds.default).toBe('background-subtle');
+        expect(result.globals?.backgrounds?.value).toBe('background-subtle');
     });
 });
 
@@ -113,7 +113,7 @@ describe('createVariantStory', () => {
         expect(backgroundColor).toBeTruthy();
         expect(backgroundColor).not.toBe('#ffffff');
 
-        const matchingBackground = CUSTOM_BACKGROUNDS.values.find((bg) => bg.name === 'background-subtle');
+        const matchingBackground = CUSTOM_BACKGROUNDS.options['background-subtle'];
         expect(backgroundColor).toBe(matchingBackground?.value);
     });
 
