@@ -3,6 +3,8 @@ eleventyNavigation:
     key: Android
     parent: Bottom Sheet
     order: 2
+shouldShowContents: true
+permalink: components/bottom-sheet/
 ---
 
 ## Dos and Don'ts
