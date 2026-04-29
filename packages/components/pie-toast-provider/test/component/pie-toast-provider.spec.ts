@@ -25,12 +25,15 @@ declare global {
  */
 async function installQueueListener (page: Page): Promise<void> {
     await page.evaluate(() => {
-        window.__queueSnapshots = [];
-        document.querySelector('pie-toast-provider')!.addEventListener(
+        const snapshots: ExtendedToastProps[][] = [];
+        window.__queueSnapshots = snapshots;
+        const provider = document.querySelector('pie-toast-provider');
+        if (!provider) throw new Error('pie-toast-provider not found in DOM');
+        provider.addEventListener(
             'pie-toast-provider-queue-update',
             (event) => {
-                const detail = (event as CustomEvent<ExtendedToastProps[]>).detail;
-                window.__queueSnapshots!.push(structuredClone(detail));
+                const { detail } = (event as CustomEvent<ExtendedToastProps[]>);
+                snapshots.push(structuredClone(detail));
             },
         );
     });
@@ -50,7 +53,6 @@ async function getQueueSnapshots (page: Page): Promise<ExtendedToastProps[][]> {
 }
 
 test.describe('PieToastProvider - Component tests', () => {
-
     test('should render successfully', async ({ page }) => {
         // Arrange
         const pieToastProviderPage = new BasePage(page, 'toast-provider--default');
@@ -107,15 +109,15 @@ test.describe('PieToastProvider - Component tests', () => {
             // is non-decreasing in priority. This is independent of how many
             // toasts the provider keeps in the queue vs displays immediately.
             const snapshots = await getQueueSnapshots(page);
-            for (const snapshot of snapshots) {
-                const priorities: number[] = snapshot.map((toast) => {
-                    const key: Priority = `${toast.variant || toastDefaultProps.variant}${toast.leadingAction ? '-actionable' : ''}`;
-                    return PRIORITY_ORDER[key];
+            const priorityOf = (toast: ExtendedToastProps): number => {
+                const key: Priority = `${toast.variant || toastDefaultProps.variant}${toast.leadingAction ? '-actionable' : ''}`;
+                return PRIORITY_ORDER[key];
+            };
+            snapshots.forEach((snapshot) => {
+                snapshot.slice(1).forEach((toast, index) => {
+                    expect(priorityOf(toast)).toBeGreaterThanOrEqual(priorityOf(snapshot[index]));
                 });
-                for (let i = 1; i < priorities.length; i++) {
-                    expect(priorities[i]).toBeGreaterThanOrEqual(priorities[i - 1]);
-                }
-            }
+            });
         });
 
         test('should clear all toasts when clearToasts is called', async ({ page }) => {
@@ -204,8 +206,10 @@ test.describe('PieToastProvider - Component tests', () => {
                 await expect.poll(() => findToastByMessage(page, 'Toast 2')).toBeDefined();
                 await expect.poll(() => findToastByMessage(page, 'Toast 3')).toBeDefined();
 
-                expect((await findToastByMessage(page, 'Toast 2'))!.isDismissible).toBeTruthy(); // Global option applies
-                expect((await findToastByMessage(page, 'Toast 3'))!.isDismissible).toBeFalsy();  // Override wins
+                const toast2 = await findToastByMessage(page, 'Toast 2');
+                const toast3 = await findToastByMessage(page, 'Toast 3');
+                expect(toast2?.isDismissible).toBeTruthy(); // Global option applies
+                expect(toast3?.isDismissible).toBeFalsy(); // Override wins
             });
         });
     });
@@ -251,9 +255,7 @@ test.describe('PieToastProvider - Component tests', () => {
             // returns true mid-animation, so reading boundingBox now would
             // sample a transient position. Wait for all animations on the
             // toast (and its descendants) to settle before measuring.
-            await toastElement.evaluate((el) => Promise.all(
-                el.getAnimations({ subtree: true }).map((animation) => animation.finished),
-            ));
+            await toastElement.evaluate((el) => Promise.all(el.getAnimations({ subtree: true }).map((animation) => animation.finished)));
 
             const initialPosition = await toastElement.boundingBox();
 
