@@ -3,6 +3,6 @@ eleventyNavigation:
     key: 'Radio Group'
     parent: Components
     url: /components/radio-group/
-    order: 33
+    order: 37
 permalink: false
 ---

@@ -1,5 +1,26 @@
 # Changelog
 
+## 4.71.0
+
+### Minor Changes
+
+- [Added] - New xs and inverse light variants. ([#2774](https://github.com/justeattakeaway/pie/pull/2774)) by [@talitha-ferreira-01](https://github.com/talitha-ferreira-01)
+
+### Patch Changes
+
+- Updated dependencies [[`bd921bf`](https://github.com/justeattakeaway/pie/commit/bd921bf4d45e820c83b2085ced2541245c891bec), [`bd921bf`](https://github.com/justeattakeaway/pie/commit/bd921bf4d45e820c83b2085ced2541245c891bec)]:
+  - @justeattakeaway/pie-icons-webc@1.21.5
+  - @justeattakeaway/pie-icons@5.24.1
+  - @justeattakeaway/pie-webc@0.10.2
+
+## 4.70.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icons-webc@1.21.4
+  - @justeattakeaway/pie-webc@0.10.1
+
 ## 4.70.0
 
 ### Minor Changes

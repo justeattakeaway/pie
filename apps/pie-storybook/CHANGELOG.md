@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.75.1
+
+### Patch Changes
+
+- Updated dependencies [[`bd921bf`](https://github.com/justeattakeaway/pie/commit/bd921bf4d45e820c83b2085ced2541245c891bec)]:
+  - @justeattakeaway/pie-icons-webc@1.21.5
+  - @justeattakeaway/pie-webc@0.10.2
+
+## 1.75.0
+
+### Minor Changes
+
+- [Changed] - upgrading to storybook v10 ([#2767](https://github.com/justeattakeaway/pie/pull/2767)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- [Fixed] - Ensure assistive text renders in checkbox stories ([#2769](https://github.com/justeattakeaway/pie/pull/2769)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icons-webc@1.21.4
+  - @justeattakeaway/pie-webc@0.10.1
+
 ## 1.74.0
 
 ### Minor Changes
