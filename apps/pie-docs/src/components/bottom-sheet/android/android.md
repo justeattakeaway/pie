@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Android
     parent: Bottom Sheet
     order: 2
+
 ---
 
 ## Dos and Don'ts
@@ -12,7 +13,7 @@ eleventyNavigation:
         type: usageTypes.text,
         items: [
             "Use bottom sheets when you need to display additional information, controls or functionalities related to the underlying content.",
-            "Use where the user needs to perform one specific task."
+            "Use where the user needs to perform one specific task.",
             "Use an overlay scrim in between the two layers of content."
         ]
     },
@@ -20,7 +21,8 @@ eleventyNavigation:
         type: usageTypes.text,
         items: [
             "Don’t use bottom sheets in wide screens (over 768px wide). Use a modal box instead.",
-            "Avoid stacking a bottom sheet on top of another as this can create usability issues and confusion in a user flow. Check the Overlay patterns guidelines for alternatives."
+            "Avoid stacking a bottom sheet on top of another as this can create usability issues and confusion in a user flow. Check the [Overlay patterns](https://www.pie.design/patterns/overlay-patterns/) guidelines for alternatives.",
+            "Don’t use them for multi-step flows. Use a full screen sheet instead."
         ]
     }
 } %}
@@ -38,20 +40,26 @@ eleventyNavigation:
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Container:** Holds related UI elements.",
-        "**Leading icon background (Optional):** Background container for leading icon.",
-        "**Leading icon (Optional):** Visually supports the label.",
-        "**Label:** Provides informative infromation to the user."
+        "**Header:** Area where the title of the bottom sheet is displayed, along with its control method.",
+        "**Content:** Flexible area which can contain a wide range of contents and layouts.",
+        "**Footer (Optional):** Contains the different actions you can perform with this bottom sheet.",
+        "**Icon (Optional):** Visually highlights the nature of the contents in the bottom sheet.",
+        "**Title (Optional):** Sums up the contents of the bottom sheet in one category.",
+        "**Pull tab (Optional):** Allows the user to hide the bottom sheet.",
+        "**Slot (Optional):** Nested component which will be replaced by the actual Bottom Sheet content.",
+        "**Primary CTA (Optional):** Allows the user to perform an action.",
+        "**Secondary CTA (Optional):** Allows the user to perform an action.",
+        "**Image/Illustration CTA (Optional):** Used to display an image or illustration as the head of the bottom sheet."
     ]
 } %}
 
 ---
 
-## Modifiers
+## Variants
 
-### Icon 
+Variants are just indicative templates of the type of content a bottom sheet can hold. For custom bottom sheets check the ‘Custom bottom sheets’ section.
 
-When incorporating an icon into a tag, it is essential to ensure that the icon clearly supports the label.
+### Default
 
 This is the default variation of the Bottom Sheet, which features a nested Slot component which can be replaced by local component containing the Bottom Sheet’s contents.
 
