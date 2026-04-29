@@ -34,7 +34,7 @@ function validateFilesContent (files) {
         .filter(onlyFilesWithUnwantedTags)
         .map((filePath) => {
             const { base } = path.parse(filePath);
-            return `The file "${base}" contains invalid svg tags such as "<defs>" or "<clipPath>"`;
+            return `The file "${base}" contains invalid svg tags such as "defs" or "clipPath"`;
         });
 
     return issues;
