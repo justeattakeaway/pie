@@ -9,4 +9,5 @@ module.exports = {
     Flex: migrateWithSkill,
     FlexItem: migrateWithSkill,
     Util: migrateWithSkill,
+    Button: migrateWithSkill,
 };

@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.24.1
+
+### Patch Changes
+
+- [Fixed] - update script invokation so the test output is printed directly instead of being swallowed on failure ([#2783](https://github.com/justeattakeaway/pie/pull/2783)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 5.24.0
 
 ### Minor Changes
