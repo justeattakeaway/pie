@@ -451,6 +451,18 @@
             "displayName": "Chevron",
             "icons": [
                 {
+                    "name": "chevron-collapse",
+                    "displayName": "Chevron Collapse"
+                },
+                {
+                    "name": "chevron-double-left",
+                    "displayName": "Chevron Double Left"
+                },
+                {
+                    "name": "chevron-double-right",
+                    "displayName": "Chevron Double Right"
+                },
+                {
                     "name": "chevron-down",
                     "displayName": "Chevron Down"
                 },
@@ -463,20 +475,12 @@
                     "displayName": "Chevron Right"
                 },
                 {
-                    "name": "chevron-up",
-                    "displayName": "Chevron Up"
-                },
-                {
-                    "name": "chevron-double-left",
-                    "displayName": "Chevron Double Left"
-                },
-                {
-                    "name": "chevron-double-right",
-                    "displayName": "Chevron Double Right"
-                },
-                {
                     "name": "chevron-split",
                     "displayName": "Chevron Split"
+                },
+                {
+                    "name": "chevron-up",
+                    "displayName": "Chevron Up"
                 }
             ]
         },
@@ -1075,6 +1079,10 @@
                 {
                     "name": "close-circle-filled",
                     "displayName": "Close Circle Filled"
+                },
+                {
+                    "name": "column",
+                    "displayName": "Column"
                 },
                 {
                     "name": "double-check",
@@ -2466,6 +2474,10 @@
                 {
                     "name": "robot",
                     "displayName": "Robot"
+                },
+                {
+                    "name": "tree-trace",
+                    "displayName": "Tree Trace"
                 }
             ]
         },
