@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-modal
 
+## 1.26.0
+
+### Minor Changes
+
+- [Fixed] - only setup Esc keydown listener when modal is open ([#2775](https://github.com/justeattakeaway/pie/pull/2775)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Updated dependencies [[`bd921bf`](https://github.com/justeattakeaway/pie/commit/bd921bf4d45e820c83b2085ced2541245c891bec)]:
+  - @justeattakeaway/pie-icons-webc@1.21.5
+  - @justeattakeaway/pie-icon-button@2.7.8
+
 ## 1.25.13
 
 ### Patch Changes
