@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
 
 import type { PieToastProvider } from 'src/index.ts';
@@ -11,16 +11,27 @@ import {
 
 import { toastProvider } from '../helpers/page-object/selectors.ts';
 
+const QUEUE_UPDATE_LOG = 'toast provider queue:';
+
+/**
+ * Waits for the next `pie-toast-provider-queue-update` console log emitted by the story
+ * and returns the queue payload. Must be called BEFORE the action that triggers the update
+ * so the event is never missed.
+ */
+const waitForQueueUpdate = async (page: Page): Promise<ExtendedToastProps[]> => {
+    const msg = await page.waitForEvent(
+        'console',
+        (m) => m.text().includes(QUEUE_UPDATE_LOG),
+    );
+    return msg.args()[1].jsonValue() as Promise<ExtendedToastProps[]>;
+};
+
 test.describe('PieToastProvider - Component tests', () => {
     let toastsQueue: ExtendedToastProps[] = [];
 
-    test.beforeEach(({ page }) => {
-        // Set up a listener for the queue update log
-        page.on('console', async (message) => {
-            if (message.text().includes('toast provider queue:')) {
-                toastsQueue = await message.args()[1].jsonValue();
-            }
-        });
+    test.beforeEach(() => {
+        // Reset between tests so stale data from a previous run never bleeds into assertions.
+        toastsQueue = [];
     });
 
     test('should render successfully', async ({ page }) => {
@@ -42,7 +53,9 @@ test.describe('PieToastProvider - Component tests', () => {
             await pieToastProviderPage.load();
             await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
 
-            // Act
+            // Act — register the listener BEFORE triggering the action to avoid a race condition
+            // between the Lit update cycle dispatching the event and the assertion reading toastsQueue.
+            const queueUpdated = waitForQueueUpdate(page);
             await page.evaluate(() => {
                 const toastProvider = document.querySelector('pie-toast-provider') as PieToastProvider;
 
@@ -68,6 +81,7 @@ test.describe('PieToastProvider - Component tests', () => {
                     variant: 'error',
                 });
             });
+            toastsQueue = await queueUpdated;
 
             // Assert
             const queueVariants: Priority[] = toastsQueue.map((toast: ExtendedToastProps): Priority => `${toast.variant || toastDefaultProps.variant}${toast.leadingAction ? '-actionable' : ''}`);
@@ -84,18 +98,24 @@ test.describe('PieToastProvider - Component tests', () => {
             await pieToastProviderPage.load();
             await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
 
-            // Act
+            // Act — split into two evaluate calls so each step produces its own queue update
+            // event, making the "before clear" and "after clear" states independently verifiable.
+            const queuePopulated = waitForQueueUpdate(page);
             await page.evaluate(() => {
                 const toastProvider = document.querySelector('pie-toast-provider') as PieToastProvider;
-
                 toastProvider.createToast({ message: 'Toast 1', variant: 'neutral' });
                 toastProvider.createToast({ message: 'Toast 2', variant: 'success' });
-
-                toastProvider.clearToasts();
             });
+            await queuePopulated;
+
+            const queueCleared = waitForQueueUpdate(page);
+            await page.evaluate(() => {
+                (document.querySelector('pie-toast-provider') as PieToastProvider).clearToasts();
+            });
+            toastsQueue = await queueCleared;
 
             // Assert
-            await expect(toastsQueue.length).toBe(0);
+            expect(toastsQueue.length).toBe(0);
         });
     });
 
@@ -113,13 +133,16 @@ test.describe('PieToastProvider - Component tests', () => {
                 await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
 
                 // Act
+                const queueUpdated = waitForQueueUpdate(page);
                 await page.evaluate(() => {
                     const toastProvider = document.querySelector('pie-toast-provider') as PieToastProvider;
                     toastProvider.createToast({ message: 'Toast 1' });
                     toastProvider.createToast({ message: 'Toast 2' });
                 });
+                toastsQueue = await queueUpdated;
 
-                // Assert
+                // Assert — note: the first toast is immediately moved to _currentToast by the
+                // component, so toastsQueue only contains queued (not yet displayed) toasts.
                 toastsQueue.forEach((toast) => {
                     expect(toast.isDismissible).toBeTruthy();
                     expect(toast.variant).toBe('neutral');
@@ -137,14 +160,16 @@ test.describe('PieToastProvider - Component tests', () => {
                 await page.locator('pie-toast-provider').waitFor({ state: 'attached' });
 
                 // Act
+                const queueUpdated = waitForQueueUpdate(page);
                 await page.evaluate(() => {
                     const toastProvider = document.querySelector('pie-toast-provider') as PieToastProvider;
                     toastProvider.createToast({ message: 'Toast 1' });
                     toastProvider.createToast({ message: 'Toast 2' });
                     toastProvider.createToast({ message: 'Toast 3', isDismissible: false });
                 });
+                toastsQueue = await queueUpdated;
 
-                // Assert
+                // Assert — Toast 1 is displayed (_currentToast), Toasts 2 & 3 are in the queue.
                 expect(toastsQueue[0].isDismissible).toBeTruthy(); // Global option should apply
                 expect(toastsQueue[1].isDismissible).toBeFalsy(); // Override should take precedence
             });
@@ -161,7 +186,7 @@ test.describe('PieToastProvider - Component tests', () => {
 
             const consoleMessages: string[] = [];
             page.on('console', (message) => {
-                if (message.type() === 'info' && !message.text().includes('toast provider queue:')) {
+                if (message.type() === 'info' && !message.text().includes(QUEUE_UPDATE_LOG)) {
                     consoleMessages.push(message.text());
                 }
             });
@@ -172,7 +197,15 @@ test.describe('PieToastProvider - Component tests', () => {
             // Act
             const sectionButton = page.locator('pie-button').filter({ hasText: 'Interactive element' });
             await expect(sectionButton).toBeVisible();
+
+            // Register the listener BEFORE clicking to avoid a race condition between the click
+            // handler firing console.info and the CDP message arriving in the test process.
+            const consoleMessageReceived = page.waitForEvent(
+                'console',
+                (msg) => msg.type() === 'info' && msg.text() === expectedEventMessage,
+            );
             await sectionButton.click();
+            await consoleMessageReceived;
 
             // Assert
             expect(consoleMessages).toEqual([expectedEventMessage]);
