@@ -33,7 +33,6 @@ export function getPlaywrightNativeConfig() {
                 name: 'component:chrome',
                 use: {
                     ...devices['Desktop Chrome'],
-                    channel: 'chrome',
                 },
                 testMatch: ['**/test/component/*.spec.{js,ts}'],
             },
@@ -41,7 +40,6 @@ export function getPlaywrightNativeConfig() {
                 name: 'a11y:chrome',
                 use: {
                     ...devices['Desktop Chrome'],
-                    channel: 'chrome',
                 },
                 testMatch: ['**/test/accessibility/*.spec.{js,ts}'],
             },
