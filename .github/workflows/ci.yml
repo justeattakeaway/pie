@@ -302,6 +302,9 @@ jobs:
       (needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main')
       && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.57.0-noble
+      options: --user 1001
     strategy:
       fail-fast: false
       matrix:
@@ -316,8 +319,6 @@ jobs:
         with:
           node-version: 24
           os: ubuntu-latest
-      - name: Setup Playwright
-        uses: ./.github/actions/setup-playwright
       - name: Sanitise package name for artifacts
         id: pkg
         shell: bash
@@ -375,6 +376,9 @@ jobs:
   browser-tests-docs:
     needs: deploy-docs
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.57.0-noble
+      options: --user 1001
     steps:
       # Checkout the Repo
       - name: Checkout
@@ -387,9 +391,6 @@ jobs:
         with:
           node-version: 24
           os: ubuntu-latest
-      # Setup Playwright
-      - name: Setup Playwright
-        uses: ./.github/actions/setup-playwright
       # Run System / a11y Tests
       - name: Run All System /  a11y Tests
         uses: ./.github/actions/run-script
