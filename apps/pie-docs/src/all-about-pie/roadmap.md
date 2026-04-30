@@ -21,7 +21,7 @@ description: This roadmap displays our current projects and future plans. Its ai
 
 * We are starting our official migration of legacy systems to PIE. This means our team will be supporting migrating our
   biggest apps and also providing guidance on how you can migrate too.
-* We are prioritizing building new components that will help us migrate quicker. Over the next 6 months we expect to
+* We are prioritising building new components that will help us migrate quicker. Over the next 6 months we expect to
   build:
   * List and List Item
   * Popover
