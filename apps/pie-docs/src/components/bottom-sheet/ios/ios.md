@@ -122,7 +122,7 @@ This header variation can be used to display small illustrations only. They disp
 
 {% notification {
   type: "warning",
-  message: "**Use small illustrations only.** If you need to use large illustrations, use the large illustration property instead.
+  message: "**Use small illustrations only.** If you need to use large illustrations, use the large illustration property instead."
 } %}
 
 #### Large illustration 
@@ -136,7 +136,7 @@ This header variation can be used to display small illustrations only. They disp
 
 {% notification {
   type: "warning",
-  message: "**Use large illustrations only.** If you need to use small illustrations, use the small illustration property instead.
+  message: "**Use large illustrations only.** If you need to use small illustrations, use the small illustration property instead."
 } %}
 
 #### Header slot
