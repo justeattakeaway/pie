@@ -16,6 +16,8 @@
     "components/avatar",
     "components/badge",
     "components/bottom-sheet",
+    "components/bottom-sheet/android",
+    "components/bottom-sheet/ios",
     "components/breadcrumb",
     "components/breadcrumb/code",
     "components/button",
