@@ -21,7 +21,7 @@ $prefix: 'o-btn';
     // Button Variant Modifiers
     // ************************
     &.o-btn--primary {
-        @include btn.button-variant('primary', $prefix);
+        @include btn.button-variant('secondary', $prefix);
     }
 
     &.o-btn--primary-alternative {
