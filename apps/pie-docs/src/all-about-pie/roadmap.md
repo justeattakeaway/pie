@@ -30,7 +30,7 @@ description: This roadmap displays our current projects and future plans. Its ai
   * Tooltip
   * Accordion
 
-#### What if a component you need isn't prioritized?
+#### What if a component you need isn't prioritised?
 
 If you have a strong case for a new component, especially one tied to company OKRs or multiple teams, let us know! We may
 be able to adjust our roadmap.
