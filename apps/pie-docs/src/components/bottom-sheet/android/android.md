@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Android
     parent: Bottom Sheet
     order: 2
-    draft : false
 ---
 
 ## Dos and Don'ts
@@ -117,12 +116,12 @@ This header variation can be used to display an image.
 This header variation can be used to display small illustrations only. They display at 120x120dp.
 
 {% notification {
-  type: "information"
+  type: "information",
   message: "You can change the colour of the illustration background to any of our brand colours, or remove it entirely."
 } %}
 
 {% notification {
-  type: "warning"
+  type: "warning",
   message: "**Use small illustrations only.** If you need to use large illustrations, use the large illustration property instead.
 } %}
 
@@ -131,12 +130,12 @@ This header variation can be used to display small illustrations only. They disp
 This header variation can be used to display small illustrations only. They display at 180x180dp.
 
 {% notification {
-  type: "information"
+  type: "information",
   message: "You can change the colour of the illustration background to any of our brand colours, or remove it entirely."
 } %}
 
 {% notification {
-  type: "warning"
+  type: "warning",
   message: "**Use large illustrations only.** If you need to use small illustrations, use the small illustration property instead.
 } %}
 
@@ -145,7 +144,7 @@ This header variation can be used to display small illustrations only. They disp
 This variation allows you to display any custom content within the header area. It spans the full width of the bottom sheet header. It’s especially useful for designs with full-width background elements.
 
 {% notification {
-  type: "information"
+  type: "information",
   message: "When using this variant with a pull tab, ensure your content has sufficient top margin to prevent it from overlapping with the pull tab."
 } %}
 
@@ -225,3 +224,15 @@ The contents of the bottom sheet can be customised by detaching the instance. Fo
 To provide access to its top actions, the initial vertical position of bottom sheets should be capped at 50% of the screen height. Bottom sheets whose contents exceed 50% of the screen height can then be pulled up across the full screen, scrolling internally to access their remaining items.
 
 Once the bottom sheet has been scrolled up and the header has reached the top of the screen, the header will become fixed to the top so that Bottom Sheets can continue to be closed comfortably.
+
+---
+
+## Accessible text scalling
+
+### Text wrap
+
+When a user activates the accessible text scaling options on their device, all text in the BottomSheet component and slot content scales. Text should wrap into a new line if needed within the container to accommodate the new text size. 
+
+### Buttons alignment
+
+Text scaling can impact button alignment. If horizontal alignment was chosen and text scaling causes button labels to exceed the available space, the buttons will automatically shift to a vertical stack. Avoid button labels wrapping where possible.
