@@ -3,7 +3,7 @@
 </p>
 
 <div align="center">
-  <p><em>Just Eat Takeaway's global design system</em></p>
+  <p><em>Just Eat Takeaway.com global design system</em></p>
 
 <!-- Primary destinations -->
   <a href="https://pie.design">
