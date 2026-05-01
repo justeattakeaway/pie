@@ -4368,7 +4368,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@manypkg/get-packages@npm:^1.1.3":
+"@manypkg/get-packages@npm:1.1.3":
   version: 1.1.3
   resolution: "@manypkg/get-packages@npm:1.1.3"
   dependencies:
@@ -4379,6 +4379,20 @@ __metadata:
     globby: ^11.0.0
     read-yaml-file: ^1.1.0
   checksum: f5a756e5a659e0e1c33f48852d56826d170d5b10a3cdea89ce4fcaa77678d8799aa4004b30e1985c87b73dbc390b95bb6411b78336dd1e0db87c08c74b5c0e74
+  languageName: node
+  linkType: hard
+
+"@manypkg/get-packages@patch:@manypkg/get-packages@npm%3A1.1.3#./.yarn/patches/@manypkg-get-packages-npm-1.1.3-55c0cc9daa.patch::locator=pie-monorepo%40workspace%3A.":
+  version: 1.1.3
+  resolution: "@manypkg/get-packages@patch:@manypkg/get-packages@npm%3A1.1.3#./.yarn/patches/@manypkg-get-packages-npm-1.1.3-55c0cc9daa.patch::version=1.1.3&hash=fea9b1&locator=pie-monorepo%40workspace%3A."
+  dependencies:
+    "@babel/runtime": ^7.5.5
+    "@changesets/types": ^4.0.1
+    "@manypkg/find-root": ^1.1.0
+    fs-extra: ^8.1.0
+    globby: ^11.0.0
+    read-yaml-file: ^1.1.0
+  checksum: 1ff8d8bb20a25503b65b0a03409debcc5eaf1efe544122ae5e627217a6043cd813b2ffe994c5f2a1b24a84cb71acd134b96d9955cb78c696a99ff114bb7c299c
   languageName: node
   linkType: hard
 
