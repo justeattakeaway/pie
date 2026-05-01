@@ -1,3 +1,5 @@
+# @justeattakeaway/pie-list
+
 <p align="center">
   <a href="https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-list">
     <img alt="Source code" src="https://img.shields.io/badge/Source%20code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
@@ -10,21 +12,21 @@
   </a>
 </p>
 
-# Table of Contents
+`@justeattakeaway/pie-list` is a Web Component built using the Lit library. It can be easily integrated into various frontend frameworks and customized through a set of properties.
 
-1. [Introduction](#pie-list)
-2. [Installation](#installation)
-3. [Importing the component](#importing-the-component)
-4. [Peer Dependencies](#peer-dependencies)
-5. [Props](#props)
-6. [Contributing](#contributing)
+## Table of Contents
 
-## pie-list
-
-`pie-list` is a Web Component built using the Lit library.
-
-This component can be easily integrated into various frontend frameworks and customized through a set of properties.
-
+- [Installation](#installation)
+  - [Importing the component](#importing-the-component)
+  - [Peer Dependencies](#peer-dependencies)
+- [Documentation](#documentation)
+  - [Properties](#properties)
+  - [Slots](#slots)
+  - [CSS Variables](#css-variables)
+  - [Events](#events)
+- [Usage Examples](#usage-examples)
+- [Questions and Support](#questions-and-support)
+- [Contributing](#contributing)
 
 ## Installation
 
@@ -39,7 +41,6 @@ $ yarn add @justeattakeaway/pie-list
 ```
 
 For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
-
 
 ### Importing the component
 
@@ -65,20 +66,32 @@ import { PieList } from '@justeattakeaway/pie-list/dist/react';
 > When using the React version of the component, please make sure to also
 > include React as a [peer dependency](#peer-dependencies) in your project.
 
-
-## Peer Dependencies
+### Peer Dependencies
 
 > [!IMPORTANT]
 > When using `pie-list`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
 
+## Documentation
 
-## Props
+### Properties
 
 | Property | Type | Default | Description |
 |---|---|---|---|
 | - | - | - | - |
 
-In your markup or JSX, you can then use these to set the properties for the `pie-list` component:
+### Slots
+
+This component does not currently expose any slots.
+
+### CSS Variables
+
+This component does not expose any CSS variables for style overrides.
+
+### Events
+
+This component does not emit any custom events. In order to add event listening to this component, you can treat it like a native HTML element in your application.
+
+## Usage Examples
 
 ```html
 <!-- Native HTML -->
@@ -87,6 +100,10 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 <!-- JSX -->
 <PieList></PieList>
 ```
+
+## Questions and Support
+
+If you work at Just Eat Takeaway.com, please contact us on **#help-designsystem**. Otherwise, please raise an issue on [Github](https://github.com/justeattakeaway/pie/issues).
 
 ## Contributing
 
