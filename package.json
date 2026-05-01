@@ -131,6 +131,7 @@
   "resolutions": {
     "lit": "3.2.0",
     "tar": "6.2.1",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "@manypkg/get-packages@^1.1.3": "patch:@manypkg/get-packages@npm%3A1.1.3#./.yarn/patches/@manypkg-get-packages-npm-1.1.3-55c0cc9daa.patch"
   }
 }
