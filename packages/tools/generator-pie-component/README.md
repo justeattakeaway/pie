@@ -1,10 +1,12 @@
 <p align="center">
-  <img align="center" src="../../../readme_image.png" height="200" alt="">
-</p>
-
-<p align="center">
-  <a href="https://www.npmjs.com/@justeattakeaway/generator-pie-component">
-    <img alt="Currently released NPM version" src="https://img.shields.io/npm/v/@justeattakeaway/generator-pie-component.svg">
+  <a href="https://github.com/justeattakeaway/pie/tree/main/packages/tools/generator-pie-component">
+    <img alt="Source code" src="https://img.shields.io/badge/Source%20code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+  </a>
+  <a href="https://www.npmjs.com/package/@justeattakeaway/generator-pie-component">
+    <img alt="npm version" src="https://img.shields.io/npm/v/@justeattakeaway/generator-pie-component?style=for-the-badge&color=ff8000&logo=npm&logoColor=white&label=npm">
+  </a>
+  <a href="https://github.com/justeattakeaway/pie/blob/main/LICENSE">
+    <img alt="license" src="https://img.shields.io/npm/l/@justeattakeaway/generator-pie-component?style=for-the-badge">
   </a>
 </p>
 

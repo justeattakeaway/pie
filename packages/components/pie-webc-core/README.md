@@ -1,10 +1,12 @@
 <p align="center">
-  <img align="center" src="../../../readme_image.png" height="200" alt="">
-</p>
-
-<p align="center">
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-webc-core">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc-core.svg">
+  <a href="https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-webc-core">
+    <img alt="Source code" src="https://img.shields.io/badge/Source%20code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+  </a>
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-webc-core">
+    <img alt="npm version" src="https://img.shields.io/npm/v/@justeattakeaway/pie-webc-core?style=for-the-badge&color=ff8000&logo=npm&logoColor=white&label=npm">
+  </a>
+  <a href="https://github.com/justeattakeaway/pie/blob/main/LICENSE">
+    <img alt="license" src="https://img.shields.io/npm/l/@justeattakeaway/pie-webc-core?style=for-the-badge">
   </a>
 </p>
 
