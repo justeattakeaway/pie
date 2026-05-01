@@ -14,7 +14,17 @@ The package is tested and is fully compatible with Vue 2. To use these icon comp
 
 ---
 
-[![npm version](https://img.shields.io/npm/v/@justeattakeaway/pie-icons-vue.svg)](https://img.shields.io/npm/v/@justeattakeaway/pie-icons-vue.svg)
+<p align="center">
+  <a href="https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons-vue">
+    <img alt="Source code" src="https://img.shields.io/badge/Source%20code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+  </a>
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-icons-vue">
+    <img alt="npm version" src="https://img.shields.io/npm/v/@justeattakeaway/pie-icons-vue?style=for-the-badge&color=ff8000&logo=npm&logoColor=white&label=npm">
+  </a>
+  <a href="https://github.com/justeattakeaway/pie/blob/main/LICENSE">
+    <img alt="license" src="https://img.shields.io/npm/l/@justeattakeaway/pie-icons-vue?style=for-the-badge">
+  </a>
+</p>
 
 ---
 ## Usage

@@ -2,9 +2,15 @@
 
 [Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-lottie-player) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-lottie-player)
 
-<p>
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-lottie-player">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-lottie-player.svg">
+<p align="center">
+  <a href="https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-lottie-player">
+    <img alt="Source code" src="https://img.shields.io/badge/Source%20code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+  </a>
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-lottie-player">
+    <img alt="npm version" src="https://img.shields.io/npm/v/@justeattakeaway/pie-lottie-player?style=for-the-badge&color=ff8000&logo=npm&logoColor=white&label=npm">
+  </a>
+  <a href="https://github.com/justeattakeaway/pie/blob/main/LICENSE">
+    <img alt="license" src="https://img.shields.io/npm/l/@justeattakeaway/pie-lottie-player?style=for-the-badge">
   </a>
 </p>
 
