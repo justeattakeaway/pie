@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.104.0
+
+### Minor Changes
+
+- [Added] - leaf AGENTS.md for components with test patterns and guidance
+
 ## 2.103.0
 
 ### Minor Changes
