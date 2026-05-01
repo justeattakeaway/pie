@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-webc
 
+## 0.10.3
+
+### Patch Changes
+
+- Updated dependencies [[`512f3b3`](https://github.com/justeattakeaway/pie/commit/512f3b3cd2af2747b58c75c6904bf984f110c55f), [`4a1bf7a`](https://github.com/justeattakeaway/pie/commit/4a1bf7a0ddb03ab491037b52128924a36c6a2f70)]:
+  - @justeattakeaway/pie-tag@0.22.18
+  - @justeattakeaway/pie-toast-provider@0.7.40
+
 ## 0.10.2
 
 ### Patch Changes

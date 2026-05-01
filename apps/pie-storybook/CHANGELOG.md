@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.75.2
+
+### Patch Changes
+
+- [Fixed] - small readme and docs update to pie-tag ([#2744](https://github.com/justeattakeaway/pie/pull/2744)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-webc@0.10.3
+
 ## 1.75.1
 
 ### Patch Changes

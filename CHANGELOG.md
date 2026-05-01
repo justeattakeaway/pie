@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.104.0
+
+### Minor Changes
+
+- [Fixed] - patch root changsets issue ([#2806](https://github.com/justeattakeaway/pie/pull/2806)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Added] - leaf AGENTS.md for components with test patterns and guidance ([#2795](https://github.com/justeattakeaway/pie/pull/2795)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 2.103.0
 
 ### Minor Changes

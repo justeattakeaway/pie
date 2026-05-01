@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.24.2
+
+### Patch Changes
+
+- [Fixed] - icons workflow warning message ([#2789](https://github.com/justeattakeaway/pie/pull/2789)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 5.24.1
 
 ### Patch Changes
