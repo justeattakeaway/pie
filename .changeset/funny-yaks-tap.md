@@ -3,4 +3,4 @@
 "@justeattakeaway/pie-storybook": minor
 ---
 
-added size small as a props with styling according to figma
+[Added] - added size small as a props with styling according to figma
