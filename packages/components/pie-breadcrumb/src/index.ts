@@ -1,5 +1,4 @@
 import { html, unsafeCSS } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { property } from 'lit/decorators.js';
 import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
@@ -67,7 +66,7 @@ export class PieBreadcrumb extends PieElement implements BreadcrumbProps {
 
         return html`
             <nav
-                aria-label=${ifDefined(this.aria?.label)}
+                aria-label=${this.aria?.label ?? 'Breadcrumb'}
                 data-test-id="pie-breadcrumb"
                 class="${classMap(classes)}">
                     <ol class="c-breadcrumb-list" data-test-id="pie-breadcrumb-list">

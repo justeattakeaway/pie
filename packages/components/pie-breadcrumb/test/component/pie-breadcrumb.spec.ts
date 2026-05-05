@@ -95,7 +95,7 @@ test.describe('PieBreadcrumb - Component tests', () => {
 
         test.describe('aria', () => {
             test.describe('pie-breadcrumb', () => {
-                test('should not set aria-label on the nav element by default', async ({ page }) => {
+                test('should set aria-label on the nav element to "Breadcrumb" by default', async ({ page }) => {
                     // Arrange
                     const basePage = new BasePage(page, 'breadcrumb--default');
                     await basePage.load();
@@ -104,7 +104,7 @@ test.describe('PieBreadcrumb - Component tests', () => {
                     const breadcrumbComponent = page.getByTestId(breadcrumb.selectors.container.dataTestId);
 
                     // Assert
-                    await expect(breadcrumbComponent).not.toHaveAttribute('aria-label');
+                    await expect(breadcrumbComponent).toHaveAttribute('aria-label', 'Breadcrumb');
                 });
 
                 test('should set aria-label on the nav element when aria.label is provided', async ({ page }) => {
@@ -128,7 +128,7 @@ test.describe('PieBreadcrumb - Component tests', () => {
 
                     // Act
                     const firstItem = page.locator('pie-breadcrumb-item').first();
-                    const link = firstItem.locator('pie-link');
+                    const link = firstItem.locator('pie-link').locator('a');
 
                     // Assert
                     await expect(link).not.toHaveAttribute('aria-label');
@@ -141,7 +141,7 @@ test.describe('PieBreadcrumb - Component tests', () => {
 
                     // Act
                     const firstItem = page.locator('pie-breadcrumb-item').first();
-                    const link = firstItem.locator('pie-link');
+                    const link = firstItem.locator('pie-link').locator('a');
 
                     // Assert
                     await expect(link).toHaveAttribute('aria-label', 'Go to home');

@@ -60,7 +60,7 @@ export class PieBreadcrumbItem extends PieElement implements BreadcrumbItemProps
                 underline="reversed"
                 href="${ifDefined(this.href)}"
                 target="${ifDefined(this.target)}"
-                aria-label="${ifDefined(this.aria?.label)}">
+                .aria="${{ label: this.aria?.label }}">
                     <span><slot></slot></span>
             </pie-link>
         `;
