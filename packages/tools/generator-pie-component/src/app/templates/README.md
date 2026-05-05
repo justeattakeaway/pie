@@ -1,9 +1,17 @@
 # @justeattakeaway/pie-<%= fileName %>
-[Source Code](https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-<%= fileName %>) | [Design Documentation](https://pie.design/components/<%= fileName %>) | [NPM](https://www.npmjs.com/package/@justeattakeaway/pie-<%= fileName %>)
 
-<p>
-  <a href="https://www.npmjs.com/@justeattakeaway/pie-<%= fileName %>">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-<%= fileName %>.svg">
+<p align="center">
+  <a href="https://github.com/justeattakeaway/pie/tree/main/packages/components/pie-<%= fileName %>">
+    <img alt="Source code" src="https://img.shields.io/badge/Source%20code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+  </a>
+  <a href="https://www.npmjs.com/package/@justeattakeaway/pie-<%= fileName %>">
+    <img alt="npm version" src="https://img.shields.io/npm/v/@justeattakeaway/pie-<%= fileName %>?style=for-the-badge&color=ff8000&logo=npm&logoColor=white&label=npm">
+  </a>
+  <a href="https://pie.design/components/<%= fileName %>">
+    <img alt="Design Documentation" src="https://img.shields.io/badge/Design%20Documentation-pie.design-f28f43?style=for-the-badge&logo=awesomelists&logoColor=white">
+  </a>
+  <a href="https://github.com/justeattakeaway/pie/blob/main/LICENSE">
+    <img alt="license" src="https://img.shields.io/npm/l/@justeattakeaway/pie-<%= fileName %>?style=for-the-badge">
   </a>
 </p>
 
