@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-object/base-page.ts';
-import { type NotificationProps, headingLevels, variants, sizes } from '../../src/defs.ts';
+import {
+    type NotificationProps, headingLevels, variants, sizes,
+} from '../../src/defs.ts';
 
 import { notification } from '../helpers/page-object/selectors.ts';
 
