@@ -87,9 +87,9 @@
                                                     </ul>
                                                 </details>
                                             {% else  %}
-                                                    {% set splitSubPageUrl = ([] if subpage.url === false else subpage.url.split("/")) %}
+                                                    {% set splitSubPageUrl = ([] if not subpage.url else subpage.url.split("/")) %}
                                                     {% set subPageArea = [splitSubPageUrl[1], splitSubPageUrl[2]] | join('/') %}
-                                                    {% set splitPageUrl = ([] if page.url === false else page.url.split("/")) %}
+                                                    {% set splitPageUrl = ([] if not page.url else page.url.split("/")) %}
                                                     {% set currentPageArea = [splitPageUrl[1], splitPageUrl[2]] | join('/') %}
                                                     {# Set the nav item to active if the url contains it's category #}
                                                     {# this means something like /foundations/colour/ and /foundations/colour/tokens/global/ will activate 'colour' #}
