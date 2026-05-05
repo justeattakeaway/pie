@@ -1,4 +1,5 @@
 import { html, unsafeCSS } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { property } from 'lit/decorators.js';
 import { safeCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { classMap } from 'lit/directives/class-map.js';
@@ -32,6 +33,9 @@ export class PieBreadcrumb extends PieElement implements BreadcrumbProps {
     @property({ type: Boolean, reflect: true })
     public hideCurrentPage = defaultProps.hideCurrentPage;
 
+    @property({ type: Object })
+    public aria: BreadcrumbProps['aria'];
+
     private updateAriaCurrentItem () {
         const items = [...this.querySelectorAll('pie-breadcrumb-item')] as PieBreadcrumbItem[];
         items.forEach((item, i) => {
@@ -63,7 +67,7 @@ export class PieBreadcrumb extends PieElement implements BreadcrumbProps {
 
         return html`
             <nav
-                aria-label="breadcrumb"
+                aria-label=${ifDefined(this.aria?.label)}
                 data-test-id="pie-breadcrumb"
                 class="${classMap(classes)}">
                     <ol class="c-breadcrumb-list" data-test-id="pie-breadcrumb-list">

@@ -26,6 +26,9 @@ export class PieBreadcrumbItem extends PieElement implements BreadcrumbItemProps
     @property({ type: String })
     public target: BreadcrumbItemProps['target'];
 
+    @property({ type: Object })
+    public aria: BreadcrumbItemProps['aria'];
+
     /**
      * Renders a separator icon between breadcrumb items.
      *
@@ -56,7 +59,8 @@ export class PieBreadcrumbItem extends PieElement implements BreadcrumbItemProps
                 isStandalone 
                 underline="reversed"
                 href="${ifDefined(this.href)}"
-                target="${ifDefined(this.target)}">
+                target="${ifDefined(this.target)}"
+                aria-label="${ifDefined(this.aria?.label)}">
                     <span><slot></slot></span>
             </pie-link>
         `;
