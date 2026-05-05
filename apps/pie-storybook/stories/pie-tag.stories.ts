@@ -172,6 +172,7 @@ export const Neutral = createTagStory({ variant: 'neutral' });
 export const Information = createTagStory({ variant: 'information' });
 export const Success = createTagStory({ variant: 'success' });
 export const Error = createTagStory({ variant: 'error' });
+export const Warning = createTagStory({ variant: 'warning' });
 export const Brand05 = createTagStory({ variant: 'brand-05' });
 
 // For the following stories isStrong prop won't have any effect so it is excluded
