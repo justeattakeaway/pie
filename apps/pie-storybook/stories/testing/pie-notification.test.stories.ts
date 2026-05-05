@@ -10,6 +10,7 @@ import {
     headingLevels,
     positions,
     actionSizes,
+    sizes,
     defaultProps,
 } from '@justeattakeaway/pie-webc/components/notification';
 
@@ -190,6 +191,7 @@ const Template : TemplateFunction<NotificationProps> = ({
     isCompact,
     variant,
     position,
+    size,
     heading,
     headingLevel,
     hideIcon,
@@ -204,6 +206,7 @@ const Template : TemplateFunction<NotificationProps> = ({
         ?isOpen="${isOpen}"
         variant="${ifDefined(variant)}"
         position="${ifDefined(position)}"
+        size="${ifDefined(size)}"
         ?isCompact="${isCompact}"
         ?isDismissible="${isDismissible}"
         heading="${ifDefined(heading)}"
@@ -263,6 +266,7 @@ export const NotificationWithLinkActions = createNotificationStory({
 
 const VariantsTemplate = (propVals: NotificationProps) => html`<pie-notification
         variant="${ifDefined(propVals.variant)}"
+        size="${ifDefined(propVals.size)}"
         ?isCompact="${propVals.isCompact}"
         ?isDismissible="${propVals.isDismissible}"
         ?hideIcon="${propVals.hideIcon}"
@@ -277,6 +281,7 @@ const sharedPropOptions = {
     hideIcon: [true, false],
     heading: ['Title', nothing],
     iconSlot: [slotOptionsVisual.None, slotOptionsVisual.Placeholder],
+    size: [...sizes],
 };
 
 const neutralPropOptions = {

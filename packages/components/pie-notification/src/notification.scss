@@ -20,6 +20,8 @@
     --notification-close-icon-offset: var(--dt-spacing-b);
     --notification-icon-fill: var(--dt-color-content-inverse);
     --notification-icon-background-color: var(--dt-color-container-inverse);
+    --notification-icon-padding: var(--dt-spacing-a);
+    --notification-close-button-size: 40px;
     --icon-size-override: 24px;
 
     padding: var(--dt-spacing-d);
@@ -76,6 +78,26 @@
 
     }
 
+    &.c-notification--small {
+        @include media('<md') {
+            --notification-heading-font-family: var(--dt-font-heading-xs-family);
+            --notification-heading-font-size: #{p.font-size(--dt-font-heading-xs-size--narrow)};
+            --notification-heading-line-height: #{p.line-height(--dt-font-heading-xs-line-height--narrow)};
+            --notification-heading-font-weight: var(--dt-font-heading-xs-weight);
+            --notification-font-family: var(--dt-font-body-s-family);
+            --notification-font-size: #{p.font-size(--dt-font-body-s-size)};
+            --notification-line-height: #{p.line-height(--dt-font-body-s-line-height)};
+            --notification-font-weight: var(--dt-font-body-s-weight);
+            --notification-close-icon-offset: var(--dt-spacing-a);
+            --notification-close-button-size: 32px;
+            --notification-icon-padding: var(--dt-spacing-a-small);
+            --icon-size-override: 20px;
+
+            padding: var(--dt-spacing-b);
+            gap: var(--dt-spacing-b);
+        }
+    }
+
 
     &-heading {
         margin: 0;
@@ -98,7 +120,7 @@
         gap: var(--dt-spacing-c);
 
         &.is-dismissible {
-            max-width: calc(100% - var(--notification-close-icon-offset) - 40px); // 40px is the size of the medium icon button
+            max-width: calc(100% - var(--notification-close-icon-offset) - var(--notification-close-button-size));
         }
     }
 
@@ -140,5 +162,5 @@
     background-color: var(--notification-icon-background-color);
     color: var(--notification-icon-fill);
     border-radius: var(--dt-radius-rounded-b);
-    padding: var(--dt-spacing-a);
+    padding: var(--notification-icon-padding);
 }

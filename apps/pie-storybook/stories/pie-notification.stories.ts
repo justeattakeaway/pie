@@ -9,6 +9,7 @@ import {
     variants,
     headingLevels,
     positions,
+    sizes,
     actionSizes,
     defaultProps,
 } from '@justeattakeaway/pie-webc/components/notification';
@@ -76,6 +77,14 @@ const notificationStoryMeta: NotificationStoryMeta = {
             options: positions,
             defaultValue: {
                 summary: defaultProps.position,
+            },
+        },
+        size: {
+            description: 'Sets the size of the notification. When `small`, the component renders with reduced dimensions on narrow screens (below the md breakpoint). On wide screens, both sizes render identically.',
+            control: 'select',
+            options: sizes,
+            defaultValue: {
+                summary: defaultProps.size,
             },
         },
         isDismissible: {
@@ -173,6 +182,7 @@ const Template : TemplateFunction<NotificationProps> = ({
     isCompact,
     variant,
     position,
+    size,
     heading,
     headingLevel,
     hideIcon,
@@ -187,6 +197,7 @@ const Template : TemplateFunction<NotificationProps> = ({
         ?isOpen="${isOpen}"
         variant="${ifDefined(variant)}"
         position="${ifDefined(position)}"
+        size="${ifDefined(size)}"
         ?isCompact="${isCompact}"
         ?isDismissible="${isDismissible}"
         heading="${ifDefined(heading)}"
