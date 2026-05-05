@@ -12,14 +12,26 @@ inputs:
 runs:
   using: composite
   steps:
-      # Setup Node
+      # Setup Node (also restores Yarn global cache keyed on yarn.lock)
       - name: Setup Node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: ${{ inputs.node-version }}
           cache: "yarn"
-      # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
+      # Cache node_modules across runs so the Yarn link step can be skipped on hit
+      - name: Cache node_modules
+        id: cache-node-modules
+        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
+        with:
+          path: |
+            node_modules
+            apps/*/node_modules
+            configs/*/node_modules
+            packages/*/*/node_modules
+            .yarn/install-state.gz
+          key: node-modules-${{ inputs.os }}-node${{ inputs.node-version }}-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
+      # Install deps only when cache misses. Use --immutable so CI fails on lockfile drift.
       - name: Install Dependencies
-        shell: bash
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: yarn add
+        shell: bash
+        run: yarn install --immutable
