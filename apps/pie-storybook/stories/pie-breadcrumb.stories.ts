@@ -35,7 +35,7 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
             },
         },
         isCompact: {
-            description: 'When set to true, only the previous breadcrumb item is shown for quick navigation. If there\'s no item to go back to, the breadcrumb is hidden.',
+            description: 'When true, displays only the parent breadcrumb item for back navigation. When only one item exists, it falls back to displaying that item.',
             control: 'boolean',
             defaultValue: {
                 summary: defaultProps.isCompact,
@@ -53,7 +53,7 @@ const breadcrumbStoryMeta: BreadcrumbStoryMeta = {
             control: 'object',
         },
         slot: {
-            description: 'The default slot is used to pass `pie-breadcrumb-item` elements. If only one item is provided, the breadcrumb is hidden.',
+            description: 'The default slot is used to pass `pie-breadcrumb-item` elements.',
             control: 'text',
         },
     },
