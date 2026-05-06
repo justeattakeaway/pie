@@ -84,6 +84,7 @@ export default {
                         'Getting started',
                         'Typography',
                         'CSS setup',
+                        'Typography Utility Classes',
                         'Events',
                         'Design tokens cookbook',
                         'CSS variables',
@@ -119,7 +120,6 @@ export default {
                     'Additional libraries',
                     [
                         'PIE CSS',
-                        'PIE CSS Typography Utility Classes',
                         'Icons'
                     ],
                     'Contribution',

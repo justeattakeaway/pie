@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-tag
 
+## 0.22.18
+
+### Patch Changes
+
+- [Fixed] - small readme and docs update to pie-tag ([#2744](https://github.com/justeattakeaway/pie/pull/2744)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.22.17
 
 ### Patch Changes

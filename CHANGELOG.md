@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.104.0
+
+### Minor Changes
+
+- [Changed] - Upgraded 11ty to v3 and associated package deps ([#2798](https://github.com/justeattakeaway/pie/pull/2798)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Fixed] - patch root changsets issue ([#2806](https://github.com/justeattakeaway/pie/pull/2806)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Added] - leaf AGENTS.md for components with test patterns and guidance ([#2795](https://github.com/justeattakeaway/pie/pull/2795)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- [Removed] - DS Review Tracker checklist item from PR templates ([#2816](https://github.com/justeattakeaway/pie/pull/2816)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - leverage sharding to improve CI performance ([#2772](https://github.com/justeattakeaway/pie/pull/2772)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.103.0
 
 ### Minor Changes

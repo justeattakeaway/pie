@@ -1,5 +1,26 @@
 # @justeattakeaway/pie-icons-webc
 
+## 1.22.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2797](https://github.com/justeattakeaway/pie/pull/2797)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Chevron
+
+  - chevron-collapse-large
+  - chevron-collapse
+
+  ## Functionality
+
+  - column-large
+  - column
+
+  ## Technology
+
+  - tree-trace-large
+  - tree-trace
+
 ## 1.21.5
 
 ### Patch Changes
