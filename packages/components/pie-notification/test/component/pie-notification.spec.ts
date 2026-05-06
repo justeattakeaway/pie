@@ -229,7 +229,7 @@ test.describe('PieNotification - Component tests', () => {
                 await notificationPage.load();
 
                 // Act
-                const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                const notificationComponent = page.getByTestId(notification.selectors.container.dataTestId);
 
                 // Assert
                 await expect(notificationComponent).toBeVisible();
@@ -246,7 +246,7 @@ test.describe('PieNotification - Component tests', () => {
                 await notificationPage.load({ ...props });
 
                 // Act
-                const notificationComponent = page.locator(notification.selectors.container.dataTestId);
+                const notificationComponent = page.getByTestId(notification.selectors.container.dataTestId);
 
                 // Assert
                 await expect(notificationComponent).toBeVisible();
