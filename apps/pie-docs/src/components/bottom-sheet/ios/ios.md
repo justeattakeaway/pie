@@ -125,7 +125,7 @@ Controls define how the user can interact with the bottom sheet itself. There ar
 The user can close the Bottom Sheet by dragging the pull tab down. The user can expand the Bottom Sheet by dragging the pull tab up.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/bottom-sheet/modifier-pull-tab.svg",
+    src:"../../../assets/img/components/bottom-sheet/modifier-controls-pull-tab.svg",
     alt: "A bottom sheet with a pull tab.",
     width: 30
 } %}
@@ -135,7 +135,7 @@ The user can close the Bottom Sheet by dragging the pull tab down. The user can 
 The user can’t close or hide the bottom sheet.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/bottom-sheet/modifier-none.svg",
+    src:"../../../assets/img/components/bottom-sheet/modifier-controls-none.svg",
     alt: "A bottom sheet with no controls.",
     width: 30
 } %}
@@ -337,6 +337,7 @@ Used when the content inside the bottom sheet is longer than the total height of
 
 ---
 
+// I'm intentionally not adding images to the slot section as the content of the slot can be very flexible and variable. This documentation might change soon due to Figma's update on slot in Q1 2026.
 ## Slot (nested component)
 
 Our Bottom Sheets use nested Slots which help us make the component flexible without the need to detach it from it’s original instance. If you want to learn more about slots and how to use them, please check the [Slots documentation](https://www.figma.com/design/WxPDYsTycTVhPac6nCbbgN/-Core--Apps-Component-Documentation--PIE-3-?node-id=29-31).
@@ -433,18 +434,18 @@ When a user activates the accessible text scaling options on their device, all t
 
 Text scaling can impact button alignment. If horizontal alignment was chosen and text scaling causes button labels to exceed the available space, the buttons will automatically shift to a vertical stack. Avoid button labels wrapping where possible.
 
-**Do** Test designs with text scaling to ensure that content remains legible and functional at larger sizes. Change the button alignment to vertical stack if needed to accommodate larger text sizes.
+**Do:** Test designs with text scaling to ensure that content remains legible and functional at larger sizes. Change the button alignment to vertical stack if needed to accommodate larger text sizes.
 
 {% contentPageImage {
-    src:"../../../assets/img/components/bottom-sheet/accessibility-do.svg",
+    src:"../../../assets/img/components/bottom-sheet/accessibility-example-do.svg",
     alt: "A bottom sheet with buttons aligned vertically to accommodate larger text sizes.",
     width: 30
 } %}
 
-**Don't** Avoid button labels wrapping where possible. 
+**Don't:** Avoid button labels wrapping where possible. 
 
 {% contentPageImage {
-    src:"../../../assets/img/components/bottom-sheet/accessibility-dont.svg",
+    src:"../../../assets/img/components/bottom-sheet/accessibility-example-dont.svg",
     alt: "A bottom sheet with buttons aligned horizontally, causing text to wrap when text scaling is activated.",
     width: 30
 } %}
