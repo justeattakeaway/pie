@@ -219,7 +219,7 @@ To use the typography utilities, import the typography CSS file:
 import '@justeattakeaway/pie-css/dist/helpers/typography.css';
 ```
 
-For complete documentation on all available typography utility classes, including usage examples and best practices, see the [Typography Utilities documentation in Storybook](/docs/additional-libraries-pie-css-typography-utility-classes--docs).
+For complete documentation on all available typography utility classes, including usage examples and best practices, see the [Typography Utilities documentation in Storybook](/docs/introduction-typography-utility-classes--docs).
 
 ---
 
