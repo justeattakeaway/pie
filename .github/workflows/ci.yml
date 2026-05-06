@@ -299,7 +299,7 @@ jobs:
     name: component-tests (${{ matrix.package }})
     needs: [ build-ubuntu-node-24, deploy-storybook-testing, check-change-type ]
     if: >-
-      (needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main')
+      needs.check-change-type.outputs.web-components-change == 'true'
       && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
     runs-on: ubuntu-latest
     container:
