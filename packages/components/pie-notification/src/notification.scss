@@ -87,13 +87,14 @@
         --notification-font-size: #{p.font-size(--dt-font-body-s-size)};
         --notification-line-height: #{p.line-height(--dt-font-body-s-line-height)};
         --notification-font-weight: var(--dt-font-body-s-weight);
-        --notification-close-icon-offset: var(--dt-spacing-a);
+        --notification-close-icon-offset: var(--dt-spacing-a-small);
         --notification-close-button-size: 32px;
         --notification-icon-padding: var(--dt-spacing-a-small);
         --icon-size-override: 20px;
 
         padding: var(--dt-spacing-b);
         gap: var(--dt-spacing-b);
+        max-width: 360px;
     }
 
 
@@ -116,6 +117,21 @@
             --notification-heading-font-size: #{p.font-size(--dt-font-heading-xs-size--narrow)};
             --notification-heading-line-height: #{p.line-height(--dt-font-heading-xs-line-height--narrow)};
         }
+    }
+
+    &.c-notification--small.is-compact &-content-section {
+        flex: 1;
+        min-width: 0;
+    }
+
+    &.c-notification--small &-footer {
+        align-items: center;
+    }
+
+    &.c-notification--small &-footer.is-compact {
+        align-self: stretch;
+        align-items: center;
+        padding-inline-start: var(--dt-spacing-b);
     }
 
     &-content-section {
