@@ -154,6 +154,16 @@ jobs:
             --app-id ${{ env.AMPLIFY_ID }} \
             --branch-name ${{ env.BRANCH_NAME }} \
             || true
+      # Tag Amplify branch
+      - name: Tag Amplify branch
+        shell: bash
+        run: |
+          BRANCH_ARN=$(aws amplify get-branch \
+            --app-id "${AMPLIFY_ID}" \
+            --branch-name "${BRANCH_NAME}" \
+            --query 'branch.branchArn' \
+            --output text)
+          aws amplify tag-resource --resource-arn "$BRANCH_ARN" --tags ${{ secrets.AMPLIFY_BRANCH_TAGS }}
       # Deploy Amplify from S3
       - name: Start Amplify Deployment from S3
         shell: bash
