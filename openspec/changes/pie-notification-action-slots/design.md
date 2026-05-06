@@ -37,9 +37,9 @@ Alternative: Always render both and hide one via CSS. Rejected because it would 
 
 This is lightweight, doesn't require JS validation per element, and provides instant visual feedback. Combined with a dev-mode console warning for discoverability.
 
-### 4. Dev-mode warning implementation
+### 4. Console warning for invalid slotted elements
 
-Use a `slotchange` event listener. When slotted nodes are detected that aren't `pie-button`, emit `console.warn`. Guard behind `process.env.NODE_ENV !== 'production'` or equivalent Lit dev mode check (use `import { isServer } from 'lit'` pattern and `DEV` mode flag from `@lit-labs/testing` — or simply a conditional that gets tree-shaken in prod builds).
+Use the `slotchange` event listener. When slotted nodes are detected that aren't `pie-button`, emit `console.warn`. No environment gating needed — warn in all environments so consumers always get feedback about incorrect usage.
 
 ### 5. Footer rendering logic update
 

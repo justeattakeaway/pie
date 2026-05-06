@@ -5,7 +5,7 @@
 - [ ] 1.3 Implement slotchange handler that detects slotted content and updates state properties
 - [ ] 1.4 Update footer render logic to show footer when slots are populated (even without props)
 - [ ] 1.5 Update `renderActionButton` calls to skip prop-based rendering when corresponding slot is populated
-- [ ] 1.6 Add dev-mode console warning when non-pie-button elements are slotted
+- [ ] 1.6 Add console warning when non-pie-button elements are slotted
 
 ## 2. Styling
 

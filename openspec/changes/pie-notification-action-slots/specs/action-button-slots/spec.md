@@ -33,8 +33,8 @@ The component SHALL only visually display `pie-button` elements within the actio
 - **WHEN** an element that is not `pie-button` is slotted into `leadingAction` or `supportingAction`
 - **THEN** that element is hidden via CSS (`display: none`)
 
-#### Scenario: Dev-mode warning for invalid elements
-- **WHEN** a non-`pie-button` element is slotted into an action slot AND the app is running in development mode
+#### Scenario: Warning for invalid elements
+- **WHEN** a non-`pie-button` element is slotted into an action slot
 - **THEN** a console warning is emitted indicating only `pie-button` elements are supported
 
 ### Requirement: Footer visibility with slots
