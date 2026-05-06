@@ -255,7 +255,7 @@ jobs:
       # If successful
       - name: Update deployment status (success)
         if: ${{ github.event_name == 'pull_request' && success() }}
-        uses: chrnorm/deployment-status@9a72af4586197112e0491ea843682b5dc280d806 # v2.0.3
+        uses: chrnorm/deployment-status@6df8d036fd2fee9eb82936733953da1f8382b41e # v2.0.4
         with:
           token: ${{ steps.get-token.outputs.token }}
           environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
@@ -265,7 +265,7 @@ jobs:
       # If it failed
       - name: Update deployment status (failure)
         if: ${{ github.event_name == 'pull_request' && failure() }}
-        uses: chrnorm/deployment-status@9a72af4586197112e0491ea843682b5dc280d806 # v2.0.3
+        uses: chrnorm/deployment-status@6df8d036fd2fee9eb82936733953da1f8382b41e # v2.0.4
         with:
           token: ${{ steps.get-token.outputs.token }}
           environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
