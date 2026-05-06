@@ -19,7 +19,7 @@ const path = require('path');
  * @returns {string}  a <div> element containing a list of cards representing all elements under the itemKey category
  */
 const defaultImageDirectory = '../../assets/img/index';
-const toSlug = (string) => string.toLowerCase().replace(/\s+/g, '-');
+const toSlug = (string) => string.toLowerCase().replace(/\s+/g, '-').replace(/[?]/g, '');
 
 const getDraftPagesList = (collection, itemKey) => {
     const draftPages = [];
