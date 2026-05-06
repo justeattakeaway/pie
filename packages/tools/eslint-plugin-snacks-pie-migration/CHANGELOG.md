@@ -1,5 +1,11 @@
 # @justeattakeaway/eslint-plugin-snacks-pie-migration
 
+## 0.7.0
+
+### Minor Changes
+
+- [Added] - skill guidance for Snacks Text and Heading components migration ([#2819](https://github.com/justeattakeaway/pie/pull/2819)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.6.0
 
 ### Minor Changes

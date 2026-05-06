@@ -1,5 +1,30 @@
 # Changelog
 
+## 5.25.0
+
+### Minor Changes
+
+- [Added] - Icons ([#2797](https://github.com/justeattakeaway/pie/pull/2797)) by [@pie-design-system-app](https://github.com/apps/pie-design-system-app)
+
+  ## Chevron
+
+  - chevron-collapse-large
+  - chevron-collapse
+
+  ## Functionality
+
+  - column-large
+  - column
+
+  ## Technology
+
+  - tree-trace-large
+  - tree-trace
+
+### Patch Changes
+
+- [Fixed] - icons workflow warning message ([#2789](https://github.com/justeattakeaway/pie/pull/2789)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 5.24.1
 
 ### Patch Changes
