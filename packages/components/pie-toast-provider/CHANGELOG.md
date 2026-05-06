@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-toast-provider
 
+## 0.7.40
+
+### Patch Changes
+
+- [Changed] - tests approach to ensure results consistency ([#2795](https://github.com/justeattakeaway/pie/pull/2795)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-toast@0.12.39
+
 ## 0.7.39
 
 ### Patch Changes

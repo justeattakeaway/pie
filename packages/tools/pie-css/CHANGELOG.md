@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 1.1.1
+
+### Patch Changes
+
+- [Changed] - Updated build script for typography utility classes docs ([#2818](https://github.com/justeattakeaway/pie/pull/2818)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.1.0
 
 ### Minor Changes
